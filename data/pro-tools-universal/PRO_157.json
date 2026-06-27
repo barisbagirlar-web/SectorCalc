@@ -1,0 +1,1286 @@
+{
+  "tool_id": "PRO_157",
+  "tool_key": "chainSlingWll",
+  "tool_name": "Chain Sling Working Load Limit Calculator — EN 818 / ASME B30 Chain Sling Utilization Check",
+  "category": "Lifting / Rigging / Chain Slings",
+  "scope": "single_operation",
+  "primary_operation": "chain_sling_working_load_limit_utilization_check",
+  "standards": [
+    "EN 818-4",
+    "EN 818-5",
+    "EN 818-6",
+    "ASME B30.9",
+    "ASME B30.26",
+    "ASME P30.1",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM",
+    "ISO 9001:2015 §8.5.1"
+  ],
+  "risk_level": "CRITICAL",
+  "calculation_basis": "single_operation",
+  "inputs": [
+    {
+      "id": "rating_standard",
+      "name": "Chain Sling Rating Standard",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "EN_818",
+        "ASME_B30",
+        "ISO_1835",
+        "OTHER"
+      ],
+      "default": "EN_818",
+      "hint": "Applicable standard for chain sling rating. EN 818-4: Grade 8 chain slings. ASME B30.9: includes chain slings in Table 3. ISO 1835: older standard (increasingly replaced by EN 818).",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Standard selection — zero measurement uncertainty"
+    },
+    {
+      "id": "chain_grade",
+      "name": "Chain Grade / Quality",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "GRADE_8_EN_818",
+        "GRADE_8_ASME",
+        "GRADE_10",
+        "GRADE_12",
+        "GRADE_5",
+        "GRADE_7",
+        "GRADE_100",
+        "GRADE_120"
+      ],
+      "default": "GRADE_8_EN_818",
+      "hint": "Chain material grade. Grade 8 (EN 818 / ASME B30.9): most common for overhead lifting. Grade 10/12: higher strength (less common). Grade 5: tie-down/towing (not for overhead lifting per ASME B30.9). Grade 100/120: newer high-strength grades.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Chain grade marking — zero measurement uncertainty"
+    },
+    {
+      "id": "nominal_chain_diameter_mm",
+      "name": "Nominal Chain Diameter",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 4,
+      "absolute_max": 50,
+      "default": 10,
+      "hint": "Nominal diameter of chain link material. EN 818-4: 4–45 mm. ASME B30.9: up to 32 mm typical. Measure with caliper across the link cross-section.",
+      "uncertainty": "±0.2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Precision measurement tolerance: ±0.2% for calibrated measurement"
+    },
+    {
+      "id": "single_leg_wll_kN",
+      "name": "Single Leg WLL (Vertical, per chain sling leg)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 2000,
+      "default": 31.5,
+      "hint": "Working Load Limit of a single chain sling leg in vertical configuration per EN 818-4 Table 1 or ASME B30.9 Table 3. Grade 8, 10mm chain: ~31.5 kN. Verify from manufacturer tag.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "EN 818-4 §6.2 — Manufacturer WLL rating uncertainty: ±3% (includes proof test variability)"
+    },
+    {
+      "id": "load_mass_kg",
+      "name": "Load Mass to be Lifted",
+      "unit": "kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 500000,
+      "default": 2000,
+      "hint": "Mass of the load including all attachments and rigging hardware suspended below the crane hook.",
+      "uncertainty": "±1.5%",
+      "uncertainty_source": "ASME P30.1 §4.3.1 — Load weight uncertainty: ±1.5% for weighed loads"
+    },
+    {
+      "id": "gravity_m_s2",
+      "name": "Local Gravitational Acceleration (g)",
+      "unit": "m/s²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 9.80665,
+      "absolute_min": 9.764,
+      "absolute_max": 9.834,
+      "hint": "Standard gravity = 9.80665 m/s². Use local value for precision critical lifts.",
+      "uncertainty": "±0.02%",
+      "uncertainty_source": "ISO 80000-3:2019 — Standard gravity gₙ = 9.80665 m/s²"
+    },
+    {
+      "id": "dynamic_amplification_factor",
+      "name": "Dynamic Amplification Factor (DAF)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 2,
+      "default": 1.25,
+      "hint": "Factor for dynamic effects: 1.0 for static/controlled; 1.25 for normal crane lifts; 1.5 for rough terrain; 2.0 for shock loading. EN 818-4: 1.0 for static proof load, 1.25 for normal service.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "EN 818-4 §7.2 — Dynamic factor uncertainty: ±5% for normal lifts"
+    },
+    {
+      "id": "sling_configuration",
+      "name": "Chain Sling Configuration",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "SINGLE_VERTICAL",
+        "TWO_LEG_BRIDLE",
+        "THREE_LEG_BRIDLE",
+        "FOUR_LEG_BRIDLE",
+        "SINGLE_BASKET",
+        "DOUBLE_BASKET",
+        "CHOKER"
+      ],
+      "default": "TWO_LEG_BRIDLE",
+      "hint": "Configuration of the chain sling assembly. EN 818-5 §5 defines assembly types. Bridle = multiple legs from master link. Basket = chain wraps around load. Choker = chain passes through itself.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "EN 818-5 §5 — Configuration definitions, zero measurement uncertainty"
+    },
+    {
+      "id": "installed_legs",
+      "name": "Number of Installed Sling Legs",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 4,
+      "default": 2,
+      "hint": "Total number of chain legs in the sling assembly. ASME B30.9: maximum 4 legs. EN 818-4: single, 2-leg, 3-leg, 4-leg assemblies defined.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Discrete count — zero measurement uncertainty"
+    },
+    {
+      "id": "active_load_bearing_legs",
+      "name": "Active Load-Bearing Legs",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 4,
+      "default": 2,
+      "hint": "Number of legs actually carrying the load. For 3-leg or 4-leg configurations without load-balancing: often only 2 legs bear the load. EN 818-5 §6.2: if load equalizing not ensured, use reduced leg count.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "EN 818-5 §6.2 — Load distribution assessment, zero measurement uncertainty"
+    },
+    {
+      "id": "load_balancing_device_present",
+      "name": "Load-Balancing Device Present",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "hint": "Is a load-balancing device (e.g., equalizer beam, compensation ring) used to ensure equal load distribution among all legs?",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "angle_from_vertical_deg",
+      "name": "Angle from Vertical (β)",
+      "unit": "°",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 60,
+      "default": 30,
+      "hint": "Angle between the chain sling leg and the vertical axis. EN 818-5: maximum 45° for rated configurations (reduces to 0° vertical). 0° = vertical, 30° = 1.155x factor, 45° = 1.414x factor, 60° = 2.0x factor.",
+      "uncertainty": "±2°",
+      "uncertainty_source": "EN 818-5 §6.1 — Angle measurement uncertainty: ±2° field measurement"
+    },
+    {
+      "id": "rated_configuration_factor",
+      "name": "Rated Configuration Factor (C_rated)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.75,
+      "absolute_max": 2,
+      "default": 1,
+      "hint": "Configuration factor from EN 818-5 Table 1 or ASME B30.9 Table 3. Single vertical: 1.0. 2-leg bridle: 1.0 per leg. Basket (choked): 0.8. Basket (full): 2.0. Choker: 0.75. Verify from sling tag if leg-specific WLL is marked.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "EN 818-5 Table 1 — Configuration factors, zero measurement uncertainty for standard configurations"
+    },
+    {
+      "id": "load_distribution_factor",
+      "name": "Load Distribution Factor (f_dist)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Factor for unequal load distribution. 1.0 = verified equal distribution (load-balancing device). 0.9 = good distribution (symmetric geometry, rigid load). 0.8 = moderate distribution. 0.67 = conservative (no load-balancing, 3+ legs).",
+      "uncertainty": "±2%",
+      "uncertainty_source": "EN 818-5 §6.2 — Load distribution factor assessment"
+    },
+    {
+      "id": "temperature_C",
+      "name": "Operating Temperature",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": -40,
+      "absolute_max": 500,
+      "default": 20,
+      "hint": "Ambient/operating temperature at the chain sling during the lift. EN 818-4 §7.3: Grade 8 rated for -40°C to +200°C standard. Above 200°C: capacity reduction required. Above 300°C: special alloy chain required.",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "EN 818-4 §7.3 — Temperature measurement uncertainty: ±2°C"
+    },
+    {
+      "id": "manufacturer_temperature_limit_C",
+      "name": "Manufacturer Temperature Limit",
+      "unit": "°C",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": -40,
+      "absolute_max": 500,
+      "default": 200,
+      "hint": "Maximum operating temperature specified by the chain sling manufacturer. Grade 8 standard: 200°C. Extended temperature range chains may be rated to 300°C or higher. Verify from sling tag or manufacturer data sheet.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Manufacturer specification — zero measurement uncertainty"
+    },
+    {
+      "id": "temperature_capacity_factor",
+      "name": "Temperature Capacity Factor (f_temp)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Capacity derating factor for elevated temperature. EN 818-4 §7.3: T ≤ 200°C → 1.0; 200°C < T ≤ 300°C → 0.8; 300°C < T ≤ 400°C → 0.5. Below -40°C → use cold-temperature rated chain only.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "EN 818-4 §7.3 — Temperature derating table"
+    },
+    {
+      "id": "edge_contact_factor",
+      "name": "Edge Contact / Bend Radius Factor (f_edge)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Factor for edge contact or sharp bend radius on chain links. 1.0 = no edge contact, proper radius. 0.9 = rounded edges with padding. 0.8 = soft metal edge contact. 0.7 = sharp edges without protection. EN 818-6 §8.5: sharp edges must be protected.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "EN 818-6 §8.5 — Edge protection assessment uncertainty"
+    },
+    {
+      "id": "wear_derating_factor",
+      "name": "Wear Derating Factor (f_wear)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Derating for chain link wear (reduction in link diameter). ASME B30.9 §6.2.3: reject chain when wear exceeds 10% of original diameter. f_wear = (actual_diameter / original_diameter). 1.0 = no significant wear; 0.9 = 10% wear (rejection limit); 0.5 = 50% section loss.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ASME B30.9-2025 §6.2.3 — Wear measurement uncertainty: ±2%"
+    },
+    {
+      "id": "additional_derating_factor",
+      "name": "Additional Derating Factor (f_add)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": false,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Additional derating factor for any other conditions affecting capacity (corrosion, link deformation, nicks/gouges, fatigue cracks, or adverse environmental conditions not covered by other factors). Default 1.0 = no additional derating.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "ASME B30.9-2025 §6 — Condition assessment uncertainty"
+    },
+    {
+      "id": "weakest_rigging_hardware_wll_kN",
+      "name": "Weakest Rigging Hardware WLL",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 2000,
+      "default": 31.5,
+      "hint": "Working Load Limit of the weakest component in the rigging assembly: master links, intermediate links, hooks, shackles, rings, or load pins. ASME B30.26: all components must be rated and marked with WLL.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "ASME B30.26-2026 §5.1 — Hardware WLL rating uncertainty: ±3%"
+    },
+    {
+      "id": "manufacturer_tag_present",
+      "name": "Manufacturer Tag / Nameplate Present",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": true,
+      "hint": "Is the manufacturer tag (with WLL, grade, chain size, serial number, manufacturer ID, and standard reference) present and legible on the chain sling assembly per EN 818-6 §7 or ASME B30.9 §5.1.2?",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "certificate_available",
+      "name": "Manufacturer Certificate Available",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": true,
+      "hint": "Is the manufacturer test certificate (EN 818-4 §8: proof load test, material traceability, batch number) available and traceable?",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "inspection_status",
+      "name": "Chain Sling Inspection Status",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "PASS",
+        "CONDITIONAL_ENGINEERING_REVIEW",
+        "REJECTED"
+      ],
+      "default": "PASS",
+      "hint": "Inspection status per EN 818-6 §6 or ASME B30.9 §6. PASS = no defects. CONDITIONAL = minor issues requiring engineering review. REJECTED = failed inspection, do not use.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "EN 818-6 §6 — Inspection status, zero measurement uncertainty"
+    },
+    {
+      "id": "chain_twisted_or_knotted",
+      "name": "Chain Twisted or Knotted",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "hint": "Is the chain sling twisted or knotted? EN 818-6 §8.2: chain slings must not be used if twisted, knotted, or kinked. Twisted chains have reduced capacity and may fail unexpectedly.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "chemical_exposure_status",
+      "name": "Chemical Exposure Status",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "NO_EXPOSURE",
+        "MILD_EXPOSURE_REVIEWED",
+        "SIGNIFICANT_EXPOSURE",
+        "UNKNOWN"
+      ],
+      "default": "NO_EXPOSURE",
+      "hint": "Exposure to chemicals that may affect chain integrity. EN 818-6 §8.6: chain slings must not be exposed to corrosive chemicals without protective coating. Acid/alkali exposure requires immediate inspection and possible replacement.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "EN 818-6 §8.6 — Chemical exposure assessment"
+    },
+    {
+      "id": "personnel_lifting",
+      "name": "Personnel Lifting Application",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "hint": "Is this chain sling used for personnel lifting? EN 818-6 §4: chain slings for personnel lifting require 10:1 design factor (vs. 4:1 for material lifting) and additional inspection/certification requirements.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "load_uncertainty_pct",
+      "name": "Load Mass Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 1.5,
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "hint": "Percentage uncertainty in load mass. Weighed loads: ±1.5%. Calculated: ±5%. Estimated: ±10%.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME P30.1 §4.3.1 — Load weight uncertainty categories"
+    },
+    {
+      "id": "angle_uncertainty_deg",
+      "name": "Angle Measurement Uncertainty",
+      "unit": "°",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 2,
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "hint": "Uncertainty in angle from vertical measurement. Digital inclinometer: ±0.5°. Protractor: ±1°. Visual estimation: ±5°.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "EN 818-5 §6.1 — Angle measurement uncertainty"
+    },
+    {
+      "id": "capacity_uncertainty_pct",
+      "name": "Chain Sling Capacity Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 3,
+      "absolute_min": 0,
+      "absolute_max": 15,
+      "hint": "Percentage uncertainty in chain sling rated capacity. Manufacturer-rated (certified): ±3%. Used/aged sling (wear not quantified): ±5–10%.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "EN 818-4 §6.2 — Capacity rating uncertainty"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Static Load Weight (W)",
+      "expression": "load_weight_kN = (load_mass_kg * gravity_m_s2) / 1000",
+      "output": "load_weight_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-4 §7.1 / ASME B30.9 §8.1 — Static load weight: W = m × g",
+      "assumptions": [
+        "Mass uniformly distributed",
+        "Standard or local gravity value used"
+      ],
+      "edge_cases": [
+        "load_mass_kg <= 0: Invalid mass — lift not possible"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F2",
+      "name": "Design Lift Load (W_design)",
+      "expression": "design_load_kN = load_weight_kN * dynamic_amplification_factor",
+      "output": "design_load_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-4 §7.2 — Design lift load: W_design = W × DAF",
+      "assumptions": [
+        "DAF captures all dynamic effects within expected lift profile"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F3",
+      "name": "Angle from Vertical in Radians",
+      "expression": "angle_from_vertical_rad = angle_from_vertical_deg * (Math.PI / 180)",
+      "output": "angle_from_vertical_rad",
+      "unit": "rad",
+      "dimensional_check": true,
+      "reference": "ISO 80000-1:2009 — Degree to radian conversion: β_rad = β_deg × π/180",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F4",
+      "name": "Angle from Horizontal (complementary)",
+      "expression": "angle_from_horizontal_deg = 90 - angle_from_vertical_deg",
+      "output": "angle_from_horizontal_deg",
+      "unit": "°",
+      "dimensional_check": true,
+      "reference": "Complementary angle: θ = 90° - β. Used for cross-reference with wire rope sling convention.",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F5",
+      "name": "Geometric Leg Factor (K_angle)",
+      "expression": "geometric_leg_factor = 1 / Math.cos(angle_from_vertical_rad)",
+      "output": "geometric_leg_factor",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.1 — Geometric leg factor from angle from vertical: K = 1/cos(β). β=0°: K=1.0, β=30°: K=1.155, β=45°: K=1.414, β=60°: K=2.0.",
+      "assumptions": [
+        "Sling leg assumed straight line between attachments"
+      ],
+      "edge_cases": [
+        "angle_from_vertical_rad >= Math.PI/2: Division by zero — cos(90°) = 0, infinite tension factor"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F6",
+      "name": "Design Tension per Leg (T_design)",
+      "expression": "design_tension_per_leg_kN = (design_load_kN * geometric_leg_factor) / (active_load_bearing_legs * load_distribution_factor)",
+      "output": "design_tension_per_leg_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.2 — Design tension per leg: T_leg = (W_design × K_angle) / (n_active × f_dist)",
+      "assumptions": [
+        "All active legs share load according to distribution factor"
+      ],
+      "edge_cases": [
+        "active_load_bearing_legs <= 0 || load_distribution_factor <= 0: Division by zero"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F7",
+      "name": "Table Assembly WLL per Leg (from standard tables)",
+      "expression": "table_assembly_wll_kN = single_leg_wll_kN * rated_configuration_factor",
+      "output": "table_assembly_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-5 Table 1 — Assembly WLL per leg = single_leg_WLL × C_rated. Standard factor determined by configuration, not angle.",
+      "assumptions": [
+        "Configuration factor correctly selected for the rigging arrangement"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F8",
+      "name": "Combined Derating Factor (f_comb)",
+      "expression": "combined_derating_factor = temperature_capacity_factor * edge_contact_factor * wear_derating_factor * additional_derating_factor",
+      "output": "combined_derating_factor",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "EN 818-4 §7.3 / EN 818-6 §8 — Combined derating: f_comb = f_temp × f_edge × f_wear × f_add. All derating factors are multiplicative.",
+      "assumptions": [
+        "All derating factors are independent and multiplicative"
+      ],
+      "edge_cases": [
+        "Any factor <= 0: Invalid — all derating factors must be positive"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F9",
+      "name": "Effective Chain Sling WLL per Leg (WLL_eff)",
+      "expression": "effective_chain_sling_wll_kN = table_assembly_wll_kN * combined_derating_factor",
+      "output": "effective_chain_sling_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.3 — Effective WLL per leg = assembly_WLL × f_comb. Applies all derating factors to the standard table WLL.",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F10",
+      "name": "Controlled Available WLL (WLL_system)",
+      "expression": "controlled_available_wll_kN = Math.min(effective_chain_sling_wll_kN, weakest_rigging_hardware_wll_kN)",
+      "output": "controlled_available_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.26-2026 §4.1 / EN 818-5 §6.4 — System capacity limited by weakest component: WLL_system = min(WLL_sling, WLL_hardware).",
+      "assumptions": [
+        "Hardware WLL is for the same loading configuration — adjust if angled"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F11",
+      "name": "Required Single Leg WLL for Application",
+      "expression": "required_single_leg_wll_kN = design_tension_per_leg_kN / (rated_configuration_factor * combined_derating_factor)",
+      "output": "required_single_leg_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.5 — Required single leg WLL = T_design / (C_rated × f_comb). Used for chain sling selection.",
+      "assumptions": [],
+      "edge_cases": [
+        "Combined factor product <= 0: Division by zero"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F12",
+      "name": "Per-Leg Utilization Ratio (UL)",
+      "expression": "per_leg_utilization = design_tension_per_leg_kN / controlled_available_wll_kN",
+      "output": "per_leg_utilization",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.6 — Per-leg utilization: UL = T_design / WLL_system_per_leg. UL ≤ 1.0 = safe.",
+      "assumptions": [],
+      "edge_cases": [
+        "controlled_available_wll_kN <= 0: Division by zero"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F13",
+      "name": "Sling Utilization Ratio (UC)",
+      "expression": "UC = per_leg_utilization",
+      "output": "UC",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "Overall utilization = max(per_leg_utilization across all legs). In this single-configuration check, UC = per_leg_utilization (all legs assumed identical).",
+      "assumptions": [
+        "All legs have identical capacity and loading"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F14",
+      "name": "Combined Standard Uncertainty in UC (u_c_UC)",
+      "expression": "u_c_UC = UC * Math.sqrt(Math.pow(load_uncertainty_pct/100, 2) + Math.pow(angle_uncertainty_deg * (Math.PI/180) * Math.tan(angle_from_vertical_rad), 2) + Math.pow(capacity_uncertainty_pct/100, 2))",
+      "output": "u_c_UC",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "ISO/IEC Guide 98-3:2008 GUM §5.1 — Combined standard uncertainty. Sensitivity coefficient for angle from vertical: c_β = tan(β).",
+      "assumptions": [
+        "Input uncertainties are uncorrelated",
+        "First-order Taylor expansion valid"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F15",
+      "name": "Capacity Margin (CM)",
+      "expression": "capacity_margin_kN = controlled_available_wll_kN - design_tension_per_leg_kN",
+      "output": "capacity_margin_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.7 — Capacity margin: CM = WLL_system - T_design. Positive = excess capacity.",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F16",
+      "name": "Status Code Determination",
+      "expression": "status_code = UC <= 0.7 ? 'PASS' : UC <= 0.9 ? 'CAUTION' : UC <= 1.0 ? 'MARGINAL' : UC <= 1.2 ? 'OVERLOAD' : 'CRITICAL_OVERLOAD'",
+      "output": "status_code",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "EN 818-5 §6.8 / ASME B30.9 §9.6 — Status thresholds: ≤0.7 PASS, ≤0.9 CAUTION, ≤1.0 MARGINAL, ≤1.2 OVERLOAD, >1.2 CRITICAL_OVERLOAD.",
+      "assumptions": [
+        "Thresholds per conservative industry practice"
+      ],
+      "edge_cases": [
+        "UC is NaN or Infinity: Return 'ERROR'"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "load_weight_kN",
+      "name": "Static Load Weight",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "load"
+    },
+    {
+      "id": "design_load_kN",
+      "name": "Design Lift Load (with DAF)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "load"
+    },
+    {
+      "id": "angle_from_vertical_rad",
+      "name": "Angle from Vertical (β_rad)",
+      "unit": "rad",
+      "type": "number",
+      "precision": 4,
+      "group": "geometry"
+    },
+    {
+      "id": "angle_from_horizontal_deg",
+      "name": "Angle from Horizontal (θ_deg)",
+      "unit": "°",
+      "type": "number",
+      "precision": 2,
+      "group": "geometry"
+    },
+    {
+      "id": "geometric_leg_factor",
+      "name": "Geometric Leg Factor (1/cos β)",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "tension"
+    },
+    {
+      "id": "design_tension_per_leg_kN",
+      "name": "Design Tension per Leg",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "tension"
+    },
+    {
+      "id": "table_assembly_wll_kN",
+      "name": "Table Assembly WLL (per leg from standard table)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "combined_derating_factor",
+      "name": "Combined Derating Factor",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "capacity"
+    },
+    {
+      "id": "effective_chain_sling_wll_kN",
+      "name": "Effective Chain Sling WLL (per leg with all deratings)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "controlled_available_wll_kN",
+      "name": "Controlled Available WLL (system limit per leg)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "required_single_leg_wll_kN",
+      "name": "Required Single Leg WLL for this Application",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "per_leg_utilization",
+      "name": "Per-Leg Utilization Ratio (UL)",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "utilization"
+    },
+    {
+      "id": "UC",
+      "name": "Sling Utilization Ratio (max UL per leg)",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "utilization"
+    },
+    {
+      "id": "u_c_UC",
+      "name": "Combined Standard Uncertainty in UC",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "uncertainty"
+    },
+    {
+      "id": "capacity_margin_kN",
+      "name": "Capacity Margin (remaining capacity per leg)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "utilization"
+    },
+    {
+      "id": "status_code",
+      "name": "Chain Sling Utilization Status Code",
+      "unit": "—",
+      "type": "string",
+      "group": "status"
+    }
+  ],
+  "engine_rules": {
+    "standards": [
+      "EN 818-4 — Short link chain for lifting purposes — Grade 8",
+      "EN 818-5 — Chain slings — Grade 8",
+      "EN 818-6 — Chain slings — Specification for information for use and maintenance",
+      "ASME B30.9 — Slings",
+      "ASME B30.26 — Rigging Hardware",
+      "ASME P30.1 — Lift Planning",
+      "ISO 80000 — Quantities and units",
+      "ISO/IEC Guide 98-3 GUM — Uncertainty of measurement",
+      "ISO 9001:2015 §8.5.1 — Control of production and service provision"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "angle_from_vertical_deg < 0 || angle_from_vertical_deg > 60",
+        "error_msg": "Angle from vertical must be between 0° and 60° (EN 818-5 §6.1). Angles > 60° produce excessive leg tension (K_angle > 2.0).",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "active_load_bearing_legs <= 0 || active_load_bearing_legs > installed_legs",
+        "error_msg": "Active load-bearing legs must be between 1 and the number of installed legs. Cannot exceed total installed legs.",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "load_mass_kg <= 0",
+        "error_msg": "Load mass must be positive. Zero or negative mass is invalid for a lifting operation.",
+        "id": "V3"
+      },
+      "V4": {
+        "condition": "dynamic_amplification_factor < 1.0",
+        "error_msg": "Dynamic Amplification Factor must be ≥ 1.0. DAF < 1.0 is non-conservative.",
+        "id": "V4"
+      },
+      "V5": {
+        "condition": "load_balancing_device_present == false && installed_legs >= 3 && active_load_bearing_legs == installed_legs",
+        "error_msg": "Without a load-balancing device, EN 818-5 §6.2 recommends assuming only 2 legs bear the load for 3-leg or 4-leg configurations unless specific load distribution analysis is performed.",
+        "id": "V5"
+      },
+      "V6": {
+        "condition": "controlled_available_wll_kN <= 0",
+        "error_msg": "Controlled available WLL must be positive. Check chain WLL and hardware WLL inputs.",
+        "id": "V6"
+      },
+      "V7": {
+        "condition": "single_leg_wll_kN <= 0",
+        "error_msg": "Single leg WLL must be positive. Verify chain sling manufacturer rating.",
+        "id": "V7"
+      },
+      "V8": {
+        "condition": "manufacturer_tag_present == false",
+        "error_msg": "EN 818-6 §7.1 / ASME B30.9 §5.1.2 requires manufacturer tag/nameplate on the chain sling assembly. Do not use a sling without rated capacity identification.",
+        "id": "V8"
+      },
+      "V9": {
+        "condition": "inspection_status == 'REJECTED'",
+        "error_msg": "Chain sling inspection status is REJECTED. Do not use this chain sling for any lifting operation. Remove from service immediately per EN 818-6 §6.3.",
+        "id": "V9"
+      },
+      "V10": {
+        "condition": "single_leg_wll_kN <= 0 || weakest_rigging_hardware_wll_kN <= 0",
+        "error_msg": "All WLL values must be positive. Verify chain sling and hardware ratings.",
+        "id": "V10"
+      },
+      "V11": {
+        "condition": "chain_twisted_or_knotted == true",
+        "error_msg": "EN 818-6 §8.2: chain slings must not be used if twisted, knotted, or kinked. Straighten or replace before use.",
+        "id": "V11"
+      },
+      "V12": {
+        "condition": "chemical_exposure_status == 'SIGNIFICANT_EXPOSURE' || chemical_exposure_status == 'UNKNOWN'",
+        "error_msg": "EN 818-6 §8.6: chain slings with significant or unknown chemical exposure status must be inspected and cleared by a competent person before use.",
+        "id": "V12"
+      },
+      "V13": {
+        "condition": "personnel_lifting == true && rating_standard != 'EN_818'",
+        "error_msg": "Personnel lifting requires EN 818 rated chain slings with 10:1 design factor. EN 818-6 §4: additional certification and inspection requirements apply.",
+        "id": "V13"
+      },
+      "V14": {
+        "condition": "personnel_lifting == true && inspection_status != 'PASS'",
+        "error_msg": "Personnel lifting requires chain sling inspection status of PASS. EN 818-6 §4: enhanced inspection criteria apply for personnel lifting applications.",
+        "id": "V14"
+      },
+      "V15": {
+        "condition": "certificate_available == false",
+        "error_msg": "EN 818-4 §8.1: manufacturer test certificate must be available for the chain sling assembly. Traceability from raw material to proof load test is required.",
+        "id": "V15"
+      },
+      "V16": {
+        "condition": "temperature_capacity_factor <= 0 || edge_contact_factor <= 0 || wear_derating_factor <= 0 || load_distribution_factor <= 0",
+        "error_msg": "All derating and distribution factors must be positive. Zero or negative factors invalidate the capacity calculation.",
+        "id": "V16"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "UC > 1.0: CHAIN SLING OVERLOAD — Design tension exceeds effective WLL. Stop the lift. Reduce load, increase angle (reduce from horizontal), add more legs, or use higher capacity chain sling.",
+        "condition": "UC > 1.0",
+        "source": "EN 818-5 §6.6"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "UC > 0.9: CHAIN SLING UTILIZATION MARGINAL — Utilization ratio exceeds 0.9. Engineering review recommended. Verify all inputs and consider additional margin.",
+        "condition": "UC > 0.9 && UC <= 1.0",
+        "source": "ASME B30.9 §9.4"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Angle from vertical > 45° for chain sling: EN 818-5 Table 1 load ratings apply only up to 45°. Angles beyond 45° require special engineering review and reduced capacity.",
+        "condition": "angle_from_vertical_deg > 45",
+        "source": "EN 818-5 §6.1"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Temperature exceeds standard rated range: Chain sling capacity is derated per temperature_capacity_factor. Verify manufacturer temperature rating for the specific chain grade.",
+        "condition": "temperature_C > manufacturer_temperature_limit_C || temperature_capacity_factor < 1.0",
+        "source": "EN 818-4 §7.3"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Inspection status CONDITIONAL: Chain sling requires engineering review before use per EN 818-6 §6.2 or ASME B30.9 §6.4.",
+        "condition": "inspection_status == 'CONDITIONAL_ENGINEERING_REVIEW'",
+        "source": "EN 818-6 §6.2"
+      },
+      {
+        "id": "W6",
+        "severity": "WARNING",
+        "message": "Wear derating factor < 1.0: Chain link wear detected. ASME B30.9 §6.2.3: chain must be removed from service when wear exceeds 10% of original diameter. Verify remaining cross-section.",
+        "condition": "wear_derating_factor < 0.9",
+        "source": "ASME B30.9-2025 §6.2.3"
+      },
+      {
+        "id": "W7",
+        "severity": "WARNING",
+        "message": "Edge contact without protection: EN 818-6 §8.5 requires edge protection for chain slings in contact with sharp corners or edges of the load.",
+        "condition": "edge_contact_factor < 0.9",
+        "source": "EN 818-6 §8.5"
+      },
+      {
+        "id": "W8",
+        "severity": "INFO",
+        "message": "Three or more legs without load-balancing device: EN 818-5 §6.2 recommends assuming 2 legs. Verify active_load_bearing_legs input.",
+        "condition": "load_balancing_device_present == false && installed_legs >= 3",
+        "source": "EN 818-5 §6.2"
+      }
+    ],
+    "error_propagation": {
+      "method": "GUM ISO/IEC Guide 98-3:2008 — LPU first-order Taylor expansion",
+      "correlation": "assumed_uncorrelated",
+      "coverage_factor": 2,
+      "confidence_level": "95.45%",
+      "sensitivity_coefficients": [
+        {
+          "variable": "load_mass_kg",
+          "coefficient": "c_m = (g × DAF × K_angle) / (n × f_dist × WLL_system × 1000)"
+        },
+        {
+          "variable": "angle_from_vertical_deg",
+          "coefficient": "c_β = UC × tan(β)"
+        },
+        {
+          "variable": "single_leg_wll_kN",
+          "coefficient": "c_WLL = -UC / WLL_system"
+        },
+        {
+          "variable": "dynamic_amplification_factor",
+          "coefficient": "c_DAF = UC / DAF"
+        }
+      ]
+    },
+    "fmea": [
+      {
+        "failureMode": "Input violation: angle out of range 0–60° (V1)",
+        "effect": "Angle exceeds EN 818-5 limit — excessive leg tension",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 96,
+        "rpn_high": 96,
+        "rpn_low": 72,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: active leg count invalid (V2)",
+        "effect": "Invalid leg count for load distribution",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 63,
+        "rpn_high": 63,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: load mass zero/negative (V3)",
+        "effect": "Load weight undefined — lift not possible",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Input violation: DAF < 1.0 (V4)",
+        "effect": "Non-conservative dynamic factor — may underestimate load",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V4"
+      },
+      {
+        "failureMode": "Input violation: no load-balancing with ≥3 legs (V5)",
+        "effect": "Unequal load distribution — conservative assessment required",
+        "severity": 6,
+        "occurrence": 5,
+        "detection": 4,
+        "rpn": 120,
+        "rpn_high": 120,
+        "rpn_low": 60,
+        "control_measure": "Input validation — automatic WARNING on violation",
+        "description": "Validation rule V5"
+      },
+      {
+        "failureMode": "Input violation: manufacturer tag missing (V8)",
+        "effect": "EN 818-6 §7.1 violation — sling identity unknown",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 2,
+        "rpn": 56,
+        "rpn_high": 56,
+        "rpn_low": 42,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V8"
+      },
+      {
+        "failureMode": "Input violation: inspection REJECTED (V9)",
+        "effect": "Chain sling condemned — do not use",
+        "severity": 9,
+        "occurrence": 2,
+        "detection": 2,
+        "rpn": 36,
+        "rpn_high": 36,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V9"
+      },
+      {
+        "failureMode": "Input violation: chain twisted or knotted (V11)",
+        "effect": "EN 818-6 §8.2 violation — reduced capacity, unpredictable failure",
+        "severity": 9,
+        "occurrence": 3,
+        "detection": 2,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V11"
+      },
+      {
+        "failureMode": "Input violation: significant chemical exposure (V12)",
+        "effect": "Potential corrosion damage — reduced integrity",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 63,
+        "rpn_high": 63,
+        "rpn_low": 48,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V12"
+      },
+      {
+        "failureMode": "Input violation: personnel lifting without EN 818 (V13)",
+        "effect": "Inadequate design factor for personnel safety",
+        "severity": 9,
+        "occurrence": 2,
+        "detection": 3,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V13"
+      },
+      {
+        "failureMode": "Input violation: personnel lifting with non-PASS inspection (V14)",
+        "effect": "Inadequate inspection status for personnel lifting",
+        "severity": 9,
+        "occurrence": 2,
+        "detection": 3,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V14"
+      },
+      {
+        "failureMode": "Input violation: certificate not available (V15)",
+        "effect": "EN 818-4 §8.1 violation — no traceability",
+        "severity": 6,
+        "occurrence": 4,
+        "detection": 2,
+        "rpn": 48,
+        "rpn_high": 48,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V15"
+      },
+      {
+        "failureMode": "CHAIN SLING OVERLOAD: UC > 1.0",
+        "effect": "Tension exceeds WLL — potential chain failure and dropped load",
+        "severity": 9,
+        "occurrence": 5,
+        "detection": 4,
+        "rpn": 180,
+        "rpn_high": 180,
+        "rpn_low": 100,
+        "control_measure": "EN 818-5 §6.6 — UC threshold monitoring with critical alert"
+      },
+      {
+        "failureMode": "CHAIN SLING MARGINAL: UC > 0.9",
+        "effect": "High utilization — reduced safety margin",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 112,
+        "rpn_high": 112,
+        "rpn_low": 64,
+        "control_measure": "ASME B30.9 §9.4 — Engineering review recommended"
+      },
+      {
+        "failureMode": "HIGH ANGLE: β > 45° for chain sling",
+        "effect": "Exceeds EN 818-5 rated angle range for standard assemblies",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 112,
+        "rpn_high": 112,
+        "rpn_low": 64,
+        "control_measure": "EN 818-5 §6.1 — Angle warning"
+      },
+      {
+        "failureMode": "ELEVATED TEMPERATURE: capacity derated",
+        "effect": "Reduced chain strength at elevated temperature",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 36,
+        "control_measure": "EN 818-4 §7.3 — Temperature derating applied"
+      },
+      {
+        "failureMode": "CHAIN WEAR: wear derating applied",
+        "effect": "Reduced cross-section from wear — reduced capacity",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 63,
+        "control_measure": "ASME B30.9 §6.2.3 — Wear measurement and rejection criteria"
+      }
+    ],
+    "audit_log": true
+  },
+  "ui_contract": {},
+  "reference_code": {
+    "language": "TypeScript",
+    "interface": "ChainSlingWllInput / ChainSlingWllOutput with @unit and @uncertainty JSDoc",
+    "validation": "Zod schema. Fail closed on: mass ≤ 0, angle < 0° or > 60°, DAF < 1.0, WLL ≤ 0, inspection REJECTED, twisted/knotted chain, significant chemical exposure, personnel lifting without EN 818, certificate missing.",
+    "testing": "Jest cases: vertical lift (β=0°), 2-leg bridle at 30° and 45° (standard limits), 3-leg and 4-leg configurations with/without load-balancing, basket configuration, choker configuration, temperature derating (200°C, 300°C, 400°C), wear derating at 10% wear, twisted/knotted chain (blocked), chemical exposure blocked, personnel lifting scenarios, overload UC > 1.0, uncertainty propagation.",
+    "example": "calculateChainSlingWll(input): ChainSlingWllOutput",
+    "implementation_notes": [
+      "Do not use eval(). Use existing AST expression engine.",
+      "Run formulas F1-F16 in deterministic order.",
+      "All tension outputs in kN. Angle internally in radians for JS Math functions.",
+      "Angle from vertical (β) is primary for chain slings (EN 818 convention, 0° = vertical).",
+      "Geometric leg factor K = 1/cos(β). β=0° → K=1.0, β=45° → K=1.414.",
+      "UC = T_design / WLL_system. UC > 1.0 = overload.",
+      "Combined derating = product of temperature, edge contact, wear, and additional factors.",
+      "System WLL = min(effective_chain_WLL, hardware_WLL).",
+      "Personnel lifting requires EN 818 standard, PASS inspection, and 10:1 design factor.",
+      "Temperature derating: ≤200°C → 1.0; 200–300°C → 0.8; 300–400°C → 0.5.",
+      "Wear derating: f_wear = actual/original diameter. Reject at 10% loss (f_wear ≤ 0.9).",
+      "Status code thresholds: PASS (≤0.7), CAUTION (≤0.9), MARGINAL (≤1.0), OVERLOAD (≤1.2), CRITICAL_OVERLOAD (>1.2).",
+      "Uncertainty propagation via GUM LPU with sensitivity c_β = tan(β) for angle.",
+      "All boolean gate outputs use strict comparison. Use null for unavailable values, not Infinity."
+    ]
+  },
+  "metadata": {
+    "description": "Chain Sling Working Load Limit Calculator per EN 818-4/5/6 and ASME B30.9. Computes leg tension, effective WLL with temperature derating, edge contact, wear, and additional derating factors, system capacity (limited by weakest component), and utilization ratio for chain sling lifting operations.",
+    "version": "1.0.0",
+    "tags": [
+      "chain sling",
+      "EN 818",
+      "ASME B30.9",
+      "working load limit",
+      "temperature derating",
+      "chain wear",
+      "rigging",
+      "lift planning"
+    ],
+    "traceability_id": "PRO_130_TUV_20260628_C3D4",
+    "quality_level": "CALCULATION_READY",
+    "calibration_trace": "Chain sling proof load test certificates traceable to national standards. Temperature measurement via calibrated thermocouple (ISO 17025). Wear measurement via calibrated caliper (ISO 2768-1).",
+    "tuv_checklist": [
+      "EN 818-4 Grade 8 chain sling WLL and proof load requirements verified",
+      "EN 818-5 chain sling assembly configuration factors from Table 1 confirmed",
+      "EN 818-6 chain sling use, maintenance, and inspection criteria incorporated",
+      "ASME B30.9 chain sling provisions verified",
+      "ASME B30.26 rigging hardware requirements confirmed",
+      "Geometric leg factor (1/cos β) derivation verified against EN 818-5 §6.1",
+      "Temperature derating factors per EN 818-4 §7.3 confirmed",
+      "Wear derating and rejection criteria per ASME B30.9 §6.2.3 verified",
+      "Combined uncertainty calculation per ISO/IEC Guide 98-3 GUM confirmed",
+      "Personnel lifting safety factor and additional requirements per EN 818-6 §4 confirmed"
+    ],
+    "limitations": [
+      "Single chain sling configuration evaluated per calculation.",
+      "Assumes all chain legs are from same batch and have identical properties.",
+      "Chain sling stretch under load not modeled.",
+      "Fatigue life and remaining service life not evaluated.",
+      "Environmental effects (wind, snow, ice) not included.",
+      "Corrosion rate modeling not included — chemical exposure treated as binary assessment.",
+      "Wear assessment requires physical measurement — calculator does not estimate wear rate.",
+      "Crane/crane hook capacity not included in system WLL check.",
+      "Dynamic effects simplified to a single DAF factor — hoist speed effects not separately modeled.",
+      "This is a technical calculation tool. Does not replace pre-lift inspection per EN 818-6 §6 or competent person review."
+    ],
+    "ui_result_policy": {
+      "result_priority": [
+        "status_code",
+        "UC",
+        "design_tension_per_leg_kN",
+        "controlled_available_wll_kN",
+        "capacity_margin_kN",
+        "effective_chain_sling_wll_kN"
+      ],
+      "verdict_banner": {
+        "show_status_code": true,
+        "show_UC": true,
+        "color_map": {
+          "PASS": "green",
+          "CAUTION": "yellow",
+          "MARGINAL": "orange",
+          "OVERLOAD": "red",
+          "CRITICAL_OVERLOAD": "dark_red"
+        }
+      },
+      "warnings_display": "smart_warnings only with severity CRITICAL or WARNING in red/yellow banners under verdict",
+      "uncertainty_display": "u_c_UC shown with UC as ± expanded uncertainty at 95.45% confidence"
+    },
+    "cursor_instruction": "FILE LOCKED — This is a production PRO tool data file. Do not modify the structure or content of this file except through the official PRO tool editor scripts. Manual edits risk schema violations, broken UI contracts, and audit log corruption. If changes are needed, use the PRO tool editor CLI or submit a schema change request."
+  }
+}

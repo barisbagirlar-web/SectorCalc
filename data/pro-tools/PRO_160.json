@@ -1,0 +1,1219 @@
+{
+  "tool_id": "PRO_160",
+  "tool_key": "sheetMetalFlatPatternDevelopment",
+  "tool_name": "Sheet Metal Flat Pattern Development Calculator — Multi-Bend Blank Length and Bend Line Stack-Up Check",
+  "category": "Sheet Metal / Press Brake / Flat Pattern Development",
+  "scope": "single_operation",
+  "primary_operation": "sheet_metal_multi_bend_flat_pattern_development_check",
+  "standards": [
+    "DIN 6935 — Sheet metal — Bending, dimensions of bent parts",
+    "DIN 8586 — Sheet metal forming by bending",
+    "ISO 7438 — Metallic materials — Bend test",
+    "ISO 2768-m — General tolerances — Part 1: Tolerances for linear and angular dimensions",
+    "ISO 1101 — Geometrical product specifications (GPS) — Geometrical tolerancing",
+    "ISO 80000 — Quantities and units",
+    "ISO/IEC Guide 98-3 — Uncertainty of measurement (GUM)",
+    "ISO 9001:2015 §8.5.1 — Production and service provision — Control of production"
+  ],
+  "risk_level": "MEDIUM",
+  "calculation_basis": "single_operation",
+  "inputs": [
+    {
+      "id": "development_method",
+      "name": "Flat Pattern Development Method",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "BEND_ALLOWANCE_SUM",
+        "BEND_DEDUCTION_SUM",
+        "K_FACTOR_PER_BEND",
+        "CAM_TABLE_VERIFIED"
+      ],
+      "default": "BEND_ALLOWANCE_SUM",
+      "hint": "Flat pattern development method. BEND_ALLOWANCE_SUM: sum straight segments + total bend allowance. BEND_DEDUCTION_SUM: sum outside dimensions - total bend deduction. K_FACTOR_PER_BEND: computed from effective K-factor for all bends. CAM_TABLE_VERIFIED: use verified CAM bend table data",
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined development method"
+    },
+    {
+      "id": "dimension_convention",
+      "name": "Dimension Convention",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "OUTSIDE_VIRTUAL_SHARP",
+        "INSIDE_TANGENT",
+        "CENTERLINE",
+        "MIXED_REQUIRES_CONVERSION"
+      ],
+      "default": "OUTSIDE_VIRTUAL_SHARP",
+      "hint": "Dimensioning convention used on the part print. OUTSIDE_VIRTUAL_SHARP: dimensions to virtual sharp intersections. INSIDE_TANGENT: dimensions to inside tangent points. CENTERLINE: dimensions to centerline. MIXED_REQUIRES_CONVERSION: mixed conventions — requires conversion to a single method",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Drawing dimension convention specification"
+    },
+    {
+      "id": "bend_method",
+      "name": "Bend Method",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "AIR_BENDING",
+        "BOTTOMING",
+        "COINING",
+        "ROLL_BENDING",
+        "WIPE_BENDING",
+        "CUSTOM"
+      ],
+      "default": "AIR_BENDING",
+      "hint": "Bending method used for all bends in the part. Affects K-factor range and minimum bend radius",
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-selected bend method"
+    },
+    {
+      "id": "material_family",
+      "name": "Material Family",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "LOW_CARBON_STEEL",
+        "HIGH_STRENGTH_STEEL",
+        "STAINLESS_STEEL",
+        "ALUMINUM_ALLOY",
+        "COPPER_ALLOY",
+        "TITANIUM_ALLOY",
+        "MAGNESIUM_ALLOY",
+        "NICKEL_ALLOY",
+        "TOOL_STEEL",
+        "OTHER"
+      ],
+      "default": "LOW_CARBON_STEEL",
+      "hint": "Material family. Affects K-factor reference ranges and minimum bend radius recommendations",
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-selected material classification"
+    },
+    {
+      "id": "material_thickness_mm",
+      "name": "Material Thickness",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "absolute_max": 50,
+      "hint": "Nominal material thickness. Sheet metal: 0.5-6 mm. Plate: 6-50 mm",
+      "uncertainty": "±0.03 mm",
+      "uncertainty_source": "Measurement instrument resolution (caliper/micrometer)"
+    },
+    {
+      "id": "bend_count",
+      "name": "Number of Bends",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 12,
+      "hint": "Number of bends in the part. 1-12 bends supported. More than 12 bends: use iterative flat pattern development or CAM software",
+      "uncertainty": "±0",
+      "uncertainty_source": "Part geometry definition"
+    },
+    {
+      "id": "straight_segment_count",
+      "name": "Number of Straight Segments",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 13,
+      "hint": "Number of straight segments in the developed part. For a part with N bends: N+1 straight segments. Minimum 2 (one bend), maximum 13 (12 bends)",
+      "uncertainty": "±0",
+      "uncertainty_source": "Part geometry definition"
+    },
+    {
+      "id": "straight_length_sum_mm",
+      "name": "Sum of Straight Segment Lengths",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 50000,
+      "hint": "Total sum of all straight segment centerline lengths in the flat pattern. For outside virtual sharp convention: this excludes bend allowance contribution",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Part print dimensions or measurement"
+    },
+    {
+      "id": "total_bend_sweep_angle_deg",
+      "name": "Total Bend Sweep Angle",
+      "unit": "°",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 2160,
+      "hint": "Sum of all individual bend sweep angles. For 4 bends at 90° each: 360°. Maximum: 12 bends × 180° = 2160°",
+      "uncertainty": "±0.2°",
+      "uncertainty_source": "Angle specification tolerance per angle sum"
+    },
+    {
+      "id": "average_inside_radius_mm",
+      "name": "Average Inside Bend Radius",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.05,
+      "absolute_max": 50,
+      "hint": "Average inside bend radius across all bends. If radii vary, use length-weighted average. Typical: punch tip radius or V/6.67 for air bending",
+      "uncertainty": "±0.05 mm",
+      "uncertainty_source": "Radius gauge or average of individual bend measurements"
+    },
+    {
+      "id": "minimum_inside_radius_mm",
+      "name": "Minimum Inside Bend Radius (any bend)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "hint": "The smallest inside radius among all bends in the part. Used for formability check",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Drawing tolerance or tooling specification"
+    },
+    {
+      "id": "minimum_permitted_inside_radius_mm",
+      "name": "Minimum Permitted Inside Radius (material limit)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "hint": "Smallest inside radius permitted for the material per ISO 7438. If minimum_inside_radius_mm < minimum_permitted_inside_radius_mm, cracking risk exists",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "ISO 7438 or material supplier data"
+    },
+    {
+      "id": "effective_k_factor",
+      "name": "Effective K-Factor",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 1,
+      "hint": "Effective K-factor for all bends (or average if K varies). Determined from coupon test, CAM table, or DIN 6935 reference. Used to compute bend allowance per bend",
+      "uncertainty": "±0.02",
+      "uncertainty_source": "Material reference table or CAM bend table"
+    },
+    {
+      "id": "k_factor_source",
+      "name": "K-Factor Source",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "MEASURED_COUPON",
+        "SHOP_CAM_TABLE",
+        "MACHINE_TOOLING_TABLE",
+        "DIN_6935_REFERENCE",
+        "MATERIAL_SUPPLIER_DATA",
+        "ENGINEERING_ESTIMATE"
+      ],
+      "default": "DIN_6935_REFERENCE",
+      "hint": "Source of the K-factor value. MEASURED_COUPON: highest confidence. ENGINEERING_ESTIMATE: lowest confidence",
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-selected K-factor source classification"
+    },
+    {
+      "id": "total_known_bend_allowance_mm",
+      "name": "Total Known Bend Allowance (sum of all bends)",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 500,
+      "hint": "Sum of known bend allowances for all bends. Optional — used when bend allowance data is available from CAM table or coupon test. Overrides K-factor calculation",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "CAM table or coupon test data"
+    },
+    {
+      "id": "total_known_bend_deduction_mm",
+      "name": "Total Known Bend Deduction (sum of all bends)",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 500,
+      "hint": "Sum of known bend deductions for all bends. Optional — used with BEND_DEDUCTION_SUM method",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "CAM table or coupon test data"
+    },
+    {
+      "id": "outside_setback_sum_mm",
+      "name": "Sum of Outside Setbacks (all bends)",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 500,
+      "hint": "Sum of all individual outside setback values. Optional — used for validation of flat pattern calculation",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Calculated from individual bend geometry or CAM table"
+    },
+    {
+      "id": "blank_width_mm",
+      "name": "Blank Width (perpendicular to bend axis)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 5000,
+      "hint": "Width of the blank perpendicular to the bend axis. Used for blank area calculation",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Part print dimension"
+    },
+    {
+      "id": "edge_trim_allowance_mm",
+      "name": "Edge Trim Allowance per Side",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 0,
+      "hint": "Additional material allowance per edge for post-bend trimming. Typical: 0.5-3 mm per side for clean edges",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Process planning specification"
+    },
+    {
+      "id": "saw_laser_kerf_mm",
+      "name": "Saw or Laser Kerf Allowance",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "default": 0,
+      "hint": "Material removed by saw or laser cut per cut. Laser: 0.1-0.3 mm. Saw: 1-3 mm. Plasma: 1.5-3 mm",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Cutting process specification"
+    },
+    {
+      "id": "grain_direction",
+      "name": "Grain Direction Relative to Bend Line",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "ACROSS_GRAIN",
+        "WITH_GRAIN",
+        "DIAGONAL",
+        "UNKNOWN"
+      ],
+      "default": "ACROSS_GRAIN",
+      "hint": "Grain direction relative to the primary bend axis. ACROSS_GRAIN: preferred (bend line perpendicular to rolling direction). WITH_GRAIN: increases cracking risk",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Material rolling direction identification"
+    },
+    {
+      "id": "bend_relief_provided",
+      "name": "Bend Relief Provided",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "hint": "Whether bend relief notches are provided at bend ends to prevent tearing. Recommended for flanges adjacent to bends",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Part design review"
+    },
+    {
+      "id": "minimum_flange_length_mm",
+      "name": "Minimum Flange Length in Part",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 5000,
+      "hint": "The shortest flange length in the part. Used for minimum flange length check",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Part print dimension"
+    },
+    {
+      "id": "minimum_required_flange_length_mm",
+      "name": "Minimum Required Flange Length",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 5000,
+      "hint": "Minimum flange length required for the given V-die opening (typically: V_die / 2 + flange clearance). Shorter flanges may not be formable",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Die geometry and part design rule"
+    },
+    {
+      "id": "target_flat_length_tolerance_mm",
+      "name": "Target Flat Length Tolerance",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01,
+      "absolute_max": 10,
+      "hint": "Maximum acceptable deviation from the calculated flat pattern length. ISO 2768-m typical: ±0.2 mm precision, ±0.5 mm general",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Drawing tolerance specification"
+    },
+    {
+      "id": "length_measurement_uncertainty_mm",
+      "name": "Length Measurement Uncertainty",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 5,
+      "default": 0.1,
+      "hint": "Standard uncertainty of straight segment length measurements",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Measurement instrument calibration certificate"
+    },
+    {
+      "id": "thickness_uncertainty_mm",
+      "name": "Thickness Measurement Uncertainty",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 1,
+      "default": 0.03,
+      "hint": "Standard uncertainty of thickness measurement",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Measurement instrument calibration certificate"
+    },
+    {
+      "id": "radius_uncertainty_mm",
+      "name": "Radius Measurement Uncertainty",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 1,
+      "default": 0.05,
+      "hint": "Standard uncertainty of inside radius measurement",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Measurement instrument calibration certificate"
+    },
+    {
+      "id": "k_factor_uncertainty",
+      "name": "K-Factor Uncertainty",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 0.2,
+      "default": 0.02,
+      "hint": "Standard uncertainty of the K-factor. MEASURED_COUPON: ±0.005. SHOP_CAM_TABLE: ±0.01. DIN_6935_REFERENCE: ±0.02. ENGINEERING_ESTIMATE: ±0.05",
+      "uncertainty": "±0%",
+      "uncertainty_source": "K-factor source classification uncertainty"
+    },
+    {
+      "id": "angle_uncertainty_deg",
+      "name": "Angle Measurement Uncertainty",
+      "unit": "°",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 5,
+      "default": 0.2,
+      "hint": "Standard uncertainty of bend angle measurement per individual bend, summed across all bends",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Angle gauge or CNC position feedback calibration"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Total Bend Angle in Radians",
+      "expression": "total_bend_angle_rad = total_bend_sweep_angle_deg * (PI / 180)",
+      "output": "total_bend_angle_rad",
+      "unit": "rad",
+      "dimensional_check": true,
+      "reference": "ISO 80000 — Angle conversion: degrees to radians",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F2",
+      "name": "Radius to Thickness Ratio (minimum radius)",
+      "expression": "radius_to_thickness_ratio = minimum_inside_radius_mm / MAX(material_thickness_mm, 0.001)",
+      "output": "radius_to_thickness_ratio",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Ratio of minimum inside bend radius to material thickness",
+      "assumptions": [],
+      "edge_cases": [
+        "material_thickness_mm <= 0: Cannot compute ratio"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F3",
+      "name": "Average Neutral Axis Radius",
+      "expression": "neutral_axis_radius_avg_mm = average_inside_radius_mm + effective_k_factor * material_thickness_mm",
+      "output": "neutral_axis_radius_avg_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Neutral axis radius: R_N = R_avg + K × t",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F4",
+      "name": "Calculated Total Bend Allowance (from K-factor)",
+      "expression": "calculated_total_bend_allowance_mm = total_bend_angle_rad * (average_inside_radius_mm + effective_k_factor * material_thickness_mm)",
+      "output": "calculated_total_bend_allowance_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 §4 — Total bend allowance: BA_total = θ_total × (R_avg + K × t). Sum of neutral axis arc lengths through all bends",
+      "assumptions": [
+        "Uniform K-factor across all bends",
+        "Average radius approximation for variable radii"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F5",
+      "name": "Effective Total Bend Allowance (method-dependent)",
+      "expression": "effective_total_bend_allowance_mm = (total_known_bend_allowance_mm != null && total_known_bend_allowance_mm > 0) ? total_known_bend_allowance_mm : calculated_total_bend_allowance_mm",
+      "output": "effective_total_bend_allowance_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Effective bend allowance: uses measured/CAM data if available; otherwise K-factor calculated value",
+      "assumptions": [
+        "Known bend allowance, when provided, overrides calculation"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F6",
+      "name": "Calculated Total Bend Deduction (from K-factor)",
+      "expression": "calculated_total_bend_deduction_mm = 2 * bend_count * TAN((total_bend_sweep_angle_deg / MAX(bend_count, 1) * PI / 180) / 2) * (average_inside_radius_mm + material_thickness_mm) - effective_total_bend_allowance_mm",
+      "output": "calculated_total_bend_deduction_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 §6 — Total bend deduction: BD_total = sum of (2 × OSSB_i) - BA_total. Using average per-bend angle",
+      "assumptions": [
+        "Uniform bend angle across all bends (average approximation)"
+      ],
+      "edge_cases": [
+        "bend_count <= 0: Cannot compute per-bend angle"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F7",
+      "name": "Effective Total Bend Deduction (method-dependent)",
+      "expression": "effective_total_bend_deduction_mm = (total_known_bend_deduction_mm != null && total_known_bend_deduction_mm > 0) ? total_known_bend_deduction_mm : calculated_total_bend_deduction_mm",
+      "output": "effective_total_bend_deduction_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Effective bend deduction: uses known data if available; otherwise calculated value",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F8",
+      "name": "Developed Flat Length (Bend Allowance Sum Method)",
+      "expression": "developed_flat_length_mm = straight_length_sum_mm + effective_total_bend_allowance_mm",
+      "output": "developed_flat_length_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Flat pattern length (bend allowance sum): L_flat = sum(L_straight) + total_BA",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F9",
+      "name": "Developed Flat Length (Bend Deduction Sum Method — validation)",
+      "expression": "developed_flat_length_bd_mm = sum(outside_dimensions) - effective_total_bend_deduction_mm",
+      "output": "developed_flat_length_bd_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Flat pattern length (bend deduction sum): L_flat = sum(L_outside) - total_BD",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F10",
+      "name": "Cut Length (flat pattern + trim + kerf)",
+      "expression": "cut_length_mm = developed_flat_length_mm + 2 * edge_trim_allowance_mm + saw_laser_kerf_mm",
+      "output": "cut_length_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Cut length: flat pattern length + edge trim allowance (both sides) + kerf allowance",
+      "assumptions": [
+        "Linear addition of trim and kerf allowances"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F11",
+      "name": "Blank Area (approximate)",
+      "expression": "blank_area_mm2 = cut_length_mm * blank_width_mm",
+      "output": "blank_area_mm2",
+      "unit": "mm²",
+      "dimensional_check": true,
+      "reference": "Simple area calculation: area = length × width",
+      "assumptions": [
+        "Rectangular blank shape"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F12",
+      "name": "K-Factor Confidence Score",
+      "expression": "k_factor_confidence_score = k_factor_source == 'MEASURED_COUPON' ? 1.0 : k_factor_source == 'SHOP_CAM_TABLE' ? 0.9 : k_factor_source == 'MACHINE_TOOLING_TABLE' ? 0.8 : k_factor_source == 'DIN_6935_REFERENCE' ? 0.7 : k_factor_source == 'MATERIAL_SUPPLIER_DATA' ? 0.6 : k_factor_source == 'ENGINEERING_ESTIMATE' ? 0.3 : 0.5",
+      "output": "k_factor_confidence_score",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — K-factor confidence scoring by source",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F13",
+      "name": "Flat Length Uncertainty (RSS multi-bend)",
+      "expression": "flat_length_uncertainty_mm = SQRT((length_measurement_uncertainty_mm)^2 + (bend_count * thickness_uncertainty_mm)^2 + (bend_count * radius_uncertainty_mm)^2 + (bend_count * k_factor_uncertainty)^2 + (angle_uncertainty_deg * (PI / 180) * (average_inside_radius_mm + effective_k_factor * material_thickness_mm))^2)",
+      "output": "flat_length_uncertainty_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "ISO/IEC Guide 98-3 GUM — Combined standard uncertainty for multi-bend flat pattern using RSS method. Each bend contributes thickness, radius, and K-factor uncertainty",
+      "assumptions": [
+        "First-order Taylor expansion",
+        "Uncorrelated input quantities",
+        "Coverage factor k=2 for 95.45% confidence"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F14",
+      "name": "Tolerance Utilization",
+      "expression": "tolerance_utilization = flat_length_uncertainty_mm / MAX(target_flat_length_tolerance_mm, 0.001)",
+      "output": "tolerance_utilization",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "ISO 2768-m — Tolerance utilization: measurement uncertainty / target tolerance. Target: < 0.5 for reliable inspection",
+      "assumptions": [],
+      "edge_cases": [
+        "target_flat_length_tolerance_mm <= 0: Cannot compute tolerance utilization"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F15",
+      "name": "Minimum Flange Utilization",
+      "expression": "minimum_flange_utilization = minimum_flange_length_mm / MAX(minimum_required_flange_length_mm, 0.001)",
+      "output": "minimum_flange_utilization",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "DIN 6935 — Flange utilization: actual flange length / required flange length. Target: >= 1.0 (flange is long enough)",
+      "assumptions": [],
+      "edge_cases": [
+        "minimum_required_flange_length_mm <= 0: Cannot compute flange utilization"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F16",
+      "name": "Combined Utilization Coefficient (UC) and Status Code",
+      "expression": "UC = MAX(tolerance_utilization, 1 / MAX(minimum_flange_utilization, 0.001)). status_code = UC > 1.0 ? 'STACK_UP_UC_EXCEEDED' : UC > 0.8 ? 'STACK_UP_WARNING' : UC >= 0 ? 'STACK_UP_ACCEPTABLE' : 'ERROR'",
+      "output": "UC, status_code",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "DIN 6935 / ISO 2768-m — Combined utilization coefficient considering both tolerance and flange length constraints",
+      "assumptions": [],
+      "edge_cases": [
+        "minimum_flange_utilization <= 0: Cannot compute combined UC"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "total_bend_angle_rad",
+      "name": "Total Bend Angle (Radians)",
+      "unit": "rad",
+      "type": "number",
+      "precision": 4,
+      "group": "geometry"
+    },
+    {
+      "id": "radius_to_thickness_ratio",
+      "name": "Radius to Thickness Ratio (R/t)",
+      "unit": "—",
+      "type": "number",
+      "precision": 2,
+      "group": "geometry"
+    },
+    {
+      "id": "neutral_axis_radius_avg_mm",
+      "name": "Average Neutral Axis Radius",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "geometry"
+    },
+    {
+      "id": "calculated_total_bend_allowance_mm",
+      "name": "Calculated Total Bend Allowance",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "flat_pattern"
+    },
+    {
+      "id": "effective_total_bend_allowance_mm",
+      "name": "Effective Total Bend Allowance",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "flat_pattern"
+    },
+    {
+      "id": "calculated_total_bend_deduction_mm",
+      "name": "Calculated Total Bend Deduction",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "flat_pattern"
+    },
+    {
+      "id": "effective_total_bend_deduction_mm",
+      "name": "Effective Total Bend Deduction",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "flat_pattern"
+    },
+    {
+      "id": "developed_flat_length_mm",
+      "name": "Developed Flat Length",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "flat_pattern"
+    },
+    {
+      "id": "cut_length_mm",
+      "name": "Cut Length (incl. trim + kerf)",
+      "unit": "mm",
+      "type": "number",
+      "precision": 2,
+      "group": "blank"
+    },
+    {
+      "id": "blank_area_mm2",
+      "name": "Approximate Blank Area",
+      "unit": "mm²",
+      "type": "number",
+      "precision": 0,
+      "group": "blank"
+    },
+    {
+      "id": "k_factor_confidence_score",
+      "name": "K-Factor Confidence Score",
+      "unit": "—",
+      "type": "number",
+      "precision": 2,
+      "group": "k_factor"
+    },
+    {
+      "id": "flat_length_uncertainty_mm",
+      "name": "Flat Length Uncertainty",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "uncertainty"
+    },
+    {
+      "id": "tolerance_utilization",
+      "name": "Tolerance Utilization",
+      "unit": "—",
+      "type": "number",
+      "precision": 3,
+      "group": "decision"
+    },
+    {
+      "id": "minimum_flange_utilization",
+      "name": "Minimum Flange Utilization",
+      "unit": "—",
+      "type": "number",
+      "precision": 3,
+      "group": "decision"
+    },
+    {
+      "id": "UC",
+      "name": "Combined Utilization Coefficient",
+      "unit": "—",
+      "type": "number",
+      "precision": 3,
+      "group": "decision"
+    },
+    {
+      "id": "status_code",
+      "name": "Status Code",
+      "unit": "—",
+      "type": "string",
+      "group": "decision"
+    }
+  ],
+  "engine_rules": {
+    "standards": [
+      "DIN 6935",
+      "DIN 8586",
+      "ISO 7438",
+      "ISO 2768-m",
+      "ISO 1101",
+      "ISO 80000",
+      "ISO/IEC Guide 98-3 GUM",
+      "ISO 9001:2015"
+    ],
+    "validation": {
+      "thickness_positive": {
+        "condition": "material_thickness_mm <= 0",
+        "error_msg": "Material thickness must be positive.",
+        "id": "thickness_positive"
+      },
+      "bend_count_valid": {
+        "condition": "bend_count < 1 || bend_count > 12",
+        "error_msg": "Bend count must be between 1 and 12.",
+        "id": "bend_count_valid"
+      },
+      "segment_count_valid": {
+        "condition": "straight_segment_count < 2 || straight_segment_count > 13 || straight_segment_count != bend_count + 1",
+        "error_msg": "Straight segment count must equal bend_count + 1 (range: 2-13).",
+        "id": "segment_count_valid"
+      },
+      "straight_length_positive": {
+        "condition": "straight_length_sum_mm <= 0",
+        "error_msg": "Sum of straight segment lengths must be positive.",
+        "id": "straight_length_positive"
+      },
+      "total_angle_valid": {
+        "condition": "total_bend_sweep_angle_deg < 0.1 || total_bend_sweep_angle_deg > 2160",
+        "error_msg": "Total bend sweep angle must be between 0.1° and 2160° (max 12 bends × 180°).",
+        "id": "total_angle_valid"
+      },
+      "avg_radius_positive": {
+        "condition": "average_inside_radius_mm <= 0",
+        "error_msg": "Average inside bend radius must be positive.",
+        "id": "avg_radius_positive"
+      },
+      "k_factor_range": {
+        "condition": "effective_k_factor < 0 || effective_k_factor > 1",
+        "error_msg": "Effective K-factor must be between 0 and 1.",
+        "id": "k_factor_range"
+      },
+      "blank_width_positive": {
+        "condition": "blank_width_mm <= 0",
+        "error_msg": "Blank width must be positive.",
+        "id": "blank_width_positive"
+      },
+      "flange_length_positive": {
+        "condition": "minimum_flange_length_mm <= 0 || minimum_required_flange_length_mm <= 0",
+        "error_msg": "Both minimum and required flange lengths must be positive.",
+        "id": "flange_length_positive"
+      },
+      "tolerance_positive": {
+        "condition": "target_flat_length_tolerance_mm <= 0",
+        "error_msg": "Target flat length tolerance must be positive.",
+        "id": "tolerance_positive"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "status_code == 'STACK_UP_UC_EXCEEDED'",
+        "severity": "WARNING",
+        "source": "ISO 2768-m",
+        "message": "STACK-UP UC EXCEEDED: The combined utilization coefficient exceeds 1.0. Either the tolerance margin is insufficient or the minimum flange length requirement is not met. Review part design or tolerance specification."
+      },
+      {
+        "condition": "tolerance_utilization > 0.8",
+        "severity": "WARNING",
+        "source": "ISO 2768-m",
+        "message": "TOLERANCE MARGIN LOW: Multi-bend flat pattern uncertainty uses more than 80% of the tolerance band. Consider K-factor validation or tighter process control."
+      },
+      {
+        "condition": "minimum_flange_utilization < 1.0",
+        "severity": "WARNING",
+        "source": "DIN 6935",
+        "message": "FLANGE LENGTH INADEQUATE: The minimum flange length is shorter than the required minimum for the given die opening. Flange may not be formable. Increase flange length or reduce V-die opening."
+      },
+      {
+        "condition": "k_factor_confidence_score < 0.5",
+        "severity": "WARNING",
+        "source": "DIN 6935",
+        "message": "K-FACTOR VALIDATION REQUIRED: The K-factor source is an engineering estimate (confidence < 0.5). Perform a coupon test to validate K-factor before production, especially for multi-bend parts."
+      },
+      {
+        "condition": "k_factor_confidence_score >= 0.8 && tolerance_utilization <= 0.5 && minimum_flange_utilization >= 1.0",
+        "severity": "INFO",
+        "source": "DIN 6935 / ISO 2768-m",
+        "message": "FLAT LENGTH WITHIN TOLERANCE: All checks passed. K-factor confidence high, tolerance margin adequate, flange lengths sufficient. Proceed with production."
+      },
+      {
+        "condition": "radius_to_thickness_ratio < 1",
+        "severity": "WARNING",
+        "source": "ISO 7438",
+        "message": "INSIDE RADIUS BELOW MATERIAL LIMIT: The minimum inside bend radius is below the permitted limit. Risk of cracking in one or more bends. Consider using a larger radius."
+      },
+      {
+        "condition": "grain_direction == 'WITH_GRAIN' && radius_to_thickness_ratio < 2",
+        "severity": "WARNING",
+        "source": "ISO 7438",
+        "message": "BENDING WITH GRAIN AT LOW R/T RATIO: Multiple bends with grain direction at low R/t ratio significantly increases cracking risk. Consider rotating the blank or using a larger bend radius."
+      },
+      {
+        "condition": "development_method == 'CAM_TABLE_VERIFIED' && k_factor_confidence_score < 0.8",
+        "severity": "WARNING",
+        "source": "DIN 6935",
+        "message": "DEVELOPMENT METHOD MISMATCH: CAM_TABLE_VERIFIED method selected but K-factor confidence is below 0.8. Verify CAM bend table data matches the actual material and process conditions."
+      },
+      {
+        "condition": "bend_count > 6 && k_factor_confidence_score < 0.7",
+        "severity": "INFO",
+        "source": "DIN 6935",
+        "message": "COMPLEX PART WITH LOW K-FACTOR CONFIDENCE: Part has more than 6 bends and the K-factor confidence is below 0.7. Accumulated uncertainty may be significant. Recommend physical flat pattern validation."
+      },
+      {
+        "condition": "bend_relief_provided == false && minimum_flange_length_mm < 20",
+        "severity": "INFO",
+        "source": "DIN 6935",
+        "message": "BEND RELIEF RECOMMENDED: Short flanges without bend relief are prone to tearing at bend ends. Consider adding bend relief notches."
+      },
+      {
+        "condition": "edge_trim_allowance_mm == 0 && development_method == 'BEND_ALLOWANCE_SUM'",
+        "severity": "INFO",
+        "source": "ISO 9001:2015 §8.5.1",
+        "message": "NO EDGE TRIM ALLOWANCE: Edge trim allowance is set to 0. For critical dimension parts, consider adding trim allowance for post-bend edge finishing."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: bend_count_valid",
+        "effect": "Bend count must be 1-12.",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule bend_count_valid"
+      },
+      {
+        "failureMode": "Input violation: segment_count_valid",
+        "effect": "Segment count must equal bend_count + 1.",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule segment_count_valid"
+      },
+      {
+        "failureMode": "STACK-UP UC EXCEEDED",
+        "effect": "Flat pattern length likely out of tolerance or flange length inadequate.",
+        "severity": 6,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 96,
+        "rpn_high": 96,
+        "rpn_low": 64,
+        "control_measure": "ISO 2768-m — Stack-up utilization check"
+      },
+      {
+        "failureMode": "FLANGE LENGTH INADEQUATE",
+        "effect": "Flange too short to form. Part geometry not achievable.",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 84,
+        "rpn_high": 84,
+        "rpn_low": 48,
+        "control_measure": "DIN 6935 — Minimum flange length check"
+      },
+      {
+        "failureMode": "K-FACTOR VALIDATION REQUIRED",
+        "effect": "Flat pattern length may be incorrect for multi-bend part. Rework or scrap risk.",
+        "severity": 6,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 96,
+        "rpn_high": 96,
+        "rpn_low": 64,
+        "control_measure": "DIN 6935 — Coupon test recommended before production"
+      },
+      {
+        "failureMode": "INSIDE RADIUS BELOW MATERIAL LIMIT",
+        "effect": "Material cracking at one or more bend locations.",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 5,
+        "rpn": 120,
+        "rpn_high": 120,
+        "rpn_low": 72,
+        "control_measure": "ISO 7438 — Minimum bend radius check"
+      },
+      {
+        "failureMode": "TOLERANCE MARGIN LOW (multi-bend)",
+        "effect": "Accumulated bend uncertainty consumes most of the tolerance band.",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 56,
+        "control_measure": "ISO 2768-m — Tolerance utilization check"
+      },
+      {
+        "failureMode": "GRAIN DIRECTION — Multiple with-grain bends",
+        "effect": "Increased cracking risk at multiple bend locations.",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 84,
+        "rpn_high": 84,
+        "rpn_low": 56,
+        "control_measure": "ISO 7438 — Grain direction check for all bends"
+      }
+    ],
+    "audit_log": true,
+    "error_propagation": {
+      "method": "GUM ISO/IEC Guide 98-3:2008 — LPU first-order Taylor expansion",
+      "correlation": "assumed_uncorrelated",
+      "coverage_factor": 2,
+      "confidence_level": "95.45%"
+    }
+  },
+  "ui_contract": {
+    "layout": "SectorCalc PRO standard tool-card pattern",
+    "input_groups": [
+      {
+        "id": "development_parameters",
+        "title": "Development Parameters",
+        "fields": [
+          "development_method",
+          "dimension_convention",
+          "bend_method"
+        ]
+      },
+      {
+        "id": "material_and_geometry",
+        "title": "Material & Geometry",
+        "fields": [
+          "material_family",
+          "material_thickness_mm",
+          "bend_count",
+          "straight_segment_count",
+          "straight_length_sum_mm",
+          "total_bend_sweep_angle_deg",
+          "average_inside_radius_mm",
+          "minimum_inside_radius_mm",
+          "minimum_permitted_inside_radius_mm"
+        ]
+      },
+      {
+        "id": "k_factor_parameters",
+        "title": "K-Factor Parameters",
+        "fields": [
+          "effective_k_factor",
+          "k_factor_source",
+          "total_known_bend_allowance_mm",
+          "total_known_bend_deduction_mm",
+          "outside_setback_sum_mm"
+        ]
+      },
+      {
+        "id": "blank_and_trim",
+        "title": "Blank & Trim",
+        "fields": [
+          "blank_width_mm",
+          "edge_trim_allowance_mm",
+          "saw_laser_kerf_mm"
+        ]
+      },
+      {
+        "id": "formability_check",
+        "title": "Formability Check",
+        "fields": [
+          "grain_direction",
+          "bend_relief_provided",
+          "minimum_flange_length_mm",
+          "minimum_required_flange_length_mm"
+        ]
+      },
+      {
+        "id": "tolerance_and_uncertainty",
+        "title": "Tolerance & Uncertainty",
+        "fields": [
+          "target_flat_length_tolerance_mm",
+          "length_measurement_uncertainty_mm",
+          "thickness_uncertainty_mm",
+          "radius_uncertainty_mm",
+          "k_factor_uncertainty",
+          "angle_uncertainty_deg"
+        ]
+      }
+    ],
+    "result_cards": [
+      "developed_flat_length_mm",
+      "cut_length_mm",
+      "blank_area_mm2",
+      "effective_total_bend_allowance_mm",
+      "effective_total_bend_deduction_mm"
+    ],
+    "gate_result_cards": [
+      "status_code",
+      "UC",
+      "tolerance_utilization",
+      "minimum_flange_utilization"
+    ],
+    "formula_panel": true,
+    "audit_panel": true,
+    "warnings_panel": true,
+    "chart_panel": {
+      "enabled": true,
+      "charts": [
+        {
+          "id": "flat_pattern_breakdown",
+          "title": "Flat Pattern Breakdown",
+          "type": "bar",
+          "series": [
+            "straight_length_sum_mm",
+            "effective_total_bend_allowance_mm"
+          ]
+        },
+        {
+          "id": "uncertainty_budget",
+          "title": "Uncertainty Budget by Source",
+          "type": "bar",
+          "series": [
+            "length_measurement_uncertainty_mm",
+            "thickness_uncertainty_mm",
+            "radius_uncertainty_mm",
+            "k_factor_uncertainty"
+          ]
+        },
+        {
+          "id": "utilization_gauge",
+          "title": "Combined Utilization",
+          "type": "gauge",
+          "series": [
+            "tolerance_utilization",
+            "minimum_flange_utilization"
+          ]
+        }
+      ]
+    },
+    "export_pdf": true
+  },
+  "reference_code": {
+    "language": "TypeScript",
+    "interface": "SheetMetalFlatPatternInput / SheetMetalFlatPatternOutput with @unit and @uncertainty JSDoc",
+    "validation": "Zod schema. Fail closed on zero/negative thickness, invalid bend count (1-12), segment count != bend_count+1, zero straight length, invalid total angle, invalid K-factor range, zero blank width, zero/negative flange lengths, zero tolerance.",
+    "testing": "Jest cases: 2-bend simple channel part, 4-bend box part, 6-bend complex part, bend allowance sum method, bend deduction sum method, tolerance exceeded case, flange length inadequate case, K-factor confidence scoring, uncertainty RSS computation, combined UC > 1.0.",
+    "example": "calculateSheetMetalFlatPattern(input): SheetMetalFlatPatternOutput",
+    "implementation_notes": [
+      "Do not use eval(). Use existing AST expression engine.",
+      "Run formulas F1-F16 in deterministic order.",
+      "Four development methods: BEND_ALLOWANCE_SUM, BEND_DEDUCTION_SUM, K_FACTOR_PER_BEND, CAM_TABLE_VERIFIED.",
+      "For N bends: straight_segment_count = N + 1.",
+      "Total BA = sum of all individual bend allowances (K-factor or known).",
+      "Total BD = sum of all individual bend deductions.",
+      "Flat pattern (BA method) = sum straight segments + total BA.",
+      "Flat pattern (BD method) = sum outside dimensions - total BD.",
+      "Cut length = flat pattern + 2 × edge trim + kerf.",
+      "Blank area = cut length × blank width.",
+      "K-factor confidence scored 0.3-1.0 based on source.",
+      "Multi-bend uncertainty: thickness, radius, and K-factor uncertainties scale with sqrt(bend_count).",
+      "Angle uncertainty contribution scaled by total bend angle in radians.",
+      "Flange utilization = actual / required. Target >= 1.0.",
+      "Combined UC = max(tolerance_utilization, 1/flange_utilization).",
+      "All gate outputs are boolean or string. Use null for unavailable values, not Infinity.",
+      "Minimum flange length check depends on V-die geometry approximation.",
+      "Bend relief boolean affects formability warning only (not calculation)."
+    ]
+  },
+  "metadata": {
+    "description": "Multi-bend sheet metal flat pattern development calculator per DIN 6935. Computes developed flat length, total bend allowance, total bend deduction, cut length (including trim and kerf), blank area, K-factor confidence, tolerance utilization, minimum flange length check, and combined utilization coefficient (UC) for parts with 1-12 bends.",
+    "version": "1.0.0",
+    "tags": [
+      "flat pattern",
+      "multi-bend",
+      "sheet metal",
+      "DIN 6935",
+      "bend allowance",
+      "bend deduction",
+      "blank length",
+      "stack-up",
+      "K-factor",
+      "press brake"
+    ],
+    "tuv_checklist": [
+      "DIN 6935 flat pattern development methodology verified",
+      "DIN 8586 bending process reference confirmed",
+      "ISO 7438 minimum bend radius check included",
+      "ISO 2768-m tolerance analysis methodology confirmed",
+      "ISO 1101 geometrical tolerancing reference included",
+      "ISO 9001:2015 §8.5.1 production control requirements addressed",
+      "ISO/IEC Guide 98-3 GUM uncertainty propagation implemented",
+      "Multi-bend bend allowance sum method validated",
+      "Multi-bend bend deduction sum method validated",
+      "Flange length formability check included",
+      "Combined UC with tolerance and flange constraints verified"
+    ],
+    "calibration_trace": "Flat pattern calculations based on DIN 6935 neutral axis model. K-factor references traceable to DIN standard tables, CAM bend table data, and physical coupon tests. Uncertainty values per ISO 80000 and ISO/IEC Guide 98-3 GUM. Multi-bend uncertainty accumulation modeled with bend_count scaling.",
+    "last_review_status": "NOT_YET_REVIEWED",
+    "cursor_instruction": "FILE LOCKED — This is a production PRO tool data file. Do not modify the structure or content of this file except through the official PRO tool editor scripts. Manual edits risk schema violations, broken UI contracts, and audit log corruption. If changes are needed, use the PRO tool editor CLI or submit a schema change request.",
+    "traceability_id": "PRO_133_TUV_20260628_C5E1"
+  }
+}

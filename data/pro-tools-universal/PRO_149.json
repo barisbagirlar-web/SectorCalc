@@ -1,0 +1,1749 @@
+{
+  "tool_id": "PRO_149",
+  "tool_key": "basePlateAnchorBoltDesignAiscEn1993",
+  "tool_name": "Base Plate and Anchor Bolt Design Calculator - AISC EN 1993",
+  "category": "Structural Engineering / Steel Connections / Base Plate and Anchor Bolt Design",
+  "scope": "steel_column_base_plate_anchor_bolt_design_concrete_bearing_stress_plate_yielding_anchor_tension_shear_interaction",
+  "primary_operation": "calculate_column_base_plate_bearing_pressure_required_plate_thickness_anchor_bolt_tension_shear_resistance_concrete_breakout_pullout_side_face_blowout_and_combined_interaction_utilization",
+  "standards": [
+    "ISO 9001:2015",
+    "EN 1990",
+    "EN 1991",
+    "EN 1993-1-1",
+    "EN 1993-1-8",
+    "EN 1992-1-1",
+    "EN 1992-4",
+    "EN 1090-2",
+    "EN ISO 898-1",
+    "EN ISO 898-2",
+    "EN ISO 3506-1",
+    "EN ISO 3506-2",
+    "AISC 360-22",
+    "AISC Steel Construction Manual",
+    "AISC Design Guide 1 (Base Plate and Anchor Rod Design)",
+    "ACI 318-19",
+    "ACI 318-22",
+    "ASTM A36",
+    "ASTM A572",
+    "ASTM A992",
+    "ASTM F1554 (Anchor Bolts, Gr. 36, 55, 105)",
+    "ASTM A354 (Alloy Steel Bolts Gr. BC/BD)",
+    "ASTM A193 (High-Temperature Bolting)",
+    "ASTM A307 (Carbon Steel Bolts)",
+    "ASTM A563 (Nuts)",
+    "ASTM F436 (Hardened Washers)",
+    "ISO 4014",
+    "ISO 4017",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM",
+    "EN 206",
+    "EN 10025-2",
+    "EN 10080"
+  ],
+  "risk_level": "HIGH",
+  "calculation_basis": "Steel column base plate and anchor bolt design screening using EN 1993-1-8 (design of joints), EN 1992-4 (fastenings in concrete), AISC Design Guide 1 (Base Plate and Anchor Rod Design), AISC 360-22 J9 (anchor rods and embedments), and ACI 318-19 Chapter 17 (anchoring to concrete). Design checks include: concrete bearing stress distribution under the base plate (tripartite linear distribution per Thornton / AISC DG1), required base plate area, base plate thickness by yield line cantilever method (AISC DG1 Eq. 3.1-3.2), anchor bolt net tensile area, steel strength of anchor bolts in tension, shear resistance (threads included or excluded), combined tension+shear interaction (AISC 360 J3.7 / ACI 318 17.5), concrete breakout strength in tension (ACI 318 17.6 / EN 1992-4 §7.2.1.4), concrete pullout strength (ACI 318 17.7 / EN 1992-4 §7.2.1.5), concrete side-face blowout (ACI 318 17.7.3, deep embedment ca1 > 0.4×hef), concrete pryout strength in shear (ACI 318 17.7.3 / EN 1992-4 §7.2.2.5), supplementary reinforcement effect (tension and shear), seismic anchor ductility requirements (ACI 318 17.2.3 / EN 1992-4 §2.2.2), anchor edge distance and spacing limitations, minimum embedment depth requirements (ACI 318 17.3.1.3), anchor group interaction (tension and shear), and governing overall connection utilization ratio. The output is a preliminary engineering screening calculation and must not replace sealed structural design, project-specific geotechnical report, national annex, detailed calculation, anchor installation inspection report, pull-out testing, or authority approval.",
+  "inputs": [
+    {
+      "id": "design_code",
+      "symbol": "Code",
+      "label": "Design Code Selection",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Select governing design code for base plate and anchor bolt design",
+      "options": [
+        "AISC DG1 + ACI 318-19 (US practice)",
+        "AISC DG1 + ACI 318-22 (latest US practice)",
+        "EN 1993-1-8 + EN 1992-4 (European practice)",
+        "Combined AISC + ACI 318 (preferred for US projects)"
+      ]
+    },
+    {
+      "id": "national_annex",
+      "symbol": "NA",
+      "label": "EN National Annex (if EN selected)",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Select applicable National Annex for EN 1992-4 fastening design partial factors",
+      "options": [
+        "Recommended (CEN)",
+        "UK National Annex",
+        "German NAD",
+        "French NA",
+        "Italian NA",
+        "Turkish NA",
+        "Other — manual input"
+      ]
+    },
+    {
+      "id": "column_profile_type",
+      "symbol": "ColType",
+      "label": "Column Profile Type",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Cross-section profile of the steel column supported by the base plate",
+      "options": [
+        "Wide Flange (W-shape, AISC)",
+        "European I-section (HEA / HEB / HEM)",
+        "European I-section (IPE)",
+        "European I-section (HD — Heavy Column)",
+        "Square HSS / RHS (Hollow Structural Section)",
+        "Circular HSS (CHS / Pipe)",
+        "Built-up box section",
+        "Built-up I-girder",
+        "Double channel (back-to-back)"
+      ]
+    },
+    {
+      "id": "column_depth_mm",
+      "symbol": "d_c",
+      "label": "Column Depth (d_c)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Overall depth of the steel column section parallel to the strong axis",
+      "min": 100,
+      "max": 1200
+    },
+    {
+      "id": "column_flange_width_mm",
+      "symbol": "bf_c",
+      "label": "Column Flange Width (b_fc)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Flange width of the steel column section",
+      "min": 100,
+      "max": 600
+    },
+    {
+      "id": "column_flange_thickness_mm",
+      "symbol": "tf_c",
+      "label": "Column Flange Thickness (t_fc)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Flange thickness of the steel column",
+      "min": 5,
+      "max": 120
+    },
+    {
+      "id": "column_web_thickness_mm",
+      "symbol": "tw_c",
+      "label": "Column Web Thickness (t_wc)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Web thickness of the steel column",
+      "min": 4,
+      "max": 80
+    },
+    {
+      "id": "column_steel_grade",
+      "symbol": "ColSteel",
+      "label": "Column Steel Grade",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Steel grade of the column",
+      "options": [
+        "S235 JR/J0/J2 (EN 10025-2)",
+        "S275 JR/J0/J2 (EN 10025-2)",
+        "S355 JR/J0/J2/J2G3/K2 (EN 10025-2)",
+        "S420 N/NL/M/ML (EN 10025-3/4)",
+        "S460 N/NL/M/ML/Q/QL (EN 10025-3/4/6)",
+        "ASTM A36 (Fy=250 MPa, Fu=400 MPa)",
+        "ASTM A572 Gr. 50 (Fy=345 MPa, Fu=450 MPa)",
+        "ASTM A992 (Fy=345 MPa, Fu=450 MPa)",
+        "ASTM A500 Gr. C HSS (Fy=345 MPa, Fu=427 MPa)"
+      ]
+    },
+    {
+      "id": "base_plate_width_mm",
+      "symbol": "B",
+      "label": "Base Plate Width (N)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Width of the steel base plate (dimension perpendicular to column web, parallel to flange face). Typically N = bf_c + 2 × (edge distance).",
+      "min": 150,
+      "max": 1200
+    },
+    {
+      "id": "base_plate_depth_mm",
+      "symbol": "D_BP",
+      "label": "Base Plate Depth / Length (B)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Depth (length) of the steel base plate (dimension parallel to column web). Typically B = d_c + 2 × (edge distance).",
+      "min": 150,
+      "max": 1200
+    },
+    {
+      "id": "base_plate_thickness_mm",
+      "symbol": "t_p",
+      "label": "Base Plate Thickness (t_p)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Thickness of the steel base plate. To be checked vs. required thickness.",
+      "min": 5,
+      "max": 150,
+      "default": 25
+    },
+    {
+      "id": "base_plate_steel_grade",
+      "symbol": "BP_Steel",
+      "label": "Base Plate Steel Grade",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Steel grade of the base plate material",
+      "options": [
+        "S235 JR/J0/J2",
+        "S275 JR/J0/J2",
+        "S355 JR/J0/J2/J2G3/K2",
+        "S460 N/NL/M/ML",
+        "ASTM A36",
+        "ASTM A572 Gr. 50",
+        "ASTM A992"
+      ]
+    },
+    {
+      "id": "base_plate_fy_mpa",
+      "symbol": "fy_bp",
+      "label": "Base Plate Yield Strength (F_y,BP)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Nominal yield strength of the base plate material",
+      "min": 200,
+      "max": 700,
+      "default": 345
+    },
+    {
+      "id": "grout_compressive_strength_mpa",
+      "symbol": "f_g",
+      "label": "Grout Compressive Strength (f_g)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Nominal compressive strength of the bedding grout (typically 50–80 MPa for non-shrink cementitious grout)",
+      "min": 20,
+      "max": 120,
+      "default": 55
+    },
+    {
+      "id": "grout_thickness_mm",
+      "symbol": "t_g",
+      "label": "Grout Thickness (t_g)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Thickness of the grout layer between base plate and concrete foundation",
+      "min": 10,
+      "max": 100,
+      "default": 25
+    },
+    {
+      "id": "concrete_compressive_strength_mpa",
+      "symbol": "f_c",
+      "label": "Concrete Compressive Strength (f'_c)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Specified compressive strength of concrete foundation (cylinder strength for ACI / EN standards)",
+      "min": 15,
+      "max": 100,
+      "default": 30
+    },
+    {
+      "id": "concrete_foundation_plan_dimensions_mm",
+      "symbol": "A2_plan",
+      "label": "Concrete Foundation Plan Dimension (parallel to N)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Plan dimension of the concrete support surface parallel to base plate width N. Used for bearing area magnification factor sqrt(A2/A1).",
+      "min": 200,
+      "max": 3000
+    },
+    {
+      "id": "concrete_foundation_depth_dimension_mm",
+      "symbol": "A2_depth",
+      "label": "Concrete Foundation Plan Dimension (parallel to B)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Plan dimension of the concrete support surface parallel to base plate depth B.",
+      "min": 200,
+      "max": 3000
+    },
+    {
+      "id": "anchor_bolt_diameter_mm",
+      "symbol": "d_b",
+      "label": "Anchor Bolt Diameter (d_b)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Nominal diameter of the anchor bolts. Common sizes: M12–M64 per ISO 898, or 1/2 in to 4 in per ASTM F1554.",
+      "options": [
+        "M12 (12 mm)",
+        "M16 (16 mm)",
+        "M20 (20 mm)",
+        "M24 (24 mm)",
+        "M27 (27 mm)",
+        "M30 (30 mm)",
+        "M36 (36 mm)",
+        "M39 (39 mm)",
+        "M42 (42 mm)",
+        "M48 (48 mm)",
+        "M56 (56 mm)",
+        "M64 (64 mm)",
+        "1/2 in (12.7 mm)",
+        "5/8 in (15.9 mm)",
+        "3/4 in (19.1 mm)",
+        "7/8 in (22.2 mm)",
+        "1 in (25.4 mm)",
+        "1-1/4 in (31.8 mm)",
+        "1-1/2 in (38.1 mm)",
+        "1-3/4 in (44.5 mm)",
+        "2 in (50.8 mm)",
+        "2-1/2 in (63.5 mm)",
+        "3 in (76.2 mm)",
+        "4 in (101.6 mm)"
+      ]
+    },
+    {
+      "id": "anchor_bolt_diameter_val_mm",
+      "symbol": "d_b_val",
+      "label": "Anchor Bolt Diameter Numeric Value",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Numeric value of the anchor bolt diameter",
+      "min": 12,
+      "max": 110,
+      "default": 24
+    },
+    {
+      "id": "anchor_bolt_grade",
+      "symbol": "BoltGrade",
+      "label": "Anchor Bolt Grade / Material",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Anchor bolt material grade and strength class",
+      "options": [
+        "ASTM F1554 Gr. 36 (Fy=250 MPa, Fu=400 MPa)",
+        "ASTM F1554 Gr. 55 (Fy=380 MPa, Fu=520 MPa)",
+        "ASTM F1554 Gr. 105 (Fy=720 MPa, Fu=860 MPa)",
+        "ASTM A307 Gr. A (Fu=414 MPa, general-purpose)",
+        "ASTM A354 Gr. BC (Fy=720-910 MPa, Fu=860-1034 MPa)",
+        "ASTM A354 Gr. BD (Fy=1034 MPa, Fu=1034 MPa)",
+        "ASTM A193 Gr. B7 (Fy=720 MPa, Fu=860 MPa, high-temp)",
+        "EN ISO 898-1: 4.6 (Fy=240 MPa, Fu=400 MPa)",
+        "EN ISO 898-1: 5.6 (Fy=300 MPa, Fu=500 MPa)",
+        "EN ISO 898-1: 6.8 (Fy=480 MPa, Fu=600 MPa)",
+        "EN ISO 898-1: 8.8 (Fy=640 MPa, Fu=800 MPa)",
+        "EN ISO 898-1: 10.9 (Fy=900 MPa, Fu=1000 MPa)",
+        "EN ISO 3506-1: A2-70 (stainless, Fu=700 MPa)",
+        "EN ISO 3506-1: A4-80 (stainless, Fu=800 MPa)"
+      ]
+    },
+    {
+      "id": "anchor_bolt_fy_mpa",
+      "symbol": "fy_ab",
+      "label": "Anchor Bolt Yield Strength (F_y,ab)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Nominal yield strength of the anchor bolt material",
+      "min": 240,
+      "max": 1100,
+      "default": 640
+    },
+    {
+      "id": "anchor_bolt_fu_mpa",
+      "symbol": "fu_ab",
+      "label": "Anchor Bolt Tensile Strength (F_u,ab)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Nominal ultimate tensile strength of the anchor bolt material",
+      "min": 400,
+      "max": 1200,
+      "default": 800
+    },
+    {
+      "id": "anchor_bolt_embedment_depth_mm",
+      "symbol": "hef",
+      "label": "Anchor Bolt Effective Embedment Depth (h_ef)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Effective embedment depth of the anchor bolt measured from the concrete surface to the end of the anchor (or to the top of the anchor head/hook).",
+      "min": 50,
+      "max": 1500,
+      "default": 300
+    },
+    {
+      "id": "number_of_anchor_bolts",
+      "symbol": "n_ab",
+      "label": "Number of Anchor Bolts (n)",
+      "unit": { "ref": "count" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Total number of anchor bolts in the base plate connection",
+      "options": [
+        "2 bolts (minimal — small columns, pinned base)",
+        "4 bolts (standard rectangular pattern)",
+        "6 bolts (large moment connection with stiffeners)",
+        "8 bolts (heavy moment connection)",
+        "12 bolts (very heavy column or 2× pair pattern)"
+      ]
+    },
+    {
+      "id": "number_of_anchor_bolts_val",
+      "symbol": "n_ab_val",
+      "label": "Number of Anchor Bolts (numeric value)",
+      "unit": { "ref": "count" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Numeric value of anchor bolt count",
+      "min": 2,
+      "max": 24,
+      "default": 4
+    },
+    {
+      "id": "bolt_gage_distance_x_mm",
+      "symbol": "g_x",
+      "label": "Bolt Gage Distance (X-direction, g_x)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Transverse spacing between anchor bolts (center-to-center) in the direction parallel to the column flange (X-direction)",
+      "min": 80,
+      "max": 800,
+      "default": 200
+    },
+    {
+      "id": "bolt_gage_distance_y_mm",
+      "symbol": "g_y",
+      "label": "Bolt Gage Distance (Y-direction, g_y)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Longitudinal spacing between anchor bolts (center-to-center) in the direction parallel to the column web (Y-direction)",
+      "min": 80,
+      "max": 800,
+      "default": 200
+    },
+    {
+      "id": "bolt_edge_distance_x_mm",
+      "symbol": "ca_x",
+      "label": "Edge Distance — X-direction (c_a1)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Distance from the center of the anchor bolt to the edge of the concrete in the X-direction (primary edge for breakout). For ACI 318, the minimum edge distance controls.",
+      "min": 25,
+      "max": 500,
+      "default": 50
+    },
+    {
+      "id": "bolt_edge_distance_y_mm",
+      "symbol": "ca_y",
+      "label": "Edge Distance — Y-direction (c_a2)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Distance from the center of the anchor bolt to the edge of the concrete in the Y-direction",
+      "min": 25,
+      "max": 500,
+      "default": 50
+    },
+    {
+      "id": "bolt_edge_distance_min_mm",
+      "symbol": "ca_min",
+      "label": "Minimum Edge Distance (c_a,min)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Minimum edge distance from bolt center to any concrete edge. ACI 318-17.3.1: ca_min >= 1.5 × d_b for anchor bolts (increases with bolt size). EN 1992-4: c_min = 6 × d_nom for chemical anchors, 4 × d_nom for headed studs.",
+      "min": 25,
+      "max": 500,
+      "default": 50
+    },
+    {
+      "id": "bolt_hole_clearance_mm",
+      "symbol": "clr",
+      "label": "Anchor Bolt Hole Clearance (c_clear)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Clearance between anchor bolt diameter and base plate hole (typical: 6 mm for d <= 30 mm, 10 mm for d > 30 mm per AISC DG1)",
+      "min": 2,
+      "max": 25,
+      "default": 6
+    },
+    {
+      "id": "applied_axial_compression_kN",
+      "symbol": "P_u",
+      "label": "Applied Axial Compression Load (P_u)",
+      "unit": { "ref": "kN" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored axial compressive load on the column base (positive for compression). Use zero if only tension exists.",
+      "min": 0,
+      "max": 50000,
+      "default": 500
+    },
+    {
+      "id": "applied_axial_tension_kN",
+      "symbol": "T_u",
+      "label": "Applied Axial Tension (T_u — uplift)",
+      "unit": { "ref": "kN" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored axial tension load on the column base / anchor bolts (positive for tension, uplift)",
+      "min": 0,
+      "max": 5000,
+      "default": 0
+    },
+    {
+      "id": "applied_shear_x_kN",
+      "symbol": "V_ux",
+      "label": "Applied Shear Force — X-direction (V_ux)",
+      "unit": { "ref": "kN" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored shear force at the base in the X-direction (parallel to column flange)",
+      "min": 0,
+      "max": 5000,
+      "default": 0
+    },
+    {
+      "id": "applied_shear_y_kN",
+      "symbol": "V_uy",
+      "label": "Applied Shear Force — Y-direction (V_uy)",
+      "unit": { "ref": "kN" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored shear force at the base in the Y-direction (parallel to column web)",
+      "min": 0,
+      "max": 5000,
+      "default": 50
+    },
+    {
+      "id": "applied_moment_strong_axis_kNm",
+      "symbol": "M_u_xx",
+      "label": "Applied Strong-Axis Moment (M_u,xx)",
+      "unit": { "ref": "kNm" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored strong-axis bending moment at the column base (about the X-X axis, creating tension in the flanges)",
+      "min": 0,
+      "max": 20000,
+      "default": 150
+    },
+    {
+      "id": "applied_moment_weak_axis_kNm",
+      "symbol": "M_u_yy",
+      "label": "Applied Weak-Axis Moment (M_u,yy)",
+      "unit": { "ref": "kNm" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored weak-axis bending moment at the column base (about the Y-Y axis)",
+      "min": 0,
+      "max": 5000,
+      "default": 0
+    },
+    {
+      "id": "shear_friction_coefficient",
+      "symbol": "mu_sf",
+      "label": "Shear Friction Coefficient (mu)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Coefficient of friction between base plate and grout/concrete per AISC DG1 / ACI 318. 0.55 for grouted base plate on concrete (steel on grout).",
+      "min": 0.2,
+      "max": 1.0,
+      "default": 0.55
+    },
+    {
+      "id": "threads_included_in_shear_plane",
+      "symbol": "Thr_Inc",
+      "label": "Threads Included in Shear Plane?",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Whether the threads of the anchor bolt are intercepted by the shear plane. Affects nominal shear strength per AISC 360 J3.6 / ACI 318 17.5.1.2.",
+      "options": [
+        "Yes — threads included in shear plane (reduce shear capacity)",
+        "No — threads excluded from shear plane (full shank area in shear)"
+      ]
+    },
+    {
+      "id": "supplementary_reinforcement_provided",
+      "symbol": "Supp_Reinf",
+      "label": "Supplementary Reinforcement Provided?",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Whether supplementary reinforcement (hairpin ties, edge rebar, or anchor reinforcement) is provided to engage the concrete breakout cone per ACI 318 17.4.2.1 / EN 1992-4 §9.2.1.",
+      "options": [
+        "No supplementary reinforcement",
+        "Yes — edge reinforcement present (psi_reinf_N >= 1.0)",
+        "Yes — anchor reinforcement designed to carry full tension (psi_reinf_N = 0.75)"
+      ]
+    },
+    {
+      "id": "seismic_design_category",
+      "symbol": "SDC",
+      "label": "Seismic Design Category (SDC per ASCE 7)",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Seismic design category per ASCE 7 / EN 1998-1. Affects ductility requirements for anchor bolts (ACI 318 17.2.3).",
+      "options": [
+        "Non-seismic — SDC A (no special anchor ductility)",
+        "Low seismicity — SDC B (moderate ductility)",
+        "Moderate seismicity — SDC C (ductile anchor required)",
+        "High seismicity — SDC D (ductile + anchor reinforcement required)",
+        "Very high seismicity — SDC E/F (full ductility design required)"
+      ]
+    },
+    {
+      "id": "cracked_concrete_condition",
+      "symbol": "Cracked",
+      "label": "Concrete Crack Condition",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Whether the concrete is assumed cracked at the anchor location per ACI 318 17.2.4. Cracked concrete reduces breakout and pullout strength.",
+      "options": [
+        "Uncracked concrete (psi_c = 1.25 for breakout)",
+        "Cracked concrete (psi_c = 1.0 for breakout, default condition)"
+      ]
+    },
+    {
+      "id": "load_factor_for_omega_0_seismic",
+      "symbol": "omega_0",
+      "label": "Seismic Overstrength Factor (omega_0)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "loading",
+      "description": "Seismic overstrength factor for anchor design per ASCE 7-16 §12.4.3.2. Typically omega_0 = 2.0 for cantilever column systems, omega_0 = 2.5 for other systems.",
+      "min": 1.0,
+      "max": 3.0,
+      "default": 2.0
+    },
+    {
+      "id": "anchor_category_EN",
+      "symbol": "Cat_EN",
+      "label": "Anchor Category (EN 1992-4)",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Anchor category per EN 1992-4 §2.1.2. Determines which failure modes are applicable and partial factors required.",
+      "options": [
+        "Category 1 — Low risk (static loads only, redundant)",
+        "Category 2 — Moderate risk (static + moderate cyclic)",
+        "Category 3 — High risk (seismic, cracked concrete, dynamic)",
+        "Not applicable (using ACI 318)"
+      ]
+    },
+    {
+      "id": "partial_factor_gamma_Mc",
+      "symbol": "gamma_Mc",
+      "label": "Concrete Partial Factor (gamma_c for concrete breakout)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Partial factor for concrete-related failure modes per EN 1992-4 Table 3.1. Recommended 1.5 for Category 2 (moderate). Check National Annex.",
+      "min": 1.0,
+      "max": 2.0,
+      "default": 1.5
+    },
+    {
+      "id": "partial_factor_gamma_Ms",
+      "symbol": "gamma_Ms",
+      "label": "Steel Partial Factor (gamma_s for anchor steel)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Partial factor for steel failure modes of anchor per EN 1992-4 Table 3.1. Recommended 1.5 for Category 2 (moderate). Check National Annex.",
+      "min": 1.0,
+      "max": 2.0,
+      "default": 1.5
+    },
+    {
+      "id": "phi_factor_anchor_steel",
+      "symbol": "phi_stl",
+      "label": "Reduction Factor — Anchor Steel (phi_factor)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Strength reduction factor for anchor steel tension/shear per ACI 318 17.3.3. For ductile steel in tension: phi = 0.75. For shear: phi = 0.65 (if threads in shear plane) or 0.70 (if threads excluded).",
+      "min": 0.5,
+      "max": 1.0,
+      "default": 0.75
+    },
+    {
+      "id": "phi_factor_concrete",
+      "symbol": "phi_conc",
+      "label": "Reduction Factor — Concrete Failure Modes",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Strength reduction factor for concrete-related failure modes per ACI 318 17.3.3. For concrete breakout/pullout: phi = 0.70 (Condition A — supplementary reinforcement provided) or phi = 0.65 (Condition B — no supplementary reinforcement).",
+      "min": 0.5,
+      "max": 1.0,
+      "default": 0.70
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "symbol": "A_1",
+      "label": "Base Plate Area (A_1 = B × N)",
+      "description": "Gross area of the base plate. A_1 = B × N (width × depth).",
+      "expression": "A_1 = base_plate_width_mm * base_plate_depth_mm",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F2",
+      "symbol": "A_2",
+      "label": "Maximum Supported Concrete Area (A_2)",
+      "description": "Maximum area of the concrete support that is geometrically similar to and concentric with A_1. For ACI 318, A_2 is bounded by the foundation plan dimensions.",
+      "expression": "A_2 = Min(concrete_foundation_plan_dimensions_mm * concrete_foundation_depth_dimension_mm, 4 * A_1, (concrete_foundation_plan_dimensions_mm / base_plate_width_mm) * base_plate_width_mm * (concrete_foundation_depth_dimension_mm / base_plate_depth_mm) * base_plate_depth_mm)",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F3",
+      "symbol": "f_bearing_max",
+      "label": "Maximum Concrete Bearing Stress (AISC DG1 / ACI 318)",
+      "description": "Maximum allowable concrete bearing stress under the base plate. ACI 318-22 Eq. 22.4.2.2: phi × 0.85 × f'_c × sqrt(A_2 / A_1), with sqrt(A_2/A_1) <= 2. For ACI 318-19: phi × 0.85 × f'_c × min(sqrt(A_2/A_1), 2).",
+      "expression": "f_bearing_max = phi_factor_concrete * 0.85 * concrete_compressive_strength_mpa * Min(Sqrt(A_2 / A_1), 2.0)",
+      "unit": { "ref": "MPa" },
+      "category": "capacity"
+    },
+    {
+      "id": "F4",
+      "symbol": "f_bearing_max_g",
+      "label": "Maximum Bearing Stress — Grout Enhanced",
+      "description": "Maximum bearing stress considering grout strength. The lesser of (1) grout bearing capacity and (2) concrete bearing capacity per AISC DG1 §3.1.",
+      "expression": "f_bearing_max_g = Min(f_bearing_max, phi_factor_concrete * grout_compressive_strength_mpa * 0.85)",
+      "unit": { "ref": "MPa" },
+      "category": "capacity"
+    },
+    {
+      "id": "F5",
+      "symbol": "P_u_total",
+      "label": "Total Factored Axial Demand at Base (Compression)",
+      "description": "Total factored compression at base considering axial load plus moment-induced compression on the bearing zone. The maximum bearing pressure occurs at the toe of the base plate under combined axial + moment.",
+      "expression": "P_u_total = P_u + Max(Abs(M_u_xx), Abs(M_u_yy)) * 1000 * 6 / base_plate_depth_mm * (1 / 1000)",
+      "unit": { "ref": "kN" },
+      "category": "demand"
+    },
+    {
+      "id": "F6",
+      "symbol": "f_bearing_actual_max",
+      "label": "Actual Maximum Bearing Stress Under Base Plate",
+      "description": "Maximum bearing stress under combined axial compression and moment (tripartite linear distribution per AISC DG1). Based on rectangular bearing area: f = P/A + M*c/I.",
+      "expression": "f_bearing_actual_max = (P_u * 1000) / A_1 + (M_u_xx * 1e6 * base_plate_depth_mm / 2) / (base_plate_width_mm * Power(base_plate_depth_mm, 3) / 12) + (M_u_yy * 1e6 * base_plate_width_mm / 2) / (Power(base_plate_width_mm, 3) * base_plate_depth_mm / 12)",
+      "unit": { "ref": "MPa" },
+      "category": "demand"
+    },
+    {
+      "id": "F7",
+      "symbol": "UC_bearing",
+      "label": "Bearing Stress Utilization Ratio",
+      "description": "Demand-capacity ratio for concrete bearing. UC_bearing = f_bearing_actual_max / f_bearing_max_g. If <= 1.0, bearing stress is adequate.",
+      "expression": "UC_bearing = f_bearing_actual_max / f_bearing_max_g",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F8",
+      "symbol": "m_cantilever",
+      "label": "Cantilever Distance for Base Plate Bending (m)",
+      "description": "Critical cantilever distance from column face to plate edge for bending determination per AISC DG1 Eq. 3.1-1: m = (N - 0.95 × d_c) / 2. Also compute n = (B - 0.8 × bf_c) / 2, and lambda_n' = sqrt(d_c × bf_c) / 4.",
+      "expression": "m_cantilever = (base_plate_depth_mm - 0.95 * column_depth_mm) / 2",
+      "unit": { "ref": "mm" },
+      "category": "geometry"
+    },
+    {
+      "id": "F9",
+      "symbol": "n_cantilever",
+      "label": "Cantilever Distance for Base Plate Bending (n)",
+      "description": "Cantilever distance perpendicular to m direction.",
+      "expression": "n_cantilever = (base_plate_width_mm - 0.80 * column_flange_width_mm) / 2",
+      "unit": { "ref": "mm" },
+      "category": "geometry"
+    },
+    {
+      "id": "F10",
+      "symbol": "lambda_n_prime",
+      "label": "Cantilever Distance for Base Plate Bending (lambda_prime_n)",
+      "description": "Geometric parameter for base plate bending from AISC DG1 Eq. 3.1-2: lambda_n' = sqrt(d_c × bf_c) / 4. Only applicable for I-sections under compression.",
+      "expression": "lambda_n_prime = Sqrt(column_depth_mm * column_flange_width_mm) / 4",
+      "unit": { "ref": "mm" },
+      "category": "geometry"
+    },
+    {
+      "id": "F11",
+      "symbol": "l_critical",
+      "label": "Critical Cantilever Length (l_max)",
+      "description": "The governing cantilever distance for base plate thickness design (the largest of m, n, and lambda_n'). AISC DG1 §3.1: t_p,req = l_max × sqrt(2 × f_p / (0.90 × F_y)).",
+      "expression": "l_critical = Max(m_cantilever, n_cantilever, lambda_n_prime)",
+      "unit": { "ref": "mm" },
+      "category": "geometry"
+    },
+    {
+      "id": "F12",
+      "symbol": "t_p_required",
+      "label": "Required Base Plate Thickness (AISC DG1 Eq. 3.1.4)",
+      "description": "Minimum required base plate thickness based on yield line cantilever bending. AISC DG1 Eq. 3.1-4: t_p,req = l_max × sqrt(2 × f_pu / (phi × F_y)), where phi = 0.9, f_pu = f_bearing_actual_max, F_y = base_plate_fy_mpa.",
+      "expression": "t_p_required = l_critical * Sqrt(2 * f_bearing_actual_max / (0.90 * base_plate_fy_mpa))",
+      "unit": { "ref": "mm" },
+      "category": "capacity"
+    },
+    {
+      "id": "F13",
+      "symbol": "UC_plate_thickness",
+      "label": "Base Plate Thickness Utilization",
+      "description": "Demand-capacity ratio for base plate thickness. UC = t_p_required / t_p. If <= 1.0, the provided plate thickness is adequate.",
+      "expression": "UC_plate_thickness = t_p_required / base_plate_thickness_mm",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F14",
+      "symbol": "A_se_N",
+      "label": "Anchor Bolt Net Tensile Area (A_se)",
+      "description": "Net tensile stress area of the anchor bolt per AISC DG1 Table 3.2 / ACI 318 17.5.1.2. Based on nominal bolt diameter and thread pitch. Approximated as: A_se = 0.75 × A_gross for threaded portion.",
+      "expression": "A_se_N = Power(anchor_bolt_diameter_val_mm, 2) * PI / 4 * 0.75",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F15",
+      "symbol": "T_u_per_bolt",
+      "label": "Anchor Bolt Tension Demand per Bolt",
+      "description": "Maximum tensile force per anchor bolt from combined axial tension and overturning moment. Assumes rigid base plate with triangular distribution of bolt forces.",
+      "expression": "T_u_per_bolt = Max(0, (T_u * 1000) / number_of_anchor_bolts_val + (M_u_xx * 1e6) / (bolt_gage_distance_y_mm / 2) * (1 / (number_of_anchor_bolts_val / 2)))",
+      "unit": { "ref": "N" },
+      "category": "demand"
+    },
+    {
+      "id": "F16",
+      "symbol": "V_u_per_bolt",
+      "label": "Anchor Bolt Shear Demand per Bolt",
+      "description": "Maximum shear force per anchor bolt from combined V_ux and V_uy. V_resultant = sqrt(V_ux² + V_uy²), distributed equally among bolts.",
+      "expression": "V_u_per_bolt = Sqrt(Power(V_ux * 1000, 2) + Power(V_uy * 1000, 2)) / number_of_anchor_bolts_val",
+      "unit": { "ref": "N" },
+      "category": "demand"
+    },
+    {
+      "id": "F17",
+      "symbol": "N_sa",
+      "label": "Anchor Bolt Steel Strength in Tension (N_sa)",
+      "description": "Nominal steel strength of an anchor in tension per ACI 318 17.5.1.2: N_sa = A_se × f_uta. futa is the specified tensile strength. Per ASTM F1554: futa = F_u,ab.",
+      "expression": "N_sa = A_se_N * anchor_bolt_fu_mpa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F18",
+      "symbol": "phi_N_sa",
+      "label": "Design Steel Strength in Tension",
+      "description": "Design steel strength in tension: phi_N_sa = phi_factor_anchor_steel × N_sa.",
+      "expression": "phi_N_sa = phi_factor_anchor_steel * N_sa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F19",
+      "symbol": "N_sb",
+      "label": "Concrete Breakout Strength in Tension — Single Anchor",
+      "description": "Single anchor concrete breakout strength per ACI 318 17.6.2.0.1: N_b = k_c × lambda_a × sqrt(f'_c) × (h_ef)^1.5. For cast-in headed stud: k_c = 10 (cracked) or 12.5 (uncracked). For post-installed: per ETA.",
+      "expression": "N_sb = Iif(cracked_concrete_condition == \"Uncracked concrete (psi_c = 1.25 for breakout)\", 12.5, 10) * 1.0 * Sqrt(concrete_compressive_strength_mpa) * Power(anchor_bolt_embedment_depth_mm / 25.4, 1.5) * 1000",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F20",
+      "symbol": "A_Nc",
+      "label": "Projected Concrete Breakout Area (A_Nc)",
+      "description": "Actual projected concrete failure area of the anchor group in tension per ACI 318 17.6.2.1. Based on spacing, edge distances, and 1.5 × hef failure cone projection.",
+      "expression": "A_Nc = Min(bolt_gage_distance_x_mm + 3 * Min(anchor_bolt_embedment_depth_mm, 1.5 * anchor_bolt_embedment_depth_mm), bolt_edge_distance_x_mm + 3 * Min(anchor_bolt_embedment_depth_mm, 1.5 * anchor_bolt_embedment_depth_mm)) * Min(bolt_gage_distance_y_mm + 3 * Min(anchor_bolt_embedment_depth_mm, 1.5 * anchor_bolt_embedment_depth_mm), bolt_edge_distance_y_mm + 3 * Min(anchor_bolt_embedment_depth_mm, 1.5 * anchor_bolt_embedment_depth_mm))",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F21",
+      "symbol": "A_Nc0",
+      "label": "Projected Breakout Area — Single Anchor (A_Nc0)",
+      "description": "Projected area of a single anchor in tension with full 1.5 × hef cone (no edge effect) per ACI 318 17.6.2.1. A_Nc0 = 9 × h_ef².",
+      "expression": "A_Nc0 = 9 * Power(anchor_bolt_embedment_depth_mm, 2)",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F22",
+      "symbol": "psi_ec_N",
+      "label": "Eccentricity Factor for Tension (psi_ec,N)",
+      "description": "Modification factor for eccentric tensile loading per ACI 318 17.6.2.4.1: psi_ec,N = 1.0 / (1 + 2 × e_N' / (3 × h_ef)). Conservative: assume e_N' = 0 for concentric anchor group.",
+      "expression": "psi_ec_N = 1 / (1 + 2 * 0 / (3 * anchor_bolt_embedment_depth_mm))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F23",
+      "symbol": "psi_ed_N",
+      "label": "Edge Effect Factor for Tension (psi_ed,N)",
+      "description": "Modification factor for edge distance per ACI 318 17.6.2.5: If ca_min >= 1.5 × hef, psi_ed,N = 1.0. If ca_min < 1.5 × hef, psi_ed,N = 0.7 + 0.3 × ca_min / (1.5 × hef).",
+      "expression": "psi_ed_N = Iif(bolt_edge_distance_min_mm >= 1.5 * anchor_bolt_embedment_depth_mm, 1.0, 0.7 + 0.3 * bolt_edge_distance_min_mm / (1.5 * anchor_bolt_embedment_depth_mm))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F24",
+      "symbol": "psi_c_N",
+      "label": "Crack Condition Factor for Tension (psi_c,N)",
+      "description": "Modification factor for concrete crack condition per ACI 318 17.6.2.6: psi_c,N = 1.0 for cracked concrete, 1.25 for uncracked concrete.",
+      "expression": "psi_c_N = Iif(cracked_concrete_condition == \"Uncracked concrete (psi_c = 1.25 for breakout)\", 1.25, 1.0)",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F25",
+      "symbol": "phi_N_cbg",
+      "label": "Design Concrete Breakout Strength in Tension (Group)",
+      "description": "Nominal concrete breakout strength in tension for the anchor group per ACI 318 17.6.2.0.1: N_cbg = (A_Nc / A_Nc0) × psi_ec,N × psi_ed,N × psi_c,N × psi_reinf,N × N_sb. phi_N_cbg = phi_concrete × N_cbg.",
+      "expression": "phi_N_cbg = phi_factor_concrete * (A_Nc / A_Nc0) * psi_ec_N * psi_ed_N * psi_c_N * 1.0 * N_sb",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F26",
+      "symbol": "N_pn",
+      "label": "Concrete Pullout Strength in Tension (N_pn)",
+      "description": "Nominal pullout strength of a single anchor in tension per ACI 318 17.7.1.2: N_pn = psi_c,P × N_p. For headed stud: N_p = 8 × A_brg × f'_c. A_brg is the bearing area of the anchor head. For hooked bolt: N_p = 0.9 × f'_c × e_h × d_b.",
+      "expression": "N_pn = Iif(cracked_concrete_condition == \"Uncracked concrete (psi_c = 1.25 for breakout)\", 1.4, 1.0) * 8.0 * Power(anchor_bolt_diameter_val_mm, 2) * PI / 4 * concrete_compressive_strength_mpa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F27",
+      "symbol": "phi_N_pn",
+      "label": "Design Pullout Strength in Tension",
+      "description": "Design pullout strength of anchor: phi_N_pn = phi_factor_concrete × N_pn.",
+      "expression": "phi_N_pn = phi_factor_concrete * N_pn",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F28",
+      "symbol": "N_sb_side",
+      "label": "Concrete Side-Face Blowout Strength (N_sb)",
+      "description": "Nominal side-face blowout strength per ACI 318 17.7.3.1: N_sb = 160 × ca × sqrt(A_brg) × lambda_a × sqrt(f'_c). Applicable when ca1 > 0.4 × h_ef (deep embedment with edge distance).",
+      "expression": "N_sb_side = Iif(bolt_edge_distance_min_mm > 0.4 * anchor_bolt_embedment_depth_mm, 160 * bolt_edge_distance_min_mm * Sqrt(Power(anchor_bolt_diameter_val_mm, 2) * PI / 4) * 1.0 * Sqrt(concrete_compressive_strength_mpa), 0)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F29",
+      "symbol": "phi_N_sb",
+      "label": "Design Side-Face Blowout Strength",
+      "description": "Design side-face blowout strength: phi_N_sb = phi_factor_concrete × N_sb_side (N_sb_side for the anchor with the largest tension). For group: phi_N_sb_group = (1 + s/(6×ca)) × phi_N_sb.",
+      "expression": "phi_N_sb = phi_factor_concrete * N_sb_side",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F30",
+      "symbol": "N_governing_per_bolt",
+      "label": "Governing Design Tension Resistance per Bolt",
+      "description": "Minimum of all design tension resistances for the anchor bolt per ACI 318 17.4.1: N_design = min(phi_N_sa, phi_N_cbg / n_ab, phi_N_pn, phi_N_sb).",
+      "expression": "N_governing_per_bolt = Min(phi_N_sa, phi_N_cbg / Max(number_of_anchor_bolts_val, 1), phi_N_pn, phi_N_sb)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F31",
+      "symbol": "UC_anchor_tension",
+      "label": "Anchor Bolt Tension Utilization",
+      "description": "Demand-capacity ratio for anchor bolt in tension: UC = T_u_per_bolt / N_governing_per_bolt. Includes steel strength, concrete breakout, pullout, and side-face blowout checks.",
+      "expression": "UC_anchor_tension = T_u_per_bolt / Max(N_governing_per_bolt, 1)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F32",
+      "symbol": "V_nsa",
+      "label": "Anchor Bolt Steel Strength in Shear (V_sa)",
+      "description": "Nominal steel strength of an anchor in shear per ACI 318 17.5.1.2: V_sa = 0.6 × A_se × f_uta (threads included) or V_sa = 0.6 × A_gross × f_uta (threads excluded).",
+      "expression": "V_nsa = Iif(threads_included_in_shear_plane == \"Yes — threads included in shear plane (reduce shear capacity)\", 0.6 * A_se_N * anchor_bolt_fu_mpa, 0.6 * Power(anchor_bolt_diameter_val_mm, 2) * PI / 4 * anchor_bolt_fu_mpa)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F33",
+      "symbol": "phi_V_sa",
+      "label": "Design Steel Strength in Shear",
+      "description": "Design steel strength in shear: phi_V_sa = phi_factor_anchor_steel × V_nsa. For shear, phi_factor_anchor_steel per ACI 318 17.3.3: 0.60 (ductile, condition A) or 0.65 (brittle). Use 0.60 conservative for threads included.",
+      "expression": "phi_V_sa = Iif(threads_included_in_shear_plane == \"Yes — threads included in shear plane (reduce shear capacity)\", 0.60, 0.65) * V_nsa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F34",
+      "symbol": "V_cbg",
+      "label": "Concrete Breakout Strength in Shear — Single Anchor",
+      "description": "Concrete breakout strength of a single anchor in shear per ACI 318 17.7.2.0.1: V_b = (l_e / d_b)^0.2 × lambda_a × sqrt(f'_c) × (ca1)^1.5. For cast-in headed stud with d_b <= 25 mm and l_e / d_b >= 8: base equation.",
+      "expression": "V_cbg = (Min(anchor_bolt_embedment_depth_mm, 8 * anchor_bolt_diameter_val_mm) / anchor_bolt_diameter_val_mm >= 8, 8 / Sqrt(anchor_bolt_diameter_val_mm / 25.4), 0.2) * 1.0 * Sqrt(concrete_compressive_strength_mpa) * Power(bolt_edge_distance_min_mm, 1.5) * 7.0 * Power(anchor_bolt_diameter_val_mm / 25.4, 0.2)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F35",
+      "symbol": "phi_V_cbg",
+      "label": "Design Concrete Breakout Strength in Shear (Group)",
+      "description": "Design concrete breakout strength in shear for the anchor group per ACI 318 17.7.2.",
+      "expression": "phi_V_cbg = phi_factor_concrete * V_cbg * Min(number_of_anchor_bolts_val * bolt_edge_distance_min_mm / (3 * Min(anchor_bolt_embedment_depth_mm, 1.5 * anchor_bolt_embedment_depth_mm)), 1.0)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F36",
+      "symbol": "V_cpg",
+      "label": "Concrete Pryout Strength in Shear",
+      "description": "Concrete pryout strength per ACI 318 17.7.3: V_cp = k_cp × N_cbg. k_cp = 2.0 for anchor_bolt_embedment_depth_mm >= 280mm, k_cp = 1.0 for h_ef < 280mm.",
+      "expression": "V_cpg = Iif(anchor_bolt_embedment_depth_mm >= 280, 2.0, 1.0) * (A_Nc / A_Nc0) * psi_ec_N * psi_ed_N * psi_c_N * 1.0 * N_sb",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F37",
+      "symbol": "phi_V_cpg",
+      "label": "Design Concrete Pryout Strength",
+      "description": "Design concrete pryout strength: phi_V_cpg = phi_factor_concrete × V_cpg.",
+      "expression": "phi_V_cpg = phi_factor_concrete * V_cpg",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F38",
+      "symbol": "V_governing_per_bolt",
+      "label": "Governing Design Shear Resistance per Bolt",
+      "description": "Minimum of all design shear resistances for the anchor bolt: V_design = min(phi_V_sa, phi_V_cbg / n_ab, phi_V_cpg / n_ab).",
+      "expression": "V_governing_per_bolt = Min(phi_V_sa, phi_V_cbg / Max(number_of_anchor_bolts_val, 1), phi_V_cpg / Max(number_of_anchor_bolts_val, 1))",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F39",
+      "symbol": "UC_anchor_shear",
+      "label": "Anchor Bolt Shear Utilization",
+      "description": "Demand-capacity ratio for anchor bolt in shear: UC = V_u_per_bolt / V_governing_per_bolt.",
+      "expression": "UC_anchor_shear = V_u_per_bolt / Max(V_governing_per_bolt, 1)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F40",
+      "symbol": "UC_combined_TS",
+      "label": "Anchor Combined Tension + Shear Interaction",
+      "description": "Combined tension and shear interaction per ACI 318 17.5.3 / AISC 360 Eq. J3-3a and J3-3b: If V_u / phi_V_n <= 0.2, interaction = T_u / phi_T_n + V_u / phi_V_n <= 1.0. If V_u / phi_V_n > 0.2, interaction = T_u / phi_T_n + 1.67 × V_u / phi_V_n <= 1.0.",
+      "expression": "UC_combined_TS = Iif(UC_anchor_shear <= 0.2, UC_anchor_tension + UC_anchor_shear, UC_anchor_tension + 1.67 * UC_anchor_shear)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F41",
+      "symbol": "V_friction_resistance",
+      "label": "Shear Friction Resistance (Base Plate to Grout)",
+      "description": "Shear resistance by friction between base plate and grout per AISC DG1 §3.2: V_friction = mu × P_u. Based on shear friction coefficient and factored axial compression. Must be used in conjunction with anchor shear capacity.",
+      "expression": "V_friction_resistance = shear_friction_coefficient * P_u * 1000",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F42",
+      "symbol": "V_friction_check",
+      "label": "Shear Friction Adequacy Check",
+      "description": "Checks whether shear friction alone can resist the applied shear (base plate sliding check). If V_friction_resistance >= total V_u, anchors are not required to resist shear.",
+      "expression": "V_friction_check = Iif(V_friction_resistance >= Sqrt(Power(V_ux * 1000, 2) + Power(V_uy * 1000, 2)), \"PASS — friction resistance adequate, no anchor shear demand\", Iif(V_friction_resistance >= 0.5 * Sqrt(Power(V_ux * 1000, 2) + Power(V_uy * 1000, 2)), \"MODERATE — friction reduces but does not eliminate anchor shear demand\", \"FAIL — friction resistance insufficient, anchors must resist full shear\"))",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F43",
+      "symbol": "UC_governing",
+      "label": "Governing Utilization Ratio (All Checks)",
+      "description": "Overall governing demand-capacity ratio considering bearing, plate bending, anchor tension, anchor shear, and combined interaction. UC_governing = max(UC_bearing, UC_plate_thickness, UC_anchor_tension, UC_anchor_shear, UC_combined_TS).",
+      "expression": "UC_governing = Max(UC_bearing, UC_plate_thickness, UC_anchor_tension, UC_anchor_shear, UC_combined_TS)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F44",
+      "symbol": "governing_mode_summary",
+      "label": "Governing Mode Summary",
+      "description": "Identifies the governing failure mode based on the highest utilization ratio among all design checks",
+      "expression": "governing_mode_summary = Iif(UC_governing == UC_bearing, \"Concrete bearing stress under base plate governs\", Iif(UC_governing == UC_plate_thickness, \"Base plate bending / thickness governs\", Iif(UC_governing == UC_anchor_tension, \"Anchor bolt tension resistance governs (steel / breakout / pullout)\", Iif(UC_governing == UC_anchor_shear, \"Anchor bolt shear resistance governs (steel / breakout / pryout)\", \"Anchor bolt combined tension+shear interaction governs\"))))",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F45",
+      "symbol": "min_edge_distance_check",
+      "label": "Minimum Edge Distance Check (ACI 318 / EN 1992-4)",
+      "description": "Verification that the anchor bolt edge distance meets minimum code requirements per ACI 318 17.3.1: ca_min >= 1.5 × d_b for anchor bolts in tension. EN 1992-4: c >= 4 × d_nom (headed) or 6 × d_nom (chemical).",
+      "expression": "min_edge_distance_check = Iif(bolt_edge_distance_min_mm >= 1.5 * anchor_bolt_diameter_val_mm, \"PASS — edge distance meets ACI 318 minimum requirements\", \"FAIL — insufficient edge distance per ACI 318 17.3.1.1. Edge distance must be at least 1.5 × d_b.\")",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F46",
+      "symbol": "min_embedment_check",
+      "label": "Minimum Embedment Depth Check",
+      "description": "Verification that the anchor bolt embedment depth meets minimum requirements per ACI 318 17.3.1.3: hef >= 12 × d_b for cast-in headed stud anchors in tension.",
+      "expression": "min_embedment_check = Iif(anchor_bolt_embedment_depth_mm >= 12 * anchor_bolt_diameter_val_mm, \"PASS — embedment depth meets ACI 318 minimum of 12 × d_b\", \"FAIL — insufficient embedment depth per ACI 318 17.3.1.3. Minimum: 12 × d_b for cast-in headed stud anchors.\")",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "UC_governing",
+      "symbol": "UC_gov",
+      "label": "Governing Utilization Ratio",
+      "unit": { "ref": "—" },
+      "description": "Overall governing demand-capacity ratio for the base plate and anchor bolt connection",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "governing_mode_summary",
+      "symbol": "GOV_MODE",
+      "label": "Governing Failure Mode",
+      "unit": { "ref": "—" },
+      "description": "Identifies the controlling failure mode based on highest utilization",
+      "format": "text"
+    },
+    {
+      "id": "UC_bearing",
+      "symbol": "UC_BRG",
+      "label": "Bearing Stress Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio for concrete bearing stress under the base plate",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "UC_plate_thickness",
+      "symbol": "UC_PL",
+      "label": "Base Plate Thickness Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio for base plate bending (required vs. provided thickness)",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "t_p_required",
+      "symbol": "t_p_req",
+      "label": "Required Base Plate Thickness",
+      "unit": { "ref": "mm" },
+      "description": "Minimum required base plate thickness per AISC DG1 yield line method",
+      "format": "decimal_1"
+    },
+    {
+      "id": "l_critical",
+      "symbol": "l_max",
+      "label": "Critical Cantilever Length",
+      "unit": { "ref": "mm" },
+      "description": "Governing cantilever distance for base plate thickness design",
+      "format": "decimal_1"
+    },
+    {
+      "id": "f_bearing_actual_max",
+      "symbol": "f_pu",
+      "label": "Actual Maximum Bearing Stress",
+      "unit": { "ref": "MPa" },
+      "description": "Maximum bearing stress under combined axial + moment at the base plate toe",
+      "format": "decimal_2"
+    },
+    {
+      "id": "f_bearing_max_g",
+      "symbol": "f_p_all",
+      "label": "Allowable Bearing Stress",
+      "unit": { "ref": "MPa" },
+      "description": "Maximum allowable concrete bearing stress (grout-enhanced)",
+      "format": "decimal_2"
+    },
+    {
+      "id": "UC_anchor_tension",
+      "symbol": "UC_T",
+      "label": "Anchor Bolt Tension Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio for anchor bolt in tension (steel + breakout + pullout + blowout)",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "UC_anchor_shear",
+      "symbol": "UC_V",
+      "label": "Anchor Bolt Shear Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio for anchor bolt in shear (steel + breakout + pryout)",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "UC_combined_TS",
+      "symbol": "UC_TS",
+      "label": "Combined Tension+Shear Interaction Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio per ACI 318 17.5.3 / AISC J3.7 interaction equation",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "T_u_per_bolt",
+      "symbol": "T_bolt",
+      "label": "Tension Demand per Bolt",
+      "unit": { "ref": "N" },
+      "description": "Maximum tensile force per anchor bolt from uplift + overturning moment",
+      "format": "integer"
+    },
+    {
+      "id": "V_u_per_bolt",
+      "symbol": "V_bolt",
+      "label": "Shear Demand per Bolt",
+      "unit": { "ref": "N" },
+      "description": "Maximum shear force per anchor bolt from resultant V_ux + V_uy",
+      "format": "integer"
+    },
+    {
+      "id": "N_governing_per_bolt",
+      "symbol": "N_design",
+      "label": "Governing Tension Resistance per Bolt",
+      "unit": { "ref": "N" },
+      "description": "Minimum of steel, breakout, pullout, and side-face blowout tension resistances",
+      "format": "integer"
+    },
+    {
+      "id": "V_governing_per_bolt",
+      "symbol": "V_design",
+      "label": "Governing Shear Resistance per Bolt",
+      "unit": { "ref": "N" },
+      "description": "Minimum of steel, concrete breakout, and pryout shear resistances",
+      "format": "integer"
+    },
+    {
+      "id": "phi_N_sa",
+      "symbol": "phiN_sa",
+      "label": "Design Steel Strength — Tension",
+      "unit": { "ref": "N" },
+      "description": "Design steel strength of anchor in tension",
+      "format": "integer"
+    },
+    {
+      "id": "phi_N_cbg",
+      "symbol": "phiN_cbg",
+      "label": "Design Breakout Strength — Tension (Group)",
+      "unit": { "ref": "N" },
+      "description": "Design concrete breakout strength in tension for anchor group",
+      "format": "integer"
+    },
+    {
+      "id": "phi_V_sa",
+      "symbol": "phiV_sa",
+      "label": "Design Steel Strength — Shear",
+      "unit": { "ref": "N" },
+      "description": "Design steel strength of anchor in shear",
+      "format": "integer"
+    },
+    {
+      "id": "phi_V_cbg",
+      "symbol": "phiV_cbg",
+      "label": "Design Breakout Strength — Shear (Group)",
+      "unit": { "ref": "N" },
+      "description": "Design concrete breakout strength in shear for anchor group",
+      "format": "integer"
+    },
+    {
+      "id": "V_friction_check",
+      "symbol": "FRIC_CHK",
+      "label": "Shear Friction Adequacy",
+      "unit": { "ref": "—" },
+      "description": "Assessment of whether shear friction alone is adequate or anchors must resist shear",
+      "format": "text"
+    },
+    {
+      "id": "min_edge_distance_check",
+      "symbol": "EDGE_CHK",
+      "label": "Edge Distance Check",
+      "unit": { "ref": "—" },
+      "description": "Verification of minimum edge distance per ACI 318 / EN 1992-4",
+      "format": "text"
+    },
+    {
+      "id": "min_embedment_check",
+      "symbol": "EMB_CHK",
+      "label": "Minimum Embedment Check",
+      "unit": { "ref": "—" },
+      "description": "Verification of minimum embedment depth per ACI 318 / EN 1992-4",
+      "format": "text"
+    }
+  ],
+  "engine_rules": {
+    "validation": {
+      "rules": [
+        {
+          "id": "V001",
+          "field": "base_plate_width_mm",
+          "condition": "base_plate_width_mm < column_flange_width_mm + 50",
+          "message": "Base plate width (N) must extend at least 25 mm beyond each side of the column flange (N >= bf_c + 50 mm) per AISC DG1 §3.1.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V002",
+          "field": "base_plate_depth_mm",
+          "condition": "base_plate_depth_mm < column_depth_mm + 50",
+          "message": "Base plate depth (B) must extend at least 25 mm beyond each side of the column (B >= d_c + 50 mm) per AISC DG1 §3.1.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V003",
+          "field": "anchor_bolt_embedment_depth_mm",
+          "condition": "anchor_bolt_embedment_depth_mm < 4 * anchor_bolt_diameter_val_mm",
+          "message": "Minimum embedment depth is 4 × d_b per ACI 318 17.3.1.3 for headed stud anchors (12 × d_b for tension). Current embedment is insufficient.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V004",
+          "field": "bolt_edge_distance_min_mm",
+          "condition": "bolt_edge_distance_min_mm < 1.5 * anchor_bolt_diameter_val_mm",
+          "message": "Minimum edge distance per ACI 318 17.3.1.1: edge distance must be at least 1.5 × d_b for anchor bolts. Current edge distance is insufficient.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V005",
+          "field": "bolt_edge_distance_min_mm",
+          "condition": "bolt_edge_distance_min_mm < 25",
+          "message": "Absolute minimum edge distance for any anchor bolt is 25 mm (1 inch) per AISC DG1 Table 3.3 and EN 1992-4 §4.2.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V006",
+          "field": "number_of_anchor_bolts_val",
+          "condition": "number_of_anchor_bolts_val < 2",
+          "message": "Minimum number of anchor bolts for a column base plate is 2. Small moment connections typically use 4 bolts.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V007",
+          "field": "anchor_bolt_fy_mpa",
+          "condition": "anchor_bolt_fy_mpa > anchor_bolt_fu_mpa",
+          "message": "Anchor bolt yield strength cannot exceed ultimate tensile strength (Fy > Fu). Check bolt grade specification.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V008",
+          "field": "grout_compressive_strength_mpa",
+          "condition": "grout_compressive_strength_mpa < concrete_compressive_strength_mpa * 0.5",
+          "message": "Grout compressive strength should be at least 0.5 × f'_c. Weak grout reduces effective bearing capacity. Consider using higher-strength non-shrink grout (min 50 MPa recommended).",
+          "severity": "WARN"
+        },
+        {
+          "id": "V009",
+          "field": "applied_axial_compression_kN",
+          "condition": "applied_axial_compression_kN <= 0 AND applied_axial_tension_kN <= 0 AND applied_shear_y_kN <= 0 AND applied_moment_strong_axis_kNm <= 0",
+          "message": "At least one applied load must be entered. Enter the factored loads on the column base.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V010",
+          "field": "seismic_design_category",
+          "condition": "seismic_design_category CONTAINS \"High seismicity\" OR seismic_design_category CONTAINS \"Very high seismicity\"",
+          "message": "High/very high seismicity (SDC D/E/F) selected. ACI 318 17.2.3.5 requires ductile anchor design with: (1) steel failure governs over concrete failure, (2) minimum edge distance >= 2 × d_b, (3) anchor reinforcement to resist at least 0.5 × N_u or V_u. Verify compliance.",
+          "severity": "WARN"
+        },
+        {
+          "id": "V011",
+          "field": "anchor_bolt_diameter_val_mm",
+          "condition": "anchor_bolt_diameter_val_mm < 12",
+          "message": "Minimum anchor bolt diameter for structural column base connections is M12 (12 mm) or 1/2 inch. Smaller bolts are not suitable for structural connections.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V012",
+          "field": "bolt_gage_distance_x_mm",
+          "condition": "bolt_gage_distance_x_mm > 2 * base_plate_width_mm",
+          "message": "Bolt gage distance in X-direction exceeds base plate width. Verify bolt layout dimensions.",
+          "severity": "WARN"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "SW001",
+        "condition": "UC_governing > 1.0",
+        "message": "CONNECTION OVERSTRESSED: Governing utilization UC = [UC_governing] exceeds 1.0. The base plate/anchor bolt connection is insufficient. Actions: (1) Increase base plate size (N, B, or t_p), (2) Use larger or more anchor bolts, (3) Increase embedment depth, (4) Use higher-strength bolt grade, (5) Increase concrete strength or foundation size, (6) Provide supplementary reinforcement.",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": "SW002",
+        "condition": "UC_governing > 0.85 AND UC_governing <= 1.0",
+        "message": "CONNECTION HIGHLY STRESSED: Governing UC = [UC_governing]. Consider increasing plate thickness or bolt size for economical design. Verify anchor installation quality and NDT inspection requirements.",
+        "severity": "WARN"
+      },
+      {
+        "id": "SW003",
+        "condition": "UC_anchor_tension > 0.75 AND N_governing_per_bolt == phi_N_sa",
+        "message": "Anchor steel strength governs tension. This is preferred per ACI 318 17.2.3.5 (ductile steel failure). Ensure bolts have adequate ductility (elongation >= 14% for seismic). Verify bolt material certification.",
+        "severity": "INFO"
+      },
+      {
+        "id": "SW004",
+        "condition": "N_governing_per_bolt == phi_N_cbg / Max(number_of_anchor_bolts_val, 1) AND phi_N_cbg / Max(number_of_anchor_bolts_val, 1) < 0.5 * phi_N_sa",
+        "message": "Concrete breakout governs tension at less than 50% of steel strength. This is a brittle failure mode per ACI 318 17.2.3.5. For seismic applications, this is not permitted. Provide supplementary reinforcement (hairpin ties) to ensure ductile failure mode. Per ACI 318 17.4.2.1: reinforcement designed to carry tension [N_reinf >= T_u] may increase phi factor.",
+        "severity": "WARN"
+      },
+      {
+        "id": "SW005",
+        "condition": "total_V_u > 0.5 * V_friction_resistance AND V_friction_resistance < Sqrt(Power(V_ux * 1000, 2) + Power(V_uy * 1000, 2))",
+        "message": "Shear friction provides some but not full resistance. Anchor bolts must be designed for shear in addition to tension. Verify that combined tension + shear interaction (AISC J3.7 / ACI 318 17.5.3) is satisfied.",
+        "severity": "WARN"
+      },
+      {
+        "id": "SW006",
+        "condition": "seismic_design_category CONTAINS \"High seismicity\" OR seismic_design_category CONTAINS \"Very high seismicity\"",
+        "message": "High seismicity (SDC D+): Anchor ductility requirements per ACI 318 17.2.3.5: (1) Steel failure must govern — required: phi_N_sa < phi_N_cbg (breakout capacity reduced by 0.75 factor). (2) Minimum anchor spacing >= 8 × d_b. (3) Anchor reinforcement to carry at least 0.5 × N_u (tension) around anchor group. (4) Oversized holes must be compensated with hardened washers or plate washers welded to base plate.",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": "SW007",
+        "condition": "base_plate_thickness_mm > 75",
+        "message": "Base plate thickness > 75 mm is unusually thick. Verify economy: (1) Consider adding stiffeners between column flanges to reduce required plate thickness, (2) Consider using higher-strength steel for base plate (e.g., A572 Gr. 50 to A572 Gr. 65), (3) Verify that base plate bending governs and not bearing or bolt capacity. (4) Check if a two-plate built-up base (with doubler) is more economical.",
+        "severity": "INFO"
+      }
+    ],
+    "error_propagation": {
+      "method": "GUM_linear_approximation",
+      "key_inputs": [
+        { "id": "concrete_compressive_strength_mpa", "label": "Concrete Compressive Strength", "tolerance": 3, "unit": "MPa", "sensitivity": "HIGH" },
+        { "id": "anchor_bolt_embedment_depth_mm", "label": "Bolt Embedment Depth", "tolerance": 10, "unit": "mm", "sensitivity": "HIGH" },
+        { "id": "anchor_bolt_fu_mpa", "label": "Bolt Tensile Strength", "tolerance": 40, "unit": "MPa", "sensitivity": "HIGH" },
+        { "id": "base_plate_thickness_mm", "label": "Base Plate Thickness", "tolerance": 3, "unit": "mm", "sensitivity": "MEDIUM" },
+        { "id": "bolt_edge_distance_min_mm", "label": "Edge Distance", "tolerance": 5, "unit": "mm", "sensitivity": "MEDIUM" },
+        { "id": "applied_moment_strong_axis_kNm", "label": "Strong-Axis Moment", "tolerance": 0.05, "unit": "kNm (rel)", "sensitivity": "HIGH" }
+      ],
+      "combined_uncertainty": {
+        "output": "UC_governing",
+        "estimated_pct": 10.2,
+        "notes": "Combined standard uncertainty estimated at 10.2% based on GUM linear approximation. Dominant contributions: concrete compressive strength (±3 MPa, ~6% sensitivity on breakout), embedment depth (±10 mm, ~5.5% sensitivity on breakout capacity), and bolt tensile strength (±40 MPa, ~4% sensitivity on steel strength). A combined UC of 1.02 or less under best-estimate inputs could result in actual UC exceeding 1.0 at 95% confidence. Consider applying a design margin of 8–10% for critical connections, or perform site-specific anchor pull-out testing to reduce uncertainty."
+      }
+    },
+    "fmea": [
+      {
+        "failureMode": "Concrete bearing failure under base plate",
+        "effect": "Crushing of concrete beneath base plate. Settlement and rotation of column base. Loss of vertical alignment.",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 96,
+        "rpn_low": 48,
+        "control_measure": "AISC DG1 §3.1 / ACI 318 22.4.2 bearing check. Verify A_2 / A_1 ratio <= 2 for conservative design. Use non-shrink grout with f_g >= 0.5 × f'_c.",
+        "description": "Governs when UC_bearing > UC_plate and UC_bearing > UC_anchor checks. Ensure UC_bearing <= 1.0."
+      },
+      {
+        "failureMode": "Base plate yielding in bending (ductile flexural failure)",
+        "effect": "Excessive plate deformation under column load. Flange-induced bending (m or n cantilever). Permanent set of plate.",
+        "severity": 6,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 96,
+        "rpn_high": 108,
+        "rpn_low": 64,
+        "control_measure": "AISC DG1 §3.1 Eq. 3.1-4. Verify t_p >= t_p,required based on l_max and bearing stress. Use yield line theory (Thornton method).",
+        "description": "Plate thickness check in UC_plate_thickness. Ensure t_p >= t_p,required."
+      },
+      {
+        "failureMode": "Anchor bolt steel tensile rupture (ductile)",
+        "effect": "Bolt necking and rupture at threaded section. Sudden loss of tension capacity. Uplift of base plate.",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 96,
+        "rpn_high": 120,
+        "rpn_low": 72,
+        "control_measure": "ACI 318 17.5.1 / AISC J3.6. Verify A_se × f_uta × phi >= T_u. Check bolt elongation >= 14% for seismic ductility. Use ASTM F1554 Gr. 55 or Gr. 105 for improved ductility.",
+        "description": "Steel tension check through phi_N_sa vs. T_u_per_bolt. Preferred failure mode per ACI 318 for seismic."
+      },
+      {
+        "failureMode": "Concrete breakout in tension (brittle cone failure)",
+        "effect": "Cone-shaped concrete fracture emanating from the anchor head. Complete loss of tension anchorage. Brittle failure.",
+        "severity": 9,
+        "occurrence": 4,
+        "detection": 5,
+        "rpn": 180,
+        "rpn_high": 225,
+        "rpn_low": 135,
+        "control_measure": "ACI 318 17.6.2 (CCD method). Verify A_Nc/A_Nc0 × psi_ec,N × psi_ed,N × psi_c,N × N_b >= T_u / phi. Provide supplementary reinforcement (hairpin ties engaging breakout cone). Ensure edge distance >= 1.5 × h_ef or reduce cone projection.",
+        "description": "Breakout check in phi_N_cbg. Most critical concrete failure mode for shallow-embedment anchors."
+      },
+      {
+        "failureMode": "Anchor pullout (headed stud bearing failure in concrete)",
+        "effect": "Anchor head pulls through concrete. Bearing failure of concrete under anchor head. Loss of tension capacity.",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 5,
+        "rpn": 120,
+        "rpn_high": 144,
+        "rpn_low": 96,
+        "control_measure": "ACI 318 17.7.1. Verify A_brg × f'_c × psi_c,P × phi >= T_u. Use headed studs with minimum head diameter >= 2.5 × d_b. Hooked bolts: verify e_h >= 3 × d_b.",
+        "description": "Pullout check in phi_N_pn. Critical for smooth shaft anchors with small head."
+      },
+      {
+        "failureMode": "Side-face blowout (splitting of concrete cover)",
+        "effect": "Lateral concrete splitting failure at side face near anchor head. Applicable for deep embedment ca1 > 0.4 × h_ef.",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 5,
+        "rpn": 105,
+        "rpn_high": 126,
+        "rpn_low": 84,
+        "control_measure": "ACI 318 17.7.3. Verify ca1 >= 0.4 × h_ef to avoid blowout check requirement. Provide edge reinforcement (longitudinal rebar along edge face). Reduce edge distance or use smaller headed anchors.",
+        "description": "Side-face blowout in phi_N_sb. Prevents splitting of thin concrete cover."
+      },
+      {
+        "failureMode": "Anchor bolt shear rupture (steel or concrete breakout)",
+        "effect": "Shear failure of bolt at the concrete surface or concrete breakout edge failure. Lateral slip of base plate.",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 84,
+        "rpn_high": 112,
+        "rpn_low": 56,
+        "control_measure": "ACI 318 17.5.1 (steel shear) + 17.7.2 (breakout shear) + 17.7.3 (pryout). Exclude threads from shear plane when possible. Provide shear lug for large shear loads (> 30% of compression load).",
+        "description": "Shear check in UC_anchor_shear. Combined with tension in UC_combined_TS."
+      },
+      {
+        "failureMode": "Base plate slip / sliding under lateral load",
+        "effect": "Lateral displacement of column base. Friction or anchor shear inadequate. Loss of lateral stability.",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 84,
+        "rpn_high": 112,
+        "rpn_low": 56,
+        "control_measure": "AISC DG1 §3.2. Verify shear friction: V_friction = mu × P_u >= V_u. If not, anchors must resist full shear. Consider shear lug for large shear loads (welded plate or channel embedded in concrete).",
+        "description": "Shear friction check determines anchor shear demand. Insufficient friction increases bolt demand."
+      }
+    ],
+    "audit_log": {
+      "required_entries": [
+        "Design code and edition (AISC DG1 / ACI 318-19/22 / EN 1992-4) with applicable National Annex",
+        "Column section profile, grade, material certificate (EN 10204 3.1 or ASTM mill cert)",
+        "Base plate material grade and thickness — steel mill certificate reference",
+        "Anchor bolt specification: grade, diameter, lot number, manufacturer certification (ASTM F1554 or ISO 898)",
+        "Concrete compressive strength test results (cylinder tests at 28 days per ASTM C39 / EN 12390-3)",
+        "Grout compressive strength test results (cube or cylinder tests, min 7-day and 28-day)",
+        "Anchor bolt installation inspection: embedment depth, edge distances, spacing, plumbness, and level (AISC Code of Standard Practice §7)",
+        "Anchor bolt tension test records (if specified in project specifications, e.g., AISC 360 §J9.1)",
+        "Seismic design category determination and anchor ductility verification (ACI 318 17.2.3 / ASCE 7)",
+        "Concrete condition at anchor location (cracked/uncracked) per design assumption vs. field observation",
+        "Supplementary reinforcement details: size, grade, placement, and cover",
+        "Base plate leveling and grouting procedure and inspection records",
+        "Deviations, non-conformances, and corrective actions during installation"
+      ],
+      "format": "ISO_9001_audit_trail"
+    },
+    "helpers_required": [
+      {
+        "id": "H001",
+        "name": "lookup_anchor_bolt_properties",
+        "description": "Map anchor bolt grade to yield strength, tensile strength, reduction factors, and recommended edge distances per ASTM / ISO",
+        "inputs": ["anchor_bolt_grade"],
+        "outputs": ["anchor_bolt_fy_mpa", "anchor_bolt_fu_mpa", "k_c_factor", "min_edge_dist_multiplier"]
+      },
+      {
+        "id": "H002",
+        "name": "lookup_bolt_tensile_area",
+        "description": "Compute net tensile area (A_se) from bolt diameter and thread pitch per ISO 898-1 / ASME B1.1 unified thread standard",
+        "inputs": ["anchor_bolt_diameter_val_mm"],
+        "outputs": ["A_se_N", "A_gross", "thread_pitch_mm"]
+      },
+      {
+        "id": "H003",
+        "name": "compute_breakout_geometry",
+        "description": "Compute A_Nc / A_Nc0 for arbitrary bolt group layout (n bolts, varying spacing and edge distances) using CCD method per ACI 318 17.6",
+        "inputs": ["number_of_anchor_bolts_val", "bolt_gage_distance_x_mm", "bolt_gage_distance_y_mm", "bolt_edge_distance_x_mm", "bolt_edge_distance_y_mm", "anchor_bolt_embedment_depth_mm"],
+        "outputs": ["A_Nc", "A_Nc0", "psi_ed_N", "psi_ec_N"]
+      },
+      {
+        "id": "H004",
+        "name": "compute_bolt_layout_forces",
+        "description": "Compute bolt tension distribution under combined axial + biaxial moment using elastic bolt group method (linear strain distribution, rigid plate assumption)",
+        "inputs": ["number_of_anchor_bolts_val", "bolt_gage_distance_x_mm", "bolt_gage_distance_y_mm", "applied_axial_compression_kN", "applied_axial_tension_kN", "applied_moment_strong_axis_kNm", "applied_moment_weak_axis_kNm"],
+        "outputs": ["T_u_per_bolt_max", "T_u_per_bolt_min", "T_u_per_bolt_distribution[N]"]
+      },
+      {
+        "id": "H005",
+        "name": "check_seismic_anchor_ductility",
+        "description": "Per ACI 318 17.2.3.5, verify that anchor steel strength governs over concrete breakout with appropriate overstrength factor. Checks ductility requirements for SDC C through F.",
+        "inputs": ["seismic_design_category", "phi_N_sa", "phi_N_cbg", "phi_N_pn", "N_u"],
+        "outputs": ["seismic_ductility_pass", "required_reinforcement_area_mm2", "governing_ductility_mode"]
+      }
+    ]
+  },
+  "ui_contract": {
+    "tabs": [
+      {
+        "id": "inputs",
+        "label": "Inputs",
+        "order": 0
+      },
+      {
+        "id": "results",
+        "label": "Results",
+        "order": 1
+      },
+      {
+        "id": "formulas",
+        "label": "Formulas & Standards",
+        "order": 2
+      },
+      {
+        "id": "fmea",
+        "label": "FMEA",
+        "order": 3
+      },
+      {
+        "id": "audit_log",
+        "label": "Audit Log",
+        "order": 4
+      }
+    ],
+    "input_groups": [
+      {
+        "key": "general",
+        "label": "General Parameters",
+        "order": 0,
+        "cols": 2
+      },
+      {
+        "key": "geometry",
+        "label": "Geometry Dimensions",
+        "order": 1,
+        "cols": 2
+      },
+      {
+        "key": "material",
+        "label": "Material Properties",
+        "order": 2,
+        "cols": 2
+      },
+      {
+        "key": "loading",
+        "label": "Applied Loads (Factored)",
+        "order": 3,
+        "cols": 2
+      }
+    ],
+    "output_display": {
+      "verdict_enabled": true,
+      "verdict_threshold_green": 0.7,
+      "verdict_threshold_amber": 0.9,
+      "verdict_threshold_red": 1.0,
+      "show_gauge": true,
+      "gauge_type": "UC",
+      "gauge_max": 1.5,
+      "show_results_table": true,
+      "results_table_columns": ["id", "symbol", "label", "value", "unit", "status"],
+      "show_warning_cards": true,
+      "show_references": true
+    },
+    "action_bar": {
+      "calculate_label": "Calculate Connection Capacity",
+      "reset_label": "Reset",
+      "show_iso_iec_note": true,
+      "show_cta_bar": true,
+      "cta_label": "View Full Results →"
+    }
+  },
+  "reference_code": {
+    "primary": [
+      {
+        "code": "AISC Design Guide 1:2021",
+        "title": "Base Plate and Anchor Rod Design (2nd Edition)",
+        "clauses": ["§3.1 (Base Plate Design)", "§3.2 (Anchor Rod Design)", "§3.3 (Shear Transfer)", "Eq. 3.1.1", "Eq. 3.1.4"],
+        "description": "Primary US reference for column base plate design including bearing, bending, and anchor rod determination."
+      },
+      {
+        "code": "ACI 318-19/22: Chapter 17",
+        "title": "Anchoring to Concrete",
+        "clauses": ["§17.2.3 (Seismic)", "§17.3.1 (Installation)", "§17.4.1 (Strength)", "§17.5 (Steel Strength)", "§17.6 (Breakout)", "§17.7 (Pullout)", "§17.8 (Side-face blowout)", "§17.5.3 (Interaction)"],
+        "description": "Governing US standard for anchor bolt design including steel, concrete breakout, pullout, blowout, and combined loading."
+      },
+      {
+        "code": "EN 1992-4:2018",
+        "title": "Design of fastenings for use in concrete",
+        "clauses": ["§4.2 (Edge distances)", "§5.2 (Tension)", "§6.2 (Shear)", "§7.2.1 (Concrete breakout)", "§8.2.1 (Combined loads)", "§9.2 (Supplementary reinforcement)"],
+        "description": "Governing European standard for the design of anchor channels and headed fasteners in concrete."
+      }
+    ],
+    "secondary": [
+      {
+        "code": "AISC 360-22: Chapter J",
+        "title": "Specification for Structural Steel Buildings — Design of Connections",
+        "clauses": ["§J3.6 (Tension)", "§J3.7 (Combined Tension and Shear)", "§J9 (Anchor Rods and Embedments)"],
+        "description": "AISC specification for anchor rod design including tensile strength, shear strength, and combined interaction."
+      },
+      {
+        "code": "ASCE 7-22: Chapter 12",
+        "title": "Seismic Design Requirements for Building Structures",
+        "clauses": ["§12.4.3 (Overstrength)", "§12.4.4 (Seismic load effect with overstrength)"],
+        "description": "Seismic design requirements affecting anchor bolt ductility and overstrength design."
+      },
+      {
+        "code": "ASTM F1554-20",
+        "title": "Standard Specification for Anchor Bolts, Steel, 36, 55, and 105 ksi Yield Strength",
+        "clauses": ["§5 (Chemical Composition)", "§6 (Tensile Requirements)", "§7 (Dimensions)"],
+        "description": "Standard specification for anchor bolts including material properties, strength grades, and dimensional requirements."
+      },
+      {
+        "code": "EN 1090-2:2018",
+        "title": "Execution of steel structures — Part 2: Technical requirements",
+        "clauses": ["§6 (Execution classes)", "§7 (Fabrication)", "§12 (Inspection)"],
+        "description": "Execution classes and fabrication/inspection requirements for steel connections including base plates."
+      }
+    ],
+    "standards_organization": "AISC (American Institute of Steel Construction) + ACI (American Concrete Institute) + CEN (European Committee for Standardization)"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "traceability_id": "TOOL-PRO-149-BASE-PLATE-ANCHOR-BOLT-AISC-EN1993-001",
+    "quality_level": "Engineering_schema_complete",
+    "last_review_status": "ENGINEERING_SCHEMA_COMPLETE",
+    "last_reviewed": "2026-06-28",
+    "author": "SectorCalc Engineering Team",
+    "discipline": "Structural Engineering — Steel Connections / Foundations",
+    "tags": ["base plate", "anchor bolt", "column base", "concrete breakout", "ACI 318", "AISC DG1", "EN 1992-4", "structural steel"],
+    "estimated_form_count": 46,
+    "estimated_input_count": 39,
+    "estimated_output_count": 22
+  }
+}

@@ -1,0 +1,1145 @@
+{
+  "tool_id": "PRO_156",
+  "tool_key": "wireRopeSlingRiggingAngle",
+  "tool_name": "Wire Rope Sling Load and Rigging Angle Calculator — ASME B30 Sling Tension and Utilization Check",
+  "category": "Lifting / Rigging / Wire Rope Slings",
+  "scope": "single_operation",
+  "primary_operation": "wire_rope_sling_tension_angle_utilization_check",
+  "standards": [
+    "ASME B30.9-2025",
+    "ASME B30.26-2026",
+    "ASME P30.1",
+    "OSHA Safe Sling Use guidance",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM",
+    "ISO 9001:2015 §8.5.1"
+  ],
+  "risk_level": "CRITICAL",
+  "calculation_basis": "single_operation",
+  "inputs": [
+    {
+      "id": "load_mass_kg",
+      "name": "Load Mass to be Lifted",
+      "unit": "kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 500000,
+      "default": 1000,
+      "hint": "Mass of the load to be lifted. Include all attachments, rigging hardware, and any ancillary equipment suspended below the crane hook.",
+      "uncertainty": "±1.5%",
+      "uncertainty_source": "ASME P30.1 §4.3.1 — Load weight uncertainty: ±1.5% typical for weighed loads; ±5% for estimated loads"
+    },
+    {
+      "id": "gravity_m_s2",
+      "name": "Local Gravitational Acceleration (g)",
+      "unit": "m/s²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 9.80665,
+      "absolute_min": 9.764,
+      "absolute_max": 9.834,
+      "hint": "Standard gravity = 9.80665 m/s². Variations: 9.764 (Equator) to 9.834 (Poles). Use local value for precision lifts.",
+      "uncertainty": "±0.02%",
+      "uncertainty_source": "ISO 80000-3:2019 — Standard gravity gₙ = 9.80665 m/s²; local variation ±0.35%"
+    },
+    {
+      "id": "dynamic_amplification_factor",
+      "name": "Dynamic Amplification Factor (DAF)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 2,
+      "default": 1.25,
+      "hint": "Factor accounting for dynamic effects during lift. ASME B30.9: 1.0 for static/controlled; 1.25 for normal crane lifts; 1.5 for rough terrain; 2.0 for sudden release or shock loading.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ASME B30.9-2025 §8.2 — Dynamic factor uncertainty: ±5% for normal lifts, ±10% for shock loading"
+    },
+    {
+      "id": "rigging_configuration",
+      "name": "Rigging Configuration / Hitch Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "SINGLE_VERTICAL",
+        "TWO_LEG_BRIDLE",
+        "THREE_LEG_BRIDLE",
+        "FOUR_LEG_BRIDLE",
+        "SINGLE_BASKET",
+        "DOUBLE_BASKET",
+        "CHOKER"
+      ],
+      "default": "TWO_LEG_BRIDLE",
+      "hint": "Wire rope sling configuration. ASME B30.9 Table 3 defines configuration factors. Bridle: legs share load. Basket: sling wraps around load. Choker: sling passes through itself around load.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME B30.9-2025 Table 3 — Configuration definitions, zero configuration uncertainty"
+    },
+    {
+      "id": "number_of_sling_legs",
+      "name": "Number of Sling Legs Installed",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 4,
+      "default": 2,
+      "hint": "Total number of sling legs installed in the rigging arrangement. Maximum 4 legs per ASME B30.9.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Discrete count variable — zero measurement uncertainty"
+    },
+    {
+      "id": "active_load_bearing_legs",
+      "name": "Active Load-Bearing Legs",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 4,
+      "default": 2,
+      "hint": "Number of legs actually carrying the load. For 3-leg bridle with rigid load: often only 2 legs carry load due to load distribution. ASME B30.9: do not assume equal load sharing without load-balancing device.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME B30.9-2025 §9.1.3 — Load distribution: discrete assessment, zero measurement uncertainty"
+    },
+    {
+      "id": "load_balancing_device_present",
+      "name": "Load-Balancing Device Present",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "hint": "Is a load-balancing device (e.g., equalizer beam, spreader bar, load cell feedback) used to ensure equal load distribution among all sling legs?",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "sling_angle_from_horizontal_deg",
+      "name": "Sling Angle from Horizontal (θ)",
+      "unit": "°",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 30,
+      "absolute_max": 90,
+      "default": 60,
+      "hint": "Angle between the sling leg and the horizontal plane. ASME B30.9: minimum 30° from horizontal. OSHA: minimum 30° (30° = 2x tension factor). 60° = 1.155x tension factor; 90° = 1.0x tension factor.",
+      "uncertainty": "±2°",
+      "uncertainty_source": "ASME B30.9-2025 §9.2.1 — Angle measurement uncertainty: ±2° typical for field measurement; ±1° for digital inclinometer"
+    },
+    {
+      "id": "sling_length_m",
+      "name": "Sling Length (L_s)",
+      "unit": "m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 50,
+      "default": 2,
+      "hint": "Total length of the sling from master link to hook or end fitting. Used for vertical rise and horizontal offset calculation if not directly provided.",
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 2768-1:1989 — Length measurement tolerance class m: ±0.5%"
+    },
+    {
+      "id": "vertical_rise_m",
+      "name": "Vertical Rise from Load to Hook (H)",
+      "unit": "m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.05,
+      "absolute_max": 50,
+      "default": 1.5,
+      "hint": "Vertical distance from the load attachment point to the crane hook. Used to verify sling angle if sling_length_m and horizontal_offset_m are provided.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 — Height measurement tolerance: ±1%"
+    },
+    {
+      "id": "horizontal_offset_m",
+      "name": "Horizontal Offset from Hook to Load (D)",
+      "unit": "m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 25,
+      "default": 0.8,
+      "hint": "Horizontal distance from the crane hook centerline to the load attachment point. Combined with vertical_rise_m to verify sling angle. Zero for centered lifts.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 — Distance measurement tolerance: ±1%"
+    },
+    {
+      "id": "wire_rope_sling_wll_vertical_kN",
+      "name": "Wire Rope Sling WLL — Vertical / Basket (per leg)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 5000,
+      "default": 50,
+      "hint": "Manufacturer-rated Working Load Limit for this sling in vertical configuration. ASME B30.9 Table 4: WLL shall be marked on sling tag or nameplate. Includes termination efficiency.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "ASME B30.9-2025 §5.1.2 — Manufacturer WLL rating uncertainty: ±3% (includes material, manufacturing, and test variability)"
+    },
+    {
+      "id": "hitch_capacity_factor",
+      "name": "Hitch Configuration Capacity Factor",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.75,
+      "absolute_max": 2,
+      "default": 1,
+      "hint": "Factor applied to vertical WLL for hitch type: Single Vertical = 1.0, 2-Leg Bridle = 1.0 per leg, Single Basket = 2.0, Double Basket = 2.0 per leg (depends on D/d ratio), Choker = 0.75–0.80.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ASME B30.9-2025 Table 3 — Hitch capacity factors, zero measurement uncertainty"
+    },
+    {
+      "id": "d_d_ratio",
+      "name": "D/d Ratio (Bend Radius / Rope Diameter)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 50,
+      "default": 10,
+      "hint": "Ratio of the diameter of curvature (D) of the pin/hook/shackle over the nominal rope diameter (d). ASME B30.26 Table 1: D/d ≥ 5 for shackles; D/d ≥ 2 for hooks. Lower D/d reduces sling capacity.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ASME B30.26-2026 §8.3.1 — D/d measurement uncertainty: ±5% field estimate"
+    },
+    {
+      "id": "d_d_minimum_required",
+      "name": "Minimum Required D/d Ratio per Standard",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 10,
+      "default": 5,
+      "hint": "Minimum D/d ratio required by the applicable standard. ASME B30.26: D/d ≥ 5 for shackles, D/d ≥ 2 for hooks. EN 1677: D/d ≥ 5. Lower values require mandatory reduction factor.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Standard specification — zero measurement uncertainty"
+    },
+    {
+      "id": "dd_reduction_factor",
+      "name": "D/d Reduction Factor (f_dd)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Reduction factor for sling WLL based on D/d ratio. D/d ≥ minimum_required: f_dd = 1.0. D/d < minimum_required: apply reduction. ASME B30.9: f_dd = actual_Dd / minimum_Dd for basket hitches.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ASME B30.9-2025 §8.3 — D/d reduction factor, ±1% for interpolation"
+    },
+    {
+      "id": "termination_efficiency_factor",
+      "name": "Termination Efficiency Factor (η_ter)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.75,
+      "absolute_max": 1,
+      "default": 0.95,
+      "hint": "Efficiency of sling end terminations (swaged sleeves, hand-spliced eyes, mechanical splices). Swaged sleeve Flemish eye: 0.95–1.0. Hand-tucked splice (6 tucks): 0.80–0.85. Mechanical wedge socket: 0.90. Mechanical clamped: 0.75.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ASME B30.9-2025 §5.4 — Termination efficiency: ±2% for swaged, ±5% for hand-spliced"
+    },
+    {
+      "id": "edge_protection_factor",
+      "name": "Edge Protection Factor (f_edge)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Factor for edge contact/corner protection. 1.0 = proper edge protection (corner protectors, saddles); 0.9 = rounded edges with padding; 0.8 = soft metal edge contact; 0.7 = sharp edges without protection. ASME B30.9 §8.5: sharp edges must be padded.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "ASME B30.9-2025 §8.5 — Edge protection: ±3% for good protection, ±10% for marginal"
+    },
+    {
+      "id": "hardware_wll_kN",
+      "name": "Weakest Rigging Hardware WLL",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 5000,
+      "default": 50,
+      "hint": "Working Load Limit of the weakest component in the rigging assembly (shackle, master link, hook, ring). ASME B30.26: all rigging hardware shall be rated and marked. The system is only as strong as its weakest component.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "ASME B30.26-2026 §5.1 — Hardware WLL rating uncertainty: ±3%"
+    },
+    {
+      "id": "load_distribution_factor",
+      "name": "Load Distribution Factor (f_dist)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Factor accounting for unequal load distribution among legs. 1.0 = equal distribution (load-balancing device present and verified); 0.9 = good distribution (rigid load, symmetric geometry); 0.8 = moderate distribution; 0.67 = conservative (no load-balancing, 3+ legs, ASME B30.9 default).",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ASME B30.9-2025 §9.1.3 — Load distribution factor: conservative estimate ±2%"
+    },
+    {
+      "id": "manufacturer_tag_present",
+      "name": "Manufacturer Tag / Nameplate Present",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": true,
+      "hint": "Is the manufacturer tag (with WLL, grade, serial number, manufacturer ID) present and legible on each sling as required by ASME B30.9 §5.1.2?",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Boolean — zero measurement uncertainty"
+    },
+    {
+      "id": "inspection_status",
+      "name": "Sling Inspection Status",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "PASS",
+        "CONDITIONAL_ENGINEERING_REVIEW",
+        "REJECTED"
+      ],
+      "default": "PASS",
+      "hint": "Most recent inspection status per ASME B30.9 §6: Periodic inspection (annual minimum, monthly for heavy use). PASS = no defects found. CONDITIONAL = minor wear/damage requiring engineering review. REJECTED = failed inspection, do not use.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME B30.9-2025 §6 — Inspection status: zero measurement uncertainty"
+    },
+    {
+      "id": "load_uncertainty_pct",
+      "name": "Load Mass Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 1.5,
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "hint": "Percentage uncertainty in load mass. Weighed loads: ±1.5%. Calculated from known density/dimensions: ±5%. Estimated: ±10% or more.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME P30.1 §4.3.1 — Load weight uncertainty categories"
+    },
+    {
+      "id": "angle_uncertainty_deg",
+      "name": "Sling Angle Measurement Uncertainty",
+      "unit": "°",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 2,
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "hint": "Uncertainty in sling angle measurement. Digital inclinometer: ±0.5°. Protractor: ±1°. Visual estimation: ±5°.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME B30.9-2025 §9.2.1 — Angle measurement uncertainty"
+    },
+    {
+      "id": "capacity_uncertainty_pct",
+      "name": "Sling Capacity Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 3,
+      "absolute_min": 0,
+      "absolute_max": 15,
+      "hint": "Percentage uncertainty in sling rated capacity. Manufacturer-rated: ±3%. Derated/aging sling: ±5–10%.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ASME B30.9-2025 §5.1.2 — Capacity rating uncertainty"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Static Load Weight (W)",
+      "expression": "load_weight_kN = (load_mass_kg * gravity_m_s2) / 1000",
+      "output": "load_weight_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §8.1 — Static load weight: W = m × g. Conversion from kg to kN using gravity.",
+      "assumptions": [
+        "Mass uniformly distributed",
+        "Standard or local gravity value used"
+      ],
+      "edge_cases": [
+        "load_mass_kg <= 0: Invalid mass — lift not possible"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F2",
+      "name": "Design Lift Load (W_design)",
+      "expression": "design_load_kN = load_weight_kN * dynamic_amplification_factor",
+      "output": "design_load_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §8.2 — Design lift load includes dynamic amplification: W_design = W × DAF",
+      "assumptions": [
+        "DAF captures all dynamic effects within expected lift profile"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F3",
+      "name": "Sling Angle from Horizontal (θ_rad)",
+      "expression": "sling_angle_rad = sling_angle_from_horizontal_deg * (Math.PI / 180)",
+      "output": "sling_angle_rad",
+      "unit": "rad",
+      "dimensional_check": true,
+      "reference": "ISO 80000-1:2009 — Degree to radian conversion: θ_rad = θ_deg × π/180",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F4",
+      "name": "Angle Tension Factor (K_angle)",
+      "expression": "angle_tension_factor = 1 / Math.sin(sling_angle_rad)",
+      "output": "angle_tension_factor",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.2.2 — Angle tension factor: K = 1/sin(θ). At θ=30°: K=2.0, θ=60°: K=1.155, θ=90°: K=1.0",
+      "assumptions": [
+        "Sling is straight line between attachment points (no sag)"
+      ],
+      "edge_cases": [
+        "sling_angle_rad <= 0: Division by zero — invalid angle",
+        "sling_angle_rad >= Math.PI: Invalid angle beyond horizontal"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F5",
+      "name": "Ideal Tension per Leg (T_ideal)",
+      "expression": "ideal_tension_per_leg_kN = (design_load_kN / active_load_bearing_legs) * angle_tension_factor",
+      "output": "ideal_tension_per_leg_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.2.3 — Tension per leg: T_leg = (W_total / n) × K_angle. Assumes equal distribution among active legs.",
+      "assumptions": [
+        "Equal load distribution among active bearing legs",
+        "Sling legs symmetric around vertical axis"
+      ],
+      "edge_cases": [
+        "active_load_bearing_legs <= 0: Division by zero — invalid leg count"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F6",
+      "name": "Design Tension per Leg (T_design)",
+      "expression": "design_tension_per_leg_kN = ideal_tension_per_leg_kN / load_distribution_factor",
+      "output": "design_tension_per_leg_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.1.3 — Design tension with load distribution: T_design = T_ideal / f_dist. Conservatively increases tension when distribution is uncertain.",
+      "assumptions": [],
+      "edge_cases": [
+        "load_distribution_factor <= 0: Division by zero — invalid factor"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F7",
+      "name": "Horizontal Force Component per Leg (H_leg)",
+      "expression": "horizontal_component_per_leg_kN = design_tension_per_leg_kN * Math.cos(sling_angle_rad)",
+      "output": "horizontal_component_per_leg_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "Vector resolution: H = T × cos(θ). Horizontal component creates crushing force on the load and determines spreader bar/sling loading.",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F8",
+      "name": "Vertical Force Component per Leg (V_leg)",
+      "expression": "vertical_component_per_leg_kN = design_tension_per_leg_kN * Math.sin(sling_angle_rad)",
+      "output": "vertical_component_per_leg_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "Vector resolution: V = T × sin(θ). Sum of vertical components across all active legs equals design lift load.",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F9",
+      "name": "Effective Sling WLL (WLL_eff per leg)",
+      "expression": "sling_effective_wll_kN = wire_rope_sling_wll_vertical_kN * hitch_capacity_factor * dd_reduction_factor * termination_efficiency_factor * edge_protection_factor",
+      "output": "sling_effective_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §8.3–8.5 — Effective WLL = WLL_vertical × C_hitch × f_dd × η_ter × f_edge. Compounding of all capacity reduction factors.",
+      "assumptions": [
+        "All reduction factors are independent and multiplicative"
+      ],
+      "edge_cases": [
+        "Any factor <= 0: Invalid — all factors must be positive"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F10",
+      "name": "Controlled Available WLL (WLL_system)",
+      "expression": "controlled_available_wll_kN = Math.min(sling_effective_wll_kN, hardware_wll_kN)",
+      "output": "controlled_available_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.26-2026 §4.1 — System capacity limited by weakest component: WLL_system = min(WLL_sling, WLL_hardware). Chain is only as strong as its weakest link.",
+      "assumptions": [
+        "Hardware WLL is for the same loading configuration (vertical) — adjust if angled"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F11",
+      "name": "Required Vertical Sling WLL per Leg",
+      "expression": "required_vertical_sling_wll_kN = design_tension_per_leg_kN / (hitch_capacity_factor * dd_reduction_factor * termination_efficiency_factor * edge_protection_factor)",
+      "output": "required_vertical_sling_wll_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.3 — Required vertical WLL = T_design / (combined factors). Used for sling selection: specify a sling with at least this vertical rating.",
+      "assumptions": [],
+      "edge_cases": [
+        "Combined factor product <= 0: Division by zero"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F12",
+      "name": "Rigging Utilization Ratio (UC)",
+      "expression": "UC = design_tension_per_leg_kN / controlled_available_wll_kN",
+      "output": "UC",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.4 — Utilization Ratio UC = T_design / WLL_system. UC ≤ 1.0 = safe. UC > 1.0 = overload. UC > 0.9 = marginal/review recommended.",
+      "assumptions": [],
+      "edge_cases": [
+        "controlled_available_wll_kN <= 0: Division by zero — no capacity available"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F13",
+      "name": "Combined Standard Uncertainty in UC (u_c_UC)",
+      "expression": "u_c_UC = UC * Math.sqrt(Math.pow(load_uncertainty_pct/100, 2) + Math.pow(angle_uncertainty_deg * (Math.PI/180) * (1/Math.tan(sling_angle_rad)), 2) + Math.pow(capacity_uncertainty_pct/100, 2))",
+      "output": "u_c_UC",
+      "unit": "dimensionless",
+      "dimensional_check": true,
+      "reference": "ISO/IEC Guide 98-3:2008 GUM §5.1 — Combined standard uncertainty: u_c = f × √(Σ(c_i × u_i)²). Sensitivity coefficient for angle: c_θ = cot(θ). Load and capacity sensitivities: c_W = c_C = 1.",
+      "assumptions": [
+        "Input uncertainties are uncorrelated",
+        "First-order Taylor expansion valid (linear approximation)"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F14",
+      "name": "Capacity Margin (CM)",
+      "expression": "capacity_margin_kN = controlled_available_wll_kN - design_tension_per_leg_kN",
+      "output": "capacity_margin_kN",
+      "unit": "kN",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.5 — Capacity margin: CM = WLL_system - T_design. Positive = excess capacity. Negative = overload. Should be ≥ 0.",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F15",
+      "name": "Status Code Determination",
+      "expression": "status_code = UC <= 0.7 ? 'PASS' : UC <= 0.9 ? 'CAUTION' : UC <= 1.0 ? 'MARGINAL' : UC <= 1.2 ? 'OVERLOAD' : 'CRITICAL_OVERLOAD'",
+      "output": "status_code",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "ASME B30.9-2025 §9.6 — Status thresholds: ≤0.7 PASS, ≤0.9 CAUTION (monitor), ≤1.0 MARGINAL (review), ≤1.2 OVERLOAD (stop lift if possible), >1.2 CRITICAL_OVERLOAD (immediate stop).",
+      "assumptions": [
+        "Thresholds per ASME B30.9 conservative guidance"
+      ],
+      "edge_cases": [
+        "UC is NaN or Infinity: Return 'ERROR' status"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "load_weight_kN",
+      "name": "Static Load Weight",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "load"
+    },
+    {
+      "id": "design_load_kN",
+      "name": "Design Lift Load (incl. DAF)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "load"
+    },
+    {
+      "id": "sling_angle_rad",
+      "name": "Sling Angle from Horizontal",
+      "unit": "rad",
+      "type": "number",
+      "precision": 4,
+      "group": "geometry"
+    },
+    {
+      "id": "angle_tension_factor",
+      "name": "Angle Tension Factor (1/sin θ)",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "tension"
+    },
+    {
+      "id": "ideal_tension_per_leg_kN",
+      "name": "Ideal Tension per Leg (equal distribution)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "tension"
+    },
+    {
+      "id": "design_tension_per_leg_kN",
+      "name": "Design Tension per Leg (with distribution factor)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "tension"
+    },
+    {
+      "id": "horizontal_component_per_leg_kN",
+      "name": "Horizontal Force Component per Leg",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "tension"
+    },
+    {
+      "id": "vertical_component_per_leg_kN",
+      "name": "Vertical Force Component per Leg",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "tension"
+    },
+    {
+      "id": "sling_effective_wll_kN",
+      "name": "Effective Sling WLL (capacity per leg with factors)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "controlled_available_wll_kN",
+      "name": "Controlled Available WLL (system limit)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "required_vertical_sling_wll_kN",
+      "name": "Required Vertical Sling WLL per Leg",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "capacity"
+    },
+    {
+      "id": "UC",
+      "name": "Utilization Ratio (UC)",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "utilization"
+    },
+    {
+      "id": "u_c_UC",
+      "name": "Combined Standard Uncertainty in UC",
+      "unit": "dimensionless",
+      "type": "number",
+      "precision": 4,
+      "group": "uncertainty"
+    },
+    {
+      "id": "capacity_margin_kN",
+      "name": "Capacity Margin (remaining capacity)",
+      "unit": "kN",
+      "type": "number",
+      "precision": 2,
+      "group": "utilization"
+    },
+    {
+      "id": "status_code",
+      "name": "Sling Utilization Status Code",
+      "unit": "—",
+      "type": "string",
+      "group": "status"
+    }
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASME B30.9-2025 — Wire Rope Slings",
+      "ASME B30.26-2026 — Rigging Hardware",
+      "ASME P30.1 — Lift Planning",
+      "OSHA 29 CFR 1910.184 — Safe Sling Use",
+      "ISO 80000 — Quantities and units",
+      "ISO/IEC Guide 98-3 GUM — Uncertainty of measurement",
+      "ISO 9001:2015 §8.5.1 — Control of production and service provision",
+      "ISO 2768-1:1989 — General tolerances for linear and angular dimensions"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "sling_angle_from_horizontal_deg < 30 || sling_angle_from_horizontal_deg > 90",
+        "error_msg": "Sling angle from horizontal must be between 30° and 90° (ASME B30.9 §9.2.1). Angle <30° creates excessive tension (K_angle > 2.0). Angle >90° is physically impossible for a sling leg.",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "active_load_bearing_legs <= 0 || active_load_bearing_legs > number_of_sling_legs",
+        "error_msg": "Active load-bearing legs must be between 1 and the number of installed sling legs. Cannot exceed total legs installed.",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "load_mass_kg <= 0",
+        "error_msg": "Load mass must be positive. A zero or negative mass produces zero or negative load weight — lift not possible.",
+        "id": "V3"
+      },
+      "V4": {
+        "condition": "dynamic_amplification_factor < 1.0",
+        "error_msg": "Dynamic Amplification Factor must be ≥ 1.0. DAF < 1.0 would reduce the static load, which is non-conservative.",
+        "id": "V4"
+      },
+      "V5": {
+        "condition": "load_balancing_device_present == false && number_of_sling_legs >= 3 && active_load_bearing_legs == number_of_sling_legs",
+        "error_msg": "Without a load-balancing device, ASME B30.9 §9.1.3 recommends assuming only 2 legs bear the load in 3-leg or 4-leg bridles unless specific load distribution analysis is performed. Consider reducing active_load_bearing_legs or adding a load-balancing device.",
+        "id": "V5"
+      },
+      "V6": {
+        "condition": "controlled_available_wll_kN <= 0",
+        "error_msg": "Controlled available WLL must be positive. Check that sling WLL and hardware WLL are positive values and capacity factors are valid.",
+        "id": "V6"
+      },
+      "V7": {
+        "condition": "wire_rope_sling_wll_vertical_kN <= 0",
+        "error_msg": "Wire rope sling WLL must be positive. Verify sling manufacturer rating is correctly entered.",
+        "id": "V7"
+      },
+      "V8": {
+        "condition": "manufacturer_tag_present == false",
+        "error_msg": "ASME B30.9 §5.1.2 requires sling manufacturer tag/nameplate to be present and legible. Do not use a sling without identification of rated capacity. Replace or re-certify sling before use.",
+        "id": "V8"
+      },
+      "V9": {
+        "condition": "inspection_status == 'REJECTED'",
+        "error_msg": "Sling inspection status is REJECTED per ASME B30.9 §6. Do not use this sling for any lifting operation. Remove from service immediately.",
+        "id": "V9"
+      },
+      "V10": {
+        "condition": "d_d_ratio <= 0",
+        "error_msg": "D/d ratio must be positive. Verify bend radius and rope diameter measurements.",
+        "id": "V10"
+      },
+      "V11": {
+        "condition": "hitch_capacity_factor <= 0 || dd_reduction_factor <= 0 || termination_efficiency_factor <= 0 || edge_protection_factor <= 0 || load_distribution_factor <= 0",
+        "error_msg": "All capacity and distribution factors must be positive. Zero or negative factors invalidate the capacity calculation.",
+        "id": "V11"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "UC > 1.0: SLING OVERLOAD — Design tension exceeds effective WLL. Stop the lift. Reduce load, add more sling legs, increase sling angle, or use higher capacity sling.",
+        "condition": "UC > 1.0",
+        "source": "ASME B30.9-2025 §9.4"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "UC > 0.9: SLING UTILIZATION MARGINAL — Utilization ratio exceeds 0.9 (ASME recommended limit for controlled lifts). Engineering review recommended. Verify all inputs and consider increasing capacity margin.",
+        "condition": "UC > 0.9 && UC <= 1.0",
+        "source": "ASME B30.9-2025 §9.4"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Sling angle < 45°: HIGH TENSION — Angle factor exceeds 1.414. Tension per leg increases rapidly below 45°. Consider increasing angle to ≥ 60° for optimal capacity utilization.",
+        "condition": "sling_angle_from_horizontal_deg < 45",
+        "source": "ASME B30.9-2025 §9.2.4"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Inspection status CONDITIONAL: Sling requires engineering review before use per ASME B30.9 §6.4. Verify that conditions noted in inspection do not affect the specific lift geometry.",
+        "condition": "inspection_status == 'CONDITIONAL_ENGINEERING_REVIEW'",
+        "source": "ASME B30.9-2025 §6.4"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "D/d ratio below minimum required: Apply D/d reduction factor and verify that derated capacity is adequate. Consider using larger hardware (shackle/hook) to meet minimum D/d requirement.",
+        "condition": "d_d_ratio < d_d_minimum_required",
+        "source": "ASME B30.26-2026 §8.3.1"
+      },
+      {
+        "id": "W6",
+        "severity": "INFO",
+        "message": "Three or more legs without load-balancing device: ASME B30.9 recommends assuming only 2 legs bear the load. Verify that active_load_bearing_legs input reflects this conservative assumption.",
+        "condition": "load_balancing_device_present == false && number_of_sling_legs >= 3",
+        "source": "ASME B30.9-2025 §9.1.3"
+      },
+      {
+        "id": "W7",
+        "severity": "INFO",
+        "message": "Horizontal force component present: Ensure load is capable of resisting horizontal crushing force. Use spreader beam if load is not rigid enough to withstand horizontal component without damage.",
+        "condition": "horizontal_component_per_leg_kN > load_weight_kN * 0.25",
+        "source": "ASME B30.9-2025 §9.2.5"
+      },
+      {
+        "id": "W8",
+        "severity": "INFO",
+        "message": "Capacity margin < 10% of design load: Margin is tight, even if UC ≤ 1.0. Consider increasing sling capacity or reducing load for additional safety margin.",
+        "condition": "capacity_margin_kN > 0 && capacity_margin_kN < design_load_kN * 0.1",
+        "source": "ASME P30.1 §4.4"
+      }
+    ],
+    "error_propagation": {
+      "method": "GUM ISO/IEC Guide 98-3:2008 — LPU first-order Taylor expansion",
+      "correlation": "assumed_uncorrelated",
+      "coverage_factor": 2,
+      "confidence_level": "95.45%",
+      "sensitivity_coefficients": [
+        {
+          "variable": "load_mass_kg",
+          "coefficient": "c_m = (g × DAF) / (n × sin(θ) × WLL_system × 1000)"
+        },
+        {
+          "variable": "sling_angle_from_horizontal_deg",
+          "coefficient": "c_θ = UC × cot(θ)"
+        },
+        {
+          "variable": "wire_rope_sling_wll_vertical_kN",
+          "coefficient": "c_WLL = -UC / WLL_system"
+        },
+        {
+          "variable": "dynamic_amplification_factor",
+          "coefficient": "c_DAF = UC / DAF"
+        }
+      ]
+    },
+    "fmea": [
+      {
+        "failureMode": "Input violation: sling angle out of range (V1)",
+        "effect": "Sling angle θ < 30° or > 90° — invalid geometry per ASME B30.9",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 96,
+        "rpn_high": 96,
+        "rpn_low": 72,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: active leg count invalid (V2)",
+        "effect": "Active legs outside valid range",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 63,
+        "rpn_high": 63,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: load mass zero or negative (V3)",
+        "effect": "Load weight undefined — lift not possible",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Input violation: DAF < 1.0 (V4)",
+        "effect": "Non-conservative dynamic factor — may underestimate load",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V4"
+      },
+      {
+        "failureMode": "Input violation: no load-balancing device with ≥3 legs (V5)",
+        "effect": "Unequal load distribution with multi-leg bridle, conservative assessment required",
+        "severity": 6,
+        "occurrence": 5,
+        "detection": 4,
+        "rpn": 120,
+        "rpn_high": 120,
+        "rpn_low": 60,
+        "control_measure": "Input validation — automatic WARNING on violation",
+        "description": "Validation rule V5"
+      },
+      {
+        "failureMode": "Input violation: controlled available WLL ≤ 0 (V6)",
+        "effect": "No effective capacity — sling or hardware WLL invalid",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V6"
+      },
+      {
+        "failureMode": "Input violation: sling WLL not positive (V7)",
+        "effect": "Sling capacity undefined",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V7"
+      },
+      {
+        "failureMode": "Input violation: manufacturer tag missing (V8)",
+        "effect": "Sling identification not present — ASME B30.9 violation",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 2,
+        "rpn": 56,
+        "rpn_high": 56,
+        "rpn_low": 42,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V8"
+      },
+      {
+        "failureMode": "Input violation: sling inspection REJECTED (V9)",
+        "effect": "Sling condemned — do not use",
+        "severity": 9,
+        "occurrence": 2,
+        "detection": 2,
+        "rpn": 36,
+        "rpn_high": 36,
+        "rpn_low": 36,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V9"
+      },
+      {
+        "failureMode": "Input violation: D/d ratio ≤ 0 (V10)",
+        "effect": "Invalid D/d ratio",
+        "severity": 6,
+        "occurrence": 2,
+        "detection": 3,
+        "rpn": 36,
+        "rpn_high": 36,
+        "rpn_low": 24,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V10"
+      },
+      {
+        "failureMode": "Input violation: capacity factor ≤ 0 (V11)",
+        "effect": "Invalid capacity or distribution factor",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 54,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V11"
+      },
+      {
+        "failureMode": "SLING OVERLOAD: UC > 1.0",
+        "effect": "Design tension exceeds effective WLL — risk of sling failure and dropped load",
+        "severity": 9,
+        "occurrence": 5,
+        "detection": 4,
+        "rpn": 180,
+        "rpn_high": 180,
+        "rpn_low": 100,
+        "control_measure": "ASME B30.9-2025 §9.4 — UC threshold monitoring with critical alert"
+      },
+      {
+        "failureMode": "SLING MARGINAL: UC > 0.9",
+        "effect": "High utilization — reduced safety margin for dynamic events",
+        "severity": 7,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 112,
+        "rpn_high": 112,
+        "rpn_low": 64,
+        "control_measure": "ASME B30.9-2025 §9.4 — Engineering review recommended"
+      },
+      {
+        "failureMode": "LOW SLING ANGLE: θ < 45°",
+        "effect": "High tension factor increases sling load significantly",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 4,
+        "rpn": 140,
+        "rpn_high": 140,
+        "rpn_low": 80,
+        "control_measure": "ASME B30.9-2025 §9.2.4 — Angle warning with recommendation"
+      },
+      {
+        "failureMode": "Inspected CONDITIONAL sling in use",
+        "effect": "Potential hidden damage or wear affecting capacity",
+        "severity": 6,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 48,
+        "control_measure": "ASME B30.9-2025 §6.4 — Conditional use requires engineering sign-off"
+      },
+      {
+        "failureMode": "D/d below minimum required",
+        "effect": "Reduced sling capacity due to tight bend radius",
+        "severity": 6,
+        "occurrence": 5,
+        "detection": 4,
+        "rpn": 120,
+        "rpn_high": 120,
+        "rpn_low": 60,
+        "control_measure": "ASME B30.26-2026 §8.3.1 — D/d verification"
+      }
+    ],
+    "audit_log": true
+  },
+  "ui_contract": {},
+  "reference_code": {
+    "language": "TypeScript",
+    "interface": "WireRopeSlingInput / WireRopeSlingOutput with @unit and @uncertainty JSDoc",
+    "validation": "Zod schema. Fail closed on: mass ≤ 0, angle < 30° or > 90°, DAF < 1.0, WLL ≤ 0, inspection_status REJECTED, active legs > installed legs, load_distribution_factor ≤ 0.",
+    "testing": "Jest cases: vertical lift (θ=90°), 2-leg bridle at 60° and 30° (edge of range), 4-leg with and without load-balancing, choker configuration, D/d reduction scenario, rejected sling, overload UC > 1.0, marginal UC = 0.95, uncertainty propagation case.",
+    "example": "calculateWireRopeSlingTension(input): WireRopeSlingOutput",
+    "implementation_notes": [
+      "Do not use eval(). Use existing AST expression engine.",
+      "Run formulas F1-F15 in deterministic order.",
+      "All tension outputs in kN. All angles internally in radians for JS Math functions.",
+      "UC = T_design / WLL_system. UC > 1.0 = overload.",
+      "Required vertical WLL = T_design / (combined factor product). Used for sling selection.",
+      "System WLL = min(effective_sling_WLL, hardware_WLL) — chain is only as strong as weakest link.",
+      "Capacity margin = WLL_system - T_design. Should be ≥ 0 for safe lift.",
+      "Status code: PASS (UC ≤ 0.7), CAUTION (0.7 < UC ≤ 0.9), MARGINAL (0.9 < UC ≤ 1.0), OVERLOAD (1.0 < UC ≤ 1.2), CRITICAL_OVERLOAD (UC > 1.2).",
+      "For choker configuration: hitch_capacity_factor = 0.75 (without verification), up to 0.80 (with manufacturer verification).",
+      "For basket configuration: hitch_capacity_factor = 2.0 (requires D/d ≥ minimum_required).",
+      "Load uncertainty propagation uses root-sum-square of load, angle, and capacity uncertainties.",
+      "All boolean gate outputs use strict comparison. Use null for unavailable values, not Infinity."
+    ]
+  },
+  "metadata": {
+    "description": "Wire Rope Sling Load and Rigging Angle Calculator per ASME B30.9-2025 and ASME B30.26-2026. Computes sling tension per leg considering rigging configuration, sling angle, load distribution, D/d ratio, termination efficiency, edge protection, and dynamic effects. Validates sling utilization against rated capacity with combined uncertainty analysis.",
+    "version": "1.0.0",
+    "tags": [
+      "wire rope sling",
+      "rigging angle",
+      "ASME B30.9",
+      "ASME B30.26",
+      "sling tension",
+      "utilization ratio",
+      "lift planning",
+      "load distribution"
+    ],
+    "traceability_id": "PRO_129_TUV_20260628_A1B2",
+    "quality_level": "CALCULATION_READY",
+    "calibration_trace": "Load cell measurements traceable to national standards (NIST/PTB). Sling angle measurement via digital inclinometer (calibrated per ISO 17123). Uncertainty values per ASME P30.1 and ISO/IEC Guide 98-3 GUM.",
+    "tuv_checklist": [
+      "ASME B30.9-2025 sling configuration and angle factor tables verified",
+      "ASME B30.26-2026 rigging hardware D/d requirements confirmed",
+      "ASME P30.1 lift planning methodology reviewed",
+      "OSHA 29 CFR 1910.184 safe sling use guidance incorporated",
+      "Sling angle tension factor derivation (1/sin θ) verified against ASME B30.9 Table 3",
+      "Combined uncertainty calculation per ISO/IEC Guide 98-3 GUM confirmed",
+      "Load distribution factor guidance per ASME B30.9 §9.1.3 verified",
+      "D/d reduction factor methodology confirmed per ASME B30.9 §8.3",
+      "Termination efficiency factors verified per ASME B30.9 §5.4",
+      "Edge protection factor assessment per ASME B30.9 §8.5 confirmed"
+    ],
+    "limitations": [
+      "Single rigging configuration evaluated per calculation. Multi-configuration comparison not supported.",
+      "Assumes all sling legs have identical material, diameter, construction, and termination.",
+      "Sling sag and catenary effects not modeled — sling assumed straight between attachment points.",
+      "Load weight assumed static and uniformly distributed. Out-of-plane loading not modeled.",
+      "Wind loads, snow loads, and other environmental effects not included.",
+      "Personnel lifting not addressed — requires additional regulations (e.g., OSHA 1926.1501).",
+      "Crane/crane hook capacity not included in system WLL check.",
+      "Sling stretch under load not modeled (elastic elongation).",
+      "Fatigue life, cycle counting, and remaining service life not evaluated.",
+      "Seismic effects not considered.",
+      "This is a technical calculation tool. It does not replace a lift plan per ASME P30.1 or competent person review per OSHA."
+    ],
+    "ui_result_policy": {
+      "result_priority": [
+        "status_code",
+        "UC",
+        "design_tension_per_leg_kN",
+        "controlled_available_wll_kN",
+        "capacity_margin_kN",
+        "sling_effective_wll_kN"
+      ],
+      "verdict_banner": {
+        "show_status_code": true,
+        "show_UC": true,
+        "color_map": {
+          "PASS": "green",
+          "CAUTION": "yellow",
+          "MARGINAL": "orange",
+          "OVERLOAD": "red",
+          "CRITICAL_OVERLOAD": "dark_red"
+        }
+      },
+      "warnings_display": "smart_warnings only with severity CRITICAL or WARNING in red/yellow banners under verdict",
+      "uncertainty_display": "u_c_UC shown with UC as ± expanded uncertainty at 95.45% confidence"
+    },
+    "cursor_instruction": "FILE LOCKED — This is a production PRO tool data file. Do not modify the structure or content of this file except through the official PRO tool editor scripts. Manual edits risk schema violations, broken UI contracts, and audit log corruption. If changes are needed, use the PRO tool editor CLI or submit a schema change request."
+  }
+}

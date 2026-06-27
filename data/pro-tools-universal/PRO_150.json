@@ -1,0 +1,1644 @@
+{
+  "tool_id": "PRO_150",
+  "tool_key": "anchorBoltPulloutConcreteBreakoutAci318En1992",
+  "tool_name": "Anchor Bolt Pullout and Concrete Breakout Calculator - ACI 318 EN 1992",
+  "category": "Structural Engineering / Concrete Anchorage / Anchor Bolt Pullout and Concrete Breakout Design",
+  "scope": "anchor_bolt_pullout_strength_concrete_breakout_tension_shear_steel_strength_side_face_blowout_pryout_seismic_ductility_cracked_concrete_edge_distance_spacing_effects",
+  "primary_operation": "calculate_anchor_bolt_steel_strength_concrete_breakout_tension_shear_and_pullout_per_aci_318_en_1992_4_with_seismic_ductility_checks_and_supplementary_reinforcement_design",
+  "standards": [
+    "ISO 9001:2015",
+    "ACI 318-19",
+    "ACI 318-22",
+    "ACI 355.2 (Qualification of Post-Installed Anchors)",
+    "ACI 355.4 (Qualification of Adhesive Anchors)",
+    "EN 1992-1-1",
+    "EN 1992-4",
+    "EN 1990",
+    "EN 206",
+    "EN 10080",
+    "EAD 330232 (European Assessment Document for bonded fasteners)",
+    "EAD 330087 (Mechanical fasteners for use in concrete)",
+    "EN ISO 898-1",
+    "EN ISO 898-2",
+    "EN ISO 3506-1",
+    "EN ISO 3506-2",
+    "ASTM F1554 (Anchor Bolts Gr. 36, 55, 105)",
+    "ASTM A307 (Carbon Steel Bolts & Studs)",
+    "ASTM A193 (High-Temperature Bolting)",
+    "ASTM A354 (Alloy Steel Bolts)",
+    "ASTM E488 (Standard Test Methods for Strength of Anchors)",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM",
+    "fib Bulletin 58 (Design of anchorages in concrete)",
+    "ETAG 001 (European Technical Approval Guideline — Metal Anchors)",
+    "TR 029 (Design of bonded anchors — EOTA Technical Report)",
+    "TR 045 (Design of metal anchors under seismic actions)"
+  ],
+  "risk_level": "HIGH",
+  "calculation_basis": "Anchor bolt pullout, concrete breakout, and steel strength design screening per ACI 318 Chapter 17 (Anchoring to Concrete) and EN 1992-4 (Design of fastenings for use in concrete). Design checks include: anchor steel strength in tension and shear (ACI 318 17.5 / EN 1992-4 §5.2–6.2), concrete breakout strength in tension using the CCD (Concrete Capacity Design) method (ACI 318 17.6 / EN 1992-4 §7.2.1), concrete breakout strength in shear (ACI 318 17.7.2 / EN 1992-4 §7.2.2), concrete pullout strength in tension (ACI 318 17.7.1 / EN 1992-4 §7.2.1.5), side-face blowout for deep embedment (ACI 318 17.7.3), concrete pryout strength in shear (ACI 318 17.7.3 / EN 1992-4 §7.2.2.5), combined tension and shear interaction (ACI 318 17.5.3 / EN 1992-4 §8.2), seismic anchor ductility requirements (ACI 318 17.2.3 / EN 1992-4 §2.2.2), cracked vs. uncracked concrete modification factors, supplementary reinforcement effect on concrete breakout (ACI 318 17.4.2 / EN 1992-4 §9), edge distance and spacing effects, anchor group interaction for both tension and shear, minimum member thickness requirements, edge distance limitations, minimum embedment depth requirements, and governing overall utilization ratio. Supports cast-in-place headed studs/bolts, hooked bolts, expansion anchors (torque-controlled, displacement-controlled), undercut anchors, and bonded/chemical anchors. The output is a preliminary engineering screening calculation and must not replace sealed structural design, anchor qualification documentation (ACI 355.2/355.4 or ETA), site-specific anchor proof-load testing, or authority approval.",
+  "inputs": [
+    {
+      "id": "design_code",
+      "symbol": "Code",
+      "label": "Design Code Selection",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Select governing code for anchor design and concrete breakout calculations",
+      "options": [
+        "ACI 318-19 (Building Code Requirements for Structural Concrete)",
+        "ACI 318-22 (Latest update with Chapter 17 revisions)",
+        "EN 1992-4:2018 (Eurocode 2 — Design of fastenings in concrete)",
+        "Combined — ACI 318 (preferred for US projects)",
+        "Combined — EN 1992-4 (preferred for European projects)"
+      ]
+    },
+    {
+      "id": "national_annex",
+      "symbol": "NA",
+      "label": "EN National Annex (if EN 1992-4 selected)",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Select applicable National Annex for EN 1992-4 fastening partial factors",
+      "options": [
+        "Recommended (CEN)",
+        "UK National Annex",
+        "German NAD",
+        "French NA",
+        "Italian NA",
+        "Turkish NA",
+        "Other — manual input"
+      ]
+    },
+    {
+      "id": "anchor_type",
+      "symbol": "AnchorType",
+      "label": "Anchor Type / System",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "The type of anchor system being designed. Different types have different governing equations and applicability limitations.",
+      "options": [
+        "Cast-in headed stud (welded to embed plate)",
+        "Cast-in headed bolt (hex head)",
+        "Cast-in hooked bolt (J-bolt / L-bolt)",
+        "Cast-in threaded rod with nut + washer",
+        "Undercut anchor (mechanical interlock)",
+        "Torque-controlled expansion anchor",
+        "Displacement-controlled expansion anchor",
+        "Bonded / chemical anchor (injection system with ETA)",
+        "Adhesive capsule anchor (glass or polyester)",
+        "Screw anchor (concrete screw with threads)",
+        "Pneumatically driven pin / stud (powder-actuated)"
+      ]
+    },
+    {
+      "id": "anchor_diameter_mm",
+      "symbol": "d_b",
+      "label": "Anchor Diameter (d_nom/d_b)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Nominal diameter of the anchor. Use the shank diameter or thread diameter as appropriate per applicable standard.",
+      "options": [
+        "M6 (6 mm)",
+        "M8 (8 mm)",
+        "M10 (10 mm)",
+        "M12 (12 mm)",
+        "M16 (16 mm)",
+        "M20 (20 mm)",
+        "M24 (24 mm)",
+        "M27 (27 mm)",
+        "M30 (30 mm)",
+        "M36 (36 mm)",
+        "M39 (39 mm)",
+        "M42 (42 mm)",
+        "M48 (48 mm)",
+        "M56 (56 mm)",
+        "M64 (64 mm)",
+        "1/4 in (6.4 mm)",
+        "3/8 in (9.5 mm)",
+        "1/2 in (12.7 mm)",
+        "5/8 in (15.9 mm)",
+        "3/4 in (19.1 mm)",
+        "7/8 in (22.2 mm)",
+        "1 in (25.4 mm)",
+        "1-1/4 in (31.8 mm)",
+        "1-1/2 in (38.1 mm)",
+        "1-3/4 in (44.5 mm)",
+        "2 in (50.8 mm)",
+        "2-1/2 in (63.5 mm)",
+        "3 in (76.2 mm)"
+      ]
+    },
+    {
+      "id": "anchor_diameter_val_mm",
+      "symbol": "d_b_val",
+      "label": "Anchor Diameter (numeric value)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Numeric value of the nominal anchor diameter",
+      "min": 6,
+      "max": 110,
+      "default": 24
+    },
+    {
+      "id": "anchor_effective_embedment_mm",
+      "symbol": "h_ef",
+      "label": "Effective Embedment Depth (h_ef)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Effective embedment depth measured from the concrete surface to the bearing point of the anchor. For headed studs: to the underside of the head. For adhesive anchors: to the bonded depth end. For expansion anchors: to the expansion zone center.",
+      "min": 30,
+      "max": 1500,
+      "default": 250
+    },
+    {
+      "id": "anchor_steel_grade",
+      "symbol": "SteelGrade",
+      "label": "Anchor Steel Grade / Strength Class",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Anchor steel material grade and strength class",
+      "options": [
+        "ASTM F1554 Gr. 36 (Fy=250 MPa, Fu=400 MPa, ductile)",
+        "ASTM F1554 Gr. 55 (Fy=380 MPa, Fu=520 MPa, ductile)",
+        "ASTM F1554 Gr. 105 (Fy=720 MPa, Fu=860 MPa, limited ductility)",
+        "ASTM A36 (Fy=250 MPa, Fu=400 MPa)",
+        "ASTM A307 Gr. A (Fu=414 MPa, general purpose bolts)",
+        "ASTM A354 Gr. BC (Fy=720–910 MPa, Fu=860–1034 MPa)",
+        "ASTM A354 Gr. BD (Fy=1034 MPa, Fu=1034 MPa)",
+        "ASTM A193 Gr. B7 (Fy=720 MPa, Fu=860 MPa, elevated temp.)",
+        "EN ISO 898-1: 4.6 (Fy=240 MPa, Fu=400 MPa)",
+        "EN ISO 898-1: 5.6 (Fy=300 MPa, Fu=500 MPa)",
+        "EN ISO 898-1: 5.8 (Fy=400 MPa, Fu=520 MPa)",
+        "EN ISO 898-1: 6.8 (Fy=480 MPa, Fu=600 MPa)",
+        "EN ISO 898-1: 8.8 (Fy=640 MPa, Fu=800 MPa)",
+        "EN ISO 898-1: 10.9 (Fy=900 MPa, Fu=1000 MPa)",
+        "EN ISO 3506-1: A2-70 (stainless, Fu=700 MPa)",
+        "EN ISO 3506-1: A4-70 (stainless, Fu=700 MPa)",
+        "EN ISO 3506-1: A4-80 (stainless, Fu=800 MPa)"
+      ]
+    },
+    {
+      "id": "anchor_fy_mpa",
+      "symbol": "f_ya",
+      "label": "Anchor Steel Yield Strength (f_ya)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Specified yield strength of the anchor steel",
+      "min": 240,
+      "max": 1100,
+      "default": 640
+    },
+    {
+      "id": "anchor_fu_mpa",
+      "symbol": "f_uta",
+      "label": "Anchor Steel Tensile Strength (f_uta)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Specified ultimate tensile strength of the anchor steel",
+      "min": 400,
+      "max": 1200,
+      "default": 800
+    },
+    {
+      "id": "concrete_compressive_strength_mpa",
+      "symbol": "f_c",
+      "label": "Concrete Compressive Strength (f'_c / f_ck)",
+      "unit": { "ref": "MPa" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Specified compressive strength of concrete (cylinder strength). For EN 1992: f_ck (characteristic cylinder strength).",
+      "min": 15,
+      "max": 100,
+      "default": 30
+    },
+    {
+      "id": "concrete_density_normal",
+      "symbol": "lambda_a",
+      "label": "Concrete Density Modification Factor (lambda_a)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Modification factor for concrete density per ACI 318 19.2.1: 1.0 for normal-weight concrete, 0.85 for sand-lightweight, 0.75 for all-lightweight.",
+      "min": 0.75,
+      "max": 1.0,
+      "default": 1.0
+    },
+    {
+      "id": "cracked_concrete",
+      "symbol": "Cracked",
+      "label": "Concrete Condition at Anchor Location",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Condition of concrete at the anchor location per ACI 318 17.2.4. Cracked concrete assumed unless explicitly verified uncracked. Affects psi_c,N and psi_c,V factors.",
+      "options": [
+        "Cracked concrete at service load level (default, conservative)",
+        "Uncracked concrete (verified per ACI 318 17.2.4.2 — max tensile stress < f_r / 2)",
+        "Cracked concrete with crack width <= 0.3 mm (for EN 1992-4 verification)"
+      ]
+    },
+    {
+      "id": "crack_width_mm",
+      "symbol": "w_crk",
+      "label": "Assumed Crack Width at Anchor (w_crk)",
+      "unit": { "ref": "mm" },
+      "confidence": "APPROXIMATE",
+      "group": "material",
+      "description": "Assumed crack width at the anchor location per EN 1992-4 §2.2.3. Typical: 0.3 mm for structures without prestressing, 0.15 mm for prestressed. Affects psi_cr,N factor for bonded anchors.",
+      "min": 0.1,
+      "max": 0.5,
+      "default": 0.3
+    },
+    {
+      "id": "concrete_member_thickness_mm",
+      "symbol": "h_mem",
+      "label": "Concrete Member Thickness (h_min)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Total thickness of the concrete member (slab, wall, foundation). Must be >= h_min per applicable code. For ACI 318 17.3.1: h_min >= 1.5 × h_ef. For EN 1992-4: h_min >= h_ef + 30 mm (or as per ETA).",
+      "min": 100,
+      "max": 3000,
+      "default": 400
+    },
+    {
+      "id": "number_of_anchors",
+      "symbol": "n",
+      "label": "Number of Anchors in Group",
+      "unit": { "ref": "count" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Total number of anchors in the anchor group (typically 2, 4, 6, or 8 for symmetrical patterns)",
+      "min": 1,
+      "max": 16,
+      "default": 4
+    },
+    {
+      "id": "anchor_spacing_x_mm",
+      "symbol": "s_x",
+      "label": "Anchor Spacing — X-direction (s_x)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Center-to-center spacing of anchors in the X-direction. ACI 318 17.3.1.2: minimum spacing s_min = 3 × d_b for headed studs (or per anchor qualification). EN 1992-4: s_min = 4 × d_nom (headed) or s_min per ETA.",
+      "min": 40,
+      "max": 1000,
+      "default": 200
+    },
+    {
+      "id": "anchor_spacing_y_mm",
+      "symbol": "s_y",
+      "label": "Anchor Spacing — Y-direction (s_y)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Center-to-center spacing of anchors in the Y-direction",
+      "min": 40,
+      "max": 1000,
+      "default": 200
+    },
+    {
+      "id": "edge_distance_x_mm",
+      "symbol": "ca_x",
+      "label": "Edge Distance — X-direction (c_a1)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Distance from the center of the anchor (or anchor group centroid) to the edge of concrete in the X-direction. For shear loaded toward the edge, this is c_a1 (the edge in the direction of shear).",
+      "min": 30,
+      "max": 500,
+      "default": 100
+    },
+    {
+      "id": "edge_distance_y_mm",
+      "symbol": "ca_y",
+      "label": "Edge Distance — Y-direction (c_a2)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Distance from the center of the anchor to the edge of concrete in the Y-direction (perpendicular to c_a1). For shear: c_a2 is the edge perpendicular to the shear direction.",
+      "min": 30,
+      "max": 500,
+      "default": 100
+    },
+    {
+      "id": "edge_distance_min_mm",
+      "symbol": "ca_min",
+      "label": "Minimum Edge Distance (c_a,min)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Minimum edge distance to any concrete edge. ACI 318 17.3.1.1: ca_min >= 1.5 × d_b for anchor bolts (for headed studs: ca_min >= 3 × d_b may be required). EN 1992-4: ca_min = 4 × d_nom (headed) or 6 × d_nom (bonded). Verifiy anchor ETA for specific minimum edge distances.",
+      "min": 30,
+      "max": 500,
+      "default": 80
+    },
+    {
+      "id": "shear_load_direction_angle_deg",
+      "symbol": "theta_V",
+      "label": "Shear Load Direction Angle (theta_V from X-axis)",
+      "unit": { "ref": "deg" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Angle of resultant shear force measured from the X-axis (positive toward the primary edge c_a1). Affects which edge distance governs concrete breakout in shear.",
+      "min": 0,
+      "max": 360,
+      "default": 90
+    },
+    {
+      "id": "applied_tension_kN",
+      "symbol": "N_ua",
+      "label": "Applied Factored Tension (N_ua / N_Ed)",
+      "unit": { "ref": "kN" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored axial tension load applied to the anchor group (positive for tension)",
+      "min": 0,
+      "max": 10000,
+      "default": 50
+    },
+    {
+      "id": "applied_shear_kN",
+      "symbol": "V_ua",
+      "label": "Applied Factored Shear (V_ua / V_Ed)",
+      "unit": { "ref": "kN" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Factored shear load applied to the anchor group (positive shear value)",
+      "min": 0,
+      "max": 5000,
+      "default": 25
+    },
+    {
+      "id": "load_type",
+      "symbol": "LoadType",
+      "label": "Load Type / Duration",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Nature of the applied load. Affects strength reduction factors and material partial factors.",
+      "options": [
+        "Static (dead + live, sustained)",
+        "Static (wind / short-term duration)",
+        "Cyclic (moderate amplitude, non-seismic)",
+        "Fatigue (high-cycle, e.g., crane runway)",
+        "Seismic (per ASCE 7 / EN 1998-1 seismic design)"
+      ]
+    },
+    {
+      "id": "eccentricity_of_tension_mm",
+      "symbol": "e_N",
+      "label": "Eccentricity of Tension Load (e'_N)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Eccentricity of the resultant tensile load relative to the centroid of the anchor group. e'_N = M_N / N_u. If zero, psi_ec,N = 1.0.",
+      "min": 0,
+      "max": 500,
+      "default": 0
+    },
+    {
+      "id": "eccentricity_of_shear_mm",
+      "symbol": "e_V",
+      "label": "Eccentricity of Shear Load (e'_V)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "loading",
+      "description": "Eccentricity of the resultant shear load relative to the centroid of the anchor group. e'_V = M_V / V_u. If zero, psi_ec,V = 1.0.",
+      "min": 0,
+      "max": 500,
+      "default": 0
+    },
+    {
+      "id": "threads_in_shear_plane",
+      "symbol": "Thr_S",
+      "label": "Threads Intersecting Shear Plane",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Whether the threaded portion of the anchor is intercepted by the concrete-to-base-plate shear plane. Significantly reduces nominal shear strength per ACI 318 17.5.1.2b.",
+      "options": [
+        "No — threads excluded (full shank area in shear plane)",
+        "Yes — threads included in shear plane (reduced area)",
+        "N/A — anchor is a headed stud without threads in shear zone"
+      ]
+    },
+    {
+      "id": "anchor_head_bearing_area_mm2",
+      "symbol": "A_brg",
+      "label": "Anchor Head Bearing Area (A_brg)",
+      "unit": { "ref": "mm2" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Net bearing area of the anchor head for pullout resistance per ACI 318 17.7.1. For headed studs: area of the head (minus shank area). For hooked bolts: e_h × d_b. For nuts: area of nut (minus hole area).",
+      "min": 50,
+      "max": 10000,
+      "default": 500
+    },
+    {
+      "id": "bonded_anchor_bond_strength_mpa",
+      "symbol": "tau_bond",
+      "label": "Bonded Anchor — Characteristic Bond Strength (tau_Rk)",
+      "unit": { "ref": "MPa" },
+      "confidence": "APPROXIMATE",
+      "group": "material",
+      "description": "Characteristic bond strength for bonded/chemical anchors per ETA or manufacturer test data. Typically 6–15 MPa for epoxy-based systems, 4–10 MPa for vinylester, 3–6 MPa for polyester. Only required for bonded anchor types.",
+      "min": 0,
+      "max": 25,
+      "default": 8.5
+    },
+    {
+      "id": "bonded_anchor_bonded_length_mm",
+      "symbol": "h_bond",
+      "label": "Bonded Anchor — Bonded Length (h_bond / h_ef_bonded)",
+      "unit": { "ref": "mm" },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "description": "Bonded length of the anchor (for bonded anchors only). The portion of the embedment where the chemical bond between anchor and concrete is effective.",
+      "min": 20,
+      "max": 1000,
+      "default": 200
+    },
+    {
+      "id": "supplementary_reinforcement_for_tension",
+      "symbol": "Reinf_T",
+      "label": "Supplementary Reinforcement for Tension",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "reinforcement",
+      "description": "Type and configuration of supplementary reinforcement provided to engage and resist concrete breakout in tension per ACI 318 17.4.2 / EN 1992-4 §9.2.",
+      "options": [
+        "No supplementary reinforcement (Condition B)",
+        "Edge reinforcement (hairpin ties or rebar around anchor group, projected area engagement verified)",
+        "Anchor reinforcement designed to carry full tension (A_s,reinf >= N_ua / (phi × f_y,reinf))",
+        "Surface reinforcement (mesh) on thin members"
+      ]
+    },
+    {
+      "id": "supplementary_reinforcement_for_shear",
+      "symbol": "Reinf_V",
+      "label": "Supplementary Reinforcement for Shear",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "reinforcement",
+      "description": "Type of supplementary reinforcement for shear breakout per ACI 318 17.4.2.1(c) / EN 1992-4 §9.2.2.",
+      "options": [
+        "No supplementary reinforcement (Condition B for shear)",
+        "Edge reinforcement along the shear breakout direction",
+        "Anchor reinforcement designed to carry full shear (A_s,reinf >= V_ua / (phi × f_y,reinf))"
+      ]
+    },
+    {
+      "id": "seismic_ductility_class",
+      "symbol": "SDC",
+      "label": "Seismic Ductility Class (SDC per ASCE 7 / CEN)",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Seismic design category and ductility requirements per ASCE 7 Table 1.5-2 / EN 1992-4 §2.2.2. Higher categories require brittle concrete failure to be suppressed with anchor reinforcement.",
+      "options": [
+        "Non-seismic (no special ductility requirements)",
+        "Low — SDC B (ASCE 7) / DCL (EN 1998-1), moderate ductility",
+        "Moderate — SDC C (ASCE 7) / DCM (EN 1998-1), ductile anchor required",
+        "High — SDC D (ASCE 7) / DCH (EN 1998-1), ductile + reinforcement",
+        "Very High — SDC E or F / full ductile design with anchor reinforcement"
+      ]
+    },
+    {
+      "id": "installation_condition",
+      "symbol": "Install",
+      "label": "Installation Condition / Quality Control",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "general",
+      "description": "Installation quality condition affecting phi reduction factors per ACI 318 17.3.3 / ACI 355.2.",
+      "options": [
+        "Condition A — supplementary reinforcement provided, ductile failure mode (phi = 0.75 for steel, phi = 0.70 for concrete)",
+        "Condition B — no supplementary reinforcement, brittle concrete failure possible (phi = 0.65 for concrete breakout)",
+        "Condition C — post-installed anchors with ACI 355.2 qualification (phi per qualification report)",
+        "Condition D — cracked concrete with anchor dependent on crack width limitation"
+      ]
+    },
+    {
+      "id": "phi_steel_strength_tension",
+      "symbol": "phi_s_t",
+      "label": "Phi Factor — Steel Strength in Tension",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Strength reduction factor for anchor steel in tension per ACI 318 Table 17.3.3: 0.75 for ductile steel (Condition A/B).",
+      "min": 0.5,
+      "max": 1.0,
+      "default": 0.75
+    },
+    {
+      "id": "phi_concrete_breakout",
+      "symbol": "phi_c_b",
+      "label": "Phi Factor — Concrete Breakout/Pullout",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Strength reduction factor for concrete-related failure modes per ACI 318 Table 17.3.3: 0.70 (Condition A with supplementary reinforcement) or 0.65 (Condition B without).",
+      "min": 0.5,
+      "max": 1.0,
+      "default": 0.70
+    },
+    {
+      "id": "gamma_Mc_EN",
+      "symbol": "gamma_Mc",
+      "label": "Partial Factor — Concrete (gamma_Mc per EN 1992-4)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Partial factor for concrete failure modes per EN 1992-4 Table 3.1: 1.5 for Category 2 (moderate consequence). Cat 1: 1.8, Cat 3: 1.5 as well (with additional checks). Check National Annex.",
+      "min": 1.0,
+      "max": 2.5,
+      "default": 1.5
+    },
+    {
+      "id": "gamma_Ms_EN",
+      "symbol": "gamma_Ms",
+      "label": "Partial Factor — Steel (gamma_Ms per EN 1992-4)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "material",
+      "description": "Partial factor for steel failure modes per EN 1992-4 Table 3.1: 1.5 for Category 2 (moderate consequence). Category 1: 1.8, Category 3: 1.5. Check National Annex.",
+      "min": 1.0,
+      "max": 2.5,
+      "default": 1.5
+    },
+    {
+      "id": "eta_inst_EN",
+      "symbol": "eta_inst",
+      "label": "Installation Safety Factor (eta_inst per EN 1992-4)",
+      "unit": { "ref": "—" },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "description": "Factor for installation safety per EN 1992-4 §2.2.1.4. For Category 2: eta_inst = 1.0 (qualified anchors per ETA with correct installation). For on-site non-controlled: eta_inst = 1.2.",
+      "min": 1.0,
+      "max": 1.4,
+      "default": 1.0
+    },
+    {
+      "id": "moisture_condition",
+      "symbol": "Moist",
+      "label": "Concrete Moisture Condition",
+      "unit": { "ref": "—" },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Moisture condition of concrete at anchor installation. Affects bond strength for chemical anchors and expansion performance for mechanical anchors.",
+      "options": [
+        "Dry concrete (normal condition)",
+        "Damp concrete (condensation, high humidity)",
+        "Water-saturated concrete (submerged or water-filled hole)",
+        "Dry and wet cycles (external / tidal zone — check ETA)"
+      ]
+    },
+    {
+      "id": "rebar_interference_condition",
+      "symbol": "Rebar",
+      "label": "Rebar Interference / Proximity",
+      "unit": { "ref": "—" },
+      "confidence": "APPROXIMATE",
+      "group": "general",
+      "description": "Whether reinforcement in the concrete member is close to the anchor and may affect installation or breakout cone development. Per ACI 318 17.3.2.2: proximity to rebar is relevant for breakout cone. EN 1992-4: spacing between anchor and rebar.",
+      "options": [
+        "No rebar interference (clearance >= 3 × d_b)",
+        "Rebar present but clearance >= 2 × d_b (typical, no psi_reb reduction)",
+        "Tight rebar clearance (closer than 2 × d_b — may affect breakout)",
+        "Rebar interference at installation (drilling through rebar possible)"
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "symbol": "A_se_N",
+      "label": "Net Tensile Area of Anchor Threads (A_se)",
+      "description": "Net tensile stress area per ASME B1.1 / ISO 898-1: A_se = pi/4 × (d_b - 0.9382 × P)^2, where P is thread pitch. Conservative approximation: A_se = 0.75 × A_gross.",
+      "expression": "A_se_N = 0.75 * PI * Power(anchor_diameter_val_mm, 2) / 4",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F2",
+      "symbol": "A_g_V",
+      "label": "Gross Section Area for Shear (A_g,V)",
+      "description": "Gross area of the anchor for shear. A_g,V = pi × d_b² / 4 (full shank area). Used when threads are excluded from the shear plane.",
+      "expression": "A_g_V = PI * Power(anchor_diameter_val_mm, 2) / 4",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F3",
+      "symbol": "A_eff_V",
+      "label": "Effective Shear Area (A_ve)",
+      "description": "Effective cross-sectional area for shear. If threads in shear plane: A_ve = A_se_N. If no threads in shear plane: A_ve = A_g_V. Per ACI 318 17.5.1.2b.",
+      "expression": "A_eff_V = Iif(threads_in_shear_plane == \"No — threads excluded (full shank area in shear plane)\" Or threads_in_shear_plane == \"N/A — anchor is a headed stud without threads in shear zone\", A_g_V, A_se_N)",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F4",
+      "symbol": "N_sa",
+      "label": "Anchor Steel Strength in Tension (N_sa)",
+      "description": "Nominal steel strength of a single anchor in tension per ACI 318 17.5.1.2: N_sa = A_se,N × f_uta (ultimate tensile strength of the anchor steel).",
+      "expression": "N_sa = A_se_N * anchor_fu_mpa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F5",
+      "symbol": "phi_N_sa",
+      "label": "Design Steel Strength in Tension",
+      "description": "Design steel strength = phi_steel_strength_tension × N_sa.",
+      "expression": "phi_N_sa = phi_steel_strength_tension * N_sa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F6",
+      "symbol": "V_sa",
+      "label": "Anchor Steel Strength in Shear (V_sa)",
+      "description": "Nominal steel strength of a single anchor in shear per ACI 318 17.5.1.2b: V_sa = 0.6 × A_ve × f_uta.",
+      "expression": "V_sa = 0.6 * A_eff_V * anchor_fu_mpa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F7",
+      "symbol": "phi_V_sa",
+      "label": "Design Steel Strength in Shear",
+      "description": "Design steel strength in shear: phi_V_sa = phi_steel_strength × V_sa. For shear, ACI 318: phi = 0.60 for Condition B (threads in shear plane), 0.65 for Condition A (threads excluded).",
+      "expression": "phi_V_sa = Iif(threads_in_shear_plane == \"No — threads excluded (full shank area in shear plane)\" Or threads_in_shear_plane == \"N/A — anchor is a headed stud without threads in shear zone\", 0.65, 0.60) * V_sa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F8",
+      "symbol": "k_c_factor",
+      "label": "Breakout Coefficient k_c",
+      "description": "Breakout coefficient per ACI 318 17.6.2.0.1. k_c = 10 for cracked concrete (cast-in headed stud). k_c = 12.5 for uncracked concrete (cast-in). For post-installed anchors, use k_c per ACI 355.2 qualification (typically 7 or 10).",
+      "expression": "k_c_factor = Iif(cracked_concrete == \"Uncracked concrete (verified per ACI 318 17.2.4.2 — max tensile stress < f_r / 2)\", 12.5, 10)",
+      "unit": { "ref": "—" },
+      "category": "capacity"
+    },
+    {
+      "id": "F9",
+      "symbol": "N_b",
+      "label": "Concrete Breakout Strength in Tension — Single Anchor (N_b)",
+      "description": "Basic concrete breakout strength of a single anchor in tension per ACI 318 17.6.2.0.1 (CCD method): N_b = k_c × lambda_a × sqrt(f'_c) × h_ef^1.5. For cast-in headed studs with h_ef >= 280 mm: N_b = k_c × lambda_a × sqrt(f'_c) × h_ef^1.5 (standard). For h_ef < 280 mm: same equation, k_c values per code.",
+      "expression": "N_b = k_c_factor * concrete_density_normal * Sqrt(concrete_compressive_strength_mpa) * Power(anchor_effective_embedment_mm / 25.4, 1.5) * 1000",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F10",
+      "symbol": "A_Nc0",
+      "label": "Projected Breakout Area — Single Anchor (A_Nc0)",
+      "description": "Projected concrete failure area of a single anchor in tension with full spacing and no edge effect per ACI 318 17.6.2.1: A_Nc0 = 9 × h_ef².",
+      "expression": "A_Nc0 = 9 * Power(anchor_effective_embedment_mm, 2)",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F11",
+      "symbol": "A_Nc",
+      "label": "Projected Concrete Breakout Area — Actual (A_Nc)",
+      "description": "Actual projected area of the anchor group in tension per ACI 318 17.6.2.1. Considers overlapping cones and edge truncation. Computed as: A_Nc = (s_x + min(ca_x, 1.5×h_ef) + min(ca_x', 1.5×h_ef)) × (s_y + min(ca_y, 1.5×h_ef) + min(ca_y', 1.5×h_ef)). Must not exceed n × A_Nc0.",
+      "expression": "A_Nc = (anchor_spacing_x_mm + Min(edge_distance_x_mm, 1.5 * anchor_effective_embedment_mm) + Min(edge_distance_y_mm, 1.5 * anchor_effective_embedment_mm)) * (anchor_spacing_y_mm + Min(edge_distance_y_mm, 1.5 * anchor_effective_embedment_mm) + Min(edge_distance_x_mm, 1.5 * anchor_effective_embedment_mm))",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F12",
+      "symbol": "psi_ec_N",
+      "label": "Eccentricity Factor for Tension (psi_ec,N)",
+      "description": "Modification factor for eccentric tensile loading per ACI 318 17.6.2.4.1: psi_ec,N = 1.0 / (1 + 2 × e'_N / (3 × h_ef)) <= 1.0.",
+      "expression": "psi_ec_N = 1.0 / (1 + 2 * eccentricity_of_tension_mm / (3 * anchor_effective_embedment_mm))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F13",
+      "symbol": "psi_ed_N",
+      "label": "Edge Effect Factor for Tension (psi_ed,N)",
+      "description": "Modification factor for edge distance in tension per ACI 318 17.6.2.5: If ca_min >= 1.5 × h_ef, psi_ed,N = 1.0. Otherwise, psi_ed,N = 0.7 + 0.3 × ca_min / (1.5 × h_ef).",
+      "expression": "psi_ed_N = Iif(edge_distance_min_mm >= 1.5 * anchor_effective_embedment_mm, 1.0, 0.7 + 0.3 * edge_distance_min_mm / (1.5 * anchor_effective_embedment_mm))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F14",
+      "symbol": "psi_c_N",
+      "label": "Crack Condition Factor for Tension (psi_c,N)",
+      "description": "Modification factor for concrete crack condition per ACI 318 17.6.2.6: psi_c,N = 1.0 for cracked concrete, 1.25 for uncracked concrete.",
+      "expression": "psi_c_N = Iif(cracked_concrete == \"Uncracked concrete (verified per ACI 318 17.2.4.2 — max tensile stress < f_r / 2)\", 1.25, 1.0)",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F15",
+      "symbol": "psi_reinf_N",
+      "label": "Supplementary Reinforcement Factor for Tension (psi_reinf,N)",
+      "description": "Tension modification factor for supplementary reinforcement per ACI 318 17.6.2.7: If anchor reinforcement designed to carry full tension is provided: psi_reinf,N = 0.75 (and phi may be increased to 0.75). If edge reinforcement only: psi_reinf,N = 1.0 (no strength increase but Condition A applies). If no reinforcement: psi_reinf,N = 1.0 (Condition B).",
+      "expression": "psi_reinf_N = Iif(supplementary_reinforcement_for_tension == \"Anchor reinforcement designed to carry full tension (A_s,reinf >= N_ua / (phi × f_y,reinf))\", 0.75, 1.0)",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F16",
+      "symbol": "N_cbg",
+      "label": "Nominal Concrete Breakout Strength in Tension (Group — N_cbg)",
+      "description": "Nominal concrete breakout strength in tension for the anchor group per ACI 318 17.6.2.0.1: N_cbg = (A_Nc / A_Nc0) × psi_ec,N × psi_ed,N × psi_c,N × psi_reinf,N × N_b.",
+      "expression": "N_cbg = (A_Nc / A_Nc0) * psi_ec_N * psi_ed_N * psi_c_N * psi_reinf_N * N_b",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F17",
+      "symbol": "phi_N_cbg",
+      "label": "Design Concrete Breakout Strength in Tension (Group)",
+      "description": "Design breakout strength: phi_N_cbg = phi_concrete_breakout × N_cbg.",
+      "expression": "phi_N_cbg = phi_concrete_breakout * N_cbg",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F18",
+      "symbol": "N_pn_head",
+      "label": "Concrete Pullout Strength in Tension — Headed Stud/Bolt (N_pn)",
+      "description": "Nominal pullout strength of a headed stud or bolt in tension per ACI 318 17.7.1.2: N_p = 8 × A_brg × f'_c (headed studs). For hooked bolts: N_p = 0.9 × f'_c × e_h × d_b. N_pn = psi_c,P × N_p. For uncracked: psi_c,P = 1.4. For cracked: psi_c,P = 1.0.",
+      "expression": "N_pn_head = Iif(cracked_concrete == \"Uncracked concrete (verified per ACI 318 17.2.4.2 — max tensile stress < f_r / 2)\", 1.4, 1.0) * 8.0 * anchor_head_bearing_area_mm2 * concrete_compressive_strength_mpa",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F19",
+      "symbol": "phi_N_pn",
+      "label": "Design Concrete Pullout Strength in Tension",
+      "description": "Design pullout strength: phi_N_pn = phi_concrete_breakout × N_pn_head.",
+      "expression": "phi_N_pn = phi_concrete_breakout * N_pn_head",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F20",
+      "symbol": "N_sb_single",
+      "label": "Concrete Side-Face Blowout Strength — Single Anchor (N_sb)",
+      "description": "Nominal side-face blowout strength for a single headed anchor with deep embedment (ca1 < 0.4 × h_ef) per ACI 318 17.7.3.1: N_sb = (1 + s / (6 × ca1)) × (160 × ca1 × sqrt(A_brg) × lambda_a × sqrt(f'_c)). For ca1 >= 0.4 × h_ef: side-face blowout check may be waived.",
+      "expression": "N_sb_single = Iif(edge_distance_min_mm < 0.4 * anchor_effective_embedment_mm, 160 * edge_distance_min_mm * Sqrt(anchor_head_bearing_area_mm2) * concrete_density_normal * Sqrt(concrete_compressive_strength_mpa) * (1 + anchor_spacing_x_mm / Max(6 * edge_distance_min_mm, 1)), 0)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F21",
+      "symbol": "phi_N_sb",
+      "label": "Design Side-Face Blowout Strength",
+      "description": "Design side-face blowout strength: phi_N_sb = phi_concrete_breakout × N_sb_single.",
+      "expression": "phi_N_sb = phi_concrete_breakout * N_sb_single",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F22",
+      "symbol": "N_u_per_anchor",
+      "label": "Tension Demand per Anchor",
+      "description": "Tension demand per anchor in the group assuming uniform distribution in tension-only anchors (conservative for rigid base plate). N_u_per_anchor = N_ua × 1000 / n.",
+      "expression": "N_u_per_anchor = applied_tension_kN * 1000 / Max(number_of_anchors, 1)",
+      "unit": { "ref": "N" },
+      "category": "demand"
+    },
+    {
+      "id": "F23",
+      "symbol": "N_governing_per_anchor",
+      "label": "Governing Design Tension Resistance per Anchor",
+      "description": "Minimum of all design tension resistances per ACI 318 17.4.1: N_design = min(phi_N_sa, phi_N_cbg / n, phi_N_pn, phi_N_sb).",
+      "expression": "N_governing_per_anchor = Min(phi_N_sa, phi_N_cbg / Max(number_of_anchors, 1), phi_N_pn, phi_N_sb)",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F24",
+      "symbol": "UC_tension",
+      "label": "Anchor Tension Utilization Ratio",
+      "description": "Demand-capacity ratio for anchor tension: UC = N_u_per_anchor / N_governing_per_anchor. Includes steel, breakout, pullout, and side-face blowout checks. UC <= 1.0 indicates adequate tension capacity.",
+      "expression": "UC_tension = N_u_per_anchor / Max(N_governing_per_anchor, 1)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F25",
+      "symbol": "V_b_breakout",
+      "label": "Concrete Breakout Strength in Shear — Single Anchor (V_b)",
+      "description": "Basic concrete breakout strength of a single anchor in shear per ACI 318 17.7.2.0.1: V_b = (l_e / d_b)^0.2 × lambda_a × sqrt(f'_c) × c_a1^1.5. For cast-in headed stud: l_e = min(h_ef, 8 × d_b). For other anchor types, l_e per product qualification.",
+      "expression": "V_b_breakout = 7.0 * Power(anchor_diameter_val_mm / 25.4, 0.2) * Sqrt(anchor_effective_embedment_mm / anchor_diameter_val_mm) * concrete_density_normal * Sqrt(concrete_compressive_strength_mpa) * Power(edge_distance_min_mm, 1.5) / 1000 * 1000",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F26",
+      "symbol": "A_Vc0",
+      "label": "Projected Breakout Area — Single Anchor in Shear (A_Vc0)",
+      "description": "Projected area of a single anchor in shear with full spacing and no edge effect per ACI 318 17.7.2.1: A_Vc0 = 4.5 × c_a1².",
+      "expression": "A_Vc0 = 4.5 * Power(edge_distance_min_mm, 2)",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F27",
+      "symbol": "A_Vc",
+      "label": "Projected Breakout Area — Actual in Shear (A_Vc)",
+      "description": "Actual projected area of the anchor group in shear per ACI 318 17.7.2.1. Considers spacing parallel to edge and truncation at perpendicular edges.",
+      "expression": "A_Vc = Min(anchor_spacing_x_mm + Min(edge_distance_x_mm, 1.5 * edge_distance_min_mm) + Min(edge_distance_y_mm, 1.5 * edge_distance_min_mm), 2 * number_of_anchors * 1.5 * edge_distance_min_mm) * Min(1.5 * edge_distance_min_mm * 3, concrete_member_thickness_mm)",
+      "unit": { "ref": "mm2" },
+      "category": "geometry"
+    },
+    {
+      "id": "F28",
+      "symbol": "psi_ec_V",
+      "label": "Eccentricity Factor for Shear (psi_ec,V)",
+      "description": "Modification factor for eccentric shear loading per ACI 318 17.7.2.4: psi_ec,V = 1.0 / (1 + 2 × e'_V / (3 × c_a1)).",
+      "expression": "psi_ec_V = 1.0 / (1 + 2 * eccentricity_of_shear_mm / (3 * edge_distance_min_mm))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F29",
+      "symbol": "psi_ed_V",
+      "label": "Edge Effect Factor for Shear (psi_ed,V)",
+      "description": "Modification factor for perpendicular edge in shear per ACI 318 17.7.2.5: If ca2 >= 1.5 × ca1, psi_ed,V = 1.0. Otherwise, psi_ed,V = 0.7 + 0.3 × ca2 / (1.5 × ca1).",
+      "expression": "psi_ed_V = Iif(edge_distance_y_mm >= 1.5 * edge_distance_min_mm, 1.0, 0.7 + 0.3 * edge_distance_y_mm / (1.5 * edge_distance_min_mm))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F30",
+      "symbol": "psi_c_V",
+      "label": "Crack Condition Factor for Shear (psi_c,V)",
+      "description": "Modification factor for concrete crack condition in shear per ACI 318 17.7.2.6: psi_c,V = 1.0 for cracked concrete (no crack reinforcement). psi_c,V = 1.4 for cracked concrete with edge reinforcement at the anchor. psi_c,V = 1.8 for uncracked concrete.",
+      "expression": "psi_c_V = Iif(cracked_concrete == \"Uncracked concrete (verified per ACI 318 17.2.4.2 — max tensile stress < f_r / 2)\", 1.8, Iif(supplementary_reinforcement_for_shear == \"Edge reinforcement along the shear breakout direction\", 1.4, 1.0))",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F31",
+      "symbol": "psi_h_V",
+      "label": "Thickness Factor for Shear (psi_h,V)",
+      "description": "Modification factor for member thickness in shear per ACI 318 17.7.2.7: If h < 1.5 × ca1, psi_h,V = (1.5 × ca1 / h)^(1/3). Otherwise, psi_h,V = 1.0.",
+      "expression": "psi_h_V = Iif(concrete_member_thickness_mm < 1.5 * edge_distance_min_mm, Power(1.5 * edge_distance_min_mm / concrete_member_thickness_mm, 1/3), 1.0)",
+      "unit": { "ref": "—" },
+      "category": "modification"
+    },
+    {
+      "id": "F32",
+      "symbol": "V_cbg",
+      "label": "Nominal Concrete Breakout Strength in Shear (Group — V_cbg)",
+      "description": "Nominal concrete breakout strength in shear for the anchor group per ACI 318 17.7.2.0.1: V_cbg = (A_Vc / A_Vc0) × psi_ec,V × psi_ed,V × psi_c,V × psi_h,V × V_b.",
+      "expression": "V_cbg = (A_Vc / A_Vc0) * psi_ec_V * psi_ed_V * psi_c_V * psi_h_V * V_b_breakout",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F33",
+      "symbol": "phi_V_cbg",
+      "label": "Design Concrete Breakout Strength in Shear (Group)",
+      "description": "Design shear breakout strength: phi_V_cbg = phi_concrete_breakout × V_cbg.",
+      "expression": "phi_V_cbg = phi_concrete_breakout * V_cbg",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F34",
+      "symbol": "V_cp",
+      "label": "Concrete Pryout Strength in Shear (V_cp)",
+      "description": "Concrete pryout strength per ACI 318 17.7.3: V_cp = k_cp × N_cbg. k_cp = 2.0 for h_ef >= 280 mm (deep embedment), k_cp = 1.0 for h_ef < 280 mm.",
+      "expression": "V_cp = Iif(anchor_effective_embedment_mm >= 280, 2.0, 1.0) * N_cbg",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F35",
+      "symbol": "phi_V_cp",
+      "label": "Design Concrete Pryout Strength in Shear",
+      "description": "Design pryout strength: phi_V_cp = phi_concrete_breakout × V_cp.",
+      "expression": "phi_V_cp = phi_concrete_breakout * V_cp",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F36",
+      "symbol": "V_u_per_anchor",
+      "label": "Shear Demand per Anchor",
+      "description": "Shear demand per anchor assuming uniform distribution: V_u_per_anchor = V_ua × 1000 / n.",
+      "expression": "V_u_per_anchor = applied_shear_kN * 1000 / Max(number_of_anchors, 1)",
+      "unit": { "ref": "N" },
+      "category": "demand"
+    },
+    {
+      "id": "F37",
+      "symbol": "V_governing_per_anchor",
+      "label": "Governing Design Shear Resistance per Anchor",
+      "description": "Minimum of all design shear resistances per ACI 318 17.4.1: V_design = min(phi_V_sa, phi_V_cbg / n, phi_V_cp / n).",
+      "expression": "V_governing_per_anchor = Min(phi_V_sa, phi_V_cbg / Max(number_of_anchors, 1), phi_V_cp / Max(number_of_anchors, 1))",
+      "unit": { "ref": "N" },
+      "category": "capacity"
+    },
+    {
+      "id": "F38",
+      "symbol": "UC_shear",
+      "label": "Anchor Shear Utilization Ratio",
+      "description": "Demand-capacity ratio for anchor shear: UC = V_u_per_anchor / V_governing_per_anchor.",
+      "expression": "UC_shear = V_u_per_anchor / Max(V_governing_per_anchor, 1)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F39",
+      "symbol": "UC_combined",
+      "label": "Combined Tension + Shear Interaction (ACI 318 17.5.3)",
+      "description": "Combined tension and shear interaction per ACI 318 17.5.3: If V_u / phi_V_n <= 0.2: interaction = N_u / phi_N_n + V_u / phi_V_n <= 1.0. If V_u / phi_V_n > 0.2: interaction = N_u / phi_N_n + 1.67 × V_u / phi_V_n <= 1.0. Simplified: UC_combined = UC_tension + (1.67 OR 1.0) × UC_shear.",
+      "expression": "UC_combined = Iif(UC_shear <= 0.2, UC_tension + UC_shear, UC_tension + 1.67 * UC_shear)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F40",
+      "symbol": "UC_governing",
+      "label": "Governing Utilization Ratio (All Failure Modes)",
+      "description": "Overall governing demand-capacity ratio considering all failure modes: steel tension, steel shear, concrete breakout (tension and shear), pullout, side-face blowout, pryout, and combined interaction. UC_governing = max(UC_tension, UC_shear, UC_combined).",
+      "expression": "UC_governing = Max(UC_tension, UC_shear, UC_combined)",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F41",
+      "symbol": "governing_failure_mode",
+      "label": "Governing Failure Mode Identification",
+      "description": "Identifies the governing failure mode based on the highest utilization ratio among all checks performed.",
+      "expression": "governing_failure_mode = Iif(UC_governing == UC_tension And N_governing_per_anchor == phi_N_sa, \"Steel tensile rupture governs (ductile)\", Iif(UC_governing == UC_tension And N_governing_per_anchor == phi_N_cbg / Max(number_of_anchors, 1), \"Concrete breakout in tension governs (brittle)\", Iif(UC_governing == UC_tension And N_governing_per_anchor == phi_N_pn, \"Concrete pullout in tension governs (semi-ductile)\", Iif(UC_governing == UC_tension And N_governing_per_anchor == phi_N_sb, \"Side-face blowout governs (brittle)\", Iif(UC_governing == UC_shear And V_governing_per_anchor == phi_V_sa, \"Steel shear rupture governs (ductile)\", Iif(UC_governing == UC_shear And V_governing_per_anchor == phi_V_cbg / Max(number_of_anchors, 1), \"Concrete breakout in shear governs (brittle)\", Iif(UC_governing == UC_shear And V_governing_per_anchor == phi_V_cp / Max(number_of_anchors, 1), \"Concrete pryout in shear governs (brittle)\", \"Combined tension+shear interaction governs\")))))))",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F42",
+      "symbol": "seismic_ductility_check",
+      "label": "Seismic Ductility Verification (ACI 318 17.2.3.5)",
+      "description": "Seismic anchor ductility verification per ACI 318 17.2.3.5: For structures assigned to SDC C, D, E, or F, anchor design must satisfy: (1) Steel failure governs over concrete failure (phi_N_sa <= 0.75 × phi_N_cbg), OR (2) Anchor reinforcement is provided to carry at least 0.5 × N_ua or V_ua, OR (3) The anchor is qualified for cracked concrete per ACI 355.2/355.4.",
+      "expression": "seismic_ductility_check = Iif(seismic_ductility_class == \"Non-seismic (no special ductility requirements)\", \"N/A — non-seismic, no ductility requirements\", Iif(phi_N_sa <= 0.75 * phi_N_cbg / Max(number_of_anchors, 1), \"PASS — steel failure governs (phi_N_sa <= 0.75 × concrete breakout). Ductile failure mode per ACI 318 17.2.3.5(a).\", Iif(supplementary_reinforcement_for_tension == \"Anchor reinforcement designed to carry full tension (A_s,reinf >= N_ua / (phi × f_y,reinf))\" Or supplementary_reinforcement_for_shear == \"Anchor reinforcement designed to carry full shear (A_s,reinf >= V_ua / (phi × f_y,reinf))\", \"PASS — anchor reinforcement provided per ACI 318 17.2.3.5(c).\", \"FAIL — seismic ductility requirements per ACI 318 17.2.3.5 not satisfied. Required: (1) Steel failure must govern (reinforce to ensure phi_N_sa < 0.75 × concrete breakout), OR (2) Provide anchor reinforcement for at least 50% of factored anchor loads.\")))",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F43",
+      "symbol": "min_edge_distance_check",
+      "label": "Minimum Edge Distance Check",
+      "description": "Verification that the anchor edge distance meets minimum code requirements per ACI 318 17.3.1.1 and EN 1992-4 §4.2.",
+      "expression": "min_edge_distance_check = Iif(edge_distance_min_mm >= 1.5 * anchor_diameter_val_mm, \"PASS — minimum edge distance meets code requirements\", \"FAIL — minimum edge distance per ACI 318 17.3.1.1 is 1.5 × d_b. Current edge distance is insufficient.\")",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F44",
+      "symbol": "min_spacing_check",
+      "label": "Minimum Anchor Spacing Check",
+      "description": "Verification that anchor spacing meets minimum code requirements per ACI 318 17.3.1.2: s_min = 3 × d_b for headed stud anchors, or s_min per anchor ETA for post-installed anchors.",
+      "expression": "min_spacing_check = Iif(Min(anchor_spacing_x_mm, anchor_spacing_y_mm) >= 3 * anchor_diameter_val_mm, \"PASS — anchor spacing meets minimum code requirements\", \"FAIL — minimum anchor spacing per ACI 318 17.3.1.2 is 3 × d_b. Current spacing is insufficient.\")",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F45",
+      "symbol": "min_member_thickness_check",
+      "label": "Minimum Member Thickness Check",
+      "description": "Verification that the concrete member thickness meets minimum requirements per ACI 318 17.3.1: h_min >= 1.5 × h_ef for tension anchors (to ensure full breakout cone development).",
+      "expression": "min_member_thickness_check = Iif(concrete_member_thickness_mm >= 1.5 * anchor_effective_embedment_mm, \"PASS — member thickness sufficient for full breakout cone development\", \"FAIL — member thickness insufficient per ACI 318 17.3.1. Minimum: 1.5 × h_ef for anchors in tension.\")",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    },
+    {
+      "id": "F46",
+      "symbol": "min_embedment_check",
+      "label": "Minimum Embedment Depth Check",
+      "description": "Verification that the anchor embedment depth meets minimum requirements per ACI 318 17.3.1.3 and EN 1992-4 §4.2.",
+      "expression": "min_embedment_check = Iif(anchor_effective_embedment_mm >= 12 * anchor_diameter_val_mm, \"PASS — embedment depth meets ACI 318 minimum of 12 × d_b for headed stud anchors\", Iif(anchor_effective_embedment_mm >= 8 * anchor_diameter_val_mm, \"WARN — embedment depth is 8–12 × d_b. Check if anchor is qualified for this embedment ratio per ACI 355.2/ETA.\", \"FAIL — embedment depth insufficient per ACI 318 17.3.1.3. Minimum: 12 × d_b for cast-in headed stud anchors in tension.\"))",
+      "unit": { "ref": "—" },
+      "category": "verification"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "UC_governing",
+      "symbol": "UC_gov",
+      "label": "Governing Utilization Ratio",
+      "unit": { "ref": "—" },
+      "description": "Overall governing demand-capacity ratio for all anchor failure modes",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "governing_failure_mode",
+      "symbol": "GOV_MODE",
+      "label": "Governing Failure Mode",
+      "unit": { "ref": "—" },
+      "description": "Identifies the controlling failure mode with ductility classification",
+      "format": "text"
+    },
+    {
+      "id": "UC_tension",
+      "symbol": "UC_T",
+      "label": "Anchor Tension Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio for anchor in tension (steel, breakout, pullout, blowout)",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "UC_shear",
+      "symbol": "UC_V",
+      "label": "Anchor Shear Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio for anchor in shear (steel, breakout, pryout)",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "UC_combined",
+      "symbol": "UC_TS",
+      "label": "Combined Tension+Shear Utilization",
+      "unit": { "ref": "—" },
+      "description": "Demand-capacity ratio per ACI 318 17.5.3 interaction equation",
+      "critical_threshold": 1.0,
+      "format": "decimal_3"
+    },
+    {
+      "id": "N_u_per_anchor",
+      "symbol": "N_u_anc",
+      "label": "Tension Demand per Anchor",
+      "unit": { "ref": "N" },
+      "description": "Factored tension load per anchor (uniform distribution)",
+      "format": "integer"
+    },
+    {
+      "id": "V_u_per_anchor",
+      "symbol": "V_u_anc",
+      "label": "Shear Demand per Anchor",
+      "unit": { "ref": "N" },
+      "description": "Factored shear load per anchor (uniform distribution)",
+      "format": "integer"
+    },
+    {
+      "id": "N_governing_per_anchor",
+      "symbol": "N_des",
+      "label": "Governing Tension Resistance per Anchor",
+      "unit": { "ref": "N" },
+      "description": "Minimum of steel, breakout, pullout, and blowout tension resistances",
+      "format": "integer"
+    },
+    {
+      "id": "V_governing_per_anchor",
+      "symbol": "V_des",
+      "label": "Governing Shear Resistance per Anchor",
+      "unit": { "ref": "N" },
+      "description": "Minimum of steel, breakout, and pryout shear resistances",
+      "format": "integer"
+    },
+    {
+      "id": "phi_N_sa",
+      "symbol": "phiN_sa",
+      "label": "Design Steel Strength — Tension",
+      "unit": { "ref": "N" },
+      "description": "Design steel strength of anchor in tension (ductile failure mode)",
+      "format": "integer"
+    },
+    {
+      "id": "phi_N_cbg",
+      "symbol": "phiN_cbg",
+      "label": "Design Concrete Breakout — Tension (Group)",
+      "unit": { "ref": "N" },
+      "description": "Design concrete breakout strength in tension for the anchor group (brittle failure)",
+      "format": "integer"
+    },
+    {
+      "id": "phi_N_pn",
+      "symbol": "phiN_pn",
+      "label": "Design Pullout Strength — Tension",
+      "unit": { "ref": "N" },
+      "description": "Design concrete pullout strength (anchor head bearing failure)",
+      "format": "integer"
+    },
+    {
+      "id": "phi_N_sb",
+      "symbol": "phiN_sb",
+      "label": "Design Side-Face Blowout Strength",
+      "unit": { "ref": "N" },
+      "description": "Design side-face blowout strength for deep embedment with limited edge distance",
+      "format": "integer"
+    },
+    {
+      "id": "phi_V_sa",
+      "symbol": "phiV_sa",
+      "label": "Design Steel Strength — Shear",
+      "unit": { "ref": "N" },
+      "description": "Design steel strength of anchor in shear",
+      "format": "integer"
+    },
+    {
+      "id": "phi_V_cbg",
+      "symbol": "phiV_cbg",
+      "label": "Design Concrete Breakout — Shear (Group)",
+      "unit": { "ref": "N" },
+      "description": "Design concrete breakout strength in shear for the anchor group",
+      "format": "integer"
+    },
+    {
+      "id": "phi_V_cp",
+      "symbol": "phiV_cp",
+      "label": "Design Concrete Pryout — Shear",
+      "unit": { "ref": "N" },
+      "description": "Design concrete pryout strength in shear",
+      "format": "integer"
+    },
+    {
+      "id": "seismic_ductility_check",
+      "symbol": "SEIS_CHK",
+      "label": "Seismic Ductility Verification",
+      "unit": { "ref": "—" },
+      "description": "PASS/FAIL assessment of anchor seismic ductility requirements per ACI 318 17.2.3.5",
+      "format": "text"
+    },
+    {
+      "id": "min_edge_distance_check",
+      "symbol": "EDGE_CHK",
+      "label": "Minimum Edge Distance Check",
+      "unit": { "ref": "—" },
+      "description": "Verification of minimum edge distance per applicable code",
+      "format": "text"
+    },
+    {
+      "id": "min_spacing_check",
+      "symbol": "SPC_CHK",
+      "label": "Minimum Anchor Spacing Check",
+      "unit": { "ref": "—" },
+      "description": "Verification of minimum center-to-center anchor spacing per code",
+      "format": "text"
+    },
+    {
+      "id": "min_member_thickness_check",
+      "symbol": "THK_CHK",
+      "label": "Minimum Member Thickness Check",
+      "unit": { "ref": "—" },
+      "description": "Verification that concrete member thickness >= 1.5 × h_ef for tension anchors",
+      "format": "text"
+    },
+    {
+      "id": "min_embedment_check",
+      "symbol": "EMB_CHK",
+      "label": "Minimum Embedment Depth Check",
+      "unit": { "ref": "—" },
+      "description": "Verification of minimum embedment depth per ACI 318 / EN 1992-4",
+      "format": "text"
+    }
+  ],
+  "engine_rules": {
+    "validation": {
+      "rules": [
+        {
+          "id": "V001",
+          "field": "anchor_effective_embedment_mm",
+          "condition": "anchor_effective_embedment_mm < 4 * anchor_diameter_val_mm",
+          "message": "Minimum embedment depth is 4 × d_nom per ACI 318 17.3.1.3 (headed studs in compression) or 12 × d_b (tension anchors). For tension applications, at least 12 × d_b is required.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V002",
+          "field": "edge_distance_min_mm",
+          "condition": "edge_distance_min_mm < 1.5 * anchor_diameter_val_mm",
+          "message": "Minimum edge distance per ACI 318 17.3.1.1 is 1.5 × d_b for anchor bolts. Current edge distance is insufficient.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V003",
+          "field": "edge_distance_min_mm",
+          "condition": "edge_distance_min_mm < 25",
+          "message": "Absolute minimum edge distance for any anchor is 25 mm (1 in) per ACI 318 / EN 1992-4 §4.2. Edge distance below this threshold risks concrete splitting during installation.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V004",
+          "field": "anchor_spacing_x_mm",
+          "condition": "anchor_spacing_x_mm < 3 * anchor_diameter_val_mm",
+          "message": "Minimum anchor spacing per ACI 318 17.3.1.2 is 3 × d_b for headed stud anchors. For post-installed anchors, verify per ACI 355.2 / ETA.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V005",
+          "field": "anchor_spacing_y_mm",
+          "condition": "anchor_spacing_y_mm < 3 * anchor_diameter_val_mm",
+          "message": "Minimum anchor spacing per ACI 318 17.3.1.2 is 3 × d_b for headed stud anchors.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V006",
+          "field": "concrete_member_thickness_mm",
+          "condition": "concrete_member_thickness_mm < 1.5 * anchor_effective_embedment_mm",
+          "message": "Concrete member thickness must be at least 1.5 × h_ef for anchors in tension per ACI 318 17.3.1 to allow full development of the breakout cone. For shear: the minimum thickness is the greater of 1.5 × ca1 or h_min per ACI 318.",
+          "severity": "WARN"
+        },
+        {
+          "id": "V007",
+          "field": "anchor_fy_mpa",
+          "condition": "anchor_fy_mpa > anchor_fu_mpa",
+          "message": "Anchor yield strength cannot exceed ultimate tensile strength. Check anchor grade specification.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V008",
+          "field": "number_of_anchors",
+          "condition": "number_of_anchors < 1",
+          "message": "At least 1 anchor is required for the calculation.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V009",
+          "field": "applied_tension_kN",
+          "condition": "applied_tension_kN <= 0 AND applied_shear_kN <= 0",
+          "message": "At least one applied load (tension or shear) must be entered for the anchor calculation.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V010",
+          "field": "anchor_type",
+          "condition": "anchor_type CONTAINS \"bonded\" Or anchor_type CONTAINS \"chemical\"",
+          "message": "Bonded/chemical anchor selected. Verify that the anchor has a valid ETA (European Technical Assessment) per EAD 330232 or ACI 355.4 qualification. Bond strength values must be from manufacturer test data for the specific product, concrete strength class, installation condition, and curing time.",
+          "severity": "WARN"
+        },
+        {
+          "id": "V011",
+          "field": "bonded_anchor_bond_strength_mpa",
+          "condition": "anchor_type CONTAINS \"bonded\" Or anchor_type CONTAINS \"chemical\" OR anchor_type CONTAINS \"adhesive\" AND bonded_anchor_bond_strength_mpa <= 0",
+          "message": "Bonded anchor selected but bond strength is zero or missing. Enter the characteristic bond strength from ETA or manufacturer test data. For epoxy-based systems: typical 8–15 MPa. For vinylester: 6–10 MPa. For polyester: 3–6 MPa.",
+          "severity": "BLOCK"
+        },
+        {
+          "id": "V012",
+          "field": "seismic_ductility_class",
+          "condition": "seismic_ductility_class CONTAINS \"High\" OR seismic_ductility_class CONTAINS \"Very High\"",
+          "message": "High/very high seismicity selected. ACI 318 17.2.3.5 requires: (1) Steel failure must govern over concrete failure, (2) Anchor reinforcement to carry at least 0.5 × factored loads, or (3) Anchor qualified for cracked concrete per ACI 355.2/355.4. Verify seismic qualification documentation. Seismic category E/F requires anchor reinforcement per ACI 318 17.2.3.5(c).",
+          "severity": "WARN"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "SW001",
+        "condition": "UC_governing > 1.0",
+        "message": "ANCHOR OVERSTRESSED: Governing utilization UC = [UC_governing] exceeds 1.0. The anchor system is insufficient. Actions: (1) Increase anchor diameter, (2) Increase embedment depth, (3) Use higher-strength anchor steel, (4) Reduce edge distance (move anchors away from edge), (5) Increase concrete strength, (6) Provide supplementary reinforcement, (7) Increase number of anchors.",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": "SW002",
+        "condition": "UC_governing > 0.85 AND UC_governing <= 1.0",
+        "message": "ANCHOR HIGHLY STRESSED: Governing UC = [UC_governing] between 0.85 and 1.0. Consider increasing anchor capacity for economical design. Verify anchor installation quality (torque, embedment, edge distance tolerances per inspection records). For critical applications, consider tension proof-load testing per ASTM E488.",
+        "severity": "WARN"
+      },
+      {
+        "id": "SW003",
+        "condition": "N_governing_per_anchor == phi_N_cbg / Max(number_of_anchors, 1) AND UC_tension > 0.6",
+        "message": "CONCRETE BREAKOUT GOVERNING TENSION: Concrete breakout (brittle failure) governs the tension capacity. Per ACI 318 17.2.3.5(a), for seismic applications, steel failure must govern. Options: (1) Increase embedment depth to increase breakout capacity, (2) Provide supplementary reinforcement designed to carry the full tension load, (3) Increase member thickness. Condition B (no reinforcement) means phi = 0.65 applies.",
+        "severity": "WARN"
+      },
+      {
+        "id": "SW004",
+        "condition": "seismic_ductility_check CONTAINS \"FAIL\"",
+        "message": "SEISMIC DUCTILITY FAILURE: The anchor system does not meet seismic ductility requirements of ACI 318 17.2.3.5. To fix: (1) Increase anchor diameter or strength so that phi_N_sa <= 0.75 × phi_N_cbg / n (steel governs over concrete breakout), OR (2) Provide anchor reinforcement (hairpin ties or rebar cage) designed to carry at least 50% of the factored anchor tension. For SDC E/F: reinforcement must carry 100% of factored loads per ACI 318 17.2.3.5(c).",
+        "severity": "CRITICAL"
+      },
+      {
+        "id": "SW005",
+        "condition": "edge_distance_min_mm < 1.5 * anchor_effective_embedment_mm AND edge_distance_min_mm < 100",
+        "message": "SMALL EDGE DISTANCE: c_a = [edge_distance_min_mm] mm is less than 1.5 × h_ef = [1.5 × anchor_effective_embedment_mm] mm. The edge effect significantly reduces concrete breakout strength (psi_ed,N = [psi_ed_N]). Consider: (1) Increasing edge distance, (2) Using smaller diameter anchors with deeper embedment, (3) Providing edge reinforcement per ACI 318 17.4.2, (4) Reducing anchor spacing to utilize group effect more efficiently.",
+        "severity": "WARN"
+      },
+      {
+        "id": "SW006",
+        "condition": "cracked_concrete == \"Uncracked concrete (verified per ACI 318 17.2.4.2 — max tensile stress < f_r / 2)\"",
+        "message": "UNCRACKED CONCRETE ASSUMED: The design assumes uncracked concrete at the anchor location. Per ACI 318 17.2.4.2, uncracked concrete can only be assumed if analysis shows the tensile stress in the concrete at the anchor location (from all factored loads) is less than f_r / 2 (modulus of rupture). For normal-weight concrete: f_r = 0.62 × sqrt(f'_c). If this condition cannot be verified, cracked concrete must be assumed (conservative). Uncracked assumption increases psi_c,N from 1.0 to 1.25 and psi_c,V significantly.",
+        "severity": "INFO"
+      }
+    ],
+    "error_propagation": {
+      "method": "GUM_linear_approximation",
+      "key_inputs": [
+        { "id": "concrete_compressive_strength_mpa", "label": "Concrete Compressive Strength (f'_c)", "tolerance": 3, "unit": "MPa", "sensitivity": "HIGH" },
+        { "id": "anchor_effective_embedment_mm", "label": "Effective Embedment Depth (h_ef)", "tolerance": 10, "unit": "mm", "sensitivity": "HIGH" },
+        { "id": "edge_distance_min_mm", "label": "Minimum Edge Distance (c_a,min)", "tolerance": 5, "unit": "mm", "sensitivity": "HIGH" },
+        { "id": "anchor_fu_mpa", "label": "Anchor Tensile Strength (f_uta)", "tolerance": 40, "unit": "MPa", "sensitivity": "MEDIUM" },
+        { "id": "anchor_diameter_val_mm", "label": "Anchor Diameter (d_b)", "tolerance": 0.5, "unit": "mm", "sensitivity": "MEDIUM" },
+        { "id": "applied_tension_kN", "label": "Applied Tension Load", "tolerance": 0.05, "unit": "kN (rel)", "sensitivity": "HIGH" }
+      ],
+      "combined_uncertainty": {
+        "output": "UC_governing",
+        "estimated_pct": 11.8,
+        "notes": "Combined standard uncertainty estimated at 11.8% based on GUM linear approximation. Dominant contributions: concrete compressive strength (±3 MPa, ~7% sensitivity on breakout + pullout), embedment depth (±10 mm, ~6.5% sensitivity on breakout capacity via h_ef^1.5), and edge distance (±5 mm, ~5% sensitivity on breakout via c_a1^1.5). A combined UC of 1.02 or less under best-estimate inputs could result in actual UC exceeding 1.0 at 95% confidence. For safety-critical anchors, consider (1) applying a design margin of 10–15%, (2) performing anchor proof-load testing per ASTM E488 to verify actual breakout resistance, or (3) using the ACI 318 'Condition B' phi reduction factor of 0.65 as implicit safety margin."
+      }
+    },
+    "fmea": [
+      {
+        "failureMode": "Anchor steel tensile rupture (ductile failure)",
+        "effect": "Necking and fracture of anchor at threaded section. Ductile failure with visible deformation before rupture. Preferable failure mode per ACI 318 for seismic design.",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 84,
+        "rpn_high": 112,
+        "rpn_low": 56,
+        "control_measure": "ACI 318 17.5.1.2: N_sa = A_se × f_uta. Verify steel grade and elongation (>= 14% for seismic). Use ASTM F1554 Gr. 55 or higher for ductile behavior. Use full-thread engagement (nut fully seated).",
+        "description": "Steel tension governs when phi_N_sa <= phi_N_cbg/n and phi_N_sa <= phi_N_pn."
+      },
+      {
+        "failureMode": "Concrete breakout in tension (brittle cone failure)",
+        "effect": "Cone-shaped concrete fracture emanating from anchor head. Sudden loss of tension anchorage without warning. Brittle failure — no visible deformation.",
+        "severity": 9,
+        "occurrence": 4,
+        "detection": 5,
+        "rpn": 180,
+        "rpn_high": 216,
+        "rpn_low": 144,
+        "control_measure": "ACI 318 17.6.2 CCD method. Verify (A_Nc/A_Nc0) × psi factors × phi × N_b >= N_ua. Increase embedment depth (h_ef^1.5 effect). Provide supplementary reinforcement. For seismic: ensure steel governs.",
+        "description": "CCD method predicts conical breakout at 35° angle from anchor head. Most common concrete failure mode."
+      },
+      {
+        "failureMode": "Concrete pullout failure (headed stud or bolt)",
+        "effect": "Anchor head bearings through concrete at embedment point. Head pulls through without surface breakout. Loss of tension capacity.",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 5,
+        "rpn": 120,
+        "rpn_high": 144,
+        "rpn_low": 96,
+        "control_measure": "ACI 318 17.7.1: N_pn = psi_c,P × 8 × A_brg × f'_c. Ensure minimum head diameter >= 2.5 × d_b. For hooked bolts: ensure e_h >= 3 × d_b.",
+        "description": "Pullout is critical for anchors with small head-to-shank ratio. Verify A_brg >= required bearing area."
+      },
+      {
+        "failureMode": "Side-face blowout (splitting of thin concrete cover)",
+        "effect": "Lateral concrete splitting at side face near anchor head level. Applicable for deep embedment with small edge distance (ca1 < 0.4 × h_ef).",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 5,
+        "rpn": 120,
+        "rpn_high": 144,
+        "rpn_low": 96,
+        "control_measure": "ACI 318 17.7.3.1: N_sb = 160 × ca × sqrt(A_brg) × lambda × sqrt(f'_c) × (group factor). Maintain ca >= 0.4 × h_ef to avoid blowout check. Edge reinforcement per ACI 318 17.4.2.1(a).",
+        "description": "Side-face blowout specific to deep embedment near edges. Increases with embedment depth."
+      },
+      {
+        "failureMode": "Anchor steel shear rupture",
+        "effect": "Shear failure of anchor shank at the concrete surface plane. Lateral displacement of the attached element (base plate, embed plate).",
+        "severity": 7,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 84,
+        "rpn_high": 112,
+        "rpn_low": 56,
+        "control_measure": "ACI 318 17.5.1.2b: V_sa = 0.6 × A_ve × f_uta. Exclude threads from shear plane when possible. Use heavy hex or plate washers to distribute bearing. Design shear lug for large shear loads.",
+        "description": "Shear rupture governed by effective area (threads included or excluded)."
+      },
+      {
+        "failureMode": "Concrete breakout in shear (edge breakout toward free edge)",
+        "effect": "Concrete edge fracture spalling from the side of the member. Loss of shear resistance. Brittle failure.",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 160,
+        "rpn_low": 96,
+        "control_measure": "ACI 318 17.7.2: V_b = (l_e/d_b)^0.2 × lambda × sqrt(f'_c) × c_a1^1.5. Increase edge distance (c_a1^1.5 effect). Provide edge reinforcement or anchor reinforcement. Use shear lug to bypass anchors in shear.",
+        "description": "Concrete edge breakout governs when shear is directed toward a free edge."
+      },
+      {
+        "failureMode": "Concrete pryout failure in shear",
+        "effect": "Concrete breakout on the side opposite to the shear direction as the anchor pries out. Applicable for short, stiff anchors near edge.",
+        "severity": 8,
+        "occurrence": 3,
+        "detection": 5,
+        "rpn": 120,
+        "rpn_high": 144,
+        "rpn_low": 96,
+        "control_measure": "ACI 318 17.7.3: V_cp = k_cp × N_cbg. k_cp = 2.0 for h_ef >= 280mm, k_cp = 1.0 for h_ef < 280mm. Increase embedment depth or edge distance. Provide top reinforcement in the concrete member.",
+        "description": "Pryout is more likely for deeply embedded anchors with small edge distance."
+      }
+    ],
+    "audit_log": {
+      "required_entries": [
+        "Design code and edition (ACI 318-19/22 Chapter 17 or EN 1992-4:2018) with applicable National Annex",
+        "Anchor type, manufacturer, product designation, and qualification reference (ACI 355.2 / ACI 355.4 / ETA number / EAD)",
+        "Anchor material grade, lot number, manufacturer certificate (ASTM F1554 / ISO 898-1 / EN 10204 3.1)",
+        "Concrete compressive strength test results (cylinder per ASTM C39 / EN 12390-3 at 28 days)",
+        "Concrete crack condition determination (uncracked verified per ACI 318 17.2.4.2 or cracked assumed) with supporting stress analysis",
+        "Anchor installation inspection: embedment depth, edge distances, spacing, hole diameter, cleanliness, torque (for expansion anchors), curing time (for bonded anchors)",
+        "Installation temperature and concrete condition at time of installation (dry, damp, saturated, or flooded)",
+        "Seismic design category and ductility verification per ACI 318 17.2.3 / EN 1992-4 §2.2.2",
+        "Supplementary reinforcement details: bar size, grade, spacing, cover, and placement relative to anchor group",
+        "Anchor proof-load test results per ASTM E488 (if specified in project specifications)",
+        "Deviations, non-conformances, and approved corrective actions during anchor installation"
+      ],
+      "format": "ISO_9001_audit_trail"
+    },
+    "helpers_required": [
+      {
+        "id": "H001",
+        "name": "lookup_anchor_tensile_area",
+        "description": "Compute net tensile area and gross area from anchor diameter and thread pitch per ASME B1.1 / ISO 898-1 / ISO 261 thread standards. Handles metric coarse and fine threads, and unified inch threads (UNC/UNF/8UN).",
+        "inputs": ["anchor_diameter_val_mm", "anchor_type"],
+        "outputs": ["A_se_N", "A_g_V", "thread_pitch_mm", "acceptable_thread_range"]
+      },
+      {
+        "id": "H002",
+        "name": "compute_breakout_tension_group",
+        "description": "Compute A_Nc for arbitrary bolt group with n bolts, variable spacing s_xi, s_yi, and edge distances c_ai per CCD method (ACI 318 17.6.2 / EN 1992-4 §7.2.1.4). Returns effective A_Nc accounting for overlapping cones and edge truncation.",
+        "inputs": ["number_of_anchors", "anchor_spacing_x_mm", "anchor_spacing_y_mm", "edge_distance_x_mm", "edge_distance_y_mm", "anchor_effective_embedment_mm"],
+        "outputs": ["A_Nc", "A_Nc0", "psi_ed_N", "group_reduction_factor"]
+      },
+      {
+        "id": "H003",
+        "name": "compute_breakout_shear_group",
+        "description": "Compute A_Vc for anchor group in shear considering shear direction angle, edge distances, and member thickness per ACI 318 17.7.2 / EN 1992-4 §7.2.2.4.",
+        "inputs": ["number_of_anchors", "anchor_spacing_x_mm", "anchor_spacing_y_mm", "edge_distance_x_mm", "edge_distance_y_mm", "concrete_member_thickness_mm", "shear_load_direction_angle_deg"],
+        "outputs": ["A_Vc", "A_Vc0", "psi_ed_V", "psi_h_V", "c_a1_effective"]
+      },
+      {
+        "id": "H004",
+        "name": "check_bonded_anchor_bond_strength",
+        "description": "For bonded/chemical anchors, compute bond strength resistance per EOTA TR 029 / EN 1992-4 §7.2.1.6. Considers bond strength (tau_Rk), installation factor (eta_inst), crack width factor (psi_cr,N), and moisture condition effect.",
+        "inputs": ["bonded_anchor_bond_strength_mpa", "bonded_anchor_bonded_length_mm", "anchor_diameter_val_mm", "crack_width_mm", "cracked_concrete", "moisture_condition", "eta_inst_EN"],
+        "outputs": ["N_Rk_bond", "N_Rd_bond", "psi_cr_bond", "bond_governs_flag"]
+      },
+      {
+        "id": "H005",
+        "name": "assess_seismic_anchor_suitability",
+        "description": "Full seismic anchor ductility assessment per ACI 318 17.2.3.5. Determines if steel governs over concrete breakout, if anchor reinforcement is sufficient, and if anchor is qualified for cracked concrete under seismic loading. Returns pass/fail with required remedial actions.",
+        "inputs": ["seismic_ductility_class", "phi_N_sa", "phi_N_cbg", "phi_N_pn", "number_of_anchors", "N_u_per_anchor", "V_u_per_anchor", "supplementary_reinforcement_for_tension", "supplementary_reinforcement_for_shear"],
+        "outputs": ["seismic_ductility_pass", "required_reinforcement_tension_mm2", "required_reinforcement_shear_mm2", "ductility_mode", "remarks"]
+      }
+    ]
+  },
+  "ui_contract": {
+    "tabs": [
+      {
+        "id": "inputs",
+        "label": "Inputs",
+        "order": 0
+      },
+      {
+        "id": "results",
+        "label": "Results",
+        "order": 1
+      },
+      {
+        "id": "formulas",
+        "label": "Formulas & Standards",
+        "order": 2
+      },
+      {
+        "id": "fmea",
+        "label": "FMEA",
+        "order": 3
+      },
+      {
+        "id": "audit_log",
+        "label": "Audit Log",
+        "order": 4
+      }
+    ],
+    "input_groups": [
+      {
+        "key": "general",
+        "label": "General Parameters",
+        "order": 0,
+        "cols": 2
+      },
+      {
+        "key": "geometry",
+        "label": "Geometry Dimensions",
+        "order": 1,
+        "cols": 2
+      },
+      {
+        "key": "material",
+        "label": "Material Properties",
+        "order": 2,
+        "cols": 2
+      },
+      {
+        "key": "loading",
+        "label": "Applied Loads (Factored)",
+        "order": 3,
+        "cols": 2
+      },
+      {
+        "key": "reinforcement",
+        "label": "Supplementary Reinforcement",
+        "order": 4,
+        "cols": 2
+      }
+    ],
+    "output_display": {
+      "verdict_enabled": true,
+      "verdict_threshold_green": 0.7,
+      "verdict_threshold_amber": 0.9,
+      "verdict_threshold_red": 1.0,
+      "show_gauge": true,
+      "gauge_type": "UC",
+      "gauge_max": 1.5,
+      "show_results_table": true,
+      "results_table_columns": ["id", "symbol", "label", "value", "unit", "status"],
+      "show_warning_cards": true,
+      "show_references": true
+    },
+    "action_bar": {
+      "calculate_label": "Calculate Anchor Capacity",
+      "reset_label": "Reset",
+      "show_iso_iec_note": true,
+      "show_cta_bar": true,
+      "cta_label": "View Full Results →"
+    }
+  },
+  "reference_code": {
+    "primary": [
+      {
+        "code": "ACI 318-19/22: Chapter 17",
+        "title": "Anchoring to Concrete — Building Code Requirements for Structural Concrete",
+        "clauses": ["§17.2.3 (Seismic requirements)", "§17.3.1 (Minimum dimensions)", "§17.4.1 (General strength)", "§17.5.1 (Steel strength)", "§17.6.2 (Concrete breakout in tension)", "§17.7.1 (Pullout)", "§17.7.2 (Concrete breakout in shear)", "§17.7.3 (Side-face blowout / Pryout)", "§17.5.3 (Combined loads)"],
+        "description": "Governing US standard for anchor design in concrete. CCD method for breakout, pullout, blowout, and combined loading. Seismic ductility requirements."
+      },
+      {
+        "code": "EN 1992-4:2018",
+        "title": "Design of fastenings for use in concrete",
+        "clauses": ["§2.1.2 (Anchor categories)", "§2.2.2 (Seismic)", "§3.1 (Partial factors)", "§4.2 (Minimum dimensions)", "§5.2 (Steel failure)", "§6.2 (Steel shear)", "§7.2.1 (Concrete breakout — tension)", "§7.2.2 (Concrete breakout — shear)", "§8.2 (Combined tension and shear)"],
+        "description": "Governing European standard for design of anchor channels, headed fasteners, and post-installed anchors in concrete."
+      },
+      {
+        "code": "ACI 355.2 / ACI 355.4",
+        "title": "Qualification of Post-Installed Mechanical Anchors / Adhesive Anchors in Concrete",
+        "clauses": ["§5 (Test requirements)", "§6 (Service condition categories)", "§7 (Seismic qualification)", "Annex A (ICC-ES acceptance criteria)"],
+        "description": "Qualification standards for post-installed anchors. Required reference for anchor product selection and phi factor determination."
+      }
+    ],
+    "secondary": [
+      {
+        "code": "EAD 330232 / 330087",
+        "title": "European Assessment Document for Bonded Fasteners / Mechanical Fasteners",
+        "clauses": ["§1 (Scope)", "§2 (Assessment)", "§3 (Performance characteristics)"],
+        "description": "ETA reference documents for European anchor qualification and performance assessment."
+      },
+      {
+        "code": "EOTA TR 029",
+        "title": "Design of bonded anchors",
+        "clauses": ["§2 (Bond strength)", "§3 (Crack width effects)", "§5 (Combined loads)"],
+        "description": "Technical report for bonded anchor design including bond strength determination, crack width factors, and combined loading."
+      },
+      {
+        "code": "ASTM E488-22",
+        "title": "Standard Test Methods for Strength of Anchors in Concrete Elements",
+        "clauses": ["§6 (Test procedure)", "§7 (Tension tests)", "§8 (Shear tests)"],
+        "description": "Standard test methods for determining anchor strength in tension and shear through proof-load testing."
+      },
+      {
+        "code": "ASCE 7-22: Chapter 12 / 13",
+        "title": "Minimum Design Loads — Seismic / Nonstructural Components",
+        "clauses": ["§12.4.3 (Overstrength factor)", "§13.4.2 (Anchorage of nonstructural components)"],
+        "description": "Seismic design requirements affecting anchor overstrength factors and nonstructural component anchorage."
+      },
+      {
+        "code": "fib Bulletin 58:2011",
+        "title": "Design of anchorages in concrete",
+        "clauses": ["§2 (CCD method)", "§3 (Group effects)", "§5 (Seismic)", "§6 (Reinforcement)"],
+        "description": "International guidance document for anchor design in concrete, complementing ACI 318/EN 1992 provisions."
+      }
+    ],
+    "standards_organization": "ACI (American Concrete Institute) + CEN (European Committee for Standardization) + EOTA (European Organization for Technical Assessments)"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "traceability_id": "TOOL-PRO-150-ANCHOR-BOLT-PULLOUT-BREAKOUT-ACI318-EN1992-001",
+    "quality_level": "Engineering_schema_complete",
+    "last_review_status": "ENGINEERING_SCHEMA_COMPLETE",
+    "last_reviewed": "2026-06-28",
+    "author": "SectorCalc Engineering Team",
+    "discipline": "Structural Engineering — Concrete Anchorage / Fastening Technology",
+    "tags": ["anchor bolt", "concrete breakout", "pullout", "side-face blowout", "ACI 318 Chapter 17", "EN 1992-4", "seismic ductility", "CCD method", "cast-in anchor", "post-installed anchor"],
+    "estimated_form_count": 46,
+    "estimated_input_count": 40,
+    "estimated_output_count": 22
+  }
+}
