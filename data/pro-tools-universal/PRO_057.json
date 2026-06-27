@@ -1,0 +1,297 @@
+{
+  "schemaId": "PRO_057",
+  "toolCode": "TOOL-PRO-057",
+  "version": "1.0.0",
+  "name": "Substation Earthing Grid — Ground Resistance, Touch & Step Voltage Safety Check",
+  "subtitle": "Electrical Safety | Grounding Systems — IEEE Std 80-2013, IEEE Std 81-2012 (soil resistivity measurement)",
+  "sectorPath": [
+    "Electrical Safety",
+    "Grounding Systems"
+  ],
+  "standardsBasis": [
+    "IEEE Std 80-2013",
+    "IEEE Std 81-2012 (soil resistivity measurement)",
+    "IEC 60364-5-54:2011",
+    "BS 7430:2011+A1:2015"
+  ],
+  "scope": {
+    "inScope": [
+      "Substation Earthing Grid — Ground Resistance, Touch & Step Voltage Safety Check"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "soil_resistivity_ohm_m",
+      "symbol": "soil_resistivity_ohm_m",
+      "label": "Soil Resistivity (ρ)",
+      "unit": {
+        "ref": "Ω·m"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 5,
+      "max": 10000,
+      "default": 100
+    },
+    {
+      "id": "grid_area_m2",
+      "symbol": "grid_area_m2",
+      "label": "Grounding Grid Area (A)",
+      "unit": {
+        "ref": "m2"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "id": "grid_conductor_length_m",
+      "symbol": "grid_conductor_length_m",
+      "label": "Total Buried Conductor Length (L_C)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 5,
+      "max": 50000
+    },
+    {
+      "id": "burial_depth_m",
+      "symbol": "burial_depth_m",
+      "label": "Grid Burial Depth (h)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.3,
+      "max": 3,
+      "default": 0.6
+    },
+    {
+      "id": "fault_current_kA",
+      "symbol": "fault_current_kA",
+      "label": "Maximum Ground Fault Current (I_f)",
+      "unit": {
+        "ref": "kA"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 100
+    },
+    {
+      "id": "fault_duration_s",
+      "symbol": "fault_duration_s",
+      "label": "Fault Clearing Time (t_f)",
+      "unit": {
+        "ref": "s"
+      },
+      "confidence": "KESIN",
+      "group": "process",
+      "min": 0.05,
+      "max": 3,
+      "default": 0.5
+    },
+    {
+      "id": "surface_layer_resistivity",
+      "symbol": "surface_layer_resistivity",
+      "label": "Surface Crushed Rock / Gravel Layer Resistivity (ρ_s)",
+      "unit": {
+        "ref": "Ω·m"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 100,
+      "max": 100000,
+      "default": 3000
+    },
+    {
+      "id": "surface_layer_depth_m",
+      "symbol": "surface_layer_depth_m",
+      "label": "Surface Layer Thickness (h_s)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.05,
+      "max": 0.5,
+      "default": 0.1
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "process",
+      "letter": "B",
+      "title": "Process",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_057",
+      "code": "IEEE Std 80-2013",
+      "name": "Substation Earthing Grid — Ground Resistance, Touch & Step Voltage Safety Check",
+      "description": "Substation Earthing Grid — Ground Resistance, Touch & Step Voltage Safety Check — Electrical Safety, Grounding Systems",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Rg_ohm",
+          "expression": "soil_resistivity_ohm_m * (1/(4*Math.sqrt(Math.PI*grid_area_m2)) + 1/grid_conductor_length_m * (1 + 1/(1 + burial_depth_m*Math.sqrt(20/grid_area_m2))))",
+          "unit": {
+            "ref": "ohm"
+          },
+          "reference": "IEEE Std 80-2013 Eq.(57) — Sverak simplified formula for grid resistance",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "GPR_v",
+          "expression": "fault_current_kA * 1000 * Rg_ohm",
+          "unit": {
+            "ref": "V"
+          },
+          "reference": "IEEE 80-2013 §16.1 — GPR = I_f × R_g",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "IB_mA",
+          "expression": "1000 * 0.116 / Math.sqrt(fault_duration_s)",
+          "unit": {
+            "ref": "mA"
+          },
+          "reference": "IEEE 80-2013 §7.4 Eq.(10) — Dalziel formula: I_B = 0.116/√t_s (50 kg body)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Cs",
+          "expression": "1 - 0.09*(1 - soil_resistivity_ohm_m/surface_layer_resistivity) / (2*surface_layer_depth_m + 0.09); Rfoot_ohm = 1.5 * Cs * surface_layer_resistivity; E_touch_v = IB_mA/1000 * (1000 + 2*Rfoot_ohm)",
+          "unit": {
+            "ref": "V"
+          },
+          "reference": "IEEE 80-2013 §8.3 Eq.(32) — E_touch50 with surface layer reduction factor C_s",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "E_step_v",
+          "expression": "IB_mA/1000 * (1000 + 6*Rfoot_ohm)",
+          "unit": {
+            "ref": "V"
+          },
+          "reference": "IEEE 80-2013 §8.3 Eq.(33) — E_step50 with surface layer",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "D_m",
+          "expression": "Math.sqrt(grid_area_m2 / Math.round(grid_conductor_length_m / Math.sqrt(grid_area_m2))); Km = 1/(2*Math.PI) * (Math.log(D_m^2/(16*0.005*burial_depth_m)) + Math.log(D_m/(3.84*burial_depth_m))); Ki = 0.644 + 0.148*4; E_mesh_v = soil_resistivity_ohm_m * fault_current_kA * 1000 * Km * Ki / grid_conductor_length_m",
+          "unit": {
+            "ref": "V"
+          },
+          "reference": "IEEE 80-2013 §16.4 Eq.(80) — mesh voltage",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "IEEE Std 80-2013",
+          "condition": "E_mesh_v > E_touch_v * 0.8",
+          "message": "Mesh voltage within 20% of tolerable limit: marginal safety margin — add equalising conductors or equipotential mats at operator locations"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "IEEE Std 80-2013",
+          "condition": "soil_resistivity_ohm_m > 1000",
+          "message": "High soil resistivity (> 1000 Ω·m): achieving low grid resistance requires extensive grid or deep-driven rods — consider chemical ground enhancement"
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "IEEE Std 80-2013",
+          "condition": "Rg_ohm > 1.0 && fault_current_kA > 10",
+          "message": "R_g > 1 Ω at high fault current: GPR will be dangerously high — verify grid extends beyond substation fence; add remote earth electrodes"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "IEEE Std 80-2013",
+          "condition": "surface_layer_resistivity < 500",
+          "message": "Surface layer resistivity < 500 Ω·m: low benefit from surface treatment — increase layer thickness or use higher-resistivity dry crushed stone"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "IEEE Std 80-2013",
+          "condition": "fault_duration_s > 1.0",
+          "message": "Fault clearing time > 1.0 s: tolerable voltages reduce significantly — upgrade protection relay speed or re-evaluate system protection coordination"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "soil_resistivity_ohm_m",
+        "grid_area_m2",
+        "grid_conductor_length_m",
+        "burial_depth_m",
+        "fault_current_kA",
+        "fault_duration_s",
+        "surface_layer_resistivity",
+        "surface_layer_depth_m"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

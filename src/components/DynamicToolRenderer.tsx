@@ -33,17 +33,17 @@ export interface DynamicToolRendererProps {
 // ── CONSTANTS
 
 const CONFIDENCE_COLORS: Record<string, string> = {
-  KESIN:     "#16a34a",
-  GÜÇLÜ:     "#2563eb",
-  ORTA:      "#ca8a04",
-  VARSAYIM:  "#6b7280",
+  EXACT:     "#16a34a",
+  STRONG:    "#2563eb",
+  MODERATE:  "#ca8a04",
+  DEFAULT:   "#6b7280",
 };
 
 const CONFIDENCE_LABELS: Record<string, string> = {
-  KESIN:     "KESİN",
-  GÜÇLÜ:     "GÜÇLÜ",
-  ORTA:      "ORTA",
-  VARSAYIM:  "VARSAYIM",
+  EXACT:     "EXACT",
+  STRONG:    "STRONG",
+  MODERATE:  "MODERATE",
+  DEFAULT:   "DEFAULT",
 };
 
 // ── COMPONENT

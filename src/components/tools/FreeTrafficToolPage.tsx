@@ -27,6 +27,7 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
@@ -697,6 +698,7 @@ export function FreeTrafficToolPage({
           />
           </>
           )}
+        <ExpertAuthoritySection toolName={displayTitle} />
         </Container>
       </section>
     </PageLayout>

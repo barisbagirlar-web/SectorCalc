@@ -1,0 +1,443 @@
+{
+  "schemaId": "PRO_009",
+  "toolCode": "TOOL-PRO-009",
+  "version": "1.0.0",
+  "name": "Pressure Vessel Wall Thickness Sizing (ASME VIII / PED)",
+  "subtitle": "Mechanical Design | Pressure Vessels — ASME VIII Div.1, ASME VIII UG-27",
+  "sectorPath": [
+    "Mechanical Design",
+    "Pressure Vessels"
+  ],
+  "standardsBasis": [
+    "ASME VIII Div.1",
+    "ASME VIII UG-27",
+    "ASME VIII UG-99",
+    "PED 2014/68/EU",
+    "EN 13445",
+    "ASME Sec. II Part D"
+  ],
+  "scope": {
+    "inScope": [
+      "Pressure Vessel Wall Thickness Sizing (ASME VIII / PED)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "design_pressure_mpa",
+      "symbol": "design_pressure_mpa",
+      "label": "Design Pressure (P)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 35,
+      "hint": "Calculated as 10% above maximum operating pressure"
+    },
+    {
+      "id": "inner_radius_mm",
+      "symbol": "inner_radius_mm",
+      "label": "Inner Radius (Ri)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 25,
+      "max": 5000
+    },
+    {
+      "id": "head_type",
+      "symbol": "head_type",
+      "label": "Vessel Head Geometry",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "enum": [
+        {
+          "value": "Cylindrical Shell",
+          "label": "Cylindrical Shell"
+        },
+        {
+          "value": "Spherical Shell",
+          "label": "Spherical Shell"
+        },
+        {
+          "value": "2:1 Ellipsoidal Head",
+          "label": "2:1 Ellipsoidal Head"
+        },
+        {
+          "value": "Hemispherical Head",
+          "label": "Hemispherical Head"
+        }
+      ]
+    },
+    {
+      "id": "material_grade",
+      "symbol": "material_grade",
+      "label": "Material Grade",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "enum": [
+        {
+          "value": "SA-516 Gr.70 (138 MPa)",
+          "label": "SA-516 Gr.70 (138 MPa)"
+        },
+        {
+          "value": "SA-285 Gr.C (95 MPa)",
+          "label": "SA-285 Gr.C (95 MPa)"
+        },
+        {
+          "value": "SA-240 304L (115 MPa)",
+          "label": "SA-240 304L (115 MPa)"
+        },
+        {
+          "value": "SA-240 316L (115 MPa)",
+          "label": "SA-240 316L (115 MPa)"
+        },
+        {
+          "value": "P265GH EN (168 MPa)",
+          "label": "P265GH EN (168 MPa)"
+        },
+        {
+          "value": "P355GH EN (195 MPa)",
+          "label": "P355GH EN (195 MPa)"
+        },
+        {
+          "value": "Manual Input",
+          "label": "Manual Input"
+        }
+      ]
+    },
+    {
+      "id": "allowable_stress_mpa",
+      "symbol": "allowable_stress_mpa",
+      "label": "Allowable Stress (S)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 10,
+      "max": 300,
+      "hint": "Automatically resolved from material selection — ASME Sec. II Part D"
+    },
+    {
+      "id": "joint_efficiency",
+      "symbol": "joint_efficiency",
+      "label": "Weld Joint Efficiency (E)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "hint": "ASME VIII UW-12 weld joint category",
+      "enum": [
+        {
+          "value": "1.00 — Tam RT muayene (Kategori A)",
+          "label": "1.00 — Tam RT muayene (Kategori A)"
+        },
+        {
+          "value": "0.85 — Nokta RT muayene",
+          "label": "0.85 — Nokta RT muayene"
+        },
+        {
+          "value": "0.70 — RT muayenesiz",
+          "label": "0.70 — RT muayenesiz"
+        }
+      ]
+    },
+    {
+      "id": "joint_efficiency_val",
+      "symbol": "joint_efficiency_val",
+      "label": "Weld Joint Efficiency Value (E)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.7,
+      "max": 1,
+      "default": 1
+    },
+    {
+      "id": "corrosion_allowance_mm",
+      "symbol": "corrosion_allowance_mm",
+      "label": "Corrosion Allowance (CA)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 10,
+      "default": 3,
+      "hint": "General service: 3mm | Sour service: 6mm | Dry air: 1.5mm"
+    },
+    {
+      "id": "mill_tolerance_pct",
+      "symbol": "mill_tolerance_pct",
+      "label": "Mill Under-tolerance",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 15,
+      "default": 12.5,
+      "optional": true,
+      "hint": "ASME SA-6 / SA-20 plate mill tolerance — typically 12.5%"
+    },
+    {
+      "id": "design_temp_c",
+      "symbol": "design_temp_c",
+      "label": "Design Temperature",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": -196,
+      "max": 650,
+      "hint": "Allowable stress depends heavily on operating temperature"
+    },
+    {
+      "id": "hydro_test_factor",
+      "symbol": "hydro_test_factor",
+      "label": "Hydrostatic Test Pressure Factor",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1.3,
+      "max": 1.5,
+      "default": 1.3,
+      "optional": true,
+      "hint": "ASME VIII UG-99: minimum 1.3 factor"
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_009",
+      "code": "ASME VIII Div.1",
+      "name": "Pressure Vessel Wall Thickness Sizing (ASME VIII / PED)",
+      "description": "Pressure Vessel Wall Thickness Sizing (ASME VIII / PED) — Mechanical Design, Pressure Vessels",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "t_cyl_calc",
+          "expression": "(design_pressure_mpa * inner_radius_mm) / ((allowable_stress_mpa * joint_efficiency_val) - (0.6 * design_pressure_mpa))",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "t_sphere_calc",
+          "expression": "(design_pressure_mpa * inner_radius_mm) / ((2 * allowable_stress_mpa * joint_efficiency_val) - (0.2 * design_pressure_mpa))",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "t_ellip_calc",
+          "expression": "(design_pressure_mpa * inner_radius_mm) / ((2 * allowable_stress_mpa * joint_efficiency_val) - (0.2 * design_pressure_mpa))",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "t_hemi_calc",
+          "expression": "(design_pressure_mpa * inner_radius_mm) / ((2 * allowable_stress_mpa * joint_efficiency_val) - (0.2 * design_pressure_mpa)) * 0.5",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "t_min_nominal",
+          "expression": "t_cyl_calc + corrosion_allowance_mm",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "t_ordered",
+          "expression": "t_min_nominal / (1 - mill_tolerance_pct / 100)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "MAWP",
+          "expression": "(allowable_stress_mpa * joint_efficiency_val * (t_min_nominal - corrosion_allowance_mm)) / (inner_radius_mm + 0.6 * (t_min_nominal - corrosion_allowance_mm))",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "HydroTest_P",
+          "expression": "hydro_test_factor * design_pressure_mpa",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Hoop_Stress",
+          "expression": "(design_pressure_mpa * inner_radius_mm) / (t_min_nominal - corrosion_allowance_mm)",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Safety_Factor",
+          "expression": "allowable_stress_mpa / Hoop_Stress",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "API 571 / ASME VIII",
+          "condition": "corrosion_allowance_mm < 1.5",
+          "message": "Low corrosion allowance: CA < 1.5mm. Minimum 3mm is recommended for general service. Increase to 6mm if process fluid is corrosive (acid, H2S, Cl-). Insufficient CA leads to premature pinholes."
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "ASME VIII UG-27",
+          "condition": "Hoop_Stress > allowable_stress_mpa * 0.90",
+          "message": "Critical: Hoop stress exceeds 90% of allowable stress. Safety margin is insufficient. Increase wall thickness or select material with higher S value."
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "ASME VIII Design Philosophy",
+          "condition": "Safety_Factor < 3.5",
+          "message": "Factor of safety is below 3.5. ASME VIII targets minimum SF=4.0 for static design. Design should be re-evaluated."
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ASME VIII UW-11",
+          "condition": "joint_efficiency_val < 1.0",
+          "message": "Full RT inspection is not performed (E < 1.0). The calculated thickness requires 15-43% more material. Total cost may decrease with full RT."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "ASME VIII UCS-66 / ASTM A370",
+          "condition": "design_temp_c < 0",
+          "message": "Low temperature service: Impact testing (Charpy V-notch) and MDMT (Minimum Design Metal Temperature) analysis are mandatory. General carbon steel poses embrittlement risk."
+        },
+        {
+          "id": "W6",
+          "severity": "INFO",
+          "source": "ASME VIII UCS-79",
+          "condition": "t_ordered > 50",
+          "message": "Thickness > 50mm: PWHT (Post-Weld Heat Treatment) may become mandatory. Check ASME VIII UCS-56 tables. Evaluate cost and schedule impact of heat treatment."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "design_pressure_mpa",
+        "inner_radius_mm",
+        "head_type",
+        "material_grade",
+        "allowable_stress_mpa",
+        "joint_efficiency",
+        "joint_efficiency_val",
+        "corrosion_allowance_mm",
+        "design_temp_c"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

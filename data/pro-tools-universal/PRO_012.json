@@ -1,0 +1,443 @@
+{
+  "schemaId": "PRO_012",
+  "toolCode": "TOOL-PRO-012",
+  "version": "1.0.0",
+  "name": "Mass Concrete Volume, Thermal Crack Risk & Pour Cost (ACI 207)",
+  "subtitle": "Civil & Structural Engineering | Concrete Works — ACI 207.1R-96 Mass Concrete, ACI 207.2R Thermal Effects",
+  "sectorPath": [
+    "Civil & Structural Engineering",
+    "Concrete Works"
+  ],
+  "standardsBasis": [
+    "ACI 207.1R-96 Mass Concrete",
+    "ACI 207.2R Thermal Effects",
+    "EN 1992-3 Liquid Retaining",
+    "BS 8007",
+    "CIRIA C660"
+  ],
+  "scope": {
+    "inScope": [
+      "Mass Concrete Volume, Thermal Crack Risk & Pour Cost (ACI 207)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "vol_slab_m3",
+      "symbol": "vol_slab_m3",
+      "label": "Slab Net Volume",
+      "unit": {
+        "ref": "m3"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "vol_footing_m3",
+      "symbol": "vol_footing_m3",
+      "label": "Foundation / Footing Net Volume",
+      "unit": {
+        "ref": "m3"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "vol_column_m3",
+      "symbol": "vol_column_m3",
+      "label": "Column / Wall Net Volume",
+      "unit": {
+        "ref": "m3"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "rebar_volume_pct",
+      "symbol": "rebar_volume_pct",
+      "label": "Reinforcement Volume Ratio",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 8,
+      "default": 2,
+      "hint": "Lightly reinforced: 1% | Standard: 2–3% | Heavily reinforced: 4–5%"
+    },
+    {
+      "id": "pour_waste_pct",
+      "symbol": "pour_waste_pct",
+      "label": "Placement Waste Allowance",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 15,
+      "default": 5,
+      "hint": "Standard: 5% | Complex formwork: 7–10% | Pumped slabs: 3–5%"
+    },
+    {
+      "id": "cement_content_kg_m3",
+      "symbol": "cement_content_kg_m3",
+      "label": "Cement Content per m³",
+      "unit": {
+        "ref": "kg/m³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 150,
+      "max": 550,
+      "hint": "Lean concrete: 150–200 | Standard C25: 280–320 | High strength C45: 380–450"
+    },
+    {
+      "id": "cement_type",
+      "symbol": "cement_type",
+      "label": "Cement Type / Heat Class",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "enum": [
+        {
+          "value": "CEM I (OPC) — High heat: factor 1.00",
+          "label": "CEM I (OPC) — High heat: factor 1.00"
+        },
+        {
+          "value": "CEM II/A-S — Medium heat: factor 0.85",
+          "label": "CEM II/A-S — Medium heat: factor 0.85"
+        },
+        {
+          "value": "CEM III/A (GGBS ≥36%) — Low heat: factor 0.70",
+          "label": "CEM III/A (GGBS ≥36%) — Low heat: factor 0.70"
+        },
+        {
+          "value": "CEM III/B (GGBS ≥66%) — Very low heat: factor 0.55",
+          "label": "CEM III/B (GGBS ≥66%) — Very low heat: factor 0.55"
+        },
+        {
+          "value": "CEM IV (Pozzolanic) — Low heat: factor 0.65",
+          "label": "CEM IV (Pozzolanic) — Low heat: factor 0.65"
+        }
+      ]
+    },
+    {
+      "id": "cement_heat_factor",
+      "symbol": "cement_heat_factor",
+      "label": "Cement Heat Generation Factor",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.4,
+      "max": 1,
+      "default": 1,
+      "hint": "From cement type selection: CEM I=1.00 | CEM III/B=0.55"
+    },
+    {
+      "id": "ambient_temp_c",
+      "symbol": "ambient_temp_c",
+      "label": "Ambient Air Temperature at Pour",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": -10,
+      "max": 45,
+      "hint": "Use forecast temperature for the pour date and first 72 hours"
+    },
+    {
+      "id": "concrete_unit_cost_usd",
+      "symbol": "concrete_unit_cost_usd",
+      "label": "Ready-Mix Concrete Unit Price",
+      "unit": {
+        "ref": "USD/m³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 50,
+      "max": 500
+    },
+    {
+      "id": "pump_mobilization_usd",
+      "symbol": "pump_mobilization_usd",
+      "label": "Concrete Pump + Labour Cost",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0
+    },
+    {
+      "id": "min_section_thickness_mm",
+      "symbol": "min_section_thickness_mm",
+      "label": "Minimum Section Thickness",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 100,
+      "max": 5000,
+      "hint": "ACI 207.1R: Mass concrete defined as thickness ≥ 900mm (36 in)"
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_012",
+      "code": "ACI 207.1R-96 Mass Concrete",
+      "name": "Mass Concrete Volume, Thermal Crack Risk & Pour Cost (ACI 207)",
+      "description": "Mass Concrete Volume, Thermal Crack Risk & Pour Cost (ACI 207) — Civil & Structural Engineering, Concrete Works",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Gross_Volume_m3",
+          "expression": "vol_slab_m3 + vol_footing_m3 + vol_column_m3",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Rebar_Displacement_m3",
+          "expression": "Gross_Volume_m3 * (rebar_volume_pct / 100)",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Net_Concrete_m3",
+          "expression": "Gross_Volume_m3 - Rebar_Displacement_m3",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Order_Volume_m3",
+          "expression": "Net_Concrete_m3 * (1 + pour_waste_pct / 100)",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Total_Material_Cost_USD",
+          "expression": "Order_Volume_m3 * concrete_unit_cost_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Total_Pour_Cost_USD",
+          "expression": "Total_Material_Cost_USD + pump_mobilization_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Cost_per_Net_m3_USD",
+          "expression": "Total_Pour_Cost_USD / Net_Concrete_m3",
+          "unit": {
+            "ref": "USD/m³"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Heat_of_Hydration_kJ_kg",
+          "expression": "350 * cement_heat_factor",
+          "unit": {
+            "ref": "kJ/kg"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Adiabatic_Temp_Rise_C",
+          "expression": "(cement_content_kg_m3 * Heat_of_Hydration_kJ_kg) / (2400 * 0.92)",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Peak_Core_Temp_C",
+          "expression": "ambient_temp_c + Adiabatic_Temp_Rise_C",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Surface_Temp_C",
+          "expression": "ambient_temp_c + 5",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Delta_T_Core_Surface",
+          "expression": "Peak_Core_Temp_C - Surface_Temp_C",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Concrete_Weight_tonnes",
+          "expression": "Net_Concrete_m3 * 2.4",
+          "unit": {
+            "ref": "tonnes"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ACI 207.2R / EN 1992-3 Cl.M.3",
+          "condition": "Delta_T_Core_Surface > 20",
+          "message": "THERMAL CRACKING RISK CONFIRMED: Core-to-surface ΔT exceeds 20°C threshold. Restrained thermal shrinkage will generate tensile stresses exceeding concrete tensile strength. Through-cracking expected. Mandatory mitigations: (1) Use CEM III/B or pozzolanic cement, (2) Pre-cool mix water or aggregate, (3) Limit pour lifts to 600mm, (4) Apply thermal insulation blanket to retain surface heat."
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "ACI 207.1R / CIRIA C660",
+          "condition": "Delta_T_Core_Surface > 25",
+          "message": "SEVERE THERMAL CRACKING — ΔT > 25°C: At this differential, macro-cracks of 0.2–0.5mm width are near-certain. Structure integrity and watertightness compromised. Redesign concrete mix with low-heat cement and thermal monitoring sensors (embedded thermocouples) required."
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "ACI 305R Hot Weather Concreting",
+          "condition": "ambient_temp_c > 32",
+          "message": "HOT WEATHER CONCRETING: Ambient temperature > 32°C. Concrete may set prematurely. ACI 305R requirements: (1) Fresh concrete temperature ≤ 35°C at point of discharge, (2) Use chilled water or ice substitution, (3) Pour at night, (4) Increase slump via plasticizer — not water."
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "ACI 306R Cold Weather Concreting",
+          "condition": "ambient_temp_c < 5",
+          "message": "COLD WEATHER CONCRETING: Ambient < 5°C. Hydration will stall or freeze. ACI 306R: Fresh concrete must be maintained at ≥ 10°C for 7 days minimum. Insulated formwork, heated enclosure, or anti-freeze admixtures required."
+        },
+        {
+          "id": "W5",
+          "severity": "CRITICAL",
+          "source": "ACI 207.1R / DEF Risk",
+          "condition": "Peak_Core_Temp_C > 70",
+          "message": "DELAYED ETTRINGITE FORMATION (DEF) RISK: Peak core temperature > 70°C. Ettringite phase destroyed during curing and reforms later causing expansive cracking. Use water-reducing admixtures and low-C₃A cements. This risk is irreversible once temperature is exceeded."
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "Construction Quantity Surveying Practice",
+          "condition": "pour_waste_pct < 3",
+          "message": "Waste allowance < 3%: Likely underestimated for construction site conditions. Insufficient waste factor leads to under-ordering, schedule delays, and cold joint formation. Minimum 5% recommended for poured-in-place work."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "vol_slab_m3",
+        "vol_footing_m3",
+        "vol_column_m3",
+        "rebar_volume_pct",
+        "pour_waste_pct",
+        "cement_content_kg_m3",
+        "cement_type",
+        "cement_heat_factor",
+        "ambient_temp_c",
+        "concrete_unit_cost_usd",
+        "pump_mobilization_usd",
+        "min_section_thickness_mm"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

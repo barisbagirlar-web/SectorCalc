@@ -1,0 +1,272 @@
+{
+  "schemaId": "PRO_006",
+  "toolCode": "TOOL-PRO-006",
+  "version": "1.0.0",
+  "name": "Capital Investment Appraisal — NPV, IRR, Payback & Profitability Index",
+  "subtitle": "Financial Engineering | Project Finance — ICMA Financial Appraisal Guide, ISO 15686-5:2017 (LCC)",
+  "sectorPath": [
+    "Financial Engineering",
+    "Project Finance"
+  ],
+  "standardsBasis": [
+    "ICMA Financial Appraisal Guide",
+    "ISO 15686-5:2017 (LCC)",
+    "IAS 36 Impairment",
+    "IFC Performance Standards §1"
+  ],
+  "scope": {
+    "inScope": [
+      "Capital Investment Appraisal — NPV, IRR, Payback & Profitability Index"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "initial_investment_usd",
+      "symbol": "initial_investment_usd",
+      "label": "Initial Capital Investment (CAPEX at t=0)",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1000,
+      "max": 10000000000
+    },
+    {
+      "id": "annual_cash_inflow_usd",
+      "symbol": "annual_cash_inflow_usd",
+      "label": "Annual Net Cash Inflow (Revenue - OPEX)",
+      "unit": {
+        "ref": "USD/yr"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": -100000000,
+      "max": 10000000000
+    },
+    {
+      "id": "project_life_yr",
+      "symbol": "project_life_yr",
+      "label": "Project Economic Life (N)",
+      "unit": {
+        "ref": "years"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 1,
+      "max": 50,
+      "default": 10
+    },
+    {
+      "id": "discount_rate_pct",
+      "symbol": "discount_rate_pct",
+      "label": "Discount Rate / WACC (r)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "max": 50,
+      "default": 10
+    },
+    {
+      "id": "salvage_value_usd",
+      "symbol": "salvage_value_usd",
+      "label": "Terminal / Salvage Value at End of Life",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 5000000000,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "annual_escalation_pct",
+      "symbol": "annual_escalation_pct",
+      "label": "Annual Cash Flow Escalation Rate (inflation adj.)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": -10,
+      "max": 20,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "tax_rate_pct",
+      "symbol": "tax_rate_pct",
+      "label": "Effective Corporate Tax Rate",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 60,
+      "default": 20,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_006",
+      "code": "ICMA Financial Appraisal Guide",
+      "name": "Capital Investment Appraisal — NPV, IRR, Payback & Profitability Index",
+      "description": "Capital Investment Appraisal — NPV, IRR, Payback & Profitability Index — Financial Engineering, Project Finance",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "CF_after_tax_usd",
+          "expression": "annual_cash_inflow_usd * (1 - tax_rate_pct / 100)",
+          "unit": {
+            "ref": "USD/yr"
+          },
+          "reference": "After-tax CF = EBITDA × (1 - t)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "r",
+          "expression": "discount_rate_pct / 100; g = annual_escalation_pct / 100; PVA = (Math.abs(g - r) < 0.001) ? CF_after_tax_usd * project_life_yr / (1+r) : CF_after_tax_usd * (1 - Math.pow((1+g)/(1+r), project_life_yr)) / (r - g); PV_salvage = salvage_value_usd / Math.pow(1+r, project_life_yr); NPV_usd = PVA + PV_salvage - initial_investment_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "NPV = Σ CF_t/(1+r)^t - CAPEX — ICMA financial appraisal",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "out_3",
+          "expression": "let irr = 0.10; for(let i=0;i<1000;i++){let f=-initial_investment_usd; let df=0; for(let t=1;t<=project_life_yr;t++){let cf=CF_after_tax_usd*Math.pow(1+annual_escalation_pct/100,t-1); f+=cf/Math.pow(1+irr,t); df-=t*cf/Math.pow(1+irr,t+1);} if(t===project_life_yr) f+=salvage_value_usd/Math.pow(1+irr,project_life_yr); let di=f/df; irr-=di; if(Math.abs(di)<1e-8) break;} IRR_pct = irr * 100   // [%] IRR — Newton-Raphson Iterative (MaxIter=1000) Reference: IRR: Newton-Raphson convergence — financial mathematics §3; MaxIter=1000 guard per SectorCalc standard",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F4",
+          "output": "PBP_yr",
+          "expression": "initial_investment_usd / CF_after_tax_usd",
+          "unit": {
+            "ref": "years"
+          },
+          "reference": "PBP = CAPEX / annual CF — simple payback",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "out_5",
+          "expression": "let cumPV = 0; let DPBP = project_life_yr; for(let t=1; t<=project_life_yr; t++){cumPV += CF_after_tax_usd * Math.pow(1 + annual_escalation_pct/100, t-1) / Math.pow(1 + discount_rate_pct/100, t); if(cumPV >= initial_investment_usd){DPBP = t - 1 + (initial_investment_usd - (cumPV - CF_after_tax_usd / Math.pow(1+discount_rate_pct/100, t))) / (CF_after_tax_usd / Math.pow(1+discount_rate_pct/100, t)); break;}} DPBP_yr = DPBP   // [years] Discounted Payback Period (DPBP) Reference: Discounted payback — IAS 36 impairment; cumulative PV reaching CAPEX",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F6",
+          "output": "PI",
+          "expression": "(NPV_usd + initial_investment_usd) / initial_investment_usd",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "PI = PV of cash inflows / CAPEX",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ICMA Financial Appraisal Guide",
+          "condition": "IRR_pct > 50",
+          "message": "IRR > 50%: unusually high — verify cash flow projections for optimism bias; conduct sensitivity analysis on key revenue assumptions"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ICMA Financial Appraisal Guide",
+          "condition": "DPBP_yr > project_life_yr * 0.7",
+          "message": "Discounted payback > 70% of project life: late-life cash flow dependence — project is sensitive to abandonment risk; assess terminal value robustness"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "ICMA Financial Appraisal Guide",
+          "condition": "PI < 1.1",
+          "message": "Profitability Index 1.0–1.1: marginal value creation — compare alternative uses of capital; opportunity cost may be higher"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ICMA Financial Appraisal Guide",
+          "condition": "annual_escalation_pct > 5",
+          "message": "High escalation assumption (>5%): NPV is sensitive to inflation forecast — run downside at g=0% and upside at g=3% for scenario range"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ICMA Financial Appraisal Guide",
+          "condition": "salvage_value_usd > initial_investment_usd * 0.3",
+          "message": "Large salvage value (>30% of CAPEX): NPV materially dependent on terminal residual — verify asset market and contractual exit options before committing"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "initial_investment_usd",
+        "annual_cash_inflow_usd",
+        "project_life_yr",
+        "discount_rate_pct"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,10 +1,9 @@
 /**
- * ProToolPremiumRenderer — PRO Tool'lar için Premium UI Renderer
+ * ProToolPremiumRenderer — PRO Tool Premium UI Renderer
  * 
- * Sizin verdiğiniz premium tasarım (sc-premium-* CSS) ile PRO tool'ları
- * schema-driven olarak render eder. FreeToolPremiumCalculator ile aynı
- * CSS kullanılır, ancak PRO tool özellikleri (customCalc, FMEA, Audit,
- * conditional visibility) eklenmiştir.
+ * Renders PRO tools schema-driven using the premium design (sc-premium-* CSS).
+ * Same CSS as FreeToolPremiumCalculator, with PRO-only features (customCalc, FMEA, Audit,
+ * conditional visibility).
  */
 "use client";
 
@@ -30,17 +29,17 @@ function isInputHidden(inp: any, values: Record<string, any>): boolean {
 }
 
 function confClass(label?: string): string {
-  if (label === "KESİN" || label === "CERTAIN" || label === "HIGH") return "sc-premium-conf-kesin";
-  if (label === "GÜÇLÜ" || label === "STRONG" || label === "MEDIUM") return "sc-premium-conf-guclu";
+  if (label === "CERTAIN" || label === "HIGH" || label === "EXACT") return "sc-premium-conf-kesin";
+  if (label === "STRONG" || label === "MEDIUM") return "sc-premium-conf-guclu";
   return "sc-premium-conf-varsayim";
 }
 
 function translateConf(lbl?: string): string {
   if (!lbl) return "";
   const u = lbl.toUpperCase();
-  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "Kesin";
-  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "Güçlü";
-  if (u === "VARSAYIM" || u === "ASSUMPTION" || u === "LOW") return "Varsayım";
+  if (u === "CERTAIN" || u === "HIGH" || u === "EXACT") return "Exact";
+  if (u === "STRONG" || u === "MEDIUM") return "Strong";
+  if (u === "ASSUMPTION" || u === "LOW" || u === "DEFAULT") return "Assumption";
   return lbl;
 }
 
@@ -58,9 +57,9 @@ function fmtVal(v: any, decimals = 3): string {
 // ─── CONFIDENCE COLOR MAP ─────────────────────────────────────────────────
 
 const CONF_COLORS: Record<string, string> = {
-  KESİN: "#10B981", CERTAIN: "#10B981", HIGH: "#10B981",
-  GÜÇLÜ: "#F59E0B", STRONG: "#F59E0B", MEDIUM: "#F59E0B",
-  VARSAYIM: "#6B7280", ASSUMPTION: "#6B7280", LOW: "#6B7280",
+  CERTAIN: "#10B981", HIGH: "#10B981", EXACT: "#10B981",
+  STRONG: "#F59E0B", MEDIUM: "#F59E0B",
+  DEFAULT: "#6B7280", ASSUMPTION: "#6B7280", LOW: "#6B7280",
 };
 
 // ─── MATERIAL DB ──────────────────────────────────────────────────────────

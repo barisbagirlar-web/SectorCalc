@@ -11,7 +11,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 6,
       "absolute_max": 120,
       "uncertainty": "±0.5%",
@@ -41,7 +41,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1770,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -70,7 +70,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.44,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -107,7 +107,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.41,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -132,7 +132,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 5,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -143,7 +143,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 20,
       "absolute_max": 2000,
       "note": "For hook contact in basket/choker: D = hook groove diameter; ISO 2408 §8",
@@ -156,7 +156,7 @@
       "unit": "cycles/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 500,
       "absolute_min": 1,
       "absolute_max": 50000,

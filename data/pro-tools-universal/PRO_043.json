@@ -1,0 +1,313 @@
+{
+  "schemaId": "PRO_043",
+  "toolCode": "TOOL-PRO-043",
+  "version": "1.0.0",
+  "name": "Arc Welding Heat Input, HAZ Width & Preheat Temperature Calculation",
+  "subtitle": "Welding & Joining | Manufacturing — AWS D1.1-2020 §4.11, Table 3.2, EN 1011-1:2009 §7",
+  "sectorPath": [
+    "Welding & Joining",
+    "Manufacturing"
+  ],
+  "standardsBasis": [
+    "AWS D1.1-2020 §4.11, Table 3.2",
+    "EN 1011-1:2009 §7",
+    "EN 1011-2:2001 Annex C",
+    "ISO 13916:2017",
+    "ISO 3690:2018"
+  ],
+  "scope": {
+    "inScope": [
+      "Arc Welding Heat Input, HAZ Width & Preheat Temperature Calculation"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "arc_voltage_v",
+      "symbol": "arc_voltage_v",
+      "label": "Arc Voltage (U)",
+      "unit": {
+        "ref": "V"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 10,
+      "max": 60
+    },
+    {
+      "id": "welding_current_a",
+      "symbol": "welding_current_a",
+      "label": "Welding Current (I)",
+      "unit": {
+        "ref": "A"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 20,
+      "max": 2000
+    },
+    {
+      "id": "travel_speed_mm_min",
+      "symbol": "travel_speed_mm_min",
+      "label": "Weld Travel Speed (v)",
+      "unit": {
+        "ref": "mmpmin"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 50,
+      "max": 3000
+    },
+    {
+      "id": "thermal_efficiency",
+      "symbol": "thermal_efficiency",
+      "label": "Process Thermal Efficiency Factor (η)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 0.8,
+      "enum": [
+        {
+          "value": 0.8,
+          "label": "SMAW (Stick)"
+        },
+        {
+          "value": 0.8,
+          "label": "GMAW (MIG/MAG)"
+        },
+        {
+          "value": 0.6,
+          "label": "GTAW (TIG)"
+        },
+        {
+          "value": 0.99,
+          "label": "SAW (Submerged Arc)"
+        },
+        {
+          "value": 0.8,
+          "label": "FCAW"
+        }
+      ]
+    },
+    {
+      "id": "base_metal_CE",
+      "symbol": "base_metal_CE",
+      "label": "Base Metal Carbon Equivalent (CE_IIW)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.1,
+      "max": 0.8,
+      "default": 0.42
+    },
+    {
+      "id": "plate_thickness_mm",
+      "symbol": "plate_thickness_mm",
+      "label": "Base Metal Plate Thickness (t)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 3,
+      "max": 300
+    },
+    {
+      "id": "hydrogen_content",
+      "symbol": "hydrogen_content",
+      "label": "Diffusible Hydrogen Content of Weld Metal (H_d)",
+      "unit": {
+        "ref": "ml/100g"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 10,
+      "enum": [
+        {
+          "value": 15,
+          "label": "H15 (≤15 ml/100g) — standard"
+        },
+        {
+          "value": 10,
+          "label": "H10 (≤10 ml/100g) — low hydrogen"
+        },
+        {
+          "value": 5,
+          "label": "H5 (≤5 ml/100g) — very low hydrogen"
+        },
+        {
+          "value": 2.5,
+          "label": "H2.5 (≤2.5 ml/100g) — ultra-low"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_043",
+      "code": "AWS D1.1-2020 §4.11, Table 3.2",
+      "name": "Arc Welding Heat Input, HAZ Width & Preheat Temperature Calculation",
+      "description": "Arc Welding Heat Input, HAZ Width & Preheat Temperature Calculation — Welding & Joining, Manufacturing",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "HI_kj_mm",
+          "expression": "(arc_voltage_v * welding_current_a * thermal_efficiency * 60) / (travel_speed_mm_min * 1000)",
+          "unit": {
+            "ref": "kJ/mm"
+          },
+          "reference": "AWS D1.1-2020 §4.11 / EN 1011-1:2009 §7",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "HAZ_mm",
+          "expression": "0.9 * HI_kj_mm / (4.13e-3 * plate_thickness_mm)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "Rosenthal (1946) thin-plate 2D heat flow",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "CET",
+          "expression": "base_metal_CE * 0.75 + 0.25; T_preheat_c = 350 * Math.sqrt(CET - 0.1 * Math.log10(HI_kj_mm * 1000) + 0.015 * Math.log10(hydrogen_content) + 0.005 * Math.log10(plate_thickness_mm)) - 0.08 * plate_thickness_mm",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "EN 1011-2:2001 Annex C — CET method (simplified",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "T_preheat_aws_c",
+          "expression": "(base_metal_CE < 0.40) ? 10 : (base_metal_CE < 0.45) ? 66 : (base_metal_CE < 0.50) ? 107 : 150",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "AWS D1.1-2020 Table 3.2 — minimum preheat based on CE and thickness category",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "T_preheat_gov_c",
+          "expression": "Math.max(T_preheat_c, T_preheat_aws_c, 10)",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "Conservative: maximum of EN 1011-2 and AWS D1.1 requirements",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "t85_s",
+          "expression": "(6700 - 5 * T_preheat_gov_c) * HI_kj_mm * ((1/(300 - T_preheat_gov_c))^2 - (1/(700 - T_preheat_gov_c))^2) * 1e-3",
+          "unit": {
+            "ref": "s"
+          },
+          "reference": "Seyffarth & Kassatkin cooling time t8/5 — thin-plate approximation",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §4.11, Table 3.2",
+          "condition": "T_preheat_gov_c > 150",
+          "message": "Preheat > 150°C: verify interpass temperature control — max interpass typically 250°C for structural steels"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "AWS D1.1-2020 §4.11, Table 3.2",
+          "condition": "base_metal_CE > 0.50",
+          "message": "CE > 0.50: high cold cracking susceptibility — post-weld hydrogen release bake (200°C × 2h) strongly recommended per EN 1011-2"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §4.11, Table 3.2",
+          "condition": "HAZ_width_mm > 8",
+          "message": "HAZ width > 8 mm: large heat-affected zone — CTOD toughness testing at HAZ required per BS 7448-2"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §4.11, Table 3.2",
+          "condition": "t85_s < 5",
+          "message": "t8/5 < 5 s: rapid cooling — risk of martensite formation in HAZ; verify hardness < 350 HV per ISO 15614-1"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "AWS D1.1-2020 §4.11, Table 3.2",
+          "condition": "thermal_efficiency === 0.60 && welding_current_a > 250",
+          "message": "GTAW at high current: consider GMAW for productivity — TIG heat input advantage diminishes above 200 A"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "arc_voltage_v",
+        "welding_current_a",
+        "travel_speed_mm_min",
+        "thermal_efficiency",
+        "base_metal_CE",
+        "plate_thickness_mm",
+        "hydrogen_content"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

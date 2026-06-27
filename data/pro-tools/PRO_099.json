@@ -11,7 +11,7 @@
       "unit": "µm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.001,
       "absolute_max": 400,
       "note": "ISO 4287 §4.2.1 — Ra: most universal specification parameter; measured by profilometer",
@@ -62,7 +62,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "turning_finish",
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -95,7 +95,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.8,
       "note": "ISO 4288:1996 Table 1 — standard cut-off selection based on expected Ra range",
       "uncertainty": "±0%",
@@ -157,7 +157,7 @@
         }
       ],
       "required": false,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 7,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -168,7 +168,7 @@
       "unit": "mm",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 4,
       "absolute_min": 0.4,
       "absolute_max": 40,

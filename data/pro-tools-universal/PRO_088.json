@@ -1,0 +1,317 @@
+{
+  "schemaId": "PRO_088",
+  "toolCode": "TOOL-PRO-088",
+  "version": "1.0.0",
+  "name": "Roof Truss Member Force & Joint Reaction — Simple Warren / Pratt Configuration",
+  "subtitle": "Structural Engineering | Steel Design — AISC 360-22 Chapters D, E, F, ASCE 7-22 §2.3, §7, §27",
+  "sectorPath": [
+    "Structural Engineering",
+    "Steel Design"
+  ],
+  "standardsBasis": [
+    "AISC 360-22 Chapters D, E, F",
+    "ASCE 7-22 §2.3, §7, §27",
+    "EN 1993-1-1:2022 §6.2",
+    "EN 1990:2002 ULS combinations"
+  ],
+  "scope": {
+    "inScope": [
+      "Roof Truss Member Force & Joint Reaction — Simple Warren / Pratt Configuration"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "truss_span_m",
+      "symbol": "truss_span_m",
+      "label": "Truss Clear Span (L)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 3,
+      "max": 120
+    },
+    {
+      "id": "truss_height_m",
+      "symbol": "truss_height_m",
+      "label": "Truss Depth at Mid-Span (h)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.3,
+      "max": 20
+    },
+    {
+      "id": "num_panels",
+      "symbol": "num_panels",
+      "label": "Number of Top Chord Panels (N)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 6,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "dead_load_kn_m2",
+      "symbol": "dead_load_kn_m2",
+      "label": "Dead Load - Roof Cladding + Self-Weight (g_k)",
+      "unit": {
+        "ref": "kNpm2"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.2,
+      "max": 5,
+      "default": 0.8
+    },
+    {
+      "id": "live_load_kn_m2",
+      "symbol": "live_load_kn_m2",
+      "label": "Imposed / Snow Load (q_k)",
+      "unit": {
+        "ref": "kNpm2"
+      },
+      "confidence": "KESIN",
+      "group": "code",
+      "min": 0.25,
+      "max": 5
+    },
+    {
+      "id": "wind_uplift_kn_m2",
+      "symbol": "wind_uplift_kn_m2",
+      "label": "Design Wind Uplift Pressure (w_u)",
+      "unit": {
+        "ref": "kNpm2"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0,
+      "max": 5,
+      "default": 0.6
+    },
+    {
+      "id": "tributary_width_m",
+      "symbol": "tributary_width_m",
+      "label": "Tributary Width (Truss Spacing) (b_trib)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 15
+    },
+    {
+      "id": "steel_grade_fy_mpa",
+      "symbol": "steel_grade_fy_mpa",
+      "label": "Steel Grade - Yield Strength (F_y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 355,
+      "enum": [
+        {
+          "value": 235,
+          "label": "S235 / A36 — 235 MPa"
+        },
+        {
+          "value": 275,
+          "label": "S275 — 275 MPa"
+        },
+        {
+          "value": 355,
+          "label": "S355 / A572-50 — 355 MPa"
+        },
+        {
+          "value": 460,
+          "label": "S460 — 460 MPa"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "code",
+      "letter": "B",
+      "title": "Code",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_088",
+      "code": "AISC 360-22 Chapters D, E, F",
+      "name": "Roof Truss Member Force & Joint Reaction — Simple Warren / Pratt Configuration",
+      "description": "Roof Truss Member Force & Joint Reaction — Simple Warren / Pratt Configuration — Structural Engineering, Steel Design",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "w_dead_kn_m",
+          "expression": "dead_load_kn_m2 * tributary_width_m; w_live_kn_m = live_load_kn_m2 * tributary_width_m; w_factored_kn_m = 1.2 * w_dead_kn_m + 1.6 * w_live_kn_m; panel_length_m = truss_span_m / num_panels; P_u_kn = w_factored_kn_m * panel_length_m",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ASCE 7-22 §2.3.1 LRFD: 1.2D + 1.6L",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "n_joints",
+          "expression": "num_panels - 1; R_kn = (n_joints + 2) * P_u_kn / 2",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "Simple truss with symmetric loading: R = n_panel_points × P_u / 2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "M_max_knm",
+          "expression": "R_kn * truss_span_m / 2 - P_u_kn * panel_length_m * num_panels / 4; F_BChord_kn = M_max_knm / truss_height_m",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "Method of sections: F_BC = M_max / h",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "panel_diagonal_m",
+          "expression": "Math.sqrt(Math.pow(panel_length_m, 2) + Math.pow(truss_height_m, 2)); theta_rad = Math.atan(truss_height_m / panel_length_m); F_TChord_kn = F_BChord_kn / Math.cos(theta_rad) * (-1)",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "Top chord compression = −F_BC / cosθ at mid-span panel",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "V_max_kn",
+          "expression": "R_kn - P_u_kn; F_diag_kn = V_max_kn / Math.sin(theta_rad)",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "Maximum shear occurs at first interior panel",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "phi_t",
+          "expression": "0.90; A_req_mm2 = F_BChord_kn * 1000 / (phi_t * steel_grade_fy_mpa); wind_uplift_factor = wind_uplift_kn_m2 * tributary_width_m * panel_length_m",
+          "unit": {
+            "ref": "mm², kN/panel"
+          },
+          "reference": "AISC 360-22 D2-1: φP_n = φ_t·F_y·A_g",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "AISC 360-22 Chapters D, E, F",
+          "condition": "truss_span_m > 40 && truss_height_m / truss_span_m < 0.08",
+          "message": "Long shallow truss: chord forces very large — chord section and connection design critical; camber ≥ L/500 required per AISC Code of Standard Practice"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "AISC 360-22 Chapters D, E, F",
+          "condition": "F_TChord_kn > 2000",
+          "message": "Top chord compression > 2000 kN: heavy member required — verify lateral buckling between purlin points per AISC 360-22 Chapter E; ensure continuous lateral restraint"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "AISC 360-22 Chapters D, E, F",
+          "condition": "steel_grade_fy_mpa > 355 && truss_span_m > 30",
+          "message": "High-strength steel on long span: deflection (not strength) may govern — S460 reduces weight but deflection limit L/360 still applies; verify serviceability"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "AISC 360-22 Chapters D, E, F",
+          "condition": "dead_load_kn_m2 < 0.5 && live_load_kn_m2 > 1.5",
+          "message": "Light dead load with heavy imposed load: dynamic amplification possible for crowds or machinery — check vibration criteria per SCI P354 or AISC DG11"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "AISC 360-22 Chapters D, E, F",
+          "condition": "A_req_mm2 > 15000",
+          "message": "Required bottom chord area > 15,000 mm²: very large section — consider HSS, built-up section, or reduce span with intermediate column; verify connection capacity at joints"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "truss_span_m",
+        "truss_height_m",
+        "num_panels",
+        "dead_load_kn_m2",
+        "live_load_kn_m2",
+        "wind_uplift_kn_m2",
+        "tributary_width_m",
+        "steel_grade_fy_mpa"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

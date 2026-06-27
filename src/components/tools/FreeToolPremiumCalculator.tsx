@@ -10,7 +10,9 @@ export interface PremiumInputDef {
   unit: string;
   type: "number" | "select";
   required?: boolean;
-  confidence_label?: "KESİN" | "GÜÇLÜ" | "ORTA" | "VARSAYIM";
+  confidence_label?: "EXACT" | "STRONG" | "MEDIUM" | "DEFAULT";
+  getConfLabel: (label?: string) => string;
+  getConfClass: (label?: string) => string;
   options?: readonly { readonly label: string; readonly value: string }[];
   min?: number;
   max?: number;
@@ -106,8 +108,8 @@ export interface FreeToolPremiumCalculatorProps {
 /* ─── CONFIDENCE CLASS HELPER ────────────────────────────────────────── */
 
 function confClass(label?: string): string {
-  if (label === "KESİN") return "sc-premium-conf-kesin";
-  if (label === "GÜÇLÜ") return "sc-premium-conf-guclu";
+  if (label === "EXACT" || label === "CERTAIN" || label === "HIGH") return "sc-premium-conf-kesin";
+  if (label === "STRONG" || label === "MEDIUM") return "sc-premium-conf-guclu";
   return "sc-premium-conf-varsayim";
 }
 
@@ -136,7 +138,7 @@ export function FreeToolPremiumCalculator({
   errors,
   onChange,
   onSubmit,
-  calculateLabel = "Hesapla",
+  calculateLabel = "Calculate",
   isCalculating = false,
   materialDB,
   formulas,
@@ -172,9 +174,9 @@ export function FreeToolPremiumCalculator({
         const raw = effectiveValues[inp.key];
         const num = typeof raw === "number" ? raw : Number(raw);
         if (raw === undefined || raw === "" || !Number.isFinite(num)) {
-          errs.push(`${inp.label} girilmedi veya geçersiz.`);
+          errs.push(`${inp.label}: required or invalid.`);
         } else if (inp.min !== undefined && num < inp.min) {
-          errs.push(`${inp.label} minimum ${inp.min} ${inp.unit} olmalı.`);
+          errs.push(`${inp.label}: minimum ${inp.min} ${inp.unit}.`);
         }
       }
     }
@@ -260,23 +262,23 @@ export function FreeToolPremiumCalculator({
                 if (crit > 0)
                   return (
                     <span className="sc-premium-badge sc-premium-badge-crit">
-                      ⛔ {crit} KRİTİK
+                      ⛔ {crit} CRITICAL
                     </span>
                   );
                 if (warn > 0)
                   return (
                     <span className="sc-premium-badge sc-premium-badge-warn">
-                      ⚠ {warn} UYARI
+                      ⚠ {warn} WARNING
                     </span>
                   );
                 return (
-                  <span className="sc-premium-badge sc-premium-badge-ok">✓ NORMAL</span>
+                  <span className="sc-premium-badge sc-premium-badge-ok">✓ PASS</span>
                 );
               })()
             ) : submitted ? (
-              <span className="sc-premium-badge sc-premium-badge-ok">✓ NORMAL</span>
+              <span className="sc-premium-badge sc-premium-badge-ok">✓ PASS</span>
             ) : (
-              <span className="sc-premium-badge sc-premium-badge-idle">— GİRİLMEDİ</span>
+              <span className="sc-premium-badge sc-premium-badge-idle">— NOT ENTERED</span>
             )}
           </div>
         </div>
@@ -490,7 +492,7 @@ export function FreeToolPremiumCalculator({
                   className="sc-premium-calc-btn"
                   disabled={isCalculating}
                 >
-                  {isCalculating ? "Hesaplanıyor..." : calculateLabel}
+                  {isCalculating ? "Calculating..." : calculateLabel}
                 </button>
                 {onReset && (
                   <button
@@ -498,7 +500,7 @@ export function FreeToolPremiumCalculator({
                     className="sc-premium-reset-btn"
                     onClick={handleReset}
                   >
-                    Sıfırla
+                    Reset
                   </button>
                 )}
               </div>
@@ -511,7 +513,7 @@ export function FreeToolPremiumCalculator({
           <div className="sc-premium-panel">
             {!submitted ? (
               <div className="sc-premium-empty-res">
-                Hesaplama yapılmadı. Girdi sekmesinden parametreleri girin.
+                No calculation performed. Enter parameters in the Inputs tab.
               </div>
             ) : (
               <>
@@ -543,9 +545,9 @@ export function FreeToolPremiumCalculator({
                 {resultRows && resultRows.length > 0 && (
                   <div className="sc-premium-res-table">
                     <div className="sc-premium-res-hdr">
-                      <span>Hesaplanan</span>
+                      <span>Parameter</span>
                       <span>Sonuç</span>
-                      <span>Birim</span>
+                      <span>Unit</span>
                     </div>
                     {resultRows.map((r, i) => (
                       <div key={`res-${i}`} className="sc-premium-res-row">
@@ -587,7 +589,7 @@ export function FreeToolPremiumCalculator({
           <div className="sc-premium-panel">
             {formulas && formulas.length > 0 && (
               <>
-                <div className="sc-premium-sec-lbl">Hesaplama Formülleri</div>
+                <div className="sc-premium-sec-lbl">Calculation Formulas</div>
                 <div className="sc-premium-frm-list">
                   {formulas.map((f, i) => (
                     <div key={`frm-${i}`} className="sc-premium-frm-row">
@@ -631,7 +633,7 @@ export function FreeToolPremiumCalculator({
         {/* ── CTA BAR ──────────────────────────────────────────────────────── */}
         {submitted && activeTab !== "results" && (
           <div className="sc-premium-cbar">
-            <span>Hesaplama tamamlandı.</span>
+            <span>Calculation complete.</span>
             <button
               className="sc-premium-cbar-btn"
               onClick={() => handleTabSwitch("results")}

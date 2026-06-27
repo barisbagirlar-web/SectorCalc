@@ -1,0 +1,290 @@
+{
+  "schemaId": "PRO_054",
+  "toolCode": "TOOL-PRO-054",
+  "version": "1.0.0",
+  "name": "Wet Scrubber / Packed Column Sizing — Mass Transfer NTU, HTU & Pressure Drop",
+  "subtitle": "Chemical Process Engineering | Air Quality — GPSA Engineering Data Book 14th Ed. §9, AIChE Distillation Design Manual",
+  "sectorPath": [
+    "Chemical Process Engineering",
+    "Air Quality"
+  ],
+  "standardsBasis": [
+    "GPSA Engineering Data Book 14th Ed. §9",
+    "AIChE Distillation Design Manual",
+    "VDI 2440:2000",
+    "Perry's Chemical Engineers' Handbook 9th Ed."
+  ],
+  "scope": {
+    "inScope": [
+      "Wet Scrubber / Packed Column Sizing — Mass Transfer NTU, HTU & Pressure Drop"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "gas_flow_am3_h",
+      "symbol": "gas_flow_am3_h",
+      "label": "Actual Gas Flow Rate (Q_gas)",
+      "unit": {
+        "ref": "Am³/h"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 10,
+      "max": 5000000
+    },
+    {
+      "id": "inlet_conc_ppm",
+      "symbol": "inlet_conc_ppm",
+      "label": "Inlet Contaminant Concentration (y_in)",
+      "unit": {
+        "ref": "ppm(v)"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "id": "outlet_conc_ppm",
+      "symbol": "outlet_conc_ppm",
+      "label": "Required Outlet Concentration (y_out)",
+      "unit": {
+        "ref": "ppm(v)"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.001,
+      "max": 10000
+    },
+    {
+      "id": "Henrys_H",
+      "symbol": "Henrys_H",
+      "label": "Henry's Law Constant (H) - dimensionless (c_gas / c_liquid)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.0001,
+      "max": 100
+    },
+    {
+      "id": "L_G_ratio",
+      "symbol": "L_G_ratio",
+      "label": "Liquid-to-Gas Ratio (L/G) - volumetric",
+      "unit": {
+        "ref": "L/m³"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.5,
+      "max": 20,
+      "default": 2
+    },
+    {
+      "id": "Kya_1_m",
+      "symbol": "Kya_1_m",
+      "label": "Overall Gas-Phase Mass Transfer Coefficient × Packing Area (K_ya)",
+      "unit": {
+        "ref": "1/m"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.01,
+      "max": 2,
+      "default": 0.1
+    },
+    {
+      "id": "column_velocity_m_s",
+      "symbol": "column_velocity_m_s",
+      "label": "Superficial Gas Velocity in Column (u_s)",
+      "unit": {
+        "ref": "mps"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.3,
+      "max": 4,
+      "default": 1.5
+    },
+    {
+      "id": "packing_dP_m_per_m",
+      "symbol": "packing_dP_m_per_m",
+      "label": "Packing Pressure Drop per Unit Height (ΔP/Z)",
+      "unit": {
+        "ref": "Pa/m"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 50,
+      "max": 1500,
+      "default": 200
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_054",
+      "code": "GPSA Engineering Data Book 14th Ed. §9",
+      "name": "Wet Scrubber / Packed Column Sizing — Mass Transfer NTU, HTU & Pressure Drop",
+      "description": "Wet Scrubber / Packed Column Sizing — Mass Transfer NTU, HTU & Pressure Drop — Chemical Process Engineering, Air Quality",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "eta_pct",
+          "expression": "(inlet_conc_ppm - outlet_conc_ppm) / inlet_conc_ppm * 100; R = inlet_conc_ppm / outlet_conc_ppm",
+          "unit": {
+            "ref": "%, dimensionless"
+          },
+          "reference": "VDI 2440 §4 — removal ratio R = y_in / y_out",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "A_factor",
+          "expression": "L_G_ratio / Henrys_H",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "AIChE mass transfer — absorption factor",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "NTU",
+          "expression": "(A_factor / (A_factor - 1)) * Math.log(R * (1 - 1/A_factor) + 1/A_factor)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Kremser equation for dilute systems — Perry's Chemical Engineers' Handbook 9th Ed. §14",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "gas_vel_m_s",
+          "expression": "column_velocity_m_s; HTU_m = gas_vel_m_s / Kya_1_m; Z_m = NTU * HTU_m",
+          "unit": {
+            "ref": "m"
+          },
+          "reference": "Z = NTU × HTU — GPSA 14th Ed. §9",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Q_gas_m3_s",
+          "expression": "gas_flow_am3_h / 3600; A_col_m2 = Q_gas_m3_s / column_velocity_m_s; D_col_m = 2 * Math.sqrt(A_col_m2 / Math.PI)",
+          "unit": {
+            "ref": "m², m"
+          },
+          "reference": "Continuity equation — column sizing based on design gas velocity",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "dP_total_pa",
+          "expression": "packing_dP_m_per_m * Z_m",
+          "unit": {
+            "ref": "Pa"
+          },
+          "reference": "GPSA §9 — total packed bed ΔP",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "GPSA Engineering Data Book 14th Ed. §9",
+          "condition": "A_factor < 1.2",
+          "message": "Absorption factor < 1.2: marginal driving force — increase L/G by 50% to improve reliability and handle inlet concentration spikes"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "GPSA Engineering Data Book 14th Ed. §9",
+          "condition": "NTU > 10",
+          "message": "NTU > 10: very high packing height required — verify Kya with pilot test; consider two-stage scrubbing"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "GPSA Engineering Data Book 14th Ed. §9",
+          "condition": "D_col_m > 3 && Z_m > 6",
+          "message": "Large column (D>3 m, Z>6 m): consider multiple smaller columns in parallel — liquid distribution and wall effects critical above 3 m diameter"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "GPSA Engineering Data Book 14th Ed. §9",
+          "condition": "eta_pct > 99.9",
+          "message": "Removal efficiency > 99.9%: verify NTU calculation at very high R values — small errors in inlet/outlet measurement dominate uncertainty"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "GPSA Engineering Data Book 14th Ed. §9",
+          "condition": "Henrys_H > 1.0",
+          "message": "High Henry's constant (H > 1): sparingly soluble contaminant — scrubbing may be ineffective; consider activated carbon or catalytic destruction instead"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "gas_flow_am3_h",
+        "inlet_conc_ppm",
+        "outlet_conc_ppm",
+        "Henrys_H",
+        "L_G_ratio",
+        "Kya_1_m",
+        "column_velocity_m_s",
+        "packing_dP_m_per_m"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

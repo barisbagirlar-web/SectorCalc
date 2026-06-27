@@ -1,0 +1,278 @@
+{
+  "schemaId": "PRO_085",
+  "toolCode": "TOOL-PRO-085",
+  "version": "1.0.0",
+  "name": "Activated Sludge Aeration Design — Oxygen Demand, Tank Volume, MLSS & Blower Power",
+  "subtitle": "Water & Wastewater Treatment | Environmental Engineering — ATV-DVWK A-131 (2000), EN 12255-7:2001 (aeration)",
+  "sectorPath": [
+    "Water & Wastewater Treatment",
+    "Environmental Engineering"
+  ],
+  "standardsBasis": [
+    "ATV-DVWK A-131 (2000)",
+    "EN 12255-7:2001 (aeration)",
+    "WEF MOP 8 6th Ed.",
+    "ISO 15705:2002 (COD)",
+    "EU Urban Wastewater Treatment Directive 91/271/EEC"
+  ],
+  "scope": {
+    "inScope": [
+      "Activated Sludge Aeration Design — Oxygen Demand, Tank Volume, MLSS & Blower Power"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Q_flow_m3d",
+      "symbol": "Q_flow_m3d",
+      "label": "Average Daily Wastewater Flow (Q)",
+      "unit": {
+        "ref": "m³/day"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 10000000
+    },
+    {
+      "id": "BOD5_influent_mg_l",
+      "symbol": "BOD5_influent_mg_l",
+      "label": "Influent BOD₅ Concentration (S_0)",
+      "unit": {
+        "ref": "mg/L"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 10,
+      "max": 2000
+    },
+    {
+      "id": "BOD5_effluent_mg_l",
+      "symbol": "BOD5_effluent_mg_l",
+      "label": "Required Effluent BOD₅ (S_e)",
+      "unit": {
+        "ref": "mg/L"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 100
+    },
+    {
+      "id": "TKN_influent_mg_l",
+      "symbol": "TKN_influent_mg_l",
+      "label": "Influent Total Kjeldahl Nitrogen (TKN)",
+      "unit": {
+        "ref": "mg N/L"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 200,
+      "default": 40
+    },
+    {
+      "id": "SRT_days",
+      "symbol": "SRT_days",
+      "label": "Design Sludge Retention Time (SRT / θ_c)",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 3,
+      "max": 30,
+      "default": 10
+    },
+    {
+      "id": "MLSS_mg_l",
+      "symbol": "MLSS_mg_l",
+      "label": "Design Mixed Liquor Suspended Solids (MLSS)",
+      "unit": {
+        "ref": "mg/L"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 1000,
+      "max": 8000,
+      "default": 3500
+    },
+    {
+      "id": "aeration_efficiency_kg_kwh",
+      "symbol": "aeration_efficiency_kg_kwh",
+      "label": "Aeration System Transfer Efficiency (AE)",
+      "unit": {
+        "ref": "kgO₂/kWh"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.8,
+      "max": 3.5,
+      "default": 1.8
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_085",
+      "code": "ATV-DVWK A-131 (2000)",
+      "name": "Activated Sludge Aeration Design — Oxygen Demand, Tank Volume, MLSS & Blower Power",
+      "description": "Activated Sludge Aeration Design — Oxygen Demand, Tank Volume, MLSS & Blower Power — Water & Wastewater Treatment, Environmental Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "BOD_removed_mg_l",
+          "expression": "BOD5_influent_mg_l - BOD5_effluent_mg_l; Y_obs = 0.5 / (1 + 0.06 * SRT_days); P_x_kg_d = Q_flow_m3d * BOD_removed_mg_l * Y_obs / 1000; OD_carb_kg_d = Q_flow_m3d * BOD_removed_mg_l / 1000 - 1.42 * P_x_kg_d",
+          "unit": {
+            "ref": "kgO₂/day"
+          },
+          "reference": "ATV-DVWK A-131 §5.2 — carbonaceous oxygen demand: OD_C = Q·ΔS − 1.42·P_x",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "N_oxidised_mg_l",
+          "expression": "TKN_influent_mg_l * 0.85; OD_N_kg_d = Q_flow_m3d * N_oxidised_mg_l * 4.57 / 1000",
+          "unit": {
+            "ref": "kgO₂/day"
+          },
+          "reference": "ATV-DVWK A-131 §5.3 — nitrification: 4.57 kgO₂/kg N oxidised",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "OD_total_kg_d",
+          "expression": "OD_carb_kg_d + OD_N_kg_d; OD_peak_kg_h = OD_total_kg_d / 24 * 2.0",
+          "unit": {
+            "ref": "kgO₂/day, kgO₂/h"
+          },
+          "reference": "Peak factor 2.0× average for diurnal load variation — WEF MOP 8 §10",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "VSS_fraction",
+          "expression": "0.75; X_VSS = MLSS_mg_l * VSS_fraction; V_tank_m3 = SRT_days * P_x_kg_d * 1000 / X_VSS",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "V = SRT × P_x / X_VSS — ATV-DVWK A-131 §6.1",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "HRT_h",
+          "expression": "V_tank_m3 / (Q_flow_m3d / 24)",
+          "unit": {
+            "ref": "hours"
+          },
+          "reference": "HRT = V/Q",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "P_blower_kw",
+          "expression": "OD_peak_kg_h / aeration_efficiency_kg_kwh",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "P_blower = OD_peak / AE",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ATV-DVWK A-131 (2000)",
+          "condition": "OD_peak_kg_h / OD_total_kg_d * 24 > 2.5",
+          "message": "Peak-to-average ratio > 2.5: highly variable load — consider flow equalisation basin to reduce blower oversizing and energy cost"
+        },
+        {
+          "id": "W2",
+          "severity": "INFO",
+          "source": "ATV-DVWK A-131 (2000)",
+          "condition": "P_blower_kw > 500",
+          "message": "Blower power > 500 kW: aeration is major energy consumer — evaluate turbo blowers over lobe type (15–20% energy saving) and DO control with AMP §4.3"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "ATV-DVWK A-131 (2000)",
+          "condition": "HRT_h > 20",
+          "message": "HRT > 20 hours: over-designed for carbonaceous removal — evaluate extended aeration (no primary clarifier) or reduce SRT to match required effluent quality"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ATV-DVWK A-131 (2000)",
+          "condition": "aeration_efficiency_kg_kwh < 1.2",
+          "message": "Low aeration efficiency (<1.2 kgO₂/kWh): coarse bubble or surface aerator — fine bubble diffuser upgrade typically saves 30–40% energy; evaluate capital vs operating cost"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "ATV-DVWK A-131 (2000)",
+          "condition": "BOD5_effluent_mg_l < 10 && SRT_days < 12",
+          "message": "Stringent effluent BOD target with short SRT: risk of effluent quality exceedance during peak loads — increase SRT to 12–15 days to ensure robust nitrification and BOD polishing"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Q_flow_m3d",
+        "BOD5_influent_mg_l",
+        "BOD5_effluent_mg_l",
+        "TKN_influent_mg_l",
+        "SRT_days",
+        "MLSS_mg_l",
+        "aeration_efficiency_kg_kwh"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

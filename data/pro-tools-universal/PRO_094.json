@@ -1,0 +1,322 @@
+{
+  "schemaId": "PRO_094",
+  "toolCode": "TOOL-PRO-094",
+  "version": "1.0.0",
+  "name": "Cantilever Retaining Wall — Overturning, Sliding, Bearing & Global Stability Check",
+  "subtitle": "Geotechnical Engineering | Civil Structures — EN 1997-1:2004 (EC7) §6, §9, ASCE 7-22 §11 (seismic)",
+  "sectorPath": [
+    "Geotechnical Engineering",
+    "Civil Structures"
+  ],
+  "standardsBasis": [
+    "EN 1997-1:2004 (EC7) §6, §9",
+    "ASCE 7-22 §11 (seismic)",
+    "NAVFAC DM-7.2 §5",
+    "BS 8002:2015"
+  ],
+  "scope": {
+    "inScope": [
+      "Cantilever Retaining Wall — Overturning, Sliding, Bearing & Global Stability Check"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "wall_height_m",
+      "symbol": "wall_height_m",
+      "label": "Total Retained Height (H)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.5,
+      "max": 15
+    },
+    {
+      "id": "base_width_m",
+      "symbol": "base_width_m",
+      "label": "Wall Base Width (B)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.5,
+      "max": 20
+    },
+    {
+      "id": "phi_backfill_deg",
+      "symbol": "phi_backfill_deg",
+      "label": "Backfill Friction Angle (φ_b)",
+      "unit": {
+        "ref": "deg"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 20,
+      "max": 45,
+      "default": 30
+    },
+    {
+      "id": "gamma_backfill_kn_m3",
+      "symbol": "gamma_backfill_kn_m3",
+      "label": "Backfill Unit Weight (γ_b)",
+      "unit": {
+        "ref": "kN/m³"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 14,
+      "max": 22,
+      "default": 18
+    },
+    {
+      "id": "surcharge_kpa",
+      "symbol": "surcharge_kpa",
+      "label": "Uniform Surcharge on Retained Surface (q_s)",
+      "unit": {
+        "ref": "kPa"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0,
+      "max": 200,
+      "default": 10
+    },
+    {
+      "id": "wall_concrete_kn_m3",
+      "symbol": "wall_concrete_kn_m3",
+      "label": "Concrete Unit Weight (γ_c)",
+      "unit": {
+        "ref": "kN/m³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 22,
+      "max": 26,
+      "default": 24,
+      "optional": true
+    },
+    {
+      "id": "phi_base_deg",
+      "symbol": "phi_base_deg",
+      "label": "Base-Soil Friction Angle (φ_base)",
+      "unit": {
+        "ref": "deg"
+      },
+      "confidence": "GUCLU",
+      "group": "geotech",
+      "min": 10,
+      "max": 40,
+      "default": 25
+    },
+    {
+      "id": "q_allow_kpa",
+      "symbol": "q_allow_kpa",
+      "label": "Allowable Bearing Pressure of Foundation Soil (q_allow)",
+      "unit": {
+        "ref": "kPa"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 50,
+      "max": 1000
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "geometry",
+      "letter": "A",
+      "title": "Geometry",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "B",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "geotech",
+      "letter": "C",
+      "title": "Geotech",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_094",
+      "code": "EN 1997-1:2004 (EC7) §6, §9",
+      "name": "Cantilever Retaining Wall — Overturning, Sliding, Bearing & Global Stability Check",
+      "description": "Cantilever Retaining Wall — Overturning, Sliding, Bearing & Global Stability Check — Geotechnical Engineering, Civil Structures",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Ka",
+          "expression": "phi_rad = phi_backfill_deg * Math.PI / 180; Ka = Math.pow(Math.tan(Math.PI/4 - phi_rad/2), 2)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Ka = tan²(45 − φ/2) — Rankine (1857); valid for horizontal backfill with no wall friction",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Pa_total_kn_m",
+          "expression": "Pa_soil_kn_m = 0.5 * Ka * gamma_backfill_kn_m3 * Math.pow(wall_height_m, 2); Pa_surcharge_kn_m = Ka * surcharge_kpa * wall_height_m; Pa_total_kn_m = Pa_soil_kn_m + Pa_surcharge_kn_m",
+          "unit": {
+            "ref": "kNpm"
+          },
+          "reference": "P_a = ½·K_a·γ·H² + K_a·q_s·H — EN 1997-1 §9.5.2; forces per unit wall length",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "M_OT, M_R",
+          "expression": "M_OT = Pa_soil_kn_m * wall_height_m/3 + Pa_surcharge_kn_m * wall_height_m/2; W_wall_kn_m = wall_concrete_kn_m3 * base_width_m * 0.3; W_soil_kn_m = gamma_backfill_kn_m3 * wall_height_m * (base_width_m * 0.6); M_R = (W_wall_kn_m + W_soil_kn_m) * base_width_m / 2",
+          "unit": {
+            "ref": "kNmpm"
+          },
+          "reference": "Moments about toe; W_wall = γ_c × B × t_stem (t=0.3 B approx); M_R = W × B/2 — NAVFAC DM-7.2 §5.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "OTF",
+          "expression": "OTF = M_R / M_OT",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "OTF ≥ 2.0 static (ASCE 7 / EC7 DA1-1); ≥ 1.5 seismic — required minimum varies by code",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "SSF",
+          "expression": "phi_base_rad = phi_base_deg * Math.PI / 180; W_total = W_wall_kn_m + W_soil_kn_m; F_resist = W_total * Math.tan(phi_base_rad); SSF = F_resist / Pa_total_kn_m",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "SSF = W·tan(δ) / P_a — EN 1997-1 §6.5.3; minimum SSF ≥ 1.5 (static)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "q_max_kpa",
+          "expression": "W_total_kn_m = W_wall_kn_m + W_soil_kn_m; e = base_width_m/2 - (M_R - M_OT)/W_total_kn_m; q_max_kpa = W_total_kn_m/base_width_m * (1 + 6*e/base_width_m)",
+          "unit": {
+            "ref": "kPa"
+          },
+          "reference": "q_max = N/B × (1 + 6e/B) — eccentric loading; e = eccentricity from centroid — EC7 §6.5.4",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "BLOCK",
+          "condition": "OTF < 1.5",
+          "message": "Overturning safety factor < 1.5: wall will overturn — increase base width, add heel extension, or install ground anchor"
+        },
+        {
+          "id": "V2",
+          "action": "BLOCK",
+          "condition": "SSF < 1.2",
+          "message": "Sliding safety factor < 1.2: wall will slide — add base key, increase base width, or install batter piles"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "q_max_kpa > q_allow_kpa",
+          "message": "Maximum bearing pressure exceeds allowable: foundation failure risk — widen base, reduce eccentricity, or improve ground by compaction or piling"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "OTF < 2.0",
+          "message": "OTF < 2.0: EN 1997-1 DA1 requirement not met for permanent structures — increase base width to B ≥ 0.6H for typical granular backfill"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "SSF < 1.5",
+          "message": "Sliding SF < 1.5: marginal — NAVFAC DM-7.2 requires SSF ≥ 1.5; add shear key 300 mm deep at front third of base for significant resistance improvement"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "surcharge_kpa > 20 && phi_backfill_deg < 28",
+          "message": "High surcharge on weak backfill: active pressure substantially elevated — verify drainage behind wall; waterlogged granular fill can reach K_0 = 1.0"
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "wall_height_m > 6 && OTF < 2.5",
+          "message": "High wall with marginal OTF: seismic loading will reduce OTF further — ASCE 7 §11 seismic lateral earth pressure adds 50–100% to static thrust; perform seismic analysis"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "q_max_kpa > q_allow_kpa * 0.8",
+          "message": "Bearing pressure > 80% of allowable: settlement risk under sustained surcharge — monitor differential settlement; consider ground improvement if soft soil detected below"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "wall_height_m",
+        "base_width_m",
+        "phi_backfill_deg",
+        "gamma_backfill_kn_m3",
+        "surcharge_kpa",
+        "phi_base_deg",
+        "q_allow_kpa"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

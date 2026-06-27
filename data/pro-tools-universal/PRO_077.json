@@ -1,0 +1,305 @@
+{
+  "schemaId": "PRO_077",
+  "toolCode": "TOOL-PRO-077",
+  "version": "1.0.0",
+  "name": "Toxic Gas Dispersion — Gaussian Plume Ground-Level Concentration & IDLH Exclusion Zone",
+  "subtitle": "Process Safety | Environmental Engineering — EPA 40 CFR Part 68 RMP §68.22, NIOSH IDLH database",
+  "sectorPath": [
+    "Process Safety",
+    "Environmental Engineering"
+  ],
+  "standardsBasis": [
+    "EPA 40 CFR Part 68 RMP §68.22",
+    "NIOSH IDLH database",
+    "Pasquill-Gifford / Turner (1994)",
+    "AIHA ERPG values",
+    "API 581 BRD §3"
+  ],
+  "scope": {
+    "inScope": [
+      "Toxic Gas Dispersion — Gaussian Plume Ground-Level Concentration & IDLH Exclusion Zone"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "release_rate_kg_s",
+      "symbol": "release_rate_kg_s",
+      "label": "Continuous Release Rate (Q_r)",
+      "unit": {
+        "ref": "kg/s"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.0001,
+      "max": 1000
+    },
+    {
+      "id": "wind_speed_m_s",
+      "symbol": "wind_speed_m_s",
+      "label": "Wind Speed at 10 m Height (u_10)",
+      "unit": {
+        "ref": "mps"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.5,
+      "max": 30,
+      "default": 3
+    },
+    {
+      "id": "stability_class",
+      "symbol": "stability_class",
+      "label": "Pasquill-Gifford Atmospheric Stability Class",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "default": "D",
+      "enum": [
+        {
+          "value": "A",
+          "label": "A — Extremely unstable (sunny, light wind)"
+        },
+        {
+          "value": "B",
+          "label": "B — Moderately unstable"
+        },
+        {
+          "value": "C",
+          "label": "C — Slightly unstable"
+        },
+        {
+          "value": "D",
+          "label": "D — Neutral (overcast or moderate wind)"
+        },
+        {
+          "value": "E",
+          "label": "E — Slightly stable"
+        },
+        {
+          "value": "F",
+          "label": "F — Moderately stable (night, light wind)"
+        }
+      ]
+    },
+    {
+      "id": "release_height_m",
+      "symbol": "release_height_m",
+      "label": "Effective Release Height (H_s)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 200,
+      "default": 0
+    },
+    {
+      "id": "IDLH_ppm",
+      "symbol": "IDLH_ppm",
+      "label": "IDLH Concentration of Gas (Immediately Dangerous to Life/Health)",
+      "unit": {
+        "ref": "ppm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.001,
+      "max": 100000
+    },
+    {
+      "id": "molecular_weight_g_mol",
+      "symbol": "molecular_weight_g_mol",
+      "label": "Gas Molecular Weight (M)",
+      "unit": {
+        "ref": "g/mol"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 2,
+      "max": 200
+    },
+    {
+      "id": "terrain_type",
+      "symbol": "terrain_type",
+      "label": "Terrain Roughness",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": "open",
+      "enum": [
+        {
+          "value": "open",
+          "label": "Open country / rural (z_0 = 0.03 m)"
+        },
+        {
+          "value": "suburban",
+          "label": "Suburban / light industrial (z_0 = 0.3 m)"
+        },
+        {
+          "value": "urban",
+          "label": "Urban / forest (z_0 = 1.0 m)"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_077",
+      "code": "EPA 40 CFR Part 68 RMP §68.22",
+      "name": "Toxic Gas Dispersion — Gaussian Plume Ground-Level Concentration & IDLH Exclusion Zone",
+      "description": "Toxic Gas Dispersion — Gaussian Plume Ground-Level Concentration & IDLH Exclusion Zone — Process Safety, Environmental Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "out_1",
+          "expression": "const PG = { A:{a:0.22,b:0.0001,c:0.20,d:0}, B:{a:0.16,b:0.0001,c:0.12,d:0}, C:{a:0.11,b:0.0002,c:0.08,d:0.0002}, D:{a:0.08,b:0.0015,c:0.06,d:0.0015}, E:{a:0.06,b:0.0015,c:0.03,d:0.0003}, F:{a:0.04,b:0.0015,c:0.016,d:0.0003} }; const p = PG[stability_class]; const x = 500; sigma_y = p.a * x * Math.pow(1 + p.b * x, -0.5); sigma_z = p.c * x * Math.pow(1 + p.d * x, -0.5)   // [m] Pasquill-Gifford Dispersion Coefficients at Downwind Distance x Reference: Pasquill-Gifford sigma curves — Slade (1968); Turner Workbook on Atmospheric Dispersion §3",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F2",
+          "output": "C_kg_m3",
+          "expression": "release_rate_kg_s / (Math.PI * sigma_y * sigma_z * wind_speed_m_s) * Math.exp(-0.5 * Math.pow(release_height_m / sigma_z, 2)); C_ppm = C_kg_m3 * 1e6 / (molecular_weight_g_mol / 1000) * 22.4 / molecular_weight_g_mol * 1000",
+          "unit": {
+            "ref": "ppm"
+          },
+          "reference": "Gaussian plume model — EPA AERMOD guidance",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "out_3",
+          "expression": "let D = 50; for(let i=0;i<200;i++){ const p = {A:[0.22,0.0001,0.20,0],B:[0.16,0.0001,0.12,0],C:[0.11,0.0002,0.08,0.0002],D:[0.08,0.0015,0.06,0.0015],E:[0.06,0.0015,0.03,0.0003],F:[0.04,0.0015,0.016,0.0003]}[stability_class]; const sy=p[0]*D*Math.pow(1+p[1]*D,-0.5); const sz=p[2]*D*Math.pow(1+p[3]*D,-0.5); const C=release_rate_kg_s/(Math.PI*sy*sz*wind_speed_m_s)*Math.exp(-0.5*Math.pow(release_height_m/sz,2))*1e6/(molecular_weight_g_mol/22400)*1000; if(C < IDLH_ppm) break; D+=25; } D_IDLH_m = D   // [m] IDLH Exclusion Zone Radius (D_IDLH) — Iterative Search Reference: Iterative downwind search to find distance where C_centreline = IDLH — EPA RMP methodology",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F4",
+          "output": "out_4",
+          "expression": "const p2 = {A:[0.22,0.0001],B:[0.16,0.0001],C:[0.11,0.0002],D:[0.08,0.0015],E:[0.06,0.0015],F:[0.04,0.0015]}[stability_class]; sigma_y_IDLH = p2[0]*D_IDLH_m*Math.pow(1+p2[1]*D_IDLH_m,-0.5); plume_width_m = 2.15 * sigma_y_IDLH   // [m] Plume Width at IDLH Boundary Reference: Plume half-width at IDLH = 2.15σ_y (contains ~97% of crosswind concentration)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F5",
+          "output": "rho_gas_kg_m3",
+          "expression": "molecular_weight_g_mol / 22.4 * 1000 / 1000; dense_gas = rho_gas_kg_m3 > 1.5",
+          "unit": {
+            "ref": "boolean"
+          },
+          "reference": "Dense gas criterion: ρ_gas > 1.5 kg/m³ at STP → SLAB / PHAST model recommended over Gaussian",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "ERPG2_approx_ppm",
+          "expression": "IDLH_ppm * 0.3; time_in_zone_s = D_IDLH_m / wind_speed_m_s; TL = C_ppm * Math.pow(time_in_zone_s / 600, 1.0)",
+          "unit": {
+            "ref": "ppm·(10 min), s"
+          },
+          "reference": "Toxic load concept — TNO Yellow Book §4",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "EPA 40 CFR Part 68 RMP §68.22",
+          "condition": "stability_class === 'F' && wind_speed_m_s < 2",
+          "message": "Worst-case dispersion conditions (Class F, low wind): exclusion zone maximised — this scenario governs emergency planning zone; shelter-in-place radius = D_IDLH"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "EPA 40 CFR Part 68 RMP §68.22",
+          "condition": "IDLH_ppm < 50",
+          "message": "Very toxic gas (IDLH < 50 ppm): small release rates generate large exclusion zones — verify passive mitigation (water curtain, scrubber) reduces source term"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "EPA 40 CFR Part 68 RMP §68.22",
+          "condition": "D_IDLH_m > 500 && terrain_type === 'urban'",
+          "message": "Large zone in urban terrain: building effects invalidate Gaussian model; use AERMOD or CFD simulation for planning purposes per EPA guidance"
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "EPA 40 CFR Part 68 RMP §68.22",
+          "condition": "release_height_m === 0 && release_rate_kg_s > 1",
+          "message": "Large ground-level release: immediate shelter-in-place or evacuation of D_IDLH radius; notify emergency services per OSHA PSM 29 CFR 1910.119"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "EPA 40 CFR Part 68 RMP §68.22",
+          "condition": "time_in_zone_s > 600",
+          "message": "Transit time through IDLH zone > 10 min: self-contained breathing apparatus (SCBA) mandatory for emergency responders entering zone per OSHA §1910.134"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "release_rate_kg_s",
+        "wind_speed_m_s",
+        "stability_class",
+        "release_height_m",
+        "IDLH_ppm",
+        "molecular_weight_g_mol",
+        "terrain_type"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

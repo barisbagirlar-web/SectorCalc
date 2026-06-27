@@ -151,15 +151,17 @@ export const phase2RevenueTools: AdditionalRevenueTool[] = [
  painStatement: "Underestimated pumping and water rights cost can erase field margin.",
  freeValue: "Estimate visible pumping hours and water cost exposure.",
  paidValue: "Find minimum viable irrigation spend with efficiency verdict.",
- freeInputs: [
- numberInput("areaHectares", "Irrigated area", "ha"),
- numberInput("pumpingHours", "Pumping hours", "hr/month"),
- currency("electricityRate", "Electricity rate", "USD/kWh"),
- ],
- paidInputs: [
- numberInput("areaHectares", "Irrigated area", "ha"),
- numberInput("pumpingHours", "Pumping hours", "hr/month"),
- currency("electricityRate", "Electricity rate", "USD/kWh"),
+freeInputs: [
+    numberInput("areaHectares", "Irrigated area", "ha"),
+    numberInput("pumpingHours", "Pumping hours", "hr/month"),
+    numberInput("pumpPowerKw", "Pump motor power", "kW"),
+    currency("electricityRate", "Electricity rate", "USD/kWh"),
+    ],
+    paidInputs: [
+    numberInput("areaHectares", "Irrigated area", "ha"),
+    numberInput("pumpingHours", "Pumping hours", "hr/month"),
+    numberInput("pumpPowerKw", "Pump motor power", "kW"),
+    currency("electricityRate", "Electricity rate", "USD/kWh"),
  currency("waterRightsFee", "Water rights fee", "USD/month"),
  percentInput("evaporationLossPercent", "Evaporation loss", 12),
  percentInput("targetMargin", "Target margin", 18),

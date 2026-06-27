@@ -11,7 +11,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 300,
       "uncertainty": "±1%",
@@ -23,7 +23,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 25,
       "absolute_max": 1500,
       "note": "API 5L / ISO 3183 standard sizes: DN50–DN1400",
@@ -62,7 +62,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 414,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -91,7 +91,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1,
       "note": "ASME B31.8 §841.114 — design factor F per location class",
       "uncertainty": "±0%",
@@ -113,7 +113,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -138,7 +138,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -149,7 +149,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 3,
       "absolute_min": 0,
       "absolute_max": 15,
@@ -162,7 +162,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 12.5,
       "absolute_min": 0,
       "absolute_max": 15,

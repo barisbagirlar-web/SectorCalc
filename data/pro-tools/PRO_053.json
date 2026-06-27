@@ -11,7 +11,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 32,
       "uncertainty": "±5%",
@@ -35,7 +35,7 @@
         64
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 24,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -46,7 +46,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 1000,
       "uncertainty": "±1%",
@@ -66,7 +66,7 @@
         50
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 30,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -99,7 +99,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 517,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -110,7 +110,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 50000,
       "uncertainty": "±1%",
@@ -122,7 +122,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 50000,
       "uncertainty": "±1%",
@@ -134,7 +134,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 2000,
       "uncertainty": "±1%",

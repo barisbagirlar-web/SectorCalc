@@ -1,0 +1,320 @@
+{
+  "schemaId": "PRO_042",
+  "toolCode": "TOOL-PRO-042",
+  "version": "1.0.0",
+  "name": "Structural Steel Beam — Combined Bending, Shear & Lateral-Torsional Buckling Check",
+  "subtitle": "Structural Engineering | Steel Design — AISC 360-22 Chapters F, G, EN 1993-1-1:2022 (EC3) §6.2, §6.3",
+  "sectorPath": [
+    "Structural Engineering",
+    "Steel Design"
+  ],
+  "standardsBasis": [
+    "AISC 360-22 Chapters F, G",
+    "EN 1993-1-1:2022 (EC3) §6.2, §6.3",
+    "ASCE 7-22 load combinations"
+  ],
+  "scope": {
+    "inScope": [
+      "Structural Steel Beam — Combined Bending, Shear & Lateral-Torsional Buckling Check"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "M_demand_knm",
+      "symbol": "M_demand_knm",
+      "label": "Applied Factored Bending Moment (M_u / M_Ed)",
+      "unit": {
+        "ref": "kNm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 100000
+    },
+    {
+      "id": "V_demand_kn",
+      "symbol": "V_demand_kn",
+      "label": "Applied Factored Shear Force (V_u / V_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 50000
+    },
+    {
+      "id": "S_x_cm3",
+      "symbol": "S_x_cm3",
+      "label": "Elastic Section Modulus About Strong Axis (S_x / W_el,y)",
+      "unit": {
+        "ref": "cm³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 1000000
+    },
+    {
+      "id": "Z_x_cm3",
+      "symbol": "Z_x_cm3",
+      "label": "Plastic Section Modulus About Strong Axis (Z_x / W_pl,y)",
+      "unit": {
+        "ref": "cm³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 1200000
+    },
+    {
+      "id": "Aw_cm2",
+      "symbol": "Aw_cm2",
+      "label": "Web Shear Area (A_w)",
+      "unit": {
+        "ref": "cm²"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 5000
+    },
+    {
+      "id": "Fy_mpa",
+      "symbol": "Fy_mpa",
+      "label": "Steel Yield Strength (F_y / f_y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 355,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "Lb_m",
+      "symbol": "Lb_m",
+      "label": "Unbraced Length of Compression Flange (L_b)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.1,
+      "max": 50
+    },
+    {
+      "id": "Lp_m",
+      "symbol": "Lp_m",
+      "label": "Limiting Laterally Unbraced Length for Full Plasticity (L_p)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.1,
+      "max": 20
+    },
+    {
+      "id": "Lr_m",
+      "symbol": "Lr_m",
+      "label": "Limiting Laterally Unbraced Length for Inelastic LTB (L_r)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.5,
+      "max": 40
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "geometry",
+      "letter": "B",
+      "title": "Geometry",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_042",
+      "code": "AISC 360-22 Chapters F, G",
+      "name": "Structural Steel Beam — Combined Bending, Shear & Lateral-Torsional Buckling Check",
+      "description": "Structural Steel Beam — Combined Bending, Shear & Lateral-Torsional Buckling Check — Structural Engineering, Steel Design",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "M_p_knm",
+          "expression": "Z_x_cm3 * 1e-6 * Fy_mpa * 1000",
+          "unit": {
+            "ref": "kNm"
+          },
+          "reference": "AISC 360-22 F2-1 / EC3 §6.2.5",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "M_n_knm",
+          "expression": "(Lb_m <= Lp_m) ? M_p_knm : (Lb_m >= Lr_m) ? (0.877 * Math.PI^2 * 200000 / ((Lb_m*1000)^2) * S_x_cm3 * 1e-6 * 1000) : (M_p_knm - (M_p_knm - 0.7*Fy_mpa*S_x_cm3*1e-6*1000) * (Lb_m - Lp_m)/(Lr_m - Lp_m))",
+          "unit": {
+            "ref": "kNm"
+          },
+          "reference": "AISC 360-22 F2-2 (plastic), F2-3 (inelastic LTB), F2-4 (elastic LTB)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "phi_Mn_knm",
+          "expression": "0.9 * M_n_knm",
+          "unit": {
+            "ref": "kNm"
+          },
+          "reference": "AISC 360-22 F1 — φ_b = 0.90",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "V_n_kn",
+          "expression": "0.6 * Fy_mpa * Aw_cm2 * 1e-4 * 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "AISC 360-22 G2-1 — web shear yielding (C_v1 = 1.0 for compact web)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "phi_Vn_kn",
+          "expression": "1.0 * V_n_kn",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "AISC 360-22 G1 — φ_v = 1.0 for rolled I-sections",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "DCR_moment",
+          "expression": "M_demand_knm / phi_Mn_knm; DCR_shear = V_demand_kn / phi_Vn_kn; DCR_combined = Math.max(DCR_moment, DCR_shear)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "AISC 360-22 — demand-capacity ratio",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "AISC 360-22 Chapters F, G",
+          "condition": "DCR_combined > 1.0",
+          "message": "Section overstressed: structural failure mode risk — do not proceed to fabrication without redesign"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "AISC 360-22 Chapters F, G",
+          "condition": "Lb_m > Lr_m",
+          "message": "Unbraced length in elastic LTB zone: significant capacity reduction — add lateral restraints at midspan"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "AISC 360-22 Chapters F, G",
+          "condition": "DCR_moment > 0.85 && Lb_m > Lp_m",
+          "message": "High bending utilization with LTB active: consider intermediate bracing to restore full plastic capacity"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "AISC 360-22 Chapters F, G",
+          "condition": "Fy_mpa > 450 && Lb_m > 3",
+          "message": "High-strength steel with long unbraced length: LTB controls over yielding — bracing at L_p intervals mandatory"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "AISC 360-22 Chapters F, G",
+          "condition": "Z_x_cm3 / S_x_cm3 > 1.20",
+          "message": "High shape factor (> 1.20): significant plastic reserve — verify section compactness per AISC Table B4.1b"
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "AISC 360-22 Chapters F, G",
+          "condition": "DCR_shear > 0.7 && DCR_moment > 0.7",
+          "message": "High combined loading: check shear-moment interaction per AISC 360-22 G2 for non-compact webs"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "M_demand_knm",
+        "V_demand_kn",
+        "S_x_cm3",
+        "Z_x_cm3",
+        "Aw_cm2",
+        "Fy_mpa",
+        "Lb_m",
+        "Lp_m",
+        "Lr_m"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

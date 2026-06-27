@@ -1,0 +1,333 @@
+{
+  "schemaId": "PRO_047",
+  "toolCode": "TOOL-PRO-047",
+  "version": "1.0.0",
+  "name": "Fatigue Life Estimation — S-N Curve, Miner's Rule Cumulative Damage & Safety Factor",
+  "subtitle": "Mechanical Integrity | Fatigue Analysis — IIW Recommendations XIII-2460-13, EN 13445-3:2021 Annex B",
+  "sectorPath": [
+    "Mechanical Integrity",
+    "Fatigue Analysis"
+  ],
+  "standardsBasis": [
+    "IIW Recommendations XIII-2460-13",
+    "EN 13445-3:2021 Annex B",
+    "ASME BPVC VIII Div.2 Part 5",
+    "BS 7608:2014+A1:2015"
+  ],
+  "scope": {
+    "inScope": [
+      "Fatigue Life Estimation — S-N Curve, Miner's Rule Cumulative Damage & Safety Factor"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "stress_range_mpa",
+      "symbol": "stress_range_mpa",
+      "label": "Applied Stress Range (Δσ)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 1000
+    },
+    {
+      "id": "stress_concentration_Kt",
+      "symbol": "stress_concentration_Kt",
+      "label": "Stress Concentration Factor (K_t)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "GUCLU",
+      "group": "reinforcement",
+      "min": 1,
+      "max": 8,
+      "default": 1
+    },
+    {
+      "id": "fatigue_class_mpa",
+      "symbol": "fatigue_class_mpa",
+      "label": "Weld Detail Fatigue Class (FAT / Δσ_C at 2×10⁶ cycles)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 90,
+      "enum": [
+        {
+          "value": 160,
+          "label": "FAT 160 — base metal, ground flush"
+        },
+        {
+          "value": 125,
+          "label": "FAT 125 — butt weld, full penetration, RT"
+        },
+        {
+          "value": 100,
+          "label": "FAT 100 — butt weld, partial penetration"
+        },
+        {
+          "value": 90,
+          "label": "FAT 90 — fillet weld, transverse stiffener"
+        },
+        {
+          "value": 71,
+          "label": "FAT 71 — cruciform joint, fillet weld toe"
+        },
+        {
+          "value": 63,
+          "label": "FAT 63 — non-load-carrying fillet weld"
+        }
+      ]
+    },
+    {
+      "id": "sn_slope_m",
+      "symbol": "sn_slope_m",
+      "label": "S-N Curve Slope Exponent (m)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 3,
+      "max": 5,
+      "default": 3,
+      "optional": true
+    },
+    {
+      "id": "applied_cycles_N",
+      "symbol": "applied_cycles_N",
+      "label": "Total Expected Load Cycles Over Design Life (N_applied)",
+      "unit": {
+        "ref": "cycles"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 1000,
+      "max": 10000000000
+    },
+    {
+      "id": "mean_stress_mpa",
+      "symbol": "mean_stress_mpa",
+      "label": "Mean Stress (σ_mean)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": -500,
+      "max": 700,
+      "default": 0
+    },
+    {
+      "id": "material_UTS_mpa",
+      "symbol": "material_UTS_mpa",
+      "label": "Material Ultimate Tensile Strength (UTS / S_u)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 200,
+      "max": 2000
+    },
+    {
+      "id": "safety_factor_target",
+      "symbol": "safety_factor_target",
+      "label": "Target Safety Factor on Life (SF_target)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 5,
+      "enum": [
+        {
+          "value": 10,
+          "label": "SF=10 — fail-safe, no inspection (IIW)"
+        },
+        {
+          "value": 5,
+          "label": "SF=5 — periodic inspection possible"
+        },
+        {
+          "value": 2,
+          "label": "SF=2 — accessible, regular inspection"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "reinforcement",
+      "letter": "B",
+      "title": "Reinforcement",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_047",
+      "code": "IIW Recommendations XIII-2460-13",
+      "name": "Fatigue Life Estimation — S-N Curve, Miner's Rule Cumulative Damage & Safety Factor",
+      "description": "Fatigue Life Estimation — S-N Curve, Miner's Rule Cumulative Damage & Safety Factor — Mechanical Integrity, Fatigue Analysis",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "delta_sigma_eff",
+          "expression": "stress_range_mpa * stress_concentration_Kt",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "IIW Recommendations Doc. XIII-2460-13 §5.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "delta_sigma_corr",
+          "expression": "(mean_stress_mpa > 0) ? delta_sigma_eff_mpa / (1 - mean_stress_mpa / material_UTS_mpa) : delta_sigma_eff_mpa",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "Modified Goodman criterion — Shigley's 10th Ed. §6-12",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "N_ref",
+          "expression": "2e6; N_allow = N_ref * Math.pow(fatigue_class_mpa / delta_sigma_corr_mpa, sn_slope_m)",
+          "unit": {
+            "ref": "cycles"
+          },
+          "reference": "IIW / EN 13445-3 Annex B — S-N curve: N = N_ref × (FAT/Δσ)^m",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "D_miner",
+          "expression": "applied_cycles_N / N_allow_cycles",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Palmgren-Miner rule — D < 1.0 required",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "SF_actual",
+          "expression": "N_allow_cycles / applied_cycles_N",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Life-based safety factor",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "delta_sigma_perm",
+          "expression": "fatigue_class_mpa * Math.pow(2e6 / (applied_cycles_N * safety_factor_target), 1/sn_slope_m)",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "Design stress range ensuring N_allow = N_applied × SF_target",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "IIW Recommendations XIII-2460-13",
+          "condition": "D_miner > 0.5 && fatigue_class_mpa <= 90",
+          "message": "D > 0.5 on welded joint: IIW §9.5.3 recommends D_limit = 0.5 for welded structures without fracture mechanics backup"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "IIW Recommendations XIII-2460-13",
+          "condition": "SF_actual < safety_factor_target",
+          "message": "Safety factor below target: reduce applied cycles, increase section, improve weld quality (higher FAT), or add postweld treatment"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "IIW Recommendations XIII-2460-13",
+          "condition": "stress_concentration_Kt > 3.0",
+          "message": "K_t > 3.0: severe notch effect — consider redesign to smooth geometry; shot peening or HFMI treatment can increase FAT class by 1–2 steps"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "IIW Recommendations XIII-2460-13",
+          "condition": "applied_cycles_N > 1e8",
+          "message": "Very high cycle regime (>10⁸): below ASTM E466 endurance limit boundary — verify S-N curve includes infinite-life region"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "IIW Recommendations XIII-2460-13",
+          "condition": "mean_stress_mpa > material_UTS_mpa * 0.5",
+          "message": "Mean stress >50% UTS: Goodman correction significant — consider residual stress relief (PWHT) to reduce effective mean stress"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "stress_range_mpa",
+        "stress_concentration_Kt",
+        "fatigue_class_mpa",
+        "applied_cycles_N",
+        "mean_stress_mpa",
+        "material_UTS_mpa",
+        "safety_factor_target"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

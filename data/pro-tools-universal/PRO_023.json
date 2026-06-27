@@ -1,0 +1,457 @@
+{
+  "schemaId": "PRO_023",
+  "toolCode": "TOOL-PRO-023",
+  "version": "1.0.0",
+  "name": "Process Capability (Cp / Cpk / Pp / Ppk), PPM Defect Rate & Quality Loss Function",
+  "subtitle": "Quality Engineering | Six Sigma — AIAG SPC 2nd Edition, IATF 16949:2016 Clause 8.3.3",
+  "sectorPath": [
+    "Quality Engineering",
+    "Six Sigma"
+  ],
+  "standardsBasis": [
+    "AIAG SPC 2nd Edition",
+    "IATF 16949:2016 Clause 8.3.3",
+    "ISO 22514-2 Process Capability",
+    "ASQ Six Sigma Body of Knowledge",
+    "Taguchi Loss Function (Genichi Taguchi)",
+    "AIAG PPAP 4th Edition"
+  ],
+  "scope": {
+    "inScope": [
+      "Process Capability (Cp / Cpk / Pp / Ppk), PPM Defect Rate & Quality Loss Function"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "usl",
+      "symbol": "usl",
+      "label": "Upper Specification Limit (USL)",
+      "unit": {
+        "ref": "measurement unit"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": -1000000,
+      "hint": "From engineering drawing or customer specification"
+    },
+    {
+      "id": "lsl",
+      "symbol": "lsl",
+      "label": "Lower Specification Limit (LSL)",
+      "unit": {
+        "ref": "measurement unit"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": -1000000,
+      "hint": "From engineering drawing or customer specification"
+    },
+    {
+      "id": "process_mean",
+      "symbol": "process_mean",
+      "label": "Process Mean (X̄)",
+      "unit": {
+        "ref": "measurement unit"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": -1000000,
+      "hint": "Grand average of sample measurements — from SPC chart or data set"
+    },
+    {
+      "id": "within_sigma",
+      "symbol": "within_sigma",
+      "label": "Within-Subgroup (Short-Term) Std Dev (σ̂)",
+      "unit": {
+        "ref": "measurement unit"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.000001,
+      "hint": "σ̂ = R̄/d2 from X̄-R chart — represents inherent process variation only"
+    },
+    {
+      "id": "overall_sigma",
+      "symbol": "overall_sigma",
+      "label": "Overall (Long-Term) Std Dev (s)",
+      "unit": {
+        "ref": "measurement unit"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.000001,
+      "optional": true,
+      "hint": "Sample std dev of all data — for Pp/Ppk calculation. If blank, Cpk = Ppk assumed."
+    },
+    {
+      "id": "subgroup_size_n",
+      "symbol": "subgroup_size_n",
+      "label": "Subgroup Sample Size (n)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 2,
+      "max": 25,
+      "default": 5,
+      "hint": "AIAG SPC: recommended n=5 for X̄-R | n=10 for X̄-S"
+    },
+    {
+      "id": "total_samples_N",
+      "symbol": "total_samples_N",
+      "label": "Total Number of Samples Measured (N)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 25,
+      "hint": "AIAG SPC: minimum 25 subgroups × n samples for valid Cpk"
+    },
+    {
+      "id": "daily_production_volume",
+      "symbol": "daily_production_volume",
+      "label": "Daily Production Volume",
+      "unit": {
+        "ref": "parts/day"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1
+    },
+    {
+      "id": "cost_per_defective_usd",
+      "symbol": "cost_per_defective_usd",
+      "label": "Cost per Defective Part (scrap + rework + warranty)",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.01,
+      "hint": "Include: scrap material + rework labour + warranty + customer return penalty"
+    },
+    {
+      "id": "target_cpk",
+      "symbol": "target_cpk",
+      "label": "Target Cpk Requirement",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "enum": [
+        {
+          "value": "1.00 — Minimum acceptable (legacy/non-critical)",
+          "label": "1.00 — Minimum acceptable (legacy/non-critical)"
+        },
+        {
+          "value": "1.33 — IATF 16949 / Automotive minimum (>63 PPM)",
+          "label": "1.33 — IATF 16949 / Automotive minimum (>63 PPM)"
+        },
+        {
+          "value": "1.67 — Safety-critical / Medical / Aerospace",
+          "label": "1.67 — Safety-critical / Medical / Aerospace"
+        },
+        {
+          "value": "2.00 — Six Sigma target (3.4 PPM)",
+          "label": "2.00 — Six Sigma target (3.4 PPM)"
+        }
+      ]
+    },
+    {
+      "id": "target_cpk_val",
+      "symbol": "target_cpk_val",
+      "label": "Target Cpk Numerical Value",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.5,
+      "max": 3,
+      "default": 1.33
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_023",
+      "code": "AIAG SPC 2nd Edition",
+      "name": "Process Capability (Cp / Cpk / Pp / Ppk), PPM Defect Rate & Quality Loss Function",
+      "description": "Process Capability (Cp / Cpk / Pp / Ppk), PPM Defect Rate & Quality Loss Function — Quality Engineering, Six Sigma",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Tolerance_Band",
+          "expression": "usl - lsl",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Cp",
+          "expression": "Tolerance_Band / (6 * within_sigma)",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Z_USL",
+          "expression": "(usl - process_mean) / within_sigma",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Z_LSL",
+          "expression": "(process_mean - lsl) / within_sigma",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Cpk",
+          "expression": "MIN(Z_USL, Z_LSL) / 3",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Pp",
+          "expression": "overall_sigma > 0 ? Tolerance_Band / (6 * overall_sigma) : Cp",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Ppk",
+          "expression": "overall_sigma > 0 ? MIN((usl - process_mean) / (3 * overall_sigma), (process_mean - lsl) / (3 * overall_sigma)) : Cpk",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "P_defect_USL",
+          "expression": "1 - NORMSDIST(Z_USL)",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "P_defect_LSL",
+          "expression": "NORMSDIST(-ABS(Z_LSL))",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Total_PPM",
+          "expression": "(P_defect_USL + P_defect_LSL) * 1000000",
+          "unit": {
+            "ref": "PPM"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Sigma_Level_ST",
+          "expression": "Cpk * 3",
+          "unit": {
+            "ref": "σ"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Sigma_Level_LT",
+          "expression": "Cpk * 3 - 1.5",
+          "unit": {
+            "ref": "σ"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Daily_Defects",
+          "expression": "(Total_PPM / 1000000) * daily_production_volume",
+          "unit": {
+            "ref": "parts/day"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "Daily_Quality_Cost_USD",
+          "expression": "Daily_Defects * cost_per_defective_usd",
+          "unit": {
+            "ref": "USD/day"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F15",
+          "output": "Annual_Quality_Cost_USD",
+          "expression": "Daily_Quality_Cost_USD * 250",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F16",
+          "output": "Cpk_Gap",
+          "expression": "target_cpk_val - Cpk",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F17",
+          "output": "Centering_Index",
+          "expression": "1 - ABS(2 * process_mean - usl - lsl) / Tolerance_Band",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "AIAG SPC / IATF 16949",
+          "condition": "Cpk < 1.0",
+          "message": "PROCESS INCAPABLE — Cpk < 1.0: Process cannot meet specification. Defect rate is measured in percent, not PPM. Immediate containment (100% inspection) mandatory. Root cause analysis and process redesign required before resuming normal production."
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "IATF 16949 Clause 8.3.3 / PPAP",
+          "condition": "Cpk >= 1.0 && Cpk < target_cpk_val",
+          "message": "CAPABILITY BELOW REQUIREMENT: Cpk is below the required target. Customer PPAP submission will be rejected. For automotive (IATF 16949): Cpk ≥ 1.33 is mandatory for production approval. Variance reduction required."
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "AIAG SPC — Centering Analysis",
+          "condition": "Cp > Cpk * 1.33",
+          "message": "PROCESS OFF-CENTRE: Cp is significantly higher than Cpk. Process has good potential width but is shifted from nominal. Re-centering alone (tool offset, fixture adjustment) could reduce PPM dramatically without improving process variation."
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "AIAG SPC — Cp vs Pp Analysis",
+          "condition": "Cpk > 0 && Ppk > 0 && (Cpk - Ppk) > 0.3",
+          "message": "SIGNIFICANT Cpk–Ppk GAP (>0.3): Long-term variation substantially exceeds short-term. Special causes (tool wear, material lot changes, operator shifts, temperature drift) are present. SPC control chart review and MSA re-evaluation required."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "Taguchi Loss Function / COQ",
+          "condition": "Annual_Quality_Cost_USD > 50000",
+          "message": "Annual quality cost exceeds $50,000: This Cpk level is generating significant financial loss. Investment in process improvement, SPC implementation, or machine capability upgrade will deliver measurable ROI. Present to management with this annual cost figure."
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "ISO 22514-2 Process Centering",
+          "condition": "Centering_Index < 0.7",
+          "message": "Poor process centering (index < 0.70): Mean is more than 30% of tolerance from nominal. Asymmetric defect distribution — one side generating significantly more rejects. Investigate systematic bias: fixture wear, tool offset error, or raw material dimensional shift."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "usl",
+        "lsl",
+        "process_mean",
+        "within_sigma",
+        "subgroup_size_n",
+        "total_samples_N",
+        "daily_production_volume",
+        "cost_per_defective_usd",
+        "target_cpk",
+        "target_cpk_val"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

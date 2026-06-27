@@ -1,0 +1,450 @@
+{
+  "schemaId": "PRO_028",
+  "toolCode": "TOOL-PRO-028",
+  "version": "1.0.0",
+  "name": "Warehouse 3D Cube Utilisation, Pallet Position Count & Storage Capacity Analysis",
+  "subtitle": "Logistics & Supply Chain | Warehouse Engineering — VDI 3618 Intralogistics Planning, FEM 10.2.02 Rack Safety",
+  "sectorPath": [
+    "Logistics & Supply Chain",
+    "Warehouse Engineering"
+  ],
+  "standardsBasis": [
+    "VDI 3618 Intralogistics Planning",
+    "FEM 10.2.02 Rack Safety",
+    "SEMA Code of Practice for Static Racking",
+    "EN 15512 Steel Static Storage",
+    "MHI Warehousing Education & Research"
+  ],
+  "scope": {
+    "inScope": [
+      "Warehouse 3D Cube Utilisation, Pallet Position Count & Storage Capacity Analysis"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "gross_floor_area_m2",
+      "symbol": "gross_floor_area_m2",
+      "label": "Gross Warehouse Floor Area",
+      "unit": {
+        "ref": "m2"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 10
+    },
+    {
+      "id": "net_storage_ratio_pct",
+      "symbol": "net_storage_ratio_pct",
+      "label": "Net Storage Area Ratio",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 20,
+      "max": 75,
+      "default": 55,
+      "hint": "Gross area minus: docks, offices, charging bays, columns. Typical: 50–65% for conventional rack"
+    },
+    {
+      "id": "clear_height_m",
+      "symbol": "clear_height_m",
+      "label": "Clear Stacking Height (under sprinkler/beam)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 2,
+      "max": 45,
+      "hint": "Usable height after deducting sprinkler clearance (min 0.5m) and lighting"
+    },
+    {
+      "id": "pallet_length_m",
+      "symbol": "pallet_length_m",
+      "label": "Pallet Length",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.5,
+      "max": 2.5,
+      "default": 1.2,
+      "hint": "EUR pallet: 1.20m | ISO pallet: 1.20m | US GMA: 1.22m"
+    },
+    {
+      "id": "pallet_width_m",
+      "symbol": "pallet_width_m",
+      "label": "Pallet Width",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.4,
+      "max": 1.5,
+      "default": 0.8,
+      "hint": "EUR pallet: 0.80m | ISO pallet: 1.00m | US GMA: 1.02m"
+    },
+    {
+      "id": "loaded_pallet_height_m",
+      "symbol": "loaded_pallet_height_m",
+      "label": "Loaded Pallet Height (pallet + load)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.1,
+      "max": 3,
+      "default": 1.4,
+      "hint": "EUR pallet 0.15m + load. Standard consumer goods: 1.0–1.5m | Industrial: 1.5–2.0m"
+    },
+    {
+      "id": "rack_beam_clearance_m",
+      "symbol": "rack_beam_clearance_m",
+      "label": "Beam / Safety Clearance per Level",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.05,
+      "max": 0.3,
+      "default": 0.1,
+      "hint": "Vertical clearance between top of load and next beam: min 100mm per SEMA / FEM 10.2.02"
+    },
+    {
+      "id": "aisle_width_m",
+      "symbol": "aisle_width_m",
+      "label": "Operating Aisle Width",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1.5,
+      "max": 5,
+      "hint": "Counterbalance FLT: 3.5–4.0m | Reach truck: 2.6–3.0m | VNA (VFLT): 1.6–1.8m | Manual: 1.5m"
+    },
+    {
+      "id": "storage_system",
+      "symbol": "storage_system",
+      "label": "Racking / Storage System Type",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "enum": [
+        {
+          "value": "Single-deep selective rack — access factor 1.0",
+          "label": "Single-deep selective rack — access factor 1.0"
+        },
+        {
+          "value": "Double-deep rack — access factor 0.5 (50% directly accessible)",
+          "label": "Double-deep rack — access factor 0.5 (50% directly accessible)"
+        },
+        {
+          "value": "Drive-in / Drive-through rack — access factor 0.25",
+          "label": "Drive-in / Drive-through rack — access factor 0.25"
+        },
+        {
+          "value": "Mobile (Compact) racking — access factor 0.9",
+          "label": "Mobile (Compact) racking — access factor 0.9"
+        },
+        {
+          "value": "Pushback rack (2–5 deep) — access factor 0.4",
+          "label": "Pushback rack (2–5 deep) — access factor 0.4"
+        },
+        {
+          "value": "Automated Storage (AS/RS) — access factor 1.0",
+          "label": "Automated Storage (AS/RS) — access factor 1.0"
+        }
+      ]
+    },
+    {
+      "id": "selectivity_factor",
+      "symbol": "selectivity_factor",
+      "label": "Storage Selectivity Factor",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 1,
+      "default": 1,
+      "hint": "From system type above: Selective=1.0 | Double-deep=0.5 | Drive-in=0.25"
+    },
+    {
+      "id": "occupancy_target_pct",
+      "symbol": "occupancy_target_pct",
+      "label": "Target Storage Occupancy Rate",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 50,
+      "max": 100,
+      "default": 85,
+      "optional": true,
+      "hint": "Operating above 85% causes pick congestion. WMS best practice: 80–85% max"
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_028",
+      "code": "VDI 3618 Intralogistics Planning",
+      "name": "Warehouse 3D Cube Utilisation, Pallet Position Count & Storage Capacity Analysis",
+      "description": "Warehouse 3D Cube Utilisation, Pallet Position Count & Storage Capacity Analysis — Logistics & Supply Chain, Warehouse Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Net_Storage_Area_m2",
+          "expression": "gross_floor_area_m2 * (net_storage_ratio_pct / 100)",
+          "unit": {
+            "ref": "m2"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Rack_Bay_Footprint_m2",
+          "expression": "(pallet_length_m + aisle_width_m / 2) * pallet_width_m",
+          "unit": {
+            "ref": "m2"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Floor_Positions",
+          "expression": "FLOOR(Net_Storage_Area_m2 / Rack_Bay_Footprint_m2)",
+          "unit": {
+            "ref": "positions"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Height_per_Level_m",
+          "expression": "loaded_pallet_height_m + rack_beam_clearance_m",
+          "unit": {
+            "ref": "m"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Max_Rack_Levels",
+          "expression": "FLOOR(clear_height_m / Height_per_Level_m)",
+          "unit": {
+            "ref": "levels"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Total_Pallet_Positions",
+          "expression": "Floor_Positions * Max_Rack_Levels",
+          "unit": {
+            "ref": "positions"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Accessible_Positions",
+          "expression": "FLOOR(Total_Pallet_Positions * selectivity_factor)",
+          "unit": {
+            "ref": "positions"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Required_Height_m",
+          "expression": "Max_Rack_Levels * Height_per_Level_m",
+          "unit": {
+            "ref": "m"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Theoretical_Volume_m3",
+          "expression": "gross_floor_area_m2 * clear_height_m",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Storage_Volume_m3",
+          "expression": "Total_Pallet_Positions * (pallet_length_m * pallet_width_m * loaded_pallet_height_m)",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Cube_Utilisation_pct",
+          "expression": "(Storage_Volume_m3 / Theoretical_Volume_m3) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Operating_Positions",
+          "expression": "FLOOR(Total_Pallet_Positions * (occupancy_target_pct / 100))",
+          "unit": {
+            "ref": "positions"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Positions_per_m2",
+          "expression": "Total_Pallet_Positions / gross_floor_area_m2",
+          "unit": {
+            "ref": "positions/m²"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "Aisle_Area_m2",
+          "expression": "gross_floor_area_m2 * (net_storage_ratio_pct / 100) * (aisle_width_m / (pallet_length_m + aisle_width_m))",
+          "unit": {
+            "ref": "m2"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "VDI 3618 / Reach Truck Analysis",
+          "condition": "aisle_width_m >= 3.5",
+          "message": "WIDE AISLE SYSTEM (≥3.5m): Aisle width suitable for counterbalance forklift only. Approximately 35–40% of floor area is dedicated to aisles. Switching to reach truck (aisle 2.6–2.8m) or VNA (1.6–1.8m) could increase pallet positions by 20–40% in the same building."
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "MHI Warehouse Efficiency Benchmarks",
+          "condition": "Cube_Utilisation_pct < 25",
+          "message": "POOR CUBE UTILISATION (<25%): Building volume is severely underused. Root causes: insufficient rack height, too many aisles, low stacking, or low occupancy. World-class warehouses achieve 40–60% cube utilisation. Evaluate: (1) Taller racking, (2) Narrower aisles, (3) Double-deep or mobile racking."
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "WMS Best Practice / SEMA",
+          "condition": "occupancy_target_pct > 90",
+          "message": "OCCUPANCY TARGET > 90%: Operating above 90% causes severe congestion, pick path blockages, and forces multiple product relocations per pick. WMS systems degrade significantly above 85%. Required buffer for operational flexibility: minimum 15% empty positions."
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "Warehouse Design Optimisation",
+          "condition": "Max_Rack_Levels <= 2",
+          "message": "Only 1–2 rack levels achievable: Building clear height is limiting vertical density. If building modification is not feasible, consider mezzanine floor installation or multi-tier picking to improve m³ utilisation."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "VDI 3618 Density KPI",
+          "condition": "Positions_per_m2 < 0.8",
+          "message": "Storage density < 0.8 positions/m² gross: Below industry benchmark for conventional racking (target: 1.0–1.5 positions/m²). Analyse: wide aisle ratios, low stacking height, and low net storage ratio as primary contributors."
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "Warehouse Operations — FIFO Compliance",
+          "condition": "selectivity_factor < 0.5 && accessible_positions < 200",
+          "message": "Low accessibility + small absolute accessible count: With drive-in or pushback systems, FIFO rotation becomes operationally difficult. For perishable goods, pharmaceuticals, or date-coded products, minimum selectivity factor 0.8 is required to ensure FEFO compliance."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "gross_floor_area_m2",
+        "net_storage_ratio_pct",
+        "clear_height_m",
+        "pallet_length_m",
+        "pallet_width_m",
+        "loaded_pallet_height_m",
+        "rack_beam_clearance_m",
+        "aisle_width_m",
+        "storage_system",
+        "selectivity_factor"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,0 +1,302 @@
+{
+  "schemaId": "PRO_044",
+  "toolCode": "TOOL-PRO-044",
+  "version": "1.0.0",
+  "name": "Refrigeration System COP, Refrigerant Mass Flow & Condenser Heat Rejection",
+  "subtitle": "HVAC | Refrigeration Engineering — ASHRAE 15-2022 Safety Standard, ASHRAE 34-2022 Refrigerant Designation",
+  "sectorPath": [
+    "HVAC",
+    "Refrigeration Engineering"
+  ],
+  "standardsBasis": [
+    "ASHRAE 15-2022 Safety Standard",
+    "ASHRAE 34-2022 Refrigerant Designation",
+    "EN 378-1:2016",
+    "ISO 5149-1:2014"
+  ],
+  "scope": {
+    "inScope": [
+      "Refrigeration System COP, Refrigerant Mass Flow & Condenser Heat Rejection"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Q_evap_kw",
+      "symbol": "Q_evap_kw",
+      "label": "Refrigeration Capacity / Evaporator Duty (Q_evap)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.5,
+      "max": 50000
+    },
+    {
+      "id": "T_evap_c",
+      "symbol": "T_evap_c",
+      "label": "Evaporating Temperature (T_evap)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": -60,
+      "max": 15
+    },
+    {
+      "id": "T_cond_c",
+      "symbol": "T_cond_c",
+      "label": "Condensing Temperature (T_cond)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 20,
+      "max": 80
+    },
+    {
+      "id": "superheat_k",
+      "symbol": "superheat_k",
+      "label": "Suction Superheat (ΔT_sh)",
+      "unit": {
+        "ref": "K"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0,
+      "max": 40,
+      "default": 10
+    },
+    {
+      "id": "subcooling_k",
+      "symbol": "subcooling_k",
+      "label": "Liquid Subcooling (ΔT_sc)",
+      "unit": {
+        "ref": "K"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0,
+      "max": 20,
+      "default": 5
+    },
+    {
+      "id": "compressor_isentropic_eff_pct",
+      "symbol": "compressor_isentropic_eff_pct",
+      "label": "Compressor Isentropic Efficiency (η_is)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 40,
+      "max": 92,
+      "default": 75
+    },
+    {
+      "id": "h_evap_out_kj_kg",
+      "symbol": "h_evap_out_kj_kg",
+      "label": "Refrigerant Enthalpy at Compressor Suction (h_1)",
+      "unit": {
+        "ref": "kJ/kg"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 150,
+      "max": 800
+    },
+    {
+      "id": "h_cond_out_kj_kg",
+      "symbol": "h_cond_out_kj_kg",
+      "label": "Refrigerant Enthalpy at Expansion Valve Inlet (h_3)",
+      "unit": {
+        "ref": "kJ/kg"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 100,
+      "max": 500
+    },
+    {
+      "id": "h_cond_in_kj_kg",
+      "symbol": "h_cond_in_kj_kg",
+      "label": "Ideal Compressor Discharge Enthalpy (h_2s)",
+      "unit": {
+        "ref": "kJ/kg"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 200,
+      "max": 1000
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_044",
+      "code": "ASHRAE 15-2022 Safety Standard",
+      "name": "Refrigeration System COP, Refrigerant Mass Flow & Condenser Heat Rejection",
+      "description": "Refrigeration System COP, Refrigerant Mass Flow & Condenser Heat Rejection — HVAC, Refrigeration Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "q_evap_kj_kg",
+          "expression": "h_evap_out_kj_kg - h_cond_out_kj_kg",
+          "unit": {
+            "ref": "kJ/kg"
+          },
+          "reference": "ASHRAE Fundamentals 2021 Ch.2 — vapour-compression cycle",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "h_2act_kj_kg",
+          "expression": "h_evap_out_kj_kg + (h_cond_in_kj_kg - h_evap_out_kj_kg) / (compressor_isentropic_eff_pct / 100)",
+          "unit": {
+            "ref": "kJ/kg"
+          },
+          "reference": "η_is = (h_2s - h_1) / (h_2act - h_1)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "w_comp_kj_kg",
+          "expression": "h_2act_kj_kg - h_evap_out_kj_kg",
+          "unit": {
+            "ref": "kJ/kg"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "m_dot_kg_s",
+          "expression": "Q_evap_kw / q_evap_kj_kg",
+          "unit": {
+            "ref": "kg/s"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "W_comp_kw",
+          "expression": "m_dot_kg_s * w_comp_kj_kg",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "ASHRAE 15-2022 §8",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "COP",
+          "expression": "Q_evap_kw / W_comp_kw; Q_cond_kw = Q_evap_kw + W_comp_kw",
+          "unit": {
+            "ref": "dimensionless, kW"
+          },
+          "reference": "First Law of Thermodynamics energy balance",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ASHRAE 15-2022 Safety Standard",
+          "condition": "T_cond_c - T_evap_c > 55",
+          "message": "Lift (T_cond - T_evap) > 55 K: consider two-stage compression or economiser circuit per ASHRAE 15 §8.4"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ASHRAE 15-2022 Safety Standard",
+          "condition": "compressor_isentropic_eff_pct < 55",
+          "message": "Isentropic efficiency < 55%: compressor in degraded condition — check valve condition, clearance volume, and refrigerant charge"
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "ASHRAE 15-2022 Safety Standard",
+          "condition": "superheat_k < 5",
+          "message": "Suction superheat < 5 K: liquid slugging risk — compressor mechanical damage imminent; adjust expansion valve"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ASHRAE 15-2022 Safety Standard",
+          "condition": "COP < 2.0 && T_evap_c > -10",
+          "message": "Low COP for moderate evaporating temperature: check for non-condensables in system or refrigerant contamination"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ASHRAE 15-2022 Safety Standard",
+          "condition": "Q_cond_kw > Q_evap_kw * 1.8",
+          "message": "Condenser duty >80% above evaporator: high heat rejection load — verify cooling tower or condenser coil capacity"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Q_evap_kw",
+        "T_evap_c",
+        "T_cond_c",
+        "superheat_k",
+        "subcooling_k",
+        "compressor_isentropic_eff_pct",
+        "h_evap_out_kj_kg",
+        "h_cond_out_kj_kg",
+        "h_cond_in_kj_kg"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -39,8 +39,8 @@ const ucColor = (uc: number): string => (uc >= 1 ? "crit" : uc >= 0.9 ? "warn" :
 const confClass = (lbl?: string): string => {
   if (!lbl) return "pro-conf-approx";
   const u = lbl.toUpperCase();
-  if (u === "EXACT" || u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "pro-conf-exact";
-  if (u === "STRONG" || u === "GÜÇLÜ" || u === "MEDIUM") return "pro-conf-strong";
+  if (u === "EXACT" || u === "CERTAIN" || u === "HIGH") return "pro-conf-exact";
+  if (u === "STRONG" || u === "MEDIUM") return "pro-conf-strong";
   return "pro-conf-approx";
 };
 
@@ -50,13 +50,13 @@ function isInputHidden(inp: any, values: Record<string, any>): boolean {
   return false;
 }
 
-function confidenceLabel(lbl?: string): "KESİN" | "GÜÇLÜ" | "ORTA" | "VARSAYIM" | undefined {
+function confidenceLabel(lbl?: string): string | undefined {
   if (!lbl) return undefined;
   const u = lbl.toUpperCase();
-  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH" || u === "EXACT") return "KESİN";
-  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "GÜÇLÜ";
-  if (u === "ORTA" || u === "MODERATE") return "ORTA";
-  return "VARSAYIM";
+  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH" || u === "EXACT") return "EXACT";
+  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "STRONG";
+  if (u === "ORTA" || u === "MODERATE") return "MODERATE";
+  return "DEFAULT";
 }
 
 // ─── MATERIAL DB ──────────────────────────────────────────────────────────

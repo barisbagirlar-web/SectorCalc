@@ -1,0 +1,427 @@
+{
+  "schemaId": "PRO_027",
+  "toolCode": "TOOL-PRO-027",
+  "version": "1.0.0",
+  "name": "SMED Setup Time Reduction, Capacity Recovery & EOQ Optimisation (Shingo / Harris)",
+  "subtitle": "Lean Manufacturing | Setup Reduction — Shingo Prize SMED Methodology, Harris EOQ Model (1913) — Wilson Formula",
+  "sectorPath": [
+    "Lean Manufacturing",
+    "Setup Reduction"
+  ],
+  "standardsBasis": [
+    "Shingo Prize SMED Methodology",
+    "Harris EOQ Model (1913) — Wilson Formula",
+    "APICS CPIM Module 3 — Inventory Management",
+    "Lean Enterprise Institute — Setup Reduction",
+    "Toyota Production System"
+  ],
+  "scope": {
+    "inScope": [
+      "SMED Setup Time Reduction, Capacity Recovery & EOQ Optimisation (Shingo / Harris)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "internal_setup_current_min",
+      "symbol": "internal_setup_current_min",
+      "label": "Current Internal Setup Time (machine stopped)",
+      "unit": {
+        "ref": "min"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "hint": "From time study — time machine is non-productive during changeover"
+    },
+    {
+      "id": "external_setup_current_min",
+      "symbol": "external_setup_current_min",
+      "label": "Current External Setup Time (pre/post while running)",
+      "unit": {
+        "ref": "min"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "hint": "Preparation activities already done while machine is running previous job"
+    },
+    {
+      "id": "internal_to_external_conversion_pct",
+      "symbol": "internal_to_external_conversion_pct",
+      "label": "Internal-to-External Conversion Achievement",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 100,
+      "hint": "% of current internal time successfully converted to external via SMED programme"
+    },
+    {
+      "id": "streamlining_reduction_pct",
+      "symbol": "streamlining_reduction_pct",
+      "label": "Setup Streamlining Reduction (remaining internal)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 80,
+      "default": 20,
+      "optional": true,
+      "hint": "Additional reduction from quick-clamps, standardisation, mistake-proofing of remaining internal time"
+    },
+    {
+      "id": "changeovers_per_year",
+      "symbol": "changeovers_per_year",
+      "label": "Annual Number of Changeovers",
+      "unit": {
+        "ref": "changeovers/year"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1
+    },
+    {
+      "id": "machine_hourly_rate_usd",
+      "symbol": "machine_hourly_rate_usd",
+      "label": "Machine Opportunity Cost Rate (fully burdened)",
+      "unit": {
+        "ref": "USD/h"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "hint": "Cost of machine standing idle — includes depreciation, operator, overhead"
+    },
+    {
+      "id": "annual_demand_units",
+      "symbol": "annual_demand_units",
+      "label": "Annual Product Demand",
+      "unit": {
+        "ref": "units/year"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1
+    },
+    {
+      "id": "unit_material_cost_usd",
+      "symbol": "unit_material_cost_usd",
+      "label": "Unit Material / Variable Cost",
+      "unit": {
+        "ref": "USD/unit"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.01
+    },
+    {
+      "id": "holding_cost_rate_pct",
+      "symbol": "holding_cost_rate_pct",
+      "label": "Annual Inventory Holding Cost Rate",
+      "unit": {
+        "ref": "% of unit value/year"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 5,
+      "max": 60,
+      "default": 25,
+      "hint": "Warehousing + capital tied up + obsolescence + insurance — typically 20–35% of unit value"
+    },
+    {
+      "id": "smed_project_cost_usd",
+      "symbol": "smed_project_cost_usd",
+      "label": "SMED Project Investment (tooling, fixtures, training)",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_027",
+      "code": "Shingo Prize SMED Methodology",
+      "name": "SMED Setup Time Reduction, Capacity Recovery & EOQ Optimisation (Shingo / Harris)",
+      "description": "SMED Setup Time Reduction, Capacity Recovery & EOQ Optimisation (Shingo / Harris) — Lean Manufacturing, Setup Reduction",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Holding_Cost_per_Unit_USD",
+          "expression": "unit_material_cost_usd * (holding_cost_rate_pct / 100)",
+          "unit": {
+            "ref": "USD/unit/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Internal_After_Conversion_min",
+          "expression": "internal_setup_current_min * (1 - internal_to_external_conversion_pct / 100)",
+          "unit": {
+            "ref": "min"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Internal_After_Streamlining_min",
+          "expression": "Internal_After_Conversion_min * (1 - streamlining_reduction_pct / 100)",
+          "unit": {
+            "ref": "min"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Target_Total_Setup_min",
+          "expression": "Internal_After_Streamlining_min",
+          "unit": {
+            "ref": "min"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Setup_Time_Saved_min",
+          "expression": "internal_setup_current_min - Target_Total_Setup_min",
+          "unit": {
+            "ref": "min"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Current_Setup_Cost_USD",
+          "expression": "(internal_setup_current_min / 60) * machine_hourly_rate_usd",
+          "unit": {
+            "ref": "USD/changeover"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "New_Setup_Cost_USD",
+          "expression": "(Target_Total_Setup_min / 60) * machine_hourly_rate_usd",
+          "unit": {
+            "ref": "USD/changeover"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Annual_Setup_Cost_Saving_USD",
+          "expression": "(Current_Setup_Cost_USD - New_Setup_Cost_USD) * changeovers_per_year",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Annual_Capacity_Recovered_min",
+          "expression": "Setup_Time_Saved_min * changeovers_per_year",
+          "unit": {
+            "ref": "min/year"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Current_EOQ_units",
+          "expression": "SQRT((2 * annual_demand_units * Current_Setup_Cost_USD) / Holding_Cost_per_Unit_USD)",
+          "unit": {
+            "ref": "units"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "New_EOQ_units",
+          "expression": "SQRT((2 * annual_demand_units * New_Setup_Cost_USD) / Holding_Cost_per_Unit_USD)",
+          "unit": {
+            "ref": "units"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Average_Inventory_Reduction_units",
+          "expression": "(Current_EOQ_units - New_EOQ_units) / 2",
+          "unit": {
+            "ref": "units"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Inventory_Value_Released_USD",
+          "expression": "Average_Inventory_Reduction_units * unit_material_cost_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "Inventory_Cost_Saving_USD",
+          "expression": "Average_Inventory_Reduction_units * Holding_Cost_per_Unit_USD",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F15",
+          "output": "Total_Annual_Benefit_USD",
+          "expression": "Annual_Setup_Cost_Saving_USD + Inventory_Cost_Saving_USD",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F16",
+          "output": "Simple_Payback_Months",
+          "expression": "smed_project_cost_usd > 0 && Total_Annual_Benefit_USD > 0 ? (smed_project_cost_usd / Total_Annual_Benefit_USD) * 12 : 0",
+          "unit": {
+            "ref": "months"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F17",
+          "output": "Setup_Reduction_Pct",
+          "expression": "(Setup_Time_Saved_min / internal_setup_current_min) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "Lean Inventory / Toyota Production System",
+          "condition": "Current_EOQ_units > annual_demand_units / 6",
+          "message": "BATCH PRODUCTION MODE: Current EOQ exceeds 2 months of demand. High setup cost is forcing large batch sizes, creating excess WIP, long lead times, and poor flexibility. SMED is the correct intervention — reducing setup cost directly enables smaller, leaner batches."
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "Shingo SMED Methodology",
+          "condition": "Setup_Reduction_Pct < 50",
+          "message": "Setup reduction < 50%: Below typical SMED first-pass target. Shingo's methodology targets >75% reduction in internal time. Review: Have all convertible internal activities been identified? Are quick-clamp fixtures and standardised toolholder systems being used?"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "OEE / Capacity Analysis",
+          "condition": "Annual_Capacity_Recovered_min > 480 && machine_hourly_rate_usd > 50",
+          "message": "Significant capacity recovered (>8 hours equivalent): At this machine rate, recovered capacity has high monetary value. If demand exists, this freed capacity can be converted to throughput rather than cost saving — model the revenue upside separately."
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "Lean / One-Piece Flow",
+          "condition": "New_EOQ_units < annual_demand_units / 52",
+          "message": "SMED enables weekly or sub-weekly batch sizes: Approaching one-piece-flow conditions. Consider implementing Pull / Kanban replenishment system to replace EOQ-based push scheduling."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "Shingo SMED Stage 1",
+          "condition": "internal_to_external_conversion_pct < 30 && internal_setup_current_min > 30",
+          "message": "Low conversion rate with long internal setup: SMED Stage 1 (separation of internal/external) is incomplete. Most setups > 30 min have 40–60% of activities convertible to external. Conduct video-based setup analysis to identify conversion opportunities."
+        },
+        {
+          "id": "W6",
+          "severity": "INFO",
+          "source": "Working Capital Optimisation",
+          "condition": "Inventory_Value_Released_USD > smed_project_cost_usd && smed_project_cost_usd > 0",
+          "message": "WORKING CAPITAL RELEASE EXCEEDS PROJECT COST: Inventory value released from smaller batch sizes alone covers the SMED investment. Present to finance as a working capital project, not just a productivity initiative."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "internal_setup_current_min",
+        "external_setup_current_min",
+        "internal_to_external_conversion_pct",
+        "changeovers_per_year",
+        "machine_hourly_rate_usd",
+        "annual_demand_units",
+        "unit_material_cost_usd",
+        "holding_cost_rate_pct"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

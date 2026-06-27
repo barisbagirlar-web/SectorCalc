@@ -37,7 +37,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 20,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -62,7 +62,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "10.9",
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -73,7 +73,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 100,
       "uncertainty": "±5%",
@@ -95,7 +95,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -106,7 +106,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 50000,
       "uncertainty": "±1%",
@@ -118,7 +118,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 4,
       "absolute_max": 100,
       "uncertainty": "±1%",
@@ -148,7 +148,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 355,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -159,7 +159,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 200,
       "note": "EC3 §3.5: minimum e_1 ≥ 1.2 × d_0 (hole diameter = d + 2 mm)",
@@ -172,7 +172,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 20,
       "absolute_max": 500,
       "note": "EC3 §3.5: minimum p_1 ≥ 2.2 × d_0; standard: 3d to 5d",

@@ -1,0 +1,348 @@
+{
+  "schemaId": "PRO_101",
+  "toolCode": "TOOL-PRO-101",
+  "version": "1.0.0",
+  "name": "Hollow Section (RHS/SHS/CHS) Beam-Column — Combined Axial + Bending Interaction Check",
+  "subtitle": "Structural Steel | Steel Fabrication — EN 1993-1-1:2022 §6.2.9, §6.3.1, §6.3.3, CIDECT Design Guide 2 (2nd Ed.)",
+  "sectorPath": [
+    "Structural Steel",
+    "Steel Fabrication"
+  ],
+  "standardsBasis": [
+    "EN 1993-1-1:2022 §6.2.9, §6.3.1, §6.3.3",
+    "CIDECT Design Guide 2 (2nd Ed.)",
+    "AISC 360-22 Chapter H",
+    "EN 10219-1:2006"
+  ],
+  "scope": {
+    "inScope": [
+      "Hollow Section (RHS/SHS/CHS) Beam-Column — Combined Axial + Bending Interaction Check"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "section_type",
+      "symbol": "section_type",
+      "label": "Hollow Section Type",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": "RHS",
+      "enum": [
+        {
+          "value": "RHS",
+          "label": "RHS — Rectangular Hollow Section"
+        },
+        {
+          "value": "SHS",
+          "label": "SHS — Square Hollow Section"
+        },
+        {
+          "value": "CHS",
+          "label": "CHS — Circular Hollow Section"
+        }
+      ]
+    },
+    {
+      "id": "N_Ed_kn",
+      "symbol": "N_Ed_kn",
+      "label": "Factored Axial Load (N_Ed / P_u)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 50000
+    },
+    {
+      "id": "M_Ed_knm",
+      "symbol": "M_Ed_knm",
+      "label": "Factored Bending Moment (M_Ed / M_u)",
+      "unit": {
+        "ref": "kNm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 10000
+    },
+    {
+      "id": "A_mm2",
+      "symbol": "A_mm2",
+      "label": "Cross-Sectional Area (A)",
+      "unit": {
+        "ref": "mm2"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 100,
+      "max": 100000
+    },
+    {
+      "id": "Wpl_y_cm3",
+      "symbol": "Wpl_y_cm3",
+      "label": "Plastic Section Modulus About Bending Axis (W_pl,y)",
+      "unit": {
+        "ref": "cm³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "id": "I_y_cm4",
+      "symbol": "I_y_cm4",
+      "label": "Second Moment of Area About Bending Axis (I_y)",
+      "unit": {
+        "ref": "cm⁴"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 5000000
+    },
+    {
+      "id": "fy_mpa",
+      "symbol": "fy_mpa",
+      "label": "Steel Yield Strength (f_y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 355,
+      "enum": [
+        {
+          "value": 235,
+          "label": "S235 — 235 MPa"
+        },
+        {
+          "value": 275,
+          "label": "S275 — 275 MPa"
+        },
+        {
+          "value": 355,
+          "label": "S355 — 355 MPa"
+        },
+        {
+          "value": 420,
+          "label": "S420 — 420 MPa"
+        }
+      ]
+    },
+    {
+      "id": "L_eff_m",
+      "symbol": "L_eff_m",
+      "label": "Effective Buckling Length (L_cr)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.2,
+      "max": 30
+    },
+    {
+      "id": "i_y_mm",
+      "symbol": "i_y_mm",
+      "label": "Radius of Gyration About Bending Axis (i_y)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 5,
+      "max": 300
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_101",
+      "code": "EN 1993-1-1:2022 §6.2.9, §6.3.1, §6.3.3",
+      "name": "Hollow Section (RHS/SHS/CHS) Beam-Column — Combined Axial + Bending Interaction Check",
+      "description": "Hollow Section (RHS/SHS/CHS) Beam-Column — Combined Axial + Bending Interaction Check — Structural Steel, Steel Fabrication",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "NRd_kn",
+          "expression": "NRd_kn = A_mm2 * fy_mpa / (1.0 * 1000)",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "EC3 §6.2.4 — N_c,Rd = A·f_y/γ_M0; γ_M0=1.0; CHS/RHS Class 1/2 cross-section",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "lambda_bar, chi",
+          "expression": "lambda_bar = (L_eff_m * 1000 / i_y_mm) / (Math.PI * Math.sqrt(210000 / fy_mpa)); phi_buck = 0.5 * (1 + 0.21 * (lambda_bar - 0.2) + Math.pow(lambda_bar, 2)); chi = Math.min(1.0, 1 / (phi_buck + Math.sqrt(Math.pow(phi_buck, 2) - Math.pow(lambda_bar, 2))))",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "EC3 §6.3.1.2 — λ̄ = (L_cr/i)/(π√(E/f_y)); buckling curve 'a' (α=0.21) for hollow sections",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "NbRd_kn",
+          "expression": "NbRd_kn = chi * A_mm2 * fy_mpa / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "EC3 §6.3.1.1 — N_b,Rd = χ·A·f_y/γ_M1; γ_M1=1.0",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "MRd_knm",
+          "expression": "MRd_knm = Wpl_y_cm3 * 1e3 * fy_mpa / 1e6",
+          "unit": {
+            "ref": "kNm"
+          },
+          "reference": "EC3 §6.2.5 — M_pl,Rd = W_pl,y·f_y/γ_M0; Class 1/2 section",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "UC_6_61, k_yy",
+          "expression": "k_yy = 1 + (lambda_bar - 0.2) * N_Ed_kn / NbRd_kn; k_yy = Math.min(k_yy, 1.0 + 0.8 * N_Ed_kn / NbRd_kn); UC_6_61 = N_Ed_kn / NbRd_kn + k_yy * M_Ed_knm / MRd_knm",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "EC3 §6.3.3 Eq.(6.61) — N_Ed/N_b,Rd + k_yy·M_y,Ed/M_y,Rd ≤ 1.0",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "UC_cross",
+          "expression": "UC_cross = N_Ed_kn / NRd_kn + M_Ed_knm / MRd_knm",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "EC3 §6.2.9.1 simplified: N_Ed/N_c,Rd + M_Ed/M_Rd ≤ 1.0 for Class 1/2; conservative",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "BLOCK",
+          "condition": "UC_6_61 > 1.0",
+          "message": "Beam-column interaction check failed (EC3 Eq.6.61 > 1.0) — increase section size, reduce effective length, or reduce applied loads"
+        },
+        {
+          "id": "V2",
+          "action": "BLOCK",
+          "condition": "UC_cross > 1.0",
+          "message": "Cross-section combined loading check failed — section yields locally; use plastic moment capacity only if section is Class 1"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "lambda_bar > 2.0",
+          "message": "Non-dimensional slenderness > 2.0: highly slender — buckling governs heavily; N_b,Rd < 0.25·N_Rd; intermediate bracing strongly recommended"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "UC_6_61 > 0.90 || UC_cross > 0.90",
+          "message": "Utilisation ratio > 90%: minimal safety reserve — verify load combinations include all accidental and wind/seismic actions; do not proceed without structural engineer sign-off"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "N_Ed_kn > NbRd_kn * 0.7 && M_Ed_knm > MRd_knm * 0.3",
+          "message": "High axial + moderate moment: k_yy amplification significant — consider moment connection detail to reduce effective eccentricity"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "",
+          "condition": "lambda_bar > 1.5 && section_type === 'CHS'",
+          "message": "Slender CHS column: LTB does not apply for CHS — only flexural buckling governs; CHS advantage over open sections is fully realised here"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "",
+          "condition": "L_eff_m > 8 && fy_mpa === 235",
+          "message": "Long column in S235: consider S355 to reduce section size — same χ at lower weight for slenderness-governed design"
+        },
+        {
+          "id": "W5",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "chi < 0.5",
+          "message": "Buckling factor χ < 0.5: more than 50% of section capacity lost to buckling — verify effective length assumptions; pinned connections often provide partial restraint; consider intermediate bracing"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "section_type",
+        "N_Ed_kn",
+        "M_Ed_knm",
+        "A_mm2",
+        "Wpl_y_cm3",
+        "I_y_cm4",
+        "fy_mpa",
+        "L_eff_m",
+        "i_y_mm"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

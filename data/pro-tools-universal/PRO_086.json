@@ -1,0 +1,301 @@
+{
+  "schemaId": "PRO_086",
+  "toolCode": "TOOL-PRO-086",
+  "version": "1.0.0",
+  "name": "Helical Torsion Spring Design — Bending Stress, Angular Deflection & Fatigue Life",
+  "subtitle": "Mechanical Design | Spring Engineering — DIN 2088:2009, ASTM A228/A227/A313",
+  "sectorPath": [
+    "Mechanical Design",
+    "Spring Engineering"
+  ],
+  "standardsBasis": [
+    "DIN 2088:2009",
+    "ASTM A228/A227/A313",
+    "SAE HS-795 Spring Design Manual",
+    "ISO 26909:2009"
+  ],
+  "scope": {
+    "inScope": [
+      "Helical Torsion Spring Design — Bending Stress, Angular Deflection & Fatigue Life"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "torque_Nm",
+      "symbol": "torque_Nm",
+      "label": "Applied Torque (T)",
+      "unit": {
+        "ref": "Nm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.001,
+      "max": 100000
+    },
+    {
+      "id": "wire_diameter_mm",
+      "symbol": "wire_diameter_mm",
+      "label": "Wire Diameter (d)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 50
+    },
+    {
+      "id": "mean_coil_diameter_mm",
+      "symbol": "mean_coil_diameter_mm",
+      "label": "Mean Coil Diameter (D_m)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 500
+    },
+    {
+      "id": "num_active_coils",
+      "symbol": "num_active_coils",
+      "label": "Number of Active Coils (N_a)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 2,
+      "max": 200
+    },
+    {
+      "id": "wire_material",
+      "symbol": "wire_material",
+      "label": "Wire Material",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": "A228",
+      "enum": [
+        {
+          "value": "A228",
+          "label": "Music wire ASTM A228 — E=206 GPa, Su=2060/d^0.163 MPa"
+        },
+        {
+          "value": "A227",
+          "label": "Hard-drawn MB ASTM A227 — E=196 GPa, Su=1510/d^0.201 MPa"
+        },
+        {
+          "value": "9254",
+          "label": "Chrome-silicon SAE 9254 — E=203 GPa, Su=1960/d^0.108 MPa"
+        },
+        {
+          "value": "A313",
+          "label": "Stainless 302/304 ASTM A313 — E=193 GPa, Su=1867/d^0.146 MPa"
+        }
+      ]
+    },
+    {
+      "id": "angular_deflection_deg",
+      "symbol": "angular_deflection_deg",
+      "label": "Required Angular Deflection (θ)",
+      "unit": {
+        "ref": "deg"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 3600
+    },
+    {
+      "id": "fatigue_cycles",
+      "symbol": "fatigue_cycles",
+      "label": "Required Fatigue Life (N_f)",
+      "unit": {
+        "ref": "cycles"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 1000000,
+      "enum": [
+        {
+          "value": 10000,
+          "label": "10,000 — Static / rare actuation"
+        },
+        {
+          "value": 100000,
+          "label": "100,000 — Moderate duty"
+        },
+        {
+          "value": 1000000,
+          "label": "1,000,000 — High-cycle"
+        },
+        {
+          "value": 10000000,
+          "label": "10,000,000 — Infinite life (1E7)"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_086",
+      "code": "DIN 2088:2009",
+      "name": "Helical Torsion Spring Design — Bending Stress, Angular Deflection & Fatigue Life",
+      "description": "Helical Torsion Spring Design — Bending Stress, Angular Deflection & Fatigue Life — Mechanical Design, Spring Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "C",
+          "expression": "mean_coil_diameter_mm / wire_diameter_mm; K_i = (4*C*C - C - 1) / (4*C*(C-1))",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "SAE HS-795 §7.3 — inner surface correction: K_i = (4C²−C−1)/(4C(C−1))",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "sigma_b_mpa",
+          "expression": "K_i * 32 * torque_Nm * 1000 / (Math.PI * Math.pow(wire_diameter_mm, 3))",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "DIN 2088 §5 / ISO 26909 — σ_b = K_i · 32T / πd³",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "out_3",
+          "expression": "const SU_params = {A228:[2060,0.163], A227:[1510,0.201], '9254':[1960,0.108], A313:[1867,0.146]}; const p = SU_params[wire_material]; Su_mpa = p[0] / Math.pow(wire_diameter_mm, p[1])   // [MPa] Material Ultimate Tensile Strength (S_u) Reference: ASTM material strength curves — SAE HS-795 Table 1; Su = A/d^m (d in mm)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F4",
+          "output": "sigma_allow_mpa",
+          "expression": "0.78 * Su_mpa; SF_s = sigma_allow_mpa / sigma_b_mpa",
+          "unit": {
+            "ref": "dimensionless, MPa"
+          },
+          "reference": "SAE HS-795 §7.6 — static allowable: σ_allow = 0.78·S_u for torsion springs (bending mode)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "out_5",
+          "expression": "const E_map = {A228:206000, A227:196000, '9254':203000, A313:193000}; E_mpa = E_map[wire_material]; R_T_Nm_deg = E_mpa * Math.PI * Math.pow(wire_diameter_mm, 4) / (3667 * mean_coil_diameter_mm * num_active_coils); T_calc_Nm = R_T_Nm_deg * angular_deflection_deg   // [N·m/°, N·m] Angular Spring Rate (R_T) & Stiffness Check Reference: DIN 2088 — R_T = Ed⁴/(3667·D_m·N_a) in N·m/°; E in MPa, d,D_m in mm",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F6",
+          "output": "Se_mpa",
+          "expression": "(fatigue_cycles >= 1e7) ? 0.45 * Su_mpa : 0.45 * Su_mpa * Math.pow(fatigue_cycles / 1e7, -0.085); SF_f = Se_mpa / sigma_b_mpa",
+          "unit": {
+            "ref": "dimensionless, MPa"
+          },
+          "reference": "SAE HS-795 §8 — fatigue allowable: S_e = 0.45·S_u at 10⁷ cycles",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "DIN 2088:2009",
+          "condition": "SF_f < 1.2",
+          "message": "Fatigue safety factor < 1.2: spring fatigue failure likely before target life — increase wire diameter, reduce stress ratio, or apply shot peening (+20% endurance)"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "DIN 2088:2009",
+          "condition": "SF_s < 1.5",
+          "message": "Static SF < 1.5: marginal — spring may take permanent set under peak torque; consider SF ≥ 2.0 for critical applications per SAE HS-795 §7.6"
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "DIN 2088:2009",
+          "condition": "sigma_b_mpa > 0.9 * Su_mpa",
+          "message": "Bending stress > 90% of UTS: spring operating near material limit — significant risk of brittle fracture; redesign with larger wire or lower C"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "DIN 2088:2009",
+          "condition": "wire_material === 'A313' && sigma_b_mpa > 700",
+          "message": "SS wire at high stress: austenitic stainless has lower fatigue limit than music wire — consider Elgiloy or 17-7PH for high-cycle SS applications"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "DIN 2088:2009",
+          "condition": "angular_deflection_deg > 360 * num_active_coils * 0.8",
+          "message": "Deflection approaching coil binding: spring may bind before reaching full deflection — verify body length and free-length tolerance"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "torque_Nm",
+        "wire_diameter_mm",
+        "mean_coil_diameter_mm",
+        "num_active_coils",
+        "wire_material",
+        "angular_deflection_deg",
+        "fatigue_cycles"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -6,6 +6,7 @@ import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
@@ -228,7 +229,7 @@ function mapRevenueInputsToPremium(inputs: readonly RevenueToolInput[]): Premium
       unit: isPercent ? "%" : isCurrency ? "" : inp.unit || "",
       type: inp.type === "select" ? "select" : "number",
       required: inp.required ?? true,
-      confidence_label: "KESİN",
+      confidence_label: "EXACT",
       options: inp.options?.map((o) => ({ label: o.label, value: o.value })),
       min: inp.type === "number" ? 0 : undefined,
       hint: inp.helperText || "",
@@ -760,6 +761,7 @@ export function FreeToolPage({
   )}
 </div>
 )}
+ <ExpertAuthoritySection toolName={tool.freeTitle} />
  </Container>
  </section>
  </PageLayout>

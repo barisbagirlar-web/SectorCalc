@@ -1,0 +1,934 @@
+{
+  "schemaId": "PRO_117",
+  "toolCode": "TOOL-PRO-117",
+  "version": "1.0.0",
+  "name": "RC Beam Shear & Flexure Calculator",
+  "subtitle": "Construction | Reinforced Concrete — EN 1992-1-1, ACI 318",
+  "sectorPath": [
+    "Construction",
+    "Reinforced Concrete"
+  ],
+  "standardsBasis": [
+    "EN 1992-1-1",
+    "ACI 318",
+    "ISO 9001",
+    "GUM"
+  ],
+  "scope": {
+    "inScope": [
+      "RC Beam Shear & Flexure Calculator"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "designStandard",
+      "symbol": "std",
+      "label": "Design Standard",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "code",
+      "enum": [
+        {
+          "value": "EN_1992_1_1",
+          "label": "EN_1992_1_1"
+        },
+        {
+          "value": "ACI_318",
+          "label": "ACI_318"
+        }
+      ]
+    },
+    {
+      "id": "b_w",
+      "symbol": "b_w",
+      "label": "Beam Width (b_w)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 50,
+      "max": 2000
+    },
+    {
+      "id": "h",
+      "symbol": "h",
+      "label": "Beam Height (h)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 50,
+      "max": 3000
+    },
+    {
+      "id": "d",
+      "symbol": "d",
+      "label": "Effective Depth (d)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "actions",
+      "min": 20,
+      "max": 2900
+    },
+    {
+      "id": "A_s",
+      "symbol": "A_s",
+      "label": "Tension Reinforcement Area (A_s)",
+      "unit": {
+        "ref": "mm2"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 50,
+      "max": 50000
+    },
+    {
+      "id": "A_sv",
+      "symbol": "A_sw",
+      "label": "Shear Reinforcement Area (A_sv)",
+      "unit": {
+        "ref": "mm2"
+      },
+      "confidence": "GUCLU",
+      "group": "actions",
+      "min": 0,
+      "max": 5000,
+      "optional": true
+    },
+    {
+      "id": "s_v",
+      "symbol": "s",
+      "label": "Stirrup Spacing (s_v)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "GUCLU",
+      "group": "actions",
+      "min": 25,
+      "max": 500,
+      "optional": true
+    },
+    {
+      "id": "M_Ed",
+      "symbol": "M_Ed",
+      "label": "Design Bending Moment (M_Ed)",
+      "unit": {
+        "ref": "kNm"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0,
+      "max": 50000
+    },
+    {
+      "id": "V_Ed",
+      "symbol": "V_Ed",
+      "label": "Design Shear Force (V_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0,
+      "max": 50000
+    },
+    {
+      "id": "f_ck",
+      "symbol": "f_ck",
+      "label": "Concrete Cylinder Strength (f_ck)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "materials",
+      "min": 10,
+      "max": 120,
+      "optional": true,
+      "uncertainty": {
+        "value": "5%",
+        "type": "B",
+        "distribution": "normal"
+      },
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "f_yk",
+      "symbol": "f_yk",
+      "label": "Steel Yield Strength (f_yk)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "materials",
+      "min": 200,
+      "max": 700,
+      "default": 500,
+      "optional": true,
+      "uncertainty": {
+        "value": "3%",
+        "type": "B",
+        "distribution": "normal"
+      },
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "gamma_c",
+      "symbol": "γ_c",
+      "label": "Concrete Partial Factor (γ_c)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "max": 2,
+      "default": 1.5,
+      "optional": true,
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "gamma_s",
+      "symbol": "γ_s",
+      "label": "Steel Partial Factor (γ_s)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "max": 2,
+      "default": 1.15,
+      "optional": true,
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "alpha_cc",
+      "symbol": "α_cc",
+      "label": "Long-term Factor (α_cc)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.5,
+      "max": 1,
+      "default": 0.85,
+      "optional": true,
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "cot_theta",
+      "symbol": "cotθ",
+      "label": "Strut Inclination (cot θ)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "max": 3,
+      "default": 2.5,
+      "optional": true,
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "N_Ed",
+      "symbol": "N_Ed",
+      "label": "Axial Force (N_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": -50000,
+      "max": 50000,
+      "default": 0,
+      "optional": true,
+      "appliesTo": [
+        "EN_1992_1_1"
+      ]
+    },
+    {
+      "id": "f_c_prime",
+      "symbol": "f'_c",
+      "label": "Concrete Compressive Strength (f'_c)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "materials",
+      "min": 10,
+      "max": 100,
+      "optional": true,
+      "uncertainty": {
+        "value": "5%",
+        "type": "B",
+        "distribution": "normal"
+      },
+      "appliesTo": [
+        "ACI_318"
+      ]
+    },
+    {
+      "id": "f_y",
+      "symbol": "f_y",
+      "label": "Steel Yield Strength (f_y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "KESIN",
+      "group": "materials",
+      "min": 200,
+      "max": 700,
+      "default": 420,
+      "optional": true,
+      "appliesTo": [
+        "ACI_318"
+      ]
+    },
+    {
+      "id": "E_s",
+      "symbol": "E_s",
+      "label": "Steel Elastic Modulus (E_s)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 180000,
+      "max": 220000,
+      "default": 200000,
+      "optional": true,
+      "appliesTo": [
+        "ACI_318"
+      ]
+    },
+    {
+      "id": "lambda_concrete",
+      "symbol": "λ",
+      "label": "Lightweight Factor (λ)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.75,
+      "max": 1,
+      "default": 1,
+      "optional": true,
+      "appliesTo": [
+        "ACI_318"
+      ]
+    },
+    {
+      "id": "phi_v",
+      "symbol": "φ_v",
+      "label": "Shear Reduction Factor (φ_v)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "actions",
+      "min": 0.5,
+      "max": 1,
+      "default": 0.75,
+      "optional": true,
+      "appliesTo": [
+        "ACI_318"
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "code",
+      "letter": "A",
+      "title": "Code",
+      "cols": 2
+    },
+    {
+      "key": "geometry",
+      "letter": "B",
+      "title": "Geometry",
+      "cols": 2
+    },
+    {
+      "key": "actions",
+      "letter": "C",
+      "title": "Actions",
+      "cols": 2
+    },
+    {
+      "key": "materials",
+      "letter": "D",
+      "title": "Materials",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "E",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_117",
+      "code": "EN 1992-1-1",
+      "name": "RC Beam Shear & Flexure Calculator",
+      "description": "RC Beam Shear & Flexure Calculator — Construction, Reinforced Concrete",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "rho_l",
+          "expression": "A_s / (b_w * d)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "out_2",
+          "expression": "// ── EN 1992-1-1 BRANCH ──────────────────────────────────────────",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F3",
+          "output": "f_cd",
+          "expression": "alpha_cc * f_ck / gamma_c",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "f_yd",
+          "expression": "f_yk / gamma_s",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "lambda",
+          "expression": "f_ck <= 50 ? 0.8 : 0.8 - (f_ck - 50) / 400",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "eta",
+          "expression": "f_ck <= 50 ? 1.0 : 1.0 - (f_ck - 50) / 200",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "x",
+          "expression": "A_s * f_yd / (eta * f_cd * b_w * lambda)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "z",
+          "expression": "min(d - 0.5 * lambda * x, 0.95 * d)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "M_Rd",
+          "expression": "A_s * f_yd * z / 1e6",
+          "unit": {
+            "ref": "kN.m"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "k",
+          "expression": "min(1 + sqrt(200 / d), 2.0)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "rho_l_limited",
+          "expression": "min(rho_l, 0.02)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "V_Rdc",
+          "expression": "(0.18/gamma_c * k * (100 * rho_l_limited * f_ck)^(1/3)) * b_w * d / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "V_Rds",
+          "expression": "A_sv / s_v * z * f_yd * cot_theta / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "v1",
+          "expression": "f_ck <= 50 ? 0.6 : 0.6 * (1 - (f_ck - 50) / 200)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F15",
+          "output": "V_Rdmax",
+          "expression": "b_w * z * v1 * f_cd / (cot_theta + 1/cot_theta) / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F16",
+          "output": "V_Rd",
+          "expression": "min(V_Rds, V_Rdmax)",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F17",
+          "output": "UC_flexure",
+          "expression": "M_Ed / M_Rd",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F18",
+          "output": "UC_shear",
+          "expression": "V_Ed / V_Rd",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F19",
+          "output": "UC",
+          "expression": "max(UC_flexure, UC_shear)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F20",
+          "output": "out_20",
+          "expression": "// ── ACI 318 BRANCH ──────────────────────────────────────────────",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F21",
+          "output": "beta1",
+          "expression": "f_c_prime <= 28 ? 0.85 : max(0.85 - 0.05 * (f_c_prime - 28) / 7, 0.65)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F22",
+          "output": "a",
+          "expression": "A_s * f_y / (0.85 * f_c_prime * b_w)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F23",
+          "output": "c",
+          "expression": "a / beta1",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F24",
+          "output": "epsilon_t",
+          "expression": "0.003 * (d - c) / c",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F25",
+          "output": "phi_f",
+          "expression": "epsilon_t >= 0.005 ? 0.9 : (epsilon_t >= 0.002 ? 0.65 + 0.25 * (epsilon_t - 0.002) / 0.003 : 0.65)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F26",
+          "output": "M_Rd_ACI",
+          "expression": "phi_f * A_s * f_y * (d - a / 2) / 1e6",
+          "unit": {
+            "ref": "kN.m"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F27",
+          "output": "V_c",
+          "expression": "0.17 * lambda_concrete * sqrt(f_c_prime) * b_w * d / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F28",
+          "output": "V_s",
+          "expression": "A_sv * f_y * d / s_v / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F29",
+          "output": "V_Rd_ACI",
+          "expression": "phi_v * (V_c + V_s)",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F30",
+          "output": "UC_flexure_ACI",
+          "expression": "M_Ed / M_Rd_ACI",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F31",
+          "output": "UC_shear_ACI",
+          "expression": "V_Ed / V_Rd_ACI",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F32",
+          "output": "UC_ACI",
+          "expression": "max(UC_flexure_ACI, UC_shear_ACI)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [
+        {
+          "id": "bw_check",
+          "action": "BLOCK",
+          "condition": "b_w <= 0",
+          "message": "Beam width must be greater than zero."
+        },
+        {
+          "id": "h_check",
+          "action": "BLOCK",
+          "condition": "h <= 0",
+          "message": "Beam height must be greater than zero."
+        },
+        {
+          "id": "d_check",
+          "action": "BLOCK",
+          "condition": "d <= 0",
+          "message": "Effective depth must be greater than zero."
+        },
+        {
+          "id": "d_h_check",
+          "action": "BLOCK",
+          "condition": "d >= h",
+          "message": "Effective depth cannot exceed total beam height."
+        },
+        {
+          "id": "as_check",
+          "action": "BLOCK",
+          "condition": "A_s <= 0",
+          "message": "Tension reinforcement area must be greater than zero."
+        },
+        {
+          "id": "m_ed_check",
+          "action": "BLOCK",
+          "condition": "M_Ed < 0",
+          "message": "Design moment cannot be negative."
+        },
+        {
+          "id": "v_ed_check",
+          "action": "BLOCK",
+          "condition": "V_Ed < 0",
+          "message": "Design shear force cannot be negative."
+        },
+        {
+          "id": "sv_missing",
+          "action": "BLOCK",
+          "condition": "A_sv > 0 && s_v == 0",
+          "message": "Stirrup spacing required when shear reinforcement is provided."
+        },
+        {
+          "id": "fck_missing_ec2",
+          "action": "BLOCK",
+          "condition": "designStandard == 'EN_1992_1_1' && (f_ck == 0 || f_ck == undefined)",
+          "message": "Concrete cylinder strength f_ck required for EN 1992-1-1."
+        },
+        {
+          "id": "fc_missing_aci",
+          "action": "BLOCK",
+          "condition": "designStandard == 'ACI_318' && (f_c_prime == 0 || f_c_prime == undefined)",
+          "message": "Concrete compressive strength f'_c required for ACI 318."
+        },
+        {
+          "id": "uc_fail",
+          "action": "BLOCK",
+          "condition": "UC > 1.0",
+          "message": "Section FAILS — utilization exceeds 1.0. Redesign required."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W_UC_WARN",
+          "severity": "WARNING",
+          "source": "Engineering Review",
+          "condition": "UC > 0.9 && UC <= 1.0",
+          "message": "UC = {UC} between 0.90–1.00. Engineering review required before acceptance."
+        },
+        {
+          "id": "W_UC_FAIL",
+          "severity": "CRITICAL",
+          "source": "Capacity Check",
+          "condition": "UC > 1.0",
+          "message": "UC = {UC} > 1.00. Section FAILS. Governing mode: {governingMode}. Section must be redesigned."
+        },
+        {
+          "id": "W_XD_EC2",
+          "severity": "WARNING",
+          "source": "EN 1992-1-1 §5.5(4)",
+          "condition": "designStandard == 'EN_1992_1_1' && x/d > 0.45",
+          "message": "x/d = {xd} > 0.45. Neutral axis depth limit exceeded per EN 1992-1-1 §5.5(4)."
+        },
+        {
+          "id": "W_EPSILON_ACI",
+          "severity": "WARNING",
+          "source": "ACI 318 §9.3.3",
+          "condition": "designStandard == 'ACI_318' && epsilon_t < 0.005",
+          "message": "ε_t = {epsilon_t} < 0.005. Section not tension-controlled. Ductility limited."
+        },
+        {
+          "id": "W_VS_LIMIT",
+          "severity": "WARNING",
+          "source": "ACI 318 §11.5.7.2",
+          "condition": "designStandard == 'ACI_318' && V_s > V_s_max",
+          "message": "V_s exceeds V_s_max. Stirrup spacing too large or section insufficient."
+        },
+        {
+          "id": "W_STIRRUP_SPACING",
+          "severity": "WARNING",
+          "source": "Detailing Rules",
+          "condition": "s_v > d/2",
+          "message": "Stirrup spacing s_v exceeds maximum permitted (~d/2). Review detailing rules."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "designStandard",
+        "b_w",
+        "h",
+        "d",
+        "A_s",
+        "M_Ed",
+        "V_Ed"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.90",
+    "modes": [
+      {
+        "mode": "Flexural yielding",
+        "effect": "Large deflections but visible warning before collapse",
+        "sev": 5,
+        "occ": 4,
+        "det": 3,
+        "mitigation": "",
+        "when": "rho_l > 0.02"
+      },
+      {
+        "mode": "Compression-controlled brittle failure",
+        "effect": "Sudden collapse without warning",
+        "sev": 8,
+        "occ": 3,
+        "det": 4,
+        "mitigation": "",
+        "when": "x/d > 0.45"
+      },
+      {
+        "mode": "Diagonal shear failure",
+        "effect": "Brittle shear failure",
+        "sev": 8,
+        "occ": 4,
+        "det": 5,
+        "mitigation": "",
+        "when": "V_Ed > V_Rd * 0.9"
+      },
+      {
+        "mode": "Concrete strut crushing",
+        "effect": "Brittle web failure",
+        "sev": 8,
+        "occ": 3,
+        "det": 2,
+        "mitigation": "",
+        "when": "V_Rds > V_Rdmax"
+      },
+      {
+        "mode": "Stirrup yielding",
+        "effect": "Excessive cracking before failure",
+        "sev": 5,
+        "occ": 3,
+        "det": 4,
+        "mitigation": "",
+        "when": "V_Ed > V_Rd * 0.9"
+      },
+      {
+        "mode": "Anchorage failure",
+        "effect": "Loss of flexural capacity at support",
+        "sev": 8,
+        "occ": 3,
+        "det": 6,
+        "mitigation": "",
+        "when": "M_Ed > M_Rd * 0.8"
+      },
+      {
+        "mode": "Bar placement error",
+        "effect": "Reduced capacity vs. design",
+        "sev": 8,
+        "occ": 4,
+        "det": 7,
+        "mitigation": ""
+      },
+      {
+        "mode": "Material strength mismatch",
+        "effect": "Non-compliance with design assumptions",
+        "sev": 8,
+        "occ": 3,
+        "det": 5,
+        "mitigation": ""
+      }
+    ],
+    "rpnBands": {
+      "high": 200,
+      "med": 100
+    }
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

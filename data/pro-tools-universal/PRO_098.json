@@ -1,0 +1,350 @@
+{
+  "schemaId": "PRO_098",
+  "toolCode": "TOOL-PRO-098",
+  "version": "1.0.0",
+  "name": "Steel Beam Deflection Under Service Load — Elastic Deflection, Camber & L/d Efficiency",
+  "subtitle": "Structural Steel | Construction Engineering — EN 1993-1-1:2022 §7.2, AISC 360-22 Appendix 2",
+  "sectorPath": [
+    "Structural Steel",
+    "Construction Engineering"
+  ],
+  "standardsBasis": [
+    "EN 1993-1-1:2022 §7.2",
+    "AISC 360-22 Appendix 2",
+    "SCI P355:2011",
+    "BS 5950-1:2000 §2.5.2"
+  ],
+  "scope": {
+    "inScope": [
+      "Steel Beam Deflection Under Service Load — Elastic Deflection, Camber & L/d Efficiency"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "span_m",
+      "symbol": "span_m",
+      "label": "Beam Clear Span (L)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.5,
+      "max": 60
+    },
+    {
+      "id": "w_dead_kn_m",
+      "symbol": "w_dead_kn_m",
+      "label": "Unfactored Dead Load (Uniformly Distributed) (g_k)",
+      "unit": {
+        "ref": "kNpm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 500
+    },
+    {
+      "id": "w_live_kn_m",
+      "symbol": "w_live_kn_m",
+      "label": "Unfactored Live / Imposed Load (UDL) (q_k)",
+      "unit": {
+        "ref": "kNpm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 500
+    },
+    {
+      "id": "P_point_kn",
+      "symbol": "P_point_kn",
+      "label": "Concentrated Point Load at Midspan (P_k)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 10000,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "Ix_cm4",
+      "symbol": "Ix_cm4",
+      "label": "Second Moment of Area About Strong Axis (I_x)",
+      "unit": {
+        "ref": "cm⁴"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 10,
+      "max": 10000000
+    },
+    {
+      "id": "beam_depth_mm",
+      "symbol": "beam_depth_mm",
+      "label": "Overall Beam Depth (d)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 50,
+      "max": 1500
+    },
+    {
+      "id": "end_condition",
+      "symbol": "end_condition",
+      "label": "Beam End Support Condition",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": "SS",
+      "enum": [
+        {
+          "value": "SS",
+          "label": "Simply supported (pinned-roller) — C_δ = 5/384"
+        },
+        {
+          "value": "FF",
+          "label": "Fixed-fixed (fully restrained) — C_δ = 1/384"
+        },
+        {
+          "value": "FP",
+          "label": "Fixed-pinned — C_δ = 1/185"
+        },
+        {
+          "value": "cant",
+          "label": "Cantilever — C_δ = 1/8"
+        }
+      ]
+    },
+    {
+      "id": "deflection_limit_ratio",
+      "symbol": "deflection_limit_ratio",
+      "label": "Allowable Deflection Limit (L / n)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "default": 360,
+      "enum": [
+        {
+          "value": 200,
+          "label": "L/200 — Industrial floors, plant rooms"
+        },
+        {
+          "value": 250,
+          "label": "L/250 — General floors (EN 1993-1-1 §7)"
+        },
+        {
+          "value": 360,
+          "label": "L/360 — Plaster ceiling / brittle finishes"
+        },
+        {
+          "value": 500,
+          "label": "L/500 — Sensitive equipment, precision floors"
+        },
+        {
+          "value": 600,
+          "label": "L/600 — Overhead cranes (AWS D1.1)"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "geometry",
+      "letter": "A",
+      "title": "Geometry",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "B",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_098",
+      "code": "EN 1993-1-1:2022 §7.2",
+      "name": "Steel Beam Deflection Under Service Load — Elastic Deflection, Camber & L/d Efficiency",
+      "description": "Steel Beam Deflection Under Service Load — Elastic Deflection, Camber & L/d Efficiency — Structural Steel, Construction Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Cd",
+          "expression": "Cd_map = {SS: 5/384, FF: 1/384, FP: 1/185, cant: 1/8}; Cd = Cd_map[end_condition]",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Beam deflection coefficients — Roark's Formulas for Stress & Strain 8th Ed. §8.1; EN 1993-1-1 §7",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "delta_DL_mm",
+          "expression": "E_steel = 210000; I_m4 = Ix_cm4 * 1e-8; L_m = span_m; delta_DL_mm = Cd * w_dead_kn_m * 1000 * Math.pow(L_m, 4) / (E_steel * 1e6 * I_m4) * 1000",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "δ = C_δ × w × L⁴ / (E × I); E = 210,000 MPa for steel — EN 1993-1-1 §3.2.6",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "delta_LL_mm",
+          "expression": "delta_LL_mm = Cd * w_live_kn_m * 1000 * Math.pow(span_m, 4) / (210000e6 * Ix_cm4 * 1e-8) * 1000 + (P_point_kn > 0 ? 1/48 * P_point_kn * 1000 * Math.pow(span_m, 3) / (210000e6 * Ix_cm4 * 1e-8) * 1000 : 0)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "Live load + point load deflections superimposed; midspan point load δ = PL³/(48EI) for SS beam",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "delta_total_mm, delta_allow_mm",
+          "expression": "delta_total_mm = delta_DL_mm + delta_LL_mm; delta_allow_mm = span_m * 1000 / deflection_limit_ratio",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "Allowable = L/n; total = δ_DL + δ_LL — EN 1993-1-1 §7.2 Table NA.3 / AISC DG3",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Ld_ratio",
+          "expression": "Ld_ratio = span_m * 1000 / beam_depth_mm",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "L/d efficiency: floors 18–24; purlins 20–30; crane beams 12–16 — SCI P355 §3.2 design guidance",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "camber_mm, deflection_util",
+          "expression": "camber_mm = (delta_DL_mm > 10) ? Math.round(delta_DL_mm * 0.75) : 0; deflection_util = delta_LL_mm / delta_allow_mm",
+          "unit": {
+            "ref": "mm, dimensionless"
+          },
+          "reference": "Camber = 75% of dead load deflection per AISC Code of Standard Practice §6.1; δ_LL / δ_allow ≤ 1.0",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "WARN",
+          "condition": "deflection_util > 1.0",
+          "message": "Live load deflection exceeds allowable limit — increase section size (I_x), reduce span with intermediate support, or accept lower deflection limit"
+        },
+        {
+          "id": "V2",
+          "action": "WARN",
+          "condition": "delta_total_mm > span_m * 10",
+          "message": "Total deflection exceeds L/100: extreme deflection — verify input values; beam is severely undersized or span is unrealistic for this load"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "Ld_ratio > 30 && w_live_kn_m > 5",
+          "message": "L/d > 30 with significant live load: shallow beam will deflect excessively — consider L/d ≤ 20 as starting point for preliminary sizing under office / industrial loads"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "INFO",
+          "source": "",
+          "condition": "camber_mm > 0 && end_condition !== 'SS'",
+          "message": "Camber specified on non-simply-supported beam: verify that end connection allows free rotation and that camber direction is consistent with actual dead load deflection shape"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "deflection_util > 0.85",
+          "message": "Deflection utilisation > 85%: marginal — consider one section deeper; increasing depth by 50 mm typically reduces δ by 15–20% for the same weight"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "delta_DL_mm > span_m * 1000 / 400",
+          "message": "Dead load deflection > L/400: significant long-term creep and ponding risk on flat roofs — EC3 recommends δ_DL + creep < L/300 for roofs per §7.2.1"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "deflection_limit_ratio >= 500 && Ld_ratio > 20",
+          "message": "Precision deflection limit on shallow beam: floor vibration may govern before deflection limit — check natural frequency per SCI P354 (fn > 4 Hz for office floors)"
+        },
+        {
+          "id": "W5",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "end_condition === 'cant' && span_m > 3",
+          "message": "Long cantilever (> 3 m): deflection tip grows as L³; very sensitive to load position — verify back-span anchorage and connection rotation capacity; dynamic check mandatory per SCI P076"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "span_m",
+        "w_dead_kn_m",
+        "w_live_kn_m",
+        "Ix_cm4",
+        "beam_depth_mm",
+        "end_condition",
+        "deflection_limit_ratio"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

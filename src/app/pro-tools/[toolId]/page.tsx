@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import ProToolClientWrapper from "@/components/calculators/ProToolClientWrapper";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { PRO_TOOLS_MAP } from "@/lib/tools/pro-tools-registry";
 import "@/styles/pro-tool-form.css";
 
@@ -57,6 +58,7 @@ export default async function ProToolPage({
       <div style={{ background: "#E8E6DE", minHeight: "100vh", color: "#1A1915", fontFamily: "Inter, system-ui, sans-serif" }}>
         <main style={{ padding: "28px 24px 80px", maxWidth: 1100, margin: "0 auto" }}>
           <ProToolClientWrapper tool={tool} locale={locale} />
+          <ExpertAuthoritySection toolName={tool.tool_name} />
         </main>
       </div>
     </>

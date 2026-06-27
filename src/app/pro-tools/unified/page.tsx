@@ -8,6 +8,7 @@
 
 import { useEffect, useMemo } from "react";
 import UniversalProToolRenderer from "@/components/universal-pro-tool/UniversalProToolRenderer";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { UNIVERSAL_TOOLS_LIST } from "@/lib/tools/universal-tools-registry";
 import type { ToolEntry } from "@/components/universal-pro-tool/UniversalProToolRenderer";
 
@@ -33,5 +34,10 @@ export default function UnifiedProToolsPage() {
     })),
   []);
 
-  return <UniversalProToolRenderer tools={tools} initialTool={tools[0]?.key} />;
+  return (
+    <>
+      <UniversalProToolRenderer tools={tools} initialTool={tools[0]?.key} />
+      <ExpertAuthoritySection />
+    </>
+  );
 }

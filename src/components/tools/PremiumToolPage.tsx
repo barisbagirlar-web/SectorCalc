@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
 import { stripLocalePrefix } from "@/i18n/locales";
@@ -961,14 +962,19 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
          relatedIndustryTitle: tAuthority("relatedIndustryTitle"),
          pricingCta: tAuthority("pricingCta"),
        }}
-     />
-   </Container>
- </section>
- <section className="border-t border-technical-gray/40 bg-off-white py-6">
- <Container>
- <p className="text-xs leading-relaxed text-body-charcoal">{tool.legalDisclaimer || revenueLegalDisclaimer}</p>
- </Container>
- </section>
- </PageLayout>
+    />
+  </Container>
+</section>
+<section className="border-t border-technical-gray/40 bg-off-white">
+  <Container>
+    <ExpertAuthoritySection toolName={tool.paidTitle} />
+  </Container>
+</section>
+<section className="border-t border-technical-gray/40 bg-off-white py-6">
+<Container>
+<p className="text-xs leading-relaxed text-body-charcoal">{tool.legalDisclaimer || revenueLegalDisclaimer}</p>
+</Container>
+</section>
+</PageLayout>
  );
 }

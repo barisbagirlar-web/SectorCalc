@@ -1,0 +1,472 @@
+{
+  "schemaId": "PRO_111",
+  "toolCode": "TOOL-PRO-111",
+  "version": "1.0.0",
+  "name": "Roller Bearing L10h Life & Modified Lnm Life (ISO 281)",
+  "subtitle": "Machine Elements — ISO 281:2007, ISO 76:2006",
+  "sectorPath": [
+    "Machine Elements"
+  ],
+  "standardsBasis": [
+    "ISO 281:2007",
+    "ISO 76:2006",
+    "SKF General Catalogue 2018",
+    "FAG Wälzlager Katalog",
+    "NSK CAT.No.E1102g",
+    "DIN ISO 281"
+  ],
+  "scope": {
+    "inScope": [
+      "Roller Bearing L10h Life & Modified Lnm Life (ISO 281)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "bearing_type",
+      "symbol": "bearing_type",
+      "label": "Bearing Type",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "enum": [
+        {
+          "value": "Deep Groove Ball Bearing (6xxx)",
+          "label": "Deep Groove Ball Bearing (6xxx)"
+        },
+        {
+          "value": "Angular Contact Ball Bearing (7xxx)",
+          "label": "Angular Contact Ball Bearing (7xxx)"
+        },
+        {
+          "value": "Cylindrical Roller Bearing (NU/NJ)",
+          "label": "Cylindrical Roller Bearing (NU/NJ)"
+        },
+        {
+          "value": "Tapered Roller Bearing (3xxx)",
+          "label": "Tapered Roller Bearing (3xxx)"
+        },
+        {
+          "value": "Spherical Roller Bearing (2xxx)",
+          "label": "Spherical Roller Bearing (2xxx)"
+        },
+        {
+          "value": "Needle Roller Bearing (NA/HK)",
+          "label": "Needle Roller Bearing (NA/HK)"
+        }
+      ]
+    },
+    {
+      "id": "load_exponent_p",
+      "symbol": "load_exponent_p",
+      "label": "Load Exponent (p)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 3,
+      "max": 3.334,
+      "default": 3,
+      "hint": "Ball bearing: 3.0 | Roller bearing: 10/3 = 3.333 — ISO 281"
+    },
+    {
+      "id": "dynamic_load_C_kN",
+      "symbol": "dynamic_load_C_kN",
+      "label": "Dynamic Load Rating (C)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "max": 5000,
+      "hint": "From bearing catalog (SKF/FAG/NSK)"
+    },
+    {
+      "id": "fatigue_limit_Pu_kN",
+      "symbol": "fatigue_limit_Pu_kN",
+      "label": "Fatigue Load Limit (Pu)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.001,
+      "hint": "From bearing catalog — ISO 281 Annex A"
+    },
+    {
+      "id": "equiv_load_P_kN",
+      "symbol": "equiv_load_P_kN",
+      "label": "Equivalent Dynamic Load (P)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.01,
+      "hint": "P = X*Fr + Y*Fa (combined radial and axial force)"
+    },
+    {
+      "id": "radial_force_Fr_kN",
+      "symbol": "radial_force_Fr_kN",
+      "label": "Radial Force (Fr)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "axial_force_Fa_kN",
+      "symbol": "axial_force_Fa_kN",
+      "label": "Axial Force (Fa)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "rpm",
+      "symbol": "rpm",
+      "label": "Operating Speed (n)",
+      "unit": {
+        "ref": "rpm"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "id": "reliability_a1",
+      "symbol": "reliability_a1",
+      "label": "Reliability Factor (a1)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "hint": "ISO 281 Table 1 — a1 reliability factor",
+      "enum": [
+        {
+          "value": "1.00 — 90% reliability (L10)",
+          "label": "1.00 — 90% reliability (L10)"
+        },
+        {
+          "value": "0.62 — 95% reliability (L5)",
+          "label": "0.62 — 95% reliability (L5)"
+        },
+        {
+          "value": "0.53 — 96% reliability",
+          "label": "0.53 — 96% reliability"
+        },
+        {
+          "value": "0.33 — 98% reliability (L2)",
+          "label": "0.33 — 98% reliability (L2)"
+        },
+        {
+          "value": "0.21 — 99% reliability (L1)",
+          "label": "0.21 — 99% reliability (L1)"
+        }
+      ]
+    },
+    {
+      "id": "reliability_a1_val",
+      "symbol": "reliability_a1_val",
+      "label": "a1 Numeric Value",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.21,
+      "max": 1,
+      "default": 1
+    },
+    {
+      "id": "viscosity_ratio_kappa",
+      "symbol": "viscosity_ratio_kappa",
+      "label": "Viscosity Ratio (kappa = nu/nu1)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.1,
+      "max": 4,
+      "hint": "kappa = actual viscosity / ISO 281 nominal reference viscosity. kappa < 1 indicates boundary lubrication"
+    },
+    {
+      "id": "contamination_ec",
+      "symbol": "contamination_ec",
+      "label": "Contamination Factor (eC)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "enum": [
+        {
+          "value": "0.80 — Very Clean (clean room, hermetic)",
+          "label": "0.80 — Very Clean (clean room, hermetic)"
+        },
+        {
+          "value": "0.60 — Clean (sealed bearing + oil filter)",
+          "label": "0.60 — Clean (sealed bearing + oil filter)"
+        },
+        {
+          "value": "0.50 — Normal (sealed bearing, standard lube)",
+          "label": "0.50 — Normal (sealed bearing, standard lube)"
+        },
+        {
+          "value": "0.30 — Dirty (open bearing, grease)",
+          "label": "0.30 — Dirty (open bearing, grease)"
+        },
+        {
+          "value": "0.10 — Very Dirty (construction, mining)",
+          "label": "0.10 — Very Dirty (construction, mining)"
+        },
+        {
+          "value": "0.00 — Extremely Dirty (cement, sand)",
+          "label": "0.00 — Extremely Dirty (cement, sand)"
+        }
+      ]
+    },
+    {
+      "id": "contamination_ec_val",
+      "symbol": "contamination_ec_val",
+      "label": "eC Numeric Value",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 0.8,
+      "default": 0.5
+    },
+    {
+      "id": "target_life_hours",
+      "symbol": "target_life_hours",
+      "label": "Target Bearing Life",
+      "unit": {
+        "ref": "hours"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 100,
+      "default": 20000,
+      "optional": true,
+      "hint": "Typical: electric motors 20,000h | gearboxes 30,000h | heavy machinery 60,000h"
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_111",
+      "code": "ISO 281:2007",
+      "name": "Roller Bearing L10h Life & Modified Lnm Life (ISO 281)",
+      "description": "Roller Bearing L10h Life & Modified Lnm Life (ISO 281) — Machine Elements",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "L10_million_rev",
+          "expression": "POWER(dynamic_load_C_kN / equiv_load_P_kN, load_exponent_p)",
+          "unit": {
+            "ref": "10^6 rev"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "L10h",
+          "expression": "(L10_million_rev * 1000000) / (60 * rpm)",
+          "unit": {
+            "ref": "hours"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "a_ISO_factor",
+          "expression": "0.1 * POWER(MAX(0.001, 1 - (fatigue_limit_Pu_kN * contamination_ec_val / equiv_load_P_kN)), 1.5) * SQRT(viscosity_ratio_kappa)",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Lnm",
+          "expression": "reliability_a1_val * a_ISO_factor * L10h",
+          "unit": {
+            "ref": "hours"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Life_Reduction_Pct",
+          "expression": "(1 - Lnm / L10h) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Bearing_Speed_Limit_Check",
+          "expression": "rpm / (dynamic_load_C_kN * 1000 / 1000)",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Load_Ratio",
+          "expression": "equiv_load_P_kN / dynamic_load_C_kN",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Maintenance_Interval_h",
+          "expression": "Lnm * 0.1",
+          "unit": {
+            "ref": "hours"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "SKF / ISO 281:2007 Ek A",
+          "condition": "viscosity_ratio_kappa < 0.4",
+          "message": "CRITICAL LUBRICATION DEFICIENCY: kappa < 0.4. Rolling elements are in direct contact; EHD film does not form. Metal-on-metal wear initiated. Lnm calculation unreliable. Higher viscosity oil or lower speed is mandatory."
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ISO 281:2007 / SKF Lubrication",
+          "condition": "viscosity_ratio_kappa >= 0.4 && viscosity_ratio_kappa < 1.0",
+          "message": "Insufficient oil film: kappa between 0.4 and 1.0. Partial EHD film. Fatigue life is significantly below theoretical values. Optimize oil selection or evaluate viscosity-enhancing additives."
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ISO 281:2007 Tablo A.4",
+          "condition": "contamination_ec_val < 0.30",
+          "message": "High contamination: eC < 0.30. Abrasive particles are destroying the raceways. Upgrade filter class to ISO 4406 <= 16/14/11. Evaluate shielded/sealed bearing types."
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "ISO 281 / Machine Maintenance",
+          "condition": "Lnm < target_life_hours * 0.5",
+          "message": "INSUFFICIENT MODIFIED LIFE: Lnm is less than 50% of target life. Bearing will fail prematurely under current conditions. Larger series, better lubrication, or lower load is required."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "SKF Engineering Handbook",
+          "condition": "Load_Ratio > 0.5",
+          "message": "P/C > 0.5: High load ratio. A larger bearing series should be evaluated. P/C <= 0.2 is ideal for long service life."
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "ISO 281 / Industry Benchmark",
+          "condition": "L10h < 20000 && target_life_hours >= 20000",
+          "message": "L10h < 20,000 hours: This is the industrial minimum for electric motors. Current design is insufficient. Increase bearing size or reduce load."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "bearing_type",
+        "load_exponent_p",
+        "dynamic_load_C_kN",
+        "fatigue_limit_Pu_kN",
+        "equiv_load_P_kN",
+        "rpm",
+        "reliability_a1",
+        "reliability_a1_val",
+        "viscosity_ratio_kappa",
+        "contamination_ec",
+        "contamination_ec_val"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

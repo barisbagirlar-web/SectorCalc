@@ -1,0 +1,448 @@
+{
+  "schemaId": "PRO_033",
+  "toolCode": "TOOL-PRO-033",
+  "version": "1.0.0",
+  "name": "Power Factor, Reactive Energy Penalty & Industrial Electricity Bill Analysis (ISO 50001)",
+  "subtitle": "Energy Efficiency | Facility Management — ISO 50001:2018 Energy Management, IEC 61000-3-2 Harmonics",
+  "sectorPath": [
+    "Energy Efficiency",
+    "Facility Management"
+  ],
+  "standardsBasis": [
+    "ISO 50001:2018 Energy Management",
+    "IEC 61000-3-2 Harmonics",
+    "IEC 60831 Shunt Capacitors",
+    "EN 50160 Power Quality",
+      "Turkey TEDAS Reactive Energy Tariff",
+    "IEEE 1459 Power Definitions"
+  ],
+  "scope": {
+    "inScope": [
+      "Power Factor, Reactive Energy Penalty & Industrial Electricity Bill Analysis (ISO 50001)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "active_energy_kwh",
+      "symbol": "active_energy_kwh",
+      "label": "Total Active Energy Consumption",
+      "unit": {
+        "ref": "kWh/month"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "hint": "From electricity meter or energy management system — monthly billing period"
+    },
+    {
+      "id": "inductive_reactive_kvarh",
+      "symbol": "inductive_reactive_kvarh",
+      "label": "Inductive Reactive Energy (lagging)",
+      "unit": {
+        "ref": "kVArh/month"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "hint": "Motors, transformers, inductors — lagging current. From reactive energy meter."
+    },
+    {
+      "id": "capacitive_reactive_kvarh",
+      "symbol": "capacitive_reactive_kvarh",
+      "label": "Capacitive Reactive Energy (leading)",
+      "unit": {
+        "ref": "kVArh/month"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "hint": "Over-compensated PFC capacitor banks, VFDs, light loads. Usually small."
+    },
+    {
+      "id": "peak_demand_kw",
+      "symbol": "peak_demand_kw",
+      "label": "Peak Demand (Maximum Measured Demand)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "hint": "Maximum 15-min average demand in billing period — from demand meter or SCADA"
+    },
+    {
+      "id": "contracted_demand_kw",
+      "symbol": "contracted_demand_kw",
+      "label": "Contracted / Subscribed Demand",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "Grid connection agreement demand — exceeded demand may incur penalty multiplier"
+    },
+    {
+      "id": "active_energy_rate_usd_kwh",
+      "symbol": "active_energy_rate_usd_kwh",
+      "label": "Active Energy Tariff",
+      "unit": {
+        "ref": "USD/kWh"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.01
+    },
+    {
+      "id": "reactive_penalty_rate_usd_kvarh",
+      "symbol": "reactive_penalty_rate_usd_kvarh",
+      "label": "Reactive Energy Penalty Rate",
+      "unit": {
+        "ref": "USD/kVArh"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "hint": "Charged only on reactive energy above the free allowance threshold"
+    },
+    {
+      "id": "demand_charge_usd_kw",
+      "symbol": "demand_charge_usd_kw",
+      "label": "Peak Demand Charge",
+      "unit": {
+        "ref": "USD/kW/month"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "hint": "Monthly capacity charge on peak demand — significantly impacts bill at low load factor"
+    },
+    {
+      "id": "inductive_free_limit_pct",
+      "symbol": "inductive_free_limit_pct",
+      "label": "Inductive Reactive Free Allowance Threshold",
+      "unit": {
+        "ref": "% of active energy"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "hint": "Turkey TEDAS: 20% | EU typical: 33% (equivalent to PF 0.95) | Varies by tariff"
+    },
+    {
+      "id": "capacitive_free_limit_pct",
+      "symbol": "capacitive_free_limit_pct",
+      "label": "Capacitive Reactive Free Allowance Threshold",
+      "unit": {
+        "ref": "% of active energy"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0,
+      "max": 100,
+      "default": 15
+    },
+    {
+      "id": "pfc_capex_usd",
+      "symbol": "pfc_capex_usd",
+      "label": "Power Factor Correction Capacitor Bank Cost",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "For ROI calculation — automatic PFC panel for target power factor correction"
+    },
+    {
+      "id": "target_pf",
+      "symbol": "target_pf",
+      "label": "Target Power Factor After Correction",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.85,
+      "max": 1,
+      "default": 0.98,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_033",
+      "code": "ISO 50001:2018 Energy Management",
+      "name": "Power Factor, Reactive Energy Penalty & Industrial Electricity Bill Analysis (ISO 50001)",
+      "description": "Power Factor, Reactive Energy Penalty & Industrial Electricity Bill Analysis (ISO 50001) — Energy Efficiency, Facility Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Apparent_Energy_kVAh",
+          "expression": "SQRT(POWER(active_energy_kwh, 2) + POWER(inductive_reactive_kvarh - capacitive_reactive_kvarh, 2))",
+          "unit": {
+            "ref": "kVAh"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Power_Factor",
+          "expression": "active_energy_kwh / Apparent_Energy_kVAh",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Inductive_Ratio_pct",
+          "expression": "(inductive_reactive_kvarh / active_energy_kwh) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Capacitive_Ratio_pct",
+          "expression": "(capacitive_reactive_kvarh / active_energy_kwh) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Billable_Inductive_kVArh",
+          "expression": "MAX(0, inductive_reactive_kvarh - active_energy_kwh * inductive_free_limit_pct / 100)",
+          "unit": {
+            "ref": "kVArh"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Billable_Capacitive_kVArh",
+          "expression": "MAX(0, capacitive_reactive_kvarh - active_energy_kwh * capacitive_free_limit_pct / 100)",
+          "unit": {
+            "ref": "kVArh"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Active_Energy_Cost_USD",
+          "expression": "active_energy_kwh * active_energy_rate_usd_kwh",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Inductive_Penalty_USD",
+          "expression": "Billable_Inductive_kVArh * reactive_penalty_rate_usd_kvarh",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Capacitive_Penalty_USD",
+          "expression": "Billable_Capacitive_kVArh * reactive_penalty_rate_usd_kvarh",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Demand_Charge_USD",
+          "expression": "peak_demand_kw * demand_charge_usd_kw",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Total_Monthly_Bill_USD",
+          "expression": "Active_Energy_Cost_USD + Inductive_Penalty_USD + Capacitive_Penalty_USD + Demand_Charge_USD",
+          "unit": {
+            "ref": "USD/month"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Annual_Bill_USD",
+          "expression": "Total_Monthly_Bill_USD * 12",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Required_Correction_kVAr",
+          "expression": "active_energy_kwh * (SQRT(1 / POWER(Power_Factor, 2) - 1) - SQRT(1 / POWER(target_pf, 2) - 1))",
+          "unit": {
+            "ref": "kVAr"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "Annual_Penalty_Savings_USD",
+          "expression": "(Inductive_Penalty_USD + Capacitive_Penalty_USD) * 12",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F15",
+          "output": "PFC_Payback_Months",
+          "expression": "pfc_capex_usd > 0 && Annual_Penalty_Savings_USD > 0 ? (pfc_capex_usd / Annual_Penalty_Savings_USD) * 12 : 0",
+          "unit": {
+            "ref": "months"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F16",
+          "output": "Load_Factor_pct",
+          "expression": "(active_energy_kwh / (peak_demand_kw * 720)) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "IEC 61000 / ISO 50001 Energy Efficiency",
+          "condition": "Power_Factor < 0.90",
+          "message": "POOR POWER FACTOR (<0.90): Significant reactive energy penalty and oversized distribution equipment. Automatic power factor correction (APFC) capacitor bank is almost certainly economically justified. Every 0.01 improvement in PF reduces reactive penalty and may enable demand reduction."
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "IEC 61000-3 / EN 50160",
+          "condition": "Power_Factor >= 0.90 && Power_Factor < 0.95",
+          "message": "Suboptimal power factor (0.90–0.95): Below most utility target of PF ≥ 0.95. Reactive penalty charges are accumulating. PFC capacitor payback is typically 12–24 months at this level."
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "Energy Cost Analysis",
+          "condition": "Inductive_Penalty_USD > Active_Energy_Cost_USD * 0.1",
+          "message": "REACTIVE PENALTY >10% OF ACTIVE COST: Reactive energy is adding over 10% to your energy bill. This is avoidable with power factor correction hardware. Annual penalty cost shown — compare to PFC CAPEX for immediate payback analysis."
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ISO 50001 Demand Management",
+          "condition": "Load_Factor_pct < 40",
+          "message": "LOW LOAD FACTOR (<40%): High peak demand relative to average consumption. Demand charge is disproportionately large. Strategies: (1) Peak shaving with battery storage or generator, (2) Load shifting to off-peak hours, (3) Demand response programme, (4) Contract demand renegotiation."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "Demand Charge Optimisation",
+          "condition": "Demand_Charge_USD > Active_Energy_Cost_USD * 0.3",
+          "message": "Demand charge >30% of energy cost: Peak demand management has high financial leverage. Each kW of peak demand reduction saves demand_charge_usd_kw USD per month permanently. Industrial battery storage or VFD-based soft starters should be evaluated."
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "IEC 60831 PFC Design",
+          "condition": "Capacitive_Penalty_USD > 0",
+          "message": "OVER-COMPENSATION DETECTED: Capacitive reactive energy penalty is being charged. Existing PFC capacitor bank is over-sized for current load. Partial deactivation of capacitor stages during light-load periods required. Check APFC controller thresholds."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "active_energy_kwh",
+        "inductive_reactive_kvarh",
+        "capacitive_reactive_kvarh",
+        "peak_demand_kw",
+        "active_energy_rate_usd_kwh",
+        "reactive_penalty_rate_usd_kvarh",
+        "demand_charge_usd_kw",
+        "inductive_free_limit_pct",
+        "capacitive_free_limit_pct"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

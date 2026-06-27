@@ -11,7 +11,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 3000,
       "note": "Standard CFA: 300–900 mm; driven steel H: 250–360 mm; bored cast-in-situ: 300–1500 mm",
@@ -24,7 +24,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 100,
       "uncertainty": "±1%",
@@ -54,7 +54,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "bored",
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -79,7 +79,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "clay",
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
@@ -90,7 +90,7 @@
       "unit": "kPa or blows/0.3m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 5,
       "absolute_max": 500,
       "note": "Clay: c_u from UU triaxial or vane shear; Sand: N_60 from SPT (energy-corrected)",
@@ -103,7 +103,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0.5,
       "absolute_min": 0.2,
       "absolute_max": 1,
@@ -117,7 +117,7 @@
       "unit": "kPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1200,
       "absolute_min": 100,
       "absolute_max": 20000,
@@ -145,7 +145,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.5,
       "uncertainty": "±0%",
       "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"

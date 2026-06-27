@@ -65,9 +65,10 @@ function Mifflin_St_Jeor_Formulu(weight: number, height: number, age: number, ge
 function NORMSINV(p: number): number {
   let prob = p;
   if (prob > 1) prob = prob / 100;
+  prob = Math.min(0.9999, Math.max(0.0001, prob));
   const alpha = 1 - prob;
   const target = 1 - alpha / 2;
-  const t = Math.sqrt(-2.0 * Math.log(1.0 - target));
+  const t = Math.sqrt(-2.0 * Math.log(Math.max(1e-15, 1.0 - target)));
   const c0 = 2.515517, c1 = 0.802853, c2 = 0.010328;
   const d1 = 1.432788, d2 = 0.189269, d3 = 0.001308;
   const z = t - ((c0 + c1*t + c2*t*t) / (1.0 + d1*t + d2*t*t + d3*t*t*t));
@@ -609,7 +610,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       const wacc = Math.max(0.1, normalizeNumber(values.wacc));
       const terminalGrowth = normalizeNumber(values.terminalGrowth);
       const w = wacc / 100;
-      const g = terminalGrowth / 100;
+      const g = Math.min(w * 0.99, terminalGrowth / 100);
       let ev = 0;
       let fcf = freeCashFlow;
       for (let t = 1; t <= 5; t++) {
@@ -1998,13 +1999,17 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const interestRate = normalizeNumber(values.interestRate);
     const payment = normalizeNumber(values.payment);
     const extraPayment = normalizeNumber(values.extraPayment);
+    const totalPayment = payment + extraPayment;
 
-
-     
     let resultValue: any = 0;
     try {
-    const YeniVade = -Math.log(Math.max(0.0001, 1 - (principal*(interestRate/1200))/(payment+extraPayment))) / Math.log(1+interestRate/1200);
+    if (totalPayment <= 0 || principal <= 0) { resultValue = 0; }
+    else if (interestRate === 0) { resultValue = principal / totalPayment; }
+    else {
+    const r = interestRate / 1200;
+    const YeniVade = -Math.log(Math.max(0.0001, 1 - (principal * r) / totalPayment)) / Math.log(Math.max(1.0001, 1 + r));
     resultValue = YeniVade;
+    }
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
       }
@@ -4239,7 +4244,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
      
     let resultValue: any = 0;
     try {
-    const Yag = 495 / Math.max(0.0001, (1.0324 - 0.19077 * Math.log10(Math.max(1, waist-neck)) + 0.15456 * Math.log10(Math.max(1, length)))) - 450;
+    const Yag = 495 / Math.max(0.0001, (1.0324 - 0.19077 * Math.log10(Math.max(0.5, waist-neck)) + 0.15456 * Math.log10(Math.max(1, length)))) - 450;
     resultValue = Yag;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -4656,13 +4661,13 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const mach = normalizeNumber(values.mach);
     const pressure1 = normalizeNumber(values.pressure1);
     const temperature1 = normalizeNumber(values.temperature1);
-    const strikePrice = normalizeNumber(values.strikePrice);
+    const specificHeatRatio = normalizeNumber(values.strikePrice);
 
 
-     
+
     let resultValue: any = 0;
     try {
-    const Basinc2 = pressure1 * (1 + (2*strikePrice/(strikePrice+1)) * (mach**2 - 1));
+    const Basinc2 = pressure1 * (1 + (2*specificHeatRatio/(specificHeatRatio+1)) * (mach**2 - 1));
     resultValue = Basinc2;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -4769,7 +4774,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
      
     let resultValue: any = 0;
     try {
-    const frequency = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, mass * springConstant))));
+    const frequency = Math.sqrt(Math.max(0.0001, springConstant / Math.max(0.0001, mass))) / (2 * Math.PI);
     resultValue = frequency;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -5072,7 +5077,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "torque-converter": (values) => {
     const value = normalizeNumber(values.value);
-    const Kaynak = normalizeNumber(values.kaynak);
+    const Kaynak = String(values.kaynak ?? "");
 
 
      
@@ -5511,15 +5516,15 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "heat-conduction-fourier": (values) => {
     const Alan = normalizeNumber(values.alan);
-    const strikePrice = normalizeNumber(values.strikePrice);
+    const thermalConductivity = normalizeNumber(values.strikePrice);
     const thickness = normalizeNumber(values.thickness);
     const temperatureDifference = normalizeNumber(values.temperatureDifference);
 
 
-     
+
     let resultValue: any = 0;
     try {
-    const Akı = (strikePrice * Alan * temperatureDifference) / Math.max(0.0001, thickness);
+    const Akı = (thermalConductivity * Alan * temperatureDifference) / Math.max(0.0001, thickness);
     resultValue = Akı;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -5718,7 +5723,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "density-converter": (values) => {
     const value = normalizeNumber(values.value);
-    const Kaynak = normalizeNumber(values.kaynak);
+    const Kaynak = String(values.kaynak ?? "");
 
 
      
@@ -5768,7 +5773,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "thermal-conductivity-converter": (values) => {
     const value = normalizeNumber(values.value);
-    const Kaynak = normalizeNumber(values.kaynak);
+    const Kaynak = String(values.kaynak ?? "");
 
 
      
@@ -6548,11 +6553,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const mass = normalizeNumber(values.mass);
 
 
-     
+
     let resultValue: any = 0;
     try {
-    const strikePrice = Math.sqrt(Math.max(0, 2 * mass * (EngelYuksekligi - Enerji))) / 1.054e-34;
-    const Olasilik = Math.exp(-2 * strikePrice * EngelGenisligi);
+    const waveNumber = Math.sqrt(Math.max(0, 2 * mass * (EngelYuksekligi - Enerji))) / 1.054e-34;
+    const Olasilik = Math.exp(-2 * waveNumber * EngelGenisligi);
     resultValue = Olasilik;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -7773,28 +7778,19 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "rlc-resonant-frequency": (values) => {
     const L = normalizeNumber(values.l);
     const C = normalizeNumber(values.c);
-    const interestRate = normalizeNumber(values.interestRate);
-
-
-     
-    let resultValue: any = 0;
-    try {
+    const R = normalizeNumber(values.r);
     const f0 = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, L * C))));
-    const Q = (1 / Math.max(0.0001, interestRate)) * Math.sqrt(Math.max(0.0001, L / Math.max(0.0001, C)));
-    resultValue = Q;
-      if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
-        resultValue = 0;
-      }
-    } catch (e) {
-      resultValue = 0;
-    }
+    const Q = R > 0 ? (1 / R) * Math.sqrt(Math.max(0.0001, L / Math.max(0.0001, C))) : 0;
+    const resultValue = !Number.isFinite(f0) ? 0 : f0;
     return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Q",
-      primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Rlc Resonant Frequency calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
+      headline: `Resonant Frequency: ${formatNumber(resultValue)} Hz`,
+      primaryLabel: "f0 (Hz)",
+      primaryValue: formatNumber(resultValue),
+      secondaryValues: [
+        { label: "Q Factor", value: formatNumber(Q) }
+      ],
+      explanation: `The resonant frequency of the RLC circuit is ${formatNumber(resultValue)} Hz with a quality factor of ${formatNumber(Q)}.`,
+      missingFactors: ["Parasitic capacitance", "Tolerance derating"]
     };
   },
   "smith-chart-vswr": (values) => {
@@ -7958,7 +7954,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "horsepower-converter": (values) => {
     const value = normalizeNumber(values.value);
-    const Kaynak = normalizeNumber(values.kaynak);
+    const Kaynak = String(values.kaynak ?? "");
 
 
      
@@ -8319,7 +8315,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "tesla-unit-converter": (values) => {
     const value = normalizeNumber(values.value);
-    const Kaynak = normalizeNumber(values.kaynak);
+    const Kaynak = String(values.kaynak ?? "");
 
 
      
@@ -8587,8 +8583,8 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
      
     let resultValue: any = 0;
     try {
-    const strikePrice = 0.693 / Math.max(0.0001, YarilanmaOmru);
-    const BirikimFaktoru = 1 / Math.max(0.0001, (1 - Math.exp(-strikePrice * DozAraligi)));
+    const eliminationRate = 0.693 / Math.max(0.0001, YarilanmaOmru);
+    const BirikimFaktoru = 1 / Math.max(0.0001, (1 - Math.exp(-eliminationRate * DozAraligi)));
     resultValue = BirikimFaktoru;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -8930,9 +8926,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
      
     let resultValue: any = 0;
     try {
-    const Kp = 0.6 * Ku;
-    const Ki = 2 * Kp / Math.max(0.0001, Tu);
-    const Kd = Kp * Tu / 8;
+    const Kp = 0.6 * KritikKazanc;
+    const Ki = 2 * Kp / Math.max(0.0001, KritikPeriyot);
+    const Kd = Kp * KritikPeriyot / 8;
     resultValue = Kd;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
@@ -8954,9 +8950,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const DurumGecis = normalizeNumber(values.durumgecis);
     const KontrolGirdisi = normalizeNumber(values.kontrolgirdisi);
     const covariance = normalizeNumber(values.covariance);
+    const Girdi = normalizeNumber(values.girdi);
+    const ProsesGurultusu = normalizeNumber(values.prosesgurultusu);
 
 
-     
+
     let resultValue: any = 0;
     try {
     const YeniDurum = (DurumGecis * OncekiDurum) + (KontrolGirdisi * Girdi);

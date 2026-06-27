@@ -1,0 +1,347 @@
+{
+  "schemaId": "PRO_107",
+  "toolCode": "TOOL-PRO-107",
+  "version": "1.0.0",
+  "name": "Orthogonal Cutting Mechanics — Chip Thickness Ratio, Shear Angle, Cutting Forces & Tool Life",
+  "subtitle": "CNC Machining | Metal Cutting Science — ISO 3685:1993 (tool life testing), Sandvik C-2920 §4",
+  "sectorPath": [
+    "CNC Machining",
+    "Metal Cutting Science"
+  ],
+  "standardsBasis": [
+    "ISO 3685:1993 (tool life testing)",
+    "Sandvik C-2920 §4",
+    "Merchant (1945) ASME Trans.",
+    "CIRP Annals Vol.57 §2"
+  ],
+  "scope": {
+    "inScope": [
+      "Orthogonal Cutting Mechanics — Chip Thickness Ratio, Shear Angle, Cutting Forces & Tool Life"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "uncut_chip_thickness_mm",
+      "symbol": "uncut_chip_thickness_mm",
+      "label": "Uncut Chip Thickness (t_1 = feed per rev for orthogonal cut)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.01,
+      "max": 5
+    },
+    {
+      "id": "chip_thickness_mm",
+      "symbol": "chip_thickness_mm",
+      "label": "Measured Chip Thickness After Cutting (t_2)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "tooling",
+      "min": 0.05,
+      "max": 20
+    },
+    {
+      "id": "rake_angle_deg",
+      "symbol": "rake_angle_deg",
+      "label": "Tool Rake Angle (γ)",
+      "unit": {
+        "ref": "deg"
+      },
+      "confidence": "KESIN",
+      "group": "actions",
+      "min": -20,
+      "max": 35,
+      "default": 10
+    },
+    {
+      "id": "friction_coefficient_mu",
+      "symbol": "friction_coefficient_mu",
+      "label": "Tool-Chip Interface Friction Coefficient (μ)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "reinforcement",
+      "min": 0.1,
+      "max": 1.5,
+      "default": 0.5
+    },
+    {
+      "id": "shear_stress_mpa",
+      "symbol": "shear_stress_mpa",
+      "label": "Shear Yield Stress of Workpiece at Shear Plane (k_s)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "GUCLU",
+      "group": "reinforcement",
+      "min": 50,
+      "max": 1500,
+      "default": 400
+    },
+    {
+      "id": "width_of_cut_mm",
+      "symbol": "width_of_cut_mm",
+      "label": "Width of Cut (b = depth of cut for orthogonal)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "KESIN",
+      "group": "geometry",
+      "min": 0.1,
+      "max": 50
+    },
+    {
+      "id": "Vc_m_min",
+      "symbol": "Vc_m_min",
+      "label": "Cutting Speed (V_c)",
+      "unit": {
+        "ref": "mpmin"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 5,
+      "max": 2000
+    },
+    {
+      "id": "Taylor_C_ref",
+      "symbol": "Taylor_C_ref",
+      "label": "Taylor Constant C at Reference Conditions",
+      "unit": {
+        "ref": "mpmin"
+      },
+      "confidence": "VARSAYIM",
+      "group": "tooling",
+      "min": 20,
+      "max": 2000,
+      "default": 180
+    },
+    {
+      "id": "Taylor_n_exp",
+      "symbol": "Taylor_n_exp",
+      "label": "Taylor Exponent (n)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.08,
+      "max": 0.5,
+      "default": 0.25
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "geometry",
+      "letter": "A",
+      "title": "Geometry",
+      "cols": 2
+    },
+    {
+      "key": "tooling",
+      "letter": "B",
+      "title": "Tooling",
+      "cols": 2
+    },
+    {
+      "key": "actions",
+      "letter": "C",
+      "title": "Actions",
+      "cols": 2
+    },
+    {
+      "key": "reinforcement",
+      "letter": "D",
+      "title": "Reinforcement",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "E",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_107",
+      "code": "ISO 3685:1993 (tool life testing)",
+      "name": "Orthogonal Cutting Mechanics — Chip Thickness Ratio, Shear Angle, Cutting Forces & Tool Life",
+      "description": "Orthogonal Cutting Mechanics — Chip Thickness Ratio, Shear Angle, Cutting Forces & Tool Life — CNC Machining, Metal Cutting Science",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "r_c, phi_deg",
+          "expression": "r_c = uncut_chip_thickness_mm / chip_thickness_mm; gamma_rad = rake_angle_deg * Math.PI / 180; phi_rad = Math.atan(r_c * Math.cos(gamma_rad) / (1 - r_c * Math.sin(gamma_rad))); phi_deg = phi_rad * 180 / Math.PI",
+          "unit": {
+            "ref": "dimensionless, °"
+          },
+          "reference": "Merchant (1945) minimum energy: tan(φ) = r_c·cos(γ)/(1−r_c·sin(γ)) — CIRP Annals Vol.57; r_c < 1 always (chip thicker than uncut)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "beta_deg",
+          "expression": "beta_rad = Math.atan(friction_coefficient_mu); beta_deg = beta_rad * 180 / Math.PI",
+          "unit": {
+            "ref": "deg"
+          },
+          "reference": "β = arctan(μ) — Merchant's friction model; λ = β in Merchant circle",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Fs_N, Fn_N",
+          "expression": "shear_area_mm2 = uncut_chip_thickness_mm * width_of_cut_mm / Math.sin(phi_rad); Fs_N = shear_stress_mpa * shear_area_mm2; Fn_N = Fs_N * Math.tan(phi_rad + beta_rad - gamma_rad)",
+          "unit": {
+            "ref": "N"
+          },
+          "reference": "F_s = k_s × A_s; A_s = t_1×b/sinφ — Merchant model; Fn via geometry of Merchant circle",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Fc_N, Ft_N",
+          "expression": "Fc_N = Fs_N * Math.cos(beta_rad - gamma_rad) / Math.cos(phi_rad + beta_rad - gamma_rad); Ft_N = Fs_N * Math.sin(beta_rad - gamma_rad) / Math.cos(phi_rad + beta_rad - gamma_rad)",
+          "unit": {
+            "ref": "N"
+          },
+          "reference": "Merchant circle: F_c = F_s·cos(β−γ)/cos(φ+β−γ); F_t = F_s·sin(β−γ)/cos(φ+β−γ) — Boothroyd §4",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Pc_kw",
+          "expression": "Pc_kw = Fc_N * Vc_m_min / 60000; u_specific_J_mm3 = Fc_N / (uncut_chip_thickness_mm * width_of_cut_mm * Vc_m_min / 60 * 1000) * Vc_m_min / 60",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "P_c = F_c × V_c / 60000; specific energy u = P_c / MRR",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "T_life_min, V_eco_m_min",
+          "expression": "T_life_min = Math.pow(Taylor_C_ref / Vc_m_min, 1 / Taylor_n_exp); T_eco_min = Taylor_n_exp / (1 - Taylor_n_exp) * (2 + 0); V_eco_m_min = Taylor_C_ref * Math.pow(T_eco_min, -Taylor_n_exp)",
+          "unit": {
+            "ref": "min, m/min"
+          },
+          "reference": "Taylor: T = (C/V)^(1/n) — ISO 3685; economic speed V_eco (minimum cost) = C·(n·t_ct/(1−n))^(−n) simplified",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "BLOCK",
+          "condition": "chip_thickness_mm < uncut_chip_thickness_mm",
+          "message": "Chip thickness t_2 must exceed uncut thickness t_1: chip always thickens during cutting (r_c < 1). Verify measurement — thinner chip indicates measurement error or built-up edge"
+        },
+        {
+          "id": "V2",
+          "action": "WARN",
+          "condition": "phi_deg < 5",
+          "message": "Shear angle < 5°: extreme chip compression — very high cutting forces and temperature; check if friction is excessive or rake angle too negative"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "T_life_min < 5",
+          "message": "Tool life < 5 minutes: uneconomical — reduce V_c by 15–20%; target T = 15–25 min for economic insert change interval per ISO 3685"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "r_c < 0.2",
+          "message": "Chip thickness ratio < 0.2: severe chip compression — chip is 5× thicker than uncut; heat generation and tool wear will be extreme; increase rake angle or apply flood coolant"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "phi_deg > 50",
+          "message": "Shear angle > 50°: unusually large — verify chip thickness measurement accuracy; r_c > 0.8 may indicate built-up edge depositing on tool face"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "Pc_kw > 50",
+          "message": "Cutting power > 50 kW: verify machine spindle rating; thermal loading at this level causes workpiece distortion; verify fixturing stiffness and coolant supply"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "Ft_N > Fc_N * 0.5",
+          "message": "Thrust force > 50% of cutting force: high passive/radial load — deflects slender workpieces; L/D > 4 requires steady rest; verify surface finish will be acceptable"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "",
+          "condition": "T_life_min < T_eco_min * 0.5",
+          "message": "Operating below economic tool life: running too fast — at current V_c, tool change cost dominates; reduce to V_eco for minimum cost per part"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "uncut_chip_thickness_mm",
+        "chip_thickness_mm",
+        "rake_angle_deg",
+        "friction_coefficient_mu",
+        "shear_stress_mpa",
+        "width_of_cut_mm",
+        "Vc_m_min",
+        "Taylor_C_ref",
+        "Taylor_n_exp"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

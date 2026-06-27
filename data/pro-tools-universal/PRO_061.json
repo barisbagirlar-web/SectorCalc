@@ -1,0 +1,276 @@
+{
+  "schemaId": "PRO_061",
+  "toolCode": "TOOL-PRO-061",
+  "version": "1.0.0",
+  "name": "Cooling Tower Performance — Thermal Range, Approach, NTU & Makeup Water Rate",
+  "subtitle": "Utilities | Heat Rejection | HVAC — CTI STD-201 RS-78, ASHRAE 90.1-2022 §6.5.2",
+  "sectorPath": [
+    "Utilities",
+    "Heat Rejection",
+    "HVAC"
+  ],
+  "standardsBasis": [
+    "CTI STD-201 RS-78",
+    "ASHRAE 90.1-2022 §6.5.2",
+    "ASHRAE Fundamentals Ch.40",
+    "ISO 13706:2005"
+  ],
+  "scope": {
+    "inScope": [
+      "Cooling Tower Performance — Thermal Range, Approach, NTU & Makeup Water Rate"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Q_rejected_kw",
+      "symbol": "Q_rejected_kw",
+      "label": "Total Heat Rejection Duty (Q_rej)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 10,
+      "max": 500000
+    },
+    {
+      "id": "T_hot_in_c",
+      "symbol": "T_hot_in_c",
+      "label": "Hot Water Inlet Temperature (T_HW,in)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 25,
+      "max": 60
+    },
+    {
+      "id": "T_cold_out_c",
+      "symbol": "T_cold_out_c",
+      "label": "Cold Water Outlet Temperature (T_CW,out)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 15,
+      "max": 45
+    },
+    {
+      "id": "T_wb_c",
+      "symbol": "T_wb_c",
+      "label": "Ambient Wet-Bulb Temperature (T_wb)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": -5,
+      "max": 35
+    },
+    {
+      "id": "cycles_of_concentration",
+      "symbol": "cycles_of_concentration",
+      "label": "Cycles of Concentration (COC)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 2,
+      "max": 10,
+      "default": 4
+    },
+    {
+      "id": "fan_power_kw",
+      "symbol": "fan_power_kw",
+      "label": "Total Tower Fan Motor Power (P_fan)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.1,
+      "max": 5000
+    },
+    {
+      "id": "drift_loss_pct",
+      "symbol": "drift_loss_pct",
+      "label": "Drift Loss Rate (% of circulating water flow)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.0001,
+      "max": 0.2,
+      "default": 0.001,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_061",
+      "code": "CTI STD-201 RS-78",
+      "name": "Cooling Tower Performance — Thermal Range, Approach, NTU & Makeup Water Rate",
+      "description": "Cooling Tower Performance — Thermal Range, Approach, NTU & Makeup Water Rate — Utilities, Heat Rejection, HVAC",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "range_k",
+          "expression": "T_hot_in_c - T_cold_out_c; approach_k = T_cold_out_c - T_wb_c",
+          "unit": {
+            "ref": "K"
+          },
+          "reference": "CTI STD-201 RS §3.1 — Range = T_in − T_out",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "m_dot_cw_kg_s",
+          "expression": "Q_rejected_kw / (4.18 * range_k)",
+          "unit": {
+            "ref": "kg/s"
+          },
+          "reference": "Energy balance Q = ṁ·c_p·ΔT",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "h_sat_out",
+          "expression": "4186 * T_cold_out_c * 0.62198 / (0.622 + 0.62198) + 2501000 * 0.008; h_sat_in = 4186 * T_hot_in_c * 0.62198 / (0.622 + 0.62198) + 2501000 * 0.014; h_air_in = 1006 * T_wb_c + (0.622 + 0.001) * (2501000 + 1860 * T_wb_c); NTU = range_k * 4186 / ((h_sat_in + h_sat_out)/2 - h_air_in)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Merkel method (simplified) — CTI STD-201",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "E_loss_kg_s",
+          "expression": "0.00085 * range_k * m_dot_cw_kg_s",
+          "unit": {
+            "ref": "kg/s"
+          },
+          "reference": "CTI §4.2 — evaporation ≈ 0.085% per °C range",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "drift_kg_s",
+          "expression": "drift_loss_pct / 100 * m_dot_cw_kg_s; blowdown_kg_s = E_loss_kg_s / (cycles_of_concentration - 1); MU_kg_s = E_loss_kg_s + blowdown_kg_s + drift_kg_s",
+          "unit": {
+            "ref": "kg/s"
+          },
+          "reference": "CTI / ASHRAE — makeup = evaporation + blowdown + drift",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "RT_capacity",
+          "expression": "Q_rejected_kw / 3.517; kW_per_RT = fan_power_kw / RT_capacity; annual_water_m3 = MU_kg_s * 3600 * 8760 / 1000",
+          "unit": {
+            "ref": "kW/RT, m³/yr"
+          },
+          "reference": "ASHRAE 90.1-2022 §6.5.2 — fan power limit",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "CTI STD-201 RS-78",
+          "condition": "approach_k < 5",
+          "message": "Approach < 5 K: performance highly sensitive to wet-bulb exceedances — model with 99.6% wet-bulb value, not just design point"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "CTI STD-201 RS-78",
+          "condition": "kW_per_RT > 0.075",
+          "message": "Fan power > 0.075 kW/RT: above ASHRAE 90.1-2022 fan power limit for centrifugal towers — evaluate VFD on fans for part-load savings"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "CTI STD-201 RS-78",
+          "condition": "annual_water_m3 > 100000",
+          "message": "Annual makeup water > 100,000 m³: significant water cost — evaluate side-stream filtration, higher COC, or hybrid dry/wet tower"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "CTI STD-201 RS-78",
+          "condition": "cycles_of_concentration < 3",
+          "message": "COC < 3: excessive blowdown — water and chemical waste; increase COC to 4–5 with proper chemical treatment to reduce makeup by 20–30%"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "CTI STD-201 RS-78",
+          "condition": "range_k < 4",
+          "message": "Thermal range < 4 K: low-range system requires high water flow — verify pump sizing; consider larger ΔT to reduce circulating flow and pump energy"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Q_rejected_kw",
+        "T_hot_in_c",
+        "T_cold_out_c",
+        "T_wb_c",
+        "cycles_of_concentration",
+        "fan_power_kw"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

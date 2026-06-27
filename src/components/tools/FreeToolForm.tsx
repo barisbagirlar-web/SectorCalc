@@ -12,7 +12,7 @@ export interface PremiumInputDef {
   unit: string;
   type: "number" | "select";
   required?: boolean;
-  confidence_label?: "EXACT" | "STRONG" | "MEDIUM" | "DEFAULT" | "KESİN" | "GÜÇLÜ" | "ORTA" | "VARSAYIM";
+  confidence_label?: "EXACT" | "STRONG" | "MEDIUM" | "DEFAULT";
   options?: readonly { readonly label: string; readonly value: string }[];
   min?: number;
   max?: number;
@@ -171,18 +171,18 @@ export interface FreeToolPremiumCalculatorProps {
 function confClass(label?: string): string {
   if (!label) return "cv";
   const u = label.toUpperCase();
-  if (u === "EXACT" || u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "ck";
-  if (u === "STRONG" || u === "GÜÇLÜ") return "cg";
-  if (u === "ORTA" || u === "MEDIUM" || u === "MODERATE") return "co";
+  if (u === "EXACT" || u === "CERTAIN" || u === "HIGH") return "ck";
+  if (u === "STRONG" || u === "MEDIUM") return "cg";
+  if (u === "MODERATE") return "co";
   return "cv";
 }
 
 function displayConfidence(label?: string): string {
   if (!label) return "DEFAULT";
   const u = label.toUpperCase();
-  if (u === "EXACT" || u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "EXACT";
-  if (u === "STRONG" || u === "GÜÇLÜ") return "STRONG";
-  if (u === "ORTA" || u === "MEDIUM" || u === "MODERATE") return "MEDIUM";
+  if (u === "EXACT" || u === "CERTAIN" || u === "HIGH") return "EXACT";
+  if (u === "STRONG" || u === "MEDIUM") return "STRONG";
+  if (u === "MODERATE") return "MEDIUM";
   return "DEFAULT";
 }
 
@@ -621,10 +621,10 @@ export function FreeToolForm({
                 <div className="sb-block">
                   <div className="sb-lbl">Confidence Legend</div>
                   <div className="conf-legend">
-                    <div className="cl-row"><span className="conf ck">KESİN</span> Measured / certified value</div>
-                    <div className="cl-row"><span className="conf cg">GÜÇLÜ</span> Specified / estimated</div>
-                    <div className="cl-row"><span className="conf co">ORTA</span> Assumed / derived</div>
-                    <div className="cl-row"><span className="conf cv">VARSAYIM</span> Default / conservative</div>
+                    <div className="cl-row"><span className="conf ck">EXACT</span> Measured / certified value</div>
+                    <div className="cl-row"><span className="conf cg">STRONG</span> Specified / estimated</div>
+                    <div className="cl-row"><span className="conf co">MODERATE</span> Assumed / derived</div>
+                    <div className="cl-row"><span className="conf cv">DEFAULT</span> Default / conservative</div>
                   </div>
                 </div>
                 {standards && standards.length > 0 && (

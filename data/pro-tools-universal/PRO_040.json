@@ -1,0 +1,303 @@
+{
+  "schemaId": "PRO_040",
+  "toolCode": "TOOL-PRO-040",
+  "version": "1.0.0",
+  "name": "Compressed Air System Leak Loss Quantification & Repair ROI",
+  "subtitle": "Utilities | Energy Management — ISO 11011:2013, DOE Compressed Air Challenge Handbook",
+  "sectorPath": [
+    "Utilities",
+    "Energy Management"
+  ],
+  "standardsBasis": [
+    "ISO 11011:2013",
+    "DOE Compressed Air Challenge Handbook",
+    "CAGI Standards",
+    "ISO 50001:2018"
+  ],
+  "scope": {
+    "inScope": [
+      "Compressed Air System Leak Loss Quantification & Repair ROI"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "system_pressure_bar",
+      "symbol": "system_pressure_bar",
+      "label": "System Operating Pressure (P_sys)",
+      "unit": {
+        "ref": "bar(g)"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 2,
+      "max": 35
+    },
+    {
+      "id": "compressor_power_kw",
+      "symbol": "compressor_power_kw",
+      "label": "Total Installed Compressor Power",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "id": "load_unload_ratio",
+      "symbol": "load_unload_ratio",
+      "label": "Observed Load/Unload Duty Cycle (loaded fraction)",
+      "unit": {
+        "ref": "fraction"
+      },
+      "confidence": "GUCLU",
+      "group": "actions",
+      "min": 0.1,
+      "max": 1,
+      "default": 0.6
+    },
+    {
+      "id": "baseline_demand_pct",
+      "symbol": "baseline_demand_pct",
+      "label": "Estimated Legitimate Demand (% of compressor capacity)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 10,
+      "max": 95,
+      "default": 70
+    },
+    {
+      "id": "specific_power_kw_m3min",
+      "symbol": "specific_power_kw_m3min",
+      "label": "Compressor Specific Power",
+      "unit": {
+        "ref": "kW/(m³/min)"
+      },
+      "confidence": "GUCLU",
+      "group": "reinforcement",
+      "min": 4,
+      "max": 12,
+      "default": 6.5
+    },
+    {
+      "id": "operating_hours_yr",
+      "symbol": "operating_hours_yr",
+      "label": "Annual Operating Hours",
+      "unit": {
+        "ref": "h/yr"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 100,
+      "max": 8760,
+      "default": 6000
+    },
+    {
+      "id": "electricity_rate_usd_kwh",
+      "symbol": "electricity_rate_usd_kwh",
+      "label": "Electricity Tariff",
+      "unit": {
+        "ref": "USD/kWh"
+      },
+      "confidence": "GUCLU",
+      "group": "general",
+      "min": 0.01,
+      "max": 0.5,
+      "default": 0.09
+    },
+    {
+      "id": "repair_cost_usd",
+      "symbol": "repair_cost_usd",
+      "label": "Estimated Total Leak Repair Cost",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 100,
+      "max": 500000
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "actions",
+      "letter": "B",
+      "title": "Actions",
+      "cols": 2
+    },
+    {
+      "key": "reinforcement",
+      "letter": "C",
+      "title": "Reinforcement",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_040",
+      "code": "ISO 11011:2013",
+      "name": "Compressed Air System Leak Loss Quantification & Repair ROI",
+      "description": "Compressed Air System Leak Loss Quantification & Repair ROI — Utilities, Energy Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "leak_fraction",
+          "expression": "load_unload_ratio - baseline_demand_pct/100",
+          "unit": {
+            "ref": "fraction"
+          },
+          "reference": "DOE Compressed Air Challenge — Fundamentals §3.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "P_leak_kw",
+          "expression": "compressor_power_kw * Math.max(leak_fraction, 0)",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "ISO 11011:2013 §7.3 — leak power calculation",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Q_leak_m3min",
+          "expression": "P_leak_kw / specific_power_kw_m3min",
+          "unit": {
+            "ref": "m³/min"
+          },
+          "reference": "CAGI Data Sheet method — volume flow from specific power",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "E_leak_kwh",
+          "expression": "P_leak_kw * operating_hours_yr",
+          "unit": {
+            "ref": "kWh/yr"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "leak_cost_usd_yr",
+          "expression": "E_leak_kwh_yr * electricity_rate_usd_kwh",
+          "unit": {
+            "ref": "USD/yr"
+          },
+          "reference": "ISO 11011:2013 §8 — monetised loss",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "payback_months",
+          "expression": "(repair_cost_usd / leak_cost_usd_yr) * 12",
+          "unit": {
+            "ref": "months"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ISO 11011:2013",
+          "condition": "leak_fraction > 0.2",
+          "message": "Leak fraction >20%: ISO 11011 threshold exceeded — immediate ultrasonic leak detection survey mandatory"
+        },
+        {
+          "id": "W2",
+          "severity": "INFO",
+          "source": "ISO 11011:2013",
+          "condition": "payback_months < 6",
+          "message": "Repair payback < 6 months: high-priority action — schedule within current maintenance cycle"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ISO 11011:2013",
+          "condition": "payback_months > 24",
+          "message": "Repair payback > 24 months: re-evaluate repair scope — prioritise high-flow leaks first (orifice Q ∝ d²)"
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "ISO 11011:2013",
+          "condition": "Q_leak_m3min > compressor_power_kw / specific_power_kw_m3min * 0.3",
+          "message": "Leaked flow >30% of compressor capacity: system pressure stability compromised — repair before load expansion"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ISO 11011:2013",
+          "condition": "operating_hours_yr > 7000",
+          "message": "High utilisation: consider automated leak monitoring (ultrasonic IoT sensors) for continuous detection per DOE guidelines"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "system_pressure_bar",
+        "compressor_power_kw",
+        "load_unload_ratio",
+        "baseline_demand_pct",
+        "specific_power_kw_m3min",
+        "operating_hours_yr",
+        "electricity_rate_usd_kwh",
+        "repair_cost_usd"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

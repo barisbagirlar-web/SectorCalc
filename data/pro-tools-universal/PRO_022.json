@@ -1,0 +1,461 @@
+{
+  "schemaId": "PRO_022",
+  "toolCode": "TOOL-PRO-022",
+  "version": "1.0.0",
+  "name": "CNC Machining True Unit Cost (TCO) — Material, Tooling, Overhead & Scrap",
+  "subtitle": "CNC Manufacturing | Cost Engineering — Sandvik Coromant Machining Economics, ISO 3685 Tool Life Criteria",
+  "sectorPath": [
+    "CNC Manufacturing",
+    "Cost Engineering"
+  ],
+  "standardsBasis": [
+    "Sandvik Coromant Machining Economics",
+    "ISO 3685 Tool Life Criteria",
+    "CIMA Management Accounting",
+    "MTConnect Cost Tracking Standard"
+  ],
+  "scope": {
+    "inScope": [
+      "CNC Machining True Unit Cost (TCO) — Material, Tooling, Overhead & Scrap"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "raw_material_volume_m3",
+      "symbol": "raw_material_volume_m3",
+      "label": "Raw Material Billet / Blank Volume",
+      "unit": {
+        "ref": "m3"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.000001,
+      "hint": "Billet volume before machining — NOT finished part volume"
+    },
+    {
+      "id": "material_density_kg_m3",
+      "symbol": "material_density_kg_m3",
+      "label": "Material Density (ρ)",
+      "unit": {
+        "ref": "kg/m³"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 500,
+      "max": 22000,
+      "hint": "Steel: 7850 | Aluminium: 2700 | Titanium: 4430 | Brass: 8500 | Cast iron: 7200"
+    },
+    {
+      "id": "material_price_usd_kg",
+      "symbol": "material_price_usd_kg",
+      "label": "Raw Material Unit Price",
+      "unit": {
+        "ref": "USD/kg"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.01,
+      "hint": "Current market price — Al 6061: $2–4 | Steel 4140: $1–2 | Ti6Al4V: $25–45 | Inconel 718: $60–120"
+    },
+    {
+      "id": "finished_part_volume_m3",
+      "symbol": "finished_part_volume_m3",
+      "label": "Finished Part Net Volume",
+      "unit": {
+        "ref": "m3"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1e-7,
+      "hint": "Volume of finished part — used to calculate buy-to-fly ratio"
+    },
+    {
+      "id": "machine_hourly_rate_usd",
+      "symbol": "machine_hourly_rate_usd",
+      "label": "Machine Hourly Rate (fully burdened)",
+      "unit": {
+        "ref": "USD/h"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 5,
+      "hint": "Depreciation + maintenance + energy + operator + floor space"
+    },
+    {
+      "id": "cycle_time_min",
+      "symbol": "cycle_time_min",
+      "label": "Total Cycle Time per Part",
+      "unit": {
+        "ref": "min"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0.1,
+      "hint": "From PRO_021 output or time study"
+    },
+    {
+      "id": "insert_cost_usd",
+      "symbol": "insert_cost_usd",
+      "label": "Insert / Cutting Edge Cost",
+      "unit": {
+        "ref": "USD/insert"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 0.1,
+      "hint": "Purchase price per single insert (not per cutting edge)"
+    },
+    {
+      "id": "cutting_edges_per_insert",
+      "symbol": "cutting_edges_per_insert",
+      "label": "Number of Cutting Edges per Insert",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "KESIN",
+      "group": "general",
+      "min": 1,
+      "max": 16,
+      "default": 4,
+      "hint": "CNMG/SNMG=4 | WNMG=6 | Round insert=1 | Milling insert=2–4"
+    },
+    {
+      "id": "tool_life_per_edge_min",
+      "symbol": "tool_life_per_edge_min",
+      "label": "Tool Life per Cutting Edge (T)",
+      "unit": {
+        "ref": "min"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "hint": "Measured or from Taylor equation — change at VB=0.3mm (ISO 3685)"
+    },
+    {
+      "id": "coolant_cost_usd_hr",
+      "symbol": "coolant_cost_usd_hr",
+      "label": "Coolant System Cost Rate",
+      "unit": {
+        "ref": "USD/h"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "default": 2,
+      "optional": true,
+      "hint": "Coolant consumption + treatment + disposal — typically $1–5/h"
+    },
+    {
+      "id": "scrap_rate_pct",
+      "symbol": "scrap_rate_pct",
+      "label": "Process Scrap / Rework Rate",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 30,
+      "default": 2,
+      "hint": "First-pass yield defect rate — target <1% for mature processes"
+    },
+    {
+      "id": "overhead_pct",
+      "symbol": "overhead_pct",
+      "label": "Factory Overhead Absorption Rate",
+      "unit": {
+        "ref": "% of direct cost"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 0,
+      "max": 300,
+      "default": 30,
+      "hint": "Indirect costs absorbed to product: 20–60% typical job shop"
+    },
+    {
+      "id": "annual_volume_parts",
+      "symbol": "annual_volume_parts",
+      "label": "Annual Production Volume",
+      "unit": {
+        "ref": "parts/year"
+      },
+      "confidence": "VARSAYIM",
+      "group": "general",
+      "min": 1,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_022",
+      "code": "Sandvik Coromant Machining Economics",
+      "name": "CNC Machining True Unit Cost (TCO) — Material, Tooling, Overhead & Scrap",
+      "description": "CNC Machining True Unit Cost (TCO) — Material, Tooling, Overhead & Scrap — CNC Manufacturing, Cost Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Raw_Material_kg",
+          "expression": "raw_material_volume_m3 * material_density_kg_m3",
+          "unit": {
+            "ref": "kg"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Material_Cost_USD",
+          "expression": "Raw_Material_kg * material_price_usd_kg",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Buy_to_Fly_Ratio",
+          "expression": "raw_material_volume_m3 / finished_part_volume_m3",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Chip_Weight_kg",
+          "expression": "(raw_material_volume_m3 - finished_part_volume_m3) * material_density_kg_m3",
+          "unit": {
+            "ref": "kg"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Machining_Cost_USD",
+          "expression": "(cycle_time_min / 60) * machine_hourly_rate_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Cost_per_Edge_USD",
+          "expression": "insert_cost_usd / cutting_edges_per_insert",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Tooling_Cost_per_Part_USD",
+          "expression": "(cycle_time_min / tool_life_per_edge_min) * Cost_per_Edge_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Coolant_Cost_per_Part_USD",
+          "expression": "(cycle_time_min / 60) * coolant_cost_usd_hr",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Direct_Cost_USD",
+          "expression": "Material_Cost_USD + Machining_Cost_USD + Tooling_Cost_per_Part_USD + Coolant_Cost_per_Part_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Overhead_Cost_USD",
+          "expression": "Direct_Cost_USD * (overhead_pct / 100)",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Pre_Scrap_Cost_USD",
+          "expression": "Direct_Cost_USD + Overhead_Cost_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Scrap_Penalty_USD",
+          "expression": "Pre_Scrap_Cost_USD * (scrap_rate_pct / 100)",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Total_Unit_Cost_USD",
+          "expression": "Pre_Scrap_Cost_USD + Scrap_Penalty_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "Material_Cost_Fraction_pct",
+          "expression": "(Material_Cost_USD / Total_Unit_Cost_USD) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F15",
+          "output": "Tooling_Cost_Fraction_pct",
+          "expression": "(Tooling_Cost_per_Part_USD / Total_Unit_Cost_USD) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F16",
+          "output": "Annual_Cost_USD",
+          "expression": "annual_volume_parts > 0 ? Total_Unit_Cost_USD * annual_volume_parts : 0",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "Sandvik Coromant Machining Economics",
+          "condition": "Tooling_Cost_per_Part_USD > Machining_Cost_USD",
+          "message": "TOOLING COST EXCEEDS MACHINE TIME COST: Cutting speed is too high — tools are being consumed faster than economically optimal. Reduce Vc to extend tool life. Optimal Vc for minimum cost (Vcopt) is typically 20–30% below Vcmax."
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "Aerospace / Defence Cost Engineering",
+          "condition": "Buy_to_Fly_Ratio > 5",
+          "message": "High buy-to-fly ratio (>5): More than 80% of raw material becomes chip. Material waste is a dominant cost driver. Evaluate: (1) Near-net-shape forging or casting, (2) Additive manufacturing + hybrid machining, (3) Billet size optimisation."
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "Cost Engineering Best Practice",
+          "condition": "Material_Cost_Fraction_pct > 60",
+          "message": "Material cost >60% of total unit cost: Material is the dominant cost element. Price negotiation, alternative alloys, or supply chain changes will have greater impact than process optimisation."
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "Six Sigma / Lean Manufacturing",
+          "condition": "scrap_rate_pct > 5",
+          "message": "Scrap rate > 5%: Significant quality cost. At this rate, scrap penalty is adding meaningful cost per part. Root cause analysis (8D / Ishikawa) required. Target: <1% for mature CNC processes."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "AIAG / TS 16949 Quality Targets",
+          "condition": "scrap_rate_pct > 1 && scrap_rate_pct <= 5",
+          "message": "Scrap rate 1–5%: Above world-class target. Each percentage point of scrap adds direct cost penalty. SPC implementation and tooling condition monitoring recommended."
+        },
+        {
+          "id": "W6",
+          "severity": "WARNING",
+          "source": "ISO 3685 / Sandvik Tool Life Recommendations",
+          "condition": "tool_life_per_edge_min < 15",
+          "message": "Tool life < 15 minutes per edge: Very short tool life indicates aggressive cutting conditions or workpiece hardness issues. Economic tool life target is typically 20–45 min. Reduce Vc or check for built-up edge (BUE) conditions."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "raw_material_volume_m3",
+        "material_density_kg_m3",
+        "material_price_usd_kg",
+        "finished_part_volume_m3",
+        "machine_hourly_rate_usd",
+        "cycle_time_min",
+        "insert_cost_usd",
+        "cutting_edges_per_insert",
+        "tool_life_per_edge_min",
+        "scrap_rate_pct",
+        "overhead_pct"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}
