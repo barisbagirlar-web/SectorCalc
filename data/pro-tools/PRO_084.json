@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 200000
+      "absolute_max": 200000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "fill_rate_m3h",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0,
-      "absolute_max": 20000
+      "absolute_max": 20000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "draw_rate_m3h",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0,
-      "absolute_max": 20000
+      "absolute_max": 20000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "product_flash_c",
@@ -44,7 +50,9 @@
       "confidence_label": "KESİN",
       "absolute_min": -50,
       "absolute_max": 250,
-      "note": "Gasoline < 0°C; diesel ≈ 55°C; heavy fuel oil ≈ 70–120°C; crude oil varies"
+      "note": "Gasoline < 0°C; diesel ≈ 55°C; heavy fuel oil ≈ 70–120°C; crude oil varies",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "product_RVP_kpa",
@@ -56,7 +64,9 @@
       "default": 65,
       "absolute_min": 0.1,
       "absolute_max": 200,
-      "note": "Gasoline ≈ 55–90 kPa; crude ≈ 40–100 kPa; diesel < 10 kPa; water ≈ 2.3 kPa at 20°C"
+      "note": "Gasoline ≈ 55–90 kPa; crude ≈ 40–100 kPa; diesel < 10 kPa; water ≈ 2.3 kPa at 20°C",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
     },
     {
       "id": "tank_diameter_m",
@@ -66,7 +76,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 120
+      "absolute_max": 120,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "design_temp_c",
@@ -77,7 +89,9 @@
       "confidence_label": "KESİN",
       "default": 45,
       "absolute_min": 0,
-      "absolute_max": 90
+      "absolute_max": 90,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
     }
   ],
   "formulas": [
@@ -98,15 +112,18 @@
     "validation": {
       "V1": {
         "condition": "product_flash_c < 23 && design_temp_c > product_flash_c",
-        "error_msg": "Flammable vapour at ambient: tank vapour space above flash point — Class I flammable liquid requires NFPA 30 §22.6 emergency vent; flame arrester mandatory"
+        "error_msg": "Flammable vapour at ambient: tank vapour space above flash point — Class I flammable liquid requires NFPA 30 §22.6 emergency vent; flame arrester mandatory",
+        "id": "V1"
       },
       "V2": {
         "condition": "fill_rate_m3h > tank_capacity_m3 * 0.5",
-        "error_msg": "Fill rate > 50% of capacity per hour: very high fill velocity — verify anti-static precautions and bottom fill pipe velocity ≤ 1 m/s per API 2003"
+        "error_msg": "Fill rate > 50% of capacity per hour: very high fill velocity — verify anti-static precautions and bottom fill pipe velocity ≤ 1 m/s per API 2003",
+        "id": "V2"
       },
       "V3": {
         "condition": "product_RVP_kpa > 110 && design_temp_c > 35",
-        "error_msg": "High RVP product at elevated temperature: significant vapour generation — evaluate floating roof tank or nitrogen blanketing to reduce VOC emissions and fire risk"
+        "error_msg": "High RVP product at elevated temperature: significant vapour generation — evaluate floating roof tank or nitrogen blanketing to reduce VOC emissions and fire risk",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -145,6 +162,122 @@
         "condition": "fill_rate_m3h === 0 && draw_rate_m3h === 0",
         "source": "API 2000 7th Ed. 2014"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: product_flash_c < 23 && design_temp_c > product_flash_c",
+        "effect": "Flammable vapour at ambient: tank vapour space above flash point — Class I flammable liquid requires NFPA 30 §22.6 emergency vent; flame arrester mandatory",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: fill_rate_m3h > tank_capacity_m3 * 0.5",
+        "effect": "Fill rate > 50% of capacity per hour: very high fill velocity — verify anti-static precautions and bottom fill pipe velocity ≤ 1 m/s per API 2003",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: product_RVP_kpa > 110 && design_temp_c > 35",
+        "effect": "High RVP product at elevated temperature: significant vapour generation — evaluate floating roof tank or nitrogen blanketing to reduce VOC emissions and fire risk",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Emergency fire venting governs: install dedicated emergency pressure-relief device per API 2000 §5.4 — PV valve alone may not provide sufficient fire relief capacity",
+        "effect": "Smart warning triggered when: is_emergency_governing",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "API 2000 7th Ed. 2014"
+      },
+      {
+        "failureMode": "Large vent flow (>5000 Nm³/h): multiple PV valves or large conservation vent required — coordinate with atmospheric dispersion model for vapour cloud assessment",
+        "effect": "Smart warning triggered when: V_governing_out > 5000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 2000 7th Ed. 2014"
+      },
+      {
+        "failureMode": "Large flammable product tank: Category I tank per NFPA 30 — secondary containment bunding, foam deluge system, and thermal radiation analysis required",
+        "effect": "Smart warning triggered when: product_flash_c < 60 && tank_capacity_m3 > 10000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 2000 7th Ed. 2014"
+      },
+      {
+        "failureMode": "High temperature + high RVP: thermal out-breathing significantly elevated — verify vent device set pressure and flow rating at T_design per EN 14015 §15.4",
+        "effect": "Smart warning triggered when: design_temp_c > 50 && product_RVP_kpa > 60",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 2000 7th Ed. 2014"
+      },
+      {
+        "failureMode": "No liquid movement: vent sized for thermal breathing only — verify fill/draw rates and confirm tank is not a standby tank with infrequent but fast filling",
+        "effect": "Smart warning triggered when: fill_rate_m3h === 0 && draw_rate_m3h === 0",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "API 2000 7th Ed. 2014"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "V_thermal_inbreath_Nm3h",
+        "RVP_factor",
+        "V_thermal_outbreath_Nm3h",
+        "V_fill_vent_Nm3h",
+        "V_draw_vent_Nm3h",
+        "V_total_out_Nm3h",
+        "V_total_in_Nm3h",
+        "A_wetted_m2",
+        "Q_fire_kw",
+        "lambda_evap_kj_kg",
+        "rho_vapour",
+        "V_fire_Nm3h",
+        "V_governing_out",
+        "V_governing_in",
+        "is_emergency_governing"
+      ]
+    }
+  ]
 }

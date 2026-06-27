@@ -1,0 +1,352 @@
+{
+  "tool_id": "PRO_100",
+  "tool_name": "Rebar Development & Lap Splice Length — Tension, Compression & Seismic Requirements",
+  "category": "Concrete Construction / Reinforcement Engineering",
+  "scope": "single_operation",
+  "primary_operation": "rebar_development_splice",
+  "inputs": [
+    {
+      "id": "bar_diameter_mm",
+      "name": "Rebar Nominal Diameter (d_b)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        28,
+        32,
+        36,
+        40
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 16,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "fy_mpa",
+      "name": "Rebar Yield Strength (f_y)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "B500B / Grade 60 — 500 MPa (EN ISO 6935-2)",
+          "value": 500
+        },
+        {
+          "label": "B420 — 420 MPa",
+          "value": 420
+        },
+        {
+          "label": "Grade 40 (ASTM) — 280 MPa",
+          "value": 280
+        },
+        {
+          "label": "ASTM A615 Grade 80 — 550 MPa",
+          "value": 550
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 500,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "fc_prime_mpa",
+      "name": "Concrete Compressive Strength (f'_c / f_ck)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        20,
+        25,
+        28,
+        30,
+        32,
+        35,
+        40,
+        45,
+        50
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 30,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "cover_mm",
+      "name": "Concrete Cover to Bar Surface (c)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 40,
+      "absolute_min": 15,
+      "absolute_max": 100,
+      "note": "ACI 318 §20.6.1: columns/beams min 40 mm; slabs min 20 mm; exposure class XS: min 50 mm",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "bar_spacing_mm",
+      "name": "Clear Spacing Between Bars (c_s)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 75,
+      "absolute_min": 20,
+      "absolute_max": 500,
+      "note": "ACI §25.2.1: minimum clear spacing ≥ d_b, 25 mm, or 4/3 × aggregate size",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "load_type",
+      "name": "Rebar Loading Condition",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Tension — standard development",
+          "value": "tension"
+        },
+        {
+          "label": "Compression — compression development",
+          "value": "compression"
+        },
+        {
+          "label": "Tension — seismic (Class SDC D/E/F or DCM/DCH)",
+          "value": "seismic"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "tension",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "transverse_reinforcement",
+      "name": "Transverse Reinforcement Along Splice",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Ties/stirrups present meeting ACI §25.5.2 or EC2 §8.7",
+          "value": "ties"
+        },
+        {
+          "label": "No transverse reinforcement",
+          "value": "none"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "ties",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "lambda = 1.0; psi_t = 1.0; psi_e = 1.0; psi_s = (bar_diameter_mm <= 19) ? 0.8 : 1.0; cb = Math.min(cover_mm + bar_diameter_mm/2, bar_spacing_mm/2 + bar_diameter_mm/2); Ktr = (transverse_reinforcement === 'ties') ? 40 * 0.00129 * bar_diameter_mm / bar_diameter_mm * 10 : 0; cb_plus_Ktr_db = Math.min((cb + Ktr) / bar_diameter_mm, 2.5); ld_ACI_mm = (3 * fy_mpa * psi_t * psi_e * psi_s * lambda / (40 * lambda * Math.sqrt(fc_prime_mpa) * cb_plus_Ktr_db)) * bar_diameter_mm  // [mm] — ACI 318-19 Development Length in Tension (l_d) — Ref: ACI 318-19 §25.4.2.3 Eq.(25.4.2.3a) — l_d = (3f_y ψ_t ψ_e ψ_s λ)/(40λ√f'_c × (c_b+K_tr)/d_b) × d_b",
+    "fbd_mpa = 2.25 * 1.0 * 1.0 * 0.21 * Math.pow(fc_prime_mpa, 2/3); lb_req_mm = (bar_diameter_mm / 4) * (fy_mpa / (1.15 * fbd_mpa)); alpha1=1.0; alpha2=Math.max(1 - 0.15*(cover_mm - bar_diameter_mm)/bar_diameter_mm, 0.7); lbd_EC2_mm = Math.max(alpha1 * alpha2 * lb_req_mm, Math.max(0.3 * lb_req_mm, 10 * bar_diameter_mm, 100))  // [mm] — EC2 Design Anchorage Length (l_bd) — Ref: EN 1992-1-1:2004 §8.4.4 — f_bd = 2.25η₁η₂f_ctd; l_b,req = (d_b/4)·(σ_sd/f_bd); l_bd = α₁α₂...·l_b,req",
+    "splice_factor = (load_type === 'seismic') ? 1.7 : (transverse_reinforcement === 'none') ? 1.3 : 1.3; ld_governing = Math.max(ld_ACI_mm, lbd_EC2_mm); ls_mm = ld_governing * splice_factor  // [mm] — Tension Lap Splice Length (l_s) — Ref: ACI 318-19 §25.5.2 — Class B splice: 1.3 × l_d; seismic per §18.8.2.3: 1.7 × l_d in potential hinge zones",
+    "ldc_ACI_mm = (fy_mpa <= 420) ? Math.max(0.24 * fy_mpa / Math.sqrt(fc_prime_mpa) * bar_diameter_mm, 0.043 * fy_mpa * bar_diameter_mm) : Math.max((0.25 * fy_mpa - 24) / Math.sqrt(fc_prime_mpa) * bar_diameter_mm, 0.043 * fy_mpa * bar_diameter_mm); ldc_mm = Math.max(ldc_ACI_mm, 200)  // [mm] — Compression Development Length (l_dc) — Ref: ACI 318-19 §25.4.9 — compression development length; minimum 200 mm",
+    "l_governing_mm = (load_type === 'compression') ? ldc_mm : ls_mm; l_bars = Math.ceil(l_governing_mm / bar_diameter_mm)  // [mm, bar diameters] — Governing Development / Splice Length — Ref: Governing length expressed in bar diameters for field verification; field check: L_splice / d_b",
+    "fc_min_recommended_mpa = (bar_diameter_mm >= 32) ? 35 : (bar_diameter_mm >= 25) ? 28 : 20; fc_adequate = fc_prime_mpa >= fc_min_recommended_mpa  // [MPa, boolean] — Minimum Concrete Concrete Compressive Strength for Bar Diameter — Ref: ACI 318-19 Commentary §R25.4 — large bars in low-strength concrete require excessive development lengths; minimum f'_c recommendation"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ACI 318-19 §25.4, §25.5",
+      "EN 1992-1-1:2004 §8.4, §8.7",
+      "ACI 318-19 §18.8 (seismic)",
+      "ISO 6935-2:2015",
+      "BS 8110-1:1997 §3.12"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "cover_mm < bar_diameter_mm",
+          "action": "BLOCK",
+          "message": "Concrete cover less than bar diameter: ACI §20.6.1 minimum cover requirement violated — fire resistance, corrosion protection, and bond transfer all inadequate"
+        },
+        {
+          "id": "V2",
+          "condition": "bar_spacing_mm < bar_diameter_mm",
+          "action": "WARN",
+          "message": "Clear bar spacing less than bar diameter: ACI §25.2.1 minimum spacing violated — concrete cannot flow between bars; splitting failure and poor consolidation"
+        },
+        {
+          "id": "V3",
+          "condition": "load_type === 'seismic' && fc_prime_mpa < 25",
+          "action": "WARN",
+          "message": "Seismic splices in low-strength concrete: ACI 318 §18.12.2 recommends f'_c ≥ 25 MPa in special moment frames; low concrete strength requires significantly longer lap lengths"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Lap splice > 60 bar diameters: very long splice — consider mechanical couplers (ISO 15835-1) or welded splices to reduce congestion; check if staggering splices is feasible",
+        "condition": "l_governing_mm > 60 * bar_diameter_mm"
+      },
+      {
+        "id": "W2",
+        "severity": "CRITICAL",
+        "message": "Large bar (d_b > 28 mm) in seismic zone: ACI 318 §18.8.2.1 prohibits lap splices within beam-column joints and in potential plastic hinge zones — use mechanical couplers",
+        "condition": "load_type === 'seismic' && bar_diameter_mm > 28"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "No transverse reinforcement on tension splice: splitting failure risk — provide minimum ties per ACI §25.5.2; minimum 2 ties within splice length at third-points",
+        "condition": "transverse_reinforcement === 'none' && load_type === 'tension'"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Concrete strength below recommended for large bars: development length will be excessive and bond stress may cause splitting — upgrade to recommended f'_c",
+        "condition": "!fc_adequate && bar_diameter_mm >= 25"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "EC2 development length > 1.5× ACI value: significant code disparity — verify which standard governs for the project; EC2 tends to be more conservative for poor cover conditions",
+        "condition": "lbd_EC2_mm > ld_ACI_mm * 1.5"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: cover_mm < bar_diameter_mm",
+        "effect": "Concrete cover less than bar diameter: ACI §20.6.1 minimum cover requirement violated — fire resistance, corrosion protection, and bond transfer all inadequate",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Parameter warning: bar_spacing_mm < bar_diameter_mm",
+        "effect": "Clear bar spacing less than bar diameter: ACI §25.2.1 minimum spacing violated — concrete cannot flow between bars; splitting failure and poor consolidation",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: load_type === 'seismic' && fc_prime_mpa < 25",
+        "effect": "Seismic splices in low-strength concrete: ACI 318 §18.12.2 recommends f'_c ≥ 25 MPa in special moment frames; low concrete strength requires significantly longer lap lengths",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Lap splice > 60 bar diameters: very long splice — consider mechanical couplers (ISO 15835-1) or welded splices to reduce congestion; check if staggering splices is feasible",
+        "effect": "Smart warning triggered when: l_governing_mm > 60 * bar_diameter_mm",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Large bar (d_b > 28 mm) in seismic zone: ACI 318 §18.8.2.1 prohibits lap splices within beam-column joints and in potential plastic hinge zones — use mechanical couplers",
+        "effect": "Smart warning triggered when: load_type === 'seismic' && bar_diameter_mm > 28",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "No transverse reinforcement on tension splice: splitting failure risk — provide minimum ties per ACI §25.5.2; minimum 2 ties within splice length at third-points",
+        "effect": "Smart warning triggered when: transverse_reinforcement === 'none' && load_type === 'tension'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Concrete strength below recommended for large bars: development length will be excessive and bond stress may cause splitting — upgrade to recommended f'_c",
+        "effect": "Smart warning triggered when: !fc_adequate && bar_diameter_mm >= 25",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "EC2 development length > 1.5× ACI value: significant code disparity — verify which standard governs for the project; EC2 tends to be more conservative for poor cover conditions",
+        "effect": "Smart warning triggered when: lbd_EC2_mm > ld_ACI_mm * 1.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "lambda",
+        "psi_t",
+        "psi_e",
+        "psi_s",
+        "cb",
+        "Ktr",
+        "cb_plus_Ktr_db",
+        "ld_ACI_mm",
+        "fbd_mpa",
+        "lb_req_mm",
+        "alpha1",
+        "alpha2",
+        "lbd_EC2_mm",
+        "splice_factor",
+        "ld_governing",
+        "ls_mm",
+        "ldc_ACI_mm",
+        "ldc_mm",
+        "l_governing_mm",
+        "l_bars",
+        "fc_min_recommended_mpa",
+        "fc_adequate"
+      ]
+    }
+  ]
+}

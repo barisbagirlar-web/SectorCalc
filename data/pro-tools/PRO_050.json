@@ -14,7 +14,9 @@
       "confidence_label": "KESİN",
       "absolute_min": -5000,
       "absolute_max": 0,
-      "note": "Negative = exothermic (correct sign convention); from calorimetry (DSC/RC1) or Hess's law"
+      "note": "Negative = exothermic (correct sign convention); from calorimetry (DSC/RC1) or Hess's law",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "reactant_concentration_mol_kg",
@@ -24,7 +26,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.01,
-      "absolute_max": 50
+      "absolute_max": 50,
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "cp_reaction_mass_kj_kg_k",
@@ -36,7 +40,9 @@
       "default": 2,
       "absolute_min": 0.5,
       "absolute_max": 5,
-      "note": "Aqueous systems ≈ 3.5–4.2; organic ≈ 1.5–2.5 kJ/(kg·K)"
+      "note": "Aqueous systems ≈ 3.5–4.2; organic ≈ 1.5–2.5 kJ/(kg·K)",
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "T_process_c",
@@ -46,7 +52,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -80,
-      "absolute_max": 300
+      "absolute_max": 300,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_onset_decomp_c",
@@ -57,7 +65,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 50,
       "absolute_max": 500,
-      "note": "From DSC or ARC testing per ASTM E537 / IEC 62675"
+      "note": "From DSC or ARC testing per ASTM E537 / IEC 62675",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "Ea_kj_mol",
@@ -68,7 +78,9 @@
       "confidence_label": "GÜÇLÜ",
       "default": 80,
       "absolute_min": 20,
-      "absolute_max": 300
+      "absolute_max": 300,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "batch_mass_kg",
@@ -78,7 +90,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.1,
-      "absolute_max": 500000
+      "absolute_max": 500000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "cooling_capacity_kw",
@@ -88,7 +102,9 @@
       "required": true,
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 0,
-      "absolute_max": 50000
+      "absolute_max": 50000,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     }
   ],
   "formulas": [
@@ -109,15 +125,18 @@
     "validation": {
       "V1": {
         "condition": "MTSR_c >= T_onset_decomp_c",
-        "error_msg": "CRITICAL: MTSR ≥ T_onset — thermal runaway triggers decomposition: Stoessel Class 5. Do not operate without full process safety review"
+        "error_msg": "CRITICAL: MTSR ≥ T_onset — thermal runaway triggers decomposition: Stoessel Class 5. Do not operate without full process safety review",
+        "id": "V1"
       },
       "V2": {
         "condition": "cooling_ratio < 1.0",
-        "error_msg": "Cooling capacity insufficient to remove reaction heat at process temperature: runaway risk — increase cooling or reduce batch size"
+        "error_msg": "Cooling capacity insufficient to remove reaction heat at process temperature: runaway risk — increase cooling or reduce batch size",
+        "id": "V2"
       },
       "V3": {
         "condition": "delta_T_ad_K > 200",
-        "error_msg": "Adiabatic temperature rise > 200 K: high-energy reaction — consider semi-batch dosing to limit accumulation"
+        "error_msg": "Adiabatic temperature rise > 200 K: high-energy reaction — consider semi-batch dosing to limit accumulation",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -156,6 +175,115 @@
         "condition": "batch_mass_kg > 10000 && criticality_class >= 3",
         "source": "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: MTSR_c >= T_onset_decomp_c",
+        "effect": "CRITICAL: MTSR ≥ T_onset — thermal runaway triggers decomposition: Stoessel Class 5. Do not operate without full process safety review",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: cooling_ratio < 1.0",
+        "effect": "Cooling capacity insufficient to remove reaction heat at process temperature: runaway risk — increase cooling or reduce batch size",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: delta_T_ad_K > 200",
+        "effect": "Adiabatic temperature rise > 200 K: high-energy reaction — consider semi-batch dosing to limit accumulation",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Stoessel Class 4/5: MTSR approaches or exceeds T_onset — emergency relief sizing per AIChE DIERS mandatory before scale-up",
+        "effect": "Smart warning triggered when: criticality_class >= 4",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)"
+      },
+      {
+        "failureMode": "Temperature safety margin < 50 K: insufficient buffer — consider lower process temperature, controlled dosing, or additional cooling per Stoessel §4.4",
+        "effect": "Smart warning triggered when: T_safety_margin_K < 50",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)"
+      },
+      {
+        "failureMode": "Cooling ratio 1–2: marginal safety — any cooling failure leads to thermal runaway; install high-temperature interlock per IEC 62675",
+        "effect": "Smart warning triggered when: cooling_ratio < 2.0 && cooling_ratio >= 1.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)"
+      },
+      {
+        "failureMode": "High ΔT_ad at high concentration: implement semi-batch (fed-batch) operation to limit reactant accumulation per Stoessel §7",
+        "effect": "Smart warning triggered when: delta_T_ad_K > 100 && reactant_concentration_mol_kg > 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)"
+      },
+      {
+        "failureMode": "Large-scale Class 3+ reaction: HAZOP and Layer of Protection Analysis (LOPA) required per IEC 61511 before production",
+        "effect": "Smart warning triggered when: batch_mass_kg > 10000 && criticality_class >= 3",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Stoessel 'Thermal Safety of Chemical Processes' (Wiley 2008)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "delta_T_ad_k",
+        "MTSR_c",
+        "R",
+        "Q_rx_kw",
+        "cooling_ratio",
+        "delta_T_safety",
+        "criticality",
+        "T_safety_margin_k"
+      ]
+    }
+  ]
 }

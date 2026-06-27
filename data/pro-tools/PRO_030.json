@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 100,
-      "hint": "Full cost: materials + machining + tooling + assembly + testing per build"
+      "hint": "Full cost: materials + machining + tooling + assembly + testing per build",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "physical_iterations_avg",
@@ -24,7 +26,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
       "absolute_max": 50,
-      "hint": "Historical average design cycles before release — typical product development: 3–8"
+      "hint": "Historical average design cycles before release — typical product development: 3–8",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "dt_iterations_expected",
@@ -34,7 +38,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "Virtual design cycles replacing physical builds — typically 5–15 per 1 physical"
+      "hint": "Virtual design cycles replacing physical builds — typically 5–15 per 1 physical",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "physical_iterations_with_dt",
@@ -44,7 +50,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "Even with DT, at least 1 physical validation build is typically required"
+      "hint": "Even with DT, at least 1 physical validation build is typically required",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "field_test_cost_usd",
@@ -54,7 +62,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "Environmental, durability, regulatory testing costs per full programme"
+      "hint": "Environmental, durability, regulatory testing costs per full programme",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "field_test_reduction_pct",
@@ -66,7 +76,9 @@
       "absolute_min": 0,
       "absolute_max": 80,
       "default": 30,
-      "hint": "DT-validated designs require fewer field test cycles — typical: 20–50% reduction"
+      "hint": "DT-validated designs require fewer field test cycles — typical: 20–50% reduction",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "dt_software_license_usd_yr",
@@ -76,7 +88,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0,
-      "hint": "Ansys Twin Builder / Siemens Simcenter / MATLAB SimScape / PTC ThingWorx annual fee"
+      "hint": "Ansys Twin Builder / Siemens Simcenter / MATLAB SimScape / PTC ThingWorx annual fee",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "hpc_compute_cost_usd",
@@ -86,7 +100,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "AWS/Azure HPC instances for FEA, CFD, MBD simulations — per product programme"
+      "hint": "AWS/Azure HPC instances for FEA, CFD, MBD simulations — per product programme",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "iot_sensor_capex_usd",
@@ -96,7 +112,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "Sensors, edge devices, connectivity, historian — one-time or amortised per programme"
+      "hint": "Sensors, edge devices, connectivity, historian — one-time or amortised per programme",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "engineering_effort_hrs",
@@ -106,7 +124,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
-      "hint": "Engineer hours for model build, parameter identification, and validation"
+      "hint": "Engineer hours for model build, parameter identification, and validation",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "engineer_rate_usd_hr",
@@ -116,7 +136,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 10,
-      "default": 75
+      "default": 75,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     },
     {
       "id": "ttm_gain_days",
@@ -126,7 +148,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "Calendar days saved by parallel virtual validation vs sequential physical build"
+      "hint": "Calendar days saved by parallel virtual validation vs sequential physical build",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "daily_market_revenue_usd",
@@ -136,7 +160,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "Expected daily revenue from early market entry — opportunity value per day of acceleration"
+      "hint": "Expected daily revenue from early market entry — opportunity value per day of acceleration",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "warranty_reduction_pct",
@@ -148,7 +174,9 @@
       "absolute_min": 0,
       "absolute_max": 60,
       "default": 15,
-      "hint": "DT-validated designs typically show 15–35% reduction in first-year warranty claims"
+      "hint": "DT-validated designs typically show 15–35% reduction in first-year warranty claims",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "annual_warranty_cost_usd",
@@ -158,7 +186,9 @@
       "required": false,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "default": 0
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "wacc_pct",
@@ -168,7 +198,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
-      "default": 12
+      "default": 12,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "programme_life_years",
@@ -179,7 +211,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
       "absolute_max": 15,
-      "default": 5
+      "default": 5,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     }
   ],
   "formulas": [
@@ -209,15 +243,18 @@
     "validation": {
       "dt_iterations_vs_physical": {
         "condition": "physical_iterations_with_dt >= physical_iterations_avg",
-        "error_msg": "Physical builds after DT must be less than baseline. If DT reduces zero physical iterations, there is no prototype cost avoidance benefit."
+        "error_msg": "Physical builds after DT must be less than baseline. If DT reduces zero physical iterations, there is no prototype cost avoidance benefit.",
+        "id": "dt_iterations_vs_physical"
       },
       "engineer_rate_minimum": {
         "absolute_min": 10,
-        "error_msg": "Engineer rate cannot be below $10/h. Use fully burdened rate including overhead, benefits, and indirect costs."
+        "error_msg": "Engineer rate cannot be below $10/h. Use fully burdened rate including overhead, benefits, and indirect costs.",
+        "id": "engineer_rate_minimum"
       },
       "programme_life_range": {
         "condition": "programme_life_years < 1 || programme_life_years > 15",
-        "error_msg": "Programme life must be 1–15 years for meaningful NPV analysis."
+        "error_msg": "Programme life must be 1–15 years for meaningful NPV analysis.",
+        "id": "programme_life_range"
       }
     },
     "smart_warnings": [
@@ -257,6 +294,120 @@
         "source": "IoT Cost-Benefit Analysis",
         "message": "IoT CAPEX exceeds 50% of prototype cost baseline: Sensor investment may be disproportionate. Evaluate: (1) Virtual sensor placement using FEA instead of physical measurement, (2) Shared sensor infrastructure across production lines, (3) Edge AI for data reduction before cloud transmission."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: physical_iterations_with_dt >= physical_iterations_avg",
+        "effect": "Physical builds after DT must be less than baseline. If DT reduces zero physical iterations, there is no prototype cost avoidance benefit.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule dt_iterations_vs_physical"
+      },
+      {
+        "failureMode": "Input violation: programme_life_years < 1 || programme_life_years > 15",
+        "effect": "Programme life must be 1–15 years for meaningful NPV analysis.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule programme_life_range"
+      },
+      {
+        "failureMode": "NEGATIVE NPV: Digital Twin investment does not recover its cost at this discount rate and programme scale. Review: (1) Increase programme reuse across multiple products, (2) Negotiate platform licence sharing, (3) Quantify previously excluded benefits (regulatory approval acceleration, recall avoidance).",
+        "effect": "Smart warning triggered when: NPV_USD < 0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Investment Analysis / AACE RP 96R-20"
+      },
+      {
+        "failureMode": "Engineering labour >60% of DT investment: Model build effort is dominant cost. Evaluate: (1) Reuse existing simulation models, (2) Use vendor-supplied component models, (3) Phased modelling — start with highest-risk subsystems only.",
+        "effect": "Smart warning triggered when: DT_Engineering_Cost_USD > DT_Total_Investment_USD * 0.6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Digital Twin Implementation Cost Structure"
+      },
+      {
+        "failureMode": "Zero TTM gain entered: Time-to-market acceleration is typically the highest-value DT benefit. If parallel virtual/physical development is not planned, significant ROI is being excluded. Replan development timeline to capture TTM benefit.",
+        "effect": "Smart warning triggered when: ttm_gain_days === 0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Digital Twin Value Framework"
+      },
+      {
+        "failureMode": "Payback >24 months: Above typical threshold for product development tool investment. Consider: (1) Shared licence across multiple simultaneous programmes, (2) Phased IoT sensor rollout, (3) Open-source simulation platforms to reduce licence cost.",
+        "effect": "Smart warning triggered when: Simple_Payback_Months > 24",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Industrial R&D Investment Benchmarks"
+      },
+      {
+        "failureMode": "Low virtual iteration count (<5): DT value scales with simulation depth. Less than 5 virtual iterations suggests the model is not being used to its potential. Target 10–20 virtual design cycles per physical build for full benefit realisation.",
+        "effect": "Smart warning triggered when: dt_iterations_expected < 5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Digital Twin Best Practice — McKinsey / Deloitte"
+      },
+      {
+        "failureMode": "IoT CAPEX exceeds 50% of prototype cost baseline: Sensor investment may be disproportionate. Evaluate: (1) Virtual sensor placement using FEA instead of physical measurement, (2) Shared sensor infrastructure across production lines, (3) Edge AI for data reduction before cloud transmission.",
+        "effect": "Smart warning triggered when: iot_sensor_capex_usd > physical_proto_unit_cost_usd * physical_iterations_avg * 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IoT Cost-Benefit Analysis"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Physical_Proto_Cost_Baseline_USD",
+        "Physical_Proto_Cost_With_DT_USD",
+        "DT_Engineering_Cost_USD",
+        "DT_Total_Investment_USD",
+        "Prototype_Cost_Avoidance_USD",
+        "TTM_Revenue_Gain_USD",
+        "Warranty_Saving_USD",
+        "Annual_Benefit_USD",
+        "Recurring_Annual_Benefit_USD",
+        "Annuity_Factor",
+        "NPV_USD",
+        "ROI_pct",
+        "Simple_Payback_Months",
+        "Breakeven_Proto_Reduction"
+      ]
+    }
+  ]
 }

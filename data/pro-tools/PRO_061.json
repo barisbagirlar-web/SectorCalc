@@ -13,7 +13,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 500000
+      "absolute_max": 500000,
+      "default": 1000,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     },
     {
       "id": "T_hot_in_c",
@@ -23,7 +26,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 25,
-      "absolute_max": 60
+      "absolute_max": 60,
+      "default": 37,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_cold_out_c",
@@ -33,7 +39,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 15,
-      "absolute_max": 45
+      "absolute_max": 45,
+      "default": 32,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_wb_c",
@@ -44,7 +53,10 @@
       "confidence_label": "KESİN",
       "absolute_min": -5,
       "absolute_max": 35,
-      "note": "Design wet-bulb from ASHRAE 0.4% cooling design data for location"
+      "note": "Design wet-bulb from ASHRAE 0.4% cooling design data for location",
+      "default": 25,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "cycles_of_concentration",
@@ -56,7 +68,9 @@
       "default": 4,
       "absolute_min": 2,
       "absolute_max": 10,
-      "note": "COC = TDS_blowdown / TDS_makeup; typical 3–6; higher COC = less water use but more scaling risk"
+      "note": "COC = TDS_blowdown / TDS_makeup; typical 3–6; higher COC = less water use but more scaling risk",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 5725-2:2019 §7 — Analytical chemistry: reproducibility ±5%"
     },
     {
       "id": "fan_power_kw",
@@ -66,7 +80,10 @@
       "required": true,
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 0.1,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "default": 15,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     },
     {
       "id": "drift_loss_pct",
@@ -78,7 +95,9 @@
       "default": 0.001,
       "absolute_min": 0.0001,
       "absolute_max": 0.2,
-      "note": "Modern fills with drift eliminators: 0.001–0.003%; CTI STD-201 design default"
+      "note": "Modern fills with drift eliminators: 0.001–0.003%; CTI STD-201 design default",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     }
   ],
   "formulas": [
@@ -99,15 +118,18 @@
     "validation": {
       "V1": {
         "condition": "approach_k < 3",
-        "error_msg": "Approach < 3 K: near theoretical minimum — tower will be very large and sensitive to wet-bulb fluctuation; verify CTI certification data"
+        "error_msg": "Approach < 3 K: near theoretical minimum — tower will be very large and sensitive to wet-bulb fluctuation; verify CTI certification data",
+        "id": "V1"
       },
       "V2": {
         "condition": "T_cold_out_c <= T_wb_c",
-        "error_msg": "Cold water outlet ≤ wet-bulb temperature: thermodynamically impossible for evaporative cooling — increase T_CW,out above T_wb"
+        "error_msg": "Cold water outlet ≤ wet-bulb temperature: thermodynamically impossible for evaporative cooling — increase T_CW,out above T_wb",
+        "id": "V2"
       },
       "V3": {
         "condition": "cycles_of_concentration > 7 && Q_rejected_kw > 1000",
-        "error_msg": "COC > 7: elevated scaling and corrosion risk — verify water treatment programme and Langelier Saturation Index per ASHRAE"
+        "error_msg": "COC > 7: elevated scaling and corrosion risk — verify water treatment programme and Langelier Saturation Index per ASHRAE",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -146,6 +168,121 @@
         "condition": "range_k < 4",
         "source": "CTI STD-201 RS-78"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: approach_k < 3",
+        "effect": "Approach < 3 K: near theoretical minimum — tower will be very large and sensitive to wet-bulb fluctuation; verify CTI certification data",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: T_cold_out_c <= T_wb_c",
+        "effect": "Cold water outlet ≤ wet-bulb temperature: thermodynamically impossible for evaporative cooling — increase T_CW,out above T_wb",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: cycles_of_concentration > 7 && Q_rejected_kw > 1000",
+        "effect": "COC > 7: elevated scaling and corrosion risk — verify water treatment programme and Langelier Saturation Index per ASHRAE",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Approach < 5 K: performance highly sensitive to wet-bulb exceedances — model with 99.6% wet-bulb value, not just design point",
+        "effect": "Smart warning triggered when: approach_k < 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "CTI STD-201 RS-78"
+      },
+      {
+        "failureMode": "Fan power > 0.075 kW/RT: above ASHRAE 90.1-2022 fan power limit for centrifugal towers — evaluate VFD on fans for part-load savings",
+        "effect": "Smart warning triggered when: kW_per_RT > 0.075",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "CTI STD-201 RS-78"
+      },
+      {
+        "failureMode": "Annual makeup water > 100,000 m³: significant water cost — evaluate side-stream filtration, higher COC, or hybrid dry/wet tower",
+        "effect": "Smart warning triggered when: annual_water_m3 > 100000",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "CTI STD-201 RS-78"
+      },
+      {
+        "failureMode": "COC < 3: excessive blowdown — water and chemical waste; increase COC to 4–5 with proper chemical treatment to reduce makeup by 20–30%",
+        "effect": "Smart warning triggered when: cycles_of_concentration < 3",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "CTI STD-201 RS-78"
+      },
+      {
+        "failureMode": "Thermal range < 4 K: low-range system requires high water flow — verify pump sizing; consider larger ΔT to reduce circulating flow and pump energy",
+        "effect": "Smart warning triggered when: range_k < 4",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "CTI STD-201 RS-78"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "range_k",
+        "approach_k",
+        "m_dot_cw_kg_s",
+        "h_sat_out",
+        "h_sat_in",
+        "h_air_in",
+        "NTU",
+        "E_loss_kg_s",
+        "drift_kg_s",
+        "blowdown_kg_s",
+        "MU_kg_s",
+        "RT_capacity",
+        "kW_per_RT",
+        "annual_water_m3"
+      ]
+    }
+  ]
 }

@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 6,
-      "absolute_max": 120
+      "absolute_max": 120,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "rope_grade",
@@ -40,7 +42,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 1770
+      "default": 1770,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "rope_construction",
@@ -67,7 +71,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 0.44
+      "default": 0.44,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "sling_configuration",
@@ -102,7 +108,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 1.41
+      "default": 1.41,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "design_factor",
@@ -125,7 +133,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 5
+      "default": 5,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "sheave_diameter_mm",
@@ -136,7 +146,9 @@
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 20,
       "absolute_max": 2000,
-      "note": "For hook contact in basket/choker: D = hook groove diameter; ISO 2408 §8"
+      "note": "For hook contact in basket/choker: D = hook groove diameter; ISO 2408 §8",
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "lift_cycles_per_year",
@@ -147,7 +159,9 @@
       "confidence_label": "GÜÇLÜ",
       "default": 500,
       "absolute_min": 1,
-      "absolute_max": 50000
+      "absolute_max": 50000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     }
   ],
   "formulas": [
@@ -169,15 +183,18 @@
     "validation": {
       "V1": {
         "condition": "Dd_ratio < 8",
-        "error_msg": "D/d < 8: extreme bending — rope fatigue life is negligible; minimum D/d = 12 for sling service per ISO 2408 §8"
+        "error_msg": "D/d < 8: extreme bending — rope fatigue life is negligible; minimum D/d = 12 for sling service per ISO 2408 §8",
+        "id": "V1"
       },
       "V2": {
         "condition": "sling_configuration === 0.75 && design_factor < 6",
-        "error_msg": "Choker hitch with DF < 6: pinching reduces effective breaking load unpredictably — apply DF ≥ 6 for choker per ASME B30.9"
+        "error_msg": "Choker hitch with DF < 6: pinching reduces effective breaking load unpredictably — apply DF ≥ 6 for choker per ASME B30.9",
+        "id": "V2"
       },
       "V3": {
         "condition": "years_life < 1 && lift_cycles_per_year > 100",
-        "error_msg": "Estimated fatigue life < 1 year: high-cycle duty — implement formal inspection programme at minimum 3-month intervals per EN 13414"
+        "error_msg": "Estimated fatigue life < 1 year: high-cycle duty — implement formal inspection programme at minimum 3-month intervals per EN 13414",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -216,6 +233,115 @@
         "condition": "lift_cycles_per_year > 5000",
         "source": "ISO 2408:2023"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: Dd_ratio < 8",
+        "effect": "D/d < 8: extreme bending — rope fatigue life is negligible; minimum D/d = 12 for sling service per ISO 2408 §8",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: sling_configuration === 0.75 && design_factor < 6",
+        "effect": "Choker hitch with DF < 6: pinching reduces effective breaking load unpredictably — apply DF ≥ 6 for choker per ASME B30.9",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: years_life < 1 && lift_cycles_per_year > 100",
+        "effect": "Estimated fatigue life < 1 year: high-cycle duty — implement formal inspection programme at minimum 3-month intervals per EN 13414",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "D/d < 18: significant bending penalty (efficiency < 90%) — replace contact hardware with larger radius hook or thimble; or upsize rope",
+        "effect": "Smart warning triggered when: Dd_ratio < 18",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 2408:2023"
+      },
+      {
+        "failureMode": "Bending efficiency < 75%: severe rope fatigue zone — mandatory inspection after every 50 lift cycles per LEEA COPSULE §7",
+        "effect": "Smart warning triggered when: bend_eff < 0.75",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 2408:2023"
+      },
+      {
+        "failureMode": "Single-leg vertical: simplest configuration — confirm load centre of gravity alignment; off-vertical > 5° effectively applies choker mode factor",
+        "effect": "Smart warning triggered when: sling_configuration === 1.0 && design_factor === 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 2408:2023"
+      },
+      {
+        "failureMode": "High-grade rope with small D/d: high-strength wires are more notch-sensitive — bending fatigue is disproportionately severe; use D/d ≥ 25 for Rr ≥ 1960",
+        "effect": "Smart warning triggered when: rope_grade >= 1960 && Dd_ratio < 20",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 2408:2023"
+      },
+      {
+        "failureMode": "High-cycle application (>5000 cycles/yr): wire rope slings unsuitable — consider chain slings or permanent rigging with engineered fatigue life per ISO 1704",
+        "effect": "Smart warning triggered when: lift_cycles_per_year > 5000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 2408:2023"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "MBF_kn",
+        "WLL_leg_kn",
+        "SWL_eff_kn",
+        "Dd_ratio",
+        "bend_eff",
+        "SWL_derated_kn",
+        "N_fatigue",
+        "years_life"
+      ]
+    }
+  ]
 }

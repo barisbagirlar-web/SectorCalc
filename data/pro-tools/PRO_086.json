@@ -13,7 +13,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.001,
-      "absolute_max": 100000
+      "absolute_max": 100000,
+      "default": 50,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 6789:2017 §6 — Class B torque tool: ±2% of set value"
     },
     {
       "id": "wire_diameter_mm",
@@ -23,7 +26,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.1,
-      "absolute_max": 50
+      "absolute_max": 50,
+      "default": 5,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "mean_coil_diameter_mm",
@@ -33,7 +39,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "default": 30,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "num_active_coils",
@@ -43,7 +52,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 2,
-      "absolute_max": 200
+      "absolute_max": 200,
+      "default": 10,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     },
     {
       "id": "wire_material",
@@ -70,7 +82,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": "A228"
+      "default": "A228",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "angular_deflection_deg",
@@ -80,7 +94,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 3600
+      "absolute_max": 3600,
+      "default": 45,
+      "uncertainty": "±0.5°",
+      "uncertainty_source": "ISO 2768-1:1989 Table 3 — Angular tolerance class 'm': ±0°20' for >50mm side"
     },
     {
       "id": "fatigue_cycles",
@@ -107,7 +124,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 1000000
+      "default": 1000000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -128,15 +147,18 @@
     "validation": {
       "V1": {
         "condition": "C < 3 || C > 16",
-        "error_msg": "Spring index C outside 3–16: C < 3 causes severe coiling stress; C > 16 causes tangling — redesign with D_m/d ratio in 4–12 range"
+        "error_msg": "Spring index C outside 3–16: C < 3 causes severe coiling stress; C > 16 causes tangling — redesign with D_m/d ratio in 4–12 range",
+        "id": "V1"
       },
       "V2": {
         "condition": "SF_s < 1.0",
-        "error_msg": "Static safety factor < 1.0: wire will yield at applied torque — increase wire diameter, reduce torque, or use higher-strength material"
+        "error_msg": "Static safety factor < 1.0: wire will yield at applied torque — increase wire diameter, reduce torque, or use higher-strength material",
+        "id": "V2"
       },
       "V3": {
         "condition": "Math.abs(T_calc_Nm - torque_Nm) / torque_Nm > 0.20",
-        "error_msg": "Torque mismatch > 20%: spring geometry inconsistent with required torque at given deflection — verify N_a, θ, and T inputs"
+        "error_msg": "Torque mismatch > 20%: spring geometry inconsistent with required torque at given deflection — verify N_a, θ, and T inputs",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -175,6 +197,120 @@
         "condition": "angular_deflection_deg > 360 * num_active_coils * 0.8",
         "source": "DIN 2088:2009"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: C < 3 || C > 16",
+        "effect": "Spring index C outside 3–16: C < 3 causes severe coiling stress; C > 16 causes tangling — redesign with D_m/d ratio in 4–12 range",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: SF_s < 1.0",
+        "effect": "Static safety factor < 1.0: wire will yield at applied torque — increase wire diameter, reduce torque, or use higher-strength material",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: Math.abs(T_calc_Nm - torque_Nm) / torque_Nm > 0.20",
+        "effect": "Torque mismatch > 20%: spring geometry inconsistent with required torque at given deflection — verify N_a, θ, and T inputs",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Fatigue safety factor < 1.2: spring fatigue failure likely before target life — increase wire diameter, reduce stress ratio, or apply shot peening (+20% endurance)",
+        "effect": "Smart warning triggered when: SF_f < 1.2",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "DIN 2088:2009"
+      },
+      {
+        "failureMode": "Static SF < 1.5: marginal — spring may take permanent set under peak torque; consider SF ≥ 2.0 for critical applications per SAE HS-795 §7.6",
+        "effect": "Smart warning triggered when: SF_s < 1.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "DIN 2088:2009"
+      },
+      {
+        "failureMode": "Bending stress > 90% of UTS: spring operating near material limit — significant risk of brittle fracture; redesign with larger wire or lower C",
+        "effect": "Smart warning triggered when: sigma_b_mpa > 0.9 * Su_mpa",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "DIN 2088:2009"
+      },
+      {
+        "failureMode": "SS wire at high stress: austenitic stainless has lower fatigue limit than music wire — consider Elgiloy or 17-7PH for high-cycle SS applications",
+        "effect": "Smart warning triggered when: wire_material === 'A313' && sigma_b_mpa > 700",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "DIN 2088:2009"
+      },
+      {
+        "failureMode": "Deflection approaching coil binding: spring may bind before reaching full deflection — verify body length and free-length tolerance",
+        "effect": "Smart warning triggered when: angular_deflection_deg > 360 * num_active_coils * 0.8",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "DIN 2088:2009"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "C",
+        "K_i",
+        "sigma_b_mpa",
+        "SU_params",
+        "Su_mpa",
+        "sigma_allow_mpa",
+        "SF_s",
+        "E_map",
+        "E_mpa",
+        "R_T_Nm_deg",
+        "T_calc_Nm",
+        "Se_mpa",
+        "SF_f"
+      ]
+    }
+  ]
 }

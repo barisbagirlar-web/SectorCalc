@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 1000000
+      "absolute_max": 1000000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "duct_shape",
@@ -32,7 +34,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": "circular"
+      "default": "circular",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "duct_dim_1_mm",
@@ -42,7 +46,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 100,
-      "absolute_max": 3000
+      "absolute_max": 3000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "duct_dim_2_mm",
@@ -53,7 +59,9 @@
       "confidence_label": "KESİN",
       "default": 0,
       "absolute_min": 0,
-      "absolute_max": 3000
+      "absolute_max": 3000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "duct_length_m",
@@ -63,7 +71,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.5,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "roughness_mm",
@@ -90,7 +100,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 0.09
+      "default": 0.09,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "local_loss_coeff_sum",
@@ -102,7 +114,9 @@
       "default": 2.5,
       "absolute_min": 0,
       "absolute_max": 30,
-      "note": "ASHRAE Fundamentals Ch.21 fitting coefficients: 90° elbow R/D=1.5 → C≈0.22; branch tee → C≈0.5–1.0"
+      "note": "ASHRAE Fundamentals Ch.21 fitting coefficients: 90° elbow R/D=1.5 → C≈0.22; branch tee → C≈0.5–1.0",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     },
     {
       "id": "air_density_kg_m3",
@@ -114,7 +128,9 @@
       "default": 1.2,
       "absolute_min": 0.7,
       "absolute_max": 1.4,
-      "note": "Standard air at 20°C, sea level: 1.204 kg/m³; hot process air reduces density"
+      "note": "Standard air at 20°C, sea level: 1.204 kg/m³; hot process air reduces density",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
     }
   ],
   "formulas": [
@@ -135,15 +151,18 @@
     "validation": {
       "V1": {
         "condition": "v_m_s > 12 && duct_shape === 'rectangular'",
-        "error_msg": "Rectangular duct velocity > 12 m/s: high noise generation (NC > 45) and structural stress — reduce velocity or use circular duct"
+        "error_msg": "Rectangular duct velocity > 12 m/s: high noise generation (NC > 45) and structural stress — reduce velocity or use circular duct",
+        "id": "V1"
       },
       "V2": {
         "condition": "dP_per_m_pa > 3.0",
-        "error_msg": "Friction rate > 3.0 Pa/m: excessive pressure drop — increase duct size; energy cost will be significant"
+        "error_msg": "Friction rate > 3.0 Pa/m: excessive pressure drop — increase duct size; energy cost will be significant",
+        "id": "V2"
       },
       "V3": {
         "condition": "v_m_s < 3.0 && Q_air_m3h > 500",
-        "error_msg": "Supply air velocity < 3 m/s: oversized duct — risk of dust settlement in horizontal runs; minimum 5 m/s for dust-laden air streams"
+        "error_msg": "Supply air velocity < 3 m/s: oversized duct — risk of dust settlement in horizontal runs; minimum 5 m/s for dust-laden air streams",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -182,6 +201,115 @@
         "condition": "air_density_kg_m3 < 1.0",
         "source": "ASHRAE 62.1-2022"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: v_m_s > 12 && duct_shape === 'rectangular'",
+        "effect": "Rectangular duct velocity > 12 m/s: high noise generation (NC > 45) and structural stress — reduce velocity or use circular duct",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: dP_per_m_pa > 3.0",
+        "effect": "Friction rate > 3.0 Pa/m: excessive pressure drop — increase duct size; energy cost will be significant",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: v_m_s < 3.0 && Q_air_m3h > 500",
+        "effect": "Supply air velocity < 3 m/s: oversized duct — risk of dust settlement in horizontal runs; minimum 5 m/s for dust-laden air streams",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Circular duct velocity > 10 m/s: exceeds SMACNA medium-pressure classification — verify duct pressure class and seam/joint rating",
+        "effect": "Smart warning triggered when: v_m_s > 10 && duct_shape === 'circular'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASHRAE 62.1-2022"
+      },
+      {
+        "failureMode": "Friction rate > 2 Pa/m: increase duct diameter by one standard size — velocity reduces by ~20%, friction drops ~36%",
+        "effect": "Smart warning triggered when: dP_per_m_pa > 2.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASHRAE 62.1-2022"
+      },
+      {
+        "failureMode": "Fitting losses dominate: local ΔP > 50% of friction ΔP — optimise fitting selection (long-radius elbows, conical transitions) to reduce system resistance",
+        "effect": "Smart warning triggered when: local_loss_coeff_sum > duct_length_m * 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASHRAE 62.1-2022"
+      },
+      {
+        "failureMode": "High roughness at elevated velocity: flexible duct in high-velocity application significantly increases fan energy — replace with rigid duct",
+        "effect": "Smart warning triggered when: roughness_mm > 0.5 && v_m_s > 7",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASHRAE 62.1-2022"
+      },
+      {
+        "failureMode": "Low air density (high temp or altitude): fan performance curves must be corrected for density — rated pressure and flow will be reduced",
+        "effect": "Smart warning triggered when: air_density_kg_m3 < 1.0",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASHRAE 62.1-2022"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "D_h_mm",
+        "A_duct_m2",
+        "v_m_s",
+        "Re",
+        "dP_f_pa",
+        "dP_local_pa",
+        "dP_total_pa",
+        "dP_per_m_pa"
+      ]
+    }
+  ]
 }

@@ -72,36 +72,295 @@ const MAT_DB: Record<string, { label: string; kc1: number; mc: number; vc: [numb
   H_hrc55:  { label: "H — Hardened Steel >55 HRC",     kc1: 3200, mc: 0.35, vc: [50, 120, 200] as [number, number, number], color: "#DC2626", C: 500, n: 0.30 },
 };
 
-// ─── FORMULA ENGINE ──────────────────────────────────────────────────────
+// ─── FORMULA ENGINE (v2 — Multi-statement, const, object-literal safe) ──
 
-function evaluateFormula(fs: string, vars: Record<string, any>): { varName: string; value: any } | null {
-  const eq = fs.indexOf("=");
-  if (eq === -1) return null;
-  const vn = fs.substring(0, eq).trim();
-  let ex = fs.substring(eq + 1).split("//")[0].trim();
-  ex = ex.replace(/\bPOWER\s*\(([^,]+),([^)]+)\)/gi, "Math.pow($1,$2)")
-    .replace(/\bSQRT\s*\(([^)]+)\)/gi, "Math.sqrt($1)")
-    .replace(/\bABS\s*\(([^)]+)\)/gi, "Math.abs($1)").replace(/\bLN\s*\(([^)]+)\)/gi, "Math.log($1)")
-    .replace(/\bLOG10\s*\(([^)]+)\)/gi, "Math.log10($1)").replace(/\bEXP\s*\(([^)]+)\)/gi, "Math.exp($1)")
-    .replace(/\bPI\b/g, "Math.PI").replace(/\bMAX\s*\(([^)]+)\)/gi, "Math.max($1)")
-    .replace(/\bMIN\s*\(([^)]+)\)/gi, "Math.min($1)").replace(/\bFLOOR\s*\(([^)]+)\)/gi, "Math.floor($1)")
-    .replace(/\bCEIL\s*\(([^)]+)\)/gi, "Math.ceil($1)").replace(/\bROUND\s*\(([^)]+)\)/gi, "Math.round($1)");
-  const av = { ...vars };
-  try {
-    const keys = Object.keys(av);
-    const vals = Object.values(av);
-    const fn = new Function(...keys, `"use strict"; return (${ex});`);
-    const r = fn(...vals);
-    return { varName: vn, value: typeof r === "number" && isFinite(r) ? r : null };
-  } catch { return { varName: vn, value: null }; }
+// ─── FORMULA ENGINE (v5 — Full-formula execution with scope-aware tracing) ──
+
+/**
+ * Recursively replace all math function calls (POWER, SQRT, ABS, LN, LOG10,
+ * EXP, MAX, MIN, FLOOR, CEIL, ROUND, COS, SIN, TAN) with their Math.*
+ * equivalents, properly handling arbitrarily nested parentheses.
+ */
+function replaceMathFuncs(str: string): string {
+  const funcMap: Record<string, string> = {
+    COS: "cos", SIN: "sin", TAN: "tan",
+    POWER: "pow", SQRT: "sqrt", ABS: "abs",
+    LN: "log", LOG10: "log10", EXP: "exp",
+    MAX: "max", MIN: "min", FLOOR: "floor",
+    CEIL: "ceil", ROUND: "round",
+  };
+  const names = Object.keys(funcMap).join("|");
+  const re = new RegExp(`(?<!\\.)\\b(${names})\\s*\\(`, "gi");
+
+  let result = "";
+  let lastIndex = 0;
+  let m: RegExpExecArray | null;
+
+  while ((m = re.exec(str)) !== null) {
+    result += str.slice(lastIndex, m.index);
+
+    const fname = m[1].toUpperCase();
+    const openIdx = str.indexOf("(", m.index);
+    let depth = 1;
+    let i = openIdx + 1;
+    while (i < str.length && depth > 0) {
+      if (str[i] === "(") depth++;
+      else if (str[i] === ")") depth--;
+      i++;
+    }
+    const closeIdx = i - 1;
+    const inner = str.slice(openIdx + 1, closeIdx);
+    const innerReplaced = replaceMathFuncs(inner);
+
+    result += `Math.${funcMap[fname]}(${innerReplaced})`;
+    lastIndex = closeIdx + 1;
+    re.lastIndex = lastIndex;
+  }
+
+  result += str.slice(lastIndex);
+  return result;
 }
 
-function runFormulas(formulas: string[], parsed: Record<string, any>) {
+function sanitizeExpression(ex: string): string {
+  let result = ex;
+  result = result.replace(/π/g, "Math.PI");
+  result = replaceMathFuncs(result);
+
+  // Convert x^y (exponentiation) to Math.pow(x,y).
+  // In engineering formulas ^ is always exponentiation, never bitwise XOR.
+  // Handle: var^number, (expr)^number, var^var patterns
+  result = result.replace(/(\b[a-zA-Z_]\w*\b)\s*\^\s*(\d+(?:\.\d+)?)/g, "Math.pow($1,$2)");
+  result = result.replace(/\(([^)]+)\)\s*\^\s*(\d+(?:\.\d+)?)/g, "Math.pow($1,$2)");
+  // Handle var^var (second operand is also an identifier)
+  result = result.replace(/(\b[a-zA-Z_]\w*\b)\s*\^\s*(\b[a-zA-Z_]\w*\b)/g, "Math.pow($1,$2)");
+
+  result = result.replace(/(?<!\.)\bAND\b/gi, "&&").replace(/(?<!\.)\bOR\b/gi, "||");
+  return result;
+}
+
+/** Known JavaScript built‑in / reserved identifiers that are NOT formula vars */
+const JS_RESERVED = new Set([
+  "Math","Number","String","Array","Object","Boolean","Date","JSON","console",
+  "undefined","NaN","Infinity","parseInt","parseFloat","isNaN","eval","isFinite",
+  "RegExp","Error","Symbol","Map","Set","Promise","Proxy","Reflect","BigInt",
+  "this","arguments","function","class","return","if","else","for","while","do",
+  "switch","case","break","continue","try","catch","finally","throw","import",
+  "export","default","from","as","const","let","var","yield","await","super",
+  "static","get","set","of","in","instanceof","typeof","void","delete","new",
+  "NORMSDIST",
+]);
+
+// ═══════════════════════════════════════════════════════════════════════
+// UNCERTAINTY / RSS PROPAGATION ENGINE
+// ═══════════════════════════════════════════════════════════════════════
+
+interface InputUncertainty {
+  id: string;
+  /** Absolute uncertainty value (e.g. 0.05 for ±5%, 2 for ±2°C) */
+  abs: number;
+  /** Whether it's relative (% → true) or absolute (unit → false) */
+  isRelative: boolean;
+  /** Raw display string like "±5%" */
+  raw: string;
+}
+
+/** Parse an uncertainty string like "±5%", "±2°C", "±0.5°" into absolute value + flags */
+function parseUncertainty(raw: string, inputValue: number): InputUncertainty | null {
+  if (!raw || inputValue === null || inputValue === undefined || inputValue === 0) return null;
+  const m = raw.match(/^±\s*([\d.]+)\s*(%|°C|°|°F|K)?$/);
+  if (!m) return null;
+  const num = parseFloat(m[1]);
+  const suffix = m[2] || "";
+  const isRelative = suffix === "%";
+  const abs = isRelative ? (num / 100) * Math.abs(inputValue) : num;
+  return { id: "", abs, isRelative, raw };
+}
+
+/**
+ * Compute combined standard uncertainty (uc) for each output variable
+ * using numerical finite-difference sensitivity and the Root-Sum-Square (RSS) method.
+ *
+ * For each input xi with uncertainty u(xi):
+ *   ∂f/∂xi ≈ (f(xi + δ) - f(xi - δ)) / (2δ)
+ *   u_ci = |∂f/∂xi| * u(xi)
+ *
+ * Combined: uc(y) = sqrt(Σ(u_ci²))
+ * Expanded: U = k × uc   (k = 2 → ~95 % confidence)
+ */
+const K_COVERAGE = 2;
+
+function computeRSSUncertainties(
+  tool: any,
+  inputs: any[],
+  baseValues: Record<string, any>,
+  baseResults: Record<string, any>,
+  runFormulasFn: (formulas: string[], scope: Record<string, any>, knownOuts: string[]) => Record<string, any>
+): Record<string, { uc: number; expandedU: number; contributors: Array<{ id: string; percent: number; abs: number }> }> {
+  const uMap: Record<string, { uc: number; expandedU: number; contributors: Array<{ id: string; percent: number; abs: number }> }> = {};
+  if (!baseResults || !inputs) return uMap;
+
+  // Identify inputs that have parseable uncertainty
+  const uncertainInputs: Array<{ inp: any; u: InputUncertainty }> = [];
+  for (const inp of inputs) {
+    const parsed = parseUncertainty(inp.uncertainty, baseValues[inp.id]);
+    if (parsed && parsed.abs > 0) {
+      parsed.id = inp.id;
+      uncertainInputs.push({ inp, u: parsed });
+    }
+  }
+  if (uncertainInputs.length === 0) return uMap;
+
+  // Determine which variables to propagate
+  const knownOuts: string[] = [];
+  for (const rr of tool?.result_rows || []) {
+    if (Array.isArray(rr.formulaNames)) knownOuts.push(...rr.formulaNames);
+  }
+
+  for (const outputKey of Object.keys(baseResults)) {
+    const baseVal = baseResults[outputKey];
+    if (baseVal === null || baseVal === undefined || typeof baseVal !== "number" || !isFinite(baseVal)) continue;
+
+    let uc2 = 0;
+    const contributors: Array<{ id: string; percent: number; abs: number }> = [];
+
+    for (const { inp, u } of uncertainInputs) {
+      const xi = baseValues[inp.id];
+      if (xi === null || xi === undefined || typeof xi !== "number" || !isFinite(xi)) continue;
+
+      // Perturbation: 1% of the value or 1% of the uncertainty, whichever is smaller
+      const delta = Math.max(Math.abs(xi) * 1e-4, Math.abs(u.abs) * 1e-4, 1e-12);
+
+      // Run with +δ
+      const valuesPlus = { ...baseValues, [inp.id]: xi + delta };
+      const resultsPlus = runFormulasFn(tool.formulas || [], valuesPlus, knownOuts);
+
+      // Run with -δ
+      const valuesMinus = { ...baseValues, [inp.id]: xi - delta };
+      const resultsMinus = runFormulasFn(tool.formulas || [], valuesMinus, knownOuts);
+
+      const yPlus = resultsPlus?.[outputKey];
+      const yMinus = resultsMinus?.[outputKey];
+      if (yPlus === undefined || yMinus === undefined || typeof yPlus !== "number" || typeof yMinus !== "number") continue;
+
+      // Central-difference sensitivity
+      const sensitivity = (yPlus - yMinus) / (2 * delta);
+
+      // Uncertainty contribution in output units
+      const contrib = Math.abs(sensitivity) * u.abs;
+      uc2 += contrib * contrib;
+      contributors.push({ id: inp.id, abs: contrib, percent: 0 });
+    }
+
+    if (uc2 > 0) {
+      const uc = Math.sqrt(uc2);
+      // Compute percentage contributions
+      const totalC = contributors.reduce((s, c) => s + c.abs, 0);
+      for (const c of contributors) {
+        c.percent = totalC > 0 ? (c.abs / totalC) * 100 : 0;
+      }
+      uMap[outputKey] = { uc, expandedU: uc * K_COVERAGE, contributors };
+    }
+  }
+
+  return uMap;
+}
+
+/**
+ * Execute a single formula string and return { varName: value } for each
+ * variable that was newly computed.
+ *
+ * Strategy:
+ * 1. Extract all assigned variable names from the formula (skipping JS reserved words
+ *    and identifiers that appear after `const ` to avoid redeclaration errors).
+ * 2. Pre‑declare mutable vars with `var` so the formula body can assign to them.
+ * 3. Copy input-variable values from the scope arguments into local vars.
+ * 4. Execute the ENTIRE formula as one function (supports for-loops, mutation, etc.).
+ * 5. Return the subset that was NEW (not present in the original inputs).
+ */
+function execFullFormula(
+  fs: string,
+  scope: Record<string, any>
+): Record<string, any> | null {
+  const clean = fs.split("//")[0].trim();
+  if (!clean) return null;
+
+  const keys = Object.keys(scope);
+  const vals = Object.values(scope);
+
+  // Strip for-loop bodies and destructuring const {…} = … to avoid
+  // capturing loop counters and destructured temp vars as formula outputs
+  let stripped = clean.replace(/for\s*\([^)]*\)/g, "for(;;)");
+  stripped = stripped.replace(/\bconst\s*\{[^}]*\}\s*=\s*[^;]+;/g, "");
+  stripped = stripped.replace(/\blet\s+\{[^}]*\}\s*=\s*[^;]+;/g, "");
+
+  // Extract LHS variable names
+  const declRe = /(?:var|let|const)?\s*([a-zA-Z_$][\w$]*)\s*=\s*/g;
+  const allNames: string[] = [];
+  let dm: RegExpExecArray | null;
+  while ((dm = declRe.exec(stripped)) !== null) {
+    const n = dm[1];
+    if (!JS_RESERVED.has(n) && n.length > 0) allNames.push(n);
+  }
+  const uniqueFormulaVars = [...new Set(allNames)];
+
+  // Identify const/let/var declared vars so we don't re-declare them
+  const alreadyDeclared = new Set<string>();
+  const declKWRe = /\b(const|let|var)\s+([a-zA-Z_$][\w$]*)\s*=/g;
+  let dkm: RegExpExecArray | null;
+  while ((dkm = declKWRe.exec(clean)) !== null) alreadyDeclared.add(dkm[2]);
+
+  // Also skip vars already in scope params
+  const scopeKeySet = new Set(keys);
+
+  // Pre‑declare mutable vars that are NOT already declared and NOT already a parameter
+  const mutableVars = uniqueFormulaVars.filter(
+    (v) => !alreadyDeclared.has(v) && !scopeKeySet.has(v)
+  );
+
+  const body = sanitizeExpression(clean);
+
+  try {
+    const helperSrc =
+      "var NORMSDIST=function(z){var x=Math.abs(z)/Math.SQRT2,t=1/(1+0.3275911*x),y=1-(((((1.061405429*t+1.421413741)*t-1.453152027)*t+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return 0.5*(1+(z>=0?1:-1)*y)};";
+    const varDecl = mutableVars.length > 0 ? `var ${mutableVars.join(",")};` : "";
+
+    // Return ALL variables so we can track everything for subsequent formulas
+    const allReturnable = [...new Set([...keys, ...mutableVars, ...uniqueFormulaVars])];
+    const returnBody = `return {${allReturnable.join(",")}};`;
+
+    const fnStr = `"use strict";${helperSrc}${varDecl}${body};${returnBody}`;
+    const fn = new Function(...keys, fnStr);
+    const result: Record<string, any> = fn(...vals);
+    return result || null;
+  } catch {
+    return null;
+  }
+}
+
+function runFormulas(
+  formulas: string[],
+  parsed: Record<string, any>,
+  knownOutputVars: string[] = []
+) {
   const computed = { ...parsed };
+
   for (const f of formulas) {
     if (!f.trim() || f.trim().startsWith("//")) continue;
-    const r = evaluateFormula(f, computed);
-    if (r && r.value !== null) computed[r.varName] = r.value;
+
+    // Build a unified scope (inputs + already-computed)
+    const scope: Record<string, any> = {};
+    for (const key of Object.keys(computed)) scope[key] = computed[key];
+
+    const result = execFullFormula(f, scope);
+    if (result) {
+      for (const [k, v] of Object.entries(result)) {
+        // Always store in computed so subsequent formulas can reference intermediate vars.
+        // Only store non-junk values (not undefined/null/NaN).
+        if (v !== undefined && v !== null && !Number.isNaN(v)) {
+          computed[k] = v;
+        }
+      }
+    }
   }
   return computed;
 }
@@ -140,6 +399,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [errs, setErrs] = useState<Array<{ id: string; msg: string }>>([]);
   const [warns, setWarns] = useState<Array<{ severity: string; source: string; message: string; id?: string }>>([]);
+  const [uncertainties, setUncertainties] = useState<Record<string, { uc: number; expandedU: number; contributors: Array<{ id: string; percent: number; abs: number }> }> | null>(null);
   const [activeTab, setActiveTab] = useState("inputs");
   const [activeMat, setActiveMat] = useState<string | null>(null);
   const [creditMsg, setCreditMsg] = useState<string | null>(null);
@@ -195,14 +455,15 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
     });
     // Validation rules from tool
     const v = tool?.engine_rules?.validation || {};
-    Object.entries(v).forEach(([, rule]: [string, any]) => {
-      if (rule.condition) {
+    const vRules = Array.isArray(v.rules) ? v.rules : [];
+    vRules.forEach((rule: any) => {
+      if (rule?.condition) {
         try {
           const keys = Object.keys(parsed);
           const vals = Object.values(parsed);
           const fn = new Function(...keys, `"use strict"; return !!(${rule.condition});`);
           if (fn(...vals)) {
-            errList.push({ id: rule.id || "VX", msg: rule.error_msg });
+            errList.push({ id: rule.id || "VX", msg: rule.message || rule.error_msg || "Validation failed" });
           }
         } catch { /* ignore */ }
       }
@@ -220,12 +481,30 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
         computed = r;
         w = r.warnings || [];
       } else {
-        computed = runFormulas(tool.formulas || [], parsed);
+        // Collect known output vars from result_rows for robust variable tracking
+        const knownOuts: string[] = [];
+        for (const rr of (tool as any)?.result_rows || []) {
+          if (Array.isArray(rr.formulaNames)) knownOuts.push(...rr.formulaNames);
+        }
+        computed = runFormulas(tool.formulas || [], parsed, knownOuts);
         w = runWarnings(tool, computed);
       }
 
       setResults(computed);
       setWarns(w);
+
+      // ——— RSS Uncertainty Propagation ———
+      if (tool.tool_id !== "PRO_117") {
+        // PRO_117 uses external calc — skip RSS for now
+        try {
+          const u = computeRSSUncertainties(tool, inputs, parsed, computed, runFormulas);
+          setUncertainties(u);
+        } catch {
+          // Silent — uncertainty is a bonus feature, never block results
+          setUncertainties(null);
+        }
+      }
+
       setSubmitted(true);
     } catch (err: any) {
       setErrs([{ id: "ENG", msg: err.message || "Calculation error" }]);
@@ -233,7 +512,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
   }, [tool, values, canAccessAnalyzer, needsCreditLoad, requiresCreditConsume, consumeCreditForRun, inputs]);
 
   const handleReset = useCallback(() => {
-    setValues({}); setSubmitted(false); setResults(null); setErrs([]); setWarns([]);
+    setValues({}); setSubmitted(false); setResults(null); setErrs([]); setWarns([]); setUncertainties(null);
     setActiveTab("inputs"); setActiveMat(null); setCreditMsg(null);
   }, []);
 
@@ -242,8 +521,36 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
     if (!results || !submitted) return [];
     const formulaNames = (tool?.formulas || [])
       .filter((f: string) => f.includes("="))
-      .map((f: string) => f.split("=")[0].trim());
-    const keys = [...new Set([...formulaNames, ...Object.keys(results).filter(k => !inputs.some((i: any) => i.id === k))])];
+      .map((f: string) => {
+        // Extract the first LHS variable name from the formula, stripping const/let/var
+        const clean = f.split("//")[0].trim().replace(/^(?:const|let|var)\s+/, "");
+        // For multi-statement formulas, only take the first meaningful LHS
+        const parts = clean.split(";");
+        for (const p of parts) {
+          const trimmed = p.trim();
+          if (trimmed.includes("=")) {
+            const lhs = trimmed.split("=")[0].trim();
+            // Skip loop variables and destructuring patterns
+            if (lhs && lhs.length > 0 && !lhs.includes("{") && !lhs.includes("(") && !["i","j","k","n","t","x","y","z","di","df","dm","fn","r","p"].includes(lhs)) {
+              return lhs;
+            }
+          }
+        }
+        return null;
+      })
+      .filter(Boolean);
+
+    // Also extract from result_rows formulaNames (more reliable source)
+    const rrNames: string[] = [];
+    for (const rr of (tool as any)?.result_rows || []) {
+      if (Array.isArray(rr.formulaNames)) rrNames.push(...rr.formulaNames);
+    }
+
+    const keys = [...new Set([
+      ...formulaNames,
+      ...rrNames,
+      ...Object.keys(results).filter(k => !inputs.some((i: any) => i.id === k))
+    ])];
     return keys
       .filter(k => !k.startsWith("_") && !k.startsWith("//") && !["warnings"].includes(k))
       .map(key => {
@@ -251,6 +558,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
         if (val === undefined) return null;
         const inp = inputs.find((i: any) => i.id === key);
         const isKey = ["UC", "uc", "MRR", "T", "P_c", "F_c", "OEE", "CE", "L_fin"].some(kw => key.toUpperCase().includes(kw.toUpperCase()));
+        const u = uncertainties?.[key];
         return {
           name: inp?.name || key.replace(/_/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()),
           sym: inp?.symbol || key,
@@ -258,10 +566,13 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
           value: val,
           fmt: fmt(val, 3),
           hl: isKey,
+          uncertainty: u
+            ? { display: `± ${fmt(u.expandedU, 3)}`, raw: u.expandedU, uc: u.uc }
+            : null,
         };
       })
       .filter(Boolean);
-  }, [results, submitted, tool, inputs]);
+  }, [results, submitted, tool, inputs, uncertainties]);
 
   const critCount = warns.filter(w => w.severity === "CRITICAL").length;
   const warnCount = warns.filter(w => w.severity === "WARNING").length;
@@ -648,6 +959,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                         <span>Parameter</span>
                         <span></span>
                         <span>Value</span>
+                        <span>± Unc.</span>
                         <span>Unit</span>
                       </div>
                       {resultRows.map((r: any, i: number) => (
@@ -658,6 +970,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                           </span>
                           <span></span>
                           <span className={`pro-res-val${r.hl ? " hl" : ""}`}>{r.fmt}</span>
+                          <span className="pro-res-unc">{r.uncertainty?.display || "—"}</span>
                           <span className="pro-res-unit">{r.unit}</span>
                         </div>
                       ))}
@@ -817,6 +1130,12 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
                       .filter(([, v]) => typeof v === "number" || typeof v === "string")
                       .slice(0, 20)
                       .map(([k, v]) => ({ k, v: String(v) })),
+                    ...(uncertainties
+                      ? Object.entries(uncertainties).slice(0, 8).map(([k, u]) => ({
+                          k: `U(${k})`,
+                          v: `± ${fmt(u.expandedU, 3)} (k=${K_COVERAGE})`,
+                        }))
+                      : []),
                     { k: "critical_count", v: String(critCount), cls: critCount > 0 ? "fail" : "ok" },
                     { k: "validation_result", v: critCount > 0 ? "FAIL" : "PASS", cls: critCount > 0 ? "fail" : "ok" },
                     { k: "disclaimer", v: "Engineering decision support only. Field validation by qualified engineer required." },

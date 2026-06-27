@@ -13,7 +13,10 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 50000
+      "absolute_max": 50000,
+      "default": 100,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     },
     {
       "id": "T_source_c",
@@ -24,7 +27,10 @@
       "confidence_label": "KESİN",
       "absolute_min": -10,
       "absolute_max": 90,
-      "note": "Waste cooling water ≈ 25–40°C; ground loop ≈ 8–12°C; exhaust air ≈ 20–35°C"
+      "note": "Waste cooling water ≈ 25–40°C; ground loop ≈ 8–12°C; exhaust air ≈ 20–35°C",
+      "default": 10,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_delivery_c",
@@ -35,7 +41,10 @@
       "confidence_label": "KESİN",
       "absolute_min": 30,
       "absolute_max": 160,
-      "note": "Low-temp drying ≈ 60–80°C; pasteurisation ≈ 85–95°C; HTHP steam ≈ 120–160°C"
+      "note": "Low-temp drying ≈ 60–80°C; pasteurisation ≈ 85–95°C; HTHP steam ≈ 120–160°C",
+      "default": 50,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "Carnot_efficiency_fraction",
@@ -47,7 +56,9 @@
       "default": 0.45,
       "absolute_min": 0.3,
       "absolute_max": 0.65,
-      "note": "Industrial heat pumps: η_Carnot ≈ 0.40–0.55; well-optimised: up to 0.60; VDI 4650 §4"
+      "note": "Industrial heat pumps: η_Carnot ≈ 0.40–0.55; well-optimised: up to 0.60; VDI 4650 §4",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "boiler_efficiency_pct",
@@ -59,7 +70,9 @@
       "default": 88,
       "absolute_min": 70,
       "absolute_max": 98,
-      "note": "Condensing boiler ≈ 93–95%; conventional ≈ 82–88%; old steam boiler ≈ 75–82%"
+      "note": "Condensing boiler ≈ 93–95%; conventional ≈ 82–88%; old steam boiler ≈ 75–82%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "gas_emission_factor_kg_kwh",
@@ -71,7 +84,9 @@
       "default": 0.202,
       "absolute_min": 0.15,
       "absolute_max": 0.28,
-      "note": "UK BEIS 2024: 0.202 kgCO₂/kWh gas; EU average ≈ 0.198; US EIA ≈ 0.181 kgCO₂/kWh"
+      "note": "UK BEIS 2024: 0.202 kgCO₂/kWh gas; EU average ≈ 0.198; US EIA ≈ 0.181 kgCO₂/kWh",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     },
     {
       "id": "grid_emission_factor_kg_kwh",
@@ -83,7 +98,9 @@
       "default": 0.233,
       "absolute_min": 0.05,
       "absolute_max": 1,
-      "note": "UK grid 2024: 0.233 kgCO₂e/kWh; EU avg ≈ 0.275; US avg ≈ 0.386; decarbonised grid → < 0.10"
+      "note": "UK grid 2024: 0.233 kgCO₂e/kWh; EU avg ≈ 0.275; US avg ≈ 0.386; decarbonised grid → < 0.10",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     },
     {
       "id": "operating_hours_yr",
@@ -94,7 +111,9 @@
       "confidence_label": "GÜÇLÜ",
       "default": 6000,
       "absolute_min": 100,
-      "absolute_max": 8760
+      "absolute_max": 8760,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     }
   ],
   "formulas": [
@@ -116,15 +135,18 @@
     "validation": {
       "V1": {
         "condition": "T_delivery_c <= T_source_c + 5",
-        "error_msg": "Delivery temperature ≤ source temperature + 5 K: heat pump provides no thermodynamic lift — direct heat exchange is appropriate instead"
+        "error_msg": "Delivery temperature ≤ source temperature + 5 K: heat pump provides no thermodynamic lift — direct heat exchange is appropriate instead",
+        "id": "V1"
       },
       "V2": {
         "condition": "COP_HP < 2.0",
-        "error_msg": "COP < 2.0: marginal heat pump benefit — evaluate if Carnot efficiency factor is correct; large temperature lift with low η may not justify capital investment"
+        "error_msg": "COP < 2.0: marginal heat pump benefit — evaluate if Carnot efficiency factor is correct; large temperature lift with low η may not justify capital investment",
+        "id": "V2"
       },
       "V3": {
         "condition": "CO2_net_saving_t < 0",
-        "error_msg": "Net carbon saving is negative: current grid carbon intensity is too high — heat pump increases CO₂ vs gas boiler; revisit when grid decarbonises below CI_breakeven"
+        "error_msg": "Net carbon saving is negative: current grid carbon intensity is too high — heat pump increases CO₂ vs gas boiler; revisit when grid decarbonises below CI_breakeven",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -163,6 +185,120 @@
         "condition": "CI_breakeven_kg_kwh > 0.5",
         "source": "EN 14511:2018 (heat pump rating)"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: T_delivery_c <= T_source_c + 5",
+        "effect": "Delivery temperature ≤ source temperature + 5 K: heat pump provides no thermodynamic lift — direct heat exchange is appropriate instead",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: COP_HP < 2.0",
+        "effect": "COP < 2.0: marginal heat pump benefit — evaluate if Carnot efficiency factor is correct; large temperature lift with low η may not justify capital investment",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: CO2_net_saving_t < 0",
+        "effect": "Net carbon saving is negative: current grid carbon intensity is too high — heat pump increases CO₂ vs gas boiler; revisit when grid decarbonises below CI_breakeven",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Delivery > 120°C: high-temperature heat pump (HTHP) territory — limited commercial units available; verify refrigerant rating (R245fa, R1234ze(Z)) per ASHRAE 34",
+        "effect": "Smart warning triggered when: T_delivery_c > 120",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "failureMode": "Low COP on high-carbon grid: net carbon reduction minimal — prioritise grid decarbonisation timeline in investment decision",
+        "effect": "Smart warning triggered when: COP_HP < 3 && grid_emission_factor_kg_kwh > 0.35",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "failureMode": "Very high Carnot COP: small temperature lift — confirm source availability is reliable year-round; COP may fall significantly in winter if source temperature drops",
+        "effect": "Smart warning triggered when: COP_Carnot > 15",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "failureMode": "Large heat source extraction (>70% of delivery): verify source stream capacity and minimum outlet temperature — excessive extraction degrades source quality",
+        "effect": "Smart warning triggered when: Q_source_kw > Q_delivery_kw * 0.7",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "EN 14511:2018 (heat pump rating)"
+      },
+      {
+        "failureMode": "Break-even grid intensity > 0.5 kgCO₂/kWh: project is carbon-positive now and in most future grid scenarios — strong decarbonisation case; proceed",
+        "effect": "Smart warning triggered when: CI_breakeven_kg_kwh > 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "EN 14511:2018 (heat pump rating)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "T_H_K",
+        "T_L_K",
+        "COP_Carnot",
+        "COP_HP",
+        "W_elec_kw",
+        "Q_source_kw",
+        "E_elec_kwh_yr",
+        "Q_heat_kwh_yr",
+        "E_gas_saved_kwh_yr",
+        "CO2_gas_saved_t",
+        "CO2_elec_consumed_t",
+        "CO2_net_saving_t",
+        "CI_breakeven_kg_kwh"
+      ]
+    }
+  ]
 }

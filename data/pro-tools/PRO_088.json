@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 3,
-      "absolute_max": 120
+      "absolute_max": 120,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "truss_height_m",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.3,
-      "absolute_max": 20
+      "absolute_max": 20,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "num_panels",
@@ -39,7 +43,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 6
+      "default": 6,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "dead_load_kn_m2",
@@ -51,7 +57,9 @@
       "default": 0.8,
       "absolute_min": 0.2,
       "absolute_max": 5,
-      "note": "Metal deck + insulation ≈ 0.4–0.7 kN/m²; concrete slab ≈ 3–5 kN/m²"
+      "note": "Metal deck + insulation ≈ 0.4–0.7 kN/m²; concrete slab ≈ 3–5 kN/m²",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "live_load_kn_m2",
@@ -62,7 +70,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 0.25,
       "absolute_max": 5,
-      "note": "EN 1991-1-3 snow or ASCE 7-22 §7 — regional ground snow × shape factor"
+      "note": "EN 1991-1-3 snow or ASCE 7-22 §7 — regional ground snow × shape factor",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "wind_uplift_kn_m2",
@@ -74,7 +84,9 @@
       "default": 0.6,
       "absolute_min": 0,
       "absolute_max": 5,
-      "note": "Negative (uplift) wind pressure; ASCE 7-22 §27 or EN 1991-1-4 Cp,e"
+      "note": "Negative (uplift) wind pressure; ASCE 7-22 §27 or EN 1991-1-4 Cp,e",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "tributary_width_m",
@@ -84,7 +96,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 15
+      "absolute_max": 15,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "steel_grade_fy_mpa",
@@ -111,7 +125,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 355
+      "default": 355,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -132,15 +148,18 @@
     "validation": {
       "V1": {
         "condition": "truss_height_m / truss_span_m < 0.05",
-        "error_msg": "Truss depth-to-span ratio < 1:20: very shallow truss — deflection and chord force will be excessive; minimum h/L = 1/10 recommended per AISC DG11"
+        "error_msg": "Truss depth-to-span ratio < 1:20: very shallow truss — deflection and chord force will be excessive; minimum h/L = 1/10 recommended per AISC DG11",
+        "id": "V1"
       },
       "V2": {
         "condition": "wind_uplift_kn_m2 > dead_load_kn_m2 * 0.9",
-        "error_msg": "Wind uplift > 90% of dead load: net uplift possible under 0.9D + 1.0W — bottom chord becomes compression; verify buckling capacity and purlin connections"
+        "error_msg": "Wind uplift > 90% of dead load: net uplift possible under 0.9D + 1.0W — bottom chord becomes compression; verify buckling capacity and purlin connections",
+        "id": "V2"
       },
       "V3": {
         "condition": "num_panels < 4",
-        "error_msg": "Less than 4 panels: very steep diagonal angle — excessive web member forces; use minimum 6 panels for efficient truss geometry"
+        "error_msg": "Less than 4 panels: very steep diagonal angle — excessive web member forces; use minimum 6 panels for efficient truss geometry",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -179,6 +198,124 @@
         "condition": "A_req_mm2 > 15000",
         "source": "AISC 360-22 Chapters D, E, F"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: truss_height_m / truss_span_m < 0.05",
+        "effect": "Truss depth-to-span ratio < 1:20: very shallow truss — deflection and chord force will be excessive; minimum h/L = 1/10 recommended per AISC DG11",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: wind_uplift_kn_m2 > dead_load_kn_m2 * 0.9",
+        "effect": "Wind uplift > 90% of dead load: net uplift possible under 0.9D + 1.0W — bottom chord becomes compression; verify buckling capacity and purlin connections",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: num_panels < 4",
+        "effect": "Less than 4 panels: very steep diagonal angle — excessive web member forces; use minimum 6 panels for efficient truss geometry",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Long shallow truss: chord forces very large — chord section and connection design critical; camber ≥ L/500 required per AISC Code of Standard Practice",
+        "effect": "Smart warning triggered when: truss_span_m > 40 && truss_height_m / truss_span_m < 0.08",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "AISC 360-22 Chapters D, E, F"
+      },
+      {
+        "failureMode": "Top chord compression > 2000 kN: heavy member required — verify lateral buckling between purlin points per AISC 360-22 Chapter E; ensure continuous lateral restraint",
+        "effect": "Smart warning triggered when: F_TChord_kn > 2000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AISC 360-22 Chapters D, E, F"
+      },
+      {
+        "failureMode": "High-strength steel on long span: deflection (not strength) may govern — S460 reduces weight but deflection limit L/360 still applies; verify serviceability",
+        "effect": "Smart warning triggered when: steel_grade_fy_mpa > 355 && truss_span_m > 30",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "AISC 360-22 Chapters D, E, F"
+      },
+      {
+        "failureMode": "Light dead load with heavy imposed load: dynamic amplification possible for crowds or machinery — check vibration criteria per SCI P354 or AISC DG11",
+        "effect": "Smart warning triggered when: dead_load_kn_m2 < 0.5 && live_load_kn_m2 > 1.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "AISC 360-22 Chapters D, E, F"
+      },
+      {
+        "failureMode": "Required bottom chord area > 15,000 mm²: very large section — consider HSS, built-up section, or reduce span with intermediate column; verify connection capacity at joints",
+        "effect": "Smart warning triggered when: A_req_mm2 > 15000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AISC 360-22 Chapters D, E, F"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "w_dead_kn_m",
+        "w_live_kn_m",
+        "w_factored_kn_m",
+        "panel_length_m",
+        "P_u_kn",
+        "n_joints",
+        "R_kn",
+        "M_max_knm",
+        "F_BChord_kn",
+        "panel_diagonal_m",
+        "theta_rad",
+        "F_TChord_kn",
+        "V_max_kn",
+        "F_diag_kn",
+        "phi_t",
+        "A_req_mm2",
+        "wind_uplift_factor"
+      ]
+    }
+  ]
 }

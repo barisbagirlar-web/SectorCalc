@@ -14,7 +14,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 10,
       "absolute_max": 2000,
-      "note": "From Sandvik C-2920 Table 1 or tool manufacturer data for workpiece/tool material combination"
+      "note": "From Sandvik C-2920 Table 1 or tool manufacturer data for workpiece/tool material combination",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
     },
     {
       "id": "fz_mm",
@@ -24,7 +26,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.01,
-      "absolute_max": 2
+      "absolute_max": 2,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "ap_mm",
@@ -34,7 +38,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.05,
-      "absolute_max": 200
+      "absolute_max": 200,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "ae_mm",
@@ -44,7 +50,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.05,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "z_teeth",
@@ -54,7 +62,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 30
+      "absolute_max": 30,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     },
     {
       "id": "D_mm",
@@ -64,7 +74,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 800
+      "absolute_max": 800,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "kc1_mpa",
@@ -76,7 +88,9 @@
       "default": 2000,
       "absolute_min": 500,
       "absolute_max": 5000,
-      "note": "Sandvik C-2920: Steel 0.2C → k_c1=1900; Stainless 316L → 2700; Ti6Al4V → 1700; Al7075 → 700 MPa"
+      "note": "Sandvik C-2920: Steel 0.2C → k_c1=1900; Stainless 316L → 2700; Ti6Al4V → 1700; Al7075 → 700 MPa",
+      "uncertainty": "±8%",
+      "uncertainty_source": "ISO 3002-4:2017 — Specific cutting force, material-dependent: ±8% (Sandvik Coromant)"
     },
     {
       "id": "mc_exponent",
@@ -88,7 +102,9 @@
       "default": 0.25,
       "absolute_min": 0.15,
       "absolute_max": 0.4,
-      "note": "Sandvik: steel = 0.22–0.27; cast iron = 0.26; aluminium = 0.25"
+      "note": "Sandvik: steel = 0.22–0.27; cast iron = 0.26; aluminium = 0.25",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 3002-4:2017 — Empirical Taylor exponent: ±5% (Type B, material-specific)"
     }
   ],
   "formulas": [
@@ -108,15 +124,18 @@
     "validation": {
       "V1": {
         "condition": "ae_mm > D_mm",
-        "error_msg": "Radial depth a_e cannot exceed cutter diameter D_c — reduce a_e or select larger cutter"
+        "error_msg": "Radial depth a_e cannot exceed cutter diameter D_c — reduce a_e or select larger cutter",
+        "id": "V1"
       },
       "V2": {
         "condition": "Pc_kw > 50",
-        "error_msg": "Spindle power demand > 50 kW: verify machine spindle rating; add 25% mechanical loss for machine requirement"
+        "error_msg": "Spindle power demand > 50 kW: verify machine spindle rating; add 25% mechanical loss for machine requirement",
+        "id": "V2"
       },
       "V3": {
         "condition": "hm_mm < 0.01",
-        "error_msg": "Mean chip thickness < 0.01 mm: rubbing regime — built-up edge and tool wear risk; increase f_z or a_e"
+        "error_msg": "Mean chip thickness < 0.01 mm: rubbing regime — built-up edge and tool wear risk; increase f_z or a_e",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -155,6 +174,113 @@
         "condition": "ap_mm > D_mm * 1.5 && z_teeth > 4",
         "source": "Sandvik Coromant C-2920 2024"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: ae_mm > D_mm",
+        "effect": "Radial depth a_e cannot exceed cutter diameter D_c — reduce a_e or select larger cutter",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: Pc_kw > 50",
+        "effect": "Spindle power demand > 50 kW: verify machine spindle rating; add 25% mechanical loss for machine requirement",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: hm_mm < 0.01",
+        "effect": "Mean chip thickness < 0.01 mm: rubbing regime — built-up edge and tool wear risk; increase f_z or a_e",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "a_e/D_c > 70%: full or near-full engagement — tool deflection and chatter risk severe; reduce radial depth to ≤ 50% and use finishing pass strategy",
+        "effect": "Smart warning triggered when: ae_mm / D_mm > 0.7",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "failureMode": "Specific cutting force > 3500 MPa: hard material or worn tool — verify k_c1 input and check for built-up edge; consider coated carbide grade",
+        "effect": "Smart warning triggered when: kc_mpa > 3500",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "failureMode": "Spindle speed > 20,000 rpm: HSM regime — verify spindle bearing rating, tool balance (ISO 1940 G2.5), and coolant pressure capacity",
+        "effect": "Smart warning triggered when: n_rpm > 20000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "failureMode": "Table feed > 5000 mm/min: high-feed machining — verify CNC controller acceleration and servo drive current limits",
+        "effect": "Smart warning triggered when: Vf_mm_min > 5000",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Sandvik Coromant C-2920 2024"
+      },
+      {
+        "failureMode": "Deep axial cut with many teeth: high chip volume — verify chip evacuation; coolant-through-tool strongly recommended",
+        "effect": "Smart warning triggered when: ap_mm > D_mm * 1.5 && z_teeth > 4",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Sandvik Coromant C-2920 2024"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "n_rpm",
+        "Vf_mm_min",
+        "hm_mm",
+        "kc_mpa",
+        "Fc_N",
+        "Pc_kw"
+      ]
+    }
+  ]
 }

@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.1,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "bulk_density_kg_m3",
@@ -24,7 +26,9 @@
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 100,
       "absolute_max": 3000,
-      "note": "Wheat ≈ 770; cement ≈ 1200; sand ≈ 1500; fly ash ≈ 700 kg/m³"
+      "note": "Wheat ≈ 770; cement ≈ 1200; sand ≈ 1500; fly ash ≈ 700 kg/m³",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
     },
     {
       "id": "screw_diameter_mm",
@@ -47,7 +51,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 300,
-      "note": "CEMA 350 standard sizes; pitch = D_s for standard full-pitch screw"
+      "note": "CEMA 350 standard sizes; pitch = D_s for standard full-pitch screw",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "screw_speed_rpm",
@@ -58,7 +64,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 10,
       "absolute_max": 200,
-      "note": "CEMA max speed: 300 mm screw → 60 rpm; 500 mm → 40 rpm for abrasive materials"
+      "note": "CEMA max speed: 300 mm screw → 60 rpm; 500 mm → 40 rpm for abrasive materials",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 60034-1:2017 §8.4 — Speed tolerance: ±1% at rated load"
     },
     {
       "id": "conveyor_length_m",
@@ -68,7 +76,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.5,
-      "absolute_max": 100
+      "absolute_max": 100,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "inclination_deg",
@@ -79,7 +89,9 @@
       "confidence_label": "KESİN",
       "default": 0,
       "absolute_min": -20,
-      "absolute_max": 45
+      "absolute_max": 45,
+      "uncertainty": "±0.5°",
+      "uncertainty_source": "ISO 2768-1:1989 Table 3 — Angular tolerance class 'm': ±0°20' for >50mm side"
     },
     {
       "id": "material_factor_Fm",
@@ -107,7 +119,9 @@
       "required": true,
       "confidence_label": "GÜÇLÜ",
       "default": 1.5,
-      "note": "CEMA 350 Table 3-3 — material factor based on flowability class"
+      "note": "CEMA 350 Table 3-3 — material factor based on flowability class",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "trough_loading_pct",
@@ -131,7 +145,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 30,
-      "note": "CEMA 350 Table 2-1 — maximum trough loading by material class"
+      "note": "CEMA 350 Table 2-1 — maximum trough loading by material class",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -151,15 +167,18 @@
     "validation": {
       "V1": {
         "condition": "capacity_ratio > 1.0 / Ci",
-        "error_msg": "Required capacity exceeds screw throughput even with inclination correction — increase screw diameter, speed, or add second unit"
+        "error_msg": "Required capacity exceeds screw throughput even with inclination correction — increase screw diameter, speed, or add second unit",
+        "id": "V1"
       },
       "V2": {
         "condition": "v_tip_m_s > 1.5",
-        "error_msg": "Tip speed > 1.5 m/s: flight and trough wear rate increases exponentially — reduce speed or select harder material (AR400 flights)"
+        "error_msg": "Tip speed > 1.5 m/s: flight and trough wear rate increases exponentially — reduce speed or select harder material (AR400 flights)",
+        "id": "V2"
       },
       "V3": {
         "condition": "inclination_deg > 20 && material_factor_Fm > 2.0",
-        "error_msg": "Steep incline with sluggish material: significant backflow risk — evaluate vertical screw or bucket elevator alternative"
+        "error_msg": "Steep incline with sluggish material: significant backflow risk — evaluate vertical screw or bucket elevator alternative",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -198,6 +217,120 @@
         "condition": "P_motor_kw > 50 && screw_diameter_mm < 300",
         "source": "CEMA 350 7th Ed."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: capacity_ratio > 1.0 / Ci",
+        "effect": "Required capacity exceeds screw throughput even with inclination correction — increase screw diameter, speed, or add second unit",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: v_tip_m_s > 1.5",
+        "effect": "Tip speed > 1.5 m/s: flight and trough wear rate increases exponentially — reduce speed or select harder material (AR400 flights)",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: inclination_deg > 20 && material_factor_Fm > 2.0",
+        "effect": "Steep incline with sluggish material: significant backflow risk — evaluate vertical screw or bucket elevator alternative",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "High tip speed on sluggish material: rapid liner and flight wear — reduce to < 1.0 m/s per CEMA recommendation for abrasive/sluggish class",
+        "effect": "Smart warning triggered when: v_tip_m_s > 1.0 && material_factor_Fm >= 2.0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "CEMA 350 7th Ed."
+      },
+      {
+        "failureMode": "45% trough loading on non-free-flowing material: plugging risk — reduce to 30% and increase screw diameter to maintain capacity",
+        "effect": "Smart warning triggered when: trough_loading_pct === 45 && material_factor_Fm > 1.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "CEMA 350 7th Ed."
+      },
+      {
+        "failureMode": "Long screw conveyor (> 40 m): intermediate hanger bearing required — shaft deflection and torque accumulation must be checked per CEMA §5",
+        "effect": "Smart warning triggered when: conveyor_length_m > 40",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "CEMA 350 7th Ed."
+      },
+      {
+        "failureMode": "Inclination > 30°: CEMA capacity factors fall to < 40% — consider vertical screw conveyor (IBC) or pneumatic conveying system",
+        "effect": "Smart warning triggered when: inclination_deg > 30",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "CEMA 350 7th Ed."
+      },
+      {
+        "failureMode": "High power on small screw: shaft and coupling stress high — verify shaft diameter torque rating per CEMA §6; consider upsize to 350 mm screw",
+        "effect": "Smart warning triggered when: P_motor_kw > 50 && screw_diameter_mm < 300",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "CEMA 350 7th Ed."
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "A_screw_m2",
+        "Q_theory_m3h",
+        "Q_actual_m3h",
+        "capacity_ratio",
+        "alpha_rad",
+        "Ci",
+        "W_material_kn_m",
+        "T_friction_knm",
+        "T_drive_knm",
+        "P_material_kw",
+        "P_friction_kw",
+        "P_motor_kw",
+        "v_tip_m_s"
+      ]
+    }
+  ]
 }

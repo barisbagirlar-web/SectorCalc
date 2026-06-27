@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 500000
+      "absolute_max": 500000,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     },
     {
       "id": "T_hot_in_c",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -20,
-      "absolute_max": 600
+      "absolute_max": 600,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_hot_out_c",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -20,
-      "absolute_max": 599
+      "absolute_max": 599,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_cold_in_c",
@@ -43,7 +49,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -50,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_cold_out_c",
@@ -53,7 +61,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -50,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "U_clean_w_m2k",
@@ -65,7 +75,9 @@
       "default": 500,
       "absolute_min": 50,
       "absolute_max": 8000,
-      "note": "Typical: water/water 800–1500, gas/gas 50–300, condensers 500–2000"
+      "note": "Typical: water/water 800–1500, gas/gas 50–300, condensers 500–2000",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
     },
     {
       "id": "Rf_hot_m2k_kw",
@@ -77,7 +89,9 @@
       "default": 0.176,
       "absolute_min": 0,
       "absolute_max": 2,
-      "note": "TEMA Table RGP-T-2.4: cooling water R_f = 0.176 m²K/kW"
+      "note": "TEMA Table RGP-T-2.4: cooling water R_f = 0.176 m²K/kW",
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     },
     {
       "id": "Rf_cold_m2k_kw",
@@ -88,7 +102,9 @@
       "confidence_label": "VARSAYIM",
       "default": 0.176,
       "absolute_min": 0,
-      "absolute_max": 2
+      "absolute_max": 2,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
     },
     {
       "id": "F_correction",
@@ -100,13 +116,15 @@
       "default": 0.9,
       "absolute_min": 0.6,
       "absolute_max": 1,
-      "note": "F=1 for true counterflow; F≥0.75 required per TEMA §7"
+      "note": "F=1 for true counterflow; F≥0.75 required per TEMA §7",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% (unclassified parameter)"
     }
   ],
   "formulas": [
-    "dT1 = T_hot_in_c - T_cold_out_c; dT2 = T_hot_out_c - T_cold_in_c; LMTD_cf = (Math.abs(dT1 - dT2) < 0.001) ? dT1 : (dT1 - dT2) / Math.log(dT1/dT2)   // [K] Log Mean Temperature Difference — Counterflow (LMTD_cf) Reference: ISO 15547-1:2005 §5.2 — L'Hôpital limit applied when dT1 ≈ dT2",
-    "LMTD_eff = F_correction * LMTD_cf_K   // [K] Corrected LMTD Reference: TEMA §7 — multi-pass correction",
-    "U_dirty = 1 / (1/U_clean_w_m2k + (Rf_hot_m2k_kw + Rf_cold_m2k_kw) * 1000)   // [W/m²·K] Dirty (Fouled) Overall HTC Reference: TEMA C-7.1 — combined fouling resistance",
+    "dT1 = T_hot_in_c - T_cold_out_c; dT2 = T_hot_out_c - T_cold_in_c; LMTD_cf_K = (Math.abs(dT1 - dT2) < 0.001) ? dT1 : (dT1 - dT2) / Math.log(dT1/dT2)   // [K] Log Mean Temperature Difference — Counterflow (LMTD_cf_K) Reference: ISO 15547-1:2005 §5.2 — L'Hôpital limit applied when dT1 ≈ dT2",
+    "LMTD_eff_K = F_correction * LMTD_cf_K   // [K] Corrected LMTD Reference: TEMA §7 — multi-pass correction",
+    "U_dirty_w_m2k = 1 / (1/U_clean_w_m2k + (Rf_hot_m2k_kw + Rf_cold_m2k_kw) * 1000)   // [W/m²·K] Dirty (Fouled) Overall HTC Reference: TEMA C-7.1 — combined fouling resistance",
     "A_req = (Q_duty_kw * 1000) / (U_dirty_w_m2k * LMTD_eff_K)   // [m²] Required Heat Transfer Area — Fouled (A_req) Reference: ASME Section VIII / TEMA sizing basis",
     "CF = U_dirty_w_m2k / U_clean_w_m2k * 100   // [%] Cleanliness Factor Reference: TEMA §T-2.4 — CF < 85% triggers cleaning inspection",
     "Q_max = Math.min(Q_duty_kw / Math.abs(T_hot_in_c - T_cold_in_c)) * Math.abs(T_hot_in_c - T_cold_in_c); epsilon = Q_duty_kw / (Q_duty_kw / (1 - (T_hot_out_c - T_hot_in_c)/(T_cold_in_c - T_hot_in_c)))   // [%] Thermal Effectiveness (ε) Reference: NTU-ε method — Incropera 7th Ed. Ch.11"
@@ -121,15 +139,18 @@
     "validation": {
       "V1": {
         "condition": "T_hot_out_c >= T_hot_in_c",
-        "error_msg": "Hot-side outlet must be cooler than inlet — check terminal temperatures"
+        "error_msg": "Hot-side outlet must be cooler than inlet — check terminal temperatures",
+        "id": "V1"
       },
       "V2": {
         "condition": "T_cold_out_c <= T_cold_in_c",
-        "error_msg": "Cold-side outlet must be hotter than inlet — check terminal temperatures"
+        "error_msg": "Cold-side outlet must be hotter than inlet — check terminal temperatures",
+        "id": "V2"
       },
       "V3": {
         "condition": "T_hot_out_c < T_cold_in_c + 5",
-        "error_msg": "Hot outlet approaches cold inlet temperature: cross-temperature pinch — reduce duty or add surface area"
+        "error_msg": "Hot outlet approaches cold inlet temperature: cross-temperature pinch — reduce duty or add surface area",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -168,6 +189,116 @@
         "condition": "Rf_hot_m2k_kw + Rf_cold_m2k_kw > 0.5",
         "source": "TEMA C/B/R 10th Ed."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: T_hot_out_c >= T_hot_in_c",
+        "effect": "Hot-side outlet must be cooler than inlet — check terminal temperatures",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: T_cold_out_c <= T_cold_in_c",
+        "effect": "Cold-side outlet must be hotter than inlet — check terminal temperatures",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: T_hot_out_c < T_cold_in_c + 5",
+        "effect": "Hot outlet approaches cold inlet temperature: cross-temperature pinch — reduce duty or add surface area",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "LMTD F-factor < 0.75: thermal inefficiency and flow maldistribution risk — split into two units or use pure counterflow",
+        "effect": "Smart warning triggered when: F_correction < 0.75",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "TEMA C/B/R 10th Ed."
+      },
+      {
+        "failureMode": "Cleanliness factor < 85%: fouling penalty severe — schedule CIP or mechanical cleaning within 6 months",
+        "effect": "Smart warning triggered when: cleanliness_factor_pct < 85",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "TEMA C/B/R 10th Ed."
+      },
+      {
+        "failureMode": "Effective LMTD < 5 K: very large surface area required — evaluate stream mixing or upstream temperature shift",
+        "effect": "Smart warning triggered when: LMTD_eff_K < 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "TEMA C/B/R 10th Ed."
+      },
+      {
+        "failureMode": "Low U-value for high-duty service: excessive area — verify fluid velocities and baffling",
+        "effect": "Smart warning triggered when: U_clean_w_m2k < 200 && Q_duty_kw > 1000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "TEMA C/B/R 10th Ed."
+      },
+      {
+        "failureMode": "High combined fouling resistance: fouling margin > 35% — verify TEMA class selection for this service",
+        "effect": "Smart warning triggered when: Rf_hot_m2k_kw + Rf_cold_m2k_kw > 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "TEMA C/B/R 10th Ed."
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "dT1",
+        "dT2",
+        "LMTD_cf_K",
+        "LMTD_eff_K",
+        "U_dirty_w_m2k",
+        "A_req",
+        "CF",
+        "Q_max",
+        "epsilon"
+      ]
+    }
+  ]
 }

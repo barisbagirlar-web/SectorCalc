@@ -14,7 +14,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 500,
       "absolute_max": 50000,
-      "note": "Per nameplate at standard load centre (typically 500 mm for IC; 600 mm for large trucks)"
+      "note": "Per nameplate at standard load centre (typically 500 mm for IC; 600 mm for large trucks)",
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "std_load_centre_mm",
@@ -33,7 +35,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 500
+      "default": 500,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "actual_load_centre_mm",
@@ -44,7 +48,9 @@
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 200,
       "absolute_max": 2000,
-      "note": "Distance from fork face to load centre of gravity; non-standard pallet or long load will shift this"
+      "note": "Distance from fork face to load centre of gravity; non-standard pallet or long load will shift this",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "lift_height_mm",
@@ -54,7 +60,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1000,
-      "absolute_max": 12000
+      "absolute_max": 12000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "mast_forward_tilt_deg",
@@ -65,7 +73,9 @@
       "confidence_label": "KESİN",
       "default": 3,
       "absolute_min": 0,
-      "absolute_max": 10
+      "absolute_max": 10,
+      "uncertainty": "±0.5°",
+      "uncertainty_source": "ISO 2768-1:1989 Table 3 — Angular tolerance class 'm': ±0°20' for >50mm side"
     },
     {
       "id": "payload_kg",
@@ -75,7 +85,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 60000
+      "absolute_max": 60000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "attachment_weight_kg",
@@ -86,7 +98,9 @@
       "confidence_label": "KESİN",
       "default": 0,
       "absolute_min": 0,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "attachment_centre_mm",
@@ -97,7 +111,9 @@
       "confidence_label": "VARSAYIM",
       "default": 150,
       "absolute_min": 0,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     }
   ],
   "formulas": [
@@ -118,15 +134,18 @@
     "validation": {
       "V1": {
         "condition": "util_ratio > 1.0",
-        "error_msg": "OVERLOAD: payload exceeds residual capacity at actual load centre — operation prohibited per OSHA 1910.178(o)(2) and ISO 22915-1"
+        "error_msg": "OVERLOAD: payload exceeds residual capacity at actual load centre — operation prohibited per OSHA 1910.178(o)(2) and ISO 22915-1",
+        "id": "V1"
       },
       "V2": {
         "condition": "actual_load_centre_mm > std_load_centre_mm * 1.5 && payload_kg > rated_capacity_kg * 0.5",
-        "error_msg": "Load centre >150% of standard with significant payload: verify mast and carriage deflection with OEM — structural rating may limit further"
+        "error_msg": "Load centre >150% of standard with significant payload: verify mast and carriage deflection with OEM — structural rating may limit further",
+        "id": "V2"
       },
       "V3": {
         "condition": "lift_height_mm > 6000 && util_ratio > 0.85",
-        "error_msg": "High lift (>6 m) at >85% capacity: dynamic longitudinal stability severely reduced — reduce lift height or reduce load"
+        "error_msg": "High lift (>6 m) at >85% capacity: dynamic longitudinal stability severely reduced — reduce lift height or reduce load",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -165,6 +184,115 @@
         "condition": "actual_load_centre_mm > 800",
         "source": "ISO 22915-1:2016"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: util_ratio > 1.0",
+        "effect": "OVERLOAD: payload exceeds residual capacity at actual load centre — operation prohibited per OSHA 1910.178(o)(2) and ISO 22915-1",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: actual_load_centre_mm > std_load_centre_mm * 1.5 && payload_kg > rated_capacity_kg * 0.5",
+        "effect": "Load centre >150% of standard with significant payload: verify mast and carriage deflection with OEM — structural rating may limit further",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: lift_height_mm > 6000 && util_ratio > 0.85",
+        "effect": "High lift (>6 m) at >85% capacity: dynamic longitudinal stability severely reduced — reduce lift height or reduce load",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Tipping margin < 10%: dangerously close to longitudinal tip-over — reduce payload or move load CG closer to fork face; operator training mandatory per OSHA 1910.178(l)",
+        "effect": "Smart warning triggered when: tip_margin_pct < 10",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 22915-1:2016"
+      },
+      {
+        "failureMode": "Utilisation > 90% of residual capacity: marginal stability — prohibit operation on ramps, uneven surfaces, or with mast fully tilted forward",
+        "effect": "Smart warning triggered when: util_ratio > 0.9",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 22915-1:2016"
+      },
+      {
+        "failureMode": "Attachment mass >15% of rated capacity: significant derating effect — obtain attachment data plate per ISO 22915-1 §4.3 mandatory",
+        "effect": "Smart warning triggered when: attachment_weight_kg > rated_capacity_kg * 0.15",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 22915-1:2016"
+      },
+      {
+        "failureMode": "Forward tilt >5° at elevated height: pendulum effect amplifies tip-over moment — restrict forward tilt to minimum when elevated",
+        "effect": "Smart warning triggered when: mast_forward_tilt_deg > 5 && lift_height_mm > 2000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 22915-1:2016"
+      },
+      {
+        "failureMode": "Load centre > 800 mm: long or oversized load — reposition forks, use extended carriage, or engage slinging — standard stability assumptions invalid",
+        "effect": "Smart warning triggered when: actual_load_centre_mm > 800",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 22915-1:2016"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "M_load_kg_mm",
+        "D_equiv_mm",
+        "Q_residual_kg",
+        "util_ratio",
+        "tipping_factor",
+        "tip_margin_pct",
+        "height_factor",
+        "Q_highlift_kg"
+      ]
+    }
+  ]
 }

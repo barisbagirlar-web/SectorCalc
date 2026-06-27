@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.01,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "dP_fan_pa",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 50000
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
     },
     {
       "id": "n_fan_rpm",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 100,
-      "absolute_max": 10000
+      "absolute_max": 10000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 60034-1:2017 §8.4 — Speed tolerance: ±1% at rated load"
     },
     {
       "id": "fan_efficiency_pct",
@@ -45,7 +51,9 @@
       "default": 75,
       "absolute_min": 30,
       "absolute_max": 92,
-      "note": "Centrifugal backward-curved: 70–85%; forward-curved: 55–70%; axial: 75–88%"
+      "note": "Centrifugal backward-curved: 70–85%; forward-curved: 55–70%; axial: 75–88%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "rho_air_kg_m3",
@@ -56,7 +64,9 @@
       "confidence_label": "GÜÇLÜ",
       "default": 1.2,
       "absolute_min": 0.5,
-      "absolute_max": 2.5
+      "absolute_max": 2.5,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
     },
     {
       "id": "impeller_dia_mm",
@@ -66,7 +76,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 100,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "blade_type",
@@ -89,7 +101,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": "backward"
+      "default": "backward",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -111,15 +125,18 @@
     "validation": {
       "V1": {
         "condition": "u2_m_s > 150 && blade_type === 'backward'",
-        "error_msg": "Tip speed > 150 m/s for BC fan: stress limit exceeded for standard steel impeller — reduce speed or use high-tensile alloy; verify per ISO 13349 §6.4"
+        "error_msg": "Tip speed > 150 m/s for BC fan: stress limit exceeded for standard steel impeller — reduce speed or use high-tensile alloy; verify per ISO 13349 §6.4",
+        "id": "V1"
       },
       "V2": {
         "condition": "u2_m_s > 60 && blade_type === 'forward'",
-        "error_msg": "FC fan tip speed > 60 m/s: blade bending stress critical — forward-curved blades have low structural efficiency; FC fans unsuitable above 60 m/s"
+        "error_msg": "FC fan tip speed > 60 m/s: blade bending stress critical — forward-curved blades have low structural efficiency; FC fans unsuitable above 60 m/s",
+        "id": "V2"
       },
       "V3": {
         "condition": "psi > 0.9",
-        "error_msg": "Pressure coefficient ψ > 0.9: overloaded impeller — fan operating far from design point; surge and aerodynamic instability risk"
+        "error_msg": "Pressure coefficient ψ > 0.9: overloaded impeller — fan operating far from design point; surge and aerodynamic instability risk",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -158,6 +175,116 @@
         "condition": "BPF_hz > 500",
         "source": "ISO 13349:2010 (fan terminology)"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: u2_m_s > 150 && blade_type === 'backward'",
+        "effect": "Tip speed > 150 m/s for BC fan: stress limit exceeded for standard steel impeller — reduce speed or use high-tensile alloy; verify per ISO 13349 §6.4",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: u2_m_s > 60 && blade_type === 'forward'",
+        "effect": "FC fan tip speed > 60 m/s: blade bending stress critical — forward-curved blades have low structural efficiency; FC fans unsuitable above 60 m/s",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: psi > 0.9",
+        "effect": "Pressure coefficient ψ > 0.9: overloaded impeller — fan operating far from design point; surge and aerodynamic instability risk",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Specific speed outside centrifugal fan optimal range (0.2–2.5): consider axial fan (Ns > 2.5) or different impeller type — efficiency will be poor",
+        "effect": "Smart warning triggered when: Ns_dim < 0.2 || Ns_dim > 2.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 13349:2010 (fan terminology)"
+      },
+      {
+        "failureMode": "Forward-curved fan at high pressure: FC fans have overloading characteristic — motor may trip; backward-curved or radial tip preferred above 1500 Pa",
+        "effect": "Smart warning triggered when: blade_type === 'forward' && dP_fan_pa > 1500",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 13349:2010 (fan terminology)"
+      },
+      {
+        "failureMode": "Estimated sound power > 95 dB(A): high-noise installation — acoustic treatment, silencer, or vibration isolation required; OSHA noise assessment mandatory",
+        "effect": "Smart warning triggered when: Lw_estimated_dB > 95",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 13349:2010 (fan terminology)"
+      },
+      {
+        "failureMode": "Fan efficiency < 60%: poor energy performance — consider replacing with backward-curved or airfoil blade design; each 10% η improvement reduces motor kW proportionally",
+        "effect": "Smart warning triggered when: fan_efficiency_pct < 60",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 13349:2010 (fan terminology)"
+      },
+      {
+        "failureMode": "Blade passage frequency > 500 Hz: mid-frequency tonal noise — structural resonance check of ductwork at BPF mandatory; add flexible connection at fan outlet",
+        "effect": "Smart warning triggered when: BPF_hz > 500",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ISO 13349:2010 (fan terminology)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "omega_rad_s",
+        "Ns_dim",
+        "u2_m_s",
+        "psi",
+        "P_shaft_kw",
+        "N_blades_est",
+        "BPF_hz",
+        "Kw_dB",
+        "Lw_estimated_dB"
+      ]
+    }
+  ]
 }

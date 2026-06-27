@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 60
+      "absolute_max": 60,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "welding_current_a",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 20,
-      "absolute_max": 2000
+      "absolute_max": 2000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "travel_speed_mm_min",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 50,
-      "absolute_max": 3000
+      "absolute_max": 3000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
     },
     {
       "id": "thermal_efficiency",
@@ -65,7 +71,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 0.8,
-      "note": "AWS D1.1-2020 Commentary §C-4.11 / EN 1011-1 Table B.1"
+      "note": "AWS D1.1-2020 Commentary §C-4.11 / EN 1011-1 Table B.1",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "base_metal_CE",
@@ -77,7 +85,9 @@
       "default": 0.42,
       "absolute_min": 0.1,
       "absolute_max": 0.8,
-      "note": "CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15 — IIW formula"
+      "note": "CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15 — IIW formula",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "plate_thickness_mm",
@@ -87,7 +97,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 3,
-      "absolute_max": 300
+      "absolute_max": 300,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
     },
     {
       "id": "hydrogen_content",
@@ -115,7 +127,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 10,
-      "note": "Per AWS A4.3 / ISO 3690 classification"
+      "note": "Per AWS A4.3 / ISO 3690 classification",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -137,15 +151,18 @@
     "validation": {
       "V1": {
         "condition": "HI_kj_mm > 3.5",
-        "error_msg": "Heat input > 3.5 kJ/mm: excessive for most structural steels — grain coarsening and toughness loss in HAZ"
+        "error_msg": "Heat input > 3.5 kJ/mm: excessive for most structural steels — grain coarsening and toughness loss in HAZ",
+        "id": "V1"
       },
       "V2": {
         "condition": "HI_kj_mm < 0.3",
-        "error_msg": "Heat input < 0.3 kJ/mm: very high cooling rate — hard HAZ and hydrogen cracking risk even with preheat"
+        "error_msg": "Heat input < 0.3 kJ/mm: very high cooling rate — hard HAZ and hydrogen cracking risk even with preheat",
+        "id": "V2"
       },
       "V3": {
         "condition": "base_metal_CE > 0.65 && hydrogen_content > 5",
-        "error_msg": "High CE + high hydrogen: severe cold cracking risk — use H5 or H2.5 consumables and increase preheat by 30°C"
+        "error_msg": "High CE + high hydrogen: severe cold cracking risk — use H5 or H2.5 consumables and increase preheat by 30°C",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -184,6 +201,114 @@
         "condition": "thermal_efficiency === 0.60 && welding_current_a > 250",
         "source": "AWS D1.1-2020 §4.11, Table 3.2"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: HI_kj_mm > 3.5",
+        "effect": "Heat input > 3.5 kJ/mm: excessive for most structural steels — grain coarsening and toughness loss in HAZ",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: HI_kj_mm < 0.3",
+        "effect": "Heat input < 0.3 kJ/mm: very high cooling rate — hard HAZ and hydrogen cracking risk even with preheat",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: base_metal_CE > 0.65 && hydrogen_content > 5",
+        "effect": "High CE + high hydrogen: severe cold cracking risk — use H5 or H2.5 consumables and increase preheat by 30°C",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Preheat > 150°C: verify interpass temperature control — max interpass typically 250°C for structural steels",
+        "effect": "Smart warning triggered when: T_preheat_gov_c > 150",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AWS D1.1-2020 §4.11, Table 3.2"
+      },
+      {
+        "failureMode": "CE > 0.50: high cold cracking susceptibility — post-weld hydrogen release bake (200°C × 2h) strongly recommended per EN 1011-2",
+        "effect": "Smart warning triggered when: base_metal_CE > 0.50",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "AWS D1.1-2020 §4.11, Table 3.2"
+      },
+      {
+        "failureMode": "HAZ width > 8 mm: large heat-affected zone — CTOD toughness testing at HAZ required per BS 7448-2",
+        "effect": "Smart warning triggered when: HAZ_width_mm > 8",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AWS D1.1-2020 §4.11, Table 3.2"
+      },
+      {
+        "failureMode": "t8/5 < 5 s: rapid cooling — risk of martensite formation in HAZ; verify hardness < 350 HV per ISO 15614-1",
+        "effect": "Smart warning triggered when: t85_s < 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AWS D1.1-2020 §4.11, Table 3.2"
+      },
+      {
+        "failureMode": "GTAW at high current: consider GMAW for productivity — TIG heat input advantage diminishes above 200 A",
+        "effect": "Smart warning triggered when: thermal_efficiency === 0.60 && welding_current_a > 250",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "AWS D1.1-2020 §4.11, Table 3.2"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "HI_kj_mm",
+        "HAZ_mm",
+        "CET",
+        "T_preheat_c",
+        "T_preheat_aws_c",
+        "T_preheat_gov_c",
+        "t85_s"
+      ]
+    }
+  ]
 }

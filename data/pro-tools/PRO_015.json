@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 5,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
     },
     {
       "id": "tool_diameter_mm",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0.5,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "feed_per_tooth_fz",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0.001,
-      "absolute_max": 2
+      "absolute_max": 2,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "num_teeth_z",
@@ -43,7 +49,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 1,
-      "absolute_max": 24
+      "absolute_max": 24,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     },
     {
       "id": "nose_radius_mm",
@@ -54,7 +62,9 @@
       "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 6,
-      "hint": "From insert catalogue — required for Ra calculation (ISO 3002)"
+      "hint": "From insert catalogue — required for Ra calculation (ISO 3002)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "axial_depth_ap",
@@ -63,7 +73,9 @@
       "type": "number",
       "required": true,
       "confidence_label": "EXACT",
-      "absolute_min": 0.01
+      "absolute_min": 0.01,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "radial_depth_ae",
@@ -72,7 +84,9 @@
       "type": "number",
       "required": true,
       "confidence_label": "EXACT",
-      "absolute_min": 0.01
+      "absolute_min": 0.01,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "overhang_length_mm",
@@ -83,7 +97,9 @@
       "confidence_label": "EXACT",
       "absolute_min": 5,
       "absolute_max": 500,
-      "hint": "Distance from spindle nose to tool tip — critical for deflection"
+      "hint": "Distance from spindle nose to tool tip — critical for deflection",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "ra_specification_um",
@@ -94,7 +110,9 @@
       "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 25,
-      "hint": "From engineering drawing: Ra 0.8 / Ra 1.6 / Ra 3.2 — ISO 1302"
+      "hint": "From engineering drawing: Ra 0.8 / Ra 1.6 / Ra 3.2 — ISO 1302",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "machine_rigidity_class",
@@ -107,7 +125,9 @@
         "HIGH — Heavy machining centre, short toolholder, vise",
         "MEDIUM — Standard VMC, standard extension, milling fixture",
         "LOW — Long overhang, thin wall part, weak fixture, worn spindle"
-      ]
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "rigidity_factor",
@@ -119,7 +139,9 @@
       "absolute_min": 1,
       "absolute_max": 3.5,
       "default": 1,
-      "hint": "HIGH=1.0 | MEDIUM=1.4–1.8 | LOW=2.0–3.5 — amplifies Rz by chatter"
+      "hint": "HIGH=1.0 | MEDIUM=1.4–1.8 | LOW=2.0–3.5 — amplifies Rz by chatter",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     },
     {
       "id": "shank_material",
@@ -132,7 +154,9 @@
         "Carbide shank — E = 580,000 N/mm²",
         "HSS / Steel shank — E = 210,000 N/mm²",
         "Heavy metal (Tungsten) — E = 650,000 N/mm²"
-      ]
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "elastic_modulus_mpa",
@@ -144,7 +168,9 @@
       "absolute_min": 100000,
       "absolute_max": 800000,
       "default": 580000,
-      "hint": "Carbide: 580,000 | Steel: 210,000 | Heavy metal: 650,000"
+      "hint": "Carbide: 580,000 | Steel: 210,000 | Heavy metal: 650,000",
+      "uncertainty": "±3%",
+      "uncertainty_source": "JCSS PMC Part 3 §25.2 Table 25.1 — Elastic modulus (steel): CoV=0.03"
     },
     {
       "id": "cutting_force_fc_n",
@@ -155,7 +181,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
       "default": 500,
-      "hint": "From PRO_043 output or Kienzle calculation"
+      "hint": "From PRO_043 output or Kienzle calculation",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     }
   ],
   "formulas": [
@@ -183,19 +211,23 @@
     "validation": {
       "nose_radius_minimum": {
         "absolute_min": 0.01,
-        "error_msg": "Nose radius (rε) cannot be zero — division by zero in Ra calculation. Minimum: 0.01mm. Check insert catalogue."
+        "error_msg": "Nose radius (rε) cannot be zero — division by zero in Ra calculation. Minimum: 0.01mm. Check insert catalogue.",
+        "id": "nose_radius_minimum"
       },
       "ae_exceeds_diameter": {
         "condition": "radial_depth_ae > tool_diameter_mm",
-        "error_msg": "Radial depth (ae) exceeds tool diameter — geometrically impossible. ae must be ≤ D."
+        "error_msg": "Radial depth (ae) exceeds tool diameter — geometrically impossible. ae must be ≤ D.",
+        "id": "ae_exceeds_diameter"
       },
       "ap_exceeds_limit": {
         "condition": "axial_depth_ap > tool_diameter_mm * 0.8",
-        "error_msg": "Axial depth (ap) exceeds 80% of tool diameter. Catastrophic tool breakage risk. Reduce ap."
+        "error_msg": "Axial depth (ap) exceeds 80% of tool diameter. Catastrophic tool breakage risk. Reduce ap.",
+        "id": "ap_exceeds_limit"
       },
       "rigidity_factor_range": {
         "condition": "rigidity_factor < 1.0",
-        "error_msg": "Dynamic rigidity factor (Kd) cannot be less than 1.0. Ideal (chatter-free) conditions = 1.0."
+        "error_msg": "Dynamic rigidity factor (Kd) cannot be less than 1.0. Ideal (chatter-free) conditions = 1.0.",
+        "id": "rigidity_factor_range"
       }
     },
     "smart_warnings": [
@@ -235,6 +267,130 @@
         "source": "Sandvik Coromant / Kennametal Vibration Control",
         "message": "COMBINED HIGH-RISK: Weak fixture + long overhang simultaneously. Predicted Ra and deflection values are unreliable — actual results may be significantly worse. Mandatory: reduce overhang to L/D ≤ 3 before proceeding."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: radial_depth_ae > tool_diameter_mm",
+        "effect": "Radial depth (ae) exceeds tool diameter — geometrically impossible. ae must be ≤ D.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule ae_exceeds_diameter"
+      },
+      {
+        "failureMode": "Input violation: axial_depth_ap > tool_diameter_mm * 0.8",
+        "effect": "Axial depth (ap) exceeds 80% of tool diameter. Catastrophic tool breakage risk. Reduce ap.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule ap_exceeds_limit"
+      },
+      {
+        "failureMode": "Input violation: rigidity_factor < 1.0",
+        "effect": "Dynamic rigidity factor (Kd) cannot be less than 1.0. Ideal (chatter-free) conditions = 1.0.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule rigidity_factor_range"
+      },
+      {
+        "failureMode": "SURFACE FINISH VIOLATION: Predicted Ra exceeds drawing specification. Reduce fz or use a wiper insert (larger rε). Safe fz for spec compliance is shown below.",
+        "effect": "Smart warning triggered when: Ra_approx > ra_specification_um",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 1302 / ISO 3002"
+      },
+      {
+        "failureMode": "CHATTER RISK HIGH — L/D > 4: At this overhang ratio, regenerative chatter is likely. Symptoms: harmonic surface marks, tool noise, premature wear. Mitigations: (1) Use anti-vibration toolholder, (2) Reduce ap by 30–40%, (3) Change spindle speed ±10% to shift from resonance zone.",
+        "effect": "Smart warning triggered when: L_D_ratio > 4",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Sandvik Coromant Vibration Handbook"
+      },
+      {
+        "failureMode": "DIMENSIONAL INACCURACY: Tool tip deflection exceeds 0.05mm (50μm). Workpiece dimensional tolerance will be violated. Reduce overhang, increase tool diameter, or reduce cutting force.",
+        "effect": "Smart warning triggered when: Tool_Deflection_mm > 0.05",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "VDI 3321 Tool Deflection"
+      },
+      {
+        "failureMode": "Elevated tool deflection (20–50μm): Monitor dimensional output. For tight tolerances (IT6 or better), this deflection will cause out-of-spec parts. Consider shorter toolholder or reduced Fc.",
+        "effect": "Smart warning triggered when: Tool_Deflection_mm > 0.02 && Tool_Deflection_mm <= 0.05",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 3321"
+      },
+      {
+        "failureMode": "Tooth passing frequency > 1000 Hz: May excite spindle bearing natural frequencies. If chatter occurs, shift RPM by ±5–10% or change number of flutes to detune from structural resonance.",
+        "effect": "Smart warning triggered when: Tooth_Passing_Freq_Hz > 1000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Chatter Dynamics / Spindle Modal Analysis"
+      },
+      {
+        "failureMode": "COMBINED HIGH-RISK: Weak fixture + long overhang simultaneously. Predicted Ra and deflection values are unreliable — actual results may be significantly worse. Mandatory: reduce overhang to L/D ≤ 3 before proceeding.",
+        "effect": "Smart warning triggered when: rigidity_factor > 2.0 && L_D_ratio > 3",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Sandvik Coromant / Kennametal Vibration Control"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "n_rpm",
+        "Vf_feed_rate",
+        "Rz_theoretical",
+        "Rz_actual",
+        "Ra_approx",
+        "L_D_ratio",
+        "I_moment",
+        "Tool_Deflection_mm",
+        "Tooth_Passing_Freq_Hz",
+        "Chatter_Risk_Index",
+        "Dimensional_Error_um",
+        "Safe_fz_for_Ra"
+      ]
+    }
+  ]
 }

@@ -46,7 +46,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": "M12"
+      "default": "M12",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "property_class",
@@ -69,7 +71,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": "10.9"
+      "default": "10.9",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "mu_friction",
@@ -81,7 +85,9 @@
       "default": 0.12,
       "absolute_min": 0.06,
       "absolute_max": 0.35,
-      "note": "VDI 2230 Table A5: dry steel = 0.14–0.18; MoS₂ = 0.06–0.10; zinc-phosphate = 0.09–0.14"
+      "note": "VDI 2230 Table A5: dry steel = 0.14–0.18; MoS₂ = 0.06–0.10; zinc-phosphate = 0.09–0.14",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "utilisation_pct",
@@ -93,7 +99,9 @@
       "default": 90,
       "absolute_min": 50,
       "absolute_max": 100,
-      "note": "VDI 2230 §5.3.1: controlled torque tightening → 90%; torque-angle → 95–100%"
+      "note": "VDI 2230 §5.3.1: controlled torque tightening → 90%; torque-angle → 95–100%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "preload_loss_pct",
@@ -105,7 +113,9 @@
       "default": 8,
       "absolute_min": 3,
       "absolute_max": 25,
-      "note": "VDI 2230 Table 5: machined surfaces = 5–10%; rough cast = 15–25%; plastic inserter = 20%"
+      "note": "VDI 2230 Table 5: machined surfaces = 5–10%; rough cast = 15–25%; plastic inserter = 20%",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "FA_kn",
@@ -115,7 +125,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "phi_force_ratio",
@@ -127,7 +139,9 @@
       "default": 0.3,
       "absolute_min": 0.1,
       "absolute_max": 1,
-      "note": "VDI 2230 §4.2: concentric bolt through long joint → Φ≈0.1; direct shear plane → Φ≈0.5"
+      "note": "VDI 2230 §4.2: concentric bolt through long joint → Φ≈0.1; direct shear plane → Φ≈0.5",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     }
   ],
   "formulas": [
@@ -147,15 +161,18 @@
     "validation": {
       "V1": {
         "condition": "SA < 1.0",
-        "error_msg": "Joint separation: clamp force exhausted by working load — increase preload (larger bolt, higher class), reduce F_A, or increase bolt count"
+        "error_msg": "Joint separation: clamp force exhausted by working load — increase preload (larger bolt, higher class), reduce F_A, or increase bolt count",
+        "id": "V1"
       },
       "V2": {
         "condition": "FM_kn > F_proof_kn",
-        "error_msg": "Assembly preload exceeds proof load: bolt will yield on tightening — reduce utilisation to max 95% or select 10.9/12.9 class"
+        "error_msg": "Assembly preload exceeds proof load: bolt will yield on tightening — reduce utilisation to max 95% or select 10.9/12.9 class",
+        "id": "V2"
       },
       "V3": {
         "condition": "SA < 1.2",
-        "error_msg": "Separation safety factor < 1.2: marginal joint — VDI 2230 minimum S_A = 1.2 for reliable sealing and fatigue resistance"
+        "error_msg": "Separation safety factor < 1.2: marginal joint — VDI 2230 minimum S_A = 1.2 for reliable sealing and fatigue resistance",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -194,6 +211,116 @@
         "condition": "utilisation_pct < 70",
         "source": "VDI 2230:2015 Part 1"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: SA < 1.0",
+        "effect": "Joint separation: clamp force exhausted by working load — increase preload (larger bolt, higher class), reduce F_A, or increase bolt count",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: FM_kn > F_proof_kn",
+        "effect": "Assembly preload exceeds proof load: bolt will yield on tightening — reduce utilisation to max 95% or select 10.9/12.9 class",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: SA < 1.2",
+        "effect": "Separation safety factor < 1.2: marginal joint — VDI 2230 minimum S_A = 1.2 for reliable sealing and fatigue resistance",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Bolt fatigue amplitude > 50 MPa: high fatigue loading — check against VDI 2230 Haigh diagram; apply thread-rolling (fatigue limit improvement ~30%) or increase bolt diameter",
+        "effect": "Smart warning triggered when: sigma_a_mpa > 50",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "VDI 2230:2015 Part 1"
+      },
+      {
+        "failureMode": "Very low friction coefficient: self-loosening risk in vibration environments — evaluate NORD-LOCK washers or anaerobic adhesive per VDI 2230 §3.5",
+        "effect": "Smart warning triggered when: mu_friction < 0.08",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 2230:2015 Part 1"
+      },
+      {
+        "failureMode": "12.9 class with low friction: hydrogen embrittlement risk in acidic environments — verify plating and service environment compatibility per ISO 4042",
+        "effect": "Smart warning triggered when: property_class === '12.9' && mu_friction < 0.10",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 2230:2015 Part 1"
+      },
+      {
+        "failureMode": "High embedding loss (>15%): rough or soft interface — machine mating surfaces or add hardened washer to reduce embedding; re-torque protocol recommended after 48h",
+        "effect": "Smart warning triggered when: preload_loss_pct > 15",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 2230:2015 Part 1"
+      },
+      {
+        "failureMode": "Low utilisation (<70%): bolt is underloaded — susceptible to fatigue and loosening; increase preload per VDI 2230 §5.3 or reduce to smaller bolt diameter",
+        "effect": "Smart warning triggered when: utilisation_pct < 70",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "VDI 2230:2015 Part 1"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "A_s",
+        "Rp02",
+        "F_proof_kn",
+        "FM_kn",
+        "MA_Nm",
+        "FVmin_kn",
+        "SA",
+        "dFA_kn",
+        "sigma_a_mpa"
+      ]
+    }
+  ]
 }

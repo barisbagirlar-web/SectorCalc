@@ -1,0 +1,385 @@
+{
+  "tool_id": "PRO_102",
+  "tool_name": "Precision Boring & Reaming — ISO Fit Selection, Tolerance Band & Achievable Surface Roughness",
+  "category": "CNC Machining / Precision Engineering / Metrology",
+  "scope": "single_operation",
+  "primary_operation": "boring_reaming",
+  "inputs": [
+    {
+      "id": "nominal_diameter_mm",
+      "name": "Nominal Bore Diameter (D)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 1,
+      "absolute_max": 3150,
+      "note": "ISO 286-1 diameter steps: ≤3 / 3–6 / 6–10 / 10–18 / 18–30 / 30–50 / 50–80 / 80–120 mm",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
+    },
+    {
+      "id": "ISO_hole_tolerance",
+      "name": "ISO Hole Tolerance Grade (IT Grade)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "IT5 — Precision bearings, gauge bores (Ra ≤ 0.4 µm)",
+          "value": 5
+        },
+        {
+          "label": "IT6 — General precision, ball bearings (Ra ≤ 0.8 µm)",
+          "value": 6
+        },
+        {
+          "label": "IT7 — Standard fits, sliding/location (Ra ≤ 1.6 µm)",
+          "value": 7
+        },
+        {
+          "label": "IT8 — Medium precision, loose fits (Ra ≤ 3.2 µm)",
+          "value": 8
+        },
+        {
+          "label": "IT9 — Coarse press fits, rough bores (Ra ≤ 6.3 µm)",
+          "value": 9
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 7,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "hole_fundamental_deviation",
+      "name": "Hole Fundamental Deviation (Position Code)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "H — Zero lower deviation (standard hole basis)",
+          "value": "H"
+        },
+        {
+          "label": "G — Small positive clearance",
+          "value": "G"
+        },
+        {
+          "label": "F — Running fits",
+          "value": "F"
+        },
+        {
+          "label": "N — Transition, interference possible",
+          "value": "N"
+        },
+        {
+          "label": "P — Light press fit",
+          "value": "P"
+        },
+        {
+          "label": "K — Transition fit",
+          "value": "K"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "H",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "shaft_designation",
+      "name": "Mating Shaft Designation (e.g. h6, f7, k6)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "h6 — Precision sliding / location clearance",
+          "value": "h6"
+        },
+        {
+          "label": "h7 — Standard clearance fit",
+          "value": "h7"
+        },
+        {
+          "label": "f7 — Easy running fit",
+          "value": "f7"
+        },
+        {
+          "label": "g6 — Close running fit",
+          "value": "g6"
+        },
+        {
+          "label": "k6 — Transition / light press",
+          "value": "k6"
+        },
+        {
+          "label": "p6 — Press fit (permanent assembly)",
+          "value": "p6"
+        },
+        {
+          "label": "s6 — Force fit",
+          "value": "s6"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "h6",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "boring_tool",
+      "name": "Boring / Reaming Operation",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Fine boring (CBN/carbide) — IT5–IT6, Ra 0.2–0.8 µm",
+          "value": "fine_boring"
+        },
+        {
+          "label": "Reaming (HSS/carbide) — IT6–IT7, Ra 0.4–1.6 µm",
+          "value": "reaming"
+        },
+        {
+          "label": "Rough boring — IT9–IT11, Ra 3.2–12.5 µm",
+          "value": "rough_boring"
+        },
+        {
+          "label": "Honing after boring — IT5–IT6, Ra 0.05–0.4 µm",
+          "value": "honing"
+        }
+      ],
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": "reaming",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "Vc_m_min",
+      "name": "Cutting Speed (V_c)",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 80,
+      "absolute_min": 5,
+      "absolute_max": 500,
+      "note": "Reaming steel: 8–15 m/min; boring steel: 60–180 m/min; boring aluminium: 200–500 m/min",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    },
+    {
+      "id": "feed_per_rev_mm",
+      "name": "Feed per Revolution (f_r)",
+      "unit": "mm/rev",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.1,
+      "absolute_min": 0.005,
+      "absolute_max": 2,
+      "note": "Reaming: 0.1–0.5 mm/rev; fine boring: 0.03–0.15 mm/rev; rough boring: 0.2–1.0 mm/rev",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    }
+  ],
+  "formulas": [
+    "D_mean = Math.sqrt(Math.max(1, nominal_diameter_mm - 3) * nominal_diameter_mm); i_micron = 0.45 * Math.pow(D_mean, 1/3) + 0.001 * D_mean; const IT_factor = {5:7, 6:10, 7:16, 8:25, 9:40}; IT_um = IT_factor[ISO_hole_tolerance] * i_micron  // [µm] — IT Tolerance Value (IT) for Nominal Diameter — Ref: ISO 286-1:2010 §4.2 — IT = c × i; i = 0.45·D_mean^(1/3) + 0.001·D_mean; IT7 factor = 16",
+    "EI_um = 0; ES_um = IT_um; bore_min_mm = nominal_diameter_mm + EI_um/1000; bore_max_mm = nominal_diameter_mm + ES_um/1000  // [mm] — Hole Limits (Upper and Lower Deviation for H-basis) — Ref: ISO 286-1 — H basis: EI = 0 (lower deviation); ES = +IT; bore Φ_min to Φ_max",
+    "const shaft_offsets = {h6:{ei:-IT_um*0.4, es:0}, h7:{ei:-IT_um*0.6, es:0}, f7:{ei:-IT_um*1.6, es:-IT_um}, g6:{ei:-IT_um*0.7, es:-IT_um*0.3}, k6:{ei:0, es:IT_um*0.5}, p6:{ei:IT_um*0.5, es:IT_um*1.2}, s6:{ei:IT_um*1.2, es:IT_um*2.0}}; const sf = shaft_offsets[shaft_designation]; shaft_min_mm = nominal_diameter_mm + sf.ei/1000; shaft_max_mm = nominal_diameter_mm + sf.es/1000  // [mm] — Typical Shaft Tolerance Band (for common fits) — Ref: ISO 286-1 Table 3 — shaft fundamental deviations; approximate for common designations",
+    "max_clearance_um = (bore_max_mm - shaft_min_mm) * 1000; min_clearance_um = (bore_min_mm - shaft_max_mm) * 1000  // [µm] — Fit Limits — Maximum Clearance & Maximum Interference — Ref: Clearance > 0 = clearance fit; < 0 = interference; between = transition — ISO 286-1 §3",
+    "n_rpm = Vc_m_min * 1000 / (Math.PI * nominal_diameter_mm); Vf_mm_min = n_rpm * feed_per_rev_mm  // [rpm, mm/min] — Spindle Speed & Table Feed Rate — Ref: n = V_c × 1000 / (π × D); V_f = n × f_r — machining parameter calculation",
+    "const Ra_cap = {fine_boring:[0.2,0.8], reaming:[0.4,1.6], rough_boring:[3.2,12.5], honing:[0.05,0.4]}; const rc = Ra_cap[boring_tool]; Ra_achievable_min=rc[0]; Ra_achievable_max=rc[1]; const IT_Ra_map = {5:0.4, 6:0.8, 7:1.6, 8:3.2, 9:6.3}; Ra_req_max = IT_Ra_map[ISO_hole_tolerance]; process_capable = Ra_achievable_max <= Ra_req_max  // [µm, µm, boolean] — Achievable Ra & Process Capability Check — Ref: ISO 2768 / Kalpakjian §26 — surface roughness vs IT grade correlation; process must achieve Ra ≤ Ra_req"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 286-1:2010",
+      "ISO 286-2:2010 (preferred fits)",
+      "ISO 2768-1:1989",
+      "ASME B4.1-1967 (R2018)",
+      "DIN 7162:1963"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "!process_capable",
+          "action": "WARN",
+          "message": "Selected boring/reaming process cannot achieve required Ra for specified IT grade — upgrade to finer process (e.g., add honing after boring for IT5/IT6)"
+        },
+        {
+          "id": "V2",
+          "condition": "min_clearance_um > 200 && shaft_designation !== 'f7'",
+          "action": "WARN",
+          "message": "Minimum clearance > 200 µm: very loose fit — verify shaft designation is correct; this may cause bearing misalignment or excessive play"
+        },
+        {
+          "id": "V3",
+          "condition": "Vf_mm_min > 500 && boring_tool === 'reaming'",
+          "action": "WARN",
+          "message": "Table feed > 500 mm/min for reaming: excessive — maximum feed for reaming is typically 150 mm/min; higher feeds cause chatter marks and dimensional errors"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Unexpected interference fit: verify shaft designation — transition fits (k6) can have interference but assembly may require press or thermal expansion method",
+        "condition": "min_clearance_um < -50 && shaft_designation !== 'p6' && shaft_designation !== 's6'"
+      },
+      {
+        "id": "W2",
+        "severity": "CRITICAL",
+        "message": "IT tolerance < 10 µm required but rough boring selected: this process cannot hold ≤ IT5 — mandatory fine boring or honing; tool setup and thermal stabilisation critical",
+        "condition": "IT_um < 10 && boring_tool === 'rough_boring'"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Large bore (D > 500 mm) with tight IT6 tolerance: thermal expansion alone can exceed IT value — workpiece must be measured at 20°C ±1°C per ISO 1 temperature standard",
+        "condition": "nominal_diameter_mm > 500 && ISO_hole_tolerance <= 6"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Reaming speed > 150 m/min: built-up edge and chatter risk — reaming is inherently a low-speed finishing process; reduce to 8–15 m/min for steel, 30–50 m/min for aluminium",
+        "condition": "Vc_m_min > 150 && boring_tool === 'reaming'"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Wide clearance band relative to IT: verify mating shaft tolerance is correctly specified — total system clearance variation may affect running accuracy or press-fit security",
+        "condition": "max_clearance_um - min_clearance_um > IT_um * 3"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Parameter warning: !process_capable",
+        "effect": "Selected boring/reaming process cannot achieve required Ra for specified IT grade — upgrade to finer process (e.g., add honing after boring for IT5/IT6)",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V1"
+      },
+      {
+        "failureMode": "Parameter warning: min_clearance_um > 200 && shaft_designation !== 'f7'",
+        "effect": "Minimum clearance > 200 µm: very loose fit — verify shaft designation is correct; this may cause bearing misalignment or excessive play",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: Vf_mm_min > 500 && boring_tool === 'reaming'",
+        "effect": "Table feed > 500 mm/min for reaming: excessive — maximum feed for reaming is typically 150 mm/min; higher feeds cause chatter marks and dimensional errors",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Unexpected interference fit: verify shaft designation — transition fits (k6) can have interference but assembly may require press or thermal expansion method",
+        "effect": "Smart warning triggered when: min_clearance_um < -50 && shaft_designation !== 'p6' && shaft_designation !== 's6'",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "IT tolerance < 10 µm required but rough boring selected: this process cannot hold ≤ IT5 — mandatory fine boring or honing; tool setup and thermal stabilisation critical",
+        "effect": "Smart warning triggered when: IT_um < 10 && boring_tool === 'rough_boring'",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Large bore (D > 500 mm) with tight IT6 tolerance: thermal expansion alone can exceed IT value — workpiece must be measured at 20°C ±1°C per ISO 1 temperature standard",
+        "effect": "Smart warning triggered when: nominal_diameter_mm > 500 && ISO_hole_tolerance <= 6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Reaming speed > 150 m/min: built-up edge and chatter risk — reaming is inherently a low-speed finishing process; reduce to 8–15 m/min for steel, 30–50 m/min for aluminium",
+        "effect": "Smart warning triggered when: Vc_m_min > 150 && boring_tool === 'reaming'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Wide clearance band relative to IT: verify mating shaft tolerance is correctly specified — total system clearance variation may affect running accuracy or press-fit security",
+        "effect": "Smart warning triggered when: max_clearance_um - min_clearance_um > IT_um * 3",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "D_mean",
+        "i_micron",
+        "IT_factor",
+        "IT_um",
+        "EI_um",
+        "ES_um",
+        "bore_min_mm",
+        "bore_max_mm",
+        "shaft_offsets",
+        "sf",
+        "shaft_min_mm",
+        "shaft_max_mm",
+        "max_clearance_um",
+        "min_clearance_um",
+        "n_rpm",
+        "Vf_mm_min",
+        "Ra_cap",
+        "rc",
+        "Ra_achievable_min",
+        "Ra_achievable_max",
+        "IT_Ra_map",
+        "Ra_req_max",
+        "process_capable"
+      ]
+    }
+  ]
+}

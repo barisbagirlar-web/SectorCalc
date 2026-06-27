@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 300
+      "absolute_max": 300,
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
     },
     {
       "id": "pipe_OD_mm",
@@ -24,7 +26,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 25,
       "absolute_max": 1500,
-      "note": "API 5L / ISO 3183 standard sizes: DN50–DN1400"
+      "note": "API 5L / ISO 3183 standard sizes: DN50–DN1400",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "SMYS_mpa",
@@ -59,7 +63,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 414
+      "default": 414,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "location_class",
@@ -87,7 +93,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 1,
-      "note": "ASME B31.8 §841.114 — design factor F per location class"
+      "note": "ASME B31.8 §841.114 — design factor F per location class",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "joint_factor_E",
@@ -106,7 +114,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 1
+      "default": 1,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "temperature_derating_T",
@@ -129,7 +139,9 @@
       ],
       "required": true,
       "confidence_label": "GÜÇLÜ",
-      "default": 1
+      "default": 1,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "corrosion_allowance_mm",
@@ -140,7 +152,9 @@
       "confidence_label": "VARSAYIM",
       "default": 3,
       "absolute_min": 0,
-      "absolute_max": 15
+      "absolute_max": 15,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "mill_tolerance_pct",
@@ -151,7 +165,9 @@
       "confidence_label": "VARSAYIM",
       "default": 12.5,
       "absolute_min": 0,
-      "absolute_max": 15
+      "absolute_max": 15,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     }
   ],
   "formulas": [
@@ -172,15 +188,18 @@
     "validation": {
       "V1": {
         "condition": "Dt_ratio > 100",
-        "error_msg": "D/t > 100: Barlow membrane formula loses accuracy — consult API RP 1111 for thin-wall pipes"
+        "error_msg": "D/t > 100: Barlow membrane formula loses accuracy — consult API RP 1111 for thin-wall pipes",
+        "id": "V1"
       },
       "V2": {
         "condition": "safety_margin < 1.5",
-        "error_msg": "Burst-to-MAOP margin < 1.5: insufficient structural reserve — increase wall thickness"
+        "error_msg": "Burst-to-MAOP margin < 1.5: insufficient structural reserve — increase wall thickness",
+        "id": "V2"
       },
       "V3": {
         "condition": "t_min_mm < 3.0 && pipe_OD_mm > 300",
-        "error_msg": "Very thin wall on large-diameter pipe: handling and installation damage risk — minimum 4 mm recommended per pipeline construction practice"
+        "error_msg": "Very thin wall on large-diameter pipe: handling and installation damage risk — minimum 4 mm recommended per pipeline construction practice",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -226,6 +245,126 @@
         "condition": "MAOP_bar > 150 && location_class >= 2",
         "source": "ASME B31.8-2022 §841"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: Dt_ratio > 100",
+        "effect": "D/t > 100: Barlow membrane formula loses accuracy — consult API RP 1111 for thin-wall pipes",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: safety_margin < 1.5",
+        "effect": "Burst-to-MAOP margin < 1.5: insufficient structural reserve — increase wall thickness",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: t_min_mm < 3.0 && pipe_OD_mm > 300",
+        "effect": "Very thin wall on large-diameter pipe: handling and installation damage risk — minimum 4 mm recommended per pipeline construction practice",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Location class mismatch: Class 3/4 requires F≤0.50 per ASME B31.8 §841.114 — re-enter correct location class",
+        "effect": "Smart warning triggered when: location_class >= 3 && F_factor === 0.72",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASME B31.8-2022 §841"
+      },
+      {
+        "failureMode": "Burst margin < 2.0×MAOP: marginal for Class 1 service — consider corrosion management plan per NACE SP0169",
+        "effect": "Smart warning triggered when: safety_margin < 2.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASME B31.8-2022 §841"
+      },
+      {
+        "failureMode": "Low CA on high-pressure pipeline: establish inline inspection (ILI) baseline within first 5 years per API RP 1163",
+        "effect": "Smart warning triggered when: corrosion_allowance_mm < 1.5 && MAOP_bar > 70",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASME B31.8-2022 §841"
+      },
+      {
+        "failureMode": "ERW pipe above X60: verify seam weld toughness qualification per ISO 3183 PSL2 CVN requirements",
+        "effect": "Smart warning triggered when: joint_factor_E < 1.0 && SMYS_mpa > 414",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASME B31.8-2022 §841"
+      },
+      {
+        "failureMode": "D/t < 15: heavy-wall pipe — evaluate buckle propagation arrest capacity per API RP 1111 §4.3 for offshore or steep terrain",
+        "effect": "Smart warning triggered when: Dt_ratio < 15",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASME B31.8-2022 §841"
+      },
+      {
+        "failureMode": "High MAOP in populated area: quantitative risk assessment (QRA) may be required by local authority",
+        "effect": "Smart warning triggered when: MAOP_bar > 150 && location_class >= 2",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASME B31.8-2022 §841"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "F_factor",
+        "P_mpa",
+        "t_min_mm",
+        "t_nominal_mm",
+        "Dt_ratio",
+        "t_eff_mm",
+        "P_burst_bar",
+        "safety_margin"
+      ]
+    }
+  ]
 }

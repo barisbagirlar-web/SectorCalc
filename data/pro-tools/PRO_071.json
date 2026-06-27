@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.1,
-      "absolute_max": 100000
+      "absolute_max": 100000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "retract_force_kn",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0,
-      "absolute_max": 100000
+      "absolute_max": 100000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "system_pressure_bar",
@@ -34,7 +38,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 10,
       "absolute_max": 700,
-      "note": "Industrial hydraulic: 150–350 bar; mobile: 250–450 bar; high-pressure: up to 700 bar"
+      "note": "Industrial hydraulic: 150–350 bar; mobile: 250–450 bar; high-pressure: up to 700 bar",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
     },
     {
       "id": "back_pressure_bar",
@@ -46,7 +52,9 @@
       "default": 5,
       "absolute_min": 0,
       "absolute_max": 100,
-      "note": "Tank line back pressure; typical 3–10 bar; higher with counterbalance valves"
+      "note": "Tank line back pressure; typical 3–10 bar; higher with counterbalance valves",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
     },
     {
       "id": "stroke_mm",
@@ -56,7 +64,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 20000
+      "absolute_max": 20000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "extend_speed_mm_s",
@@ -66,7 +76,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 2000
+      "absolute_max": 2000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
     },
     {
       "id": "mounting_condition",
@@ -94,7 +106,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 1,
-      "note": "Most hydraulic cylinders: pin-pin (k=1.0) or fixed-pin (k=0.7) per ISO 6020 mounting"
+      "note": "Most hydraulic cylinders: pin-pin (k=1.0) or fixed-pin (k=0.7) per ISO 6020 mounting",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "rod_material_yield_mpa",
@@ -117,7 +131,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 650
+      "default": 650,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -139,15 +155,18 @@
     "validation": {
       "V1": {
         "condition": "SF_buck < 3.0",
-        "error_msg": "Buckling safety factor < 3.0: rod buckling risk — increase rod diameter, reduce effective length, or change mounting to fixed-pinned (k=0.7)"
+        "error_msg": "Buckling safety factor < 3.0: rod buckling risk — increase rod diameter, reduce effective length, or change mounting to fixed-pinned (k=0.7)",
+        "id": "V1"
       },
       "V2": {
         "condition": "rod_util > 1.0",
-        "error_msg": "Rod compressive stress exceeds allowable (S_y/2): rod failure risk — increase rod diameter or upgrade material grade"
+        "error_msg": "Rod compressive stress exceeds allowable (S_y/2): rod failure risk — increase rod diameter or upgrade material grade",
+        "id": "V2"
       },
       "V3": {
         "condition": "D_rod_mm > D_bore_mm * 0.7",
-        "error_msg": "Rod diameter > 70% of bore: very small annular area — retraction force may be inadequate; consider differential circuit or tandem cylinder"
+        "error_msg": "Rod diameter > 70% of bore: very small annular area — retraction force may be inadequate; consider differential circuit or tandem cylinder",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -186,6 +205,124 @@
         "condition": "back_pressure_bar > 20",
         "source": "ISO 6020-2:2015 (cylinder dimensions)"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: SF_buck < 3.0",
+        "effect": "Buckling safety factor < 3.0: rod buckling risk — increase rod diameter, reduce effective length, or change mounting to fixed-pinned (k=0.7)",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: rod_util > 1.0",
+        "effect": "Rod compressive stress exceeds allowable (S_y/2): rod failure risk — increase rod diameter or upgrade material grade",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: D_rod_mm > D_bore_mm * 0.7",
+        "effect": "Rod diameter > 70% of bore: very small annular area — retraction force may be inadequate; consider differential circuit or tandem cylinder",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Low buckling SF at high speed: dynamic loads from deceleration shock amplify column force — target SF ≥ 5 for speeds > 200 mm/s per Parker handbook §4",
+        "effect": "Smart warning triggered when: SF_buck < 5 && extend_speed_mm_s > 200",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6020-2:2015 (cylinder dimensions)"
+      },
+      {
+        "failureMode": "Flow demand > 200 L/min: verify pump capacity and line sizing — pressure drop in supply line will reduce effective force; use ΔP = 0.003 L/D·v²·ρ for line check",
+        "effect": "Smart warning triggered when: Q_ext_lpm > 200",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ISO 6020-2:2015 (cylinder dimensions)"
+      },
+      {
+        "failureMode": "System pressure > 350 bar: high-pressure category — NFPA T3.6.7 Class 5000 psi seals and fittings required; hydraulic shock transients may exceed 500 bar",
+        "effect": "Smart warning triggered when: system_pressure_bar > 350",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6020-2:2015 (cylinder dimensions)"
+      },
+      {
+        "failureMode": "Long stroke with pin-pin mounting: effective buckling length equals full stroke — consider intermediate rod support or reduce to fixed-pin mounting",
+        "effect": "Smart warning triggered when: stroke_mm > 3000 && mounting_condition >= 1.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6020-2:2015 (cylinder dimensions)"
+      },
+      {
+        "failureMode": "Back pressure > 20 bar: high counterbalance valve setting — reduces net extension force significantly; verify thermal relief valve setting is ≥ P_back + 20% per ISO 6022",
+        "effect": "Smart warning triggered when: back_pressure_bar > 20",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6020-2:2015 (cylinder dimensions)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "P_net_bar",
+        "A_bore_cm2",
+        "D_bore_mm",
+        "A_bore_m2",
+        "A_ann_req_m2",
+        "A_rod_m2",
+        "D_rod_mm",
+        "A_bore_m2_act",
+        "Q_ext_lpm",
+        "E_steel",
+        "I_rod",
+        "L_eff_mm",
+        "F_cr_kn",
+        "SF_buck",
+        "A_rod_act_mm2",
+        "sigma_rod_mpa",
+        "rod_util"
+      ]
+    }
+  ]
 }

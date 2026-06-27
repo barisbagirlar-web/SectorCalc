@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 25,
-      "absolute_max": 3000
+      "absolute_max": 3000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "T_install_c",
@@ -24,7 +26,9 @@
       "confidence_label": "KESİN",
       "default": 20,
       "absolute_min": -50,
-      "absolute_max": 200
+      "absolute_max": 200,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_operating_c",
@@ -34,7 +38,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -200,
-      "absolute_max": 800
+      "absolute_max": 800,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "pipe_length_m",
@@ -44,7 +50,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "pipe_material",
@@ -79,7 +87,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 11.7
+      "default": 11.7,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "design_pressure_bar",
@@ -89,7 +99,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0,
-      "absolute_max": 400
+      "absolute_max": 400,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
     },
     {
       "id": "num_convolutions",
@@ -101,7 +113,9 @@
       "default": 5,
       "absolute_min": 1,
       "absolute_max": 30,
-      "note": "More convolutions → lower spring rate, higher cycle life, lower stress per cycle"
+      "note": "More convolutions → lower spring rate, higher cycle life, lower stress per cycle",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     },
     {
       "id": "bellows_material_yield_mpa",
@@ -113,7 +127,9 @@
       "default": 205,
       "absolute_min": 100,
       "absolute_max": 800,
-      "note": "SS316L at 20°C → 205 MPa; at 400°C → 140 MPa; Inconel 625 → 415 MPa"
+      "note": "SS316L at 20°C → 205 MPa; at 400°C → 140 MPa; Inconel 625 → 415 MPa",
+      "uncertainty": "±7%",
+      "uncertainty_source": "JCSS PMC Part 3 §25.2 Table 25.1 — Yield/ultimate strength (steel): CoV=0.07"
     }
   ],
   "formulas": [
@@ -134,15 +150,18 @@
     "validation": {
       "V1": {
         "condition": "delta_req_mm > num_convolutions * 15",
-        "error_msg": "Required displacement exceeds convolution capacity (15 mm/conv limit): add convolutions, use two expansion joints, or reduce anchor spacing"
+        "error_msg": "Required displacement exceeds convolution capacity (15 mm/conv limit): add convolutions, use two expansion joints, or reduce anchor spacing",
+        "id": "V1"
       },
       "V2": {
         "condition": "sigma_m_mpa > bellows_material_yield_mpa * 0.8",
-        "error_msg": "Meridional stress > 80% yield: very short fatigue life — increase convolution count or specify lower spring rate bellows with larger crown height"
+        "error_msg": "Meridional stress > 80% yield: very short fatigue life — increase convolution count or specify lower spring rate bellows with larger crown height",
+        "id": "V2"
       },
       "V3": {
         "condition": "N_life < 1000 && design_pressure_bar > 0",
-        "error_msg": "Fatigue life < 1000 cycles: bellows will fail rapidly — review displacement calculation; consider tied or hinged joint if lateral movement is present"
+        "error_msg": "Fatigue life < 1000 cycles: bellows will fail rapidly — review displacement calculation; consider tied or hinged joint if lateral movement is present",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -181,6 +200,119 @@
         "condition": "N_life < 10000",
         "source": "EJMA Standards 10th Ed."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: delta_req_mm > num_convolutions * 15",
+        "effect": "Required displacement exceeds convolution capacity (15 mm/conv limit): add convolutions, use two expansion joints, or reduce anchor spacing",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: sigma_m_mpa > bellows_material_yield_mpa * 0.8",
+        "effect": "Meridional stress > 80% yield: very short fatigue life — increase convolution count or specify lower spring rate bellows with larger crown height",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: N_life < 1000 && design_pressure_bar > 0",
+        "effect": "Fatigue life < 1000 cycles: bellows will fail rapidly — review displacement calculation; consider tied or hinged joint if lateral movement is present",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Anchor load > 500 kN: large main anchors required — pressure thrust on unrestrained bellows is major structural load; evaluate tied universal expansion joint to eliminate thrust",
+        "effect": "Smart warning triggered when: F_anchor_kn > 500",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EJMA Standards 10th Ed."
+      },
+      {
+        "failureMode": "Carbon steel above 450°C: creep domain — ASME B31.3 requires time-dependent allowable stress; verify bellows material rating at temperature",
+        "effect": "Smart warning triggered when: T_operating_c > 450 && pipe_material === 11.7",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "EJMA Standards 10th Ed."
+      },
+      {
+        "failureMode": "High pressure with few convolutions: instability risk — EJMA §7 squirm (in-plane and column) must be checked; add internal sleeve for pressure > 40 bar",
+        "effect": "Smart warning triggered when: design_pressure_bar > 40 && num_convolutions < 3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EJMA Standards 10th Ed."
+      },
+      {
+        "failureMode": "Large displacement with few convolutions: excessive stress per convolution — minimum 6 convolutions for δ > 50 mm per EJMA design practice",
+        "effect": "Smart warning triggered when: delta_req_mm > 50 && num_convolutions < 6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EJMA Standards 10th Ed."
+      },
+      {
+        "failureMode": "Fatigue life < 10,000 cycles: limited life joint — document replacement interval in maintenance plan; N_life cycles at operating temperature ΔT per EJMA C",
+        "effect": "Smart warning triggered when: N_life < 10000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EJMA Standards 10th Ed."
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "delta_T",
+        "delta_axial_mm",
+        "delta_req_mm",
+        "D_m_mm",
+        "t_bellow_mm",
+        "f_ax_n_mm",
+        "F_pressure_kn",
+        "F_spring_kn",
+        "F_anchor_kn",
+        "sigma_m_mpa",
+        "stress_ratio",
+        "N_life"
+      ]
+    }
+  ]
 }

@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0,
-      "default": 0
+      "default": 0,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "vol_footing_m3",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0,
-      "default": 0
+      "default": 0,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "vol_column_m3",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0,
-      "default": 0
+      "default": 0,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "rebar_volume_pct",
@@ -45,7 +51,9 @@
       "absolute_min": 0,
       "absolute_max": 8,
       "default": 2,
-      "hint": "Lightly reinforced: 1% | Standard: 2–3% | Heavily reinforced: 4–5%"
+      "hint": "Lightly reinforced: 1% | Standard: 2–3% | Heavily reinforced: 4–5%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "pour_waste_pct",
@@ -57,7 +65,9 @@
       "absolute_min": 0,
       "absolute_max": 15,
       "default": 5,
-      "hint": "Standard: 5% | Complex formwork: 7–10% | Pumped slabs: 3–5%"
+      "hint": "Standard: 5% | Complex formwork: 7–10% | Pumped slabs: 3–5%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "cement_content_kg_m3",
@@ -68,7 +78,10 @@
       "confidence_label": "EXACT",
       "absolute_min": 150,
       "absolute_max": 550,
-      "hint": "Lean concrete: 150–200 | Standard C25: 280–320 | High strength C45: 380–450"
+      "hint": "Lean concrete: 150–200 | Standard C25: 280–320 | High strength C45: 380–450",
+      "default": 350,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
     },
     {
       "id": "cement_type",
@@ -83,7 +96,9 @@
         "CEM III/A (GGBS ≥36%) — Low heat: factor 0.70",
         "CEM III/B (GGBS ≥66%) — Very low heat: factor 0.55",
         "CEM IV (Pozzolanic) — Low heat: factor 0.65"
-      ]
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "cement_heat_factor",
@@ -95,7 +110,9 @@
       "absolute_min": 0.4,
       "absolute_max": 1,
       "default": 1,
-      "hint": "From cement type selection: CEM I=1.00 | CEM III/B=0.55"
+      "hint": "From cement type selection: CEM I=1.00 | CEM III/B=0.55",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     },
     {
       "id": "ambient_temp_c",
@@ -106,7 +123,10 @@
       "confidence_label": "EXACT",
       "absolute_min": -10,
       "absolute_max": 45,
-      "hint": "Use forecast temperature for the pour date and first 72 hours"
+      "hint": "Use forecast temperature for the pour date and first 72 hours",
+      "default": 20,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "concrete_unit_cost_usd",
@@ -116,7 +136,10 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 50,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "default": 120,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "pump_mobilization_usd",
@@ -125,7 +148,10 @@
       "type": "number",
       "required": true,
       "confidence_label": "APPROXIMATE",
-      "absolute_min": 0
+      "absolute_min": 0,
+      "default": 500,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "min_section_thickness_mm",
@@ -136,7 +162,10 @@
       "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 5000,
-      "hint": "ACI 207.1R: Mass concrete defined as thickness ≥ 900mm (36 in)"
+      "hint": "ACI 207.1R: Mass concrete defined as thickness ≥ 900mm (36 in)",
+      "default": 300,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
     }
   ],
   "formulas": [
@@ -165,15 +194,18 @@
     "validation": {
       "total_volume_positive": {
         "condition": "Gross_Volume_m3 <= 0",
-        "error_msg": "Total concrete volume is zero. Enter at least one non-zero volume (slab, footing, or column)."
+        "error_msg": "Total concrete volume is zero. Enter at least one non-zero volume (slab, footing, or column).",
+        "id": "total_volume_positive"
       },
       "cement_content_range": {
         "condition": "cement_content_kg_m3 < 150",
-        "error_msg": "Cement content < 150 kg/m³: Below minimum for structural concrete workability and strength. ACI 318 minimum for structural applications: 250 kg/m³."
+        "error_msg": "Cement content < 150 kg/m³: Below minimum for structural concrete workability and strength. ACI 318 minimum for structural applications: 250 kg/m³.",
+        "id": "cement_content_range"
       },
       "mass_concrete_threshold": {
         "condition": "min_section_thickness_mm >= 900 && cement_heat_factor >= 0.85",
-        "error_msg": "MASS CONCRETE CONDITIONS: Section ≥ 900mm with high-heat cement (CEM I/II). ACI 207.1R mass concrete protocols mandatory. Thermal control plan required before pouring."
+        "error_msg": "MASS CONCRETE CONDITIONS: Section ≥ 900mm with high-heat cement (CEM I/II). ACI 207.1R mass concrete protocols mandatory. Thermal control plan required before pouring.",
+        "id": "mass_concrete_threshold"
       }
     },
     "smart_warnings": [
@@ -213,6 +245,131 @@
         "source": "Construction Quantity Surveying Practice",
         "message": "Waste allowance < 3%: Likely underestimated for construction site conditions. Insufficient waste factor leads to under-ordering, schedule delays, and cold joint formation. Minimum 5% recommended for poured-in-place work."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: Gross_Volume_m3 <= 0",
+        "effect": "Total concrete volume is zero. Enter at least one non-zero volume (slab, footing, or column).",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule total_volume_positive"
+      },
+      {
+        "failureMode": "Input violation: cement_content_kg_m3 < 150",
+        "effect": "Cement content < 150 kg/m³: Below minimum for structural concrete workability and strength. ACI 318 minimum for structural applications: 250 kg/m³.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule cement_content_range"
+      },
+      {
+        "failureMode": "Input violation: min_section_thickness_mm >= 900 && cement_heat_factor >= 0.85",
+        "effect": "MASS CONCRETE CONDITIONS: Section ≥ 900mm with high-heat cement (CEM I/II). ACI 207.1R mass concrete protocols mandatory. Thermal control plan required before pouring.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule mass_concrete_threshold"
+      },
+      {
+        "failureMode": "THERMAL CRACKING RISK CONFIRMED: Core-to-surface ΔT exceeds 20°C threshold. Restrained thermal shrinkage will generate tensile stresses exceeding concrete tensile strength. Through-cracking expected. Mandatory mitigations: (1) Use CEM III/B or pozzolanic cement, (2) Pre-cool mix water or aggregate, (3) Limit pour lifts to 600mm, (4) Apply thermal insulation blanket to retain surface heat.",
+        "effect": "Smart warning triggered when: Delta_T_Core_Surface > 20",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ACI 207.2R / EN 1992-3 Cl.M.3"
+      },
+      {
+        "failureMode": "SEVERE THERMAL CRACKING — ΔT > 25°C: At this differential, macro-cracks of 0.2–0.5mm width are near-certain. Structure integrity and watertightness compromised. Redesign concrete mix with low-heat cement and thermal monitoring sensors (embedded thermocouples) required.",
+        "effect": "Smart warning triggered when: Delta_T_Core_Surface > 25",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ACI 207.1R / CIRIA C660"
+      },
+      {
+        "failureMode": "HOT WEATHER CONCRETING: Ambient temperature > 32°C. Concrete may set prematurely. ACI 305R requirements: (1) Fresh concrete temperature ≤ 35°C at point of discharge, (2) Use chilled water or ice substitution, (3) Pour at night, (4) Increase slump via plasticizer — not water.",
+        "effect": "Smart warning triggered when: ambient_temp_c > 32",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ACI 305R Hot Weather Concreting"
+      },
+      {
+        "failureMode": "COLD WEATHER CONCRETING: Ambient < 5°C. Hydration will stall or freeze. ACI 306R: Fresh concrete must be maintained at ≥ 10°C for 7 days minimum. Insulated formwork, heated enclosure, or anti-freeze admixtures required.",
+        "effect": "Smart warning triggered when: ambient_temp_c < 5",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ACI 306R Cold Weather Concreting"
+      },
+      {
+        "failureMode": "DELAYED ETTRINGITE FORMATION (DEF) RISK: Peak core temperature > 70°C. Ettringite phase destroyed during curing and reforms later causing expansive cracking. Use water-reducing admixtures and low-C₃A cements. This risk is irreversible once temperature is exceeded.",
+        "effect": "Smart warning triggered when: Peak_Core_Temp_C > 70",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ACI 207.1R / DEF Risk"
+      },
+      {
+        "failureMode": "Waste allowance < 3%: Likely underestimated for construction site conditions. Insufficient waste factor leads to under-ordering, schedule delays, and cold joint formation. Minimum 5% recommended for poured-in-place work.",
+        "effect": "Smart warning triggered when: pour_waste_pct < 3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Construction Quantity Surveying Practice"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Gross_Volume_m3",
+        "Rebar_Displacement_m3",
+        "Net_Concrete_m3",
+        "Order_Volume_m3",
+        "Total_Material_Cost_USD",
+        "Total_Pour_Cost_USD",
+        "Cost_per_Net_m3_USD",
+        "Heat_of_Hydration_kJ_kg",
+        "Adiabatic_Temp_Rise_C",
+        "Peak_Core_Temp_C",
+        "Surface_Temp_C",
+        "Delta_T_Core_Surface",
+        "Concrete_Weight_tonnes"
+      ]
+    }
+  ]
 }

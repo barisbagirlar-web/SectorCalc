@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 2000
+      "absolute_max": 2000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "flow_rate_m3h",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.001,
-      "absolute_max": 100000
+      "absolute_max": 100000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
     },
     {
       "id": "fluid_density_kg_m3",
@@ -34,7 +38,9 @@
       "confidence_label": "KESİN",
       "default": 1000,
       "absolute_min": 0.5,
-      "absolute_max": 3000
+      "absolute_max": 3000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
     },
     {
       "id": "fluid_viscosity_mPas",
@@ -46,7 +52,9 @@
       "default": 1,
       "absolute_min": 0.01,
       "absolute_max": 1000000,
-      "note": "Water at 20°C = 1.0 mPa·s; light oil ≈ 10; heavy oil ≈ 500–5000 mPa·s"
+      "note": "Water at 20°C = 1.0 mPa·s; light oil ≈ 10; heavy oil ≈ 500–5000 mPa·s",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "mixer_type",
@@ -74,7 +82,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 6.3,
-      "note": "K_p = pressure drop factor: ΔP_mixer = K_p × ΔP_empty_pipe; from manufacturer data"
+      "note": "K_p = pressure drop factor: ΔP_mixer = K_p × ΔP_empty_pipe; from manufacturer data",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "num_elements",
@@ -86,7 +96,9 @@
       "default": 6,
       "absolute_min": 1,
       "absolute_max": 40,
-      "note": "Kenics: 6–12 for turbulent; 20–30 for laminar. Sulzer SMX: 5–8 elements typically"
+      "note": "Kenics: 6–12 for turbulent; 20–30 for laminar. Sulzer SMX: 5–8 elements typically",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     },
     {
       "id": "CoV_required",
@@ -113,7 +125,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 0.05
+      "default": 0.05,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -134,15 +148,18 @@
     "validation": {
       "V1": {
         "condition": "CoV_actual > CoV_required",
-        "error_msg": "Actual CoV exceeds required mixing quality: add more elements (N_req) or switch to higher-performance mixer type (e.g. SMX from Kenics)"
+        "error_msg": "Actual CoV exceeds required mixing quality: add more elements (N_req) or switch to higher-performance mixer type (e.g. SMX from Kenics)",
+        "id": "V1"
       },
       "V2": {
         "condition": "Re < 100 && mixer_type <= 8",
-        "error_msg": "Very low Reynolds number (Re < 100): laminar segregation — Kenics HEV/SMXL insufficient for viscous mixing; use Sulzer SMX designed for Re < 10"
+        "error_msg": "Very low Reynolds number (Re < 100): laminar segregation — Kenics HEV/SMXL insufficient for viscous mixing; use Sulzer SMX designed for Re < 10",
+        "id": "V2"
       },
       "V3": {
         "condition": "dP_mixer_pa > 500000",
-        "error_msg": "Mixer pressure drop > 5 bar: very high ΔP — consider low-pressure SMXL elements, larger pipe diameter, or reduce flow velocity"
+        "error_msg": "Mixer pressure drop > 5 bar: very high ΔP — consider low-pressure SMXL elements, larger pipe diameter, or reduce flow velocity",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -181,6 +198,120 @@
         "condition": "fluid_viscosity_mPas > 10000",
         "source": "Sulzer Chemtech Static Mixer Engineering Guide"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: CoV_actual > CoV_required",
+        "effect": "Actual CoV exceeds required mixing quality: add more elements (N_req) or switch to higher-performance mixer type (e.g. SMX from Kenics)",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: Re < 100 && mixer_type <= 8",
+        "effect": "Very low Reynolds number (Re < 100): laminar segregation — Kenics HEV/SMXL insufficient for viscous mixing; use Sulzer SMX designed for Re < 10",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: dP_mixer_pa > 500000",
+        "effect": "Mixer pressure drop > 5 bar: very high ΔP — consider low-pressure SMXL elements, larger pipe diameter, or reduce flow velocity",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Laminar flow with Kenics HEV: designed for turbulent use — switch to Sulzer SMX (K_p=37) optimised for viscous laminar mixing",
+        "effect": "Smart warning triggered when: Re < 2300 && mixer_type === 6.3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Sulzer Chemtech Static Mixer Engineering Guide"
+      },
+      {
+        "failureMode": "Element count below minimum for target CoV — mixing quality not achieved; add N_req − N_e elements or accept higher CoV",
+        "effect": "Smart warning triggered when: num_elements < N_req",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Sulzer Chemtech Static Mixer Engineering Guide"
+      },
+      {
+        "failureMode": "High velocity in dense fluid: erosion risk on mixer elements — verify element material hardness; consider ceramic-coated elements for slurries",
+        "effect": "Smart warning triggered when: v_m_s > 5 && fluid_density_kg_m3 > 800",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Sulzer Chemtech Static Mixer Engineering Guide"
+      },
+      {
+        "failureMode": "Low specific energy dissipation (<0.1 W/kg): mixing is gentle — suitable for shear-sensitive products (emulsions, cells); otherwise increase velocity",
+        "effect": "Smart warning triggered when: epsilon_w_kg < 0.1 && Re > 10000",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Sulzer Chemtech Static Mixer Engineering Guide"
+      },
+      {
+        "failureMode": "High viscosity fluid (>10 Pa·s): static mixer will have very high ΔP — evaluate dynamic (agitated) mixer or reduce viscosity by heating before mixing",
+        "effect": "Smart warning triggered when: fluid_viscosity_mPas > 10000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Sulzer Chemtech Static Mixer Engineering Guide"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "A_pipe_m2",
+        "v_m_s",
+        "Re",
+        "f_fanning",
+        "L_mixer_m",
+        "dP_pipe_pa",
+        "dP_mixer_pa",
+        "CoV_0",
+        "CoV_actual",
+        "decay_factor",
+        "N_req",
+        "L_total_m",
+        "epsilon_w_kg"
+      ]
+    }
+  ]
 }

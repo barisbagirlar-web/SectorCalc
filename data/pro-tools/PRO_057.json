@@ -15,7 +15,9 @@
       "default": 100,
       "absolute_min": 5,
       "absolute_max": 10000,
-      "note": "Field measurement per IEEE Std 81 (Wenner method); sandy/dry ≈ 1000 Ω·m; clay wet ≈ 20 Ω·m"
+      "note": "Field measurement per IEEE Std 81 (Wenner method); sandy/dry ≈ 1000 Ω·m; clay wet ≈ 20 Ω·m",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "grid_area_m2",
@@ -25,7 +27,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 100000
+      "absolute_max": 100000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
     },
     {
       "id": "grid_conductor_length_m",
@@ -35,7 +39,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 5,
-      "absolute_max": 50000
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "burial_depth_m",
@@ -46,7 +52,9 @@
       "confidence_label": "KESİN",
       "default": 0.6,
       "absolute_min": 0.3,
-      "absolute_max": 3
+      "absolute_max": 3,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "fault_current_kA",
@@ -56,7 +64,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.1,
-      "absolute_max": 100
+      "absolute_max": 100,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "fault_duration_s",
@@ -68,7 +78,9 @@
       "default": 0.5,
       "absolute_min": 0.05,
       "absolute_max": 3,
-      "note": "Protection relay clearing time; IEEE 80 uses t_f for shock duration"
+      "note": "Protection relay clearing time; IEEE 80 uses t_f for shock duration",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 5725-2:2019 §6 — Time measurement: ±1% of reading"
     },
     {
       "id": "surface_layer_resistivity",
@@ -80,7 +92,9 @@
       "default": 3000,
       "absolute_min": 100,
       "absolute_max": 100000,
-      "note": "Dry crushed granite ≈ 3000–10000 Ω·m; wet gravel ≈ 500–2000 Ω·m"
+      "note": "Dry crushed granite ≈ 3000–10000 Ω·m; wet gravel ≈ 500–2000 Ω·m",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "surface_layer_depth_m",
@@ -91,7 +105,9 @@
       "confidence_label": "KESİN",
       "default": 0.1,
       "absolute_min": 0.05,
-      "absolute_max": 0.5
+      "absolute_max": 0.5,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     }
   ],
   "formulas": [
@@ -112,15 +128,18 @@
     "validation": {
       "V1": {
         "condition": "E_mesh_v > E_touch_v",
-        "error_msg": "Mesh voltage exceeds tolerable touch voltage: increase conductor density (reduce mesh spacing), add conductors, or increase burial depth"
+        "error_msg": "Mesh voltage exceeds tolerable touch voltage: increase conductor density (reduce mesh spacing), add conductors, or increase burial depth",
+        "id": "V1"
       },
       "V2": {
         "condition": "GPR_v > 5000 && Rg_ohm > 1.0",
-        "error_msg": "GPR > 5000 V with R_g > 1 Ω: high-voltage hazard zone — telecommunications and fence isolation required per IEEE 80 §17"
+        "error_msg": "GPR > 5000 V with R_g > 1 Ω: high-voltage hazard zone — telecommunications and fence isolation required per IEEE 80 §17",
+        "id": "V2"
       },
       "V3": {
         "condition": "grid_conductor_length_m / grid_area_m2 < 0.5",
-        "error_msg": "Conductor density < 0.5 m/m²: sparse grid — mesh voltage will be high; add parallel conductors to achieve minimum 1 m/m² density"
+        "error_msg": "Conductor density < 0.5 m/m²: sparse grid — mesh voltage will be high; add parallel conductors to achieve minimum 1 m/m² density",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -159,6 +178,118 @@
         "condition": "fault_duration_s > 1.0",
         "source": "IEEE Std 80-2013"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: E_mesh_v > E_touch_v",
+        "effect": "Mesh voltage exceeds tolerable touch voltage: increase conductor density (reduce mesh spacing), add conductors, or increase burial depth",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: GPR_v > 5000 && Rg_ohm > 1.0",
+        "effect": "GPR > 5000 V with R_g > 1 Ω: high-voltage hazard zone — telecommunications and fence isolation required per IEEE 80 §17",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: grid_conductor_length_m / grid_area_m2 < 0.5",
+        "effect": "Conductor density < 0.5 m/m²: sparse grid — mesh voltage will be high; add parallel conductors to achieve minimum 1 m/m² density",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Mesh voltage within 20% of tolerable limit: marginal safety margin — add equalising conductors or equipotential mats at operator locations",
+        "effect": "Smart warning triggered when: E_mesh_v > E_touch_v * 0.8",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "IEEE Std 80-2013"
+      },
+      {
+        "failureMode": "High soil resistivity (> 1000 Ω·m): achieving low grid resistance requires extensive grid or deep-driven rods — consider chemical ground enhancement",
+        "effect": "Smart warning triggered when: soil_resistivity_ohm_m > 1000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEEE Std 80-2013"
+      },
+      {
+        "failureMode": "R_g > 1 Ω at high fault current: GPR will be dangerously high — verify grid extends beyond substation fence; add remote earth electrodes",
+        "effect": "Smart warning triggered when: Rg_ohm > 1.0 && fault_current_kA > 10",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "IEEE Std 80-2013"
+      },
+      {
+        "failureMode": "Surface layer resistivity < 500 Ω·m: low benefit from surface treatment — increase layer thickness or use higher-resistivity dry crushed stone",
+        "effect": "Smart warning triggered when: surface_layer_resistivity < 500",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEEE Std 80-2013"
+      },
+      {
+        "failureMode": "Fault clearing time > 1.0 s: tolerable voltages reduce significantly — upgrade protection relay speed or re-evaluate system protection coordination",
+        "effect": "Smart warning triggered when: fault_duration_s > 1.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEEE Std 80-2013"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Rg_ohm",
+        "GPR_v",
+        "IB_mA",
+        "Cs",
+        "Rfoot_ohm",
+        "E_touch_v",
+        "E_step_v",
+        "D_m",
+        "Km",
+        "Ki",
+        "E_mesh_v"
+      ]
+    }
+  ]
 }

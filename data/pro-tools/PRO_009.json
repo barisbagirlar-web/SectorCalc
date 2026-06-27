@@ -14,7 +14,9 @@
       "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 35,
-      "hint": "Calculated as 10% above maximum operating pressure"
+      "hint": "Calculated as 10% above maximum operating pressure",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
     },
     {
       "id": "inner_radius_mm",
@@ -24,7 +26,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 25,
-      "absolute_max": 5000
+      "absolute_max": 5000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "head_type",
@@ -38,7 +42,9 @@
         "Spherical Shell",
         "2:1 Ellipsoidal Head",
         "Hemispherical Head"
-      ]
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "material_grade",
@@ -55,7 +61,9 @@
         "P265GH EN (168 MPa)",
         "P355GH EN (195 MPa)",
         "Manual Input"
-      ]
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "allowable_stress_mpa",
@@ -66,7 +74,9 @@
       "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 300,
-      "hint": "Automatically resolved from material selection — ASME Sec. II Part D"
+      "hint": "Automatically resolved from material selection — ASME Sec. II Part D",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
     },
     {
       "id": "joint_efficiency",
@@ -80,7 +90,9 @@
         "0.85 — Nokta RT muayene",
         "0.70 — RT muayenesiz"
       ],
-      "hint": "ASME VIII UW-12 weld joint category"
+      "hint": "ASME VIII UW-12 weld joint category",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "joint_efficiency_val",
@@ -91,7 +103,9 @@
       "confidence_label": "EXACT",
       "absolute_min": 0.7,
       "absolute_max": 1,
-      "default": 1
+      "default": 1,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "corrosion_allowance_mm",
@@ -103,7 +117,9 @@
       "absolute_min": 0,
       "absolute_max": 10,
       "default": 3,
-      "hint": "General service: 3mm | Sour service: 6mm | Dry air: 1.5mm"
+      "hint": "General service: 3mm | Sour service: 6mm | Dry air: 1.5mm",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "mill_tolerance_pct",
@@ -115,7 +131,9 @@
       "absolute_min": 0,
       "absolute_max": 15,
       "default": 12.5,
-      "hint": "ASME SA-6 / SA-20 plate mill tolerance — typically 12.5%"
+      "hint": "ASME SA-6 / SA-20 plate mill tolerance — typically 12.5%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "design_temp_c",
@@ -126,7 +144,9 @@
       "confidence_label": "EXACT",
       "absolute_min": -196,
       "absolute_max": 650,
-      "hint": "Allowable stress depends heavily on operating temperature"
+      "hint": "Allowable stress depends heavily on operating temperature",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
     },
     {
       "id": "hydro_test_factor",
@@ -138,7 +158,9 @@
       "absolute_min": 1.3,
       "absolute_max": 1.5,
       "default": 1.3,
-      "hint": "ASME VIII UG-99: minimum 1.3 factor"
+      "hint": "ASME VIII UG-99: minimum 1.3 factor",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     }
   ],
   "formulas": [
@@ -165,23 +187,28 @@
     "validation": {
       "thin_wall_limit": {
         "condition": "design_pressure_mpa >= (0.385 * allowable_stress_mpa * joint_efficiency_val)",
-        "error_msg": "Thin wall formula invalid: P >= 0.385*S*E threshold violated. Thick wall (Lamé) equation must be applied (ASME VIII UG-27 footnote)."
+        "error_msg": "Thin wall formula invalid: P >= 0.385*S*E threshold violated. Thick wall (Lamé) equation must be applied (ASME VIII UG-27 footnote).",
+        "id": "thin_wall_limit"
       },
       "pressure_positive": {
         "absolute_min": 0.1,
-        "error_msg": "Design pressure must be minimum 0.1 MPa. Separate external pressure analysis is required for negative pressure (vacuum) (ASME VIII UG-28)."
+        "error_msg": "Design pressure must be minimum 0.1 MPa. Separate external pressure analysis is required for negative pressure (vacuum) (ASME VIII UG-28).",
+        "id": "pressure_positive"
       },
       "corrosion_min": {
         "condition": "corrosion_allowance_mm === 0 && design_temp_c > 50",
-        "error_msg": "High temperature + zero corrosion allowance: corrosion cannot be neglected in services >50°C. Check API 571 damage mechanisms."
+        "error_msg": "High temperature + zero corrosion allowance: corrosion cannot be neglected in services >50°C. Check API 571 damage mechanisms.",
+        "id": "corrosion_min"
       },
       "temperature_material": {
         "condition": "design_temp_c > 400 && allowable_stress_mpa > 140",
-        "error_msg": "Above 400°C, the allowable stress for SA-516 Gr.70 drops below 138 MPa. Use ASME Sec. II Part D temperature tables."
+        "error_msg": "Above 400°C, the allowable stress for SA-516 Gr.70 drops below 138 MPa. Use ASME Sec. II Part D temperature tables.",
+        "id": "temperature_material"
       },
       "hydro_test_minimum": {
         "condition": "hydro_test_factor < 1.3",
-        "error_msg": "ASME VIII UG-99: Hydrostatic test factor must be minimum 1.3. This is a regulatory requirement."
+        "error_msg": "ASME VIII UG-99: Hydrostatic test factor must be minimum 1.3. This is a regulatory requirement.",
+        "id": "hydro_test_minimum"
       }
     },
     "smart_warnings": [
@@ -221,6 +248,140 @@
         "source": "ASME VIII UCS-79",
         "message": "Thickness > 50mm: PWHT (Post-Weld Heat Treatment) may become mandatory. Check ASME VIII UCS-56 tables. Evaluate cost and schedule impact of heat treatment."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: design_pressure_mpa >= (0.385 * allowable_stress_mpa * joint_efficiency_val)",
+        "effect": "Thin wall formula invalid: P >= 0.385*S*E threshold violated. Thick wall (Lamé) equation must be applied (ASME VIII UG-27 footnote).",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule thin_wall_limit"
+      },
+      {
+        "failureMode": "Input violation: corrosion_allowance_mm === 0 && design_temp_c > 50",
+        "effect": "High temperature + zero corrosion allowance: corrosion cannot be neglected in services >50°C. Check API 571 damage mechanisms.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule corrosion_min"
+      },
+      {
+        "failureMode": "Input violation: design_temp_c > 400 && allowable_stress_mpa > 140",
+        "effect": "Above 400°C, the allowable stress for SA-516 Gr.70 drops below 138 MPa. Use ASME Sec. II Part D temperature tables.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule temperature_material"
+      },
+      {
+        "failureMode": "Input violation: hydro_test_factor < 1.3",
+        "effect": "ASME VIII UG-99: Hydrostatic test factor must be minimum 1.3. This is a regulatory requirement.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule hydro_test_minimum"
+      },
+      {
+        "failureMode": "Low corrosion allowance: CA < 1.5mm. Minimum 3mm is recommended for general service. Increase to 6mm if process fluid is corrosive (acid, H2S, Cl-). Insufficient CA leads to premature pinholes.",
+        "effect": "Smart warning triggered when: corrosion_allowance_mm < 1.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 571 / ASME VIII"
+      },
+      {
+        "failureMode": "Critical: Hoop stress exceeds 90% of allowable stress. Safety margin is insufficient. Increase wall thickness or select material with higher S value.",
+        "effect": "Smart warning triggered when: Hoop_Stress > allowable_stress_mpa * 0.90",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ASME VIII UG-27"
+      },
+      {
+        "failureMode": "Factor of safety is below 3.5. ASME VIII targets minimum SF=4.0 for static design. Design should be re-evaluated.",
+        "effect": "Smart warning triggered when: Safety_Factor < 3.5",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ASME VIII Tasarım Felsefesi"
+      },
+      {
+        "failureMode": "Full RT inspection is not performed (E < 1.0). The calculated thickness requires 15-43% more material. Total cost may decrease with full RT.",
+        "effect": "Smart warning triggered when: joint_efficiency_val < 1.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASME VIII UW-11"
+      },
+      {
+        "failureMode": "Low temperature service: Impact testing (Charpy V-notch) and MDMT (Minimum Design Metal Temperature) analysis are mandatory. General carbon steel poses embrittlement risk.",
+        "effect": "Smart warning triggered when: design_temp_c < 0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASME VIII UCS-66 / ASTM A370"
+      },
+      {
+        "failureMode": "Thickness > 50mm: PWHT (Post-Weld Heat Treatment) may become mandatory. Check ASME VIII UCS-56 tables. Evaluate cost and schedule impact of heat treatment.",
+        "effect": "Smart warning triggered when: t_ordered > 50",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASME VIII UCS-79"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "t_cyl_calc",
+        "t_sphere_calc",
+        "t_ellip_calc",
+        "t_hemi_calc",
+        "t_min_nominal",
+        "t_ordered",
+        "MAWP",
+        "HydroTest_P",
+        "Hoop_Stress",
+        "Safety_Factor"
+      ]
+    }
+  ]
 }

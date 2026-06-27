@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 3000
+      "absolute_max": 3000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     },
     {
       "id": "T_process_c",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -200,
-      "absolute_max": 600
+      "absolute_max": 600,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "T_ambient_c",
@@ -34,7 +38,9 @@
       "confidence_label": "KESİN",
       "default": 25,
       "absolute_min": -40,
-      "absolute_max": 60
+      "absolute_max": 60,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
     },
     {
       "id": "insulation_thickness_mm",
@@ -44,7 +50,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 10,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
     },
     {
       "id": "lambda_ins_w_mk",
@@ -56,7 +64,9 @@
       "default": 0.04,
       "absolute_min": 0.015,
       "absolute_max": 0.25,
-      "note": "Mineral wool at 100°C ≈ 0.045; PIR foam ≈ 0.025; calcium silicate ≈ 0.065 W/(m·K)"
+      "note": "Mineral wool at 100°C ≈ 0.045; PIR foam ≈ 0.025; calcium silicate ≈ 0.065 W/(m·K)",
+      "uncertainty": "±10%",
+      "uncertainty_source": "ASTM D5334-22 §9 — Thermal conductivity: ±10% (guarded hot plate)"
     },
     {
       "id": "h_outer_w_m2k",
@@ -68,7 +78,9 @@
       "default": 10,
       "absolute_min": 2,
       "absolute_max": 100,
-      "note": "Natural convection + radiation still air ≈ 8–12 W/(m²·K); wind-swept outdoor ≈ 20–30"
+      "note": "Natural convection + radiation still air ≈ 8–12 W/(m²·K); wind-swept outdoor ≈ 20–30",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
     },
     {
       "id": "energy_cost_usd_gj",
@@ -80,7 +92,9 @@
       "default": 12,
       "absolute_min": 1,
       "absolute_max": 100,
-      "note": "Natural gas ≈ 5–10 USD/GJ; steam ≈ 15–25 USD/GJ; electricity ≈ 25–40 USD/GJ"
+      "note": "Natural gas ≈ 5–10 USD/GJ; steam ≈ 15–25 USD/GJ; electricity ≈ 25–40 USD/GJ",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "operating_hours_yr",
@@ -91,7 +105,9 @@
       "confidence_label": "GÜÇLÜ",
       "default": 8760,
       "absolute_min": 100,
-      "absolute_max": 8760
+      "absolute_max": 8760,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     }
   ],
   "formulas": [
@@ -112,15 +128,18 @@
     "validation": {
       "V1": {
         "condition": "r2_m < r_cr_m && pipe_OD_mm < 50",
-        "error_msg": "Insulated radius < critical radius: adding insulation increases heat loss on this small pipe — minimum thickness is r_cr − r1; verify application intent"
+        "error_msg": "Insulated radius < critical radius: adding insulation increases heat loss on this small pipe — minimum thickness is r_cr − r1; verify application intent",
+        "id": "V1"
       },
       "V2": {
         "condition": "T_process_c < T_ambient_c && T_surface_c > T_ambient_c - 5",
-        "error_msg": "Cold service: surface temperature near ambient — condensation and ice formation risk; increase thickness to maintain T_surface > T_dew point"
+        "error_msg": "Cold service: surface temperature near ambient — condensation and ice formation risk; increase thickness to maintain T_surface > T_dew point",
+        "id": "V2"
       },
       "V3": {
         "condition": "T_surface_c > 60 && T_process_c > 100",
-        "error_msg": "Surface temperature > 60°C: personnel burn risk — EN 13202 requires T_surface ≤ 60°C for accessible surfaces; increase insulation thickness"
+        "error_msg": "Surface temperature > 60°C: personnel burn risk — EN 13202 requires T_surface ≤ 60°C for accessible surfaces; increase insulation thickness",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -159,6 +178,118 @@
         "condition": "T_process_c < 0",
         "source": "ISO 12241:1998 (EN ISO 12241:2022)"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: r2_m < r_cr_m && pipe_OD_mm < 50",
+        "effect": "Insulated radius < critical radius: adding insulation increases heat loss on this small pipe — minimum thickness is r_cr − r1; verify application intent",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: T_process_c < T_ambient_c && T_surface_c > T_ambient_c - 5",
+        "effect": "Cold service: surface temperature near ambient — condensation and ice formation risk; increase thickness to maintain T_surface > T_dew point",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: T_surface_c > 60 && T_process_c > 100",
+        "effect": "Surface temperature > 60°C: personnel burn risk — EN 13202 requires T_surface ≤ 60°C for accessible surfaces; increase insulation thickness",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Surface temperature 50–60°C: borderline personnel protection threshold — increase thickness by 25 mm or add protective cladding/barrier per EN 13202 §5",
+        "effect": "Smart warning triggered when: T_surface_c > 50 && T_process_c > 80",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 12241:1998 (EN ISO 12241:2022)"
+      },
+      {
+        "failureMode": "High thermal conductivity insulation on high-ΔT service: consider aerogel blanket (λ ≈ 0.018) or calcium silicate for service above 200°C differential",
+        "effect": "Smart warning triggered when: lambda_ins_w_mk > 0.08 && delta_T > 200",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 12241:1998 (EN ISO 12241:2022)"
+      },
+      {
+        "failureMode": "High annual heat loss cost: evaluate economic insulation thickness — each additional 25 mm typically reduces heat loss by 30–50% on medium pipes",
+        "effect": "Smart warning triggered when: E_loss_gj_yr > 5 && energy_cost_usd_gj > 10",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ISO 12241:1998 (EN ISO 12241:2022)"
+      },
+      {
+        "failureMode": "Very thin insulation on high-ΔT service: thermal efficiency poor — minimum 50 mm recommended for ΔT > 150 K and pipe OD > 50 mm",
+        "effect": "Smart warning triggered when: insulation_thickness_mm < 25 && delta_T > 150",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 12241:1998 (EN ISO 12241:2022)"
+      },
+      {
+        "failureMode": "Cold insulation (cryogenic / chilled) service: vapour barrier on warm side mandatory — moisture ingress destroys cold insulation performance within months",
+        "effect": "Smart warning triggered when: T_process_c < 0",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ISO 12241:1998 (EN ISO 12241:2022)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "r1_m",
+        "r2_m",
+        "delta_T",
+        "R_ins",
+        "R_conv",
+        "R_total",
+        "q_L_w_m",
+        "r_cr_m",
+        "E_loss_gj_yr",
+        "cost_loss_usd_yr",
+        "T_surface_c"
+      ]
+    }
+  ]
 }

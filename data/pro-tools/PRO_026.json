@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "EXACT",
       "absolute_min": 0.001,
-      "hint": "Takt = Net available time / Customer demand. Drives required throughput rate."
+      "hint": "Takt = Net available time / Customer demand. Drives required throughput rate.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 5725-2:2019 §6 — Time measurement: ±1% of reading"
     },
     {
       "id": "bottleneck_ct_current_min",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0.001,
-      "hint": "Longest station cycle time on critical path — the system constraint"
+      "hint": "Longest station cycle time on critical path — the system constraint",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 5725-2:2019 §6 — Time measurement: ±1% of reading"
     },
     {
       "id": "bottleneck_ct_target_min",
@@ -32,7 +36,9 @@
       "type": "number",
       "required": true,
       "confidence_label": "APPROXIMATE",
-      "absolute_min": 0.001
+      "absolute_min": 0.001,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 5725-2:2019 §6 — Time measurement: ±1% of reading"
     },
     {
       "id": "available_time_min_yr",
@@ -42,7 +48,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1000,
-      "hint": "Shifts × days × (working time – planned downtime). 2-shift 250 days = 240,000 min"
+      "hint": "Shifts × days × (working time – planned downtime). 2-shift 250 days = 240,000 min",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "current_oee_pct",
@@ -54,7 +62,9 @@
       "absolute_min": 10,
       "absolute_max": 100,
       "default": 75,
-      "hint": "OEE of the constraint station — drives real effective capacity"
+      "hint": "OEE of the constraint station — drives real effective capacity",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "target_oee_pct",
@@ -65,7 +75,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 10,
       "absolute_max": 100,
-      "default": 85
+      "default": 85,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
     },
     {
       "id": "unit_throughput_usd",
@@ -75,7 +87,9 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0.01,
-      "hint": "TOC Throughput = Selling price minus direct material only — NOT including labour/overhead"
+      "hint": "TOC Throughput = Selling price minus direct material only — NOT including labour/overhead",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "capex_usd",
@@ -84,7 +98,9 @@
       "type": "number",
       "required": true,
       "confidence_label": "APPROXIMATE",
-      "absolute_min": 0
+      "absolute_min": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "opex_increase_usd_yr",
@@ -95,7 +111,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
       "default": 0,
-      "hint": "Additional labour, energy, maintenance from upgrade"
+      "hint": "Additional labour, energy, maintenance from upgrade",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
     },
     {
       "id": "wacc_pct",
@@ -106,7 +124,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
       "absolute_max": 50,
-      "default": 12
+      "default": 12,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     },
     {
       "id": "project_life_years",
@@ -117,7 +137,9 @@
       "confidence_label": "APPROXIMATE",
       "absolute_min": 1,
       "absolute_max": 20,
-      "default": 5
+      "default": 5,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
     }
   ],
   "formulas": [
@@ -145,15 +167,18 @@
     "validation": {
       "target_faster_than_current": {
         "condition": "bottleneck_ct_target_min >= bottleneck_ct_current_min",
-        "error_msg": "Target cycle time must be less than current cycle time. If no improvement is expected, investment analysis is not applicable."
+        "error_msg": "Target cycle time must be less than current cycle time. If no improvement is expected, investment analysis is not applicable.",
+        "id": "target_faster_than_current"
       },
       "wacc_range": {
         "condition": "wacc_pct <= 0",
-        "error_msg": "WACC must be positive. Zero or negative discount rate is not valid for NPV calculation."
+        "error_msg": "WACC must be positive. Zero or negative discount rate is not valid for NPV calculation.",
+        "id": "wacc_range"
       },
       "available_time_minimum": {
         "absolute_min": 1000,
-        "error_msg": "Annual available time < 1000 min is unrealistically low. Check units — input should be total annual minutes."
+        "error_msg": "Annual available time < 1000 min is unrealistically low. Check units — input should be total annual minutes.",
+        "id": "available_time_minimum"
       }
     },
     "smart_warnings": [
@@ -193,6 +218,119 @@
         "source": "JIPM TPM World-Class Benchmark",
         "message": "BOTTLENECK OEE < 65%: Constraint station is severely underperforming before investment. Adding capacity to a poorly-maintained machine multiplies waste. Mandatory: reach OEE ≥ 75% through TPM before hardware upgrade. Otherwise investment ROI will be materially worse than projected."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: bottleneck_ct_target_min >= bottleneck_ct_current_min",
+        "effect": "Target cycle time must be less than current cycle time. If no improvement is expected, investment analysis is not applicable.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule target_faster_than_current"
+      },
+      {
+        "failureMode": "Input violation: wacc_pct <= 0",
+        "effect": "WACC must be positive. Zero or negative discount rate is not valid for NPV calculation.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule wacc_range"
+      },
+      {
+        "failureMode": "OVER-INVESTMENT: Target cycle time is faster than customer takt time. Output beyond takt rate creates overproduction waste (Muda #1). System is demand-constrained — additional throughput cannot be sold. Reduce investment scope to target CT = Takt Time exactly.",
+        "effect": "Smart warning triggered when: bottleneck_ct_target_min < takt_time_min",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Goldratt TOC — Overinvestment"
+      },
+      {
+        "failureMode": "NEGATIVE NPV: Investment destroys value at the given discount rate. Review: (1) Is throughput per unit correctly calculated? (2) Is project life realistic? (3) Can CAPEX be reduced? (4) Is there a phased investment option?",
+        "effect": "Smart warning triggered when: Project_NPV_USD < 0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Investment Analysis / WACC"
+      },
+      {
+        "failureMode": "Payback period exceeds 36 months: Above typical manufacturing investment approval threshold (12–24 months for constraint upgrades). Present risk-adjusted scenario analysis to management.",
+        "effect": "Smart warning triggered when: Payback_Months > 36",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Industrial Investment Benchmarks"
+      },
+      {
+        "failureMode": "Low demand headroom (<10%): Market is nearly saturated at current output. Throughput gain from constraint removal is limited by demand, not capacity. Validate sales forecast before committing CAPEX — demand growth must be confirmed.",
+        "effect": "Smart warning triggered when: Demand_Headroom_pct < 10",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "TOC / Market Analysis"
+      },
+      {
+        "failureMode": "More than 50% of incremental throughput comes from OEE improvement (not cycle time reduction). Consider TPM/autonomous maintenance programme as low-cost alternative before CAPEX. OEE improvement is typically 5–10× cheaper than hardware upgrade.",
+        "effect": "Smart warning triggered when: OEEImprovementUnits > Incremental_Units_yr * 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "TPM / OEE Improvement"
+      },
+      {
+        "failureMode": "BOTTLENECK OEE < 65%: Constraint station is severely underperforming before investment. Adding capacity to a poorly-maintained machine multiplies waste. Mandatory: reach OEE ≥ 75% through TPM before hardware upgrade. Otherwise investment ROI will be materially worse than projected.",
+        "effect": "Smart warning triggered when: current_oee_pct < 65",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "JIPM TPM World-Class Benchmark"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Current_Output_units_yr",
+        "Max_Demand_units_yr",
+        "Target_Output_raw",
+        "Realised_Output_units_yr",
+        "Incremental_Units_yr",
+        "Annual_Throughput_Gain_USD",
+        "Net_Annual_Benefit_USD",
+        "Payback_Months",
+        "Annuity_Factor",
+        "Project_NPV_USD",
+        "Project_IRR_approx_pct",
+        "Demand_Headroom_pct",
+        "OEE_Improvement_Units"
+      ]
+    }
+  ]
 }

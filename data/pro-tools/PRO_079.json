@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 5,
-      "absolute_max": 10000
+      "absolute_max": 10000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "bridge_weight_kn",
@@ -24,7 +26,9 @@
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 5,
       "absolute_max": 5000,
-      "note": "From crane manufacturer data sheet; rough estimate: W_bridge ≈ 0.3–0.5 × W_rated for standard EOT cranes"
+      "note": "From crane manufacturer data sheet; rough estimate: W_bridge ≈ 0.3–0.5 × W_rated for standard EOT cranes",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "trolley_weight_kn",
@@ -34,7 +38,9 @@
       "required": true,
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 1,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "bridge_span_m",
@@ -44,7 +50,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 3,
-      "absolute_max": 50
+      "absolute_max": 50,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "runway_beam_span_m",
@@ -54,7 +62,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 3,
-      "absolute_max": 25
+      "absolute_max": 25,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "crane_class",
@@ -85,7 +95,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": "D"
+      "default": "D",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "Ix_beam_cm4",
@@ -96,7 +108,9 @@
       "confidence_label": "KESİN",
       "absolute_min": 100,
       "absolute_max": 10000000,
-      "note": "From standard beam tables: W24×55 → I_x = 1350 cm⁴; W36×135 → I_x = 7800 cm⁴"
+      "note": "From standard beam tables: W24×55 → I_x = 1350 cm⁴; W36×135 → I_x = 7800 cm⁴",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "beam_depth_mm",
@@ -106,7 +120,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 100,
-      "absolute_max": 1000
+      "absolute_max": 1000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
     }
   ],
   "formulas": [
@@ -127,15 +143,18 @@
     "validation": {
       "V1": {
         "condition": "sigma_bend_mpa > 165",
-        "error_msg": "Bending stress > 165 MPa: exceeds allowable for A36/S275 steel (0.66Fy) — upsize beam section or reduce span"
+        "error_msg": "Bending stress > 165 MPa: exceeds allowable for A36/S275 steel (0.66Fy) — upsize beam section or reduce span",
+        "id": "V1"
       },
       "V2": {
         "condition": "runway_beam_span_m / beam_depth_mm * 1000 > 25",
-        "error_msg": "L/d ratio > 25: shallow beam relative to span — deflection likely excessive; AISC DG7 recommends L/1000 vertical limit; check I_x"
+        "error_msg": "L/d ratio > 25: shallow beam relative to span — deflection likely excessive; AISC DG7 recommends L/1000 vertical limit; check I_x",
+        "id": "V2"
       },
       "V3": {
         "condition": "stress_range_mpa > 110 && crane_class === 'D'",
-        "error_msg": "Fatigue stress range exceeds AISC Category D allowable (110 MPa) — weld details and connection design critical; consider Category C details"
+        "error_msg": "Fatigue stress range exceeds AISC Category D allowable (110 MPa) — weld details and connection design critical; consider Category C details",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -174,6 +193,118 @@
         "condition": "P_factored_kn > 500",
         "source": "AISC Design Guide 7 (Crane Buildings) 2nd Ed."
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: sigma_bend_mpa > 165",
+        "effect": "Bending stress > 165 MPa: exceeds allowable for A36/S275 steel (0.66Fy) — upsize beam section or reduce span",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: runway_beam_span_m / beam_depth_mm * 1000 > 25",
+        "effect": "L/d ratio > 25: shallow beam relative to span — deflection likely excessive; AISC DG7 recommends L/1000 vertical limit; check I_x",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: stress_range_mpa > 110 && crane_class === 'D'",
+        "effect": "Fatigue stress range exceeds AISC Category D allowable (110 MPa) — weld details and connection design critical; consider Category C details",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Class E/F crane: heavy fatigue regime — runway beam fatigue life governs over static strength; use AISC Category B/C weld details and specify weld quality per AWS D1.1",
+        "effect": "Smart warning triggered when: crane_class === 'E' || crane_class === 'F'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AISC Design Guide 7 (Crane Buildings) 2nd Ed."
+      },
+      {
+        "failureMode": "High lateral thrust: verify top flange bracing and rail clip design — AISC DG7 §4 requires continuous top flange bracing for heavy crane classes",
+        "effect": "Smart warning triggered when: H_lat_kn > crane_capacity_kn * 0.25",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "AISC Design Guide 7 (Crane Buildings) 2nd Ed."
+      },
+      {
+        "failureMode": "Long bridge span + moderate duty: trolley skewing forces become significant — verify bumper and end stop design per CMAA 70 §3.6",
+        "effect": "Smart warning triggered when: bridge_span_m > 20 && crane_class === 'D'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AISC Design Guide 7 (Crane Buildings) 2nd Ed."
+      },
+      {
+        "failureMode": "High bending stress: verify lateral-torsional buckling of top compression flange per AISC 360-22 F2 — crane beams often unbraced between columns",
+        "effect": "Smart warning triggered when: sigma_bend_mpa > 140",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AISC Design Guide 7 (Crane Buildings) 2nd Ed."
+      },
+      {
+        "failureMode": "Wheel load > 500 kN: heavy crane — verify column base plate, anchor bolts, and foundation design for combined gravity and lateral crane thrust per AISC DG1",
+        "effect": "Smart warning triggered when: P_factored_kn > 500",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "AISC Design Guide 7 (Crane Buildings) 2nd Ed."
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "N_wheels_per_rail",
+        "P_static_kn",
+        "phi_v",
+        "P_factored_kn",
+        "beam_self_wt_kn_m",
+        "M_max_knm",
+        "S_x_cm3",
+        "sigma_bend_mpa",
+        "H_lat_kn",
+        "fatigue_cat",
+        "stress_range_mpa"
+      ]
+    }
+  ]
 }

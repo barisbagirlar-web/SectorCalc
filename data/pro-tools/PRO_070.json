@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.5,
-      "absolute_max": 60
+      "absolute_max": 60,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
     },
     {
       "id": "water_height_m",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.3,
-      "absolute_max": 40
+      "absolute_max": 40,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "shell_thickness_mm",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 3,
-      "absolute_max": 50
+      "absolute_max": 50,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
     },
     {
       "id": "Fy_mpa",
@@ -56,7 +62,9 @@
       ],
       "required": true,
       "confidence_label": "KESİN",
-      "default": 250
+      "default": 250,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     },
     {
       "id": "support_height_m",
@@ -66,7 +74,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0,
-      "absolute_max": 60
+      "absolute_max": 60,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "design_wind_speed_m_s",
@@ -78,7 +88,9 @@
       "default": 45,
       "absolute_min": 20,
       "absolute_max": 90,
-      "note": "3-second gust speed at 10 m height for site — ASCE 7-22 Fig. 26.5-1A or national wind map"
+      "note": "3-second gust speed at 10 m height for site — ASCE 7-22 Fig. 26.5-1A or national wind map",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
     },
     {
       "id": "tank_empty_weight_kn",
@@ -88,7 +100,9 @@
       "required": true,
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 1,
-      "absolute_max": 50000
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
     },
     {
       "id": "joint_efficiency_E",
@@ -112,7 +126,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "default": 0.85,
-      "note": "API 650 §5.2 / AWWA D100 — joint efficiency by radiographic inspection class"
+      "note": "API 650 §5.2 / AWWA D100 — joint efficiency by radiographic inspection class",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
     }
   ],
   "formulas": [
@@ -133,15 +149,18 @@
     "validation": {
       "V1": {
         "condition": "hoop_DCR > 1.0",
-        "error_msg": "Hoop stress exceeds allowable: shell wall thickness insufficient — increase shell thickness or reduce water depth per AWWA D100 §14.2"
+        "error_msg": "Hoop stress exceeds allowable: shell wall thickness insufficient — increase shell thickness or reduce water depth per AWWA D100 §14.2",
+        "id": "V1"
       },
       "V2": {
         "condition": "OTF < 1.5",
-        "error_msg": "Overturning safety factor < 1.5: wind stability not met — anchor tank to foundation or increase base diameter; evaluate seismic per ASCE 7-22 §15.4"
+        "error_msg": "Overturning safety factor < 1.5: wind stability not met — anchor tank to foundation or increase base diameter; evaluate seismic per ASCE 7-22 §15.4",
+        "id": "V2"
       },
       "V3": {
         "condition": "tank_diameter_m / shell_thickness_mm * 1000 > 300",
-        "error_msg": "D/t ratio > 300: thin shell — check buckling under wind external pressure per API 650 Annex V and EN 1993-4-2 §5.3"
+        "error_msg": "D/t ratio > 300: thin shell — check buckling under wind external pressure per API 650 Annex V and EN 1993-4-2 §5.3",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -180,6 +199,121 @@
         "condition": "support_height_m > 20",
         "source": "AWWA D100-11 (Welded Carbon Steel Tanks)"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: hoop_DCR > 1.0",
+        "effect": "Hoop stress exceeds allowable: shell wall thickness insufficient — increase shell thickness or reduce water depth per AWWA D100 §14.2",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: OTF < 1.5",
+        "effect": "Overturning safety factor < 1.5: wind stability not met — anchor tank to foundation or increase base diameter; evaluate seismic per ASCE 7-22 §15.4",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: tank_diameter_m / shell_thickness_mm * 1000 > 300",
+        "effect": "D/t ratio > 300: thin shell — check buckling under wind external pressure per API 650 Annex V and EN 1993-4-2 §5.3",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Hoop utilisation > 85%: marginal shell capacity — verify corrosion allowance is maintained over design life; 1 mm corrosion reduces capacity by ~5% on 20 mm plate",
+        "effect": "Smart warning triggered when: hoop_DCR > 0.85",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AWWA D100-11 (Welded Carbon Steel Tanks)"
+      },
+      {
+        "failureMode": "Elevated tank with marginal OTF: tall structures amplify wind overturning — detailed dynamic analysis and anchor bolt design required per ASCE 7-22 §15.7",
+        "effect": "Smart warning triggered when: OTF < 2.0 && support_height_m > 15",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "AWWA D100-11 (Welded Carbon Steel Tanks)"
+      },
+      {
+        "failureMode": "Design wind speed > 60 m/s: hurricane / typhoon zone — enhanced wind analysis per ASCE 7-22 §26.11 and wind tunnel study recommended for D > 20 m",
+        "effect": "Smart warning triggered when: design_wind_speed_m_s > 60",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "AWWA D100-11 (Welded Carbon Steel Tanks)"
+      },
+      {
+        "failureMode": "Non-radiographed welds on deep tank: upgrade to Class 2 (spot RT) minimum — AWWA D100 requires RT for shells above 5 m water depth in Class B service",
+        "effect": "Smart warning triggered when: joint_efficiency_E < 0.85 && water_height_m > 10",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AWWA D100-11 (Welded Carbon Steel Tanks)"
+      },
+      {
+        "failureMode": "Support height > 20 m: structural analysis of support columns/pedestal under combined gravity, wind, and seismic mandatory per ASCE 7-22 §15.4.2",
+        "effect": "Smart warning triggered when: support_height_m > 20",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "AWWA D100-11 (Welded Carbon Steel Tanks)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "p_h_kpa",
+        "sigma_hoop_mpa",
+        "sigma_allow_mpa",
+        "hoop_DCR",
+        "Cd_tank",
+        "A_proj_m2",
+        "q_wind_pa",
+        "F_wind_kn",
+        "H_centroid_m",
+        "M_OT_knm",
+        "W_water_kn",
+        "W_total_kn",
+        "M_restore_knm",
+        "OTF"
+      ]
+    }
+  ]
 }

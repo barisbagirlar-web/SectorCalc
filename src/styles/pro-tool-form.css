@@ -175,9 +175,9 @@
 
 /* ── RESULTS TABLE ───────────────────────────────────── */
 .pro-res-table{border:1px solid rgba(26,25,21,0.1);overflow:hidden;margin-bottom:14px}
-.pro-res-hdr{display:grid;grid-template-columns:1fr 48px 130px 90px;padding:8px 14px;background:#1A1915;color:#F0EEE6;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.pro-res-hdr span:nth-child(3),.pro-res-hdr span:nth-child(4){text-align:right}
-.pro-res-row{display:grid;grid-template-columns:1fr 48px 130px 90px;padding:8px 14px;border-top:1px solid rgba(26,25,21,0.06);align-items:center}
+.pro-res-hdr{display:grid;grid-template-columns:1fr 48px 130px 100px 90px;padding:8px 14px;background:#1A1915;color:#F0EEE6;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pro-res-hdr span:nth-child(3),.pro-res-hdr span:nth-child(4),.pro-res-hdr span:nth-child(5){text-align:right}
+.pro-res-row{display:grid;grid-template-columns:1fr 48px 130px 100px 90px;padding:8px 14px;border-top:1px solid rgba(26,25,21,0.06);align-items:center}
 .pro-res-row:nth-child(even){background:rgba(0,0,0,0.02)}
 .pro-res-name{font-size:11px;color:#1A1915;display:flex;flex-direction:column;gap:1px}
 .pro-res-sym{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(26,25,21,0.32)}
@@ -185,6 +185,7 @@
 .pro-res-val.hl{color:#BD5D3A}
 .pro-res-val.ok{color:#059669}
 .pro-res-val.crit{color:#DC2626}
+.pro-res-unc{font-family:'JetBrains Mono',monospace;font-size:11px;color:#7C3AED;text-align:right;font-weight:500}
 .pro-res-unit{font-size:9px;color:rgba(26,25,21,0.4);text-align:right;font-family:'JetBrains Mono',monospace}
 
 /* ── GUM UNCERTAINTY TABLE ───────────────────────────── */
@@ -281,6 +282,8 @@
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media(max-width:768px){
   .pro-res-hdr,.pro-res-row{grid-template-columns:1fr 100px 70px}
+  .pro-res-hdr span:nth-child(2),.pro-res-row span:nth-child(2),
+  .pro-res-hdr span:nth-child(4),.pro-res-row span:nth-child(4){display:none}
   .pro-tool-hdr{grid-template-columns:1fr}
   .pro-hdr-badges{flex-direction:row;align-items:flex-start}
   .pro-panel{padding:14px 16px}

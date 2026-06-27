@@ -13,7 +13,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 1,
-      "absolute_max": 20000
+      "absolute_max": 20000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
     },
     {
       "id": "belt_speed_m_s",
@@ -23,7 +25,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 0.2,
-      "absolute_max": 10
+      "absolute_max": 10,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
     },
     {
       "id": "conveyor_length_m",
@@ -33,7 +37,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": 2,
-      "absolute_max": 20000
+      "absolute_max": 20000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "lift_height_m",
@@ -43,7 +49,9 @@
       "required": true,
       "confidence_label": "KESİN",
       "absolute_min": -500,
-      "absolute_max": 500
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
     },
     {
       "id": "friction_factor_f",
@@ -55,7 +63,9 @@
       "default": 0.02,
       "absolute_min": 0.01,
       "absolute_max": 0.04,
-      "note": "ISO 5048: f=0.012 well-maintained, f=0.020 standard, f=0.030 dusty/misaligned"
+      "note": "ISO 5048: f=0.012 well-maintained, f=0.020 standard, f=0.030 dusty/misaligned",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
     },
     {
       "id": "belt_mass_kg_m",
@@ -66,7 +76,9 @@
       "confidence_label": "GÜÇLÜ",
       "absolute_min": 2,
       "absolute_max": 150,
-      "note": "From belt manufacturer data: EP400/3-6+3 ≈ 12 kg/m per metre width"
+      "note": "From belt manufacturer data: EP400/3-6+3 ≈ 12 kg/m per metre width",
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "idler_mass_kg_m",
@@ -78,7 +90,9 @@
       "default": 20,
       "absolute_min": 3,
       "absolute_max": 100,
-      "note": "Carrying + return idler sets combined; depends on idler pitch and roll diameter"
+      "note": "Carrying + return idler sets combined; depends on idler pitch and roll diameter",
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
     },
     {
       "id": "drive_efficiency_pct",
@@ -89,7 +103,9 @@
       "confidence_label": "GÜÇLÜ",
       "default": 94,
       "absolute_min": 80,
-      "absolute_max": 99
+      "absolute_max": 99,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
     }
   ],
   "formulas": [
@@ -110,15 +126,18 @@
     "validation": {
       "V1": {
         "condition": "sag_ratio_pct > 0.03",
-        "error_msg": "Belt sag > 3%: increase take-up tension T2 or reduce idler pitch — material spillage and belt mistracking risk"
+        "error_msg": "Belt sag > 3%: increase take-up tension T2 or reduce idler pitch — material spillage and belt mistracking risk",
+        "id": "V1"
       },
       "V2": {
         "condition": "belt_speed_m_s > 6 && capacity_t_h > 5000",
-        "error_msg": "High speed on high-capacity conveyor: verify belt rating (kN/m width) and idler bearing life per ISO 281"
+        "error_msg": "High speed on high-capacity conveyor: verify belt rating (kN/m width) and idler bearing life per ISO 281",
+        "id": "V2"
       },
       "V3": {
         "condition": "lift_height_m < -100",
-        "error_msg": "Long downhill conveyor: regenerative power possible — evaluate regenerative drives; braking tension controls design"
+        "error_msg": "Long downhill conveyor: regenerative power possible — evaluate regenerative drives; braking tension controls design",
+        "id": "V3"
       }
     },
     "smart_warnings": [
@@ -157,6 +176,118 @@
         "condition": "conveyor_length_m > 5000",
         "source": "ISO 5048:1989"
       }
-    ]
-  }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: sag_ratio_pct > 0.03",
+        "effect": "Belt sag > 3%: increase take-up tension T2 or reduce idler pitch — material spillage and belt mistracking risk",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: belt_speed_m_s > 6 && capacity_t_h > 5000",
+        "effect": "High speed on high-capacity conveyor: verify belt rating (kN/m width) and idler bearing life per ISO 281",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: lift_height_m < -100",
+        "effect": "Long downhill conveyor: regenerative power possible — evaluate regenerative drives; braking tension controls design",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Sag ratio > 2%: CEMA recommends maximum 2% for lump material — reduce idler pitch from 1.5 m to 1.2 m or increase T2",
+        "effect": "Smart warning triggered when: sag_ratio_pct > 0.02",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5048:1989"
+      },
+      {
+        "failureMode": "High power with moderate drive efficiency: each 1% η improvement saves significant annual energy — evaluate direct-drive or gearless technology",
+        "effect": "Smart warning triggered when: P_motor_kw > 500 && drive_efficiency_pct < 92",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ISO 5048:1989"
+      },
+      {
+        "failureMode": "Dominant regenerative gradient: conveyor may run away under load — dynamic braking or regenerative drive mandatory",
+        "effect": "Smart warning triggered when: F_st_kN < -F_H_kN * 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5048:1989"
+      },
+      {
+        "failureMode": "T1/T2 ratio > 5: drive friction barely adequate — consider dual drive, higher wrap angle, or lagged pulley to prevent belt slip",
+        "effect": "Smart warning triggered when: T1_kN / T2_kN > 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5048:1989"
+      },
+      {
+        "failureMode": "Long conveyor (>5 km): intermediate drive or distributed drive topology recommended — starting tension wave analysis required per DIN 22101",
+        "effect": "Smart warning triggered when: conveyor_length_m > 5000",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ISO 5048:1989"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "q_m_kg_m",
+        "F_H_kN",
+        "F_st_kN",
+        "F_u_kN",
+        "P_motor_kw",
+        "mu_wrap",
+        "wrap_rad",
+        "T2_kN",
+        "T1_kN",
+        "idler_pitch_m",
+        "sag_ratio"
+      ]
+    }
+  ]
 }

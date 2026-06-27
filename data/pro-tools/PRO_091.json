@@ -1,0 +1,310 @@
+{
+  "tool_id": "PRO_091",
+  "tool_name": "Chiller Plant Free-Cooling Economiser — Switchover Temperature, Annual Hours & Energy Saving",
+  "category": "HVAC / Energy Management",
+  "scope": "single_operation",
+  "primary_operation": "free_cooling_economiser",
+  "inputs": [
+    {
+      "id": "chiller_COP",
+      "name": "Chiller Full-Load COP (rated condition)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 2,
+      "absolute_max": 9,
+      "note": "AHRI 551/591 rating at 7/12°C CHWS/R, 30/35°C CWS/R",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "chilled_water_supply_c",
+      "name": "Chilled Water Supply Set-Point (T_CHWS)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "default": 7,
+      "absolute_min": 4,
+      "absolute_max": 18,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "approach_temp_k",
+      "name": "Cooling Tower / Dry Cooler Approach Temperature (ΔT_approach)",
+      "unit": "K",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 4,
+      "absolute_min": 1,
+      "absolute_max": 12,
+      "note": "Wet cooling tower: approach = T_CW,out − T_wb; dry cooler: approach = T_fluid,out − T_db",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "heat_exchanger_dT_k",
+      "name": "Plate Heat Exchanger Temperature Approach (ΔT_HX)",
+      "unit": "K",
+      "type": "number",
+      "required": true,
+      "confidence_label": "VARSAYIM",
+      "default": 2,
+      "absolute_min": 0.5,
+      "absolute_max": 8,
+      "note": "Brazed plate HX: ΔT_HX = 1.5–3 K; gasketed frame: 2–5 K",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "design_cooling_load_kw",
+      "name": "Design Peak Cooling Load (Q_design)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "KESİN",
+      "absolute_min": 50,
+      "absolute_max": 100000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
+    },
+    {
+      "id": "annual_cooling_hours",
+      "name": "Annual Full-Load Equivalent Cooling Hours (FLEH)",
+      "unit": "h/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 3000,
+      "absolute_min": 200,
+      "absolute_max": 8760,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    },
+    {
+      "id": "site_climate_zone",
+      "name": "Site Climate Zone — Bin Hours Below Switchover",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Cold (Helsinki, Moscow) — ~4500 h/yr below 5°C wb",
+          "value": 4500
+        },
+        {
+          "label": "Temperate (London, Paris) — ~3000 h/yr",
+          "value": 3000
+        },
+        {
+          "label": "Mediterranean (Barcelona, Rome) — ~1500 h/yr",
+          "value": 1500
+        },
+        {
+          "label": "Warm (Dubai, Singapore) — ~300 h/yr",
+          "value": 300
+        }
+      ],
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 3000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "electricity_rate_usd_kwh",
+      "name": "Electricity Tariff",
+      "unit": "USD/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "GÜÇLÜ",
+      "default": 0.1,
+      "absolute_min": 0.03,
+      "absolute_max": 0.5,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    }
+  ],
+  "formulas": [
+    "T_wb_sw_c = chilled_water_supply_c - approach_temp_k - heat_exchanger_dT_k  // [°C] — Switchover Wet-Bulb Temperature (T_wb,sw) — Ref: T_wb,sw = T_CHWS − ΔT_approach − ΔT_HX — ASHRAE 90.1-2022 §6.5.1.1; below this outdoor WB, free-cooling is feasible",
+    "h_FC = Math.min(site_climate_zone, annual_cooling_hours)  // [h/yr] — Annual Free-Cooling Hours (h_FC) — Ref: Free-cooling hours = min(bin hours below T_wb,sw, total cooling hours) — CIBSE TM21 §4.2",
+    "F_FC = h_FC / annual_cooling_hours  // Free-Cooling Fraction (F_FC) — Ref: Fraction of annual cooling delivered without mechanical refrigeration",
+    "E_chiller_base_kwh = design_cooling_load_kw / chiller_COP * annual_cooling_hours  // [kWh/yr] — Annual Chiller Energy — Baseline (E_chiller_base) — Ref: Baseline: all cooling via chiller at full-load COP — ASHRAE 90.1 §11 baseline building",
+    "pump_fan_parasitic_kw = design_cooling_load_kw * 0.03; E_saving_kwh = (design_cooling_load_kw / chiller_COP - pump_fan_parasitic_kw) * h_FC  // [kWh/yr] — Annual Energy Saving with Free-Cooling (E_saving) — Ref: E_saving = (Q/COP − P_parasitic) × h_FC; parasitic = 3% of load for CT fan + HX pump — CIBSE TM21 §5",
+    "cost_saving_usd = E_saving_kwh * electricity_rate_usd_kwh; HX_cost_est_usd = design_cooling_load_kw * 40; payback_yr = HX_cost_est_usd / cost_saving_usd  // [USD/yr, years] — Annual Cost Saving & Simple Payback vs HX Capital — Ref: HX installed cost ≈ 40 USD/kW (brazed plate, 2024 estimate); payback = CAPEX / annual saving"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASHRAE 90.1-2022 §6.5.1.1",
+      "CIBSE TM21:2016 (Minimising fan energy)",
+      "EN 14511:2018",
+      "ASHRAE Fundamentals 2021 Ch.35"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "T_wb_sw_c < 0 && site_climate_zone < 1000",
+          "action": "WARN",
+          "message": "Switchover WB temperature below 0°C in warm climate: free-cooling hours will be negligible — evaluate dry cooler or adiabatic pre-cooling to raise T_wb,sw"
+        },
+        {
+          "id": "V2",
+          "condition": "chilled_water_supply_c < 6 && heat_exchanger_dT_k < 1.5",
+          "action": "WARN",
+          "message": "Very low CHWS temp with tight HX approach: fouling will increase ΔT_HX rapidly — specify minimum HX surface oversize of 20% per TEMA C"
+        },
+        {
+          "id": "V3",
+          "condition": "F_FC > 0.8",
+          "action": "WARN",
+          "message": "Free-cooling fraction > 80%: chiller operates less than 20% of time — evaluate chiller downsizing or VFD for part-load optimisation; chiller may fall below minimum unload point"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "INFO",
+        "message": "Free-cooling payback < 2 years: strong ROI — prioritise HX installation in next capital cycle; consider controls upgrade for automatic switchover per ASHRAE 90.1 §6.5.1",
+        "condition": "payback_yr < 2"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Warm climate with few free-cooling hours: marginal economic case — evaluate night-time free-cooling for data centres where T_wb is lower overnight",
+        "condition": "site_climate_zone < 500"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "High cooling tower approach (>6 K): tower fouled or undersized — cleaning or replacement can recover 2–3 K and extend free-cooling season significantly",
+        "condition": "approach_temp_k > 6"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Free-cooling saves >50% of baseline chiller energy: very favourable climate — evaluate tri-mode (full/partial/zero mechanical) controls for transitional hours",
+        "condition": "E_saving_kwh > E_chiller_base_kwh * 0.5"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Low-efficiency chiller in cold climate: both free-cooling AND chiller replacement are warranted — combined ROI should be modelled jointly",
+        "condition": "chiller_COP < 4 && site_climate_zone > 2000"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Parameter warning: T_wb_sw_c < 0 && site_climate_zone < 1000",
+        "effect": "Switchover WB temperature below 0°C in warm climate: free-cooling hours will be negligible — evaluate dry cooler or adiabatic pre-cooling to raise T_wb,sw",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V1"
+      },
+      {
+        "failureMode": "Parameter warning: chilled_water_supply_c < 6 && heat_exchanger_dT_k < 1.5",
+        "effect": "Very low CHWS temp with tight HX approach: fouling will increase ΔT_HX rapidly — specify minimum HX surface oversize of 20% per TEMA C",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: F_FC > 0.8",
+        "effect": "Free-cooling fraction > 80%: chiller operates less than 20% of time — evaluate chiller downsizing or VFD for part-load optimisation; chiller may fall below minimum unload point",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Free-cooling payback < 2 years: strong ROI — prioritise HX installation in next capital cycle; consider controls upgrade for automatic switchover per ASHRAE 90.1 §6.5.1",
+        "effect": "Smart warning triggered when: payback_yr < 2",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Warm climate with few free-cooling hours: marginal economic case — evaluate night-time free-cooling for data centres where T_wb is lower overnight",
+        "effect": "Smart warning triggered when: site_climate_zone < 500",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "High cooling tower approach (>6 K): tower fouled or undersized — cleaning or replacement can recover 2–3 K and extend free-cooling season significantly",
+        "effect": "Smart warning triggered when: approach_temp_k > 6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Free-cooling saves >50% of baseline chiller energy: very favourable climate — evaluate tri-mode (full/partial/zero mechanical) controls for transitional hours",
+        "effect": "Smart warning triggered when: E_saving_kwh > E_chiller_base_kwh * 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Low-efficiency chiller in cold climate: both free-cooling AND chiller replacement are warranted — combined ROI should be modelled jointly",
+        "effect": "Smart warning triggered when: chiller_COP < 4 && site_climate_zone > 2000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "T_wb_sw_c",
+        "h_FC",
+        "F_FC",
+        "E_chiller_base_kwh",
+        "pump_fan_parasitic_kw",
+        "E_saving_kwh",
+        "cost_saving_usd",
+        "HX_cost_est_usd",
+        "payback_yr"
+      ]
+    }
+  ]
+}
