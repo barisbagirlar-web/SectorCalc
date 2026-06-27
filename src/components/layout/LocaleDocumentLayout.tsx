@@ -11,6 +11,7 @@ import { RegionProvider } from "@/lib/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { SectorCalcAssistant } from "@/components/assistant/SectorCalcAssistant";
 import { PaddleProvider } from "@/lib/paddle-provider";
+import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,12 +67,14 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <JsonLd data={buildHomepageJsonLd(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <RegionProvider region={region} source={source}>
-            <PaddleProvider>
-              <AttributionBootstrap />
-              <ServiceWorkerRegister />
-              {children}
-              <SectorCalcAssistant />
-            </PaddleProvider>
+            <ErrorBoundary>
+              <PaddleProvider>
+                <AttributionBootstrap />
+                <ServiceWorkerRegister />
+                {children}
+                <SectorCalcAssistant />
+              </PaddleProvider>
+            </ErrorBoundary>
           </RegionProvider>
         </NextIntlClientProvider>
       </body>

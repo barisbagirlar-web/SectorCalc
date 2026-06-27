@@ -38,7 +38,17 @@ function renderFieldGrid(
   }
 
   return (
-    <div className="sc-form-grid grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <div className={`sc-form-grid grid gap-4 ${
+      fields.length === 1
+        ? "grid-cols-1"
+        : fields.length === 2
+          ? "grid-cols-1 sm:grid-cols-2"
+          : fields.length === 3
+            ? "grid-cols-1 sm:grid-cols-3"
+            : fields.length === 4
+              ? "grid-cols-1 sm:grid-cols-2"
+              : "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
+    }`}>
       {fields.map((field) => (
         <SmartFormField
           key={field.key}

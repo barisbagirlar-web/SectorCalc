@@ -10,6 +10,8 @@ import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
+import { FreeToolForm } from "@/components/tools/FreeToolForm";
+import type { PremiumInputDef, PremiumFormulaRow, PremiumValidationRule, PremiumResultRow, PremiumWarning } from "@/components/tools/FreeToolForm";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
 import type { PilotFieldValues } from "@/components/tools/smart-form/pilot-calculation-payload";
@@ -195,15 +197,15 @@ function FreeToolInputField({
 }
 
 function FreeToolResultCard({ result }: { result: FreeToolResult }) {
- const status = riskLevelToStatus(result.riskLevel);
- const primaryClass =
-  status === "safe"
-   ? "sc-result-primary sc-result-primary--safe"
-   : status === "warning"
-     ? "sc-result-primary sc-result-primary--warn"
-     : status === "critical"
-       ? "sc-result-primary sc-result-primary--danger"
-       : "sc-result-primary";
+  const status = riskLevelToStatus(result.riskLevel);
+  const primaryClass =
+   status === "safe"
+    ? "sc-result-primary sc-result-primary--safe"
+    : status === "warning"
+      ? "sc-result-primary sc-result-primary--warn"
+      : status === "critical"
+        ? "sc-result-primary sc-result-primary--danger"
+        : "sc-result-primary";
 
  return (
  <div className="sc-ledger-result sc-result-panel sc-ledger-letterpress" aria-live="polite">
@@ -214,6 +216,24 @@ function FreeToolResultCard({ result }: { result: FreeToolResult }) {
  <LedgerNumberTick value={result.summary} className={`mt-3 ${primaryClass}`} />
  </div>
  );
+}
+
+function mapRevenueInputsToPremium(inputs: readonly RevenueToolInput[]): PremiumInputDef[] {
+  return inputs.map((inp) => {
+    const isCurrency = inp.type === "currency";
+    const isPercent = inp.type === "percent";
+    return {
+      key: inp.key,
+      label: inp.label,
+      unit: isPercent ? "%" : isCurrency ? "" : inp.unit || "",
+      type: inp.type === "select" ? "select" : "number",
+      required: inp.required ?? true,
+      confidence_label: "KESİN",
+      options: inp.options?.map((o) => ({ label: o.label, value: o.value })),
+      min: inp.type === "number" ? 0 : undefined,
+      hint: inp.helperText || "",
+    } as PremiumInputDef;
+  });
 }
 
 interface FreeToolPageProps {
@@ -533,152 +553,213 @@ export function FreeToolPage({
 
  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
- {!showCalculationSurface ? (
-  <ToolSafeReviewState slug={tool.freeSlug} locale={locale} findings={runtimeTrust.findings} />
- ) : (
- <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked mt-4">
-  <SmartFormWorkspace
+{!showCalculationSurface ? (
+ <ToolSafeReviewState slug={tool.freeSlug} locale={locale} findings={runtimeTrust.findings} />
+) : useSmartFormPilot || useFullLoopRuntime ? (
+<div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked mt-4">
+ <SmartFormWorkspace
+  toolSlug={tool.freeSlug}
+  tier="free"
+  title={tool.freeTitle}
+  description={tool.painStatement}
+  toolSector={tool.sector}
+  inputConfig={{ kind: "revenue", inputs: tool.freeInputs }}
+  values={values}
+  errors={errors}
+  onChange={handleChange}
+  onSubmit={handleSubmit}
+  calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
+  isCalculating={isCalculating}
+  forceFallback={true}
+  nativeContractForm={false}
+  formFallback={
+   useSmartFormPilot && smartFormPilotManifest ? (
+    <SmartFormBridgeRenderer
+     manifest={smartFormPilotManifest}
+     calculationConnected
+     isCalculating={isCalculating}
+     fieldErrors={pilotErrors}
+     onPilotCalculate={handlePilotCalculate}
+     onPilotStarted={handlePilotStarted}
+    />
+   ) : (
+    <SmartToolForm
+     slug={tool.freeSlug}
+     values={values}
+     errors={errors}
+     onChange={handleChange}
+     onSubmit={handleSubmit}
+     calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
+     blocked={fullLoopResult?.status === "blocked"}
+     blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
+     isCalculating={isCalculating}
+    />
+   )
+  }
+  resultPanel={
+   <>
+    {fullLoopResult?.status === "blocked" ? (
+     <SmartFormValidationSummary
+      title={tUi("analysisBlockedTitle")}
+      blockers={fullLoopResult.blockers}
+     />
+    ) : null}
+    {isCalculating ? (
+     <p className="text-sm text-body-charcoal">{tUi("calculating")}</p>
+    ) : null}
+    {!isCalculating && result ? (
+     <>
+      <FreeToolResultCard result={result} />
+     </>
+    ) : null}
+    {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
+     <p className="text-sm text-body-charcoal">
+      {useSmartFormPilot ? tUi("pilotAwaiting") : tCalc("awaiting")}
+     </p>
+    ) : null}
+   </>
+  }
+  hasCalculated={submitted && !isCalculating && result !== null}
+  resultSummary={result ? {
+   primaryValue: result.summary,
+   status: result.riskLevel === "LOW" ? "safe" : result.riskLevel === "MEDIUM" ? "watch" : "danger",
+   actionRecommendation: result.headline,
+  } : null}
+  trustTraceSlot={undefined}
+ />
+  <CalculationFeedbackButton
    toolSlug={tool.freeSlug}
-   tier="free"
-   title={tool.freeTitle}
-   description={tool.painStatement}
-   toolSector={tool.sector}
-   inputConfig={{ kind: "revenue", inputs: tool.freeInputs }}
-   values={values}
-   errors={errors}
-   onChange={handleChange}
-   onSubmit={handleSubmit}
-   calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
-   isCalculating={isCalculating}
-   forceFallback={Boolean(useSmartFormPilot && smartFormPilotManifest)}
-   nativeContractForm={useFullLoopRuntime}
-   formFallback={
-    useSmartFormPilot && smartFormPilotManifest ? (
-     <SmartFormBridgeRenderer
-      manifest={smartFormPilotManifest}
-      calculationConnected
-      isCalculating={isCalculating}
-      fieldErrors={pilotErrors}
-      onPilotCalculate={handlePilotCalculate}
-      onPilotStarted={handlePilotStarted}
-     />
-    ) : useFullLoopRuntime ? (
-     <SmartToolForm
-      slug={tool.freeSlug}
-      values={values}
-      errors={errors}
-      onChange={handleChange}
-      onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
-      blocked={fullLoopResult?.status === "blocked"}
-      blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
-      isCalculating={isCalculating}
-     />
-    ) : (
-      <form
-       ref={formRef}
-       onSubmit={handleSubmit}
-       className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
-       noValidate
-       data-calculation-form="true"
-      >
-       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {tool.freeInputs.map((input) => (
-         <FreeToolInputField
-          key={input.key}
-          input={input}
-          value={values[input.key] ?? (input.type === "select" ? "" : 0)}
-          error={errors[input.key]}
-          onChange={handleChange}
-         />
-        ))}
-       </div>
-       <div className="sc-industrial-form-actions mt-4">
-        <button
-         type="submit"
-         disabled={isCalculating}
-         className="sc-cta-primary disabled:opacity-60"
-        >
-         {isCalculating ? tUi("calculating") : tCalc("calculate")}
-        </button>
-       </div>
-      </form>
-    )
-   }
-   resultPanel={
-    <>
-     {fullLoopResult?.status === "blocked" ? (
-      <SmartFormValidationSummary
-       title={tUi("analysisBlockedTitle")}
-       blockers={fullLoopResult.blockers}
-      />
-     ) : null}
-     {isCalculating ? (
-      <p className="text-sm text-body-charcoal">{tUi("calculating")}</p>
-     ) : null}
-     {!isCalculating && result ? (
-      <>
-       <FreeToolResultCard result={result} />
-      </>
-     ) : null}
-     {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
-      <p className="text-sm text-body-charcoal">
-       {useSmartFormPilot ? tUi("pilotAwaiting") : tCalc("awaiting")}
-      </p>
-     ) : null}
-    </>
-   }
-   hasCalculated={submitted && !isCalculating && result !== null}
-   resultSummary={result ? {
-    primaryValue: result.summary,
-    status: result.riskLevel === "LOW" ? "safe" : result.riskLevel === "MEDIUM" ? "watch" : "danger",
-    actionRecommendation: result.headline,
-   } : null}
-   trustTraceSlot={undefined}
+   toolType={surfaceTier === "premium" ? "premium" : "free"}
+   locale={locale}
+   routePath={pagePath}
+   inputSnapshot={feedbackInputSnapshot}
+   resultSnapshot={feedbackResultSnapshot}
   />
-   <CalculationFeedbackButton
-    toolSlug={tool.freeSlug}
-    toolType={surfaceTier === "premium" ? "premium" : "free"}
-    locale={locale}
-    routePath={pagePath}
-    inputSnapshot={feedbackInputSnapshot}
-    resultSnapshot={feedbackResultSnapshot}
-   />
-   {surfaceTier === "premium" && (
-     <div className="mt-8 border-t border-technical-gray/20 pt-6">
-       <FreeToolAuthorityBlock
-         tool={mockTrafficTool as any}
-         locale={locale}
-         localizedTitle={tool.freeTitle}
-         localizedDescription={tool.painStatement}
-         labels={{
-           howItWorksTitle: tAuthority("howItWorksTitle"),
-           descriptionTitle: tAuthority("descriptionTitle"),
-           formulaTitle: tAuthority("formulaTitle"),
-           inputsTitle: tAuthority("inputsTitle"),
-           includesTitle: tAuthority("includesTitle"),
-           includes1: tAuthority("includes1"),
-           includes2: tAuthority("includes2"),
-           includes3: tAuthority("includes3"),
-           estimateMissesTitle: tAuthority("estimateMissesTitle"),
-           estimateMissesBody: tAuthority("estimateMissesBody"),
-           faqTitle: tPremiumAuthority("faqTitle"),
-           faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
-           faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
-           faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
-           faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
-           faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
-           faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
-           relatedGuideTitle: tAuthority("relatedGuideTitle"),
-           relatedHubTitle: tAuthority("relatedHubTitle"),
-           relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
-           relatedPremiumCta: tAuthority("relatedPremiumCta"),
-         }}
-       />
-     </div>
-   )}
- </div>
- )}
+  {surfaceTier === "premium" && (
+    <div className="mt-8 border-t border-technical-gray/20 pt-6">
+      <FreeToolAuthorityBlock
+        tool={mockTrafficTool as any}
+        locale={locale}
+        localizedTitle={tool.freeTitle}
+        localizedDescription={tool.painStatement}
+        labels={{
+          howItWorksTitle: tAuthority("howItWorksTitle"),
+          descriptionTitle: tAuthority("descriptionTitle"),
+          formulaTitle: tAuthority("formulaTitle"),
+          inputsTitle: tAuthority("inputsTitle"),
+          includesTitle: tAuthority("includesTitle"),
+          includes1: tAuthority("includes1"),
+          includes2: tAuthority("includes2"),
+          includes3: tAuthority("includes3"),
+          estimateMissesTitle: tAuthority("estimateMissesTitle"),
+          estimateMissesBody: tAuthority("estimateMissesBody"),
+          faqTitle: tPremiumAuthority("faqTitle"),
+          faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
+          faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
+          faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
+          faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
+          faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
+          faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
+          relatedGuideTitle: tAuthority("relatedGuideTitle"),
+          relatedHubTitle: tAuthority("relatedHubTitle"),
+          relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
+          relatedPremiumCta: tAuthority("relatedPremiumCta"),
+        }}
+      />
+    </div>
+  )}
+</div>
+) : (
+<div>
+ <FreeToolForm
+  title={tool.freeTitle}
+  category={tool.sector}
+  toolId={`PRO_${tool.freeSlug.toUpperCase()}`}
+  standards={tool.sector ? [tool.sector] : []}
+  inputs={mapRevenueInputsToPremium(tool.freeInputs)}
+  values={values}
+  errors={errors}
+  onChange={handleChange}
+  calculateEngine={(vals) => {
+   const inputValues = vals as unknown as FreeToolInputValues;
+   let calcResult: FreeToolResult;
+   try {
+    calcResult = calculateFreeToolResult(tool, inputValues);
+   } catch (e) {
+    return {
+     resultRows: [],
+     resultWarnings: [{ severity: "CRITICAL", source: "Calculation", message: "Calculation error: " + String(e) }],
+    };
+   }
+   const warnings: PremiumWarning[] = [];
+   if (calcResult.riskLevel === "HIGH") {
+    warnings.push({ severity: "CRITICAL", source: "Risk", message: calcResult.headline });
+   } else if (calcResult.riskLevel === "MEDIUM") {
+    warnings.push({ severity: "WARNING", source: "Risk", message: calcResult.headline });
+   }
+   try {
+    trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, { toolSlug: tool.freeSlug });
+    trackConversionEvent({
+     stage: "calculation", eventName: "free_tool_calculate", locale,
+     pagePath, toolSlug: tool.freeSlug,
+     campaignId: attribution.utmCampaign, source: attribution.utmSource,
+     medium: attribution.utmMedium, valueType: "free", category: tool.sector,
+    });
+   } catch {}
+   return {
+    resultRows: [
+     { label: "Result", value: calcResult.summary, unit: "", highlight: true },
+    ],
+    resultWarnings: warnings,
+    resultOkMessage: calcResult.riskLevel === "LOW" ? calcResult.headline : undefined,
+   };
+  }}
+  calculateLabel={tCalc("calculate")}
+  onReset={() => { setValues(buildInitialValues(tool)); setErrors({}); }}
+ />
+  <CalculationFeedbackButton
+   toolSlug={tool.freeSlug}
+   toolType={surfaceTier === "premium" ? "premium" : "free"}
+   locale={locale}
+   routePath={pagePath}
+   inputSnapshot={feedbackInputSnapshot}
+   resultSnapshot={undefined}
+  />
+  {surfaceTier === "premium" && (
+    <div className="mt-8 border-t border-technical-gray/20 pt-6">
+      <FreeToolAuthorityBlock
+        tool={mockTrafficTool as any}
+        locale={locale}
+        localizedTitle={tool.freeTitle}
+        localizedDescription={tool.painStatement}
+        labels={{
+          howItWorksTitle: tAuthority("howItWorksTitle"),
+          descriptionTitle: tAuthority("descriptionTitle"),
+          formulaTitle: tAuthority("formulaTitle"),
+          inputsTitle: tAuthority("inputsTitle"),
+          includesTitle: tAuthority("includesTitle"),
+          includes1: tAuthority("includes1"),
+          includes2: tAuthority("includes2"),
+          includes3: tAuthority("includes3"),
+          estimateMissesTitle: tAuthority("estimateMissesTitle"),
+          estimateMissesBody: tAuthority("estimateMissesBody"),
+          faqTitle: tPremiumAuthority("faqTitle"),
+          faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
+          faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
+          faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
+          faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
+          faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
+          faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
+          relatedGuideTitle: tAuthority("relatedGuideTitle"),
+          relatedHubTitle: tAuthority("relatedHubTitle"),
+          relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
+          relatedPremiumCta: tAuthority("relatedPremiumCta"),
+        }}
+      />
+    </div>
+  )}
+</div>
+)}
  </Container>
  </section>
  </PageLayout>

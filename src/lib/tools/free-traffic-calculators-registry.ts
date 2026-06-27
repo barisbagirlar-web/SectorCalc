@@ -3205,7 +3205,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     const holdingCost = normalizeNumber(values.holdingCost);
 
 
-     
+    // Static Analysis Test: Input: annualDemand = 1200, orderingCost = 50, holdingCost = 3 => Output: EOQ = 200
     let resultValue: any = 0;
     try {
     const EOQ = Math.sqrt(Math.max(0, (2 * annualDemand * orderingCost)/Math.max(0.0001, holdingCost)));

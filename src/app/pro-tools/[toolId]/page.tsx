@@ -1,13 +1,7 @@
-/**
- * SectorCalc — Next.js Pro Tool Page
- * Dosya: app/[locale]/pro-tools/[toolId]/page.tsx
- * 
- * Rewrite pipeline çıktısını (output/PRO_XXX.json) okur ve UniversalCalculator'a besler.
- */
-
 import { notFound } from "next/navigation";
 import ProToolClientWrapper from "@/components/calculators/ProToolClientWrapper";
 import { PRO_TOOLS_MAP } from "@/lib/tools/pro-tools-registry";
+import "@/styles/pro-tool-form.css";
 
 function loadTool(toolId: string) {
   return PRO_TOOLS_MAP[toolId] || null;
@@ -17,12 +11,10 @@ function loadAllTools(): string[] {
   return Object.keys(PRO_TOOLS_MAP);
 }
 
-// Static params — tüm araçlar için sayfa üret
 export async function generateStaticParams() {
   return loadAllTools().map(toolId => ({ toolId }));
 }
 
-// Metadata
 export async function generateMetadata({ params }: { params: Promise<{ toolId: string; locale: string }> }) {
   const { toolId } = await params;
   const tool = loadTool(toolId);
@@ -33,7 +25,6 @@ export async function generateMetadata({ params }: { params: Promise<{ toolId: s
   };
 }
 
-// JSON-LD structured data
 function buildJsonLd(tool: any) {
   return {
     "@context": "https://schema.org",
@@ -42,11 +33,7 @@ function buildJsonLd(tool: any) {
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": tool.category,
     "description": `${tool.category} calculation tool. ${(tool.engine_rules?.standards || []).join(", ")} referenced.`,
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-    },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   };
 }
 
@@ -68,64 +55,8 @@ export default async function ProToolPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div style={{ background: "#E8E6DE", minHeight: "100vh", color: "#1A1915", fontFamily: "Inter, system-ui, sans-serif" }}>
-        <main style={{ padding: "28px 24px 60px", maxWidth: 1080, margin: "0 auto" }}>
-          {/* Breadcrumb */}
-          <nav style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(26,25,21,0.45)", marginBottom: 18 }}>
-            <a href={`/pro-tools`} style={{ color: "#BD5D3A", textDecoration: "none" }}>
-              Pro Tools
-            </a>
-            <span style={{ opacity: 0.4 }}>/</span>
-            <a
-              href={`/pro-tools?category=${tool.category?.toLowerCase().replace(/\s+/g, "-")}`}
-              style={{ color: "#BD5D3A", textDecoration: "none" }}
-            >
-              {tool.category}
-            </a>
-            <span style={{ opacity: 0.4 }}>/</span>
-            <span>{tool.tool_name}</span>
-          </nav>
-
-          {/* Standards strip */}
-          {tool.engine_rules?.standards?.length > 0 && (
-            <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap", marginBottom: 14 }}>
-              <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(26,25,21,0.38)", marginRight: 4 }}>
-                REFERENCE STANDARDS:
-              </span>
-              {tool.engine_rules.standards.map((std: string, i: number) => (
-                <span key={i} style={{
-                  fontSize: 9,
-                  fontWeight: 700,
-                  fontFamily: "JetBrains Mono, monospace",
-                  padding: "2px 7px",
-                  border: "1px solid rgba(26,25,21,0.18)",
-                  color: "rgba(26,25,21,0.55)",
-                }}>
-                  {std}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Main calculator wrapped in client billing gate */}
-          <ProToolClientWrapper
-            tool={tool}
-            locale={locale}
-          />
-
-          {/* Footer info */}
-          <div style={{
-            marginTop: 14, padding: "12px 0",
-            borderTop: "1px solid rgba(26,25,21,0.09)",
-            fontSize: 10, color: "rgba(26,25,21,0.38)",
-            lineHeight: 1.6,
-          }}>
-            This calculator contains formulas referenced from {tool.engine_rules?.standards?.length > 0
-              ? ` ${tool.engine_rules.standards.join(", ")} `
-              : " "}.
-            Results are generated for engineering decision support purposes, and authorized
-            engineer approval must be obtained in field applications.
-            SectorCalc {tool.tool_id} — {tool.category}.
-          </div>
+        <main style={{ padding: "28px 24px 80px", maxWidth: 1100, margin: "0 auto" }}>
+          <ProToolClientWrapper tool={tool} locale={locale} />
         </main>
       </div>
     </>

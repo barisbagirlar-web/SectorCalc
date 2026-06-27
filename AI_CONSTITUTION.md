@@ -166,24 +166,29 @@ npm run lint
 npm run build
 ```
 
-### Kural 7: Dev Server — Static Build + Serve (ÇİFT ONAYLI)
+### Kural 7: Dev Server — Static Build + Serve (PM2, SIFIR HATA)
 
-**Kullanılacak TEK komut:**
+**Kullanılacak KOMUTLAR:**
+
 ```bash
-sh dev.sh
+npm run dev          # clean build + serve (tek seferlik)
+npm run pm2          # PM2 ile 7/24 başlat
+npm run pm2:restart  # kod değişikliği sonrası restart
+npm run pm2:logout   # log takibi
+npm run pm2:status   # durum kontrol
+sh dev.sh            # clean rebuild + serve (tek seferlik)
 ```
 
-**Kesinlikle yasak:** `npx next dev`, `npm run dev`, `next dev`, `npm start`
+**Kesinlikle yasak:** `npx next dev`, `npm run dev:next`, `next dev`, `npm start`
 
 #### Nasıl çalışır?
 
-`dev.sh` → `scripts/dev-static.mjs`'i çalıştırır:
-
-1. **`next build`** ile production build alır (0 runtime error)
-2. **`next start -p 3000`** ile built dosyaları sunar
-3. **`fs.watch`** ile `src/`, `data/`, `messages/`, `public/` klasörlerini izler
-4. Dosya değişince → rebuild → restart (hot swap)
-5. **Build hatası = crash yok** — eski build yayında kalır
+`scripts/dev-static.mjs`:
+1. **`npm run build`** ile production build alır (0 runtime error)
+2. **`./node_modules/.bin/next start -p 3000`** ile built dosyaları sunar
+3. **Watcher yok** — auto-rebuild tetiklemez, crash döngüsü oluşmaz
+4. **Build hatası = crash** (temiz başlangıç için)
+5. **`await new Promise(() => {})`** ile process sonsuza kadar canlı kalır
 
 #### Neden %100 stabil?
 
@@ -192,13 +197,19 @@ sh dev.sh
 | Runtime derleme → crash | Derleme bitti, sadece dosya sunar |
 | Fast Refresh hata üretir | Production code = 0 hata |
 | SW offline sorunu | Production build = doğru SW |
-| Bellek sızıntısı | Statik dosya sunar, sızıntı yok |
+| Watcher rebuild döngüsü | Watcher yok, rebuild tetiklenmez |
+| Port çakışması | PM2 otomatik restart + port yönetimi |
 
-#### Süreç kuralı
+#### Kod değişikliği sonrası
 
-- Bir AI server'ı başlattıysa diğeri restart etmez
-- Değişiklik görünmezse: **hard refresh (Cmd+Shift+R)** + 5 saniye bekle (rebuild sürüyor olabilir)
-- Gerçekten restart gerekiyorsa: `sh dev.sh` (eski port'u öldürür, rebuild + serve yapar)
+```bash
+# PM2 ile çalışıyorsa:
+npm run pm2:restart    # build + serve (yeni kod ile)
+pm2 save               # PM2 dump güncelle
+
+# Tek seferlik:
+sh dev.sh              # clean build + serve
+```
 
 ---
 

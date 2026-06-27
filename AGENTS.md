@@ -184,6 +184,7 @@ Durum: TAMAMLANDI / HATA / BEKLİYOR / UYGULANMADI
 ## 9. Tamamlanma şartları
 
 - Talimat kapsamı uygulandı
+- **Orijinal spesifikasyondaki tüm alanlar (top-level, input, validation, reference_code, metadata, error_propagation, fmea, audit_log dahil) uygulandı — hiçbir alan "sistem formatına uymuyor" gerekçesiyle atlanamaz**
 - Değişen dosyalar raporlandı
 - İlgili testler çalıştı (kod değişikliğinde lint/tsc/build)
 - Fail eden test yok
@@ -198,6 +199,7 @@ Durum: TAMAMLANDI / HATA / BEKLİYOR / UYGULANMADI
 | `.cursor/rules/00-proof-gate/RULE.md` | Kanıt üretme, test, grep |
 | `.cursor/rules/01-sectorcalc-safety/RULE.md` | Korunan alanlar, audit zorunluluğu |
 | `.cursor/rules/02-ui-quality/RULE.md` | UI kalite, responsive, görsel oran |
+| `.cursor/rules/04-completeness-gate/RULE.md` | Spesifikasyon tamamlama zorunluluğu — verilen alanların %100 uygulanması |
 
 ## 11. SectorCalc kalite özeti
 

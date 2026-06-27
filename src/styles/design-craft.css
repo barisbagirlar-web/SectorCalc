@@ -6192,9 +6192,9 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 /* Unit select dropdowns in free forms - fixed width to prevent squishing the input */
 .sc-smart-form-shell[data-smart-form-tier="free"] select[id$="-unit"] {
-  width: 140px !important;
-  min-width: 140px !important;
-  max-width: 140px !important;
+  width: 90px !important;
+  min-width: 90px !important;
+  max-width: 90px !important;
   flex-shrink: 0 !important;
   padding-left: 0.5rem !important;
   padding-right: 1.5rem !important;

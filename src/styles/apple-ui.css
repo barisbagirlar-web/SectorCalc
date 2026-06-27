@@ -629,22 +629,22 @@
   text-decoration: none;
   min-height: 44px;
   height: auto;
-  max-width: min(11.25rem, 34vw);
+  max-width: min(16rem, 50vw);
 }
 
 .site-logo__img,
 .sc-site-logo__wordmark {
-  display: block;
-  height: 2.625rem;
-  width: auto;
-  max-width: 11.25rem;
-  object-fit: contain;
-  object-position: left center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1A1915;
+  white-space: nowrap;
 }
 
 .site-logo--on-dark .sc-site-logo__wordmark {
-  filter: brightness(0) invert(1);
-  opacity: 0.92;
+  color: #F0EEE6;
 }
 
 /* Mobile header — compact mark + wordmark */
@@ -671,8 +671,7 @@
   }
 
   .sc-site-logo__wordmark {
-    height: 2.125rem;
-    max-width: 9rem;
+    font-size: 1.25rem;
   }
 
   .apple-nav__menu-btn {
@@ -825,22 +824,15 @@
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  object-fit: contain;
 }
 
 .footer-logo-text {
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   letter-spacing: -0.02em;
-}
-
-.footer-logo-text .sector {
-  color: #3d4f6f;
-}
-
-.footer-logo-text .calc {
-  color: var(--sc-navy, #1e40af);
+  color: #1A1915;
 }
 
 .footer-tagline {

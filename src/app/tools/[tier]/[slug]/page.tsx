@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ToolPageShell } from "@/components/tools/ToolPageShell";
 import {
@@ -46,7 +47,7 @@ export default async function ToolPage({
  params: Promise<ToolPageParams>;
 }) {
  const { tier, slug } = await params;
- const locale = "en";
+ const locale = await getLocale();
  
 
  if (!isValidToolTier(tier)) {

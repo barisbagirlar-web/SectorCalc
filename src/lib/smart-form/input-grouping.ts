@@ -6,6 +6,7 @@ import type { SmartFormGroupId, SmartFormInput } from "@/lib/smart-form/types";
 import { SMART_FORM_GROUP_LABELS } from "@/lib/smart-form/types";
 
 const GROUP_KEYWORDS: Readonly<Record<SmartFormGroupId, readonly string[]>> = {
+  general: [],
   "material-geometry": [
     "material",
     "area",
@@ -122,6 +123,21 @@ export function groupInputsForSimpleView(
 export function buildSectionsFromInputs(
   inputs: readonly SmartFormInput[],
 ): import("@/lib/smart-form/types").SmartFormSectionConfig[] {
+  if (inputs.length <= 5) {
+    const generalInputs = inputs.map(input => ({
+      ...input,
+      group: "general" as SmartFormGroupId,
+    }));
+    return [
+      {
+        id: "general",
+        title: SMART_FORM_GROUP_LABELS.general,
+        description: sectionDescription("general"),
+        inputs: generalInputs,
+      },
+    ];
+  }
+
   const byGroup = new Map<SmartFormGroupId, SmartFormInput[]>();
 
   for (const input of inputs) {
@@ -151,6 +167,8 @@ export function buildSectionsFromInputs(
 
 function sectionDescription(group: SmartFormGroupId): string {
   switch (group) {
+    case "general":
+      return "Configure the parameters below to run the calculation.";
     case "material-geometry":
       return "Physical scope, dimensions and material drivers.";
     case "time-labor":

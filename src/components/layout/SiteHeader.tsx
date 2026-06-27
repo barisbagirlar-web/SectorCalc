@@ -225,8 +225,7 @@ export function SiteHeader({ isAuthenticated = false }) {
         .sc-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:15px 24px;}
         .sc-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
         .sc-logo-mark{width:30px;height:30px;flex-shrink:0;}
-        .sc-logo-text{font-size:21px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
-        .sc-logo-text .a{color:var(--accent);}
+        .sc-logo-text{font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:700;color:var(--text);letter-spacing:-0.02em;}
         .sc-nav{display:flex;align-items:stretch;gap:6px;flex:1;justify-content:center;}
         .sc-nav > div { display:flex; align-items:center; position:relative; }
         .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;}
@@ -311,12 +310,12 @@ export function SiteHeader({ isAuthenticated = false }) {
 
           <Link href={rootHref(locale)} className="sc-logo" aria-label="SectorCalc home">
             <svg className="sc-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#0F172A"/>
-              <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2563EB"/>
-              <rect x="2"  y="17" width="13" height="13" rx="3" fill="#10B981"/>
-              <rect x="17" y="17" width="13" height="13" rx="3" fill="#F59E0B"/>
+              <rect x="2" y="2" width="13" height="13" fill="#1A1915"/>
+              <rect x="17" y="2" width="13" height="13" fill="#BD5D3A"/>
+              <rect x="2" y="17" width="13" height="13" fill="#1A1915" fillOpacity="0.30"/>
+              <rect x="17" y="17" width="13" height="13" fill="#BD5D3A" fillOpacity="0.30"/>
             </svg>
-            <span className="sc-logo-text">Sector<span className="a">Calc</span></span>
+            <span className="sc-logo-text">SectorCalc</span>
           </Link>
 
           <nav className="sc-nav" ref={navRef}>

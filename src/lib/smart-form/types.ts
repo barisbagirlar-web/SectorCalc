@@ -12,6 +12,7 @@ export type SmartFormInputType = "number" | "currency" | "percent" | "select" | 
 export type SmartFormValidationTone = "neutral" | "valid" | "warning" | "error";
 
 export type SmartFormGroupId =
+  | "general"
   | "material-geometry"
   | "time-labor"
   | "cost-margin"
@@ -20,6 +21,7 @@ export type SmartFormGroupId =
   | "advanced";
 
 export type SmartFormGroupLabel =
+  | "Calculation Parameters"
   | "Material & Geometry"
   | "Time & Labor"
   | "Cost & Margin"
@@ -110,6 +112,7 @@ export type SmartFormAdapterResult = SmartFormAdapterSuccess | SmartFormAdapterF
 export const SMART_FORM_SIMPLE_INPUT_LIMIT = 6;
 
 export const SMART_FORM_GROUP_LABELS: Record<SmartFormGroupId, SmartFormGroupLabel> = {
+  general: "Calculation Parameters",
   "material-geometry": "Material & Geometry",
   "time-labor": "Time & Labor",
   "cost-margin": "Cost & Margin",

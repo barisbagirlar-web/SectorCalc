@@ -39,66 +39,113 @@ const PaddleContext = createContext<PaddleContextValue>({
   openCheckout: () => {},
 })
 
+// Guard: Paddle v2 SDK sometimes throws unhandled global errors (Connection closed)
+// when its internal WebSocket/SSE connection drops. We install a window-level
+// handler to silently swallow Paddle-specific errors so they don't crash the app.
+let paddleErrorGuardInstalled = false
+
+function installPaddleErrorGuard() {
+  if (paddleErrorGuardInstalled) return
+  paddleErrorGuardInstalled = true
+
+  // Silence unhandled promise rejections originating from Paddle SDK
+  window.addEventListener('unhandledrejection', (event: PromiseRejectionEvent) => {
+    const msg = String(event.reason?.message || event.reason || '')
+    if (/paddle|connection closed|Paddle\.Initialize/i.test(msg)) {
+      event.preventDefault()
+      console.warn('[PaddleGuard] Silenced unhandled rejection:', msg)
+    }
+  })
+
+  // Silence global errors originating from Paddle SDK
+  window.addEventListener('error', (event: ErrorEvent) => {
+    const msg = String(event.message || '')
+    if (/paddle|connection closed|Paddle\./i.test(msg)) {
+      event.preventDefault()
+      console.warn('[PaddleGuard] Silenced global error:', msg)
+    }
+  })
+}
+
 export function PaddleProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false)
   const paddleRef = useRef<PaddleInstance | null>(null)
+  const initAttempted = useRef(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+    if (initAttempted.current) return
+    initAttempted.current = true
+
+    // Install global error guard once
+    installPaddleErrorGuard()
+
     if ((window as any).Paddle) { initPaddle(); return }
+
     const script = document.createElement('script')
     script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js'
     script.async = true
+    script.crossOrigin = 'anonymous'
     script.onload = initPaddle
+    script.onerror = () => {
+      console.warn('[PaddleProvider] Failed to load Paddle script — payment features unavailable.')
+    }
     document.head.appendChild(script)
   }, [])
 
   function initPaddle() {
     try {
       const Paddle = (window as any).Paddle as PaddleInstance
-      if (!Paddle) return
-      
+      if (!Paddle) {
+        console.warn('[PaddleProvider] Paddle object not found after script load.')
+        return
+      }
+
       const env = (process.env.NEXT_PUBLIC_PADDLE_ENV || 'sandbox') as 'sandbox' | 'production'
-      
-      const token = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'test_6380be7c84b551e3fcd08d55d7e';
+      const token = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'test_6380be7c84b551e3fcd08d55d7e'
+
       const eventCallback = (e: PaddleEvent) => {
         if (e.name === 'checkout.completed') console.log('[Paddle] checkout completed', e.data)
-      };
+      }
 
-      // Set environment to sandbox if configured
+      // Set environment if configured
       if (env === 'sandbox' && Paddle.Environment && typeof Paddle.Environment.set === 'function') {
-        Paddle.Environment.set('sandbox')
+        try { Paddle.Environment.set('sandbox') } catch (_) {}
       }
 
       if (typeof Paddle.Initialize === 'function') {
         try {
-          const initResult = Paddle.Initialize({
-            token,
-            eventCallback,
-          });
+          const initResult = Paddle.Initialize({ token, eventCallback })
 
           if (initResult && typeof (initResult as any).then === 'function') {
-            (initResult as any).then(() => {
-              paddleRef.current = Paddle
-              setReady(true)
-            }).catch((err: any) => {
-              console.error('[PaddleProvider] Initialize promise rejected:', err)
-            })
+            (initResult as any)
+              .then(() => {
+                paddleRef.current = Paddle
+                setReady(true)
+              })
+              .catch((err: any) => {
+                console.warn('[PaddleProvider] Initialize rejected — payment unavailable:', err?.message || err)
+                // ready stays false — payment features gracefully disabled
+              })
           } else {
-            console.warn('[PaddleProvider] Initialize did not return a promise, treating as success')
+            console.log('[PaddleProvider] Initialize OK')
             paddleRef.current = Paddle
             setReady(true)
           }
         } catch (innerErr) {
-          console.error('[PaddleProvider] Initialize call failed:', innerErr)
+          console.warn('[PaddleProvider] Initialize call threw — payment unavailable:', String(innerErr))
         }
       } else if (typeof Paddle.Setup === 'function') {
-        Paddle.Setup({ vendor: Number(token) || 0, eventCallback })
-        paddleRef.current = Paddle
-        setReady(true)
+        try {
+          Paddle.Setup({ vendor: Number(token) || 0, eventCallback })
+          paddleRef.current = Paddle
+          setReady(true)
+        } catch (_) {}
+      } else {
+        console.warn('[PaddleProvider] No Initialize or Setup method found on Paddle object.')
       }
     } catch (error) {
-      console.error('[PaddleProvider] Initialization failed:', error)
+      console.warn('[PaddleProvider] Initialization failed — payment unavailable:', String(error))
       // Fail gracefully, ready stays false
     }
   }
@@ -109,13 +156,13 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
         console.warn('[PaddleProvider] Checkout called before Paddle was ready.')
         return
       }
-      
-      // CRITICAL SAFETY CHECK: Paddle API throws 500 if successUrl is passed in overlay mode
+
+      // CRITICAL SAFETY CHECK: successUrl in overlay mode causes Paddle 500 error
       if (opts.settings?.displayMode === 'overlay' && opts.settings?.successUrl) {
-        console.warn("[PaddleProvider] 'successUrl' is invalid in 'overlay' mode. Automatically stripping it to prevent crash.")
+        console.warn("[PaddleProvider] 'successUrl' invalid in 'overlay' mode — stripping to prevent crash.")
         delete opts.settings.successUrl
       }
-      
+
       // Ensure all customData values are strict strings to prevent internal 400 errors
       if (opts.customData) {
         Object.keys(opts.customData).forEach(key => {
@@ -126,7 +173,6 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
       paddleRef.current.Checkout.open(opts)
     } catch (error) {
       console.error('[PaddleProvider] Failed to open checkout:', error)
-      alert("Payment system is currently unavailable. Please refresh the page and try again.")
     }
   }
 

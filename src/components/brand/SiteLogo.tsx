@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { BRAND_ASSETS } from "@/config/brand";
 
 type SiteLogoVariant = "default" | "on-dark";
 
@@ -13,47 +10,58 @@ interface SiteLogoProps {
   className?: string;
 }
 
+/** 2×2 grid mark – the SectorCalc icon */
+function LogoMark({
+  size = 24,
+  inverted = false,
+}: {
+  size?: number;
+  inverted?: boolean;
+}) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden
+      className="sc-site-logo__mark"
+    >
+      {inverted ? (
+        <>
+          <rect x="2" y="2" width="13" height="13" fill="#F0EEE6" />
+          <rect x="17" y="2" width="13" height="13" fill="#BD5D3A" />
+          <rect x="2" y="17" width="13" height="13" fill="#F0EEE6" fillOpacity="0.28" />
+          <rect x="17" y="17" width="13" height="13" fill="#BD5D3A" fillOpacity="0.38" />
+        </>
+      ) : (
+        <>
+          <rect x="2" y="2" width="13" height="13" fill="#1A1915" />
+          <rect x="17" y="2" width="13" height="13" fill="#BD5D3A" />
+          <rect x="2" y="17" width="13" height="13" fill="#1A1915" fillOpacity="0.30" />
+          <rect x="17" y="17" width="13" height="13" fill="#BD5D3A" fillOpacity="0.30" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export function SiteLogo({
   variant = "default",
-  priority = false,
+  priority: _priority,
   className = "",
 }: SiteLogoProps) {
-  const t = useTranslations("a11y");
-  const wordmark =
-    variant === "on-dark" ? BRAND_ASSETS.logo.onDark : BRAND_ASSETS.logo.default;
+  const inverted = variant === "on-dark";
 
   return (
     <Link
       href="/"
       prefetch={false}
-      className={`site-logo sc-site-logo site-logo--${variant} sc-logo ${className}`.trim()}
+      className={`site-logo sc-site-logo sc-logo site-logo--${variant} ${className}`.trim()}
       aria-label="SectorCalc home"
     >
-      <Image
-        src={BRAND_ASSETS.favicon.master}
-        alt=""
-        width={24}
-        height={24}
-        priority={priority}
-        unoptimized
-        className="sc-site-logo__mark"
-        aria-hidden
-      />
-      <span className="sc-site-logo__combo">
-        <span className="sc-site-logo__text">
-          <span className="sc-site-logo__text-sector">Sector</span>
-          <span className="sc-site-logo__text-calc">Calc</span>
-        </span>
-      </span>
-      <Image
-        src={wordmark}
-        alt="SectorCalc"
-        width={160}
-        height={42}
-        priority={priority}
-        unoptimized
-        className="site-logo__img sc-site-logo__wordmark sr-only"
-      />
+      <LogoMark size={24} inverted={inverted} />
+      <span className="sc-site-logo__wordmark">SectorCalc</span>
     </Link>
   );
 }

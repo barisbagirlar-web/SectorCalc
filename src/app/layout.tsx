@@ -1,6 +1,7 @@
 import { Barlow, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { PaddleProvider } from "@/lib/paddle-provider";
+import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { getMessages } from "next-intl/server";
 import "./globals.css";
 
@@ -42,7 +43,9 @@ export default async function RootLayout({
       </head>
       <body className="min-w-0 overflow-x-hidden font-sans antialiased">
         <NextIntlClientProvider messages={messages} locale="en">
-          <PaddleProvider>{children}</PaddleProvider>
+          <ErrorBoundary>
+            <PaddleProvider>{children}</PaddleProvider>
+          </ErrorBoundary>
         </NextIntlClientProvider>
       </body>
     </html>

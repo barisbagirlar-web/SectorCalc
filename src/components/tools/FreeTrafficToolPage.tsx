@@ -19,6 +19,7 @@ import { getToolHref } from "@/lib/tools/paths";
 import {
   calculateFreeTrafficTool,
   type FreeTrafficInputValues,
+  type FreeTrafficResult,
 } from "@/lib/tools/free-traffic-calculators";
 import {
   listRelatedTrafficTools,
@@ -35,6 +36,8 @@ import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
+import { FreeToolForm } from "@/components/tools/FreeToolForm";
+import type { PremiumInputDef, PremiumResultRow } from "@/components/tools/FreeToolForm";
 import {
   CalculatorCurrencyPrefix,
   CalculatorUnitSelect,
@@ -353,7 +356,7 @@ export function FreeTrafficToolPage({
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
           {!showCalculationSurface ? (
             <ToolSafeReviewState slug={tool.slug} locale={locale} findings={runtimeTrust.findings} />
-          ) : (
+          ) : useFullLoopRuntime ? (
           <>
           <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked">
             <SmartFormWorkspace
@@ -368,9 +371,9 @@ export function FreeTrafficToolPage({
               onChange={handleSmartFormChange}
               onSubmit={handleSubmit}
               calculateLabel={t("tool.calculate")}
-              nativeContractForm={useFullLoopRuntime}
+              forceFallback={true}
+              nativeContractForm={false}
               formFallback={
-                useFullLoopRuntime ? (
                   <SmartToolForm
                     slug={tool.slug}
                     values={values}
@@ -382,118 +385,6 @@ export function FreeTrafficToolPage({
                     blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
                     inputIdPrefix={`ft-${tool.slug}`}
                   />
-                ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
-              noValidate
-              data-calculation-form="true"
-            >
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {tool.inputs.map((input) => {
-                  const id = `ft-${tool.slug}-${input.key}`;
-                  const error = errors[input.key];
-                  const isCurrency = Boolean(input.unit?.includes("USD") || input.unit?.includes("TRY") || input.unit?.includes("EUR"));
-                  const showUnit = Boolean(input.unit) && !isCurrency;
-
-                  if (input.type === "select" && input.options) {
-                    return (
-                      <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
-                        {({ onFocus, onBlur }) => (
-                          <div className="sc-industrial-field sc-form-field">
-                            <div className="sc-industrial-field__label-row">
-                              <label htmlFor={id} className="sc-industrial-field__label">
-                                {input.label}
-                              </label>
-                            </div>
-                            <select
-                              id={id}
-                              value={String(values[input.key] ?? "")}
-                              onFocus={onFocus}
-                              onBlur={onBlur}
-                              onChange={(e) => {
-                                setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
-                                setSubmitted(false);
-                              }}
-                              className={error ? "sc-industrial-input--error" : undefined}
-                            >
-                              {(input.options ?? []).map((opt) => (
-                                <option key={opt.value} value={opt.value}>
-                                  {opt.label}
-                                </option>
-                              ))}
-                            </select>
-                            <p className="sc-industrial-field__helper">{input.helper}</p>
-                            {error ? (
-                              <p className="sc-industrial-field__error" role="alert">
-                                {error}
-                              </p>
-                            ) : null}
-                          </div>
-                        )}
-                      </GuidanceFieldFocus>
-                    );
-                  }
-
-                  return (
-                    <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
-                      {({ onFocus, onBlur }) => (
-                        <div className="sc-industrial-field">
-                          <div className="sc-industrial-field__label-row">
-                            <label htmlFor={id} className="sc-industrial-field__label">
-                              {input.label}
-                            </label>
-                            {showUnit ? (
-                              <span className="sc-industrial-field__unit">{input.unit}</span>
-                            ) : null}
-                          </div>
-                          <div className="flex min-w-0 items-stretch gap-2">
-                            <div className="relative min-w-0 flex-1">
-                              {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
-                              <input
-                                id={id}
-                                type="text"
-                                inputMode="decimal"
-                                autoComplete="off"
-                                placeholder={getPlaceholderForTrafficInput(input)}
-                                value={values[input.key] ?? ""}
-                                onFocus={onFocus}
-                                onBlur={onBlur}
-                                onChange={(e) => {
-                                  setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
-                                  setSubmitted(false);
-                                }}
-                                className={`sc-ledger-input-underline w-full${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
-                                aria-invalid={Boolean(error)}
-                              />
-                            </div>
-                            <CalculatorUnitSelect
-                              inputId={id}
-                              fieldKey={input.key}
-                              explicitUnit={input.unit}
-                              isCurrency={isCurrency}
-                            />
-                          </div>
-                          <p className="sc-industrial-field__helper">{input.helper}</p>
-                          {error ? (
-                            <p className="sc-industrial-field__error" role="alert">
-                              {error}
-                            </p>
-                          ) : null}
-                        </div>
-                      )}
-                    </GuidanceFieldFocus>
-                  );
-                })}
-              </div>
-
-              <div className="sc-industrial-form-actions mt-4">
-                <button type="submit" className="sc-cta-primary">
-                  {t("tool.calculate")}
-                </button>
-              </div>
-            </form>
-                )
               }
               resultPanel={
             <div className="min-w-0 space-y-4" aria-live="polite">
@@ -625,6 +516,136 @@ export function FreeTrafficToolPage({
             routePath={pagePath}
             inputSnapshot={feedbackInputSnapshot}
             resultSnapshot={feedbackResultSnapshot}
+          />
+
+          <FreeToolAuthorityBlock
+            tool={tool}
+            locale={locale}
+            localizedTitle={displayTitle}
+            localizedDescription={displayDescription}
+            labels={{
+              howItWorksTitle: tAuthority("howItWorksTitle"),
+              descriptionTitle: tAuthority("descriptionTitle"),
+              formulaTitle: tAuthority("formulaTitle"),
+              inputsTitle: tAuthority("inputsTitle"),
+              includesTitle: tAuthority("includesTitle"),
+              includes1: tAuthority("includes1"),
+              includes2: tAuthority("includes2"),
+              includes3: tAuthority("includes3"),
+              estimateMissesTitle: tAuthority("estimateMissesTitle"),
+              estimateMissesBody: tAuthority("estimateMissesBody"),
+              faqTitle: surfaceTier === "premium" ? tPremiumAuthority("faqTitle") : tAuthority("faqTitle"),
+              faqUseTitle:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqMeasureTitle")
+                  : tAuthority("faqUseTitle"),
+              faqFreeTitle:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqIsFreeTitle")
+                  : tAuthority("faqFreeTitle"),
+              faqPremiumTitle:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqPremiumTitle")
+                  : tAuthority("faqPremiumTitle"),
+              faqUseAnswer:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqMeasureAnswer", { name: displayTitle })
+                  : tAuthority("faqUseAnswer", { title: displayTitle }),
+              faqFreeAnswer:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqIsFreeAnswer")
+                  : tAuthority("faqFreeAnswer"),
+              faqPremiumAnswer:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqPremiumAnswer")
+                  : tAuthority("faqPremiumAnswer"),
+              relatedGuideTitle: tAuthority("relatedGuideTitle"),
+              relatedHubTitle: tAuthority("relatedHubTitle"),
+              relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
+              relatedPremiumCta: tAuthority("relatedPremiumCta"),
+            }}
+          />
+          </>
+          ) : (
+          <>
+          <FreeToolForm
+            title={displayTitle}
+            category={t(`categories.${tool.category}`)}
+            inputs={tool.inputs.map(i => ({
+              key: i.key,
+              label: i.label,
+              unit: i.unit,
+              type: i.type,
+              required: true,
+              min: i.min,
+              max: i.max,
+              step: i.step,
+              hint: i.helper,
+            } as PremiumInputDef))}
+            values={values}
+            errors={errors}
+            onChange={handleSmartFormChange}
+            calculateEngine={(vals) => {
+             const inputValues = vals as unknown as FreeTrafficInputValues;
+             let calcResult: FreeTrafficResult;
+             try {
+              calcResult = calculateFreeTrafficTool(tool.slug, inputValues, locale);
+             } catch (e) {
+              return {
+               resultRows: [],
+               resultWarnings: [{ severity: "CRITICAL", source: "Calculation", message: "Calculation error: " + String(e) }],
+              };
+             }
+             const resultRows: PremiumResultRow[] = [
+              { label: calcResult.primaryLabel, value: calcResult.primaryValue, unit: "", highlight: true },
+              ...calcResult.secondaryValues.map(sv => ({
+               label: sv.label, value: sv.value, unit: "",
+              })),
+             ];
+             try {
+              trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, { toolSlug: tool.slug, source: "traffic_catalog" });
+              trackConversionEvent({
+               stage: "calculation", eventName: "free_tool_calculate", locale,
+               pagePath, toolSlug: tool.slug,
+               campaignId: attribution.utmCampaign, source: attribution.utmSource,
+               medium: attribution.utmMedium, valueType: "free", category: tool.category,
+              });
+             } catch {}
+             return {
+              resultRows,
+              resultWarnings: [],
+              resultOkMessage: calcResult.headline,
+             };
+            }}
+            calculateLabel={t("tool.calculate")}
+            onReset={() => { setValues(buildInitialValues(tool)); setSubmitted(false); setErrors({}); setFullLoopResult(null); }}
+          />
+
+          {relatedTools.length > 0 ? (
+            <div className="sc-industrial-panel mt-4 p-4">
+              <h2 className="sc-premium-report-section__title">{t("tool.relatedTitle")}</h2>
+              <ul className="sc-craft-grid sc-craft-grid--2 mt-3">
+                {relatedTools.map((related) => (
+                  <li key={related.slug} className="min-w-0">
+                    <Link
+                      href={getToolHref("free", related.slug)}
+                      className="block break-words text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
+                    >
+                      {resolveFreeToolDisplayTitle(related.slug, locale, related.title)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <CalculationFeedbackButton
+            toolSlug={tool.slug}
+            toolType={surfaceTier === "premium" ? "premium" : "free"}
+            locale={locale}
+            routePath={pagePath}
+            inputSnapshot={feedbackInputSnapshot}
+            resultSnapshot={undefined}
           />
 
           <FreeToolAuthorityBlock

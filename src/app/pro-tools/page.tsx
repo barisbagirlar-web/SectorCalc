@@ -193,6 +193,9 @@ export default async function ProToolsPage() {
             <Link href="/free-tools" className="text-sm font-medium text-sc-copper hover:underline underline-offset-2 flex items-center gap-1">
               {HERO.ctaFree} <span aria-hidden="true">→</span>
             </Link>
+            <Link href="/pro-tools/unified" className="text-sm font-medium text-sc-copper hover:underline underline-offset-2 flex items-center gap-1">
+              Unified Form Demo <span aria-hidden="true">→</span>
+            </Link>
             <Link href="/industries" className="text-sm font-medium text-slate-500 hover:text-slate-700 hover:underline underline-offset-2 flex items-center gap-1">
               {HERO.ctaIndustries} <span aria-hidden="true">→</span>
             </Link>

@@ -1,0 +1,288 @@
+/* ═════════════════════════════════════════════════════
+   SectorCalc PRO Tool Form Design
+   Source: Industrial-grade PRO calculator UI pattern
+   ═════════════════════════════════════════════════════ */
+
+/* ── RESET & BASE ─────────────────────────────────────── */
+.pro-form *{box-sizing:border-box;margin:0;padding:0}
+.pro-form{font-size:13px;-webkit-font-smoothing:antialiased;color:#1A1915}
+
+/* ── BREADCRUMB ──────────────────────────────────────── */
+.pro-breadcrumb{display:flex;align-items:center;gap:6px;font-size:10px;color:rgba(26,25,21,0.4);margin-bottom:14px}
+.pro-breadcrumb a{color:#BD5D3A;text-decoration:none;font-weight:500}
+.pro-breadcrumb-sep{opacity:.35;font-size:11px}
+
+/* ── STANDARDS STRIP ─────────────────────────────────── */
+.pro-std-strip{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.pro-std-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,25,21,0.35);margin-right:3px}
+.pro-std-tag{font-size:9px;font-weight:700;font-family:'JetBrains Mono',monospace;padding:2px 7px;border:1px solid rgba(26,25,21,0.16);color:rgba(26,25,21,0.5);transition:all .12s}
+.pro-std-tag:hover{border-color:#BD5D3A;color:#BD5D3A}
+
+/* ── TOOL CARD ───────────────────────────────────────── */
+.pro-tool-card{background:#F0EEE6;border:1px solid rgba(26,25,21,0.13);overflow:hidden}
+
+/* ── TOOL HEADER ─────────────────────────────────────── */
+.pro-tool-hdr{padding:20px 28px 16px;border-bottom:2px solid #BD5D3A;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}
+.pro-tool-eyebrow{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#BD5D3A;margin-bottom:5px}
+.pro-tool-title{font-family:Georgia,serif;font-size:20px;font-weight:700;color:#1A1915;line-height:1.25;margin-bottom:4px}
+.pro-tool-meta{font-size:10px;color:rgba(26,25,21,0.38);font-family:'JetBrains Mono',monospace;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pro-tool-meta-dot{width:3px;height:3px;background:rgba(26,25,21,0.25);border-radius:50%}
+.pro-hdr-badges{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+
+/* ── CERT BADGES ─────────────────────────────────────── */
+.pro-cert-badge{font-size:9px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border:1px solid;display:inline-block;white-space:nowrap}
+.pro-cert-tuv{border-color:rgba(16,185,129,0.5);color:#059669;background:rgba(16,185,129,0.06)}
+.pro-cert-iso{border-color:rgba(37,99,235,0.4);color:#2563EB;background:rgba(37,99,235,0.05)}
+.pro-cert-ecmi{border-color:rgba(26,25,21,0.2);color:rgba(26,25,21,0.55);background:rgba(26,25,21,0.03)}
+
+/* ── STATUS ROW ──────────────────────────────────────── */
+.pro-status-row{display:flex;gap:6px;align-items:center;padding:8px 28px;background:rgba(26,25,21,0.025);border-bottom:1px solid rgba(26,25,21,0.07)}
+.pro-badge{font-size:9px;font-weight:700;letter-spacing:.06em;padding:3px 10px;display:inline-block;white-space:nowrap}
+.pro-badge-idle{background:rgba(26,25,21,0.08);color:rgba(26,25,21,0.5)}
+.pro-badge-ok{background:#059669;color:#fff}
+.pro-badge-crit{background:#DC2626;color:#fff}
+.pro-badge-warn{background:#D97706;color:#fff}
+.pro-badge-info{background:#2563EB;color:#fff}
+.pro-badge-pass{background:#059669;color:#fff}
+.pro-badge-fail{background:#DC2626;color:#fff}
+.pro-status-uc{font-size:11px;font-family:'JetBrains Mono',monospace;color:rgba(26,25,21,0.5);margin-left:auto}
+.pro-status-uc strong{color:#1A1915}
+
+/* ── TABS ────────────────────────────────────────────── */
+.pro-tabs{display:flex;border-bottom:1px solid rgba(26,25,21,0.1);background:#FAF9F5}
+.pro-tab-btn{padding:10px 18px;font-size:11px;font-weight:600;border:none;background:transparent;color:rgba(26,25,21,0.42);cursor:pointer;border-bottom:2px solid transparent;letter-spacing:.02em;transition:color .12s;position:relative;white-space:nowrap}
+.pro-tab-btn.active{color:#1A1915;border-bottom-color:#BD5D3A}
+.pro-tab-dot{display:inline-block;width:5px;height:5px;background:#EF4444;border-radius:50%;margin-left:4px;vertical-align:2px}
+.pro-tab-pill{display:inline-block;margin-left:5px;font-size:8px;font-weight:700;padding:1px 5px;border-radius:9px;background:rgba(26,25,21,0.12);color:rgba(26,25,21,0.5)}
+
+/* ── PANELS ─────────────────────────────────────────── */
+.pro-panel{padding:20px 28px}
+.pro-panel-sm{padding:14px 28px}
+
+/* ── SECTION LABEL ───────────────────────────────────── */
+.pro-sec-lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,25,21,0.38);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid rgba(26,25,21,0.07);display:flex;align-items:center;justify-content:space-between}
+.pro-sec-note{font-size:9px;font-weight:400;color:rgba(26,25,21,0.35);letter-spacing:.01em;text-transform:none;font-family:'JetBrains Mono',monospace}
+
+/* ── MATERIAL GRID ───────────────────────────────────── */
+.pro-mat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:16px}
+.pro-mat-option{background:#FAF9F5;border:1.5px solid rgba(26,25,21,0.09);padding:10px 12px;cursor:pointer;transition:border-color .12s}
+.pro-mat-option:hover{border-color:rgba(189,93,58,0.4)}
+.pro-mat-option.selected{border:1.5px solid #BD5D3A;background:#fff}
+.pro-mat-name{font-size:11px;font-weight:700;color:#1A1915;margin-bottom:3px}
+.pro-mat-code{font-size:9px;font-family:'JetBrains Mono',monospace;color:rgba(26,25,21,0.38);margin-bottom:3px}
+.pro-mat-vc{font-size:9px;color:#BD5D3A;font-weight:600}
+.pro-mat-kc{font-size:9px;color:rgba(26,25,21,0.45);margin-top:1px}
+
+/* ── MATERIAL INFO CARD ──────────────────────────────── */
+.pro-mat-info-card{display:flex;margin-bottom:14px;border:1px solid rgba(26,25,21,0.10);background:#FAF9F5;overflow:hidden}
+.pro-mat-accent{width:3px;flex-shrink:0}
+.pro-mat-info-body{padding:10px 14px;flex:1}
+.pro-mat-info-ref{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(26,25,21,0.35);margin-bottom:8px}
+.pro-mat-stats{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px}
+.pro-ms-item{display:flex;flex-direction:column;gap:1px}
+.pro-ms-label{font-size:9px;color:rgba(26,25,21,0.4);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.pro-ms-value{font-size:17px;font-family:'JetBrains Mono',monospace;font-weight:700;color:#1A1915;line-height:1}
+.pro-ms-unit{font-size:9px;color:#BD5D3A;font-weight:500}
+.pro-apply-mat-btn{font-size:10px;font-weight:700;padding:4px 12px;background:#1A1915;color:#F0EEE6;border:none;cursor:pointer;letter-spacing:.04em}
+.pro-apply-mat-btn:hover{background:#BD5D3A}
+
+/* ── INPUTS ──────────────────────────────────────────── */
+.pro-inp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-bottom:12px}
+.pro-inp-group-title{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,25,21,0.38);padding:8px 0 4px;grid-column:1/-1;border-top:1px solid rgba(26,25,21,0.07);margin-top:4px}
+.pro-inp-group-title:first-of-type{border-top:none;margin-top:0}
+.pro-inp-item{background:#FAF9F5;border:1px solid rgba(26,25,21,0.09);padding:10px 12px;display:flex;flex-direction:column;gap:3px;position:relative;transition:border-color .12s}
+.pro-inp-item:focus-within{border-color:rgba(189,93,58,0.5)}
+.pro-inp-item.has-err{border-color:#EF4444;background:#FEF2F2}
+.pro-inp-item.has-warn{border-color:#F59E0B}
+.pro-inp-lbl{font-size:11px;font-weight:600;color:#1A1915;display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap;line-height:1.35}
+.pro-inp-lbl .pro-sym{font-family:'JetBrains Mono',monospace;font-size:10px;color:#BD5D3A;font-weight:700}
+.pro-req{color:#BD5D3A;font-weight:700;margin-left:1px}
+.pro-conf-badge{font-size:8px;font-weight:700;letter-spacing:.07em;border:1px solid;padding:1px 4px;white-space:nowrap;margin-left:auto;flex-shrink:0}
+.pro-conf-exact{color:#059669;border-color:#059669}
+.pro-conf-strong{color:#F59E0B;border-color:#F59E0B}
+.pro-conf-approx{color:#6B7280;border-color:#6B7280}
+.pro-inp-row{display:flex;align-items:center;gap:5px}
+.pro-inp-row input[type=number],.pro-inp-row select{flex:1;padding:7px 8px;font-size:12px;font-family:'JetBrains Mono',monospace;border:1px solid rgba(26,25,21,0.18);background:#fff;color:#1A1915;outline:none;min-width:0;-moz-appearance:textfield}
+.pro-inp-row input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.pro-inp-row input[type=number]:focus,.pro-inp-row select:focus{border-color:#BD5D3A}
+.pro-inp-row input.err{border-color:#EF4444}
+.pro-inp-unit{font-size:10px;color:rgba(26,25,21,0.4);white-space:nowrap;min-width:36px;text-align:left;font-family:'JetBrains Mono',monospace}
+.pro-inp-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pro-inp-hint{font-size:9px;color:rgba(26,25,21,0.32);font-family:'JetBrains Mono',monospace;line-height:1.4;flex:1}
+.pro-inp-unc{font-size:9px;font-family:'JetBrains Mono',monospace;color:rgba(189,93,58,0.65);padding:1px 4px;border:1px solid rgba(189,93,58,0.2);background:rgba(189,93,58,0.04)}
+.pro-inp-err-msg{font-size:9px;color:#DC2626;font-weight:600;margin-top:1px}
+.pro-suggestion{display:flex;align-items:center;gap:6px;font-size:9px;color:#BD5D3A;margin-top:2px}
+.pro-sug-apply{font-size:9px;font-weight:700;padding:2px 7px;background:#BD5D3A;color:#fff;border:none;cursor:pointer}
+
+/* ── ENUM INPUT ──────────────────────────────────────── */
+.pro-enum-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;margin-bottom:14px}
+.pro-enum-item .pro-inp-row select{appearance:auto}
+
+/* ── ERROR / VALIDATION PANEL ────────────────────────── */
+.pro-err-panel{background:#FEF2F2;border:1px solid rgba(239,68,68,0.4);border-left:3px solid #EF4444;padding:10px 14px;margin-bottom:12px}
+.pro-err-item{display:flex;gap:7px;font-size:11px;margin-bottom:5px;align-items:flex-start;color:#991B1B}
+.pro-err-item:last-child{margin-bottom:0}
+.pro-err-code{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:#DC2626;flex-shrink:0;padding-top:2px;min-width:30px}
+.pro-err-msg{flex:1;line-height:1.45}
+
+/* ── ACTION ROW ──────────────────────────────────────── */
+.pro-action-row{display:flex;gap:8px;align-items:center;margin-top:10px;padding-top:12px;border-top:1px solid rgba(26,25,21,0.07)}
+.pro-calc-btn{padding:11px 32px;background:#1A1915;color:#F0EEE6;border:none;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;text-transform:uppercase;transition:background .12s}
+.pro-calc-btn:hover{background:#BD5D3A}
+.pro-reset-btn{padding:10px 16px;background:transparent;color:rgba(26,25,21,0.6);border:1px solid rgba(26,25,21,0.22);font-size:11px;cursor:pointer;font-weight:500}
+.pro-reset-btn:hover{border-color:#BD5D3A;color:#BD5D3A}
+.pro-action-note{font-size:9px;color:rgba(26,25,21,0.35);margin-left:auto;line-height:1.5;text-align:right;font-family:'JetBrains Mono',monospace}
+
+/* ── UC GAUGE ─────────────────────────────────────────── */
+.pro-uc-gauge-wrap{margin-bottom:16px}
+.pro-uc-gauge-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.pro-uc-label{font-size:10px;font-weight:700;color:rgba(26,25,21,0.5);letter-spacing:.06em;text-transform:uppercase}
+.pro-uc-value-display{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;line-height:1}
+.pro-uc-value-display.pass{color:#059669}
+.pro-uc-value-display.warn{color:#D97706}
+.pro-uc-value-display.fail{color:#DC2626}
+.pro-uc-gauge-track{height:8px;background:rgba(26,25,21,0.08);position:relative;overflow:hidden}
+.pro-uc-gauge-fill{height:100%;transition:width .4s ease,background .4s}
+.pro-uc-gauge-zones{display:flex;position:relative;margin-top:3px}
+.pro-uc-zone{flex:1;font-size:8px;font-family:'JetBrains Mono',monospace;color:rgba(26,25,21,0.3);text-align:center}
+.pro-uc-zone:first-child{text-align:left}
+.pro-uc-zone:last-child{text-align:right}
+
+/* ── VERDICT BANNER ──────────────────────────────────── */
+.pro-verdict-banner{padding:12px 16px;border-left:3px solid;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.pro-verdict-banner.pass{background:#F0FDF4;border-color:#059669}
+.pro-verdict-banner.warn{background:#FFFBEB;border-color:#F59E0B}
+.pro-verdict-banner.fail{background:#FEF2F2;border-color:#DC2626}
+.pro-verdict-icon{font-size:20px;line-height:1}
+.pro-verdict-title{font-size:13px;font-weight:700;color:#1A1915;margin-bottom:2px}
+.pro-verdict-sub{font-size:10px;color:rgba(26,25,21,0.5);font-family:'JetBrains Mono',monospace}
+
+/* ── WARNING CARDS ───────────────────────────────────── */
+.pro-warn-panel{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.pro-warn-card{padding:10px 14px}
+.pro-warn-card.CRITICAL{background:#FEF2F2;border-left:3px solid #DC2626}
+.pro-warn-card.WARNING{background:#FFFBEB;border-left:3px solid #F59E0B}
+.pro-warn-card.INFO{background:#EFF6FF;border-left:3px solid #3B82F6}
+.pro-warn-hdr{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.pro-warn-sev{font-size:9px;font-weight:700;letter-spacing:.08em}
+.CRITICAL .pro-warn-sev{color:#DC2626}
+.WARNING .pro-warn-sev{color:#D97706}
+.INFO .pro-warn-sev{color:#2563EB}
+.pro-warn-id{font-size:9px;font-family:'JetBrains Mono',monospace;color:rgba(26,25,21,0.35);border:1px solid rgba(26,25,21,0.1);padding:1px 5px}
+.pro-warn-src{font-size:9px;font-family:'JetBrains Mono',monospace;color:rgba(26,25,21,0.4);margin-left:auto;padding:1px 5px;border:1px solid rgba(26,25,21,0.1)}
+.pro-warn-msg{font-size:11px;color:#1A1915;line-height:1.55}
+.pro-ok-banner{background:#F0FDF4;border-left:3px solid #059669;padding:10px 14px;margin-bottom:12px;font-size:11px;color:#065F46;display:flex;align-items:center;gap:8px}
+
+/* ── RESULTS TABLE ───────────────────────────────────── */
+.pro-res-table{border:1px solid rgba(26,25,21,0.1);overflow:hidden;margin-bottom:14px}
+.pro-res-hdr{display:grid;grid-template-columns:1fr 48px 130px 90px;padding:8px 14px;background:#1A1915;color:#F0EEE6;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pro-res-hdr span:nth-child(3),.pro-res-hdr span:nth-child(4){text-align:right}
+.pro-res-row{display:grid;grid-template-columns:1fr 48px 130px 90px;padding:8px 14px;border-top:1px solid rgba(26,25,21,0.06);align-items:center}
+.pro-res-row:nth-child(even){background:rgba(0,0,0,0.02)}
+.pro-res-name{font-size:11px;color:#1A1915;display:flex;flex-direction:column;gap:1px}
+.pro-res-sym{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(26,25,21,0.32)}
+.pro-res-val{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;text-align:right;color:#1A1915}
+.pro-res-val.hl{color:#BD5D3A}
+.pro-res-val.ok{color:#059669}
+.pro-res-val.crit{color:#DC2626}
+.pro-res-unit{font-size:9px;color:rgba(26,25,21,0.4);text-align:right;font-family:'JetBrains Mono',monospace}
+
+/* ── GUM UNCERTAINTY TABLE ───────────────────────────── */
+.pro-gum-table{border:1px solid rgba(26,25,21,0.09);overflow:hidden;margin-bottom:14px}
+.pro-gum-hdr{display:grid;grid-template-columns:1fr 90px 70px 90px;padding:7px 12px;background:#2D2B25;color:#F0EEE6;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.pro-gum-row{display:grid;grid-template-columns:1fr 90px 70px 90px;padding:7px 12px;border-top:1px solid rgba(26,25,21,0.06);font-size:10px;font-family:'JetBrains Mono',monospace}
+.pro-gum-row:nth-child(even){background:rgba(0,0,0,0.02)}
+.pro-gum-param{color:#1A1915;font-weight:600}
+.pro-gum-unc{color:#BD5D3A}
+.pro-gum-type{color:rgba(26,25,21,0.45);text-align:center}
+.pro-gum-contrib{color:rgba(26,25,21,0.6);text-align:right}
+.pro-gum-total{background:#1A1915;padding:7px 12px;display:grid;grid-template-columns:1fr 90px 70px 90px;font-size:10px;font-weight:700;color:#F0EEE6;font-family:'JetBrains Mono',monospace}
+.pro-gum-total .pro-gum-contrib{color:#BD5D3A;text-align:right}
+
+/* ── FORMULA LIST ────────────────────────────────────── */
+.pro-frm-list{border:1px solid rgba(26,25,21,0.09);overflow:hidden;margin-bottom:12px}
+.pro-frm-row{display:grid;grid-template-columns:140px 16px 1fr;gap:8px;padding:8px 14px;border-top:1px solid rgba(26,25,21,0.06);align-items:start}
+.pro-frm-row:nth-child(odd){background:rgba(0,0,0,0.015)}
+.pro-frm-id{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(26,25,21,0.25);margin-bottom:2px}
+.pro-frm-lhs{font-family:'JetBrains Mono',monospace;font-size:11px;color:#BD5D3A;font-weight:700}
+.pro-frm-eq{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(26,25,21,0.25);text-align:center;padding-top:2px}
+.pro-frm-rhs{font-family:'JetBrains Mono',monospace;font-size:10px;color:#1A1915;word-break:break-all;line-height:1.5}
+.pro-frm-ref{display:block;font-size:9px;color:rgba(26,25,21,0.38);margin-top:3px;font-style:italic;border-top:1px solid rgba(26,25,21,0.06);padding-top:3px}
+
+/* ── VALIDATION TABLE ────────────────────────────────── */
+.pro-val-table{border:1px solid rgba(26,25,21,0.09);overflow:hidden;margin-bottom:12px}
+.pro-val-hdr{display:grid;grid-template-columns:60px 70px 1fr;padding:7px 12px;background:#2D2B25;color:#F0EEE6;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.pro-val-row{display:grid;grid-template-columns:60px 70px 1fr;padding:7px 12px;border-top:1px solid rgba(26,25,21,0.06);align-items:start}
+.pro-val-row:nth-child(even){background:rgba(0,0,0,0.02)}
+.pro-val-id{font-family:'JetBrains Mono',monospace;font-size:9px;color:#BD5D3A;font-weight:700}
+.pro-val-action-block{font-size:8px;font-weight:700;padding:2px 5px;background:#DC2626;color:#fff;white-space:nowrap}
+.pro-val-action-warn{font-size:8px;font-weight:700;padding:2px 5px;background:#D97706;color:#fff;white-space:nowrap}
+.pro-val-msg{font-size:10px;color:#1A1915;line-height:1.45}
+
+/* ── FMEA TABLE ──────────────────────────────────────── */
+.pro-fmea-table{border:1px solid rgba(26,25,21,0.09);overflow:hidden;margin-bottom:14px;overflow-x:auto}
+.pro-fmea-hdr{display:grid;grid-template-columns:1.5fr 1.5fr 45px 45px 45px 70px 1.5fr;padding:7px 12px;background:#1A1915;color:#F0EEE6;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;min-width:700px}
+.pro-fmea-row{display:grid;grid-template-columns:1.5fr 1.5fr 45px 45px 45px 70px 1.5fr;padding:8px 12px;border-top:1px solid rgba(26,25,21,0.06);align-items:start;min-width:700px;font-size:10px}
+.pro-fmea-row:nth-child(even){background:rgba(0,0,0,0.02)}
+.pro-fmea-mode{font-weight:600;color:#1A1915;line-height:1.35}
+.pro-fmea-effect{color:rgba(26,25,21,0.6);line-height:1.35}
+.pro-fmea-score{text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700}
+.pro-fmea-rpn{text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;padding:2px 4px;font-size:11px}
+.pro-rpn-low{color:#059669}
+.pro-rpn-med{color:#D97706}
+.pro-rpn-high{color:#DC2626}
+.pro-fmea-ctrl{color:rgba(26,25,21,0.55);font-size:9px;line-height:1.4}
+
+/* ── AUDIT LOG ───────────────────────────────────────── */
+.pro-audit-log{background:#1A1915;padding:0;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:10px;color:#9CA3AF}
+.pro-audit-hdr{padding:10px 16px;background:#131210;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between}
+.pro-audit-hdr-title{font-size:9px;font-weight:700;letter-spacing:.12em;color:#BD5D3A;text-transform:uppercase}
+.pro-audit-hdr-badge{font-size:9px;color:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.1);padding:2px 7px}
+.pro-audit-body{padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.pro-audit-row{display:grid;grid-template-columns:200px 1fr;gap:8px;border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:5px}
+.pro-audit-key{color:rgba(255,255,255,0.3)}
+.pro-audit-val{color:#F0EEE6;word-break:break-all}
+.pro-audit-val.ok{color:#34D399}
+.pro-audit-val.fail{color:#F87171}
+.pro-audit-val.warn{color:#FCD34D}
+.pro-audit-empty{padding:24px 16px;text-align:center;color:rgba(255,255,255,0.2);font-size:11px}
+
+/* ── REFS ROW ────────────────────────────────────────── */
+.pro-refs-row{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid rgba(26,25,21,0.07)}
+.pro-ref-ttl{font-size:9px;font-weight:700;color:rgba(26,25,21,0.35);letter-spacing:.06em;text-transform:uppercase}
+.pro-ref-tag{font-size:9px;font-weight:700;font-family:'JetBrains Mono',monospace;padding:2px 7px;border:1px solid rgba(26,25,21,0.15);color:rgba(26,25,21,0.45)}
+
+/* ── CBAR ────────────────────────────────────────────── */
+.pro-cbar{padding:10px 28px;background:#1A1915;color:#F0EEE6;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+.pro-cbar-left{display:flex;align-items:center;gap:10px}
+.pro-cbar-status{font-size:9px;color:rgba(240,238,230,0.4);font-family:'JetBrains Mono',monospace}
+.pro-cbar-btn{background:#BD5D3A;color:#fff;border:none;padding:6px 16px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.04em}
+.pro-cbar-btn:hover{background:#a54d2e}
+
+/* ── TOOL FOOTER ─────────────────────────────────────── */
+.pro-tool-footer{margin-top:12px;padding:10px 0;border-top:1px solid rgba(26,25,21,0.08);font-size:9px;color:rgba(26,25,21,0.35);line-height:1.7;display:flex;gap:20px;flex-wrap:wrap}
+.pro-tool-footer span{display:flex;align-items:center;gap:4px}
+
+/* ── EMPTY STATE ─────────────────────────────────────── */
+.pro-empty-state{text-align:center;padding:40px 20px;color:rgba(26,25,21,0.3);font-size:12px;line-height:1.7}
+.pro-empty-state-icon{font-size:32px;margin-bottom:10px;opacity:.4}
+
+/* ── SCORE CARD (OEE) ────────────────────────────────── */
+.pro-score-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:14px}
+.pro-score-card{border:1px solid rgba(26,25,21,0.1);padding:12px 14px;background:#FAF9F5;text-align:center}
+.pro-sc-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(26,25,21,0.4);margin-bottom:6px}
+.pro-sc-value{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;line-height:1;color:#1A1915}
+.pro-sc-value.ok{color:#059669}
+.pro-sc-value.warn{color:#D97706}
+.pro-sc-value.crit{color:#DC2626}
+.pro-sc-unit{font-size:9px;color:rgba(26,25,21,0.4);margin-top:3px;font-family:'JetBrains Mono',monospace}
+.pro-sc-bench{font-size:9px;color:rgba(26,25,21,0.35);border-top:1px solid rgba(26,25,21,0.08);padding-top:5px;margin-top:6px}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width:768px){
+  .pro-res-hdr,.pro-res-row{grid-template-columns:1fr 100px 70px}
+  .pro-tool-hdr{grid-template-columns:1fr}
+  .pro-hdr-badges{flex-direction:row;align-items:flex-start}
+  .pro-panel{padding:14px 16px}
+  .pro-tabs{overflow-x:auto}
+}

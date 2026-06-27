@@ -88,6 +88,8 @@ import PRO_088 from "../../../data/pro-tools/PRO_088.json";
 import PRO_089 from "../../../data/pro-tools/PRO_089.json";
 import PRO_090 from "../../../data/pro-tools/PRO_090.json";
 import PRO_111 from "../../../data/pro-tools/PRO_111.json";
+import PRO_116 from "../../../data/pro-tools/PRO_116.json";
+import PRO_117 from "../../../data/pro-tools/PRO_117.json";
 import PRO_119 from "../../../data/pro-tools/PRO_119.json";
 import PRO_146 from "../../../data/pro-tools/PRO_146.json";
 
@@ -177,6 +179,8 @@ export const PRO_TOOLS_MAP: Record<string, any> = {
   "PRO_089": PRO_089,
   "PRO_090": PRO_090,
   "PRO_111": PRO_111,
+  "PRO_116": PRO_116,
+  "PRO_117": PRO_117,
   "PRO_119": PRO_119,
   "PRO_146": PRO_146,
 };

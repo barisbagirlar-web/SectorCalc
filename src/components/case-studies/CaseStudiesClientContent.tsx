@@ -1063,13 +1063,13 @@ export function CaseStudiesClientContent({ locale, studies, toolHrefs }: CaseStu
         <div className="wrap">
           <Link className="brand" href={`/${locale}`} aria-label="SectorCalc home">
             <svg className="sc-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" style={{ width: "24px", height: "24px" }}>
-              <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#0F172A"/>
-              <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2563EB"/>
-              <rect x="2"  y="17" width="13" height="13" rx="3" fill="#10B981"/>
-              <rect x="17" y="17" width="13" height="13" rx="3" fill="#F59E0B"/>
+              <rect x="2" y="2" width="13" height="13" fill="#1A1915"/>
+              <rect x="17" y="2" width="13" height="13" fill="#BD5D3A"/>
+              <rect x="2" y="17" width="13" height="13" fill="#1A1915" fillOpacity="0.30"/>
+              <rect x="17" y="17" width="13" height="13" fill="#BD5D3A" fillOpacity="0.30"/>
             </svg>
-            <span className="sc-logo-text" style={{ fontSize: "19px", fontWeight: 700, color: "#1A1915", letterSpacing: "-0.01em", marginLeft: "8px" }}>
-              Sector<span style={{ color: "#BD5D3A" }}>Calc</span>
+            <span className="sc-logo-text" style={{ fontFamily:"Georgia,'Times New Roman',serif", fontSize: "19px", fontWeight: 700, color: "#1A1915", letterSpacing: "-0.02em", marginLeft: "8px" }}>
+              SectorCalc
             </span>
           </Link>
           <div className="links">

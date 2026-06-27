@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
 import { notFound, redirect as nextRedirect } from "next/navigation";
@@ -27,6 +27,7 @@ import {
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import "@/styles/free-tool-form.css";
 
 interface FreeToolPageParams {
   slug: string;
@@ -59,7 +60,7 @@ export async function generateMetadata({
   params: Promise<FreeToolRouteParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const locale = "en";
+  const locale = await getLocale();
   const appLocale = locale as "en";
   if (isFreeToolMigratedToPremium(slug)) {
     nextRedirect(`/${appLocale}/pricing`);
@@ -117,7 +118,7 @@ export default async function FreeRevenueToolRoute({
   params: Promise<FreeToolRouteParams>;
 }) {
   const { slug } = await params;
-  const locale = "en";
+  const locale = await getLocale();
   
 
   if (isFreeToolMigratedToPremium(slug)) {

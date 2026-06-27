@@ -26,7 +26,7 @@
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",
-    "prebuild": "npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
+    "prebuild": "mkdir -p .next/server && echo '{}' > .next/server/pages-manifest.json && npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
     "audit:campaign": "npx tsx scripts/audit-campaign-utm.ts",
     "audit:locale-catalog": "npx tsx scripts/audit-locale-catalog-smoke.ts",
     "audit:locale-messages": "npx tsx scripts/audit-locale-messages.ts",

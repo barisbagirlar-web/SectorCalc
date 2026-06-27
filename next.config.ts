@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // outputFileTracing moved to system default in Next.js 15
   eslint: {
     ignoreDuringBuilds: true,
   },
