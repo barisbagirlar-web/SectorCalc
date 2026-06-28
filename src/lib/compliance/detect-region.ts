@@ -2,7 +2,6 @@ import type { NextRequest } from "next/server";
 import {
   countryToRegion,
   isRegionCode,
-  REGION_COOKIE,
   REGION_HEADER,
   REGION_MANUAL_COOKIE,
   type RegionCode,

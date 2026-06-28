@@ -5,6 +5,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Disable built-in gzip so CDN (Fastly / Google Frontend) can serve brotli
+  compress: false,
   // outputFileTracing moved to system default in Next.js 15
   eslint: {
     ignoreDuringBuilds: true,
@@ -28,6 +30,20 @@ const nextConfig: NextConfig = {
       { source: "/formulas", destination: "/calculator-library", permanent: true },
       { source: "/api", destination: "/developer-showcase", permanent: true },
       { source: "/signup", destination: "/login", permanent: true },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        // Public assets (images, icons, fonts, WASM) — content-hash friendly names
+        source: "/(images|icons|img|wasm|fonts)/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
 };

@@ -1,16 +1,32 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
+import { REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
 import { detectRegionFromRequest } from "@/lib/compliance/detect-region";
 
+/**
+ * NOTE: Region cookie (sc-region) is intentionally NOT set here.
+ * Setting it would add `cookie` to the `Vary` response header,
+ * causing CDN (Fastly) to fragment the cache by cookie value.
+ * The region is already derivable from the URL locale path (/tr, /en).
+ * Manual override is handled client-side via sc-region-manual cookie.
+ */
 function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
   const { region, source } = detectRegionFromRequest(request);
   response.headers.set(REGION_HEADER, region);
   response.headers.set(REGION_SOURCE_HEADER, source);
-  response.cookies.set(REGION_COOKIE, region, {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-    sameSite: "lax",
-  });
+
+  // Strip `cookie` from Vary: we don't vary by cookie value, only by URL path.
+  // Next.js auto-adds `Vary: cookie` when middleware reads request.cookies,
+  // but our region resolution is URL-path-based + geo headers, not cookie-dependent.
+  const vary = response.headers.get("vary");
+  if (vary) {
+    const filtered = vary
+      .split(",")
+      .map((v) => v.trim())
+      .filter((v) => v.toLowerCase() !== "cookie")
+      .join(", ");
+    response.headers.set("vary", filtered);
+  }
+
   return response;
 }
 
