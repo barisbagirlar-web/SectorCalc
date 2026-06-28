@@ -154,6 +154,33 @@ export interface ValidationContext {
 }
 
 /**
+ * Safari-safe negation normalization — no lookbehind assertions.
+ *
+ * Safari does not support lookbehind ((?<=), (?<!)). This helper uses a
+ * placeholder technique instead:
+ *   1. Protect != by replacing it with a control char
+ *   2. Convert remaining unary ! → not() — safe because != / !== are gone
+ *   3. Restore !=
+ *
+ * Preserved unchanged:
+ *   a != b, a !== b, <=, >=
+ * Transformed:
+ *   !flag      → not(flag)
+ *   !(a > b)   → not(a > b)
+ */
+export function normalizeNegation(s: string): string {
+  // Protect != from the !→not transformation below
+  let r = s.replace(/!=/g, '\x01');
+  // Unary NOT before identifier: !flag → not(flag)
+  r = r.replace(/!([a-zA-Z_]\w*)/g, 'not($1)');
+  // Unary NOT before parenthesized group: !(expr) → not(expr)
+  r = r.replace(/!\(/g, 'not(');
+  // Restore != placeholder
+  r = r.replace(/\x01/g, '!=');
+  return r;
+}
+
+/**
  * Pre‑normalize expression text before mathjs parsing.
  * Order matters — more specific patterns first.
  */
@@ -170,10 +197,8 @@ export function preNormalize(expr: string): string {
   s = s.replace(/\bOR\b/g, ' or ');
   // 3. Power operator ** → ^ (mathjs ** is valid but ** without space fails)
   s = s.replace(/\*\*/g, '^');
-  // 4. Unary NOT: !x → not(x) — but NOT inside words like !=
-  s = s.replace(/(?<![=<>!])!([a-zA-Z_]\w*)/g, 'not($1)');
-  // 4b. NOT with parentheses: !(expr) → not(expr) 
-  s = s.replace(/(?<![=<>!])!\(/g, 'not(');
+  // 4. Negation normalization (Safari-safe: no lookbehind)
+  s = normalizeNegation(s);
   // 5. Uppercase fn names → lowercase (for known mathjs functions)
   const UPPER_FN = /([A-Z][A-Z0-9_]*)\s*\(/g;
   const known = new Set([
