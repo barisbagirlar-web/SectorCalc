@@ -56,9 +56,8 @@ const STATIC_FILE_EXTENSION =
 
 export const LOCALE_LESS_PUBLIC_ROUTES = [
   "/free-tools",
-  "/premium-tools",
-  "/industries",
   "/pricing",
+  "/industries",
   "/calculator-library",
   "/categories",
 ] as const;

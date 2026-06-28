@@ -353,7 +353,7 @@ const KEY_MAP = {
   "genlesmekatsayisi": "expansionCoefficient",
   "sicaklikfarki": "temperatureDifference",
   "guc": "power",
-  "hız": "speed",
+  "hiz": "speed",
   "sarilmaacisi": "wrapAngle",
   "suratma": "friction",
   "workspace": "workspace",
@@ -1126,7 +1126,7 @@ const lines = content.split("\n");
 const parsedTools = [];
 
 for (const line of lines) {
-  const toolMatch = line.match(/^(\d+)\.\s+([^|]+)\|\s+Girdiler:\s+([^|]+)\|\s+Formül:\s+([^|]+)(?:\|\s+Çıktı:\s+(.+))?$/);
+  const toolMatch = line.match(/^(\d+)\.\s+([^|]+)\|\s+Girdiler:\s+([^|]+)\|\s+Formul:\s+([^|]+)(?:\|\s+Cikti:\s+(.+))?$/);
   if (toolMatch) {
     const id = parseInt(toolMatch[1], 10);
     const titleTr = toolMatch[2].trim();
@@ -1178,11 +1178,11 @@ for (const t of parsedTools) {
     let unit = unitRaw;
     if (unit === "₺") unit = "TRY";
     if (unit === "$") unit = "USD";
-    if (unit === "Yıl") unit = "years";
+    if (unit === "Yil") unit = "years";
     if (unit === "Ay") unit = "months";
-    if (unit === "Gün") unit = "days";
+    if (unit === "Gun") unit = "days";
     if (unit === "Adet") unit = "units";
-    if (unit === "Yüzde") unit = "%";
+    if (unit === "Yuzde") unit = "%";
     if (unit === "Binde") unit = "‰";
 
     const labelEn = LABEL_MAP[key] || key;
@@ -1221,7 +1221,7 @@ for (const t of parsedTools) {
     trInputMap[key.toLowerCase()] = {
       label: labelTr,
       placeholder: `${labelTr} girin`,
-      helper: `${labelTr} değeri`
+      helper: `${labelTr} degeri`
     };
 
     enInputMap[key.toLowerCase()] = {
@@ -1232,7 +1232,7 @@ for (const t of parsedTools) {
   }
 
   const titleEn = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-  const descTr = t.outputStr || `${t.titleTr} hesaplaması.`;
+  const descTr = t.outputStr || `${t.titleTr} hesaplamasi.`;
   const descEn = `Free online ${titleEn.toLowerCase()} calculator. Get accurate calculations instantly.`;
 
   const category = getCategoryForId(id);
@@ -1429,14 +1429,14 @@ function parseFormula(expr) {
   s = s.replace(/TDEEProtein/g, "TDEE * Protein");
   s = s.replace(/TDEEYag/g, "TDEE * Yag");
   s = s.replace(/ZStdHata/g, "Z * StdHata");
-  s = s.replace(/(?<![a-zA-Z0-9_ğüşıöçĞÜŞİÖÇ])İlgiliHisse(?![a-zA-Z0-9_ğüşıöçĞÜŞİÖÇ])/g, "shares");
-  s = s.replace(/(?<![a-zA-Z0-9_ğüşıöçĞÜŞİÖÇ])Toplam(?![a-zA-Z0-9_ğüşıöçĞÜŞİÖÇ])/g, "total");
+  s = s.replace(/(?<![a-zA-Z0-9_gusiocGUSIOC])IlgiliHisse(?![a-zA-Z0-9_gusiocGUSIOC])/g, "shares");
+  s = s.replace(/(?<![a-zA-Z0-9_gusiocGUSIOC])Toplam(?![a-zA-Z0-9_gusiocGUSIOC])/g, "total");
 
   // Map variables case-insensitively using sorted keys to prevent substring collisions
   const sortedKeys = Object.keys(KEY_MAP).sort((a, b) => b.length - a.length);
   for (const trKey of sortedKeys) {
     const enKey = KEY_MAP[trKey];
-    const regex = new RegExp(`(?<![a-zA-Z0-9_ğüşıöçĞÜŞİÖÇ])${trKey}(?![a-zA-Z0-9_ğüşıöçĞÜŞİÖÇ])`, "giu");
+    const regex = new RegExp(`(?<![a-zA-Z0-9_gusiocGUSIOC])${trKey}(?![a-zA-Z0-9_gusiocGUSIOC])`, "giu");
     s = s.replace(regex, enKey);
   }
 
@@ -1537,7 +1537,7 @@ for (const t of parsedTools) {
         { label: "Monthly Rent", value: formatCurrency(monthlyRent) },
         { label: "Property Value", value: formatCurrency(propertyValue) }
       ],
-      explanation: \`Aylık kiranın mülk değerine oranı \${formatNumber(ratio)}% olarak hesaplanmıştır. Emlak yatırımlarında bu oranın %1 ve üzerinde olması hedeflenir.\`,
+      explanation: \`Aylik kiranin mulk degerine orani \${formatNumber(ratio)}% olarak hesaplanmistir. Emlak yatirimlarinda bu oranin %1 ve uzerinde olmasi hedeflenir.\`,
       missingFactors: ["Taxes", "Maintenance", "Vacancy"]
     };
   }`;
@@ -1556,7 +1556,7 @@ for (const t of parsedTools) {
         { label: "Net Cash Out", value: formatCurrency(cashOut) },
         { label: "New Reinvestment", value: formatCurrency(newInvestment) }
       ],
-      explanation: \`1031 vergi erteleme takasında, yeni mülke yatırılmayan ve vergiye tabi olan net nakit çıkışı (boot) \${formatCurrency(taxableAmount)} olarak belirlenmiştir.\`,
+      explanation: \`1031 vergi erteleme takasinda, yeni mulke yatirilmayan ve vergiye tabi olan net nakit cikisi (boot) \${formatCurrency(taxableAmount)} olarak belirlenmistir.\`,
       missingFactors: ["Depreciation recapture", "State taxes", "Closing fees"]
     };
   }`;
@@ -1574,7 +1574,7 @@ for (const t of parsedTools) {
         { label: "Needs (50%)", value: formatCurrency(needs) },
         { label: "Wants (30%)", value: formatCurrency(wants) }
       ],
-      explanation: \`Gelirinizin dağılımı: İhtiyaçlar (50%) \${formatCurrency(needs)}, İstekler (30%) \${formatCurrency(wants)}, Tasarruf (20%) \${formatCurrency(savings)}.\`,
+      explanation: \`Gelirinizin dagilimi: Ihtiyaclar (50%) \${formatCurrency(needs)}, Istekler (30%) \${formatCurrency(wants)}, Tasarruf (20%) \${formatCurrency(savings)}.\`,
       missingFactors: ["Debt payoff goals", "Varying monthly bills"]
     };
   }`;
@@ -1602,7 +1602,7 @@ for (const t of parsedTools) {
         { label: "Salvage Value", value: formatCurrency(salvageValue) },
         { label: "Useful Life", value: \`\${usefulLife} Years\` }
       ],
-      explanation: \`Seçilen yönteme göre varlığın 1. yıl amortisman gideri \${formatCurrency(annualDepreciation)} olarak hesaplanmıştır.\`,
+      explanation: \`Secilen yonteme gore varligin 1. yil amortisman gideri \${formatCurrency(annualDepreciation)} olarak hesaplanmistir.\`,
       missingFactors: ["Tax book value differences", "MACRS schedule options"]
     };
   }`;
@@ -1622,7 +1622,7 @@ for (const t of parsedTools) {
         { label: "Interest Rate", value: \`\${interestRate}%\` },
         { label: "Period", value: \`\${period} Months\` }
       ],
-      explanation: \`Belirtilen dönem boyunca her ay geri çekilebilecek sabit taksit tutarı \${formatCurrency(payout)} olarak hesaplanmıştır.\`,
+      explanation: \`Belirtilen donem boyunca her ay geri cekilebilecek sabit taksit tutari \${formatCurrency(payout)} olarak hesaplanmistir.\`,
       missingFactors: ["Inflation adjustments", "Fees"]
     };
   }`;
@@ -1641,7 +1641,7 @@ for (const t of parsedTools) {
         { label: "Savings Balance", value: formatCurrency(savings) },
         { label: "Payout Period", value: \`\${duration} Years\` }
       ],
-      explanation: \`Emeklilik birikiminin yıllık dağıtımlarında, her yıl alınabilecek sabit gelir \${formatCurrency(payout)} olarak hesaplanmıştır.\`,
+      explanation: \`Emeklilik birikiminin yillik dagitimlarinda, her yil alinabilecek sabit gelir \${formatCurrency(payout)} olarak hesaplanmistir.\`,
       missingFactors: ["Taxes", "Inflation rate volatility"]
     };
   }`;
@@ -1672,7 +1672,7 @@ for (const t of parsedTools) {
           { label: "Monthly Payment", value: formatCurrency(pmt) },
           { label: "Net Funded Loan", value: formatCurrency(netLoan) }
         ],
-        explanation: \`Kredi masrafları dahil edildiğinde oluşan gerçek yıllık maliyet oranı (APR) \${formatNumber(apr)}% seviyesindedir.\`,
+        explanation: \`Kredi masraflari dahil edildiginde olusan gercek yillik maliyet orani (APR) \${formatNumber(apr)}% seviyesindedir.\`,
         missingFactors: ["Insurance cost", "Early closing options"]
       };
     }`;
@@ -1693,7 +1693,7 @@ for (const t of parsedTools) {
         { label: "Bonds Value", value: formatCurrency(bondsVal) },
         { label: "Cash Value", value: formatCurrency(cashVal) }
       ],
-      explanation: \`Portföyünüzün dağılımı: Hisse \${formatCurrency(stocksVal)} (%\${stocks}), Tahvil \${formatCurrency(bondsVal)} (%\${bonds}), Nakit \${formatCurrency(cashVal)} (%\${cash}).\`,
+      explanation: \`Portfoyunuzun dagilimi: Hisse \${formatCurrency(stocksVal)} (%\${stocks}), Tahvil \${formatCurrency(bondsVal)} (%\${bonds}), Nakit \${formatCurrency(cashVal)} (%\${cash}).\`,
       missingFactors: ["Rebalancing triggers", "Tax-advantaged locations"]
     };
   }`;
@@ -1712,7 +1712,7 @@ for (const t of parsedTools) {
         { label: "Control Risk", value: \`\${controlRisk}%\` },
         { label: "Detection Risk", value: \`\${detectionRisk}%\` }
       ],
-      explanation: \`Mali tablolarda maddi hata bulunup denetçinin bunu tespit edememe genel denetim riski %\${formatNumber(risk)} olarak hesaplanmıştır.\`,
+      explanation: \`Mali tablolarda maddi hata bulunup denetcinin bunu tespit edememe genel denetim riski %\${formatNumber(risk)} olarak hesaplanmistir.\`,
       missingFactors: ["Sample size limits", "Professional skepticism adjustment"]
     };
   }`;
@@ -1731,7 +1731,7 @@ for (const t of parsedTools) {
         { label: "Total Balance", value: formatCurrency(total) },
         { label: "Period", value: \`\${years} Years\` }
       ],
-      explanation: \`Yalnızca anapara üzerinden hesaplanan faiz tutarı \${formatCurrency(interest)} olup, vade sonu toplam değer \${formatCurrency(total)} seviyesindedir.\`,
+      explanation: \`Yalnizca anapara uzerinden hesaplanan faiz tutari \${formatCurrency(interest)} olup, vade sonu toplam deger \${formatCurrency(total)} seviyesindedir.\`,
       missingFactors: ["Taxation", "Compounding opportunities"]
     };
   }`;
@@ -1751,7 +1751,7 @@ for (const t of parsedTools) {
         { label: "Final Balance", value: formatCurrency(balance) },
         { label: "Compounding Frequency", value: \`\${frequency} times/yr\` }
       ],
-      explanation: \`Faizin anaparaya eklendiği vade sonu birikim değeri \${formatCurrency(balance)} olarak hesaplanmıştır.\`,
+      explanation: \`Faizin anaparaya eklendigi vade sonu birikim degeri \${formatCurrency(balance)} olarak hesaplanmistir.\`,
       missingFactors: ["Inflation adjustments", "Varying interest rates"]
     };
   }`;
@@ -1770,7 +1770,7 @@ for (const t of parsedTools) {
         { label: "Final Balance", value: formatCurrency(dailyBalance) },
         { label: "Period", value: \`\${days} Days\` }
       ],
-      explanation: \`Günlük bazda işletilen bileşik faiz ile vade sonu tutar \${formatCurrency(dailyBalance)} seviyesine ulaşmıştır.\`,
+      explanation: \`Gunluk bazda isletilen bilesik faiz ile vade sonu tutar \${formatCurrency(dailyBalance)} seviyesine ulasmistir.\`,
       missingFactors: ["Holiday interest rules", "Taxes"]
     };
   }`;
@@ -1788,7 +1788,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Final Balance", value: formatCurrency(balance) }
       ],
-      explanation: \`Sonsuz frekansta teorik maksimum bileşik faiz ile vade sonu birikim \${formatCurrency(balance)} olmuştur.\`,
+      explanation: \`Sonsuz frekansta teorik maksimum bilesik faiz ile vade sonu birikim \${formatCurrency(balance)} olmustur.\`,
       missingFactors: ["Administrative fees", "Taxes"]
     };
   }`;
@@ -1805,7 +1805,7 @@ for (const t of parsedTools) {
         { label: "Nominal Rate", value: \`\${nominalRate}%\` },
         { label: "Compounding Frequency", value: \`\${frequency} times/yr\` }
       ],
-      explanation: \`Yıllık bileşim sıklığı etkisiyle nominal oran olan %\${nominalRate}, efektif olarak %\${formatNumber(effective)} getiriye dönüşür.\`,
+      explanation: \`Yillik bilesim sikligi etkisiyle nominal oran olan %\${nominalRate}, efektif olarak %\${formatNumber(effective)} getiriye donusur.\`,
       missingFactors: ["Inflation adjustments"]
     };
   }`;
@@ -1830,7 +1830,7 @@ for (const t of parsedTools) {
         { label: "Annual Coupon", value: formatCurrency(coupon) },
         { label: "Par Value", value: formatCurrency(parValue) }
       ],
-      explanation: \`Tahvilin piyasa faizine göre bugünkü adil değeri \${formatCurrency(price)} olarak hesaplanmıştır.\`,
+      explanation: \`Tahvilin piyasa faizine gore bugunku adil degeri \${formatCurrency(price)} olarak hesaplanmistir.\`,
       missingFactors: ["Default risk", "Accrued interest between coupon periods"]
     };
   }`;
@@ -1847,7 +1847,7 @@ for (const t of parsedTools) {
         { label: "Gross Dividend", value: formatCurrency(dividendAmount) },
         { label: "Withholding Tax Deducted", value: formatCurrency(dividendAmount * (withholdingTax / 100)) }
       ],
-      explanation: \`Stopaj kesintisi sonrası net ele geçen temettü tutarı \${formatCurrency(net)} seviyesindedir.\`,
+      explanation: \`Stopaj kesintisi sonrasi net ele gecen temettu tutari \${formatCurrency(net)} seviyesindedir.\`,
       missingFactors: ["Income tax brackets", "Corporate tax offsets"]
     };
   }`;
@@ -1873,7 +1873,7 @@ for (const t of parsedTools) {
         { label: "Ending Stock Price", value: formatCurrency(sharePrice) },
         { label: "Portfolio Value", value: formatCurrency(finalValue) }
       ],
-      explanation: \`Temettülerin otomatik yeniden yatırılması ile kartopu etkisi sonucu oluşan toplam portföy değeri \${formatCurrency(finalValue)} olmuştur.\`,
+      explanation: \`Temettulerin otomatik yeniden yatirilmasi ile kartopu etkisi sonucu olusan toplam portfoy degeri \${formatCurrency(finalValue)} olmustur.\`,
       missingFactors: ["Dividend tax drag", "Varying growth rates"]
     };
   }`;
@@ -1891,7 +1891,7 @@ for (const t of parsedTools) {
         { label: "Capital Gain", value: formatCurrency(sellingPrice - purchasePrice) },
         { label: "Dividends Received", value: formatCurrency(dividendsReceived) }
       ],
-      explanation: \`Sermaye kazancı ve temettüler dahil edilerek elde edilen toplam yatırım getirisi %\${formatNumber(getiri)} seviyesindedir.\`,
+      explanation: \`Sermaye kazanci ve temettuler dahil edilerek elde edilen toplam yatirim getirisi %\${formatNumber(getiri)} seviyesindedir.\`,
       missingFactors: ["Broker commissions", "Taxes"]
     };
   }`;
@@ -1908,7 +1908,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Total Absolute Return", value: \`\${formatNumber((finalValue / Math.max(1, initialValue) - 1) * 100)}%\` }
       ],
-      explanation: \`Yatırımın yıllıklandırılmış ortalama büyüme hızı %\${formatNumber(annualized)} olarak hesaplanmıştır.\`,
+      explanation: \`Yatirimin yilliklandirilmis ortalama buyume hizi %\${formatNumber(annualized)} olarak hesaplanmistir.\`,
       missingFactors: ["Volatility drag", "Inflation rate effects"]
     };
   }`;
@@ -1925,7 +1925,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Total Asset Growth Multiplier", value: \`\${formatNumber(endValue / Math.max(1, startValue))}x\` }
       ],
-      explanation: \`Zaman içindeki pürüzsüz yıllık bileşik büyüme oranı (CAGR) %\${formatNumber(cagr)} olarak bulunmuştur.\`,
+      explanation: \`Zaman icindeki puruzsuz yillik bilesik buyume orani (CAGR) %\${formatNumber(cagr)} olarak bulunmustur.\`,
       missingFactors: ["Interim drawdowns", "Tax adjustments"]
     };
   }`;
@@ -1942,7 +1942,7 @@ for (const t of parsedTools) {
         { label: "Net Benefit", value: formatCurrency(netProfit) },
         { label: "Total Cost", value: formatCurrency(cost) }
       ],
-      explanation: \`Yatırımın maliyetine göre ürettiği net verim (ROI) %\${formatNumber(roi)} olarak hesaplanmıştır.\`,
+      explanation: \`Yatirimin maliyetine gore urettigi net verim (ROI) %\${formatNumber(roi)} olarak hesaplanmistir.\`,
       missingFactors: ["Time value of money", "Opportunity cost"]
     };
   }`;
@@ -1964,7 +1964,7 @@ for (const t of parsedTools) {
         secondaryValues: [
           { label: "Initial Outlay", value: formatCurrency(initialInvestment) }
         ],
-        explanation: \`Nakit akışlarının paranın zaman değerine göre bugünkü net değeri \${formatCurrency(npv)} olarak hesaplanmıştır.\`,
+        explanation: \`Nakit akislarinin paranin zaman degerine gore bugunku net degeri \${formatCurrency(npv)} olarak hesaplanmistir.\`,
         missingFactors: ["Variable discount rates", "Inflation fluctuation"]
       };
     }`;
@@ -1992,7 +1992,7 @@ for (const t of parsedTools) {
         primaryLabel: "Internal Rate of Return",
         primaryValue: \`\${formatNumber(irr)}%\`,
         secondaryValues: [],
-        explanation: \`Projeyi başabaş noktasına (NPV=0) getiren iç verim oranı %\${formatNumber(irr)} olarak hesaplanmıştır.\`,
+        explanation: \`Projeyi basabas noktasina (NPV=0) getiren ic verim orani %\${formatNumber(irr)} olarak hesaplanmistir.\`,
         missingFactors: ["Multiple IRR solutions", "Reinvestment rate assumptions"]
       };
     }`;
@@ -2019,8 +2019,8 @@ for (const t of parsedTools) {
           { label: "Total PV of Flows", value: formatCurrency(cumPV) }
         ],
         explanation: payback >= 0 
-          ? \`Yatırımın iskonto edilmiş nakit akışlarıyla amorti edilme süresi \${formatNumber(payback)} yıldır.\` 
-          : "Nakit akışlarının bugünkü değerleri toplamı başlangıç yatırım maliyetini karşılamamaktadır.",
+          ? \`Yatirimin iskonto edilmis nakit akislariyla amorti edilme suresi \${formatNumber(payback)} yildir.\` 
+          : "Nakit akislarinin bugunku degerleri toplami baslangic yatirim maliyetini karsilamamaktadir.",
         missingFactors: ["Overhead shifts", "Post-payback cash flows"]
       };
     }`;
@@ -2037,7 +2037,7 @@ for (const t of parsedTools) {
         { label: "PV of Future Cash Flows", value: formatCurrency(futureCashFlowPv) },
         { label: "Initial Investment", value: formatCurrency(initialInvestment) }
       ],
-      explanation: \`Yatırılan her 1 birim para için üretilen bugünkü değer (Kârlılık Endeksi) \${formatNumber(pi)} olarak hesaplanmıştır. 1.0 üzerindeki değerler kârlı kabul edilir.\`,
+      explanation: \`Yatirilan her 1 birim para icin uretilen bugunku deger (Kârlilik Endeksi) \${formatNumber(pi)} olarak hesaplanmistir. 1.0 uzerindeki degerler kârli kabul edilir.\`,
       missingFactors: ["Scale differences between options", "Timing differences"]
     };
   }`;
@@ -2058,7 +2058,7 @@ for (const t of parsedTools) {
         { label: "Total Capital", value: formatCurrency(v) },
         { label: "Equity Ratio", value: \`\${formatNumber(equity / Math.max(1, v) * 100)}%\` }
       ],
-      explanation: \`Şirketin borç ve özsermaye ağırlıklı ortalama sermaye maliyeti (WACC) %\${formatNumber(wacc)} olarak hesaplanmıştır.\`,
+      explanation: \`Sirketin borc ve ozsermaye agirlikli ortalama sermaye maliyeti (WACC) %\${formatNumber(wacc)} olarak hesaplanmistir.\`,
       missingFactors: ["Flotation costs", "Changing capital structures"]
     };
   }`;
@@ -2076,7 +2076,7 @@ for (const t of parsedTools) {
         { label: "Risk-Free Rate", value: \`\${riskFreeRate}%\` },
         { label: "Beta Coefficient", value: formatNumber(beta) }
       ],
-      explanation: \`Hissedarların risk profiline göre şirketten beklediği minimum getiri (Öz Sermaye Maliyeti) %\${formatNumber(costOfEquity)} olarak bulunmuştur.\`,
+      explanation: \`Hissedarlarin risk profiline gore sirketten bekledigi minimum getiri (Oz Sermaye Maliyeti) %\${formatNumber(costOfEquity)} olarak bulunmustur.\`,
       missingFactors: ["Country risk premiums", "Size premium adjustment"]
     };
   }`;
@@ -2102,7 +2102,7 @@ for (const t of parsedTools) {
         secondaryValues: [
           { label: "Terminal Value (PV)", value: formatCurrency(terminalValue / Math.pow(1 + w, 5)) }
         ],
-        explanation: \`Şirketin nakit akış kapasitesine ve gelecek büyüme projeksiyonlarına dayalı tahmini işletme değeri \${formatCurrency(ev)} seviyesindedir.\`,
+        explanation: \`Sirketin nakit akis kapasitesine ve gelecek buyume projeksiyonlarina dayali tahmini isletme degeri \${formatCurrency(ev)} seviyesindedir.\`,
         missingFactors: ["Varying year-by-year growth", "Net debt adjustments"]
       };
     }`;
@@ -2122,7 +2122,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Equity Cash Flow (FCFE)", value: formatCurrency(fcfe) }
       ],
-      explanation: \`Firma (FCFF: \${formatCurrency(fcff)}) ve hissedar (FCFE: \${formatCurrency(fcfe)}) serbest nakit akışları hesaplanmıştır.\`,
+      explanation: \`Firma (FCFF: \${formatCurrency(fcff)}) ve hissedar (FCFE: \${formatCurrency(fcfe)}) serbest nakit akislari hesaplanmistir.\`,
       missingFactors: ["Changes in non-cash items", "Accrued interest effects"]
     };
   }`;
@@ -2141,7 +2141,7 @@ for (const t of parsedTools) {
         { label: "Operating Net Profit", value: formatCurrency(netProfit) },
         { label: "Total D&A Added", value: formatCurrency(depreciation) }
       ],
-      explanation: \`Finansman, vergi ve amortisman öncesi operasyonel nakit kâr (EBITDA) \${formatCurrency(ebitda)} olarak hesaplanmıştır.\`,
+      explanation: \`Finansman, vergi ve amortisman oncesi operasyonel nakit kâr (EBITDA) \${formatCurrency(ebitda)} olarak hesaplanmistir.\`,
       missingFactors: ["Stock-based compensation", "Capital expenditure demands"]
     };
   }`;
@@ -2158,7 +2158,7 @@ for (const t of parsedTools) {
         { label: "Share Price", value: formatCurrency(sharePrice) },
         { label: "Earnings per Share", value: formatCurrency(eps) }
       ],
-      explanation: \`Hissenin kârı üzerinden kendini amorti etme süresi (F/K oranı) \${formatNumber(pe)} yıl olarak hesaplanmıştır.\`,
+      explanation: \`Hissenin kâri uzerinden kendini amorti etme suresi (F/K orani) \${formatNumber(pe)} yil olarak hesaplanmistir.\`,
       missingFactors: ["Normalized earnings", "Industry averages"]
     };
   }`;
@@ -2175,7 +2175,7 @@ for (const t of parsedTools) {
         { label: "Market Cap", value: formatCurrency(marketCap) },
         { label: "Book Value of Equity", value: formatCurrency(equity) }
       ],
-      explanation: \`Piyasanın şirketin net defter değerine biçtiği çarpan (PD/DD oranı) \${formatNumber(pb)} seviyesindedir.\`,
+      explanation: \`Piyasanin sirketin net defter degerine bictigi carpan (PD/DD orani) \${formatNumber(pb)} seviyesindedir.\`,
       missingFactors: ["Intangible assets value", "Off-balance sheet assets"]
     };
   }`;
@@ -2192,7 +2192,7 @@ for (const t of parsedTools) {
         { label: "Market Cap", value: formatCurrency(marketCap) },
         { label: "Total Sales Revenue", value: formatCurrency(totalSales) }
       ],
-      explanation: \`Şirketin 1 birimlik satışı için piyasada ödenen çarpan (Fiyat/Satış oranı) \${formatNumber(ps)} seviyesindedir.\`,
+      explanation: \`Sirketin 1 birimlik satisi icin piyasada odenen carpan (Fiyat/Satis orani) \${formatNumber(ps)} seviyesindedir.\`,
       missingFactors: ["Net margin variations", "Debt loads"]
     };
   }`;
@@ -2212,7 +2212,7 @@ for (const t of parsedTools) {
         { label: "Asset Turnover", value: formatNumber(sales / Math.max(1, assets)) },
         { label: "Financial Leverage", value: formatNumber(assets / Math.max(1, equity)) }
       ],
-      explanation: \`Kârlılık, verimlilik ve finansal kaldıracın birleşik etkisi ile özsermaye karlılığı (ROE) %\${formatNumber(roe)} olarak hesaplanmıştır.\`,
+      explanation: \`Kârlilik, verimlilik ve finansal kaldiracin birlesik etkisi ile ozsermaye karliligi (ROE) %\${formatNumber(roe)} olarak hesaplanmistir.\`,
       missingFactors: ["Non-operating revenues", "Interest rate environment"]
     };
   }`;
@@ -2229,7 +2229,7 @@ for (const t of parsedTools) {
         { label: "NOPAT", value: formatCurrency(nopat) },
         { label: "Invested Capital", value: formatCurrency(investedCapital) }
       ],
-      explanation: \`Şirketin operasyonlara yatırdığı öz ve borç sermayesinden elde ettiği vergi sonrası net verim %\${formatNumber(roic)} seviyesindedir.\`,
+      explanation: \`Sirketin operasyonlara yatirdigi oz ve borc sermayesinden elde ettigi vergi sonrasi net verim %\${formatNumber(roic)} seviyesindedir.\`,
       missingFactors: ["WACC threshold comparison", "Working capital seasonality"]
     };
   }`;
@@ -2247,7 +2247,7 @@ for (const t of parsedTools) {
         { label: "NOPAT", value: formatCurrency(nopat) },
         { label: "Sermaye Maliyeti Bedeli", value: formatCurrency(capital * wacc / 100) }
       ],
-      explanation: \`Şirketin tüm sermaye maliyetini karşıladıktan sonra ortakları için yarattığı net ekonomik katma değer \${formatCurrency(eva)} olarak bulunmuştur.\`,
+      explanation: \`Sirketin tum sermaye maliyetini karsiladiktan sonra ortaklari icin yarattigi net ekonomik katma deger \${formatCurrency(eva)} olarak bulunmustur.\`,
       missingFactors: ["Intangible assets adjustments", "Accounting distortion corrections"]
     };
   }`;
@@ -2265,7 +2265,7 @@ for (const t of parsedTools) {
         { label: "Portfolio Return", value: \`\${portfolioReturn}%\` },
         { label: "Volatility", value: \`\${volatility}%\` }
       ],
-      explanation: \`Toplam volatilite birimi başına portföyün ürettiği fazla getiri oranı (Sharpe) \${formatNumber(sharpe)} seviyesindedir.\`,
+      explanation: \`Toplam volatilite birimi basina portfoyun urettigi fazla getiri orani (Sharpe) \${formatNumber(sharpe)} seviyesindedir.\`,
       missingFactors: ["Risk-free rate variations", "Fat-tail distributions"]
     };
   }`;
@@ -2283,7 +2283,7 @@ for (const t of parsedTools) {
         { label: "Portfolio Return", value: \`\${portfolioReturn}%\` },
         { label: "Downside Risk", value: \`\${downsideDeviation}%\` }
       ],
-      explanation: \`Sadece aşağı yönlü (zarar yazan) volatilite birimi başına üretilen risk ayarlı getiri (Sortino) \${formatNumber(sortino)} seviyesindedir.\`,
+      explanation: \`Sadece asagi yonlu (zarar yazan) volatilite birimi basina uretilen risk ayarli getiri (Sortino) \${formatNumber(sortino)} seviyesindedir.\`,
       missingFactors: ["Target downside rate variations"]
     };
   }`;
@@ -2301,7 +2301,7 @@ for (const t of parsedTools) {
         { label: "Portfolio Return", value: \`\${portfolioReturn}%\` },
         { label: "Systemic Risk (Beta)", value: formatNumber(beta) }
       ],
-      explanation: \`Piyasa risk birimi (Beta) başına portföyün ürettiği fazla getiri oranı (Treynor) \${formatNumber(treynor)} seviyesindedir.\`,
+      explanation: \`Piyasa risk birimi (Beta) basina portfoyun urettigi fazla getiri orani (Treynor) \${formatNumber(treynor)} seviyesindedir.\`,
       missingFactors: ["Unsystematic risk factors"]
     };
   }`;
@@ -2318,7 +2318,7 @@ for (const t of parsedTools) {
         { label: "Peak Value", value: formatCurrency(peakValue) },
         { label: "Trough Value", value: formatCurrency(troughValue) }
       ],
-      explanation: \`Portföyün zirveden dibe yaşadığı en büyük yüzde kaybı (Max Drawdown) %\${formatNumber(mdd)} olarak hesaplanmıştır.\`,
+      explanation: \`Portfoyun zirveden dibe yasadigi en buyuk yuzde kaybi (Max Drawdown) %\${formatNumber(mdd)} olarak hesaplanmistir.\`,
       missingFactors: ["Recovery time duration"]
     };
   }`;
@@ -2340,7 +2340,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Portfolio Variance", value: formatNumber(portfolioVar) }
       ],
-      explanation: \`İki varlıklı portföyün kovaryans dahil toplam standart sapması (risk seviyesi) %\${formatNumber(portfolioSd * 100)} seviyesindedir.\`,
+      explanation: \`Iki varlikli portfoyun kovaryans dahil toplam standart sapmasi (risk seviyesi) %\${formatNumber(portfolioSd * 100)} seviyesindedir.\`,
       missingFactors: ["Multi-asset expansion", "Correlations drift"]
     };
   }`;
@@ -2358,7 +2358,7 @@ for (const t of parsedTools) {
         { label: "Capital Gain", value: formatCurrency(finalNav - initialNav) },
         { label: "Reinvestment Distributions", value: formatCurrency(distributions) }
       ],
-      explanation: \`Yatırım fonunun dönemsel net toplam getirisi %\${formatNumber(getiri)} olarak bulunmuştur.\`,
+      explanation: \`Yatirim fonunun donemsel net toplam getirisi %\${formatNumber(getiri)} olarak bulunmustur.\`,
       missingFactors: ["Load fees", "Redemption fees"]
     };
   }`;
@@ -2376,7 +2376,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Expense Ratio Deducted", value: \`\${expenseRatio}%\` }
       ],
-      explanation: \`Yıllık yönetim ücreti (expense ratio) düşülmüş net ETF yatırımcı getirisi %\${formatNumber(netReturn)} olarak hesaplanmıştır.\`,
+      explanation: \`Yillik yonetim ucreti (expense ratio) dusulmus net ETF yatirimci getirisi %\${formatNumber(netReturn)} olarak hesaplanmistir.\`,
       missingFactors: ["Tracking error volatility", "Bid-ask spread costs"]
     };
   }`;
@@ -2395,7 +2395,7 @@ for (const t of parsedTools) {
         { label: "Price Change", value: formatNumber(exitPrice - entryPrice) },
         { label: "Contract Multiplier", value: formatNumber(multiplier) }
       ],
-      explanation: \`Vadeli işlem kontratının fiyat hareketinden doğan net kâr/zarar sonucu \${formatCurrency(profit)} olarak hesaplanmıştır.\`,
+      explanation: \`Vadeli islem kontratinin fiyat hareketinden dogan net kâr/zarar sonucu \${formatCurrency(profit)} olarak hesaplanmistir.\`,
       missingFactors: ["Maintenance margin calls", "Rollover fee costs"]
     };
   }`;
@@ -2426,7 +2426,7 @@ for (const t of parsedTools) {
           { label: "d1", value: formatNumber(d1) },
           { label: "d2", value: formatNumber(d2) }
         ],
-        explanation: \`Avrupa tipi alım opsiyonunun Black-Scholes modeline göre teorik adil prim değeri \${formatCurrency(callPrice)} olarak bulunmuştur.\`,
+        explanation: \`Avrupa tipi alim opsiyonunun Black-Scholes modeline gore teorik adil prim degeri \${formatCurrency(callPrice)} olarak bulunmustur.\`,
         missingFactors: ["Dividend yields", "Early exercise American options adjustments"]
       };
     }`;
@@ -2443,7 +2443,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Total Pip Units Moved", value: formatNumber(pipMovement) }
       ],
-      explanation: \`Parite hareketi sonucu hesap para biriminde gerçekleşen net forex kâr/zararı \${formatCurrency(pnl)} seviyesindedir.\`,
+      explanation: \`Parite hareketi sonucu hesap para biriminde gerceklesen net forex kâr/zarari \${formatCurrency(pnl)} seviyesindedir.\`,
       missingFactors: ["Swap/Rollover charges", "Spread spreads"]
     };
   }`;
@@ -2464,7 +2464,7 @@ for (const t of parsedTools) {
         { label: "Gross Profit", value: formatCurrency(gross) },
         { label: "Trading Fees", value: formatCurrency(fees) }
       ],
-      explanation: \`Borsa komisyonları düşüldükten sonra kripto para işleminden elde edilen net kazanç \${formatCurrency(net)} seviyesindedir.\`,
+      explanation: \`Borsa komisyonlari dusuldukten sonra kripto para isleminden elde edilen net kazanc \${formatCurrency(net)} seviyesindedir.\`,
       missingFactors: ["Slippage costs", "Network transfer fees"]
     };
   }`;
@@ -2483,7 +2483,7 @@ for (const t of parsedTools) {
         { label: "Royalty Paid", value: \`\${formatNumber(sellingPrice * royalty / 100)} ETH\` },
         { label: "Gas Spent", value: \`\${formatNumber(gas)} ETH\` }
       ],
-      explanation: \`Gas ve royalty kesintileri düşüldükten sonra net NFT alım-satım kazancı \${formatNumber(netEth)} ETH olarak hesaplanmıştır.\`,
+      explanation: \`Gas ve royalty kesintileri dusuldukten sonra net NFT alim-satim kazanci \${formatNumber(netEth)} ETH olarak hesaplanmistir.\`,
       missingFactors: ["Floor price changes", "ETH/USD conversion rate"]
     };
   }`;
@@ -2501,7 +2501,7 @@ for (const t of parsedTools) {
         { label: "Nominal Value", value: formatCurrency(nominalValue) },
         { label: "Loss in Value", value: formatCurrency(nominalValue - realValue) }
       ],
-      explanation: \`Belirtilen yıllık enflasyon hızı %\${inflation} altında, bugünkü \${formatCurrency(nominalValue)} tutarın \${years} yıl sonraki satın alma gücü \${formatCurrency(realValue)} seviyesine iner.\`,
+      explanation: \`Belirtilen yillik enflasyon hizi %\${inflation} altinda, bugunku \${formatCurrency(nominalValue)} tutarin \${years} yil sonraki satin alma gucu \${formatCurrency(realValue)} seviyesine iner.\`,
       missingFactors: ["Varying inflation rate over time", "Taxation adjustments"]
     };
   }`;
@@ -2518,7 +2518,7 @@ for (const t of parsedTools) {
         { label: "Nominal Return Rate", value: \`\${nominalReturn}%\` },
         { label: "Inflation Rate", value: \`\${inflation}%\` }
       ],
-      explanation: \`Enflasyon etkisi çıkarıldığında, satın alma gücündeki net reel artış %\${formatNumber(real)} olarak hesaplanmıştır.\`,
+      explanation: \`Enflasyon etkisi cikarildiginda, satin alma gucundeki net reel artis %\${formatNumber(real)} olarak hesaplanmistir.\`,
       missingFactors: ["Asset tax rates", "Broker fees"]
     };
   }`;
@@ -2535,7 +2535,7 @@ for (const t of parsedTools) {
         { label: "Chosen Yield", value: formatCurrency(preferredReturn) },
         { label: "Foregone Alternative Yield", value: formatCurrency(foregoneReturn) }
       ],
-      explanation: \`Tercih edilmeyen alternatif yatırım seçeneğinin kaçırılan net getirisi (fırsat maliyeti) \${formatCurrency(Math.max(0, opportunityCost))} seviyesindedir.\`,
+      explanation: \`Tercih edilmeyen alternatif yatirim seceneginin kacirilan net getirisi (firsat maliyeti) \${formatCurrency(Math.max(0, opportunityCost))} seviyesindedir.\`,
       missingFactors: ["Risk differences between assets", "Tax differences"]
     };
   }`;
@@ -2555,7 +2555,7 @@ for (const t of parsedTools) {
         { label: "Taxable Base", value: formatCurrency(basis) },
         { label: "Absolute Gain", value: formatCurrency(Math.max(0, sellingPrice - purchasePrice)) }
       ],
-      explanation: \`Varlık satışından doğan yasal gelir vergisi yükümlülüğü \${formatCurrency(tax)} olarak hesaplanmıştır.\`,
+      explanation: \`Varlik satisindan dogan yasal gelir vergisi yukumlulugu \${formatCurrency(tax)} olarak hesaplanmistir.\`,
       missingFactors: ["Alternative minimum tax", "Holding period options (short/long term)"]
     };
   }`;
@@ -2572,7 +2572,7 @@ for (const t of parsedTools) {
         { label: "Assessed Value", value: formatCurrency(assessedValue) },
         { label: "Tax Rate Per Thousand", value: \`\${taxRatePerThousand} ‰\` }
       ],
-      explanation: \`Mülk rayiç değeri ve binde oranına göre yıllık belediyeye ödenmesi gereken emlak vergisi tutarı \${formatCurrency(annualTax)} seviyesindedir.\`,
+      explanation: \`Mulk rayic degeri ve binde oranina gore yillik belediyeye odenmesi gereken emlak vergisi tutari \${formatCurrency(annualTax)} seviyesindedir.\`,
       missingFactors: ["Local assessment updates", "Tax exemptions"]
     };
   }`;
@@ -2600,7 +2600,7 @@ for (const t of parsedTools) {
         { label: "Interest Portion", value: formatCurrency(faizKismi) },
         { label: "Remaining Principal", value: formatCurrency(Math.max(0, remainingPrincipal - anaparaKismi)) }
       ],
-      explanation: \`\${period}. dönem taksit ödemesinin \${formatCurrency(anaparaKismi)} kadarı anapara borcundan düşülürken, \${formatCurrency(faizKismi)} kadarı faiz gideridir.\`,
+      explanation: \`\${period}. donem taksit odemesinin \${formatCurrency(anaparaKismi)} kadari anapara borcundan dusulurken, \${formatCurrency(faizKismi)} kadari faiz gideridir.\`,
       missingFactors: ["Extra principal payments", "Refinancing options"]
     };
   }`;
@@ -2610,7 +2610,7 @@ for (const t of parsedTools) {
     const annualRent = normalizeNumber(values.annualRent);
     const ratio = homePrice / Math.max(1, annualRent);
     const decision = ratio > 20 ? "Rent" : "Buy";
-    const decisionTr = ratio > 20 ? "KİRALA" : "SATIN AL";
+    const decisionTr = ratio > 20 ? "KIRALA" : "SATIN AL";
     return {
       headline: \`Decision: \${decision} (Ratio: \${formatNumber(ratio)})\`,
       primaryLabel: "Recommended Strategy",
@@ -2618,7 +2618,7 @@ for (const t of parsedTools) {
       secondaryValues: [
         { label: "Price-to-Rent Ratio", value: formatNumber(ratio) }
       ],
-      explanation: \`Fiyat/kira oranı \${formatNumber(ratio)} olarak hesaplanmıştır. Bu oran 20'nin üzerinde olduğunda kiralama yapmak, altında olduğunda ise satın almak finansal olarak daha avantajlı kabul edilir.\`,
+      explanation: \`Fiyat/kira orani \${formatNumber(ratio)} olarak hesaplanmistir. Bu oran 20'nin uzerinde oldugunda kiralama yapmak, altinda oldugunda ise satin almak finansal olarak daha avantajli kabul edilir.\`,
       missingFactors: ["Property tax rates", "Maintenance cost inflation", "Mortgage rates"]
     };
   }`;
@@ -2637,7 +2637,7 @@ for (const t of parsedTools) {
         primaryLabel: "Mean",
         primaryValue: "0",
         secondaryValues: [{ label: "Median", value: "0" }, { label: "Mode", value: "0" }],
-        explanation: "Lütfen veri kümesini virgülle ayrılmış sayılar olarak girin.",
+        explanation: "Lutfen veri kumesini virgulle ayrilmis sayilar olarak girin.",
         missingFactors: []
       };
     }
@@ -2665,7 +2665,7 @@ for (const t of parsedTools) {
         { label: "Mode", value: formatNumber(mode) },
         { label: "Sample Size (N)", value: String(arr.length) }
       ],
-      explanation: \`Girilen \${arr.length} adet veri noktasının aritmetik ortalaması \${formatNumber(mean)}, ortanca (medyan) değeri \${formatNumber(median)} ve en sık tekrar eden (mod) değeri \${formatNumber(mode)} olarak hesaplanmıştır.\`,
+      explanation: \`Girilen \${arr.length} adet veri noktasinin aritmetik ortalamasi \${formatNumber(mean)}, ortanca (medyan) degeri \${formatNumber(median)} ve en sik tekrar eden (mod) degeri \${formatNumber(mode)} olarak hesaplanmistir.\`,
       missingFactors: ["Outliers", "Weighted averages"]
     };
   }`;
@@ -2684,7 +2684,7 @@ for (const t of parsedTools) {
         primaryLabel: "Standard Deviation",
         primaryValue: "0",
         secondaryValues: [{ label: "Variance", value: "0" }],
-        explanation: "Standart sapma hesaplamak için en az 2 sayı girmelisiniz.",
+        explanation: "Standart sapma hesaplamak icin en az 2 sayi girmelisiniz.",
         missingFactors: []
       };
     }
@@ -2701,7 +2701,7 @@ for (const t of parsedTools) {
         { label: "Variance", value: formatNumber(variance) },
         { label: "Population Std Dev", value: formatNumber(Math.sqrt(sqDiffSum / arr.length)) }
       ],
-      explanation: \`Veri kümesinin örneklem standart sapması \${formatNumber(stdDev)} ve varyansı \${formatNumber(variance)} olarak bulunmuştur.\`,
+      explanation: \`Veri kumesinin orneklem standart sapmasi \${formatNumber(stdDev)} ve varyansi \${formatNumber(variance)} olarak bulunmustur.\`,
       missingFactors: ["Degrees of freedom adjustments", "Population assumption bias"]
     };
   }`;
@@ -2722,7 +2722,7 @@ for (const t of parsedTools) {
         primaryLabel: "Correlation (r)",
         primaryValue: "0",
         secondaryValues: [{ label: "Slope (m)", value: "0" }],
-        explanation: "Korelasyon hesaplamak için her iki değişkende de en az 2 sayı girmelisiniz.",
+        explanation: "Korelasyon hesaplamak icin her iki degiskende de en az 2 sayi girmelisiniz.",
         missingFactors: []
       };
     }
@@ -2754,7 +2754,7 @@ for (const t of parsedTools) {
         { label: "Slope", value: formatNumber(slope) },
         { label: "Covariance", value: formatNumber(covariance) }
       ],
-      explanation: \`Girilen veriler arasındaki korelasyon katsayısı \${formatNumber(correlation)} (güçlü ilişki), doğrusal regresyon doğrusunun eğimi ise \${formatNumber(slope)} olarak hesaplanmıştır.\`,
+      explanation: \`Girilen veriler arasindaki korelasyon katsayisi \${formatNumber(correlation)} (guclu iliski), dogrusal regresyon dogrusunun egimi ise \${formatNumber(slope)} olarak hesaplanmistir.\`,
       missingFactors: ["Non-linear relationships", "Influence of outliers"]
     };
   }`;
@@ -2774,7 +2774,7 @@ for (const t of parsedTools) {
         primaryLabel: "F-Statistic",
         primaryValue: "0",
         secondaryValues: [],
-        explanation: "ANOVA testi için en az iki grupta (noktalı virgül ile ayırarak) ikişer adet sayı girmelisiniz.",
+        explanation: "ANOVA testi icin en az iki grupta (noktali virgul ile ayirarak) ikiser adet sayi girmelisiniz.",
         missingFactors: []
       };
     }
@@ -2802,7 +2802,7 @@ for (const t of parsedTools) {
         { label: "Sum of Squares (Between)", value: formatNumber(ssb) },
         { label: "Sum of Squares (Within)", value: formatNumber(ssw) }
       ],
-      explanation: \`Gruplar arası varyansın grup içi varyansa oranı (F istatistiği) \${formatNumber(fStat)} olarak hesaplanmıştır.\`,
+      explanation: \`Gruplar arasi varyansin grup ici varyansa orani (F istatistigi) \${formatNumber(fStat)} olarak hesaplanmistir.\`,
       missingFactors: ["Critical F-value verification", "Variance homogeneity assumption (Levene's test)"]
     };
   }`;
@@ -2894,7 +2894,7 @@ ${jsStatements.join("\n")}
       primaryLabel: "${labelEn}",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
-      explanation: \`${t.titleTr} hesaplaması tamamlanmıştır. Sonuç: \${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.\`,
+      explanation: \`${t.titleTr} hesaplamasi tamamlanmistir. Sonuc: \${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.\`,
       missingFactors: ["Operational variables", "Compliance updates"]
     };
   }`;
@@ -2935,13 +2935,13 @@ function SUM(arr: any): number {
   return arr.reduce((a, b) => a + (Number(b) || 0), 0);
 }
 
-function PARETO_ANALIZI(value: number): string {
+function paretoAnalysis(value: number): string {
   if (value > 100000) return "A";
   if (value > 20000) return "B";
   return "C";
 }
 
-function SOSYAL_GUVENLIK_FORMULU(avgIndexedEarnings: number): number {
+function socialSecurityFormula(avgIndexedEarnings: number): number {
   const firstBend = 1024;
   const secondBend = 6172;
   if (avgIndexedEarnings <= firstBend) return avgIndexedEarnings * 0.9;
@@ -2949,7 +2949,7 @@ function SOSYAL_GUVENLIK_FORMULU(avgIndexedEarnings: number): number {
   return firstBend * 0.9 + (secondBend - firstBend) * 0.32 + (avgIndexedEarnings - secondBend) * 0.15;
 }
 
-function YAS_CARPANI(retirementAge: number): number {
+function ageCoefficient(retirementAge: number): number {
   const diff = retirementAge - 67;
   if (diff < 0) {
     return 1 + diff * 0.06;
@@ -2961,7 +2961,7 @@ function YAS_CARPANI(retirementAge: number): number {
 function Mifflin_St_Jeor_Formulu(weight: number, height: number, age: number, gender: any): number {
   const base = 10 * weight + 6.25 * height - 5 * age;
   const gStr = String(gender || "").toLowerCase();
-  if (gStr === "female" || gStr === "kadin" || gStr === "kadın" || gStr === "2") {
+  if (gStr === "female" || gStr === "kadin" || gStr === "kadin" || gStr === "2") {
     return base - 161;
   }
   return base + 5;

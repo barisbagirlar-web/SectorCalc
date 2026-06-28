@@ -57,7 +57,7 @@ import { CHANGE_ORDER_IMPACT_ANALYZER_SCHEMA } from "@/lib/premium-schema/schema
 import { CNC_QUOTE_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/cnc-quote-risk-analyzer";
 import { CROP_YIELD_LOSS_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/crop-yield-loss-analyzer";
 import { DAIRY_PROFIT_DETECTOR_SCHEMA } from "@/lib/premium-schema/schemas/dairy-profit-detector";
-import { DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA } from "@/lib/premium-schema/schemas/fx-position-exchange-rate-risk-calculator";
+import { FX_POSITION_EXCHANGE_RATE_RISK_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/fx-position-exchange-rate-risk-calculator";
 import { FEED_EFFICIENCY_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/feed-efficiency-analyzer";
 import { HEAT_LOSS_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/heat-loss-calculator";
 import { HVAC_PROJECT_MARGIN_GUARD_SCHEMA } from "@/lib/premium-schema/schemas/hvac-project-margin-guard";
@@ -142,7 +142,7 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   CNC_QUOTE_RISK_ANALYZER_SCHEMA,
   CROP_YIELD_LOSS_ANALYZER_SCHEMA,
   DAIRY_PROFIT_DETECTOR_SCHEMA,
-  DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA,
+  FX_POSITION_EXCHANGE_RATE_RISK_CALCULATOR_SCHEMA,
   FEED_EFFICIENCY_ANALYZER_SCHEMA,
   HEAT_LOSS_CALCULATOR_SCHEMA,
   HVAC_PROJECT_MARGIN_GUARD_SCHEMA,

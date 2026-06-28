@@ -1,6 +1,6 @@
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 
-export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSchema = {
+export const FX_POSITION_EXCHANGE_RATE_RISK_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   id: "fx-position-exchange-rate-risk-calculator",
   name: "FX Position Exchange Rate Risk",
   sectorSlug: "finance-hr",

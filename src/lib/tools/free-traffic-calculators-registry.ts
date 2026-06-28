@@ -30,13 +30,13 @@ function SUM(arr: any): number {
   return arr.reduce((a, b) => a + (Number(b) || 0), 0);
 }
 
-function PARETO_ANALIZI(value: number): string {
+function paretoAnalysis(value: number): string {
   if (value > 100000) return "A";
   if (value > 20000) return "B";
   return "C";
 }
 
-function SOSYAL_GUVENLIK_FORMULU(avgIndexedEarnings: number): number {
+function socialSecurityFormula(avgIndexedEarnings: number): number {
   const firstBend = 1024;
   const secondBend = 6172;
   if (avgIndexedEarnings <= firstBend) return avgIndexedEarnings * 0.9;
@@ -44,7 +44,7 @@ function SOSYAL_GUVENLIK_FORMULU(avgIndexedEarnings: number): number {
   return firstBend * 0.9 + (secondBend - firstBend) * 0.32 + (avgIndexedEarnings - secondBend) * 0.15;
 }
 
-function YAS_CARPANI(retirementAge: number): number {
+function ageCoefficient(retirementAge: number): number {
   const diff = retirementAge - 67;
   if (diff < 0) {
     return 1 + diff * 0.06;
@@ -2149,7 +2149,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Installment (TRY)",
+      primaryLabel: "Installment (USD)",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
       explanation: `Foreign Currency Usd Loan Risk calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
@@ -3285,15 +3285,15 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   },
   "abc-inventory-classification": (values) => {
     const annualDemand = normalizeNumber(values.annualDemand);
-    const BirimMaliyet = normalizeNumber(values.birimmaliyet);
+    const unitCost = normalizeNumber(values.birimmaliyet);
 
 
      
     let resultValue: any = 0;
     try {
-    const YillikDeger = annualDemand * BirimMaliyet;
-    const Sinif = PARETO_ANALIZI(YillikDeger);
-    resultValue = Sinif;
+    const annualValue = annualDemand * unitCost;
+    const classification = paretoAnalysis(annualValue);
+    resultValue = classification;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
       }
@@ -3302,7 +3302,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Sinif",
+      primaryLabel: "Classification",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
       explanation: `Abc Inventory Classification calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
@@ -3629,7 +3629,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "manufacturing-scrap-loss-cost": (values) => {
     const production = normalizeNumber(values.production);
     const scrap = normalizeNumber(values.scrap);
-    const BirimMaliyet = normalizeNumber(values.birimmaliyet);
+    const unitCost = normalizeNumber(values.birimmaliyet);
 
 
      
@@ -4137,9 +4137,9 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
      
     let resultValue: any = 0;
     try {
-    const TemelBenefit = SOSYAL_GUVENLIK_FORMULU(aime);
-    const Ayarli = TemelBenefit * YAS_CARPANI(retirementAge);
-    resultValue = Ayarli;
+    const baseBenefit = socialSecurityFormula(aime);
+    const adjusted = baseBenefit * ageCoefficient(retirementAge);
+    resultValue = adjusted;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
       }
@@ -4148,7 +4148,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     }
     return {
       headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Ayarli",
+      primaryLabel: "Adjusted",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
       secondaryValues: [],
       explanation: `Social Security Monthly Benefit calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
