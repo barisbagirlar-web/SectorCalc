@@ -39,7 +39,9 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(result.fullLoopRuntimeCount).toBe(132);
     expect(result.stagedCalculationBridge).toBe(0);
     expect(result.governedBuildtimeOnly).toBe(0);
-    expect(result.auditPipelineOnly).toBe(209);
+    // Current FORMULA_CONTRACTS = 211 total, minus 132 full_loop + 2 pilot = 77 audit_only
+    // Registry was pruned from ~341 (old) to 211 (current) — count is dynamic from FORMULA_CONTRACTS
+    expect(result.auditPipelineOnly).toBe(FORMULA_CONTRACTS.length - result.fullLoopRuntimeCount - result.liveSmartFormPilot);
   });
 
   test("only live pilots have partial Mind 1/2 runtime without full loop", () => {

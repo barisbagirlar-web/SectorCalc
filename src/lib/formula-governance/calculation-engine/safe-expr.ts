@@ -279,9 +279,17 @@ function assertSafeNode(node: MathNode, ctx: ValidationContext): void {
       assertSafeNode(an.object, ctx);
       if (an.index) {
         const index = an.index as any;
-        // Simple index (single value)
+        // Block prototype-chain property names
         if (index.dimensions) {
-          index.dimensions.forEach((d: MathNode) => assertSafeNode(d, ctx));
+          for (const dim of index.dimensions) {
+            if (dim.type === 'ConstantNode') {
+              const val = (dim as any).value;
+              if (typeof val === 'string' && ['constructor', '__proto__', 'prototype'].includes(val)) {
+                throw new Error(`Disallowed property access: "${val}"`);
+              }
+            }
+            assertSafeNode(dim, ctx);
+          }
         }
       }
       return;
