@@ -2,7 +2,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * PRO TOOL ADAPTER (v3 — FULL INDUSTRIAL FIX)
  * ───────────────────────────────────────────────────────────────────────────
- * Bridges the verified calculation engine (claude_pro_tasrım_ design) with
+ * Bridges the verified calculation engine (claude_pro_tasarim_ design) with
  * existing PRO tool JSON data files. Translates raw JSON tool definitions
  * into the engine's ToolSchema format.
  *

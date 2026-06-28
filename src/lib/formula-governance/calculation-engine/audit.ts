@@ -6,7 +6,7 @@
  * • Hash covers the FULL evidentiary set (toolId + version + inputs + results + timestamp)
  * • Hash CHAINING for tamper-evident audit trail
  *
- * Source: claude_pro_tasrım_/engine-audit.ts (verified engine design)
+ * Source: claude_pro_tasarim_/engine-audit.ts (verified engine design)
  * ═══════════════════════════════════════════════════════════════════════════
  */
 

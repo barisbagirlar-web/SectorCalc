@@ -2,7 +2,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * SECTORCALC PRO — CALCULATION ENGINE TYPES
  * ═══════════════════════════════════════════════════════════════════════════
- * Source: claude_pro_tasrım_/engine-types.ts (verified engine design)
+ * Source: claude_pro_tasarim_/engine-types.ts (verified engine design)
  * 
  * v2 — Added preValidationRules / postValidationRules for 2‑phase validation
  * ═══════════════════════════════════════════════════════════════════════════

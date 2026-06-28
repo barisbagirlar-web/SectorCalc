@@ -104,13 +104,12 @@ function resolveUnit(unitStr, defaultValue = "dimensionless") {
 }
 
 function parseConfidence(label) {
-  if (!label) return "VARSAYIM";
+  if (!label) return "DEFAULT";
   const u = label.toUpperCase().trim();
-  if (u.includes("KESİN") || u.includes("KESIN") || u.includes("EXACT")) return "KESIN";
-  if (u.includes("GÜÇLÜ") || u.includes("GUCLU") || u.includes("STRONG")) return "GUCLU";
-  if (u.includes("ORTA") || u.includes("MEDIUM")) return "ORTA";
-  if (u.includes("VARSAYIM") || u.includes("DEFAULT") || u.includes("APPROXIMATE")) return "VARSAYIM";
-  return "VARSAYIM";
+  if (u.includes("KESİN") || u.includes("KESIN") || u.includes("EXACT") || u.includes("CERTAIN")) return "EXACT";
+  if (u.includes("GÜÇLÜ") || u.includes("GUCLU") || u.includes("STRONG") || u.includes("HIGH")) return "STRONG";
+  if (u.includes("ORTA") || u.includes("MEDIUM")) return "MEDIUM";
+  return "DEFAULT";
 }
 
 function parseUncertainty(uncStr) {

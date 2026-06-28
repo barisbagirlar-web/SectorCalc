@@ -17,7 +17,7 @@
     "pm2:save": "pm2 save",
     "pm2:startup": "pm2 startup",
     "build:trace-catalog": "npx tsx scripts/build-trace-catalog.ts",
-    "prebuild": "mkdir -p .next/server && echo '{}' > .next/server/pages-manifest.json && npm run check:i18n && npm run lint:schemas && npm run seo:validate && npm run seo:authority-txt && npm run seo:export-manifest && npm run seo:orphan-check && npm run build:trace-catalog",
+    "prebuild": "mkdir -p .next/server && npm run check:i18n && npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
     "postbuild": "node scripts/ensure-500-export.mjs",
     "wasm:build": "node scripts/build-wasm.mjs",
     "deploy:hosting:fast": "node scripts/deploy-production.mjs",

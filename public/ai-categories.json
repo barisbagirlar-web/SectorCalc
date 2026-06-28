@@ -1,577 +1,265 @@
 {
-<<<<<<< Updated upstream
-  "generatedAt": "2026-06-25T14:18:19.315Z",
-=======
-  "generatedAt": "2026-06-22T20:48:51.284Z",
->>>>>>> Stashed changes
+  "generatedAt": "2026-06-28T23:33:05.464Z",
   "totalCategories": 20,
   "categories": [
     {
       "slug": "lean-production",
       "title": {
-        "en": "Lean Production & Line Efficiency",
-        "tr": "Yalın Üretim ve Hat Verimliliği",
-        "de": "Lean Production & Line Efficiency",
-        "fr": "Lean Production & Line Efficiency",
-        "es": "Lean Production & Line Efficiency",
-        "ar": "Lean Production & Line Efficiency"
+        "en": "Lean Production & Line Efficiency"
       },
       "summary": {
-        "en": "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları.",
-        "tr": "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları.",
-        "de": "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları.",
-        "fr": "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları.",
-        "es": "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları.",
-        "ar": "SMED, Kanban, VSM, Kaizen, Andon ve hat dengeleme araçları."
+        "en": "SMED, Kanban, VSM, Kaizen, Andon and line balancing tools."
       },
-      "toolCount": 37,
+      "toolCount": 21,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/lean-production",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/lean-production",
-        "de": "https://www.sectorcalc.com/de/premium-tools/lean-production",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/lean-production",
-        "es": "https://www.sectorcalc.com/es/premium-tools/lean-production",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/lean-production"
+        "en": "https://www.sectorcalc.com/en/premium-tools/lean-production"
       }
     },
     {
       "slug": "quality-six-sigma",
       "title": {
-        "en": "Quality, SPC & Six Sigma",
-        "tr": "Kalite, SPC ve Altı Sigma",
-        "de": "Quality, SPC & Six Sigma",
-        "fr": "Quality, SPC & Six Sigma",
-        "es": "Quality, SPC & Six Sigma",
-        "ar": "Quality, SPC & Six Sigma"
+        "en": "Quality, SPC & Six Sigma"
       },
       "summary": {
-        "en": "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi.",
-        "tr": "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi.",
-        "de": "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi.",
-        "fr": "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi.",
-        "es": "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi.",
-        "ar": "Cpk/Ppk, MSA, HTEA, SPC, Taguchi, RTY ve kalite proje seçimi."
+        "en": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY and quality project selection."
       },
-      "toolCount": 25,
+      "toolCount": 15,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/quality-six-sigma",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/quality-six-sigma",
-        "de": "https://www.sectorcalc.com/de/premium-tools/quality-six-sigma",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/quality-six-sigma",
-        "es": "https://www.sectorcalc.com/es/premium-tools/quality-six-sigma",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/quality-six-sigma"
+        "en": "https://www.sectorcalc.com/en/premium-tools/quality-six-sigma"
       }
     },
     {
       "slug": "process-chemical",
       "title": {
-        "en": "Process, Chemical & Fluids",
-        "tr": "Proses, Kimya ve Akışkanlar",
-        "de": "Process, Chemical & Fluids",
-        "fr": "Process, Chemical & Fluids",
-        "es": "Process, Chemical & Fluids",
-        "ar": "Process, Chemical & Fluids"
+        "en": "Process, Chemical & Fluids"
       },
       "summary": {
-        "en": "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili.",
-        "tr": "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili.",
-        "de": "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili.",
-        "fr": "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili.",
-        "es": "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili.",
-        "ar": "Parti verimi, kütle dengesi, pompa kaybı, harmanlama ve emniyet ventili."
+        "en": "Batch yield, mass balance, pump loss, blending and safety valve."
       },
-      "toolCount": 23,
+      "toolCount": 8,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/process-chemical",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/process-chemical",
-        "de": "https://www.sectorcalc.com/de/premium-tools/process-chemical",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/process-chemical",
-        "es": "https://www.sectorcalc.com/es/premium-tools/process-chemical",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/process-chemical"
+        "en": "https://www.sectorcalc.com/en/premium-tools/process-chemical"
       }
     },
     {
       "slug": "cnc-additive-manufacturing",
       "title": {
-        "en": "CNC, 3D Printing & Advanced Manufacturing",
-        "tr": "CNC, 3B Baskı ve İleri İmalat",
-        "de": "CNC, 3D Printing & Advanced Manufacturing",
-        "fr": "CNC, 3D Printing & Advanced Manufacturing",
-        "es": "CNC, 3D Printing & Advanced Manufacturing",
-        "ar": "CNC, 3D Printing & Advanced Manufacturing"
+        "en": "CNC, 3D Printing & Advanced Manufacturing"
       },
       "summary": {
-        "en": "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri.",
-        "tr": "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri.",
-        "de": "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri.",
-        "fr": "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri.",
-        "es": "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri.",
-        "ar": "CNC süre, takım ömrü, 3B baskı, talaş, bağlama aparatı ve işleme stratejileri."
+        "en": "CNC time, tool life, 3D printing, chip load, fixture and machining strategies."
       },
-      "toolCount": 305,
+      "toolCount": 171,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/cnc-additive-manufacturing",
-        "de": "https://www.sectorcalc.com/de/premium-tools/cnc-additive-manufacturing",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/cnc-additive-manufacturing",
-        "es": "https://www.sectorcalc.com/es/premium-tools/cnc-additive-manufacturing",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/cnc-additive-manufacturing"
+        "en": "https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing"
       }
     },
     {
       "slug": "metal-plastics-forming",
       "title": {
-        "en": "Sheet Metal, Casting, Plastics & Forming",
-        "tr": "Sac Metal, Döküm, Plastik ve Şekillendirme",
-        "de": "Sheet Metal, Casting, Plastics & Forming",
-        "fr": "Sheet Metal, Casting, Plastics & Forming",
-        "es": "Sheet Metal, Casting, Plastics & Forming",
-        "ar": "Sheet Metal, Casting, Plastics & Forming"
+        "en": "Sheet Metal, Casting, Plastics & Forming"
       },
       "summary": {
-        "en": "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme.",
-        "tr": "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme.",
-        "de": "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme.",
-        "fr": "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme.",
-        "es": "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme.",
-        "ar": "Nesting fire, döküm verimi, enjeksiyon çevrimi, pres kuvveti ve büküm geri esneme."
+        "en": "Nesting rate, casting yield, injection cycle, press force and bend springback."
       },
-      "toolCount": 68,
+      "toolCount": 18,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/metal-plastics-forming",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/metal-plastics-forming",
-        "de": "https://www.sectorcalc.com/de/premium-tools/metal-plastics-forming",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/metal-plastics-forming",
-        "es": "https://www.sectorcalc.com/es/premium-tools/metal-plastics-forming",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/metal-plastics-forming"
+        "en": "https://www.sectorcalc.com/en/premium-tools/metal-plastics-forming"
       }
     },
     {
       "slug": "project-construction-management",
       "title": {
-        "en": "Project, Site & Construction Management",
-        "tr": "Proje, Şantiye ve İnşaat Yönetimi",
-        "de": "Project, Site & Construction Management",
-        "fr": "Project, Site & Construction Management",
-        "es": "Project, Site & Construction Management",
-        "ar": "Project, Site & Construction Management"
+        "en": "Project, Site & Construction Management"
       },
       "summary": {
-        "en": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
-        "tr": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
-        "de": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
-        "fr": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
-        "es": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları.",
-        "ar": "EVM, CPM, kaynak seviyesi, sözleşme riski, hakediş, mobilizasyon ve şantiye kararları."
+        "en": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization and site decisions."
       },
-      "toolCount": 29,
+      "toolCount": 18,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/project-construction-management",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/project-construction-management",
-        "de": "https://www.sectorcalc.com/de/premium-tools/project-construction-management",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/project-construction-management",
-        "es": "https://www.sectorcalc.com/es/premium-tools/project-construction-management",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/project-construction-management"
+        "en": "https://www.sectorcalc.com/en/premium-tools/project-construction-management"
       }
     },
     {
       "slug": "digital-factory-automation",
       "title": {
-        "en": "Digital Factory & Automation",
-        "tr": "Dijital Fabrika ve Otomasyon",
-        "de": "Digital Factory & Automation",
-        "fr": "Digital Factory & Automation",
-        "es": "Digital Factory & Automation",
-        "ar": "Digital Factory & Automation"
+        "en": "Digital Factory & Automation"
       },
       "summary": {
-        "en": "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları.",
-        "tr": "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları.",
-        "de": "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları.",
-        "fr": "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları.",
-        "es": "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları.",
-        "ar": "IoT, dijital ikiz, cobot, AGV, enerji izleme ve kağıtsız üretim ROI araçları."
+        "en": "IoT, digital twin, cobot, AGV, energy monitoring and paperless production ROI tools."
       },
-      "toolCount": 9,
+      "toolCount": 7,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/digital-factory-automation",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/digital-factory-automation",
-        "de": "https://www.sectorcalc.com/de/premium-tools/digital-factory-automation",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/digital-factory-automation",
-        "es": "https://www.sectorcalc.com/es/premium-tools/digital-factory-automation",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/digital-factory-automation"
+        "en": "https://www.sectorcalc.com/en/premium-tools/digital-factory-automation"
       }
     },
     {
       "slug": "maintenance-reliability",
       "title": {
-        "en": "Maintenance & Reliability",
-        "tr": "Bakım, Arıza ve Güvenilirlik",
-        "de": "Maintenance & Reliability",
-        "fr": "Maintenance & Reliability",
-        "es": "Maintenance & Reliability",
-        "ar": "Maintenance & Reliability"
+        "en": "Maintenance & Reliability"
       },
       "summary": {
-        "en": "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi.",
-        "tr": "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi.",
-        "de": "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi.",
-        "fr": "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi.",
-        "es": "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi.",
-        "ar": "MTBF/MTTR, yedek parça, koruyucu bakım, RCA ve kritiklik matrisi."
+        "en": "MTBF/MTTR, spare parts, preventive maintenance, RCA and criticality matrix."
       },
-      "toolCount": 17,
+      "toolCount": 6,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/maintenance-reliability",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/maintenance-reliability",
-        "de": "https://www.sectorcalc.com/de/premium-tools/maintenance-reliability",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/maintenance-reliability",
-        "es": "https://www.sectorcalc.com/es/premium-tools/maintenance-reliability",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/maintenance-reliability"
+        "en": "https://www.sectorcalc.com/en/premium-tools/maintenance-reliability"
       }
     },
     {
       "slug": "hse-ergonomics",
       "title": {
-        "en": "HSE, Ergonomics & Risk Cost",
-        "tr": "İSG, Ergonomi ve Risk Maliyeti",
-        "de": "HSE, Ergonomics & Risk Cost",
-        "fr": "HSE, Ergonomics & Risk Cost",
-        "es": "HSE, Ergonomics & Risk Cost",
-        "ar": "HSE, Ergonomics & Risk Cost"
+        "en": "HSE, Ergonomics & Risk Cost"
       },
       "summary": {
-        "en": "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları.",
-        "tr": "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları.",
-        "de": "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları.",
-        "fr": "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları.",
-        "es": "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları.",
-        "ar": "Kaza maliyeti, İSG yatırımı, gürültü/titreşim ve ergonomi kayıpları."
+        "en": "Accident cost, HSE investment, noise/vibration and ergonomic losses."
       },
-      "toolCount": 21,
+      "toolCount": 14,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/hse-ergonomics",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/hse-ergonomics",
-        "de": "https://www.sectorcalc.com/de/premium-tools/hse-ergonomics",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/hse-ergonomics",
-        "es": "https://www.sectorcalc.com/es/premium-tools/hse-ergonomics",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/hse-ergonomics"
+        "en": "https://www.sectorcalc.com/en/premium-tools/hse-ergonomics"
       }
     },
     {
       "slug": "procurement-supply-chain",
       "title": {
-        "en": "Procurement, Supply Chain & Logistics",
-        "tr": "Tedarik, Satınalma ve Lojistik",
-        "de": "Procurement, Supply Chain & Logistics",
-        "fr": "Procurement, Supply Chain & Logistics",
-        "es": "Procurement, Supply Chain & Logistics",
-        "ar": "Procurement, Supply Chain & Logistics"
+        "en": "Procurement, Supply Chain & Logistics"
       },
       "summary": {
-        "en": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
-        "tr": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
-        "de": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
-        "fr": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
-        "es": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik.",
-        "ar": "Tedarikçi TCO, taşıma modu, MOQ, ithal/yerli risk, depo ve tersine lojistik."
+        "en": "Supplier TCO, transport mode, MOQ, import/local risk, warehousing and reverse logistics."
       },
-<<<<<<< Updated upstream
-      "toolCount": 29,
-=======
-      "toolCount": 38,
->>>>>>> Stashed changes
+      "toolCount": 18,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/procurement-supply-chain",
-        "de": "https://www.sectorcalc.com/de/premium-tools/procurement-supply-chain",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/procurement-supply-chain",
-        "es": "https://www.sectorcalc.com/es/premium-tools/procurement-supply-chain",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/procurement-supply-chain"
+        "en": "https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain"
       }
     },
     {
       "slug": "workforce-hr",
       "title": {
-        "en": "Workforce, Shift & HR Cost",
-        "tr": "İş Gücü, Vardiya ve İnsan Kaynağı",
-        "de": "Workforce, Shift & HR Cost",
-        "fr": "Workforce, Shift & HR Cost",
-        "es": "Workforce, Shift & HR Cost",
-        "ar": "Workforce, Shift & HR Cost"
+        "en": "Workforce, Shift & HR Cost"
       },
       "summary": {
-        "en": "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı.",
-        "tr": "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı.",
-        "de": "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı.",
-        "fr": "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı.",
-        "es": "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı.",
-        "ar": "Turnover, vardiya, prim, eğitim ROI ve fazla mesai/yeni işe alım kararı."
+        "en": "Turnover, shift, bonus, training ROI and overtime/hire decision."
       },
-      "toolCount": 40,
+      "toolCount": 25,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/workforce-hr",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/workforce-hr",
-        "de": "https://www.sectorcalc.com/de/premium-tools/workforce-hr",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/workforce-hr",
-        "es": "https://www.sectorcalc.com/es/premium-tools/workforce-hr",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/workforce-hr"
+        "en": "https://www.sectorcalc.com/en/premium-tools/workforce-hr"
       }
     },
     {
       "slug": "finance-sales-working-capital",
       "title": {
-        "en": "Finance, Sales & Working Capital",
-        "tr": "Finans, Satış ve İşletme Sermayesi",
-        "de": "Finance, Sales & Working Capital",
-        "fr": "Finance, Sales & Working Capital",
-        "es": "Finance, Sales & Working Capital",
-        "ar": "Finance, Sales & Working Capital"
+        "en": "Finance, Sales & Working Capital"
       },
       "summary": {
-        "en": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
-        "tr": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
-        "de": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
-        "fr": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
-        "es": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği.",
-        "ar": "CLV/CAC, churn, kanal kârlılığı, garanti, nakit döngüsü, hedging, leasing, vade ve fiyat esnekliği."
+        "en": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity and price elasticity."
       },
-<<<<<<< Updated upstream
-      "toolCount": 185,
-=======
-      "toolCount": 58,
->>>>>>> Stashed changes
+      "toolCount": 152,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/finance-sales-working-capital",
-        "de": "https://www.sectorcalc.com/de/premium-tools/finance-sales-working-capital",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/finance-sales-working-capital",
-        "es": "https://www.sectorcalc.com/es/premium-tools/finance-sales-working-capital",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/finance-sales-working-capital"
+        "en": "https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital"
       }
     },
     {
       "slug": "sustainability-resource-esg",
       "title": {
-        "en": "Sustainability, Resources & ESG",
-        "tr": "Sürdürülebilirlik, Kaynak ve ESG",
-        "de": "Sustainability, Resources & ESG",
-        "fr": "Sustainability, Resources & ESG",
-        "es": "Sustainability, Resources & ESG",
-        "ar": "Sustainability, Resources & ESG"
+        "en": "Sustainability, Resources & ESG"
       },
       "summary": {
-        "en": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
-        "tr": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
-        "de": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
-        "fr": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
-        "es": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları.",
-        "ar": "Su, atık, ISO 50001, döngüsel ekonomi, GES/RES, CBAM ve Scope emisyonları."
+        "en": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM and Scope emissions."
       },
-      "toolCount": 37,
+      "toolCount": 18,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/sustainability-resource-esg",
-        "de": "https://www.sectorcalc.com/de/premium-tools/sustainability-resource-esg",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/sustainability-resource-esg",
-        "es": "https://www.sectorcalc.com/es/premium-tools/sustainability-resource-esg",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/sustainability-resource-esg"
+        "en": "https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg"
       }
     },
     {
       "slug": "food-cold-chain-hygiene",
       "title": {
-        "en": "Food, Cold Chain & Hygiene",
-        "tr": "Gıda, Soğuk Zincir ve Hijyen",
-        "de": "Food, Cold Chain & Hygiene",
-        "fr": "Food, Cold Chain & Hygiene",
-        "es": "Food, Cold Chain & Hygiene",
-        "ar": "Food, Cold Chain & Hygiene"
+        "en": "Food, Cold Chain & Hygiene"
       },
       "summary": {
-        "en": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
-        "tr": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
-        "de": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
-        "fr": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
-        "es": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı.",
-        "ar": "Raf ömrü, reçete maliyeti, HACCP, soğuk zincir, restoran tabak maliyeti ve hijyen kimyasalı."
+        "en": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost and hygiene chemical."
       },
-      "toolCount": 11,
+      "toolCount": 5,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/food-cold-chain-hygiene",
-        "de": "https://www.sectorcalc.com/de/premium-tools/food-cold-chain-hygiene",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/food-cold-chain-hygiene",
-        "es": "https://www.sectorcalc.com/es/premium-tools/food-cold-chain-hygiene",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/food-cold-chain-hygiene"
+        "en": "https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene"
       }
     },
     {
       "slug": "textile-print-lab",
       "title": {
-        "en": "Textile, Printing & Laboratory",
-        "tr": "Tekstil, Baskı ve Laboratuvar",
-        "de": "Textile, Printing & Laboratory",
-        "fr": "Textile, Printing & Laboratory",
-        "es": "Textile, Printing & Laboratory",
-        "ar": "Textile, Printing & Laboratory"
+        "en": "Textile, Printing & Laboratory"
       },
       "summary": {
-        "en": "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti.",
-        "tr": "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti.",
-        "de": "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti.",
-        "fr": "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti.",
-        "es": "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti.",
-        "ar": "Kumaş serim, dikim hattı, boya/apre, baskı fire ve laboratuvar analiz maliyeti."
+        "en": "Fabric spreading, sewing line, dyeing/finishing, print waste and lab analysis cost."
       },
-      "toolCount": 8,
+      "toolCount": 5,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/textile-print-lab",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/textile-print-lab",
-        "de": "https://www.sectorcalc.com/de/premium-tools/textile-print-lab",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/textile-print-lab",
-        "es": "https://www.sectorcalc.com/es/premium-tools/textile-print-lab",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/textile-print-lab"
+        "en": "https://www.sectorcalc.com/en/premium-tools/textile-print-lab"
       }
     },
     {
       "slug": "electrical-power-systems",
       "title": {
-        "en": "Electrical, Panel & Power Systems",
-        "tr": "Elektrik, Pano ve Güç Sistemleri",
-        "de": "Electrical, Panel & Power Systems",
-        "fr": "Electrical, Panel & Power Systems",
-        "es": "Electrical, Panel & Power Systems",
-        "ar": "Electrical, Panel & Power Systems"
+        "en": "Electrical, Panel & Power Systems"
       },
       "summary": {
-        "en": "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi.",
-        "tr": "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi.",
-        "de": "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi.",
-        "fr": "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi.",
-        "es": "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi.",
-        "ar": "Pano ısı yükü, kablo kesiti, kompanzasyon, jeneratör ve UPS kapasite seçimi."
+        "en": "Panel heat load, cable cross-section, compensation, generator and UPS capacity selection."
       },
-      "toolCount": 23,
+      "toolCount": 10,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/electrical-power-systems",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/electrical-power-systems",
-        "de": "https://www.sectorcalc.com/de/premium-tools/electrical-power-systems",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/electrical-power-systems",
-        "es": "https://www.sectorcalc.com/es/premium-tools/electrical-power-systems",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/electrical-power-systems"
+        "en": "https://www.sectorcalc.com/en/premium-tools/electrical-power-systems"
       }
     },
     {
       "slug": "mechanical-hvac-energy-loss",
       "title": {
-        "en": "Mechanical, HVAC & Energy Loss",
-        "tr": "Mekanik, HVAC ve Enerji Kayıpları",
-        "de": "Mechanical, HVAC & Energy Loss",
-        "fr": "Mechanical, HVAC & Energy Loss",
-        "es": "Mechanical, HVAC & Energy Loss",
-        "ar": "Mechanical, HVAC & Energy Loss"
+        "en": "Mechanical, HVAC & Energy Loss"
       },
       "summary": {
-        "en": "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler.",
-        "tr": "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler.",
-        "de": "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler.",
-        "fr": "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler.",
-        "es": "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler.",
-        "ar": "Kaynak maliyeti, lehim, yapıştırıcı, ısı yükü, kanal, yalıtım, buhar, eşanjör, vakum ve hidrolik sistemler."
+        "en": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum and hydraulic systems."
       },
-      "toolCount": 34,
+      "toolCount": 4,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/mechanical-hvac-energy-loss",
-        "de": "https://www.sectorcalc.com/de/premium-tools/mechanical-hvac-energy-loss",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/mechanical-hvac-energy-loss",
-        "es": "https://www.sectorcalc.com/es/premium-tools/mechanical-hvac-energy-loss",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/mechanical-hvac-energy-loss"
+        "en": "https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss"
       }
     },
     {
       "slug": "packaging-local-business",
       "title": {
-        "en": "Packaging & Local Business Tools",
-        "tr": "Ambalaj ve Yerel İşletme Araçları",
-        "de": "Packaging & Local Business Tools",
-        "fr": "Packaging & Local Business Tools",
-        "es": "Packaging & Local Business Tools",
-        "ar": "Packaging & Local Business Tools"
+        "en": "Packaging & Local Business Tools"
       },
       "summary": {
-        "en": "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı.",
-        "tr": "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı.",
-        "de": "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı.",
-        "fr": "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı.",
-        "es": "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı.",
-        "ar": "Ambalaj hacmi, malzeme değişimi, palet konfigürasyonu ve oto servis teklif tutarlılığı."
+        "en": "Packaging volume, material substitution, pallet configuration and auto service quote consistency."
       },
-      "toolCount": 4,
+      "toolCount": 3,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/packaging-local-business",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/packaging-local-business",
-        "de": "https://www.sectorcalc.com/de/premium-tools/packaging-local-business",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/packaging-local-business",
-        "es": "https://www.sectorcalc.com/es/premium-tools/packaging-local-business",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/packaging-local-business"
+        "en": "https://www.sectorcalc.com/en/premium-tools/packaging-local-business"
       }
     },
     {
       "slug": "global-compliance-trade",
       "title": {
-        "en": "Global Compliance, Trade & Tax",
-        "tr": "Global Uyum, Ticaret ve Vergi",
-        "de": "Global Compliance, Trade & Tax",
-        "fr": "Global Compliance, Trade & Tax",
-        "es": "Global Compliance, Trade & Tax",
-        "ar": "Global Compliance, Trade & Tax"
+        "en": "Global Compliance, Trade & Tax"
       },
       "summary": {
-        "en": "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi.",
-        "tr": "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi.",
-        "de": "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi.",
-        "fr": "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi.",
-        "es": "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi.",
-        "ar": "Veri/gizlilik, IFRS/SOX, AML/KYC, tedarik zinciri riski, transfer pricing, FTA ve ülke risk primi."
+        "en": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA and country risk premium."
       },
-      "toolCount": 3,
+      "toolCount": 2,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/global-compliance-trade",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/global-compliance-trade",
-        "de": "https://www.sectorcalc.com/de/premium-tools/global-compliance-trade",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/global-compliance-trade",
-        "es": "https://www.sectorcalc.com/es/premium-tools/global-compliance-trade",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/global-compliance-trade"
+        "en": "https://www.sectorcalc.com/en/premium-tools/global-compliance-trade"
       }
     },
     {
       "slug": "technology-ai-cloud-cyber",
       "title": {
-        "en": "Technology, AI, Cloud & Cyber Risk",
-        "tr": "Teknoloji, AI, Bulut ve Siber Risk",
-        "de": "Technology, AI, Cloud & Cyber Risk",
-        "fr": "Technology, AI, Cloud & Cyber Risk",
-        "es": "Technology, AI, Cloud & Cyber Risk",
-        "ar": "Technology, AI, Cloud & Cyber Risk"
+        "en": "Technology, AI, Cloud & Cyber Risk"
       },
       "summary": {
-        "en": "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
-        "tr": "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
-        "de": "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
-        "fr": "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
-        "es": "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik.",
-        "ar": "Bulut maliyeti, SaaS sivil risk, AI token, otomasyon ROI, EU AI Act, EOR, lokalizasyon ve siber güvenlik."
+        "en": "Cloud cost, SaaS civil risk, AI token, automation ROI, EU AI Act, EOR, localization and cyber security."
       },
-      "toolCount": 56,
+      "toolCount": 30,
       "categoryUrl": {
-        "en": "https://www.sectorcalc.com/en/premium-tools/technology-ai-cloud-cyber",
-        "tr": "https://www.sectorcalc.com/tr/premium-tools/technology-ai-cloud-cyber",
-        "de": "https://www.sectorcalc.com/de/premium-tools/technology-ai-cloud-cyber",
-        "fr": "https://www.sectorcalc.com/fr/premium-tools/technology-ai-cloud-cyber",
-        "es": "https://www.sectorcalc.com/es/premium-tools/technology-ai-cloud-cyber",
-        "ar": "https://www.sectorcalc.com/ar/premium-tools/technology-ai-cloud-cyber"
+        "en": "https://www.sectorcalc.com/en/premium-tools/technology-ai-cloud-cyber"
       }
     }
   ]

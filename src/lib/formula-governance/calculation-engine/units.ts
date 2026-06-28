@@ -6,7 +6,7 @@
  * unit (mm vs m, kN vs N). Each input declares the unit it is ENTERED in; the
  * engine converts to the formula's CANONICAL unit before computing.
  *
- * Source: claude_pro_tasrım_/engine-units.ts (verified engine design)
+ * Source: claude_pro_tasarim_/engine-units.ts (verified engine design)
  * ═══════════════════════════════════════════════════════════════════════════
  */
 

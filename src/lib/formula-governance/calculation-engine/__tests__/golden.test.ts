@@ -1,6 +1,6 @@
 /**
  * GOLDEN TESTS — real verification, hand-checked expected values.
- * Source: claude_pro_tasrım_/engine-golden.test.ts (verified engine design)
+ * Source: claude_pro_tasarim_/engine-golden.test.ts (verified engine design)
  *
  * Run: npx tsx src/lib/formula-governance/calculation-engine/__tests__/golden.test.ts
  * Expected: 28 passed, 0 failed
