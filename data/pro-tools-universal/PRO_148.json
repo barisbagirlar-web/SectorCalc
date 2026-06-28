@@ -48,7 +48,9 @@
       "id": "design_code",
       "symbol": "Code",
       "label": "Design Code Selection",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Select governing design code for weld resistance calculations",
@@ -62,7 +64,9 @@
       "id": "national_annex",
       "symbol": "NA",
       "label": "EN National Annex (if EN selected)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Select applicable National Annex for EN 1993-1-8 partial factors",
@@ -80,7 +84,9 @@
       "id": "weld_type",
       "symbol": "WT",
       "label": "Weld Type",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Select the weld configuration type",
@@ -97,7 +103,9 @@
       "id": "connection_type",
       "symbol": "ConType",
       "label": "Connection Type",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Select the structural connection configuration",
@@ -118,7 +126,9 @@
       "id": "base_material_grade_connected",
       "symbol": "BM_Conn",
       "label": "Base Material Grade — Connected Part",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Steel grade of the primary connected member",
@@ -141,7 +151,9 @@
       "id": "base_material_thickness_connected_mm",
       "symbol": "t_conn",
       "label": "Connected Part Thickness (t_conn)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Thickness of the base material being welded (the thinner part for dissimilar thickness)",
@@ -152,7 +164,9 @@
       "id": "base_material_grade_other",
       "symbol": "BM_Other",
       "label": "Base Material Grade — Other Part (if different)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Steel grade of the other connected member (if different from first)",
@@ -173,7 +187,9 @@
       "id": "base_material_thickness_other_mm",
       "symbol": "t_other",
       "label": "Other Part Thickness (t_other)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Thickness of the other base material being welded",
@@ -184,7 +200,9 @@
       "id": "electrode_classification",
       "symbol": "Elec",
       "label": "Electrode / Filler Metal Classification",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Select the filler metal classification per EN ISO or AWS A5 standards",
@@ -209,7 +227,9 @@
       "id": "electrode_tensile_strength_mpa",
       "symbol": "fu_elec",
       "label": "Electrode Nominal Tensile Strength (Fu_E)",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Nominal tensile strength of the filler metal from the selected classification",
@@ -221,7 +241,9 @@
       "id": "welding_process",
       "symbol": "WProc",
       "label": "Welding Process",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Select the welding process for WPS qualification reference",
@@ -240,7 +262,9 @@
       "id": "weld_position",
       "symbol": "WPos",
       "label": "Welding Position",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Welding position per EN ISO 6947 / AWS D1.1. Affects effective throat and qualified prequalification.",
@@ -258,7 +282,9 @@
       "id": "fillet_weld_leg_size_mm",
       "symbol": "s_f",
       "label": "Fillet Weld Leg Size (s)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Nominal fillet weld leg length (for fillet weld design)",
@@ -270,7 +296,9 @@
       "id": "fillet_weld_throat_thickness_mm",
       "symbol": "a_throat",
       "label": "Fillet Weld Effective Throat Thickness (a)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Effective throat thickness. For equal-leg fillet: a = s / sqrt(2). For unequal-leg or deep-penetration, use calculated or measured value.",
@@ -282,7 +310,9 @@
       "id": "groove_weld_depth_mm",
       "symbol": "d_groove",
       "label": "Groove Weld Effective Depth (d_groove)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Effective depth of groove weld (for PJP: specified depth of bevel; for CJP: full thickness)",
@@ -293,7 +323,9 @@
       "id": "weld_length_mm",
       "symbol": "L_w",
       "label": "Effective Weld Length (L_w)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Effective length of the weld segment. For end returns, include return length per code provisions.",
@@ -305,7 +337,9 @@
       "id": "number_of_weld_segments",
       "symbol": "n_seg",
       "label": "Number of Weld Segments (n_seg)",
-      "unit": { "ref": "count" },
+      "unit": {
+        "ref": "count"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Number of weld lines / segments in the weld group",
@@ -317,7 +351,9 @@
       "id": "weld_eccentricity_x_mm",
       "symbol": "e_x",
       "label": "Weld Group Eccentricity — X Direction (e_x)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Eccentricity of applied load from weld group centroid in the x-direction (creates torsional moment)",
@@ -329,7 +365,9 @@
       "id": "weld_eccentricity_y_mm",
       "symbol": "e_y",
       "label": "Weld Group Eccentricity — Y Direction (e_y)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Eccentricity of applied load from weld group centroid in the y-direction",
@@ -341,7 +379,9 @@
       "id": "weld_eccentricity_z_mm",
       "symbol": "e_z",
       "label": "Weld Group Eccentricity — Out-of-Plane (e_z)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Out-of-plane eccentricity (creates bending moment in the weld group)",
@@ -353,7 +393,9 @@
       "id": "applied_axial_tension_kN",
       "symbol": "N_Ed",
       "label": "Applied Axial Tension (N_Ed)",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Factored axial tension load applied to the connection",
@@ -365,7 +407,9 @@
       "id": "applied_shear_kN",
       "symbol": "V_Ed",
       "label": "Applied Shear Force (V_Ed)",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Factored shear force applied to the connection",
@@ -377,7 +421,9 @@
       "id": "applied_moment_kNm",
       "symbol": "M_Ed",
       "label": "Applied Bending Moment (M_Ed)",
-      "unit": { "ref": "kNm" },
+      "unit": {
+        "ref": "kNm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Factored bending moment applied to the connection (includes moment from eccentricity if applicable)",
@@ -389,7 +435,9 @@
       "id": "applied_torsion_kNm",
       "symbol": "T_Ed",
       "label": "Applied Torsional Moment (T_Ed)",
-      "unit": { "ref": "kNm" },
+      "unit": {
+        "ref": "kNm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Factored torsional moment applied to the weld group",
@@ -401,7 +449,9 @@
       "id": "load_type_cyclic",
       "symbol": "Cyc",
       "label": "Load Type — Cyclic / Fatigue",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Indicates whether the connection is subject to significant cyclic loading (fatigue assessment required per EN 1993-1-9 or AWS D1.1 Clause 2)",
@@ -415,7 +465,9 @@
       "id": "fatigue_stress_range_mpa",
       "symbol": "Delta_sigma",
       "label": "Fatigue Stress Range (Delta_sigma)",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "confidence": "APPROXIMATE",
       "group": "general",
       "description": "Nominal stress range at the weld detail for fatigue assessment. Only required if Load Type is cyclic.",
@@ -427,7 +479,9 @@
       "id": "fatigue_detail_category",
       "symbol": "FAT",
       "label": "Fatigue Detail Category (FAT Class)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Detail category per EN 1993-1-9 Table 8.1–8.10 or AWS D1.1 fatigue curves",
@@ -451,7 +505,9 @@
       "id": "fatigue_cycles_n",
       "symbol": "N_f",
       "label": "Number of Fatigue Cycles (N_f)",
-      "unit": { "ref": "count" },
+      "unit": {
+        "ref": "count"
+      },
       "confidence": "APPROXIMATE",
       "group": "general",
       "description": "Expected number of constant-amplitude stress cycles during design life",
@@ -463,7 +519,9 @@
       "id": "seismic_application",
       "symbol": "Seis",
       "label": "Seismic Application (Ductility Demand)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Seismic design category and ductility demand on weld. Affects required toughness and detailing per EN 1998-1 / AWS D1.1 Cl. 7 (AWS D1.8) or AISC 341.",
@@ -479,7 +537,9 @@
       "id": "joint_type_configuration",
       "symbol": "Joint",
       "label": "Joint Type / Configuration Detail",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Detailed joint configuration per EN ISO 9692-1 or AWS D1.1 prequalified joint details",
@@ -504,7 +564,9 @@
       "id": "surface_preparation",
       "symbol": "SurfPrep",
       "label": "Surface Preparation Condition",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Surface preparation condition of base material before welding. Affects quality and strength assumptions.",
@@ -521,7 +583,9 @@
       "id": "preheat_temperature_c",
       "symbol": "T_pre",
       "label": "Preheat Temperature (T_preheat)",
-      "unit": { "ref": "degC" },
+      "unit": {
+        "ref": "degC"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Minimum preheat temperature per EN 1011-2 / AWS D1.1 Table 3.3 based on thickness, CEV, and hydrogen level",
@@ -533,7 +597,9 @@
       "id": "interpass_temperature_c",
       "symbol": "T_inter",
       "label": "Interpass Temperature (T_interpass)",
-      "unit": { "ref": "degC" },
+      "unit": {
+        "ref": "degC"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Maximum interpass temperature per WPS. Typically 200–300°C for structural steels",
@@ -545,7 +611,9 @@
       "id": "heat_input_kJ_per_mm",
       "symbol": "HI",
       "label": "Heat Input (HI)",
-      "unit": { "ref": "kJ_per_mm" },
+      "unit": {
+        "ref": "kJ_per_mm"
+      },
       "confidence": "APPROXIMATE",
       "group": "general",
       "description": "Welding heat input per unit length. Calculated from arc energy: HI = (V × I × efficiency) / travel_speed. Affects HAZ properties and cooling rate.",
@@ -557,7 +625,9 @@
       "id": "carbon_equivalent_cev",
       "symbol": "CEV",
       "label": "Carbon Equivalent (CEV / CET)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "APPROXIMATE",
       "group": "general",
       "description": "Carbon equivalent value per EN 1011-2 (IIW formula or CET). Used to determine preheat requirements and hardenability risk.",
@@ -569,7 +639,9 @@
       "id": "hydrogen_level_class",
       "symbol": "H_Level",
       "label": "Hydrogen Level Class (per ISO 3690)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Diffusible hydrogen level of the filler metal per ISO 3690. Affects preheat and hydrogen cracking risk.",
@@ -584,7 +656,9 @@
       "id": "weld_quality_level",
       "symbol": "Qual",
       "label": "Weld Quality Level (EN ISO 5817 / AWS D1.1)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Acceptance quality level for weld imperfections. Higher level means stricter acceptance criteria.",
@@ -601,7 +675,9 @@
       "id": "ndt_required",
       "symbol": "NDT",
       "label": "NDT / Inspection Level Required",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Level of non-destructive testing required for the weld based on EN 1090-2 execution class or AWS D1.1 inspection requirements",
@@ -619,7 +695,9 @@
       "id": "execution_class_EN",
       "symbol": "EXC",
       "label": "EN 1090-2 Execution Class",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Execution class per EN 1090-2 based on consequence class, service category, and production category. Determines fabrication and inspection requirements.",
@@ -635,7 +713,9 @@
       "id": "corrosion_protection_requirement",
       "symbol": "Corr",
       "label": "Corrosion Protection Requirement",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Corrosion protection system per ISO 12944. Determines coating system and surface preparation for weld zones.",
@@ -653,7 +733,9 @@
       "id": "service_temperature_min_c",
       "symbol": "T_min",
       "label": "Minimum Service Temperature (T_min)",
-      "unit": { "ref": "degC" },
+      "unit": {
+        "ref": "degC"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Minimum anticipated service temperature. Affects Charpy toughness requirements and risk of brittle fracture per EN 1993-1-10 / AWS D1.1 Clause 3.",
@@ -665,7 +747,9 @@
       "id": "thickness_governing_t_mm",
       "symbol": "t_gov",
       "label": "Governing Thickness for Toughness (t_eff)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Governing thickness for fracture toughness assessment per EN 1993-1-10. Typically the thickest tension element in the connection.",
@@ -677,7 +761,9 @@
       "id": "charpy_energy_required_j",
       "symbol": "CVN",
       "label": "Required Charpy V-Notch Energy (CVN) at T_min",
-      "unit": { "ref": "J" },
+      "unit": {
+        "ref": "J"
+      },
       "confidence": "EXACT",
       "group": "general",
       "description": "Required minimum Charpy V-notch impact energy at the minimum service temperature. For EN 1993-1-10 or AWS D1.1 Clause 3 requirements.",
@@ -689,7 +775,9 @@
       "id": "stress_concentration_factor",
       "symbol": "K_t",
       "label": "Stress Concentration Factor (K_t)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "APPROXIMATE",
       "group": "general",
       "description": "Stress concentration factor at the weld toe/root detail. Use 1.0 for smooth transition, or higher values for severe notch effects.",
@@ -701,11 +789,13 @@
       "id": "partial_factor_gamma_M2",
       "symbol": "gamma_M2",
       "label": "Partial Factor — Weld Resistance (gamma_M2)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "DEFAULT",
       "group": "general",
       "description": "EN 1993-1-8 §2.2(2): partial factor for weld resistance. Recommended 1.25 for resistance of welds. Check National Annex for project-specific value.",
-      "min": 1.0,
+      "min": 1,
       "max": 1.5,
       "default": 1.25
     },
@@ -713,37 +803,98 @@
       "id": "partial_factor_gamma_M0",
       "symbol": "gamma_M0",
       "label": "Partial Factor — Cross-Section Resistance (gamma_M0)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "DEFAULT",
       "group": "general",
       "description": "EN 1993-1-1 §6.1: partial factor for cross-section resistance. Recommended 1.00. Check National Annex.",
       "min": 0.9,
       "max": 1.3,
-      "default": 1.0
+      "default": 1
     },
     {
       "id": "partial_factor_gamma_Mf",
       "symbol": "gamma_Mf",
       "label": "Partial Factor — Fatigue (gamma_Mf)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "confidence": "DEFAULT",
       "group": "general",
       "description": "EN 1993-1-9 §3.7: partial factor for fatigue strength. Recommended 1.00 for low damage tolerance, 1.15 for high. Check National Annex.",
-      "min": 1.0,
+      "min": 1,
       "max": 1.5,
-      "default": 1.0
+      "default": 1
     },
     {
       "id": "inherent_strain_low_estimate",
       "symbol": "eps_inh",
       "label": "Inherent Welding Strain (Low Estimate)",
-      "unit": { "ref": "mm_per_mm" },
+      "unit": {
+        "ref": "mm_per_mm"
+      },
       "confidence": "ASSUMPTION",
       "group": "general",
       "description": "Assumed inherent longitudinal welding strain for distortion estimation (based on heat input and restraint)",
       "min": 0.0001,
       "max": 0.01,
       "default": 0.002
+    },
+    {
+      "id": "fu_elec",
+      "symbol": "f_u,elec",
+      "label": "Electrode Ultimate Tensile Strength (f_u,elec)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "material",
+      "description": "Nominal ultimate tensile strength of weld electrode material per EN ISO 2560 / AWS A5.1"
+    },
+    {
+      "id": "N_Ed",
+      "symbol": "N_Ed",
+      "label": "Factored Axial Force (N_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "EXACT",
+      "group": "loads",
+      "description": "Factored axial force per EN 1990 / EN 1993-1-1"
+    },
+    {
+      "id": "V_Ed",
+      "symbol": "V_Ed",
+      "label": "Factored Shear Force (V_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "EXACT",
+      "group": "loads",
+      "description": "Factored shear force per EN 1990 / EN 1993-1-1"
+    },
+    {
+      "id": "T_Ed",
+      "symbol": "T_Ed",
+      "label": "Factored Torsion (T_Ed)",
+      "unit": {
+        "ref": "kNm"
+      },
+      "confidence": "EXACT",
+      "group": "loads",
+      "description": "Factored torsional moment per EN 1993-1-8"
+    },
+    {
+      "id": "M_Ed",
+      "symbol": "M_Ed",
+      "label": "Factored Moment (M_Ed)",
+      "unit": {
+        "ref": "kNm"
+      },
+      "confidence": "EXACT",
+      "group": "loads",
+      "description": "Factored bending moment per EN 1993-1-8"
     }
   ],
   "formulas": [
@@ -752,8 +903,10 @@
       "symbol": "a_eff",
       "label": "Fillet Weld Effective Throat Thickness",
       "description": "Effective throat thickness for equal-leg fillet weld per EN 1993-1-8 §4.3.2.1(1). For unequal legs, use shorter leg × cos(angle).",
-      "expression": "a_eff = Iif(weld_type == \"Fillet Weld (double-sided)\" Or weld_type == \"Fillet Weld (single-sided)\", fillet_weld_leg_size_mm / Sqrt(2), fillet_weld_throat_thickness_mm)",
-      "unit": { "ref": "mm" },
+      "expression": "a_eff = (weld_type == \"Fillet Weld (double-sided)\" || weld_type == \"Fillet Weld (single-sided)\") ? fillet_weld_leg_size_mm / Sqrt(2) : fillet_weld_throat_thickness_mm",
+      "unit": {
+        "ref": "mm"
+      },
       "category": "geometry"
     },
     {
@@ -762,7 +915,9 @@
       "label": "Total Weld Effective Area",
       "description": "Total effective throat area of the weld group per EN 1993-1-8 §4.3.2.1(2). For fillet welds: A_w = sum(a_eff_i × L_eff_i).",
       "expression": "A_w = a_eff * weld_length_mm * number_of_weld_segments",
-      "unit": { "ref": "mm2" },
+      "unit": {
+        "ref": "mm2"
+      },
       "category": "geometry"
     },
     {
@@ -770,8 +925,10 @@
       "symbol": "fu_bm",
       "label": "Base Material Ultimate Tensile Strength",
       "description": "Ultimate tensile strength of the base material based on selected steel grade per EN 10025 or ASTM",
-      "expression": "fu_bm = Lookup(base_material_grade_connected, \"fu_table\", 360, 430, 470, 510, 540, 650, 400, 450, 450, 400, 760, 450)",
-      "unit": { "ref": "MPa" },
+      "expression": "fu_bm = (base_material_grade_connected == 0 ?   360 : base_material_grade_connected == 1 ? 360 : base_material_grade_connected == 2 ? 430 : base_material_grade_connected == 3 ? 470 : base_material_grade_connected == 4 ? 510 : base_material_grade_connected == 5 ? 540 : base_material_grade_connected == 6 ? 650 : base_material_grade_connected == 7 ? 400 : base_material_grade_connected == 8 ? 450 : base_material_grade_connected == 9 ? 450 : base_material_grade_connected == 10 ? 400 : base_material_grade_connected == 11 ? 760 : 450)",
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "material"
     },
     {
@@ -779,8 +936,10 @@
       "symbol": "fy_bm",
       "label": "Base Material Yield Strength",
       "description": "Nominal yield strength of the base material based on selected grade",
-      "expression": "fy_bm = Lookup(base_material_grade_connected, \"fy_table\", 235, 275, 355, 420, 460, 600, 250, 345, 345, 315, 690, 345)",
-      "unit": { "ref": "MPa" },
+      "expression": "fy_bm = (base_material_grade_connected == 0 ?   235 : base_material_grade_connected == 1 ? 235 : base_material_grade_connected == 2 ? 275 : base_material_grade_connected == 3 ? 355 : base_material_grade_connected == 4 ? 420 : base_material_grade_connected == 5 ? 460 : base_material_grade_connected == 6 ? 600 : base_material_grade_connected == 7 ? 250 : base_material_grade_connected == 8 ? 345 : base_material_grade_connected == 9 ? 345 : base_material_grade_connected == 10 ? 315 : base_material_grade_connected == 11 ? 690 : 345)",
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "material"
     },
     {
@@ -788,8 +947,10 @@
       "symbol": "beta_w",
       "label": "Correlation Factor for Fillet Weld (beta_w)",
       "description": "Correlation factor per EN 1993-1-8 Table 4.1. Accounts for the ratio of filler metal strength to base metal strength.",
-      "expression": "beta_w = Iif(fu_bm <= 360, 0.8, Iif(fu_bm <= 400, 0.85, Iif(fu_bm <= 440, 0.9, Iif(fu_bm <= 470, 0.95, Iif(fu_bm <= 510, 1.0, Iif(fu_bm <= 570, 1.05, Iif(fu_bm <= 640, 1.1, 1.2)))))))",
-      "unit": { "ref": "—" },
+      "expression": "beta_w = (fu_bm <= 360) ? 0.8 : (fu_bm <= 400) ? 0.85 : (fu_bm <= 440) ? 0.9 : (fu_bm <= 470) ? 0.95 : (fu_bm <= 510) ? 1.0 : (fu_bm <= 570) ? 1.05 : (fu_bm <= 700) ? 1.1 : 1.2",
+      "unit": {
+        "ref": "—"
+      },
       "category": "material"
     },
     {
@@ -798,7 +959,9 @@
       "label": "Fillet Weld Design Resistance per Unit Length (EN 1993-1-8)",
       "description": "Design shear resistance of fillet weld per unit length per EN 1993-1-8 Eq. 4.1. Uses directional or simplified method.",
       "expression": "fw_Rd = (fu_elec / Sqrt(3)) / (beta_w * partial_factor_gamma_M2) * a_eff",
-      "unit": { "ref": "N_per_mm" },
+      "unit": {
+        "ref": "N_per_mm"
+      },
       "category": "resistance"
     },
     {
@@ -807,7 +970,9 @@
       "label": "Fillet Weld Design Strength (AWS D1.1 / AISC)",
       "description": "AWS D1.1 Clause 2.4.2.3 / AISC 360-22 Eq. J2-3: Fillet weld nominal strength = 0.60 × Fu_E × A_we × (1.0 + 0.5 sin^1.5(theta)). For SMAW, phi=0.75 (LRFD).",
       "expression": "phi_Rn_AWS = 0.75 * 0.60 * electrode_tensile_strength_mpa * A_w * (1.0 + 0.5 * Power(Sin(Radians(90)), 1.5)) / 1000",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "category": "resistance"
     },
     {
@@ -816,7 +981,9 @@
       "label": "Weld Design Demand — Axial Tension Stress",
       "description": "Axial tensile stress in weld group from applied N_Ed",
       "expression": "fw_Ed_tension = (N_Ed * 1000) / A_w",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "demand"
     },
     {
@@ -825,7 +992,9 @@
       "label": "Weld Design Demand — Direct Shear Stress",
       "description": "Direct shear stress in weld group from applied V_Ed",
       "expression": "fw_Ed_shear_dir = (V_Ed * 1000) / A_w",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "demand"
     },
     {
@@ -834,7 +1003,9 @@
       "label": "Weld Group Polar Moment of Inertia",
       "description": "Polar moment of inertia of weld group about its centroid (elastic method). Simplified for rectangular weld groups.",
       "expression": "I_p_weld = (number_of_weld_segments * weld_length_mm * Power(a_eff, 3) / 12) + (A_w * Power(Max(Abs(weld_eccentricity_x_mm), Abs(weld_eccentricity_y_mm)), 2))",
-      "unit": { "ref": "mm4" },
+      "unit": {
+        "ref": "mm4"
+      },
       "category": "geometry"
     },
     {
@@ -842,8 +1013,10 @@
       "symbol": "fw_Ed_torsion",
       "label": "Weld Design Demand — Torsional Shear Stress",
       "description": "Maximum shear stress in weld group due to torsional moment T_Ed. Uses elastic torsion formula: tau = (T * r) / J.",
-      "expression": "fw_Ed_torsion = Iif(T_Ed > 0, (T_Ed * 1e6 * Sqrt(Max(weld_eccentricity_x_mm, 1)^2 + Max(weld_eccentricity_y_mm, 1)^2)) / Max(I_p_weld, 1), 0)",
-      "unit": { "ref": "MPa" },
+      "expression": "fw_Ed_torsion = (T_Ed > 0) ? (T_Ed * 1e6 * Sqrt(Max(weld_eccentricity_x_mm, 1)^2 + Max(weld_eccentricity_y_mm, 1)^2) / Max(I_p_weld, 1)) : 0",
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "demand"
     },
     {
@@ -851,8 +1024,10 @@
       "symbol": "fw_Ed_moment",
       "label": "Weld Design Demand — Bending Stress",
       "description": "Maximum bending stress in weld group from moment M_Ed and out-of-plane eccentricity",
-      "expression": "fw_Ed_moment = Iif(M_Ed > 0 Or weld_eccentricity_z_mm > 0, ((M_Ed + V_Ed * weld_eccentricity_z_mm / 1000) * 1e6 * weld_length_mm / 2) / Max((number_of_weld_segments * Power(weld_length_mm, 3) / 12), 1), 0)",
-      "unit": { "ref": "MPa" },
+      "expression": "fw_Ed_moment = (M_Ed > 0 || weld_eccentricity_z_mm > 0) ? ((M_Ed + V_Ed * weld_eccentricity_z_mm / 1000) * 1e6 * weld_length_mm / 2) / Max((number_of_weld_segments * Power(weld_length_mm, 3) / 12), 1) : 0",
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "demand"
     },
     {
@@ -861,7 +1036,9 @@
       "label": "Weld Resultant Design Stress (Vector Sum)",
       "description": "Resultant weld stress combining all directional components. For elastic method: sqrt(sigma_perp^2 + tau_perp^2 + tau_par^2).",
       "expression": "fw_Ed_resultant = Sqrt(Power(fw_Ed_tension + fw_Ed_moment, 2) + Power(fw_Ed_shear_dir + fw_Ed_torsion, 2))",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "demand"
     },
     {
@@ -870,7 +1047,9 @@
       "label": "Total Weld Resistance (EN 1993-1-8 Directional Method)",
       "description": "Design resistance of fillet weld expressed as stress limit. Per EN 1993-1-8 Eq. 4.1: fw_Rd = fu / (beta_w × gamma_M2 × sqrt(3)). The directional method checks three stress components against limits.",
       "expression": "fw_Rd_total = electrode_tensile_strength_mpa / (Sqrt(3) * beta_w * partial_factor_gamma_M2)",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "category": "resistance"
     },
     {
@@ -879,7 +1058,9 @@
       "label": "Weld Utilization Ratio (Demand / Capacity)",
       "description": "Demand-capacity ratio for the weld. UC <= 1.0 indicates adequate weld strength per code.",
       "expression": "UC_weld = fw_Ed_resultant / fw_Rd_total",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -888,7 +1069,9 @@
       "label": "Base Metal Gross Area (Connected Part)",
       "description": "Gross cross-sectional area of the connected base material",
       "expression": "A_g_bm = base_material_thickness_connected_mm * weld_length_mm",
-      "unit": { "ref": "mm2" },
+      "unit": {
+        "ref": "mm2"
+      },
       "category": "geometry"
     },
     {
@@ -897,7 +1080,9 @@
       "label": "Base Metal Net Area (Account for bolt holes if present)",
       "description": "Net area of the connected base material. Deducts bolt hole area if applicable (assumes no holes for all-welded connections).",
       "expression": "A_n_bm = A_g_bm",
-      "unit": { "ref": "mm2" },
+      "unit": {
+        "ref": "mm2"
+      },
       "category": "geometry"
     },
     {
@@ -906,7 +1091,9 @@
       "label": "Base Metal Yielding Resistance (N_Rd_gross)",
       "description": "Design resistance of base metal gross section yielding per EN 1993-1-1 §6.2.3(2) / AISC 360-22 Eq. J4-1: N_Rd = A_g × fy / gamma_M0",
       "expression": "N_Rd_yield = A_g_bm * fy_bm / partial_factor_gamma_M0 / 1000",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "category": "resistance"
     },
     {
@@ -915,7 +1102,9 @@
       "label": "Base Metal Rupture Resistance (N_Rd_net)",
       "description": "Design resistance of base metal net section rupture per EN 1993-1-1 §6.2.3(4) / AISC 360-22 Eq. J4-2: N_Rd = A_n × fu / gamma_M2",
       "expression": "N_Rd_rupture = A_n_bm * fu_bm / partial_factor_gamma_M2 / 1000",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "category": "resistance"
     },
     {
@@ -924,7 +1113,9 @@
       "label": "Base Metal Yielding Utilization",
       "description": "Demand-capacity ratio for base metal gross section yielding",
       "expression": "UC_base_metal_yield = N_Ed / N_Rd_yield",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -933,7 +1124,9 @@
       "label": "Base Metal Rupture Utilization",
       "description": "Demand-capacity ratio for base metal net section rupture",
       "expression": "UC_base_metal_rupture = N_Ed / N_Rd_rupture",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -942,7 +1135,9 @@
       "label": "Base Metal Shear Resistance (Block Shear)",
       "description": "Base metal shear resistance per EN 1993-1-8 §3.10.2 / AISC 360-22 Eq. J4-4: V_Rd = (0.6 × fu × A_nv) / gamma_M2",
       "expression": "V_Rd_bm_shear = 0.6 * fu_bm * A_n_bm / partial_factor_gamma_M2 / 1000",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "category": "resistance"
     },
     {
@@ -951,7 +1146,9 @@
       "label": "Base Metal Shear Utilization",
       "description": "Demand-capacity ratio for base metal shear (block shear) resistance",
       "expression": "UC_base_metal_shear = V_Ed / V_Rd_bm_shear",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -959,8 +1156,10 @@
       "symbol": "UC_combined_base_metal",
       "label": "Base Metal Combined Shear + Tension Interaction",
       "description": "Combined shear and tension interaction check. Per EN 1993-1-1 §6.2.1(5) / AISC 360-22 Eq. J4-3b: (N_Ed/N_Rd) + (V_Ed/V_Rd) <= 1.0 (simplified linear interaction).",
-      "expression": "UC_combined_base_metal = IIF(N_Ed > 0 And V_Ed > 0, Min(Abs(N_Ed) / N_Rd_yield + Abs(V_Ed) / V_Rd_bm_shear, Max(Abs(N_Ed) / N_Rd_yield, Abs(V_Ed) / V_Rd_bm_shear)), Max(Abs(N_Ed) / N_Rd_yield, Abs(V_Ed) / V_Rd_bm_shear))",
-      "unit": { "ref": "—" },
+      "expression": "UC_combined_base_metal = (N_Ed > 0 && V_Ed > 0) ? Min(Abs(N_Ed) / N_Rd_yield + Abs(V_Ed) / V_Rd_bm_shear, Max(Abs(N_Ed) / N_Rd_yield, Abs(V_Ed) / V_Rd_bm_shear)) : Max(Abs(N_Ed) / N_Rd_yield, Abs(V_Ed) / V_Rd_bm_shear)",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -969,7 +1168,9 @@
       "label": "Governing Utilization Ratio (Overall Connection)",
       "description": "Highest utilization ratio across all weld and base metal checks. Determines the governing failure mode.",
       "expression": "UC_governing = Max(UC_weld, UC_base_metal_yield, UC_base_metal_rupture, UC_base_metal_shear, UC_combined_base_metal)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -977,8 +1178,10 @@
       "symbol": "governing_failure_mode",
       "label": "Governing Failure Mode Description",
       "description": "Identifies the governing failure mode based on the highest utilization ratio among all checks performed",
-      "expression": "governing_failure_mode = Iif(UC_governing == UC_weld, \"Weld metal shear failure (fillet weld resistance governs)\", Iif(UC_governing == UC_base_metal_yield, \"Base metal gross section yielding governs\", Iif(UC_governing == UC_base_metal_rupture, \"Base metal net section rupture governs\", Iif(UC_governing == UC_base_metal_shear, \"Base metal block shear / edge tearing governs\", \"Combined base metal shear + tension interaction governs\"))))",
-      "unit": { "ref": "—" },
+      "expression": "governing_failure_mode = (UC_governing == UC_weld) ? \"Weld metal shear failure (fillet weld resistance governs)\" : (UC_governing == UC_base_metal_yield) ? \"Base metal gross section yielding governs\" : (UC_governing == UC_base_metal_rupture) ? \"Base metal net section rupture governs\" : (UC_governing == UC_base_metal_shear) ? \"Base metal block shear / edge tearing governs\" : \"Combined base metal shear + tension interaction governs\"",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -986,8 +1189,10 @@
       "symbol": "fatigue_stress_check",
       "label": "Fatigue Stress Check (EN 1993-1-9 / AWS D1.1)",
       "description": "Fatigue assessment per EN 1993-1-9 Eq. 6.1: gamma_Ff × Delta_sigma_E2 <= Delta_sigma_C / gamma_Mf. Simplified: Delta_sigma <= FAT_class / gamma_Ff.",
-      "expression": "fatigue_stress_check = Iif(load_type_cyclic <> \"Static / Quasi-static (no fatigue check required)\" And fatigue_detail_category <> \"Not applicable (static only)\", Iif(fatigue_stress_range_mpa * 1.0 <= (Val(Left(fatigue_detail_category, 3)) / 1.0), \"PASS — fatigue stress range within detail category limit\", \"FAIL — fatigue stress range exceeds detail category limit. Revise weld detail or increase throat size.\"), \"N/A — static loading, no fatigue check required\")",
-      "unit": { "ref": "—" },
+      "expression": "fatigue_stress_check = (load_type_cyclic <> 0 && fatigue_detail_category <> 0) ? ((fatigue_stress_range_mpa <= 100) ? 1 : 0) : 0",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -995,8 +1200,10 @@
       "symbol": "lamellar_tearing_risk",
       "label": "Lamellar Tearing Risk Assessment",
       "description": "Lamellar tearing susceptibility check for T-joints and cruciform joints with through-thickness tension. Per EN 1011-2 and EN 1993-1-10 guidance.",
-      "expression": "lamellar_tearing_risk = Iif(connection_type == \"Column Splice — Full Penetration Groove\" Or connection_type == \"Stiffener / Doubler Plate Welded\" Or connection_type == \"Beam-to-Column — Flange Welded / Web Bolted\", Iif(base_material_thickness_connected_mm > 30 And carbon_equivalent_cev > 0.42, \"HIGH RISK — lamellar tearing possible. Consider: (1) use through-thickness quality Z-grade steel per EN 10164, (2) buttering technique, (3) reduce restraint, (4) use low-hydrogen process.\", \"LOW RISK — lamellar tearing unlikely for this thickness and CEV combination\"), \"N/A — joint type not prone to lamellar tearing\")",
-      "unit": { "ref": "—" },
+      "expression": "lamellar_tearing_risk = (connection_type == 0 || connection_type == 1 || connection_type == 2) ? ((base_material_thickness_connected_mm > 30 && carbon_equivalent_cev > 0.42) ? 1 : 0) : 0",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -1004,8 +1211,10 @@
       "symbol": "hydrogen_cracking_risk",
       "label": "Hydrogen-Induced Cracking (HIC) Risk Assessment",
       "description": "Risk assessment for hydrogen-induced cold cracking. Based on CEV, thickness, hydrogen level, and preheat as per EN 1011-2 Annex C / IIW recommendations.",
-      "expression": "hydrogen_cracking_risk = Iif(carbon_equivalent_cev > 0.45 And base_material_thickness_connected_mm > 25 And hydrogen_level_class <> \"Class A (very low, <= 5 mL/100g)\" And preheat_temperature_c < 100, \"HIGH RISK — HIC possible. Required actions: (1) Increase preheat to 100–150°C minimum, (2) Use low-hydrogen process/consumables, (3) Control interpass temperature, (4) Post-weld hydrogen release heat treatment (250–300°C for 2+ h).\", Iif(carbon_equivalent_cev > 0.40 And base_material_thickness_connected_mm > 30, \"MODERATE RISK — monitor preheat and hydrogen control. Verify WPS hydrogen class and cooling rate.\", \"LOW RISK — hydrogen cracking unlikely with standard controls.\"))",
-      "unit": { "ref": "—" },
+      "expression": "hydrogen_cracking_risk = (carbon_equivalent_cev > 0.45 && base_material_thickness_connected_mm > 25 && hydrogen_level_class != 0 && preheat_temperature_c < 100) ? 1 : ((carbon_equivalent_cev > 0.40 && base_material_thickness_connected_mm > 30) ? 0 : 0)",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -1013,8 +1222,10 @@
       "symbol": "weld_volume_estimate_cm3",
       "label": "Estimated Weld Metal Volume",
       "description": "Estimated weld metal volume per unit length for cost and consumable estimation. Fillet: A_weld = 0.5 × s^2 (single fillet). Groove: variable by bevel prep.",
-      "expression": "weld_volume_estimate_cm3 = Iif(weld_type == \"Fillet Weld (double-sided)\", 2 * 0.5 * Power(fillet_weld_leg_size_mm / 10, 2), Iif(weld_type == \"Fillet Weld (single-sided)\", 0.5 * Power(fillet_weld_leg_size_mm / 10, 2), groove_weld_depth_mm / 10 * (weld_length_mm / 10) * 0.5)) * weld_length_mm / 10",
-      "unit": { "ref": "cm3" },
+      "expression": "A_net_mm2 = (weld_type == \"Fillet Weld (double-sided)\" || weld_type == \"Fillet Weld (single-sided)\") ? (fillet_weld_leg_size_mm - 0.5 * fillet_weld_leg_size_mm) * weld_length_mm : groove_weld_depth_mm * weld_length_mm",
+      "unit": {
+        "ref": "cm3"
+      },
       "category": "fabrication"
     },
     {
@@ -1023,7 +1234,9 @@
       "label": "Estimated Angular Distortion (Transverse Shrinkage)",
       "description": "Estimated angular distortion per unit length due to weld contraction. Based on heat input and plate thickness. Approximate per Okerblom / AWS Welding Handbook.",
       "expression": "distortion_estimate_mm = 0.005 * (heat_input_kJ_per_mm * 1000) / (base_material_thickness_connected_mm * base_material_thickness_connected_mm)",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "category": "fabrication"
     },
     {
@@ -1032,7 +1245,9 @@
       "label": "Net Area in Shear (Block Shear Path)",
       "description": "Net area along the shear path for block shear rupture check. Accounts for the welded connection geometry (no bolt holes for all-welded joints).",
       "expression": "A_nv = base_material_thickness_connected_mm * weld_length_mm",
-      "unit": { "ref": "mm2" },
+      "unit": {
+        "ref": "mm2"
+      },
       "category": "geometry"
     },
     {
@@ -1041,7 +1256,9 @@
       "label": "Block Shear Rupture Resistance (AISC J4.3 / EN 1993-1-8)",
       "description": "Block shear rupture resistance per AISC 360-22 J4.3 / EN 1993-1-8 §3.10.2. The lesser of: (1) 0.6 × Fu × A_nv + U_bs × Fu × A_nt, or (2) 0.6 × Fy × A_gv + U_bs × Fu × A_nt.",
       "expression": "block_shear_resistance_kN = Min(0.6 * fu_bm * A_nv + 1.0 * fu_bm * (A_n_bm / 2), 0.6 * fy_bm * A_g_bm + 1.0 * fu_bm * (A_n_bm / 2)) / partial_factor_gamma_M2 / 1000",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "category": "resistance"
     },
     {
@@ -1050,7 +1267,9 @@
       "label": "Block Shear Utilization",
       "description": "Demand-capacity ratio for block shear rupture",
       "expression": "UC_block_shear = V_Ed / block_shear_resistance_kN",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -1058,8 +1277,10 @@
       "symbol": "weld_efficiency_pct",
       "label": "Weld Joint Efficiency (for groove welds)",
       "description": "Joint efficiency for groove welds. CJP = 100%. PJP = effective throat / base thickness ratio (limited by weld depth).",
-      "expression": "weld_efficiency_pct = Iif(weld_type == \"Complete Joint Penetration (CJP) Groove Weld\", 100, Iif(weld_type == \"Partial Joint Penetration (PJP) Groove Weld\", Min(groove_weld_depth_mm / base_material_thickness_connected_mm * 100, 80), 100))",
-      "unit": { "ref": "percent" },
+      "expression": "weld_efficiency_pct = (weld_type == 0) ? 100 : (weld_type == 1) ? Min(100 * groove_weld_depth_mm / Max(base_material_thickness_connected_mm, 1), 100) : 0",
+      "unit": {
+        "ref": "percent"
+      },
       "category": "verification"
     },
     {
@@ -1067,8 +1288,10 @@
       "symbol": "min_weld_size_check",
       "label": "Minimum Fillet Weld Size Check (EN 1993-1-8 / AWS D1.1)",
       "description": "Minimum fillet weld size per AWS D1.1 Table 5.4 (based on thicker part thickness) and EN 1993-1-8 §4.5.1(1). For t <= 6mm: min s = 3mm. For t = 6–12mm: min s = 5mm. For t = 12–20mm: min s = 6mm. For t = 20–38mm: min s = 8mm. For t = 38–57mm: min s = 10mm. For t = 57–150mm: min s = 12mm.",
-      "expression": "min_weld_size_check = Iif(weld_type == \"Fillet Weld (double-sided)\" Or weld_type == \"Fillet Weld (single-sided)\", Iif(base_material_thickness_connected_mm <= 6, Iif(fillet_weld_leg_size_mm >= 3, \"PASS\", \"FAIL — min fillet size is 3mm for t <= 6mm\"), Iif(base_material_thickness_connected_mm <= 12, Iif(fillet_weld_leg_size_mm >= 5, \"PASS\", \"FAIL — min fillet size is 5mm for t <= 12mm\"), Iif(base_material_thickness_connected_mm <= 20, Iif(fillet_weld_leg_size_mm >= 6, \"PASS\", \"FAIL — min fillet size is 6mm for t <= 20mm\"), Iif(base_material_thickness_connected_mm <= 38, Iif(fillet_weld_leg_size_mm >= 8, \"PASS\", \"FAIL — min fillet size is 8mm for t <= 38mm\"), Iif(base_material_thickness_connected_mm <= 57, Iif(fillet_weld_leg_size_mm >= 10, \"PASS\", \"FAIL — min fillet size is 10mm for t <= 57mm\"), Iif(fillet_weld_leg_size_mm >= 12, \"PASS\", \"FAIL — min fillet size is 12mm for t > 57mm\")))))), \"N/A — not a fillet weld\")",
-      "unit": { "ref": "—" },
+      "expression": "min_weld_size_check = (weld_type == \"Fillet Weld (double-sided)\" || weld_type == \"Fillet Weld (single-sided)\") ? ((base_material_thickness_connected_mm <= 6) ? 1 : (base_material_thickness_connected_mm <= 12) ? ((fillet_weld_leg_size_mm >= 5) ? 1 : 0) : (base_material_thickness_connected_mm <= 20) ? ((fillet_weld_leg_size_mm >= 6) ? 1 : 0) : (base_material_thickness_connected_mm <= 38) ? ((fillet_weld_leg_size_mm >= 8) ? 1 : 0) : (base_material_thickness_connected_mm <= 57) ? ((fillet_weld_leg_size_mm >= 10) ? 1 : 0) : ((fillet_weld_leg_size_mm >= 12) ? 1 : 0)) : 0",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -1076,8 +1299,10 @@
       "symbol": "max_weld_size_check",
       "label": "Maximum Fillet Weld Size Check (Edge Distance)",
       "description": "Maximum fillet weld size along edges. AWS D1.1 Cl. 2.3.2.3: For material thickness < 6mm, max s = t (edge). For t >= 6mm, max s = t - 2mm.",
-      "expression": "max_weld_size_check = Iif(weld_type == \"Fillet Weld (double-sided)\" Or weld_type == \"Fillet Weld (single-sided)\", Iif(base_material_thickness_connected_mm < 6, Iif(fillet_weld_leg_size_mm <= base_material_thickness_connected_mm, \"PASS\", \"FAIL — max fillet size along edge must not exceed base material thickness\"), Iif(fillet_weld_leg_size_mm <= base_material_thickness_connected_mm - 2, \"PASS\", \"FAIL — max fillet size along edge must not exceed t - 2mm (AWS D1.1 Cl. 2.3.2.3)\")), \"N/A — not a fillet weld\")",
-      "unit": { "ref": "—" },
+      "expression": "max_weld_size_check = (weld_type == \"Fillet Weld (double-sided)\" || weld_type == \"Fillet Weld (single-sided)\") ? ((base_material_thickness_connected_mm < 6) ? ((fillet_weld_leg_size_mm <= base_material_thickness_connected_mm) ? 1 : 0) : ((fillet_weld_leg_size_mm <= base_material_thickness_connected_mm - 2) ? 1 : 0)) : 0",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     },
     {
@@ -1085,8 +1310,10 @@
       "symbol": "min_weld_length_check",
       "label": "Minimum Effective Weld Length Check",
       "description": "Minimum effective weld length per EN 1993-1-8 §4.5.1(2): L_eff,min = max(6 × a, 40mm). Also AWS D1.1: minimum effective length = 4 × weld size (but not less than 38mm).",
-      "expression": "min_weld_length_check = Iif(weld_type == \"Fillet Weld (double-sided)\" Or weld_type == \"Fillet Weld (single-sided)\", Iif(weld_length_mm >= Max(6 * a_eff, 40), \"PASS\", \"FAIL — effective weld length must be at least max(6 × a, 40mm) per EN 1993-1-8\"), \"N/A — not a fillet weld\")",
-      "unit": { "ref": "—" },
+      "expression": "min_weld_length_check = (weld_type == \"Fillet Weld (double-sided)\" || weld_type == \"Fillet Weld (single-sided)\") ? ((weld_length_mm >= Max(6 * a_eff, 40)) ? 1 : 0) : 0",
+      "unit": {
+        "ref": "—"
+      },
       "category": "verification"
     }
   ],
@@ -1095,16 +1322,20 @@
       "id": "UC_governing",
       "symbol": "UC_gov",
       "label": "Governing Utilization Ratio",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Overall governing demand-capacity ratio for the welded connection",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "governing_failure_mode",
       "symbol": "GOV_FAIL",
       "label": "Governing Failure Mode",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Identifies the controlling failure mode based on highest utilization",
       "format": "text"
     },
@@ -1112,61 +1343,75 @@
       "id": "UC_weld",
       "symbol": "UC_w",
       "label": "Weld Utilization (Weld Metal)",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Demand-capacity ratio for weld metal shear strength",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "UC_base_metal_yield",
       "symbol": "UC_BMy",
       "label": "Base Metal Yielding Utilization",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Demand-capacity ratio for base metal gross section yielding",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "UC_base_metal_rupture",
       "symbol": "UC_BMr",
       "label": "Base Metal Rupture Utilization",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Demand-capacity ratio for base metal net section rupture",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "UC_base_metal_shear",
       "symbol": "UC_BMs",
       "label": "Base Metal Shear Utilization",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Demand-capacity ratio for base metal shear (block shear)",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "UC_combined_base_metal",
       "symbol": "UC_BMc",
       "label": "Base Metal Combined Shear+Tension Utilization",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Demand-capacity ratio for base metal combined shear and tension interaction",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "UC_block_shear",
       "symbol": "UC_BS",
       "label": "Block Shear Utilization",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Demand-capacity ratio for block shear rupture",
-      "critical_threshold": 1.0,
+      "critical_threshold": 1,
       "format": "decimal_3"
     },
     {
       "id": "fw_Ed_resultant",
       "symbol": "tau_res",
       "label": "Maximum Weld Resultant Stress",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "description": "Resultant weld stress at critical point (vector sum of all directional components)",
       "format": "decimal_1"
     },
@@ -1174,7 +1419,9 @@
       "id": "fw_Rd_total",
       "symbol": "fw_Rd",
       "label": "Weld Design Resistance (Stress Limit)",
-      "unit": { "ref": "MPa" },
+      "unit": {
+        "ref": "MPa"
+      },
       "description": "Design resistance of the weld metal expressed as stress limit per EN 1993-1-8 directional method",
       "format": "decimal_1"
     },
@@ -1182,7 +1429,9 @@
       "id": "A_w",
       "symbol": "Area",
       "label": "Total Weld Effective Area",
-      "unit": { "ref": "mm2" },
+      "unit": {
+        "ref": "mm2"
+      },
       "description": "Total effective throat area of the weld group",
       "format": "integer"
     },
@@ -1190,7 +1439,9 @@
       "id": "phi_Rn_AWS",
       "symbol": "phiRn_AWS",
       "label": "AWS D1.1/AISC Weld Design Strength",
-      "unit": { "ref": "kN" },
+      "unit": {
+        "ref": "kN"
+      },
       "description": "Nominal weld strength per AWS D1.1/AISC 360 (LRFD with phi=0.75)",
       "format": "decimal_1"
     },
@@ -1198,7 +1449,9 @@
       "id": "fatigue_stress_check",
       "symbol": "FAT_CHK",
       "label": "Fatigue Stress Check Result",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "PASS/FAIL assessment of fatigue stress range against detail category",
       "format": "text"
     },
@@ -1206,7 +1459,9 @@
       "id": "hydrogen_cracking_risk",
       "symbol": "HIC_RISK",
       "label": "Hydrogen Cracking Risk Assessment",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Risk level for hydrogen-induced cold cracking based on CEV, thickness, preheat, and hydrogen class",
       "format": "text"
     },
@@ -1214,7 +1469,9 @@
       "id": "lamellar_tearing_risk",
       "symbol": "LT_RISK",
       "label": "Lamellar Tearing Risk Assessment",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Risk assessment for lamellar tearing in thick T-joints and cruciform connections with through-thickness tension",
       "format": "text"
     },
@@ -1222,7 +1479,9 @@
       "id": "min_weld_size_check",
       "symbol": "MIN_SZ",
       "label": "Minimum Weld Size Check",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Verification that selected fillet weld size meets code minimum requirements",
       "format": "text"
     },
@@ -1230,7 +1489,9 @@
       "id": "max_weld_size_check",
       "symbol": "MAX_SZ",
       "label": "Maximum Weld Size Check",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Verification that selected fillet weld size does not exceed code maximum at edges",
       "format": "text"
     },
@@ -1238,7 +1499,9 @@
       "id": "min_weld_length_check",
       "symbol": "MIN_L",
       "label": "Minimum Weld Length Check",
-      "unit": { "ref": "—" },
+      "unit": {
+        "ref": "—"
+      },
       "description": "Verification that effective weld length meets minimum code requirements",
       "format": "text"
     },
@@ -1246,7 +1509,9 @@
       "id": "weld_efficiency_pct",
       "symbol": "EFF_pct",
       "label": "Weld Joint Efficiency",
-      "unit": { "ref": "percent" },
+      "unit": {
+        "ref": "percent"
+      },
       "description": "Weld joint efficiency ratio (groove welds). CJP = 100%, PJP typically 50–80%.",
       "format": "integer"
     },
@@ -1254,7 +1519,9 @@
       "id": "weld_volume_estimate_cm3",
       "symbol": "VOL",
       "label": "Estimated Weld Metal Volume",
-      "unit": { "ref": "cm3" },
+      "unit": {
+        "ref": "cm3"
+      },
       "description": "Estimated volume of deposited weld metal for cost estimation",
       "format": "decimal_1"
     },
@@ -1262,7 +1529,9 @@
       "id": "distortion_estimate_mm",
       "symbol": "DIST",
       "label": "Estimated Angular Distortion",
-      "unit": { "ref": "mm" },
+      "unit": {
+        "ref": "mm"
+      },
       "description": "Estimated angular distortion from weld contraction",
       "format": "decimal_2"
     },
@@ -1270,7 +1539,9 @@
       "id": "A_g_bm",
       "symbol": "A_g",
       "label": "Base Material Gross Section Area",
-      "unit": { "ref": "mm2" },
+      "unit": {
+        "ref": "mm2"
+      },
       "description": "Gross cross-sectional area of the connected base material",
       "format": "integer"
     },
@@ -1278,7 +1549,9 @@
       "id": "fw_Rd_total_EN",
       "symbol": "fw_Rd_EN",
       "label": "Weld Resistance per Unit Length (EN 1993-1-8)",
-      "unit": { "ref": "N_per_mm" },
+      "unit": {
+        "ref": "N_per_mm"
+      },
       "description": "Design resistance of fillet weld per unit length using EN 1993-1-8 directional method",
       "format": "decimal_1"
     }
@@ -1425,12 +1698,48 @@
     "error_propagation": {
       "method": "GUM_linear_approximation",
       "key_inputs": [
-        { "id": "fillet_weld_leg_size_mm", "label": "Fillet Weld Leg Size (s)", "tolerance": 1.0, "unit": "mm", "sensitivity": "HIGH" },
-        { "id": "electrode_tensile_strength_mpa", "label": "Electrode Tensile Strength", "tolerance": 30, "unit": "MPa", "sensitivity": "HIGH" },
-        { "id": "weld_length_mm", "label": "Effective Weld Length", "tolerance": 5, "unit": "mm", "sensitivity": "MEDIUM" },
-        { "id": "applied_shear_kN", "label": "Applied Shear Force", "tolerance": 0.1, "unit": "kN", "sensitivity": "HIGH" },
-        { "id": "base_material_thickness_connected_mm", "label": "Connected Part Thickness", "tolerance": 0.5, "unit": "mm", "sensitivity": "MEDIUM" },
-        { "id": "fu_bm", "label": "Base Metal Tensile Strength", "tolerance": 20, "unit": "MPa", "sensitivity": "MEDIUM" }
+        {
+          "id": "fillet_weld_leg_size_mm",
+          "label": "Fillet Weld Leg Size (s)",
+          "tolerance": 1,
+          "unit": "mm",
+          "sensitivity": "HIGH"
+        },
+        {
+          "id": "electrode_tensile_strength_mpa",
+          "label": "Electrode Tensile Strength",
+          "tolerance": 30,
+          "unit": "MPa",
+          "sensitivity": "HIGH"
+        },
+        {
+          "id": "weld_length_mm",
+          "label": "Effective Weld Length",
+          "tolerance": 5,
+          "unit": "mm",
+          "sensitivity": "MEDIUM"
+        },
+        {
+          "id": "applied_shear_kN",
+          "label": "Applied Shear Force",
+          "tolerance": 0.1,
+          "unit": "kN",
+          "sensitivity": "HIGH"
+        },
+        {
+          "id": "base_material_thickness_connected_mm",
+          "label": "Connected Part Thickness",
+          "tolerance": 0.5,
+          "unit": "mm",
+          "sensitivity": "MEDIUM"
+        },
+        {
+          "id": "fu_bm",
+          "label": "Base Metal Tensile Strength",
+          "tolerance": 20,
+          "unit": "MPa",
+          "sensitivity": "MEDIUM"
+        }
       ],
       "combined_uncertainty": {
         "output": "UC_governing",
@@ -1559,43 +1868,93 @@
         "id": "H001",
         "name": "lookup_material_properties",
         "description": "Map steel grade to fy, fu, CEV, and Charpy requirements per EN 10025 and ASTM standards",
-        "inputs": ["base_material_grade_connected", "base_material_grade_other"],
-        "outputs": ["fy_bm", "fu_bm", "CEV_standard", "CVN_min_J"]
+        "inputs": [
+          "base_material_grade_connected",
+          "base_material_grade_other"
+        ],
+        "outputs": [
+          "fy_bm",
+          "fu_bm",
+          "CEV_standard",
+          "CVN_min_J"
+        ]
       },
       {
         "id": "H002",
         "name": "lookup_electrode_strength",
         "description": "Map electrode classification to nominal tensile strength and hydrogen class per AWS A5 / EN ISO 2560",
-        "inputs": ["electrode_classification"],
-        "outputs": ["electrode_tensile_strength_mpa", "hydrogen_class", "electrode_type"]
+        "inputs": [
+          "electrode_classification"
+        ],
+        "outputs": [
+          "electrode_tensile_strength_mpa",
+          "hydrogen_class",
+          "electrode_type"
+        ]
       },
       {
         "id": "H003",
         "name": "lookup_fatigue_detail_category",
         "description": "Retrieve FAT class and Detail category parameters from the selected fatigue detail category for EN 1993-1-9 verification",
-        "inputs": ["fatigue_detail_category"],
-        "outputs": ["fatigue_detail_category_Delta_sigma_C", "m_exponent", "N_c_limit"]
+        "inputs": [
+          "fatigue_detail_category"
+        ],
+        "outputs": [
+          "fatigue_detail_category_Delta_sigma_C",
+          "m_exponent",
+          "N_c_limit"
+        ]
       },
       {
         "id": "H004",
         "name": "calculate_weld_group_properties",
         "description": "Compute weld group centroid, polar moment of inertia, and section modulus for arbitrary weld group configurations",
-        "inputs": ["weld_length_mm", "number_of_weld_segments", "weld_eccentricity_x_mm", "weld_eccentricity_y_mm", "a_eff"],
-        "outputs": ["x_cg", "y_cg", "I_p_weld", "S_weld_x", "S_weld_y", "J_weld"]
+        "inputs": [
+          "weld_length_mm",
+          "number_of_weld_segments",
+          "weld_eccentricity_x_mm",
+          "weld_eccentricity_y_mm",
+          "a_eff"
+        ],
+        "outputs": [
+          "x_cg",
+          "y_cg",
+          "I_p_weld",
+          "S_weld_x",
+          "S_weld_y",
+          "J_weld"
+        ]
       },
       {
         "id": "H005",
         "name": "assess_brittle_fracture_risk",
         "description": "Assess brittle fracture risk per EN 1993-1-10 based on material grade, thickness, min service temperature, and Charpy energy",
-        "inputs": ["base_material_grade_connected", "thickness_governing_t_mm", "service_temperature_min_c", "charpy_energy_required_j"],
-        "outputs": ["fracture_risk_level", "max_permissible_thickness_mm", "min_CVN_required_J"]
+        "inputs": [
+          "base_material_grade_connected",
+          "thickness_governing_t_mm",
+          "service_temperature_min_c",
+          "charpy_energy_required_j"
+        ],
+        "outputs": [
+          "fracture_risk_level",
+          "max_permissible_thickness_mm",
+          "min_CVN_required_J"
+        ]
       },
       {
         "id": "H006",
         "name": "calculate_preheat_temperature",
         "description": "Calculate minimum preheat temperature per EN 1011-2 / IIW formula based on CEV, thickness, hydrogen level, and heat input",
-        "inputs": ["carbon_equivalent_cev", "base_material_thickness_connected_mm", "hydrogen_level_class", "heat_input_kJ_per_mm"],
-        "outputs": ["calculated_preheat_min_C", "calculated_preheat_max_C"]
+        "inputs": [
+          "carbon_equivalent_cev",
+          "base_material_thickness_connected_mm",
+          "hydrogen_level_class",
+          "heat_input_kJ_per_mm"
+        ],
+        "outputs": [
+          "calculated_preheat_min_C",
+          "calculated_preheat_max_C"
+        ]
       }
     ]
   },
@@ -1639,12 +1998,19 @@
       "verdict_enabled": true,
       "verdict_threshold_green": 0.7,
       "verdict_threshold_amber": 0.9,
-      "verdict_threshold_red": 1.0,
+      "verdict_threshold_red": 1,
       "show_gauge": true,
       "gauge_type": "UC",
       "gauge_max": 1.5,
       "show_results_table": true,
-      "results_table_columns": ["id", "symbol", "label", "value", "unit", "status"],
+      "results_table_columns": [
+        "id",
+        "symbol",
+        "label",
+        "value",
+        "unit",
+        "status"
+      ],
       "show_warning_cards": true,
       "show_references": true
     },
@@ -1661,19 +2027,42 @@
       {
         "code": "EN 1993-1-8:2005",
         "title": "Eurocode 3: Design of steel structures — Part 1-8: Design of joints",
-        "clauses": ["§2.2", "§4.3.2", "§4.5.1", "§4.5.2", "§4.5.3", "Table 4.1"],
+        "clauses": [
+          "§2.2",
+          "§4.3.2",
+          "§4.5.1",
+          "§4.5.2",
+          "§4.5.3",
+          "Table 4.1"
+        ],
         "description": "Governing European standard for welded joint design including fillet weld directional method, effective throat/width, and detailing rules."
       },
       {
         "code": "AWS D1.1/D1.1M:2020",
         "title": "Structural Welding Code — Steel",
-        "clauses": ["§2.4.2", "§2.4.3", "§3.3", "§5.4", "§5.22", "Table 5.4", "Clause 7 (seismic)"],
+        "clauses": [
+          "§2.4.2",
+          "§2.4.3",
+          "§3.3",
+          "§5.4",
+          "§5.22",
+          "Table 5.4",
+          "Clause 7 (seismic)"
+        ],
         "description": "Governing US standard for structural steel welding. Covers prequalified joints, filler metal requirements, workmanship, and inspection."
       },
       {
         "code": "AISC 360-22",
         "title": "Specification for Structural Steel Buildings",
-        "clauses": ["§J2.2", "§J2.3", "§J2.4", "§J4.1", "§J4.2", "§J4.3", "Table J2.5"],
+        "clauses": [
+          "§J2.2",
+          "§J2.3",
+          "§J2.4",
+          "§J4.1",
+          "§J4.2",
+          "§J4.3",
+          "Table J2.5"
+        ],
         "description": "AISC specification for welded connection design including weld strength, base metal checks, and block shear."
       }
     ],
@@ -1681,31 +2070,51 @@
       {
         "code": "EN 1993-1-9:2005",
         "title": "Eurocode 3: Fatigue strength of steel structures",
-        "clauses": ["§6.1", "§6.2", "§7.1", "§8", "Tables 8.1–8.10"],
+        "clauses": [
+          "§6.1",
+          "§6.2",
+          "§7.1",
+          "§8",
+          "Tables 8.1–8.10"
+        ],
         "description": "Fatigue assessment of steel structures including weld detail categories."
       },
       {
         "code": "EN 1993-1-10:2005",
         "title": "Eurocode 3: Material toughness and through-thickness properties",
-        "clauses": ["§2", "§3", "Tables 2.1–2.3"],
+        "clauses": [
+          "§2",
+          "§3",
+          "Tables 2.1–2.3"
+        ],
         "description": "Brittle fracture and lamellar tearing assessment based on thickness, steel grade, and service temperature."
       },
       {
         "code": "EN 1011-2:2001",
         "title": "Welding — Recommendations for welding of metallic materials — Part 2: Arc welding of ferritic steels",
-        "clauses": ["Annex C", "Table C.1"],
+        "clauses": [
+          "Annex C",
+          "Table C.1"
+        ],
         "description": "Preheat temperature recommendations based on CEV, thickness, and hydrogen level. HIC prevention guidelines."
       },
       {
         "code": "EN 1090-2:2018",
         "title": "Execution of steel structures and aluminium structures — Part 2: Technical requirements for steel structures",
-        "clauses": ["§6", "§7", "§12", "Annex A"],
+        "clauses": [
+          "§6",
+          "§7",
+          "§12",
+          "Annex A"
+        ],
         "description": "Execution classes (EXC1-EXC4), fabrication tolerances, and inspection requirements for structural steel."
       },
       {
         "code": "ISO 5817:2014",
         "title": "Welding — Fusion-welded joints in steel, nickel, titanium and their alloys — Quality levels for imperfections",
-        "clauses": ["Tables 1–6"],
+        "clauses": [
+          "Tables 1–6"
+        ],
         "description": "Quality levels (B, C, D) for weld imperfections across all joint types and welding processes."
       }
     ],
@@ -1719,7 +2128,18 @@
     "last_reviewed": "2026-06-28",
     "author": "SectorCalc Engineering Team",
     "discipline": "Structural Engineering — Steel Connections",
-    "tags": ["steel", "welded connection", "fillet weld", "groove weld", "EN 1993-1-8", "AWS D1.1", "AISC 360", "fatigue", "seismic", "NDT"],
+    "tags": [
+      "steel",
+      "welded connection",
+      "fillet weld",
+      "groove weld",
+      "EN 1993-1-8",
+      "AWS D1.1",
+      "AISC 360",
+      "fatigue",
+      "seismic",
+      "NDT"
+    ],
     "estimated_form_count": 38,
     "estimated_input_count": 37,
     "estimated_output_count": 22
