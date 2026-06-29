@@ -39,10 +39,9 @@ import type {
   OracleComparisonResult,
   OracleComparisonStatus,
 } from "@/lib/formula-governance/oracle/compare-production-oracle";
+import { compareNumericFields, CURRENCY_TOLERANCE, PERCENT_TOLERANCE } from "@/lib/formula-governance/oracle/compare-production-oracle";
 
 export { BUSINESS_OPERATIONS_ORACLE_SLUGS };
-
-const CURRENCY_TOLERANCE = 0.01;
 
 type ComparableField = {
   readonly field: string;
@@ -50,26 +49,6 @@ type ComparableField = {
   readonly oracle: number;
   readonly tolerance: number;
 };
-
-function compareNumericFields(fields: readonly ComparableField[]): {
-  readonly passed: boolean;
-  readonly diffs: readonly FieldComparisonDiff[];
-} {
-  const diffs: FieldComparisonDiff[] = [];
-  for (const entry of fields) {
-    const delta = Math.abs(entry.production - entry.oracle);
-    if (delta > entry.tolerance) {
-      diffs.push({
-        field: entry.field,
-        production: entry.production,
-        oracle: entry.oracle,
-        delta,
-        tolerance: entry.tolerance,
-      });
-    }
-  }
-  return { passed: diffs.length === 0, diffs };
-}
 
 export type BusinessOperationsComparisonScenario = {
   readonly id: string;
