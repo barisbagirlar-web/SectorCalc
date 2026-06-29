@@ -46,6 +46,12 @@ export type SitemapManifestItem = {
   readonly priority: number;
   readonly changeFrequency: SitemapChangeFrequency;
   readonly locales: readonly SupportedLocale[];
+  /**
+   * Real lastmod date from the data source (tool registry, CMS, etc.).
+   * When absent the sitemap builder falls back to build time — which is
+   * legitimate for dynamic pages regenerated at every build.
+   */
+  readonly updatedAt?: Date;
 };
 
 const DEFAULT_LOCALES = getActiveSitemapLocales();
@@ -73,6 +79,7 @@ function createItem(
   priority: number,
   changeFrequency: SitemapChangeFrequency,
   locales: readonly SupportedLocale[] = DEFAULT_LOCALES,
+  updatedAt?: Date,
 ): SitemapManifestItem {
   return {
     path: normalizePath(path),
@@ -80,6 +87,7 @@ function createItem(
     priority,
     changeFrequency,
     locales,
+    ...(updatedAt !== undefined ? { updatedAt } : {}),
   };
 }
 

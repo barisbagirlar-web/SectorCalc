@@ -19,7 +19,8 @@ export {
   SITEMAP_STATIC_ROUTES,
 };
 
-export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
+export function buildSitemapEntries(buildTime?: Date): MetadataRoute.Sitemap {
+  const now = buildTime ?? new Date();
   const manifest = getSitemapManifest();
   const entries: MetadataRoute.Sitemap = [];
 
@@ -27,7 +28,7 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
     for (const locale of item.locales) {
       entries.push({
         url: buildLocalizedUrl(item.path, locale, SITE_BASE_URL),
-        lastModified: now,
+        lastModified: item.updatedAt ?? now,
         changeFrequency: item.changeFrequency,
         priority: item.priority,
         alternates: buildAlternates(item.path, item.locales, SITE_BASE_URL),

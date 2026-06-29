@@ -9,7 +9,7 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";
-  const t = await getTranslations();
+  const t = await getTranslations("homepageHybrid");
 
   return createPageMetadata({
     title: t("meta.title"),

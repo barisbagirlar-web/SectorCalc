@@ -18,7 +18,7 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";
-  const t = await getTranslations();
+  const t = await getTranslations("developerShowcase");
   return createPageMetadata({
     title: t("meta.title"),
     description: t("meta.description"),

@@ -10,19 +10,19 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";
-  
-  const t = await getTranslations();
+
+  const t = await getTranslations("auditArchive");
 
   return createPageMetadata({
-    title: "meta.title",
-    description: "meta.description",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/account/archive",
   });
 }
 
 export default async function AuditArchivePage({ params }: PageProps) {
   const locale = "en";
-  
+
 
   return <AuditArchivePageContent />;
 }
