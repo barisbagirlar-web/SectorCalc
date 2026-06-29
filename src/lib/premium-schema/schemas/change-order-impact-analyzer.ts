@@ -9,9 +9,65 @@ export const CHANGE_ORDER_IMPACT_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Measure delay, crew cost and margin impact before accepting a construction change order.",
 
-  inputs: [],
+  inputs: [
+    {
+      id: "originalBudget",
+      label: "Original Contract Budget",
+      type: "number",
+      unit: "currency",
+      required: true,
+      validation: { min: 1 },
+      helper: "Enter the original contract value before this change order",
+      expertMeaning: "Baseline budget used to scale overhead and compute budget utilization ratios",
+    },
+    {
+      id: "changeEstimate",
+      label: "Change Order Estimate",
+      type: "number",
+      unit: "currency",
+      required: true,
+      validation: { min: 0 },
+      helper: "Contractor's quoted price for the change order scope",
+      expertMeaning: "Direct cost estimate including labor, material and equipment for the change scope",
+    },
+    {
+      id: "delayDays",
+      label: "Estimated Delay Days",
+      type: "number",
+      unit: "days",
+      required: true,
+      validation: { min: 0 },
+      helper: "How many calendar days will this change add to the schedule",
+      expertMeaning: "Schedule slip days — each day incurs crew standby, site overhead and general conditions",
+    },
+    {
+      id: "crewCostPerDay",
+      label: "Daily Crew & Site Cost",
+      type: "number",
+      unit: "currency",
+      required: true,
+      validation: { min: 0 },
+      helper: "Total daily cost for crew, equipment and site overhead",
+      expertMeaning: "Combined daily rate for labor, equipment rental and site general conditions",
+    },
+    {
+      id: "marginTarget",
+      label: "Target Margin (%)",
+      type: "number",
+      unit: "percent",
+      required: true,
+      validation: { min: 0, max: 100 },
+      helper: "Minimum margin you want to maintain on this change order",
+      expertMeaning: "Gross margin target used to calculate minimum safe change price",
+    },
+  ],
 
-  outputs: [],
+  outputs: [
+    { id: "minimumSafePrice", label: "Minimum Safe Price", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "quoteVerdict", label: "Quote Verdict", unit: "text", format: "number" },
+    { id: "p90Cost", label: "P90 Cost Estimate", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "suggestedAction", label: "Suggested Action", unit: "text", format: "number" },
+  ],
 
   thresholds: [
     {

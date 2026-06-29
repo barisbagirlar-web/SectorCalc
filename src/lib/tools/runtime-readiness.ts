@@ -97,7 +97,10 @@ function resolveTier(slug: string): RuntimeToolTier {
 }
 
 function hasActiveRoute(slug: string, tier: RuntimeToolTier): boolean {
-  if (tier === "premium" || tier === "premium-schema") {
+  if (tier === "premium-schema") {
+    return Boolean(getPremiumSchemaForPaidSlug(slug));
+  }
+  if (tier === "premium") {
     return Boolean(getRevenueToolByPremiumRouteSlug(slug) || getRevenueToolByPaidSlug(slug));
   }
   if (tier === "free") {

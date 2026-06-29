@@ -9,9 +9,75 @@ export const MENU_PROFIT_LEAK_DETECTOR_SCHEMA: PremiumCalculatorSchema = {
   painStatement:
     "Detect real menu margin after waste, delivery commission and labor cost per item.",
 
-  inputs: [],
+  inputs: [
+    {
+      id: "menuPrice",
+      label: "Menu Item Price",
+      type: "number",
+      unit: "currency",
+      required: true,
+      validation: { min: 0.01 },
+      helper: "Selling price of the menu item",
+      expertMeaning: "Gross revenue per unit before any deductions",
+    },
+    {
+      id: "ingredientCost",
+      label: "Ingredient Cost per Item",
+      type: "number",
+      unit: "currency",
+      required: true,
+      validation: { min: 0 },
+      helper: "Total ingredient cost for one serving",
+      expertMeaning: "Direct material cost per unit — recipe cost including trim and prep loss",
+    },
+    {
+      id: "wasteRate",
+      label: "Waste Rate (%)",
+      type: "number",
+      unit: "percent",
+      required: true,
+      validation: { min: 0, max: 100 },
+      helper: "Estimated waste as percentage of ingredient cost",
+      expertMeaning: "Spoilage, over-portion and prep loss as percentage of raw ingredient cost",
+    },
+    {
+      id: "deliveryCommission",
+      label: "Delivery Commission (%)",
+      type: "number",
+      unit: "percent",
+      required: true,
+      validation: { min: 0, max: 100 },
+      helper: "Third-party delivery app commission rate",
+      expertMeaning: "Platform fee percentage applied to menu price for delivery orders",
+    },
+    {
+      id: "laborCostPerItem",
+      label: "Labor Cost per Item",
+      type: "number",
+      unit: "currency",
+      required: true,
+      validation: { min: 0 },
+      helper: "Direct labor cost allocated to this menu item",
+      expertMeaning: "Labor cost per unit including prep, cooking and packaging labor",
+    },
+    {
+      id: "targetMargin",
+      label: "Target Margin (%)",
+      type: "number",
+      unit: "percent",
+      required: true,
+      validation: { min: 0, max: 100 },
+      helper: "Minimum gross margin you want to maintain",
+      expertMeaning: "Target margin used to calculate minimum safe price and margin gap",
+    },
+  ],
 
-  outputs: [],
+  outputs: [
+    { id: "minimumSafePrice", label: "Minimum Safe Price", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "quoteVerdict", label: "Quote Verdict", unit: "text", format: "number" },
+    { id: "p90Cost", label: "P90 Cost Estimate", unit: "currency", format: "currency", isBigNumber: true },
+    { id: "suggestedAction", label: "Suggested Action", unit: "text", format: "number" },
+  ],
 
   thresholds: [
     {

@@ -40,37 +40,38 @@ export function detectCountryFromHeaders(
 }
 
 /**
- * Resolve region with proper priority order:
- * 1. Manual cookie (user explicitly chose a region)
- * 2. Request country header (Cloudflare, Vercel, CDN geo detection)
- * 3. Locale fallback (URL path → region)
- * 4. Global default (EN)
+ * Middleware-safe region detection: does NOT read cookies.
+ * Reading `request.cookies` causes Next.js to add `Vary: cookie` to the response,
+ * which fragments the CDN cache. Manual cookie override is handled
+ * in Server Components via `getServerRegion()`.
  *
- * Manual selection always wins. Auto-detection never overwrites manual choice.
+ * Priority: country header → locale fallback → global default (EN).
  */
 export function detectRegionFromRequest(request: NextRequest): RegionResolutionResult {
-  // 1. Manual cookie wins
-  const manual = request.cookies.get(REGION_MANUAL_COOKIE)?.value;
-  if (manual && isRegionCode(manual)) {
-    return { region: manual, source: "manual-cookie" };
-  }
-
-  // 2. Request country header (auto-detection)
   const detectedCountry = detectCountryFromHeaders(request.headers);
   if (detectedCountry) {
     const regionFromCountry = countryToRegion(detectedCountry);
-    // Use country header only if it maps to a specific supported region (TR, DE)
-    // Unknown countries get EN from countryToRegion, but we prefer locale fallback in that case
     if (detectedCountry === "TR" || detectedCountry === "DE") {
       return { region: regionFromCountry, source: "request-country" };
     }
   }
 
-  // 3. Locale fallback
   const localeRegion = resolveRegionFromRequestContext(request.nextUrl.pathname, null);
   const isGlobalDefault = localeRegion === "EN" && !detectedCountry;
   return {
     region: localeRegion,
     source: isGlobalDefault ? "global-default" : "locale-fallback",
   };
+}
+
+/**
+ * Full region detection including manual cookie check.
+ * Use in Server Components / Server Actions where Vary: cookie is acceptable.
+ */
+export function detectRegionWithCookie(request: NextRequest): RegionResolutionResult {
+  const manual = request.cookies.get(REGION_MANUAL_COOKIE)?.value;
+  if (manual && isRegionCode(manual)) {
+    return { region: manual, source: "manual-cookie" };
+  }
+  return detectRegionFromRequest(request);
 }
