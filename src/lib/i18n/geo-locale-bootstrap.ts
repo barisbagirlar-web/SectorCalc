@@ -77,7 +77,7 @@ function detectLocaleFromNavigatorLanguage(language: string | null): SupportedLo
   return null;
 }
 
-/** Minified IIFE injected into `<head>` on English-root pages. EN-only: no-op + cleans old locale cookies. */
+/** Minified IIFE injected into `<head>` on every page. EN-only: cleans old locale cookies AND unregisters any old service worker so cached redirects never survive a page load. */
 export function buildGeoLocaleBootstrapScript(): string {
   const cookieNames = [LOCALE_COOKIE, COUNTRY_COOKIE, LOCALE_MANUAL_COOKIE];
   const namesJson = JSON.stringify(cookieNames);
@@ -85,6 +85,7 @@ export function buildGeoLocaleBootstrapScript(): string {
     "(function(){try{",
     `var n=${namesJson};`,
     "for(var i=0;i<n.length;i++){document.cookie=n[i]+'=;path=/;max-age=0;samesite=lax'}",
+    "if('serviceWorker'in navigator)navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})});",
     "}catch(e){}})();",
   ].join("");
 }
