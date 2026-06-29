@@ -274,6 +274,10 @@ export function buildArticleJsonLd(
   }) as JsonLdRecord;
 }
 
+export function buildEntityGraph(): JsonLdRecord {
+  return buildOrganizationJsonLd("en");
+}
+
 export function buildHomepageJsonLd(locale = "en"): JsonLdRecord[] {
   return [
     buildOrganizationJsonLd(locale),

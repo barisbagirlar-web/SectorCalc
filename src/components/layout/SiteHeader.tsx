@@ -22,8 +22,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from '@/i18n/routing';
-import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
 
 const LOCALES = [
@@ -136,10 +135,18 @@ function buildLocalePath(p,target){
   return target==='en'?s:`/${target}${s==='/'?'':s}`;
 }
 
-export function SiteHeader({ isAuthenticated = false }) {
+export function SiteHeader({ 
+  isAuthenticated = false,
+  freeToolsCount = 0,
+  proToolsCount = 0
+}: { 
+  isAuthenticated?: boolean;
+  freeToolsCount?: number;
+  proToolsCount?: number;
+}) {
   const pathname = usePathname() || '/';
   const router   = useRouter();
-  const locale   = useLocale();
+  const locale   = 'en';
   const dir      = LOCALES.find((l)=>l.code===locale)?.dir || 'ltr';
   const t        = T[locale] || T.en;
 
@@ -172,10 +179,9 @@ export function SiteHeader({ isAuthenticated = false }) {
     router.push(buildLocalePath(pathname,code));
   };
 
+  const isProApp = false; 
+
   const accountHref = isAuthenticated ? '/account' : '/signin';
-  
-  const freeToolsCount = getFreeToolCount();
-  const proToolsCount = getPremiumToolCount();
 
   return (
     <>

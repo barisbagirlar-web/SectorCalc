@@ -1,97 +1,41 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # dependencies
-node_modules/
-functions/node_modules/
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# builds
-.next/
-out/
-dist/
-/lib/
-functions/lib/
-.firebase/
-.vercel/
-.next-deploy.lock
-.sectorcalc-build.lock
-scripts/.cache/
-styles_backup/
+# testing
+/coverage
 
-# Lokalise pull duplicates (ISO locale dirs in project root)
-/ar/
-/de/
-/en/
-/es/
-/fr_FR/
+# next.js
+/.next/
+/out/
 
-# IndexNow verification keys (real keys must not be committed)
-public/[0-9a-f][0-9a-f-]*.txt
-!public/indexnow-key-example.txt
+# production
+/build
 
-# AI repair local history (never commit)
-.sectorcalc/
-ai-repair-history.jsonl
-
-# env / secrets
-.env
-.env.local
-.env.batch.keys.local
-.env.*.local
-functions/.env
+# misc
+.DS_Store
 *.pem
-*.key
-*service-account*.json
-*firebase-adminsdk*.json
-*.private.json
-credentials.json
 
-# Build artifacts — regenerated every build (timestamp noise)
-steelcore-validation-report.json
-scripts/extracted_tools_cache.json
-
-# Heal suggestions — AI-generated patches awaiting human approval
-heal-suggestions/
-
-# Quarantine zone — generated code snapshot for inspection
-generated-temp/
-
-# logs
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-debug.log
-*.log
-deploy-debug.log
-functions-debug.log
+.pnpm-debug.log*
 
-# os/editor
-.DS_Store
-.vscode/
-.idea/
+# env files (can opt-in for committing if needed)
+.env*
 
-# DeepSeek scan output — committed for Vercel (schemas + generated/*.ts)
-# generated/
-
-# Generate report artifacts (regenerated every run — timestamp noise)
-generated/generate-report.json
-generated/golden-test-report.json
-generated/tsc-check-report.json
-
-# TypeScript cache
-*.tsbuildinfo
-tsconfig.tsbuildinfo
+# vercel
 .vercel
-.env*.local
 
-# DeepSeek batch runner progress (local only)
-.batch-progress*.json
-scripts/data/omni-batch.pid
-
-# AI index files (regenerated every prebuild — timestamp noise)
-public/ai-categories.json
-public/ai-tool-index.json
-public/ai-tool-index.txt
-public/ai-tool-routes.json
-
-# Build-time sitemap shards (prebuild: generate:sitemap-static)
-public/sitemap/*.xml
-# Dynamic sitemap index (SSR/ISR, not checked in)
-public/sitemap.xml
+# typescript
+*.tsbuildinfo
+next-env.d.ts

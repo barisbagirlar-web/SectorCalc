@@ -9,7 +9,6 @@ import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { createPageMetadata } from "@/lib/metadata";
-import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
 import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
 import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
@@ -185,24 +184,10 @@ export default async function FreeRevenueToolRoute({
   const featuredAnswerBlock = (
     <FeaturedAnswerBlock question={featuredQuestion} answer={featuredAnswer} />
   );
-  const faqJsonLd = buildFAQJsonLd([
-    { question: featuredQuestion, answer: featuredAnswer },
-    {
-      question: tAuthority("faqUseTitle"),
-      answer: tAuthority("faqUseAnswer", { title: localizedTitle }),
-    },
-    {
-      question: tAuthority("faqFreeTitle"),
-      answer: tAuthority("faqFreeAnswer"),
-    },
-    {
-      question: tAuthority("faqPremiumTitle"),
-      answer: tAuthority("faqPremiumAnswer"),
-    },
-  ]);
+  
   const semanticTool = assertSemanticToolContract({ slug, tier: "free" });
   const toolJsonLd = buildToolJsonLd({ tool: semanticTool, locale });
-  const jsonLd = [...toolJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
+  const jsonLd = [...toolJsonLd];
 
   return (
     <>

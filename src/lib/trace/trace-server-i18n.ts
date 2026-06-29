@@ -13,13 +13,20 @@ type TraceErrorKey = "authRequired" | "connection" | "noCredits" | "premiumOnly"
 
 type TraceErrors = Record<TraceErrorKey, string>;
 
+const ENGLISH_ERRORS: TraceErrors = {
+  authRequired: "Authentication required.",
+  connection: "Connection error.",
+  noCredits: "Insufficient credits.",
+  premiumOnly: "This is a premium feature.",
+};
+
 const TRACE_ERRORS: Record<SupportedLocale, TraceErrors> = {
-  en: (enMessages as { trace: { errors: TraceErrors } }).trace.errors,
-  tr: (trMessages as { trace: { errors: TraceErrors } }).trace.errors,
-  de: (deMessages as { trace: { errors: TraceErrors } }).trace.errors,
-  fr: (frMessages as { trace: { errors: TraceErrors } }).trace.errors,
-  es: (esMessages as { trace: { errors: TraceErrors } }).trace.errors,
-  ar: (arMessages as { trace: { errors: TraceErrors } }).trace.errors,
+  en: (enMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
+  tr: (trMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
+  de: (deMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
+  fr: (frMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
+  es: (esMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
+  ar: (arMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
 };
 
 export function resolveTraceErrorMessage(locale: string, key: TraceErrorKey): string {

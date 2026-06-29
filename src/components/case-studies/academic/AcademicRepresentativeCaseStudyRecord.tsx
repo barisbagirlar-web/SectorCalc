@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { AcademicDatabaseChrome } from "@/components/case-studies/academic/AcademicDatabaseChrome";

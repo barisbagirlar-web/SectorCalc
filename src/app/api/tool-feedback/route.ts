@@ -9,6 +9,7 @@ import {
   sendToolFeedbackMail,
   type ToolFeedbackTier,
 } from "@/lib/notifications/tool-feedback-mail";
+import { getAdminFirestore } from "@/lib/firebase/admin";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -114,24 +115,38 @@ export async function POST(request: NextRequest) {
       ? record.resultSnapshot
       : undefined;
 
-  const sendResult = await sendToolFeedbackMail(
-    {
-      toolSlug,
-      toolTier,
-      locale,
-      pageUrl,
-      message,
-      email,
-      issueType,
-      userAgent,
-      resultSnapshot,
-      timestamp: new Date().toISOString(),
-    },
-    env,
-  );
+  const feedbackData = {
+    toolSlug,
+    toolTier,
+    locale,
+    pageUrl,
+    message,
+    email: email ?? null,
+    issueType,
+    userAgent,
+    resultSnapshot: resultSnapshot ?? null,
+    timestamp: new Date().toISOString(),
+    status: "pending",
+  };
+
+  // 1. Send via Email (Brevo)
+  const sendResult = await sendToolFeedbackMail(feedbackData, env);
 
   if (!sendResult.ok) {
     return NextResponse.json({ ok: false, error: "feedback_mail_failed" }, { status: 502 });
+  }
+
+  // 2. Write to Firestore verification_queue for weekly reporting
+  try {
+    const db = getAdminFirestore();
+    if (db) {
+      await db.collection("verification_queue").add(feedbackData);
+    } else {
+      console.warn("Firestore not available; verification_queue not updated.");
+    }
+  } catch (error) {
+    console.error("Failed to write to verification_queue", error);
+    // Continue even if Firestore write fails, since email was sent successfully.
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });

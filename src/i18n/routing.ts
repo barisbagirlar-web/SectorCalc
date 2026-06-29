@@ -1,18 +1,8 @@
-import { createElement, type ComponentProps } from "react";
-import NextLink from "next/link";
-import { createNavigation } from "next-intl/navigation";
-import { locales, type AppLocale, isAppLocale, stripLocalePrefix } from "@/i18n/locales";
-import { routing } from "@/i18n/routing-config";
-
-export { locales, type AppLocale, isAppLocale, stripLocalePrefix, routing };
-
-type IntlLinkProps = ComponentProps<typeof NextLink>;
-
-/** Platform policy: internal navigation must not parallel-prefetch RSC streams. */
-export function Link({ prefetch = false, ...props }: IntlLinkProps) {
-  return createElement(NextLink, { prefetch, ...props });
-}
-
-/** next-intl navigation re-exports for i18n-aware routing hooks. */
-export const { redirect, usePathname, useRouter, getPathname } =
-  createNavigation(routing);
+export const Link = require("next/link").default;
+export const useRouter = require("next/navigation").useRouter;
+export const usePathname = require("next/navigation").usePathname;
+export const routing = { defaultLocale: "en", locales: ["en"] };
+export const locales = ["en"];
+export type AppLocale = "en";
+export function isAppLocale(locale: string): locale is AppLocale { return locale === "en"; }
+export function stripLocalePrefix(path: string): string { return path.replace(/^\/en/, ""); }

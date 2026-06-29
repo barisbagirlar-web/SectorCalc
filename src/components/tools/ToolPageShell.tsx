@@ -23,6 +23,9 @@ interface ToolPageShellProps {
   locale: string;
 }
 
+import { PremiumStaticForm } from "@/components/tools/PremiumStaticForm";
+import { ToolFeedbackTrigger } from "@/components/tools/ToolFeedbackTrigger";
+
 export async function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShellProps) {
   const definition = applyRevenueToolDisplay(rawDefinition);
   const industry = getIndustryBySlug(definition.industryId);
@@ -46,45 +49,52 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
     <PageLayout>
       <div id="sector-product">
         <div className={CALC_TOOL_PAGE_CLASS}>
-          <div className={CALC_TOOL_PAGE_CHROME_CLASS}>
-            <section className="mb-6">
-              <p className="label-badge mb-3 text-body-charcoal">{classificationLabel}</p>
-              <div className="mb-3">
-                <FormulaGateToolStatus slug={definition.slug} locale={locale} />
-              </div>
-              <p className="max-w-3xl text-sm leading-relaxed text-body-charcoal sm:text-base">
-                {definition.longDescription}
-              </p>
-            </section>
-            <p className="mb-6 text-sm leading-relaxed text-text-secondary">
-              {isPremium
-                ? MARGINCORE_TERMS.premiumVerdict
-                : MARGINCORE_TERMS.freePreCheck}
-            </p>
-            <Breadcrumb items={breadcrumbItems} />
-          </div>
-
-          <section className="fourth-tab border-t border-border-subtle bg-white">
-            <Container size="wide" className="min-w-0 py-4">
-              <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
-                <ToolOmniMetaSection
-                  toolName={definition.title}
-                  slug={definition.slug}
-                  tier={isPremium ? "premium" : "free"}
-                  excerpt={definition.longDescription}
-                  canonicalPath={definition.seo.canonicalPath}
-                />
-                <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
-                  {t("calcRegeneration")}
+          {!isPremium && (
+            <div className={CALC_TOOL_PAGE_CHROME_CLASS}>
+              <section className="mb-6">
+                <p className="label-badge mb-3 text-body-charcoal">{classificationLabel}</p>
+                <div className="mb-3">
+                  <FormulaGateToolStatus slug={definition.slug} locale={locale} />
                 </div>
-                {!isPremium ? <PremiumUpsell /> : null}
-                {definition.premiumTeaser && !definition.features?.decisionReport && (
-                  <div className="mt-10">
-                    <PremiumTeaserPanel
-                      teaser={definition.premiumTeaser}
-                      toolSlug={definition.slug}
+                <p className="max-w-3xl text-sm leading-relaxed text-body-charcoal sm:text-base">
+                  {definition.longDescription}
+                </p>
+              </section>
+              <p className="mb-6 text-sm leading-relaxed text-text-secondary">
+                {MARGINCORE_TERMS.freePreCheck}
+              </p>
+              <Breadcrumb items={breadcrumbItems} />
+            </div>
+          )}
+
+          <section className={!isPremium ? "fourth-tab border-t border-border-subtle bg-white" : "bg-white"}>
+            <Container size={!isPremium ? "wide" : "default"} className="min-w-0 py-4">
+              <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
+                {!isPremium ? (
+                  <>
+                    <ToolOmniMetaSection
+                      toolName={definition.title}
+                      slug={definition.slug}
+                      tier="free"
+                      excerpt={definition.longDescription}
+                      canonicalPath={definition.seo.canonicalPath}
                     />
-                  </div>
+                    <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
+                      {t("calcRegeneration")}
+                    </div>
+                    <ToolFeedbackTrigger toolSlug={definition.slug} />
+                    <PremiumUpsell />
+                    {definition.premiumTeaser && !definition.features?.decisionReport && (
+                      <div className="mt-10">
+                        <PremiumTeaserPanel
+                          teaser={definition.premiumTeaser}
+                          toolSlug={definition.slug}
+                        />
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <PremiumStaticForm />
                 )}
               </div>
             </Container>

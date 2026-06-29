@@ -20,4 +20,3 @@ export function JsonLd({ data }: JsonLdProps) {
   );
 }
 
-export { buildHomepageJsonLd } from "@/lib/seo/schema-mesh";
