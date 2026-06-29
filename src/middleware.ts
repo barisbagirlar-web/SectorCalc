@@ -37,11 +37,9 @@ export default function middleware(request: NextRequest) {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
   }
 
-  // SADECE sectorcalc.com/path — hiçbir locale prefix kabul edilmez.
-  // Eski locale path'leri (ör. /tr/en, /tr, /de, /fr, /es, /ar) kalıcı
-  // olarak /'e yönlendir. Bunlar artık geçerli değil.
-  // NOT: Tam path segment bazında kontrol (ör. /free-tools /fr ile başlamaz)
-  const localePrefixes = ["/tr", "/de", "/fr", "/es", "/ar", "/en"];
+  // SADECE sectorcalc.com/path — locale prefix redirect.
+  // /en, /tr, /de, /fr, /es, /ar → 308 redirect to /
+  const localePrefixes = ["/en", "/tr", "/de", "/fr", "/es", "/ar"];
   const hasLocalePrefix = localePrefixes.some(
     (prefix) => pathname === prefix || pathname.startsWith(prefix + "/")
   );

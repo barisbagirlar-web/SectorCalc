@@ -2,7 +2,7 @@
  * Active locale definitions — single source of truth for routing, formatting, and UI.
  */
 
-export const SUPPORTED_LOCALES = ["en", "tr", "de", "fr", "es", "ar"] as const;
+export const SUPPORTED_LOCALES = ["en"] as const;
 
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 
@@ -46,76 +46,6 @@ export const LOCALE_DEFINITIONS: Record<SupportedLocale, LocaleDefinition> = {
     textDirection: "ltr",
     defaultRegion: "GLOBAL",
   },
-  tr: {
-    code: "tr",
-    label: "Turkish",
-    nativeName: "Türkçe",
-    shortLabel: "TR",
-    pathPrefix: "/tr",
-    isRoot: false,
-    currency: "TRY",
-    unitSystem: "metric",
-    numberLocale: "tr-TR",
-    dateLocale: "tr-TR",
-    textDirection: "ltr",
-    defaultRegion: "TR",
-  },
-  de: {
-    code: "de",
-    label: "German",
-    nativeName: "Deutsch",
-    shortLabel: "DE",
-    pathPrefix: "/de",
-    isRoot: false,
-    currency: "EUR",
-    unitSystem: "metric",
-    numberLocale: "de-DE",
-    dateLocale: "de-DE",
-    textDirection: "ltr",
-    defaultRegion: "EU",
-  },
-  fr: {
-    code: "fr",
-    label: "French",
-    nativeName: "Français",
-    shortLabel: "FR",
-    pathPrefix: "/fr",
-    isRoot: false,
-    currency: "EUR",
-    unitSystem: "metric",
-    numberLocale: "fr-FR",
-    dateLocale: "fr-FR",
-    textDirection: "ltr",
-    defaultRegion: "EU",
-  },
-  es: {
-    code: "es",
-    label: "Spanish",
-    nativeName: "Español",
-    shortLabel: "ES",
-    pathPrefix: "/es",
-    isRoot: false,
-    currency: "EUR",
-    unitSystem: "metric",
-    numberLocale: "es-ES",
-    dateLocale: "es-ES",
-    textDirection: "ltr",
-    defaultRegion: "EU",
-  },
-  ar: {
-    code: "ar",
-    label: "Arabic",
-    nativeName: "العربية",
-    shortLabel: "AR",
-    pathPrefix: "/ar",
-    isRoot: false,
-    currency: "USD",
-    unitSystem: "metric",
-    numberLocale: "ar",
-    dateLocale: "ar",
-    textDirection: "rtl",
-    defaultRegion: "GLOBAL",
-  },
 };
 
 export const LOCALE_DEFINITION_LIST: readonly LocaleDefinition[] = SUPPORTED_LOCALES.map(
@@ -156,27 +86,4 @@ export const NEXT_LOCALE_COOKIE = "NEXT_LOCALE";
 /** ISO 3166-1 alpha-2 country from edge geo headers (client redirect fallback). */
 export const COUNTRY_COOKIE = "sectorcalc_country";
 
-export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
-  TR: "tr",
-  CY: "tr",
-  DE: "de",
-  AT: "de",
-  CH: "de",
-  FR: "fr",
-  BE: "fr",
-  ES: "es",
-  MX: "es",
-  AR: "es",
-  SA: "ar",
-  AE: "ar",
-  EG: "ar",
-  QA: "ar",
-  KW: "ar",
-  BH: "ar",
-  OM: "ar",
-  JO: "ar",
-  LB: "ar",
-  MA: "ar",
-  DZ: "ar",
-  TN: "ar",
-};
+export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {};
