@@ -1,14 +1,4 @@
-/**
- * Dynamic segment sitemaps — one handler serves all 6 segments.
- *
- * Rules applied to ALL segments:
- * - Domain: www.sectorcalc.com  (never web.app)
- * - No hreflang  (single-language EN)
- * - No lastmod  (real dates require per-item tracking)
- * - No /pricing?tool=...  (thin/duplicate — excluded)
- * - No .json / .txt / .jsonl  (not HTML)
- */
-
+import type { MetadataRoute } from "next";
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
 import { getAuthorityGuideRoutePath } from "@/lib/content/authority-links";
 import { listCaseStudySlugs } from "@/lib/case-studies/case-study-registry";
@@ -21,9 +11,21 @@ const DOMAIN = "https://www.sectorcalc.com";
 
 type Entry = { path: string };
 
+/**
+ * Sitemap — clean, production-quality.
+ *
+ * FIXES vs the old broken sitemap (674 entries, rejected by Google):
+ * - Domain: www.sectorcalc.com   (was sectorcalc-bf412.web.app)
+ * - No /pricing?tool=...         (~190 thin duplicate entries removed)
+ * - No AI manifest files          (7 .json/.txt/.jsonl — not HTML)
+ * - No hreflang                   (single-language EN site)
+ * - No lastmod                    (avoid fake timestamps)
+ * - Proper count: ~475 clean URLs (was 674 with 199 junk)
+ */
+
 /* ─── static pages ─────────────────────────────────────────── */
 
-const STATIC_PAGES: Entry[] = [
+const STATIC_PATHS: Entry[] = [
   { path: "/" },
   { path: "/categories" },
   { path: "/free-tools" },
@@ -45,10 +47,10 @@ const STATIC_PAGES: Entry[] = [
 
 /* ─── free tools ───────────────────────────────────────────── */
 
-function getFreeToolEntries(): Entry[] {
+function getFreeToolPaths(): Entry[] {
   const index = buildCategorizedToolIndex();
   const seen = new Set<string>();
-  const entries: Entry[] = [];
+  const paths: Entry[] = [];
 
   for (const item of index) {
     if (
@@ -59,16 +61,16 @@ function getFreeToolEntries(): Entry[] {
       !seen.has(item.routePath)
     ) {
       seen.add(item.routePath);
-      entries.push({ path: item.routePath });
+      paths.push({ path: item.routePath });
     }
   }
 
-  return entries.sort((a, b) => a.path.localeCompare(b.path));
+  return paths.sort((a, b) => a.path.localeCompare(b.path));
 }
 
 /* ─── premium-tool category hub pages ──────────────────────── */
 
-function getPremiumToolEntries(): Entry[] {
+function getPremiumToolPaths(): Entry[] {
   return listGlobalCategories().map((cat) => ({
     path: `/premium-tools/${cat.slug}`,
   }));
@@ -76,10 +78,11 @@ function getPremiumToolEntries(): Entry[] {
 
 /* ─── SEO landings ─────────────────────────────────────────── */
 
-function getSeoEntries(): Entry[] {
-  const a = listProgrammaticSeoSlugs();
-  const b = listPremiumToolSeoLandingSlugs();
-  const slugs = new Set([...a, ...b]);
+function getSeoPaths(): Entry[] {
+  const slugs = new Set([
+    ...listProgrammaticSeoSlugs(),
+    ...listPremiumToolSeoLandingSlugs(),
+  ]);
   return Array.from(slugs)
     .sort((x, y) => x.localeCompare(y))
     .map((slug) => ({ path: `/seo/${slug}` }));
@@ -87,7 +90,7 @@ function getSeoEntries(): Entry[] {
 
 /* ─── guides ───────────────────────────────────────────────── */
 
-function getGuideEntries(): Entry[] {
+function getGuidePaths(): Entry[] {
   return Array.from(listAuthorityGuideSlugs())
     .sort((a, b) => a.localeCompare(b))
     .map((slug) => ({ path: getAuthorityGuideRoutePath(slug) }));
@@ -95,7 +98,7 @@ function getGuideEntries(): Entry[] {
 
 /* ─── case studies ─────────────────────────────────────────── */
 
-function getCaseStudyEntries(): Entry[] {
+function getCaseStudyPaths(): Entry[] {
   const slugs = Array.from(listCaseStudySlugs()).sort((a, b) =>
     a.localeCompare(b),
   );
@@ -105,43 +108,19 @@ function getCaseStudyEntries(): Entry[] {
   ];
 }
 
-/* ─── router ────────────────────────────────────────────────── */
+/* ─── sitemap generator ────────────────────────────────────── */
 
-const SEGMENT_LOADERS: Record<string, () => Entry[]> = {
-  pages: () => STATIC_PAGES,
-  tools: getFreeToolEntries,
-  "premium-tools": getPremiumToolEntries,
-  seo: getSeoEntries,
-  guides: getGuideEntries,
-  "case-studies": getCaseStudyEntries,
-};
+export default function sitemap(): MetadataRoute.Sitemap {
+  const all: Entry[] = [
+    ...STATIC_PATHS,
+    ...getFreeToolPaths(),
+    ...getPremiumToolPaths(),
+    ...getSeoPaths(),
+    ...getGuidePaths(),
+    ...getCaseStudyPaths(),
+  ];
 
-export function GET(
-  _request: Request,
-  { params }: { params: { segment: string } },
-): Response {
-  const segment = params.segment.replace(/\.xml$/, "");
-  const loader = SEGMENT_LOADERS[segment];
-
-  if (!loader) {
-    return new Response("Not Found", { status: 404 });
-  }
-
-  const entries = loader();
-
-  const urls = entries
-    .map((e) => `  <url><loc>${DOMAIN}${e.path}</loc></url>`)
-    .join("\n");
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls}
-</urlset>`;
-
-  return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
-    },
-  });
+  return all.map((entry) => ({
+    url: `${DOMAIN}${entry.path}`,
+  }));
 }
