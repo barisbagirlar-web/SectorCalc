@@ -11,7 +11,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 6,
       "absolute_max": 120
     },
@@ -39,7 +39,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1770
     },
     {
@@ -66,7 +66,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.44
     },
     {
@@ -101,7 +101,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.41
     },
     {
@@ -124,7 +124,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 5
     },
     {
@@ -133,7 +133,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 20,
       "absolute_max": 2000,
       "note": "For hook contact in basket/choker: D = hook groove diameter; ISO 2408 §8"
@@ -144,7 +144,7 @@
       "unit": "cycles/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 500,
       "absolute_min": 1,
       "absolute_max": 50000
@@ -197,7 +197,7 @@
       },
       {
         "id": "W3",
-        "action": "INFO",
+        "severity": "INFO",
         "message": "Single-leg vertical: simplest configuration — confirm load centre of gravity alignment; off-vertical > 5° effectively applies choker mode factor",
         "condition": "sling_configuration === 1.0 && design_factor === 5",
         "source": "ISO 2408:2023"

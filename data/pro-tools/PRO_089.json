@@ -11,7 +11,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 25,
       "absolute_max": 1500
     },
@@ -21,7 +21,7 @@
       "unit": "m³/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 1000000
     },
@@ -31,7 +31,7 @@
       "unit": "kg/m³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 3000,
       "note": "Gas: use operating density ρ = PM/(ZRT); liquid: use process temperature density"
@@ -42,7 +42,7 @@
       "unit": "mPa·s",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "absolute_min": 0.001,
       "absolute_max": 5000
@@ -53,7 +53,7 @@
       "unit": "kPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 50,
       "absolute_min": 0.5,
       "absolute_max": 500,
@@ -79,7 +79,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "corner"
     },
     {
@@ -88,7 +88,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "absolute_min": 1,
       "absolute_max": 1.7,

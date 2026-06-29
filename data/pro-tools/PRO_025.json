@@ -224,7 +224,7 @@
       "ASCE 7-22 Minimum Design Loads",
       "EN 1991-1-3 Snow Loads",
       "EN 1991-1-4 Wind Actions",
-      "Turkey TEC 2018 Yük Yönetmeliği",
+      "Turkey TEC 2018 Load Management Regulation",
       "EN 1993-1-1 Steel Structures (EC3)"
     ],
     "validation": {
@@ -246,37 +246,43 @@
         "condition": "Total_Gravity_Load_kN_m2 > 3.0",
         "severity": "CRITICAL",
         "source": "ASCE 7 / EN 1991 Structural Design",
-        "message": "TOTAL GRAVITY LOAD > 3.0 kN/m²: Heavy combined loading. Structural engineer must design purlins, rafters, and columns specifically for this load. Standard light steel industrial roof frames (Z/C purlins) are typically designed for 0.5–1.5 kN/m². DO NOT use standard span tables."
+        "message": "TOTAL GRAVITY LOAD > 3.0 kN/m²: Heavy combined loading. Structural engineer must design purlins, rafters, and columns specifically for this load. Standard light steel industrial roof frames (Z/C purlins) are typically designed for 0.5–1.5 kN/m². DO NOT use standard span tables.",
+        "id": "W1"
       },
       {
         "condition": "Roof_Snow_Load_kN_m2 > 1.5",
         "severity": "CRITICAL",
         "source": "ASCE 7 Section 7 / EN 1991-1-3",
-        "message": "HIGH SNOW LOAD > 1.5 kN/m²: Significant structural implication. Roof framing must be designed for snow drift accumulation (ASCE 7 Section 7.7) at parapets and higher-level roof adjacencies. Progressive collapse analysis may be required."
+        "message": "HIGH SNOW LOAD > 1.5 kN/m²: Significant structural implication. Roof framing must be designed for snow drift accumulation (ASCE 7 Section 7.7) at parapets and higher-level roof adjacencies. Progressive collapse analysis may be required.",
+        "id": "W2"
       },
       {
         "condition": "roof_pitch_deg < 5 && Roof_Snow_Load_kN_m2 > 0.5",
         "severity": "WARNING",
         "source": "ASCE 7 Section 7.4 / EN 1991-1-3 Annex B",
-        "message": "FLAT/LOW-PITCH ROOF WITH SNOW: Pitch < 5° prevents snow from sliding. Full unbalanced snow load accumulates. Ponding risk from blocked drainage must also be assessed. Provide minimum 2% fall to drains."
+        "message": "FLAT/LOW-PITCH ROOF WITH SNOW: Pitch < 5° prevents snow from sliding. Full unbalanced snow load accumulates. Ponding risk from blocked drainage must also be assessed. Provide minimum 2% fall to drains.",
+        "id": "W3"
       },
       {
         "condition": "Dynamic_Wind_Pressure_kN_m2 > 1.2",
         "severity": "WARNING",
         "source": "EN 1991-1-4 / ASCE 7 Chapter 26",
-        "message": "HIGH WIND PRESSURE > 1.2 kN/m²: Cladding fixings and sheet overlaps must be designed for this uplift. Standard trapezoidal sheet fixings rated 0.8–1.0 kN/m² may be insufficient. Verify manufacturer's approved fixing schedule."
+        "message": "HIGH WIND PRESSURE > 1.2 kN/m²: Cladding fixings and sheet overlaps must be designed for this uplift. Standard trapezoidal sheet fixings rated 0.8–1.0 kN/m² may be insufficient. Verify manufacturer's approved fixing schedule.",
+        "id": "W4"
       },
       {
         "condition": "waste_allowance_pct < 5 && roof_pitch_deg > 20",
         "severity": "WARNING",
         "source": "Construction Quantity Surveying",
-        "message": "Waste allowance < 5% on steeply pitched roof: Hip ends, valleys, and ridge cuts generate significant offcuts. Minimum 8–10% recommended for pitches above 20°. Under-ordering causes installation delays and material price premium on re-order."
+        "message": "Waste allowance < 5% on steeply pitched roof: Hip ends, valleys, and ridge cuts generate significant offcuts. Minimum 8–10% recommended for pitches above 20°. Under-ordering causes installation delays and material price premium on re-order.",
+        "id": "W5"
       },
       {
         "condition": "Uplift_Wind_kN_m2 * -1 > dead_load_kN_m2",
         "severity": "CRITICAL",
         "source": "EN 1993-1-3 / ASCE 7 Wind Uplift",
-        "message": "WIND UPLIFT EXCEEDS DEAD LOAD: Net uplift force will lift roof structure. Roof-to-wall connections and hold-down anchors are structurally critical elements. Structural engineer must design specific uplift connections — this is not a standard detail."
+        "message": "WIND UPLIFT EXCEEDS DEAD LOAD: Net uplift force will lift roof structure. Roof-to-wall connections and hold-down anchors are structurally critical elements. Structural engineer must design specific uplift connections — this is not a standard detail.",
+        "id": "W6"
       }
     ]
   }

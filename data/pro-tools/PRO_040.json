@@ -11,7 +11,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 35
     },
@@ -21,7 +21,7 @@
       "unit": "kW",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 10000
     },
@@ -31,7 +31,7 @@
       "unit": "fraction",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.6,
       "absolute_min": 0.1,
       "absolute_max": 1,
@@ -43,7 +43,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 70,
       "absolute_min": 10,
       "absolute_max": 95
@@ -54,7 +54,7 @@
       "unit": "kW/(m³/min)",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 6.5,
       "absolute_min": 4,
       "absolute_max": 12,
@@ -66,7 +66,7 @@
       "unit": "h/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 6000,
       "absolute_min": 100,
       "absolute_max": 8760
@@ -77,7 +77,7 @@
       "unit": "USD/kWh",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.09,
       "absolute_min": 0.01,
       "absolute_max": 0.5
@@ -88,7 +88,7 @@
       "unit": "USD",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "absolute_min": 100,
       "absolute_max": 500000
     }

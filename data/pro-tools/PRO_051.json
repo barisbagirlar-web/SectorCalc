@@ -11,7 +11,7 @@
       "unit": "kW",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 100000
     },
@@ -21,7 +21,7 @@
       "unit": "rpm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 50000
     },
@@ -31,7 +31,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 12
     },
@@ -57,7 +57,7 @@
         20
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 4,
       "note": "ISO 54 preferred module series"
     },
@@ -67,7 +67,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 8,
       "absolute_max": 200
     },
@@ -77,7 +77,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 5,
       "absolute_max": 2000
     },
@@ -87,7 +87,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 400,
       "absolute_max": 1650,
       "note": "ISO 6336-5: case-hardened 20MnCr5 → σ_Hlim=1500 MPa; through-hardened 42CrMo4 → σ_Hlim=700 MPa"
@@ -98,7 +98,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 500,
       "note": "ISO 6336-5: case-hardened → σ_Flim=430 MPa; through-hardened → σ_Flim=275 MPa"
@@ -127,7 +127,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.25,
       "note": "ISO 6336-1 Table A.1"
     }

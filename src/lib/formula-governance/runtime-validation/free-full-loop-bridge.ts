@@ -421,7 +421,7 @@ export function runFreeFullLoopCalculation(
   const displayResult = runFreeDisplayCalculation(slug, displayValues, locale);
   const adapterResult = adaptFreeProductionOutput(slug, canonical);
 
-  if (adapterResult.status !== "ok") {
+  if (adapterResult.status === "error") {
     const postLoop = runContractCalculationIntelligenceLoop({
       contract,
       knownInputs: canonical,
@@ -431,12 +431,34 @@ export function runFreeFullLoopCalculation(
       loop: postLoop,
       canonicalKeys,
       rejectedKeys,
-      extraBlockers: [
-        adapterResult.status === "error"
-          ? adapterResult.reason
-          : adapterResult.reason,
-      ],
+      extraBlockers: [adapterResult.reason],
     });
+  }
+
+  // When no production adapter is registered, return display-only success.
+  // Display calculation (registry or calculateFreeToolResult) already ran
+  // with real formulas — no need to block the free tier for missing oracle adapter.
+  if (adapterResult.status === "needs_adapter") {
+    const trustTrace = buildRuntimeTrustTraceView({
+      slug,
+      loop: preLoop,
+      canonicalInputs: canonicalKeys,
+      rejectedKeys,
+    });
+    if (isRevenueFreeSlug(slug)) {
+      return {
+        status: "success",
+        revenueResult: displayResult as FreeToolResult,
+        trustTrace,
+        loop: preLoop,
+      };
+    }
+    return {
+      status: "success",
+      trafficResult: displayResult as FreeTrafficResult,
+      trustTrace,
+      loop: preLoop,
+    };
   }
 
   const calculatedResult = buildFreeCalculatedResult(

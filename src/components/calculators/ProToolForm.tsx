@@ -39,8 +39,8 @@ const ucColor = (uc: number): string => (uc >= 1 ? "crit" : uc >= 0.9 ? "warn" :
 const confClass = (lbl?: string): string => {
   if (!lbl) return "pro-conf-approx";
   const u = lbl.toUpperCase();
-  if (u === "EXACT" || u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "pro-conf-exact";
-  if (u === "STRONG" || u === "GÜÇLÜ" || u === "MEDIUM") return "pro-conf-strong";
+  if (u === "EXACT" || u === "CERTAIN" || u === "HIGH") return "pro-conf-exact";
+  if (u === "STRONG" || u === "MEDIUM") return "pro-conf-strong";
   return "pro-conf-approx";
 };
 
@@ -50,13 +50,13 @@ function isInputHidden(inp: any, values: Record<string, any>): boolean {
   return false;
 }
 
-function confidenceLabel(lbl?: string): "KESİN" | "GÜÇLÜ" | "ORTA" | "VARSAYIM" | undefined {
+function confidenceLabel(lbl?: string): "EXACT" | "STRONG" | "MEDIUM" | "DEFAULT" | undefined {
   if (!lbl) return undefined;
   const u = lbl.toUpperCase();
-  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH" || u === "EXACT") return "KESİN";
-  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "GÜÇLÜ";
-  if (u === "ORTA" || u === "MODERATE") return "ORTA";
-  return "VARSAYIM";
+  if (u === "CERTAIN" || u === "HIGH" || u === "EXACT") return "EXACT";
+  if (u === "STRONG" || u === "MEDIUM") return "STRONG";
+  if (u === "MODERATE") return "MEDIUM";
+  return "DEFAULT";
 }
 
 // ─── MATERIAL DB ──────────────────────────────────────────────────────────
@@ -346,7 +346,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
             </div>
           </div>
           <div className="pro-hdr-badges">
-            <span className="pro-cert-badge pro-cert-tuv">TÜV-class</span>
+            <span className="pro-cert-badge pro-cert-tuv">TUV-class</span>
             <span className="pro-cert-badge pro-cert-iso">ISO 9001 §8.5.1</span>
             <span className="pro-cert-badge pro-cert-ecmi">ECMI</span>
           </div>

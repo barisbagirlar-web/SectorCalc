@@ -203,37 +203,43 @@
         "condition": "Ra_approx > ra_specification_um",
         "severity": "CRITICAL",
         "source": "ISO 1302 / ISO 3002",
-        "message": "SURFACE FINISH VIOLATION: Predicted Ra exceeds drawing specification. Reduce fz or use a wiper insert (larger rε). Safe fz for spec compliance is shown below."
+        "message": "SURFACE FINISH VIOLATION: Predicted Ra exceeds drawing specification. Reduce fz or use a wiper insert (larger rε). Safe fz for spec compliance is shown below.",
+        "id": "W1"
       },
       {
         "condition": "L_D_ratio > 4",
         "severity": "CRITICAL",
         "source": "Sandvik Coromant Vibration Handbook",
-        "message": "CHATTER RISK HIGH — L/D > 4: At this overhang ratio, regenerative chatter is likely. Symptoms: harmonic surface marks, tool noise, premature wear. Mitigations: (1) Use anti-vibration toolholder, (2) Reduce ap by 30–40%, (3) Change spindle speed ±10% to shift from resonance zone."
+        "message": "CHATTER RISK HIGH — L/D > 4: At this overhang ratio, regenerative chatter is likely. Symptoms: harmonic surface marks, tool noise, premature wear. Mitigations: (1) Use anti-vibration toolholder, (2) Reduce ap by 30–40%, (3) Change spindle speed ±10% to shift from resonance zone.",
+        "id": "W2"
       },
       {
         "condition": "Tool_Deflection_mm > 0.05",
         "severity": "CRITICAL",
         "source": "VDI 3321 Tool Deflection",
-        "message": "DIMENSIONAL INACCURACY: Tool tip deflection exceeds 0.05mm (50μm). Workpiece dimensional tolerance will be violated. Reduce overhang, increase tool diameter, or reduce cutting force."
+        "message": "DIMENSIONAL INACCURACY: Tool tip deflection exceeds 0.05mm (50μm). Workpiece dimensional tolerance will be violated. Reduce overhang, increase tool diameter, or reduce cutting force.",
+        "id": "W3"
       },
       {
         "condition": "Tool_Deflection_mm > 0.02 && Tool_Deflection_mm <= 0.05",
         "severity": "WARNING",
         "source": "VDI 3321",
-        "message": "Elevated tool deflection (20–50μm): Monitor dimensional output. For tight tolerances (IT6 or better), this deflection will cause out-of-spec parts. Consider shorter toolholder or reduced Fc."
+        "message": "Elevated tool deflection (20–50μm): Monitor dimensional output. For tight tolerances (IT6 or better), this deflection will cause out-of-spec parts. Consider shorter toolholder or reduced Fc.",
+        "id": "W4"
       },
       {
         "condition": "Tooth_Passing_Freq_Hz > 1000",
         "severity": "WARNING",
         "source": "Chatter Dynamics / Spindle Modal Analysis",
-        "message": "Tooth passing frequency > 1000 Hz: May excite spindle bearing natural frequencies. If chatter occurs, shift RPM by ±5–10% or change number of flutes to detune from structural resonance."
+        "message": "Tooth passing frequency > 1000 Hz: May excite spindle bearing natural frequencies. If chatter occurs, shift RPM by ±5–10% or change number of flutes to detune from structural resonance.",
+        "id": "W5"
       },
       {
         "condition": "rigidity_factor > 2.0 && L_D_ratio > 3",
         "severity": "CRITICAL",
         "source": "Sandvik Coromant / Kennametal Vibration Control",
-        "message": "COMBINED HIGH-RISK: Weak fixture + long overhang simultaneously. Predicted Ra and deflection values are unreliable — actual results may be significantly worse. Mandatory: reduce overhang to L/D ≤ 3 before proceeding."
+        "message": "COMBINED HIGH-RISK: Weak fixture + long overhang simultaneously. Predicted Ra and deflection values are unreliable — actual results may be significantly worse. Mandatory: reduce overhang to L/D ≤ 3 before proceeding.",
+        "id": "W6"
       }
     ]
   }

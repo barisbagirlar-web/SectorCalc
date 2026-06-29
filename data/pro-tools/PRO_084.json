@@ -11,7 +11,7 @@
       "unit": "m³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 200000
     },
@@ -21,7 +21,7 @@
       "unit": "m³/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 20000
     },
@@ -31,7 +31,7 @@
       "unit": "m³/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 20000
     },
@@ -41,7 +41,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -50,
       "absolute_max": 250,
       "note": "Gasoline < 0°C; diesel ≈ 55°C; heavy fuel oil ≈ 70–120°C; crude oil varies"
@@ -52,7 +52,7 @@
       "unit": "kPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 65,
       "absolute_min": 0.1,
       "absolute_max": 200,
@@ -64,7 +64,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 120
     },
@@ -74,7 +74,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 45,
       "absolute_min": 0,
       "absolute_max": 90

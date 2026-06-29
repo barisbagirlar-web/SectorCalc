@@ -10,7 +10,7 @@ const QUANTITY_REGISTRY: Record<QuantityType, QuantityUnitDefinition> = {
   volume: { quantityType: "volume", canonicalUnit: "m3", displayUnits: ["L", "m3", "gal", "ft3", "cuft"], unitDimension: "volume" },
   mass: { quantityType: "mass", canonicalUnit: "kg", displayUnits: ["g", "kg", "lb", "oz"], unitDimension: "mass" },
   time: { quantityType: "time", canonicalUnit: "h", displayUnits: ["min", "h", "hr"], unitDimension: "time" },
-  currency: { quantityType: "currency", canonicalUnit: "USD", displayUnits: ["USD", "EUR", "TRY", "GBP", "SAR", "AED"] },
+  currency: { quantityType: "currency", canonicalUnit: "USD", displayUnits: ["USD", "EUR", "GBP", "SAR", "AED"] },
   energy: { quantityType: "energy", canonicalUnit: "kWh", displayUnits: ["kWh", "MWh", "J", "MJ"] },
   power: { quantityType: "power", canonicalUnit: "kW", displayUnits: ["W", "kW", "MW", "hp"] },
   temperature: { quantityType: "temperature", canonicalUnit: "C", displayUnits: ["C", "F"], unitDimension: "temperature" },
@@ -26,7 +26,7 @@ const IMPERIAL_PREFERRED: Partial<Record<QuantityType, readonly string[]>> = {
 };
 
 const REGION_CURRENCY_OPTIONS: Record<RegionalEngineCode, readonly string[]> = {
-  GLOBAL: ["USD", "EUR", "GBP"], TR: ["TRY", "USD", "EUR"], US: ["USD", "EUR", "GBP"], DE: ["EUR", "USD", "GBP"],
+  GLOBAL: ["USD", "EUR", "GBP"], TR: ["USD", "EUR", "GBP"], US: ["USD", "EUR", "GBP"], DE: ["EUR", "USD", "GBP"],
   FR: ["EUR", "USD", "GBP"], ES: ["EUR", "USD", "GBP"], AR: ["USD", "SAR", "AED", "EUR"],
 };
 

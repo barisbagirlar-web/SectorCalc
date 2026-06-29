@@ -191,37 +191,43 @@
         "condition": "Utilisation_pct > 100",
         "severity": "CRITICAL",
         "source": "VDI 2230 Eq.(R9) Von Mises Criterion",
-        "message": "BOLT YIELDS DURING ASSEMBLY: Combined Von Mises stress exceeds yield strength. Bolt will neck and lose preload or fracture during tightening. Actions: (1) Lubricate to reduce μG and μK, (2) Reduce preload utilisation target to 80%, (3) Use higher-grade bolt."
+        "message": "BOLT YIELDS DURING ASSEMBLY: Combined Von Mises stress exceeds yield strength. Bolt will neck and lose preload or fracture during tightening. Actions: (1) Lubricate to reduce μG and μK, (2) Reduce preload utilisation target to 80%, (3) Use higher-grade bolt.",
+        "id": "W1"
       },
       {
         "condition": "Utilisation_pct > 90 && Utilisation_pct <= 100",
         "severity": "WARNING",
         "source": "VDI 2230 / ISO 16047",
-        "message": "Near-yield tightening: Utilisation 90–100%. Any friction variation above nominal will cause bolt yield. Calibrated torque wrench mandatory. Re-verify after first thermal cycle."
+        "message": "Near-yield tightening: Utilisation 90–100%. Any friction variation above nominal will cause bolt yield. Calibrated torque wrench mandatory. Re-verify after first thermal cycle.",
+        "id": "W2"
       },
       {
         "condition": "friction_thread_mu_g > 0.16",
         "severity": "WARNING",
         "source": "VDI 2230 Table A8 / ISO 16047",
-        "message": "High thread friction (μG > 0.16): Most of applied torque is consumed overcoming friction — actual preload achieved will be much lower than calculated. Use thread lubricant or anti-seize compound. Re-measure μ with torque-angle method."
+        "message": "High thread friction (μG > 0.16): Most of applied torque is consumed overcoming friction — actual preload achieved will be much lower than calculated. Use thread lubricant or anti-seize compound. Re-measure μ with torque-angle method.",
+        "id": "W3"
       },
       {
         "condition": "alpha_val > 1.6",
         "severity": "WARNING",
         "source": "VDI 2230 Section 5.4.3",
-        "message": "High scatter factor (αA > 1.6): Actual preload may be only 60% of target. Joint may not achieve required clamp force. Switch to hydraulic tensioning (αA = 1.2) or angle-controlled tightening (αA = 1.05)."
+        "message": "High scatter factor (αA > 1.6): Actual preload may be only 60% of target. Joint may not achieve required clamp force. Switch to hydraulic tensioning (αA = 1.2) or angle-controlled tightening (αA = 1.05).",
+        "id": "W4"
       },
       {
         "condition": "joint_type === 'Dynamic / Fatigue — vibration, alternating load' && preload_utilisation_pct < 80",
         "severity": "CRITICAL",
         "source": "VDI 2230 / Junker Vibration Test",
-        "message": "FATIGUE JOINT — INSUFFICIENT PRELOAD: Dynamic joints require high preload to prevent fretting and self-loosening (Junker effect). Preload below 80% Rp0.2 with vibration loading is a known failure mode. Use thread-locking compound or prevailing torque nut."
+        "message": "FATIGUE JOINT — INSUFFICIENT PRELOAD: Dynamic joints require high preload to prevent fretting and self-loosening (Junker effect). Preload below 80% Rp0.2 with vibration loading is a known failure mode. Use thread-locking compound or prevailing torque nut.",
+        "id": "W5"
       },
       {
         "condition": "K_nut_factor > 0.25",
         "severity": "WARNING",
         "source": "ISO 16047 K-factor Reference",
-        "message": "High K-factor (>0.25): Friction-dominated joint. Standard torque tables assume K≈0.20. Your actual preload from nameplate torque values may be 25–40% lower than expected. Re-calibrate using measured K-factor for this specific surface combination."
+        "message": "High K-factor (>0.25): Friction-dominated joint. Standard torque tables assume K≈0.20. Your actual preload from nameplate torque values may be 25–40% lower than expected. Re-calibrate using measured K-factor for this specific surface combination.",
+        "id": "W6"
       }
     ]
   }

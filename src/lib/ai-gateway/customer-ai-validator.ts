@@ -65,9 +65,7 @@ export function validateCustomerAiResponse(
     return {
       intent: "unsupported",
       answer:
-        request.locale === "tr"
-          ? "A safe answer could not be generated for this topic. Please check the inputs and try again."
-          : "A safe answer could not be generated. Please check the inputs and try again.",
+        "A safe answer could not be generated. Please check the inputs and try again.",
       safetyStatus: "fallback",
     };
   }
@@ -76,9 +74,7 @@ export function validateCustomerAiResponse(
     return {
       intent: "unsupported",
       answer:
-        request.locale === "tr"
-          ? "Please complete the calculation first, then I can explain the result."
-          : "Please complete the calculation first, then I can explain the result.",
+        "Please complete the calculation first, then I can explain the result.",
       safetyStatus: "fallback",
     };
   }

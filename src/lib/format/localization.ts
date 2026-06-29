@@ -10,7 +10,7 @@ import {
 
 export type { SupportedLocale };
 
-export type CurrencyCode = "USD" | "TRY" | "EUR" | "GBP";
+export type CurrencyCode = "USD" | "EUR" | "GBP";
 
 export type UnitSystem = "metric" | "imperial";
 

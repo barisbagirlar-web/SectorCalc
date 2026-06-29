@@ -105,7 +105,7 @@
       "required": true,
       "confidence_label": "APPROXIMATE",
       "absolute_min": 0,
-      "hint": "From local environmental regulation — EU ELD: up to €1M+ | Turkey: per ÇevKan tariff"
+      "hint": "From local environmental regulation — EU ELD: up to €1M+ | Turkey: per CevKan tariff"
     },
     {
       "id": "violation_probability_pct",
@@ -178,37 +178,43 @@
         "condition": "Hazardous_Fraction_pct > 20",
         "severity": "CRITICAL",
         "source": "EU Directive 2008/98/EC / ISO 14001",
-        "message": "HIGH HAZARDOUS WASTE FRACTION (>20%): Hazardous waste disposal represents a significant cost and liability. Mandatory: (1) Waste audit to identify substitution opportunities (REACH compliance), (2) Solvent recovery system ROI analysis, (3) Licensed contractor insurance verification. Regulatory exposure is elevated."
+        "message": "HIGH HAZARDOUS WASTE FRACTION (>20%): Hazardous waste disposal represents a significant cost and liability. Mandatory: (1) Waste audit to identify substitution opportunities (REACH compliance), (2) Solvent recovery system ROI analysis, (3) Licensed contractor insurance verification. Regulatory exposure is elevated.",
+        "id": "W1"
       },
       {
         "condition": "Circularity_Rate_pct < 20",
         "severity": "CRITICAL",
         "source": "EU CSRD / ESRS E5 / EU Taxonomy",
-        "message": "CIRCULARITY RATE <20%: EU Taxonomy and CSRD require disclosure of circularity performance. Institutional investors and EU supply chain customers will classify this as a sustainability red flag. Circular economy action plan required for continued EU market access and ESG-linked financing eligibility."
+        "message": "CIRCULARITY RATE <20%: EU Taxonomy and CSRD require disclosure of circularity performance. Institutional investors and EU supply chain customers will classify this as a sustainability red flag. Circular economy action plan required for continued EU market access and ESG-linked financing eligibility.",
+        "id": "W2"
       },
       {
         "condition": "Risk_Weighted_Fine_USD > Recycling_Revenue_USD",
         "severity": "CRITICAL",
         "source": "Environmental Liability Risk",
-        "message": "EXPECTED REGULATORY PENALTY EXCEEDS RECYCLING REVENUE: Compliance risk is financially material. Investment in waste management systems (proper segregation, licensed storage, treatment capacity) should be evaluated against risk-weighted fine cost. Environmental insurance may be warranted."
+        "message": "EXPECTED REGULATORY PENALTY EXCEEDS RECYCLING REVENUE: Compliance risk is financially material. Investment in waste management systems (proper segregation, licensed storage, treatment capacity) should be evaluated against risk-weighted fine cost. Environmental insurance may be warranted.",
+        "id": "W3"
       },
       {
         "condition": "Carbon_Footprint_Waste_tCO2e > 100",
         "severity": "WARNING",
         "source": "GHG Protocol Scope 3 Category 5",
-        "message": "SIGNIFICANT WASTE-RELATED EMISSIONS (>100 tCO₂e/year): This waste stream generates reportable Scope 3 emissions under GHG Protocol Category 5. Must be disclosed in CDP, GRI 306, and CSRD reporting. Diversion from landfill (composting, energy recovery, recycling) reduces both cost and carbon footprint."
+        "message": "SIGNIFICANT WASTE-RELATED EMISSIONS (>100 tCO₂e/year): This waste stream generates reportable Scope 3 emissions under GHG Protocol Category 5. Must be disclosed in CDP, GRI 306, and CSRD reporting. Diversion from landfill (composting, energy recovery, recycling) reduces both cost and carbon footprint.",
+        "id": "W4"
       },
       {
         "condition": "Recycling_Revenue_USD > Landfill_Cost_USD && recycled_diverted_t < non_hazardous_waste_t * 0.5",
         "severity": "INFO",
         "source": "Circular Economy — Revenue Opportunity",
-        "message": "UNTAPPED RECYCLING REVENUE: Scrap value of recyclable materials exceeds current landfill cost, but less than 50% of non-hazardous waste is being diverted. Increasing recovery rate will reduce costs AND generate additional revenue. Conduct waste composition audit to identify high-value streams."
+        "message": "UNTAPPED RECYCLING REVENUE: Scrap value of recyclable materials exceeds current landfill cost, but less than 50% of non-hazardous waste is being diverted. Increasing recovery rate will reduce costs AND generate additional revenue. Conduct waste composition audit to identify high-value streams.",
+        "id": "W5"
       },
       {
         "condition": "Cost_per_Tonne_Generated_USD > 200",
         "severity": "WARNING",
         "source": "Industrial Waste Benchmarking",
-        "message": "HIGH ALL-IN WASTE COST (>$200/tonne generated): Above typical manufacturing benchmark. Dominant driver may be hazardous waste, wastewater treatment, or regulatory risk premium. Waste minimisation at source (lean process, material substitution) delivers permanent cost reduction."
+        "message": "HIGH ALL-IN WASTE COST (>$200/tonne generated): Above typical manufacturing benchmark. Dominant driver may be hazardous waste, wastewater treatment, or regulatory risk premium. Waste minimisation at source (lean process, material substitution) delivers permanent cost reduction.",
+        "id": "W6"
       }
     ]
   }

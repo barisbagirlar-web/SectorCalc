@@ -11,7 +11,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.5,
       "absolute_max": 5000,
       "note": "From manufacturer catalogue — ISO 281:2007 definition"
@@ -22,7 +22,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 2000,
       "note": "P = X·Fr + Y·Fa per ISO 76; for pure radial: P = Fr"
@@ -33,7 +33,7 @@
       "unit": "rpm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 100000
     },
@@ -53,7 +53,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 3,
       "note": "ISO 281:2007 §5 — fatigue life exponent"
     },
@@ -63,7 +63,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "absolute_min": 0.1,
       "absolute_max": 4,
@@ -101,7 +101,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.6,
       "note": "ISO 281:2007 Annex A — contamination factor per cleanliness class"
     },
@@ -111,7 +111,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.5,
       "absolute_max": 6000,
       "note": "From manufacturer catalogue — ISO 76:2006"
@@ -148,7 +148,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 90
     }
   ],

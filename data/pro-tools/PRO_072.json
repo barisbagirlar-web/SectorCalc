@@ -11,7 +11,7 @@
       "unit": "A",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 10000
     },
@@ -42,7 +42,7 @@
         630
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 95
     },
     {
@@ -51,7 +51,7 @@
       "unit": "A",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 5000,
       "note": "From IEC 60364-5-52 Tables B.52.1–B.52.12 for installation method; e.g. 95mm² XLPE 3-core direct buried: I_z0 = 225 A"
@@ -62,7 +62,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 30,
       "absolute_min": -20,
       "absolute_max": 60,
@@ -88,7 +88,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 90
     },
     {
@@ -123,7 +123,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.8,
       "note": "IEC 60364-5-52 Table B.52.17 — grouping factors for multicore cables"
     },
@@ -133,7 +133,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 50000
     },
@@ -165,7 +165,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 400
     }
   ],

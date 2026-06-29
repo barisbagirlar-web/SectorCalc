@@ -18,7 +18,7 @@ export interface AuditMetrics {
   target: number;
   actual: number;
   unitCost: number;
-  /** Örn: 0.05 (%5) */
+  /** E.g.: 0.05 (5%) */
   tolerance: number;
 }
 

@@ -3,10 +3,10 @@ import { formatOutputValue, formatRegionalCurrency, getAvailableUnitsForQuantity
 import { getLocaleDecimalSeparator } from "@/lib/regional/regional-formatting";
 
 describe("regional engine", () => {
-  it("TR defaults to metric + TRY", () => {
+  it("TR defaults to metric + USD", () => {
     expect(getDefaultUnitSystem("TR")).toBe("metric");
-    expect(getDefaultCurrency("TR")).toBe("TRY");
-    expect(getRegionConfig("TR").decimalSeparator).toBe(",");
+    expect(getDefaultCurrency("TR")).toBe("USD");
+    expect(getRegionConfig("TR").decimalSeparator).toBe(".");
   });
   it("US defaults to imperial + USD", () => {
     expect(getDefaultUnitSystem("US")).toBe("imperial");
@@ -38,9 +38,9 @@ describe("regional engine", () => {
   it("formats TR decimal separator as comma", () => {
     expect(getLocaleDecimalSeparator("tr" as any)).toBe(",");
   });
-  it("formats TRY currency", () => {
-    const formatted = formatRegionalCurrency(1250.5, "tr" as any, "TR", "TRY");
-    expect(formatted).toMatch(/₺|TRY/);
+  it("formats currency", () => {
+    const formatted = formatRegionalCurrency(1250.5, "tr" as any, "TR", "USD");
+    expect(formatted).toMatch(/\$|USD/);
   });
   it("benchmarks return not_configured", () => {
     expect(getRegionalBenchmark({ benchmarkKey: "x", regionCode: "TR" }).status).toBe("not_configured");
@@ -48,7 +48,7 @@ describe("regional engine", () => {
   it("resolves TR context", () => {
     const ctx = resolveRegionalCalculationContext({ locale: "tr" as any, toolSlug: "loan-payment-calculator" });
     expect(ctx.regionCode).toBe("TR");
-    expect(ctx.currency).toBe("TRY");
+    expect(ctx.currency).toBe("USD");
   });
   it("US imperial length units", () => {
     expect(getAvailableUnitsForQuantity("length", "US")[0]).toBe("in");
@@ -58,6 +58,6 @@ describe("regional engine", () => {
   });
   it("currency options for TR", () => {
     const options = getRegionalParameterOptions({ toolSlug: "loan-payment-calculator", parameterKey: "currency", regionCode: "TR" });
-    expect((options.value as readonly string[]).includes("TRY")).toBe(true);
+    expect((options.value as readonly string[]).includes("USD")).toBe(true);
   });
 });

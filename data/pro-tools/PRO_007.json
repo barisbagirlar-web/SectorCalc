@@ -11,7 +11,7 @@
       "unit": "bar(a)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.013,
       "absolute_min": 0.5,
       "absolute_max": 1.1,
@@ -23,7 +23,7 @@
       "unit": "bar(a)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.001,
       "absolute_max": 5,
       "note": "Water at 20°C = 0.023 bar; 80°C = 0.474 bar; 100°C = 1.013 bar"
@@ -34,7 +34,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -15,
       "absolute_max": 30
     },
@@ -44,7 +44,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0,
       "absolute_max": 20
     },
@@ -54,7 +54,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.3,
       "absolute_max": 30,
       "note": "At operating flow point from pump data sheet; API 610 NPSHr = 3% head drop criterion"
@@ -65,7 +65,7 @@
       "unit": "kg/m³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1000,
       "absolute_min": 400,
       "absolute_max": 2000
@@ -76,7 +76,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 2000
     },
@@ -86,7 +86,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0,
       "absolute_max": 500
     }

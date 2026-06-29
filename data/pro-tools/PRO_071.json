@@ -11,7 +11,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 100000
     },
@@ -21,7 +21,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 100000
     },
@@ -31,7 +31,7 @@
       "unit": "bar",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 700,
       "note": "Industrial hydraulic: 150–350 bar; mobile: 250–450 bar; high-pressure: up to 700 bar"
@@ -42,7 +42,7 @@
       "unit": "bar",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 5,
       "absolute_min": 0,
       "absolute_max": 100,
@@ -54,7 +54,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 20000
     },
@@ -64,7 +64,7 @@
       "unit": "mm/s",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 2000
     },
@@ -92,7 +92,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1,
       "note": "Most hydraulic cylinders: pin-pin (k=1.0) or fixed-pin (k=0.7) per ISO 6020 mounting"
     },
@@ -116,7 +116,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 650
     }
   ],

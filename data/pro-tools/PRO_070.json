@@ -11,7 +11,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.5,
       "absolute_max": 60
     },
@@ -21,7 +21,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.3,
       "absolute_max": 40
     },
@@ -31,7 +31,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 3,
       "absolute_max": 50
     },
@@ -55,7 +55,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 250
     },
     {
@@ -64,7 +64,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 60
     },
@@ -74,7 +74,7 @@
       "unit": "m/s",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 45,
       "absolute_min": 20,
       "absolute_max": 90,
@@ -86,7 +86,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 1,
       "absolute_max": 50000
     },
@@ -110,7 +110,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.85,
       "note": "API 650 §5.2 / AWWA D100 — joint efficiency by radiographic inspection class"
     }

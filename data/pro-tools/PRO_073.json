@@ -11,7 +11,7 @@
       "unit": "units/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 100000000
     },
@@ -21,7 +21,7 @@
       "unit": "USD/order",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 150,
       "absolute_min": 1,
       "absolute_max": 100000,
@@ -33,7 +33,7 @@
       "unit": "USD/unit",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 1000000
     },
@@ -43,7 +43,7 @@
       "unit": "% of unit cost/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 25,
       "absolute_min": 5,
       "absolute_max": 60,
@@ -55,7 +55,7 @@
       "unit": "days",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 1,
       "absolute_max": 365
     },
@@ -65,7 +65,7 @@
       "unit": "days",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 3,
       "absolute_min": 0,
       "absolute_max": 60,
@@ -77,7 +77,7 @@
       "unit": "units/day",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0,
       "absolute_max": 100000,
       "note": "σ_d from historical demand data; σ_d = 0 for deterministic demand"
@@ -110,7 +110,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 95
     }
   ],

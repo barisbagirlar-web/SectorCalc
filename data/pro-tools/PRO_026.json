@@ -161,37 +161,43 @@
         "condition": "bottleneck_ct_target_min < takt_time_min",
         "severity": "WARNING",
         "source": "Goldratt TOC — Overinvestment",
-        "message": "OVER-INVESTMENT: Target cycle time is faster than customer takt time. Output beyond takt rate creates overproduction waste (Muda #1). System is demand-constrained — additional throughput cannot be sold. Reduce investment scope to target CT = Takt Time exactly."
+        "message": "OVER-INVESTMENT: Target cycle time is faster than customer takt time. Output beyond takt rate creates overproduction waste (Muda #1). System is demand-constrained — additional throughput cannot be sold. Reduce investment scope to target CT = Takt Time exactly.",
+        "id": "W1"
       },
       {
         "condition": "Project_NPV_USD < 0",
         "severity": "CRITICAL",
         "source": "Investment Analysis / WACC",
-        "message": "NEGATIVE NPV: Investment destroys value at the given discount rate. Review: (1) Is throughput per unit correctly calculated? (2) Is project life realistic? (3) Can CAPEX be reduced? (4) Is there a phased investment option?"
+        "message": "NEGATIVE NPV: Investment destroys value at the given discount rate. Review: (1) Is throughput per unit correctly calculated? (2) Is project life realistic? (3) Can CAPEX be reduced? (4) Is there a phased investment option?",
+        "id": "W2"
       },
       {
         "condition": "Payback_Months > 36",
         "severity": "WARNING",
         "source": "Industrial Investment Benchmarks",
-        "message": "Payback period exceeds 36 months: Above typical manufacturing investment approval threshold (12–24 months for constraint upgrades). Present risk-adjusted scenario analysis to management."
+        "message": "Payback period exceeds 36 months: Above typical manufacturing investment approval threshold (12–24 months for constraint upgrades). Present risk-adjusted scenario analysis to management.",
+        "id": "W3"
       },
       {
         "condition": "Demand_Headroom_pct < 10",
         "severity": "INFO",
         "source": "TOC / Market Analysis",
-        "message": "Low demand headroom (<10%): Market is nearly saturated at current output. Throughput gain from constraint removal is limited by demand, not capacity. Validate sales forecast before committing CAPEX — demand growth must be confirmed."
+        "message": "Low demand headroom (<10%): Market is nearly saturated at current output. Throughput gain from constraint removal is limited by demand, not capacity. Validate sales forecast before committing CAPEX — demand growth must be confirmed.",
+        "id": "W4"
       },
       {
         "condition": "OEEImprovementUnits > Incremental_Units_yr * 0.5",
         "severity": "INFO",
         "source": "TPM / OEE Improvement",
-        "message": "More than 50% of incremental throughput comes from OEE improvement (not cycle time reduction). Consider TPM/autonomous maintenance programme as low-cost alternative before CAPEX. OEE improvement is typically 5–10× cheaper than hardware upgrade."
+        "message": "More than 50% of incremental throughput comes from OEE improvement (not cycle time reduction). Consider TPM/autonomous maintenance programme as low-cost alternative before CAPEX. OEE improvement is typically 5–10× cheaper than hardware upgrade.",
+        "id": "W5"
       },
       {
         "condition": "current_oee_pct < 65",
         "severity": "CRITICAL",
         "source": "JIPM TPM World-Class Benchmark",
-        "message": "BOTTLENECK OEE < 65%: Constraint station is severely underperforming before investment. Adding capacity to a poorly-maintained machine multiplies waste. Mandatory: reach OEE ≥ 75% through TPM before hardware upgrade. Otherwise investment ROI will be materially worse than projected."
+        "message": "BOTTLENECK OEE < 65%: Constraint station is severely underperforming before investment. Adding capacity to a poorly-maintained machine multiplies waste. Mandatory: reach OEE ≥ 75% through TPM before hardware upgrade. Otherwise investment ROI will be materially worse than projected.",
+        "id": "W6"
       }
     ]
   }

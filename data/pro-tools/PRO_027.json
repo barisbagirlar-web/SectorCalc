@@ -154,37 +154,43 @@
         "condition": "Current_EOQ_units > annual_demand_units / 6",
         "severity": "CRITICAL",
         "source": "Lean Inventory / Toyota Production System",
-        "message": "BATCH PRODUCTION MODE: Current EOQ exceeds 2 months of demand. High setup cost is forcing large batch sizes, creating excess WIP, long lead times, and poor flexibility. SMED is the correct intervention — reducing setup cost directly enables smaller, leaner batches."
+        "message": "BATCH PRODUCTION MODE: Current EOQ exceeds 2 months of demand. High setup cost is forcing large batch sizes, creating excess WIP, long lead times, and poor flexibility. SMED is the correct intervention — reducing setup cost directly enables smaller, leaner batches.",
+        "id": "W1"
       },
       {
         "condition": "Setup_Reduction_Pct < 50",
         "severity": "WARNING",
         "source": "Shingo SMED Methodology",
-        "message": "Setup reduction < 50%: Below typical SMED first-pass target. Shingo's methodology targets >75% reduction in internal time. Review: Have all convertible internal activities been identified? Are quick-clamp fixtures and standardised toolholder systems being used?"
+        "message": "Setup reduction < 50%: Below typical SMED first-pass target. Shingo's methodology targets >75% reduction in internal time. Review: Have all convertible internal activities been identified? Are quick-clamp fixtures and standardised toolholder systems being used?",
+        "id": "W2"
       },
       {
         "condition": "Annual_Capacity_Recovered_min > 480 && machine_hourly_rate_usd > 50",
         "severity": "INFO",
         "source": "OEE / Capacity Analysis",
-        "message": "Significant capacity recovered (>8 hours equivalent): At this machine rate, recovered capacity has high monetary value. If demand exists, this freed capacity can be converted to throughput rather than cost saving — model the revenue upside separately."
+        "message": "Significant capacity recovered (>8 hours equivalent): At this machine rate, recovered capacity has high monetary value. If demand exists, this freed capacity can be converted to throughput rather than cost saving — model the revenue upside separately.",
+        "id": "W3"
       },
       {
         "condition": "New_EOQ_units < annual_demand_units / 52",
         "severity": "INFO",
         "source": "Lean / One-Piece Flow",
-        "message": "SMED enables weekly or sub-weekly batch sizes: Approaching one-piece-flow conditions. Consider implementing Pull / Kanban replenishment system to replace EOQ-based push scheduling."
+        "message": "SMED enables weekly or sub-weekly batch sizes: Approaching one-piece-flow conditions. Consider implementing Pull / Kanban replenishment system to replace EOQ-based push scheduling.",
+        "id": "W4"
       },
       {
         "condition": "internal_to_external_conversion_pct < 30 && internal_setup_current_min > 30",
         "severity": "WARNING",
         "source": "Shingo SMED Stage 1",
-        "message": "Low conversion rate with long internal setup: SMED Stage 1 (separation of internal/external) is incomplete. Most setups > 30 min have 40–60% of activities convertible to external. Conduct video-based setup analysis to identify conversion opportunities."
+        "message": "Low conversion rate with long internal setup: SMED Stage 1 (separation of internal/external) is incomplete. Most setups > 30 min have 40–60% of activities convertible to external. Conduct video-based setup analysis to identify conversion opportunities.",
+        "id": "W5"
       },
       {
         "condition": "Inventory_Value_Released_USD > smed_project_cost_usd && smed_project_cost_usd > 0",
         "severity": "INFO",
         "source": "Working Capital Optimisation",
-        "message": "WORKING CAPITAL RELEASE EXCEEDS PROJECT COST: Inventory value released from smaller batch sizes alone covers the SMED investment. Present to finance as a working capital project, not just a productivity initiative."
+        "message": "WORKING CAPITAL RELEASE EXCEEDS PROJECT COST: Inventory value released from smaller batch sizes alone covers the SMED investment. Present to finance as a working capital project, not just a productivity initiative.",
+        "id": "W6"
       }
     ]
   }

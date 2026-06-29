@@ -183,37 +183,43 @@
         "condition": "NPSH_Ratio < 1.0",
         "severity": "CRITICAL",
         "source": "API 610 Md.6.1.4",
-        "message": "CAVITATION INITIATED: NPSHa < NPSHr. Vapor bubbles are forming in the impeller eye. Micro-implosions are causing surface erosion. Stop the pump immediately and rectify suction conditions."
+        "message": "CAVITATION INITIATED: NPSHa < NPSHr. Vapor bubbles are forming in the impeller eye. Micro-implosions are causing surface erosion. Stop the pump immediately and rectify suction conditions.",
+        "id": "W1"
       },
       {
         "condition": "NPSH_Ratio >= 1.0 && NPSH_Ratio < 1.1",
         "severity": "CRITICAL",
         "source": "API 610 / Hydraulic Institute",
-        "message": "CAVITATION RISK: Does not meet API 610 requirement of NPSHa >= NPSHr + 10% safety margin. Cavitation will initiate immediately on flow surges or temperature rises. Reduce suction line friction losses."
+        "message": "CAVITATION RISK: Does not meet API 610 requirement of NPSHa >= NPSHr + 10% safety margin. Cavitation will initiate immediately on flow surges or temperature rises. Reduce suction line friction losses.",
+        "id": "W2"
       },
       {
         "condition": "NPSH_Ratio >= 1.1 && NPSH_Ratio < 1.3",
         "severity": "WARNING",
         "source": "Hydraulic Institute ANSI/HI 9.6.1",
-        "message": "Insufficient NPSH margin: NPSHa / NPSHr is between 1.1 and 1.3. Cavitation may trigger during process fluctuations (temperature, flow). Hydraulic Institute recommends a minimum ratio of 1.3."
+        "message": "Insufficient NPSH margin: NPSHa / NPSHr is between 1.1 and 1.3. Cavitation may trigger during process fluctuations (temperature, flow). Hydraulic Institute recommends a minimum ratio of 1.3.",
+        "id": "W3"
       },
       {
         "condition": "fluid_temp_c > 60 && static_suction_head_m < 0",
         "severity": "CRITICAL",
-        "source": "API 610 — Sıcak Akışkan",
-        "message": "Hot fluid + negative suction lift: Vapor pressure increases exponentially with temperature, rapidly reducing NPSHa. This combination poses critical cavitation risk. Locate pump below tank level."
+        "source": "API 610 — Hot Fluid",
+        "message": "Hot fluid + negative suction lift: Vapor pressure increases exponentially with temperature, rapidly reducing NPSHa. This combination poses critical cavitation risk. Locate pump below tank level.",
+        "id": "W4"
       },
       {
         "condition": "suction_pipe_losses_m > 2.0",
         "severity": "WARNING",
-        "source": "Hydraulic Institute Emme Hattı Tasarımı",
-        "message": "Suction line friction losses > 2m: Directly subtracts from NPSHa. To reduce losses: increase pipe diameter, minimize valves, shorten pipe runs, and avoid tight elbows."
+        "source": "Hydraulic Institute Suction Line Design",
+        "message": "Suction line friction losses > 2m: Directly subtracts from NPSHa. To reduce losses: increase pipe diameter, minimize valves, shorten pipe runs, and avoid tight elbows.",
+        "id": "W5"
       },
       {
         "condition": "NPSHa < 1.0",
         "severity": "CRITICAL",
         "source": "API 610",
-        "message": "NPSHa < 1.0m: Operating conditions are outside normal centrifugal pump limits. Evaluate special low-NPSH pump models (with inducer) or submersible pumps."
+        "message": "NPSHa < 1.0m: Operating conditions are outside normal centrifugal pump limits. Evaluate special low-NPSH pump models (with inducer) or submersible pumps.",
+        "id": "W6"
       }
     ]
   }

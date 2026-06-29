@@ -172,37 +172,43 @@
         "condition": "TUR < 4",
         "severity": "CRITICAL",
         "source": "ANSI Z540.3 / ILAC G8:2019",
-        "message": "CRITICAL DECISION RISK — TUR < 4:1: The 4:1 minimum Test Uncertainty Ratio is not met. Probability of false accept (in-tolerance equipment measuring out-of-spec parts as conforming) is statistically significant. ISO 17025 cl.7.8.6 requires this risk to be disclosed in the conformity statement."
+        "message": "CRITICAL DECISION RISK — TUR < 4:1: The 4:1 minimum Test Uncertainty Ratio is not met. Probability of false accept (in-tolerance equipment measuring out-of-spec parts as conforming) is statistically significant. ISO 17025 cl.7.8.6 requires this risk to be disclosed in the conformity statement.",
+        "id": "W1"
       },
       {
         "condition": "TUR < 2",
         "severity": "CRITICAL",
         "source": "ANSI Z540.3 Annex B",
-        "message": "EXTREME RISK — TUR < 2:1: False accept probability may exceed 5–15% depending on distribution. Guard band must be applied and expanded. Product liability exposure is severe. Internal audit required."
+        "message": "EXTREME RISK — TUR < 2:1: False accept probability may exceed 5–15% depending on distribution. Guard band must be applied and expanded. Product liability exposure is severe. Internal audit required.",
+        "id": "W2"
       },
       {
         "condition": "Predicted_Drift_Next_Interval > process_tolerance * 0.5",
         "severity": "CRITICAL",
         "source": "ILAC G8 Calibration Interval Analysis",
-        "message": "DRIFT EXCEEDS 50% OF TOLERANCE before next calibration is due. At the current drift rate, instrument will be out of tolerance before planned recalibration. Shorten calibration interval to maximum half of current interval."
+        "message": "DRIFT EXCEEDS 50% OF TOLERANCE before next calibration is due. At the current drift rate, instrument will be out of tolerance before planned recalibration. Shorten calibration interval to maximum half of current interval.",
+        "id": "W3"
       },
       {
         "condition": "Drift_Rate_per_Day > ABS(process_tolerance) / 90",
         "severity": "WARNING",
         "source": "Calibration Interval Optimization (ISO 17025 cl.6.4.10)",
-        "message": "High drift rate detected: Instrument drifts more than 1% of tolerance per 90 days. Current calibration interval may be too long. Review against measurement criticality and reduce interval."
+        "message": "High drift rate detected: Instrument drifts more than 1% of tolerance per 90 days. Current calibration interval may be too long. Review against measurement criticality and reduce interval.",
+        "id": "W4"
       },
       {
         "condition": "ABS(current_error) > Acceptance_Limit && ABS(current_error) <= process_tolerance",
         "severity": "WARNING",
         "source": "ILAC G8 Guard Band — Conditional Pass",
-        "message": "CONDITIONAL CONFORMITY: Instrument is within raw tolerance but fails guarded acceptance limit. Under ILAC G8, this is a NON-CONFORM result when guard banding is applied. Measurements made since last calibration may contain false accepts."
+        "message": "CONDITIONAL CONFORMITY: Instrument is within raw tolerance but fails guarded acceptance limit. Under ILAC G8, this is a NON-CONFORM result when guard banding is applied. Measurements made since last calibration may contain false accepts.",
+        "id": "W5"
       },
       {
         "condition": "ABS(current_error) > process_tolerance",
         "severity": "CRITICAL",
         "source": "ISO 17025 cl.6.4.10 Out-of-Tolerance",
-        "message": "OUT-OF-TOLERANCE FOUND: Instrument exceeded calibration specification. Mandatory action: (1) Quarantine all measurements made since last in-tolerance calibration, (2) Risk assessment of affected product/decisions, (3) Root cause analysis, (4) Customer notification if product was released."
+        "message": "OUT-OF-TOLERANCE FOUND: Instrument exceeded calibration specification. Mandatory action: (1) Quarantine all measurements made since last in-tolerance calibration, (2) Risk assessment of affected product/decisions, (3) Root cause analysis, (4) Customer notification if product was released.",
+        "id": "W6"
       }
     ]
   }

@@ -63,7 +63,7 @@ const SEVEN_MUDA_REV5_GOLDEN_VALUES: SchemaInputValues = {
   analysisPeriodDays: 30,
   workingDaysPerYear: 250,
   productionUnitsInPeriod: 10000,
-  currencyCode: "TRY",
+  currencyCode: "USD",
   unitVariableCost: 50,
   unitSellingPrice: 100,
   grossMarginPct: 30,

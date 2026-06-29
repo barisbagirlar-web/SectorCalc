@@ -231,14 +231,12 @@ function EngineResultDisplay({
  currency,
  txtReport,
 }: EngineResultDisplayProps) {
- const symbol =
- currency === "USD"
- ? "$"
- : currency === "EUR"
- ? "€"
- : currency === "TRY"
- ? "₺"
- : currency;
+const symbol =
+currency === "USD"
+? "$"
+: currency === "EUR"
+? "€"
+: currency;
 
  const fmt = (n: number) =>
  `${symbol}${Math.abs(n).toLocaleString("en-US", {

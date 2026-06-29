@@ -168,7 +168,7 @@ export function ProDecisionPanel({
 
   // Formatter helpers
   const fmtCurrency = (val: number) => {
-    return formatCurrency(val, { currency: locale === "tr" ? "TRY" : "USD" }).replace("TRY", "TL").replace("USD", "$").replace("EUR", "€");
+    return formatCurrency(val, { currency: "USD" }).replace("USD", "$").replace("EUR", "€");
   };
 
   const fmtPercent = (val: number) => {

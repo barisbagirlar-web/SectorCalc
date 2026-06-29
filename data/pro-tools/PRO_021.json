@@ -203,37 +203,43 @@
         "condition": "Spindle_Utilisation_pct < 30",
         "severity": "CRITICAL",
         "source": "JIPM TPM / OEE Foundation",
-        "message": "CRITICAL SPINDLE WASTE: Only cutting for less than 30% of cycle. Machine spends over 70% of time on non-value-adding operations (rapids, ATC, load/unload). Immediate actions: (1) Zero-point clamping system, (2) Pre-set offline tooling, (3) Optimise G00 paths, (4) Pallet changer evaluation."
+        "message": "CRITICAL SPINDLE WASTE: Only cutting for less than 30% of cycle. Machine spends over 70% of time on non-value-adding operations (rapids, ATC, load/unload). Immediate actions: (1) Zero-point clamping system, (2) Pre-set offline tooling, (3) Optimise G00 paths, (4) Pallet changer evaluation.",
+        "id": "W1"
       },
       {
         "condition": "Spindle_Utilisation_pct >= 30 && Spindle_Utilisation_pct < 50",
         "severity": "WARNING",
         "source": "OEE / Lean Manufacturing",
-        "message": "Low spindle utilisation (30–50%): Significant non-cutting time losses. Target is >65% for general machining. Review ATC time, rapid distances, and fixture strategy."
+        "message": "Low spindle utilisation (30–50%): Significant non-cutting time losses. Target is >65% for general machining. Review ATC time, rapid distances, and fixture strategy.",
+        "id": "W2"
       },
       {
         "condition": "T_toolchange_min > T_cut_min * 0.3",
         "severity": "WARNING",
         "source": "SMED / ATC Optimisation",
-        "message": "Tool change time >30% of cutting time: ATC is a major cycle-time driver. Evaluate: (1) Reduce tool count via multi-function tools, (2) Sub-spindle or twin-pallet, (3) Upgrade to faster ATC (arm-type vs. umbrella)."
+        "message": "Tool change time >30% of cutting time: ATC is a major cycle-time driver. Evaluate: (1) Reduce tool count via multi-function tools, (2) Sub-spindle or twin-pallet, (3) Upgrade to faster ATC (arm-type vs. umbrella).",
+        "id": "W3"
       },
       {
         "condition": "n_rpm > machine_max_rpm",
         "severity": "CRITICAL",
         "source": "Machine Specification",
-        "message": "Required RPM exceeds machine maximum. Actual cutting speed reduced. Recalculate with Vc_actual shown. Consider: (1) Smaller tool diameter, (2) Higher-RPM spindle machine, (3) Reduce cutting speed to match machine limit."
+        "message": "Required RPM exceeds machine maximum. Actual cutting speed reduced. Recalculate with Vc_actual shown. Consider: (1) Smaller tool diameter, (2) Higher-RPM spindle machine, (3) Reduce cutting speed to match machine limit.",
+        "id": "W4"
       },
       {
         "condition": "T_aux_min > T_cut_min",
         "severity": "WARNING",
         "source": "Lean Manufacturing / Cycle Time Analysis",
-        "message": "Auxiliary time (load/unload + probing) exceeds actual cutting time. Automation of part handling or in-process gauging should be evaluated for ROI."
+        "message": "Auxiliary time (load/unload + probing) exceeds actual cutting time. Automation of part handling or in-process gauging should be evaluated for ROI.",
+        "id": "W5"
       },
       {
         "condition": "RPM_Utilisation_pct < 40",
         "severity": "INFO",
         "source": "Machine Asset Utilisation",
-        "message": "Machine spindle speed capability underused (<40% of max RPM). Machine may be oversized for this operation, or cutting parameters are conservative. Review tool and material data for speed increase potential."
+        "message": "Machine spindle speed capability underused (<40% of max RPM). Machine may be oversized for this operation, or cutting parameters are conservative. Review tool and material data for speed increase potential.",
+        "id": "W6"
       }
     ]
   }

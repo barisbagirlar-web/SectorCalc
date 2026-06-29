@@ -11,7 +11,7 @@
       "unit": "bar(a)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 700
     },
@@ -21,7 +21,7 @@
       "unit": "bar(a)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.5,
       "absolute_max": 1000
     },
@@ -31,7 +31,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -50,
       "absolute_max": 200
     },
@@ -41,7 +41,7 @@
       "unit": "Am³/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 100000
     },
@@ -51,7 +51,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1.3,
       "absolute_min": 1.05,
       "absolute_max": 1.67,
@@ -63,7 +63,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 1500
     },
@@ -73,7 +73,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 25,
       "absolute_max": 1000
     },
@@ -83,7 +83,7 @@
       "unit": "rpm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 1800,
       "note": "Slow-speed integral: 200–360 rpm; high-speed separable: 900–1800 rpm — API 618 Table 1"
@@ -94,7 +94,7 @@
       "unit": "% of displacement",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 14,
       "absolute_min": 5,
       "absolute_max": 35,

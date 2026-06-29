@@ -73,7 +73,7 @@ const GROUP_OPTIONS: Partial<Record<UnitGroup, readonly string[]>> = {
   energy: ["kWh", "MJ"],
   pressure: ["bar", "psi", "Pa"],
   temperature: ["°C", "°F", "K"],
-  currency: ["TRY", "USD", "EUR", "GBP", "AED", "SAR"],
+  currency: ["USD", "EUR", "GBP", "AED", "SAR"],
 };
 
 function resolveRegionDefaults(locale: SupportedLocale, region: SupportedRegion) {

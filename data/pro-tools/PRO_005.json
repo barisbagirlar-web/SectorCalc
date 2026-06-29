@@ -11,7 +11,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 0.6,
       "note": "From mill certificate; structural steel: 0.10–0.25%; HSLA: 0.05–0.18%"
@@ -22,7 +22,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 2.5
     },
@@ -32,7 +32,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.3,
       "absolute_min": 0,
       "absolute_max": 1
@@ -43,7 +43,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 3
@@ -54,7 +54,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 5
@@ -65,7 +65,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 3,
       "absolute_max": 300
     },
@@ -75,7 +75,7 @@
       "unit": "kJ/mm",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1.5,
       "absolute_min": 0.3,
       "absolute_max": 10,
@@ -105,7 +105,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 10
     }
   ],

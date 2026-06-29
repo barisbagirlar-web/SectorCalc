@@ -11,7 +11,7 @@
       "unit": "USD",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1000,
       "absolute_max": 10000000000
     },
@@ -21,7 +21,7 @@
       "unit": "USD/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": -100000000,
       "absolute_max": 10000000000
     },
@@ -31,7 +31,7 @@
       "unit": "years",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 10,
       "absolute_min": 1,
       "absolute_max": 50
@@ -42,7 +42,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 10,
       "absolute_min": 1,
       "absolute_max": 50,
@@ -54,7 +54,7 @@
       "unit": "USD",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 5000000000
@@ -65,7 +65,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0,
       "absolute_min": -10,
       "absolute_max": 20
@@ -76,7 +76,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 20,
       "absolute_min": 0,
       "absolute_max": 60

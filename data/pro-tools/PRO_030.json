@@ -225,37 +225,43 @@
         "condition": "NPV_USD < 0",
         "severity": "CRITICAL",
         "source": "Investment Analysis / AACE RP 96R-20",
-        "message": "NEGATIVE NPV: Digital Twin investment does not recover its cost at this discount rate and programme scale. Review: (1) Increase programme reuse across multiple products, (2) Negotiate platform licence sharing, (3) Quantify previously excluded benefits (regulatory approval acceleration, recall avoidance)."
+        "message": "NEGATIVE NPV: Digital Twin investment does not recover its cost at this discount rate and programme scale. Review: (1) Increase programme reuse across multiple products, (2) Negotiate platform licence sharing, (3) Quantify previously excluded benefits (regulatory approval acceleration, recall avoidance).",
+        "id": "W1"
       },
       {
         "condition": "DT_Engineering_Cost_USD > DT_Total_Investment_USD * 0.6",
         "severity": "WARNING",
         "source": "Digital Twin Implementation Cost Structure",
-        "message": "Engineering labour >60% of DT investment: Model build effort is dominant cost. Evaluate: (1) Reuse existing simulation models, (2) Use vendor-supplied component models, (3) Phased modelling — start with highest-risk subsystems only."
+        "message": "Engineering labour >60% of DT investment: Model build effort is dominant cost. Evaluate: (1) Reuse existing simulation models, (2) Use vendor-supplied component models, (3) Phased modelling — start with highest-risk subsystems only.",
+        "id": "W2"
       },
       {
         "condition": "ttm_gain_days === 0",
         "severity": "WARNING",
         "source": "Digital Twin Value Framework",
-        "message": "Zero TTM gain entered: Time-to-market acceleration is typically the highest-value DT benefit. If parallel virtual/physical development is not planned, significant ROI is being excluded. Replan development timeline to capture TTM benefit."
+        "message": "Zero TTM gain entered: Time-to-market acceleration is typically the highest-value DT benefit. If parallel virtual/physical development is not planned, significant ROI is being excluded. Replan development timeline to capture TTM benefit.",
+        "id": "W3"
       },
       {
         "condition": "Simple_Payback_Months > 24",
         "severity": "WARNING",
         "source": "Industrial R&D Investment Benchmarks",
-        "message": "Payback >24 months: Above typical threshold for product development tool investment. Consider: (1) Shared licence across multiple simultaneous programmes, (2) Phased IoT sensor rollout, (3) Open-source simulation platforms to reduce licence cost."
+        "message": "Payback >24 months: Above typical threshold for product development tool investment. Consider: (1) Shared licence across multiple simultaneous programmes, (2) Phased IoT sensor rollout, (3) Open-source simulation platforms to reduce licence cost.",
+        "id": "W4"
       },
       {
         "condition": "dt_iterations_expected < 5",
         "severity": "INFO",
         "source": "Digital Twin Best Practice — McKinsey / Deloitte",
-        "message": "Low virtual iteration count (<5): DT value scales with simulation depth. Less than 5 virtual iterations suggests the model is not being used to its potential. Target 10–20 virtual design cycles per physical build for full benefit realisation."
+        "message": "Low virtual iteration count (<5): DT value scales with simulation depth. Less than 5 virtual iterations suggests the model is not being used to its potential. Target 10–20 virtual design cycles per physical build for full benefit realisation.",
+        "id": "W5"
       },
       {
         "condition": "iot_sensor_capex_usd > physical_proto_unit_cost_usd * physical_iterations_avg * 0.5",
         "severity": "WARNING",
         "source": "IoT Cost-Benefit Analysis",
-        "message": "IoT CAPEX exceeds 50% of prototype cost baseline: Sensor investment may be disproportionate. Evaluate: (1) Virtual sensor placement using FEA instead of physical measurement, (2) Shared sensor infrastructure across production lines, (3) Edge AI for data reduction before cloud transmission."
+        "message": "IoT CAPEX exceeds 50% of prototype cost baseline: Sensor investment may be disproportionate. Evaluate: (1) Virtual sensor placement using FEA instead of physical measurement, (2) Shared sensor infrastructure across production lines, (3) Edge AI for data reduction before cloud transmission.",
+        "id": "W6"
       }
     ]
   }

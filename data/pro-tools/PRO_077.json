@@ -11,7 +11,7 @@
       "unit": "kg/s",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0.0001,
       "absolute_max": 1000
     },
@@ -21,7 +21,7 @@
       "unit": "m/s",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 3,
       "absolute_min": 0.5,
       "absolute_max": 30,
@@ -59,7 +59,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": "D",
       "note": "Worst-case for dense gas: F class; worst-case for buoyant release: A class; EPA RMP default: F/D"
     },
@@ -69,7 +69,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 200,
@@ -81,7 +81,7 @@
       "unit": "ppm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.001,
       "absolute_max": 100000,
       "note": "NIOSH IDLH: H₂S = 100 ppm; NH₃ = 300 ppm; Cl₂ = 10 ppm; HCN = 50 ppm; CO = 1200 ppm"
@@ -92,7 +92,7 @@
       "unit": "g/mol",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 200,
       "note": "H₂S=34; NH₃=17; Cl₂=71; HCN=27; CO=28; SO₂=64; CH₄=16"
@@ -117,7 +117,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "open"
     }
   ],

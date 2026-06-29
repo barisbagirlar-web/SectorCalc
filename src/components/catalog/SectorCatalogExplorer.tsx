@@ -152,7 +152,7 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
 
   const isSearching = searchQuery.trim().length > 0;
 
-  const countSuffix = locale === "tr" ? "ücretsiz araç" : "free tool";
+  const countSuffix = "free tool";
 
   const linkItems: ToolLinkItem[] = useMemo(
     () =>

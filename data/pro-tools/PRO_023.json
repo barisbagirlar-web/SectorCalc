@@ -42,7 +42,7 @@
       "type": "number",
       "required": true,
       "confidence_label": "APPROXIMATE",
-      "absolute_min": 0.000001,
+      "absolute_min": 1e-06,
       "hint": "σ̂ = R̄/d2 from X̄-R chart — represents inherent process variation only"
     },
     {
@@ -52,7 +52,7 @@
       "type": "number",
       "required": false,
       "confidence_label": "APPROXIMATE",
-      "absolute_min": 0.000001,
+      "absolute_min": 1e-06,
       "hint": "Sample std dev of all data — for Pp/Ppk calculation. If blank, Cpk = Ppk assumed."
     },
     {
@@ -156,7 +156,7 @@
         "error_msg": "LSL must be strictly less than USL. Check specification limits — bilateral tolerance requires LSL < target < USL."
       },
       "std_dev_positive": {
-        "absolute_min": 0.000001,
+        "absolute_min": 1e-06,
         "error_msg": "Standard deviation cannot be zero or negative. Zero variation is physically impossible in any real process."
       },
       "mean_outside_spec": {
@@ -173,37 +173,43 @@
         "condition": "Cpk < 1.0",
         "severity": "CRITICAL",
         "source": "AIAG SPC / IATF 16949",
-        "message": "PROCESS INCAPABLE — Cpk < 1.0: Process cannot meet specification. Defect rate is measured in percent, not PPM. Immediate containment (100% inspection) mandatory. Root cause analysis and process redesign required before resuming normal production."
+        "message": "PROCESS INCAPABLE — Cpk < 1.0: Process cannot meet specification. Defect rate is measured in percent, not PPM. Immediate containment (100% inspection) mandatory. Root cause analysis and process redesign required before resuming normal production.",
+        "id": "W1"
       },
       {
         "condition": "Cpk >= 1.0 && Cpk < target_cpk_val",
         "severity": "CRITICAL",
         "source": "IATF 16949 Clause 8.3.3 / PPAP",
-        "message": "CAPABILITY BELOW REQUIREMENT: Cpk is below the required target. Customer PPAP submission will be rejected. For automotive (IATF 16949): Cpk ≥ 1.33 is mandatory for production approval. Variance reduction required."
+        "message": "CAPABILITY BELOW REQUIREMENT: Cpk is below the required target. Customer PPAP submission will be rejected. For automotive (IATF 16949): Cpk ≥ 1.33 is mandatory for production approval. Variance reduction required.",
+        "id": "W2"
       },
       {
         "condition": "Cp > Cpk * 1.33",
         "severity": "WARNING",
         "source": "AIAG SPC — Centering Analysis",
-        "message": "PROCESS OFF-CENTRE: Cp is significantly higher than Cpk. Process has good potential width but is shifted from nominal. Re-centering alone (tool offset, fixture adjustment) could reduce PPM dramatically without improving process variation."
+        "message": "PROCESS OFF-CENTRE: Cp is significantly higher than Cpk. Process has good potential width but is shifted from nominal. Re-centering alone (tool offset, fixture adjustment) could reduce PPM dramatically without improving process variation.",
+        "id": "W3"
       },
       {
         "condition": "Cpk > 0 && Ppk > 0 && (Cpk - Ppk) > 0.3",
         "severity": "WARNING",
         "source": "AIAG SPC — Cp vs Pp Analysis",
-        "message": "SIGNIFICANT Cpk–Ppk GAP (>0.3): Long-term variation substantially exceeds short-term. Special causes (tool wear, material lot changes, operator shifts, temperature drift) are present. SPC control chart review and MSA re-evaluation required."
+        "message": "SIGNIFICANT Cpk–Ppk GAP (>0.3): Long-term variation substantially exceeds short-term. Special causes (tool wear, material lot changes, operator shifts, temperature drift) are present. SPC control chart review and MSA re-evaluation required.",
+        "id": "W4"
       },
       {
         "condition": "Annual_Quality_Cost_USD > 50000",
         "severity": "WARNING",
         "source": "Taguchi Loss Function / COQ",
-        "message": "Annual quality cost exceeds $50,000: This Cpk level is generating significant financial loss. Investment in process improvement, SPC implementation, or machine capability upgrade will deliver measurable ROI. Present to management with this annual cost figure."
+        "message": "Annual quality cost exceeds $50,000: This Cpk level is generating significant financial loss. Investment in process improvement, SPC implementation, or machine capability upgrade will deliver measurable ROI. Present to management with this annual cost figure.",
+        "id": "W5"
       },
       {
         "condition": "Centering_Index < 0.7",
         "severity": "WARNING",
         "source": "ISO 22514-2 Process Centering",
-        "message": "Poor process centering (index < 0.70): Mean is more than 30% of tolerance from nominal. Asymmetric defect distribution — one side generating significantly more rejects. Investigate systematic bias: fixture wear, tool offset error, or raw material dimensional shift."
+        "message": "Poor process centering (index < 0.70): Mean is more than 30% of tolerance from nominal. Asymmetric defect distribution — one side generating significantly more rejects. Investigate systematic bias: fixture wear, tool offset error, or raw material dimensional shift.",
+        "id": "W6"
       }
     ]
   }

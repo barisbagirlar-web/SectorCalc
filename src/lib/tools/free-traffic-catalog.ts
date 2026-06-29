@@ -65,14 +65,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "monthlyRent",
         "label": "Monthly Rent",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly rent"
       },
       {
         "key": "propertyValue",
         "label": "Property Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter property value"
       }
@@ -95,21 +95,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "sellingPrice",
         "label": "Selling Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter selling price"
       },
       {
         "key": "remainingDebt",
         "label": "Remaining Debt",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter remaining debt"
       },
       {
         "key": "newInvestment",
         "label": "New Investment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter new investment"
       }
@@ -132,7 +132,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "netIncome",
         "label": "Net Income",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net income"
       }
@@ -155,14 +155,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "cost",
         "label": "Cost",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter cost"
       },
       {
         "key": "salvageValue",
         "label": "Salvage Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter salvage value"
       },
@@ -214,7 +214,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "principal",
         "label": "Principal",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter principal"
       },
@@ -251,7 +251,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "savings",
         "label": "Savings",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter savings"
       },
@@ -288,7 +288,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -309,7 +309,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "fees",
         "label": "Fees",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter fees"
       }
@@ -332,7 +332,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "portfolioValue",
         "label": "Portfolio Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter portfolio value"
       },
@@ -413,7 +413,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "principal",
         "label": "Principal",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter principal"
       },
@@ -450,7 +450,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "principal",
         "label": "Principal",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter principal"
       },
@@ -494,7 +494,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "principal",
         "label": "Principal",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter principal"
       },
@@ -531,7 +531,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "principal",
         "label": "Principal",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter principal"
       },
@@ -598,7 +598,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "nominalRate",
         "label": "Nominal Rate",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter nominal rate"
       },
@@ -642,7 +642,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "dividend",
         "label": "Dividend",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter dividend"
       },
@@ -679,14 +679,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "dividend",
         "label": "Dividend",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter dividend"
       },
       {
         "key": "price",
         "label": "Vehicle Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter vehicle price"
       },
@@ -716,21 +716,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "purchasePrice",
         "label": "Purchase Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter purchase price"
       },
       {
         "key": "sale",
         "label": "Sales Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter sales amount"
       },
       {
         "key": "dividend",
         "label": "Dividend",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter dividend"
       }
@@ -753,14 +753,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "initialValue",
         "label": "Initial Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter initial value"
       },
       {
         "key": "finalValue",
         "label": "Final Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter final value"
       },
@@ -790,14 +790,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "startValue",
         "label": "Start Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter start value"
       },
       {
         "key": "endValue",
         "label": "End Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter end value"
       },
@@ -827,14 +827,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "netProfit",
         "label": "Net Profit",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net profit"
       },
       {
         "key": "cost",
         "label": "Cost",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter cost"
       }
@@ -871,7 +871,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "investment",
         "label": "Investment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter investment"
       }
@@ -931,7 +931,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "investment",
         "label": "Investment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter investment"
       }
@@ -954,14 +954,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "futureCashFlowPv",
         "label": "Future Cash Flow PV",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter future cash flow pv"
       },
       {
         "key": "investment",
         "label": "Investment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter investment"
       }
@@ -984,14 +984,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "equity",
         "label": "Equity",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter equity"
       },
       {
         "key": "debt",
         "label": "Debt",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter debt"
       },
@@ -1109,35 +1109,35 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "netProfit",
         "label": "Net Profit",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net profit"
       },
       {
         "key": "depreciation",
         "label": "Depreciation",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter depreciation"
       },
       {
         "key": "workingCapital",
         "label": "Working Capital",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter working capital"
       },
       {
         "key": "capex",
         "label": "CapEx",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter capex"
       },
       {
         "key": "debt",
         "label": "Debt",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter debt"
       }
@@ -1160,28 +1160,28 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "netProfit",
         "label": "Net Profit",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net profit"
       },
       {
         "key": "interestRate",
         "label": "Interest Rate",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter interest rate"
       },
       {
         "key": "tax",
         "label": "Tax",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter tax"
       },
       {
         "key": "depreciation",
         "label": "Depreciation",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter depreciation"
       }
@@ -1204,14 +1204,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "sharePrice",
         "label": "Share Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter share price"
       },
       {
         "key": "eps",
         "label": "Earnings Per Share (EPS)",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter earnings per share (eps)"
       }
@@ -1234,14 +1234,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "marketCap",
         "label": "Market Cap",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter market cap"
       },
       {
         "key": "equity",
         "label": "Equity",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter equity"
       }
@@ -1264,14 +1264,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "marketCap",
         "label": "Market Cap",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter market cap"
       },
       {
         "key": "totalSales",
         "label": "Total Sales",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter total sales"
       }
@@ -1294,28 +1294,28 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "netProfit",
         "label": "Net Profit",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net profit"
       },
       {
         "key": "sales",
         "label": "Sales",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter sales"
       },
       {
         "key": "assets",
         "label": "Assets",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter assets"
       },
       {
         "key": "equity",
         "label": "Equity",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter equity"
       }
@@ -1338,14 +1338,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "nopat",
         "label": "NOPAT",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter nopat"
       },
       {
         "key": "investedCapital",
         "label": "Invested Capital",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter invested capital"
       }
@@ -1368,14 +1368,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "nopat",
         "label": "NOPAT",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter nopat"
       },
       {
         "key": "capital",
         "label": "Capital",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter capital"
       },
@@ -1516,14 +1516,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "peakValue",
         "label": "Peak Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter peak value"
       },
       {
         "key": "troughValue",
         "label": "Trough Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter trough value"
       }
@@ -1583,21 +1583,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "initialNav",
         "label": "Initial NAV",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter initial nav"
       },
       {
         "key": "finalNav",
         "label": "Final NAV",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter final nav"
       },
       {
         "key": "distributions",
         "label": "Distributions",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter distributions"
       }
@@ -1620,21 +1620,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "purchasePrice",
         "label": "Purchase Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter purchase price"
       },
       {
         "key": "sellingPrice",
         "label": "Selling Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter selling price"
       },
       {
         "key": "dividend",
         "label": "Dividend",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter dividend"
       },
@@ -1664,14 +1664,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "entryPrice",
         "label": "Entry Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter entry price"
       },
       {
         "key": "exitPrice",
         "label": "Exit Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter exit price"
       },
@@ -1708,14 +1708,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "stockPrice",
         "label": "Stock Price (S)",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter stock price (s)"
       },
       {
         "key": "strikePrice",
         "label": "Strike Price (K)",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter strike price (k)"
       },
@@ -1766,7 +1766,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "pipValue",
         "label": "Pip Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter pip value"
       },
@@ -1796,14 +1796,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "purchasePrice",
         "label": "Purchase Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter purchase price"
       },
       {
         "key": "sale",
         "label": "Sales Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter sales amount"
       },
@@ -1884,7 +1884,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "nominalValue",
         "label": "Nominal Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter nominal value"
       },
@@ -1951,14 +1951,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "preferredReturn",
         "label": "Preferred Return",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter preferred return"
       },
       {
         "key": "foregoneReturn",
         "label": "Foregone Return",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter foregone return"
       }
@@ -1981,14 +1981,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "sale",
         "label": "Sales Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter sales amount"
       },
       {
         "key": "purchasePrice",
         "label": "Purchase Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter purchase price"
       },
@@ -2002,7 +2002,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "exemption",
         "label": "Exemption Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter exemption amount"
       }
@@ -2025,7 +2025,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "assessedValue",
         "label": "Assessed Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter assessed value"
       },
@@ -2055,7 +2055,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2092,7 +2092,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount1",
         "label": "First Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter first loan amount"
       },
@@ -2106,7 +2106,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount2",
         "label": "Second Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter second loan amount"
       },
@@ -2143,7 +2143,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2187,7 +2187,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2201,7 +2201,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "monthlySavings",
         "label": "Monthly Savings",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly savings"
       }
@@ -2224,21 +2224,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "oldPayment",
         "label": "Old Monthly Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter old monthly payment"
       },
       {
         "key": "newPayment",
         "label": "New Monthly Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter new monthly payment"
       },
       {
         "key": "closingCost",
         "label": "Closing Cost",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter closing cost"
       }
@@ -2261,28 +2261,28 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "propertyValue",
         "label": "Property Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter property value"
       },
       {
         "key": "remainingDebt",
         "label": "Remaining Debt",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter remaining debt"
       },
       {
         "key": "newLoan",
         "label": "New Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter new loan amount"
       },
       {
         "key": "fees",
         "label": "Fees",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter fees"
       }
@@ -2305,7 +2305,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "monthlyIncome",
         "label": "Monthly Income",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly income"
       },
@@ -2319,7 +2319,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "monthlyDebt",
         "label": "Monthly Debt Payments",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly debt payments"
       },
@@ -2356,21 +2356,21 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "homePrice",
         "label": "Home Purchase Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter home purchase price"
       },
       {
         "key": "annualRent",
         "label": "Annual Rent Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter annual rent amount"
       },
       {
         "key": "annualExpense",
         "label": "Annual Operating Expense",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter annual operating expense"
       }
@@ -2393,14 +2393,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "annualNetIncome",
         "label": "Annual Net Income",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter annual net income"
       },
       {
         "key": "propertyValue",
         "label": "Property Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter property value"
       }
@@ -2423,14 +2423,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "annualCashFlow",
         "label": "Annual Net Cash Flow",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter annual net cash flow"
       },
       {
         "key": "totalCashInvestment",
         "label": "Total Cash Invested",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter total cash invested"
       }
@@ -2453,35 +2453,35 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "purchase",
         "label": "Purchase Cost",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter purchase cost"
       },
       {
         "key": "rehab",
         "label": "Rehab Cost",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter rehab cost"
       },
       {
         "key": "value",
         "label": "After Repair Value (ARV)",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter after repair value (arv)"
       },
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
       {
         "key": "rent",
         "label": "Monthly Rent",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly rent"
       }
@@ -2504,7 +2504,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "grossRent",
         "label": "Gross Monthly Rent",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter gross monthly rent"
       },
@@ -2518,14 +2518,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "operating",
         "label": "Monthly Operating Expense",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly operating expense"
       },
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       }
@@ -2548,7 +2548,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "salesPrice",
         "label": "Property Sale Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter property sale price"
       },
@@ -2578,7 +2578,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2592,7 +2592,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "fixedFees",
         "label": "Fixed Closing Fees",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter fixed closing fees"
       }
@@ -2615,14 +2615,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "homeValue",
         "label": "Home Market Value",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter home market value"
       },
       {
         "key": "remainingDebt",
         "label": "Remaining Debt",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter remaining debt"
       },
@@ -2652,7 +2652,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2682,7 +2682,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2719,7 +2719,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "loanAmount",
         "label": "Loan Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan amount"
       },
@@ -2749,7 +2749,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "amount",
         "label": "Loan / Debt Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan / debt amount"
       },
@@ -2770,7 +2770,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "fees",
         "label": "Fees",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter fees"
       }
@@ -2793,14 +2793,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "price",
         "label": "Vehicle Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter vehicle price"
       },
       {
         "key": "downPayment",
         "label": "Down Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter down payment"
       },
@@ -2837,14 +2837,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "price",
         "label": "Vehicle Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter vehicle price"
       },
       {
         "key": "downPayment",
         "label": "Down Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter down payment"
       },
@@ -2881,14 +2881,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "price",
         "label": "Vehicle Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter vehicle price"
       },
       {
         "key": "downPayment",
         "label": "Down Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter down payment"
       },
@@ -2925,14 +2925,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "price",
         "label": "Vehicle Price",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter vehicle price"
       },
       {
         "key": "downPayment",
         "label": "Down Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter down payment"
       },
@@ -2969,7 +2969,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "amount",
         "label": "Loan / Debt Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter loan / debt amount"
       },
@@ -3013,7 +3013,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "oldBalance",
         "label": "Old Loan Balance",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter old loan balance"
       },
@@ -3057,7 +3057,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "balance",
         "label": "Card Balance",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter card balance"
       },
@@ -3094,7 +3094,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "balance",
         "label": "Card Balance",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter card balance"
       },
@@ -3108,7 +3108,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "interestRate",
         "label": "Interest Rate",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter interest rate"
       }
@@ -3131,7 +3131,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "sale",
         "label": "Sales Amount",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter sales amount"
       },
@@ -3145,7 +3145,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "fixed",
         "label": "Fixed Fee",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter fixed fee"
       }
@@ -3168,7 +3168,7 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "principal",
         "label": "Principal",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter principal"
       },
@@ -3182,14 +3182,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "payment",
         "label": "Monthly Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly payment"
       },
       {
         "key": "extraPayment",
         "label": "Extra Monthly Payment",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter extra monthly payment"
       }
@@ -3256,14 +3256,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "monthlyDebt",
         "label": "Monthly Debt Payments",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly debt payments"
       },
       {
         "key": "grossIncome",
         "label": "Gross Annual Income",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter gross annual income"
       }
@@ -3286,14 +3286,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "noi",
         "label": "Net Operating Income (NOI)",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net operating income (noi)"
       },
       {
         "key": "annualDebtService",
         "label": "Annual Debt Service",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter annual debt service"
       }
@@ -3316,14 +3316,14 @@ export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
       {
         "key": "netIncome",
         "label": "Net Income",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter net income"
       },
       {
         "key": "livingExpense",
         "label": "Monthly Living Expense",
-        "unit": "TRY",
+        "unit": "USD",
         "type": "number",
         "helper": "Enter monthly living expense"
       },

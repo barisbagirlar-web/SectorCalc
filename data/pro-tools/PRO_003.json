@@ -11,7 +11,7 @@
       "unit": "h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 744
     },
@@ -21,7 +21,7 @@
       "unit": "h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 744
     },
@@ -31,7 +31,7 @@
       "unit": "h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 744
     },
@@ -41,7 +41,7 @@
       "unit": "s/part",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0.1,
       "absolute_max": 86400
     },
@@ -51,7 +51,7 @@
       "unit": "parts",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 10000000
     },
@@ -61,7 +61,7 @@
       "unit": "parts",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 10000000
     },
@@ -71,7 +71,7 @@
       "unit": "parts",
       "type": "number",
       "required": false,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 10000000

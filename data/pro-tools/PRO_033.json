@@ -95,7 +95,7 @@
       "absolute_min": 0,
       "absolute_max": 100,
       "default": 20,
-      "hint": "Turkey TEDAŞ: 20% | EU typical: 33% (equivalent to PF 0.95) | Varies by tariff"
+      "hint": "Turkey TEDAS: 20% | EU typical: 33% (equivalent to PF 0.95) | Varies by tariff"
     },
     {
       "id": "capacitive_free_limit_pct",
@@ -155,7 +155,7 @@
       "IEC 61000-3-2 Harmonics",
       "IEC 60831 Shunt Capacitors",
       "EN 50160 Power Quality",
-      "Turkey TEDAŞ Reactive Energy Tariff",
+      "Turkey TEDAS Reactive Energy Tariff",
       "IEEE 1459 Power Definitions"
     ],
     "validation": {
@@ -177,37 +177,43 @@
         "condition": "Power_Factor < 0.90",
         "severity": "CRITICAL",
         "source": "IEC 61000 / ISO 50001 Energy Efficiency",
-        "message": "POOR POWER FACTOR (<0.90): Significant reactive energy penalty and oversized distribution equipment. Automatic power factor correction (APFC) capacitor bank is almost certainly economically justified. Every 0.01 improvement in PF reduces reactive penalty and may enable demand reduction."
+        "message": "POOR POWER FACTOR (<0.90): Significant reactive energy penalty and oversized distribution equipment. Automatic power factor correction (APFC) capacitor bank is almost certainly economically justified. Every 0.01 improvement in PF reduces reactive penalty and may enable demand reduction.",
+        "id": "W1"
       },
       {
         "condition": "Power_Factor >= 0.90 && Power_Factor < 0.95",
         "severity": "WARNING",
         "source": "IEC 61000-3 / EN 50160",
-        "message": "Suboptimal power factor (0.90–0.95): Below most utility target of PF ≥ 0.95. Reactive penalty charges are accumulating. PFC capacitor payback is typically 12–24 months at this level."
+        "message": "Suboptimal power factor (0.90–0.95): Below most utility target of PF ≥ 0.95. Reactive penalty charges are accumulating. PFC capacitor payback is typically 12–24 months at this level.",
+        "id": "W2"
       },
       {
         "condition": "Inductive_Penalty_USD > Active_Energy_Cost_USD * 0.1",
         "severity": "CRITICAL",
         "source": "Energy Cost Analysis",
-        "message": "REACTIVE PENALTY >10% OF ACTIVE COST: Reactive energy is adding over 10% to your energy bill. This is avoidable with power factor correction hardware. Annual penalty cost shown — compare to PFC CAPEX for immediate payback analysis."
+        "message": "REACTIVE PENALTY >10% OF ACTIVE COST: Reactive energy is adding over 10% to your energy bill. This is avoidable with power factor correction hardware. Annual penalty cost shown — compare to PFC CAPEX for immediate payback analysis.",
+        "id": "W3"
       },
       {
         "condition": "Load_Factor_pct < 40",
         "severity": "WARNING",
         "source": "ISO 50001 Demand Management",
-        "message": "LOW LOAD FACTOR (<40%): High peak demand relative to average consumption. Demand charge is disproportionately large. Strategies: (1) Peak shaving with battery storage or generator, (2) Load shifting to off-peak hours, (3) Demand response programme, (4) Contract demand renegotiation."
+        "message": "LOW LOAD FACTOR (<40%): High peak demand relative to average consumption. Demand charge is disproportionately large. Strategies: (1) Peak shaving with battery storage or generator, (2) Load shifting to off-peak hours, (3) Demand response programme, (4) Contract demand renegotiation.",
+        "id": "W4"
       },
       {
         "condition": "Demand_Charge_USD > Active_Energy_Cost_USD * 0.3",
         "severity": "WARNING",
         "source": "Demand Charge Optimisation",
-        "message": "Demand charge >30% of energy cost: Peak demand management has high financial leverage. Each kW of peak demand reduction saves demand_charge_usd_kw USD per month permanently. Industrial battery storage or VFD-based soft starters should be evaluated."
+        "message": "Demand charge >30% of energy cost: Peak demand management has high financial leverage. Each kW of peak demand reduction saves demand_charge_usd_kw USD per month permanently. Industrial battery storage or VFD-based soft starters should be evaluated.",
+        "id": "W5"
       },
       {
         "condition": "Capacitive_Penalty_USD > 0",
         "severity": "WARNING",
         "source": "IEC 60831 PFC Design",
-        "message": "OVER-COMPENSATION DETECTED: Capacitive reactive energy penalty is being charged. Existing PFC capacitor bank is over-sized for current load. Partial deactivation of capacitor stages during light-load periods required. Check APFC controller thresholds."
+        "message": "OVER-COMPENSATION DETECTED: Capacitive reactive energy penalty is being charged. Existing PFC capacitor bank is over-sized for current load. Partial deactivation of capacitor stages during light-load periods required. Check APFC controller thresholds.",
+        "id": "W6"
       }
     ]
   }

@@ -11,7 +11,7 @@
       "unit": "kPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 500,
@@ -23,7 +23,7 @@
       "unit": "°",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 30,
       "absolute_min": 0,
       "absolute_max": 50,
@@ -35,7 +35,7 @@
       "unit": "kN/m³",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 18,
       "absolute_min": 8,
       "absolute_max": 24,
@@ -47,7 +47,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.3,
       "absolute_max": 10
     },
@@ -57,7 +57,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.3,
       "absolute_max": 30
     },
@@ -67,7 +67,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.3,
       "absolute_max": 100,
       "note": "For strip footings: L >> B; enter L = 10×B; for square: L = B"
@@ -78,7 +78,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 5,
       "absolute_min": 0,
       "absolute_max": 50,
@@ -104,7 +104,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 3
     }
   ],

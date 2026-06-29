@@ -9,7 +9,7 @@ function fromRevenueInputs(inputs: readonly RevenueToolInput[]): ReferenceGraphi
     key: input.key,
     label: input.label,
     type: input.type,
-    unitGroup: input.unit?.includes("USD") || input.unit?.includes("EUR") || input.unit?.includes("TRY")
+    unitGroup: input.unit?.includes("USD") || input.unit?.includes("EUR")
       ? "currency"
       : input.unit,
   }));

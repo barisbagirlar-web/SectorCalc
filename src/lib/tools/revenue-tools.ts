@@ -15,6 +15,8 @@ import { FULL_LOOP_CONTRACT_ALIAS } from "@/lib/formula-governance/runtime-valid
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { getToolHref } from "@/lib/tools/paths";
 import { generatedTools } from "../../tools/generated/index";
+import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
+import { phase2RevenueTools } from "@/lib/tools/revenue-tools-phase2";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -174,6 +176,8 @@ export const SECTORCALC_PRO_PRICING = {
 
 export const revenueTools: RevenueTool[] = [
   ...generatedTools,
+  ...(additionalRevenueTools as unknown as RevenueTool[]),
+  ...(phase2RevenueTools as unknown as RevenueTool[]),
 ];
 
 export const revenueToolRegistry: RevenueToolRegistry = {

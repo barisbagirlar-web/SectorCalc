@@ -8,7 +8,7 @@ import {
 } from "@/lib/i18n/locale-config";
 
 describe("locale-config", () => {
-  test("SUPPORTED_LOCALES en içerir", () => {
+  test("SUPPORTED_LOCALES includes en", () => {
     expect([...SUPPORTED_LOCALES]).toEqual(["en"]);
   });
 

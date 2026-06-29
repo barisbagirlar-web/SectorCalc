@@ -452,14 +452,14 @@ export function fmt(value: any, decimals = 3): string {
 export function translateConfidence(lbl?: string): string {
   if (!lbl) return "";
   const upper = lbl.toUpperCase();
-  if (upper === "KESİN" || upper === "CERTAIN" || upper === "HIGH") return "High Confidence";
-  if (upper === "GÜÇLÜ" || upper === "STRONG" || upper === "MEDIUM") return "Medium Confidence";
-  if (upper === "VARSAYIM" || upper === "ASSUMPTION" || upper === "LOW") return "Assumption";
+  if (upper === "CERTAIN" || upper === "HIGH") return "High Confidence";
+  if (upper === "STRONG" || upper === "MEDIUM") return "Medium Confidence";
+  if (upper === "ASSUMPTION" || upper === "LOW") return "Assumption";
   return lbl;
 }
 
 export const CONFIDENCE_COLORS: Record<string, string> = {
-  "CERTAIN": "#10B981", "HIGH": "#10B981", "KESİN": "#10B981",
-  "STRONG": "#F59E0B", "MEDIUM": "#F59E0B", "GÜÇLÜ": "#F59E0B",
-  "ASSUMPTION": "#6B7280", "LOW": "#6B7280", "VARSAYIM": "#6B7280",
+  "CERTAIN": "#10B981", "HIGH": "#10B981",
+  "STRONG": "#F59E0B", "MEDIUM": "#F59E0B",
+  "ASSUMPTION": "#6B7280", "LOW": "#6B7280",
 };

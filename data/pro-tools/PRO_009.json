@@ -189,37 +189,43 @@
         "condition": "corrosion_allowance_mm < 1.5",
         "severity": "WARNING",
         "source": "API 571 / ASME VIII",
-        "message": "Low corrosion allowance: CA < 1.5mm. Minimum 3mm is recommended for general service. Increase to 6mm if process fluid is corrosive (acid, H2S, Cl-). Insufficient CA leads to premature pinholes."
+        "message": "Low corrosion allowance: CA < 1.5mm. Minimum 3mm is recommended for general service. Increase to 6mm if process fluid is corrosive (acid, H2S, Cl-). Insufficient CA leads to premature pinholes.",
+        "id": "W1"
       },
       {
         "condition": "Hoop_Stress > allowable_stress_mpa * 0.90",
         "severity": "CRITICAL",
         "source": "ASME VIII UG-27",
-        "message": "Critical: Hoop stress exceeds 90% of allowable stress. Safety margin is insufficient. Increase wall thickness or select material with higher S value."
+        "message": "Critical: Hoop stress exceeds 90% of allowable stress. Safety margin is insufficient. Increase wall thickness or select material with higher S value.",
+        "id": "W2"
       },
       {
         "condition": "Safety_Factor < 3.5",
         "severity": "CRITICAL",
-        "source": "ASME VIII Tasarım Felsefesi",
-        "message": "Factor of safety is below 3.5. ASME VIII targets minimum SF=4.0 for static design. Design should be re-evaluated."
+        "source": "ASME VIII Design Philosophy",
+        "message": "Factor of safety is below 3.5. ASME VIII targets minimum SF=4.0 for static design. Design should be re-evaluated.",
+        "id": "W3"
       },
       {
         "condition": "joint_efficiency_val < 1.0",
         "severity": "WARNING",
         "source": "ASME VIII UW-11",
-        "message": "Full RT inspection is not performed (E < 1.0). The calculated thickness requires 15-43% more material. Total cost may decrease with full RT."
+        "message": "Full RT inspection is not performed (E < 1.0). The calculated thickness requires 15-43% more material. Total cost may decrease with full RT.",
+        "id": "W4"
       },
       {
         "condition": "design_temp_c < 0",
         "severity": "WARNING",
         "source": "ASME VIII UCS-66 / ASTM A370",
-        "message": "Low temperature service: Impact testing (Charpy V-notch) and MDMT (Minimum Design Metal Temperature) analysis are mandatory. General carbon steel poses embrittlement risk."
+        "message": "Low temperature service: Impact testing (Charpy V-notch) and MDMT (Minimum Design Metal Temperature) analysis are mandatory. General carbon steel poses embrittlement risk.",
+        "id": "W5"
       },
       {
         "condition": "t_ordered > 50",
         "severity": "INFO",
         "source": "ASME VIII UCS-79",
-        "message": "Thickness > 50mm: PWHT (Post-Weld Heat Treatment) may become mandatory. Check ASME VIII UCS-56 tables. Evaluate cost and schedule impact of heat treatment."
+        "message": "Thickness > 50mm: PWHT (Post-Weld Heat Treatment) may become mandatory. Check ASME VIII UCS-56 tables. Evaluate cost and schedule impact of heat treatment.",
+        "id": "W6"
       }
     ]
   }

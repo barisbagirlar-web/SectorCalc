@@ -11,7 +11,7 @@
       "unit": "kJ/mol",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -5000,
       "absolute_max": 0,
       "note": "Negative = exothermic (correct sign convention); from calorimetry (DSC/RC1) or Hess's law"
@@ -22,7 +22,7 @@
       "unit": "mol/kg",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 50
     },
@@ -32,7 +32,7 @@
       "unit": "kJ/(kg·K)",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 2,
       "absolute_min": 0.5,
       "absolute_max": 5,
@@ -44,7 +44,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -80,
       "absolute_max": 300
     },
@@ -54,7 +54,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 500,
       "note": "From DSC or ARC testing per ASTM E537 / IEC 62675"
@@ -65,7 +65,7 @@
       "unit": "kJ/mol",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 80,
       "absolute_min": 20,
       "absolute_max": 300
@@ -76,7 +76,7 @@
       "unit": "kg",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 500000
     },
@@ -86,7 +86,7 @@
       "unit": "kW",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0,
       "absolute_max": 50000
     }

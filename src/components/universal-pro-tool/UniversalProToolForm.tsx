@@ -11,17 +11,17 @@ import type { ToolSchemaInput } from "@/lib/tool-schemas/types";
 function confidenceClass(label?: string): string {
   if (!label) return "";
   const u = label.toUpperCase();
-  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "conf-exact";
-  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "conf-strong";
+  if (u === "CERTAIN" || u === "HIGH") return "conf-exact";
+  if (u === "STRONG" || u === "MEDIUM") return "conf-strong";
   return "conf-approx";
 }
 
 function confidenceText(label?: string): string {
   if (!label) return "";
   const u = label.toUpperCase();
-  if (u === "KESİN" || u === "CERTAIN" || u === "HIGH") return "Exact";
-  if (u === "GÜÇLÜ" || u === "STRONG" || u === "MEDIUM") return "Strong";
-  if (u === "VARSAYIM" || u === "ASSUMPTION" || u === "LOW") return "Assumption";
+  if (u === "CERTAIN" || u === "HIGH") return "Exact";
+  if (u === "STRONG" || u === "MEDIUM") return "Strong";
+  if (u === "ASSUMPTION" || u === "LOW") return "Assumption";
   return label;
 }
 

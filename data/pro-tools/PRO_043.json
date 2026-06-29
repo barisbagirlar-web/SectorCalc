@@ -11,7 +11,7 @@
       "unit": "V",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 60
     },
@@ -21,7 +21,7 @@
       "unit": "A",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 20,
       "absolute_max": 2000
     },
@@ -31,7 +31,7 @@
       "unit": "mm/min",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 3000
     },
@@ -63,7 +63,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.8,
       "note": "AWS D1.1-2020 Commentary §C-4.11 / EN 1011-1 Table B.1"
     },
@@ -73,7 +73,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.42,
       "absolute_min": 0.1,
       "absolute_max": 0.8,
@@ -85,7 +85,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 3,
       "absolute_max": 300
     },
@@ -113,7 +113,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 10,
       "note": "Per AWS A4.3 / ISO 3690 classification"
     }

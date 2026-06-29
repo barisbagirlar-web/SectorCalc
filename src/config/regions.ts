@@ -45,7 +45,7 @@ export const REGION_PROFILES: Record<RegionCode, RegionalComplianceProfile> = {
   TR: {
     code: "TR",
     label: "Turkey",
-    currency: "TRY",
+    currency: "USD",
     defaultLocale: "en",
     inflationCoefficient: 1.52,
     vatRate: 0.2,

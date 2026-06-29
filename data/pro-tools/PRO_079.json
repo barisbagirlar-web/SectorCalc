@@ -11,7 +11,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 5,
       "absolute_max": 10000
     },
@@ -21,7 +21,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 5,
       "absolute_max": 5000,
       "note": "From crane manufacturer data sheet; rough estimate: W_bridge ≈ 0.3–0.5 × W_rated for standard EOT cranes"
@@ -32,7 +32,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 1,
       "absolute_max": 500
     },
@@ -42,7 +42,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 3,
       "absolute_max": 50
     },
@@ -52,7 +52,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 3,
       "absolute_max": 25
     },
@@ -84,7 +84,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "D"
     },
     {
@@ -93,7 +93,7 @@
       "unit": "cm⁴",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 10000000,
       "note": "From standard beam tables: W24×55 → I_x = 1350 cm⁴; W36×135 → I_x = 7800 cm⁴"
@@ -104,7 +104,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 1000
     }

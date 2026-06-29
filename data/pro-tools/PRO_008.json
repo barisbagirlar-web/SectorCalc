@@ -11,7 +11,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 200000
     },
@@ -21,7 +21,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.3,
       "absolute_max": 60,
       "note": "Effective length = K × L; AISC Commentary C-C2.2: pinned-pinned K=1.0; fixed-pinned K=0.7; fixed-fixed K=0.5"
@@ -32,7 +32,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 5,
       "absolute_max": 400,
       "note": "From section tables; r_y for wide-flange; r_min for angle — typically controls buckling"
@@ -43,7 +43,7 @@
       "unit": "mm²",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 200000
     },
@@ -71,7 +71,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 355
     },
     {
@@ -106,7 +106,7 @@
         }
       ],
       "required": false,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "note": "Used if KL not pre-calculated; L_eff = K × physical length"
     }

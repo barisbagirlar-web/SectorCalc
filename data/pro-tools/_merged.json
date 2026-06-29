@@ -320,7 +320,7 @@
         "ASCE 7-22 Minimum Design Loads",
         "EN 1991-1-3 Snow Loads",
         "EN 1991-1-4 Wind Actions",
-        "Turkey TEC 2018 Yük Yönetmeliği",
+        "Turkey TEC 2018 Load Management Regulation",
         "EN 1993-1-1 Steel Structures (EC3)"
       ]
     }
@@ -416,7 +416,7 @@
         "IEC 61000-3-2 Harmonics",
         "IEC 60831 Shunt Capacitors",
         "EN 50160 Power Quality",
-        "Turkey TEDAŞ Reactive Energy Tariff",
+        "Turkey TEDAS Reactive Energy Tariff",
         "IEEE 1459 Power Definitions"
       ]
     }
@@ -1296,6 +1296,312 @@
     }
   },
   {
+    "tool_id": "PRO_091",
+    "tool_name": "Chiller Plant Free-Cooling Economiser — Switchover Temperature, Annual Hours & Energy Saving",
+    "category": "HVAC / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "free_cooling_economiser",
+    "engine_rules": {
+      "standards": [
+        "ASHRAE 90.1-2022 §6.5.1.1",
+        "CIBSE TM21:2016 (Minimising fan energy)",
+        "EN 14511:2018",
+        "ASHRAE Fundamentals 2021 Ch.35"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_092",
+    "tool_name": "Cathodic Protection Design — Sacrificial Anode Current Demand, Mass & Service Life",
+    "category": "Corrosion Engineering / Asset Integrity",
+    "scope": "single_operation",
+    "primary_operation": "cathodic_protection",
+    "engine_rules": {
+      "standards": [
+        "DNV-RP-B401:2021",
+        "ISO 15589-2:2012",
+        "NACE SP0169-2013",
+        "EN 12954:2019"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_093",
+    "tool_name": "Steam Boiler Thermal Efficiency — Indirect Loss Method, Flue Gas Dew Point & Stack Heat Loss",
+    "category": "Energy Management / Steam Systems",
+    "scope": "single_operation",
+    "primary_operation": "steam_boiler",
+    "engine_rules": {
+      "standards": [
+        "ASME PTC 4-2013 (Fired Steam Generators)",
+        "EN 12952-15:2016",
+        "EN 303-5:2021 (CO limits)",
+        "IS 8753:1978"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_094",
+    "tool_name": "Cantilever Retaining Wall — Overturning, Sliding, Bearing & Global Stability Check",
+    "category": "Geotechnical Engineering / Civil Structures",
+    "scope": "single_operation",
+    "primary_operation": "retaining_wall",
+    "engine_rules": {
+      "standards": [
+        "EN 1997-1:2004 (EC7) §6, §9",
+        "ASCE 7-22 §11 (seismic)",
+        "NAVFAC DM-7.2 §5",
+        "BS 8002:2015"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_095",
+    "tool_name": "Biomass Combustion — Moisture-Corrected NCV, Combustion Air & Boiler Rating",
+    "category": "Renewable Energy / Biomass / Energy Management",
+    "scope": "single_operation",
+    "primary_operation": "biomass_combustion",
+    "engine_rules": {
+      "standards": [
+        "EN ISO 18134:2017 (moisture)",
+        "EN ISO 18125:2017 (calorific value)",
+        "EN ISO 17225:2021 (fuel specs)",
+        "EN 303-5:2021 (boiler requirements)",
+        "ASTM E871"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_096",
+    "tool_name": "Fillet Weld Sizing — Effective Throat, Shear Capacity & Minimum Leg Size per AWS D1.1 / EC3",
+    "category": "Steel Fabrication / Welding Engineering",
+    "scope": "single_operation",
+    "primary_operation": "fillet_weld",
+    "engine_rules": {
+      "standards": [
+        "AWS D1.1-2020 §2.4, Table 8.8",
+        "EN 1993-1-8:2005 §4.5.3",
+        "ISO 2553:2019",
+        "BS EN 1011-1:2009"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_097",
+    "tool_name": "CNC Thread Milling & Tapping — Tap Drill Diameter, Helix Angle, Lead & Cutting Parameters",
+    "category": "CNC Machining / Threading Operations",
+    "scope": "single_operation",
+    "primary_operation": "thread_milling",
+    "engine_rules": {
+      "standards": [
+        "ISO 68-1:1998",
+        "ISO 965-1:1998",
+        "DIN 13-1:1999",
+        "ASME B1.13M-2005",
+        "Sandvik C-2920 §12"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_098",
+    "tool_name": "Steel Beam Deflection Under Service Load — Elastic Deflection, Camber & L/d Efficiency",
+    "category": "Structural Steel / Construction Engineering",
+    "scope": "single_operation",
+    "primary_operation": "beam_deflection",
+    "engine_rules": {
+      "standards": [
+        "EN 1993-1-1:2022 §7.2",
+        "AISC 360-22 Appendix 2",
+        "SCI P355:2011",
+        "BS 5950-1:2000 §2.5.2"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_099",
+    "tool_name": "Surface Roughness Conversion — Ra, Rz, Rq, Rt & Machining Process Capability",
+    "category": "Quality Engineering / Metrology / CNC Machining",
+    "scope": "process_agnostic",
+    "primary_operation": "surface_roughness",
+    "engine_rules": {
+      "standards": [
+        "ISO 4287:1997",
+        "ISO 4288:1996",
+        "ISO 1302:2002",
+        "ASME B46.1-2019",
+        "EN ISO 13565-1"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_100",
+    "tool_name": "Rebar Development & Lap Splice Length — Tension, Compression & Seismic Requirements",
+    "category": "Concrete Construction / Reinforcement Engineering",
+    "scope": "single_operation",
+    "primary_operation": "rebar_development_splice",
+    "engine_rules": {
+      "standards": [
+        "ACI 318-19 §25.4, §25.5",
+        "EN 1992-1-1:2004 §8.4, §8.7",
+        "ACI 318-19 §18.8 (seismic)",
+        "ISO 6935-2:2015",
+        "BS 8110-1:1997 §3.12"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_101",
+    "tool_name": "Hollow Section (RHS/SHS/CHS) Beam-Column — Combined Axial + Bending Interaction Check",
+    "category": "Structural Steel / Steel Fabrication",
+    "scope": "single_operation",
+    "primary_operation": "hollow_section_beam_column",
+    "engine_rules": {
+      "standards": [
+        "EN 1993-1-1:2022 §6.2.9, §6.3.1, §6.3.3",
+        "CIDECT Design Guide 2 (2nd Ed.)",
+        "AISC 360-22 Chapter H",
+        "EN 10219-1:2006"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_102",
+    "tool_name": "Precision Boring & Reaming — ISO Fit Selection, Tolerance Band & Achievable Surface Roughness",
+    "category": "CNC Machining / Precision Engineering / Metrology",
+    "scope": "single_operation",
+    "primary_operation": "boring_reaming",
+    "engine_rules": {
+      "standards": [
+        "ISO 286-1:2010",
+        "ISO 286-2:2010 (preferred fits)",
+        "ISO 2768-1:1989",
+        "ASME B4.1-1967 (R2018)",
+        "DIN 7162:1963"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_103",
+    "tool_name": "Welded T-Joint & Angle Bracket — Weld Group Moment, Shear & Torsion Capacity",
+    "category": "Steel Fabrication / Structural Connections",
+    "scope": "single_operation",
+    "primary_operation": "welded_connection_moment",
+    "engine_rules": {
+      "standards": [
+        "AISC Design Guide 16 (Flush and Extended End-Plate Moment Connections)",
+        "AWS D1.1-2020 §2.4",
+        "EN 1993-1-8:2005 §4.5",
+        "SCI P207:1995"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_104",
+    "tool_name": "Masonry Load-Bearing Wall — Axial Capacity, Slenderness Reduction & Eccentricity Check",
+    "category": "Construction / Masonry Structures",
+    "scope": "single_operation",
+    "primary_operation": "masonry_wall",
+    "engine_rules": {
+      "standards": [
+        "EN 1996-1-1:2005 (EC6) §5.5, §6.1",
+        "ACI 530-13 §2.3",
+        "BS 5628-1:2005 §28",
+        "EN 771-3 (aggregate concrete masonry units)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_105",
+    "tool_name": "CNC Cylindrical Grinding — Wheel Speed, Q-Prime MRR, G-Ratio & Grinding Burn Prevention",
+    "category": "CNC Machining / Precision Grinding",
+    "scope": "single_operation",
+    "primary_operation": "cylindrical_grinding",
+    "engine_rules": {
+      "standards": [
+        "ANSI B7.1-2017 (Safety of Abrasive Wheels)",
+        "EN 13236:2012",
+        "ISO 525:2013 (bonded abrasives)",
+        "S. Malkin 'Grinding Technology' (2nd Ed.)"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_106",
+    "tool_name": "High-Strength Bolt Group — Shear Capacity, Bearing Resistance & Slip Check per EC3 / AISC",
+    "category": "Steel Fabrication / Structural Connections",
+    "scope": "single_operation",
+    "primary_operation": "bolt_group_shear",
+    "engine_rules": {
+      "standards": [
+        "EN 1993-1-8:2005 §3.6, §3.7, §3.9",
+        "ISO 898-1:2013",
+        "AISC 360-22 §J3",
+        "ISO 4014:2011"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_107",
+    "tool_name": "Orthogonal Cutting Mechanics — Chip Thickness Ratio, Shear Angle, Cutting Forces & Tool Life",
+    "category": "CNC Machining / Metal Cutting Science",
+    "scope": "single_operation",
+    "primary_operation": "turning_mechanics",
+    "engine_rules": {
+      "standards": [
+        "ISO 3685:1993 (tool life testing)",
+        "Sandvik C-2920 §4",
+        "Merchant (1945) ASME Trans.",
+        "CIRP Annals Vol.57 §2"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_108",
+    "tool_name": "Single Pile Axial Capacity — Shaft Friction, Base Resistance & EC7 Design Verification",
+    "category": "Geotechnical Engineering / Foundation Design",
+    "scope": "single_operation",
+    "primary_operation": "pile_foundation",
+    "engine_rules": {
+      "standards": [
+        "EN 1997-1:2004 (EC7) §7.6",
+        "API RP 2GEO:2014 §6.4",
+        "FHWA NHI-16-064 §3",
+        "BS 8004:2015 §7",
+        "ASCE 7-22 §12.13"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_109",
+    "tool_name": "Sheet Metal Press Brake Bending — Bending Force, Springback Angle & Minimum Bend Radius",
+    "category": "Sheet Metal / Metal Forming / Fabrication",
+    "scope": "single_operation",
+    "primary_operation": "sheet_bending",
+    "engine_rules": {
+      "standards": [
+        "DIN 6935:1975 (cold bending of flat bars)",
+        "ISO 7438:2016 (bend testing)",
+        "ASTM E290-14 (semi-guided bend test)",
+        "SME Sheet Metal Handbook 4th Ed."
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_110",
+    "tool_name": "RC One-Way Slab — Flexural Design Steel Area, Depth Check & One-Way Shear Verification",
+    "category": "Concrete Construction / Structural Engineering",
+    "scope": "single_operation",
+    "primary_operation": "rc_one_way_slab",
+    "engine_rules": {
+      "standards": [
+        "ACI 318-19 §7, §9, §22.5",
+        "EN 1992-1-1:2004 §6.2, §9.3",
+        "BS 8110-1:1997 §3.4.4",
+        "IS 456:2000 §26"
+      ]
+    }
+  },
+  {
     "tool_id": "PRO_111",
     "tool_name": "Roller Bearing L10h Life & Modified Lnm Life (ISO 281)",
     "category": "Machine Elements",
@@ -1309,6 +1615,38 @@
         "FAG Wälzlager Katalog",
         "NSK CAT.No.E1102g",
         "DIN ISO 281"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_116",
+    "tool_name": "Hollow Section RHS/SHS/CHS Beam-Column Combined Loading Check — EN 1993-1-1 / AISC 360-22 / CIDECT DG2",
+    "category": "Steel Structure / Hollow Structural Sections / Beam-Column Stability",
+    "scope": "single_operation",
+    "primary_operation": "hollow_section_beam_column_combined_loading_check",
+    "engine_rules": {
+      "standards": [
+        "EN 1993-1-1",
+        "AISC 360-22",
+        "CIDECT Design Guide 2",
+        "ISO 80000",
+        "ISO/IEC Guide 98-3 GUM",
+        "ISO 9001:2015"
+      ]
+    }
+  },
+  {
+    "tool_id": "PRO_117",
+    "tool_name": "RC Beam Shear & Flexure Calculator",
+    "category": "Construction · Reinforced Concrete",
+    "scope": "Rectangular singly reinforced reinforced-concrete beam",
+    "primary_operation": "rc_beam_shear_flexure_capacity_check",
+    "engine_rules": {
+      "standards": [
+        "EN 1992-1-1",
+        "ACI 318",
+        "ISO 9001",
+        "GUM"
       ]
     }
   },
@@ -1341,1087 +1679,6 @@
         "NFPA 70 NEC",
         "BS 7671:2018",
         "IEEE 141"
-      ]
-    }
-  },
-  {
-    "tool_id": "PRO_116",
-    "tool_name": "Hollow Section RHS/SHS/CHS Beam-Column Combined Loading Check — EN 1993-1-1 / AISC 360-22 / CIDECT DG2",
-    "category": "Steel Structure / Hollow Structural Sections / Beam-Column Stability",
-    "scope": "single_operation",
-    "primary_operation": "hollow_section_beam_column_combined_loading_check",
-    "engine_rules": {
-      "standards": [
-        "EN 1993-1-1",
-        "AISC 360-22",
-        "CIDECT Design Guide 2",
-        "ISO 80000",
-        "ISO/IEC Guide 98-3 GUM",
-        "ISO 9001:2015"
-      ]
-    }
-  },
-  {
-    "tool_id": "PRO_117",
-    "tool_name": "RC Beam Shear & Flexure Calculator — Reinforced Concrete Rectangular Beam Capacity Check",
-    "category": "Construction / Reinforced Concrete / Beam Design",
-    "scope": "single_operation",
-    "primary_operation": "rc_beam_shear_flexure_capacity_check",
-    "prompt_source": "SectorCalc strict technical schema protocol from uploaded file. ",
-    "standards_basis": [
-      "ACI CODE-318-25 is the current ACI structural concrete code basis for structural concrete buildings and applicable nonbuilding structures. ",
-      "EN 1992 Eurocode 2 applies to buildings and civil engineering works in plain, reinforced, and prestressed concrete, including resistance, serviceability, durability, and fire resistance requirements. "
-    ],
-    "inputs": [
-      {
-        "id": "design_standard",
-        "name": "Design Standard",
-        "symbol": "STD",
-        "unit": "dimensionless",
-        "type": "enum",
-        "required": true,
-        "allowed_values": ["ACI_318_25", "EN_1992_1_1"],
-        "confidence_label": "KESİN",
-        "absolute_min": null,
-        "absolute_max": null,
-        "resolution": null,
-        "default": "EN_1992_1_1",
-        "validation_rule": "Must be ACI_318_25 or EN_1992_1_1.",
-        "source": "User",
-        "uncertainty": "±0 dimensionless Type B",
-        "note": "Select ACI strength design branch or Eurocode 2 limit-state branch."
-      },
-      {
-        "id": "beam_type",
-        "name": "Beam Section Type",
-        "symbol": "SEC",
-        "unit": "dimensionless",
-        "type": "enum",
-        "required": true,
-        "allowed_values": ["RECTANGULAR_SINGLY_REINFORCED"],
-        "confidence_label": "KESİN",
-        "absolute_min": null,
-        "absolute_max": null,
-        "resolution": null,
-        "default": "RECTANGULAR_SINGLY_REINFORCED",
-        "validation_rule": "Only rectangular singly reinforced beam section is within this tool scope.",
-        "source": "User",
-        "uncertainty": "±0 dimensionless Type B",
-        "note": "T-beam, doubly reinforced beam, prestressed beam, torsion, punching, and anchorage are excluded."
-      },
-      {
-        "id": "b_w",
-        "name": "Web Width",
-        "symbol": "b_w",
-        "unit": "mm",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 75,
-        "absolute_max": 2000,
-        "resolution": 1,
-        "default": null,
-        "validation_rule": "b_w > 0 and b_w >= 75 mm.",
-        "source": "User|Drawing|Survey",
-        "uncertainty": "±2 mm Type B",
-        "note": "Rectangular beam web width."
-      },
-      {
-        "id": "h",
-        "name": "Total Beam Depth",
-        "symbol": "h",
-        "unit": "mm",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 100,
-        "absolute_max": 3000,
-        "resolution": 1,
-        "default": null,
-        "validation_rule": "h > d > 0.",
-        "source": "User|Drawing|Survey",
-        "uncertainty": "±3 mm Type B",
-        "note": "Overall section depth."
-      },
-      {
-        "id": "d",
-        "name": "Effective Depth To Tension Steel",
-        "symbol": "d",
-        "unit": "mm",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 50,
-        "absolute_max": 2800,
-        "resolution": 1,
-        "default": null,
-        "validation_rule": "0 < d < h.",
-        "source": "User|Drawing|Calculated",
-        "uncertainty": "±3 mm Type B",
-        "note": "Distance from extreme compression fiber to centroid of tensile reinforcement."
-      },
-      {
-        "id": "cover",
-        "name": "Nominal Concrete Cover",
-        "symbol": "c_nom",
-        "unit": "mm",
-        "type": "number",
-        "required": false,
-        "confidence_label": "GÜÇLÜ",
-        "absolute_min": 10,
-        "absolute_max": 150,
-        "resolution": 1,
-        "default": null,
-        "validation_rule": "cover >= 10 mm if provided.",
-        "source": "User|Drawing",
-        "uncertainty": "±3 mm Type B",
-        "note": "Used for warning and constructability trace only."
-      },
-      {
-        "id": "f_ck",
-        "name": "Concrete Cylinder Characteristic Strength",
-        "symbol": "f_ck",
-        "unit": "MPa",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 12,
-        "absolute_max": 90,
-        "resolution": 0.1,
-        "default": null,
-        "validation_rule": "Required for EN_1992_1_1. For ACI branch, use f_c_prime = f_ck equivalent only when explicitly confirmed.",
-        "source": "User|MaterialCertificate|TestReport",
-        "uncertainty": "±2 MPa Type B",
-        "note": "EC2 concrete compressive strength."
-      },
-      {
-        "id": "f_c_prime",
-        "name": "Specified Concrete Compressive Strength",
-        "symbol": "f'_c",
-        "unit": "MPa",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 12,
-        "absolute_max": 90,
-        "resolution": 0.1,
-        "default": null,
-        "validation_rule": "Required for ACI_318_25. For EC2 branch, use f_ck equivalent only when explicitly confirmed.",
-        "source": "User|MaterialCertificate|TestReport",
-        "uncertainty": "±2 MPa Type B",
-        "note": "ACI concrete compressive strength."
-      },
-      {
-        "id": "lambda_concrete",
-        "name": "Concrete Density Modification Factor",
-        "symbol": "λ",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": true,
-        "confidence_label": "GÜÇLÜ",
-        "absolute_min": 0.65,
-        "absolute_max": 1.0,
-        "resolution": 0.01,
-        "default": 1.0,
-        "validation_rule": "0.65 <= λ <= 1.0.",
-        "source": "User|StandardLookup",
-        "uncertainty": "±0.02 dimensionless Type B",
-        "note": "ACI lightweight concrete factor. Normalweight concrete λ=1.0."
-      },
-      {
-        "id": "f_yk",
-        "name": "Reinforcement Characteristic Yield Strength",
-        "symbol": "f_yk",
-        "unit": "MPa",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 250,
-        "absolute_max": 700,
-        "resolution": 1,
-        "default": 500,
-        "validation_rule": "Required for EN_1992_1_1.",
-        "source": "User|MillCertificate",
-        "uncertainty": "±5 MPa Type B",
-        "note": "EC2 reinforcing steel yield strength."
-      },
-      {
-        "id": "f_y",
-        "name": "Reinforcement Yield Strength",
-        "symbol": "f_y",
-        "unit": "MPa",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 250,
-        "absolute_max": 700,
-        "resolution": 1,
-        "default": 420,
-        "validation_rule": "Required for ACI_318_25.",
-        "source": "User|MillCertificate",
-        "uncertainty": "±5 MPa Type B",
-        "note": "ACI reinforcing steel yield strength."
-      },
-      {
-        "id": "E_s",
-        "name": "Reinforcement Elastic Modulus",
-        "symbol": "E_s",
-        "unit": "MPa",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 180000,
-        "absolute_max": 210000,
-        "resolution": 100,
-        "default": 200000,
-        "validation_rule": "180000 <= E_s <= 210000 MPa.",
-        "source": "LookupTable",
-        "uncertainty": "±5000 MPa Type B",
-        "note": "Steel modulus used for strain-controlled ACI phi factor."
-      },
-      {
-        "id": "A_s",
-        "name": "Tension Reinforcement Area",
-        "symbol": "A_s",
-        "unit": "mm^2",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 50,
-        "absolute_max": 100000,
-        "resolution": 1,
-        "default": null,
-        "validation_rule": "A_s > 0.",
-        "source": "User|Drawing|BarSchedule",
-        "uncertainty": "±1% Type B",
-        "note": "Total longitudinal tension reinforcement area."
-      },
-      {
-        "id": "A_sv",
-        "name": "Shear Reinforcement Area Per Spacing",
-        "symbol": "A_sv / A_v",
-        "unit": "mm^2",
-        "type": "number",
-        "required": false,
-        "confidence_label": "KESİN",
-        "absolute_min": 0,
-        "absolute_max": 20000,
-        "resolution": 1,
-        "default": 0,
-        "validation_rule": "A_sv >= 0.",
-        "source": "User|Drawing|BarSchedule",
-        "uncertainty": "±1% Type B",
-        "note": "Total area of stirrup legs crossing the shear plane within spacing s."
-      },
-      {
-        "id": "s_v",
-        "name": "Shear Reinforcement Spacing",
-        "symbol": "s",
-        "unit": "mm",
-        "type": "number",
-        "required": false,
-        "confidence_label": "KESİN",
-        "absolute_min": 25,
-        "absolute_max": 1000,
-        "resolution": 1,
-        "default": null,
-        "validation_rule": "Required when A_sv > 0. Must satisfy s_v > 0.",
-        "source": "User|Drawing|BarSchedule",
-        "uncertainty": "±3 mm Type B",
-        "note": "Center-to-center stirrup spacing."
-      },
-      {
-        "id": "stirrup_angle_deg",
-        "name": "Shear Reinforcement Angle",
-        "symbol": "α",
-        "unit": "degree",
-        "type": "number",
-        "required": true,
-        "confidence_label": "GÜÇLÜ",
-        "absolute_min": 45,
-        "absolute_max": 90,
-        "resolution": 1,
-        "default": 90,
-        "validation_rule": "45 <= α <= 90 degrees.",
-        "source": "User|Drawing",
-        "uncertainty": "±2 degree Type B",
-        "note": "Vertical stirrups use α=90 degrees."
-      },
-      {
-        "id": "cot_theta",
-        "name": "EC2 Compression Strut Angle Cotangent",
-        "symbol": "cotθ",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": true,
-        "confidence_label": "GÜÇLÜ",
-        "absolute_min": 1.0,
-        "absolute_max": 2.5,
-        "resolution": 0.01,
-        "default": 2.0,
-        "validation_rule": "Used for EN_1992_1_1. Must satisfy 1.0 <= cotθ <= 2.5.",
-        "source": "User|StandardLookup",
-        "uncertainty": "±0.05 dimensionless Type B",
-        "note": "EC2 variable-angle truss model."
-      },
-      {
-        "id": "N_Ed",
-        "name": "Design Axial Force",
-        "symbol": "N_Ed",
-        "unit": "kN",
-        "type": "number",
-        "required": false,
-        "confidence_label": "ORTA",
-        "absolute_min": -100000,
-        "absolute_max": 100000,
-        "resolution": 0.1,
-        "default": 0,
-        "validation_rule": "Compression positive. Tension negative. Used only for EC2 shear concrete contribution.",
-        "source": "User|StructuralAnalysis",
-        "uncertainty": "±2% Type B",
-        "note": "Most standard beam checks use N_Ed=0."
-      },
-      {
-        "id": "M_Ed",
-        "name": "Design Bending Moment",
-        "symbol": "M_Ed / M_u",
-        "unit": "kN·m",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 0,
-        "absolute_max": 1000000,
-        "resolution": 0.01,
-        "default": null,
-        "validation_rule": "M_Ed >= 0.",
-        "source": "User|StructuralAnalysis",
-        "uncertainty": "±2% Type B",
-        "note": "Factored design moment."
-      },
-      {
-        "id": "V_Ed",
-        "name": "Design Shear Force",
-        "symbol": "V_Ed / V_u",
-        "unit": "kN",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 0,
-        "absolute_max": 1000000,
-        "resolution": 0.01,
-        "default": null,
-        "validation_rule": "V_Ed >= 0.",
-        "source": "User|StructuralAnalysis",
-        "uncertainty": "±2% Type B",
-        "note": "Factored design shear at critical section."
-      },
-      {
-        "id": "gamma_c",
-        "name": "Concrete Partial Factor",
-        "symbol": "γ_c",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 1.0,
-        "absolute_max": 2.0,
-        "resolution": 0.01,
-        "default": 1.5,
-        "validation_rule": "Used for EN_1992_1_1. Must follow National Annex.",
-        "source": "User|NationalAnnex",
-        "uncertainty": "±0 dimensionless Type B",
-        "note": "EC2 concrete partial factor."
-      },
-      {
-        "id": "gamma_s",
-        "name": "Reinforcement Partial Factor",
-        "symbol": "γ_s",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 1.0,
-        "absolute_max": 1.5,
-        "resolution": 0.01,
-        "default": 1.15,
-        "validation_rule": "Used for EN_1992_1_1. Must follow National Annex.",
-        "source": "User|NationalAnnex",
-        "uncertainty": "±0 dimensionless Type B",
-        "note": "EC2 reinforcement partial factor."
-      },
-      {
-        "id": "alpha_cc",
-        "name": "Long-Term Concrete Strength Coefficient",
-        "symbol": "α_cc",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": true,
-        "confidence_label": "GÜÇLÜ",
-        "absolute_min": 0.75,
-        "absolute_max": 1.0,
-        "resolution": 0.01,
-        "default": 0.85,
-        "validation_rule": "Used for EN_1992_1_1. Must follow National Annex.",
-        "source": "User|NationalAnnex",
-        "uncertainty": "±0.02 dimensionless Type B",
-        "note": "Concrete compression design strength coefficient."
-      },
-      {
-        "id": "phi_v",
-        "name": "ACI Shear Strength Reduction Factor",
-        "symbol": "φ_v",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": true,
-        "confidence_label": "KESİN",
-        "absolute_min": 0.5,
-        "absolute_max": 1.0,
-        "resolution": 0.01,
-        "default": 0.75,
-        "validation_rule": "Used for ACI_318_25.",
-        "source": "Standard",
-        "uncertainty": "±0 dimensionless Type B",
-        "note": "ACI shear strength reduction factor."
-      },
-      {
-        "id": "rho_min_override",
-        "name": "Minimum Flexural Reinforcement Ratio Override",
-        "symbol": "ρ_min",
-        "unit": "dimensionless",
-        "type": "number",
-        "required": false,
-        "confidence_label": "ORTA",
-        "absolute_min": 0,
-        "absolute_max": 0.02,
-        "resolution": 0.00001,
-        "default": null,
-        "validation_rule": "Optional project-specific override. If null, calculated standard-specific minimum check is used.",
-        "source": "User|ProjectSpecification",
-        "uncertainty": "±0 dimensionless Type B",
-        "note": "Use only with authorized project design criteria."
-      }
-    ],
-    "formulas": [
-      {
-        "id": "F1",
-        "name": "Flexural Reinforcement Ratio",
-        "expression": "A_s / (b_w * d)",
-        "output": "rho_l",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = mm^2 / (mm × mm)",
-        "reference": "EN 1992-1-1 §6.1 / ACI 318-25 Ch. 22",
-        "assumptions": ["Rectangular singly reinforced beam", "Tension reinforcement only"],
-        "edge_cases": "if (rho_l <= 0) throw new Error('Flexural reinforcement ratio must be positive')"
-      },
-      {
-        "id": "F2",
-        "name": "EC2 Concrete Design Compressive Strength",
-        "expression": "alpha_cc * f_ck / gamma_c",
-        "output": "f_cd",
-        "unit": "MPa",
-        "dimensional_check": "MPa = 1 × MPa / 1",
-        "reference": "EN 1992-1-1 §3.1.6",
-        "assumptions": ["National Annex values supplied", "Cylinder strength basis"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && f_cd <= 0) throw new Error('EC2 f_cd must be positive')"
-      },
-      {
-        "id": "F3",
-        "name": "EC2 Reinforcement Design Yield Strength",
-        "expression": "f_yk / gamma_s",
-        "output": "f_yd",
-        "unit": "MPa",
-        "dimensional_check": "MPa = MPa / 1",
-        "reference": "EN 1992-1-1 §3.2.7",
-        "assumptions": ["Reinforcement reaches design yield stress in flexure"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && f_yd <= 0) throw new Error('EC2 f_yd must be positive')"
-      },
-      {
-        "id": "F4",
-        "name": "EC2 Rectangular Stress Block Lambda",
-        "expression": "f_ck <= 50 ? 0.8 : 0.8 - (f_ck - 50) / 400",
-        "output": "lambda_ec2",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1",
-        "reference": "EN 1992-1-1 §3.1.7",
-        "assumptions": ["Normal-strength and high-strength concrete stress block parameter"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && (lambda_ec2 <= 0 || lambda_ec2 > 0.8)) throw new Error('EC2 lambda parameter invalid')"
-      },
-      {
-        "id": "F5",
-        "name": "EC2 Rectangular Stress Block Eta",
-        "expression": "f_ck <= 50 ? 1.0 : 1.0 - (f_ck - 50) / 200",
-        "output": "eta_ec2",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1",
-        "reference": "EN 1992-1-1 §3.1.7",
-        "assumptions": ["Normal-strength and high-strength concrete stress block parameter"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && (eta_ec2 <= 0 || eta_ec2 > 1.0)) throw new Error('EC2 eta parameter invalid')"
-      },
-      {
-        "id": "F6",
-        "name": "EC2 Neutral Axis Depth",
-        "expression": "A_s * f_yd / (eta_ec2 * f_cd * b_w * lambda_ec2)",
-        "output": "x_ec2",
-        "unit": "mm",
-        "dimensional_check": "mm = mm^2 × MPa / (MPa × mm)",
-        "reference": "EN 1992-1-1 §6.1",
-        "assumptions": ["Singly reinforced rectangular section", "Tension steel yields"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && (x_ec2 <= 0 || x_ec2 >= d)) throw new Error('EC2 neutral axis depth invalid or over-reinforced')"
-      },
-      {
-        "id": "F7",
-        "name": "EC2 Internal Lever Arm",
-        "expression": "Math.min(d - 0.5 * lambda_ec2 * x_ec2, 0.95 * d)",
-        "output": "z_ec2",
-        "unit": "mm",
-        "dimensional_check": "mm = mm - mm",
-        "reference": "EN 1992-1-1 §6.1",
-        "assumptions": ["Lever arm capped at 0.95d", "Rectangular compression block"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && (z_ec2 <= 0 || z_ec2 > d)) throw new Error('EC2 lever arm invalid')"
-      },
-      {
-        "id": "F8",
-        "name": "EC2 Flexural Resistance",
-        "expression": "A_s * f_yd * z_ec2 / 1000000",
-        "output": "M_Rd_ec2",
-        "unit": "kN·m",
-        "dimensional_check": "kN·m = mm^2 × MPa × mm / 10^6",
-        "reference": "EN 1992-1-1 §6.1",
-        "assumptions": ["Tension-controlled singly reinforced behavior", "No compression reinforcement contribution"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && M_Rd_ec2 <= 0) throw new Error('EC2 flexural resistance must be positive')"
-      },
-      {
-        "id": "F9",
-        "name": "EC2 Size Factor For Shear",
-        "expression": "Math.min(1 + Math.sqrt(200 / d), 2.0)",
-        "output": "k_ec2",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1 + sqrt(mm/mm)",
-        "reference": "EN 1992-1-1 §6.2.2",
-        "assumptions": ["Effective depth d in mm"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && (k_ec2 < 1 || k_ec2 > 2)) throw new Error('EC2 shear size factor invalid')"
-      },
-      {
-        "id": "F10",
-        "name": "EC2 Limited Longitudinal Reinforcement Ratio For Shear",
-        "expression": "Math.min(A_s / (b_w * d), 0.02)",
-        "output": "rho_l_ec2",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = mm^2 / mm^2",
-        "reference": "EN 1992-1-1 §6.2.2",
-        "assumptions": "rho_l capped at 0.02 for shear concrete resistance",
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && rho_l_ec2 <= 0) throw new Error('EC2 shear reinforcement ratio invalid')"
-      },
-      {
-        "id": "F11",
-        "name": "EC2 Concrete Shear Coefficient",
-        "expression": "0.18 / gamma_c",
-        "output": "C_Rdc",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1 / 1",
-        "reference": "EN 1992-1-1 §6.2.2",
-        "assumptions": ["National Annex default not overridden"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && C_Rdc <= 0) throw new Error('EC2 C_Rdc invalid')"
-      },
-      {
-        "id": "F12",
-        "name": "EC2 Axial Stress For Shear",
-        "expression": "Math.max(Math.min((N_Ed * 1000) / (b_w * h), 0.2 * f_cd), -0.2 * f_cd)",
-        "output": "sigma_cp",
-        "unit": "MPa",
-        "dimensional_check": "MPa = N / mm^2",
-        "reference": "EN 1992-1-1 §6.2.2",
-        "assumptions": ["Compression positive", "Axial stress limited for shear contribution"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && !Number.isFinite(sigma_cp)) throw new Error('EC2 sigma_cp invalid')"
-      },
-      {
-        "id": "F13",
-        "name": "EC2 Minimum Concrete Shear Stress",
-        "expression": "0.035 * Math.pow(k_ec2, 1.5) * Math.sqrt(f_ck)",
-        "output": "v_min_ec2",
-        "unit": "MPa",
-        "dimensional_check": "MPa = 1 × sqrt(MPa)",
-        "reference": "EN 1992-1-1 §6.2.2",
-        "assumptions": ["EC2 empirical minimum shear stress expression"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && v_min_ec2 <= 0) throw new Error('EC2 v_min invalid')"
-      },
-      {
-        "id": "F14",
-        "name": "EC2 Concrete Shear Resistance Without Links",
-        "expression": "Math.max(C_Rdc * k_ec2 * Math.pow(100 * rho_l_ec2 * f_ck, 1 / 3) + 0.15 * sigma_cp, v_min_ec2 + 0.15 * sigma_cp) * b_w * d / 1000",
-        "output": "V_Rdc_ec2",
-        "unit": "kN",
-        "dimensional_check": "kN = MPa × mm × mm / 1000",
-        "reference": "EN 1992-1-1 §6.2.2",
-        "assumptions": ["No shear reinforcement branch", "Longitudinal reinforcement anchored beyond section"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && V_Rdc_ec2 <= 0) throw new Error('EC2 V_Rdc must be positive')"
-      },
-      {
-        "id": "F15",
-        "name": "EC2 Shear Reinforcement Ratio Per Unit Length",
-        "expression": "A_sv > 0 && s_v !== null && s_v !== undefined ? A_sv / s_v : 0",
-        "output": "Asw_per_s",
-        "unit": "mm",
-        "dimensional_check": "mm = mm^2 / mm",
-        "reference": "EN 1992-1-1 §6.2.3",
-        "assumptions": ["A_sv is total stirrup leg area within spacing s"],
-        "edge_cases": "if (A_sv > 0 && (!s_v || s_v <= 0)) throw new Error('Shear reinforcement spacing required when A_sv > 0')"
-      },
-      {
-        "id": "F16",
-        "name": "EC2 Design Yield Strength Of Shear Reinforcement",
-        "expression": "f_yk / gamma_s",
-        "output": "f_ywd",
-        "unit": "MPa",
-        "dimensional_check": "MPa = MPa / 1",
-        "reference": "EN 1992-1-1 §6.2.3",
-        "assumptions": ["Same yield strength used for longitudinal and shear reinforcement"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && f_ywd <= 0) throw new Error('EC2 f_ywd invalid')"
-      },
-      {
-        "id": "F17",
-        "name": "EC2 Shear Reinforcement Resistance",
-        "expression": "Asw_per_s > 0 ? Asw_per_s * z_ec2 * f_ywd * cot_theta / 1000 : 0",
-        "output": "V_Rds_ec2",
-        "unit": "kN",
-        "dimensional_check": "kN = mm × mm × MPa / 1000",
-        "reference": "EN 1992-1-1 §6.2.3",
-        "assumptions": ["Vertical or inclined shear reinforcement represented by equivalent A_sv", "Variable-angle truss model"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && V_Rds_ec2 < 0) throw new Error('EC2 V_Rds invalid')"
-      },
-      {
-        "id": "F18",
-        "name": "EC2 Concrete Crushing Shear Limit",
-        "expression": "0.6 * (1 - f_ck / 250)",
-        "output": "v1_ec2",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1 × (1 - MPa/MPa)",
-        "reference": "EN 1992-1-1 §6.2.3",
-        "assumptions": ["Concrete strut strength reduction factor"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && v1_ec2 <= 0) throw new Error('EC2 v1 invalid')"
-      },
-      {
-        "id": "F19",
-        "name": "EC2 Maximum Shear Resistance Limited By Concrete Strut",
-        "expression": "b_w * z_ec2 * v1_ec2 * f_cd / (cot_theta + 1 / cot_theta) / 1000",
-        "output": "V_Rdmax_ec2",
-        "unit": "kN",
-        "dimensional_check": "kN = mm × mm × MPa / 1000",
-        "reference": "EN 1992-1-1 §6.2.3",
-        "assumptions": ["alpha_cw = 1.0", "cot_theta within EC2 permitted range"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && V_Rdmax_ec2 <= 0) throw new Error('EC2 V_Rdmax invalid')"
-      },
-      {
-        "id": "F20",
-        "name": "EC2 Governing Shear Resistance",
-        "expression": "Asw_per_s > 0 ? Math.min(V_Rds_ec2, V_Rdmax_ec2) : V_Rdc_ec2",
-        "output": "V_Rd_ec2",
-        "unit": "kN",
-        "dimensional_check": "kN = min(kN,kN)",
-        "reference": "EN 1992-1-1 §6.2.2 / §6.2.3",
-        "assumptions": ["Without links: V_Rdc", "With links: truss resistance controlled by V_Rds and V_Rdmax"],
-        "edge_cases": "if (design_standard === 'EN_1992_1_1' && V_Rd_ec2 <= 0) throw new Error('EC2 governing shear resistance invalid')"
-      },
-      {
-        "id": "F21",
-        "name": "ACI Beta One Factor",
-        "expression": "f_c_prime <= 28 ? 0.85 : Math.max(0.85 - 0.05 * ((f_c_prime - 28) / 7), 0.65)",
-        "output": "beta1_aci",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Whitney rectangular stress block"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && (beta1_aci < 0.65 || beta1_aci > 0.85)) throw new Error('ACI beta1 invalid')"
-      },
-      {
-        "id": "F22",
-        "name": "ACI Equivalent Compression Block Depth",
-        "expression": "A_s * f_y / (0.85 * f_c_prime * b_w)",
-        "output": "a_aci",
-        "unit": "mm",
-        "dimensional_check": "mm = mm^2 × MPa / (MPa × mm)",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Tension reinforcement yields", "Singly reinforced rectangular beam"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && (a_aci <= 0 || a_aci >= d)) throw new Error('ACI compression block depth invalid or over-reinforced')"
-      },
-      {
-        "id": "F23",
-        "name": "ACI Neutral Axis Depth",
-        "expression": "a_aci / beta1_aci",
-        "output": "c_aci",
-        "unit": "mm",
-        "dimensional_check": "mm = mm / 1",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Whitney stress block"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && (c_aci <= 0 || c_aci >= d)) throw new Error('ACI neutral axis depth invalid')"
-      },
-      {
-        "id": "F24",
-        "name": "ACI Net Tensile Strain",
-        "expression": "0.003 * (d - c_aci) / c_aci",
-        "output": "epsilon_t_aci",
-        "unit": "strain",
-        "dimensional_check": "strain = strain × mm/mm",
-        "reference": "ACI 318-25 Ch. 21 / Ch. 22",
-        "assumptions": ["Linear strain distribution", "Extreme concrete compression strain 0.003"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && epsilon_t_aci <= 0) throw new Error('ACI tensile strain invalid')"
-      },
-      {
-        "id": "F25",
-        "name": "ACI Yield Strain Of Reinforcement",
-        "expression": "f_y / E_s",
-        "output": "epsilon_y_aci",
-        "unit": "strain",
-        "dimensional_check": "strain = MPa / MPa",
-        "reference": "ACI 318-25 Ch. 21",
-        "assumptions": ["Elastic-perfectly plastic reinforcement model"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && epsilon_y_aci <= 0) throw new Error('ACI steel yield strain invalid')"
-      },
-      {
-        "id": "F26",
-        "name": "ACI Flexural Strength Reduction Factor",
-        "expression": "epsilon_t_aci >= 0.005 ? 0.9 : Math.max(0.65, Math.min(0.9, 0.65 + (epsilon_t_aci - epsilon_y_aci) * (0.25 / (0.005 - epsilon_y_aci))))",
-        "output": "phi_f_aci",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = interpolation",
-        "reference": "ACI 318-25 Ch. 21",
-        "assumptions": ["Nonprestressed beam", "Tension-controlled transition rule"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && (phi_f_aci < 0.65 || phi_f_aci > 0.9)) throw new Error('ACI flexural phi invalid')"
-      },
-      {
-        "id": "F27",
-        "name": "ACI Nominal Flexural Strength",
-        "expression": "A_s * f_y * (d - a_aci / 2) / 1000000",
-        "output": "M_n_aci",
-        "unit": "kN·m",
-        "dimensional_check": "kN·m = mm^2 × MPa × mm / 10^6",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Singly reinforced rectangular section", "Tension steel yields"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && M_n_aci <= 0) throw new Error('ACI nominal moment strength invalid')"
-      },
-      {
-        "id": "F28",
-        "name": "ACI Design Flexural Strength",
-        "expression": "phi_f_aci * M_n_aci",
-        "output": "phi_Mn_aci",
-        "unit": "kN·m",
-        "dimensional_check": "kN·m = 1 × kN·m",
-        "reference": "ACI 318-25 Ch. 21 / Ch. 22",
-        "assumptions": ["Strength reduction factor applied"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && phi_Mn_aci <= 0) throw new Error('ACI design flexural strength invalid')"
-      },
-      {
-        "id": "F29",
-        "name": "ACI Concrete Shear Strength",
-        "expression": "0.17 * lambda_concrete * Math.sqrt(f_c_prime) * b_w * d / 1000",
-        "output": "V_c_aci",
-        "unit": "kN",
-        "dimensional_check": "kN = sqrt(MPa) × mm × mm / 1000",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Simplified nonprestressed beam shear equation", "No axial compression enhancement"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && V_c_aci <= 0) throw new Error('ACI concrete shear strength invalid')"
-      },
-      {
-        "id": "F30",
-        "name": "ACI Shear Reinforcement Strength",
-        "expression": "A_sv > 0 && s_v !== null && s_v !== undefined ? A_sv * f_y * d / s_v / 1000 : 0",
-        "output": "V_s_aci",
-        "unit": "kN",
-        "dimensional_check": "kN = mm^2 × MPa × mm / mm / 1000",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Vertical stirrups", "A_sv is total stirrup leg area within spacing s"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && V_s_aci < 0) throw new Error('ACI shear reinforcement strength invalid')"
-      },
-      {
-        "id": "F31",
-        "name": "ACI Maximum Shear Reinforcement Contribution Limit",
-        "expression": "0.66 * Math.sqrt(f_c_prime) * b_w * d / 1000",
-        "output": "V_s_max_aci",
-        "unit": "kN",
-        "dimensional_check": "kN = sqrt(MPa) × mm × mm / 1000",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Metric expression for maximum shear reinforcement contribution"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && V_s_max_aci <= 0) throw new Error('ACI maximum Vs limit invalid')"
-      },
-      {
-        "id": "F32",
-        "name": "ACI Nominal Shear Strength",
-        "expression": "V_c_aci + Math.min(V_s_aci, V_s_max_aci)",
-        "output": "V_n_aci",
-        "unit": "kN",
-        "dimensional_check": "kN = kN + kN",
-        "reference": "ACI 318-25 Ch. 22",
-        "assumptions": ["Nominal shear strength is concrete plus permitted shear reinforcement contribution"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && V_n_aci <= 0) throw new Error('ACI nominal shear strength invalid')"
-      },
-      {
-        "id": "F33",
-        "name": "ACI Design Shear Strength",
-        "expression": "phi_v * V_n_aci",
-        "output": "phi_Vn_aci",
-        "unit": "kN",
-        "dimensional_check": "kN = 1 × kN",
-        "reference": "ACI 318-25 Ch. 21 / Ch. 22",
-        "assumptions": ["Shear strength reduction factor applied"],
-        "edge_cases": "if (design_standard === 'ACI_318_25' && phi_Vn_aci <= 0) throw new Error('ACI design shear strength invalid')"
-      },
-      {
-        "id": "F34",
-        "name": "Governing Flexural Design Resistance",
-        "expression": "design_standard === 'EN_1992_1_1' ? M_Rd_ec2 : phi_Mn_aci",
-        "output": "M_design",
-        "unit": "kN·m",
-        "dimensional_check": "kN·m = selected(kN·m)",
-        "reference": "EN 1992-1-1 §6.1 / ACI 318-25 Ch. 21-22",
-        "assumptions": ["Selected design standard controls"],
-        "edge_cases": "if (M_design <= 0) throw new Error('Governing flexural design resistance invalid')"
-      },
-      {
-        "id": "F35",
-        "name": "Governing Shear Design Resistance",
-        "expression": "design_standard === 'EN_1992_1_1' ? V_Rd_ec2 : phi_Vn_aci",
-        "output": "V_design",
-        "unit": "kN",
-        "dimensional_check": "kN = selected(kN)",
-        "reference": "EN 1992-1-1 §6.2 / ACI 318-25 Ch. 21-22",
-        "assumptions": ["Selected design standard controls"],
-        "edge_cases": "if (V_design <= 0) throw new Error('Governing shear design resistance invalid')"
-      },
-      {
-        "id": "F36",
-        "name": "Flexural Utilization Ratio",
-        "expression": "M_Ed / M_design",
-        "output": "UC_flexure",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = kN·m / kN·m",
-        "reference": "Strength limit-state check",
-        "assumptions": ["Factored moment supplied"],
-        "edge_cases": "if (!Number.isFinite(UC_flexure)) throw new Error('Flexural utilization calculation failed')"
-      },
-      {
-        "id": "F37",
-        "name": "Shear Utilization Ratio",
-        "expression": "V_Ed / V_design",
-        "output": "UC_shear",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = kN / kN",
-        "reference": "Strength limit-state check",
-        "assumptions": ["Factored shear supplied at critical section"],
-        "edge_cases": "if (!Number.isFinite(UC_shear)) throw new Error('Shear utilization calculation failed')"
-      },
-      {
-        "id": "F38",
-        "name": "Governing Utilization Ratio",
-        "expression": "Math.max(UC_flexure, UC_shear)",
-        "output": "UC",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = max(1,1)",
-        "reference": "ISO 9001 release decision trace",
-        "assumptions": ["UC <= 1.00 passes selected design checks"],
-        "edge_cases": "if (!Number.isFinite(UC)) throw new Error('Governing utilization calculation failed')"
-      },
-      {
-        "id": "F39",
-        "name": "Result Status",
-        "expression": "UC <= 1 ? 'PASS' : 'FAIL'",
-        "output": "status",
-        "unit": "dimensionless",
-        "dimensional_check": "status = logical comparison",
-        "reference": "ISO 9001 §8.6 release control",
-        "assumptions": ["All validations passed"],
-        "edge_cases": "if (UC > 1.25) throw new Error('Safety-critical RC beam overutilization: design fails selected standard')"
-      },
-      {
-        "id": "F40",
-        "name": "Combined Standard Uncertainty Of Utilization",
-        "expression": "UC * Math.sqrt(Math.pow(0.02, 2) + Math.pow(0.02, 2) + Math.pow(0.01, 2) + Math.pow(0.02, 2) + Math.pow(0.03, 2))",
-        "output": "u_c_UC",
-        "unit": "dimensionless",
-        "dimensional_check": "1 = 1 × sqrt(1²)",
-        "reference": "ISO/IEC Guide 98-3 GUM",
-        "assumptions": ["Independent relative uncertainty contributors", "Approximate sensitivity model"],
-        "edge_cases": "if (u_c_UC < 0 || !Number.isFinite(u_c_UC)) throw new Error('Uncertainty propagation failed')"
-      }
-    ],
-    "engine_rules": {
-      "standards": [
-        "ACI CODE-318-25",
-        "EN 1992-1-1",
-        "ISO 80000",
-        "ISO/IEC Guide 98-3 GUM",
-        "ISO 9001:2015"
-      ],
-      "validation": {
-        "rules": [
-          {
-            "id": "V1",
-            "condition": "beam_type !== 'RECTANGULAR_SINGLY_REINFORCED'",
-            "action": "BLOCK",
-            "message": "Only rectangular singly reinforced RC beam section is supported in this tool."
-          },
-          {
-            "id": "V2",
-            "condition": "b_w <= 0 || h <= 0 || d <= 0",
-            "action": "BLOCK",
-            "message": "Beam dimensions must be positive."
-          },
-          {
-            "id": "V3",
-            "condition": "d >= h",
-            "action": "BLOCK",
-            "message": "Effective depth d must be smaller than total depth h."
-          },
-          {
-            "id": "V4",
-            "condition": "A_s <= 0",
-            "action": "BLOCK",
-            "message": "Tension reinforcement area A_s must be positive."
-          },
-          {
-            "id": "V5",
-            "condition": "design_standard === 'EN_1992_1_1' && (f_ck <= 0 || f_yk <= 0 || gamma_c < 1 || gamma_s < 1)",
-            "action": "BLOCK",
-            "message": "EC2 material strengths and partial factors are invalid."
-          },
-          {
-            "id": "V6",
-            "condition": "design_standard === 'ACI_318_25' && (f_c_prime <= 0 || f_y <= 0 || E_s <= 0 || phi_v <= 0 || phi_v > 1)",
-            "action": "BLOCK",
-            "message": "ACI material strengths, modulus, or strength reduction factor are invalid."
-          },
-          {
-            "id": "V7",
-            "condition": "A_sv > 0 && (s_v === null || s_v === undefined || s_v <= 0)",
-            "action": "BLOCK",
-            "message": "Shear reinforcement spacing is required when A_sv > 0."
-          },
-          {
-            "id": "V8",
-            "condition": "design_standard === 'EN_1992_1_1' && (cot_theta < 1.0 || cot_theta > 2.5)",
-            "action": "BLOCK",
-            "message": "EC2 cot_theta must satisfy 1.0 <= cot_theta <= 2.5."
-          },
-          {
-            "id": "V9",
-            "condition": "M_Ed < 0 || V_Ed < 0",
-            "action": "BLOCK",
-            "message": "Design moment and shear must be non-negative factored actions."
-          },
-          {
-            "id": "V10",
-            "condition": "rho_l > 0.04",
-            "action": "BLOCK",
-            "message": "Reinforcement ratio is unusually high. Section likely over-reinforced or input area invalid."
-          },
-          {
-            "id": "V11",
-            "condition": "design_standard === 'ACI_318_25' && epsilon_t_aci < epsilon_y_aci",
-            "action": "BLOCK",
-            "message": "ACI section is compression-controlled below yield strain. Beam flexural design not accepted by this simplified module."
-          },
-          {
-            "id": "V12",
-            "condition": "design_standard === 'ACI_318_25' && V_s_aci > V_s_max_aci",
-            "action": "WARN",
-            "message": "ACI shear reinforcement contribution exceeds maximum permitted contribution. V_s is capped."
-          },
-          {
-            "id": "V13",
-            "condition": "design_standard === 'EN_1992_1_1' && Asw_per_s > 0 && V_Rds_ec2 > V_Rdmax_ec2",
-            "action": "WARN",
-            "message": "EC2 shear reinforcement resistance exceeds concrete strut limit. V_Rd is controlled by V_Rdmax."
-          },
-          {
-            "id": "V14",
-            "condition": "UC > 1",
-            "action": "BLOCK",
-            "message": "RC beam fails selected shear or flexure capacity check."
-          }
-        ]
-      },
-      "smart_warnings": [
-        {
-          "id": "W1",
-          "trigger": "UC > 0.9 && UC <= 1",
-          "severity": "CRITICAL",
-          "message": "Utilization exceeds 0.90. Independent engineering review and FMEA required before release."
-        },
-        {
-          "id": "W2",
-          "trigger": "A_sv === 0 && V_Ed > V_Rdc_ec2 && design_standard === 'EN_1992_1_1'",
-          "severity": "CRITICAL",
-          "message": "EC2 shear demand exceeds concrete shear resistance without links. Provide shear reinforcement or increase section."
-        },
-        {
-          "id": "W3",
-          "trigger": "A_sv === 0 && V_Ed > phi_v * V_c_aci && design_standard === 'ACI_318_25'",
-          "severity": "CRITICAL",
-          "message": "ACI shear demand exceeds concrete-only shear design strength. Provide shear reinforcement or increase section."
-        },
-        {
-          "id": "W4",
-          "trigger": "x_ec2 / d > 0.45 && design_standard === 'EN_1992_1_1'",
-          "severity": "WARNING",
-          "message": "EC2 neutral-axis ratio is high. Check ductility, redistribution limits, and over-reinforcement risk."
-        },
-        {
-          "id": "W5",
-          "trigger": "epsilon_t_aci < 0.005 && design_standard === 'ACI_318_25'",
-          "severity": "WARNING",
-          "message": "ACI section is not tension-controlled. Flexural phi factor is reduced."
-        },
-        {
-          "id": "W6",
-          "trigger": "s_v !== null && s_v > 0.75 * d",
-          "severity": "WARNING",
-          "message": "Stirrup spacing appears large relative to effective depth. Check code maximum spacing limits."
-        },
-        {
-          "id": "W7",
-          "trigger": "cover !== null && cover < 20",
-          "severity": "WARNING",
-          "message": "Concrete cover is low. Check durability, fire rating, corrosion exposure class, and construction tolerance."
-        },
-        {
-          "id": "W8",
-          "trigger": "h / b_w > 4",
-          "severity": "INFO",
-          "message": "Deep/narrow beam geometry detected. Check lateral stability, detailing congestion, and strut-and-tie applicability."
-        }
-      ],
-      "error_propagation": "ISO/IEC Guide 98-3 GUM Type A/B. Report u_c(UC), input uncertainty table, and sensitivity contributors for b_w, d, A_s, f_ck/f_c_prime, f_yk/f_y, M_Ed, V_Ed.",
-      "fmea": "Required for UC > 0.90 or safety-critical RC beam. RPN = S × O × D. Minimum failure modes: flexural yielding, compression-controlled brittle failure, diagonal shear failure, concrete strut crushing, stirrup yielding, anchorage failure outside module, bar placement error, material strength mismatch.",
-      "audit_log": "ISO 9001 §8.5.1 traceable fields: tool_id, version, timestamp, user_id, project_id, design_standard, national_annex_or_code_basis, input_hash, formula_version, unit_system, validation_result, UC_flexure, UC_shear, UC, status."
-    },
-    "reference_code": {
-      "language": "TypeScript",
-      "interface": "interface RCBeamShearFlexureInput { design_standard: 'ACI_318_25' | 'EN_1992_1_1'; beam_type: 'RECTANGULAR_SINGLY_REINFORCED'; b_w: number; h: number; d: number; cover?: number | null; f_ck: number; f_c_prime: number; lambda_concrete: number; f_yk: number; f_y: number; E_s: number; A_s: number; A_sv?: number; s_v?: number | null; stirrup_angle_deg: number; cot_theta: number; N_Ed?: number; M_Ed: number; V_Ed: number; gamma_c: number; gamma_s: number; alpha_cc: number; phi_v: number; rho_min_override?: number | null; } interface RCBeamShearFlexureOutput { rho_l: number; M_design: number; V_design: number; UC_flexure: number; UC_shear: number; UC: number; u_c_UC: number; status: 'PASS' | 'FAIL'; governing_mode: 'FLEXURE' | 'SHEAR'; standard_branch: 'ACI_318_25' | 'EN_1992_1_1'; warnings: string[]; }",
-      "validation": "Zod schema. Throw on invalid geometry, missing standard-specific parameters, negative loads, invalid reinforcement areas, invalid partial factors, over-reinforced section, and UC > 1.0.",
-      "testing": "Jest. 7 cases: EC2 nominal PASS, EC2 shear without links FAIL, EC2 strut crushing control WARN, ACI tension-controlled PASS, ACI transition phi WARN, ACI excessive Vs cap WARN, invalid geometry BLOCK.",
-      "example": "calculateRCBeamShearFlexure(input): RCBeamShearFlexureOutput"
-    },
-    "metadata": {
-      "version": "1.0.0",
-      "traceability_id": "TOOL-RC-BEAM-117",
-      "tuv_checklist": [
-        "Unit test coverage >95%",
-        "Dimensional check completed for every formula",
-        "Fail-closed validation implemented",
-        "ACI and EC2 branch separation tested",
-        "FMEA required for UC > 0.90",
-        "Uncertainty propagation reported",
-        "ISO 9001 audit log enabled",
-        "No silent default that hides design risk"
-      ],
-      "calibration_trace": "NIST/DKD/PTB",
-      "limitations": [
-        "Rectangular singly reinforced beam only.",
-        "T-beam, L-beam, slab strip, doubly reinforced beam, prestressed beam, and composite section are outside scope.",
-        "Torsion check is outside scope.",
-        "Punching shear is outside scope.",
-        "Anchorage, lap splice, development length, bar cutoff, crack width, deflection, fire resistance, and seismic detailing are outside scope.",
-        "Minimum and maximum reinforcement detailing limits require project-specific code annex validation.",
-        "Strut-and-tie model required for deep beams, disturbed regions, openings, corbels, and load/support discontinuities."
       ]
     }
   }

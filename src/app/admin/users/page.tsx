@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: "Üye Yönetimi (Yönetici)",
+    title: "User Management (Admin)",
     description: "Authorized admin panel for SectorCalc member management.",
     path: "/admin/users",
   }),
@@ -19,8 +19,8 @@ export default function AdminUsersPage() {
   return (
     <PageLayout>
       <PageHero
-        eyebrow="Yönetici"
-        title="Üye Yönetimi"
+        eyebrow="Admin"
+        title="User Management"
         subtitle="Manage registered site members, edit passwords, adjust credit balances and subscription statuses, and assign admin privileges."
       />
 

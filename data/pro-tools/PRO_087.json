@@ -11,7 +11,7 @@
       "unit": "bar·m/s",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 800,
       "note": "From ISO 6184-1 20-L sphere test; St1: 1–200; St2: 201–300; St3: >300 bar·m/s"
@@ -22,7 +22,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 12,
       "note": "From 20-L sphere test; most organic dusts: P_max = 7–10 bar(g)"
@@ -33,7 +33,7 @@
       "unit": "m³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 10000
     },
@@ -43,7 +43,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.1,
       "absolute_min": 0.05,
       "absolute_max": 2,
@@ -55,7 +55,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.05,
       "absolute_min": 0.01,
       "absolute_max": 0.5,
@@ -67,7 +67,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 2,
       "absolute_min": 1,
       "absolute_max": 20,
@@ -93,7 +93,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "St1"
     }
   ],

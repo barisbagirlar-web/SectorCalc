@@ -179,37 +179,43 @@
         "condition": "Specific_Embedded_tCO2_per_tonne > eu_sector_benchmark_tco2_per_tonne",
         "severity": "CRITICAL",
         "source": "EU CBAM Regulation 2023/956",
-        "message": "CBAM EXPOSURE CONFIRMED: Your carbon intensity exceeds the EU sector benchmark. CBAM certificates must be purchased for every tonne exported to the EU above this threshold. This is a legal obligation from 2026 onwards. Decarbonisation investment or EU market exit must be evaluated."
+        "message": "CBAM EXPOSURE CONFIRMED: Your carbon intensity exceeds the EU sector benchmark. CBAM certificates must be purchased for every tonne exported to the EU above this threshold. This is a legal obligation from 2026 onwards. Decarbonisation investment or EU market exit must be evaluated.",
+        "id": "W1"
       },
       {
         "condition": "Net_CBAM_Cost_EUR > 100000",
         "severity": "CRITICAL",
         "source": "CBAM Financial Risk Assessment",
-        "message": "MATERIAL FINANCIAL EXPOSURE: Annual CBAM liability exceeds €100,000. This represents a significant margin erosion risk for EU-destined exports. Quantify in CAPEX planning for decarbonisation. EU customers will increasingly demand lower-carbon supply chains."
+        "message": "MATERIAL FINANCIAL EXPOSURE: Annual CBAM liability exceeds €100,000. This represents a significant margin erosion risk for EU-destined exports. Quantify in CAPEX planning for decarbonisation. EU customers will increasingly demand lower-carbon supply chains.",
+        "id": "W2"
       },
       {
         "condition": "Carbon_Intensity_vs_Benchmark_Pct > 150",
         "severity": "CRITICAL",
         "source": "EU Green Deal Supply Chain Requirements",
-        "message": "EXTREME CARBON INTENSITY: Your product emits 50%+ more CO₂ than the EU benchmark. At current EU ETS trajectory (projected €100+/t by 2030), export competitiveness will be critically impaired. Immediate industrial decarbonisation roadmap required."
+        "message": "EXTREME CARBON INTENSITY: Your product emits 50%+ more CO₂ than the EU benchmark. At current EU ETS trajectory (projected €100+/t by 2030), export competitiveness will be critically impaired. Immediate industrial decarbonisation roadmap required.",
+        "id": "W3"
       },
       {
         "condition": "scope2_grid_factor_kg_kwh > 0.5",
         "severity": "WARNING",
         "source": "GHG Protocol Scope 2 / RE100",
-        "message": "High-carbon electricity grid (>0.5 kgCO₂/kWh): Scope 2 emissions are a major CBAM driver. Corporate PPA (Power Purchase Agreement) with renewable energy can significantly reduce embedded carbon and improve CBAM position. Model the impact using market-based Scope 2 method."
+        "message": "High-carbon electricity grid (>0.5 kgCO₂/kWh): Scope 2 emissions are a major CBAM driver. Corporate PPA (Power Purchase Agreement) with renewable energy can significantly reduce embedded carbon and improve CBAM position. Model the impact using market-based Scope 2 method.",
+        "id": "W4"
       },
       {
         "condition": "local_carbon_tax_eur_tco2 === 0",
         "severity": "INFO",
         "source": "CBAM Article 9 — Carbon Price Deductibility",
-        "message": "No local carbon tax offset applicable. Countries with carbon pricing (UK, Switzerland, Korea) can deduct equivalent carbon costs from CBAM liability. Monitoring Turkey's carbon market development is recommended."
+        "message": "No local carbon tax offset applicable. Countries with carbon pricing (UK, Switzerland, Korea) can deduct equivalent carbon costs from CBAM liability. Monitoring Turkey's carbon market development is recommended.",
+        "id": "W5"
       },
       {
         "condition": "eu_export_volume_tonnes / annual_production_tonnes > 0.5",
         "severity": "WARNING",
         "source": "CBAM Concentration Risk",
-        "message": "More than 50% of production exported to EU: High CBAM concentration risk. Any regulatory tightening of EU benchmarks or ETS price spike will have disproportionate financial impact. Diversify export markets or accelerate low-carbon transition."
+        "message": "More than 50% of production exported to EU: High CBAM concentration risk. Any regulatory tightening of EU benchmarks or ETS price spike will have disproportionate financial impact. Diversify export markets or accelerate low-carbon transition.",
+        "id": "W6"
       }
     ]
   }

@@ -11,7 +11,7 @@
       "unit": "t/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 20000
     },
@@ -21,7 +21,7 @@
       "unit": "m/s",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.2,
       "absolute_max": 10
     },
@@ -31,7 +31,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 20000
     },
@@ -41,7 +41,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -500,
       "absolute_max": 500
     },
@@ -51,7 +51,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0.02,
       "absolute_min": 0.01,
       "absolute_max": 0.04,
@@ -63,7 +63,7 @@
       "unit": "kg/m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 2,
       "absolute_max": 150,
       "note": "From belt manufacturer data: EP400/3-6+3 ≈ 12 kg/m per metre width"
@@ -74,7 +74,7 @@
       "unit": "kg/m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 20,
       "absolute_min": 3,
       "absolute_max": 100,
@@ -86,7 +86,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 94,
       "absolute_min": 80,
       "absolute_max": 99

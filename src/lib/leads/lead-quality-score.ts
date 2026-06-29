@@ -183,7 +183,7 @@ function scoreEmail(email: string): {
  if (isInvalidEmail(trimmed)) {
  return {
  points: 0,
- warning: "E-posta geçersiz veya test görünüyor",
+ warning: "Email invalid or looks like test",
  };
  }
 
@@ -191,7 +191,7 @@ function scoreEmail(email: string): {
  if (!domain) {
  return {
  points: 0,
- warning: "E-posta geçersiz veya test görünüyor",
+ warning: "Email invalid or looks like test",
  };
  }
 

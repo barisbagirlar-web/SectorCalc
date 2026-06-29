@@ -60,7 +60,7 @@ export async function runDeepSeekHealthcheck(): Promise<{
 }
 
 function printHealthcheckReport(report: DeepSeekHealthcheckReport): void {
-  console.log("SONUÇ:");
+  console.log("RESULT:");
   console.log(`API KEY PRESENT: ${report.apiKeyPresent ? "yes" : "no"}`);
   console.log(`MODEL: ${report.model}`);
   console.log(`STATUS: ${report.status}`);

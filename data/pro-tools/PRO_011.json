@@ -163,37 +163,43 @@
         "condition": "DOL > 5",
         "severity": "CRITICAL",
         "source": "Operating Leverage Risk Analysis",
-        "message": "EXTREME OPERATING LEVERAGE (DOL > 5): A 10% revenue decline will reduce operating income by more than 50%. Fixed cost structure is dangerously high relative to volume. Immediate fixed cost reduction or revenue diversification required."
+        "message": "EXTREME OPERATING LEVERAGE (DOL > 5): A 10% revenue decline will reduce operating income by more than 50%. Fixed cost structure is dangerously high relative to volume. Immediate fixed cost reduction or revenue diversification required.",
+        "id": "W1"
       },
       {
         "condition": "DOL > 3 && DOL <= 5",
         "severity": "WARNING",
         "source": "CFA / CIMA Leverage Framework",
-        "message": "High Operating Leverage (DOL 3–5): Business is highly sensitive to volume fluctuations. In an economic downturn, profitability will erode rapidly. Stress-test at -15% and -30% volume scenarios."
+        "message": "High Operating Leverage (DOL 3–5): Business is highly sensitive to volume fluctuations. In an economic downturn, profitability will erode rapidly. Stress-test at -15% and -30% volume scenarios.",
+        "id": "W2"
       },
       {
         "condition": "Margin_of_Safety_Pct < 10",
         "severity": "CRITICAL",
         "source": "Management Accounting — Margin of Safety",
-        "message": "CRITICAL: Margin of Safety < 10%. Actual sales are within 10% of break-even. Any demand reduction, price pressure, or cost increase could push the business into loss. Pricing, cost structure, or volume must be addressed immediately."
+        "message": "CRITICAL: Margin of Safety < 10%. Actual sales are within 10% of break-even. Any demand reduction, price pressure, or cost increase could push the business into loss. Pricing, cost structure, or volume must be addressed immediately.",
+        "id": "W3"
       },
       {
         "condition": "Margin_of_Safety_Pct >= 10 && Margin_of_Safety_Pct < 25",
         "severity": "WARNING",
         "source": "Management Accounting",
-        "message": "Low Margin of Safety (10–25%): Business has limited buffer above break-even. Acceptable for stable industries; concerning for cyclical manufacturing or export-dependent operations."
+        "message": "Low Margin of Safety (10–25%): Business has limited buffer above break-even. Acceptable for stable industries; concerning for cyclical manufacturing or export-dependent operations.",
+        "id": "W4"
       },
       {
         "condition": "CM_A / product_A_price < 0.20 || CM_B / product_B_price < 0.20",
         "severity": "WARNING",
         "source": "Contribution Margin Ratio Analysis",
-        "message": "Contribution Margin Ratio < 20% on one or more products: Very thin margin structure. Small cost increases (raw materials, energy) will immediately eliminate profitability. Price elasticity analysis required."
+        "message": "Contribution Margin Ratio < 20% on one or more products: Very thin margin structure. Small cost increases (raw materials, energy) will immediately eliminate profitability. Price elasticity analysis required.",
+        "id": "W5"
       },
       {
         "condition": "BEP_Revenue > 10000000",
         "severity": "INFO",
         "source": "Scale Risk Assessment",
-        "message": "Break-even revenue exceeds $10M: High absolute break-even level. Ensure sales pipeline and contracted revenue cover this threshold before capacity expansion."
+        "message": "Break-even revenue exceeds $10M: High absolute break-even level. Ensure sales pipeline and contracted revenue cover this threshold before capacity expansion.",
+        "id": "W6"
       }
     ]
   }

@@ -11,7 +11,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 1000
     },
@@ -21,7 +21,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "absolute_min": 1,
       "absolute_max": 8,
@@ -59,7 +59,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 90
     },
     {
@@ -68,7 +68,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": false,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 3,
       "absolute_min": 3,
       "absolute_max": 5,
@@ -80,7 +80,7 @@
       "unit": "cycles",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 1000,
       "absolute_max": 10000000000
     },
@@ -90,7 +90,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 0,
       "absolute_min": -500,
       "absolute_max": 700,
@@ -102,7 +102,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 200,
       "absolute_max": 2000
     },
@@ -126,7 +126,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 5
     }
   ],

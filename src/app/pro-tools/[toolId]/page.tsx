@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import ProToolClientWrapper from "@/components/calculators/ProToolClientWrapper";
 import { PRO_TOOLS_MAP } from "@/lib/tools/pro-tools-registry";
+import { PageLayout } from "@/components/layout/PageLayout";
 import "@/styles/pro-tool-form.css";
 
 function loadTool(toolId: string) {
@@ -49,16 +50,16 @@ export default async function ProToolPage({
   const jsonLd = buildJsonLd(tool);
 
   return (
-    <>
+    <PageLayout>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div style={{ background: "#E8E6DE", minHeight: "100vh", color: "#1A1915", fontFamily: "Inter, system-ui, sans-serif" }}>
-        <main style={{ padding: "28px 24px 80px", maxWidth: 1100, margin: "0 auto" }}>
+      <div className="pro-tool-page-wrapper" style={{ background: "#E8E6DE", color: "#1A1915" }}>
+        <div style={{ padding: "28px 24px 80px", maxWidth: 1100, margin: "0 auto" }}>
           <ProToolClientWrapper tool={tool} locale={locale} />
-        </main>
+        </div>
       </div>
-    </>
+    </PageLayout>
   );
 }

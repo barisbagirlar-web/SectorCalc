@@ -325,7 +325,7 @@ export function FreeTrafficToolPage({
           {surfaceTier === "premium" && (
             <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
               <Link href="/pricing" prefetch={false} className="hover:underline">
-                {locale === "tr" ? "Premium Araçlar" : "Premium"}
+                {"Premium"}
               </Link>
               <span className="mx-1.5">/</span>
               <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">

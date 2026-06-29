@@ -87,7 +87,7 @@ export function CalculatorCurrencyPrefix({
   const locale = useLocale();
   const region = resolveRegionalCodeFromLocale(locale);
   const code = currency ?? getDefaultCurrencyForRegion(region);
-  const symbol = code === "TRY" ? "₺" : code === "EUR" ? "€" : code === "GBP" ? "£" : code === "USD" ? "$" : code;
+  const symbol = code === "EUR" ? "€" : code === "GBP" ? "£" : code === "USD" ? "$" : code;
   return (
     <span className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 font-mono text-xs text-body-charcoal">
       {symbol}

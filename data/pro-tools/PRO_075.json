@@ -11,7 +11,7 @@
       "unit": "kg/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 5000000
     },
@@ -21,7 +21,7 @@
       "unit": "kJ/kg",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 46000,
       "absolute_min": 10000,
       "absolute_max": 55000,
@@ -33,7 +33,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 98,
       "absolute_min": 80,
       "absolute_max": 99.9,
@@ -45,7 +45,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0.2,
       "absolute_min": 0.05,
       "absolute_max": 0.4,
@@ -79,7 +79,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.58,
       "note": "API 521-2020 Table 5 — radiation limits by exposure scenario"
     },
@@ -89,7 +89,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 5,
       "absolute_max": 200
     },
@@ -99,7 +99,7 @@
       "unit": "m/s",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 10,
       "absolute_min": 0,
       "absolute_max": 40

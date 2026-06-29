@@ -29,7 +29,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 2,
       "note": "IEC 62305-1 §5.3 — LPL determined by risk assessment per IEC 62305-2"
     },
@@ -39,7 +39,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 500
     },
@@ -49,7 +49,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 2000
     },
@@ -59,7 +59,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 2000
     },
@@ -69,7 +69,7 @@
       "unit": "flashes/km²/yr",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 2.5,
       "absolute_min": 0.1,
       "absolute_max": 30,
@@ -99,7 +99,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1,
       "note": "IEC 62305-2 Table A.2 — structure type factor"
     },
@@ -109,7 +109,7 @@
       "unit": "m",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 10,
       "absolute_min": 5,
       "absolute_max": 25

@@ -319,7 +319,7 @@ export function runEngine(
  * string. This is the canonical output for server → client transfer.
  *
  * @param output — MarginCoreEngineOutput from runEngine()
- * @param currency — ISO currency code (USD, EUR, TRY)
+ * @param currency — ISO currency code (USD, EUR, GBP)
  * @returns structured plain-text report
  */
 export function formatEngineReport(
@@ -385,7 +385,6 @@ function currencySymbol(currency: string): string {
  case "USD": return "$";
  case "EUR": return "€";
  case "GBP": return "£";
- case "TRY": return "₺";
  default: return `${currency} `;
  }
 }

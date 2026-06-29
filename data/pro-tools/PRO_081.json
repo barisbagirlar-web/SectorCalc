@@ -11,7 +11,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 25,
       "absolute_max": 3000
     },
@@ -21,7 +21,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 20,
       "absolute_min": -50,
       "absolute_max": 200
@@ -32,7 +32,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -200,
       "absolute_max": 800
     },
@@ -42,7 +42,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 500
     },
@@ -78,7 +78,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 11.7
     },
     {
@@ -87,7 +87,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 400
     },
@@ -97,7 +97,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 5,
       "absolute_min": 1,
       "absolute_max": 30,
@@ -109,7 +109,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 205,
       "absolute_min": 100,
       "absolute_max": 800,

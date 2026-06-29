@@ -11,7 +11,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 2000
     },
@@ -21,7 +21,7 @@
       "unit": "m³/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.001,
       "absolute_max": 100000
     },
@@ -31,7 +31,7 @@
       "unit": "kg/m³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1000,
       "absolute_min": 0.5,
       "absolute_max": 3000
@@ -42,7 +42,7 @@
       "unit": "mPa·s",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "absolute_min": 0.01,
       "absolute_max": 1000000,
@@ -72,7 +72,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 6.3,
       "note": "K_p = pressure drop factor: ΔP_mixer = K_p × ΔP_empty_pipe; from manufacturer data"
     },
@@ -82,7 +82,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 6,
       "absolute_min": 1,
       "absolute_max": 40,
@@ -112,7 +112,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.05
     }
   ],

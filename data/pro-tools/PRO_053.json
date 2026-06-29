@@ -11,7 +11,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 32
     },
@@ -33,7 +33,7 @@
         64
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 24
     },
     {
@@ -42,7 +42,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 1000
     },
@@ -60,7 +60,7 @@
         50
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 30
     },
     {
@@ -91,7 +91,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 517
     },
     {
@@ -100,7 +100,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 50000
     },
@@ -110,7 +110,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 50000
     },
@@ -120,7 +120,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 2000
     }

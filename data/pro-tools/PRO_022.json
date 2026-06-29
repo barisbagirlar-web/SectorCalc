@@ -12,7 +12,7 @@
       "type": "number",
       "required": true,
       "confidence_label": "EXACT",
-      "absolute_min": 0.000001,
+      "absolute_min": 1e-06,
       "hint": "Billet volume before machining — NOT finished part volume"
     },
     {
@@ -43,7 +43,7 @@
       "type": "number",
       "required": true,
       "confidence_label": "EXACT",
-      "absolute_min": 1e-7,
+      "absolute_min": 1e-07,
       "hint": "Volume of finished part — used to calculate buy-to-fly ratio"
     },
     {
@@ -191,37 +191,43 @@
         "condition": "Tooling_Cost_per_Part_USD > Machining_Cost_USD",
         "severity": "CRITICAL",
         "source": "Sandvik Coromant Machining Economics",
-        "message": "TOOLING COST EXCEEDS MACHINE TIME COST: Cutting speed is too high — tools are being consumed faster than economically optimal. Reduce Vc to extend tool life. Optimal Vc for minimum cost (Vcopt) is typically 20–30% below Vcmax."
+        "message": "TOOLING COST EXCEEDS MACHINE TIME COST: Cutting speed is too high — tools are being consumed faster than economically optimal. Reduce Vc to extend tool life. Optimal Vc for minimum cost (Vcopt) is typically 20–30% below Vcmax.",
+        "id": "W1"
       },
       {
         "condition": "Buy_to_Fly_Ratio > 5",
         "severity": "WARNING",
         "source": "Aerospace / Defence Cost Engineering",
-        "message": "High buy-to-fly ratio (>5): More than 80% of raw material becomes chip. Material waste is a dominant cost driver. Evaluate: (1) Near-net-shape forging or casting, (2) Additive manufacturing + hybrid machining, (3) Billet size optimisation."
+        "message": "High buy-to-fly ratio (>5): More than 80% of raw material becomes chip. Material waste is a dominant cost driver. Evaluate: (1) Near-net-shape forging or casting, (2) Additive manufacturing + hybrid machining, (3) Billet size optimisation.",
+        "id": "W2"
       },
       {
         "condition": "Material_Cost_Fraction_pct > 60",
         "severity": "WARNING",
         "source": "Cost Engineering Best Practice",
-        "message": "Material cost >60% of total unit cost: Material is the dominant cost element. Price negotiation, alternative alloys, or supply chain changes will have greater impact than process optimisation."
+        "message": "Material cost >60% of total unit cost: Material is the dominant cost element. Price negotiation, alternative alloys, or supply chain changes will have greater impact than process optimisation.",
+        "id": "W3"
       },
       {
         "condition": "scrap_rate_pct > 5",
         "severity": "CRITICAL",
         "source": "Six Sigma / Lean Manufacturing",
-        "message": "Scrap rate > 5%: Significant quality cost. At this rate, scrap penalty is adding meaningful cost per part. Root cause analysis (8D / Ishikawa) required. Target: <1% for mature CNC processes."
+        "message": "Scrap rate > 5%: Significant quality cost. At this rate, scrap penalty is adding meaningful cost per part. Root cause analysis (8D / Ishikawa) required. Target: <1% for mature CNC processes.",
+        "id": "W4"
       },
       {
         "condition": "scrap_rate_pct > 1 && scrap_rate_pct <= 5",
         "severity": "WARNING",
         "source": "AIAG / TS 16949 Quality Targets",
-        "message": "Scrap rate 1–5%: Above world-class target. Each percentage point of scrap adds direct cost penalty. SPC implementation and tooling condition monitoring recommended."
+        "message": "Scrap rate 1–5%: Above world-class target. Each percentage point of scrap adds direct cost penalty. SPC implementation and tooling condition monitoring recommended.",
+        "id": "W5"
       },
       {
         "condition": "tool_life_per_edge_min < 15",
         "severity": "WARNING",
         "source": "ISO 3685 / Sandvik Tool Life Recommendations",
-        "message": "Tool life < 15 minutes per edge: Very short tool life indicates aggressive cutting conditions or workpiece hardness issues. Economic tool life target is typically 20–45 min. Reduce Vc or check for built-up edge (BUE) conditions."
+        "message": "Tool life < 15 minutes per edge: Very short tool life indicates aggressive cutting conditions or workpiece hardness issues. Economic tool life target is typically 20–45 min. Reduce Vc or check for built-up edge (BUE) conditions.",
+        "id": "W6"
       }
     ]
   }

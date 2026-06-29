@@ -11,7 +11,7 @@
       "unit": "kg",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 500,
       "absolute_max": 50000,
       "note": "Per nameplate at standard load centre (typically 500 mm for IC; 600 mm for large trucks)"
@@ -32,7 +32,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 500
     },
     {
@@ -41,7 +41,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 200,
       "absolute_max": 2000,
       "note": "Distance from fork face to load centre of gravity; non-standard pallet or long load will shift this"
@@ -52,7 +52,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1000,
       "absolute_max": 12000
     },
@@ -62,7 +62,7 @@
       "unit": "°",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 3,
       "absolute_min": 0,
       "absolute_max": 10
@@ -73,7 +73,7 @@
       "unit": "kg",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 60000
     },
@@ -83,7 +83,7 @@
       "unit": "kg",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 5000
@@ -94,7 +94,7 @@
       "unit": "mm",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 150,
       "absolute_min": 0,
       "absolute_max": 500

@@ -45,7 +45,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "M12"
     },
     {
@@ -68,7 +68,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "10.9"
     },
     {
@@ -77,7 +77,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0.12,
       "absolute_min": 0.06,
       "absolute_max": 0.35,
@@ -89,7 +89,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 90,
       "absolute_min": 50,
       "absolute_max": 100,
@@ -101,7 +101,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 8,
       "absolute_min": 3,
       "absolute_max": 25,
@@ -113,7 +113,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0,
       "absolute_max": 5000
     },
@@ -123,7 +123,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0.3,
       "absolute_min": 0.1,
       "absolute_max": 1,

@@ -11,7 +11,7 @@
       "unit": "m/min",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 5,
       "absolute_max": 2000
     },
@@ -21,7 +21,7 @@
       "unit": "mm/rev",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 5
     },
@@ -31,7 +31,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.05,
       "absolute_max": 50
     },
@@ -41,7 +41,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1850,
       "absolute_min": 500,
       "absolute_max": 5000
@@ -60,7 +60,7 @@
         2.4
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.8,
       "note": "ISO 1832 insert designation — 4th character; R = 0.4 → standard; R = 0.8 → medium"
     },
@@ -70,7 +70,7 @@
       "unit": "m/min",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 200,
       "absolute_min": 50,
       "absolute_max": 2000,
@@ -82,7 +82,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0.25,
       "absolute_min": 0.1,
       "absolute_max": 0.5,

@@ -11,7 +11,7 @@
       "unit": "m/min",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 2000,
       "note": "From Sandvik C-2920 Table 1 or tool manufacturer data for workpiece/tool material combination"
@@ -22,7 +22,7 @@
       "unit": "mm/tooth",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 2
     },
@@ -32,7 +32,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.05,
       "absolute_max": 200
     },
@@ -42,7 +42,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.05,
       "absolute_max": 500
     },
@@ -52,7 +52,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 30
     },
@@ -62,7 +62,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 800
     },
@@ -72,7 +72,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 2000,
       "absolute_min": 500,
       "absolute_max": 5000,
@@ -84,7 +84,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 0.25,
       "absolute_min": 0.15,
       "absolute_max": 0.4,

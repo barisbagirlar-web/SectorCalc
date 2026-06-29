@@ -18,7 +18,7 @@ export const REGION_DEFAULTS = {
     dateStyle: "MM/dd/yyyy",
   },
   TR: {
-    currency: "TRY",
+    currency: "USD",
     measurementSystem: "metric",
     decimal: ",",
     group: ".",

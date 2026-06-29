@@ -698,7 +698,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  <>
   <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
       <Link href="/pricing" prefetch={false} className="hover:underline">
-        {locale === "tr" ? "Premium" : "Premium"}
+        {"Premium"}
       </Link>
       <span className="mx-1.5">/</span>
       <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
@@ -714,9 +714,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
       question={featuredQuestion}
       answer={featuredAnswer}
       bullets={[
-        locale === "tr" ? "Precise input parameters and tolerance checks" : "Precise input parameters and tolerance checks",
-        locale === "tr" ? "Cost, time or quality loss analysis" : "Cost, time or quality loss analysis",
-        locale === "tr" ? "Professional reporting and data integration" : "Professional reporting and data integration"
+        "Precise input parameters and tolerance checks",
+        "Cost, time or quality loss analysis",
+        "Professional reporting and data integration"
       ]}
     />
   </div>

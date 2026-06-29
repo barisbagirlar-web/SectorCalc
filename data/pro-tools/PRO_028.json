@@ -180,37 +180,43 @@
         "condition": "aisle_width_m >= 3.5",
         "severity": "WARNING",
         "source": "VDI 3618 / Reach Truck Analysis",
-        "message": "WIDE AISLE SYSTEM (≥3.5m): Aisle width suitable for counterbalance forklift only. Approximately 35–40% of floor area is dedicated to aisles. Switching to reach truck (aisle 2.6–2.8m) or VNA (1.6–1.8m) could increase pallet positions by 20–40% in the same building."
+        "message": "WIDE AISLE SYSTEM (≥3.5m): Aisle width suitable for counterbalance forklift only. Approximately 35–40% of floor area is dedicated to aisles. Switching to reach truck (aisle 2.6–2.8m) or VNA (1.6–1.8m) could increase pallet positions by 20–40% in the same building.",
+        "id": "W1"
       },
       {
         "condition": "Cube_Utilisation_pct < 25",
         "severity": "CRITICAL",
         "source": "MHI Warehouse Efficiency Benchmarks",
-        "message": "POOR CUBE UTILISATION (<25%): Building volume is severely underused. Root causes: insufficient rack height, too many aisles, low stacking, or low occupancy. World-class warehouses achieve 40–60% cube utilisation. Evaluate: (1) Taller racking, (2) Narrower aisles, (3) Double-deep or mobile racking."
+        "message": "POOR CUBE UTILISATION (<25%): Building volume is severely underused. Root causes: insufficient rack height, too many aisles, low stacking, or low occupancy. World-class warehouses achieve 40–60% cube utilisation. Evaluate: (1) Taller racking, (2) Narrower aisles, (3) Double-deep or mobile racking.",
+        "id": "W2"
       },
       {
         "condition": "occupancy_target_pct > 90",
         "severity": "CRITICAL",
         "source": "WMS Best Practice / SEMA",
-        "message": "OCCUPANCY TARGET > 90%: Operating above 90% causes severe congestion, pick path blockages, and forces multiple product relocations per pick. WMS systems degrade significantly above 85%. Required buffer for operational flexibility: minimum 15% empty positions."
+        "message": "OCCUPANCY TARGET > 90%: Operating above 90% causes severe congestion, pick path blockages, and forces multiple product relocations per pick. WMS systems degrade significantly above 85%. Required buffer for operational flexibility: minimum 15% empty positions.",
+        "id": "W3"
       },
       {
         "condition": "Max_Rack_Levels <= 2",
         "severity": "WARNING",
         "source": "Warehouse Design Optimisation",
-        "message": "Only 1–2 rack levels achievable: Building clear height is limiting vertical density. If building modification is not feasible, consider mezzanine floor installation or multi-tier picking to improve m³ utilisation."
+        "message": "Only 1–2 rack levels achievable: Building clear height is limiting vertical density. If building modification is not feasible, consider mezzanine floor installation or multi-tier picking to improve m³ utilisation.",
+        "id": "W4"
       },
       {
         "condition": "Positions_per_m2 < 0.8",
         "severity": "WARNING",
         "source": "VDI 3618 Density KPI",
-        "message": "Storage density < 0.8 positions/m² gross: Below industry benchmark for conventional racking (target: 1.0–1.5 positions/m²). Analyse: wide aisle ratios, low stacking height, and low net storage ratio as primary contributors."
+        "message": "Storage density < 0.8 positions/m² gross: Below industry benchmark for conventional racking (target: 1.0–1.5 positions/m²). Analyse: wide aisle ratios, low stacking height, and low net storage ratio as primary contributors.",
+        "id": "W5"
       },
       {
         "condition": "selectivity_factor < 0.5 && accessible_positions < 200",
         "severity": "WARNING",
         "source": "Warehouse Operations — FIFO Compliance",
-        "message": "Low accessibility + small absolute accessible count: With drive-in or pushback systems, FIFO rotation becomes operationally difficult. For perishable goods, pharmaceuticals, or date-coded products, minimum selectivity factor 0.8 is required to ensure FEFO compliance."
+        "message": "Low accessibility + small absolute accessible count: With drive-in or pushback systems, FIFO rotation becomes operationally difficult. For perishable goods, pharmaceuticals, or date-coded products, minimum selectivity factor 0.8 is required to ensure FEFO compliance.",
+        "id": "W6"
       }
     ]
   }

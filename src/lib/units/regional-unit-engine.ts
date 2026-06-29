@@ -124,7 +124,6 @@ const DEFINITIONS: readonly UnitDefinition[] = [
   { id: "usd", label: "US Dollar", symbol: "USD", dimension: "currency", system: "mixed", canonicalUnitId: "usd" },
   { id: "eur", label: "Euro", symbol: "EUR", dimension: "currency", system: "mixed", canonicalUnitId: "eur" },
   { id: "gbp", label: "British Pound", symbol: "GBP", dimension: "currency", system: "mixed", canonicalUnitId: "gbp" },
-  { id: "try", label: "Turkish Lira", symbol: "TRY", dimension: "currency", system: "mixed", canonicalUnitId: "try" },
 
   // percentage / count — display only
   { id: "percent", label: "Percent", symbol: "%", dimension: "percentage", system: "mixed", canonicalUnitId: "percent", toBaseFactor: 1 },

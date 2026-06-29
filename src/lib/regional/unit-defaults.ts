@@ -83,18 +83,18 @@ const UNIT_LABEL_TR: Record<string, string> = {
   m2: "m²",
   ft2: "ft²",
   sqft: "ft²",
-  acre: "dönüm",
-  hectare: "hektar",
-  L: "litre",
-  l: "litre",
-  ml: "ml",
+  acre: "acre",
+  hectare: "hectare",
+  L: "L",
+  l: "L",
+  ml: "mL",
   m3: "m³",
-  gal: "galon",
+  gal: "gal",
   ft3: "ft³",
   cuft: "ft³",
   g: "g",
   kg: "kg",
-  tonne: "ton",
+  tonne: "t",
   lb: "lb",
   oz: "oz",
   kWh: "kWh",
@@ -105,7 +105,6 @@ const UNIT_LABEL_TR: Record<string, string> = {
   hp: "hp",
   C: "°C",
   F: "°F",
-  TRY: "TRY",
   USD: "USD",
   EUR: "EUR",
   GBP: "GBP",
@@ -118,9 +117,9 @@ const UNIT_LABEL_TR: Record<string, string> = {
   CHF: "CHF",
   JPY: "JPY",
   "%": "%",
-  min: "dk",
-  h: "sa",
-  hr: "sa",
+  min: "min",
+  h: "h",
+  hr: "h",
 };
 
 function resolveRegion(region: string): RegionalEngineCode {
@@ -168,7 +167,7 @@ export function getAvailableUnitsForGroup(
 }
 
 export function localizeUnitSymbol(symbol: string, locale: string): string {
-  if (locale === "tr" && UNIT_LABEL_TR[symbol]) {
+  if (UNIT_LABEL_TR[symbol]) {
     return UNIT_LABEL_TR[symbol];
   }
   return symbol;

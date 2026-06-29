@@ -193,37 +193,43 @@
         "condition": "Real_Discount_Rate_pct < 0",
         "severity": "CRITICAL",
         "source": "Fisher Equation / Macroeconomic Risk",
-        "message": "NEGATIVE REAL DISCOUNT RATE: Inflation exceeds nominal WACC. Every deferred cost actually costs more in real terms — there is no financial benefit to delaying project expenditure. This typically signals a hyperinflationary environment. Nominal cash flow analysis is required instead of real."
+        "message": "NEGATIVE REAL DISCOUNT RATE: Inflation exceeds nominal WACC. Every deferred cost actually costs more in real terms — there is no financial benefit to delaying project expenditure. This typically signals a hyperinflationary environment. Nominal cash flow analysis is required instead of real.",
+        "id": "W1"
       },
       {
         "condition": "Escalation_Pct > 20",
         "severity": "CRITICAL",
         "source": "AACE RP 18R-97 Escalation Alert",
-        "message": "HIGH ESCALATION (>20%): Cost escalation exceeds 20% of base estimate. This level typically represents a material budget risk. Project sanction budget must include full escalation provision — underfunded projects are the primary cause of cost overruns in capital projects. Escalate to project sponsor."
+        "message": "HIGH ESCALATION (>20%): Cost escalation exceeds 20% of base estimate. This level typically represents a material budget risk. Project sanction budget must include full escalation provision — underfunded projects are the primary cause of cost overruns in capital projects. Escalate to project sponsor.",
+        "id": "W2"
       },
       {
         "condition": "material_escalation_pct_yr > labour_escalation_pct_yr * 2",
         "severity": "WARNING",
         "source": "Procurement Risk Management",
-        "message": "MATERIAL ESCALATION OUTPACING LABOUR >2×: Commodity price volatility is the dominant risk. Evaluate: (1) Fixed-price supply contracts with early procurement, (2) Material price escalation clauses in contracts, (3) Alternative materials or supplier diversification."
+        "message": "MATERIAL ESCALATION OUTPACING LABOUR >2×: Commodity price volatility is the dominant risk. Evaluate: (1) Fixed-price supply contracts with early procurement, (2) Material price escalation clauses in contracts, (3) Alternative materials or supplier diversification.",
+        "id": "W3"
       },
       {
         "condition": "risk_contingency_pct < 5",
         "severity": "WARNING",
         "source": "AACE Estimate Classification",
-        "message": "LOW CONTINGENCY (<5%): Insufficient contingency for any estimate class. AACE Class 3 (budget estimate) requires 10–20%. Underfunding contingency is the most common cause of cost overruns on capital projects."
+        "message": "LOW CONTINGENCY (<5%): Insufficient contingency for any estimate class. AACE Class 3 (budget estimate) requires 10–20%. Underfunding contingency is the most common cause of cost overruns on capital projects.",
+        "id": "W4"
       },
       {
         "condition": "project_duration_years > 3 && management_reserve_pct === 0",
         "severity": "WARNING",
         "source": "PMBOK 7th Edition — Reserve Analysis",
-        "message": "NO MANAGEMENT RESERVE on multi-year project: Projects >3 years face significant scope uncertainty. Zero management reserve leaves no headroom for authorised scope additions. PMBOK recommends 5–10% management reserve separate from risk contingency."
+        "message": "NO MANAGEMENT RESERVE on multi-year project: Projects >3 years face significant scope uncertainty. Zero management reserve leaves no headroom for authorised scope additions. PMBOK recommends 5–10% management reserve separate from risk contingency.",
+        "id": "W5"
       },
       {
         "condition": "Escalation_Amount_USD > Contingency_USD",
         "severity": "CRITICAL",
         "source": "Project Cost Control",
-        "message": "ESCALATION EXCEEDS CONTINGENCY: Price escalation alone is larger than the entire contingency reserve. Contingency will be fully consumed by inflation before any technical risk event. Increase contingency or renegotiate fixed-price contracts to include escalation clauses."
+        "message": "ESCALATION EXCEEDS CONTINGENCY: Price escalation alone is larger than the entire contingency reserve. Contingency will be fully consumed by inflation before any technical risk event. Increase contingency or renegotiate fixed-price contracts to include escalation clauses.",
+        "id": "W6"
       }
     ]
   }

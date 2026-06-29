@@ -10,7 +10,7 @@ export type UnitSystemId = "metric" | "imperial";
 export type QuantityType =
   | "length" | "area" | "volume" | "mass" | "time" | "currency" | "energy" | "power"
   | "temperature" | "flowRate" | "speed" | "percentage" | "count";
-export type RegionalCurrencyCode = "USD" | "EUR" | "TRY" | "GBP" | "SAR" | "AED";
+export type RegionalCurrencyCode = "USD" | "EUR" | "GBP" | "SAR" | "AED";
 export type RegionalParameterStatus = "configured" | "global_default" | "not_configured";
 
 export type RegionalParameterResult<T = number | string> = {

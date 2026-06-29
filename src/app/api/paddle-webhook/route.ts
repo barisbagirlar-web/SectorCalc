@@ -34,10 +34,10 @@ export async function POST(req: NextRequest) {
     const credits = Number(customData?.credits ?? 0)
     const planId = customData?.planId ?? ''
 
-    // ── Buraya kendi DB call'unu ekle ──
+    // ── Add your own DB call here ──
     // await db.credits.upsert({ email, increment: credits, expiresAt: ... })
 
-    // ── Email gönder ──
+    // ── Send email ──
     // await resend.emails.send({ to: email, subject: `Your ${credits} credits are ready`, ... })
 
     console.log(`[webhook] ✅ ${credits} credits → ${email} (plan: ${planId})`)

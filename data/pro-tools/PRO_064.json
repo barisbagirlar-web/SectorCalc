@@ -11,7 +11,7 @@
       "unit": "m³/h",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 1000000
     },
@@ -31,7 +31,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "circular"
     },
     {
@@ -40,7 +40,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 3000
     },
@@ -50,7 +50,7 @@
       "unit": "mm",
       "type": "number",
       "required": false,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0,
       "absolute_min": 0,
       "absolute_max": 3000
@@ -61,7 +61,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.5,
       "absolute_max": 5000
     },
@@ -89,7 +89,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 0.09
     },
     {
@@ -98,7 +98,7 @@
       "unit": "dimensionless",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 2.5,
       "absolute_min": 0,
       "absolute_max": 30,
@@ -110,7 +110,7 @@
       "unit": "kg/m³",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 1.2,
       "absolute_min": 0.7,
       "absolute_max": 1.4,

@@ -11,7 +11,7 @@
       "unit": "kN·m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 100000
     },
@@ -21,7 +21,7 @@
       "unit": "kN",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 50000
     },
@@ -31,7 +31,7 @@
       "unit": "cm³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 1000000
     },
@@ -41,7 +41,7 @@
       "unit": "cm³",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 1200000
     },
@@ -51,7 +51,7 @@
       "unit": "cm²",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1,
       "absolute_max": 5000
     },
@@ -71,7 +71,7 @@
         690
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 355
     },
     {
@@ -80,7 +80,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0.1,
       "absolute_max": 50
     },
@@ -90,7 +90,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 20,
       "note": "From section tables or AISC 360 F2-5: L_p = 1.76·r_y·√(E/F_y)"
@@ -101,7 +101,7 @@
       "unit": "m",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.5,
       "absolute_max": 40,
       "note": "From section tables or AISC 360 F2-6"

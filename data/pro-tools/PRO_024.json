@@ -162,37 +162,43 @@
         "condition": "crash_cost_per_day_usd > daily_ld_rate_usd",
         "severity": "INFO",
         "source": "Contract Engineering / FIDIC 2017",
-        "message": "CRASHING NOT ECONOMICAL: Acceleration cost per day exceeds LD rate. Paying liquidated damages is financially preferable to accelerating — unless client relationship, repeat business, or reputational risk justifies the premium."
+        "message": "CRASHING NOT ECONOMICAL: Acceleration cost per day exceeds LD rate. Paying liquidated damages is financially preferable to accelerating — unless client relationship, repeat business, or reputational risk justifies the premium.",
+        "id": "W1"
       },
       {
         "condition": "Base_LD_Exposure_USD >= LD_Cap_USD && LD_Cap_USD > 0",
         "severity": "WARNING",
         "source": "FIDIC / Contract Law — LD Cap Reached",
-        "message": "LD CAP REACHED: Liquidated damages have hit the contractual maximum. Any additional delay beyond this point no longer increases LD exposure — however, client may pursue general damages if LD is found to be a penalty clause. Seek legal advice."
+        "message": "LD CAP REACHED: Liquidated damages have hit the contractual maximum. Any additional delay beyond this point no longer increases LD exposure — however, client may pursue general damages if LD is found to be a penalty clause. Seek legal advice.",
+        "id": "W2"
       },
       {
         "condition": "NonExcusable_Delay_days > planned_duration_days * 0.2",
         "severity": "CRITICAL",
         "source": "PMBOK / Project Recovery",
-        "message": "CRITICAL DELAY: Non-excusable overrun exceeds 20% of planned duration. This is a major contract performance failure. Formal delay analysis (TIA — Time Impact Analysis) required immediately. Consider formal acceleration notice and schedule recovery plan submission."
+        "message": "CRITICAL DELAY: Non-excusable overrun exceeds 20% of planned duration. This is a major contract performance failure. Formal delay analysis (TIA — Time Impact Analysis) required immediately. Consider formal acceleration notice and schedule recovery plan submission.",
+        "id": "W3"
       },
       {
         "condition": "Prolongation_Claim_USD > Capped_LD_USD && compensable_delay_days > 0",
         "severity": "INFO",
         "source": "SCL Protocol 2017 / NEC4",
-        "message": "RECOVERABLE CLAIM EXCEEDS LD: Prolongation costs attributable to client-caused delays exceed LD exposure. Net position may be a client payment obligation to contractor. Formal contractual notice and substantiation records are essential."
+        "message": "RECOVERABLE CLAIM EXCEEDS LD: Prolongation costs attributable to client-caused delays exceed LD exposure. Net position may be a client payment obligation to contractor. Formal contractual notice and substantiation records are essential.",
+        "id": "W4"
       },
       {
         "condition": "Gross_Delay_days > 0 && max_crashable_days === 0",
         "severity": "CRITICAL",
         "source": "CPM Critical Path Analysis",
-        "message": "SCHEDULE CANNOT BE RECOVERED: No crashable days available on critical path. Full LD exposure is unavoidable. Focus on EOT entitlement claims, LD cap, and dispute avoidance strategy."
+        "message": "SCHEDULE CANNOT BE RECOVERED: No crashable days available on critical path. Full LD exposure is unavoidable. Focus on EOT entitlement claims, LD cap, and dispute avoidance strategy.",
+        "id": "W5"
       },
       {
         "condition": "Crash_ROI_ratio > 3",
         "severity": "INFO",
         "source": "Project Financial Analysis",
-        "message": "HIGH CRASH ROI (>3×): Acceleration investment yields more than 3× return in LD savings. Full crash programme to maximum compressible days is strongly recommended on financial grounds alone."
+        "message": "HIGH CRASH ROI (>3×): Acceleration investment yields more than 3× return in LD savings. Full crash programme to maximum compressible days is strongly recommended on financial grounds alone.",
+        "id": "W6"
       }
     ]
   }

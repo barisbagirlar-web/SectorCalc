@@ -11,7 +11,7 @@
       "unit": "bar(g)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 700
     },
@@ -21,7 +21,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 50,
       "absolute_max": 10000
     },
@@ -31,7 +31,7 @@
       "unit": "MPa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 20,
       "absolute_max": 300,
       "note": "ASME BPVC II-D: SA-516-70 at 38°C → S=138 MPa; SA-240-316L → S=115 MPa"
@@ -47,7 +47,7 @@
         0.7
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1,
       "note": "E=1.0: full RT; E=0.85: spot RT; E=0.70: no RT — ASME VIII UW-12"
     },
@@ -57,7 +57,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 3,
       "absolute_min": 0,
       "absolute_max": 25
@@ -72,7 +72,7 @@
         "spherical"
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "cylindrical"
     },
     {
@@ -81,7 +81,7 @@
       "unit": "°C",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -196,
       "absolute_max": 650
     },
@@ -91,7 +91,7 @@
       "unit": "%",
       "type": "number",
       "required": false,
-      "confidence_label": "VARSAYIM",
+      "confidence_label": "DEFAULT",
       "default": 12.5,
       "absolute_min": 0,
       "absolute_max": 15,

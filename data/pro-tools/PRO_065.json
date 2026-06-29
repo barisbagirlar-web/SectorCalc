@@ -11,7 +11,7 @@
       "unit": "same as process unit",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -1000000000,
       "absolute_max": 1000000000
     },
@@ -21,7 +21,7 @@
       "unit": "same as process unit",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -1000000000,
       "absolute_max": 1000000000
     },
@@ -31,7 +31,7 @@
       "unit": "same as process unit",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": -1000000000,
       "absolute_max": 1000000000
     },
@@ -41,7 +41,7 @@
       "unit": "same as process unit",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1e-12,
       "absolute_max": 1000000000,
       "note": "From control chart: R̄/d₂ or s̄/c₄; for Ppk use overall std deviation s"
@@ -52,7 +52,7 @@
       "unit": "same as process unit",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 1e-12,
       "absolute_max": 1000000000,
       "note": "Overall std dev from all data points (includes between-subgroup variation); used for Ppk"
@@ -63,7 +63,7 @@
       "unit": "count",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 1000000,
       "note": "Minimum 30 per AIAG MSA; minimum 50 recommended for reliable Ppk"
@@ -74,7 +74,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 10,
       "absolute_min": 0,
       "absolute_max": 100,
@@ -86,7 +86,7 @@
       "unit": "count",
       "type": "number",
       "required": false,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1,
       "absolute_min": 1,
       "absolute_max": 1000,

@@ -228,7 +228,7 @@ function mapRevenueInputsToPremium(inputs: readonly RevenueToolInput[]): Premium
       unit: isPercent ? "%" : isCurrency ? "" : inp.unit || "",
       type: inp.type === "select" ? "select" : "number",
       required: inp.required ?? true,
-      confidence_label: "KESİN",
+      confidence_label: "EXACT",
       options: inp.options?.map((o) => ({ label: o.label, value: o.value })),
       min: inp.type === "number" ? 0 : undefined,
       hint: inp.helperText || "",
@@ -538,7 +538,7 @@ export function FreeToolPage({
   {surfaceTier === "premium" && (
     <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
       <Link href="/pricing" prefetch={false} className="hover:underline">
-        {locale === "tr" ? "Premium Araçlar" : "Premium"}
+        {"Premium"}
       </Link>
       <span className="mx-1.5">/</span>
       <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">

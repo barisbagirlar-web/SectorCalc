@@ -11,7 +11,7 @@
       "unit": "m³/s",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.01,
       "absolute_max": 5000
     },
@@ -21,7 +21,7 @@
       "unit": "Pa",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 10,
       "absolute_max": 50000
     },
@@ -31,7 +31,7 @@
       "unit": "rpm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 10000
     },
@@ -41,7 +41,7 @@
       "unit": "%",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 75,
       "absolute_min": 30,
       "absolute_max": 92,
@@ -53,7 +53,7 @@
       "unit": "kg/m³",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 1.2,
       "absolute_min": 0.5,
       "absolute_max": 2.5
@@ -64,7 +64,7 @@
       "unit": "mm",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 100,
       "absolute_max": 5000
     },
@@ -88,7 +88,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "backward"
     }
   ],

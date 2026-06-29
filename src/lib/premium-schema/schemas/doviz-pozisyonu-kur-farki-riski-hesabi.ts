@@ -40,7 +40,7 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
       required: true,
       smartDefault: 35.5,
       validation: { min: 0.0001, step: 0.0001 },
-      helper: "Current exchange rate (e.g., 1 USD = 35.50 TRY)",
+      helper: "Current exchange rate (e.g., 1 USD = 1.00 EUR)",
       expertMeaning: "Spot exchange rate applied to translation.",
     },
     {

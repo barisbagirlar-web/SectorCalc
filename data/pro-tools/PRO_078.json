@@ -11,7 +11,7 @@
       "unit": "m³/min (FAD)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 0.1,
       "absolute_max": 5000,
       "note": "FAD at reference conditions: ISO 1217 — 1 bar(a), 20°C, 0% RH"
@@ -22,7 +22,7 @@
       "unit": "m³/min (FAD)",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "absolute_min": 0.1,
       "absolute_max": 10000
     },
@@ -32,7 +32,7 @@
       "unit": "bar(a)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 2,
       "absolute_max": 500
     },
@@ -42,7 +42,7 @@
       "unit": "bar(a)",
       "type": "number",
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "absolute_min": 1.5,
       "absolute_max": 499
     },
@@ -52,7 +52,7 @@
       "unit": "s",
       "type": "number",
       "required": true,
-      "confidence_label": "GÜÇLÜ",
+      "confidence_label": "STRONG",
       "default": 30,
       "absolute_min": 1,
       "absolute_max": 3600,
@@ -74,7 +74,7 @@
         }
       ],
       "required": true,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": 1.25
     },
     {
@@ -93,7 +93,7 @@
         }
       ],
       "required": false,
-      "confidence_label": "KESİN",
+      "confidence_label": "EXACT",
       "default": "vertical"
     }
   ],

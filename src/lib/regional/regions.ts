@@ -6,7 +6,7 @@ export const REGIONAL_ENGINE_CODES = ["GLOBAL", "TR", "US", "DE", "FR", "ES", "A
 
 const REGION_CONFIGS: Record<RegionalEngineCode, RegionalConfig> = {
   GLOBAL: { regionCode: "GLOBAL", label: "Global", defaultLocale: "en", defaultCurrency: "USD", defaultUnitSystem: "metric", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "yyyy-MM-dd", measurementSystem: "metric", supportedUnitSystems: ["metric", "imperial"] },
-  TR: { regionCode: "TR", label: "Turkey", defaultLocale: "en", defaultCurrency: "TRY", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd.MM.yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
+  TR: { regionCode: "TR", label: "Turkey", defaultLocale: "en", defaultCurrency: "USD", defaultUnitSystem: "metric", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "yyyy-MM-dd", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
   US: { regionCode: "US", label: "United States", defaultLocale: "en", defaultCurrency: "USD", defaultUnitSystem: "imperial", decimalSeparator: ".", thousandSeparator: ",", dateFormat: "MM/dd/yyyy", measurementSystem: "us_customary", supportedUnitSystems: ["imperial", "metric"] },
   DE: { regionCode: "DE", label: "Germany", defaultLocale: "en", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: ".", dateFormat: "dd.MM.yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },
   FR: { regionCode: "FR", label: "France", defaultLocale: "en", defaultCurrency: "EUR", defaultUnitSystem: "metric", decimalSeparator: ",", thousandSeparator: " ", dateFormat: "dd/MM/yyyy", measurementSystem: "metric", supportedUnitSystems: ["metric"] },

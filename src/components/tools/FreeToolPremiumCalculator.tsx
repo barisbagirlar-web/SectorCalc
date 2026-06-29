@@ -10,7 +10,7 @@ export interface PremiumInputDef {
   unit: string;
   type: "number" | "select";
   required?: boolean;
-  confidence_label?: "KESİN" | "GÜÇLÜ" | "ORTA" | "VARSAYIM";
+  confidence_label?: "EXACT" | "STRONG" | "MEDIUM" | "DEFAULT";
   options?: readonly { readonly label: string; readonly value: string }[];
   min?: number;
   max?: number;
@@ -106,8 +106,8 @@ export interface FreeToolPremiumCalculatorProps {
 /* ─── CONFIDENCE CLASS HELPER ────────────────────────────────────────── */
 
 function confClass(label?: string): string {
-  if (label === "KESİN") return "sc-premium-conf-kesin";
-  if (label === "GÜÇLÜ") return "sc-premium-conf-guclu";
+  if (label === "EXACT" || label === "CERTAIN" || label === "HIGH") return "sc-premium-conf-kesin";
+  if (label === "STRONG" || label === "MEDIUM") return "sc-premium-conf-guclu";
   return "sc-premium-conf-varsayim";
 }
 
@@ -136,7 +136,7 @@ export function FreeToolPremiumCalculator({
   errors,
   onChange,
   onSubmit,
-  calculateLabel = "Hesapla",
+  calculateLabel = "Calculate",
   isCalculating = false,
   materialDB,
   formulas,
@@ -172,9 +172,9 @@ export function FreeToolPremiumCalculator({
         const raw = effectiveValues[inp.key];
         const num = typeof raw === "number" ? raw : Number(raw);
         if (raw === undefined || raw === "" || !Number.isFinite(num)) {
-          errs.push(`${inp.label} girilmedi veya geçersiz.`);
+          errs.push(`${inp.label} not entered or invalid.`);
         } else if (inp.min !== undefined && num < inp.min) {
-          errs.push(`${inp.label} minimum ${inp.min} ${inp.unit} olmalı.`);
+          errs.push(`${inp.label} minimum ${inp.min} ${inp.unit} must be reached.`);
         }
       }
     }
@@ -234,7 +234,7 @@ export function FreeToolPremiumCalculator({
       {/* Standards Strip */}
       {standards && standards.length > 0 && (
         <div className="sc-premium-std-strip">
-          <span className="sc-premium-std-lbl">Referans:</span>
+          <span className="sc-premium-std-lbl">Reference:</span>
           {standards.map((s) => (
             <span key={s} className="sc-premium-std-tag">
               {s}
@@ -260,7 +260,7 @@ export function FreeToolPremiumCalculator({
                 if (crit > 0)
                   return (
                     <span className="sc-premium-badge sc-premium-badge-crit">
-                      ⛔ {crit} KRİTİK
+                      ⛔ {crit} CRITICAL
                     </span>
                   );
                 if (warn > 0)
@@ -276,7 +276,7 @@ export function FreeToolPremiumCalculator({
             ) : submitted ? (
               <span className="sc-premium-badge sc-premium-badge-ok">✓ NORMAL</span>
             ) : (
-              <span className="sc-premium-badge sc-premium-badge-idle">— GİRİLMEDİ</span>
+              <span className="sc-premium-badge sc-premium-badge-idle">— NOT ENTERED</span>
             )}
           </div>
         </div>
@@ -287,13 +287,13 @@ export function FreeToolPremiumCalculator({
             className={`sc-premium-tab-btn${activeTab === "inputs" ? " active" : ""}`}
             onClick={() => handleTabSwitch("inputs")}
           >
-            Girdi
+            Inputs
           </button>
           <button
             className={`sc-premium-tab-btn${activeTab === "results" ? " active" : ""}`}
             onClick={() => handleTabSwitch("results")}
           >
-            Sonuç
+            Results
             {hasWarnings && (
               <span className="sc-premium-tab-dot" />
             )}
@@ -302,7 +302,7 @@ export function FreeToolPremiumCalculator({
             className={`sc-premium-tab-btn${activeTab === "formulas" ? " active" : ""}`}
             onClick={() => handleTabSwitch("formulas")}
           >
-            Formüller
+            Formulas
           </button>
         </div>
 
@@ -314,7 +314,7 @@ export function FreeToolPremiumCalculator({
               {materialDB && (
                 <div style={{ marginBottom: 16 }}>
                   <div className="sc-premium-sec-lbl">
-                    İş Parçası Malzeme Grubu (ISO 513) — Seçim yapın
+                    Workpiece Material Group (ISO 513) — Select
                   </div>
                   <div className="sc-premium-mat-grid">
                     {Object.entries(materialDB).map(([k, m]) => (
@@ -347,7 +347,7 @@ export function FreeToolPremiumCalculator({
                       />
                       <div className="sc-premium-mat-info-body">
                         <div className="sc-premium-mat-ref">
-                          Referans Değerler
+                          Reference Values
                         </div>
                         <div className="sc-premium-mat-stats">
                           {["Vc", "kc1", "mc"].map((field) => {
@@ -445,7 +445,7 @@ export function FreeToolPremiumCalculator({
                           min={inp.min}
                           max={inp.max}
                           value={val === "" ? "" : String(val)}
-                          placeholder={inp.hint || "Değer girin"}
+                          placeholder={inp.hint || "Enter value"}
                           className={error ? "err" : ""}
                           onChange={(e) => handleInputChange(inp.key, e.target.value)}
                         />
@@ -457,7 +457,7 @@ export function FreeToolPremiumCalculator({
                       {error && <div className="sc-premium-inp-err-msg">{error}</div>}
                       {hasSugg && (
                         <div className="sc-premium-suggestion">
-                          <span>Öneri: <strong>{val}</strong></span>
+                          <span>Suggestion: <strong>{val}</strong></span>
                         </div>
                       )}
                     </div>
@@ -490,7 +490,7 @@ export function FreeToolPremiumCalculator({
                   className="sc-premium-calc-btn"
                   disabled={isCalculating}
                 >
-                  {isCalculating ? "Hesaplanıyor..." : calculateLabel}
+                  {isCalculating ? "Calculating..." : calculateLabel}
                 </button>
                 {onReset && (
                   <button
@@ -498,7 +498,7 @@ export function FreeToolPremiumCalculator({
                     className="sc-premium-reset-btn"
                     onClick={handleReset}
                   >
-                    Sıfırla
+                    Reset
                   </button>
                 )}
               </div>
@@ -511,7 +511,7 @@ export function FreeToolPremiumCalculator({
           <div className="sc-premium-panel">
             {!submitted ? (
               <div className="sc-premium-empty-res">
-                Hesaplama yapılmadı. Girdi sekmesinden parametreleri girin.
+                No calculation performed. Enter parameters in the Inputs tab.
               </div>
             ) : (
               <>
@@ -543,8 +543,8 @@ export function FreeToolPremiumCalculator({
                 {resultRows && resultRows.length > 0 && (
                   <div className="sc-premium-res-table">
                     <div className="sc-premium-res-hdr">
-                      <span>Hesaplanan</span>
-                      <span>Sonuç</span>
+                      <span>Calculated</span>
+                      <span>Result</span>
                       <span>Birim</span>
                     </div>
                     {resultRows.map((r, i) => (
@@ -587,7 +587,7 @@ export function FreeToolPremiumCalculator({
           <div className="sc-premium-panel">
             {formulas && formulas.length > 0 && (
               <>
-                <div className="sc-premium-sec-lbl">Hesaplama Formülleri</div>
+                <div className="sc-premium-sec-lbl">Calculation Formulas</div>
                 <div className="sc-premium-frm-list">
                   {formulas.map((f, i) => (
                     <div key={`frm-${i}`} className="sc-premium-frm-row">
@@ -606,7 +606,7 @@ export function FreeToolPremiumCalculator({
             {validationRules && validationRules.length > 0 && (
               <>
                 <div className="sc-premium-sec-lbl" style={{ marginTop: 14 }}>
-                  Validasyon Kuralları
+                  Validation Rules
                 </div>
                 <div className="sc-premium-val-list">
                   {validationRules.map((r, i) => (
@@ -622,7 +622,7 @@ export function FreeToolPremiumCalculator({
             {(!formulas || formulas.length === 0) &&
               (!validationRules || validationRules.length === 0) && (
                 <div className="sc-premium-empty-res">
-                  Formül bilgisi mevcut değil.
+                  No formula information available.
                 </div>
               )}
           </div>
@@ -631,12 +631,12 @@ export function FreeToolPremiumCalculator({
         {/* ── CTA BAR ──────────────────────────────────────────────────────── */}
         {submitted && activeTab !== "results" && (
           <div className="sc-premium-cbar">
-            <span>Hesaplama tamamlandı.</span>
+            <span>Calculation completed.</span>
             <button
               className="sc-premium-cbar-btn"
               onClick={() => handleTabSwitch("results")}
             >
-              Sonuçları Gör →
+              View Results →
             </button>
           </div>
         )}

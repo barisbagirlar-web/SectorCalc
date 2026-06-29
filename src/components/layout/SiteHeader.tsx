@@ -25,7 +25,6 @@ import { getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
 
 const LOCALES = [
   { code: 'en', label: 'English',  short: 'EN', dir: 'ltr' },
-  { code: 'tr', label: 'Türkçe',   short: 'TR', dir: 'ltr' },
   { code: 'de', label: 'Deutsch',  short: 'DE', dir: 'ltr' },
   { code: 'fr', label: 'Français', short: 'FR', dir: 'ltr' },
   { code: 'es', label: 'Español',  short: 'ES', dir: 'ltr' },

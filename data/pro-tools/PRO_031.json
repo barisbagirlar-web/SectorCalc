@@ -199,37 +199,43 @@
         "condition": "Bottleneck_SMV_min > Takt_Time_min",
         "severity": "CRITICAL",
         "source": "Lean Manufacturing — Takt Compliance",
-        "message": "TAKT VIOLATION: Bottleneck station cycle time exceeds takt time. Meeting daily demand target is MATHEMATICALLY IMPOSSIBLE without: (1) splitting the bottleneck task, (2) adding a parallel station, or (3) increasing shift time. Calculate: required output deficit = (Bottleneck_SMV - Takt) × demand units."
+        "message": "TAKT VIOLATION: Bottleneck station cycle time exceeds takt time. Meeting daily demand target is MATHEMATICALLY IMPOSSIBLE without: (1) splitting the bottleneck task, (2) adding a parallel station, or (3) increasing shift time. Calculate: required output deficit = (Bottleneck_SMV - Takt) × demand units.",
+        "id": "W1"
       },
       {
         "condition": "Line_Efficiency_pct < 75",
         "severity": "WARNING",
         "source": "Industrial Engineering — Balance Efficiency",
-        "message": "LOW LINE EFFICIENCY (<75%): Over 25% of operator time is idle due to imbalance. Rebalance by: (1) relocating work elements from overloaded to underloaded stations, (2) applying RPW or Kilbridge-Wester algorithm, (3) combining or splitting stations. Target: >85% for high-volume lines."
+        "message": "LOW LINE EFFICIENCY (<75%): Over 25% of operator time is idle due to imbalance. Rebalance by: (1) relocating work elements from overloaded to underloaded stations, (2) applying RPW or Kilbridge-Wester algorithm, (3) combining or splitting stations. Target: >85% for high-volume lines.",
+        "id": "W2"
       },
       {
         "condition": "Idle_Operator_Equivalent >= 1",
         "severity": "WARNING",
         "source": "Labour Cost Optimisation",
-        "message": "EXCESS OPERATORS IDENTIFIED: Line has more operators than theoretical minimum. Each excess operator represents avoidable annual labour cost. Conduct kaizen event to redistribute work elements before adding headcount."
+        "message": "EXCESS OPERATORS IDENTIFIED: Line has more operators than theoretical minimum. Each excess operator represents avoidable annual labour cost. Conduct kaizen event to redistribute work elements before adding headcount.",
+        "id": "W3"
       },
       {
         "condition": "Capacity_vs_Demand_pct < 100",
         "severity": "CRITICAL",
         "source": "Production Planning / S&OP",
-        "message": "CAPACITY SHORTFALL: Line cannot meet daily demand at current bottleneck rate. Immediate actions: (1) Overtime authorisation, (2) Bottleneck relief (parallel resource), (3) Demand smoothing with customer. Quantify units short per day and escalate to production manager."
+        "message": "CAPACITY SHORTFALL: Line cannot meet daily demand at current bottleneck rate. Immediate actions: (1) Overtime authorisation, (2) Bottleneck relief (parallel resource), (3) Demand smoothing with customer. Quantify units short per day and escalate to production manager.",
+        "id": "W4"
       },
       {
         "condition": "allowance_pct < 10",
         "severity": "WARNING",
         "source": "ILO Work Study — Allowance Standards",
-        "message": "Low allowance (<10%): ILO recommends minimum 10% for light assembly work. Insufficient allowance leads to: (1) fatigue-induced quality defects, (2) absenteeism increase, (3) operator injury claims. Verify time study method includes all required rest periods."
+        "message": "Low allowance (<10%): ILO recommends minimum 10% for light assembly work. Insufficient allowance leads to: (1) fatigue-induced quality defects, (2) absenteeism increase, (3) operator injury claims. Verify time study method includes all required rest periods.",
+        "id": "W5"
       },
       {
         "condition": "Takt_Time_min < 0.5",
         "severity": "WARNING",
         "source": "Ergonomics / Repetitive Strain",
-        "message": "VERY SHORT TAKT (<0.5 min): Cycle time under 30 seconds. Ergonomic risk of repetitive strain injury is high at this pace. EU Directive 2002/44/EC requires risk assessment. Consider task variety rotation and automation for highly repetitive operations."
+        "message": "VERY SHORT TAKT (<0.5 min): Cycle time under 30 seconds. Ergonomic risk of repetitive strain injury is high at this pace. EU Directive 2002/44/EC requires risk assessment. Consider task variety rotation and automation for highly repetitive operations.",
+        "id": "W6"
       }
     ]
   }
