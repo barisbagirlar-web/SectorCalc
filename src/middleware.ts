@@ -33,11 +33,11 @@ export default function middleware(request: NextRequest) {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
   }
 
-  // Rewrite root and all non-prefixed paths to /en/* so [locale] route group works.
-  // This is a server-side rewrite — browser URL stays unchanged.
-  if (pathname === "/" || !pathname.startsWith("/en")) {
+  // Rewrite non-prefixed paths to /en/* so [locale] route group works.
+  // Root / is NOT rewritten — src/app/page.tsx serves English directly.
+  if (pathname !== "/" && !pathname.startsWith("/en") && !pathname.startsWith("/tr") && !pathname.startsWith("/de") && !pathname.startsWith("/fr") && !pathname.startsWith("/es") && !pathname.startsWith("/ar")) {
     const url = request.nextUrl.clone();
-    url.pathname = pathname === "/" ? "/en" : `/en${pathname}`;
+    url.pathname = `/en${pathname}`;
     return applyRegionHeaders(NextResponse.rewrite(url), request);
   }
 
