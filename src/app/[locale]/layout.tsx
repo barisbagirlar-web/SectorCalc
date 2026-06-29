@@ -4,7 +4,6 @@ import { hasLocale } from "next-intl";
 import "../site-styles";
 import "../globals.css";
 import { LocaleDocumentLayout } from "@/components/layout/LocaleDocumentLayout";
-import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";
 import { createPageMetadata } from "@/lib/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
 
@@ -29,7 +28,6 @@ export default async function LocaleLayout({
 
   return (
     <LocaleDocumentLayout locale={locale as AppLocale}>
-      {locale === "en" ? <RootLocaleAutoRedirect /> : null}
       {children}
     </LocaleDocumentLayout>
   );
