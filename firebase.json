@@ -32,6 +32,13 @@
       ".git/**"
     ],
     "redirects": [],
+    "rewrites": [
+      {
+        "source": "/",
+        "function": "ssrsectorcalcbf412",
+        "region": "us-central1"
+      }
+    ],
     "frameworksBackend": {
       "region": "us-central1",
       "memory": "1GiB",
