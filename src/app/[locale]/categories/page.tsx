@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -26,7 +27,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 export default async function CategoriesPage({ params }: PageProps) {
   const { locale } = await params;

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -9,7 +10,6 @@ import type { AppLocale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 
-export const dynamic = "force-dynamic";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

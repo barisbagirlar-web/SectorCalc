@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { ChevronRight } from "lucide-react";

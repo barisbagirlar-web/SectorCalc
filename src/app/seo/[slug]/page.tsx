@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
@@ -28,7 +29,6 @@ import { fillPremiumSeoTemplate } from "@/lib/seo/premium-tool-seo-context";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 export const revalidate = 3600;
 

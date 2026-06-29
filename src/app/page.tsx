@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getMessages, getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
@@ -10,7 +11,6 @@ import type { LandingContent } from "@/types/landing";
 import "../styles/landing-page.css";
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 type PageProps = {
   params: Promise<{ locale: string }>;

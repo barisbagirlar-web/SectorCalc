@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -26,7 +27,6 @@ interface PremiumToolRouteParams {
   locale: string;
 }
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 
 function listPremiumRouteSlugs(): readonly string[] {

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -14,7 +15,6 @@ type EmbedRouteParams = {
   locale: string;
 };
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 export const revalidate = 3600;
 

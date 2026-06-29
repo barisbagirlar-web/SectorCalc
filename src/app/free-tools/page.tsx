@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
@@ -22,7 +23,6 @@ import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 type PageProps = { params: Promise<{ locale: string }> };
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 // ─── NEW: CollectionPage schema ───────────────────────────────────────────────
 

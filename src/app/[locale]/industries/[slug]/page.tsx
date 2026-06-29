@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -15,7 +16,6 @@ interface IndustryPageParams {
  slug: IndustrySlug;
 }
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<{ slug: IndustrySlug }[]> {

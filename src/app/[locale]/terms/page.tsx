@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "@/lib/navigation/next-link";
@@ -9,7 +10,6 @@ import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

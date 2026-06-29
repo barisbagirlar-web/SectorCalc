@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { InvestorDemoPageContent } from "@/components/investor-demo/InvestorDemoPageContent";

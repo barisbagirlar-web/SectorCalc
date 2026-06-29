@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
@@ -36,7 +37,6 @@ interface GeneratedToolRouteParams {
 }
 
 /** ISR: build only predeclared slugs; other tool pages render on first visit and revalidate hourly. */
-export const dynamic = "force-static";
 export const dynamicParams = true;
 export const revalidate = 3600;
 export const maxDuration = 300;

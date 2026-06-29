@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -16,7 +17,6 @@ interface ToolPageParams {
 
 // removed ToolPageRouteParams
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<ToolPageParams[]> {

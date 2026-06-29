@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { AccountDashboard } from "@/components/account/AccountDashboard";
 import { createPageMetadata } from "@/lib/metadata";

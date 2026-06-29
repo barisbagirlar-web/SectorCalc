@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { redirect } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{ locale: string }> };

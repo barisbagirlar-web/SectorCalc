@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
@@ -26,7 +27,6 @@ type PageProps = {
 };
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 export default async function CategoriesPage({ params }: PageProps) {
   const locale = "en";

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "@/lib/navigation/next-link";
@@ -11,7 +12,6 @@ import { getLocalizedAllTools } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
-export const dynamic = "force-dynamic";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

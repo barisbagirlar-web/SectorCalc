@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumCatalogSearch } from "@/components/catalog/PremiumCatalogSearch";
@@ -25,7 +26,6 @@ type PageProps = {
 };
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 function loadToolList() {
   return PRO_TOOLS_LIST;

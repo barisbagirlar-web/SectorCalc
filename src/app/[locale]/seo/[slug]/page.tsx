@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -30,7 +31,6 @@ import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 import { getTranslations } from "next-intl/server";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 export const revalidate = 3600;
 

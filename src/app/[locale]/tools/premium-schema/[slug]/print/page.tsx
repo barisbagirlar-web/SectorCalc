@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -16,7 +17,6 @@ interface PrintRouteParams {
   locale: string;
 }
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

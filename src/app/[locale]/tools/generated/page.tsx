@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
@@ -17,7 +18,6 @@ import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs"
 type PageProps = { params: Promise<{ locale: string }> };
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;

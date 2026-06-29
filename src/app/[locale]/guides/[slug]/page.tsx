@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -42,7 +43,6 @@ interface GuideRouteParams extends GuidePageParams {
   locale: string;
 }
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<GuidePageParams[]> {

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";

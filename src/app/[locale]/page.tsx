@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -9,7 +10,6 @@ import { getTotalToolCount, getFreeToolCount, getPremiumToolCount } from "@/lib/
 import "../../styles/landing-page.css";
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 type PageProps = {
   params: Promise<{ locale: string }>;

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PricingPageContent } from "@/components/pricing/PricingPageContent";
@@ -5,7 +6,6 @@ import { PricingPageTracker } from "@/components/campaign/PricingPageTracker";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 const LOCALE = "en";
 

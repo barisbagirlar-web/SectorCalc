@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -15,7 +16,6 @@ type PageProps = {
   params: Promise<{ locale: string; sectorKey: string }>;
 };
 
-export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const { listSectorRegistryKeys } = await import("@/lib/os/registry/sectors");

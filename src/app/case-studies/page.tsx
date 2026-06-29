@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { listCaseStudies } from "@/lib/case-studies/case-study-registry";
 import { getCaseStudyToolHref, type CaseStudyEntry } from "@/lib/case-studies/case-study-types";

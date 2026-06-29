@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
@@ -22,7 +23,6 @@ type PageProps = {
 };
 
 export const revalidate = 3600;
-export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = "en";

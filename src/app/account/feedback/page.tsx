@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { AccountFeedbackQueueClient } from "@/components/account/AccountFeedbackQueueClient";
 import { createPageMetadata } from "@/lib/metadata";

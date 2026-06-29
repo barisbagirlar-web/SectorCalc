@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
@@ -16,7 +17,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;

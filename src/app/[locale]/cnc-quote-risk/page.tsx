@@ -1,10 +1,10 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { CncQuoteRiskLanding } from "@/components/launch/CncQuoteRiskLanding";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
-export const dynamic = "force-dynamic";
 
 type PageProps = {
   params: Promise<{ locale: string }>;

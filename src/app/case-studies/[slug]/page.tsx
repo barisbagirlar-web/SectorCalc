@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { CaseStudyDetail } from "@/components/case-studies/CaseStudyDetail";

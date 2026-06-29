@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -41,7 +42,6 @@ function trimFeaturedAnswer(text: string): string {
   return `${words.slice(0, 58).join(" ")}…`;
 }
 
-export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<PremiumSchemaPageParams[]> {

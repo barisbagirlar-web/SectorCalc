@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { notFound } from "next/navigation";
 import ProToolClientWrapper from "@/components/calculators/ProToolClientWrapper";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
