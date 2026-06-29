@@ -1,8 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
-import { createRequire } from "node:module";
-import { generatedCalculateExport } from "@/lib/generated-tools/export-names";
-
 export type RuntimeValidationStatus = "PASS" | "FAIL";
 
 export type RuntimeValidationResult = {
@@ -83,47 +78,4 @@ export function validateCalculatorRuntimeResult(result: unknown): RuntimeValidat
   }
 
   return { status: "PASS" };
-}
-
-export async function runtimeValidateCalculator(
-  slug: string,
-  options?: {
-    readonly generatedDir?: string;
-    readonly schema?: Record<string, unknown>;
-  },
-): Promise<RuntimeValidationResult> {
-  const generatedDir = options?.generatedDir ?? path.join(process.cwd(), "generated");
-  const modulePath = path.join(generatedDir, `${slug}.ts`);
-
-  if (!fs.existsSync(modulePath)) {
-    return { status: "FAIL", error: "Generated file not found" };
-  }
-
-  let schema = options?.schema;
-  if (!schema) {
-    const schemaPath = path.join(process.cwd(), "generated/schemas", `${slug}-schema.json`);
-    if (!fs.existsSync(schemaPath)) {
-      return { status: "FAIL", error: "Schema file not found" };
-    }
-    schema = JSON.parse(fs.readFileSync(schemaPath, "utf8")) as Record<string, unknown>;
-  }
-
-  const testInput = buildTestInputFromSchema(schema);
-
-  try {
-    const requireFn = createRequire(modulePath);
-    const mod = requireFn(modulePath) as Record<string, unknown>;
-    const calculateKey = generatedCalculateExport(slug);
-    const calculateFn = mod[calculateKey] ?? mod.calculate;
-
-    if (typeof calculateFn !== "function") {
-      return { status: "FAIL", error: `Calculate function not found (${calculateKey})` };
-    }
-
-    const result = calculateFn(testInput);
-    return validateCalculatorRuntimeResult(result);
-  } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : String(error);
-    return { status: "FAIL", error: message || "Runtime error" };
-  }
 }

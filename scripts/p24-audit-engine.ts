@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 import fs from "node:fs";
 import path from "node:path";
-import { runtimeValidateCalculator } from "../src/lib/generated-tools/runtime-validate-calculator";
+import { runtimeValidateCalculator } from "../src/lib/generated-tools/runtime-validate-loader";
 import {
   evaluateSchemaTrust,
   type TrustGateResult,

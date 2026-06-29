@@ -6,7 +6,7 @@ import {
   COUNTRY_COOKIE,
   isSupportedLocale,
   type SupportedLocale,
-} from "@/lib/i18n/locale-routing";
+} from "@/lib/i18n/locale-config";
 
 const LOCALE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
