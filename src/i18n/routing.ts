@@ -1,5 +1,6 @@
 import { createElement, type ComponentProps } from "react";
 import NextLink from "next/link";
+import { createNavigation } from "next-intl/navigation";
 import { locales, type AppLocale, isAppLocale, stripLocalePrefix } from "@/i18n/locales";
 import { routing } from "@/i18n/routing-config";
 
@@ -12,4 +13,6 @@ export function Link({ prefetch = false, ...props }: IntlLinkProps) {
   return createElement(NextLink, { prefetch, ...props });
 }
 
-export const getPathname = () => ""; // Mocked since it's unused or not available natively
+/** next-intl navigation re-exports for i18n-aware routing hooks. */
+export const { redirect, usePathname, useRouter, getPathname } =
+  createNavigation(routing);

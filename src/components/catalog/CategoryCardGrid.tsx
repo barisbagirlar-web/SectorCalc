@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "next/navigation";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import { CATALOG_GRID_VARIANT_STYLES } from "@/lib/catalog/catalog-grid-variant-styles";
 import type { CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
