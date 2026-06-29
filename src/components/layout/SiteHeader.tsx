@@ -163,7 +163,7 @@ export function SiteHeader({ isAuthenticated = false }) {
     return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
   },[]);
 
-  const switchLocale=(code)=>{
+  const switchLocale=(code: string)=>{
     setLangOpen(false);
     document.cookie=`NEXT_LOCALE=${code};path=/;max-age=31536000;samesite=lax`;
     router.push(buildLocalePath(pathname,code));
