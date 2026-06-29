@@ -25,17 +25,19 @@ const SW_KILL_HEADERS = {
 };
 
 export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
   // Dev: intercept /sw.js and return self-destruct code with no-cache headers
   // This runs BEFORE any registered service worker, so old SW cannot cache it
-  if (request.nextUrl.pathname === "/sw.js") {
+  if (pathname === "/sw.js") {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
   }
 
-  // Rewrite root / to /en so the [locale] page group renders English content,
-  // but the browser URL stays as sectorcalc.com/ (no redirect visible to user)
-  if (request.nextUrl.pathname === "/") {
+  // Rewrite root and all non-prefixed paths to /en/* so [locale] route group works.
+  // This is a server-side rewrite — browser URL stays unchanged.
+  if (pathname === "/" || !pathname.startsWith("/en")) {
     const url = request.nextUrl.clone();
-    url.pathname = "/en";
+    url.pathname = pathname === "/" ? "/en" : `/en${pathname}`;
     return applyRegionHeaders(NextResponse.rewrite(url), request);
   }
 

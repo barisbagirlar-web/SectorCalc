@@ -175,11 +175,8 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         ...indexNowVerification,
-        { source: "/", destination: "/en" },
-        {
-          source: `/:path((?!${LOCALE_REWRITE_EXCLUDE_PATTERN}).*)`,
-          destination: "/en/:path",
-        },
+        // Root / handled by middleware rewrite
+        // All other paths handled by middleware rewrite
       ],
     };
   },
