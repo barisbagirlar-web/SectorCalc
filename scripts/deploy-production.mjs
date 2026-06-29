@@ -186,6 +186,14 @@ try {
   if (deployStatus !== 0) {
     throw new Error(`deploy failed with exit code ${deployStatus}`);
   }
+
+  // Post-deploy: purge Fastly HTML surrogate-key so CDN serves fresh HTML immediately
+  console.log("deploy-production: purging Fastly CDN cache (surrogate-key: html)…");
+  const purgeStatus = run("node", ["scripts/purge-fastly-cache.mjs"]);
+  if (purgeStatus !== 0) {
+    // Warn but do not fail — CDN purge is best-effort; stale HTML clears naturally via short TTL
+    console.warn("deploy-production: purge-fastly-cache exited non-zero (non-fatal).");
+  }
 } catch (error) {
   console.error(`deploy-production: ${error.message}`);
   process.exitCode = 1;

@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const t = await getTranslations();
 
   return createPageMetadata({
-    title: "meta.title",
-    description: "meta.description",
+    title: t("meta.title"),
+    description: t("meta.description"),
     path: "/os",
     locale: locale as "en",
   });

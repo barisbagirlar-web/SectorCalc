@@ -44,6 +44,27 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // HTML pages — short browser cache, CDN surrogate headers for Fastly
+        // Browser: always revalidate (no stale HTML in browser cache)
+        // CDN (Fastly): cache 10 min, serve stale up to 60s while revalidating
+        // Surrogate-Key enables targeted purge after deploy
+        source: "/:path((?!(?:_next|api|_vercel|sw\\.js|.*\\..*)$).*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+          {
+            key: "Surrogate-Control",
+            value: "max-age=600, stale-while-revalidate=60",
+          },
+          {
+            key: "Surrogate-Key",
+            value: "html",
+          },
+        ],
+      },
     ];
   },
 };
