@@ -1,24 +1,12 @@
 import type { NextRequest } from "next/server";
-import {
-  countryToRegion,
-  isRegionCode,
-  REGION_COOKIE,
-  REGION_HEADER,
-  REGION_MANUAL_COOKIE,
-  type RegionCode,
-} from "@/config/regions";
+import { isRegionCode, REGION_MANUAL_COOKIE, type RegionCode } from "@/config/regions";
 import { resolveRegionFromRequestContext } from "@/lib/compliance/resolve-region";
 
 const GEO_COUNTRY_HEADERS = [
   "x-vercel-ip-country",
   "cf-ipcountry",
-  "cf-ip-country",
   "x-country-code",
-  "x-country",
   "cloudfront-viewer-country",
-  "x-appengine-country",
-  "fastly-client-ip-country",
-  "x-real-country",
 ] as const;
 
 export type RegionSource =
@@ -32,7 +20,7 @@ export interface RegionResolutionResult {
   source: RegionSource;
 }
 
-/** Read ISO country from Cloudflare, CDN edge, or proxy headers. */
+/** Read ISO country from Vercel Geo, Cloudflare, or CDN edge headers. */
 export function detectCountryFromHeaders(
   headers: Headers | { get(name: string): string | null },
 ): string | null {
@@ -46,37 +34,29 @@ export function detectCountryFromHeaders(
 }
 
 /**
- * Resolve region with proper priority order:
- * 1. Manual cookie (user explicitly chose a region)
- * 2. Request country header (Cloudflare, CDN edge, proxy geo detection)
- * 3. Locale fallback (URL path → region)
- * 4. Global default (EN)
- *
- * Manual selection always wins. Auto-detection never overwrites manual choice.
+ * Middleware-safe region detection: does NOT read cookies.
+ * Region is derived ONLY from URL locale path (/en, /de, /tr).
+ * CDN geo headers are IGNORED because:
+ * 1. This is a single-language (EN) site — TR and DE support does not exist.
+ * 2. Geo headers (x-country-code) would incorrectly set region=TR for TR visitors.
+ * 3. Manual cookie override is handled in Server Components via getServerRegion().
  */
 export function detectRegionFromRequest(request: NextRequest): RegionResolutionResult {
-  // 1. Manual cookie wins
+  const localeRegion = resolveRegionFromRequestContext(request.nextUrl.pathname, null);
+  return {
+    region: localeRegion,
+    source: localeRegion === "EN" ? "global-default" : "locale-fallback",
+  };
+}
+
+/**
+ * Full region detection including manual cookie check.
+ * Use in Server Components / Server Actions where Vary: cookie is acceptable.
+ */
+export function detectRegionWithCookie(request: NextRequest): RegionResolutionResult {
   const manual = request.cookies.get(REGION_MANUAL_COOKIE)?.value;
   if (manual && isRegionCode(manual)) {
     return { region: manual, source: "manual-cookie" };
   }
-
-  // 2. Request country header (auto-detection)
-  const detectedCountry = detectCountryFromHeaders(request.headers);
-  if (detectedCountry) {
-    const regionFromCountry = countryToRegion(detectedCountry);
-    // Use country header only if it maps to a specific supported region (TR, DE)
-    // Unknown countries get EN from countryToRegion, but we prefer locale fallback in that case
-    if (detectedCountry === "TR" || detectedCountry === "DE") {
-      return { region: regionFromCountry, source: "request-country" };
-    }
-  }
-
-  // 3. Locale fallback
-  const localeRegion = resolveRegionFromRequestContext(request.nextUrl.pathname, null);
-  const isGlobalDefault = localeRegion === "EN" && !detectedCountry;
-  return {
-    region: localeRegion,
-    source: isGlobalDefault ? "global-default" : "locale-fallback",
-  };
+  return detectRegionFromRequest(request);
 }
