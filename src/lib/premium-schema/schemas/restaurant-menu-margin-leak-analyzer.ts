@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "restaurant-menu-margin-leak-analyzer", legacyPaidSlug: "restaurant-menu-margin-leak-analyzer",
-  name: "Restoran Menü Marj Kaçağı Analizi", name_i18n: {"en":"Restoran Menü Marj Kaçağı Analizi","tr":"Restoran Menü Marj Kaçağı Analizi"}, sectorSlug: "food", category: "cost",
+  name: "Restoran Menü Marj Kaçağı Analizi", name_i18n: {"en":"Restaurant Menu Margin Leak Analysis","tr":"Restoran Menü Marj Kaçağı Analizi"}, sectorSlug: "food", category: "cost",
   painStatement: "Teorik marj ile gerçek marj arasındaki fark izlenmezse fire, hırsızlık ve yanlış porsiyonlama kârı sessizce yok eder.", painStatement_i18n: {"en":"Teorik marj ile gerçek marj arasındaki fark izlenmezse fire, hırsızlık ve yanlış porsiyonlama kârı sessizce yok eder.","tr":"Teorik marj ile gerçek marj arasındaki fark izlenmezse fire, hırsızlık ve yanlış porsiyonlama kârı sessizce yok eder."},
   inputs: [
     { id: "theoreticalFoodCost", label: "Teorik Yiyecek Maliyeti", label_i18n: {"en":"Teorik Yiyecek Maliyeti","tr":"Teorik Yiyecek Maliyeti"}, type: "number", unit: "USD", required: true, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Theoretical (ideal) food cost", expertMeaning_i18n: {"en":"Theoretical (ideal) food cost","tr":"Theoretical (ideal) food cost"} },

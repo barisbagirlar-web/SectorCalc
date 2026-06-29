@@ -3,9 +3,7 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustriesTaxonomyGrid } from "@/components/industries/IndustriesTaxonomyGrid";
-import { ToolsPageLayout } from "@/components/tools/ToolsPageLayout";
-import { ToolsPageSearchProvider } from "@/components/tools/tools-page-search-context";
-import { CatalogSearchUrlSync } from "@/components/tools/CatalogSearchUrlSync";
+import { FreeToolCardGrid } from "@/components/free-tools/FreeToolCardGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
@@ -13,16 +11,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { getFreeTools } from "@/lib/tools/all-tools-data";
 import { buildTaxonomySectorCards, withTaxonomyCountLabels } from "@/lib/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
+import { SECTORS } from "@/lib/tools/taxonomy";
+import { resolveTaxonomySectorDisplayLabel } from "@/lib/i18n/taxonomy-display-labels";
 import type { AppLocale } from "@/i18n/routing";
-import {
-  getAllToolsGroupedByCategory,
-  getOrderedCategorySlugsWithTools,
-} from "@/lib/tools/getToolsByCategory";
-import { resolveFreeToolCategoryTitle } from "@/lib/free-tools/free-tool-categories";
-import {
-  SectorFilteredToolSections,
-  type CategorySectorData,
-} from "@/components/free-tools/SectorFilteredToolSections";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -47,6 +38,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
   setRequestLocale(locale);
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "freeTools" });
+
   const tools = getFreeTools(locale);
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
@@ -55,22 +47,26 @@ export default async function FreeToolsPage({ params }: PageProps) {
     (count) => tCatalog("labels.free-tools.countLabel", { count }),
   );
 
-  // ── Group free tools by canonical category for ToolAlphaList sections ──
-  const groupedByCategory = getAllToolsGroupedByCategory(locale, false);
-  const orderedCategorySlugs = getOrderedCategorySlugsWithTools(groupedByCategory);
+  // ── Sector tabs: only sectors that actually have free tools ──
+  const sectorsWithTools = new Set(tools.map((t) => t.sectorKey));
+  const sectorTabs = SECTORS.filter((s) => sectorsWithTools.has(s.id)).map((s) => ({
+    id: s.id,
+    label:
+      resolveTaxonomySectorDisplayLabel(s.id, locale) ??
+      (locale.startsWith("en") ? s.labelEn : s.label),
+  }));
 
-  // Pre-compute category sections data for the filterable client component
-  const categorySections: CategorySectorData[] = orderedCategorySlugs
-    .map((catSlug) => {
-      const catTools = groupedByCategory[catSlug];
-      if (!catTools || catTools.length === 0) return null;
-      return {
-        slug: catSlug,
-        title: resolveFreeToolCategoryTitle(catSlug, locale),
-        tools: catTools,
-      } as CategorySectorData;
-    })
-    .filter(Boolean) as CategorySectorData[];
+  // ── Card data: pass only what the client component needs ──
+  const cardTools = tools.map((tool) => ({
+    slug: tool.slug,
+    name: tool.name,
+    href: tool.href,
+    sectorKey: tool.sectorKey,
+    premiumRequired: tool.premiumRequired,
+  }));
+
+  // ── RTL direction ──
+  const dir: "ltr" | "rtl" = locale === "ar" ? "rtl" : "ltr";
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(
@@ -94,38 +90,46 @@ export default async function FreeToolsPage({ params }: PageProps) {
     <PageLayout>
       <JsonLd data={jsonLd} />
       <section className="sc-pro-section sc-pro-section--border">
-        <ToolsPageSearchProvider>
-          <Suspense fallback={null}>
-            <CatalogSearchUrlSync />
-          </Suspense>
-          <ToolsPageLayout
-            title={tPage("title")}
-            subtitle={tPage("subtitle")}
-            searchPlaceholder={tPage("searchPlaceholder")}
-            categoryTitle={tPage("categoryTitle")}
-          >
-            <div className="mb-8">
-              <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
-                <IndustriesTaxonomyGrid
-                  basePath="/free-tools"
-                  sectors={taxonomySectorCards}
-                  variant="free"
-                />
-              </Suspense>
-            </div>
+        {/* ── Hero ────────────────────────────────────────────────── */}
+        <div className="mx-auto max-w-7xl px-4 pt-8 pb-6" dir={dir}>
+          <h1 className="text-3xl font-bold text-gray-900">{tPage("title")}</h1>
+          <p className="mt-1 text-base text-gray-500">{tPage("subtitle")}</p>
+        </div>
 
-            {/* ── Sector-filtered alphabetical tool lists ── */}
-            {categorySections.length > 0 && (
-              <Suspense fallback={<div className="min-h-[8rem]" aria-hidden="true" />}>
-                <SectorFilteredToolSections
-                  categorySections={categorySections}
-                  locale={locale}
-                  byCategoryTitle={tPage("byCategoryTitle")}
-                />
-              </Suspense>
-            )}
-          </ToolsPageLayout>
-        </ToolsPageSearchProvider>
+        {/* ── Sector cards grid ────────────────────────────────────── */}
+        <div className="mb-8 px-4">
+          <Suspense fallback={<div className="min-h-[12rem]" aria-hidden="true" />}>
+            <IndustriesTaxonomyGrid
+              basePath="/free-tools"
+              sectors={taxonomySectorCards}
+              variant="free"
+            />
+          </Suspense>
+        </div>
+
+        {/* ── Search + filter tabs + card grid ─────────────────────── */}
+        <div className="px-4 pb-12">
+          <Suspense fallback={<div className="min-h-[20rem]" aria-hidden="true" />}>
+            <FreeToolCardGrid
+              tools={cardTools}
+              sectorTabs={sectorTabs}
+              dir={dir}
+              t={{
+                searchPlaceholder: tPage("searchPlaceholder"),
+                badgeFree: tPage("badgeFree"),
+                badgePro: tPage("badgePro"),
+                toolsCount: tPage("toolsCount"),
+                allSectors: tPage("allSectors"),
+                showAll: tPage("showAll"),
+                noResults: tPage("noResults"),
+                proUpsellTitle: tPage("proUpsellTitle"),
+                proUpsellBody: tPage("proUpsellBody"),
+                proUpsellCta: tPage("proUpsellCta"),
+                creditHint: tPage("creditHint"),
+              }}
+            />
+          </Suspense>
+        </div>
       </section>
     </PageLayout>
   );

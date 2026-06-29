@@ -17,18 +17,18 @@ export const SEWING_LINE_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "cycleTotal", label: "Toplam SMV (Tüm Operasyonlar)", label_i18n: {"en":"Toplam SMV (Tüm Operasyonlar)","tr":"Toplam SMV (Tüm Operasyonlar)"}, type: "number", unit: "dak", required: true, smartDefault: 6.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Sum of all SMV times", expertMeaning_i18n: {"en":"Sum of all SMV times","tr":"Sum of all SMV times"} },
   ],
   outputs: [
-    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Süresi","tr":"Takt Süresi"}, unit: "dak", format: "number" },
+    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Time","tr":"Takt Süresi"}, unit: "dak", format: "number" },
     { id: "cycleTotal", label: "Toplam SMV", label_i18n: {"en":"Toplam SMV","tr":"Toplam SMV"}, unit: "dak", format: "number" },
     { id: "theoreticalOps", label: "Teorik Operatör", label_i18n: {"en":"Teorik Operatör","tr":"Teorik Operatör"}, unit: "kişi", format: "number" },
     { id: "actualOperators", label: "Gerçek Operatör", label_i18n: {"en":"Gerçek Operatör","tr":"Gerçek Operatör"}, unit: "kişi", format: "number" },
     { id: "lineEfficiency", label: "Hat Verimliliği", label_i18n: {"en":"Hat Verimliliği","tr":"Hat Verimliliği"}, unit: "%", format: "percentage" },
-    { id: "balanceDelay", label: "Denge Kaybı", label_i18n: {"en":"Denge Kaybı","tr":"Denge Kaybı"}, unit: "%", format: "percentage", isBigNumber: true },
+    { id: "balanceDelay", label: "Denge Kaybı", label_i18n: {"en":"Balance Loss","tr":"Denge Kaybı"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "lineEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — SMV dağılımı iyileştirilmeli.", warningMessage_i18n: {"en":"Verim < %80 — SMV dağılımı iyileştirilmeli.","tr":"Verim < %80 — SMV dağılımı iyileştirilmeli."}, criticalMessage: "Verim < %70 — hat yeniden dengelenmeli.", criticalMessage_i18n: {"en":"Verim < %70 — hat yeniden dengelenmeli.","tr":"Verim < %70 — hat yeniden dengelenmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.sewing_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },
     { formulaId: "measurement.sewing_line_efficiency", inputMap: { cycleTotal: "cycleTotal", actualOperators: "operatorCount", taktTime: "taktTime" }, outputId: "lineEfficiency" },
   ],
-  reportTemplate: { title: "Sewing Line Balance Report", title_i18n: {"en":"Sewing Line Balance Report","tr":"Sewing Line Balance Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  reportTemplate: { title: "Sewing Line Balance Report", title_i18n: {"en":"Sewing Line Balance Report","tr":"Dikiş Hattı Dengeleme Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Takt = AvailableTime/Demand. ΣSMV = sum of all SMVs.", "LineEff = ΣSMV/(Operators×Takt)×100.", "Balance delay = 100 - LineEff."],assumptionNotes_i18n:[{"en":"Takt = AvailableTime/Demand. ΣSMV = sum of all SMVs.","tr":"Takt = AvailableTime/Demand. ΣSMV = sum of all SMVs."},{"en":"LineEff = ΣSMV/(Operators×Takt)×100.","tr":"LineEff = ΣSMV/(Operators×Takt)×100."},{"en":"Balance delay = 100 - LineEff.","tr":"Balance delay = 100 - LineEff."}] },
 };

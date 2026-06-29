@@ -4,8 +4,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
   id: "roof-area-load-analyzer", legacyPaidSlug: "roof-area-load-analyzer",
-  name: "Çatı Alanı & Yük Analizi", name_i18n: {"en":"Çatı Alanı & Yük Analizi","tr":"Çatı Alanı & Yük Analizi"}, sectorSlug: "construction", category: "measurement",
-  painStatement: "Çatı alanı ve yük hesabı yapılmadan malzeme siparişi ve statik analiz hatalı olur.", painStatement_i18n: {"en":"Çatı alanı ve yük hesabı yapılmadan malzeme siparişi ve statik analiz hatalı olur.","tr":"Çatı alanı ve yük hesabı yapılmadan malzeme siparişi ve statik analiz hatalı olur."}, inputs: [
+  name: "Çatı Alanı & Yük Analizi", name_i18n: {"en":"Roof Area & Load Analysis","tr":"Çatı Alanı & Yük Analizi"}, sectorSlug: "construction", category: "measurement",
+  painStatement: "Çatı alanı ve yük hesabı yapılmadan malzeme siparişi ve statik analiz hatalı olur.", painStatement_i18n: {"en":"Without roof area and load calculations, material ordering and structural analysis will be incorrect.","tr":"Çatı alanı ve yük hesabı yapılmadan malzeme siparişi ve statik analiz hatalı olur."}, inputs: [
     { id: "roofLength", label: "Çatı Uzunluğu", label_i18n: {"en":"Çatı Uzunluğu","tr":"Çatı Uzunluğu"}, type: "number", unit: "m", required: true, smartDefault: 20, validation: { min: 0.1 }, helper: "", expertMeaning: "Roof length", expertMeaning_i18n: {"en":"Roof length","tr":"Roof length"} },
     { id: "roofWidth", label: "Çatı Genişliği", label_i18n: {"en":"Çatı Genişliği","tr":"Çatı Genişliği"}, type: "number", unit: "m", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "", expertMeaning: "Roof width", expertMeaning_i18n: {"en":"Roof width","tr":"Roof width"} },
     { id: "pitchAngle", label: "Eğim Açısı", label_i18n: {"en":"Eğim Açısı","tr":"Eğim Açısı"}, type: "number", unit: "derece", required: true, smartDefault: 30, validation: { min: 0, max: 90 }, helper: "", expertMeaning: "Roof pitch", expertMeaning_i18n: {"en":"Roof pitch","tr":"Roof pitch"} },
@@ -25,11 +25,11 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
     { id: "snowLoad", label: "Kar Yükü", label_i18n: {"en":"Kar Yükü","tr":"Kar Yükü"}, unit: "kN/m²", format: "number" },
     { id: "combinedLoad", label: "Toplam Yük", label_i18n: {"en":"Toplam Yük","tr":"Toplam Yük"}, unit: "kN/m²", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.","tr":"Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir."}, criticalMessage: "Yük > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Yük > 8 kN/m² — acil statik analiz gerekiyor.","tr":"Yük > 8 kN/m² — acil statik analiz gerekiyor."} }],
+  thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Load > 5 kN/m² — structural system should be checked.","tr":"Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir."}, criticalMessage: "Yük > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent structural analysis required.","tr":"Yük > 8 kN/m² — acil statik analiz gerekiyor."} }],
   formulaPipeline: [
     { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" }, outputId: "footprint" },
     { formulaId: "measurement.roof_gable_area", inputMap: { footprint: "footprint", pitchAngle: "pitchAngle" }, outputId: "gableArea" },
   ],
-  reportTemplate: { title: "Roof Area & Load Report", title_i18n: {"en":"Roof Area & Load Report","tr":"Roof Area & Load Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  reportTemplate: { title: "Roof Area & Load Report", title_i18n: {"en":"Roof Area & Load Report","tr":"Çatı Alanı ve Yük Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Footprint = L×W. Gable area = Footprint/COS(pitch).", "Dead load = MaterialWeight×TotalArea. Snow load per EN 1991-1-3."],assumptionNotes_i18n:[{"en":"Footprint = L×W. Gable area = Footprint/COS(pitch).","tr":"Footprint = L×W. Gable area = Footprint/COS(pitch)."},{"en":"Dead load = MaterialWeight×TotalArea. Snow load per EN 1991-1-3.","tr":"Dead load = MaterialWeight×TotalArea. Snow load per EN 1991-1-3."}] },
 };

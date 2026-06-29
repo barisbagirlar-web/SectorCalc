@@ -1074,7 +1074,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.ir_exposure", family: "cost", label: "Interest rate exposure", fn: (i) => num(i,"floatingDebt") * (1 - num(i,"hedgeRatio")) },
   { id: "cost.ir_shock_impact", family: "cost", label: "Shock impact on exposure", fn: (i) => num(i,"exposure") * num(i,"bpsChange") / 10000 },
   { id: "cost.ir_dur_gap", family: "cost", label: "Duration gap", fn: (i) => num(i,"assetDur") - num(i,"liabDur") },
-  { id: "cost.ir_eve_change", family: "cost", label: "EVE change", fn: (i) => -num(i,"durGap") * num(i,"assetVal") * num(i,"rateChange") },
+  { id: "cost.ir_eve_change", family: "cost", label: "EVE change", fn: (i) => -num(i,"durGap") * num(i,"assetValue") * num(i,"rateChange") },
 
   // Filament recycling
   { id: "cost.filament_virgin", family: "cost", label: "Virgin filament cost", fn: (i) => num(i,"priceV") * (1 + num(i,"scrapV")) + num(i,"transpV") },
@@ -1109,13 +1109,13 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.fertilizer_roi", family: "cost", label: "Fertilizer ROI", fn: (i) => (num(i,"yieldInc") * num(i,"cropPrice") - num(i,"cost")) / num(i,"cost") },
 
   // HACCP deviation
-  { id: "cost.haccp_hold", family: "cost", label: "Hold cost", fn: (i) => num(i,"quarVol") * num(i,"holdCost") * num(i,"days") },
-  { id: "cost.haccp_test", family: "cost", label: "Test cost", fn: (i) => num(i,"samples") * num(i,"labCost") },
-  { id: "cost.haccp_rework", family: "cost", label: "Rework cost", fn: (i) => num(i,"devVol") * num(i,"reworkCost") },
+  { id: "cost.haccp_hold", family: "cost", label: "Hold cost", fn: (i) => num(i,"quarantineVolume") * num(i,"holdCostPerUnit") * num(i,"holdDays") },
+  { id: "cost.haccp_test", family: "cost", label: "Test cost", fn: (i) => num(i,"testSamples") * num(i,"labCost") },
+  { id: "cost.haccp_rework", family: "cost", label: "Rework cost", fn: (i) => num(i,"deviationVolume") * num(i,"reworkCost") },
   { id: "cost.haccp_disp", family: "cost", label: "Disposal cost", fn: (i) => num(i,"condVol") * num(i,"dispCost") + num(i,"lostMat") },
-  { id: "cost.haccp_recall", family: "cost", label: "Recall cost", fn: (i) => num(i,"notif") + num(i,"logRev") + num(i,"retailPen") + num(i,"brand") },
-  { id: "cost.haccp_fine", family: "cost", label: "Regulatory fine risk", fn: (i) => num(i,"probDet") * num(i,"fineAmt") },
-  { id: "cost.haccp_total", family: "cost", label: "Total HACCP deviation cost", fn: (i) => num(i,"holdCost") + num(i,"testCost") + num(i,"reworkCost") + num(i,"dispCost") + num(i,"recallCost") + num(i,"fineRisk") },
+  { id: "cost.haccp_recall", family: "cost", label: "Recall cost", fn: (i) => num(i,"notificationCost") + num(i,"logisticsRecall") + num(i,"retailPenalty") + num(i,"brandDamage") },
+  { id: "cost.haccp_fine", family: "cost", label: "Regulatory fine risk", fn: (i) => num(i,"probDetection") * num(i,"fineAmount") },
+  { id: "cost.haccp_total", family: "cost", label: "Total HACCP deviation cost", fn: (i) => num(i,"holdCost") + num(i,"testCost") + num(i,"reworkCost") + num(i,"disposalCost") + num(i,"recallCost") + num(i,"fine") },
 
   // Hacimsel ağırlık
   { id: "measurement.volumetric_weight_air", family: "measurement", label: "Volumetric weight for air", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 6000 },
@@ -1172,9 +1172,9 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.machining_power", family: "measurement", label: "Machining power required", fn: (i) => num(i,"mrr") * num(i,"specEnergy") },
 
   // Kaizen tasarruf
-  { id: "cost.kaizen_hard_savings", family: "cost", label: "Hard savings from kaizen", fn: (i) => (num(i,"baseline") - num(i,"actual")) * num(i,"volume") },
-  { id: "cost.kaizen_soft_savings", family: "cost", label: "Soft savings from kaizen", fn: (i) => num(i,"timeSaved") * num(i,"labRate") * num(i,"conv") },
-  { id: "cost.kaizen_roi", family: "cost", label: "Kaizen project ROI", fn: (i) => (num(i,"hardSav") + num(i,"softSav") - num(i,"impCost")) / num(i,"impCost") },
+  { id: "cost.kaizen_hard_savings", family: "cost", label: "Hard savings from kaizen", fn: (i) => (num(i,"baselineCost") - num(i,"actualCost")) * num(i,"productionVolume") },
+  { id: "cost.kaizen_soft_savings", family: "cost", label: "Soft savings from kaizen", fn: (i) => num(i,"timeSaved") * num(i,"laborRate") * num(i,"conversionFactor") },
+  { id: "cost.kaizen_roi", family: "cost", label: "Kaizen project ROI", fn: (i) => (num(i,"hardSavings") + num(i,"softSavings") - num(i,"implementationCost")) / num(i,"implementationCost") },
 
   // ── Missing formula stubs for schema pipeline alignment ──
   { id: "cost.absenteeism_prod_loss", family: "cost", label: "Absenteeism production loss cost", fn: (i) => num(i,"absentHours") * num(i,"outputPerHour") * num(i,"margin") * (1 - num(i,"effDrop")) / 100 },
@@ -1189,11 +1189,11 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.feed_cost_per_kg", family: "cost", label: "Feed cost per kg live weight", fn: (i) => (num(i,"baseCost") + num(i,"procCost") + num(i,"addCost") + num(i,"baseCost") * num(i,"shrinkRate")) * num(i,"fcr") },
   { id: "cost.filament_recycled", family: "cost", label: "Recycled filament cost per unit", fn: (i) => (num(i,"collect") + num(i,"sort") + num(i,"pellet")) / num(i,"yield") },
   { id: "cost.grr_cost_error", family: "cost", label: "Gage error cost impact", fn: (i) => num(i,"falseAcc") * num(i,"escapeCost") + num(i,"falseRej") * num(i,"scrapCost") },
-  { id: "cost.haccp_disposal", family: "cost", label: "HACCP disposal cost", fn: (i) => num(i,"condVol") * num(i,"dispCost") + num(i,"lostMat") },
+  { id: "cost.haccp_disposal", family: "cost", label: "HACCP disposal cost", fn: (i) => num(i,"condemnedVolume") * num(i,"disposalCost") + num(i,"lostMaterial") },
   { id: "cost.hvac_annual_cost", family: "cost", label: "HVAC annual operating cost", fn: (i) => (num(i,"totalLoad") / num(i,"eer")) * num(i,"hours") * num(i,"elecRate") },
-  { id: "cost.ir_var", family: "cost", label: "Interest rate VaR", fn: (i) => num(i,"portVal") * num(i,"volatility") * num(i,"zScore") },
-  { id: "cost.kaizen_payback", family: "cost", label: "Kaizen payback months", fn: (i) => num(i,"impCost") / num(i,"monthSav") },
-  { id: "cost.kaizen_sustainability", family: "cost", label: "Kaizen sustainability ratio", fn: (i) => num(i,"savM6") / num(i,"savM1") },
+  { id: "cost.ir_var", family: "cost", label: "Interest rate VaR", fn: (i) => num(i,"portfolioValue") * num(i,"volatility") * num(i,"zScore") },
+  { id: "cost.kaizen_payback", family: "cost", label: "Kaizen payback months", fn: (i) => num(i,"implementationCost") / num(i,"monthlySavings") },
+  { id: "cost.kaizen_sustainability", family: "cost", label: "Kaizen sustainability ratio", fn: (i) => num(i,"savingsMonth6") / num(i,"savingsMonth1") },
   { id: "cost.layout_total_cost", family: "cost", label: "Total layout cost", fn: (i) => num(i,"matHandCost") + num(i,"spaceUtil") * num(i,"spaceCost") + num(i,"congestion") * num(i,"congCost") },
   { id: "cost.lightweight_fuel_savings", family: "cost", label: "Weight reduction fuel savings", fn: (i) => num(i,"weightRed") * num(i,"fuelFactor") * num(i,"distance") * num(i,"fuelPrice") },
   { id: "cost.lightweight_net_savings", family: "cost", label: "Net weight reduction savings", fn: (i) => (num(i,"fuelSav") + num(i,"payloadGain")) * num(i,"life") - num(i,"matPrem") - num(i,"toolDelta") },
@@ -1329,11 +1329,11 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.fx_net_impact", family: "cost", label: "Net FX impact", fn: (i) => num(i,"unhedgedVar") - num(i,"hedgeCost") },
 
   // Energy bill
-  { id: "cost.energy_charge", family: "cost", label: "Energy charge", fn: (i) => num(i,"consumptionKwh") * num(i,"ratePerKwh") },
-  { id: "cost.reactive_penalty_kwh", family: "cost", label: "Reactive penalty", fn: (i) => Math.max(0, num(i,"reactivePower") - num(i,"reactiveAllowance")) * num(i,"penaltyRate") },
-  { id: "cost.total_bill_kwh", family: "cost", label: "Total energy bill", fn: (i) => num(i,"energyCharge") + num(i,"fixedCharge") + num(i,"reactivePenalty") + num(i,"tax") },
-  { id: "cost.unit_cost_kwh", family: "cost", label: "Unit cost per kWh", fn: (i) => safeDivide(num(i,"totalBill"), num(i,"totalConsumption")) },
-  { id: "cost.peak_shaving_savings", family: "cost", label: "Peak shaving savings", fn: (i) => (num(i,"peakDemand") - num(i,"shavedDemand")) * num(i,"demandCharge") },
+  { id: "cost.energy_charge", family: "cost", label: "Energy charge", fn: (i) => num(i,"activeEnergy") * num(i,"energyRate") },
+  { id: "cost.reactive_penalty_kwh", family: "cost", label: "Reactive penalty", fn: (i) => Math.max(0, num(i,"reactiveEnergy") - num(i,"pfThreshold")) * num(i,"penaltyRate") },
+  { id: "cost.total_bill_kwh", family: "cost", label: "Total energy bill", fn: (i) => num(i,"energyCharge") + num(i,"demandCharge") + num(i,"reactivePenalty") + num(i,"taxRate") },
+  { id: "cost.unit_cost_kwh", family: "cost", label: "Unit cost per kWh", fn: (i) => safeDivide(num(i,"totalBill"), num(i,"activeEnergy")) },
+  { id: "cost.peak_shaving_savings", family: "cost", label: "Peak shaving savings", fn: (i) => (num(i,"oldPeak") - num(i,"newPeak")) * num(i,"demandRate") },
 
   // Route optimization
   { id: "measurement.route_drift_pct", family: "measurement", label: "Route drift %", fn: (i) => safeDivide(num(i,"actualKm") - num(i,"plannedKm"), num(i,"plannedKm")) * 100 },
@@ -1383,13 +1383,13 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.reliability_roi", family: "cost", label: "Reliability improvement ROI", fn: (i) => safeDivide(num(i,"currentCost") - num(i,"improvedCost"), num(i,"improvementInvestment")) * 100 },
 
   // Muda (7 wastes)
-  { id: "cost.muda_overproduction", family: "cost", label: "Overproduction waste", fn: (i) => num(i,"overproducedQty") * num(i,"unitCost") },
-  { id: "cost.muda_waiting", family: "cost", label: "Waiting waste", fn: (i) => num(i,"waitingHours") * num(i,"laborRate") },
-  { id: "cost.muda_transport", family: "cost", label: "Transport waste", fn: (i) => num(i,"excessDist") * num(i,"costPerKm") },
-  { id: "cost.muda_overprocessing", family: "cost", label: "Overprocessing waste", fn: (i) => num(i,"extraProcessHours") * num(i,"processRate") },
-  { id: "cost.muda_inventory", family: "cost", label: "Inventory waste", fn: (i) => num(i,"excessInventory") * num(i,"holdingCostPerUnit") },
-  { id: "cost.muda_motion", family: "cost", label: "Motion waste", fn: (i) => num(i,"excessMotionHours") * num(i,"laborRate") },
-  { id: "cost.muda_defects", family: "cost", label: "Defects waste", fn: (i) => num(i,"defectQty") * num(i,"reworkCostPerUnit") },
+  { id: "cost.muda_overproduction", family: "cost", label: "Overproduction waste", fn: (i) => num(i,"overproductionCost") },
+  { id: "cost.muda_waiting", family: "cost", label: "Waiting waste", fn: (i) => num(i,"waitingCost") },
+  { id: "cost.muda_transport", family: "cost", label: "Transport waste", fn: (i) => num(i,"transportCost") },
+  { id: "cost.muda_overprocessing", family: "cost", label: "Overprocessing waste", fn: (i) => num(i,"overprocessingCost") },
+  { id: "cost.muda_inventory", family: "cost", label: "Inventory waste", fn: (i) => num(i,"inventoryCost") },
+  { id: "cost.muda_motion", family: "cost", label: "Motion waste", fn: (i) => num(i,"motionCost") },
+  { id: "cost.muda_defects", family: "cost", label: "Defects waste", fn: (i) => num(i,"defectCost") },
   { id: "cost.muda_total", family: "cost", label: "Total muda cost", fn: (i) => num(i,"mudaOverproduction") + num(i,"mudaWaiting") + num(i,"mudaTransport") + num(i,"mudaOverprocessing") + num(i,"mudaInventory") + num(i,"mudaMotion") + num(i,"mudaDefects") },
 
   // Cash flow
@@ -1437,9 +1437,9 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.office_optimization_savings", family: "cost", label: "Optimization savings", fn: (i) => (num(i,"currentTotalCost") - num(i,"optimalTotalCost")) },
 
   // Overtime / hiring
-  { id: "cost.ot_cost_hour", family: "cost", label: "OT cost per hour", fn: (i) => num(i,"baseRate") * num(i,"otMultiplier") },
-  { id: "cost.hiring_total_cost", family: "cost", label: "Hiring total cost", fn: (i) => num(i,"advertising") + num(i,"recruiting") + num(i,"training") + num(i,"onboarding") },
-  { id: "cost.annual_new_hire_cost", family: "cost", label: "Annual new hire cost", fn: (i) => num(i,"hiringTotalCost") + num(i,"salary") + num(i,"benefits") },
+  { id: "cost.ot_cost_hour", family: "cost", label: "OT cost per hour", fn: (i) => num(i,"overtimeRate") * num(i,"qualityDefectRate") },
+  { id: "cost.hiring_total_cost", family: "cost", label: "Hiring total cost", fn: (i) => num(i,"hiringCost") },
+  { id: "cost.annual_new_hire_cost", family: "cost", label: "Annual new hire cost", fn: (i) => num(i,"annualSalary") + num(i,"hiringTotalCost") },
   { id: "measurement.breakeven_hours_base", family: "measurement", label: "Breakeven hours", fn: (i) => safeDivide(num(i,"annualNewHireCost"), num(i,"otCostHour")) },
   { id: "measurement.ot_hire_decision", family: "measurement", label: "OT vs hire decision", fn: (i) => num(i,"annualOtHours") > num(i,"breakevenHours") ? 1 : 0 },
   { id: "cost.ot_quality_cost", family: "cost", label: "OT quality cost", fn: (i) => num(i,"annualOtHours") * num(i,"defectRate") * num(i,"reworkCost") },
@@ -1480,10 +1480,10 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
 
   // Poka-yoke
   { id: "measurement.current_defect_rate", family: "measurement", label: "Current defect rate", fn: (i) => safeDivide(num(i,"defects"), num(i,"totalInspected")) },
-  { id: "cost.defect_cost_annual", family: "cost", label: "Annual defect cost", fn: (i) => num(i,"currentDefectRate") * num(i,"annualVolume") * num(i,"costPerDefect") },
-  { id: "cost.poka_yoke_cost", family: "cost", label: "Poka-yoke implementation cost", fn: (i) => num(i,"deviceCost") + num(i,"installationCost") + num(i,"trainingCost") },
+  { id: "cost.defect_cost_annual", family: "cost", label: "Annual defect cost", fn: (i) => num(i,"currentDefectRate") * num(i,"productionVolume") * num(i,"defectCostPerUnit") },
+  { id: "cost.poka_yoke_cost", family: "cost", label: "Poka-yoke implementation cost", fn: (i) => num(i,"pokaYokeInvestment") },
   { id: "measurement.new_defect_rate", family: "measurement", label: "New defect rate", fn: (i) => num(i,"currentDefectRate") * (1 - num(i,"reductionFactor") / 100) },
-  { id: "cost.poka_yoke_savings", family: "cost", label: "Poka-yoke annual savings", fn: (i) => (num(i,"currentDefectRate") - num(i,"newDefectRate")) * num(i,"annualVolume") * num(i,"costPerDefect") },
+  { id: "cost.poka_yoke_savings", family: "cost", label: "Poka-yoke annual savings", fn: (i) => (num(i,"currentDefectRate") - num(i,"newDefectRate")) * num(i,"defectCostAnnual") },
   { id: "cost.poka_yoke_roi", family: "cost", label: "Poka-yoke ROI", fn: (i) => safeDivide(num(i,"pokaYokeSavings") - num(i,"pokaYokeCost"), num(i,"pokaYokeCost")) * 100 },
   { id: "cost.poka_yoke_payback", family: "cost", label: "Poka-yoke payback", fn: (i) => safeDivide(num(i,"pokaYokeCost"), num(i,"pokaYokeSavings")) },
 
@@ -1572,7 +1572,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.saas_shelfware_cost", family: "cost", label: "Shelfware cost", fn: (i) => num(i,"shelfwarePct") * num(i,"totalContract") },
 
   // Saatlik Ücret
-  { id: "cost.burdened_hourly_rate", family: "cost", label: "Burdened hourly rate", fn: (i) => (num(i,"grossSalary") + num(i,"employerTaxes") + num(i,"benefits")) / Math.max(1, num(i,"productiveHours")) },
+  { id: "cost.burdened_hourly_rate", family: "cost", label: "Burdened hourly rate", fn: (i) => (num(i,"grossSalary") + num(i,"employerTaxRate") + num(i,"benefitsCost")) / Math.max(1, num(i,"billableHoursPerMonth")) },
 
   // SMED Değişim
   { id: "measurement.smed_capacity_recovered", family: "measurement", label: "SMED capacity recovered", fn: (i) => (num(i,"currentSetup") - num(i,"targetSetup")) * num(i,"changeoverFreq") },

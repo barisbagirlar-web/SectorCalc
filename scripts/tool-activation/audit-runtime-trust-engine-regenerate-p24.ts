@@ -8,17 +8,42 @@ const P24_VERDICTS_TS = path.join(ROOT, "src/lib/tools/runtime-readiness-p24-ver
 
 const REVENUE_BOUNDARY_RESTORE_SLUGS = new Set([
   "auto-shop-margin-leak-detector",
+  "change-order-impact-analyzer",
   "cnc-quote-risk-analyzer",
+  "crop-yield-loss-analyzer",
+  "dairy-profit-detector",
+  "hvac-project-margin-guard",
+  "landscaping-contract-profit-tool",
+  "meal-planning-verdict",
+  "menu-profit-leak-detector",
+  "millwork-bid-risk-analyzer",
+  "office-cleaning-bid-optimizer",
+  "painting-job-profit-verdict",
+  "panel-shop-margin-verdict",
+  "plumbing-job-margin-verdict",
   "print-job-cost-check",
+  "return-profit-erosion-tool",
+  "roofing-contract-margin-guard",
+  "sheet-metal-quote-risk-tool",
+  "signage-bid-safe-price-tool",
+  "water-optimization-verdict",
+  "welding-bid-risk-analyzer",
 ]);
+
+type P24ReportItem = {
+  slug: string;
+  verdict: string;
+  routeStatus?: string;
+  tier?: string;
+};
 
 function loadP24Maps(): { nonPass: Record<string, string>; explicitPass: string[] } {
   if (!fs.existsSync(P24_CACHE_PATH)) {
     return { nonPass: {}, explicitPass: [] };
   }
   const report = JSON.parse(fs.readFileSync(P24_CACHE_PATH, "utf8")) as {
-    tools?: Array<{ slug: string; verdict: string }>;
-    items?: Array<{ slug: string; verdict: string }>;
+    tools?: P24ReportItem[];
+    items?: P24ReportItem[];
   };
   const verdictRank: Record<string, number> = {
     PASS: 0,
@@ -30,6 +55,10 @@ function loadP24Maps(): { nonPass: Record<string, string>; explicitPass: string[
   const rows = report.tools ?? report.items ?? [];
   for (const item of rows) {
     if (!item.verdict) {
+      continue;
+    }
+    // Skip category-only stubs — they are catalog entries, not real tools.
+    if (item.routeStatus === "category-only") {
       continue;
     }
     const current = mergedVerdicts[item.slug];

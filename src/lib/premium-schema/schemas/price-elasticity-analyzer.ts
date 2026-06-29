@@ -4,8 +4,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 export const PRICE_ELASTICITY_SCHEMA: PremiumCalculatorSchema = {
   id: "price-elasticity-analyzer", legacyPaidSlug: "price-elasticity-analyzer",
-  name: "Fiyat Esnekliği & Optimal Fiyat Analizi", name_i18n: {"en":"Fiyat Esnekliği & Optimal Fiyat Analizi","tr":"Fiyat Esnekliği & Optimal Fiyat Analizi"}, sectorSlug: "ecommerce", category: "cost",
-  painStatement: "Fiyat esnekliği hesaplanmadan yapılan fiyat değişiklikleri talebi ve kârlılığı olumsuz etkileyebilir.", painStatement_i18n: {"en":"Fiyat esnekliği hesaplanmadan yapılan fiyat değişiklikleri talebi ve kârlılığı olumsuz etkileyebilir.","tr":"Fiyat esnekliği hesaplanmadan yapılan fiyat değişiklikleri talebi ve kârlılığı olumsuz etkileyebilir."},
+  name: "Fiyat Esnekliği & Optimal Fiyat Analizi", name_i18n: {"en":"Price Elasticity & Optimal Price Analysis","tr":"Fiyat Esnekliği & Optimal Fiyat Analizi"}, sectorSlug: "ecommerce", category: "cost",
+  painStatement: "Fiyat esnekliği hesaplanmadan yapılan fiyat değişiklikleri talebi ve kârlılığı olumsuz etkileyebilir.", painStatement_i18n: {"en":"Price changes made without calculating elasticity can negatively impact demand and profitability.","tr":"Fiyat esnekliği hesaplanmadan yapılan fiyat değişiklikleri talebi ve kârlılığı olumsuz etkileyebilir."},
   inputs: [
     { id: "currentPrice", label: "Mevcut Fiyat", label_i18n: {"en":"Mevcut Fiyat","tr":"Mevcut Fiyat"}, type: "number", unit: "USD", required: true, smartDefault: 50, validation: { min: 0.01 }, helper: "", expertMeaning: "Current product price", expertMeaning_i18n: {"en":"Current product price","tr":"Current product price"} },
     { id: "currentDemand", label: "Mevcut Talep", label_i18n: {"en":"Mevcut Talep","tr":"Mevcut Talep"}, type: "number", unit: "adet", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "", expertMeaning: "Current demand quantity", expertMeaning_i18n: {"en":"Current demand quantity","tr":"Current demand quantity"} },
@@ -17,15 +17,15 @@ export const PRICE_ELASTICITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "marginOther", label: "Diğer Ürün Marjı", label_i18n: {"en":"Diğer Ürün Marjı","tr":"Diğer Ürün Marjı"}, type: "number", unit: "USD", required: false, smartDefault: 0, validation: { min: 0 }, helper: "", expertMeaning: "Margin of cannibalized product", expertMeaning_i18n: {"en":"Margin of cannibalized product","tr":"Margin of cannibalized product"} },
   ],
   outputs: [
-    { id: "elasticity", label: "Fiyat Esnekliği", label_i18n: {"en":"Fiyat Esnekliği","tr":"Fiyat Esnekliği"}, unit: "", format: "number" },
-    { id: "optimalMarkup", label: "Optimal Kar Marjı", label_i18n: {"en":"Optimal Kar Marjı","tr":"Optimal Kar Marjı"}, unit: "%", format: "percentage" },
+    { id: "elasticity", label: "Fiyat Esnekliği", label_i18n: {"en":"Price Elasticity","tr":"Fiyat Esnekliği"}, unit: "", format: "number" },
+    { id: "optimalMarkup", label: "Optimal Kar Marjı", label_i18n: {"en":"Optimal Profit Margin","tr":"Optimal Kar Marjı"}, unit: "%", format: "percentage" },
     { id: "newRevenue", label: "Yeni Gelir", label_i18n: {"en":"Yeni Gelir","tr":"Yeni Gelir"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "elasticity", warning: -2, critical: -4, direction: "lower_is_bad", warningMessage: "Esneklik < -2 — fiyat artışı talebi çok düşürüyor.", warningMessage_i18n: {"en":"Esneklik < -2 — fiyat artışı talebi çok düşürüyor.","tr":"Esneklik < -2 — fiyat artışı talebi çok düşürüyor."}, criticalMessage: "Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor.", criticalMessage_i18n: {"en":"Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor.","tr":"Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor."} }],
+  thresholds: [{ fieldId: "elasticity", warning: -2, critical: -4, direction: "lower_is_bad", warningMessage: "Esneklik < -2 — fiyat artışı talebi çok düşürüyor.", warningMessage_i18n: {"en":"Elasticity < -2 — price increase significantly reduces demand.","tr":"Esneklik < -2 — fiyat artışı talebi çok düşürüyor."}, criticalMessage: "Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor.", criticalMessage_i18n: {"en":"Elasticity < -4 — price increase causes severe demand loss.","tr":"Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor."} }],
   formulaPipeline: [
     { formulaId: "measurement.price_elasticity", inputMap: { pctDemandChange: "pctDemandChange", pctPriceChange: "pctPriceChange" }, outputId: "elasticity" },
     { formulaId: "cost.price_optimal_markup", inputMap: { elasticity: "elasticity" }, outputId: "optimalMarkup" },
   ],
-  reportTemplate: { title: "Price Elasticity Report", title_i18n: {"en":"Price Elasticity Report","tr":"Price Elasticity Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Elasticity = %ΔDemand/%ΔPrice.", "Optimal markup = -1/(Elasticity+1).", "New margin = (NewPrice-VarCost)×NewDem-Fixed."],assumptionNotes_i18n:[{"en":"Elasticity = %ΔDemand/%ΔPrice.","tr":"Elasticity = %ΔDemand/%ΔPrice."},{"en":"Optimal markup = -1/(Elasticity+1).","tr":"Optimal markup = -1/(Elasticity+1)."},{"en":"New margin = (NewPrice-VarCost)×NewDem-Fixed.","tr":"New margin = (NewPrice-VarCost)×NewDem-Fixed."}] },
+  reportTemplate: { title: "Price Elasticity Report", title_i18n: {"en":"Price Elasticity Report","tr":"Fiyat Esnekliği Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Elasticity = %ΔDemand/%ΔPrice.", "Optimal markup = -1/(Elasticity+1).", "New margin = (NewPrice-VarCost)×NewDem-Fixed."],assumptionNotes_i18n:[{"en":"Elasticity = %ΔDemand/%ΔPrice.","tr":"Esneklik = %ΔTalep/%ΔFiyat."},{"en":"Optimal markup = -1/(Elasticity+1).","tr":"Optimal kar marjı = -1/(Esneklik+1)."},{"en":"New margin = (NewPrice-VarCost)×NewDem-Fixed.","tr":"Yeni marj = (YeniFiyat-DeğişkenMaliyet)×YeniTalep-Sabit."}] },
 };
