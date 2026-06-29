@@ -15,7 +15,12 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   return response;
 }
 
-const SW_KILL_CODE = `self.addEventListener("install",()=>self.skipWaiting());self.addEventListener("activate",(e)=>{e.waitUntil(self.clients.claim().then(()=>self.registration.unregister()))});self.addEventListener("fetch",()=>{});`;
+/** Aggressive SW kill: wipe ALL caches, unregister immediately, reload all tabs. */
+const SW_KILL_CODE = [
+  `self.addEventListener("install",()=>self.skipWaiting())`,
+  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,
+  `self.addEventListener("fetch",()=>{})`,
+].join(";");
 const SW_KILL_HEADERS = {
   "Content-Type": "application/javascript",
   "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
