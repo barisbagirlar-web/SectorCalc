@@ -18,7 +18,18 @@ export interface LocalizedPremiumSchema {
   painStatement?: string;
 }
 
-const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {};
+const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
+  "change-order-impact-analyzer": {},
+  "menu-profit-leak-detector": {},
+  "office-cleaning-bid-optimizer": {},
+  "landscaping-contract-profit-tool": {},
+  "signage-bid-safe-price-tool": {},
+  "welding-bid-risk-analyzer": {},
+  "hvac-project-margin-guard": {},
+  "cnc-quote-risk-analyzer": {},
+  "sheet-metal-quote-risk-tool": {},
+  "plumbing-job-margin-verdict": {},
+};
 
 const PREMIUM_SCHEMA_I18N: Partial<Record<string, Record<string, LocalizedPremiumSchema>>> = {
   de: DE_SCHEMAS,

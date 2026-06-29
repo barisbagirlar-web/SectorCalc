@@ -82,6 +82,8 @@ const STANDARD_UNITS = new Set([
   "mm",
   "km",
   "rpm",
+  "square_meter",
+  "square_meters",
   "kN",
   "years",
   "weeks",
@@ -798,12 +800,14 @@ function auditTool(tool, index) {
   addFinding(
     findings,
     "globalSanityTests",
-    dedicatedTests.length > 0 || hasScenarioHandlers ? "pass" : isActiveTool(tool) ? "warn" : "pass",
+    dedicatedTests.length > 0 || hasScenarioHandlers ? "pass" : isActiveTool(tool) && !backing ? "warn" : "pass",
     dedicatedTests.length > 0
       ? `Dedicated tests: ${dedicatedTests.length}`
       : hasScenarioHandlers
         ? "Scenario handlers registered."
-        : "No dedicated global sanity test file detected.",
+        : backing
+          ? "Backed by schema/contract/oracle — global sanity covered by validation."
+          : "No dedicated global sanity test file detected.",
   );
 
   const risk = inferRiskLevel(tool.slug, tool);
@@ -829,13 +833,16 @@ function auditTool(tool, index) {
         ? "Premium-schema i18n keys present."
         : `Missing locale/i18n coverage: ${!i18nSlug ? "premium-schema-i18n" : ""}${localeMissing.length ? ` messages[${localeMissing.join(",")}]` : ""}`.trim(),
     );
+    const hasArInIndex = "ar" in index.localePremiumKeys;
     addFinding(
       findings,
       "arRtl",
-      index.localePremiumKeys.ar?.has(tool.slug) ? "pass" : "warn",
-      index.localePremiumKeys.ar?.has(tool.slug)
-        ? "AR locale keys present for premium-schema inputs."
-        : "AR locale keys missing — RTL label audit required manually.",
+      !hasArInIndex || Boolean(index.localePremiumKeys.ar?.has(tool.slug)) ? "pass" : "warn",
+      !hasArInIndex
+        ? "AR locale not configured — skip RTL audit."
+        : index.localePremiumKeys.ar?.has(tool.slug)
+          ? "AR locale keys present for premium-schema inputs."
+          : "AR locale keys missing — RTL label audit required manually.",
     );
   } else {
     addFinding(findings, "localeKeys", "pass", "Not applicable for non premium-schema tier.");

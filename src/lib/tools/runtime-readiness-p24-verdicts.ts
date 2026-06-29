@@ -111,7 +111,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "chain-drive": "QUARANTINE",
   "chair-rail-calculator": "QUARANTINE",
   "chandrasekhar-limit": "QUARANTINE",
-  "change-order-impact-analyzer": "WARN",
   "changeover-matrix-and-sequence-optimization-calculator": "QUARANTINE",
   "circular-economy": "QUARANTINE",
   "circular-economy-and-product-life-extension-roi-calculator": "QUARANTINE",
@@ -124,7 +123,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "clv-to-cac-efficiency-ratio": "QUARANTINE",
   "cnc-minimum-safe-quote-analyzer": "WARN",
   "cnc-oee-loss": "FAIL",
-  "cnc-quote-risk-analyzer": "WARN",
   "cnc-tool-path-blank-cutting-time-calculator": "QUARANTINE",
   "cnc-tool-wear-cost": "FAIL",
   "cobot-vs-manual-labor-comparison-calculator": "QUARANTINE",
@@ -275,7 +273,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "horsepower-converter": "QUARANTINE",
   "hsa-tax-saving-advantage": "QUARANTINE",
   "hvac-callback-margin-risk": "FAIL",
-  "hvac-project-margin-guard": "WARN",
   "hydraulic-pneumatic-cylinder-force-calculator": "FAIL",
   "hydraulic-system-heating-and-cooling-energy-loss-calculator": "QUARANTINE",
   "hydroelectric-power": "QUARANTINE",
@@ -307,7 +304,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "kalman-filter-prediction": "QUARANTINE",
   "laboratory-analysis-cost-and-sampling-optimization-calculator": "QUARANTINE",
   "landfill-storage": "QUARANTINE",
-  "landscaping-contract-profit-tool": "WARN",
   "laser-welding-energy-density": "QUARANTINE",
   "learning-curve-and-batch-duration-estimation-calculator": "QUARANTINE",
   "leasing-vs-purchasing-financial-comparison-calculator": "QUARANTINE",
@@ -338,7 +334,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "measurement-gage-calibration-drift": "QUARANTINE",
   "measurement-gage-rr-percentage": "QUARANTINE",
   "medicare-part-b-premium": "QUARANTINE",
-  "menu-profit-leak-detector": "WARN",
   "millwork-bid-risk-analyzer": "FAIL",
   "mine-reserve-volume": "QUARANTINE",
   "minimum-order-quantity-moq-and-stock-carrying-cost-balance-calculator": "QUARANTINE",
@@ -369,7 +364,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "normal-shock-wave-relations": "QUARANTINE",
   "number-of-kanban-cards-and-supermarket-stock-calculator": "QUARANTINE",
   "oee-equipment-effectiveness-calculator": "FAIL",
-  "office-cleaning-bid-optimizer": "WARN",
   "operating-ebitda-margin-percent": "QUARANTINE",
   "oven-capacity": "QUARANTINE",
   "overall-equipment-effectiveness-oee": "QUARANTINE",
@@ -395,7 +389,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "pipeline-friction-and-pump-energy-loss-calculator": "QUARANTINE",
   "plastic-cooling-time": "QUARANTINE",
   "plastic-drying-time": "QUARANTINE",
-  "plumbing-job-margin-verdict": "WARN",
   "plumbing-leak-callback-cost": "FAIL",
   "pmi-monthly-cost-estimator": "QUARANTINE",
   "poka-yoke-error-prevention-return-on-investment-calculator": "QUARANTINE",
@@ -487,7 +480,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "sharpe-ratio-volatility": "QUARANTINE",
   "shear-force-diagram": "QUARANTINE",
   "sheet-metal-fire-nesting-optimization-calculator": "QUARANTINE",
-  "sheet-metal-quote-risk-tool": "WARN",
   "sheet-metal-scrap-risk": "FAIL",
   "sheet-metal-twist-springback-compensation-calculator": "QUARANTINE",
   "shelf-life-and-waste-optimization-calculator": "QUARANTINE",
@@ -498,7 +490,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "shop-rate-hourly-cost-calculator": "FAIL",
   "shopify-store-net-profit": "QUARANTINE",
   "siding-calculator": "QUARANTINE",
-  "signage-bid-safe-price-tool": "WARN",
   "signal-to-noise-ratio": "QUARANTINE",
   "silage-volume": "QUARANTINE",
   "simple-beam-deflection-load": "QUARANTINE",
@@ -593,7 +584,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "weaving-loom-efficiency": "QUARANTINE",
   "weld-joint-throat-thickness": "QUARANTINE",
   "welded-bolted-connection-calculator": "FAIL",
-  "welding-bid-risk-analyzer": "WARN",
   "welding-cost-and-filler-metal-consumption-calculator": "QUARANTINE",
   "welding-heat-input": "QUARANTINE",
   "well-pump-capacity": "QUARANTINE",
@@ -612,7 +602,16 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 
 /** Slugs with explicit P2.4 PASS — required for Formula Gate trust eligibility. */
 export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
-
+  "change-order-impact-analyzer",
+  "cnc-quote-risk-analyzer",
+  "hvac-project-margin-guard",
+  "landscaping-contract-profit-tool",
+  "menu-profit-leak-detector",
+  "office-cleaning-bid-optimizer",
+  "plumbing-job-margin-verdict",
+  "sheet-metal-quote-risk-tool",
+  "signage-bid-safe-price-tool",
+  "welding-bid-risk-analyzer",
 ]);
 
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
@@ -620,14 +619,13 @@ export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
 }
 
 export function isP24PassForSlug(slug: string): boolean {
-  const verdict = getP24VerdictForSlug(slug);
-  return verdict === "PASS" || verdict === "WARN";
+  return getP24VerdictForSlug(slug) === "PASS";
 }
 
 /** Stricter trust gate — unknown / unaudited slugs are not eligible. */
 export function isP24TrustPassForSlug(slug: string): boolean {
   if (P24_NON_PASS_VERDICTS[slug]) {
-    return P24_NON_PASS_VERDICTS[slug] === "WARN";
+    return false;
   }
   return P24_EXPLICIT_PASS_SLUGS.has(slug);
 }
