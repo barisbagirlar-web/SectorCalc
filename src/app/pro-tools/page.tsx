@@ -9,16 +9,14 @@ import type {
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
-import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
-import { buildPremiumCatalogTools } from "@/lib/catalog/premium-catalog-source";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { buildPremiumToolsCrawlGroups, buildCoreHubCrawlGroups } from "@/lib/seo/crawl-index";
 import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
-import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
-import { getGlobalCategoryBySlug } from "@/lib/catalog/global-tool-category-taxonomy";
 import { PRO_TOOLS_LIST } from "@/lib/tools/pro-tools-registry";
+import { getProToolPrimaryCategory, getProToolDecisionFamily, getProToolRiskClass, getProToolProfessionalSegments, getAllProCategoryCounts } from "@/lib/tools/resolve-pro-tool-category";
+import { getProCategoryById, PRO_CATEGORIES } from "@/config/proToolCategories";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -51,31 +49,31 @@ function buildCollectionPageJsonLd() {
 const META = {
   title: "Pro & Premium Decision Calculators | SectorCalc",
   description:
-    "Advanced professional decision analysis tools for business, manufacturing, engineering, and financial decisions.",
+    "Advanced professional decision analysis tools for CNC, welding, structural, electrical, process, HVAC, and financial decisions.",
 } as const;
 
 const HERO = {
   badge: "Pro / Premium Decision Tools",
-  lead: "Advanced professional decision analysis tools for business, manufacturing, engineering, and financial decisions.",
-  sub: "SectorCalc Pro delivers an industrial-grade decision support platform with precision input parameters, tolerance ranges, scenario comparisons, decision analysis, and PDF report output.",
+  lead: "Professional engineering, operations and financial decision analysis tools organized by discipline.",
+  sub: "SectorCalc Pro delivers industrial-grade decision support across 27 engineering and business categories — from CNC machining and pressure vessels to HSE safety and capital investment.",
   ctaFree: "Explore free calculators",
   ctaIndustries: "Browse tools by industry",
 } as const;
 
 const STATS = {
-  tools: "active pro tools",
-  sectors: "industry sectors",
+  tools: "active pro decision tools",
+  sectors: "engineering categories",
 } as const;
 
 const INTENTS = {
   label: "What premium decision problem do you need to solve?",
   items: [
-    { label: "Calculate OEE, waste and downtime losses on a production line", cat: "Lean & OEE" },
-    { label: "Calculate CNC machining, machine hour rate, and subcontract margin", cat: "Engineering & Quoting" },
-    { label: "Calculate project finance, ROI and depreciation", cat: "Investment & Finance" },
-    { label: "Analyze sustainability, ESG and facility carbon footprint", cat: "Energy & Carbon" },
-    { label: "Analyze supply chain costs, route optimization and logistics", cat: "Route & Logistics" },
-    { label: "Calculate site quantities, material strength and field planning", cat: "Construction & Field" },
+    { label: "Design CNC machining parameters, cutting force, tool life and cycle time", cat: "CNC, Machining & Tooling" },
+    { label: "Calculate OEE, bottleneck capacity, SMED and line balancing decisions", cat: "Lean Production, OEE & IE" },
+    { label: "Validate welds, bolted joints and fabrication integrity to ASME/AWS", cat: "Welding, Fabrication & Bolted Joints" },
+    { label: "Design structural steel, concrete and geotechnical elements to Eurocode/ACI", cat: "Structural & Civil Engineering" },
+    { label: "Size pressure vessels, piping, pumps and process equipment", cat: "Pressure Vessel, Piping & Process" },
+    { label: "Assess HSE risks, fire/explosion safety, energy audit and ROI", cat: "HSE, Energy & Capital Investment" },
   ],
 } as const;
 
@@ -94,47 +92,46 @@ export default async function ProToolsPage() {
   const mergedTools = loadToolList();
 
   const tools: SearchablePremiumTool[] = mergedTools.map((tool: any) => {
-    const categorySlug = resolveToolCategory({
-      slug: tool.tool_id,
-      title: tool.tool_name,
-      description: tool.category,
-      premiumSchemaCategory: tool.category,
-    });
-    const categoryObj = getGlobalCategoryBySlug(categorySlug);
-    const categoryLabel = categoryObj ? categoryObj.enTitle : (tool.category || "");
+    const categorySlug = getProToolPrimaryCategory(tool.tool_id) || "process-chemical-thermal-equipment";
+    const categoryObj = getProCategoryById(categorySlug);
+    const categoryLabel = categoryObj ? categoryObj.label : (tool.category || "");
+    const decisionFamily = getProToolDecisionFamily(tool.tool_id) || "design_check";
+    const riskClass = getProToolRiskClass(tool.tool_id) || "MEDIUM";
+    const segments = getProToolProfessionalSegments(tool.tool_id);
 
     return {
       slug: tool.tool_id,
       title: tool.tool_name,
-      description: `${tool.category} — ${tool.engine_rules?.standards?.join(", ") || ""} referenced.`,
+      description: `${categoryObj?.description || tool.category} — ${tool.engine_rules?.standards?.join(", ") || "Professional decision analysis tool"} referenced.`,
       categorySlug,
       categoryLabel,
       routePath: `/pro-tools/${tool.tool_id}`,
       isActive: true,
-      searchTerms: [tool.tool_id.toLowerCase(), tool.tool_name.toLowerCase(), tool.category.toLowerCase(), categoryLabel.toLowerCase()],
+      searchTerms: [
+        tool.tool_id.toLowerCase(),
+        tool.tool_name.toLowerCase(),
+        tool.category.toLowerCase(),
+        categoryLabel.toLowerCase(),
+        decisionFamily.toLowerCase(),
+        riskClass.toLowerCase(),
+        ...segments.map((s: string) => s.toLowerCase()),
+      ],
       aliases: [],
-      keywords: tool.engine_rules?.standards || [],
+      keywords: [...(tool.engine_rules?.standards || []), decisionFamily, riskClass, ...segments],
     };
   });
 
-  const categoriesMap = new Map<string, { title: string; count: number }>();
-  tools.forEach((t) => {
-    const slug = t.categorySlug;
-    const existing = categoriesMap.get(slug);
-    if (existing) {
-      existing.count++;
-    } else {
-      categoriesMap.set(slug, { title: t.categoryLabel || "", count: 1 });
-    }
-  });
-
-  const categories: SearchablePremiumCategory[] = [...categoriesMap.entries()].map(([slug, item]) => ({
-    slug,
-    title: item.title,
-    count: item.count,
-  }));
+  const allCounts = getAllProCategoryCounts();
+  const categories: SearchablePremiumCategory[] = PRO_CATEGORIES
+    .filter((cat) => (allCounts[cat.id] ?? 0) > 0)
+    .map((cat) => ({
+      slug: cat.id,
+      title: cat.label,
+      count: allCounts[cat.id] ?? 0,
+    }));
 
   const totalPremium = tools.length;
+  const totalCategories = categories.length;
 
 
   const jsonLd = [
@@ -208,7 +205,7 @@ export default async function ProToolsPage() {
             </div>
             <div className="hidden sm:block w-px h-4 bg-slate-200" aria-hidden="true" />
             <div className="flex items-baseline gap-1.5">
-              <span className="font-mono text-xl font-semibold tracking-tight text-slate-900">18</span>
+              <span className="font-mono text-xl font-semibold tracking-tight text-slate-900">{totalCategories}</span>
               <span className="text-xs text-slate-400">{STATS.sectors}</span>
             </div>
           </div>

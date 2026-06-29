@@ -42,7 +42,7 @@ let errors = [];
 // ── Check JSON data files ──────────────────────────────────────────────
 const dataDir = join(ROOT, "data/pro-tools");
 if (existsSync(dataDir)) {
-  const jsonFiles = readdirSync(dataDir).filter(f => f.endsWith(".json"));
+  const jsonFiles = readdirSync(dataDir).filter(f => f.endsWith(".json") && f !== "_merged.json");
   for (const f of jsonFiles) {
     const fp = join(dataDir, f);
     const content = readFileSync(fp, "utf-8");

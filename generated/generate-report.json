@@ -1,0 +1,2554 @@
+{
+  "timestamp": "2026-06-29T14:36:09.125Z",
+  "summary": {
+    "total": 358,
+    "success": 358,
+    "failed": 0,
+    "stubRepaired": 0,
+    "stubRepairFailed": 0,
+    "formulaCompileFailures": 0
+  },
+  "preflight": {
+    "ok": 358,
+    "malformed": 0,
+    "errors": []
+  },
+  "archetypeAudit": {
+    "entries": [
+      {
+        "slug": "0-100-kmh-acceleration-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "1031-exchange-cash-out-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "2d-inverse-kinematics-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "401k-future-value-employer-match-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "50-30-20-budget-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "abc-classification-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "accounts-payable-turnover-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "accounts-receivable-turnover-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "adc-resolution-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "adhesive-quantity-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "amazon-fba-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "anchor-chain-length-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "angle-of-twist-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "annual-term-life-insurance-premium-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "annualized-return-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "annuity-income-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "anova-f-statistic-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 6,
+        "matchedInputCount": 6
+      },
+      {
+        "slug": "antenna-length-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "api-latency-sla-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "apr-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "asme-shaft-diameter-bending-torsion-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "asset-allocation-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "audit-risk-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "backdoor-roth-ira-conversion-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "barn-ventilation-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "basal-metabolic-rate-mifflin-st-jeor-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "baseboard-length-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "battery-backup-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "beam-deflection-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "beam-reaction-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "bearing-wall-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "bernoulli-pressure-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 6,
+        "matchedInputCount": 6
+      },
+      {
+        "slug": "bilge-discharge-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "biological-signal-sampling-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "biot-savart-field-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "black-scholes-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "bmi-obesity-risk-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "boat-loan-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "bobbin-yarn-length-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "body-fat-percentage-navy-method-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "bond-price-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "bottleneck-analysis-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "breeam-leed-score-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "brrrr-investment-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "building-load-factor-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "building-shadow-duration-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "buoyant-force-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "burn-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "business-valuation-multiple-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "cac-to-clv-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "cagr-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "calibration-drift-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "cap-rate-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "cap-table-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "capacitive-reactance-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "capillary-rise-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "capital-gains-tax-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "capm-cost-of-equity-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "car-loan-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "carbon-footprint-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "carbon-offset-trees-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "carnot-efficiency-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "cash-conversion-cycle-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "cash-on-cash-return-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "cash-out-refinance-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "chain-drive-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "chair-rail-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "chandrasekhar-limit-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "circular-economy-ratio-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "clamping-force-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "clearance-interference-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "click-through-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "closing-costs-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "cold-storage-heat-gain-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "compound-interest-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "compound-late-interest-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "compton-shift-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "confidence-interval-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "constrained-pipe-axial-thermal-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "consulting-hourly-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "container-loading-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "continuous-compounding-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "contribution-margin-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "conversion-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "convertible-note-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "correlation-regression-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 6,
+        "matchedInputCount": 6
+      },
+      {
+        "slug": "cost-per-click-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "cost-per-mille-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "credit-card-interest-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "credit-card-processing-fee-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "crypto-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "customer-acquisition-cost-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "customer-churn-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "customer-lifetime-value-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "customs-duty-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "daily-compound-interest-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "daily-macronutrient-targets-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "daily-water-intake-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "data-backup-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "dcf-valuation-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 7,
+        "matchedInputCount": 7
+      },
+      {
+        "slug": "de-broglie-wavelength-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "debt-consolidation-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "debt-service-coverage-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "debt-to-income-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "decibel-converter-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "deck-board-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "density-converter-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "depreciation-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "discounted-payback-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "dividend-reinvestment-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "dividend-tax-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "draft-angle-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "drill-string-torque-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "drip-irrigation-pipe-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "dropshipping-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "drug-half-life-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "drying-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "drywall-sheet-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "dupont-roi-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "earthquake-pga-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "ebay-fee-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "ebitda-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "ecommerce-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "economic-order-quantity-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "effective-annual-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "effective-radiation-dose-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "energy-density-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "engine-torque-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "engineering-strain-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "equity-dilution-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "esg-score-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "espp-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "etf-return-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "etsy-fee-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "eu-import-vat-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "ev-charging-time-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "ev-range-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "eva-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "extruder-output-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "fabric-shrinkage-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "fabric-weight-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "faraday-electrolysis-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "fcff-fcfe-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "fha-loan-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "fiber-optic-loss-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "fire-load-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "fire-pump-power-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "flight-cost-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "forex-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "freelancer-hourly-rate-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "freight-cost-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "fuel-cost-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "fund-return-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "futures-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "gage-r-and-r-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "gear-root-bending-stress-lewis-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "gravel-weight-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "greywater-savings-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "gross-net-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "h-index-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "hardness-conversion-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "heat-transfer-rate-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "heloc-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "high-deductible-medicare-savings-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "home-affordability-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "hookes-law-normal-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "horsepower-converter-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "hsa-tax-savings-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "hydroelectric-power-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "hydrostatic-pressure-fluid-column-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "ideal-gas-law-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "income-adjusted-medicare-premium-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "indicated-horsepower-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "inductive-reactance-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "infinite-well-energy-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "inflation-adjustment-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "injury-risk-asymmetry-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "insurance-premium-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "interference-fit-contact-pressure-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "inventory-turnover-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "inventory-turnover-rate-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "ira-required-minimum-distribution-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "irr-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "item-difficulty-discrimination-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "joint-compound-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "joint-torque-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "kalman-filter-prediction-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "landfill-area-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "laser-processing-energy-density-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "learning-curve-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "lens-power-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "levelized-cost-of-energy-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "lever-rule-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "life-insurance-needs-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "line-balancing-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "linoleum-length-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "lintel-beam-bending-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "load-factor-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "loan-affordability-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "loan-payoff-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "loom-production-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "lvl-beam-capacity-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "machine-depreciation-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "magnetic-field-wire-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "marketing-roi-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "maximum-drawdown-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "maximum-torsional-shear-stress-circular-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "mean-median-mode-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "metacentric-height-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "minimum-belt-tension-slack-side-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "minimum-credit-card-payment-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "minimum-sample-size-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "minimum-weld-throat-thickness-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "mohrs-circle-principal-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "monthly-disability-insurance-benefit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "monthly-mortgage-payment-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "mooring-line-load-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "mortgage-amortization-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "mortgage-comparison-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "mortgage-points-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "mortgage-refinance-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "motor-efficiency-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "motorcycle-loan-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "mud-annular-velocity-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "net-positive-suction-head-available-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "nft-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "noise-propagation-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "normal-shock-wave-pressure-jump-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "normal-stress-force-area-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "npv-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 7,
+        "matchedInputCount": 7
+      },
+      {
+        "slug": "operating-margin-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "opportunity-cost-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "ore-reserve-volume-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "oven-capacity-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "overall-equipment-effectiveness-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "pasteurization-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "paving-stone-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "payment-processor-fee-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "pb-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "pe-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "personal-loan-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "photoelectric-effect-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "pid-controller-ziegler-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "pile-bearing-capacity-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "plaster-weight-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "plastic-cooling-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "plastic-drying-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "pmi-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "porosity-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "portfolio-optimization-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "profitability-index-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "propagation-constant-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "property-tax-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "ps-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "pump-power-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "quality-factor-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "quantum-tunneling-probability-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "rainwater-harvest-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "rc-time-constant-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "real-estate-commission-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "real-return-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "rectangular-section-moment-of-inertia-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "recycling-rate-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "rent-to-value-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "rent-vs-buy-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "rental-property-cash-flow-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "reorder-point-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "retirement-payout-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "retirement-portfolio-value-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "retirement-savings-goal-time-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "ridge-beam-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "rlc-resonant-frequency-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "roi-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "roic-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "rsa-key-strength-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "rsu-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "runway-length-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "rv-loan-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "safe-agreement-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "sampling-weight-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "scrap-rate-optimization-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "seed-rate-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "sewing-cycle-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "sewing-line-balancing-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "sharpe-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "shear-force-diagram-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "ship-draft-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "shipping-cost-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "shopify-profit-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "siding-panel-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "signal-to-noise-ratio-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "silage-weight-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "simple-interest-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "simply-supported-beam-deflection-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "slope-stability-factor-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "smed-setup-time-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "social-security-benefit-adjustment-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "soffit-area-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "soil-bearing-capacity-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "solenoid-magnetic-field-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "sortino-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "spray-paint-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "spring-force-hookes-law-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "spring-mass-resonant-frequency-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "sprinkler-flow-rate-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "sqnr-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "standard-deviation-variance-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "standard-time-calculator",
+        "archetype": "maintenance",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "startup-valuation-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "statute-of-limitations-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "steel-beam-maximum-bending-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "stock-return-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "stokes-law-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "student-loan-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "student-loan-refinance-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "surface-roughness-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "surface-tension-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "target-heart-rate-karvonen-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "tariff-extra-duty-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "taxi-fare-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "terminal-velocity-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "tesla-unit-converter-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "thermal-conductivity-converter-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "thin-walled-pressure-vessel-hoop-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "tile-waste-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "timber-beam-shear-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "torque-converter-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "torsion-spring-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "total-daily-energy-expenditure-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "traditional-vs-roth-ira-comparison-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "traffic-signal-delay-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "training-impulse-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "treynor-ratio-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "undamped-spring-mass-angular-frequency-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "usd-loan-cost-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "va-loan-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "vacuum-pump-time-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "vehicle-top-speed-calculator",
+        "archetype": "logistics",
+        "confidence": 0.87,
+        "inputCount": 3,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "viscous-pump-power-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "vo2-max-cooper-test-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 1,
+        "matchedInputCount": 1
+      },
+      {
+        "slug": "volumetric-weight-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "von-mises-stress-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "vswr-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "wacc-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 5,
+        "matchedInputCount": 5
+      },
+      {
+        "slug": "wallpaper-roll-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "warehouse-capacity-calculator",
+        "archetype": "logistics",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "water-footprint-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "watershed-runoff-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "wavelength-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "weld-heat-input-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "well-bottom-pressure-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "wellbore-pressure-calculator",
+        "archetype": "generic",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "whole-life-insurance-cash-value-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "wind-turbine-power-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 4,
+        "matchedInputCount": 4
+      },
+      {
+        "slug": "wood-siding-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 3,
+        "matchedInputCount": 3
+      },
+      {
+        "slug": "wood-stain-calculator",
+        "archetype": "construction",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "working-capital-calculator",
+        "archetype": "cost",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      },
+      {
+        "slug": "worm-gear-efficiency-calculator",
+        "archetype": "energy",
+        "confidence": 1,
+        "inputCount": 2,
+        "matchedInputCount": 2
+      }
+    ],
+    "needsReview": 0,
+    "distribution": {
+      "logistics": 18,
+      "cost": 119,
+      "generic": 114,
+      "energy": 61,
+      "construction": 35,
+      "maintenance": 11
+    }
+  },
+  "formulaFailures": {
+    "entries": [],
+    "counts": {
+      "DOUBLE_MATH_PREFIX": 0,
+      "UNBALANCED_PARENS": 0,
+      "PARSE_FAILURE": 0,
+      "MALFORMED_FUNCTION": 0,
+      "UNSUPPORTED": 0,
+      "UNKNOWN_IDENTIFIER": 0,
+      "STUB_SUM": 0,
+      "MALFORMED_CONDITIONAL": 0,
+      "TYPE_MISMATCH": 0,
+      "DIVISION_BY_ZERO_RISK": 0,
+      "UNKNOWN": 0
+    },
+    "total": 0
+  },
+  "mathMathOffenders": [],
+  "goldenTestFailures": 0
+}
