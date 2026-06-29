@@ -1,16 +1,16 @@
 /**
  * Apple-style geo locale bootstrap — synchronous head script for unprefixed English URLs.
  * Runs before React paint so TR/DE/FR/ES/AR visitors never flash English on cached static HTML.
+ *
+ * EN-only: all functions are no-ops. Stale locale cookies are cleaned on page load.
  */
 
 import {
   COUNTRY_COOKIE,
-  COUNTRY_TO_LOCALE,
   LOCALE_COOKIE,
   LOCALE_MANUAL_COOKIE,
   PREFIXED_LOCALES,
   ROOT_LOCALE,
-  isSupportedLocale,
   type SupportedLocale,
 } from "@/lib/i18n/locale-config";
 
@@ -34,7 +34,7 @@ export const TIMEZONE_TO_COUNTRY: Readonly<Record<string, string>> = {
   "Africa/Cairo": "EG",
 };
 
-export function resolveBootstrapTargetLocale(options: {
+export function resolveBootstrapTargetLocale(_options: {
   readonly pathname: string;
   readonly manualLocale: boolean;
   readonly cookieLocale: string | null;
@@ -42,33 +42,7 @@ export function resolveBootstrapTargetLocale(options: {
   readonly navigatorLanguage: string | null;
   readonly timezone: string | null;
 }): SupportedLocale | null {
-  if (isPrefixedLocalePathname(options.pathname)) {
-    return null;
-  }
-  if (options.manualLocale) {
-    return null;
-  }
-
-  if (options.cookieLocale && isSupportedLocale(options.cookieLocale) && options.cookieLocale !== ROOT_LOCALE) {
-    return options.cookieLocale;
-  }
-
-  if (options.countryCode && options.countryCode in COUNTRY_TO_LOCALE) {
-    return COUNTRY_TO_LOCALE[options.countryCode] ?? null;
-  }
-
-  const fromLanguage = detectLocaleFromNavigatorLanguage(options.navigatorLanguage);
-  if (fromLanguage && fromLanguage !== ROOT_LOCALE) {
-    return fromLanguage;
-  }
-
-  if (options.timezone && options.timezone in TIMEZONE_TO_COUNTRY) {
-    const country = TIMEZONE_TO_COUNTRY[options.timezone];
-    if (country && country in COUNTRY_TO_LOCALE) {
-      return COUNTRY_TO_LOCALE[country] ?? null;
-    }
-  }
-
+  // EN-only site — never redirect to another locale
   return null;
 }
 
@@ -103,33 +77,14 @@ function detectLocaleFromNavigatorLanguage(language: string | null): SupportedLo
   return null;
 }
 
-/** Minified IIFE injected into `<head>` on English-root pages. */
+/** Minified IIFE injected into `<head>` on English-root pages. EN-only: no-op + cleans old locale cookies. */
 export function buildGeoLocaleBootstrapScript(): string {
-  const countryMapJson = JSON.stringify(COUNTRY_TO_LOCALE);
-  const timezoneMapJson = JSON.stringify(TIMEZONE_TO_COUNTRY);
-  const prefixedLocalesJson = JSON.stringify(PREFIXED_LOCALES);
-
-  return `(function(){try{
-var SK=${JSON.stringify(GEO_BOOTSTRAP_SESSION_KEY)};
-if(sessionStorage.getItem(SK)==="1")return;
-var p=location.pathname;
-var prefixed=${prefixedLocalesJson};
-var re=new RegExp("^/("+prefixed.join("|")+")(?=/|$)");
-if(re.test(p))return;
-function gc(n){var m=document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)"));return m?decodeURIComponent(m[1]):null}
-if(gc(${JSON.stringify(LOCALE_MANUAL_COOKIE)})==="1")return;
-var cookieLocale=gc(${JSON.stringify(LOCALE_COOKIE)});
-var target=null;
-if(cookieLocale&&cookieLocale!==${JSON.stringify(ROOT_LOCALE)})target=cookieLocale;
-var country=gc(${JSON.stringify(COUNTRY_COOKIE)});
-var countryMap=${countryMapJson};
-if(!target&&country&&countryMap[country])target=countryMap[country];
-if(!target){var lang=(navigator.language||"").toLowerCase();var base=lang.split("-")[0];if(base&&base!==${JSON.stringify(ROOT_LOCALE)}&&prefixed.indexOf(base)>=0)target=base}
-if(!target){try{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;var tzMap=${timezoneMapJson};if(tz&&tzMap[tz]&&countryMap[tzMap[tz]])target=countryMap[tzMap[tz]]}catch(e){}}
-if(!target||target===${JSON.stringify(ROOT_LOCALE)})return;
-sessionStorage.setItem(SK,"1");
-document.cookie=${JSON.stringify(LOCALE_COOKIE)}+"="+target+";path=/;max-age=31536000;samesite=lax";
-var next=p==="/"?"/"+target:"/"+target+p;
-if(location.pathname+location.search+location.hash!==next+location.search+location.hash)location.replace(next+location.search+location.hash);
-}catch(e){}})();`;
+  const cookieNames = [LOCALE_COOKIE, COUNTRY_COOKIE, LOCALE_MANUAL_COOKIE];
+  const namesJson = JSON.stringify(cookieNames);
+  return [
+    "(function(){try{",
+    `var n=${namesJson};`,
+    "for(var i=0;i<n.length;i++){document.cookie=n[i]+'=;path=/;max-age=0;samesite=lax'}",
+    "}catch(e){}})();",
+  ].join("");
 }
