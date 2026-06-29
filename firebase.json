@@ -31,13 +31,7 @@
       "**/*.log",
       ".git/**"
     ],
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/en",
-        "type": 301
-      }
-    ],
+    "redirects": [],
     "frameworksBackend": {
       "region": "us-central1",
       "memory": "1GiB",

@@ -31,6 +31,14 @@ export default function middleware(request: NextRequest) {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
   }
 
+  // Rewrite root / to /en so the [locale] page group renders English content,
+  // but the browser URL stays as sectorcalc.com/ (no redirect visible to user)
+  if (request.nextUrl.pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/en";
+    return applyRegionHeaders(NextResponse.rewrite(url), request);
+  }
+
   return applyRegionHeaders(NextResponse.next(), request);
 }
 
