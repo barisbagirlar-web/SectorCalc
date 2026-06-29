@@ -8,28 +8,20 @@ import {
 import { collectLocaleKeyParityGaps } from "@/lib/locale-center/locale-dictionary";
 import { getOTATranslations } from "@/lib/i18n/ota";
 
-async function loadManufacturingOsMessages(locale: string) {
-  try {
-    return (await import(`./locales/${locale}/manufacturing-os.json`)).default;
-  } catch {
-    return (await import("./locales/en/manufacturing-os.json")).default;
-  }
+import enManufacturingOs from "./locales/en/manufacturing-os.json";
+import enSeoAuthority from "./locales/en/seo-authority.json";
+import enLeadMagnet from "./locales/en/lead-magnet.json";
+
+async function loadManufacturingOsMessages(_locale: string): Promise<Record<string, unknown>> {
+  return enManufacturingOs as Record<string, unknown>;
 }
 
-async function loadSeoAuthorityMessages(locale: string) {
-  try {
-    return (await import(`./locales/${locale}/seo-authority.json`)).default;
-  } catch {
-    return (await import("./locales/en/seo-authority.json")).default;
-  }
+async function loadSeoAuthorityMessages(_locale: string): Promise<Record<string, unknown>> {
+  return enSeoAuthority as Record<string, unknown>;
 }
 
-async function loadLeadMagnetMessages(locale: string) {
-  try {
-    return (await import(`./locales/${locale}/lead-magnet.json`)).default;
-  } catch {
-    return (await import("./locales/en/lead-magnet.json")).default;
-  }
+async function loadLeadMagnetMessages(_locale: string): Promise<Record<string, unknown>> {
+  return enLeadMagnet as Record<string, unknown>;
 }
 
 async function loadBaseMessages(locale: string): Promise<Record<string, unknown>> {
