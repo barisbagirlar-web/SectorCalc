@@ -1,0 +1,333 @@
+
+> sectorcalc@0.1.0 lint
+> next lint
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+
+./src/app/[locale]/tools/free/[slug]/page.tsx
+93:9  Warning: 'localizedCopy' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/catalog/PremiumCatalogSearch.tsx
+9:15  Warning: 'ToolLinkItem' is defined but never used.  @typescript-eslint/no-unused-vars
+65:9  Warning: 'locale' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/catalog/PremiumToolCard.tsx
+44:5  Warning: The attribute aria-disabled is not supported by the role article. This role is implicit on the element article.  jsx-a11y/role-supports-aria-props
+
+./src/components/feedback/CalculationFeedbackButton.tsx
+3:25  Warning: 'FormEvent' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/guidance/templates/BoxDimensionGraphic.tsx
+4:3  Warning: 'labelClass' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/layout/HeaderNav.tsx
+5:10  Warning: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/layout/LocaleDocumentLayout.tsx
+53:7  Warning: Do not use `<head>` element. Use `<Head />` from `next/head` instead. See: https://nextjs.org/docs/messages/no-head-element  @next/next/no-head-element
+
+./src/components/leads/LeadIntentModal.tsx
+83:89  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/reports/PremiumReportExportActions.tsx
+118:6  Warning: React Hook useCallback has a missing dependency: 'checkoutHref'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+157:6  Warning: React Hook useCallback has a missing dependency: 'locale'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/smart-form/DynamicSmartFormPilot.tsx
+125:9  Warning: 'handleSubmit' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/smart-form/SmartFormShell.tsx
+116:13  Warning: The attribute aria-selected is not supported by the role button. This role is implicit on the element button.  jsx-a11y/role-supports-aria-props
+124:13  Warning: The attribute aria-selected is not supported by the role button. This role is implicit on the element button.  jsx-a11y/role-supports-aria-props
+
+./src/components/tools/FreeTrafficToolPage.tsx
+135:6  Warning: React Hook useEffect has a missing dependency: 'tool.category'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/tools/PremiumCalculatorShell.tsx
+44:13  Warning: The attribute aria-selected is not supported by the role button. This role is implicit on the element button.  jsx-a11y/role-supports-aria-props
+52:13  Warning: The attribute aria-selected is not supported by the role button. This role is implicit on the element button.  jsx-a11y/role-supports-aria-props
+
+./src/components/tools/smart-form/optional-expansion-diff-gate.ts
+64:9  Warning: 'status' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/trust-trace/ValidationStamp.tsx
+10:51  Warning: '_locale' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/data/generated-tool-titles-i18n.generated.ts
+1:1  Warning: Unused eslint-disable directive (no problems were reported).
+
+./src/lib/analytics/load-live-kpi-events.ts
+21:3  Warning: '_input' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/billing/use-user-subscription.ts
+3:10  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+3:21  Warning: 'useState' is defined but never used.  @typescript-eslint/no-unused-vars
+35:5  Warning: 'unsubscribeAuth' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/calculators/indicated-horsepower-calculator.ts
+1:15  Warning: 'ResultTone' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/campaigns/campaign-revenue-score.ts
+8:3  Warning: 'getRevenueIntentLevel' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/catalog/build-categorized-tool-index.ts
+70:10  Warning: 'humanizeSlug' is defined but never used.  @typescript-eslint/no-unused-vars
+91:10  Warning: 'resolveSeedRoutePath' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/compliance/detect-region.ts
+5:3  Warning: 'REGION_COOKIE' is defined but never used.  @typescript-eslint/no-unused-vars
+6:3  Warning: 'REGION_HEADER' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/compliance/resolve-region.ts
+4:3  Warning: 'REGION_MANUAL_COOKIE' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/entitlements/premium-entitlements.ts
+45:48  Warning: '_sessionId' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/feedback/feedback-service.ts
+24:8  Warning: 'ToolFeedbackFieldErrors' is defined but never used.  @typescript-eslint/no-unused-vars
+31:3  Warning: 'sanitizeFeedbackText' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/__tests__/batch-expansion.test.ts
+10:3  Warning: 'BATCH_FREE_ORACLE_WIRED_SLUGS' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/__tests__/formula-governance.test.ts
+14:3  Warning: 'BATCH_EXPANSION_CRITICAL_SLUGS' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/__tests__/warning-policy.test.ts
+30:26  Warning: '_omit' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/calculation-ontology/__tests__/ontology-alias-map.test.ts
+50:5  Warning: 'slug' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/contracts/batch-traffic-catalog-critical.ts
+292:7  Warning: 'CbamExposureQuickCheckContract' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/input-design-audit/controlled-input-patch/__tests__/controlled-input-design-registry.test.ts
+9:3  Warning: 'FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/oracle/batch-premium-batch3-oracles.ts
+89:10  Warning: 'assertPositive' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/oracle/compare-premium-schema-extended-oracle.ts
+154:1  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any').
+
+./src/lib/formula-governance/oracle/engine-modules-oracles.ts
+15:40  Warning: '_slug' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/report-renderer-contract/report-renderer-format-contract.ts
+19:39  Warning: 'slug' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/runtime-validation/free-full-loop-bridge.ts
+8:3  Warning: 'blockedFullLoopResult' is defined but never used.  @typescript-eslint/no-unused-vars
+184:10  Warning: 'toFreeToolValues' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/runtime-validation/full-loop-bridge-shared.ts
+294:9  Warning: 'blockers' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+295:9  Warning: 'missingInputs' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/smart-form-architecture/smart-form-plan-builder.ts
+156:3  Warning: 'kind' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/tool-factory-orchestrator/controlled-patch-generator/__tests__/controlled-patch-generator.test.ts
+67:11  Warning: 'draft' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/tool-factory-orchestrator/controlled-patch-generator/controlled-patch-risk-gate.ts
+25:9  Warning: 'impact' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/formula-governance/tool-factory-orchestrator/patch-plan/patch-plan-human-approval.ts
+7:39  Warning: '_plan' is defined but never used.  @typescript-eslint/no-unused-vars
+11:46  Warning: '_plan' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/i18n/__tests__/locale-copy-quality.test.ts
+14:10  Warning: 'LOCALE_GLOSSARY' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/os/core/master-os.ts
+9:3  Warning: 'applyRegionalFinancialLoss' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/cnc-oee-loss.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/cnc-tool-wear-cost.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/construction-project-overrun.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/hvac-callback-margin-risk.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/plumbing-leak-callback-cost.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/printing-reprint-margin-leak.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/restaurant-menu-margin-leak.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/roofing-weather-delay-risk.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/seven-muda-waste-cost-calculator.test.ts
+20:7  Warning: 'TOLERANCE' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/sheet-metal-scrap-risk.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/__tests__/warehouse-space-cost-leak.test.ts
+15:7  Warning: 'PAID_ROUTE_SLUG' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/annual-leave-severance-notice-calculator-validation.ts
+74:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/belt-pulley-speed-length-calculator-validation.ts
+83:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/bolt-tightening-torque-calculator-validation.ts
+72:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/carbon-footprint-compliance-risk-validation.ts
+67:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/cbam-compliance-verdict-validation.ts
+85:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/cbam-exposure-quick-check-validation.ts
+82:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/cnc-oee-loss-validation.ts
+106:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/compressor-leak-cost-calculator-validation.ts
+67:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/doviz-pozisyonu-kur-farki-riski-hesabi-validation.ts
+48:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/downtime-minute-cost-calculator-validation.ts
+71:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/electrical-panel-rework-cost-validation.ts
+85:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/employee-total-cost-calculator-validation.ts
+60:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/energy-peak-cost-validation.ts
+92:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/energy-savings-package-calculator-validation.ts
+71:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/fire-system-flow-hydrant-calculator-validation.ts
+72:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/heat-loss-calculator-validation.ts
+54:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/hydraulic-pneumatic-cylinder-force-calculator-validation.ts
+68:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/inventory-carrying-cost-eoq-calculator-validation.ts
+79:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/investment-payback-npv-calculator-validation.ts
+75:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/logistics-route-loss-validation.ts
+96:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/material-waste-calculator-validation.ts
+48:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/oee-equipment-effectiveness-calculator-validation.ts
+85:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/plumbing-leak-callback-cost-validation.ts
+78:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/pressure-vessel-wall-thickness-calculator-validation.ts
+45:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/product-customer-profitability-calculator-validation.ts
+71:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/profit-margin-calculator-validation.ts
+77:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/quality-cost-paf-calculator-validation.ts
+71:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/retail-inventory-turnover-risk-validation.ts
+67:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/roofing-weather-delay-risk-validation.ts
+71:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/scrap-rate-calculator-validation.ts
+51:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/seven-muda-waste-cost.ts
+412:45  Warning: '_raw' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/seven-muda-waste-validation.ts
+288:9  Warning: 'implementationDifficultyScore' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/shop-rate-hourly-cost-calculator-validation.ts
+64:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/six-sigma-project-prioritizer-validation.ts
+45:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/textile-fabric-waste-risk-validation.ts
+74:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/tolerance-stack-up-calculator-validation.ts
+78:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/value-stream-map-vsm-calculator-validation.ts
+60:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/calculators/welded-bolted-connection-calculator-validation.ts
+51:26  Warning: 'inputs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/premium-schema/premium-schema-engine.ts
+36:10  Warning: 'clamp' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/regional/regional-engine.ts
+4:27  Warning: 'resolveRegionalCode' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/regional/unit-defaults.ts
+6:15  Warning: 'SupportedLocale' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/registry/sector-registry.ts
+253:23  Warning: '_key' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/seo/__tests__/indexable-url-manifest.test.ts
+11:10  Warning: 'listAllFreeToolSlugs' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/smart-form/smart-form-adapter.ts
+131:3  Warning: 'locale' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/tools/risk-engine.ts
+21:2  Warning: 'MarginLeakItem' is defined but never used.  @typescript-eslint/no-unused-vars
+31:15  Warning: 'RegionCode' is defined but never used.  @typescript-eslint/no-unused-vars
+220:8  Warning: 'shockedTargetRevenue' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/tools/sectors/sector-calculators.ts
+174:8  Warning: 'area' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+244:8  Warning: 'area' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+417:27  Warning: 'naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+469:23  Warning: '_naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+497:23  Warning: 'naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+589:24  Warning: 'naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+614:31  Warning: 'naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+628:33  Warning: 'naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+716:33  Warning: 'naiveCost' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

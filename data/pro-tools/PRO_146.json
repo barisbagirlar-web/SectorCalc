@@ -1,0 +1,436 @@
+{
+  "tool_id": "PRO_146",
+  "tool_name": "IEC 60364 Three-Phase Cable Section Sizing & Voltage Drop",
+  "category": "Electrical Engineering",
+  "scope": "single_operation",
+  "primary_operation": "cable_sizing",
+  "inputs": [
+    {
+      "id": "load_kw",
+      "name": "Load Power (P)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 50000,
+      "hint": "Motor: from nameplate | Lighting: from lumen design",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "system_voltage",
+      "name": "System Voltage (UL-L)",
+      "unit": "V",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "400V (3-Phase+N, TR/EU standard)",
+        "380V (legacy installations)",
+        "415V (UK)",
+        "690V (industrial high voltage)",
+        "11,000V (medium voltage)",
+        "Manual input"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "voltage_v",
+      "name": "Line Voltage Numeric Value (UL-L)",
+      "unit": "V",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 35000,
+      "default": 400,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "power_factor",
+      "name": "Power Factor (cos phi)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 0.85,
+      "hint": "Induction motor: 0.80-0.87 | Resistive load: 1.0 | Lighting: 0.90-0.95",
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
+    },
+    {
+      "id": "cable_length_m",
+      "name": "Cable Length (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 10000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "cable_material",
+      "name": "Conductor Material",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Copper (Cu) - rho=0.0175 ohm*mm2/m",
+        "Aluminum (Al) - rho=0.0283 ohm*mm2/m"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "cross_section_mm2",
+      "name": "Selected Cable Cross-Section (S)",
+      "unit": "mm²",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "1.5",
+        "2.5",
+        "4",
+        "6",
+        "10",
+        "16",
+        "25",
+        "35",
+        "50",
+        "70",
+        "95",
+        "120",
+        "150",
+        "185",
+        "240",
+        "300",
+        "400"
+      ],
+      "hint": "IEC 60228 standard wire sections",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "cross_section_val",
+      "name": "Cross-Section Numeric Value",
+      "unit": "mm²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1.5,
+      "absolute_max": 1000,
+      "default": 16,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
+    },
+    {
+      "id": "installation_method",
+      "name": "Installation Method",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "A1 - In insulated conduit (in wall)",
+        "A2 - Multi-core cable in conduit",
+        "B1 - Single-core cables in open conduit",
+        "B2 - Multi-core cable in open conduit",
+        "C - Clipped direct on surface/wall",
+        "E - Multicore cable in free air",
+        "F - Single-core cables in horizontal cable tray",
+        "G - Single-core cables in vertical cable tray"
+      ],
+      "hint": "IEC 60364-5-52 installation method — affects thermal ampacity",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "ambient_temp_c",
+      "name": "Ambient Temperature",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": -20,
+      "absolute_max": 60,
+      "default": 30,
+      "hint": "Standard reference rating is at 30°C — derating factor applies above it",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "max_vd_pct",
+      "name": "Maximum Allowable Voltage Drop",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 10,
+      "default": 5,
+      "hint": "IEC 60364-5-52: Lighting 3% | Motor/general 5%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "load_type",
+      "name": "Load Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Induction Motor (high inrush current)",
+        "Lighting (continuous, max 3% VD)",
+        "Resistive heating",
+        "UPS / Inverter output",
+        "General socket outlet circuit"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "demand_factor",
+      "name": "Simultaneity / Demand Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0.5,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "Multiple loads: 0.7-0.9 | Single load: 1.0",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
+    }
+  ],
+  "formulas": [
+    "Load_Current_A = (load_kw * 1000 * demand_factor) / (SQRT(3) * voltage_v * power_factor)   // [A] Line current — 3-Phase load",
+    "Resistivity = 0.0175   // [ohm*mm2/m] Copper resistivity (20°C) — IEC 60228",
+    "Resistance_R_ohm = (Resistivity * cable_length_m) / cross_section_val   // [ohm] Phase conductor resistance (one-way)",
+    "Total_Loop_R = 2 * Resistance_R_ohm   // [ohm] Go and return path loop resistance",
+    "Reactance_X_ohm = 0.00008 * cable_length_m   // [ohm] Conductor inductive reactance",
+    "Sin_Phi = SQRT(1 - POWER(power_factor, 2))   // [—] sin phi",
+    "VD_Voltage = SQRT(3) * Load_Current_A * (Resistance_R_ohm * power_factor + Reactance_X_ohm * Sin_Phi)   // [V] Voltage drop — 3-Phase | Source: IEC 60364-5-52",
+    "VD_Percent = (VD_Voltage / voltage_v) * 100   // [%] Voltage drop percentage",
+    "Voltage_At_Load = voltage_v - VD_Voltage   // [V] Line voltage at load terminal",
+    "Power_Loss_W = 3 * POWER(Load_Current_A, 2) * Resistance_R_ohm   // [W] Cable heat dissipation loss (3-phase)",
+    "Power_Loss_Pct = (Power_Loss_W / (load_kw * 1000)) * 100   // [%] Power loss percentage",
+    "Recommended_Min_Section = (SQRT(3) * Load_Current_A * Resistivity * cable_length_m * power_factor) / (max_vd_pct / 100 * voltage_v)   // [mm2] Minimum required cross-section based on voltage drop"
+  ],
+  "engine_rules": {
+    "standards": [
+      "IEC 60364-5-52",
+      "IEC 60228",
+      "TS HD 60364-5-52",
+      "NFPA 70 NEC",
+      "BS 7671:2018",
+      "IEEE 141"
+    ],
+    "validation": {
+      "power_factor_range": {
+        "condition": "power_factor < 0.5 || power_factor > 1.0",
+        "error_msg": "Power factor must be between 0.5 and 1.0. Typically 0.8-0.9 for inductive loads. Below 0.5 is not practical.",
+        "id": "power_factor_range"
+      },
+      "voltage_current_match": {
+        "condition": "Load_Current_A > 1000 && cross_section_val < 70",
+        "error_msg": "Current > 1000A requires a minimum cross-section of 70mm² to prevent thermal overload.",
+        "id": "voltage_current_match"
+      },
+      "section_minimum": {
+        "condition": "cross_section_val < 1.5",
+        "error_msg": "IEC 60228: Power circuit minimum cross-section is 1.5mm². Smaller sizes are non-standard.",
+        "id": "section_minimum"
+      },
+      "length_resistance": {
+        "condition": "cable_length_m > 500 && cross_section_val < 25",
+        "error_msg": "Long run + small cross-section: for lines >500m, voltage drop and reactance effects are critical. Evaluate cross-section increase or voltage level upgrade.",
+        "id": "length_resistance"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "VD_Percent > max_vd_pct",
+        "severity": "CRITICAL",
+        "source": "IEC 60364-5-52 Md.525",
+        "message": "VOLTAGE DROP LIMIT EXCEEDED: Motor will draw excessive current at this low voltage -> overheat -> melt insulation -> cause short circuit. Increase cross-section by at least one standard size."
+      },
+      {
+        "condition": "VD_Percent > max_vd_pct * 0.8 && VD_Percent <= max_vd_pct",
+        "severity": "WARNING",
+        "source": "IEC 60364-5-52",
+        "message": "Voltage drop close to limit: Within 80% of limit. Cross-section upgrade is recommended to prevent exceeding limit on load surges or hot weather."
+      },
+      {
+        "condition": "Power_Loss_Pct > 3",
+        "severity": "WARNING",
+        "source": "IEEE 141 / Energy Efficiency",
+        "message": "Cable heat dissipation loss > 3%: Annual energy cost is significant. Investment in cross-section upgrade typically pays back in 2-3 years. Run economic sizing optimization (Kelvin's Law)."
+      },
+      {
+        "condition": "ambient_temp_c > 40",
+        "severity": "WARNING",
+        "source": "IEC 60364-5-52 Tablo B.52.14",
+        "message": "High ambient temperature: Cable ampacity derates. Apply correction factor (Ct) for ambient >40°C per IEC 60364. Standard catalog ratings assume 30°C."
+      },
+      {
+        "condition": "cross_section_val < Recommended_Min_Section",
+        "severity": "CRITICAL",
+        "source": "IEC 60364-5-52 Voltage Drop Calculation",
+        "message": "Selected cross-section is insufficient: does not meet voltage drop limits. Calculated minimum cross-section is displayed. Choose next standard size up."
+      },
+      {
+        "condition": "Load_Current_A > 630",
+        "severity": "INFO",
+        "source": "IEC 60228 / Pratik Uygulama",
+        "message": "High current (>630A): Consider parallel cables or busbar duct system. Parallel cable routing can be complex; busduct is more reliable."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: power_factor < 0.5 || power_factor > 1.0",
+        "effect": "Power factor must be between 0.5 and 1.0. Typically 0.8-0.9 for inductive loads. Below 0.5 is not practical.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule power_factor_range"
+      },
+      {
+        "failureMode": "Input violation: Load_Current_A > 1000 && cross_section_val < 70",
+        "effect": "Current > 1000A requires a minimum cross-section of 70mm² to prevent thermal overload.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule voltage_current_match"
+      },
+      {
+        "failureMode": "Input violation: cross_section_val < 1.5",
+        "effect": "IEC 60228: Power circuit minimum cross-section is 1.5mm². Smaller sizes are non-standard.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule section_minimum"
+      },
+      {
+        "failureMode": "Input violation: cable_length_m > 500 && cross_section_val < 25",
+        "effect": "Long run + small cross-section: for lines >500m, voltage drop and reactance effects are critical. Evaluate cross-section increase or voltage level upgrade.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule length_resistance"
+      },
+      {
+        "failureMode": "VOLTAGE DROP LIMIT EXCEEDED: Motor will draw excessive current at this low voltage -> overheat -> melt insulation -> cause short circuit. Increase cross-section by at least one standard size.",
+        "effect": "Smart warning triggered when: VD_Percent > max_vd_pct",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "IEC 60364-5-52 Md.525"
+      },
+      {
+        "failureMode": "Voltage drop close to limit: Within 80% of limit. Cross-section upgrade is recommended to prevent exceeding limit on load surges or hot weather.",
+        "effect": "Smart warning triggered when: VD_Percent > max_vd_pct * 0.8 && VD_Percent <= max_vd_pct",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 60364-5-52"
+      },
+      {
+        "failureMode": "Cable heat dissipation loss > 3%: Annual energy cost is significant. Investment in cross-section upgrade typically pays back in 2-3 years. Run economic sizing optimization (Kelvin's Law).",
+        "effect": "Smart warning triggered when: Power_Loss_Pct > 3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEEE 141 / Energy Efficiency"
+      },
+      {
+        "failureMode": "High ambient temperature: Cable ampacity derates. Apply correction factor (Ct) for ambient >40°C per IEC 60364. Standard catalog ratings assume 30°C.",
+        "effect": "Smart warning triggered when: ambient_temp_c > 40",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 60364-5-52 Tablo B.52.14"
+      },
+      {
+        "failureMode": "Selected cross-section is insufficient: does not meet voltage drop limits. Calculated minimum cross-section is displayed. Choose next standard size up.",
+        "effect": "Smart warning triggered when: cross_section_val < Recommended_Min_Section",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "IEC 60364-5-52 Voltage Drop Calculation"
+      },
+      {
+        "failureMode": "High current (>630A): Consider parallel cables or busbar duct system. Parallel cable routing can be complex; busduct is more reliable.",
+        "effect": "Smart warning triggered when: Load_Current_A > 630",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "IEC 60228 / Pratik Uygulama"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Load_Current_A",
+        "Resistivity",
+        "Resistance_R_ohm",
+        "Total_Loop_R",
+        "Reactance_X_ohm",
+        "Sin_Phi",
+        "VD_Voltage",
+        "VD_Percent",
+        "Voltage_At_Load",
+        "Power_Loss_W",
+        "Power_Loss_Pct",
+        "Recommended_Min_Section"
+      ]
+    }
+  ]
+}

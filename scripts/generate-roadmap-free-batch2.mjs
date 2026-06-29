@@ -29,7 +29,6 @@ const I18N_DESC = {
   de: (title) => `${title} — sofortige Browser-Ergebnisse (nur zur Information).`,
   fr: (title) => `${title} — résultats instantanés dans le navigateur (informatif).`,
   es: (title) => `${title} — resultados instantáneos en el navegador (informativo).`,
-  ar: (title) => `${title} — نتائج فورية في المتصفح (للإرشاد فقط).`,
 };
 
 function extractConstArray(tsPath, constName) {

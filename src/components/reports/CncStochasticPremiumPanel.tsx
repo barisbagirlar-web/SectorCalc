@@ -71,7 +71,7 @@ export function CncStochasticPremiumPanel({
 
  const runCalculation = useCallback(async () => {
  if (!freeComplete || !naiveCost) {
- setError("Lütfen önce ücretsiz hesaplama aracını tamamlayın.");
+ setError("Please complete the free calculator first.");
  return;
  }
 
@@ -82,7 +82,7 @@ export function CncStochasticPremiumPanel({
  try {
  const idToken = await getCurrentUserIdToken();
  if (!idToken) {
- setError("Giriş yapılmamış. Lütfen önce giriş yapın.");
+ setError("Not logged in. Please sign in first.");
  setLoading(false);
  return;
  }
@@ -98,10 +98,10 @@ export function CncStochasticPremiumPanel({
  setResponse(result);
 
  if (!result.success && result.error === "PRO_REQUIRED") {
- setError("Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.");
+ setError("This calculation is only available to SectorCalc Pro members.");
  }
  } catch {
- setError("Hesaplama sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+ setError("An error occurred during calculation. Please try again.");
  } finally {
  setLoading(false);
  }
@@ -114,7 +114,7 @@ export function CncStochasticPremiumPanel({
  if (subscriptionLoading) {
  return (
  <div className="mt-8 rounded-sm border border-border-subtle bg-bg-subtle p-6">
- <p className="text-sm text-text-secondary">Abonelik durumu kontrol ediliyor…</p>
+ <p className="text-sm text-text-secondary">Checking subscription status…</p>
  </div>
  );
  }
@@ -126,23 +126,22 @@ export function CncStochasticPremiumPanel({
  if (!isPro) {
  return (
  <div className="ind-os-panel mt-4">
- <p className="ind-os-panel__label label-badge">Premium Stokastik Motor</p>
- <h3 className="font-display mt-1 text-sm font-semibold text-premium-velvet">
- P90 Güvenli Fiyat Hesabı
- </h3>
- <p className="mt-2 text-xs leading-relaxed text-body-charcoal">
- Stokastik standart sapma ve Z-skoru (P90) ile gerçek maliyet riskini
- hesaplayın. Temel maliyet, risk tamponu ve güvenli teklif fiyatını
- görün.
- </p>
+<p className="ind-os-panel__label label-badge">Premium Stochastic Engine</p>
+<h3 className="font-display mt-1 text-sm font-semibold text-premium-velvet">
+P90 Safe Price Calculation
+</h3>
+<p className="mt-2 text-xs leading-relaxed text-body-charcoal">
+Calculate real cost risk using stochastic standard deviation and
+Z-score (P90). View base cost, risk buffer, and safe quote price.
+</p>
  <div className="mt-3 border border-technical-gray p-2">
  <dl className="space-y-1 text-xs">
  {[
- "P90 Güvenli Fiyat",
- "Risk Tamponu",
- "CBAM Karbon Şoku",
- "Hassasiyet Matrisi",
- "Karar (Verdict)",
+"P90 Safe Price",
+"Risk Buffer",
+"CBAM Carbon Shock",
+"Sensitivity Matrix",
+"Verdict",
  ].map((label) => (
  <div key={label} className="flex justify-between">
  <dt className="text-body-charcoal">{label}</dt>
@@ -157,7 +156,7 @@ export function CncStochasticPremiumPanel({
  size="sm"
  className="mt-3 w-full"
  >
- {"SectorCalc Pro'ya Geç →"}
+ {"Go to SectorCalc Pro →"}
  </Button>
  </div>
  );
@@ -169,14 +168,14 @@ export function CncStochasticPremiumPanel({
 
  return (
  <div className="ind-os-panel mt-4">
- <p className="ind-os-panel__label label-badge">Stokastik Hesaplama Motoru</p>
- <h3 className="font-display mt-2 text-lg font-bold text-text-primary sm:text-xl">
- P90 Güvenli Fiyat Analizi
- </h3>
+<p className="ind-os-panel__label label-badge">Stochastic Calculation Engine</p>
+<h3 className="font-display mt-2 text-lg font-bold text-text-primary sm:text-xl">
+P90 Safe Price Analysis
+</h3>
 
  {!freeComplete && (
  <p className="mt-3 text-sm text-text-secondary">
- Lütfen önce yukarıdaki ücretsiz hesaplama aracını tamamlayın.
+ Please complete the free calculator above first.
  </p>
  )}
 
@@ -188,7 +187,7 @@ export function CncStochasticPremiumPanel({
  onClick={runCalculation}
  disabled={loading}
  >
- {loading ? "Hesaplanıyor…" : "Stokastik Analizi Çalıştır"}
+ {loading ? "Calculating…" : "Run Stochastic Analysis"}
  </Button>
  )}
 
@@ -261,10 +260,10 @@ function EngineResultDisplay({
 
  const verdictLabel =
  verdict === "accept"
- ? "KABUL"
+? "ACCEPT"
  : verdict === "caution"
- ? "DİKKAT"
- : "REDDET";
+? "WARNING"
+ : "REJECT";
 
  const verdictBg =
  verdict === "accept"
@@ -275,24 +274,24 @@ function EngineResultDisplay({
 
  return (
  <div className="mt-4 space-y-6">
- {/* ── Primary metrics: Temel Maliyet · Risk Tamponu · P90 Güvenli Fiyat ── */}
+ {/* ── Primary metrics: Base Cost · Risk Buffer · P90 Safe Price ── */}
  <div className="grid gap-4 sm:grid-cols-3">
- {/* Temel Maliyet */}
+ {/* Base Cost */}
  <div className="rounded-sm border border-border-subtle bg-white p-4">
- <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- Temel Maliyet
- </p>
+<p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
+Base Cost
+</p>
  <p className="mt-2 data-value text-xl font-bold text-text-primary">
  {fmt(p90.expected)}
  </p>
- <p className="mt-1 text-xs text-text-secondary">Ham baz maliyet (risksiz)</p>
+ <p className="mt-1 text-xs text-text-secondary">Raw base cost (risk-free)</p>
  </div>
 
- {/* Risk Tamponu — status signal (risk metric) */}
+ {/* Risk Buffer — status signal (risk metric) */}
  <div className="border border-border-subtle status-warn-bg p-4" data-status="warning">
- <p className="text-xs font-semibold uppercase tracking-wider text-warn-amber">
- Risk Tamponu
- </p>
+<p className="text-xs font-semibold uppercase tracking-wider text-warn-amber">
+Risk Buffer
+</p>
  <p className="mt-2 data-value text-xl font-bold text-warn-amber">
  {fmt(p90.buffer)}
  </p>
@@ -301,15 +300,15 @@ function EngineResultDisplay({
  </p>
  </div>
 
- {/* P90 Güvenli Fiyat */}
+ {/* P90 Safe Price */}
  <div className="border border-border-subtle bg-base-white p-4">
  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- P90 Güvenli Fiyat
+ P90 Safe Price
  </p>
  <p className="mt-2 data-value text-xl font-bold text-text-primary">
  {fmt(p90.safe)}
  </p>
- <p className="mt-1 text-xs text-text-secondary">%90 güven aralığı</p>
+ <p className="mt-1 text-xs text-text-secondary">90% confidence interval</p>
  </div>
  </div>
 
@@ -317,17 +316,17 @@ function EngineResultDisplay({
  {cbam.carbonLiability > 0 && (
  <div className="rounded-sm border border-border-subtle bg-white p-4">
  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- CBAM Karbon Yükümlülüğü
+ CBAM Carbon Liability
  </p>
  <dl className="mt-2 grid gap-2 text-sm sm:grid-cols-3">
  <div className="flex justify-between sm:flex-col">
- <dt className="text-text-secondary">Karbon Surcharges</dt>
+ <dt className="text-text-secondary">Carbon Surcharges</dt>
  <dd className="data-value font-semibold text-text-primary">
  {fmt(cbam.carbonLiability)}
  </dd>
  </div>
  <div className="flex justify-between sm:flex-col">
- <dt className="text-text-secondary">CBAM Sonrası Toplam</dt>
+ <dt className="text-text-secondary">CBAM Total</dt>
  <dd className="data-value font-semibold text-text-primary">
  {fmt(cbam.totalWithCBAM)}
  </dd>
@@ -339,18 +338,18 @@ function EngineResultDisplay({
  {/* ── Sensitivity scenarios (compact table) ── */}
  <div className="rounded-sm border border-border-subtle bg-white p-4">
  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-3">
- Hassasiyet Matrisi (3 Senaryo)
+ Sensitivity Matrix (3 Scenarios)
  </p>
  <div className="overflow-x-auto">
  <table className="w-full text-xs sm:text-sm">
  <thead>
  <tr className="border-b border-border-subtle text-left">
- <th className="pb-2 font-semibold text-text-secondary">Senaryo</th>
+ <th className="pb-2 font-semibold text-text-secondary">Scenario</th>
  <th className="pb-2 font-semibold text-text-secondary text-right">
- Δ Maliyet
+ Δ Cost
  </th>
  <th className="pb-2 font-semibold text-text-secondary text-right">
- P90 Ayarlı
+ P90 Adjusted
  </th>
  </tr>
  </thead>
@@ -375,7 +374,7 @@ function EngineResultDisplay({
  <div className={`rounded-sm border p-4 ${verdictBg}`}>
  <div className="flex items-center justify-between">
  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- Karar (Verdict)
+ Verdict
  </p>
  <span className={`text-sm font-bold ${verdictColor}`} data-status={verdict === "accept" ? "safe" : verdict === "caution" ? "warning" : "critical"}>
  {verdictLabel}
@@ -389,7 +388,7 @@ function EngineResultDisplay({
  {/* ── Full TXT Report (collapsible) ── */}
  <details className="rounded-sm border border-border-subtle bg-white p-4">
  <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wider text-text-secondary select-none">
- Tam Denetim Raporu (TXT)
+ Full Audit Report (TXT)
  </summary>
  <pre className="mt-3 overflow-x-auto text-xs leading-relaxed text-text-primary whitespace-pre-wrap">
  {txtReport}
@@ -398,9 +397,7 @@ function EngineResultDisplay({
 
  {/* ── Legal disclaimer ── */}
  <p className="text-xs leading-relaxed text-text-secondary">
- Bu çıktı teknik bir simülasyondur. Finansal, hukuki veya mühendislik
- tavsiyesi niteliği taşımaz. İş kararları almadan önce sonuçları
- doğrulayınız.
+This output is a technical simulation. It does not constitute financial, legal, or engineering advice. Verify results before making business decisions.
  </p>
  </div>
  );

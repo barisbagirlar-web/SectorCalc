@@ -1,0 +1,316 @@
+{
+  "schemaId": "PRO_082",
+  "toolCode": "TOOL-PRO-082",
+  "version": "1.0.0",
+  "name": "Inline Static Mixer — Pressure Drop, Mixing Length & Coefficient of Variation",
+  "subtitle": "Chemical Process Engineering | Mixing — Sulzer Chemtech Static Mixer Engineering Guide, Chemineer Design Manual",
+  "sectorPath": [
+    "Chemical Process Engineering",
+    "Mixing"
+  ],
+  "standardsBasis": [
+    "Sulzer Chemtech Static Mixer Engineering Guide",
+    "Chemineer Design Manual",
+    "Perry's Chemical Engineers' Handbook 9th Ed. §18.5",
+    "AIChE Equipment Testing Procedure — Mixing"
+  ],
+  "scope": {
+    "inScope": [
+      "Inline Static Mixer — Pressure Drop, Mixing Length & Coefficient of Variation"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "pipe_ID_mm",
+      "symbol": "pipe_ID_mm",
+      "label": "Pipe Inside Diameter (D_pipe)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 2000
+    },
+    {
+      "id": "flow_rate_m3h",
+      "symbol": "flow_rate_m3h",
+      "label": "Volumetric Flow Rate (Q)",
+      "unit": {
+        "ref": "m3ph"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.001,
+      "max": 100000
+    },
+    {
+      "id": "fluid_density_kg_m3",
+      "symbol": "fluid_density_kg_m3",
+      "label": "Process Fluid Density (ρ)",
+      "unit": {
+        "ref": "kg/m³"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.5,
+      "max": 3000,
+      "default": 1000
+    },
+    {
+      "id": "fluid_viscosity_mPas",
+      "symbol": "fluid_viscosity_mPas",
+      "label": "Process Fluid Dynamic Viscosity (μ)",
+      "unit": {
+        "ref": "mPa·s"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.01,
+      "max": 1000000,
+      "default": 1
+    },
+    {
+      "id": "mixer_type",
+      "symbol": "mixer_type",
+      "label": "Static Mixer Element Type",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "code",
+      "default": 6.3,
+      "enum": [
+        {
+          "value": 6.3,
+          "label": "Kenics HEV (helical) — K_p = 6.3"
+        },
+        {
+          "value": 37,
+          "label": "Sulzer SMX — K_p = 37"
+        },
+        {
+          "value": 8,
+          "label": "Sulzer SMXL (low ΔP) — K_p = 8"
+        },
+        {
+          "value": 4,
+          "label": "Ross LPD — K_p = 4"
+        }
+      ]
+    },
+    {
+      "id": "num_elements",
+      "symbol": "num_elements",
+      "label": "Number of Mixer Elements (N_e)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 1,
+      "max": 40,
+      "default": 6
+    },
+    {
+      "id": "CoV_required",
+      "symbol": "CoV_required",
+      "label": "Required Coefficient of Variation at Mixer Exit (CoV_req)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 0.05,
+      "enum": [
+        {
+          "value": 0.05,
+          "label": "CoV = 0.05 — Excellent mixing (5% non-uniformity)"
+        },
+        {
+          "value": 0.1,
+          "label": "CoV = 0.10 — Good mixing"
+        },
+        {
+          "value": 0.2,
+          "label": "CoV = 0.20 — Acceptable mixing"
+        },
+        {
+          "value": 0.35,
+          "label": "CoV = 0.35 — Minimum basic mixing"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "code",
+      "letter": "B",
+      "title": "Code",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_082",
+      "code": "Sulzer Chemtech Static Mixer Engineering Guide",
+      "name": "Inline Static Mixer — Pressure Drop, Mixing Length & Coefficient of Variation",
+      "description": "Inline Static Mixer — Pressure Drop, Mixing Length & Coefficient of Variation — Chemical Process Engineering, Mixing",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "A_pipe_m2",
+          "expression": "Math.PI / 4 * Math.pow(pipe_ID_mm / 1000, 2); v_m_s = flow_rate_m3h / 3600 / A_pipe_m2; Re = fluid_density_kg_m3 * v_m_s * pipe_ID_mm / 1000 / (fluid_viscosity_mPas / 1000)",
+          "unit": {
+            "ref": "m/s, dimensionless"
+          },
+          "reference": "Re = ρ·v·D/μ — flow regime governs mixing mechanism and ΔP correlation",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "f_fanning",
+          "expression": "(Re < 2300) ? 16/Re : 0.0791 * Math.pow(Re, -0.25); L_mixer_m = num_elements * pipe_ID_mm / 1000 * 1.5; dP_pipe_pa = 4 * f_fanning * (L_mixer_m / (pipe_ID_mm/1000)) * fluid_density_kg_m3 * Math.pow(v_m_s, 2) / 2",
+          "unit": {
+            "ref": "Pa"
+          },
+          "reference": "Fanning friction: laminar f=16/Re",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "dP_mixer_pa",
+          "expression": "mixer_type * dP_pipe_pa",
+          "unit": {
+            "ref": "Pa"
+          },
+          "reference": "ΔP_mixer = K_p × ΔP_empty_pipe over mixer length — Sulzer / Chemineer product data",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "CoV_0",
+          "expression": "1.0; CoV_actual = (Re > 10000) ? CoV_0 * Math.pow(0.316, num_elements) : CoV_0 * Math.pow(0.5, num_elements * 0.7)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Turbulent: CoV reduces by factor ~0.316 per element (Kenics HEV)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "decay_factor",
+          "expression": "(Re > 10000) ? 0.316 : 0.5 ** 0.7; N_req = Math.ceil(Math.log(CoV_required) / Math.log(decay_factor))",
+          "unit": {
+            "ref": "count"
+          },
+          "reference": "N_req = log(CoV_req / CoV_0) / log(decay_factor) — Kenics design method",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "L_total_m",
+          "expression": "num_elements * pipe_ID_mm / 1000 * 1.5; epsilon_w_kg = dP_mixer_pa * v_m_s / fluid_density_kg_m3",
+          "unit": {
+            "ref": "m, W/kg"
+          },
+          "reference": "ε = ΔP·v/ρ — specific energy input",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "Sulzer Chemtech Static Mixer Engineering Guide",
+          "condition": "Re < 2300 && mixer_type === 6.3",
+          "message": "Laminar flow with Kenics HEV: designed for turbulent use — switch to Sulzer SMX (K_p=37) optimised for viscous laminar mixing"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "Sulzer Chemtech Static Mixer Engineering Guide",
+          "condition": "num_elements < N_req",
+          "message": "Element count below minimum for target CoV — mixing quality not achieved; add N_req − N_e elements or accept higher CoV"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "Sulzer Chemtech Static Mixer Engineering Guide",
+          "condition": "v_m_s > 5 && fluid_density_kg_m3 > 800",
+          "message": "High velocity in dense fluid: erosion risk on mixer elements — verify element material hardness; consider ceramic-coated elements for slurries"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "Sulzer Chemtech Static Mixer Engineering Guide",
+          "condition": "epsilon_w_kg < 0.1 && Re > 10000",
+          "message": "Low specific energy dissipation (<0.1 W/kg): mixing is gentle — suitable for shear-sensitive products (emulsions, cells); otherwise increase velocity"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "Sulzer Chemtech Static Mixer Engineering Guide",
+          "condition": "fluid_viscosity_mPas > 10000",
+          "message": "High viscosity fluid (>10 Pa·s): static mixer will have very high ΔP — evaluate dynamic (agitated) mixer or reduce viscosity by heating before mixing"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "pipe_ID_mm",
+        "flow_rate_m3h",
+        "fluid_density_kg_m3",
+        "fluid_viscosity_mPas",
+        "mixer_type",
+        "num_elements",
+        "CoV_required"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,0 +1,289 @@
+{
+  "schemaId": "PRO_058",
+  "toolCode": "TOOL-PRO-058",
+  "version": "1.0.0",
+  "name": "Fired Heater Thermal Efficiency — Stack Loss, Excess Air Optimisation & Process Duty",
+  "subtitle": "Oil & Gas Processing | Energy Management — API 560 5th Ed. (Fired Heaters for General Refinery), ISO 13705:2006",
+  "sectorPath": [
+    "Oil & Gas Processing",
+    "Energy Management"
+  ],
+  "standardsBasis": [
+    "API 560 5th Ed. (Fired Heaters for General Refinery)",
+    "ISO 13705:2006",
+    "ASME PTC 4-2013",
+    "EPA Method 3A (O₂ measurement)"
+  ],
+  "scope": {
+    "inScope": [
+      "Fired Heater Thermal Efficiency — Stack Loss, Excess Air Optimisation & Process Duty"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "fuel_LHV_kj_kg",
+      "symbol": "fuel_LHV_kj_kg",
+      "label": "Fuel Lower Heating Value (LHV)",
+      "unit": {
+        "ref": "kJ/kg"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10000,
+      "max": 55000
+    },
+    {
+      "id": "fuel_flow_kg_h",
+      "symbol": "fuel_flow_kg_h",
+      "label": "Fuel Firing Rate (ṁ_fuel)",
+      "unit": {
+        "ref": "kg/h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 500000
+    },
+    {
+      "id": "stack_temp_c",
+      "symbol": "stack_temp_c",
+      "label": "Flue Gas Stack Exit Temperature (T_stack)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 100,
+      "max": 800
+    },
+    {
+      "id": "ambient_temp_c",
+      "symbol": "ambient_temp_c",
+      "label": "Ambient Air Temperature (T_amb)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -20,
+      "max": 50,
+      "default": 25
+    },
+    {
+      "id": "O2_stack_pct",
+      "symbol": "O2_stack_pct",
+      "label": "Flue Gas O₂ Content at Stack (dry basis)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.5,
+      "max": 18
+    },
+    {
+      "id": "fuel_carbon_content_pct",
+      "symbol": "fuel_carbon_content_pct",
+      "label": "Fuel Carbon Content (mass fraction)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 40,
+      "max": 90,
+      "default": 75
+    },
+    {
+      "id": "radiation_loss_pct",
+      "symbol": "radiation_loss_pct",
+      "label": "Radiation & Convection Losses (% of fired duty)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.5,
+      "max": 5,
+      "default": 1.5
+    },
+    {
+      "id": "process_fluid_duty_kw",
+      "symbol": "process_fluid_duty_kw",
+      "label": "Measured Process Fluid Heat Absorption (Q_proc)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 2000000
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_058",
+      "code": "API 560 5th Ed. (Fired Heaters for General Refinery)",
+      "name": "Fired Heater Thermal Efficiency — Stack Loss, Excess Air Optimisation & Process Duty",
+      "description": "Fired Heater Thermal Efficiency — Stack Loss, Excess Air Optimisation & Process Duty — Oil & Gas Processing, Energy Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "XS_air_pct",
+          "expression": "O2_stack_pct * 100 / (21 - O2_stack_pct)",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "API 560 §A.3 — excess air from dry O₂: EA% = O₂% × 100 / (21 − O₂%)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "cp_fg_kj_kg_k",
+          "expression": "1.004 + 0.000254 * stack_temp_c",
+          "unit": {
+            "ref": "kJ/(kg·K)"
+          },
+          "reference": "ASME PTC 4-2013 — linearised flue gas c_p",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "m_air_stoich",
+          "expression": "11.5 * fuel_carbon_content_pct / 100; m_fg_kg_kg = m_air_stoich * (1 + XS_air_pct/100) + 1; Q_stack_pct = m_fg_kg_kg * cp_fg_kj_kg_k * (stack_temp_c - ambient_temp_c) / fuel_LHV_kj_kg * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "API 560 / ISO 13705:2006 §8.2 — dry flue gas stack loss",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "eta_th_pct",
+          "expression": "100 - Q_stack_pct - radiation_loss_pct",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "ISO 13705:2006 §8 — efficiency by losses method",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Q_fired_kw",
+          "expression": "fuel_flow_kg_h / 3600 * fuel_LHV_kj_kg; fuel_utilisation_pct = process_fluid_duty_kw / Q_fired_kw * 100",
+          "unit": {
+            "ref": "kW, %"
+          },
+          "reference": "API 560 §4.3 — fired duty = fuel rate × LHV",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "fuel_saving_kgh",
+          "expression": "fuel_flow_kg_h * 0.01; annual_saving_kj = fuel_saving_kgh * 8760 * fuel_LHV_kj_kg / 3600",
+          "unit": {
+            "ref": "kg/h, GJ/yr"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "API 560 5th Ed. (Fired Heaters for General Refinery)",
+          "condition": "XS_air_pct > 25",
+          "message": "Excess air > 25%: significant stack loss penalty — each 10% excess air at 300°C stack increases stack loss ≈ 0.5%; install O₂ trim controller"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "API 560 5th Ed. (Fired Heaters for General Refinery)",
+          "condition": "eta_th_pct < 85",
+          "message": "Thermal efficiency < 85%: below API 560 design target for natural gas fuel — assess convection section tube cleaning and air preheater condition"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "API 560 5th Ed. (Fired Heaters for General Refinery)",
+          "condition": "stack_temp_c - ambient_temp_c > 350",
+          "message": "Stack ΔT > 350 K: air preheater economiser has strong ROI — each 20°C stack temp reduction raises efficiency ≈ 1%"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "API 560 5th Ed. (Fired Heaters for General Refinery)",
+          "condition": "O2_stack_pct > 6 && fuel_flow_kg_h > 1000",
+          "message": "High O₂ (>6%) on large heater: major energy waste — reduce excess air to 2–3% target; NOₓ and stack loss both decrease"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "API 560 5th Ed. (Fired Heaters for General Refinery)",
+          "condition": "radiation_loss_pct > 3",
+          "message": "High radiation loss (>3%): check casing and refractory integrity — hot spots and casing leaks waste energy and create safety hazard"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "fuel_LHV_kj_kg",
+        "fuel_flow_kg_h",
+        "stack_temp_c",
+        "ambient_temp_c",
+        "O2_stack_pct",
+        "fuel_carbon_content_pct",
+        "radiation_loss_pct",
+        "process_fluid_duty_kw"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

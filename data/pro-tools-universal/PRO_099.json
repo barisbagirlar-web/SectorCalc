@@ -1,0 +1,382 @@
+{
+  "schemaId": "PRO_099",
+  "toolCode": "TOOL-PRO-099",
+  "version": "1.0.0",
+  "name": "Surface Roughness Conversion — Ra, Rz, Rq, Rt & Machining Process Capability",
+  "subtitle": "Quality Engineering | Metrology | CNC Machining — ISO 4287:1997, ISO 4288:1996",
+  "sectorPath": [
+    "Quality Engineering",
+    "Metrology",
+    "CNC Machining"
+  ],
+  "standardsBasis": [
+    "ISO 4287:1997",
+    "ISO 4288:1996",
+    "ISO 1302:2002",
+    "ASME B46.1-2019",
+    "EN ISO 13565-1"
+  ],
+  "scope": {
+    "inScope": [
+      "Surface Roughness Conversion — Ra, Rz, Rq, Rt & Machining Process Capability"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Ra_um",
+      "symbol": "Ra_um",
+      "label": "Arithmetic Mean Roughness (Ra)",
+      "unit": {
+        "ref": "um"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.001,
+      "max": 400
+    },
+    {
+      "id": "machining_process",
+      "symbol": "machining_process",
+      "label": "Machining / Finishing Process",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": "turning_finish",
+      "enum": [
+        {
+          "value": "grinding",
+          "label": "Grinding (cylindrical / surface) — Ra 0.1–1.6 µm"
+        },
+        {
+          "value": "turning_finish",
+          "label": "Turning (finish) — Ra 0.8–3.2 µm"
+        },
+        {
+          "value": "turning_rough",
+          "label": "Turning (rough) — Ra 3.2–12.5 µm"
+        },
+        {
+          "value": "milling_finish",
+          "label": "Milling (finish) — Ra 0.8–3.2 µm"
+        },
+        {
+          "value": "milling_rough",
+          "label": "Milling (rough) — Ra 3.2–12.5 µm"
+        },
+        {
+          "value": "honing",
+          "label": "Honing — Ra 0.05–0.4 µm"
+        },
+        {
+          "value": "lapping",
+          "label": "Lapping — Ra 0.01–0.2 µm"
+        },
+        {
+          "value": "edm",
+          "label": "EDM (spark erosion) — Ra 0.4–6.3 µm"
+        },
+        {
+          "value": "shot_blast",
+          "label": "Shot blasting — Ra 6.3–25 µm"
+        }
+      ]
+    },
+    {
+      "id": "cutoff_lambda_c_mm",
+      "symbol": "cutoff_lambda_c_mm",
+      "label": "Evaluation Cut-off Length (λ_c)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "default": 0.8,
+      "enum": [
+        {
+          "value": 0.08,
+          "label": "0.08 mm — Ra 0.006–0.02 µm (superfinish)"
+        },
+        {
+          "value": 0.25,
+          "label": "0.25 mm — Ra 0.02–0.1 µm"
+        },
+        {
+          "value": 0.8,
+          "label": "0.8 mm — Ra 0.1–2.0 µm (standard)"
+        },
+        {
+          "value": 2.5,
+          "label": "2.5 mm — Ra 2.0–10 µm"
+        },
+        {
+          "value": 8,
+          "label": "8.0 mm — Ra 10–80 µm (rough surfaces)"
+        }
+      ]
+    },
+    {
+      "id": "N_value",
+      "symbol": "N_value",
+      "label": "ISO Surface Finish N-Number (N1-N12)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "default": 7,
+      "optional": true,
+      "enum": [
+        {
+          "value": 1,
+          "label": "N1 — Ra=0.025 µm (mirror finish)"
+        },
+        {
+          "value": 2,
+          "label": "N2 — Ra=0.05 µm"
+        },
+        {
+          "value": 3,
+          "label": "N3 — Ra=0.1 µm (precision ground)"
+        },
+        {
+          "value": 4,
+          "label": "N4 — Ra=0.2 µm"
+        },
+        {
+          "value": 5,
+          "label": "N5 — Ra=0.4 µm (ground)"
+        },
+        {
+          "value": 6,
+          "label": "N6 — Ra=0.8 µm (fine finish)"
+        },
+        {
+          "value": 7,
+          "label": "N7 — Ra=1.6 µm (machine finish)"
+        },
+        {
+          "value": 8,
+          "label": "N8 — Ra=3.2 µm (standard machine)"
+        },
+        {
+          "value": 9,
+          "label": "N9 — Ra=6.3 µm (rough machine)"
+        },
+        {
+          "value": 10,
+          "label": "N10 — Ra=12.5 µm (very rough)"
+        },
+        {
+          "value": 11,
+          "label": "N11 — Ra=25 µm"
+        },
+        {
+          "value": 12,
+          "label": "N12 — Ra=50 µm (unmachined)"
+        }
+      ]
+    },
+    {
+      "id": "measurement_traverse_mm",
+      "symbol": "measurement_traverse_mm",
+      "label": "Measurement Traverse Length (L_t)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "DEFAULT",
+      "group": "geometry",
+      "min": 0.4,
+      "max": 40,
+      "default": 4,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "geometry",
+      "letter": "B",
+      "title": "Geometry",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_099",
+      "code": "ISO 4287:1997",
+      "name": "Surface Roughness Conversion — Ra, Rz, Rq, Rt & Machining Process Capability",
+      "description": "Surface Roughness Conversion — Ra, Rz, Rq, Rt & Machining Process Capability — Quality Engineering, Metrology, CNC Machining",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Rz_um",
+          "expression": "Rz_um = Ra_um * 7.2",
+          "unit": {
+            "ref": "um"
+          },
+          "reference": "ISO 4287 — empirical ratio Rz ≈ 7.2 × Ra for turned and ground surfaces (range 4–10×); ISO 1302:2002 §4.3",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Rq_um",
+          "expression": "Rq_um = Ra_um * 1.11",
+          "unit": {
+            "ref": "um"
+          },
+          "reference": "Rq ≈ 1.11 × Ra for Gaussian height distribution — ISO 4287 §4.2.2; used in tribology and bearing contact analysis",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Rt_um",
+          "expression": "Rt_um = Ra_um * 10",
+          "unit": {
+            "ref": "um"
+          },
+          "reference": "Rt ≈ 10 × Ra (conservative estimate for machined surfaces) — Whitehouse 'Surfaces and their Measurement' §3",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Ra_from_N_um",
+          "expression": "Ra_from_N_um = 0.025 * Math.pow(2, N_value - 1)",
+          "unit": {
+            "ref": "um"
+          },
+          "reference": "ISO 1302:2002 Table 1 — Ra_N = 0.025 × 2^(N−1); N7 = 1.6 µm; N9 = 6.3 µm",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Ra_microinch, Rz_microinch",
+          "expression": "Ra_microinch = Ra_um * 39.37; Rz_microinch = Rz_um * 39.37",
+          "unit": {
+            "ref": "uin"
+          },
+          "reference": "1 µm = 39.37 µin — ASME B46.1-2019 §1.1; CLA (US) = Ra (ISO)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Ra_min_proc, Ra_max_proc, in_range",
+          "expression": "const PR = {grinding:[0.1,1.6], turning_finish:[0.8,3.2], turning_rough:[3.2,12.5], milling_finish:[0.8,3.2], milling_rough:[3.2,12.5], honing:[0.05,0.4], lapping:[0.01,0.2], edm:[0.4,6.3], shot_blast:[6.3,25]}; const r=PR[machining_process]; Ra_min_proc=r[0]; Ra_max_proc=r[1]; in_range = Ra_um >= Ra_min_proc && Ra_um <= Ra_max_proc",
+          "unit": {
+            "ref": "µm, µm, boolean"
+          },
+          "reference": "Process capability ranges — Kalpakjian Manufacturing Engineering 7th Ed. §26; ISO 286-2 surface finish correlation",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "WARN",
+          "condition": "!in_range",
+          "message": "Specified Ra is outside the normal capability of the selected machining process — verify process selection or accept that special tooling, passes, and conditions are required"
+        },
+        {
+          "id": "V2",
+          "action": "WARN",
+          "condition": "Ra_um < 0.05 && machining_process !== 'lapping' && machining_process !== 'honing'",
+          "message": "Ra < 0.05 µm with standard machining: only achievable by lapping, superfinishing, or polishing — specify correct process"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "measurement_traverse_mm < 5 * cutoff_lambda_c_mm",
+          "message": "Traverse length < 5 × cut-off length: ISO 4288 requires minimum 5 sampling lengths for reliable Ra measurement — increase traverse length"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "Ra_um < 0.4 && machining_process === 'edm'",
+          "message": "Ra < 0.4 µm from EDM: requires mirror EDM with very low energy settings — expect 5–10× longer machining time vs standard EDM at Ra 1.6 µm"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "Ra_um > 3.2 && N_value <= 7",
+          "message": "Ra inconsistency: specified Ra > 3.2 µm but N-value requests ≤ 1.6 µm — review which parameter is the actual requirement; Ra from profilometer takes precedence"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "",
+          "condition": "Rz_um > 25 && machining_process === 'turning_finish'",
+          "message": "High Rz on finish turning: check insert nose condition and cutting parameters — Rz > 25 µm suggests chatter or built-up edge; increase Vc or reduce feed"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "Ra_um < 0.2 && cutoff_lambda_c_mm > 0.8",
+          "message": "Very fine surface with long cut-off: ISO 4288 requires λ_c = 0.25 mm for Ra < 0.1 µm — using 0.8 mm cut-off will include waviness in Ra and give falsely high reading"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "",
+          "condition": "Ra_from_N_um > Ra_um * 2 || Ra_from_N_um < Ra_um * 0.5",
+          "message": "N-number and Ra values are inconsistent by more than 2×: specify one parameter and derive the other — do not independently specify both to avoid conflicting drawing requirements"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Ra_um",
+        "machining_process",
+        "cutoff_lambda_c_mm"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -249,10 +249,7 @@ export function serializePremiumReportCsv(
 ): string {
   const formatLocale = normalizeLocale(locale);
   const rows = buildPremiumReportCsvRows(payload, formatLocale);
-  const header =
-    formatLocale === "tr"
-      ? "bolum,etiket,deger,aciklama"
-      : "section,label,value,description";
+  const header = "section,label,value,description";
   const lines = rows.map((row) =>
     [row.section, row.label, row.value, row.description]
       .map((field) => escapeCsvField(field))
@@ -271,7 +268,7 @@ export function buildPremiumReportSummaryText(
     `SectorCalc — ${payload.schemaName}`,
     payload.title,
     `Report ID: ${payload.reportId}`,
-    formatLocale === "tr" ? `Oluşturulma: ${generatedLabel}` : `Generated: ${generatedLabel}`,
+    `Generated: ${generatedLabel}`,
     "",
     `Verdict (${payload.executiveVerdict.status}): ${payload.executiveVerdict.verdict}`,
     payload.executiveVerdict.explanation,

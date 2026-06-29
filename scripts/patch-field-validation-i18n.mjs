@@ -40,11 +40,6 @@ const LOCALES = {
     contractNotFound: "Contrato de formulario inteligente no encontrado para esta herramienta.",
   },
   ar: {
-    required: "{label} مطلوب.",
-    invalidNumber: "{label} يجب أن يكون رقماً صالحاً.",
-    min: "{label} يجب أن يكون على الأقل {min}.",
-    max: "{label} يجب ألا يزيد عن {max}.",
-    contractNotFound: "لم يتم العثور على عقد النموذج الذكي لهذه الأداة.",
   },
 };
 

@@ -107,20 +107,20 @@ function SourceRoiRowCard({ row, loading }: { row: SourceRoiRow; loading?: boole
 export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
  const summaryCards = [
  {
- label: "En güçlü kaynak",
+ label: "Strongest Source",
  value: formatHighlight(roi.strongestSource, loading),
  hint: formatHighlightHint(roi.strongestSource),
  },
  {
- label: "En zayıf kaynak",
+ label: "Weakest Source",
  value: formatHighlight(roi.weakestSource, loading),
  hint: formatHighlightHint(roi.weakestSource),
  },
  {
- label: "Takip gecikmesi en yüksek",
+ label: "Highest Follow-up Delay",
  value: formatHighlight(roi.highestUrgentSource, loading),
  hint: roi.highestUrgentSource
- ? `${roi.highestUrgentSource.urgentFollowUpCount} geciken lead`
+ ? `${roi.highestUrgentSource.urgentFollowUpCount} delayed leads`
  : undefined,
  },
  ];
@@ -130,7 +130,7 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Source ROI</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Kaynak verim skoru — kalite, dönüşüm ve takip sağlığına göre (parasal ROI değil).
+ Source efficiency score — based on quality, conversion, and follow-up health (not monetary ROI).
  </p>
  </div>
 
@@ -139,8 +139,7 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
  className="rounded-lg border border-amber/30 bg-amber/5 px-4 py-3 text-sm text-deep-navy"
  role="status"
  >
- Bu skorlar yüklü lead verisine göre hesaplanır; düşük örneklemde yön gösterici
- kabul edilmelidir.
+ These scores are calculated from the loaded lead data; with low samples, consider them directional.
  </p>
  ) : null}
 
@@ -157,11 +156,11 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
 
  <div className={cardClass}>
  <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- Top 10 kaynak
+ Top 10 Sources
  </h3>
 
  {roi.topRows.length === 0 ? (
- <p className="mt-3 text-sm text-text-secondary">Henüz kaynak verisi yok.</p>
+ <p className="mt-3 text-sm text-text-secondary">No source data yet.</p>
  ) : (
  <>
  <div className="mt-4 hidden md:block">

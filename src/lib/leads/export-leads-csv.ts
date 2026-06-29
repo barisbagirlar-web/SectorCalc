@@ -16,11 +16,11 @@ import type { LeadIntent } from "@/lib/leads/types";
 const UTF8_BOM = "\uFEFF";
 
 export const LEADS_CSV_HEADERS = [
- "Oluşturulma Tarihi",
- "UTC Tarih",
- "Ad Soyad",
- "E-posta",
- "Telefon",
+ "Created Date",
+ "UTC Date",
+ "Full Name",
+ "Email",
+ "Phone",
  "Intent",
  "Tool / Source",
  "Plan",

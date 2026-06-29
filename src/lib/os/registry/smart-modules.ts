@@ -1,6 +1,6 @@
 /**
- * Smart Modules — sektörel uzmanlık modül kataloğu.
- * IndustrialRegistry.features bu kimlikleri referans alır.
+ * Smart Modules — sector expertise module catalog.
+ * IndustrialRegistry.features references these IDs.
  */
 
 export const SmartModuleIds = {
@@ -60,7 +60,7 @@ export function isSmartModuleId(value: string): value is SmartModuleId {
   return Object.values(SmartModuleIds).includes(value as SmartModuleId);
 }
 
-/** Intelligence Layer UI — legacy expert feature bayraklarına köprü. */
+/** Intelligence Layer UI — bridge to legacy expert feature flags. */
 export type ExpertFeatureKey =
   | "hiddenLoss"
   | "energyOpt"

@@ -1,0 +1,310 @@
+{
+  "schemaId": "PRO_037",
+  "toolCode": "TOOL-PRO-037",
+  "version": "1.0.0",
+  "name": "Bolted Flange Joint Integrity — Gasket Seating Stress, Bolt Load & Leak Tightness Class",
+  "subtitle": "Pressure Equipment | Mechanical Integrity — ASME BPVC VIII Div.1 App.2, ASME PCC-1-2019",
+  "sectorPath": [
+    "Pressure Equipment",
+    "Mechanical Integrity"
+  ],
+  "standardsBasis": [
+    "ASME BPVC VIII Div.1 App.2",
+    "ASME PCC-1-2019",
+    "ASME B16.5-2017",
+    "EN 1591-1:2013",
+    "ASTM A193 B7"
+  ],
+  "scope": {
+    "inScope": [
+      "Bolted Flange Joint Integrity — Gasket Seating Stress, Bolt Load & Leak Tightness Class"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "design_pressure_bar",
+      "symbol": "design_pressure_bar",
+      "label": "Internal Design Pressure (P_d)",
+      "unit": {
+        "ref": "bar(g)"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.1,
+      "max": 700
+    },
+    {
+      "id": "flange_od_mm",
+      "symbol": "flange_od_mm",
+      "label": "Flange Outside Diameter (OD)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 20,
+      "max": 3000
+    },
+    {
+      "id": "gasket_id_mm",
+      "symbol": "gasket_id_mm",
+      "label": "Gasket Inner Diameter (G_ID)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 2500
+    },
+    {
+      "id": "gasket_od_mm",
+      "symbol": "gasket_od_mm",
+      "label": "Gasket Outer Diameter (G_OD)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 15,
+      "max": 2600
+    },
+    {
+      "id": "gasket_m_factor",
+      "symbol": "gasket_m_factor",
+      "label": "Gasket Material Factor (m)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.5,
+      "max": 6.5,
+      "default": 2
+    },
+    {
+      "id": "gasket_y_mpa",
+      "symbol": "gasket_y_mpa",
+      "label": "Minimum Gasket Seating Stress (y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0,
+      "max": 200,
+      "default": 68.9
+    },
+    {
+      "id": "bolt_count",
+      "symbol": "bolt_count",
+      "label": "Number of Bolts (n_b)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 4,
+      "max": 120
+    },
+    {
+      "id": "bolt_root_area_mm2",
+      "symbol": "bolt_root_area_mm2",
+      "label": "Bolt Root Tensile Stress Area (A_b)",
+      "unit": {
+        "ref": "mm2"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 5000
+    },
+    {
+      "id": "bolt_material_yield_mpa",
+      "symbol": "bolt_material_yield_mpa",
+      "label": "Bolt Material Yield Strength (S_y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 200,
+      "max": 1500,
+      "default": 724
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_037",
+      "code": "ASME BPVC VIII Div.1 App.2",
+      "name": "Bolted Flange Joint Integrity — Gasket Seating Stress, Bolt Load & Leak Tightness Class",
+      "description": "Bolted Flange Joint Integrity — Gasket Seating Stress, Bolt Load & Leak Tightness Class — Pressure Equipment, Mechanical Integrity",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "N",
+          "expression": "(gasket_od_mm - gasket_id_mm) / 2; b_eff = (N <= 12.7) ? N/2 : 2.53*Math.sqrt(N/2)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "ASME BPVC VIII Div.1 App.2 §2-5",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "G_mean",
+          "expression": "gasket_id_mm + 2*b_eff_mm; H = Math.PI/4 * (G_mean/1000)^2 * design_pressure_bar * 1e5 / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ASME BPVC VIII App.2 — hydrostatic load on mean gasket diameter",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "H_p",
+          "expression": "2*Math.PI*G_mean_m*b_eff_mm*1e-3 * gasket_m_factor * design_pressure_bar*1e5/1000; W_op_kN = H_kN + H_p",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ASME BPVC VIII App.2 Eq.(2)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "W_seat_kN",
+          "expression": "Math.PI * G_mean_m * b_eff_mm*1e-3 * gasket_y_mpa * 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ASME BPVC VIII App.2 Eq.(3)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "W_avail_kN",
+          "expression": "bolt_count * bolt_root_area_mm2 * 1e-6 * bolt_material_yield_mpa * 1000 * 0.7",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "bolt_ratio",
+          "expression": "W_avail_kN / Math.max(W_op_kN, W_seat_kN)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "EN 1591-1:2013 §7 — ratio ≥ 1.0 required",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ASME BPVC VIII Div.1 App.2",
+          "condition": "bolt_ratio < 1.0",
+          "message": "Bolt load deficit: add bolts, upgrade bolt grade, or use lower-y gasket per ASME App.2 §2-5"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ASME BPVC VIII Div.1 App.2",
+          "condition": "bolt_ratio > 2.5",
+          "message": "Excessive bolt load: gasket crush risk — verify gasket crush limit per manufacturer data"
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "ASME BPVC VIII Div.1 App.2",
+          "condition": "design_pressure_bar > 100 && gasket_m_factor < 2.5",
+          "message": "High-pressure service with low m-factor: soft gasket inadequate — use spiral-wound or ring-type joint"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ASME BPVC VIII Div.1 App.2",
+          "condition": "b_eff_mm > 19",
+          "message": "Wide effective seating width: bolt load demand increases sharply — verify torque values per PCC-1-2019"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "ASME BPVC VIII Div.1 App.2",
+          "condition": "bolt_count < 8 && design_pressure_bar > 40",
+          "message": "Few bolts at elevated pressure: flange rotation risk — minimum 8 bolts recommended per ASME B16.5"
+        },
+        {
+          "id": "W6",
+          "severity": "INFO",
+          "source": "ASME BPVC VIII Div.1 App.2",
+          "condition": "bolt_material_yield_mpa > 1200",
+          "message": "High-strength bolting: stress corrosion cracking susceptibility in H₂S service per NACE MR0175"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "design_pressure_bar",
+        "flange_od_mm",
+        "gasket_id_mm",
+        "gasket_od_mm",
+        "gasket_m_factor",
+        "gasket_y_mpa",
+        "bolt_count",
+        "bolt_root_area_mm2",
+        "bolt_material_yield_mpa"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

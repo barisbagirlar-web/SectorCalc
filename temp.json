@@ -1,0 +1,791 @@
+[{
+      "tool_id": "MECH_360",
+      "tool_name": "Pres Uyumlu Montaj İtme/Çekme Kuvveti",
+      "category": "Talaşlı İmalat ve Montaj",
+      "inputs": [
+        { "id": "temas_basinci", "name": "Geçme Yüzeyinde Oluşan Basınç (p)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "nominal_cap", "name": "Mil / Göbek Çapı (d)", "unit": "mm", "type": "number", "required": true },
+        { "id": "gecme_uzunlugu", "name": "Temas Yüzeyi Uzunluğu (L)", "unit": "mm", "type": "number", "required": true },
+        { "id": "surtunme", "name": "Sürtünme Katsayısı (μ - Presleme: 0.12)", "unit": "Katsayı", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "surtunme": { "absolute_min": 0.01, "absolute_max": 0.4, "error_msg": "Çelik-Çelik arası sürtünme katsayısı geçersiz (Sınırları aşarsanız formül soğuk kaynama/kilitlenmeyi ıskalar)." }
+        },
+        "smart_warnings": [
+          { "condition": "surtunme > 0.15", "severity": "WARNING", "source": "DIN 7190 Pres Geçme Tesisatı", "message": "Uyarı: Kuru ve yağsız yüzeylerde sürtünme katsayısı yüksek alınmıştır. Hidrolik presle montaj yapılırken milde veya göbekte 'Galling (Soğuk Kaynama / Yırtılma)' riski çok yüksektir. Montaj kuvveti katlanarak artar, montaj pastası (Örn: MoS2) kullanın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MET_361",
+      "tool_name": "Düzlemsellik Toleransı (Flatness - GD&T)",
+      "category": "Metroloji ve Kalite Kontrol",
+      "inputs": [
+        { "id": "maks_tepe", "name": "CMM'den Ölçülen Maksimum Tepe Noktası (+Z)", "unit": "mm", "type": "number", "required": true },
+        { "id": "maks_vadi", "name": "CMM'den Ölçülen Maksimum Vadi Noktası (-Z)", "unit": "mm", "type": "number", "required": true },
+        { "id": "tolerans_limiti", "name": "Teknik Resim Düzlemsellik Toleransı", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "tolerans_limiti": { "absolute_min": 0.0001, "error_msg": "Kusursuz düzlem üretmek imkansızdır, 0'dan büyük bir tolerans giriniz." },
+          "vadi_mantik": { "condition": "maks_vadi > 0", "error_msg": "Metroloji Hatası: Vadi (Çukur) noktası referans düzleminin altında olmalıdır (Değeri pozitif girdiyseniz formül yanlış çalışır, - işareti kullanmadan mutlak derinliği giriniz)." }
+        },
+        "smart_warnings": [
+          { "condition": "(maks_tepe + maks_vadi) > tolerans_limiti", "severity": "CRITICAL", "source": "ASME Y14.5 Düzlemsellik Şartı", "message": "Kritik Kalite Reddi: Toplam sapma (En yüksek tepe ile en derin vadi arası mesafe) düzlemsellik toleransını aşıyor. İki paralel düzlem arasına sığmayan bu parça, sızdırmazlık yüzeyiyse yağ kaçıracak; montaj yüzeyiyse cıvata sıkıldığında kasılarak çatlayacaktır." }
+        ]
+      }
+    }
+  ]
+},{
+  "batch_037_advanced_materials": [
+    {
+      "tool_id": "MFG_362",
+      "tool_name": "Döküm Akışkanlığı (Superheat Toleransı)",
+      "category": "Metalurji ve Döküm",
+      "inputs": [
+        { "id": "dokum_sicakligi", "name": "Pota Döküm Sıcaklığı", "unit": "°C", "type": "number", "required": true },
+        { "id": "likidus_sicakligi", "name": "Alaşıma Özgü Likidus (Tam Sıvı) Sıcaklığı", "unit": "°C", "type": "number", "required": true },
+        { "id": "kalip_kesit", "name": "Kalıbın En İnce Kesit Kalınlığı", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "sicaklik_engel": { "condition": "dokum_sicakligi <= likidus_sicakligi", "error_msg": "Termodinamik Red: Döküm sıcaklığı likidus sıcaklığına eşit veya küçük olamaz. Metal potada veya yollukta (Runner) katılaşır." },
+          "kalip_kesit": { "absolute_min": 0.5, "error_msg": "Kesit kalınlığı metal döküm için fiziksel olarak çok küçük." }
+        },
+        "smart_warnings": [
+          { "condition": "(dokum_sicakligi - likidus_sicakligi) < 50 && kalip_kesit < 5", "severity": "CRITICAL", "source": "Döküm Hataları Analizi", "message": "Kritik İmalat Riski: Aşırı ısınma (Superheat) payı ince kesitli bir kalıp için (<5mm) çok yetersiz. Metal kalıbı tamamen dolduramadan donacak, parçada 'Soğuk Birleşme (Cold Shut)' ve 'Eksik Dolum (Misrun)' hurda hataları KESİNLİKLE oluşacaktır. Döküm sıcaklığını artırın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MFG_363",
+      "tool_name": "Kompozit Fiber Hacim Oranı (Vf)",
+      "category": "İleri Malzemeler",
+      "inputs": [
+        { "id": "fiber_hacmi", "name": "Fiber (Karbon/Cam) Toplam Hacmi", "unit": "cm3", "type": "number", "required": true },
+        { "id": "recine_hacmi", "name": "Matris (Reçine/Epoksi) Toplam Hacmi", "unit": "cm3", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "hacim_min": { "condition": "fiber_hacmi <= 0 || recine_hacmi <= 0", "error_msg": "Hacim değerleri sıfır veya negatif olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(fiber_hacmi / (fiber_hacmi + recine_hacmi)) * 100 > 70", "severity": "CRITICAL", "source": "Havacılık Kompozit Standartları", "message": "Kritik Yapısal Zafiyet: Fiber hacim oranı %70'in üzerindedir. Reçine miktarı yetersiz kalarak elyafları tam olarak ıslatamayacak (Wet-out failure); yapıda mikro boşluklar (Voids), kuru bölgeler (Dry Spots) ve katman ayrışması (Delamination) oluşacaktır." },
+          { "condition": "(fiber_hacmi / (fiber_hacmi + recine_hacmi)) * 100 < 30", "severity": "WARNING", "source": "Kompozit Mühendisliği", "message": "Uyarı: Fiber oranı çok düşük (<%30). Reçine açısından zengin (Resin-rich) olan bu parça gereksiz yere ağır ve mekanik dayanım (Çekme/Eğilme) açısından son derece zayıf olacaktır. İnfüzyon veya Prepreg yöntemine geçin." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_364",
+      "tool_name": "Çok Eksenli Yorulma (Sines Kriteri Eşdeğer Gerilme)",
+      "category": "Mukavemet / FEA",
+      "inputs": [
+        { "id": "genlik_gerilme", "name": "Alternatif (Genlik) Gerilme Eşdeğeri (J2_a)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "hidrostatik_gerilme", "name": "Ortalama Hidrostatik Gerilme (P_m)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "akma_siniri", "name": "Malzemenin Yorulma Akma Sınırı", "unit": "MPa", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "akma_siniri": { "absolute_min": 10, "error_msg": "Akma sınırı geçersiz." }
+        },
+        "smart_warnings": [
+          { "condition": "(genlik_gerilme + (0.3 * hidrostatik_gerilme)) >= akma_siniri", "severity": "CRITICAL", "source": "Dinamik Hasar Analizi", "message": "Kritik Mekanik Red: Çok eksenli eşdeğer yorulma gerilmesi malzemenin yorulma dayanımını aşmaktadır. Sistemin sonsuz ömrü yoktur (Finite Life). Özellikle şaft ve rotlarda birleşik eğilme ve burulma altındaki mikro çatlaklar parçayı hızla kesecektir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MFG_365",
+      "tool_name": "Enjeksiyon Kalıp Çekme Payı (Shrinkage Tolerancing)",
+      "category": "Plastik Kalıpçılığı",
+      "inputs": [
+        { "id": "nominal_olcu", "name": "Teknik Resim İstenen Ölçü", "unit": "mm", "type": "number", "required": true },
+        { "id": "cekm_orani", "name": "Plastik Hammadde Çekme Oranı", "unit": "%", "type": "number", "required": true },
+        { "id": "parca_toleransi", "name": "Parça Teknik Resim Toleransı (±)", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "cekm_orani": { "absolute_min": 0.1, "absolute_max": 5.0, "error_msg": "Plastik çekme oranı genelde %0.1 (PC) ile %3.0 (POM/PA) arasındadır." }
+        },
+        "smart_warnings": [
+          { "condition": "(nominal_olcu * (cekm_orani / 100)) > (parca_toleransi * 3)", "severity": "WARNING", "source": "Kalıp Tasarım Doğrulaması", "message": "Uyarı: Polimerin doğal büzülmesinden kaynaklanan milimetrik değişim, parçanın teknik resim toleransından 3 kat daha büyüktür. Proses (Tutma basıncı, soğutma süresi) stabil kalmazsa parçalar doğrudan ıskartaya (Out of Spec) çıkacaktır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "CNC_366",
+      "tool_name": "Takım Ömrü (Taylor Denklemi)",
+      "category": "CNC İmalat / Talaşlı",
+      "inputs": [
+        { "id": "kesme_hizi", "name": "Gerçekleşen Kesme Hızı (Vc)", "unit": "m/dk", "type": "number", "required": true },
+        { "id": "taylor_katsayisi", "name": "Taylor Sabiti (C)", "unit": "Katsayı", "type": "number", "required": true },
+        { "id": "taylor_ussu", "name": "Malzeme/Takım Üssü (n)", "unit": "Katsayı", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "taylor_ussu": { "absolute_min": 0.05, "absolute_max": 0.6, "error_msg": "Taylor üssü (n) HSS için ~0.1, Karbür için ~0.25, Seramik için ~0.5 civarıdır. Geçersiz üs." }
+        },
+        "smart_warnings": [
+          { "condition": "POWER((taylor_katsayisi / kesme_hizi), (1 / taylor_ussu)) < 15", "severity": "CRITICAL", "source": "Sandvik Coromant Üretim Ekonomisi", "message": "Kritik Maliyet Uyarısı: Hesaplanan takım ömrü 15 dakikanın altındadır. Kesme hızınız (Vc) çok yüksek. Bu hızda ürettiğiniz parça başı kâr, yaktığınız kesici uç (Insert) maliyetini karşılayamayacak ve tezgâh sürekli takım değiştirme duruşuna (Downtime) geçecektir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_367",
+      "tool_name": "Yay İndeksi ve Sarım Zorluğu (Spring Index - C)",
+      "category": "Makine Elemanları",
+      "inputs": [
+        { "id": "ortalama_cap", "name": "Yay Ortalama Çapı (D)", "unit": "mm", "type": "number", "required": true },
+        { "id": "tel_cap", "name": "Yay Teli Çapı (d)", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "tel_cap": { "condition": "tel_cap >= ortalama_cap", "error_msg": "Geometrik İmkansızlık: Tel çapı, yayın ortalama çapından büyük olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(ortalama_cap / tel_cap) < 4", "severity": "CRITICAL", "source": "SMI Yay İmalat Standartları", "message": "Kritik İmalat Reddi: Yay indeksi (C) 4'ün altındadır. Tel o kadar kalın ve yay çapı o kadar dar ki, sarım makinesinde (Spring Coiler) telin plastik deformasyona uğratılıp sarılması fiziken imkansızdır; sarılsa bile iç gerilmelerden dolayı anında kırılır." },
+          { "condition": "(ortalama_cap / tel_cap) > 12", "severity": "WARNING", "source": "SMI Yay İmalat Standartları", "message": "Uyarı: Yay indeksi 12'nin üzerindedir. Yay kendi ağırlığını taşımakta bile zorlanacak, basma kuvveti altında anında burkulacaktır (Buckling). Tel çapını artırın veya içine kılavuz mil (Guide Pin) ekleyin." }
+        ]
+      }
+    },
+    {
+      "tool_id": "WELD_368",
+      "tool_name": "Kaynak Köşe Boyutu (Fillet Weld Sizing)",
+      "category": "Kaynak Mühendisliği",
+      "inputs": [
+        { "id": "kalin_sac", "name": "Birleştirilen En Kalın Sacın Kalınlığı", "unit": "mm", "type": "number", "required": true },
+        { "id": "hedef_kaynak_boyutu", "name": "Hedeflenen Köşe Kaynağı (Leg Size - z)", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "kalin_sac": { "absolute_min": 1, "error_msg": "Sac kalınlığı sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "hedef_kaynak_boyutu < 3 && kalin_sac >= 6", "severity": "CRITICAL", "source": "AWS D1.1 Structural Welding Code", "message": "Kritik Kalite İhlali: 6 mm ve üzeri kalınlıktaki sacların köşe kaynak birleşimlerinde (T-Joint), kaynak bacak boyu (Leg Size) minimum 3 mm (veya 5mm) olmalıdır. Düşük boyut ısıl gerilmeleri karşılayamaz ve kök yırtılması (Root Cracking) yapar." },
+          { "condition": "hedef_kaynak_boyutu > kalin_sac", "severity": "INFO", "source": "Kaynak Ekonomisi", "message": "Bilgi: Kaynak bacak boyu sac kalınlığını aşıyor. Mekanik dayanım en zayıf kesit (Sac) tarafından belirleneceğinden, sac kalınlığından daha büyük bir kaynak çekmek sıfır ek mukavemet sağlar, sadece tel/gaz ve zaman israfıdır (Overwelding)." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_369",
+      "tool_name": "Rulman Sınır Hızı (Limiting Speed)",
+      "category": "Döner Ekipmanlar",
+      "inputs": [
+        { "id": "katalog_hizi", "name": "Rulman Kataloğu Sınır Hızı (Yağlı veya Gresli)", "unit": "RPM", "type": "number", "required": true },
+        { "id": "calisma_hizi", "name": "Sistemin Planlanan Maksimum Hızı", "unit": "RPM", "type": "number", "required": true },
+        { "id": "yaglama_tipi", "name": "Uygulanan Yağlama", "type": "enum", "options": ["Gres", "Sıvı Yağ (Banyo/Damla)"], "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "calisma_hizi": { "absolute_min": 1, "error_msg": "Çalışma hızı sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "calisma_hizi > katalog_hizi", "severity": "CRITICAL", "source": "SKF / FAG Kinematik Limitler", "message": "Kritik İhlal: Çalışma hızı, rulmanın mekanik sınır hızını (Limiting Speed) aşmıştır. Kafes (Cage) merkezkaç kuvvetlerinden dolayı parçalanacak, bilyeler kanallardan fırlayacaktır. Çok yüksek hassasiyetli Spindle rulmanlarına geçiş yapın." },
+          { "condition": "yaglama_tipi == 'Gres' && calisma_hizi > (katalog_hizi * 0.8)", "severity": "WARNING", "source": "Triboloji Limitleri", "message": "Uyarı: Gres yağı kullanarak sınır hızın %80'ine ulaştınız. Bu hızlarda gres kanallardan savrulur ve sürtünme ısısı atılamaz. Yağ banyosu, damlatma veya hava-yağ (Oil-Air) püskürtme sistemine geçmeniz önerilir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MET_370",
+      "tool_name": "CMM Prob Ucu Kompanzasyon Hatası",
+      "category": "Metroloji ve Kalite Kontrol",
+      "inputs": [
+        { "id": "prob_radyusu", "name": "CMM Küresel Prob Radyüsü (r)", "unit": "mm", "type": "number", "required": true },
+        { "id": "temas_acisi", "name": "Parça Yüzeyi Temas Açısı Sapması (Gouge Angle)", "unit": "Derece", "type": "number", "required": true },
+        { "id": "tolerans_bandi", "name": "Parça Yüzey Tolerans Bandı", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "prob_radyusu": { "absolute_min": 0.1, "error_msg": "Geçerli bir prob radyüsü (Örn: 0.5, 1.0) giriniz." }
+        },
+        "smart_warnings": [
+          { "condition": "(prob_radyusu * (1 - COS(temas_acisi * 3.14159 / 180))) > (tolerans_bandi * 0.1)", "severity": "CRITICAL", "source": "ISO 10360 CMM Ölçüm Belirsizliği", "message": "Kritik Kalite Reddi: Eğimli yüzeyde küresel probun merkez ile temas noktası arasındaki kayma hatası (Cosine Error), parça tolerans bandının %10'unu aşıyor. CMM yazılımı bu vektör sapmasını doğru kompanze edemezse parça sağlam olsa bile ıskartaya (False Reject) çıkacaktır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_371",
+      "tool_name": "Basınçlı Boru Et Kalınlığı (Barlow Formülü)",
+      "category": "Endüstriyel Tesisat / ASME",
+      "inputs": [
+        { "id": "ic_basinc", "name": "Maksimum İç Basınç (P)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "dis_cap", "name": "Boru Dış Çapı (D)", "unit": "mm", "type": "number", "required": true },
+        { "id": "akma_dayanimi", "name": "Malzeme Akma Dayanımı (Sy)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "dikis_faktoru", "name": "Kaynak Dikiş Faktörü (E - Dikişsiz:1, Dikişli:0.8)", "unit": "Katsayı", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "dikis_faktoru": { "absolute_min": 0.5, "absolute_max": 1.0, "error_msg": "Kaynak faktörü 0.5 ile 1.0 arasında olmalıdır." }
+        },
+        "smart_warnings": [
+          { "condition": "((ic_basinc * dis_cap) / (2 * (akma_dayanimi * dikis_faktoru))) / (dis_cap/2) > 0.1", "severity": "WARNING", "source": "ASME B31.3 Proses Borulama", "message": "Uyarı: Gerekli cidar kalınlığının çapa oranı ince cidarlı boru (Thin-Walled) sınırlarını aşıyor. Barlow formülü basite indirgenmiştir, yüksek basınç borulaması için Lamé denklemleri veya doğrudan ASME kalın cidarlı kap formülleri kullanılmalıdır." },
+          { "condition": "akma_dayanimi / ((ic_basinc * dis_cap) / (2 * 1 * dikis_faktoru)) < 4", "severity": "CRITICAL", "source": "ASME B31.3 Güvenlik Marjı", "message": "Kritik Patlama Riski: Hesaplanan boru et kalınlığına göre sistemin Emniyet Katsayısı (Safety Factor) 4'ün altına düşmektedir. Korozyon payı (Corrosion Allowance) ve diş açma payı (Thread Depth) eklenmeden imalata GEÇİLEMEZ." }
+        ]
+      }
+    }
+  ]
+},{
+  "batch_038_advanced_machining": [
+    {
+      "tool_id": "AUT_372",
+      "tool_name": "Pnömatik Silindir Dinamik Yanıt Süresi",
+      "category": "Otomasyon ve Pnömatik",
+      "inputs": [
+        { "id": "silindir_hacmi", "name": "Silindir Tam Strok Hacmi", "unit": "Litre", "type": "number", "required": true },
+        { "id": "hortum_uzunlugu", "name": "Valf ile Silindir Arası Hortum Uzunluğu", "unit": "m", "type": "number", "required": true },
+        { "id": "hortum_capi", "name": "Hortum İç Çapı", "unit": "mm", "type": "number", "required": true },
+        { "id": "valf_debisi", "name": "Valf Nominal Akış Debisi (Qn)", "unit": "Nl/dk", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "hortum_uzunlugu": { "absolute_min": 0.1, "error_msg": "Hortum uzunluğu sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "((3.14159 * (hortum_capi/20) * (hortum_capi/20)) * (hortum_uzunlugu * 10)) > (silindir_hacmi * 0.5)", "severity": "WARNING", "source": "FESTO Pnömatik Tasarım", "message": "Uyarı: Valf ile silindir arasındaki hortumun iç (Ölü) hacmi, silindir hacminin %50'sini aşıyor. Kompresör havası silindiri hareket ettirmeden önce sadece hortumu şişirmekle vakit kaybedecek; PLC yanıt süresi (Response Time) dramatik şekilde uzayacak. Valfi silindire yaklaştırın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "CNC_373",
+      "tool_name": "Derin Delik Delme (Gun Drilling) Parametreleri",
+      "category": "CNC İmalat / İleri Talaşlı",
+      "inputs": [
+        { "id": "matkap_capi", "name": "Takım Çapı (D)", "unit": "mm", "type": "number", "required": true },
+        { "id": "delik_derinligi", "name": "İşlenecek Delik Derinliği (L)", "unit": "mm", "type": "number", "required": true },
+        { "id": "sogutma_basinci", "name": "İçten Soğutma (CTS) Basıncı", "unit": "Bar", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "matkap_capi": { "absolute_min": 1, "error_msg": "Matkap çapı sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(delik_derinligi / matkap_capi) > 20 && sogutma_basinci < 50", "severity": "CRITICAL", "source": "VDI 3208 / Botek Derin Delme Standartları", "message": "Kritik Takım Reddi: L/D (Boy/Çap) oranı 20'yi aşmaktadır. 50 Bar altındaki soğutma sıvıları bu derinlikte talaşı tahliye edemez (Chip Evacuation Failure). Talaş matkabın etrafına sarılacak, kesme bölgesinde ısı 800°C'yi aşacak ve takım KESİNLİKLE parçanın içinde kaynayarak kırılacaktır. Minimum 70+ Bar HPC sistemi şarttır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MET_374",
+      "tool_name": "CMM Dinamik Tarama Hızı Hatası",
+      "category": "Metroloji ve Kalite Kontrol",
+      "inputs": [
+        { "id": "tarama_hizi", "name": "Prob Tarama Hızı", "unit": "mm/s", "type": "number", "required": true },
+        { "id": "prob_uzunlugu", "name": "Prob Ucu (Stylus) Uzunluğu", "unit": "mm", "type": "number", "required": true },
+        { "id": "beklenen_tolerans", "name": "Parça Yüzey Toleransı", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "prob_uzunlugu": { "absolute_min": 10, "absolute_max": 500, "error_msg": "Stylus uzunluğu cihaz kapasite sınırları dışındadır." }
+        },
+        "smart_warnings": [
+          { "condition": "(tarama_hizi > 20) && (prob_uzunlugu > 50)", "severity": "WARNING", "source": "ISO 10360-4 Tarama Modu", "message": "Uyarı: Uzun prob ucu (>50mm) ile yüksek hızlı tarama (>20mm/s) yapıyorsunuz. İvmelenmeler sırasında prob şaftında 'Dinamik Bükülme (Stylus Bending)' yaşanacak ve okunan nokta bulutu (Point Cloud) verilerinde ±5 mikrona varan asılsız sapmalar (False Deviation) ölçülecektir. Hızı düşürün." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MFG_375",
+      "tool_name": "Plastik Enjeksiyon Yolluk (Runner) Çaplandırma",
+      "category": "Plastik Kalıp Tasarımı",
+      "inputs": [
+        { "id": "parca_hacmi", "name": "Tek Bir Kavitenin Hacmi", "unit": "cm3", "type": "number", "required": true },
+        { "id": "yolluk_uzunlugu", "name": "Yolluk Kanalı Uzunluğu", "unit": "mm", "type": "number", "required": true },
+        { "id": "yolluk_capi", "name": "Tasarlanan Ana Yolluk Çapı", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "yolluk_capi": { "absolute_min": 1, "error_msg": "Yolluk çapı sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "yolluk_capi < (SQRT(parca_hacmi) + 1.5)", "severity": "WARNING", "source": "Reoloji ve Akış Analizi", "message": "Uyarı: Tasarlanan yolluk çapı parça hacmine oranla çok dar. Eriyik plastik yüksek hızda dar kanaldan geçerken aşırı 'Kayma Isınması (Shear Heating)' yaşayacak, polimer zincirleri parçalanacak (Degradation) ve parça üzerinde yanık izleri / mekanik zafiyet oluşacaktır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_376",
+      "tool_name": "Konik Dişli (Bevel Gear) Eksenel Ayrılma Kuvveti",
+      "category": "Makine Elemanları",
+      "inputs": [
+        { "id": "tegetsel_kuvvet", "name": "Teğetsel İletim Kuvveti (Wt)", "unit": "N", "type": "number", "required": true },
+        { "id": "kavrama_acisi", "name": "Kavrama Açısı (Genellikle 20°)", "unit": "Derece", "type": "number", "required": true },
+        { "id": "konik_aci", "name": "Dişli Bölüm Konisi Açısı (Pitch Angle - γ)", "unit": "Derece", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "konik_aci": { "absolute_min": 5, "absolute_max": 85, "error_msg": "Konik açı standart dişli sınırlarının dışındadır." }
+        },
+        "smart_warnings": [
+          { "condition": "true", "severity": "INFO", "source": "AGMA 2005 Tasarım Kılavuzu", "message": "Bilgi: Konik dişliler KESİNLİKLE eksenel yönde ayrılma (Thrust) kuvveti üretir. Şaft tasarımı yapılırken bu eksenel kuvveti karşılayacak konik makaralı veya açısal temaslı rulmanlar arkadan birbirini destekleyecek şekilde (Back-to-Back) yerleştirilmelidir, aksi halde dişli kutusu dağılır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "CIV_377",
+      "tool_name": "Kaynaklı Kiriş Kayma Akısı (Shear Flow - q)",
+      "category": "Yapısal Çelik Tasarımı",
+      "inputs": [
+        { "id": "kesme_kuvveti", "name": "Kiriş Kesidindeki Makaslama Kuvveti (V)", "unit": "N", "type": "number", "required": true },
+        { "id": "statik_moment", "name": "Alanların Birinci Momenti (Q)", "unit": "mm3", "type": "number", "required": true },
+        { "id": "atalet_momenti", "name": "Kiriş Atalet Momenti (I)", "unit": "mm4", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "atalet_momenti": { "absolute_min": 1, "error_msg": "Atalet momenti sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(kesme_kuvveti * statik_moment) / atalet_momenti > 500", "severity": "WARNING", "source": "AISC Steel Construction Manual", "message": "Uyarı: Birleşim yüzeyindeki mm başına düşen kayma akısı (q) 500 N/mm'yi aşıyor. Başlık (Flange) ve gövdeyi (Web) birleştiren sürekli köşe kaynağı bu yüke dayanamayabilir; kaynak dikiş kalınlığını artırın veya tam penetrasyonlu kaynak (CJP) kullanın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_378",
+      "tool_name": "Pres Geçme (Shrink Fit) Kayma/Ayrılma Torku",
+      "category": "Montaj Mühendisliği",
+      "inputs": [
+        { "id": "temas_basinci", "name": "Geçme Yüzeyi Ortalama Basıncı (p)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "mil_capi", "name": "Mil Çapı (d)", "unit": "mm", "type": "number", "required": true },
+        { "id": "gecme_uzunlugu", "name": "Temas Uzunluğu (L)", "unit": "mm", "type": "number", "required": true },
+        { "id": "surtunme", "name": "Sürtünme Katsayısı (μ)", "unit": "Katsayı", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "surtunme": { "absolute_min": 0.05, "absolute_max": 0.4, "error_msg": "Geçerli bir sürtünme katsayısı giriniz." }
+        },
+        "smart_warnings": [
+          { "condition": "true", "severity": "INFO", "source": "DIN 7190 Sürtünme Bağlantıları", "message": "Bilgi: Bu formül, bağlantının sıyırmadan taşıyabileceği MAKSİMUM torku verir. Sistemde ani kalkış (Şok yükleri) veya tersine dönüşler (Reversing Loads) varsa, mikro kaymaları (Micro-slip) önlemek için Emniyet Katsayısını (Sf) minimum 1.5 - 2.0 aralığında almalısınız." }
+        ]
+      }
+    },
+    {
+      "tool_id": "CNC_379",
+      "tool_name": "Taşlama Yüzey Yanığı (Specific Energy) Riski",
+      "category": "CNC İmalat / Taşlama",
+      "inputs": [
+        { "id": "tuketilen_guc", "name": "Taşlama Mili Çektiği Net Güç", "unit": "kW", "type": "number", "required": true },
+        { "id": "talas_hacmi", "name": "Talaş Kaldırma Hızı (MRR)", "unit": "mm3/s", "type": "number", "required": true },
+        { "id": "soğutma_debisi", "name": "Soğutma Sıvısı Debisi", "unit": "Litre/dk", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "talas_hacmi": { "absolute_min": 1, "error_msg": "MRR sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "((tuketilen_guc * 1000) / talas_hacmi) > 50 && soğutma_debisi < 30", "severity": "CRITICAL", "source": "Taşlama Termodinamiği", "message": "Kritik Kalite Reddi: Spesifik kesme enerjisi çok yüksek (>50 J/mm³) ve soğutma debisi yetersiz. Taşlanan çelik parçanın yüzeyinde sıcaklık 800°C'yi aşacak, martenzitik yapının menevişlenmesiyle 'Yüzey Yanığı (Grinding Burn)' ve kalıcı çatlaklar oluşacaktır. Taşı bileyin (Dressing) veya soğutmayı artırın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_380",
+      "tool_name": "Hidrolik Hortum Patlama Basıncı (Burst Pressure)",
+      "category": "Hidrolik ve Pnömatik",
+      "inputs": [
+        { "id": "calisma_basinci", "name": "Sistem Maksimum Çalışma Basıncı", "unit": "Bar", "type": "number", "required": true },
+        { "id": "hortum_patlama", "name": "Katalog Hortum Patlama Basıncı (Burst)", "unit": "Bar", "type": "number", "required": true },
+        { "id": "darbe_turu", "name": "Sistem Darbe Karakteristiği", "type": "enum", "options": ["Statik (Sabit Basınç)", "Dinamik (Ani Valf Aç/Kapa, Şok)"], "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "basinc_oran": { "condition": "hortum_patlama <= calisma_basinci", "error_msg": "Ölümcül İSG Hatası: Hortumun patlama basıncı çalışma basıncından küçük veya ona eşit olamaz. Sisteme akışkan VERİLEMEZ." }
+        },
+        "smart_warnings": [
+          { "condition": "darbe_turu == 'Dinamik (Ani Valf Aç/Kapa, Şok)' && (hortum_patlama / calisma_basinci) < 4", "severity": "CRITICAL", "source": "SAE J517 Hidrolik Hortum Standartları", "message": "Kritik İSG Uyarısı: Dinamik şoklar içeren sistemler (Örn: İş makineleri, presler) için Emniyet Katsayısı (Burst/Çalışma oranı) 4'ün altına inemez. Valflerin ani kapanması esnasında oluşan pik basınç (Surge/Spike) hortumu patlatarak ölümcül yağ enjeksiyonu yaralanmalarına yol açar." }
+        ]
+      }
+    },
+    {
+      "tool_id": "CNC_381",
+      "tool_name": "Broşlama Talaş Boşluğu (Gullet) Doluluk Hacmi",
+      "category": "Talaşlı İmalat",
+      "inputs": [
+        { "id": "talas_kalinligi", "name": "Diş Başına Talaş Kalınlığı (fz)", "unit": "mm", "type": "number", "required": true },
+        { "id": "parca_uzunlugu", "name": "İşlenen Parça (Kesim) Uzunluğu (L)", "unit": "mm", "type": "number", "required": true },
+        { "id": "bosluk_alani", "name": "Broş Dişi Arası Boşluk Alanı (Gullet Area)", "unit": "mm2", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "bosluk_alani": { "absolute_min": 0.5, "error_msg": "Diş arası boşluk sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(talas_kalinligi * parca_uzunlugu * 4) > bosluk_alani", "severity": "CRITICAL", "source": "Broşlama Takım Dinamikleri", "message": "Kritik Takım Kırılma Riski: Kesim uzadıkça biriken kıvrık talaşın hacmi (Talaş faktörü ~4x alınır), broş dişinin boşluk alanını (Gullet Area) aşmaktadır. Talaş sıkışacak (Packing), kesme kuvveti aniden fırlayacak ve broş iğnesi parçanın içinde kopacaktır." }
+        ]
+      }
+    }
+  ]
+},{
+  "batch_039_heavy_kinematics": [
+    {
+      "tool_id": "MECH_382",
+      "tool_name": "Asansör / Vinç Motor Gücü",
+      "category": "Kaldırma ve İletim Makineleri",
+      "inputs": [
+        { "id": "kaldirma_hizi", "name": "Kaldırma Hızı (v)", "unit": "m/s", "type": "number", "required": true },
+        { "id": "toplam_kütle", "name": "Kabin/Yük + Halat Kütlesi (m)", "unit": "kg", "type": "number", "required": true },
+        { "id": "karsi_agirlik_orani", "name": "Karşı Ağırlık Dengeleme Oranı (Örn: %50)", "unit": "%", "type": "number", "required": true },
+        { "id": "sistem_verimi", "name": "Mekanik Sistem Verimi (η)", "unit": "%", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "kaldirma_hizi": { "absolute_min": 0.01, "error_msg": "Kaldırma hızı sıfır olamaz." },
+          "karsi_agirlik_orani": { "absolute_max": 100, "error_msg": "Karşı ağırlık oranı %100'ü aşamaz (Aşarsa boş kabin yukarı doğru ivmelenir)." }
+        },
+        "smart_warnings": [
+          { "condition": "kaldirma_hizi > 2.5", "severity": "WARNING", "source": "EN 81 Asansör Standartları", "message": "Uyarı: Kaldırma hızı 2.5 m/s'yi aşıyor. Yüksek hızlı dikey taşımacılıkta paraşüt fren (Safety Gear) ve ray kılavuzlarının aerodinamik sürtünmesi motor gücü hesaplamalarına belirgin bir direnç (Drag) olarak eklenmelidir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_383",
+      "tool_name": "Tel Halat (Wire Rope) Güvenlik Katsayısı",
+      "category": "Kaldırma ve İletim Makineleri",
+      "inputs": [
+        { "id": "kopma_yuku", "name": "Halat Minimum Kopma Yükü (MBL)", "unit": "kN", "type": "number", "required": true },
+        { "id": "maks_calisma_yuku", "name": "Maksimum Çalışma Yükü (SWL)", "unit": "kN", "type": "number", "required": true },
+        { "id": "kaldirma_tipi", "name": "Kaldırma Operasyonu Tipi", "type": "enum", "options": ["Genel Yük Kaldırma", "Personel Taşıma (Asansör)"], "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "yük_mantigi": { "condition": "maks_calisma_yuku >= kopma_yuku", "error_msg": "İSG Reddi: Çalışma yükü, halatın kopma sınırından büyük olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "kaldirma_tipi == 'Genel Yük Kaldırma' && (kopma_yuku / maks_calisma_yuku) < 5", "severity": "CRITICAL", "source": "ISO 4309 Vinç Halatları", "message": "Kritik Güvenlik İhlali: Genel vinç uygulamalarında tel halat güvenlik katsayısı (FoS) 5'in altına inemez. Halatın dinamik şok yüklerinde veya hafif aşınmalarda aniden kopma riski vardır." },
+          { "condition": "kaldirma_tipi == 'Personel Taşıma (Asansör)' && (kopma_yuku / maks_calisma_yuku) < 10", "severity": "CRITICAL", "source": "EN 81 / OSHA", "message": "Ölümcül İSG İhlali: İnsan taşıyan asansör/sepet uygulamalarında güvenlik katsayısı MİNİMUM 10 olmalıdır. Daha düşük bir oran yasal olarak suç teşkil eder ve halat kullanımına KESİNLİKLE izin verilemez." }
+        ]
+      }
+    },
+    {
+      "tool_id": "AUT_384",
+      "tool_name": "Pnömatik Valf Sonik Geçirgenlik (C Değeri)",
+      "category": "Otomasyon ve Pnömatik",
+      "inputs": [
+        { "id": "kütlesel_debi", "name": "Maksimum Kütlesel Debi (Qm)", "unit": "kg/s", "type": "number", "required": true },
+        { "id": "giris_basinci", "name": "Giriş Basıncı (Mutlak - P1)", "unit": "Pa", "type": "number", "required": true },
+        { "id": "sicaklik", "name": "Hava Sıcaklığı (T1)", "unit": "Kelvin", "type": "number", "required": true },
+        { "id": "yogunluk_referans", "name": "Referans Durum Yoğunluğu (ρ0)", "unit": "kg/m3", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "sicaklik": { "absolute_min": 100, "error_msg": "Kelvin cinsinden sıcaklık çok düşük (Sıvılaştırma noktası)." },
+          "giris_basinci": { "absolute_min": 100000, "error_msg": "Mutlak giriş basıncı atmosfer basıncının altında olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "true", "severity": "INFO", "source": "ISO 6358 Pnömatik Akışkan Gücü", "message": "Bilgi: Bu araç valfin 'C' (Sonic Conductance) değerini hesaplar. Çıkan sonuç [dm³/(s·bar)] cinsindendir ve Pnömatik silindirlerin dolum/boşalma (Response Time) dinamik simülasyonlarında kullanılacak ana parametredir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "AUT_385",
+      "tool_name": "Pnömatik Valf Kritik Basınç Oranı (b Değeri)",
+      "category": "Otomasyon ve Pnömatik",
+      "inputs": [
+        { "id": "cikis_basinci_sinir", "name": "Akışın Sonik Hıza Ulaştığı (Boğulduğu) Çıkış Basıncı (P2*)", "unit": "Bar_Mutlak", "type": "number", "required": true },
+        { "id": "giris_basinci", "name": "Giriş Basıncı (P1)", "unit": "Bar_Mutlak", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "basinc_oran": { "condition": "cikis_basinci_sinir >= giris_basinci", "error_msg": "Mantıksal Hata: Çıkış basıncı giriş basıncından büyük olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(cikis_basinci_sinir / giris_basinci) > 0.528", "severity": "WARNING", "source": "İdeal Gaz Dinamiği", "message": "Uyarı: Pnömatik sistemlerde kritik basınç oranı (b) hava için teorik olarak 0.528'dir. Elde edilen değerin 0.528'den çok yüksek olması, valf iç geometrisinde (Spool/Poppet) ciddi bir daralma veya türbülans kaybı olduğunu gösterir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "CNC_386",
+      "tool_name": "Takım Çekme (Pull-Out) Kuvveti ve Emniyeti",
+      "category": "CNC İmalat / Takım Tutucu Dinamikleri",
+      "inputs": [
+        { "id": "eksenel_kesme_kuvveti", "name": "Kesme Esnasında Oluşan Eksenel Kuvvet (Fz)", "unit": "N", "type": "number", "required": true },
+        { "id": "tutucu_torku", "name": "Takım Tutucu (Chuck) Kavrama Kuvveti/Torku", "unit": "N.m", "type": "number", "required": true },
+        { "id": "takim_capi", "name": "Freze Şaft Çapı", "unit": "mm", "type": "number", "required": true },
+        { "id": "helis_acisi", "name": "Freze Helis Açısı", "unit": "Derece", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "helis_acisi": { "absolute_min": 0, "absolute_max": 65, "error_msg": "Helis açısı standart takım limitlerinin dışındadır." }
+        },
+        "smart_warnings": [
+          { "condition": "helis_acisi > 45 && (eksenel_kesme_kuvveti * (takim_capi/2000)) > (tutucu_torku * 0.4)", "severity": "CRITICAL", "source": "Takım Güvenliği (Milling Dynamics)", "message": "Kritik Hurda Riski: Yüksek helis açılı (>45°) takım ve yüksek eksenel kuvvet birleşimi, tutucunun kavrama torkunu yenerek takımı pensetten (Örn: ER Collet) dışarı çekecektir (Pull-Out). Takım parçaya saplanarak tezgâhı veya iş parçasını parçalar. Weldon şaftlı tutucu (Side Lock) veya shrink-fit kullanın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MFG_387",
+      "tool_name": "Pres Şekillendirme İş Zarfı (Forming Energy)",
+      "category": "Kalıp ve Pres Teknolojileri",
+      "inputs": [
+        { "id": "ortalama_kuvvet", "name": "Şekillendirme İşlemi Ortalama Kuvveti (F_avg)", "unit": "kN", "type": "number", "required": true },
+        { "id": "islem_strok", "name": "Deformasyonun Gerçekleştiği Strok (h)", "unit": "mm", "type": "number", "required": true },
+        { "id": "pres_enerji_kapasitesi", "name": "Pres Volanı (Flywheel) Nominal Enerji Kapasitesi", "unit": "Joule (J)", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "islem_strok": { "absolute_min": 0.1, "error_msg": "İşlem strok mesafesi sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(ortalama_kuvvet * islem_strok) > (pres_enerji_kapasitesi * 0.8)", "severity": "CRITICAL", "source": "Eksantrik Pres Mekaniği", "message": "Kritik Sıkışma Riski: Şekillendirme için gereken iş (Enerji), pres volanının (Flywheel) nominal kapasitesinin %80'ini aşmaktadır. Pres Alt Ölü Noktayı (AÖN / BDC) geçemeden mekanik olarak KİLİTLENEBİLİR. Tonaj yetse bile volan enerjisi yetersizdir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_388",
+      "tool_name": "Flanş Cıvatası Gerilme ve Conta (Gasket) Yükü",
+      "category": "Endüstriyel Tesisat ve Basınçlı Kaplar",
+      "inputs": [
+        { "id": "ic_basinc", "name": "Tesisat Çalışma Basıncı", "unit": "MPa", "type": "number", "required": true },
+        { "id": "flans_ic_capi", "name": "Conta Temas Yüzeyi İç Çapı", "unit": "mm", "type": "number", "required": true },
+        { "id": "civata_sayisi", "name": "Flanştaki Toplam Cıvata Sayısı", "unit": "Adet", "type": "number", "required": true },
+        { "id": "civata_kesit", "name": "Tek Cıvatanın Stres (Diş Dibi) Kesit Alanı", "unit": "mm2", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "civata_sayisi": { "absolute_min": 4, "error_msg": "ASME standartlarında sızdırmaz bir flanş minimum 4 cıvata ile bağlanmalıdır." }
+        },
+        "smart_warnings": [
+          { "condition": "((ic_basinc * 3.14159 * (flans_ic_capi/2) * (flans_ic_capi/2)) / (civata_sayisi * civata_kesit)) > 150", "severity": "WARNING", "source": "ASME B16.5 Flanş Tasarımı", "message": "Uyarı: Hidrostatik itme (End Thrust) kuvvetinden cıvatalara binen çekme gerilmesi 150 MPa'yı aşmaktadır. Contanın sızdırmazlık sağlaması için gereken ek ön yük (Preload / Gasket Seating) hesaba katıldığında düşük kalite cıvatalar akma/kopma yaşayacaktır. Min. 8.8 veya B7 kalite cıvata kullanın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_389",
+      "tool_name": "Hidrolik Pompa Emme Özgül Hızı (Nss - Suction Specific Speed)",
+      "category": "Döner Ekipmanlar / Pompalar",
+      "inputs": [
+        { "id": "devir", "name": "Pompa Çalışma Devri (N)", "unit": "RPM", "type": "number", "required": true },
+        { "id": "debi", "name": "BEP (En Verimli Nokta) Akış Debisi (Q)", "unit": "GPM", "type": "number", "required": true },
+        { "id": "npsh_r", "name": "Gerekli Net Pozitif Emme Yüksekliği (NPSHr)", "unit": "ft", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "npsh_r": { "absolute_min": 0.5, "error_msg": "NPSHr değeri çok düşük, santrifüj pompalar için mantıksız." }
+        },
+        "smart_warnings": [
+          { "condition": "(devir * SQRT(debi)) / POWER(npsh_r, 0.75) > 11000", "severity": "CRITICAL", "source": "API 610 Pompa Standartları", "message": "Kritik Kavitasyon/Titreşim Riski: Emme Özgül Hızı (Nss) 11.000 sınırını aşmıştır. Bu tip pervaneler (Impeller) tasarımsal olarak stabil değildir; kısmi yüklerde çalışırken çark girişinde şiddetli resirkülasyon (Recirculation Cavitation) yaşanacak ve pompa aşırı titreşimle parçalanacaktır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_390",
+      "tool_name": "Rulman Yağlama Filmi Kalınlık Oranı (Kappa - κ / Lambda - λ)",
+      "category": "Triboloji ve Yağlama Teknikleri",
+      "inputs": [
+        { "id": "calisma_viskozitesi", "name": "Çalışma Sıcaklığında Gerçekleşen Viskozite (ν)", "unit": "cSt (mm2/s)", "type": "number", "required": true },
+        { "id": "referans_viskozite", "name": "Devir ve Çapa Göre Gerekli (Referans) Viskozite (ν1)", "unit": "cSt (mm2/s)", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "referans_viskozite": { "absolute_min": 1, "error_msg": "Referans viskozite geçersiz." }
+        },
+        "smart_warnings": [
+          { "condition": "(calisma_viskozitesi / referans_viskozite) < 1.0", "severity": "CRITICAL", "source": "SKF / Elastohidrodinamik Yağlama (EHL)", "message": "Kritik Aşınma Reddi: Lambda oranı (κ) 1.0'in altındadır. Yuvarlanma elemanları ile yuva arasındaki ince hidrodinamik yağ filmi yırtılmıştır (Boundary Lubrication). Bilyeler doğrudan metal-metale temas ederek sürtecek ve yatağı yakacaktır (Smearing/Spalling). Daha viskoz (kalın) bir yağ veya EP katkılı gres seçin." },
+          { "condition": "(calisma_viskozitesi / referans_viskozite) > 4.0", "severity": "WARNING", "source": "Triboloji Dinamikleri", "message": "Uyarı: Lambda oranı 4.0'ün üzerindedir. Çok güvenli bir yağ filmi olsa da, aşırı viskoz yağ sürtünme ısılarını (Churning) tetikler ve rulmanın mekanik verimini düşürür." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_391",
+      "tool_name": "Isıl Genleşme Boru Mesnet (Anchor) Yükü",
+      "category": "Endüstriyel Tesisat",
+      "inputs": [
+        { "id": "elastisite", "name": "Boru Malzemesi Elastisite Modülü (E)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "kesit_alani", "name": "Borunun Et (Kesit) Alanı (A)", "unit": "mm2", "type": "number", "required": true },
+        { "id": "genlesme_katsayisi", "name": "Lineer Genleşme Katsayısı (α)", "unit": "1/°C", "type": "number", "required": true },
+        { "id": "sicaklik_farki", "name": "Maksimum Sıcaklık Değişimi (ΔT)", "unit": "°C", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "kesit_alani": { "absolute_min": 10, "error_msg": "Boru kesit alanı çok düşük." }
+        },
+        "smart_warnings": [
+          { "condition": "(elastisite * kesit_alani * genlesme_katsayisi * sicaklik_farki) > 50000", "severity": "CRITICAL", "source": "ASME B31.3 Proses Borulama", "message": "Kritik Yapısal İhlal: İki sabit nokta (Anchor) arasında genleşemeyen borunun mesnetlere uygulayacağı itme kuvveti 50 kN'u (5 Ton) aşmaktadır. Tesisat bu yük altında bükülecek (Bowing) veya ankrajları beton/çelik yapıdan koparacaktır. Sisteme genleşme kompansatörü (Expansion Joint) veya omega/U-büküm eklenmesi KESİNLİKLE şarttır." }
+        ]
+      }
+    }
+  ]
+},{
+  "batch_040_heavy_manufacturing3": [
+    {
+      "tool_id": "CNC_392",
+      "tool_name": "Kılavuz Çekme (Tapping) Torku ve Kesme Kuvveti",
+      "category": "CNC İmalat / Talaşlı",
+      "inputs": [
+        { "id": "vida_cap", "name": "Nominal Vida Çapı (d)", "unit": "mm", "type": "number", "required": true },
+        { "id": "hatve", "name": "Diş Hatvesi (P)", "unit": "mm", "type": "number", "required": true },
+        { "id": "ozgul_kesme_direnci", "name": "Malzeme Özgül Kesme Kuvveti (kc)", "unit": "N/mm2", "type": "number", "required": true },
+        { "id": "tutucu_kapasite", "name": "Kılavuz Tutucu Maksimum Tork Sınırı", "unit": "N.m", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "geometri_mantik": { "condition": "hatve >= vida_cap", "error_msg": "Geometrik Hata: Vida hatvesi nominal çaptan büyük veya eşit olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "((ozgul_kesme_direnci * (hatve * hatve) * vida_cap) / 4000) > tutucu_kapasite", "severity": "CRITICAL", "source": "VDI 3321 / Sandvik Tapping", "message": "Kritik Takım Kırılma Riski: İşlenecek malzemenin yarattığı kesme torku, kılavuz tutucunun (veya pensetin) sıkma kapasitesini aşıyor. Kılavuz parça içinde patinaj yapacak (Slipping), eksenel senkronizasyon bozulacak ve takım KESİNLİKLE kırılacaktır. Senkronize tutucuya geçin veya matkap çapını büyütün." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_393",
+      "tool_name": "Volan (Flywheel) Kinetik Enerji ve Stres",
+      "category": "Makine Dinamiği",
+      "inputs": [
+        { "id": "atalet_momenti", "name": "Volan Kütle Atalet Momenti (I)", "unit": "kg.m2", "type": "number", "required": true },
+        { "id": "calisma_devri", "name": "Çalışma Devri (N)", "unit": "RPM", "type": "number", "required": true },
+        { "id": "dis_cap", "name": "Volan Dış Çapı (D)", "unit": "m", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "atalet_momenti": { "absolute_min": 0.001, "error_msg": "Atalet momenti sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "((3.14159 * dis_cap * calisma_devri) / 60) > 250", "severity": "CRITICAL", "source": "Makine Tasarımı Patlama Limiti", "message": "Kritik İSG Reddi: Volan çember hızı (Peripheral Velocity) 250 m/s'yi aşmaktadır. Standart çelik döküm volanlar merkezkaç kuvvetlerinden dolayı içten dışa doğru yırtılarak (Burst) şarapnel gibi patlar. Devri düşürün veya dövme/karbon-fiber kompozit volana geçin." }
+        ]
+      }
+    },
+    {
+      "tool_id": "WELD_394",
+      "tool_name": "Kaynaklı Dairesel Bağlantı Burulma Gerilmesi",
+      "category": "Kaynak Mühendisliği",
+      "inputs": [
+        { "id": "tork", "name": "Uygulanan Burulma Momenti (T)", "unit": "N.m", "type": "number", "required": true },
+        { "id": "kaynak_bogazi", "name": "Kaynak Boğaz Kalınlığı (a)", "unit": "mm", "type": "number", "required": true },
+        { "id": "mil_cap", "name": "Kaynaklanan Mil/Boru Dış Çapı (D)", "unit": "mm", "type": "number", "required": true },
+        { "id": "kaynak_akma", "name": "Kaynak Metali Akma Dayanımı (Sy)", "unit": "MPa", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "kaynak_bogazi": { "absolute_min": 2, "error_msg": "Kaynak boğaz kalınlığı mukavemet hesapları için mantıksız derecede ince." }
+        },
+        "smart_warnings": [
+          { "condition": "((2 * tork * 1000) / (3.14159 * (mil_cap/2) * (mil_cap/2) * kaynak_bogazi)) > (kaynak_akma * 0.577)", "severity": "WARNING", "source": "AWS D1.1 / Von Mises", "message": "Uyarı: Kaynak dikişinde oluşan kayma gerilmesi (Shear Stress), kaynak metalinin kayma akma sınırını (Sy * 0.577) aşmaktadır. Tork altında kaynak dikişinde plastik deformasyon veya yırtılma başlayacaktır. Kaynak bacak boyunu artırın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_395",
+      "tool_name": "Pnömatik/Hidrolik Orifis Akışı (Orifice Flow)",
+      "category": "Hidrolik ve Pnömatik",
+      "inputs": [
+        { "id": "orifis_cap", "name": "Orifis/Daralma İç Çapı (d)", "unit": "mm", "type": "number", "required": true },
+        { "id": "basinc_farki", "name": "Giriş ve Çıkış Arası Basınç Farkı (ΔP)", "unit": "Bar", "type": "number", "required": true },
+        { "id": "akis_katsayisi", "name": "Deşarj Katsayısı (Cd - Tipik: 0.62)", "unit": "Katsayı", "type": "number", "required": true },
+        { "id": "yogunluk", "name": "Akışkan Yoğunluğu (ρ)", "unit": "kg/m3", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "akis_katsayisi": { "absolute_min": 0.5, "absolute_max": 1.0, "error_msg": "Deşarj katsayısı fiziksel limitlerin dışında." }
+        },
+        "smart_warnings": [
+          { "condition": "basinc_farki > 100 && yogunluk > 800", "severity": "CRITICAL", "source": "Akışkan Dinamiği (Kavitasyon)", "message": "Kritik Aşınma Riski: Dar kesitten (Orifis) sıvı geçerken oluşan yüksek basınç farkı (>100 Bar), hızın aniden artmasına ve statik basıncın buharlaşma noktasının altına inmesine neden olacaktır. Çok şiddetli lokal kavitasyon orifis yüzeyini zımpara gibi aşındıracaktır." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_396",
+      "tool_name": "Rulman Eşdeğer Statik Yükü (P0)",
+      "category": "Döner Ekipmanlar / Montaj",
+      "inputs": [
+        { "id": "radyal_yuk", "name": "Maksimum Radyal Yük (Fr)", "unit": "kN", "type": "number", "required": true },
+        { "id": "eksenel_yuk", "name": "Maksimum Eksenel Yük (Fa)", "unit": "kN", "type": "number", "required": true },
+        { "id": "statik_kapasite", "name": "Rulman Statik Kapasitesi (C0)", "unit": "kN", "type": "number", "required": true },
+        { "id": "x0_y0_katsayisi", "name": "Katalog Statik Katsayıları (Örn: X0=0.6, Y0=0.5 - Toplamını Girin)", "unit": "Katsayı", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "kapasite_siniri": { "condition": "((radyal_yuk) + (eksenel_yuk * x0_y0_katsayisi)) > statik_kapasite", "error_msg": "Montaj Reddi: Eşdeğer statik yük (P0), rulmanın statik yük kapasitesini (C0) aşıyor. Rulman dönerken değil, dururken bile yuvarlanma elemanları (Bilyeler) bilezik kanallarında kalıcı iz (Plastik deformasyon / Brinelling) yapacaktır." }
+        },
+        "smart_warnings": [
+          { "condition": "((radyal_yuk) + (eksenel_yuk * x0_y0_katsayisi)) > (statik_kapasite * 0.5)", "severity": "INFO", "source": "SKF Statik Emniyet Kriteri", "message": "Bilgi: Eşdeğer yük, statik kapasitenin %50'sini geçmektedir. Sistemde şok yükleri (Impact) veya ağır titreşimler varsa, statik emniyet katsayısı (S0) yetersiz kalabilir, daha büyük bir rulmana geçilmesi tavsiye edilir." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MFG_397",
+      "tool_name": "Plastik Enjeksiyon Eriyik Yastığı (Melt Cushion)",
+      "category": "Plastik Kalıpçılığı",
+      "inputs": [
+        { "id": "vida_cap", "name": "Enjeksiyon Makinesi Vida Çapı (D)", "unit": "mm", "type": "number", "required": true },
+        { "id": "maks_strok", "name": "Maksimum Vida Dozajlama Stroku", "unit": "mm", "type": "number", "required": true },
+        { "id": "enjeksiyon_pozisyonu", "name": "Enjeksiyon Sonu (Tutma Öncesi) Vida Pozisyonu", "unit": "mm", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "pozisyon_mantigi": { "condition": "enjeksiyon_pozisyonu >= maks_strok", "error_msg": "Mantıksal Hata: Enjeksiyon sonu pozisyonu, dozajlama strokuna eşit veya ondan büyük olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "enjeksiyon_pozisyonu < 2", "severity": "CRITICAL", "source": "Enjeksiyon Proses Denetimi", "message": "Kritik Kalite Reddi: Eriyik yastığı (Cushion) 2 mm'nin altına inmiştir. Vida silindir kafasına vurma riski taşır ve 'Tutma Basıncı (Holding Pressure)' kalıptaki plastiğe iletilemez. Parçalarda çökme (Sink Marks) ve eksik basma (Short Shot) KESİNDİR. Dozaj miktarını artırın." },
+          { "condition": "enjeksiyon_pozisyonu > (vida_cap * 0.2)", "severity": "WARNING", "source": "Polimer Fiziği", "message": "Uyarı: Yastık mesafesi vida çapının %20'sinden fazladır. Namlu (Barrel) önünde gereğinden fazla plastik bekleyecek ve uzun süre ısıya maruz kalarak bozunacaktır (Degradation). Bu durum malzemede sararma veya kırılganlık yapar." }
+        ]
+      }
+    },
+    {
+      "tool_id": "THERM_398",
+      "tool_name": "Isı Eşanjörü LMTD Düzeltme Faktörü (F)",
+      "category": "Termodinamik",
+      "inputs": [
+        { "id": "r_kapasite", "name": "Kapasite Oranı Katsayısı (R)", "unit": "-", "type": "number", "required": true },
+        { "id": "p_etkinlik", "name": "Sıcaklık Etkinlik Katsayısı (P)", "unit": "-", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "p_siniri": { "absolute_min": 0, "absolute_max": 1, "error_msg": "Etkinlik katsayısı (P) 0 ile 1 arasında olmalıdır." }
+        },
+        "smart_warnings": [
+          { "condition": "F_Result < 0.75", "severity": "WARNING", "source": "TEMA Eşanjör Standartları", "message": "Uyarı: LMTD düzeltme faktörü (F) 0.75'in altındadır. Bu eşanjörün çapraz (Cross) veya çok geçişli (Multi-pass) tasarımı mevcut sıcaklık rejimleri için termodinamik olarak verimsizdir. Isı transfer yüzeyi gereksiz yere büyüyecektir, boru/gövde geçiş sayısını artırın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MFG_399",
+      "tool_name": "Döküm Besleyici Modülü (Chvorinov Kuralı)",
+      "category": "Metalurji ve Döküm",
+      "inputs": [
+        { "id": "parca_hacmi", "name": "Döküm Parçası Hacmi (V)", "unit": "cm3", "type": "number", "required": true },
+        { "id": "parca_yuzeyi", "name": "Parçanın Soğuyan (Kalıba Temas Eden) Yüzey Alanı (A)", "unit": "cm2", "type": "number", "required": true },
+        { "id": "besleyici_hacmi", "name": "Tasarlanan Besleyici (Riser) Hacmi", "unit": "cm3", "type": "number", "required": true },
+        { "id": "besleyici_yuzeyi", "name": "Tasarlanan Besleyici Soğuyan Yüzey Alanı", "unit": "cm2", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "hacimler": { "absolute_min": 1, "error_msg": "Hacim veya yüzey alanı sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(besleyici_hacmi / besleyici_yuzeyi) <= (1.2 * (parca_hacmi / parca_yuzeyi))", "severity": "CRITICAL", "source": "Döküm Katılaşma Teorisi (VDG)", "message": "Kritik Kalıp Reddi: Besleyici (Riser) modülü, parça modülünün %20 (1.2 katı) fazlası DEĞİLDİR. Besleyici, parçadan DÜŞÜK veya EŞİT sürede donacaktır. Çekme boşlukları (Shrinkage Cavity) besleyici yerine doğrudan döküm parçasının içine yerleşerek parçayı hurda yapacaktır. Besleyiciyi kalınlaştırın." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_400",
+      "tool_name": "Titreşim İzolasyonu Transmisbilite (Geçirgenlik)",
+      "category": "Makine Dinamiği",
+      "inputs": [
+        { "id": "zorlama_frekansi", "name": "Makine Çalışma Frekansı (Hz)", "unit": "Hz", "type": "number", "required": true },
+        { "id": "dogal_frekans", "name": "Takoz/İzolatör Doğal Frekansı (Hz)", "unit": "Hz", "type": "number", "required": true },
+        { "id": "sonum_orani", "name": "Sönüm Oranı (Zeta - ζ)", "unit": "Katsayı", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "frekans_mantigi": { "absolute_min": 0.1, "error_msg": "Frekanslar sıfır olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "(zorlama_frekansi / dogal_frekans) > 0.8 && (zorlama_frekansi / dogal_frekans) < 1.414", "severity": "CRITICAL", "source": "Titreşim İzolasyon Teorisi", "message": "Kritik Rezonans Riski: Frekans oranı (r) Amplifikasyon (Büyütme) bölgesindedir (r < √2). Makine altına koyduğunuz kauçuk takoz/yay, titreşimi sönümlemek yerine zemine KATLAYARAK iletecektir. İzolatör seçiminiz tamamen yanlıştır, daha yumuşak bir izolatör seçin." }
+        ]
+      }
+    },
+    {
+      "tool_id": "MECH_401",
+      "tool_name": "Cıvata Yorulma Ömrü Güvenlik Faktörü (Soderberg)",
+      "category": "Makine Elemanları",
+      "inputs": [
+        { "id": "ortalama_gerilme", "name": "Cıvatadaki Ortalama (Ön Yük) Gerilme (Sm)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "alternatif_gerilme", "name": "Cıvatadaki Alternatif (Değişken) Gerilme (Sa)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "akma_dayanimi", "name": "Cıvata Akma Dayanımı (Sy)", "unit": "MPa", "type": "number", "required": true },
+        { "id": "yorulma_siniri", "name": "Cıvata Yorulma Sınırı (Se - Çentik Faktörlü)", "unit": "MPa", "type": "number", "required": true }
+      ],
+      "engine_rules": {
+        "validation": {
+          "yorulma_siniri": { "condition": "yorulma_siniri >= akma_dayanimi", "error_msg": "Malzeme Hatası: Yorulma sınırı (Endurance Limit), akma dayanımından (Yield Strength) büyük olamaz." }
+        },
+        "smart_warnings": [
+          { "condition": "1 / ((alternatif_gerilme / yorulma_siniri) + (ortalama_gerilme / akma_dayanimi)) < 1.2", "severity": "WARNING", "source": "VDI 2230 Cıvatalı Bağlantılar", "message": "Uyarı: Soderberg kriterine göre dinamik güvenlik katsayısı 1.2'nin altındadır. Cıvata diş diplerindeki mikroskobik gerilme yığılmaları (Stress Concentration), yorulma ömrünü beklenenden çok daha hızlı tüketerek cıvatanın aniden kesilmesine (Fatigue Failure) neden olacaktır." }
+        ]
+      }
+    }
+  ]
+}]

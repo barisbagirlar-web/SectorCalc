@@ -18,10 +18,14 @@ auth flows, payment, checkout, Stripe webhooks
 admin panel (src/app/admin/**, src/components/admin/**)
 private routes: /account, /checkout, /login, /admin, /api/*
 lead system, Firestore client subscription writes
+paddle integration locks: src/lib/paddle-provider.tsx, src/lib/plans.ts, src/components/pricing/CreditWall.tsx
+-> PADDLE RULE: DO NOT modify paddle-provider or re-introduce successUrl in overlay mode. DO NOT remove hardcoded Price IDs from plans.ts.
+data/pro-tools/ (Pro/Free araç veri dosyaları ve _merged.json asla silinmemeli/ezilmemeli)
 ```
 
 ## İçerik ve route güvenliği
 
+- **data/pro-tools/ veri bütünlüğü**: `_merged.json` ve `PRO_*.json` dosyaları kesinlikle korunacaktır, silinemez veya temizlenemez.
 - **152 premium seed** içeriğine izinsiz edit yok (`src/lib/premium-schema/schemas/*` toplu değişiklik)
 - **Mevcut route slug** rastgele rename / redirect kırma yok
 - **Brand assets** kilidi: `src/config/brand.ts`, `public/img/brand/*` — bkz. `brand-assets-lock.mdc`

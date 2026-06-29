@@ -51,13 +51,6 @@ const INDUSTRIES_COPY = {
     noToolsDescription: "Puede revisar calculadoras similares en la biblioteca.",
   },
   ar: {
-    relatedFreeTools: "حاسبات مجانية ذات صلة",
-    relatedPremiumTools: "حاسبات مميزة ذات صلة",
-    openCalculator: "افتح الحاسبة",
-    viewAllCalculators: "عرض كل الحاسبات",
-    viewAllCalculatorsLead: "تصفح مكتبة الحاسبات الكاملة لمزيد من أدوات القطاع.",
-    noToolsTitle: "يتم تجهيز حاسبات هذا القطاع",
-    noToolsDescription: "يمكنك استكشاف حاسبات مشابهة في المكتبة.",
   },
 };
 
@@ -88,9 +81,6 @@ const INDUSTRY_PAGE_LINKS = {
     premiumToolsLink: "Calculadoras premium",
   },
   ar: {
-    calculatorLibraryLink: "مكتبة الحاسبات",
-    freeToolsLink: "حاسبات مجانية",
-    premiumToolsLink: "حاسبات مميزة",
   },
 };
 

@@ -62,71 +62,6 @@ const UNIT_LABELS: Record<SupportedLocale, Record<string, string>> = {
     L: "liter (L)",
     litre: "liter (L)",
   },
-  tr: {
-    m: "metre (m)",
-    cm: "santimetre (cm)",
-    kg: "kilogram (kg)",
-    kWh: "kilovat-saat (kWh)",
-    bar: "bar",
-    ft: "fit (ft)",
-    in: "inç (in)",
-    lb: "pound (lb)",
-    psi: "psi",
-    L: "litre (L)",
-    litre: "litre (L)",
-  },
-  de: {
-    m: "Meter (m)",
-    cm: "Zentimeter (cm)",
-    kg: "Kilogramm (kg)",
-    kWh: "Kilowattstunde (kWh)",
-    bar: "bar",
-    ft: "Fuß (ft)",
-    in: "Zoll (in)",
-    lb: "Pfund (lb)",
-    psi: "psi",
-    L: "Liter (L)",
-    litre: "Liter (L)",
-  },
-  fr: {
-    m: "mètre (m)",
-    cm: "centimètre (cm)",
-    kg: "kilogramme (kg)",
-    kWh: "kilowattheure (kWh)",
-    bar: "bar",
-    ft: "pied (ft)",
-    in: "pouce (in)",
-    lb: "livre (lb)",
-    psi: "psi",
-    L: "litre (L)",
-    litre: "litre (L)",
-  },
-  es: {
-    m: "metro (m)",
-    cm: "centímetro (cm)",
-    kg: "kilogramo (kg)",
-    kWh: "kilovatio-hora (kWh)",
-    bar: "bar",
-    ft: "pie (ft)",
-    in: "pulgada (in)",
-    lb: "libra (lb)",
-    psi: "psi",
-    L: "litro (L)",
-    litre: "litro (L)",
-  },
-  ar: {
-    m: "متر (m)",
-    cm: "سنتيمتر (cm)",
-    kg: "كيلوغرام (kg)",
-    kWh: "كيلوواط ساعة (kWh)",
-    bar: "بار",
-    ft: "قدم (ft)",
-    in: "بوصة (in)",
-    lb: "رطل (lb)",
-    psi: "psi",
-    L: "لتر (L)",
-    litre: "لتر (L)",
-  },
 };
 
 const GROUP_OPTIONS: Partial<Record<UnitGroup, readonly string[]>> = {
@@ -145,7 +80,7 @@ function resolveRegionDefaults(locale: SupportedLocale, region: SupportedRegion)
   if (region in REGION_DEFAULTS) {
     return REGION_DEFAULTS[region as keyof typeof REGION_DEFAULTS];
   }
-  const fallback = locale === "tr" ? "TR" : locale === "de" ? "DE" : "GLOBAL";
+  const fallback = "GLOBAL";
   return REGION_DEFAULTS[fallback];
 }
 

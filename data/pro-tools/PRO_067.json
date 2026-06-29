@@ -1,0 +1,298 @@
+{
+  "tool_id": "PRO_067",
+  "tool_name": "Grid-Tied PV System Sizing — Array Capacity, Annual Yield, Performance Ratio & Financial ROI",
+  "category": "Renewable Energy / Electrical Engineering",
+  "scope": "process_agnostic",
+  "primary_operation": "photovoltaic_system",
+  "inputs": [
+    {
+      "id": "annual_energy_demand_kwh",
+      "name": "Annual Electrical Energy Demand (E_demand)",
+      "unit": "kWh/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 500000000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "PSH_h_day",
+      "name": "Peak Sun Hours at Site (PSH)",
+      "unit": "h/day",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 4.5,
+      "absolute_min": 1.5,
+      "absolute_max": 8,
+      "note": "From NASA POWER / PVGIS irradiance database for location; annual average daily insolation at optimal tilt",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "module_wp",
+      "name": "PV Module Rated Power (STC) per Panel",
+      "unit": "Wp",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 700,
+      "note": "STC: 1000 W/m², 25°C, AM1.5 — IEC 61215 rating",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "system_losses_pct",
+      "name": "Total System Losses (soiling, wiring, MPPT, mismatch, shading)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 18,
+      "absolute_min": 8,
+      "absolute_max": 40,
+      "note": "IEC 61724-1 loss budget: inverter 3%; soiling 3%; wiring 2%; MPPT 2%; temp derating 5–10%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "module_temp_coeff_pct_c",
+      "name": "Module Power Temperature Coefficient (γ_Pmax)",
+      "unit": "%/°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": -0.38,
+      "absolute_min": -0.6,
+      "absolute_max": -0.1,
+      "note": "Typical mono-PERC: −0.37 to −0.40 %/°C; TOPCon: −0.30 %/°C — from datasheet",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "avg_cell_temp_c",
+      "name": "Average Operating Cell Temperature (T_cell,avg)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 45,
+      "absolute_min": 20,
+      "absolute_max": 80,
+      "note": "T_cell = T_amb + NOCT − 20°C; NOCT ≈ 42–47°C; cell runs 20–30°C above ambient at peak",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "installed_cost_usd_wp",
+      "name": "Total Installed System Cost (CAPEX)",
+      "unit": "USD/Wp",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 0.9,
+      "absolute_min": 0.3,
+      "absolute_max": 4,
+      "note": "Utility-scale 2024 ≈ 0.60–0.85 USD/Wp; commercial rooftop ≈ 0.90–1.20 USD/Wp",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "electricity_rate_usd_kwh",
+      "name": "Grid Electricity Rate Avoided (USD/kWh)",
+      "unit": "USD/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 0.12,
+      "absolute_min": 0.03,
+      "absolute_max": 0.5,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    }
+  ],
+  "formulas": [
+    "temp_derating = 1 + module_temp_coeff_pct_c / 100 * (avg_cell_temp_c - 25)   // [dimensionless] Temperature Derating Factor at Operating Cell Temp Reference: IEC 61215 §11.7 — temperature-corrected power: P_act = P_STC × [1 + γ·(T−25)]",
+    "PR = (1 - system_losses_pct / 100) * temp_derating   // [dimensionless] Performance Ratio (PR) Reference: IEC 61724-1:2021 §3.8 — PR = E_yield / (G_irr × P_STC); target PR ≥ 0.78 for good systems",
+    "P_array_kwp = annual_energy_demand_kwh / (PSH_h_day * 365 * PR)   // [kWp] Required DC Array Capacity (P_array) Reference: Array sizing: E_demand = P_array × PSH × 365 × PR — ASTM E2848 energy model",
+    "N_modules = Math.ceil(P_array_kwp * 1000 / module_wp); E_yield_kwh = P_array_kwp * PSH_h_day * 365 * PR   // [count, kWh/yr] Number of Modules Required & Annual Yield Reference: N = P_array / P_module; E_yield verified against demand — IEC 61724-1 §5",
+    "CAPEX_usd = P_array_kwp * 1000 * installed_cost_usd_wp; annual_saving_usd = E_yield_kwh * electricity_rate_usd_kwh   // [USD, USD/yr] Total CAPEX & Annual Revenue / Savings Reference: Simple LCOE basis — NREL System Advisor Model (SAM) methodology",
+    "payback_yr = CAPEX_usd / annual_saving_usd; specific_yield_kwh_kwp = E_yield_kwh / P_array_kwp   // [years, kWh/kWp/yr] Simple Payback Period & Specific Yield Reference: Specific yield benchmark: Mediterranean 1400–1700 kWh/kWp; UK 850–1000; Middle East 1700–2000"
+  ],
+  "engine_rules": {
+    "standards": [
+      "IEC 61215:2021 (module qualification)",
+      "IEC 61730-1:2021 (safety)",
+      "IEC 61724-1:2021 (monitoring)",
+      "ASTM E2848-13",
+      "NREL SAM"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "PR < 0.65",
+        "error_msg": "Performance ratio < 0.65: exceptionally low — verify loss inputs; shading, soiling, and temperature derating may be overstated",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "specific_yield_kwh_kwp < 700 && PSH_h_day > 3",
+        "error_msg": "Specific yield < 700 kWh/kWp despite adequate PSH: large system losses — re-examine soiling, shading, or inverter sizing",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "payback_yr > 20",
+        "error_msg": "Payback > 20 years: marginal project economics — re-evaluate CAPEX, tariff structure, and incentives (ITC, MACRS, FiT)",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Cell temperature > 60°C: severe thermal derating — evaluate bifacial modules with elevated racking, ventilated mounting, or high-NOCT-resistant technology",
+        "condition": "avg_cell_temp_c > 60",
+        "source": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "System losses > 25%: excessive — each 1% loss reduces yield by ~600 kWh/MWp/yr; audit soiling frequency, cable sizing, and inverter clipping",
+        "condition": "system_losses_pct > 25",
+        "source": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "PR < 0.78: below IEC 61724 benchmark for well-designed systems — opportunity for O&M optimisation; cleaning and loss audit recommended",
+        "condition": "PR < 0.78",
+        "source": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Large array at high CAPEX/Wp: utility-scale pricing should be below 0.85 USD/Wp — renegotiate EPC contract or review scope",
+        "condition": "P_array_kwp > 1000 && installed_cost_usd_wp > 1.0",
+        "source": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Payback < 5 years: strong project economics — confirm energy model with P90 yield (10th percentile) for bankability assessment per IFC PS3",
+        "condition": "payback_yr < 5",
+        "source": "IEC 61215:2021 (module qualification)"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: PR < 0.65",
+        "effect": "Performance ratio < 0.65: exceptionally low — verify loss inputs; shading, soiling, and temperature derating may be overstated",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: specific_yield_kwh_kwp < 700 && PSH_h_day > 3",
+        "effect": "Specific yield < 700 kWh/kWp despite adequate PSH: large system losses — re-examine soiling, shading, or inverter sizing",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: payback_yr > 20",
+        "effect": "Payback > 20 years: marginal project economics — re-evaluate CAPEX, tariff structure, and incentives (ITC, MACRS, FiT)",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Cell temperature > 60°C: severe thermal derating — evaluate bifacial modules with elevated racking, ventilated mounting, or high-NOCT-resistant technology",
+        "effect": "Smart warning triggered when: avg_cell_temp_c > 60",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "failureMode": "System losses > 25%: excessive — each 1% loss reduces yield by ~600 kWh/MWp/yr; audit soiling frequency, cable sizing, and inverter clipping",
+        "effect": "Smart warning triggered when: system_losses_pct > 25",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "failureMode": "PR < 0.78: below IEC 61724 benchmark for well-designed systems — opportunity for O&M optimisation; cleaning and loss audit recommended",
+        "effect": "Smart warning triggered when: PR < 0.78",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "failureMode": "Large array at high CAPEX/Wp: utility-scale pricing should be below 0.85 USD/Wp — renegotiate EPC contract or review scope",
+        "effect": "Smart warning triggered when: P_array_kwp > 1000 && installed_cost_usd_wp > 1.0",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "IEC 61215:2021 (module qualification)"
+      },
+      {
+        "failureMode": "Payback < 5 years: strong project economics — confirm energy model with P90 yield (10th percentile) for bankability assessment per IFC PS3",
+        "effect": "Smart warning triggered when: payback_yr < 5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "IEC 61215:2021 (module qualification)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "temp_derating",
+        "PR",
+        "P_array_kwp",
+        "N_modules",
+        "E_yield_kwh",
+        "CAPEX_usd",
+        "annual_saving_usd",
+        "payback_yr",
+        "specific_yield_kwh_kwp"
+      ]
+    }
+  ]
+}

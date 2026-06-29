@@ -1,0 +1,584 @@
+{
+  "schemaId": "PRO_146",
+  "toolCode": "TOOL-PRO-146",
+  "version": "1.0.0",
+  "name": "IEC 60364 Three-Phase Cable Section Sizing & Voltage Drop",
+  "subtitle": "Electrical Engineering — IEC 60364-5-52, IEC 60228",
+  "sectorPath": [
+    "Electrical Engineering"
+  ],
+  "standardsBasis": [
+    "IEC 60364-5-52",
+    "IEC 60228",
+    "TS HD 60364-5-52",
+    "NFPA 70 NEC",
+    "BS 7671:2018",
+    "IEEE 141"
+  ],
+  "scope": {
+    "inScope": [
+      "IEC 60364 Three-Phase Cable Section Sizing & Voltage Drop"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "load_kw",
+      "symbol": "load_kw",
+      "label": "Load Power (P)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.1,
+      "max": 50000,
+      "hint": "Motor: from nameplate | Lighting: from lumen design"
+    },
+    {
+      "id": "system_voltage",
+      "symbol": "system_voltage",
+      "label": "System Voltage (UL-L)",
+      "unit": {
+        "ref": "V"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "enum": [
+        {
+          "value": "400V (3-Phase+N, TR/EU standard)",
+          "label": "400V (3-Phase+N, TR/EU standard)"
+        },
+        {
+          "value": "380V (legacy installations)",
+          "label": "380V (legacy installations)"
+        },
+        {
+          "value": "415V (UK)",
+          "label": "415V (UK)"
+        },
+        {
+          "value": "690V (industrial high voltage)",
+          "label": "690V (industrial high voltage)"
+        },
+        {
+          "value": "11,000V (medium voltage)",
+          "label": "11,000V (medium voltage)"
+        },
+        {
+          "value": "Manual input",
+          "label": "Manual input"
+        }
+      ]
+    },
+    {
+      "id": "voltage_v",
+      "symbol": "voltage_v",
+      "label": "Line Voltage Numeric Value (UL-L)",
+      "unit": {
+        "ref": "V"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 100,
+      "max": 35000,
+      "default": 400
+    },
+    {
+      "id": "power_factor",
+      "symbol": "power_factor",
+      "label": "Power Factor (cos phi)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.5,
+      "max": 1,
+      "default": 0.85,
+      "hint": "Induction motor: 0.80-0.87 | Resistive load: 1.0 | Lighting: 0.90-0.95"
+    },
+    {
+      "id": "cable_length_m",
+      "symbol": "cable_length_m",
+      "label": "Cable Length (L)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "id": "cable_material",
+      "symbol": "cable_material",
+      "label": "Conductor Material",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "enum": [
+        {
+          "value": "Copper (Cu) - rho=0.0175 ohm*mm2/m",
+          "label": "Copper (Cu) - rho=0.0175 ohm*mm2/m"
+        },
+        {
+          "value": "Aluminum (Al) - rho=0.0283 ohm*mm2/m",
+          "label": "Aluminum (Al) - rho=0.0283 ohm*mm2/m"
+        }
+      ]
+    },
+    {
+      "id": "cross_section_mm2",
+      "symbol": "cross_section_mm2",
+      "label": "Selected Cable Cross-Section (S)",
+      "unit": {
+        "ref": "mm2"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "hint": "IEC 60228 standard wire sections",
+      "enum": [
+        {
+          "value": "1.5",
+          "label": "1.5"
+        },
+        {
+          "value": "2.5",
+          "label": "2.5"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "10",
+          "label": "10"
+        },
+        {
+          "value": "16",
+          "label": "16"
+        },
+        {
+          "value": "25",
+          "label": "25"
+        },
+        {
+          "value": "35",
+          "label": "35"
+        },
+        {
+          "value": "50",
+          "label": "50"
+        },
+        {
+          "value": "70",
+          "label": "70"
+        },
+        {
+          "value": "95",
+          "label": "95"
+        },
+        {
+          "value": "120",
+          "label": "120"
+        },
+        {
+          "value": "150",
+          "label": "150"
+        },
+        {
+          "value": "185",
+          "label": "185"
+        },
+        {
+          "value": "240",
+          "label": "240"
+        },
+        {
+          "value": "300",
+          "label": "300"
+        },
+        {
+          "value": "400",
+          "label": "400"
+        }
+      ]
+    },
+    {
+      "id": "cross_section_val",
+      "symbol": "cross_section_val",
+      "label": "Cross-Section Numeric Value",
+      "unit": {
+        "ref": "mm2"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1.5,
+      "max": 1000,
+      "default": 16
+    },
+    {
+      "id": "installation_method",
+      "symbol": "installation_method",
+      "label": "Installation Method",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "hint": "IEC 60364-5-52 installation method — affects thermal ampacity",
+      "enum": [
+        {
+          "value": "A1 - In insulated conduit (in wall)",
+          "label": "A1 - In insulated conduit (in wall)"
+        },
+        {
+          "value": "A2 - Multi-core cable in conduit",
+          "label": "A2 - Multi-core cable in conduit"
+        },
+        {
+          "value": "B1 - Single-core cables in open conduit",
+          "label": "B1 - Single-core cables in open conduit"
+        },
+        {
+          "value": "B2 - Multi-core cable in open conduit",
+          "label": "B2 - Multi-core cable in open conduit"
+        },
+        {
+          "value": "C - Clipped direct on surface/wall",
+          "label": "C - Clipped direct on surface/wall"
+        },
+        {
+          "value": "E - Multicore cable in free air",
+          "label": "E - Multicore cable in free air"
+        },
+        {
+          "value": "F - Single-core cables in horizontal cable tray",
+          "label": "F - Single-core cables in horizontal cable tray"
+        },
+        {
+          "value": "G - Single-core cables in vertical cable tray",
+          "label": "G - Single-core cables in vertical cable tray"
+        }
+      ]
+    },
+    {
+      "id": "ambient_temp_c",
+      "symbol": "ambient_temp_c",
+      "label": "Ambient Temperature",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": -20,
+      "max": 60,
+      "default": 30,
+      "hint": "Standard reference rating is at 30°C — derating factor applies above it"
+    },
+    {
+      "id": "max_vd_pct",
+      "symbol": "max_vd_pct",
+      "label": "Maximum Allowable Voltage Drop",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 10,
+      "default": 5,
+      "hint": "IEC 60364-5-52: Lighting 3% | Motor/general 5%"
+    },
+    {
+      "id": "load_type",
+      "symbol": "load_type",
+      "label": "Load Type",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "enum": [
+        {
+          "value": "Induction Motor (high inrush current)",
+          "label": "Induction Motor (high inrush current)"
+        },
+        {
+          "value": "Lighting (continuous, max 3% VD)",
+          "label": "Lighting (continuous, max 3% VD)"
+        },
+        {
+          "value": "Resistive heating",
+          "label": "Resistive heating"
+        },
+        {
+          "value": "UPS / Inverter output",
+          "label": "UPS / Inverter output"
+        },
+        {
+          "value": "General socket outlet circuit",
+          "label": "General socket outlet circuit"
+        }
+      ]
+    },
+    {
+      "id": "demand_factor",
+      "symbol": "demand_factor",
+      "label": "Simultaneity / Demand Factor",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.5,
+      "max": 1,
+      "default": 1,
+      "optional": true,
+      "hint": "Multiple loads: 0.7-0.9 | Single load: 1.0"
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_146",
+      "code": "IEC 60364-5-52",
+      "name": "IEC 60364 Three-Phase Cable Section Sizing & Voltage Drop",
+      "description": "IEC 60364 Three-Phase Cable Section Sizing & Voltage Drop — Electrical Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Load_Current_A",
+          "expression": "(load_kw * 1000 * demand_factor) / (SQRT(3) * voltage_v * power_factor)",
+          "unit": {
+            "ref": "A"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Resistivity",
+          "expression": "0.0175",
+          "unit": {
+            "ref": "ohm*mm2/m"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Resistance_R_ohm",
+          "expression": "(Resistivity * cable_length_m) / cross_section_val",
+          "unit": {
+            "ref": "ohm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Total_Loop_R",
+          "expression": "2 * Resistance_R_ohm",
+          "unit": {
+            "ref": "ohm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Reactance_X_ohm",
+          "expression": "0.00008 * cable_length_m",
+          "unit": {
+            "ref": "ohm"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Sin_Phi",
+          "expression": "SQRT(1 - POWER(power_factor, 2))",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "VD_Voltage",
+          "expression": "SQRT(3) * Load_Current_A * (Resistance_R_ohm * power_factor + Reactance_X_ohm * Sin_Phi)",
+          "unit": {
+            "ref": "V"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "VD_Percent",
+          "expression": "(VD_Voltage / voltage_v) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Voltage_At_Load",
+          "expression": "voltage_v - VD_Voltage",
+          "unit": {
+            "ref": "V"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Power_Loss_W",
+          "expression": "3 * POWER(Load_Current_A, 2) * Resistance_R_ohm",
+          "unit": {
+            "ref": "W"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Power_Loss_Pct",
+          "expression": "(Power_Loss_W / (load_kw * 1000)) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Recommended_Min_Section",
+          "expression": "(SQRT(3) * Load_Current_A * Resistivity * cable_length_m * power_factor) / (max_vd_pct / 100 * voltage_v)",
+          "unit": {
+            "ref": "mm2"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "IEC 60364-5-52 Md.525",
+          "condition": "VD_Percent > max_vd_pct",
+          "message": "VOLTAGE DROP LIMIT EXCEEDED: Motor will draw excessive current at this low voltage -> overheat -> melt insulation -> cause short circuit. Increase cross-section by at least one standard size."
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "IEC 60364-5-52",
+          "condition": "VD_Percent > max_vd_pct * 0.8 && VD_Percent <= max_vd_pct",
+          "message": "Voltage drop close to limit: Within 80% of limit. Cross-section upgrade is recommended to prevent exceeding limit on load surges or hot weather."
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "IEEE 141 / Energy Efficiency",
+          "condition": "Power_Loss_Pct > 3",
+          "message": "Cable heat dissipation loss > 3%: Annual energy cost is significant. Investment in cross-section upgrade typically pays back in 2-3 years. Run economic sizing optimization (Kelvin's Law)."
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "IEC 60364-5-52 Tablo B.52.14",
+          "condition": "ambient_temp_c > 40",
+          "message": "High ambient temperature: Cable ampacity derates. Apply correction factor (Ct) for ambient >40°C per IEC 60364. Standard catalog ratings assume 30°C."
+        },
+        {
+          "id": "W5",
+          "severity": "CRITICAL",
+          "source": "IEC 60364-5-52 Voltage Drop Calculation",
+          "condition": "cross_section_val < Recommended_Min_Section",
+          "message": "Selected cross-section is insufficient: does not meet voltage drop limits. Calculated minimum cross-section is displayed. Choose next standard size up."
+        },
+        {
+          "id": "W6",
+          "severity": "INFO",
+          "source": "IEC 60228 / Pratik Uygulama",
+          "condition": "Load_Current_A > 630",
+          "message": "High current (>630A): Consider parallel cables or busbar duct system. Parallel cable routing can be complex; busduct is more reliable."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "load_kw",
+        "system_voltage",
+        "voltage_v",
+        "power_factor",
+        "cable_length_m",
+        "cable_material",
+        "cross_section_mm2",
+        "cross_section_val",
+        "installation_method",
+        "ambient_temp_c",
+        "max_vd_pct",
+        "load_type"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

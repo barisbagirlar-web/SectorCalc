@@ -1,0 +1,297 @@
+{
+  "tool_id": "PRO_089",
+  "tool_name": "Orifice Plate Flow Meter Sizing — Beta Ratio, Discharge Coefficient & Differential Pressure",
+  "category": "Instrumentation / Flow Measurement",
+  "scope": "single_operation",
+  "primary_operation": "orifice_plate",
+  "inputs": [
+    {
+      "id": "pipe_ID_mm",
+      "name": "Pipe Inside Diameter (D)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 25,
+      "absolute_max": 1500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "design_flow_m3h",
+      "name": "Design (Maximum) Volume Flow Rate at Operating Conditions (Q_op)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01,
+      "absolute_max": 1000000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
+    },
+    {
+      "id": "fluid_density_kg_m3",
+      "name": "Fluid Density at Operating Conditions (ρ)",
+      "unit": "kg/m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 3000,
+      "note": "Gas: use operating density ρ = PM/(ZRT); liquid: use process temperature density",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
+    },
+    {
+      "id": "fluid_viscosity_mPas",
+      "name": "Fluid Dynamic Viscosity at Operating Conditions (μ)",
+      "unit": "mPa·s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 1,
+      "absolute_min": 0.001,
+      "absolute_max": 5000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "max_dP_kpa",
+      "name": "Maximum Allowable Differential Pressure (ΔP_max)",
+      "unit": "kPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 50,
+      "absolute_min": 0.5,
+      "absolute_max": 500,
+      "note": "Transmitter range; higher ΔP → better accuracy; lower ΔP → lower permanent pressure loss",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "tap_type",
+      "name": "Pressure Tap Type",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Corner taps — ISO 5167 standard, most common",
+          "value": "corner"
+        },
+        {
+          "label": "Flange taps (1 inch from faces) — ASME / AGA 3",
+          "value": "flange"
+        },
+        {
+          "label": "D–D/2 taps (vena contracta) — ISO 5167",
+          "value": "D_D2"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "corner",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "isentropic_exponent",
+      "name": "Gas Isentropic Exponent (κ) — Set 1.0 for liquid",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 1,
+      "absolute_min": 1,
+      "absolute_max": 1.7,
+      "note": "Liquid κ = 1.0 (no expansibility correction); air κ = 1.4; steam ≈ 1.3; natural gas ≈ 1.27",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    }
+  ],
+  "formulas": [
+    "A_pipe_m2 = Math.PI / 4 * Math.pow(pipe_ID_mm / 1000, 2); v_pipe_m_s = design_flow_m3h / 3600 / A_pipe_m2; Re_D = fluid_density_kg_m3 * v_pipe_m_s * pipe_ID_mm / 1000 / (fluid_viscosity_mPas / 1000)   // [m/s, dimensionless] Pipe Velocity & Reynolds Number at Design Flow Reference: ISO 5167-1:2022 §6.1 — pipe Reynolds number determines discharge coefficient validity",
+    "Cd_est = 0.6; epsilon = (isentropic_exponent > 1.0) ? 1 - 0.41 * Math.pow(0.5, 1/isentropic_exponent) : 1.0; beta = Math.pow(1 / (1 + Math.pow(Cd_est * epsilon * A_pipe_m2 * Math.sqrt(2 * max_dP_kpa * 1000 / fluid_density_kg_m3) / (design_flow_m3h / 3600), 2)), 0.25)   // [dimensionless] Required Beta Ratio (β) from ΔP and Flow Reference: ISO 5167-2 §5 — iterate β from Q = Cd·ε·(π/4)·d²·√(2ΔP/ρ·(1−β⁴)^−0.5); initial Cd=0.60",
+    "b4 = Math.pow(beta, 4); A_coef = (19000 * beta / Re_D) < 1 ? 0 : 0.0188 + 0.0063 * Math.pow(19000 * beta / Re_D, 0.8); Cd = 0.5961 + 0.0261 * beta * beta - 0.216 * Math.pow(beta, 8) + 0.000521 * Math.pow(1e6 * beta / Re_D, 0.7) + (0.0188 + 0.0063 * A_coef) * Math.pow(beta, 3.5) * Math.pow(1e6 / Re_D, 0.3)   // [dimensionless] Refined Discharge Coefficient — Reader-Harris/Gallagher (RHG) Reference: ISO 5167-2:2022 Eq.(1) — Reader-Harris/Gallagher correlation for corner taps; uncertainty ±0.5% for 0.1 ≤ β ≤ 0.75",
+    "d_mm = beta * pipe_ID_mm   // [mm] Orifice Bore Diameter (d) Reference: d = β·D — orifice throat diameter",
+    "epsilon_act = (isentropic_exponent > 1.0) ? 1 - (0.351 + 0.256 * Math.pow(beta, 4) + 0.93 * Math.pow(beta, 8)) * (1 - Math.pow(1 - max_dP_kpa * 1000 / (fluid_density_kg_m3 * v_pipe_m_s * v_pipe_m_s / 2 * 100), 1/isentropic_exponent)) : 1.0; dP_actual_kpa = Math.pow(design_flow_m3h / 3600 / (Cd * epsilon_act * A_pipe_m2 * Math.pow(beta, 2) / Math.sqrt(1 - Math.pow(beta, 4))), 2) * fluid_density_kg_m3 / 2 / 1000   // [kPa] Actual Differential Pressure at Design Flow (ΔP_actual) Reference: ISO 5167-2 Eq.(4) — rearranged for ΔP given Q, Cd, β, ε",
+    "E_factor = 1 / Math.sqrt(1 - Math.pow(beta, 4)); dP_perm_kpa = dP_actual_kpa * (1 - Math.pow(beta, 2)) * (1 - Cd * Math.pow(beta, 2) * E_factor)   // [kPa, dimensionless] Permanent Pressure Loss (ΔP_perm) & Velocity of Approach Factor Reference: ISO 5167-2 §5.1.7 — permanent pressure loss: ΔP_perm = ΔP·(1−β²)·(1−Cd·β²·E)"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 5167-1:2022 §6",
+      "ISO 5167-2:2022 (orifice plates)",
+      "ASME MFC-3M-2004",
+      "AGA Report No.3 (gas metering)"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "beta < 0.20 || beta > 0.75",
+        "error_msg": "Beta ratio outside 0.20–0.75: ISO 5167-2 validity range exceeded — accuracy degrades sharply; select ΔP range to keep β in 0.30–0.65 for optimal accuracy",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "Re_D < 5000",
+        "error_msg": "Pipe Reynolds number < 5000: ISO 5167 RHG equation loses accuracy below Re = 5000; consider Coriolis or magnetic flowmeter for low-Re applications",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "dP_perm_kpa > max_dP_kpa * 0.8",
+        "error_msg": "Permanent pressure loss > 80% of ΔP_max: high energy penalty — consider low-loss flow element (Venturi, V-cone, or Annubar) to reduce permanent loss",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "β > 0.65: high beta ratio — discharge coefficient uncertainty increases; upstream straight pipe requirement extends to 44D (vs 10D at β=0.3); verify straight run length",
+        "condition": "beta > 0.65",
+        "source": "ISO 5167-1:2022 §6"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "High gas velocity (>30 m/s): compressibility and expansibility correction significant — verify ε factor is applied; choked flow check required if ΔP/P > 0.03",
+        "condition": "v_pipe_m_s > 30 && fluid_density_kg_m3 < 5",
+        "source": "ISO 5167-1:2022 §6"
+      },
+      {
+        "id": "W3",
+        "severity": "CRITICAL",
+        "message": "Actual ΔP exceeds transmitter range: flow measurement will saturate — increase beta ratio or specify higher-range transmitter",
+        "condition": "dP_actual_kpa > max_dP_kpa * 1.1",
+        "source": "ISO 5167-1:2022 §6"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High viscosity fluid (>50 mPa·s): orifice plate accuracy degrades for viscous fluids — consider Coriolis or gear meter for μ > 100 mPa·s",
+        "condition": "fluid_viscosity_mPas > 50",
+        "source": "ISO 5167-1:2022 §6"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Low Re with high β: Cd correction for low-Re is significant — apply RHG equation iteratively; 3–5 iterations typically required for convergence to ±0.1%",
+        "condition": "Re_D < 20000 && beta > 0.5",
+        "source": "ISO 5167-1:2022 §6"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: beta < 0.20 || beta > 0.75",
+        "effect": "Beta ratio outside 0.20–0.75: ISO 5167-2 validity range exceeded — accuracy degrades sharply; select ΔP range to keep β in 0.30–0.65 for optimal accuracy",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: Re_D < 5000",
+        "effect": "Pipe Reynolds number < 5000: ISO 5167 RHG equation loses accuracy below Re = 5000; consider Coriolis or magnetic flowmeter for low-Re applications",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: dP_perm_kpa > max_dP_kpa * 0.8",
+        "effect": "Permanent pressure loss > 80% of ΔP_max: high energy penalty — consider low-loss flow element (Venturi, V-cone, or Annubar) to reduce permanent loss",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "β > 0.65: high beta ratio — discharge coefficient uncertainty increases; upstream straight pipe requirement extends to 44D (vs 10D at β=0.3); verify straight run length",
+        "effect": "Smart warning triggered when: beta > 0.65",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5167-1:2022 §6"
+      },
+      {
+        "failureMode": "High gas velocity (>30 m/s): compressibility and expansibility correction significant — verify ε factor is applied; choked flow check required if ΔP/P > 0.03",
+        "effect": "Smart warning triggered when: v_pipe_m_s > 30 && fluid_density_kg_m3 < 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5167-1:2022 §6"
+      },
+      {
+        "failureMode": "Actual ΔP exceeds transmitter range: flow measurement will saturate — increase beta ratio or specify higher-range transmitter",
+        "effect": "Smart warning triggered when: dP_actual_kpa > max_dP_kpa * 1.1",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 5167-1:2022 §6"
+      },
+      {
+        "failureMode": "High viscosity fluid (>50 mPa·s): orifice plate accuracy degrades for viscous fluids — consider Coriolis or gear meter for μ > 100 mPa·s",
+        "effect": "Smart warning triggered when: fluid_viscosity_mPas > 50",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5167-1:2022 §6"
+      },
+      {
+        "failureMode": "Low Re with high β: Cd correction for low-Re is significant — apply RHG equation iteratively; 3–5 iterations typically required for convergence to ±0.1%",
+        "effect": "Smart warning triggered when: Re_D < 20000 && beta > 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 5167-1:2022 §6"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "A_pipe_m2",
+        "v_pipe_m_s",
+        "Re_D",
+        "Cd_est",
+        "epsilon",
+        "beta",
+        "b4",
+        "A_coef",
+        "Cd",
+        "d_mm",
+        "epsilon_act",
+        "dP_actual_kpa",
+        "E_factor",
+        "dP_perm_kpa"
+      ]
+    }
+  ]
+}

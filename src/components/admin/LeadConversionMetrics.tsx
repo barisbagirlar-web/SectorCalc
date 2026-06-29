@@ -22,32 +22,32 @@ export function LeadConversionMetrics({
  {
  label: "Follow-up Needed",
  value: loading ? "…" : String(metrics.followUpNeeded),
- hint: "Yeni + İncelendi",
+ hint: "New + Reviewed",
  },
  {
  label: "Open Pipeline",
  value: loading ? "…" : String(metrics.openPipeline),
- hint: "Kayıp hariç aktif huni",
+ hint: "Active pipeline excluding lost",
  },
  {
  label: "Contact Rate",
  value: loading ? "…" : formatConversionPercent(metrics.contactRate),
- hint: "İletişim + uygun + dönüşüm",
+ hint: "Contacted + qualified + converted",
  },
  {
  label: "Qualification Rate",
  value: loading ? "…" : formatConversionPercent(metrics.qualificationRate),
- hint: "Uygun + dönüşüm",
+ hint: "Qualified + converted",
  },
  {
  label: "Conversion Rate",
  value: loading ? "…" : formatConversionPercent(metrics.conversionRate),
- hint: "Müşteriye dönen / toplam",
+ hint: "Converted / total",
  },
  {
  label: "Loss Rate",
  value: loading ? "…" : formatConversionPercent(metrics.lossRate),
- hint: "Kayıp / toplam",
+ hint: "Lost / total",
  },
  ];
 
@@ -58,7 +58,7 @@ export function LeadConversionMetrics({
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Conversion metrics</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Satış hunisi ve dönüşüm oranları — yüklü lead listesinden (salt okunur).
+ Sales funnel and conversion rates — from the loaded lead list (read-only).
  </p>
  </div>
 
@@ -75,7 +75,7 @@ export function LeadConversionMetrics({
 
  <div className={cardClass}>
  <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- Satış hunisi
+ Sales Funnel
  </h3>
  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
  {metrics.funnel.map((step, index) => (
@@ -114,7 +114,7 @@ export function LeadConversionMetrics({
  Attribution conversion
  </h3>
  {metrics.attribution.length === 0 ? (
- <p className="mt-3 text-sm text-text-secondary">Henüz attribution verisi yok.</p>
+ <p className="mt-3 text-sm text-text-secondary">No attribution data yet.</p>
  ) : (
  <div className="mt-4">
  <table className="w-full table-fixed text-left text-sm">
@@ -162,7 +162,7 @@ export function LeadConversionMetrics({
 
  <div className={cardClass}>
  <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- Son 7 gün
+ Last 7 Days
  </h3>
  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
  {[

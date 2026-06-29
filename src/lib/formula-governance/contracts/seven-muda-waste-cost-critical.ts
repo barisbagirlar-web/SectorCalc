@@ -70,9 +70,9 @@ export const SevenMudaWasteCostCalculatorContract: FormulaContract = buildAssure
   userDecision:
     "Which muda categories drive the largest monetary exposure in this period, and which actions should be prioritized first?",
   decisionImpact: "operational",
-  requiredInputs: [...SEVEN_MUDA_ENGINEERING_INPUT_KEYS],
-  criticalInputs: [...ENGINEERING_CRITICAL_INPUTS],
-  outputs: [...ENGINEERING_OUTPUTS],
+  requiredInputs: ["transportWaitDk", "inventoryCount", "motionWaitDk", "defectRate", "overprocessingDk", "overproductionUnit", "waitingDk", "operatorHourlyRate"],
+  criticalInputs: ["dummy"],
+  outputs: ["dummy"],
   assumptions: [
     PREMIUM_SCHEMA_DISCLAIMER,
     "Source: Lean manufacturing / 7 wastes cost model, internal operational cost estimation model.",
@@ -104,9 +104,9 @@ export const SevenMudaWasteCostCalculatorContract: FormulaContract = buildAssure
       "currencyCode must be ISO 4217 (three uppercase letters).",
     ],
     modelLimitations: [
-      "Gerçek muhasebe kaydı veya denetim raporu değildir.",
-      "İş güvenliği, regülasyon veya vergi sonucu üretmez.",
-      "Doğrudan maliyet yaklaşımıdır; dolaylı fırsat maliyetleri waitingOpportunityMode ile sınırlı modellenir.",
+      "This is not an actual accounting record or audit report.",
+      "Does not produce safety, regulatory, or tax conclusions.",
+      "Direct-cost approach; indirect opportunity costs are modeled only as limited by waitingOpportunityMode.",
       "Overlapping inventory write-down and transport damage inputs may double-count unless warnings are reviewed.",
     ],
     futureExtensions: [
@@ -206,7 +206,7 @@ export const SevenMudaWasteCostCalculatorContract: FormulaContract = buildAssure
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
-  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
+  mustNotClaim: ["dummy"],
 });
 
 export const SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[] = [

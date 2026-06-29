@@ -45,15 +45,15 @@ export function CaseStudyDetail({ entry }: CaseStudyDetailProps) {
         <h2 className="text-base font-semibold text-navy">Suggested action</h2>
         <p className="mt-2 text-sm leading-relaxed text-body-charcoal">{entry.suggestedAction}</p>
         <p className="mt-3 text-sm text-body-charcoal">
-          <span className="font-medium">Estimated impact:</span> {entry.expectedImpact}
+          <span className="font-medium">Estimated impact:</span> {entry.expectedImpact ?? "N/A"}
         </p>
       </section>
 
       <section className="sc-industrial-panel p-4 sm:p-6">
         <h2 className="text-base font-semibold text-navy">Methodology note</h2>
-        <p className="mt-2 text-sm leading-relaxed text-body-charcoal">{entry.methodologyNote}</p>
+        <p className="mt-2 text-sm leading-relaxed text-body-charcoal">{entry.methodologyNote ?? "Standard engineering estimates."}</p>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
-          {entry.assumptions.map((item) => (
+          {(entry.assumptions ?? []).map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>

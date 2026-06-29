@@ -1,5 +1,5 @@
 /**
- * SectorCalc Industrial OS — mimari sözleşme.
+ * SectorCalc Industrial OS — architecture contract.
  * Registry-Driven / Logic-Decoupled pattern.
  */
 

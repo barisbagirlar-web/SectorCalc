@@ -1,0 +1,289 @@
+{
+  "schemaId": "PRO_002",
+  "toolCode": "TOOL-PRO-002",
+  "version": "1.0.0",
+  "name": "CNC Turning — Cutting Force, MRR, Surface Roughness & Tool Life Estimation",
+  "subtitle": "CNC Machining | Metal Cutting — Sandvik Coromant C-2920 2024, ISO 3685:1993 (tool life)",
+  "sectorPath": [
+    "CNC Machining",
+    "Metal Cutting"
+  ],
+  "standardsBasis": [
+    "Sandvik Coromant C-2920 2024",
+    "ISO 3685:1993 (tool life)",
+    "ISO 4287:1997 (surface texture)",
+    "ISO 513:2012"
+  ],
+  "scope": {
+    "inScope": [
+      "CNC Turning — Cutting Force, MRR, Surface Roughness & Tool Life Estimation"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Vc_m_min",
+      "symbol": "Vc_m_min",
+      "label": "Cutting Speed (V_c)",
+      "unit": {
+        "ref": "mpmin"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 5,
+      "max": 2000
+    },
+    {
+      "id": "f_mm_rev",
+      "symbol": "f_mm_rev",
+      "label": "Feed Rate (f)",
+      "unit": {
+        "ref": "mmprev"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.01,
+      "max": 5
+    },
+    {
+      "id": "ap_mm",
+      "symbol": "ap_mm",
+      "label": "Depth of Cut (a_p)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.05,
+      "max": 50
+    },
+    {
+      "id": "kc1_mpa",
+      "symbol": "kc1_mpa",
+      "label": "Specific Cutting Force (k_c1) at h=1 mm",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 500,
+      "max": 5000,
+      "default": 1850
+    },
+    {
+      "id": "re_mm",
+      "symbol": "re_mm",
+      "label": "Insert Nose Radius (r_ε)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 0.8,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "Taylor_C",
+      "symbol": "Taylor_C",
+      "label": "Taylor Tool Life Constant (C) at Reference Conditions",
+      "unit": {
+        "ref": "mpmin"
+      },
+      "confidence": "DEFAULT",
+      "group": "reinforcement",
+      "min": 50,
+      "max": 2000,
+      "default": 200
+    },
+    {
+      "id": "Taylor_n",
+      "symbol": "Taylor_n",
+      "label": "Taylor Exponent (n)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "DEFAULT",
+      "group": "reinforcement",
+      "min": 0.1,
+      "max": 0.5,
+      "default": 0.25
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "reinforcement",
+      "letter": "B",
+      "title": "Reinforcement",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_002",
+      "code": "Sandvik Coromant C-2920 2024",
+      "name": "CNC Turning — Cutting Force, MRR, Surface Roughness & Tool Life Estimation",
+      "description": "CNC Turning — Cutting Force, MRR, Surface Roughness & Tool Life Estimation — CNC Machining, Metal Cutting",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "MRR_cm3_min",
+          "expression": "Vc_m_min * f_mm_rev * ap_mm / 10",
+          "unit": {
+            "ref": "cm³/min"
+          },
+          "reference": "MRR = V_c × f × a_p / 10 — Sandvik C-2920 §5.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "kc_mpa",
+          "expression": "kc1_mpa / Math.pow(f_mm_rev, 0.25)",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "k_c = k_c1 / f^0.25 — Kienzle model",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Fc_N",
+          "expression": "kc_mpa * f_mm_rev * ap_mm",
+          "unit": {
+            "ref": "N"
+          },
+          "reference": "F_c = k_c × f × a_p — ISO 3685:1993",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Pc_kw",
+          "expression": "Fc_N * Vc_m_min / 60000",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "P_c = F_c × V_c / 60000",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Ra_um",
+          "expression": "1000 * Math.pow(f_mm_rev, 2) / (32 * re_mm)",
+          "unit": {
+            "ref": "µm"
+          },
+          "reference": "Ra ≈ f²/(32·r_ε) × 1000 — ISO 4287",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "T_min",
+          "expression": "Math.pow(Taylor_C / Vc_m_min, 1 / Taylor_n)",
+          "unit": {
+            "ref": "min"
+          },
+          "reference": "Taylor's equation: T = (C/V_c)^(1/n) — ISO 3685:1993 Annex A",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "T_min < 10",
+          "message": "Tool life < 10 min: uneconomical — optimise V_c using Taylor equation; target T = 15–20 min for productive insert change interval"
+        },
+        {
+          "id": "W2",
+          "severity": "INFO",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "f_mm_rev > 1.0 && Ra_um < 3.2",
+          "message": "High feed with low Ra requirement conflict — theoretical roughness model predicts Ra > specification; reduce f or apply wiper insert geometry"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "Vc_m_min < 50 && kc_mpa > 3000",
+          "message": "Low speed + high k_c: built-up edge risk on sticky materials — increase V_c above BUE threshold or apply coated grade with sharp edge prep"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "MRR_cm3_min > 500",
+          "message": "MRR > 500 cm³/min: heavy roughing — verify workpiece fixture rigidity and coolant pressure; chip control critical at high MRR"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "ap_mm > 10 && f_mm_rev < 0.2",
+          "message": "Deep cut with fine feed: check radial force F_p — deep cuts generate large passive forces that deflect thin workpieces; verify L/D ratio ≤ 4"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Vc_m_min",
+        "f_mm_rev",
+        "ap_mm",
+        "kc1_mpa",
+        "re_mm",
+        "Taylor_C",
+        "Taylor_n"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

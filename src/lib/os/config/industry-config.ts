@@ -27,9 +27,9 @@ export const CNC_MANUFACTURING_DIAGNOSTIC_CONFIG: IndustryDiagnosticConfig = {
  cost: "machine_hourly_rate",
  },
  premiumRules: {
- Critical: "Takım aşınması veya makine duruşu (downtime) tespit edildi.",
- Warning: "Çevrim süresi tolerans sınırında — takım kalibrasyonunu gözden geçirin.",
- Optimal: "Çevrim süresi hedef bandında; marj sızıntısı düşük.",
+   Critical: "Tool wear or machine downtime detected.",
+   Warning: "Cycle time at tolerance limit — review tool calibration.",
+   Optimal: "Cycle time within target range; margin leakage low.",
  },
  costBasis: "per-hour-on-minute-delta",
 };

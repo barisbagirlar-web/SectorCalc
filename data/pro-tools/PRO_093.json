@@ -1,0 +1,301 @@
+{
+  "tool_id": "PRO_093",
+  "tool_name": "Steam Boiler Thermal Efficiency — Indirect Loss Method, Flue Gas Dew Point & Stack Heat Loss",
+  "category": "Energy Management / Steam Systems",
+  "scope": "single_operation",
+  "primary_operation": "steam_boiler",
+  "inputs": [
+    {
+      "id": "fuel_type",
+      "name": "Fuel Type",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Natural gas — LHV=47500 kJ/kg, C=75%, H=24%, S=0%",
+          "value": "NG"
+        },
+        {
+          "label": "Fuel oil No.6 HFO — LHV=40600 kJ/kg, C=86%, H=11%, S=2.5%",
+          "value": "HFO"
+        },
+        {
+          "label": "LPG Propane — LHV=46350 kJ/kg, C=82%, H=18%, S=0%",
+          "value": "LPG"
+        },
+        {
+          "label": "Coal (bituminous) — LHV=26000 kJ/kg, C=73%, H=5%, S=1.5%",
+          "value": "Coal"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "NG",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "flue_gas_O2_pct",
+      "name": "Flue Gas O₂ Concentration (dry basis)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 18,
+      "note": "Measured by portable O₂ analyser; natural gas target: 2–3% O₂",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "stack_temp_c",
+      "name": "Flue Gas Exit (Stack) Temperature (T_stack)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 700,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "ambient_temp_c",
+      "name": "Combustion Air Inlet Temperature (T_amb)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 25,
+      "absolute_min": -20,
+      "absolute_max": 55,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "CO_stack_ppm",
+      "name": "Flue Gas CO Concentration (dry basis)",
+      "unit": "ppm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 50,
+      "absolute_min": 0,
+      "absolute_max": 5000,
+      "note": "< 100 ppm: good combustion; > 400 ppm: incomplete combustion — EN 303-5 limit: 250 ppm",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 5725-2:2019 §7 — Analytical chemistry: reproducibility ±5%"
+    },
+    {
+      "id": "boiler_rated_kw",
+      "name": "Boiler Rated Output (Q_rated)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 500000,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
+    },
+    {
+      "id": "radiation_loss_pct",
+      "name": "Surface Radiation & Convection Loss (% of fired duty)",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 0.5,
+      "absolute_min": 0.1,
+      "absolute_max": 3,
+      "note": "ASME PTC 4 Appendix B: well-insulated gas boiler ≈ 0.3–0.8%; older/larger ≈ 0.5–1.5%",
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
+    }
+  ],
+  "formulas": [
+    "XS_air_pct = flue_gas_O2_pct * 100 / (21 - flue_gas_O2_pct)  // [%] — Excess Air Percentage (XS_air) — Ref: XS_air = O₂% × 100 / (21 − O₂%) — ASME PTC 4-2013 §5.3 Eq.(5.2)",
+    "const FC = {NG:{LHV:47500,C:0.75,H:0.24,S:0}, HFO:{LHV:40600,C:0.86,H:0.11,S:0.025}, LPG:{LHV:46350,C:0.82,H:0.18,S:0}, Coal:{LHV:26000,C:0.73,H:0.05,S:0.015}}; const fp = FC[fuel_type]; LHV_kj_kg=fp.LHV; C_frac=fp.C; H_frac=fp.H; S_frac=fp.S  // [kJ/kg] — Fuel Composition Parameters by Type — Ref: Fuel composition from EN 12952-15 Table A.1 / ASME PTC 4 Appendix C",
+    "m_air_stoich = 11.5 * C_frac + 34.5 * H_frac + 4.3 * S_frac; m_fg_kg_kg = m_air_stoich * (1 + XS_air_pct/100) + 1; cp_fg = 1.004 + 0.000254 * stack_temp_c; L_fg_pct = m_fg_kg_kg * cp_fg * (stack_temp_c - ambient_temp_c) / LHV_kj_kg * 100  // [%] — Dry Flue Gas Heat Loss (L_fg) — Ref: L_DFG = m_fg × c_p,fg × ΔT / LHV × 100 — ASME PTC 4 §5.4 Eq.(5.11)",
+    "L_CO_pct = CO_stack_ppm * 3.5e-4 * (XS_air_pct + 100) / 100  // [%] — Incomplete Combustion Loss — CO (L_CO) — Ref: L_CO ≈ CO_ppm × 3.5×10⁻⁴ × (1 + XS/100) — simplified Ostwald formula; ASME PTC 4 §5.8",
+    "eta_th_pct = 100 - L_fg_pct - L_CO_pct - radiation_loss_pct  // [%] — Net Thermal Efficiency (η_th) — Ref: η = 100 − ΣLosses (indirect method) — EN 12952-15 §7.3; ASME PTC 4 §5.1",
+    "T_dew_c = (fuel_type === 'HFO' || fuel_type === 'Coal') ? 120 + 18 * Math.log10(S_frac * 1000) : 55  // [°C] — Flue Gas Acid Dew Point Temperature (T_dew) — Ref: Müller-Kirchenbauer dew point: T_dew ≈ 120 + 18·log(SO₃ ppm) for S-bearing fuels; H₂SO₄ formation — EN 15502-1 §B.4"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASME PTC 4-2013 (Fired Steam Generators)",
+      "EN 12952-15:2016",
+      "EN 303-5:2021 (CO limits)",
+      "IS 8753:1978"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "eta_th_pct < 75",
+          "action": "WARN",
+          "message": "Boiler efficiency < 75%: critically low — stack temperature and/or excess air are excessive; immediate combustion optimisation and flue gas audit required"
+        },
+        {
+          "id": "V2",
+          "condition": "CO_stack_ppm > 400",
+          "action": "WARN",
+          "message": "CO > 400 ppm: incomplete combustion — adjust air-to-fuel ratio; CO > 1000 ppm indicates safety risk of CO accumulation in boiler room"
+        },
+        {
+          "id": "V3",
+          "condition": "stack_temp_c < T_dew_c + 10",
+          "action": "WARN",
+          "message": "Stack temperature within 10°C of acid dew point: sulphuric acid condensation risk — economiser and stack lining corrosion; maintain stack temperature ≥ T_dew + 20°C"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Excess air > 30%: major energy waste — each 10% excess air at 250°C stack raises stack loss ≈ 0.6%; install O₂ trim control for continuous optimisation",
+        "condition": "XS_air_pct > 30"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Stack temperature > 250°C on gas-fired boiler: economiser opportunity — recovering heat to 130°C typically saves 4–8% fuel; verify dew point before sizing",
+        "condition": "stack_temp_c > 250 && fuel_type === 'NG'"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Natural gas boiler below 88% efficiency: condensing technology available — condensing boilers achieve 92–97% (NCV basis) by recovering latent heat of flue gas water vapour",
+        "condition": "eta_th_pct < 88 && fuel_type === 'NG'"
+      },
+      {
+        "id": "W4",
+        "severity": "CRITICAL",
+        "message": "Low O₂ + high CO: sub-stoichiometric combustion — immediate safety risk of CO poisoning and explosion; increase combustion air immediately and check burner condition",
+        "condition": "flue_gas_O2_pct < 1.5 && CO_stack_ppm > 200"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Stack loss > 15%: dominant efficiency penalty — target: natural gas boiler stack loss ≤ 10% at 230°C stack; prioritise air preheating or economiser installation",
+        "condition": "L_fg_pct > 15"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Parameter warning: eta_th_pct < 75",
+        "effect": "Boiler efficiency < 75%: critically low — stack temperature and/or excess air are excessive; immediate combustion optimisation and flue gas audit required",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V1"
+      },
+      {
+        "failureMode": "Parameter warning: CO_stack_ppm > 400",
+        "effect": "CO > 400 ppm: incomplete combustion — adjust air-to-fuel ratio; CO > 1000 ppm indicates safety risk of CO accumulation in boiler room",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: stack_temp_c < T_dew_c + 10",
+        "effect": "Stack temperature within 10°C of acid dew point: sulphuric acid condensation risk — economiser and stack lining corrosion; maintain stack temperature ≥ T_dew + 20°C",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Excess air > 30%: major energy waste — each 10% excess air at 250°C stack raises stack loss ≈ 0.6%; install O₂ trim control for continuous optimisation",
+        "effect": "Smart warning triggered when: XS_air_pct > 30",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Stack temperature > 250°C on gas-fired boiler: economiser opportunity — recovering heat to 130°C typically saves 4–8% fuel; verify dew point before sizing",
+        "effect": "Smart warning triggered when: stack_temp_c > 250 && fuel_type === 'NG'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Natural gas boiler below 88% efficiency: condensing technology available — condensing boilers achieve 92–97% (NCV basis) by recovering latent heat of flue gas water vapour",
+        "effect": "Smart warning triggered when: eta_th_pct < 88 && fuel_type === 'NG'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Low O₂ + high CO: sub-stoichiometric combustion — immediate safety risk of CO poisoning and explosion; increase combustion air immediately and check burner condition",
+        "effect": "Smart warning triggered when: flue_gas_O2_pct < 1.5 && CO_stack_ppm > 200",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Stack loss > 15%: dominant efficiency penalty — target: natural gas boiler stack loss ≤ 10% at 230°C stack; prioritise air preheating or economiser installation",
+        "effect": "Smart warning triggered when: L_fg_pct > 15",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "XS_air_pct",
+        "FC",
+        "fp",
+        "LHV_kj_kg",
+        "C_frac",
+        "H_frac",
+        "S_frac",
+        "m_air_stoich",
+        "m_fg_kg_kg",
+        "cp_fg",
+        "L_fg_pct",
+        "L_CO_pct",
+        "eta_th_pct",
+        "T_dew_c"
+      ]
+    }
+  ]
+}

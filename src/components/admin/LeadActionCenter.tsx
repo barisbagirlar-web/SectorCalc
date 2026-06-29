@@ -32,7 +32,7 @@ const COPY_BUTTONS: {
 }[] = [
  {
  target: "whatsapp",
- label: "WhatsApp Mesajını Kopyala",
+ label: "Copy WhatsApp Message",
  build: buildLeadWhatsappMessage,
  messageType: "whatsapp",
  },
@@ -44,7 +44,7 @@ const COPY_BUTTONS: {
  },
  {
  target: "internal",
- label: "İç Notu Kopyala",
+ label: "Copy Internal Note",
  build: buildLeadInternalNote,
  messageType: "internal_note",
  },
@@ -97,7 +97,7 @@ export function LeadActionCenter({
  <div>
  <h3 className="text-sm font-bold text-deep-navy">Action Center</h3>
  <p className="mt-1 text-xs leading-relaxed text-text-secondary">
- SLA, kalite ve duruma göre sıradaki en iyi aksiyon.
+ Best next action based on SLA, quality, and status.
  </p>
  </div>
  <span
@@ -110,12 +110,12 @@ export function LeadActionCenter({
  <div className="mt-4 space-y-3 text-sm">
  <div>
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
- Sıradaki en iyi aksiyon
+ Best Next Action
  </p>
  <p className="mt-1 break-words font-semibold text-deep-navy">
  {recommendation.recommendedActionLabel}
  {recommendation.shouldContactToday ? (
- <span className="ml-2 font-normal text-amber">· Bugün</span>
+ <span className="ml-2 font-normal text-amber">· Today</span>
  ) : null}
  </p>
  </div>
@@ -131,7 +131,7 @@ export function LeadActionCenter({
 
  <div>
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
- Önerilen status
+ Recommended status
  </p>
  <p className="mt-1 text-deep-navy">
  {getRecommendedStatusLabel(recommendation)}
@@ -152,10 +152,10 @@ export function LeadActionCenter({
 
  <div className="mt-5 border-t border-slate/15 pt-4">
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
- Mesaj şablonları
+ Message templates
  </p>
  <p className="mt-1 text-xs text-text-secondary">
- Otomatik gönderim yok — metni kopyalayıp manuel iletin.
+ No auto-send — copy the text and send it manually.
  </p>
  <div className="mt-3 flex flex-col gap-2">
  {COPY_BUTTONS.map((button) => {
@@ -173,10 +173,10 @@ export function LeadActionCenter({
  : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue/40 hover:bg-off-white"
  }`}
  >
- {copied ? "Kopyalandı" : button.label}
+ {copied ? "Copied" : button.label}
  {suggested && !copied ? (
  <span className="ml-2 text-xs font-normal text-text-secondary">
- (önerilen)
+ (recommended)
  </span>
  ) : null}
  </button>
@@ -187,7 +187,7 @@ export function LeadActionCenter({
  {fallbackText ? (
  <div className="mt-4 space-y-2">
  <p className="text-xs font-medium text-amber" role="alert">
- Panoya kopyalanamadı. Metni aşağıdan manuel kopyalayın.
+ Could not copy to clipboard. Copy the text manually below.
  </p>
  <textarea
  readOnly

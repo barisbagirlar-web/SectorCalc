@@ -1,0 +1,406 @@
+{
+  "schemaId": "PRO_024",
+  "toolCode": "TOOL-PRO-024",
+  "version": "1.0.0",
+  "name": "CPM Schedule Delay, Liquidated Damages & Acceleration (Crashing) Analysis",
+  "subtitle": "Project Management | Contract Engineering — FIDIC Red/Yellow/Silver Book 2017, PMBOK 7th Edition",
+  "sectorPath": [
+    "Project Management",
+    "Contract Engineering"
+  ],
+  "standardsBasis": [
+    "FIDIC Red/Yellow/Silver Book 2017",
+    "PMBOK 7th Edition",
+    "NEC4 Engineering Contract",
+    "SCL Delay and Disruption Protocol 2017",
+    "AACEI Recommended Practice 29R-03"
+  ],
+  "scope": {
+    "inScope": [
+      "CPM Schedule Delay, Liquidated Damages & Acceleration (Crashing) Analysis"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "planned_duration_days",
+      "symbol": "planned_duration_days",
+      "label": "Contract Planned Duration",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 3650
+    },
+    {
+      "id": "forecast_duration_days",
+      "symbol": "forecast_duration_days",
+      "label": "Forecast / Actual Duration",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 1
+    },
+    {
+      "id": "excusable_delay_days",
+      "symbol": "excusable_delay_days",
+      "label": "Excusable Delay - Force Majeure, Client-Caused",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "hint": "Delays entitling EOT (Extension of Time) under contract — weather, client instruction, force majeure"
+    },
+    {
+      "id": "compensable_delay_days",
+      "symbol": "compensable_delay_days",
+      "label": "Compensable Delay - Client-Caused, Recoverable",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "Client-caused delays for which contractor may claim additional cost (prolongation cost)"
+    },
+    {
+      "id": "daily_ld_rate_usd",
+      "symbol": "daily_ld_rate_usd",
+      "label": "Liquidated Damages Rate",
+      "unit": {
+        "ref": "USD/day"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "hint": "From contract clause — pre-agreed LD rate per day of non-excusable delay"
+    },
+    {
+      "id": "ld_cap_pct",
+      "symbol": "ld_cap_pct",
+      "label": "LD Cap (% of Contract Value)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 100,
+      "default": 10,
+      "optional": true,
+      "hint": "Most contracts cap LD at 5–15% of contract value — FIDIC: typically 10%"
+    },
+    {
+      "id": "contract_value_usd",
+      "symbol": "contract_value_usd",
+      "label": "Total Contract Value",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "optional": true,
+      "hint": "Required to apply LD cap"
+    },
+    {
+      "id": "crash_cost_per_day_usd",
+      "symbol": "crash_cost_per_day_usd",
+      "label": "Acceleration Cost per Day Recovered",
+      "unit": {
+        "ref": "USD/day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "hint": "Overtime + additional resources + expediting — marginal cost to compress 1 critical path day"
+    },
+    {
+      "id": "max_crashable_days",
+      "symbol": "max_crashable_days",
+      "label": "Maximum Compressible Days (Critical Path Limit)",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "hint": "Physical limit of schedule compression — beyond this, additional resources yield no time saving"
+    },
+    {
+      "id": "prolongation_cost_per_day_usd",
+      "symbol": "prolongation_cost_per_day_usd",
+      "label": "Contractor Prolongation Cost (site overhead/day)",
+      "unit": {
+        "ref": "USD/day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "Site overhead rate per day: site manager, equipment standing, temporary facilities"
+    },
+    {
+      "id": "disruption_cost_usd",
+      "symbol": "disruption_cost_usd",
+      "label": "Disruption / Productivity Loss Cost",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "Loss of productivity from concurrent delays — Measured Mile or Earned Value method"
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_024",
+      "code": "FIDIC Red/Yellow/Silver Book 2017",
+      "name": "CPM Schedule Delay, Liquidated Damages & Acceleration (Crashing) Analysis",
+      "description": "CPM Schedule Delay, Liquidated Damages & Acceleration (Crashing) Analysis — Project Management, Contract Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Gross_Delay_days",
+          "expression": "MAX(0, forecast_duration_days - planned_duration_days)",
+          "unit": {
+            "ref": "day"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "NonExcusable_Delay_days",
+          "expression": "MAX(0, Gross_Delay_days - excusable_delay_days - compensable_delay_days)",
+          "unit": {
+            "ref": "day"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Base_LD_Exposure_USD",
+          "expression": "NonExcusable_Delay_days * daily_ld_rate_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "LD_Cap_USD",
+          "expression": "contract_value_usd > 0 ? contract_value_usd * (ld_cap_pct / 100) : 999999999",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Capped_LD_USD",
+          "expression": "MIN(Base_LD_Exposure_USD, LD_Cap_USD)",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Optimal_Crash_Days",
+          "expression": "daily_ld_rate_usd > crash_cost_per_day_usd ? MIN(NonExcusable_Delay_days, max_crashable_days) : 0",
+          "unit": {
+            "ref": "day"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Total_Crash_Cost_USD",
+          "expression": "Optimal_Crash_Days * crash_cost_per_day_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Residual_LD_USD",
+          "expression": "MIN((NonExcusable_Delay_days - Optimal_Crash_Days) * daily_ld_rate_usd, LD_Cap_USD)",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Net_Financial_Impact_USD",
+          "expression": "Total_Crash_Cost_USD + Residual_LD_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Savings_From_Crashing_USD",
+          "expression": "Capped_LD_USD - Net_Financial_Impact_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Prolongation_Claim_USD",
+          "expression": "compensable_delay_days * prolongation_cost_per_day_usd + disruption_cost_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Net_Contractor_Exposure_USD",
+          "expression": "Capped_LD_USD - Prolongation_Claim_USD",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Crash_ROI_ratio",
+          "expression": "Total_Crash_Cost_USD > 0 ? Savings_From_Crashing_USD / Total_Crash_Cost_USD : 0",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "INFO",
+          "source": "Contract Engineering / FIDIC 2017",
+          "condition": "crash_cost_per_day_usd > daily_ld_rate_usd",
+          "message": "CRASHING NOT ECONOMICAL: Acceleration cost per day exceeds LD rate. Paying liquidated damages is financially preferable to accelerating — unless client relationship, repeat business, or reputational risk justifies the premium."
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "FIDIC / Contract Law — LD Cap Reached",
+          "condition": "Base_LD_Exposure_USD >= LD_Cap_USD && LD_Cap_USD > 0",
+          "message": "LD CAP REACHED: Liquidated damages have hit the contractual maximum. Any additional delay beyond this point no longer increases LD exposure — however, client may pursue general damages if LD is found to be a penalty clause. Seek legal advice."
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "PMBOK / Project Recovery",
+          "condition": "NonExcusable_Delay_days > planned_duration_days * 0.2",
+          "message": "CRITICAL DELAY: Non-excusable overrun exceeds 20% of planned duration. This is a major contract performance failure. Formal delay analysis (TIA — Time Impact Analysis) required immediately. Consider formal acceleration notice and schedule recovery plan submission."
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "SCL Protocol 2017 / NEC4",
+          "condition": "Prolongation_Claim_USD > Capped_LD_USD && compensable_delay_days > 0",
+          "message": "RECOVERABLE CLAIM EXCEEDS LD: Prolongation costs attributable to client-caused delays exceed LD exposure. Net position may be a client payment obligation to contractor. Formal contractual notice and substantiation records are essential."
+        },
+        {
+          "id": "W5",
+          "severity": "CRITICAL",
+          "source": "CPM Critical Path Analysis",
+          "condition": "Gross_Delay_days > 0 && max_crashable_days === 0",
+          "message": "SCHEDULE CANNOT BE RECOVERED: No crashable days available on critical path. Full LD exposure is unavoidable. Focus on EOT entitlement claims, LD cap, and dispute avoidance strategy."
+        },
+        {
+          "id": "W6",
+          "severity": "INFO",
+          "source": "Project Financial Analysis",
+          "condition": "Crash_ROI_ratio > 3",
+          "message": "HIGH CRASH ROI (>3×): Acceleration investment yields more than 3× return in LD savings. Full crash programme to maximum compressible days is strongly recommended on financial grounds alone."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "planned_duration_days",
+        "forecast_duration_days",
+        "excusable_delay_days",
+        "daily_ld_rate_usd",
+        "crash_cost_per_day_usd",
+        "max_crashable_days"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -35,30 +35,36 @@ export type CaseStudyEvidenceLevel =
   | "anonymized-real"
   | "representative-scenario";
 
-export type CaseStudyToolRoute = "premium" | "premium-schema";
+export type CaseStudyToolRoute = "premium" | "premium-schema" | "premium-tools";
 
 export type CaseStudyEntry = {
   readonly slug: string;
   readonly sector: CaseStudySector;
   readonly sectorLabel: string;
   readonly title: string;
-  readonly scenarioKind: CaseStudyScenarioKind;
-  readonly evidenceLevel: CaseStudyEvidenceLevel;
+  readonly seoTitle?: string;
+  readonly seoDescription?: string;
+  readonly howIsItCalculated?: string;
+  readonly whyItMatters?: string;
+  readonly academicMethodology?: string;
+  readonly scenarioKind?: CaseStudyScenarioKind;
+  readonly evidenceLevel?: CaseStudyEvidenceLevel;
   readonly problem: string;
+  readonly whatIsIt?: string;
   readonly toolSlug: string;
   readonly toolTitle: string;
   readonly toolRoute?: CaseStudyToolRoute;
   readonly inputSummary: readonly string[];
-  readonly hiddenLoss: string;
+  readonly hiddenLoss?: string;
   readonly calculationResult: string;
   readonly calculationLogic: string;
-  readonly methodologyNote: string;
+  readonly methodologyNote?: string;
   readonly lossType: CaseStudyLossType;
   readonly lossTypeLabel: string;
   readonly suggestedAction: string;
-  readonly expectedImpact: string;
-  readonly assumptions: readonly string[];
-  readonly disclaimer: string;
+  readonly expectedImpact?: string;
+  readonly assumptions?: readonly string[];
+  readonly disclaimer?: string;
 };
 
 export function getCaseStudyToolHref(entry: CaseStudyEntry): string {

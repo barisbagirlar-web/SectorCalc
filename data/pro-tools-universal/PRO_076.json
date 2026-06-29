@@ -1,0 +1,334 @@
+{
+  "schemaId": "PRO_076",
+  "toolCode": "TOOL-PRO-076",
+  "version": "1.0.0",
+  "name": "Screw Conveyor Capacity, Drive Torque & Motor Power Selection",
+  "subtitle": "Bulk Material Handling | Mechanical Engineering — CEMA 350 7th Ed., ISO 7119:1981",
+  "sectorPath": [
+    "Bulk Material Handling",
+    "Mechanical Engineering"
+  ],
+  "standardsBasis": [
+    "CEMA 350 7th Ed.",
+    "ISO 7119:1981",
+    "DIN 15262:2019"
+  ],
+  "scope": {
+    "inScope": [
+      "Screw Conveyor Capacity, Drive Torque & Motor Power Selection"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "capacity_t_h",
+      "symbol": "capacity_t_h",
+      "label": "Required Throughput Capacity (Q)",
+      "unit": {
+        "ref": "t/h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.1,
+      "max": 5000
+    },
+    {
+      "id": "bulk_density_kg_m3",
+      "symbol": "bulk_density_kg_m3",
+      "label": "Bulk Density of Material (ρ_bulk)",
+      "unit": {
+        "ref": "kg/m³"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 100,
+      "max": 3000
+    },
+    {
+      "id": "screw_diameter_mm",
+      "symbol": "screw_diameter_mm",
+      "label": "Screw Outside Diameter (D_s)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 300,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "screw_speed_rpm",
+      "symbol": "screw_speed_rpm",
+      "label": "Screw Rotational Speed (n)",
+      "unit": {
+        "ref": "rpm"
+      },
+      "confidence": "EXACT",
+      "group": "materials",
+      "min": 10,
+      "max": 200
+    },
+    {
+      "id": "conveyor_length_m",
+      "symbol": "conveyor_length_m",
+      "label": "Conveyor Centre-to-Centre Length (L)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.5,
+      "max": 100
+    },
+    {
+      "id": "inclination_deg",
+      "symbol": "inclination_deg",
+      "label": "Conveyor Inclination Angle (α)",
+      "unit": {
+        "ref": "deg"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -20,
+      "max": 45,
+      "default": 0
+    },
+    {
+      "id": "material_factor_Fm",
+      "symbol": "material_factor_Fm",
+      "label": "Material Flowability / Friction Factor (F_m)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "materials",
+      "default": 1.5,
+      "enum": [
+        {
+          "value": 1,
+          "label": "F_m = 1.0 — Free-flowing (grain, seeds)"
+        },
+        {
+          "value": 1.5,
+          "label": "F_m = 1.5 — Average (coal, salt)"
+        },
+        {
+          "value": 2,
+          "label": "F_m = 2.0 — Sluggish (cement, fly ash)"
+        },
+        {
+          "value": 2.5,
+          "label": "F_m = 2.5 — Very sluggish (wet clay, sticky)"
+        }
+      ]
+    },
+    {
+      "id": "trough_loading_pct",
+      "symbol": "trough_loading_pct",
+      "label": "Trough Loading (% of screw cross-section)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "EXACT",
+      "group": "materials",
+      "default": 30,
+      "enum": [
+        {
+          "value": 15,
+          "label": "15% — Very light, abrasive"
+        },
+        {
+          "value": 30,
+          "label": "30% — Mixed granular, moderately abrasive"
+        },
+        {
+          "value": 45,
+          "label": "45% — Free-flowing, non-abrasive"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "materials",
+      "letter": "B",
+      "title": "Materials",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_076",
+      "code": "CEMA 350 7th Ed.",
+      "name": "Screw Conveyor Capacity, Drive Torque & Motor Power Selection",
+      "description": "Screw Conveyor Capacity, Drive Torque & Motor Power Selection — Bulk Material Handling, Mechanical Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "A_screw_m2",
+          "expression": "Math.PI / 4 * Math.pow(screw_diameter_mm / 1000, 2) * trough_loading_pct / 100; Q_theory_m3h = A_screw_m2 * (screw_diameter_mm / 1000) * screw_speed_rpm * 60",
+          "unit": {
+            "ref": "m², m³/h"
+          },
+          "reference": "CEMA 350 §3.3 — Q = A_s × pitch × n × 60",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Q_actual_m3h",
+          "expression": "capacity_t_h / (bulk_density_kg_m3 / 1000); capacity_ratio = Q_actual_m3h / Q_theory_m3h",
+          "unit": {
+            "ref": "m³/h, dimensionless"
+          },
+          "reference": "Q_vol = Q_mass / ρ_bulk",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "alpha_rad",
+          "expression": "inclination_deg * Math.PI / 180; Ci = (inclination_deg === 0) ? 1.0 : (inclination_deg <= 15) ? 1 - inclination_deg * 0.02 : (inclination_deg <= 25) ? 0.7 - (inclination_deg - 15) * 0.025 : 0.45",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "CEMA 350 Table 2-3 — incline factor: 0°=1.0",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "W_material_kn_m",
+          "expression": "capacity_t_h * 9.81 * conveyor_length_m / 3600 / screw_speed_rpm * 60 / (2 * Math.PI); T_friction_knm = 0.055 * Math.pow(screw_diameter_mm / 1000, 3) * bulk_density_kg_m3 * conveyor_length_m * material_factor_Fm / 1000; T_drive_knm = W_material_kn_m + T_friction_knm",
+          "unit": {
+            "ref": "kNm"
+          },
+          "reference": "CEMA 350 §4 — drive torque = material torque + friction torque",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "P_material_kw",
+          "expression": "capacity_t_h * 9.81 * conveyor_length_m * Math.sin(inclination_deg * Math.PI / 180) / 3600; P_friction_kw = material_factor_Fm * bulk_density_kg_m3 * Q_actual_m3h / 3600 * conveyor_length_m * 0.055; P_motor_kw = (P_material_kw + P_friction_kw) / 0.88",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "CEMA 350 §4.4 — total HP = (HPF + HPM + HPC) / drive efficiency (η=0.88 typical)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "v_tip_m_s",
+          "expression": "Math.PI * screw_diameter_mm / 1000 * screw_speed_rpm / 60",
+          "unit": {
+            "ref": "mps"
+          },
+          "reference": "CEMA 350 §3.6 — tip speed limit: ≤ 1.0 m/s for abrasive materials",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "CEMA 350 7th Ed.",
+          "condition": "v_tip_m_s > 1.0 && material_factor_Fm >= 2.0",
+          "message": "High tip speed on sluggish material: rapid liner and flight wear — reduce to < 1.0 m/s per CEMA recommendation for abrasive/sluggish class"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "CEMA 350 7th Ed.",
+          "condition": "trough_loading_pct === 45 && material_factor_Fm > 1.5",
+          "message": "45% trough loading on non-free-flowing material: plugging risk — reduce to 30% and increase screw diameter to maintain capacity"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "CEMA 350 7th Ed.",
+          "condition": "conveyor_length_m > 40",
+          "message": "Long screw conveyor (> 40 m): intermediate hanger bearing required — shaft deflection and torque accumulation must be checked per CEMA §5"
+        },
+        {
+          "id": "W4",
+          "severity": "CRITICAL",
+          "source": "CEMA 350 7th Ed.",
+          "condition": "inclination_deg > 30",
+          "message": "Inclination > 30°: CEMA capacity factors fall to < 40% — consider vertical screw conveyor (IBC) or pneumatic conveying system"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "CEMA 350 7th Ed.",
+          "condition": "P_motor_kw > 50 && screw_diameter_mm < 300",
+          "message": "High power on small screw: shaft and coupling stress high — verify shaft diameter torque rating per CEMA §6; consider upsize to 350 mm screw"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "capacity_t_h",
+        "bulk_density_kg_m3",
+        "screw_diameter_mm",
+        "screw_speed_rpm",
+        "conveyor_length_m",
+        "inclination_deg",
+        "material_factor_Fm",
+        "trough_loading_pct"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

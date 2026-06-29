@@ -136,9 +136,9 @@ function resolveIsTestLead(
  }
 
  if (
- reasons.some((reason) =>
- reason.includes("Zayıf mesaj + düşük kalite skoru")
- )
+   reasons.some((reason) =>
+    reason.includes("Weak message + low quality score")
+   )
  ) {
  return true;
  }
@@ -154,35 +154,35 @@ function detectAutomaticTestLead(lead: LeadIntent): TestLeadDetection {
  const reasons: string[] = [];
 
  if (isTestEmail(lead.email)) {
- reasons.push("test@test.com e-postası");
+   reasons.push("test@test.com email");
  }
 
  const patternFieldCount = countPatternFields(lead);
  if (patternFieldCount >= 2) {
- reasons.push(
- `Ad/şirket/mesajda test/deneme benzeri ifadeler (${patternFieldCount} alan)`
- );
- } else if (patternFieldCount === 1) {
- if (containsTestPattern(lead.name)) {
- reasons.push("İsimde test/deneme benzeri ifade");
- } else if (containsTestPattern(lead.company)) {
- reasons.push("Şirket adında test/deneme benzeri ifade");
- } else if (containsTestPattern(lead.message ?? "")) {
- reasons.push("Mesajda test/deneme benzeri ifade");
- }
+   reasons.push(
+    `Test/demo-like phrases in name/company/message (${patternFieldCount} fields)`
+   );
+  } else if (patternFieldCount === 1) {
+   if (containsTestPattern(lead.name)) {
+    reasons.push("Test/demo-like phrase in name");
+   } else if (containsTestPattern(lead.company)) {
+    reasons.push("Test/demo-like phrase in company name");
+   } else if (containsTestPattern(lead.message ?? "")) {
+    reasons.push("Test/demo-like phrase in message");
+   }
  }
 
  if (isMeaninglessShortMessage(lead.message)) {
- reasons.push("Mesaj 5 karakter altı ve anlamsız");
+   reasons.push("Message under 5 characters and meaningless");
  }
 
  if (isSuspiciousCompany(lead.company)) {
- reasons.push("Şirket adı URL veya localhost benzeri");
+   reasons.push("Company name is URL or localhost-like");
  }
 
  const quality = computeLeadQualityScore(lead);
  if (hasWeakMessage(lead) && quality.level === "low") {
- reasons.push("Zayıf mesaj + düşük kalite skoru");
+   reasons.push("Weak message + low quality score");
  }
 
  const confidence =
@@ -201,7 +201,7 @@ function detectAutomaticTestLead(lead: LeadIntent): TestLeadDetection {
 
 export function detectTestLead(lead: LeadIntent): TestLeadDetection {
  if (lead.isTestLead === true) {
- const reasons = ["Admin tarafından test lead olarak işaretlendi"];
+   const reasons = ["Marked as test lead by admin"];
  if (lead.testLeadReason?.trim()) {
  reasons.push(lead.testLeadReason.trim());
  }
@@ -219,7 +219,7 @@ export function detectTestLead(lead: LeadIntent): TestLeadDetection {
  return {
  isTestLead: false,
  confidence: "low",
- reasons: ["Admin tarafından test lead değil olarak işaretlendi"],
+   reasons: ["Marked as not test lead by admin"],
  isManualMark: false,
  manualOverrideNotTest: true,
  };
@@ -267,9 +267,9 @@ export function computeLeadCleanupSummary(
 
 export function formatTestLeadConfidence(confidence: TestLeadConfidence): string {
  const labels: Record<TestLeadConfidence, string> = {
- high: "Yüksek",
- medium: "Orta",
- low: "Düşük",
+  high: "High",
+  medium: "Medium",
+  low: "Low",
  };
  return labels[confidence];
 }

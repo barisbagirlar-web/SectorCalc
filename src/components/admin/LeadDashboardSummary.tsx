@@ -55,12 +55,12 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  const { counts } = stats;
 
  const summaryCards = [
- { label: "Toplam Lead", value: counts.total },
- { label: "Yeni Lead", value: counts.newCount },
- { label: "Sıcak Lead", value: counts.hotCount },
- { label: "Uygun Lead", value: counts.qualifiedCount },
- { label: "Müşteriye Dönen", value: counts.convertedCount },
- { label: "Kayıp Lead", value: counts.lostCount },
+ { label: "Total Leads", value: counts.total },
+ { label: "New Leads", value: counts.newCount },
+ { label: "Hot Leads", value: counts.hotCount },
+ { label: "Qualified Leads", value: counts.qualifiedCount },
+ { label: "Converted", value: counts.convertedCount },
+ { label: "Lost Leads", value: counts.lostCount },
  ];
 
  return (
@@ -71,7 +71,7 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  <div>
  <h2 className="text-lg font-bold text-deep-navy">Lead dashboard</h2>
  <p className="mt-1 text-sm text-text-secondary">
- Yönetim özeti — yüklü lead listesinden (salt okunur).
+ Management summary — from the loaded lead list (read-only).
  </p>
  </div>
 
@@ -89,12 +89,12 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  <DistributionBlock
  title="Priority"
  items={stats.priority}
- emptyLabel="Henüz lead yok."
+ emptyLabel="No leads yet."
  />
  <DistributionBlock
  title="Status"
  items={stats.status}
- emptyLabel="Henüz lead yok."
+ emptyLabel="No leads yet."
  />
  <div className="rounded-sm border border-slate/20 bg-white p-4 shadow-card sm:p-5 lg:col-span-1">
  <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
@@ -104,7 +104,7 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  Unknown: {loading ? "…" : String(stats.attribution.unknownCount)}
  </p>
  {stats.attribution.top5.length === 0 ? (
- <p className="mt-3 text-sm text-text-secondary">Henüz attribution verisi yok.</p>
+ <p className="mt-3 text-sm text-text-secondary">No attribution data yet.</p>
  ) : (
  <ul className="mt-3 space-y-2.5">
  {stats.attribution.top5.map((item) => {

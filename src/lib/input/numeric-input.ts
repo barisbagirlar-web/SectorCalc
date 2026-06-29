@@ -12,9 +12,9 @@ export function sanitizeNumericInput(
       result += char;
       continue;
     }
-    if (allowDecimal && char === "." && !dotUsed) {
+    if (allowDecimal && (char === "." || char === ",") && !dotUsed) {
       dotUsed = true;
-      result += char;
+      result += ".";
     }
   }
 

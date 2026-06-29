@@ -1,6 +1,6 @@
 /**
  * FormulaRepository — Logic Layer (U-Engine pattern).
- * Formüller registry id ile eşleşir; sektör kodu hard-code edilmez.
+ * Formulas match by registry id; sector code is not hard-coded.
  */
 
 import { computeEfficiencyScore } from "@/lib/os/core/intel-engine";
@@ -36,7 +36,7 @@ function computeVarianceRatio(target: number, actual: number): number {
   return (actual - target) / target;
 }
 
-/** Standart verimlilik formülü — registry override edebilir. */
+/** Standard efficiency formula — registry can override. */
 export function standardEfficiencyFormula(inputs: FormulaInputs): number {
   if (
     !Number.isFinite(inputs.target) ||
@@ -103,10 +103,10 @@ export class FormulaRepository {
   }
 }
 
-/** Singleton — MasterOS / U-Engine giriş noktası. */
+/** Singleton — MasterOS / U-Engine entry point. */
 export const formulaRepository = new FormulaRepository();
 
-/** Geriye dönük — registry-logic Formulas haritası. */
+/** Backward-compat — registry-logic Formulas map. */
 export const Formulas = Object.fromEntries(
   formulaRepository.listSectorIds().map((sectorId) => [
     sectorId,

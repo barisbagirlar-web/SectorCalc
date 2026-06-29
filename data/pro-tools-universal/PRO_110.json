@@ -1,0 +1,341 @@
+{
+  "schemaId": "PRO_110",
+  "toolCode": "TOOL-PRO-110",
+  "version": "1.0.0",
+  "name": "RC One-Way Slab — Flexural Design Steel Area, Depth Check & One-Way Shear Verification",
+  "subtitle": "Concrete Construction | Structural Engineering — ACI 318-19 §7, §9, §22.5, EN 1992-1-1:2004 §6.2, §9.3",
+  "sectorPath": [
+    "Concrete Construction",
+    "Structural Engineering"
+  ],
+  "standardsBasis": [
+    "ACI 318-19 §7, §9, §22.5",
+    "EN 1992-1-1:2004 §6.2, §9.3",
+    "BS 8110-1:1997 §3.4.4",
+    "IS 456:2000 §26"
+  ],
+  "scope": {
+    "inScope": [
+      "RC One-Way Slab — Flexural Design Steel Area, Depth Check & One-Way Shear Verification"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Mu_knm_m",
+      "symbol": "Mu_knm_m",
+      "label": "Factored Bending Moment per Metre Width (M_u / M_Ed)",
+      "unit": {
+        "ref": "kNmpm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.5,
+      "max": 500
+    },
+    {
+      "id": "Vu_kn_m",
+      "symbol": "Vu_kn_m",
+      "label": "Factored Shear Force per Metre Width (V_u / V_Ed)",
+      "unit": {
+        "ref": "kNpm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 500
+    },
+    {
+      "id": "slab_thickness_mm",
+      "symbol": "slab_thickness_mm",
+      "label": "Total Slab Thickness (h)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "min": 70,
+      "max": 600
+    },
+    {
+      "id": "cover_mm",
+      "symbol": "cover_mm",
+      "label": "Clear Cover to Flexural Steel (c_c)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 15,
+      "max": 75,
+      "default": 25
+    },
+    {
+      "id": "bar_diameter_mm",
+      "symbol": "bar_diameter_mm",
+      "label": "Flexural Bar Diameter (d_b)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "default": 12,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "fc_prime_mpa",
+      "symbol": "fc_prime_mpa",
+      "label": "Concrete Compressive Strength (f'_c / f_ck)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 30,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "fy_mpa",
+      "symbol": "fy_mpa",
+      "label": "Rebar Yield Strength (f_y / f_yk)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 500,
+      "enum": [
+        {
+          "value": 420,
+          "label": "Grade 40 / B420 — 420 MPa"
+        },
+        {
+          "value": 500,
+          "label": "Grade 60 / B500 — 500 MPa"
+        },
+        {
+          "value": 550,
+          "label": "Grade 80 — 550 MPa"
+        }
+      ]
+    },
+    {
+      "id": "span_m",
+      "symbol": "span_m",
+      "label": "Slab Clear Span (l_n)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "min": 0.5,
+      "max": 15
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "geometry",
+      "letter": "B",
+      "title": "Geometry",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_110",
+      "code": "ACI 318-19 §7, §9, §22.5",
+      "name": "RC One-Way Slab — Flexural Design Steel Area, Depth Check & One-Way Shear Verification",
+      "description": "RC One-Way Slab — Flexural Design Steel Area, Depth Check & One-Way Shear Verification — Concrete Construction, Structural Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "d_mm, Rn_mpa",
+          "expression": "d_mm = slab_thickness_mm - cover_mm - bar_diameter_mm / 2; Rn_mpa = Mu_knm_m * 1e6 / (0.9 * 1000 * Math.pow(d_mm, 2))",
+          "unit": {
+            "ref": "mm, MPa"
+          },
+          "reference": "d = h − c_c − d_b/2; R_n = M_u/(φ·b·d²); φ=0.9 tension-controlled — ACI 318-19 §21.2.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "rho_req, rho_min, rho_max, rho_design",
+          "expression": "rho_req = (0.85 * fc_prime_mpa / fy_mpa) * (1 - Math.sqrt(1 - 2 * Rn_mpa / (0.85 * fc_prime_mpa))); rho_min = Math.max(0.25 * Math.sqrt(fc_prime_mpa) / fy_mpa, 1.4 / fy_mpa); rho_max = 0.75 * 0.85 * 0.85 * fc_prime_mpa / fy_mpa * (600 / (600 + fy_mpa)); rho_design = Math.max(rho_req, rho_min)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "ρ = (0.85f'c/fy)(1−√(1−2Rn/0.85f'c)) — ACI 318-19 §22.2; ρ_min per §9.6.1.2; ρ_max = 0.75ρ_balanced",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "As_req_mm2_m, spacing_mm",
+          "expression": "As_req_mm2_m = rho_design * 1000 * d_mm; bar_area_mm2 = Math.PI / 4 * Math.pow(bar_diameter_mm, 2); spacing_mm = Math.floor(bar_area_mm2 / As_req_mm2_m * 1000)",
+          "unit": {
+            "ref": "mm²/m, mm"
+          },
+          "reference": "A_s = ρ·b·d; spacing s = a_bar/A_s × 1000 — ACI §25.2.1: max spacing ≤ min(3h, 450 mm)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "s_max_mm, s_ok",
+          "expression": "s_max_mm = Math.min(3 * slab_thickness_mm, 450); s_ok = spacing_mm <= s_max_mm",
+          "unit": {
+            "ref": "mm, boolean"
+          },
+          "reference": "ACI 318-19 §7.7.2.3 — maximum flexural bar spacing: min(3h, 450 mm)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "phi_Vc_kn_m",
+          "expression": "lambda = 1.0; phi_Vc_kn_m = 0.75 * 0.17 * lambda * Math.sqrt(fc_prime_mpa) * 1000 * d_mm / 1000",
+          "unit": {
+            "ref": "kNpm"
+          },
+          "reference": "ACI 318-19 §22.5.5.1 — φV_c = 0.75×0.17λ√f'c×b_w×d; slabs without stirrups; SI units",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "shear_DCR, L_d_ratio, L_d_limit",
+          "expression": "shear_DCR = Vu_kn_m / phi_Vc_kn_m; L_d_ratio = span_m * 1000 / d_mm; L_d_limit = (fy_mpa === 420) ? 20 : 18",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Shear DCR ≤ 1.0 (no stirrups required); L/d deflection control per ACI §24.2 (approximate method)",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "WARN",
+          "condition": "rho_req > rho_max",
+          "message": "Required steel ratio exceeds 75% of balanced — slab is over-stressed; increase slab thickness by 20–30 mm or increase f'c; compression-controlled failure mode unacceptable"
+        },
+        {
+          "id": "V2",
+          "action": "WARN",
+          "condition": "shear_DCR > 1.0",
+          "message": "One-way shear demand exceeds concrete capacity: stirrups required in slab (unusual) — verify load/span; more practical to increase slab thickness until V_u < φV_c"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "d_mm < slab_thickness_mm * 0.7",
+          "message": "Effective depth < 70% of total thickness: very large cover or bar size — verify cover is correct; large bars in thin slabs reduce d significantly"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "L_d_ratio > L_d_limit",
+          "message": "Span-to-depth ratio exceeds ACI §24.2 deflection limit — computed deflections must be checked; long-term creep deflection (×2.0 for 5+ years) may damage partitions or finishes"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "spacing_mm < 75",
+          "message": "Bar spacing < 75 mm: congestion risk — concrete aggregate cannot flow between bars; ACI §25.2.1 requires clear spacing ≥ bar diameter, 25 mm, or 4/3 × aggregate size"
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "!s_ok",
+          "message": "Bar spacing exceeds ACI maximum: cracks will be wide — use smaller diameter bars at closer spacing or redesign to meet s ≤ min(3h, 450 mm)"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "",
+          "condition": "rho_design < rho_min * 1.1",
+          "message": "Minimum steel governs: slab is lightly loaded for its depth — consider reducing slab thickness to L/20 minimum per ACI Table 9.3.1.1 for efficiency"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "Rn_mpa > 0.85 * fc_prime_mpa * 0.3",
+          "message": "High moment coefficient (R_n > 30% of 0.85f'c): approaching over-reinforced zone — verify d is adequate; increase thickness before adding reinforcement"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Mu_knm_m",
+        "Vu_kn_m",
+        "slab_thickness_mm",
+        "cover_mm",
+        "bar_diameter_mm",
+        "fc_prime_mpa",
+        "fy_mpa",
+        "span_m"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

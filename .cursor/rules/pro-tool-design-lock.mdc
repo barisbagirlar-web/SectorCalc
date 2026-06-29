@@ -1,0 +1,52 @@
+---
+description: PRO Tool Design Lock — bu tasarım asla değiştirilmemelidir
+globs: src/styles/pro-tool-form.css,src/components/calculators/ProToolForm.tsx,src/components/calculators/ProToolClientWrapper.tsx,src/app/pro-tools/[toolId]/page.tsx
+alwaysApply: true
+---
+
+# PRO Tool Design Lock (Kilitli — Değiştirilmez)
+
+Bu tasarım kullanıcı tarafından onaylanmış ve kilitlenmiştir. **Asla değiştirilmemelidir.**
+
+## Kapsam
+
+Aşağıdaki dosyalar PRO tool form tasarımının kilitli parçalarıdır:
+
+| Dosya | Rolü |
+|---|---|
+| `src/styles/pro-tool-form.css` | PRO tool CSS (pro-* sınıfları) |
+| `src/components/calculators/ProToolForm.tsx` | Ana PRO tool React componenti |
+| `src/components/calculators/ProToolClientWrapper.tsx` | Client wrapper |
+| `src/components/calculators/UniversalCalculator.jsx` | Re-export |
+
+## Kilitli Tasarım Kuralları
+
+1. **CSS sınıfları `pro-*` prefix'i ile başlamalıdır.** Örn: `pro-tool-card`, `pro-inp-grid`, `pro-res-table`, `pro-calc-btn`.
+2. **`sc-premium-*` sınıfları PRO tool'lar için kullanılmamalıdır.** Free tool'lar için ayrılmıştır.
+3. **Tool card yapısı:** header (eyebrow + title + meta + badges) → status row → tabs → panel.
+4. **Tabs sırası:** Inputs → Results → Formulas & Standards → FMEA → Audit Log.
+5. **Input grid:** 2-col auto-fill grid, her input bir `pro-inp-item` kartı içinde (label, symbol, confidence badge, input row, hint, uncertainty).
+6. **Material DB:** ISO 513 grid seçimi, seçildiğinde info card + Apply Preset butonu.
+7. **Results:** Verdict banner → warning cards → UC gauge → results table → references.
+8. **Formulas:** F1–Fn sıralı, validation rules tablosu altında.
+9. **FMEA tablosu:** 7 sütun (Failure Mode, Effect, S, O, D, RPN, Control Measure), dark header, min-width 700px.
+10. **Audit log:** Dark tema (`#1A1915`), grid layout, ISO 9001 başlık.
+11. **Status badge:** `pro-badge-idle/ok/crit/warn/info/pass/fail`.
+12. **Cert badges:** `pro-cert-tuv/iso/ecmi`.
+13. **Action row:** Calculate + Reset + ISO/IEC note.
+14. **CTA bar (cbar):** Dark footer, "View Results →" butonu.
+15. **Renk paleti:** Background `#E8E6DE`, tool card `#F0EEE6`, accent `#BD5D3A`, text `#1A1915`.
+16. **Responsive:** 768px breakpoint (grid tek kolon, panel padding küçülür).
+
+## Yasak
+
+- PRO tool CSS sınıflarını değiştirmek, rename etmek, silmek
+- `pro-tool-form.css` dosyasını silmek veya başka bir CSS ile değiştirmek
+- `ProToolForm.tsx` componentini başka bir tasarımla değiştirmek
+- `pro-*` prefix'ini başka bir prefix ile değiştirmek
+- `pro-inp-grid` yapısını bozmak, manuel form layout'una dönmek
+- Kullanıcının verdiği HTML/CSS'teki yapısal elemanları (tabs, panels, tables, badges) kaldırmak
+
+## Kaynak
+
+Tasarımın kaynağı: Kullanıcının sağladığı `PRO Tool Form HTML` (25 Haziran 2026).

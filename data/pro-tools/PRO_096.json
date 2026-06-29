@@ -1,0 +1,325 @@
+{
+  "tool_id": "PRO_096",
+  "tool_name": "Fillet Weld Sizing — Effective Throat, Shear Capacity & Minimum Leg Size per AWS D1.1 / EC3",
+  "category": "Steel Fabrication / Welding Engineering",
+  "scope": "single_operation",
+  "primary_operation": "fillet_weld",
+  "inputs": [
+    {
+      "id": "V_demand_kn",
+      "name": "Applied Shear Force on Weld Group (V_u / V_Ed)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "N_demand_kn",
+      "name": "Applied Normal (Tension/Compression) Force on Weld (N_u / N_Ed)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "weld_length_mm",
+      "name": "Effective Weld Length (L_eff) — excluding craters",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 20000,
+      "note": "AWS D1.1 §2.5: L_eff = L_total − 2×leg size (end craters); minimum L_eff ≥ 4×leg size",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "base_metal_Fy_mpa",
+      "name": "Base Metal Yield Strength (F_y / f_y)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "S235 / A36 — F_y = 235 MPa",
+          "value": 235
+        },
+        {
+          "label": "S275 / A572-40 — F_y = 275 MPa",
+          "value": 275
+        },
+        {
+          "label": "S355 / A572-50 — F_y = 355 MPa",
+          "value": 355
+        },
+        {
+          "label": "S460 / A514 — F_y = 460 MPa",
+          "value": 460
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 355,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "filler_metal_fexx_mpa",
+      "name": "Filler Metal Classification Strength (F_EXX)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "E6013 / ER70S-3 — F_EXX = 483 MPa",
+          "value": 483
+        },
+        {
+          "label": "E7018 / ER70S-6 — F_EXX = 483 MPa (AWS E70)",
+          "value": 483
+        },
+        {
+          "label": "E8018 — F_EXX = 552 MPa",
+          "value": 552
+        },
+        {
+          "label": "E9018 — F_EXX = 621 MPa",
+          "value": 621
+        },
+        {
+          "label": "E10018 — F_EXX = 690 MPa",
+          "value": 690
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 483,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "thicker_part_mm",
+      "name": "Thickness of Thicker Connected Part (t_max)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 3,
+      "absolute_max": 100,
+      "note": "Controls minimum leg size per AWS D1.1 Table 8.8 and EN 1993-1-8 §4.5.3",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "weld_standard",
+      "name": "Design Standard",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "AWS D1.1-2020 (LRFD)",
+          "value": "AWS"
+        },
+        {
+          "label": "EN 1993-1-8:2005 (EC3)",
+          "value": "EC3"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "AWS",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "a_min_aws_mm = (thicker_part_mm <= 6) ? 3 : (thicker_part_mm <= 12) ? 5 : (thicker_part_mm <= 19) ? 6 : (thicker_part_mm <= 38) ? 8 : 10; a_min_ec3_mm = Math.max(Math.sqrt(thicker_part_mm) - 0.5, 3); a_min_mm = (weld_standard === 'AWS') ? a_min_aws_mm : a_min_ec3_mm  // [mm] — Minimum Required Leg Size (a_min) by Base Plate Thickness — Ref: AWS D1.1-2020 Table 8.8 (prequalified minimum weld size); EN 1993-1-8 §4.5.3.1 — a_min = √t_max − 0.5 mm",
+    "F_w_mpa = (weld_standard === 'AWS') ? 0.6 * filler_metal_fexx_mpa * 0.707 : (filler_metal_fexx_mpa / Math.sqrt(3)) / 1.25; demand_kn_mm = Math.sqrt(Math.pow(V_demand_kn, 2) + Math.pow(N_demand_kn, 2)) / weld_length_mm; a_req_mm = demand_kn_mm * 1000 / F_w_mpa  // [mm] — Required Minimum Leg Size from Demand (a_req from capacity) — Ref: AWS §2.4.1: φ·F_w = 0.75 × 0.6·F_EXX × 0.707; EC3 §4.5.3.3: F_w,Rd = f_u/(√3·β_w·γ_M2)",
+    "a_design_mm = Math.ceil(Math.max(a_min_mm, a_req_mm))  // [mm] — Design Leg Size (a_design) — Governing — Ref: Governing size = maximum of code minimum and calculated requirement; round up to nearest mm",
+    "a_eff_mm = a_design_mm * 0.707; A_w_mm2 = a_eff_mm * weld_length_mm  // [mm, mm²] — Effective Throat (a_eff) & Weld Area — Ref: Throat = leg × cos45° = leg × 0.707 — ISO 2553:2019 §3.6; theoretical throat for equal-leg fillet",
+    "F_w_mpa = (weld_standard === 'AWS') ? 0.75 * 0.6 * filler_metal_fexx_mpa : filler_metal_fexx_mpa / (Math.sqrt(3) * 1.25); phi_Rn_kn = F_w_mpa * A_w_mm2 / 1000  // [kN] — Weld Capacity — Shear on Throat (φR_n / F_w,Rd) — Ref: AWS §2.4.1 φR_n = 0.75 × 0.6·F_EXX × A_w; EC3 §4.5.3.3 F_w,Rd = f_vw,d × A_w",
+    "V_resultant_kn = Math.sqrt(Math.pow(V_demand_kn, 2) + Math.pow(N_demand_kn, 2)); DCR_weld = V_resultant_kn / phi_Rn_kn  // [dimensionless, kN] — Resultant Demand & Utilisation Ratio — Ref: Resultant force vector check; DCR ≤ 1.0 required — AWS §2.4.1 / EC3 §4.5.3"
+  ],
+  "engine_rules": {
+    "standards": [
+      "AWS D1.1-2020 §2.4, Table 8.8",
+      "EN 1993-1-8:2005 §4.5.3",
+      "ISO 2553:2019",
+      "BS EN 1011-1:2009"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "DCR_weld > 1.0",
+          "action": "BLOCK",
+          "message": "Weld group overstressed — increase leg size, add weld length, or select higher-strength filler metal"
+        },
+        {
+          "id": "V2",
+          "condition": "a_design_mm < a_min_mm",
+          "action": "BLOCK",
+          "message": "Design leg size below code minimum for plate thickness — minimum leg size per AWS Table 8.8 / EC3 §4.5.3 must be met regardless of calculated demand"
+        },
+        {
+          "id": "V3",
+          "condition": "weld_length_mm < 4 * a_design_mm",
+          "action": "WARN",
+          "message": "Weld length < 4× leg size: weld too short relative to size — AWS D1.1 §2.5 minimum effective length requirement violated; increase length or reduce leg size"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Weld leg > 75% of plate thickness: excessive heat input risk — risk of burn-through and distortion; maximum weld leg = t − 1.5 mm for plates < 12 mm per AWS §2.5.2",
+        "condition": "a_design_mm > thicker_part_mm * 0.75"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Weld utilisation > 85%: limited reserve for dynamic or fatigue loading — increase leg size by minimum 2 mm or add return welds at ends",
+        "condition": "DCR_weld > 0.85"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Undermatching filler metal: F_EXX < 1.2×F_y of base metal — acceptable for ductility in some cases, but verify per AWS D1.1 Annex I for high-strength steel",
+        "condition": "filler_metal_fexx_mpa < base_metal_Fy_mpa * 1.2"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Small weld leg under high load: verify welder qualification — leg size < 5 mm requires special quality control per ISO 3834-2",
+        "condition": "a_design_mm < 5 && V_demand_kn > 50"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Significant tension component: combined stress state — verify weld orientation; transverse welds to applied tension are 50% stronger than longitudinal per AWS Annex B",
+        "condition": "N_demand_kn > V_demand_kn * 0.5"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: DCR_weld > 1.0",
+        "effect": "Weld group overstressed — increase leg size, add weld length, or select higher-strength filler metal",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: a_design_mm < a_min_mm",
+        "effect": "Design leg size below code minimum for plate thickness — minimum leg size per AWS Table 8.8 / EC3 §4.5.3 must be met regardless of calculated demand",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Parameter warning: weld_length_mm < 4 * a_design_mm",
+        "effect": "Weld length < 4× leg size: weld too short relative to size — AWS D1.1 §2.5 minimum effective length requirement violated; increase length or reduce leg size",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Weld leg > 75% of plate thickness: excessive heat input risk — risk of burn-through and distortion; maximum weld leg = t − 1.5 mm for plates < 12 mm per AWS §2.5.2",
+        "effect": "Smart warning triggered when: a_design_mm > thicker_part_mm * 0.75",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Weld utilisation > 85%: limited reserve for dynamic or fatigue loading — increase leg size by minimum 2 mm or add return welds at ends",
+        "effect": "Smart warning triggered when: DCR_weld > 0.85",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Undermatching filler metal: F_EXX < 1.2×F_y of base metal — acceptable for ductility in some cases, but verify per AWS D1.1 Annex I for high-strength steel",
+        "effect": "Smart warning triggered when: filler_metal_fexx_mpa < base_metal_Fy_mpa * 1.2",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Small weld leg under high load: verify welder qualification — leg size < 5 mm requires special quality control per ISO 3834-2",
+        "effect": "Smart warning triggered when: a_design_mm < 5 && V_demand_kn > 50",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Significant tension component: combined stress state — verify weld orientation; transverse welds to applied tension are 50% stronger than longitudinal per AWS Annex B",
+        "effect": "Smart warning triggered when: N_demand_kn > V_demand_kn * 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "a_min_aws_mm",
+        "a_min_ec3_mm",
+        "a_min_mm",
+        "F_w_mpa",
+        "demand_kn_mm",
+        "a_req_mm",
+        "a_design_mm",
+        "a_eff_mm",
+        "A_w_mm2",
+        "phi_Rn_kn",
+        "V_resultant_kn",
+        "DCR_weld"
+      ]
+    }
+  ]
+}

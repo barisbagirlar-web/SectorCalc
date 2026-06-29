@@ -1,5 +1,5 @@
 /**
- * Industrial OS — 27 sektör canonical registry.
+ * Industrial OS — 27-sector canonical registry.
  * JSON-config driven (sector-registry.config.json).
  * After config changes: npm run seo:llms && npm run seo:indexnow
  */
@@ -81,7 +81,7 @@ function parseSectorEntry(
   };
 }
 
-const configSectors = sectorConfig.sectors as Record<IndustrialRegistryKey, SectorConfigRecord>;
+const configSectors = sectorConfig.sectors as unknown as Record<IndustrialRegistryKey, SectorConfigRecord>;
 
 export const IndustrialRegistry = Object.fromEntries(
   (Object.entries(configSectors) as [IndustrialRegistryKey, SectorConfigRecord][]).map(

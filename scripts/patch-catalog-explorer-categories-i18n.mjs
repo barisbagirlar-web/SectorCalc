@@ -33,13 +33,8 @@ const PATCHES = {
       "Herramientas SectorCalc según lo que mide: OEE, desperdicio, ruta, calibración, energía, margen, finanzas y cálculos diarios.",
   },
   ar: {
-    eyebrow: "حسب الوظيفة",
-    title: "اعثر على الحاسبات حسب ما تحتاج قياسه.",
     subtitle:
-      "اختر نوع الحساب أولاً — الإنتاجية، الهدر، التكلفة، التوجيه، الطاقة، القياس أو المالية — ثم افتح الفحص المجاني أو التقرير المميز المناسب.",
-    metaTitle: "حاسبات حسب الوظيفة — OEE، الهدر، المسار، الطاقة",
     metaDescription:
-      "أدوات SectorCalc حسب ما تقيسه: OEE، الهدر، المسار، المعايرة، الطاقة، الهامش، المالية والحسابات اليومية.",
   },
 };
 

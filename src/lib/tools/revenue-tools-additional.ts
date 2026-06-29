@@ -1,5 +1,4 @@
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
-import { phase2RevenueTools } from "@/lib/tools/revenue-tools-phase2";
 
 const LEGAL_DISCLAIMER =
  "This is a technical simulation and decision-support output. It is not financial, legal or engineering advice. Verify all results before making business decisions.";
@@ -119,6 +118,18 @@ const yesNoSelect = (key: string, label: string, defaultValue = "no"): RevenueTo
  { value: "yes", label: "Yes" },
  { value: "no", label: "No" },
  ],
+});
+
+const shippingSelect = (key: string, label: string): RevenueToolInput => ({
+  key,
+  label,
+  type: "select",
+  required: true,
+  defaultValue: "road",
+  options: [
+    { value: "road", label: "Road freight" },
+    { value: "air", label: "Air freight" },
+  ],
 });
 
 export const additionalRevenueTools: AdditionalRevenueTool[] = [
@@ -547,12 +558,13 @@ export const additionalRevenueTools: AdditionalRevenueTool[] = [
  freeValue: "Calculate volumetric (desi) weight and visible freight volume risk.",
  paidValue:
  "Model deadhead, tolls, driver rest risk and minimum safe freight price.",
- freeInputs: [
- numberInput("length", "Length", "cm"),
- numberInput("width", "Width", "cm"),
- numberInput("height", "Height", "cm"),
- numberInput("quantity", "Package count", undefined, 1),
- ],
+freeInputs: [
+    numberInput("length", "Length", "cm"),
+    numberInput("width", "Width", "cm"),
+    numberInput("height", "Height", "cm"),
+    numberInput("quantity", "Package count", undefined, 1),
+    shippingSelect("freightMode", "Freight mode"),
+    ],
  paidInputs: [
  numberInput("distanceKm", "Distance", "km"),
  numberInput("fuelPricePerKm", "Fuel cost per km", "USD/km"),
@@ -589,5 +601,4 @@ export const additionalRevenueTools: AdditionalRevenueTool[] = [
  premiumTeaserText:
  "Unlock the Route & Freight Loss Analyzer for deadhead, toll and rest-risk verdict.",
  }),
- ...phase2RevenueTools,
 ];

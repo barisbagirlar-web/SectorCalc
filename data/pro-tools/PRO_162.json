@@ -1,0 +1,2020 @@
+{
+  "tool_id": "PRO_162",
+  "tool_key": "plasmaCuttingCostKerfCompensation",
+  "tool_name": "Plasma Cutting Cost and Kerf Compensation Calculator — Thermal Cutting Time, Gas, Consumable and Offset Check",
+  "category": "Sheet Metal / Plasma Cutting / Cost Engineering",
+  "scope": "single_operation",
+  "primary_operation": "plasma_cutting_cost_kerf_compensation_check",
+  "standards": [
+    "ISO 9013",
+    "ISO 17658",
+    "IEC 60974-1",
+    "IEC 60974-8",
+    "ISO 14955-1",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM",
+    "ISO 9001:2015 §8.5.1",
+    "Machine OEM cutting database"
+  ],
+  "risk_level": "MEDIUM",
+  "calculation_basis": "single_operation",
+  "inputs": [
+    {
+      "id": "currency",
+      "name": "Currency",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "EUR",
+        "USD",
+        "TRY",
+        "GBP"
+      ],
+      "default": "USD",
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — no measurement uncertainty"
+    },
+    {
+      "id": "job_part_count",
+      "name": "Number of Parts in Job",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 1000000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "Job order — exact quantity"
+    },
+    {
+      "id": "material_family",
+      "name": "Material Family",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "MILD_STEEL",
+        "STAINLESS_STEEL",
+        "ALUMINIUM",
+        "COPPER",
+        "BRASS",
+        "GALVANIZED_STEEL",
+        "HIGH_STRENGTH_STEEL",
+        "OTHER_METAL"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "Material specification — exact"
+    },
+    {
+      "id": "material_thickness_mm",
+      "name": "Material Thickness",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 150,
+      "hint": "Plate thickness in mm. Plasma cutting range: 0.5-150 mm depending on system type and power.",
+      "uncertainty": "±0.2 mm",
+      "uncertainty_source": "ISO 2768-1:1989 — Plate thickness tolerance class 'm'"
+    },
+    {
+      "id": "plasma_system_type",
+      "name": "Plasma System Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "AIR_PLASMA",
+        "OXYGEN_PLASMA",
+        "HIGH_DEFINITION_PLASMA",
+        "WATER_INJECTION_PLASMA",
+        "CNC_PLASMA_TABLE",
+        "CUSTOM"
+      ],
+      "default": "HIGH_DEFINITION_PLASMA",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Machine specification — exact"
+    },
+    {
+      "id": "cut_profile_type",
+      "name": "Cut Profile Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "OUTSIDE_PROFILE",
+        "INSIDE_PROFILE",
+        "CENTERLINE_SLOT",
+        "MARKING_ONLY"
+      ],
+      "default": "OUTSIDE_PROFILE",
+      "uncertainty": "±0%",
+      "uncertainty_source": "CAM system — exact"
+    },
+    {
+      "id": "nominal_part_dimension_mm",
+      "name": "Nominal Part Dimension",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 10000,
+      "hint": "Nominal design dimension of the part in the direction relevant for kerf compensation evaluation. Used for tolerance check.",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "Engineering drawing — nominal dimension"
+    },
+    {
+      "id": "programmed_cut_length_mm",
+      "name": "Programmed Cut Length",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 1000000,
+      "hint": "Total programmed cutting path length per part from CAM system.",
+      "uncertainty": "±0.5 mm",
+      "uncertainty_source": "CAM system — contour tolerance"
+    },
+    {
+      "id": "lead_in_out_length_mm",
+      "name": "Lead-in / Lead-out Length",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 100,
+      "default": 0,
+      "hint": "Total lead-in and lead-out length per contour. Typically 3-10 mm per pierce for plasma.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "CAM system estimate"
+    },
+    {
+      "id": "pierce_count",
+      "name": "Number of Pierces",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 5000,
+      "hint": "Total number of pierce operations per part. Each closed contour typically requires one pierce.",
+      "uncertainty": "±0",
+      "uncertainty_source": "CAM system — exact count"
+    },
+    {
+      "id": "average_cut_speed_mm_min",
+      "name": "Average Cut Speed",
+      "unit": "mm/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 20000,
+      "hint": "Average cutting speed from CAM cutting table. HD plasma mild steel 6mm: ~3000-5000 mm/min; 12mm: ~1500-2500 mm/min; 25mm: ~700-1200 mm/min.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "CAM system — cutting speed definition per ISO 9013"
+    },
+    {
+      "id": "speed_override_factor",
+      "name": "Speed Override Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 2,
+      "default": 1,
+      "hint": "Actual cut speed as fraction of programmed. Operator override typically 0.8-1.1.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "Machine control — override setting"
+    },
+    {
+      "id": "contour_complexity_factor",
+      "name": "Contour Complexity Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 5,
+      "default": 1,
+      "hint": "Factor compensating for acceleration/deceleration losses on complex contours. Simple rectangles: 1.0; tight radii: 1.3-1.5; high-detail: 2.0-3.0.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Machine dynamics — acceleration limit estimate"
+    },
+    {
+      "id": "average_pierce_time_s",
+      "name": "Average Pierce Time",
+      "unit": "s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "absolute_max": 60,
+      "hint": "Average time per pierce operation. HD plasma mild steel 6mm: 0.5-1.5 s; 12mm: 1.5-3 s; 25mm: 3-8 s.",
+      "uncertainty": "±15%",
+      "uncertainty_source": "Machine OEM cutting database — pierce time variability"
+    },
+    {
+      "id": "rapid_traverse_distance_mm",
+      "name": "Rapid Traverse Distance",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 100000,
+      "hint": "Total rapid traverse distance per part between cutting operations.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "CAM system — travel path estimate"
+    },
+    {
+      "id": "average_rapid_speed_mm_min",
+      "name": "Average Rapid Traverse Speed",
+      "unit": "mm/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 120000,
+      "hint": "Average rapid traverse speed. Typical plasma gantry: 20000-60000 mm/min.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "Machine specification — rapid traverse rating"
+    },
+    {
+      "id": "setup_time_min",
+      "name": "Setup Time",
+      "unit": "min",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 120,
+      "default": 0,
+      "hint": "Job setup time including plate loading, program selection, torch height calibration, gas purge, and consumable inspection.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Machine setup log"
+    },
+    {
+      "id": "auxiliary_time_per_part_s",
+      "name": "Auxiliary Time per Part",
+      "unit": "s",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 600,
+      "default": 0,
+      "hint": "Additional time per part for unloading, slag removal, marking, and inspection.",
+      "uncertainty": "±15%",
+      "uncertainty_source": "Operator time study estimate"
+    },
+    {
+      "id": "measured_kerf_width_mm",
+      "name": "Measured Kerf Width",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 10,
+      "hint": "Measured kerf width from cut test piece. HD plasma: 1.0-2.0 mm (12mm plate); air plasma: 2.0-5.0 mm. Use calibrated optical measurement.",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "ISO 17658 — Kerf width measurement uncertainty"
+    },
+    {
+      "id": "target_dimension_tolerance_mm",
+      "name": "Target Dimension Tolerance",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.05,
+      "absolute_max": 10,
+      "hint": "Required dimensional tolerance for the part. ISO 9013: Fine quality ±0.5mm; Medium ±1.0mm; Rough ±2.0mm.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Engineering drawing — tolerance specification"
+    },
+    {
+      "id": "kerf_compensation_enabled",
+      "name": "Kerf Compensation Enabled (CAM)",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": true,
+      "uncertainty": "±0%",
+      "uncertainty_source": "CAM system setting — binary"
+    },
+    {
+      "id": "kerf_compensation_side_verified",
+      "name": "Kerf Compensation Side Verified",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "uncertainty": "±0%",
+      "uncertainty_source": "CAM verification — binary"
+    },
+    {
+      "id": "arc_current_A",
+      "name": "Arc Current (I)",
+      "unit": "A",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 1000,
+      "hint": "Plasma arc current from power supply setting. HD plasma: 50-400 A typical; air plasma: 20-100 A.",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 60974-1 — Welding/plasma power source current accuracy ±1% of setting"
+    },
+    {
+      "id": "arc_voltage_V",
+      "name": "Arc Voltage (U)",
+      "unit": "V",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 50,
+      "absolute_max": 300,
+      "hint": "Plasma arc voltage. Typically 100-200 V for HD plasma cutting. Higher voltage = thicker material capacity.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "IEC 60974-1 — Voltage measurement accuracy ±2%"
+    },
+    {
+      "id": "power_supply_efficiency",
+      "name": "Power Supply Efficiency",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 0.98,
+      "default": 0.85,
+      "hint": "Power supply efficiency factor. Modern switching power supplies: 0.85-0.94; older transformer-based: 0.70-0.80.",
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60974-1 §8.3 — Power supply efficiency measurement uncertainty"
+    },
+    {
+      "id": "standby_power_kW",
+      "name": "Standby Power Consumption",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "absolute_max": 10,
+      "hint": "Power supply consumption in standby/idle (fans, control circuits, gas purge). Typical: 0.5-2 kW.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "IEC 61000-4-30:2015 — Power measurement uncertainty"
+    },
+    {
+      "id": "electricity_unit_cost_per_kWh",
+      "name": "Electricity Unit Cost",
+      "unit": "USD/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01,
+      "absolute_max": 1,
+      "hint": "Industrial electricity cost per kWh including demand charges and taxes. Typical: 0.08-0.25 USD/kWh.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "Utility tariff"
+    },
+    {
+      "id": "plasma_gas_type",
+      "name": "Plasma Gas Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "COMPRESSED_AIR",
+        "OXYGEN",
+        "NITROGEN",
+        "ARGON_HYDROGEN",
+        "H35",
+        "F5",
+        "CUSTOM"
+      ],
+      "default": "COMPRESSED_AIR",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Process specification — exact"
+    },
+    {
+      "id": "shield_gas_type",
+      "name": "Shield Gas Type",
+      "unit": "—",
+      "type": "enum",
+      "required": false,
+      "confidence_label": "EXACT",
+      "options": [
+        "NONE",
+        "COMPRESSED_AIR",
+        "OXYGEN",
+        "NITROGEN",
+        "ARGON_HYDROGEN",
+        "WATER",
+        "CUSTOM"
+      ],
+      "default": "NONE",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Process specification — exact"
+    },
+    {
+      "id": "plasma_gas_flow_Nm3_h",
+      "name": "Plasma Gas Flow Rate",
+      "unit": "Nm³/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 50,
+      "hint": "Plasma gas flow rate at nozzle in normal cubic meters per hour. Compressed air: 2-10 Nm³/h; Oxygen: 2-8 Nm³/h; Argon/Hydrogen: 1-5 Nm³/h.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 5167-1:2003 — Flow measurement uncertainty ±2%"
+    },
+    {
+      "id": "shield_gas_flow_Nm3_h",
+      "name": "Shield Gas Flow Rate",
+      "unit": "Nm³/h",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 0,
+      "hint": "Shield gas flow rate in normal cubic meters per hour. Set to 0 if no shield gas is used.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 5167-1:2003 — Flow measurement uncertainty ±2%"
+    },
+    {
+      "id": "plasma_gas_unit_cost_per_Nm3",
+      "name": "Plasma Gas Unit Cost",
+      "unit": "USD/Nm³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01,
+      "absolute_max": 20,
+      "hint": "Cost per normal cubic meter of plasma gas. Compressed air: 0.02-0.10 USD/Nm³; Oxygen: 0.15-0.60 USD/Nm³; Argon/Hydrogen (H35): 2-15 USD/Nm³.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Gas supplier pricing"
+    },
+    {
+      "id": "shield_gas_unit_cost_per_Nm3",
+      "name": "Shield Gas Unit Cost",
+      "unit": "USD/Nm³",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "default": 0,
+      "hint": "Cost per normal cubic meter of shield gas. Set to 0 if no shield gas is used.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Gas supplier pricing"
+    },
+    {
+      "id": "electrode_life_pierces",
+      "name": "Electrode Life",
+      "unit": "pierces",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 100,
+      "absolute_max": 100000,
+      "hint": "Expected electrode life in number of pierces before replacement. HD plasma: 500-2000 pierces; standard plasma: 200-1000 pierces.",
+      "uncertainty": "±20%",
+      "uncertainty_source": "Consumable manufacturer data — life variability"
+    },
+    {
+      "id": "nozzle_life_cut_minutes",
+      "name": "Nozzle Life",
+      "unit": "min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 10,
+      "absolute_max": 5000,
+      "hint": "Expected nozzle life in total cut minutes before replacement. HD plasma: 60-300 min; standard plasma: 30-120 min.",
+      "uncertainty": "±25%",
+      "uncertainty_source": "Consumable manufacturer data — life variability"
+    },
+    {
+      "id": "electrode_unit_cost",
+      "name": "Electrode Unit Cost",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 200,
+      "hint": "Cost per electrode replacement. HD plasma electrode: 15-50 USD; standard: 5-20 USD.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "Supplier pricing"
+    },
+    {
+      "id": "nozzle_unit_cost",
+      "name": "Nozzle Unit Cost",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 200,
+      "hint": "Cost per nozzle replacement. HD plasma nozzle: 20-80 USD; standard: 5-30 USD.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "Supplier pricing"
+    },
+    {
+      "id": "additional_consumable_cost_per_cut_meter",
+      "name": "Additional Consumable Cost per Cut Meter",
+      "unit": "USD/m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "default": 0,
+      "hint": "Additional consumable cost per meter of cut (swirl ring, retaining cap, shield). Approx: 0.02-0.15 USD/m.",
+      "uncertainty": "±20%",
+      "uncertainty_source": "Consumable life tracking estimate"
+    },
+    {
+      "id": "machine_hour_rate",
+      "name": "Machine Hour Rate",
+      "unit": "USD/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 500,
+      "hint": "Fully loaded machine hour rate including depreciation, maintenance, floor space, labor, and overhead. Typical plasma cutting: 40-150 USD/h.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Cost accounting — machine hour rate estimate"
+    },
+    {
+      "id": "scrap_recut_allowance_factor",
+      "name": "Scrap / Recut Allowance Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 3,
+      "default": 1,
+      "hint": "Factor to account for scrap parts. 1.0 = no scrap; 1.05 = 5% scrap rate typical for plasma cutting.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Production scrap rate tracking"
+    },
+    {
+      "id": "required_quality_class",
+      "name": "Required Quality Class (ISO 9013)",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "ISO_9013_FINE",
+        "ISO_9013_MEDIUM",
+        "ISO_9013_ROUGH",
+        "SHOP_STANDARD",
+        "NOT_SPECIFIED"
+      ],
+      "default": "ISO_9013_MEDIUM",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Quality specification — exact"
+    },
+    {
+      "id": "torch_height_control_verified",
+      "name": "Torch Height Control Verified",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "uncertainty": "±0%",
+      "uncertainty_source": "THC calibration — binary verification"
+    },
+    {
+      "id": "plasma_safety_verified",
+      "name": "Plasma Safety Verified (IEC 60974-1 / ISO 11553-1)",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "uncertainty": "±0%",
+      "uncertainty_source": "Safety audit — binary verification"
+    },
+    {
+      "id": "machine_parameter_table_verified",
+      "name": "Machine Parameter Table Verified",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "uncertainty": "±0%",
+      "uncertainty_source": "Parameter audit — binary verification"
+    },
+    {
+      "id": "kerf_width_uncertainty_mm",
+      "name": "Kerf Width Measurement Uncertainty",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 2,
+      "default": 0.1,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    },
+    {
+      "id": "time_uncertainty_pct",
+      "name": "Time Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 12,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    },
+    {
+      "id": "gas_flow_uncertainty_pct",
+      "name": "Gas Flow Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 10,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    },
+    {
+      "id": "consumable_life_uncertainty_pct",
+      "name": "Consumable Life Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 25,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    },
+    {
+      "id": "cost_rate_uncertainty_pct",
+      "name": "Cost Rate Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 5,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Effective Cut Speed",
+      "expression": "Effective_Speed_mm_min = average_cut_speed_mm_min * speed_override_factor",
+      "output": "Effective_Speed_mm_min",
+      "unit": "mm/min",
+      "dimensional_check": true,
+      "reference": "ISO 9013 — Cutting speed definition",
+      "assumptions": [
+        "Override factor linearly scales programmed cut speed"
+      ],
+      "edge_cases": [
+        "Effective_Speed_mm_min <= 0: Block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F2",
+      "name": "Effective Cutting Path Length per Part",
+      "expression": "Effective_Cut_Length_mm = programmed_cut_length_mm + (pierce_count * lead_in_out_length_mm)",
+      "output": "Effective_Cut_Length_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Lead-in/out applied per pierce for each contour"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F3",
+      "name": "Pure Cutting Time per Part",
+      "expression": "Cut_Time_Part_min = (Effective_Cut_Length_mm / Effective_Speed_mm_min) * contour_complexity_factor",
+      "output": "Cut_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Complex contours reduce effective speed due to acceleration/deceleration"
+      ],
+      "edge_cases": [
+        "Effective_Speed_mm_min <= 0: Division by zero — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F4",
+      "name": "Total Pierce Time per Part",
+      "expression": "Pierce_Time_Part_min = (pierce_count * average_pierce_time_s) / 60",
+      "output": "Pierce_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Pierce time is constant per operation"
+      ],
+      "edge_cases": [
+        "pierce_count = 0: No pierce time"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F5",
+      "name": "Rapid Traverse Time per Part",
+      "expression": "Rapid_Time_Part_min = rapid_traverse_distance_mm / average_rapid_speed_mm_min",
+      "output": "Rapid_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Constant rapid speed (acceleration/deceleration ignored)"
+      ],
+      "edge_cases": [
+        "average_rapid_speed_mm_min <= 0: Division by zero — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F6",
+      "name": "Cycle Time per Part",
+      "expression": "Cycle_Time_Part_min = Cut_Time_Part_min + Pierce_Time_Part_min + Rapid_Time_Part_min + (auxiliary_time_per_part_s / 60)",
+      "output": "Cycle_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Machine tool cycle time definition",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F7",
+      "name": "Total Production Time (all parts, with scrap allowance)",
+      "expression": "Total_Production_Time_min = (Cycle_Time_Part_min * job_part_count * scrap_recut_allowance_factor) + setup_time_min",
+      "output": "Total_Production_Time_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies linearly to cycle time per part",
+        "Setup time is fixed per job"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F8",
+      "name": "Total Production Time in Hours",
+      "expression": "Total_Production_Time_h = Total_Production_Time_min / 60",
+      "output": "Total_Production_Time_h",
+      "unit": "h",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F9",
+      "name": "Machine Cost (time-based)",
+      "expression": "Machine_Cost = Total_Production_Time_h * machine_hour_rate",
+      "output": "Machine_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Machine tool cost allocation",
+      "assumptions": [
+        "Machine hour rate includes all overhead"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F10",
+      "name": "Arc Power (DC)",
+      "expression": "Arc_Power_kW = (arc_current_A * arc_voltage_V) / 1000",
+      "output": "Arc_Power_kW",
+      "unit": "kW",
+      "dimensional_check": true,
+      "reference": "IEC 60974-1 — Arc power calculation (P = I × U)",
+      "assumptions": [
+        "DC plasma arc (AC not modeled)",
+        "Arc voltage measured at torch"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F11",
+      "name": "Active Electrical Power Consumption",
+      "expression": "Active_Power_kW = Arc_Power_kW / power_supply_efficiency",
+      "output": "Active_Power_kW",
+      "unit": "kW",
+      "dimensional_check": true,
+      "reference": "IEC 60974-1 §8.3 — Active power = arc power / efficiency",
+      "assumptions": [
+        "Power supply losses are the only additional load (auxiliaries excluded)"
+      ],
+      "edge_cases": [
+        "power_supply_efficiency <= 0: Division by zero — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F12",
+      "name": "Cutting Phase Electrical Energy Consumption",
+      "expression": "Cut_Energy_kWh = Active_Power_kW * (Cut_Time_Part_min / 60) * job_part_count * scrap_recut_allowance_factor",
+      "output": "Cut_Energy_kWh",
+      "unit": "kWh",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Energy consumption during cutting phase",
+      "assumptions": [
+        "Active power is constant during cutting (no arc fluctuation)"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F13",
+      "name": "Piercing Phase Electrical Energy Consumption",
+      "expression": "Pierce_Energy_kWh = Active_Power_kW * (Pierce_Time_Part_min / 60) * job_part_count * scrap_recut_allowance_factor",
+      "output": "Pierce_Energy_kWh",
+      "unit": "kWh",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Active power during piercing is same as cutting (conservative estimate)"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F14",
+      "name": "Standby/Setup Phase Energy Consumption",
+      "expression": "Setup_Energy_kWh = standby_power_kW * (setup_time_min / 60) + standby_power_kW * (Rapid_Time_Part_min / 60) * job_part_count * scrap_recut_allowance_factor",
+      "output": "Setup_Energy_kWh",
+      "unit": "kWh",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Standby power during setup and rapid traverse"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F15",
+      "name": "Total Electrical Energy Consumption",
+      "expression": "Total_Energy_kWh = Cut_Energy_kWh + Pierce_Energy_kWh + Setup_Energy_kWh",
+      "output": "Total_Energy_kWh",
+      "unit": "kWh",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F16",
+      "name": "Total Electrical Energy Cost",
+      "expression": "Total_Energy_Cost = Total_Energy_kWh * electricity_unit_cost_per_kWh",
+      "output": "Total_Energy_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "ISO 50001 — Energy cost accounting",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F17",
+      "name": "Plasma Gas Consumption per Part",
+      "expression": "Plasma_Gas_Volume_Part_Nm3 = plasma_gas_flow_Nm3_h * (Cycle_Time_Part_min / 60)",
+      "output": "Plasma_Gas_Volume_Part_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Steady-state plasma gas flow during entire cycle time"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F18",
+      "name": "Shield Gas Consumption per Part",
+      "expression": "Shield_Gas_Volume_Part_Nm3 = shield_gas_flow_Nm3_h * (Cycle_Time_Part_min / 60)",
+      "output": "Shield_Gas_Volume_Part_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Steady-state shield gas flow during entire cycle time"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F19",
+      "name": "Total Plasma Gas Consumption for Job",
+      "expression": "Total_Plasma_Gas_Volume_Nm3 = Plasma_Gas_Volume_Part_Nm3 * job_part_count * scrap_recut_allowance_factor",
+      "output": "Total_Plasma_Gas_Volume_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies to gas consumption"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F20",
+      "name": "Total Shield Gas Consumption for Job",
+      "expression": "Total_Shield_Gas_Volume_Nm3 = Shield_Gas_Volume_Part_Nm3 * job_part_count * scrap_recut_allowance_factor",
+      "output": "Total_Shield_Gas_Volume_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies to gas consumption"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F21",
+      "name": "Plasma Gas Cost for Job",
+      "expression": "Plasma_Gas_Cost = Total_Plasma_Gas_Volume_Nm3 * plasma_gas_unit_cost_per_Nm3",
+      "output": "Plasma_Gas_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F22",
+      "name": "Shield Gas Cost for Job",
+      "expression": "Shield_Gas_Cost = Total_Shield_Gas_Volume_Nm3 * shield_gas_unit_cost_per_Nm3",
+      "output": "Shield_Gas_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F23",
+      "name": "Total Gas Cost for Job",
+      "expression": "Total_Gas_Cost = Plasma_Gas_Cost + Shield_Gas_Cost",
+      "output": "Total_Gas_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F24",
+      "name": "Electrode Cost per Part",
+      "expression": "Electrode_Cost_Part = (pierce_count / MAX(electrode_life_pierces, 1)) * electrode_unit_cost",
+      "output": "Electrode_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "Consumable manufacturer data — electrode life proportional to pierces",
+      "assumptions": [
+        "Electrode wear is linear per pierce"
+      ],
+      "edge_cases": [
+        "electrode_life_pierces <= 0: Cannot compute — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F25",
+      "name": "Nozzle Cost per Part",
+      "expression": "Nozzle_Cost_Part = (Cut_Time_Part_min / MAX(nozzle_life_cut_minutes, 1)) * nozzle_unit_cost",
+      "output": "Nozzle_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "Consumable manufacturer data — nozzle life proportional to cut minutes",
+      "assumptions": [
+        "Nozzle wear is linear per minute of cutting"
+      ],
+      "edge_cases": [
+        "nozzle_life_cut_minutes <= 0: Cannot compute — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F26",
+      "name": "Additional Consumable Cost per Part",
+      "expression": "Additional_Consumable_Cost_Part = (programmed_cut_length_mm / 1000) * additional_consumable_cost_per_cut_meter",
+      "output": "Additional_Consumable_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Additional consumable wear is linear per meter of cut"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F27",
+      "name": "Total Consumable Cost per Part",
+      "expression": "Total_Consumable_Cost_Part = Electrode_Cost_Part + Nozzle_Cost_Part + Additional_Consumable_Cost_Part",
+      "output": "Total_Consumable_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F28",
+      "name": "Total Consumable Cost for Job",
+      "expression": "Total_Consumable_Cost = Total_Consumable_Cost_Part * job_part_count * scrap_recut_allowance_factor",
+      "output": "Total_Consumable_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies to consumable consumption"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F29",
+      "name": "Total Manufacturing Cost per Part",
+      "expression": "Total_Cost_Part = (Machine_Cost / (job_part_count * scrap_recut_allowance_factor)) + Total_Consumable_Cost_Part + (Plasma_Gas_Volume_Part_Nm3 * plasma_gas_unit_cost_per_Nm3) + (Shield_Gas_Volume_Part_Nm3 * shield_gas_unit_cost_per_Nm3) + ((Cut_Energy_kWh + Pierce_Energy_kWh) * electricity_unit_cost_per_kWh) / (job_part_count * scrap_recut_allowance_factor)",
+      "output": "Total_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Machine and energy cost distributed across all parts including scrap"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F30",
+      "name": "Total Job Cost",
+      "expression": "Total_Job_Cost = Machine_Cost + Total_Gas_Cost + Total_Energy_Cost + Total_Consumable_Cost",
+      "output": "Total_Job_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F31",
+      "name": "Required Kerf Compensation Offset (one side)",
+      "expression": "Kerf_Compensation_Offset_mm = measured_kerf_width_mm / 2",
+      "output": "Kerf_Compensation_Offset_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "ISO 9013 — Thermal cutting kerf compensation: offset = kerf / 2",
+      "assumptions": [
+        "Symmetric kerf (equal material removal on both sides of cut path)",
+        "Perpendicular cut without bevel"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F32",
+      "name": "Effective Kerf Compensation (with uncertainty)",
+      "expression": "Effective_Compensation_mm = kerf_compensation_enabled ? Kerf_Compensation_Offset_mm : 0",
+      "output": "Effective_Compensation_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "When kerf compensation is disabled, effective offset = 0"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F33",
+      "name": "Kerf Compensation Pass/Fail (Tolerance Check)",
+      "expression": "Kerf_Compensation_PASS = kerf_compensation_enabled && kerf_compensation_side_verified && (kerf_width_uncertainty_mm <= target_dimension_tolerance_mm / 4)",
+      "output": "Kerf_Compensation_PASS",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "ISO 9013 — Tolerance check: kerf uncertainty should be ≤ tolerance/4 for adequate compensation",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F34",
+      "name": "Dimensional Accuracy Margin",
+      "expression": "Accuracy_Margin_mm = target_dimension_tolerance_mm - (2 * (Kerf_Compensation_Offset_mm + kerf_width_uncertainty_mm))",
+      "output": "Accuracy_Margin_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Dimensional margin = tolerance - 2 × (offset + uncertainty) for symmetrical tolerance"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F35",
+      "name": "Accuracy Margin Status",
+      "expression": "Accuracy_Margin_OK = Accuracy_Margin_mm >= 0",
+      "output": "Accuracy_Margin_OK",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F36",
+      "name": "Total Consumable Cost per Cut Meter",
+      "expression": "Consumable_Cost_Per_Cut_Meter = (Total_Consumable_Cost_Part / (programmed_cut_length_mm / 1000))",
+      "output": "Consumable_Cost_Per_Cut_Meter",
+      "unit": "USD/m",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Linear consumable consumption per meter of cut path"
+      ],
+      "edge_cases": [
+        "programmed_cut_length_mm <= 0: Division by zero — return null"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "Effective_Speed_mm_min",
+      "name": "Effective Cut Speed",
+      "unit": "mm/min",
+      "type": "number",
+      "precision": 1,
+      "group": "time"
+    },
+    {
+      "id": "Effective_Cut_Length_mm",
+      "name": "Effective Cutting Path per Part",
+      "unit": "mm",
+      "type": "number",
+      "precision": 1,
+      "group": "time"
+    },
+    {
+      "id": "Cut_Time_Part_min",
+      "name": "Cutting Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Pierce_Time_Part_min",
+      "name": "Pierce Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Rapid_Time_Part_min",
+      "name": "Rapid Traverse Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Cycle_Time_Part_min",
+      "name": "Cycle Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Total_Production_Time_min",
+      "name": "Total Production Time",
+      "unit": "min",
+      "type": "number",
+      "precision": 1,
+      "group": "time"
+    },
+    {
+      "id": "Total_Production_Time_h",
+      "name": "Total Production Time",
+      "unit": "h",
+      "type": "number",
+      "precision": 2,
+      "group": "time"
+    },
+    {
+      "id": "Machine_Cost",
+      "name": "Machine Time Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Arc_Power_kW",
+      "name": "Arc Power",
+      "unit": "kW",
+      "type": "number",
+      "precision": 2,
+      "group": "energy"
+    },
+    {
+      "id": "Active_Power_kW",
+      "name": "Active Power Consumption",
+      "unit": "kW",
+      "type": "number",
+      "precision": 2,
+      "group": "energy"
+    },
+    {
+      "id": "Cut_Energy_kWh",
+      "name": "Cutting Phase Energy",
+      "unit": "kWh",
+      "type": "number",
+      "precision": 1,
+      "group": "energy"
+    },
+    {
+      "id": "Pierce_Energy_kWh",
+      "name": "Piercing Phase Energy",
+      "unit": "kWh",
+      "type": "number",
+      "precision": 1,
+      "group": "energy"
+    },
+    {
+      "id": "Setup_Energy_kWh",
+      "name": "Setup/Standby Energy",
+      "unit": "kWh",
+      "type": "number",
+      "precision": 1,
+      "group": "energy"
+    },
+    {
+      "id": "Total_Energy_kWh",
+      "name": "Total Electrical Energy",
+      "unit": "kWh",
+      "type": "number",
+      "precision": 1,
+      "group": "energy"
+    },
+    {
+      "id": "Total_Energy_Cost",
+      "name": "Total Energy Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Plasma_Gas_Volume_Part_Nm3",
+      "name": "Plasma Gas per Part",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 3,
+      "group": "gas"
+    },
+    {
+      "id": "Shield_Gas_Volume_Part_Nm3",
+      "name": "Shield Gas per Part",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 3,
+      "group": "gas"
+    },
+    {
+      "id": "Total_Plasma_Gas_Volume_Nm3",
+      "name": "Total Plasma Gas for Job",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 1,
+      "group": "gas"
+    },
+    {
+      "id": "Total_Shield_Gas_Volume_Nm3",
+      "name": "Total Shield Gas for Job",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 1,
+      "group": "gas"
+    },
+    {
+      "id": "Plasma_Gas_Cost",
+      "name": "Plasma Gas Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Shield_Gas_Cost",
+      "name": "Shield Gas Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Total_Gas_Cost",
+      "name": "Total Gas Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Electrode_Cost_Part",
+      "name": "Electrode Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 4,
+      "group": "consumable"
+    },
+    {
+      "id": "Nozzle_Cost_Part",
+      "name": "Nozzle Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 4,
+      "group": "consumable"
+    },
+    {
+      "id": "Additional_Consumable_Cost_Part",
+      "name": "Additional Consumable Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 4,
+      "group": "consumable"
+    },
+    {
+      "id": "Total_Consumable_Cost_Part",
+      "name": "Total Consumable Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 4,
+      "group": "consumable"
+    },
+    {
+      "id": "Total_Consumable_Cost",
+      "name": "Total Consumable Cost for Job",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "consumable"
+    },
+    {
+      "id": "Consumable_Cost_Per_Cut_Meter",
+      "name": "Consumable Cost per Cut Meter",
+      "unit": "USD/m",
+      "type": "number",
+      "precision": 4,
+      "group": "consumable"
+    },
+    {
+      "id": "Total_Cost_Part",
+      "name": "Total Manufacturing Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Total_Job_Cost",
+      "name": "Total Job Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Kerf_Compensation_Offset_mm",
+      "name": "Kerf Compensation Offset (one side)",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "kerf"
+    },
+    {
+      "id": "Effective_Compensation_mm",
+      "name": "Effective Kerf Compensation",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "kerf"
+    },
+    {
+      "id": "Kerf_Compensation_PASS",
+      "name": "Kerf Compensation PASS/FAIL",
+      "unit": "—",
+      "type": "boolean",
+      "group": "kerf"
+    },
+    {
+      "id": "Accuracy_Margin_mm",
+      "name": "Dimensional Accuracy Margin",
+      "unit": "mm",
+      "type": "number",
+      "precision": 3,
+      "group": "kerf"
+    },
+    {
+      "id": "Accuracy_Margin_OK",
+      "name": "Accuracy Margin Acceptable",
+      "unit": "—",
+      "type": "boolean",
+      "group": "kerf"
+    },
+    {
+      "id": "torch_height_control_verified",
+      "name": "Torch Height Control Verified",
+      "unit": "—",
+      "type": "boolean",
+      "group": "gates"
+    },
+    {
+      "id": "plasma_safety_verified",
+      "name": "Plasma Safety Verified",
+      "unit": "—",
+      "type": "boolean",
+      "group": "gates"
+    },
+    {
+      "id": "machine_parameter_table_verified",
+      "name": "Machine Parameter Table Verified",
+      "unit": "—",
+      "type": "boolean",
+      "group": "gates"
+    }
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9013",
+      "ISO 17658",
+      "IEC 60974-1",
+      "IEC 60974-8",
+      "ISO 14955-1",
+      "ISO 80000",
+      "ISO/IEC Guide 98-3 GUM",
+      "ISO 9001:2015 §8.5.1"
+    ],
+    "validation": {
+      "cut_speed_positive": {
+        "condition": "average_cut_speed_mm_min <= 0",
+        "error_msg": "Average cut speed must be positive.",
+        "id": "cut_speed_positive"
+      },
+      "rapid_speed_positive": {
+        "condition": "average_rapid_speed_mm_min <= 0",
+        "error_msg": "Average rapid traverse speed must be positive.",
+        "id": "rapid_speed_positive"
+      },
+      "machine_hour_rate_positive": {
+        "condition": "machine_hour_rate <= 0",
+        "error_msg": "Machine hour rate must be positive.",
+        "id": "machine_hour_rate_positive"
+      },
+      "kerf_width_positive": {
+        "condition": "measured_kerf_width_mm <= 0",
+        "error_msg": "Measured kerf width must be positive.",
+        "id": "kerf_width_positive"
+      },
+      "tolerance_positive": {
+        "condition": "target_dimension_tolerance_mm <= 0",
+        "error_msg": "Target dimension tolerance must be positive.",
+        "id": "tolerance_positive"
+      },
+      "efficiency_valid": {
+        "condition": "power_supply_efficiency <= 0 || power_supply_efficiency > 1",
+        "error_msg": "Power supply efficiency must be between > 0 and ≤ 1 (0-100%).",
+        "id": "efficiency_valid"
+      },
+      "consumable_life_valid": {
+        "condition": "electrode_life_pierces <= 0 || nozzle_life_cut_minutes <= 0",
+        "error_msg": "Electrode life and nozzle life must be positive values.",
+        "id": "consumable_life_valid"
+      },
+      "plasma_gas_flow_positive": {
+        "condition": "plasma_gas_flow_Nm3_h <= 0",
+        "error_msg": "Plasma gas flow rate must be positive.",
+        "id": "plasma_gas_flow_positive"
+      },
+      "plasma_gas_cost_positive": {
+        "condition": "plasma_gas_unit_cost_per_Nm3 <= 0",
+        "error_msg": "Plasma gas unit cost must be positive.",
+        "id": "plasma_gas_cost_positive"
+      },
+      "electricity_cost_positive": {
+        "condition": "electricity_unit_cost_per_kWh <= 0",
+        "error_msg": "Electricity unit cost must be positive.",
+        "id": "electricity_cost_positive"
+      },
+      "plasma_safety_required": {
+        "condition": "plasma_safety_verified == false",
+        "error_msg": "Plasma safety verification (IEC 60974-1 / ISO 11553-1) is required. Must confirm arc flash protection, fume extraction, noise protection, and fire safety.",
+        "id": "plasma_safety_required"
+      },
+      "thc_required": {
+        "condition": "torch_height_control_verified == false",
+        "error_msg": "Torch height control (THC) verification is required. THC calibration and operational check must be confirmed for consistent cut quality.",
+        "id": "thc_required"
+      },
+      "machine_parameters_required": {
+        "condition": "machine_parameter_table_verified == false",
+        "error_msg": "Machine parameter table must be verified against current machine setup.",
+        "id": "machine_parameters_required"
+      },
+      "kerf_compensation_side_required": {
+        "condition": "kerf_compensation_enabled == true && kerf_compensation_side_verified == false",
+        "error_msg": "Kerf compensation is enabled but the compensation side (left/right of path) has not been verified. Verify CAM toolpath compensation direction to avoid scrapped parts.",
+        "id": "kerf_compensation_side_required"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Kerf_Compensation_PASS == false && kerf_compensation_enabled == true",
+        "severity": "CRITICAL",
+        "source": "ISO 9013",
+        "message": "KERF COMPENSATION FAILS TOLERANCE CHECK: The kerf measurement uncertainty exceeds the allowable limit (≤ tolerance/4). Dimensional accuracy cannot be guaranteed. Improve kerf measurement accuracy or revise tolerance requirement."
+      },
+      {
+        "condition": "Accuracy_Margin_OK == false",
+        "severity": "CRITICAL",
+        "source": "ISO 9013",
+        "message": "DIMENSIONAL ACCURACY MARGIN NEGATIVE: The sum of kerf offset and measurement uncertainty exceeds the target tolerance. Parts will likely be out of tolerance. Review kerf compensation settings, reduce kerf width, or relax tolerance."
+      },
+      {
+        "condition": "kerf_compensation_enabled == false",
+        "severity": "WARNING",
+        "source": "ISO 9013",
+        "message": "Kerf compensation is disabled: Parts will be undersized by approximately one kerf width (2 × offset). For outside profiles, parts will be smaller than nominal. Enable kerf compensation with verified side and measured kerf data."
+      },
+      {
+        "condition": "Total_Production_Time_h > 8 && job_part_count > 1",
+        "severity": "WARNING",
+        "source": "Production Planning",
+        "message": "Total production time exceeds 8 hours: Job spans multiple shifts. Verify machine availability and shift planning."
+      },
+      {
+        "condition": "Total_Gas_Cost > 0.3 * Total_Job_Cost",
+        "severity": "WARNING",
+        "source": "Cost Engineering",
+        "message": "Gas cost exceeds 30% of total job cost: Review plasma and shield gas flow rates. Consider lower-cost gas alternatives where applicable."
+      },
+      {
+        "condition": "Active_Power_kW > 50",
+        "severity": "INFO",
+        "source": "IEC 60974-1",
+        "message": "Active power consumption > 50 kW: High-powered plasma system. Verify electrical supply capacity and cooling system adequacy. Consider demand charge implications."
+      },
+      {
+        "condition": "scrap_recut_allowance_factor > 1.15",
+        "severity": "WARNING",
+        "source": "ISO 9001:2015 §8.5.1",
+        "message": "Scrap/recut allowance > 15%: High scrap rate indicates process instability. Check consumable condition, gas quality, THC function, and material condition before production."
+      },
+      {
+        "condition": "Total_Consumable_Cost > 0.2 * Total_Job_Cost",
+        "severity": "WARNING",
+        "source": "Cost Engineering",
+        "message": "Consumable cost exceeds 20% of total job cost: Electrode/nozzle consumption is a significant cost driver. Verify consumable life data and consider higher-quality consumables for extended life."
+      },
+      {
+        "condition": "electrode_life_pierces < 300",
+        "severity": "WARNING",
+        "source": "Consumable Manufacturer",
+        "message": "Electrode life < 300 pierces: Lower than expected for most plasma systems. Verify gas purity (water content degrades electrode life), check for cooling issues, and review manufacturer life specifications."
+      },
+      {
+        "condition": "required_quality_class == 'ISO_9013_FINE' && material_thickness_mm > 25",
+        "severity": "WARNING",
+        "source": "ISO 9013",
+        "message": "ISO 9013 Fine quality required for material > 25mm: Fine tolerances on thick plate plasma cutting are challenging. Verify that current system and parameters can achieve the required quality. Consider if torch height control and gas quality are optimal."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: cut_speed_positive",
+        "effect": "Cut speed must be positive.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule cut_speed_positive"
+      },
+      {
+        "failureMode": "Input violation: plasma_safety_required",
+        "effect": "Plasma safety verification is required.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule plasma_safety_required"
+      },
+      {
+        "failureMode": "Input violation: thc_required",
+        "effect": "Torch height control verification is required.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule thc_required"
+      },
+      {
+        "failureMode": "Input violation: kerf_compensation_side_required",
+        "effect": "Kerf compensation side not verified.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule kerf_compensation_side_required"
+      },
+      {
+        "failureMode": "KERF COMPENSATION FAILS TOLERANCE CHECK",
+        "effect": "Kerf measurement uncertainty exceeds allowable limit.",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 9013"
+      },
+      {
+        "failureMode": "DIMENSIONAL ACCURACY MARGIN NEGATIVE",
+        "effect": "Parts will likely be out of tolerance.",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 9013"
+      },
+      {
+        "failureMode": "Kerf compensation disabled",
+        "effect": "Parts will be undersized.",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 36,
+        "control_measure": "CAM Programming"
+      },
+      {
+        "failureMode": "Gas cost > 30% of total job cost",
+        "effect": "Gas consumption is a dominant cost driver.",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 60,
+        "rpn_high": 60,
+        "rpn_low": 36,
+        "control_measure": "Cost Engineering"
+      },
+      {
+        "failureMode": "Consumable cost > 20% of total job cost",
+        "effect": "Electrode/nozzle consumption is significant.",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 60,
+        "rpn_high": 60,
+        "rpn_low": 36,
+        "control_measure": "Cost Engineering"
+      },
+      {
+        "failureMode": "Electrode life < 300 pierces",
+        "effect": "Lower than expected electrode life.",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 60,
+        "rpn_high": 60,
+        "rpn_low": 36,
+        "control_measure": "Consumable Manufacturer"
+      },
+      {
+        "failureMode": "High scrap rate > 15%",
+        "effect": "Process instability or quality issues.",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 27,
+        "control_measure": "ISO 9001:2015 §8.5.1"
+      }
+    ],
+    "audit_log": true,
+    "error_propagation": {
+      "method": "GUM ISO/IEC Guide 98-3:2008 — LPU first-order Taylor expansion",
+      "correlation": "assumed_uncorrelated",
+      "coverage_factor": 2,
+      "confidence_level": "95.45%"
+    }
+  },
+  "ui_contract": {
+    "layout": "SectorCalc PRO standard tool-card pattern",
+    "input_groups": [
+      {
+        "id": "job_basis",
+        "title": "Job Basis",
+        "fields": [
+          "currency",
+          "job_part_count",
+          "material_family",
+          "material_thickness_mm",
+          "required_quality_class",
+          "cut_profile_type",
+          "nominal_part_dimension_mm"
+        ]
+      },
+      {
+        "id": "plasma_system",
+        "title": "Plasma System & Power",
+        "fields": [
+          "plasma_system_type",
+          "arc_current_A",
+          "arc_voltage_V",
+          "power_supply_efficiency",
+          "standby_power_kW"
+        ]
+      },
+      {
+        "id": "cutting_geometry",
+        "title": "Cutting Geometry & CAM",
+        "fields": [
+          "programmed_cut_length_mm",
+          "lead_in_out_length_mm",
+          "average_cut_speed_mm_min",
+          "speed_override_factor",
+          "contour_complexity_factor",
+          "pierce_count",
+          "average_pierce_time_s",
+          "rapid_traverse_distance_mm",
+          "average_rapid_speed_mm_min"
+        ]
+      },
+      {
+        "id": "time_overhead",
+        "title": "Time Overhead",
+        "fields": [
+          "auxiliary_time_per_part_s",
+          "setup_time_min",
+          "scrap_recut_allowance_factor"
+        ]
+      },
+      {
+        "id": "kerf_compensation",
+        "title": "Kerf Compensation",
+        "fields": [
+          "measured_kerf_width_mm",
+          "target_dimension_tolerance_mm",
+          "kerf_compensation_enabled",
+          "kerf_compensation_side_verified"
+        ]
+      },
+      {
+        "id": "gases",
+        "title": "Plasma & Shield Gases",
+        "fields": [
+          "plasma_gas_type",
+          "plasma_gas_flow_Nm3_h",
+          "plasma_gas_unit_cost_per_Nm3",
+          "shield_gas_type",
+          "shield_gas_flow_Nm3_h",
+          "shield_gas_unit_cost_per_Nm3"
+        ]
+      },
+      {
+        "id": "consumables",
+        "title": "Consumables",
+        "fields": [
+          "electrode_life_pierces",
+          "nozzle_life_cut_minutes",
+          "electrode_unit_cost",
+          "nozzle_unit_cost",
+          "additional_consumable_cost_per_cut_meter"
+        ]
+      },
+      {
+        "id": "cost_rates",
+        "title": "Cost Rates",
+        "fields": [
+          "machine_hour_rate",
+          "electricity_unit_cost_per_kWh"
+        ]
+      },
+      {
+        "id": "review_gates",
+        "title": "Review Gates & Uncertainty",
+        "fields": [
+          "torch_height_control_verified",
+          "plasma_safety_verified",
+          "machine_parameter_table_verified",
+          "kerf_width_uncertainty_mm",
+          "time_uncertainty_pct",
+          "gas_flow_uncertainty_pct",
+          "consumable_life_uncertainty_pct",
+          "cost_rate_uncertainty_pct"
+        ]
+      }
+    ],
+    "result_cards": [
+      "Cycle_Time_Part_min",
+      "Total_Production_Time_h",
+      "Machine_Cost",
+      "Total_Gas_Cost",
+      "Total_Energy_Cost",
+      "Total_Consumable_Cost",
+      "Total_Cost_Part",
+      "Total_Job_Cost",
+      "Kerf_Compensation_PASS",
+      "Accuracy_Margin_mm",
+      "Accuracy_Margin_OK"
+    ],
+    "gate_result_cards": [
+      "torch_height_control_verified",
+      "plasma_safety_verified",
+      "machine_parameter_table_verified",
+      "kerf_compensation_side_verified"
+    ],
+    "formula_panel": true,
+    "audit_panel": true,
+    "warnings_panel": true,
+    "chart_panel": {
+      "enabled": true,
+      "charts": [
+        {
+          "id": "time_breakdown",
+          "title": "Time Breakdown per Part",
+          "type": "bar",
+          "series": [
+            "Cut_Time_Part_min",
+            "Pierce_Time_Part_min",
+            "Rapid_Time_Part_min"
+          ]
+        },
+        {
+          "id": "energy_breakdown",
+          "title": "Energy Consumption Breakdown",
+          "type": "bar",
+          "series": [
+            "Cut_Energy_kWh",
+            "Pierce_Energy_kWh",
+            "Setup_Energy_kWh"
+          ]
+        },
+        {
+          "id": "cost_breakdown",
+          "title": "Cost Breakdown",
+          "type": "pie",
+          "series": [
+            "Machine_Cost",
+            "Total_Gas_Cost",
+            "Total_Energy_Cost",
+            "Total_Consumable_Cost"
+          ]
+        },
+        {
+          "id": "kerf_analysis",
+          "title": "Kerf & Tolerance Analysis",
+          "type": "bar",
+          "series": [
+            "Kerf_Compensation_Offset_mm",
+            "kerf_width_uncertainty_mm",
+            "Accuracy_Margin_mm",
+            "target_dimension_tolerance_mm"
+          ]
+        }
+      ]
+    },
+    "export_pdf": true
+  },
+  "reference_code": {
+    "language": "TypeScript",
+    "interface": "PlasmaCuttingCostKerfCompensationInput / PlasmaCuttingCostKerfCompensationOutput with @unit and @uncertainty JSDoc",
+    "validation": "Zod schema. Fail closed on zero/negative cut speed, zero kerf, zero tolerance, invalid efficiency, unverified safety/THC gates.",
+    "testing": "Jest cases: HD plasma 12mm mild steel time & cost, air plasma thin sheet cost comparison, kerf compensation PASS/FAIL check, plasma vs shield gas cost split, consumable life uncertainty effect on total cost, THC gate block on unverified, safety block on unverified, kerf compensation side verification block, scrap allowance effect on total cost.",
+    "example": "calculatePlasmaCuttingCostKerfCompensation(input): PlasmaCuttingCostKerfCompensationOutput",
+    "implementation_notes": [
+      "Do not use eval(). Use existing AST expression engine.",
+      "Run formulas F1-F36 in deterministic order.",
+      "All time values in minutes internally; convert hours for display.",
+      "Arc power = I × U (DC assumed). Active power = arc power / efficiency.",
+      "Plasma gas and shield gas consumption calculated separately and summed.",
+      "Electrode cost proportional to pierce count; nozzle cost proportional to cut minutes.",
+      "Kerf compensation offset = kerf_width / 2 (one side).",
+      "Effective offset = 0 when kerf_compensation_enabled is false.",
+      "Kerf compensation PASS check: enabled + side verified + uncertainty ≤ tolerance/4.",
+      "Dimensional accuracy margin = tolerance - 2 * (offset + uncertainty).",
+      "All gate outputs are boolean. Use null for unavailable values, not Infinity.",
+      "Uncertainty propagation: RSS combine time, gas flow, consumable life, and cost rate uncertainties."
+    ]
+  },
+  "metadata": {
+    "description": "Plasma Cutting Cost and Kerf Compensation Calculator — Thermal Cutting Time, Gas, Consumable and Offset Check per ISO 9013, ISO 17658, and IEC 60974-1. Computes cutting cycle times, arc energy consumption, plasma and shield gas costs, electrode/nozzle consumable costs, and kerf compensation accuracy check for plasma cutting operations.",
+    "version": "1.0.0",
+    "tags": [
+      "plasma cutting",
+      "kerf compensation",
+      "thermal cutting",
+      "cost engineering",
+      "sheet metal",
+      "consumables",
+      "ISO 9013",
+      "dimensional accuracy"
+    ],
+    "tuv_checklist": [
+      "ISO 9013 thermal cutting quality and tolerances classification confirmed",
+      "ISO 17658 kerf width measurement standard verified",
+      "IEC 60974-1 arc power supply efficiency and safety confirmed",
+      "IEC 60974-8 gas control system requirements reviewed",
+      "ISO 14955-1 machine tool energy efficiency methodology confirmed",
+      "Machine OEM cutting database parameter correlation checked",
+      "Plasma and shield gas consumption model verified",
+      "Electrode and nozzle life model per manufacturer data confirmed",
+      "Kerf compensation and dimensional tolerance check per ISO 9013 verified",
+      "THC calibration and plasma safety verification gates confirmed"
+    ],
+    "calibration_trace": "Cut speed and time references from CAM system and machine control logs. Kerf width measurement traceable to calibrated optical measurement (ISO 17658). Consumable life data from manufacturer specifications. Power measurement per IEC 60974-1. Uncertainty propagation per ISO/IEC Guide 98-3:2008 GUM.",
+    "last_review_status": "NOT_YET_REVIEWED",
+    "cursor_instruction": "FILE LOCKED — This is a production PRO tool data file. Do not modify the structure or content of this file except through the official PRO tool editor scripts. Manual edits risk schema violations, broken UI contracts, and audit log corruption. If changes are needed, use the PRO tool editor CLI or submit a schema change request.",
+    "traceability_id": "PRO_135_TUV_20260628_D4F8"
+  }
+}

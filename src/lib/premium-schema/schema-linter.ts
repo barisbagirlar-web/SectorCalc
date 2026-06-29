@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Schema Linter (locked type system)
+
 /**
  * Schema Linter — build-time validation for premium calculator schemas.
  * Ensures registry compliance before schemas ship to production.

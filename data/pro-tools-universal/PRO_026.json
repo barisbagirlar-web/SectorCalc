@@ -1,0 +1,405 @@
+{
+  "schemaId": "PRO_026",
+  "toolCode": "TOOL-PRO-026",
+  "version": "1.0.0",
+  "name": "TOC Bottleneck Throughput Analysis & Constraint Upgrade ROI (Goldratt / APICS)",
+  "subtitle": "Lean Manufacturing | Theory of Constraints — Goldratt Theory of Constraints (TOC), APICS CPIM — Constraint Management",
+  "sectorPath": [
+    "Lean Manufacturing",
+    "Theory of Constraints"
+  ],
+  "standardsBasis": [
+    "Goldratt Theory of Constraints (TOC)",
+    "APICS CPIM — Constraint Management",
+    "ISO 22400-2 OEE KPI Standard",
+    "PMBOK Investment Analysis"
+  ],
+  "scope": {
+    "inScope": [
+      "TOC Bottleneck Throughput Analysis & Constraint Upgrade ROI (Goldratt / APICS)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "takt_time_min",
+      "symbol": "takt_time_min",
+      "label": "Customer Takt Time",
+      "unit": {
+        "ref": "min/unit"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.001,
+      "hint": "Takt = Net available time / Customer demand. Drives required throughput rate."
+    },
+    {
+      "id": "bottleneck_ct_current_min",
+      "symbol": "bottleneck_ct_current_min",
+      "label": "Current Bottleneck Cycle Time",
+      "unit": {
+        "ref": "min/unit"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.001,
+      "hint": "Longest station cycle time on critical path — the system constraint"
+    },
+    {
+      "id": "bottleneck_ct_target_min",
+      "symbol": "bottleneck_ct_target_min",
+      "label": "Target Bottleneck Cycle Time After Investment",
+      "unit": {
+        "ref": "min/unit"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.001
+    },
+    {
+      "id": "available_time_min_yr",
+      "symbol": "available_time_min_yr",
+      "label": "Annual Net Available Production Time",
+      "unit": {
+        "ref": "min/year"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 1000,
+      "hint": "Shifts × days × (working time – planned downtime). 2-shift 250 days = 240,000 min"
+    },
+    {
+      "id": "current_oee_pct",
+      "symbol": "current_oee_pct",
+      "label": "Current Bottleneck OEE",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 10,
+      "max": 100,
+      "default": 75,
+      "hint": "OEE of the constraint station — drives real effective capacity"
+    },
+    {
+      "id": "target_oee_pct",
+      "symbol": "target_oee_pct",
+      "label": "Target OEE After Improvement",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 10,
+      "max": 100,
+      "default": 85,
+      "optional": true
+    },
+    {
+      "id": "unit_throughput_usd",
+      "symbol": "unit_throughput_usd",
+      "label": "Throughput per Unit (Revenue minus Truly Variable Cost)",
+      "unit": {
+        "ref": "USD/unit"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.01,
+      "hint": "TOC Throughput = Selling price minus direct material only — NOT including labour/overhead"
+    },
+    {
+      "id": "capex_usd",
+      "symbol": "capex_usd",
+      "label": "Constraint Upgrade Capital Investment (CAPEX)",
+      "unit": {
+        "ref": "USD"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0
+    },
+    {
+      "id": "opex_increase_usd_yr",
+      "symbol": "opex_increase_usd_yr",
+      "label": "Annual Operating Cost Increase (OPEX delta)",
+      "unit": {
+        "ref": "USD/year"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "Additional labour, energy, maintenance from upgrade"
+    },
+    {
+      "id": "wacc_pct",
+      "symbol": "wacc_pct",
+      "label": "Weighted Average Cost of Capital (WACC)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 1,
+      "max": 50,
+      "default": 12
+    },
+    {
+      "id": "project_life_years",
+      "symbol": "project_life_years",
+      "label": "Investment Economic Life",
+      "unit": {
+        "ref": "years"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 1,
+      "max": 20,
+      "default": 5
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_026",
+      "code": "Goldratt Theory of Constraints (TOC)",
+      "name": "TOC Bottleneck Throughput Analysis & Constraint Upgrade ROI (Goldratt / APICS)",
+      "description": "TOC Bottleneck Throughput Analysis & Constraint Upgrade ROI (Goldratt / APICS) — Lean Manufacturing, Theory of Constraints",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Current_Output_units_yr",
+          "expression": "(available_time_min_yr / bottleneck_ct_current_min) * (current_oee_pct / 100)",
+          "unit": {
+            "ref": "units/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Max_Demand_units_yr",
+          "expression": "available_time_min_yr / takt_time_min",
+          "unit": {
+            "ref": "units/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Target_Output_raw",
+          "expression": "(available_time_min_yr / bottleneck_ct_target_min) * (target_oee_pct / 100)",
+          "unit": {
+            "ref": "units/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Realised_Output_units_yr",
+          "expression": "MIN(Target_Output_raw, Max_Demand_units_yr)",
+          "unit": {
+            "ref": "units/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Incremental_Units_yr",
+          "expression": "Realised_Output_units_yr - Current_Output_units_yr",
+          "unit": {
+            "ref": "units/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Annual_Throughput_Gain_USD",
+          "expression": "Incremental_Units_yr * unit_throughput_usd",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "Net_Annual_Benefit_USD",
+          "expression": "Annual_Throughput_Gain_USD - opex_increase_usd_yr",
+          "unit": {
+            "ref": "USD/year"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "Payback_Months",
+          "expression": "capex_usd > 0 && Net_Annual_Benefit_USD > 0 ? (capex_usd / Net_Annual_Benefit_USD) * 12 : 999",
+          "unit": {
+            "ref": "months"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "Annuity_Factor",
+          "expression": "((1 - POWER(1 + wacc_pct / 100, -project_life_years)) / (wacc_pct / 100))",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "Project_NPV_USD",
+          "expression": "Net_Annual_Benefit_USD * Annuity_Factor - capex_usd",
+          "unit": {
+            "ref": "USD"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Project_IRR_approx_pct",
+          "expression": "capex_usd > 0 && Net_Annual_Benefit_USD > 0 ? (Net_Annual_Benefit_USD / capex_usd) * 100 : 0",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Demand_Headroom_pct",
+          "expression": "((Max_Demand_units_yr - Current_Output_units_yr) / Max_Demand_units_yr) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "OEE_Improvement_Units",
+          "expression": "available_time_min_yr / bottleneck_ct_current_min * ((target_oee_pct - current_oee_pct) / 100)",
+          "unit": {
+            "ref": "units/year"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "Goldratt TOC — Overinvestment",
+          "condition": "bottleneck_ct_target_min < takt_time_min",
+          "message": "OVER-INVESTMENT: Target cycle time is faster than customer takt time. Output beyond takt rate creates overproduction waste (Muda #1). System is demand-constrained — additional throughput cannot be sold. Reduce investment scope to target CT = Takt Time exactly."
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "Investment Analysis / WACC",
+          "condition": "Project_NPV_USD < 0",
+          "message": "NEGATIVE NPV: Investment destroys value at the given discount rate. Review: (1) Is throughput per unit correctly calculated? (2) Is project life realistic? (3) Can CAPEX be reduced? (4) Is there a phased investment option?"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "Industrial Investment Benchmarks",
+          "condition": "Payback_Months > 36",
+          "message": "Payback period exceeds 36 months: Above typical manufacturing investment approval threshold (12–24 months for constraint upgrades). Present risk-adjusted scenario analysis to management."
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "TOC / Market Analysis",
+          "condition": "Demand_Headroom_pct < 10",
+          "message": "Low demand headroom (<10%): Market is nearly saturated at current output. Throughput gain from constraint removal is limited by demand, not capacity. Validate sales forecast before committing CAPEX — demand growth must be confirmed."
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "TPM / OEE Improvement",
+          "condition": "OEEImprovementUnits > Incremental_Units_yr * 0.5",
+          "message": "More than 50% of incremental throughput comes from OEE improvement (not cycle time reduction). Consider TPM/autonomous maintenance programme as low-cost alternative before CAPEX. OEE improvement is typically 5–10× cheaper than hardware upgrade."
+        },
+        {
+          "id": "W6",
+          "severity": "CRITICAL",
+          "source": "JIPM TPM World-Class Benchmark",
+          "condition": "current_oee_pct < 65",
+          "message": "BOTTLENECK OEE < 65%: Constraint station is severely underperforming before investment. Adding capacity to a poorly-maintained machine multiplies waste. Mandatory: reach OEE ≥ 75% through TPM before hardware upgrade. Otherwise investment ROI will be materially worse than projected."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "takt_time_min",
+        "bottleneck_ct_current_min",
+        "bottleneck_ct_target_min",
+        "available_time_min_yr",
+        "current_oee_pct",
+        "unit_throughput_usd",
+        "capex_usd",
+        "wacc_pct",
+        "project_life_years"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,0 +1,373 @@
+{
+  "tool_id": "PRO_034",
+  "tool_name": "Project Cost Escalation, Real Discount Rate & Inflation-Adjusted Budget (AACE / Fisher Equation)",
+  "category": "Corporate Finance / Project Cost Engineering",
+  "scope": "process_agnostic",
+  "primary_operation": "financial_analysis",
+  "inputs": [
+    {
+      "id": "base_material_cost_usd",
+      "name": "Base Estimate — Material & Equipment Cost",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Cost in today's money (base date). Include bulk materials, major equipment, vendor supply.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "base_labour_cost_usd",
+      "name": "Base Estimate — Labour Cost",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "base_subcontract_cost_usd",
+      "name": "Base Estimate — Subcontract Cost",
+      "unit": "USD",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "material_escalation_pct_yr",
+      "name": "Material / Equipment Escalation Rate",
+      "unit": "%/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": -10,
+      "absolute_max": 50,
+      "hint": "PPI (Producer Price Index) for relevant commodity — steel: check LME | cement: local | energy equipment: IHS Markit",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "labour_escalation_pct_yr",
+      "name": "Labour / Wage Escalation Rate",
+      "unit": "%/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": -5,
+      "absolute_max": 50,
+      "hint": "National wage inflation or collective agreement rate for project location",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "subcontract_escalation_pct_yr",
+      "name": "Subcontract / Indirect Escalation Rate",
+      "unit": "%/year",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": -5,
+      "absolute_max": 50,
+      "default": 5,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "project_duration_years",
+      "name": "Project / Contract Duration",
+      "unit": "years",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "absolute_max": 20,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 5725-2:2019 §6 — Time measurement: ±1% of reading"
+    },
+    {
+      "id": "spend_profile",
+      "name": "Spend Profile (spend timing)",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "options": [
+        "Front-loaded (60% in Year 1, 40% later)",
+        "Uniform (even spend across duration)",
+        "Back-loaded (40% Year 1, 60% later)",
+        "Single point (all spend at mid-point)"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "spend_timing_factor",
+      "name": "Effective Escalation Timing Factor",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.3,
+      "absolute_max": 1,
+      "default": 0.5,
+      "hint": "Front-loaded: 0.35 | Uniform: 0.50 | Back-loaded: 0.65 | Single mid-point: 0.50",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
+    },
+    {
+      "id": "nominal_discount_rate_pct",
+      "name": "Nominal Discount Rate (WACC or project hurdle)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 60,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
+    },
+    {
+      "id": "general_inflation_rate_pct",
+      "name": "General CPI Inflation Rate (project economy)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": -5,
+      "absolute_max": 100,
+      "hint": "National CPI forecast for project country — Turkey 2024: ~45% | EU: ~3% | USD zone: ~3%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "risk_contingency_pct",
+      "name": "Risk Contingency Reserve",
+      "unit": "% of escalated base",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 10,
+      "hint": "AACE Class 3 estimate: 10–20% | Class 2: 5–15% | Class 1: 3–10%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "management_reserve_pct",
+      "name": "Management Reserve (known-unknowns)",
+      "unit": "% of contingency-inclusive budget",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "default": 5,
+      "hint": "PMBOK: separate from contingency — for scope changes beyond current baseline",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    }
+  ],
+  "formulas": [
+    "Base_Total_Cost_USD = base_material_cost_usd + base_labour_cost_usd + base_subcontract_cost_usd   // [USD] Total base estimate",
+    "Effective_Duration_yrs = project_duration_years * spend_timing_factor   // [years] Weighted spend timing",
+    "Escalated_Material_USD = base_material_cost_usd * POWER(1 + material_escalation_pct_yr / 100, Effective_Duration_yrs)   // [USD] Escalated material cost",
+    "Escalated_Labour_USD = base_labour_cost_usd * POWER(1 + labour_escalation_pct_yr / 100, Effective_Duration_yrs)   // [USD] Escalated labour cost",
+    "Escalated_Subcontract_USD = base_subcontract_cost_usd * POWER(1 + subcontract_escalation_pct_yr / 100, Effective_Duration_yrs)   // [USD] Escalated subcontract",
+    "Total_Escalated_Base_USD = Escalated_Material_USD + Escalated_Labour_USD + Escalated_Subcontract_USD   // [USD] Total escalated estimate",
+    "Escalation_Amount_USD = Total_Escalated_Base_USD - Base_Total_Cost_USD   // [USD] Pure escalation delta",
+    "Escalation_Pct = (Escalation_Amount_USD / Base_Total_Cost_USD) * 100   // [%] Escalation as % of base",
+    "Contingency_USD = Total_Escalated_Base_USD * (risk_contingency_pct / 100)   // [USD] Risk contingency",
+    "Budget_with_Contingency_USD = Total_Escalated_Base_USD + Contingency_USD   // [USD] Authorised project budget",
+    "Management_Reserve_USD = Budget_with_Contingency_USD * (management_reserve_pct / 100)   // [USD] Management reserve",
+    "Total_Project_Authorisation_USD = Budget_with_Contingency_USD + Management_Reserve_USD   // [USD] Total cost at completion (TCA)",
+    "Real_Discount_Rate_pct = ((1 + nominal_discount_rate_pct / 100) / (1 + general_inflation_rate_pct / 100) - 1) * 100   // [%] Real rate — Fisher Equation",
+    "NPV_Cost_Real_USD = Total_Project_Authorisation_USD / POWER(1 + Real_Discount_Rate_pct / 100, project_duration_years)   // [USD] Present value of total cost in real terms"
+  ],
+  "engine_rules": {
+    "standards": [
+      "AACE International RP 18R-97 Cost Escalation",
+      "AACE RP 10S-90 Cost Estimate Classification",
+      "PMBOK 7th Edition — Cost Baseline",
+      "Fisher Equation (Irving Fisher 1896)",
+      "IHS Markit / CERA Escalation Indices",
+      "EU Directive 2011/7/EU — Late Payment"
+    ],
+    "validation": {
+      "base_cost_positive": {
+        "condition": "base_material_cost_usd + base_labour_cost_usd <= 0",
+        "error_msg": "Total base cost must be positive. Both material and labour cannot be zero simultaneously.",
+        "id": "base_cost_positive"
+      },
+      "duration_minimum": {
+        "absolute_min": 0.1,
+        "error_msg": "Project duration minimum 0.1 years (approximately 5 weeks). Below this, escalation is negligible.",
+        "id": "duration_minimum"
+      },
+      "inflation_vs_discount": {
+        "condition": "general_inflation_rate_pct >= nominal_discount_rate_pct",
+        "error_msg": "Inflation rate equals or exceeds nominal discount rate — Real discount rate is zero or negative (Fisher Equation). This represents hyperinflationary conditions. NPV analysis in real terms becomes unreliable. Use nominal cash flows instead.",
+        "id": "inflation_vs_discount"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Real_Discount_Rate_pct < 0",
+        "severity": "CRITICAL",
+        "source": "Fisher Equation / Macroeconomic Risk",
+        "message": "NEGATIVE REAL DISCOUNT RATE: Inflation exceeds nominal WACC. Every deferred cost actually costs more in real terms — there is no financial benefit to delaying project expenditure. This typically signals a hyperinflationary environment. Nominal cash flow analysis is required instead of real."
+      },
+      {
+        "condition": "Escalation_Pct > 20",
+        "severity": "CRITICAL",
+        "source": "AACE RP 18R-97 Escalation Alert",
+        "message": "HIGH ESCALATION (>20%): Cost escalation exceeds 20% of base estimate. This level typically represents a material budget risk. Project sanction budget must include full escalation provision — underfunded projects are the primary cause of cost overruns in capital projects. Escalate to project sponsor."
+      },
+      {
+        "condition": "material_escalation_pct_yr > labour_escalation_pct_yr * 2",
+        "severity": "WARNING",
+        "source": "Procurement Risk Management",
+        "message": "MATERIAL ESCALATION OUTPACING LABOUR >2×: Commodity price volatility is the dominant risk. Evaluate: (1) Fixed-price supply contracts with early procurement, (2) Material price escalation clauses in contracts, (3) Alternative materials or supplier diversification."
+      },
+      {
+        "condition": "risk_contingency_pct < 5",
+        "severity": "WARNING",
+        "source": "AACE Estimate Classification",
+        "message": "LOW CONTINGENCY (<5%): Insufficient contingency for any estimate class. AACE Class 3 (budget estimate) requires 10–20%. Underfunding contingency is the most common cause of cost overruns on capital projects."
+      },
+      {
+        "condition": "project_duration_years > 3 && management_reserve_pct === 0",
+        "severity": "WARNING",
+        "source": "PMBOK 7th Edition — Reserve Analysis",
+        "message": "NO MANAGEMENT RESERVE on multi-year project: Projects >3 years face significant scope uncertainty. Zero management reserve leaves no headroom for authorised scope additions. PMBOK recommends 5–10% management reserve separate from risk contingency."
+      },
+      {
+        "condition": "Escalation_Amount_USD > Contingency_USD",
+        "severity": "CRITICAL",
+        "source": "Project Cost Control",
+        "message": "ESCALATION EXCEEDS CONTINGENCY: Price escalation alone is larger than the entire contingency reserve. Contingency will be fully consumed by inflation before any technical risk event. Increase contingency or renegotiate fixed-price contracts to include escalation clauses."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: base_material_cost_usd + base_labour_cost_usd <= 0",
+        "effect": "Total base cost must be positive. Both material and labour cannot be zero simultaneously.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule base_cost_positive"
+      },
+      {
+        "failureMode": "Input violation: general_inflation_rate_pct >= nominal_discount_rate_pct",
+        "effect": "Inflation rate equals or exceeds nominal discount rate — Real discount rate is zero or negative (Fisher Equation). This represents hyperinflationary conditions. NPV analysis in real terms becomes unreliable. Use nominal cash flows instead.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule inflation_vs_discount"
+      },
+      {
+        "failureMode": "NEGATIVE REAL DISCOUNT RATE: Inflation exceeds nominal WACC. Every deferred cost actually costs more in real terms — there is no financial benefit to delaying project expenditure. This typically signals a hyperinflationary environment. Nominal cash flow analysis is required instead of real.",
+        "effect": "Smart warning triggered when: Real_Discount_Rate_pct < 0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Fisher Equation / Macroeconomic Risk"
+      },
+      {
+        "failureMode": "HIGH ESCALATION (>20%): Cost escalation exceeds 20% of base estimate. This level typically represents a material budget risk. Project sanction budget must include full escalation provision — underfunded projects are the primary cause of cost overruns in capital projects. Escalate to project sponsor.",
+        "effect": "Smart warning triggered when: Escalation_Pct > 20",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "AACE RP 18R-97 Escalation Alert"
+      },
+      {
+        "failureMode": "MATERIAL ESCALATION OUTPACING LABOUR >2×: Commodity price volatility is the dominant risk. Evaluate: (1) Fixed-price supply contracts with early procurement, (2) Material price escalation clauses in contracts, (3) Alternative materials or supplier diversification.",
+        "effect": "Smart warning triggered when: material_escalation_pct_yr > labour_escalation_pct_yr * 2",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Procurement Risk Management"
+      },
+      {
+        "failureMode": "LOW CONTINGENCY (<5%): Insufficient contingency for any estimate class. AACE Class 3 (budget estimate) requires 10–20%. Underfunding contingency is the most common cause of cost overruns on capital projects.",
+        "effect": "Smart warning triggered when: risk_contingency_pct < 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "AACE Estimate Classification"
+      },
+      {
+        "failureMode": "NO MANAGEMENT RESERVE on multi-year project: Projects >3 years face significant scope uncertainty. Zero management reserve leaves no headroom for authorised scope additions. PMBOK recommends 5–10% management reserve separate from risk contingency.",
+        "effect": "Smart warning triggered when: project_duration_years > 3 && management_reserve_pct === 0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "PMBOK 7th Edition — Reserve Analysis"
+      },
+      {
+        "failureMode": "ESCALATION EXCEEDS CONTINGENCY: Price escalation alone is larger than the entire contingency reserve. Contingency will be fully consumed by inflation before any technical risk event. Increase contingency or renegotiate fixed-price contracts to include escalation clauses.",
+        "effect": "Smart warning triggered when: Escalation_Amount_USD > Contingency_USD",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Project Cost Control"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Base_Total_Cost_USD",
+        "Effective_Duration_yrs",
+        "Escalated_Material_USD",
+        "Escalated_Labour_USD",
+        "Escalated_Subcontract_USD",
+        "Total_Escalated_Base_USD",
+        "Escalation_Amount_USD",
+        "Escalation_Pct",
+        "Contingency_USD",
+        "Budget_with_Contingency_USD",
+        "Management_Reserve_USD",
+        "Total_Project_Authorisation_USD",
+        "Real_Discount_Rate_pct",
+        "NPV_Cost_Real_USD"
+      ]
+    }
+  ]
+}

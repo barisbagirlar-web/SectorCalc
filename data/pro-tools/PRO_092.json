@@ -1,0 +1,308 @@
+{
+  "tool_id": "PRO_092",
+  "tool_name": "Cathodic Protection Design — Sacrificial Anode Current Demand, Mass & Service Life",
+  "category": "Corrosion Engineering / Asset Integrity",
+  "scope": "single_operation",
+  "primary_operation": "cathodic_protection",
+  "inputs": [
+    {
+      "id": "structure_area_m2",
+      "name": "Bare (Uncoated) Steel Surface Area (A_s)",
+      "unit": "m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 1000000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
+    },
+    {
+      "id": "coating_breakdown_pct",
+      "name": "Coating Breakdown Factor at End of Life (f_c)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 10,
+      "absolute_min": 1,
+      "absolute_max": 100,
+      "note": "DNV-RP-B401 Table 10-1: well-coated new: 3–5%; aged coating: 10–25%; bare/uncoated: 100%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "current_density_mA_m2",
+      "name": "Design Current Density (i_c) — Mean Value",
+      "unit": "mA/m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 25,
+      "absolute_min": 5,
+      "absolute_max": 200,
+      "note": "DNV-RP-B401 Table 10-3: North Sea seabed ≈ 20–25 mA/m²; tropical shallow water ≈ 50–80 mA/m²; soil ≈ 10–30 mA/m²",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
+    },
+    {
+      "id": "design_life_yr",
+      "name": "Cathodic Protection Design Life (T_d)",
+      "unit": "years",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 25,
+      "absolute_min": 1,
+      "absolute_max": 50,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
+    },
+    {
+      "id": "anode_material",
+      "name": "Sacrificial Anode Material",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Zinc (seawater) — ε=780 Ah/kg, E=−1.05 V vs Ag/AgCl",
+          "value": "Zn"
+        },
+        {
+          "label": "Aluminium-Indium (offshore) — ε=2000 Ah/kg, E=−1.05 V",
+          "value": "AlIn"
+        },
+        {
+          "label": "Magnesium (soil/freshwater) — ε=1230 Ah/kg, E=−1.55 V",
+          "value": "Mg"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "AlIn",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "anode_utilisation_pct",
+      "name": "Anode Utilisation Factor (u)",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 80,
+      "absolute_min": 50,
+      "absolute_max": 95,
+      "note": "DNV-RP-B401 §6.4: bracelet anodes u=0.80; flush-mounted u=0.90; stand-off u=0.85",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "protection_potential_mv",
+      "name": "Target Protection Potential (E_prot)",
+      "unit": "mV vs Ag/AgCl/seawater",
+      "type": "enum",
+      "options": [
+        {
+          "label": "−800 mV — ISO 15589-2 minimum (aerobic soil/seawater)",
+          "value": -800
+        },
+        {
+          "label": "−850 mV — NACE SP0169 standard criterion",
+          "value": -850
+        },
+        {
+          "label": "−900 mV — Elevated temperature or H₂S service",
+          "value": -900
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": -850,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "A_eff_m2 = structure_area_m2 * coating_breakdown_pct / 100  // [m²] — Exposed (Uncoated) Effective Area (A_eff) — Ref: A_eff = A_s × f_c — DNV-RP-B401 §6.2; coating breakdown factor applied to bare area",
+    "Ic_mean_A = A_eff_m2 * current_density_mA_m2 / 1000  // [A] — Mean Current Demand (I_c,mean) — Ref: I_c = i_c × A_eff — DNV-RP-B401 §6.3.1 Eq.(6.1)",
+    "Q_T_Ah = Ic_mean_A * design_life_yr * 8760  // [A·h] — Total Charge Required Over Design Life (Q_T) — Ref: Q_T = I_c,mean × T_d × 8760 — total coulombs required over design life",
+    "const ECA = {Zn:780, AlIn:2000, Mg:1230}[anode_material]; Ma_kg = Q_T_Ah / (ECA * anode_utilisation_pct / 100)  // [kg] — Total Anode Net Mass Required (M_a) — Ref: M_a = Q_T / (ε × u) — DNV-RP-B401 §6.4 Eq.(6.3); ε = electrochemical capacity in Ah/kg",
+    "anode_std_mass_kg = (anode_material === 'Mg') ? 5 : 15; N_a = Math.ceil(Ma_kg / anode_std_mass_kg)  // [count] — Number of Standard Anodes Required (N_a) — Ref: N_a = M_a / m_std; standard bracelet anode: Al-In 15 kg; Mg 5 kg net mass — DNV Table 10-4",
+    "const E_anode = {Zn:-1050, AlIn:-1050, Mg:-1550}[anode_material]; dE_mv = E_anode - protection_potential_mv; resistance_est_ohm = 0.315 * Math.sqrt(A_eff_m2 / N_a) / 10; I_output_A = dE_mv / 1000 / resistance_est_ohm  // [mV, A] — Driving Voltage & Current Output Check — Ref: Driving voltage ΔE = E_anode − E_prot; current = ΔE/R_a; R_a from Dwight formula — DNV-RP-B401 §7"
+  ],
+  "engine_rules": {
+    "standards": [
+      "DNV-RP-B401:2021",
+      "ISO 15589-2:2012",
+      "NACE SP0169-2013",
+      "EN 12954:2019"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "coating_breakdown_pct === 100 && current_density_mA_m2 < 30",
+          "action": "WARN",
+          "message": "Bare steel with low current density: verify environment — bare steel in stagnant seawater may require 50–100 mA/m² per DNV Table 10-3"
+        },
+        {
+          "id": "V2",
+          "condition": "anode_material === 'Zn' && current_density_mA_m2 > 50",
+          "action": "WARN",
+          "message": "Zinc anodes at high current density: driving voltage insufficient for tropical warm water — switch to Al-In alloy with higher electrochemical efficiency"
+        },
+        {
+          "id": "V3",
+          "condition": "Ma_kg > 100000",
+          "action": "WARN",
+          "message": "Total anode mass > 100 tonnes: very large CP system — evaluate impressed current cathodic protection (ICCP) for structures > 20,000 m²; lower OPEX despite higher CAPEX"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Zinc anodes for 20+ year design life: mass penalty is severe — Al-In provides 2.6× more charge per kg at same potential; mandatory for deepwater and long-life structures per DNV §5.2",
+        "condition": "design_life_yr > 20 && anode_material === 'Zn'"
+      },
+      {
+        "id": "W2",
+        "severity": "CRITICAL",
+        "message": "Driving voltage < 150 mV: anode current output will be marginal — verify polarisation resistance of structure; may need to increase anode count by 40% for adequate protection",
+        "condition": "dE_mv < 150"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Over-protection risk with Mg anodes (E < −900 mV): hydrogen embrittlement possible on high-strength steels (Fy > 550 MPa) — limit to −950 mV per NACE SP0169 §6.2.2",
+        "condition": "protection_potential_mv < -900 && anode_material === 'Mg'"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Large exposed area with few anodes: current distribution will be uneven — increase anode count and space evenly; maximum spacing = 3 m for bare surfaces per DNV §10.3",
+        "condition": "A_eff_m2 > 5000 && N_a < 20"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Low coating breakdown (<3%): CP demand is minimal — verify coating integrity with holiday detection per NACE SP0188; CP as backup protection only",
+        "condition": "coating_breakdown_pct < 3"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Parameter warning: coating_breakdown_pct === 100 && current_density_mA_m2 < 30",
+        "effect": "Bare steel with low current density: verify environment — bare steel in stagnant seawater may require 50–100 mA/m² per DNV Table 10-3",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V1"
+      },
+      {
+        "failureMode": "Parameter warning: anode_material === 'Zn' && current_density_mA_m2 > 50",
+        "effect": "Zinc anodes at high current density: driving voltage insufficient for tropical warm water — switch to Al-In alloy with higher electrochemical efficiency",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: Ma_kg > 100000",
+        "effect": "Total anode mass > 100 tonnes: very large CP system — evaluate impressed current cathodic protection (ICCP) for structures > 20,000 m²; lower OPEX despite higher CAPEX",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Zinc anodes for 20+ year design life: mass penalty is severe — Al-In provides 2.6× more charge per kg at same potential; mandatory for deepwater and long-life structures per DNV §5.2",
+        "effect": "Smart warning triggered when: design_life_yr > 20 && anode_material === 'Zn'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Driving voltage < 150 mV: anode current output will be marginal — verify polarisation resistance of structure; may need to increase anode count by 40% for adequate protection",
+        "effect": "Smart warning triggered when: dE_mv < 150",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Over-protection risk with Mg anodes (E < −900 mV): hydrogen embrittlement possible on high-strength steels (Fy > 550 MPa) — limit to −950 mV per NACE SP0169 §6.2.2",
+        "effect": "Smart warning triggered when: protection_potential_mv < -900 && anode_material === 'Mg'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Large exposed area with few anodes: current distribution will be uneven — increase anode count and space evenly; maximum spacing = 3 m for bare surfaces per DNV §10.3",
+        "effect": "Smart warning triggered when: A_eff_m2 > 5000 && N_a < 20",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Low coating breakdown (<3%): CP demand is minimal — verify coating integrity with holiday detection per NACE SP0188; CP as backup protection only",
+        "effect": "Smart warning triggered when: coating_breakdown_pct < 3",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "A_eff_m2",
+        "Ic_mean_A",
+        "Q_T_Ah",
+        "ECA",
+        "Ma_kg",
+        "anode_std_mass_kg",
+        "N_a",
+        "E_anode",
+        "dE_mv",
+        "resistance_est_ohm",
+        "I_output_A"
+      ]
+    }
+  ]
+}

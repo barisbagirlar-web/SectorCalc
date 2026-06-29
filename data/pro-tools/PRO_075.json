@@ -1,0 +1,305 @@
+{
+  "tool_id": "PRO_075",
+  "tool_name": "Flare Stack Thermal Radiation — Exclusion Zone, Flame Length & Stack Height",
+  "category": "Process Safety / Oil & Gas / Environmental",
+  "scope": "single_operation",
+  "primary_operation": "flare_stack",
+  "inputs": [
+    {
+      "id": "relief_flow_kg_h",
+      "name": "Peak Relief / Flare Flow Rate (ṁ_f)",
+      "unit": "kg/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 5000000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 5167-1:2022 §6 — Orifice plate: ±2% (Re>10⁴)"
+    },
+    {
+      "id": "fuel_LHV_kj_kg",
+      "name": "Flare Gas Lower Heating Value (LHV)",
+      "unit": "kJ/kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 46000,
+      "absolute_min": 10000,
+      "absolute_max": 55000,
+      "note": "Natural gas ≈ 47500; H₂ ≈ 120000; propane ≈ 46000; refinery gas ≈ 40000 kJ/kg",
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
+    },
+    {
+      "id": "combustion_efficiency_pct",
+      "name": "Flare Combustion Efficiency (η_c)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 98,
+      "absolute_min": 80,
+      "absolute_max": 99.9,
+      "note": "USEPA AP-42 §13.5: well-designed elevated flare ≥ 98%; ground flare ≥ 99%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "fraction_heat_radiated_F",
+      "name": "Fraction of Heat Radiated (F)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 0.2,
+      "absolute_min": 0.05,
+      "absolute_max": 0.4,
+      "note": "API 521 §5.15.3: F=0.2 typical for natural gas; F=0.3 for flares with smoking",
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
+    },
+    {
+      "id": "allowable_radiation_kw_m2",
+      "name": "Allowable Incident Radiation at Exclusion Zone Boundary",
+      "unit": "kW/m²",
+      "type": "enum",
+      "options": [
+        {
+          "label": "1.58 kW/m² — Personnel (no escape), API 521 Table 5",
+          "value": 1.58
+        },
+        {
+          "label": "3.16 kW/m² — Personnel with protective clothing",
+          "value": 3.16
+        },
+        {
+          "label": "6.31 kW/m² — Emergency operations ≤ 30 s",
+          "value": 6.31
+        },
+        {
+          "label": "9.46 kW/m² — No personnel exposure",
+          "value": 9.46
+        },
+        {
+          "label": "15.77 kW/m² — Equipment protection only",
+          "value": 15.77
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 1.58,
+      "note": "API 521-2020 Table 5 — radiation limits by exposure scenario",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "stack_height_m",
+      "name": "Proposed Flare Stack Height (H_stack)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 200,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "wind_speed_m_s",
+      "name": "Design Wind Speed at Flare Tip (u_w)",
+      "unit": "m/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 10,
+      "absolute_min": 0,
+      "absolute_max": 40,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    }
+  ],
+  "formulas": [
+    "Q_f_kw = relief_flow_kg_h / 3600 * fuel_LHV_kj_kg * combustion_efficiency_pct / 100   // [kW] Total Heat Release Rate (Q_f) Reference: API 521-2020 §5.15.2 — Q_f = ṁ_f × LHV × η_c / 3600",
+    "Q_rad_kw = fraction_heat_radiated_F * Q_f_kw   // [kW] Radiated Heat Power (Q_rad) Reference: API 521 §5.15.3 — Q_rad = F × Q_f; F from flare gas composition and smokiness",
+    "L_f_m = 0.00325 * Math.pow(Q_f_kw * 0.9478, 0.478)   // [m] Flame Length (L_f) — Brzustowski & Sommer Reference: API 521 §5.15.4.1 — Brzustowski & Sommer correlation; flame length from heat release",
+    "U_j_m_s = 20; Mach_j = wind_speed_m_s / U_j_m_s; x_h_m = L_f_m * Math.sin(Math.atan(Mach_j * 5)); x_v_m = L_f_m * Math.cos(Math.atan(Mach_j * 5)); flame_tip_H_m = stack_height_m + x_v_m; flame_tip_X_m = x_h_m   // [m] Flame Tip Location (Horizontal & Vertical Deflection by Wind) Reference: API 521 §5.15.4.2 — wind-deflected flame centre approximation; jet velocity U_j assumed 20 m/s",
+    "D_excl_m = Math.sqrt(Q_rad_kw / (4 * Math.PI * allowable_radiation_kw_m2))   // [m] Radiation Exclusion Zone Radius (D_excl) Reference: API 521 §5.15.3 — point source model: E = Q_rad / (4πd²); d = √(Q_rad / 4πE_allow)",
+    "D_from_base = Math.sqrt(Math.pow(D_excl_m, 2) - Math.pow(flame_tip_X_m, 2)); H_min_m = Math.max(D_from_base - flame_tip_H_m + stack_height_m, stack_height_m)   // [m] Minimum Required Stack Height for Exclusion Zone Reference: Stack height must ensure 3D distance from flame centre to ground-level personnel ≥ D_excl — API 521 §5.15.3"
+  ],
+  "engine_rules": {
+    "standards": [
+      "API 521 7th Ed. 2020 §5.15",
+      "API 537 3rd Ed. 2017",
+      "ISO 23251:2006 (equivalent to API 521)",
+      "SFPE Handbook of Fire Protection Engineering 5th Ed."
+    ],
+    "validation": {
+      "V1": {
+        "condition": "stack_height_m < H_min_m",
+        "error_msg": "Proposed stack height below minimum required: exclusion zone at ground level is violated — increase stack height to H_min or relocate facilities beyond D_excl",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "combustion_efficiency_pct < 96 && relief_flow_kg_h > 10000",
+        "error_msg": "Low combustion efficiency at high flow: significant unburned hydrocarbon and black smoke — verify flare tip design and steam/air assist per API 537 §5.4",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "fraction_heat_radiated_F > 0.30",
+        "error_msg": "F > 0.30: heavy luminous flame (smoking) — smoking flare radiates more heat; address air/steam assist or switch to enclosed flare to reduce F below 0.20",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Exclusion zone > 500 m: major hazard area — review relief system design, consider staged blowdown or enclosed ground flare to reduce peak flow",
+        "condition": "D_excl_m > 500",
+        "source": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Flame power > 100 MW: large flare event — noise assessment mandatory; stack structural loading under wind and thermal cycling must be verified per API 560 §7",
+        "condition": "Q_f_kw > 100000",
+        "source": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "High wind deflection: flame centre shifts significantly downwind — re-calculate exclusion zone at wind direction perpendicular to access road",
+        "condition": "wind_speed_m_s > 15 && flame_tip_X_m > stack_height_m * 0.5",
+        "source": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Personnel exclusion zone > 200 m: verify no permanent occupied facilities within zone; update HAZOP and site emergency response plan",
+        "condition": "allowable_radiation_kw_m2 < 3.16 && D_excl_m > 200",
+        "source": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Combustion efficiency < 98%: regulatory compliance risk — US 40 CFR Part 60 Subpart Ja requires ≥ 96.5% DRE; EU IED requires BAT-AEL assessment",
+        "condition": "combustion_efficiency_pct < 98",
+        "source": "API 521 7th Ed. 2020 §5.15"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: stack_height_m < H_min_m",
+        "effect": "Proposed stack height below minimum required: exclusion zone at ground level is violated — increase stack height to H_min or relocate facilities beyond D_excl",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: combustion_efficiency_pct < 96 && relief_flow_kg_h > 10000",
+        "effect": "Low combustion efficiency at high flow: significant unburned hydrocarbon and black smoke — verify flare tip design and steam/air assist per API 537 §5.4",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: fraction_heat_radiated_F > 0.30",
+        "effect": "F > 0.30: heavy luminous flame (smoking) — smoking flare radiates more heat; address air/steam assist or switch to enclosed flare to reduce F below 0.20",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Exclusion zone > 500 m: major hazard area — review relief system design, consider staged blowdown or enclosed ground flare to reduce peak flow",
+        "effect": "Smart warning triggered when: D_excl_m > 500",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "failureMode": "Flame power > 100 MW: large flare event — noise assessment mandatory; stack structural loading under wind and thermal cycling must be verified per API 560 §7",
+        "effect": "Smart warning triggered when: Q_f_kw > 100000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "failureMode": "High wind deflection: flame centre shifts significantly downwind — re-calculate exclusion zone at wind direction perpendicular to access road",
+        "effect": "Smart warning triggered when: wind_speed_m_s > 15 && flame_tip_X_m > stack_height_m * 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "failureMode": "Personnel exclusion zone > 200 m: verify no permanent occupied facilities within zone; update HAZOP and site emergency response plan",
+        "effect": "Smart warning triggered when: allowable_radiation_kw_m2 < 3.16 && D_excl_m > 200",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "API 521 7th Ed. 2020 §5.15"
+      },
+      {
+        "failureMode": "Combustion efficiency < 98%: regulatory compliance risk — US 40 CFR Part 60 Subpart Ja requires ≥ 96.5% DRE; EU IED requires BAT-AEL assessment",
+        "effect": "Smart warning triggered when: combustion_efficiency_pct < 98",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "API 521 7th Ed. 2020 §5.15"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Q_f_kw",
+        "Q_rad_kw",
+        "L_f_m",
+        "U_j_m_s",
+        "Mach_j",
+        "x_h_m",
+        "x_v_m",
+        "flame_tip_H_m",
+        "flame_tip_X_m",
+        "D_excl_m",
+        "D_from_base",
+        "H_min_m"
+      ]
+    }
+  ]
+}

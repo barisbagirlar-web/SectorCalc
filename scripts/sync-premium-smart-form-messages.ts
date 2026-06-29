@@ -25,14 +25,12 @@ const SCENARIO_TRANSLATIONS: Record<
 > = {
   quick_quote_check: {
     tr: { label: "Hızlı teklif kontrolü", description: "Temel süre ve oran girdileriyle hızlı taban kontrolü." },
-    ar: { label: "فحص عرض سريع", description: "فحص أرضي سريع بمدخلات الوقت والمعدل الأساسية." },
     de: { label: "Schnelle Angebotsprüfung", description: "Schneller Bodencheck mit Kernzeit- und Satz-Eingaben." },
     fr: { label: "Contrôle de devis rapide", description: "Contrôle rapide avec temps et taux principaux." },
     es: { label: "Revisión rápida de cotización", description: "Comprobación rápida con tiempo y tarifa base." },
   },
   detailed_margin_review: {
     tr: { label: "Detaylı marj incelemesi", description: "Takım ve malzeme dahil tam iş maliyeti." },
-    ar: { label: "مراجعة هامش مفصلة", description: "كامل تكلفة العمل بما في ذلك الأدوات والمواد." },
     de: { label: "Detaillierte Margenprüfung", description: "Voller Job-Kostenstack inkl. Werkzeug und Material." },
     fr: { label: "Revue de marge détaillée", description: "Coût complet incluant outillage et matière." },
     es: { label: "Revisión de margen detallada", description: "Coste completo con herramientas y material." },
@@ -108,7 +106,6 @@ function main(): void {
         : locale === "tr"
           ? "Bu analizörde zorunlu sözleşme girdisi Smart Form'da eksik."
           : locale === "ar"
-            ? "حقل عقد مطلوب مفقود في النموذج الذكي."
             : locale === "de"
               ? "Ein erforderliches Vertragsfeld fehlt im Smart Form."
               : locale === "fr"
@@ -120,7 +117,6 @@ function main(): void {
           : locale === "tr"
             ? "Tüm zorunlu sözleşme alanları için Gelişmiş moda geçin."
             : locale === "ar"
-              ? "انتقل إلى الوضع المتقدم لإدخال جميع حقول العقد المطلوبة."
               : locale === "de"
                 ? "Wechseln Sie in den Erweitert-Modus für alle Pflichtfelder."
                 : locale === "fr"
@@ -132,7 +128,6 @@ function main(): void {
           : locale === "tr"
             ? "Analizi çalıştırmadan önce tüm zorunlu alanları doldurun."
             : locale === "ar"
-              ? "أكمل جميع الحقول المطلوبة قبل تشغيل التحليل."
               : locale === "de"
                 ? "Füllen Sie alle Pflichtfelder aus, bevor Sie die Analyse starten."
                 : locale === "fr"
@@ -144,7 +139,6 @@ function main(): void {
           : locale === "tr"
             ? "Analizi çalıştırmadan önce geçersiz girdileri düzeltin."
             : locale === "ar"
-              ? "صحح المدخلات غير الصالحة قبل تشغيل التحليل."
               : locale === "de"
                 ? "Korrigieren Sie ungültige Eingaben vor der Analyse."
                 : locale === "fr"

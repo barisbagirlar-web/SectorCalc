@@ -1,0 +1,299 @@
+{
+  "schemaId": "PRO_001",
+  "toolCode": "TOOL-PRO-001",
+  "version": "1.0.0",
+  "name": "CNC Milling — Cutting Force, Specific Cutting Energy & Spindle Power",
+  "subtitle": "CNC Machining | Metal Cutting — Sandvik Coromant C-2920 2024, ISO 513:2012 (cutting tool classification)",
+  "sectorPath": [
+    "CNC Machining",
+    "Metal Cutting"
+  ],
+  "standardsBasis": [
+    "Sandvik Coromant C-2920 2024",
+    "ISO 513:2012 (cutting tool classification)",
+    "CIRP Annals Vol.57 (2008) §2"
+  ],
+  "scope": {
+    "inScope": [
+      "CNC Milling — Cutting Force, Specific Cutting Energy & Spindle Power"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Vc_m_min",
+      "symbol": "Vc_m_min",
+      "label": "Cutting Speed (V_c)",
+      "unit": {
+        "ref": "mpmin"
+      },
+      "confidence": "EXACT",
+      "group": "materials",
+      "min": 10,
+      "max": 2000
+    },
+    {
+      "id": "fz_mm",
+      "symbol": "fz_mm",
+      "label": "Feed per Tooth (f_z)",
+      "unit": {
+        "ref": "mmptooth"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.01,
+      "max": 2
+    },
+    {
+      "id": "ap_mm",
+      "symbol": "ap_mm",
+      "label": "Axial Depth of Cut (a_p)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.05,
+      "max": 200
+    },
+    {
+      "id": "ae_mm",
+      "symbol": "ae_mm",
+      "label": "Radial Depth of Cut (a_e)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.05,
+      "max": 500
+    },
+    {
+      "id": "z_teeth",
+      "symbol": "z_teeth",
+      "label": "Number of Cutter Teeth (z)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 30
+    },
+    {
+      "id": "D_mm",
+      "symbol": "D_mm",
+      "label": "Cutter Diameter (D_c)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 800
+    },
+    {
+      "id": "kc1_mpa",
+      "symbol": "kc1_mpa",
+      "label": "Specific Cutting Force at 1 mm² Chip Area (k_c1)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "STRONG",
+      "group": "reinforcement",
+      "min": 500,
+      "max": 5000,
+      "default": 2000
+    },
+    {
+      "id": "mc_exponent",
+      "symbol": "mc_exponent",
+      "label": "Chip Thickness Exponent (m_c)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "DEFAULT",
+      "group": "reinforcement",
+      "min": 0.15,
+      "max": 0.4,
+      "default": 0.25,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "materials",
+      "letter": "A",
+      "title": "Materials",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "B",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "reinforcement",
+      "letter": "C",
+      "title": "Reinforcement",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_001",
+      "code": "Sandvik Coromant C-2920 2024",
+      "name": "CNC Milling — Cutting Force, Specific Cutting Energy & Spindle Power",
+      "description": "CNC Milling — Cutting Force, Specific Cutting Energy & Spindle Power — CNC Machining, Metal Cutting",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "n_rpm",
+          "expression": "Vc_m_min * 1000 / (Math.PI * D_mm)",
+          "unit": {
+            "ref": "rpm"
+          },
+          "reference": "n = V_c × 1000 / (π × D_c) — Sandvik C-2920 §4.1",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Vf_mm_min",
+          "expression": "fz_mm * z_teeth * n_rpm",
+          "unit": {
+            "ref": "mmpmin"
+          },
+          "reference": "V_f = f_z × z × n — ISO 3685:1993 §3.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "hm_mm",
+          "expression": "fz_mm * Math.sqrt(ae_mm / D_mm)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "h_m = f_z × √(a_e/D_c) — Sandvik C-2920 §4.3",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "kc_mpa",
+          "expression": "kc1_mpa / Math.pow(hm_mm, mc_exponent)",
+          "unit": {
+            "ref": "MPa"
+          },
+          "reference": "k_c = k_c1 / h_m^m_c — Kienzle force model",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "Fc_N",
+          "expression": "kc_mpa * ap_mm * hm_mm",
+          "unit": {
+            "ref": "N"
+          },
+          "reference": "F_c = k_c × a_p × h_m — Kienzle",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Pc_kw",
+          "expression": "Fc_N * Vc_m_min / 60000",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "P_c = F_c × V_c / 60000 — Sandvik C-2920 §4.5",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "ae_mm / D_mm > 0.7",
+          "message": "a_e/D_c > 70%: full or near-full engagement — tool deflection and chatter risk severe; reduce radial depth to ≤ 50% and use finishing pass strategy"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "kc_mpa > 3500",
+          "message": "Specific cutting force > 3500 MPa: hard material or worn tool — verify k_c1 input and check for built-up edge; consider coated carbide grade"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "n_rpm > 20000",
+          "message": "Spindle speed > 20,000 rpm: HSM regime — verify spindle bearing rating, tool balance (ISO 1940 G2.5), and coolant pressure capacity"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "Vf_mm_min > 5000",
+          "message": "Table feed > 5000 mm/min: high-feed machining — verify CNC controller acceleration and servo drive current limits"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "Sandvik Coromant C-2920 2024",
+          "condition": "ap_mm > D_mm * 1.5 && z_teeth > 4",
+          "message": "Deep axial cut with many teeth: high chip volume — verify chip evacuation; coolant-through-tool strongly recommended"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Vc_m_min",
+        "fz_mm",
+        "ap_mm",
+        "ae_mm",
+        "z_teeth",
+        "D_mm",
+        "kc1_mpa"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

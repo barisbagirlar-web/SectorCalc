@@ -1,0 +1,303 @@
+{
+  "schemaId": "PRO_038",
+  "toolCode": "TOOL-PRO-038",
+  "version": "1.0.0",
+  "name": "Shell & Tube Heat Exchanger Thermal Sizing — LMTD, NTU-ε & Fouling Margin",
+  "subtitle": "Heat Transfer | Process Equipment — TEMA C/B/R 10th Ed., ISO 15547-1:2005",
+  "sectorPath": [
+    "Heat Transfer",
+    "Process Equipment"
+  ],
+  "standardsBasis": [
+    "TEMA C/B/R 10th Ed.",
+    "ISO 15547-1:2005",
+    "ASME BPVC VIII Div.1",
+    "HTRI Design Guidelines"
+  ],
+  "scope": {
+    "inScope": [
+      "Shell & Tube Heat Exchanger Thermal Sizing — LMTD, NTU-ε & Fouling Margin"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Q_duty_kw",
+      "symbol": "Q_duty_kw",
+      "label": "Thermal Duty (Q)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 500000
+    },
+    {
+      "id": "T_hot_in_c",
+      "symbol": "T_hot_in_c",
+      "label": "Hot-Side Inlet Temperature (T_h,in)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -20,
+      "max": 600
+    },
+    {
+      "id": "T_hot_out_c",
+      "symbol": "T_hot_out_c",
+      "label": "Hot-Side Outlet Temperature (T_h,out)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -20,
+      "max": 599
+    },
+    {
+      "id": "T_cold_in_c",
+      "symbol": "T_cold_in_c",
+      "label": "Cold-Side Inlet Temperature (T_c,in)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -50,
+      "max": 500
+    },
+    {
+      "id": "T_cold_out_c",
+      "symbol": "T_cold_out_c",
+      "label": "Cold-Side Outlet Temperature (T_c,out)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -50,
+      "max": 500
+    },
+    {
+      "id": "U_clean_w_m2k",
+      "symbol": "U_clean_w_m2k",
+      "label": "Overall Clean Heat Transfer Coefficient (U_clean)",
+      "unit": {
+        "ref": "W/m²·K"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 50,
+      "max": 8000,
+      "default": 500
+    },
+    {
+      "id": "Rf_hot_m2k_kw",
+      "symbol": "Rf_hot_m2k_kw",
+      "label": "Hot-Side Fouling Resistance (R_f,hot)",
+      "unit": {
+        "ref": "m²·K/kW"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "max": 2,
+      "default": 0.176
+    },
+    {
+      "id": "Rf_cold_m2k_kw",
+      "symbol": "Rf_cold_m2k_kw",
+      "label": "Cold-Side Fouling Resistance (R_f,cold)",
+      "unit": {
+        "ref": "m²·K/kW"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "max": 2,
+      "default": 0.176
+    },
+    {
+      "id": "F_correction",
+      "symbol": "F_correction",
+      "label": "LMTD Correction Factor (F) - Multi-Pass",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.6,
+      "max": 1,
+      "default": 0.9
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_038",
+      "code": "TEMA C/B/R 10th Ed.",
+      "name": "Shell & Tube Heat Exchanger Thermal Sizing — LMTD, NTU-ε & Fouling Margin",
+      "description": "Shell & Tube Heat Exchanger Thermal Sizing — LMTD, NTU-ε & Fouling Margin — Heat Transfer, Process Equipment",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "dT1",
+          "expression": "T_hot_in_c - T_cold_out_c; dT2 = T_hot_out_c - T_cold_in_c; LMTD_cf = (Math.abs(dT1 - dT2) < 0.001) ? dT1 : (dT1 - dT2) / Math.log(dT1/dT2)",
+          "unit": {
+            "ref": "K"
+          },
+          "reference": "ISO 15547-1:2005 §5.2 — L'Hôpital limit applied when dT1 ≈ dT2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "LMTD_eff",
+          "expression": "F_correction * LMTD_cf_K",
+          "unit": {
+            "ref": "K"
+          },
+          "reference": "TEMA §7 — multi-pass correction",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "U_dirty",
+          "expression": "1 / (1/U_clean_w_m2k + (Rf_hot_m2k_kw + Rf_cold_m2k_kw) * 1000)",
+          "unit": {
+            "ref": "W/m²·K"
+          },
+          "reference": "TEMA C-7.1 — combined fouling resistance",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "A_req",
+          "expression": "(Q_duty_kw * 1000) / (U_dirty_w_m2k * LMTD_eff_K)",
+          "unit": {
+            "ref": "m2"
+          },
+          "reference": "ASME Section VIII / TEMA sizing basis",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "CF",
+          "expression": "U_dirty_w_m2k / U_clean_w_m2k * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "TEMA §T-2.4 — CF < 85% triggers cleaning inspection",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "Q_max",
+          "expression": "Math.min(Q_duty_kw / Math.abs(T_hot_in_c - T_cold_in_c)) * Math.abs(T_hot_in_c - T_cold_in_c); epsilon = Q_duty_kw / (Q_duty_kw / (1 - (T_hot_out_c - T_hot_in_c)/(T_cold_in_c - T_hot_in_c)))",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "NTU-ε method — Incropera 7th Ed. Ch.11",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "TEMA C/B/R 10th Ed.",
+          "condition": "F_correction < 0.75",
+          "message": "LMTD F-factor < 0.75: thermal inefficiency and flow maldistribution risk — split into two units or use pure counterflow"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "TEMA C/B/R 10th Ed.",
+          "condition": "cleanliness_factor_pct < 85",
+          "message": "Cleanliness factor < 85%: fouling penalty severe — schedule CIP or mechanical cleaning within 6 months"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "TEMA C/B/R 10th Ed.",
+          "condition": "LMTD_eff_K < 5",
+          "message": "Effective LMTD < 5 K: very large surface area required — evaluate stream mixing or upstream temperature shift"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "TEMA C/B/R 10th Ed.",
+          "condition": "U_clean_w_m2k < 200 && Q_duty_kw > 1000",
+          "message": "Low U-value for high-duty service: excessive area — verify fluid velocities and baffling"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "TEMA C/B/R 10th Ed.",
+          "condition": "Rf_hot_m2k_kw + Rf_cold_m2k_kw > 0.5",
+          "message": "High combined fouling resistance: fouling margin > 35% — verify TEMA class selection for this service"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Q_duty_kw",
+        "T_hot_in_c",
+        "T_hot_out_c",
+        "T_cold_in_c",
+        "T_cold_out_c",
+        "U_clean_w_m2k",
+        "Rf_hot_m2k_kw",
+        "Rf_cold_m2k_kw",
+        "F_correction"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

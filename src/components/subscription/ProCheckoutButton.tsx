@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
 import { startCheckoutSession, type CheckoutPlan } from "@/lib/billing/create-checkout-session";
 import {
   mapCheckoutPlanToBillingPlanId,

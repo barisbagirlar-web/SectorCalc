@@ -57,43 +57,7 @@ const VALUE_REPLACEMENTS = {
     ["Analyze", "Calculate"],
     ["analyze", "calculate"],
   ],
-  tr: [
-    ["Premium analizörleri", "Premium hesaplayıcıları"],
-    ["premium analizörleri", "premium hesaplayıcıları"],
-    ["Premium analizörler", "Premium hesaplayıcılar"],
-    ["premium analizörler", "premium hesaplayıcılar"],
-    ["Premium analiz aracı", "Premium hesaplama aracı"],
-    ["premium analiz aracı", "premium hesaplama aracı"],
-    ["analiz aracını", "hesaplama aracını"],
-    ["Analiz aracını", "Hesaplama aracını"],
-    ["analiz aracı", "hesaplama aracı"],
-    ["Analiz aracı", "Hesaplama aracı"],
-    ["Analizörleri gör", "Hesaplayıcıları gör"],
-    ["Analizörler gösteriliyor", "Hesaplayıcılar gösteriliyor"],
-    ["Analizörü gör", "Hesaplayıcıyı gör"],
-    ["analizörleri", "hesaplayıcıları"],
-    ["Analizörleri", "Hesaplayıcıları"],
-    ["analizörler", "hesaplayıcılar"],
-    ["Analizörler", "Hesaplayıcılar"],
-    ["analizörü", "hesaplayıcıyı"],
-    ["Analizörü", "Hesaplayıcıyı"],
-    ["analizör", "hesaplayıcı"],
-    ["Analizör", "Hesaplayıcı"],
-    ["Analizi çalıştırın", "Hesaplamayı çalıştırın"],
-    ["Analizi çalıştır", "Hesaplamayı çalıştır"],
-    ["Analizi aç", "Hesaplamayı aç"],
-    ["Premium Analiz Araçları", "Premium Hesaplama Araçları"],
-    ["CNC Karar Analizi", "CNC Denetim Motoru"],
-    ["önizleme analizi", "önizleme hesaplaması"],
-    ["marj analizi", "marj hesaplaması"],
-    ["gizli değişken analizleri", "gizli değişken hesaplamaları"],
-    ["detaylı analiz", "detaylı hesaplama"],
-    ["tek seferlik analizler", "tek seferlik hesaplamalar"],
-    ["geçerli bir analiz", "geçerli bir hesaplama"],
-    ["Hesaplayıcı ve analizör", "Hesaplayıcı ara"],
-    [" premium analizör ", " premium hesaplayıcı "],
-    [" analiz ", " hesaplama "],
-  ],
+  // tr: removed
   de: [
     ["Premium-Analysatoren", "Premium-Rechner"],
     ["Premium-Analysator", "Premium-Rechner"],
@@ -204,10 +168,6 @@ const VALUE_REPLACEMENTS = {
     ["analysis", "calculation"],
     ["analyzers", "calculators"],
     ["analyzer", "calculator"],
-    ["افتح التحليل", "ابدأ الحساب"],
-    ["تحليل", "حساب"],
-    ["محلل", "حاسبة"],
-    ["يحلل", "يحسب"],
   ],
 };
 
@@ -261,20 +221,6 @@ const CATALOG_EXPLORER_PATCH = {
     "search.placeholder.homepage": "Buscar calculadoras…",
   },
   ar: {
-    "labels.categories.navLabel": "تصفح حسب الوظيفة",
-    "labels.categories.countLabel": "{count, plural, one {# أداة} other {# أدوات}}",
-    "labels.categories.viewCategory": "عرض الأدوات",
-    "labels.categories.viewCategoryOpen": "الأدوات معروضة",
-    "labels.free-tools.navLabel": "تصفح حسب الفئة",
-    "labels.premium-tools.navLabel": "تصفح حسب نوع التقرير",
-    "labels.premium-tools.countLabel": "{count, plural, one {# حاسبة} other {# حاسبات}}",
-    "labels.premium-tools.viewCategory": "عرض الحاسبات",
-    "labels.premium-tools.viewCategoryOpen": "الحاسبات معروضة",
-    "labels.premium-tools.openItem": "فتح الحاسبة →",
-    "labels.industries.navLabel": "تصفح حسب مجموعة القطاع",
-    "discoveryCards.ctaOpenAnalysis": "فتح الحساب",
-    "discoveryFooter.freeToolsLead": "هل تحتاج حسابًا أعمق؟",
-    "search.placeholder.homepage": "البحث في الحاسبات…",
   },
 };
 
@@ -386,19 +332,7 @@ const EXPLICIT_ROOT_PATCHES = {
     "industryPage.openAnalyzer": "Rechner öffnen →",
     "industryPage.premiumAnalyzerLink": "Premium-Rechner",
   },
-  tr: {
-    "seo.premiumToolsTitle": "Premium Hesaplama Araçları | SectorCalc",
-    "pricing.singleReportNote": "Tek seferlik hesaplamalar için karar raporları $9'dan başlar.",
-    "freeTool.premiumPreview2": "Gizli değişken hesaplaması",
-    "pilotCnc.premium.title": "CNC Denetim Motoru",
-    "smartForm.actions.calculate": "Hesaplamayı çalıştır",
-    "smartForm.notices.calculationBlocked":
-      "Hesaplamayı çalıştırmadan önce zorunlu alanları tamamlayın.",
-    "smartForm.compatibility.missingRequired":
-      "Hesaplamayı çalıştırmadan önce tüm zorunlu alanları doldurun.",
-    "smartForm.compatibility.invalidInput":
-      "Hesaplamayı çalıştırmadan önce geçersiz girdileri düzeltin.",
-  },
+  // tr: removed
 };
 
 for (const file of readdirSync(MESSAGES_DIR).filter((f) => f.endsWith(".json"))) {
@@ -430,18 +364,7 @@ for (const file of readdirSync(MESSAGES_DIR).filter((f) => f.endsWith(".json")))
     data.catalogExplorer.search.placeholder.homepage = "Search calculators…";
   }
 
-  if (locale === "tr" && data.catalogExplorer) {
-    data.catalogExplorer.labels["premium-tools"] = {
-      navLabel: "Rapor türüne göre göz at",
-      countLabel: "{count, plural, one {# hesaplayıcı} other {# hesaplayıcı}}",
-      viewCategory: "Hesaplayıcıları gör",
-      viewCategoryOpen: "Hesaplayıcılar gösteriliyor",
-      openItem: "Hesaplayıcıyı aç →",
-    };
-    data.catalogExplorer.discoveryCards.ctaOpenAnalysis = "Hesaplamayı aç";
-    data.catalogExplorer.discoveryFooter.freeToolsLead = "Daha detaylı hesaplama mı gerekiyor?";
-    data.catalogExplorer.search.placeholder.homepage = "Hesaplayıcı ara…";
-  }
+  // tr: removed
 
   const explicit = EXPLICIT_ROOT_PATCHES[locale];
   if (explicit) {
@@ -499,11 +422,9 @@ const SOURCE_REPLACEMENTS = [
   ["27 premium analyzers", "27 premium calculators"],
   ["View analyzer →", "View calculator →"],
   ["Open analyzer", "Open calculator"],
-  ["Analiz aracını aç", "Hesaplama aracını aç"],
   ["Analyse öffnen", "Rechner öffnen"],
   ["Ouvrir l'analyse", "Ouvrir le calcul"],
   ["Abrir análisis", "Abrir cálculo"],
-  ["فتح التحليل", "فتح الحساب"],
   ["Need decision-level analysis?", "Need decision-level calculation?"],
   ["Change Order Impact Analyzer", "Change Order Impact Calculator"],
   ["Open Change Order Impact Analyzer", "Open Change Order Impact Calculator"],
@@ -556,7 +477,6 @@ const SOURCE_REPLACEMENTS = [
   ["Open full CNC Minimum Safe Quote Analyzer", "Open CNC Minimum Safe Quote Calculator"],
   ["Open the CNC Minimum Safe Quote Analyzer", "Open the CNC Minimum Safe Quote Calculator"],
   ["Use this premium analyzer to", "Use this premium calculator to"],
-  ["Bu analiz yalnızca", "Bu hesaplama yalnızca"],
   ["for hidden drivers, thresholds and export-ready reports. Upgrade to the premium analyzer", "for hidden drivers, thresholds and export-ready reports. Upgrade to the premium calculator"],
   ["related premium analyzers", "related premium calculators"],
   ["Premium analyzer for", "Premium calculator for"],

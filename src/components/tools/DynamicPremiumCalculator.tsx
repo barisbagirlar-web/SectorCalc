@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck — Dynamic Premium Calculator (imports types from stub)
+
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";

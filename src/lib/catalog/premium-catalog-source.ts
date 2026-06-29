@@ -5,7 +5,7 @@ import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-res
 
 export function normalizeToolSearchText(value: string): string {
   return value
-    .toLocaleLowerCase("tr")
+    .toLowerCase()
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "");
 }
@@ -38,7 +38,6 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
   [SEVEN_MUDA_SLUG]: {
     categoryId: "lean-production",
     titles: {
-      tr: "7 Muda Maliyet Hesaplayıcı",
       en: "7 Muda Waste Cost Calculator",
       de: "7 Verschwendungsarten (Muda) – monetärer Impact-Rechner",
       fr: "Calculateur d'impact monétaire des 7 gaspillages (Muda)",
@@ -46,7 +45,6 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
       ar: "حاسبة الأثر المالي لسبعة أنواع الهدر (مودا)",
     },
     descriptions: {
-      tr: "7 İsraf (Muda) türlerinin parasal karşılığını hesaplar.",
       en: "Calculates the monetary cost of the seven Muda waste types.",
       de: "Überproduktion, Warten, Transport, Bestand, Bewegung, Fehler und Überbearbeitung bleiben ohne Periodenkosten unsichtbar.",
       fr: "Surproduction, attente, transport, stock, mouvement, défauts et sur-traitement restent invisibles sans coût périodique.",
@@ -56,17 +54,13 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
     searchTerms: [
       "7 muda",
       "muda",
-      "7 israf",
-      "israf",
-      "maliyet",
-      "parasal karşılık",
       "waste cost",
       "lean waste",
       "seven muda",
       "seven wastes",
     ],
     aliases: ["7 wastes", "seven muda wastes", "lean muda"],
-    keywords: ["lean", "waste", "muda", "israf", "maliyet"],
+    keywords: ["lean", "waste", "muda"],
   },
   "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
     categoryId: "lean-production",
@@ -173,7 +167,7 @@ export function buildPremiumCatalogTools(locale: string): readonly PremiumCatalo
   );
 
   const premiumItems = buildCategorizedToolIndex().filter(
-    (item) => item.tier === "premium" || item.tier === "premium-schema",
+    (item) => (item.tier === "premium" || item.tier === "premium-schema") && item.publicStatus === "active" && item.routePath !== null,
   );
 
   const bySlug = new Map<string, PremiumCatalogToolItem>();

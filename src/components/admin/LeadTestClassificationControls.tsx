@@ -116,7 +116,7 @@ export function LeadTestClassificationControls({
  if (!canSaveFirestore) {
  return (
  <p className="text-xs text-text-secondary">
- Manuel test lead işaretleme yalnızca Firestore lead&apos;leri için kullanılabilir.
+ Manual test lead marking is only available for Firestore leads.
  </p>
  );
  }
@@ -124,26 +124,26 @@ export function LeadTestClassificationControls({
  if (!writeFlagEnabled) {
  return (
  <p className="text-xs text-text-secondary">
- Admin yazma altyapısı yapılandırılmamış.
+ Admin write infrastructure not configured.
  </p>
  );
  }
 
  if (!isAdmin) {
  return (
- <p className="text-xs text-text-secondary">Bu işlem için admin girişi gerekli.</p>
+ <p className="text-xs text-text-secondary">Admin login required for this action.</p>
  );
  }
 
  return (
  <div className="space-y-3 border-t border-slate/15 pt-4">
  <label className="block space-y-1.5">
- <span className="text-xs font-medium text-text-secondary">Test lead açıklaması</span>
+ <span className="text-xs font-medium text-text-secondary">Test lead description</span>
  <textarea
  value={reason}
  onChange={(event) => setReason(event.target.value.slice(0, MAX_REASON_LENGTH))}
  rows={2}
- placeholder="Opsiyonel kısa açıklama"
+ placeholder="Optional short description"
  disabled={saving || authLoading}
  className={`${fieldClass} min-h-[72px] resize-y py-2`}
  />
@@ -156,7 +156,7 @@ export function LeadTestClassificationControls({
  onClick={() => void handleMark(true)}
  className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
- {saving ? "Kaydediliyor…" : "Test Lead Olarak İşaretle"}
+ {saving ? "Saving…" : "Mark as Test Lead"}
  </button>
  <button
  type="button"
@@ -164,24 +164,24 @@ export function LeadTestClassificationControls({
  onClick={() => void handleMark(false)}
  className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
- {saving ? "Kaydediliyor…" : "Test Lead İşaretini Kaldır"}
+ {saving ? "Saving…" : "Remove Test Lead Mark"}
  </button>
  </div>
 
  {feedback === "saved" ? (
  <p className="text-xs font-medium text-text-secondary" role="status">
- Kaydedildi
+ Saved
  </p>
  ) : null}
  {feedback === "error" ? (
  <p className="text-xs font-medium text-amber" role="alert">
- Kaydedilemedi. URL yapılandırmasını ve admin yetkisini kontrol edin.
+ Failed to save. Check URL configuration and admin permissions.
  </p>
  ) : null}
 
  {detection.isManualMark && lead.testLeadMarkedByEmail ? (
  <p className="text-xs text-text-secondary">
- Son işaretleyen: {lead.testLeadMarkedByEmail}
+ Last marked by: {lead.testLeadMarkedByEmail}
  </p>
  ) : null}
  </div>

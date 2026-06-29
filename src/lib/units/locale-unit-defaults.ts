@@ -28,7 +28,7 @@ export const US_IMPERIAL_FIELD_HINTS = [
   "cubicfoot",
 ] as const;
 
-const METRIC_DEFAULT_LOCALES: readonly SupportedLocale[] = ["tr", "de", "fr", "es", "ar"];
+const METRIC_DEFAULT_LOCALES: readonly string[] = ["tr", "de", "fr", "es", "ar"];
 
 const PHYSICAL_DIMENSIONS: readonly UnitDimension[] = [
   "length",

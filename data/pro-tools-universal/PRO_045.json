@@ -1,0 +1,320 @@
+{
+  "schemaId": "PRO_045",
+  "toolCode": "TOOL-PRO-045",
+  "version": "1.0.0",
+  "name": "Industrial Noise Attenuation — Source SPL to Receiver Level & OSHA Dose Calculation",
+  "subtitle": "Occupational Safety | Environmental Engineering — ISO 9613-2:1996, OSHA 29 CFR 1910.95",
+  "sectorPath": [
+    "Occupational Safety",
+    "Environmental Engineering"
+  ],
+  "standardsBasis": [
+    "ISO 9613-2:1996",
+    "OSHA 29 CFR 1910.95",
+    "NIOSH REL (85 dB(A))",
+    "EU Directive 2003/10/EC",
+    "ISO 1996-1:2016"
+  ],
+  "scope": {
+    "inScope": [
+      "Industrial Noise Attenuation — Source SPL to Receiver Level & OSHA Dose Calculation"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "Lw_source_db",
+      "symbol": "Lw_source_db",
+      "label": "Sound Power Level of Source (L_W)",
+      "unit": {
+        "ref": "dB(A) re 1 pW"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 60,
+      "max": 180
+    },
+    {
+      "id": "distance_m",
+      "symbol": "distance_m",
+      "label": "Source-to-Receiver Distance (r)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.5,
+      "max": 2000
+    },
+    {
+      "id": "directivity_factor_Q",
+      "symbol": "directivity_factor_Q",
+      "label": "Source Directivity Factor (Q)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "default": 2,
+      "enum": [
+        {
+          "value": 1,
+          "label": "Q=1 — free field (sphere)"
+        },
+        {
+          "value": 2,
+          "label": "Q=2 — on hard ground (hemisphere)"
+        },
+        {
+          "value": 4,
+          "label": "Q=4 — floor-wall junction"
+        },
+        {
+          "value": 8,
+          "label": "Q=8 — floor-wall-ceiling corner"
+        }
+      ]
+    },
+    {
+      "id": "excess_attenuation_db",
+      "symbol": "excess_attenuation_db",
+      "label": "Excess Attenuation (barriers, air absorption, ground) (A_exc)",
+      "unit": {
+        "ref": "dB"
+      },
+      "confidence": "DEFAULT",
+      "group": "reinforcement",
+      "min": 0,
+      "max": 40,
+      "default": 3
+    },
+    {
+      "id": "exposure_hours_per_shift",
+      "symbol": "exposure_hours_per_shift",
+      "label": "Worker Exposure Duration per Shift",
+      "unit": {
+        "ref": "h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.25,
+      "max": 12,
+      "default": 8
+    },
+    {
+      "id": "osha_criterion_db",
+      "symbol": "osha_criterion_db",
+      "label": "OSHA Permissible Criterion Level",
+      "unit": {
+        "ref": "dBA"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 85,
+      "enum": [
+        {
+          "value": 90,
+          "label": "90 dB(A) — OSHA PEL (US)"
+        },
+        {
+          "value": 85,
+          "label": "85 dB(A) — NIOSH REL / EU Action Level"
+        },
+        {
+          "value": 80,
+          "label": "80 dB(A) — EU Lower Exposure Action Value"
+        }
+      ]
+    },
+    {
+      "id": "num_identical_sources",
+      "symbol": "num_identical_sources",
+      "label": "Number of Identical Sources (N)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 100,
+      "default": 1,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "reinforcement",
+      "letter": "B",
+      "title": "Reinforcement",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_045",
+      "code": "ISO 9613-2:1996",
+      "name": "Industrial Noise Attenuation — Source SPL to Receiver Level & OSHA Dose Calculation",
+      "description": "Industrial Noise Attenuation — Source SPL to Receiver Level & OSHA Dose Calculation — Occupational Safety, Environmental Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "A_div_db",
+          "expression": "20 * Math.log10(distance_m) + 10 * Math.log10(4 * Math.PI / directivity_factor_Q)",
+          "unit": {
+            "ref": "dB"
+          },
+          "reference": "ISO 9613-2:1996 §7.1 — geometrical divergence",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "DeltaL_sources_db",
+          "expression": "10 * Math.log10(num_identical_sources)",
+          "unit": {
+            "ref": "dB"
+          },
+          "reference": "Energy summation: 10 identical sources → +10 dB",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Lp_receiver_db",
+          "expression": "Lw_source_db + DeltaL_sources_db - A_div_db - excess_attenuation_db",
+          "unit": {
+            "ref": "dBA"
+          },
+          "reference": "ISO 9613-2 §4 — basic outdoor sound propagation equation",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "T_perm_h",
+          "expression": "(osha_criterion_db === 90) ? 8 / Math.pow(2, (Lp_receiver_dba - 90)/5) : 8 / Math.pow(2, (Lp_receiver_dba - 85)/3)",
+          "unit": {
+            "ref": "h"
+          },
+          "reference": "OSHA 29 CFR 1910.95 Table G-16 (5 dB exchange rate) / NIOSH 3 dB exchange rate",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "dose_pct",
+          "expression": "(exposure_hours_per_shift / T_perm_h) * 100",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "OSHA dose D = Σ(C_i/T_i) × 100",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "dB_reduction_needed",
+          "expression": "Math.max(0, Lp_receiver_dba - osha_criterion_db)",
+          "unit": {
+            "ref": "dB"
+          },
+          "reference": "Hierarchy of noise control: engineering controls first per ISO 1996-1 §8",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ISO 9613-2:1996",
+          "condition": "dose_pct > 50",
+          "message": "Noise dose > 50%: OSHA Hearing Conservation Program mandatory — audiometric testing, training, hearing protection per 29 CFR 1910.95(c)"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "ISO 9613-2:1996",
+          "condition": "Lp_receiver_dba > osha_criterion_db + 10",
+          "message": "SPL >10 dB over criterion: hearing protection alone insufficient — engineering noise control required per ISO 1996-1 hierarchy"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ISO 9613-2:1996",
+          "condition": "dB_reduction_needed > 15",
+          "message": "Required attenuation > 15 dB: barrier or enclosure study needed — verify with ISO 9613-2 barrier insertion loss calculation"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "ISO 9613-2:1996",
+          "condition": "num_identical_sources > 10",
+          "message": "Multiple sources (>10): total SPL increase plateaus — adding sources beyond 10× gives <1 dB additional increment"
+        },
+        {
+          "id": "W5",
+          "severity": "CRITICAL",
+          "source": "ISO 9613-2:1996",
+          "condition": "T_perm_h < 1",
+          "message": "Permissible exposure < 1 hour: extreme noise environment — restrict access, mandatory enclosures, and continuous monitoring"
+        },
+        {
+          "id": "W6",
+          "severity": "INFO",
+          "source": "ISO 9613-2:1996",
+          "condition": "excess_attenuation_db < 2 && distance_m > 100",
+          "message": "Low excess attenuation at long range: re-evaluate air absorption per ISO 9613-1 — significant at >100 m above 1 kHz"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "Lw_source_db",
+        "distance_m",
+        "directivity_factor_Q",
+        "excess_attenuation_db",
+        "exposure_hours_per_shift",
+        "osha_criterion_db"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

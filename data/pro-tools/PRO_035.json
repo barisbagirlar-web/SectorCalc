@@ -1,0 +1,368 @@
+{
+  "tool_id": "PRO_035",
+  "tool_name": "Industrial Waste Stream Cost, Circularity Rate & ESG Compliance Analysis (ISO 14001 / EU Taxonomy)",
+  "category": "Environmental Engineering / Sustainability",
+  "scope": "process_agnostic",
+  "primary_operation": "waste_esg",
+  "inputs": [
+    {
+      "id": "non_hazardous_waste_t",
+      "name": "Non-Hazardous Solid Waste Generated",
+      "unit": "tonnes/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "General industrial waste, packaging, non-contaminated scrap — Annex III EU WFD",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "hazardous_waste_t",
+      "name": "Hazardous Waste Generated",
+      "unit": "tonnes/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Oils, solvents, heavy metal swarf, contaminated rags, chemical waste — EU Directive 2008/98/EC Annex III",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "wastewater_m3",
+      "name": "Industrial Wastewater Volume",
+      "unit": "m³/year",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "hint": "Process effluent, coolant wash, surface treatment discharge",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
+    },
+    {
+      "id": "recycled_diverted_t",
+      "name": "Waste Diverted from Landfill (recycled + recovered)",
+      "unit": "tonnes/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Metal recycling, paper/cardboard, plastic, energy recovery — must not exceed total waste",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "landfill_disposal_rate_usd_t",
+      "name": "Non-Hazardous Waste Disposal Rate (landfill/incineration)",
+      "unit": "USD/tonne",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Gate fee to licensed disposal facility. EU range: €50–150/t | Turkey: $30–80/t",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "hazardous_disposal_rate_usd_t",
+      "name": "Hazardous Waste Disposal Rate",
+      "unit": "USD/tonne",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Licensed hazardous waste contractor. EU range: €200–800/t depending on category",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "wastewater_treatment_rate_usd_m3",
+      "name": "Wastewater Treatment / Discharge Cost",
+      "unit": "USD/m³",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "scrap_metal_revenue_usd_t",
+      "name": "Recycled Material Revenue (metal scrap / recovered material)",
+      "unit": "USD/tonne",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Average net scrap value — steel scrap: $200–400/t | Al: $800–1200/t | Cu: $5000–8000/t",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "co2_per_tonne_waste_kg",
+      "name": "CO₂e per Tonne Non-Hazardous Waste (landfill)",
+      "unit": "kgCO₂e/tonne",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 467,
+      "hint": "IPCC AR6: mixed industrial landfill ≈ 300–600 kgCO₂e/t | Incineration: 700–1000 kgCO₂e/t",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "regulatory_fine_usd",
+      "name": "Potential Regulatory Fine (per violation event)",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "From local environmental regulation — EU ELD: up to €1M+ | Turkey: per ÇevKan tariff",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "violation_probability_pct",
+      "name": "Annual Probability of Regulatory Enforcement",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 100,
+      "hint": "Based on inspection frequency and current compliance status — non-compliant sites: 20–40%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "esg_reporting_framework",
+      "name": "ESG Reporting Framework",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "GRI Standards (GRI 306 Waste)",
+        "EU CSRD / ESRS E5 Resource Use",
+        "ISO 14001:2015 Environmental Management",
+        "CDP Climate & Water Disclosure",
+        "Internal / voluntary reporting only"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "Total_Waste_Generated_t = non_hazardous_waste_t + hazardous_waste_t   // [t/year] Total solid waste",
+    "Waste_to_Landfill_t = MAX(0, non_hazardous_waste_t - recycled_diverted_t)   // [t/year] Non-hazardous waste sent to disposal",
+    "Landfill_Cost_USD = Waste_to_Landfill_t * landfill_disposal_rate_usd_t   // [USD/year] Non-hazardous disposal cost",
+    "Hazardous_Disposal_Cost_USD = hazardous_waste_t * hazardous_disposal_rate_usd_t   // [USD/year] Hazardous waste cost",
+    "Wastewater_Cost_USD = wastewater_m3 * wastewater_treatment_rate_usd_m3   // [USD/year] Wastewater treatment cost",
+    "Recycling_Revenue_USD = recycled_diverted_t * scrap_metal_revenue_usd_t   // [USD/year] Revenue from recovered materials",
+    "Risk_Weighted_Fine_USD = (violation_probability_pct / 100) * regulatory_fine_usd   // [USD/year] Expected regulatory penalty",
+    "Total_Gross_Waste_Cost_USD = Landfill_Cost_USD + Hazardous_Disposal_Cost_USD + Wastewater_Cost_USD + Risk_Weighted_Fine_USD   // [USD/year]",
+    "Net_Waste_Cost_USD = Total_Gross_Waste_Cost_USD - Recycling_Revenue_USD   // [USD/year] Net cost after recycling income",
+    "Circularity_Rate_pct = Total_Waste_Generated_t > 0 ? (recycled_diverted_t / Total_Waste_Generated_t) * 100 : 0   // [%] EU Taxonomy circularity KPI",
+    "Hazardous_Fraction_pct = Total_Waste_Generated_t > 0 ? (hazardous_waste_t / Total_Waste_Generated_t) * 100 : 0   // [%] Hazardous waste intensity",
+    "Waste_Intensity_t_per_MtUSD = Net_Waste_Cost_USD > 0 ? Total_Waste_Generated_t / (Net_Waste_Cost_USD / 1000000) : 0   // [t/M USD cost] Waste intensity ratio",
+    "Carbon_Footprint_Waste_tCO2e = Waste_to_Landfill_t * co2_per_tonne_waste_kg / 1000   // [tCO₂e/year] GHG from waste disposal",
+    "Cost_per_Tonne_Generated_USD = Total_Waste_Generated_t > 0 ? Net_Waste_Cost_USD / Total_Waste_Generated_t : 0   // [USD/t] All-in waste cost per tonne"
+  ],
+  "engine_rules": {
+    "standards": [
+      "EU Directive 2008/98/EC Waste Framework",
+      "ISO 14001:2015 Environmental Management",
+      "GRI 306:2020 Waste Disclosure",
+      "EU CSRD / ESRS E5 Resource Use & Circular Economy",
+      "EU Taxonomy Regulation 2020/852",
+      "IPCC AR6 Waste Sector Emission Factors"
+    ],
+    "validation": {
+      "recycled_vs_generated": {
+        "condition": "recycled_diverted_t > non_hazardous_waste_t + hazardous_waste_t",
+        "error_msg": "Diverted waste cannot exceed total waste generated. Check input data — diverted fraction is a subset of total waste.",
+        "id": "recycled_vs_generated"
+      },
+      "violation_probability_range": {
+        "condition": "violation_probability_pct < 0 || violation_probability_pct > 100",
+        "error_msg": "Violation probability must be 0–100%.",
+        "id": "violation_probability_range"
+      },
+      "hazardous_rate_minimum": {
+        "condition": "hazardous_waste_t > 0 && hazardous_disposal_rate_usd_t < 50",
+        "error_msg": "Hazardous disposal rate below $50/tonne is unrealistically low. Licensed hazardous waste disposal is strictly regulated. Check units or confirm contractor rate — legal disposal typically costs $200–800/tonne.",
+        "id": "hazardous_rate_minimum"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Hazardous_Fraction_pct > 20",
+        "severity": "CRITICAL",
+        "source": "EU Directive 2008/98/EC / ISO 14001",
+        "message": "HIGH HAZARDOUS WASTE FRACTION (>20%): Hazardous waste disposal represents a significant cost and liability. Mandatory: (1) Waste audit to identify substitution opportunities (REACH compliance), (2) Solvent recovery system ROI analysis, (3) Licensed contractor insurance verification. Regulatory exposure is elevated."
+      },
+      {
+        "condition": "Circularity_Rate_pct < 20",
+        "severity": "CRITICAL",
+        "source": "EU CSRD / ESRS E5 / EU Taxonomy",
+        "message": "CIRCULARITY RATE <20%: EU Taxonomy and CSRD require disclosure of circularity performance. Institutional investors and EU supply chain customers will classify this as a sustainability red flag. Circular economy action plan required for continued EU market access and ESG-linked financing eligibility."
+      },
+      {
+        "condition": "Risk_Weighted_Fine_USD > Recycling_Revenue_USD",
+        "severity": "CRITICAL",
+        "source": "Environmental Liability Risk",
+        "message": "EXPECTED REGULATORY PENALTY EXCEEDS RECYCLING REVENUE: Compliance risk is financially material. Investment in waste management systems (proper segregation, licensed storage, treatment capacity) should be evaluated against risk-weighted fine cost. Environmental insurance may be warranted."
+      },
+      {
+        "condition": "Carbon_Footprint_Waste_tCO2e > 100",
+        "severity": "WARNING",
+        "source": "GHG Protocol Scope 3 Category 5",
+        "message": "SIGNIFICANT WASTE-RELATED EMISSIONS (>100 tCO₂e/year): This waste stream generates reportable Scope 3 emissions under GHG Protocol Category 5. Must be disclosed in CDP, GRI 306, and CSRD reporting. Diversion from landfill (composting, energy recovery, recycling) reduces both cost and carbon footprint."
+      },
+      {
+        "condition": "Recycling_Revenue_USD > Landfill_Cost_USD && recycled_diverted_t < non_hazardous_waste_t * 0.5",
+        "severity": "INFO",
+        "source": "Circular Economy — Revenue Opportunity",
+        "message": "UNTAPPED RECYCLING REVENUE: Scrap value of recyclable materials exceeds current landfill cost, but less than 50% of non-hazardous waste is being diverted. Increasing recovery rate will reduce costs AND generate additional revenue. Conduct waste composition audit to identify high-value streams."
+      },
+      {
+        "condition": "Cost_per_Tonne_Generated_USD > 200",
+        "severity": "WARNING",
+        "source": "Industrial Waste Benchmarking",
+        "message": "HIGH ALL-IN WASTE COST (>$200/tonne generated): Above typical manufacturing benchmark. Dominant driver may be hazardous waste, wastewater treatment, or regulatory risk premium. Waste minimisation at source (lean process, material substitution) delivers permanent cost reduction."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: recycled_diverted_t > non_hazardous_waste_t + hazardous_waste_t",
+        "effect": "Diverted waste cannot exceed total waste generated. Check input data — diverted fraction is a subset of total waste.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule recycled_vs_generated"
+      },
+      {
+        "failureMode": "Input violation: violation_probability_pct < 0 || violation_probability_pct > 100",
+        "effect": "Violation probability must be 0–100%.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule violation_probability_range"
+      },
+      {
+        "failureMode": "Input violation: hazardous_waste_t > 0 && hazardous_disposal_rate_usd_t < 50",
+        "effect": "Hazardous disposal rate below $50/tonne is unrealistically low. Licensed hazardous waste disposal is strictly regulated. Check units or confirm contractor rate — legal disposal typically costs $200–800/tonne.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule hazardous_rate_minimum"
+      },
+      {
+        "failureMode": "HIGH HAZARDOUS WASTE FRACTION (>20%): Hazardous waste disposal represents a significant cost and liability. Mandatory: (1) Waste audit to identify substitution opportunities (REACH compliance), (2) Solvent recovery system ROI analysis, (3) Licensed contractor insurance verification. Regulatory exposure is elevated.",
+        "effect": "Smart warning triggered when: Hazardous_Fraction_pct > 20",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "EU Directive 2008/98/EC / ISO 14001"
+      },
+      {
+        "failureMode": "CIRCULARITY RATE <20%: EU Taxonomy and CSRD require disclosure of circularity performance. Institutional investors and EU supply chain customers will classify this as a sustainability red flag. Circular economy action plan required for continued EU market access and ESG-linked financing eligibility.",
+        "effect": "Smart warning triggered when: Circularity_Rate_pct < 20",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "EU CSRD / ESRS E5 / EU Taxonomy"
+      },
+      {
+        "failureMode": "EXPECTED REGULATORY PENALTY EXCEEDS RECYCLING REVENUE: Compliance risk is financially material. Investment in waste management systems (proper segregation, licensed storage, treatment capacity) should be evaluated against risk-weighted fine cost. Environmental insurance may be warranted.",
+        "effect": "Smart warning triggered when: Risk_Weighted_Fine_USD > Recycling_Revenue_USD",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Environmental Liability Risk"
+      },
+      {
+        "failureMode": "SIGNIFICANT WASTE-RELATED EMISSIONS (>100 tCO₂e/year): This waste stream generates reportable Scope 3 emissions under GHG Protocol Category 5. Must be disclosed in CDP, GRI 306, and CSRD reporting. Diversion from landfill (composting, energy recovery, recycling) reduces both cost and carbon footprint.",
+        "effect": "Smart warning triggered when: Carbon_Footprint_Waste_tCO2e > 100",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "GHG Protocol Scope 3 Category 5"
+      },
+      {
+        "failureMode": "UNTAPPED RECYCLING REVENUE: Scrap value of recyclable materials exceeds current landfill cost, but less than 50% of non-hazardous waste is being diverted. Increasing recovery rate will reduce costs AND generate additional revenue. Conduct waste composition audit to identify high-value streams.",
+        "effect": "Smart warning triggered when: Recycling_Revenue_USD > Landfill_Cost_USD && recycled_diverted_t < non_hazardous_waste_t * 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Circular Economy — Revenue Opportunity"
+      },
+      {
+        "failureMode": "HIGH ALL-IN WASTE COST (>$200/tonne generated): Above typical manufacturing benchmark. Dominant driver may be hazardous waste, wastewater treatment, or regulatory risk premium. Waste minimisation at source (lean process, material substitution) delivers permanent cost reduction.",
+        "effect": "Smart warning triggered when: Cost_per_Tonne_Generated_USD > 200",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Industrial Waste Benchmarking"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Total_Waste_Generated_t",
+        "Waste_to_Landfill_t",
+        "Landfill_Cost_USD",
+        "Hazardous_Disposal_Cost_USD",
+        "Wastewater_Cost_USD",
+        "Recycling_Revenue_USD",
+        "Risk_Weighted_Fine_USD",
+        "Total_Gross_Waste_Cost_USD",
+        "Net_Waste_Cost_USD",
+        "Circularity_Rate_pct",
+        "Hazardous_Fraction_pct",
+        "Waste_Intensity_t_per_MtUSD",
+        "Carbon_Footprint_Waste_tCO2e",
+        "Cost_per_Tonne_Generated_USD"
+      ]
+    }
+  ]
+}

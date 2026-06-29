@@ -1,6 +1,6 @@
 /**
- * U-Engine — Logic Layer çekirdeği.
- * FormulaRepository ile registry-decoupled analiz.
+ * U-Engine — Logic Layer core.
+ * FormulaRepository with registry-decoupled analysis.
  * Regional Compliance overlay on financial loss.
  */
 
@@ -18,7 +18,7 @@ export interface AuditMetrics {
   target: number;
   actual: number;
   unitCost: number;
-  /** Örn: 0.05 (%5) */
+  /** E.g.: 0.05 (%5) */
   tolerance: number;
 }
 

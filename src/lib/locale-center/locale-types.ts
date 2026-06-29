@@ -2,7 +2,7 @@ import type { SupportedLocale } from "@/lib/i18n/locale-config";
 
 export type { SupportedLocale };
 
-export const SUPPORTED_LOCALES = ["en", "tr", "de", "fr", "es", "ar"] as const satisfies readonly SupportedLocale[];
+export const SUPPORTED_LOCALES = ["en"] as const satisfies readonly SupportedLocale[];
 
 export const SUPPORTED_REGIONS = [
   "GLOBAL",

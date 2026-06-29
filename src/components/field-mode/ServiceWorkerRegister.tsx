@@ -2,12 +2,20 @@
 
 import { useEffect } from "react";
 
-/** Registers the conservative offline-shell service worker. Non-fatal on failure. */
+/** Registers the offline-shell service worker. Dev: aggressively unregisters all. */
 export function ServiceWorkerRegister() {
   useEffect(() => {
     if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) {
       return;
     }
+    // Dev: unregister all SWs immediately (middleware already nukes /sw.js)
+    if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        regs.forEach((reg) => reg.unregister());
+      });
+      return;
+    }
+    // Production: register SW
     const register = () => {
       navigator.serviceWorker.register("/sw.js").catch(() => {
         /* registration failure is non-fatal */

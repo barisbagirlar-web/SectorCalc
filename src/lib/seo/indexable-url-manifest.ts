@@ -240,7 +240,7 @@ export function buildIndexableFullUrl(path: string, host: string): string {
   return `https://${normalizedHost}${normalizedPath}`;
 }
 
-export function getIndexableFullUrls(host = "sectorcalc-bf412.web.app"): readonly string[] {
+export function getIndexableFullUrls(host = "sectorcalc.com"): readonly string[] {
   const normalizedHost = normalizeSiteHost(host);
   return getIndexableUrlPaths().map((path) => buildIndexableFullUrl(path, normalizedHost));
 }

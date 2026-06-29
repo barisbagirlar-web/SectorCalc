@@ -1,0 +1,295 @@
+{
+  "schemaId": "PRO_048",
+  "toolCode": "TOOL-PRO-048",
+  "version": "1.0.0",
+  "name": "Conveyor Belt Power, Drive Tension & Sag Ratio — Bulk Material Handling Design",
+  "subtitle": "Bulk Material Handling | Mechanical Engineering — ISO 5048:1989, CEMA Belt Conveyors for Bulk Materials 7th Ed.",
+  "sectorPath": [
+    "Bulk Material Handling",
+    "Mechanical Engineering"
+  ],
+  "standardsBasis": [
+    "ISO 5048:1989",
+    "CEMA Belt Conveyors for Bulk Materials 7th Ed.",
+    "DIN 22101:2011",
+    "AS 1755:2000"
+  ],
+  "scope": {
+    "inScope": [
+      "Conveyor Belt Power, Drive Tension & Sag Ratio — Bulk Material Handling Design"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "capacity_t_h",
+      "symbol": "capacity_t_h",
+      "label": "Design Throughput Capacity (Q)",
+      "unit": {
+        "ref": "t/h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 20000
+    },
+    {
+      "id": "belt_speed_m_s",
+      "symbol": "belt_speed_m_s",
+      "label": "Belt Speed (v)",
+      "unit": {
+        "ref": "mps"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.2,
+      "max": 10
+    },
+    {
+      "id": "conveyor_length_m",
+      "symbol": "conveyor_length_m",
+      "label": "Conveyor Centre-to-Centre Length (L)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 2,
+      "max": 20000
+    },
+    {
+      "id": "lift_height_m",
+      "symbol": "lift_height_m",
+      "label": "Lift Height (H) - positive = uphill",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -500,
+      "max": 500
+    },
+    {
+      "id": "friction_factor_f",
+      "symbol": "friction_factor_f",
+      "label": "Artificial Friction Factor (f) - ISO 5048",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.01,
+      "max": 0.04,
+      "default": 0.02
+    },
+    {
+      "id": "belt_mass_kg_m",
+      "symbol": "belt_mass_kg_m",
+      "label": "Belt Mass per Unit Length (m_belt)",
+      "unit": {
+        "ref": "kg/m"
+      },
+      "confidence": "STRONG",
+      "group": "geometry",
+      "min": 2,
+      "max": 150
+    },
+    {
+      "id": "idler_mass_kg_m",
+      "symbol": "idler_mass_kg_m",
+      "label": "Total Rotating Idler Mass per Unit Length (m_idler)",
+      "unit": {
+        "ref": "kg/m"
+      },
+      "confidence": "STRONG",
+      "group": "geometry",
+      "min": 3,
+      "max": 100,
+      "default": 20
+    },
+    {
+      "id": "drive_efficiency_pct",
+      "symbol": "drive_efficiency_pct",
+      "label": "Drive System Efficiency (η_drive)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 80,
+      "max": 99,
+      "default": 94
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "geometry",
+      "letter": "B",
+      "title": "Geometry",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_048",
+      "code": "ISO 5048:1989",
+      "name": "Conveyor Belt Power, Drive Tension & Sag Ratio — Bulk Material Handling Design",
+      "description": "Conveyor Belt Power, Drive Tension & Sag Ratio — Bulk Material Handling Design — Bulk Material Handling, Mechanical Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "q_m_kg_m",
+          "expression": "(capacity_t_h * 1000) / (belt_speed_m_s * 3600)",
+          "unit": {
+            "ref": "kg/m"
+          },
+          "reference": "ISO 5048:1989 §5.1",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "F_H_kN",
+          "expression": "friction_factor_f * conveyor_length_m * 9.81 * (q_m_kg_m + belt_mass_kg_m + idler_mass_kg_m) / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ISO 5048 §6.2 — main resistance",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "F_st_kN",
+          "expression": "q_m_kg_m * 9.81 * lift_height_m / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ISO 5048 §6.3 — slope resistance (positive = uphill load)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "F_u_kN",
+          "expression": "F_H_kN * 2 + F_st_kN; P_motor_kw = (F_u_kN * 1000 * belt_speed_m_s) / (drive_efficiency_pct / 100) / 1000",
+          "unit": {
+            "ref": "kN, kW"
+          },
+          "reference": "ISO 5048 §6.1 — total effective tension",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "mu_wrap",
+          "expression": "0.35; wrap_rad = Math.PI; T2_kN = F_u_kN / (Math.exp(mu_wrap * wrap_rad) - 1); T1_kN = T2_kN + F_u_kN",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "Euler–Eytelwein equation: T1/T2 = e^(μα)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "idler_pitch_m",
+          "expression": "1.5; sag_ratio = (q_m_kg_m + belt_mass_kg_m) * 9.81 * idler_pitch_m^2 / (8 * T2_kN * 1000)",
+          "unit": {
+            "ref": "pct"
+          },
+          "reference": "ISO 5048 / CEMA — sag limit ≤ 2% (0.02) at carry side",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ISO 5048:1989",
+          "condition": "sag_ratio_pct > 0.02",
+          "message": "Sag ratio > 2%: CEMA recommends maximum 2% for lump material — reduce idler pitch from 1.5 m to 1.2 m or increase T2"
+        },
+        {
+          "id": "W2",
+          "severity": "INFO",
+          "source": "ISO 5048:1989",
+          "condition": "P_motor_kw > 500 && drive_efficiency_pct < 92",
+          "message": "High power with moderate drive efficiency: each 1% η improvement saves significant annual energy — evaluate direct-drive or gearless technology"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ISO 5048:1989",
+          "condition": "F_st_kN < -F_H_kN * 0.5",
+          "message": "Dominant regenerative gradient: conveyor may run away under load — dynamic braking or regenerative drive mandatory"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ISO 5048:1989",
+          "condition": "T1_kN / T2_kN > 5",
+          "message": "T1/T2 ratio > 5: drive friction barely adequate — consider dual drive, higher wrap angle, or lagged pulley to prevent belt slip"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ISO 5048:1989",
+          "condition": "conveyor_length_m > 5000",
+          "message": "Long conveyor (>5 km): intermediate drive or distributed drive topology recommended — starting tension wave analysis required per DIN 22101"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "capacity_t_h",
+        "belt_speed_m_s",
+        "conveyor_length_m",
+        "lift_height_m",
+        "friction_factor_f",
+        "belt_mass_kg_m",
+        "idler_mass_kg_m",
+        "drive_efficiency_pct"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

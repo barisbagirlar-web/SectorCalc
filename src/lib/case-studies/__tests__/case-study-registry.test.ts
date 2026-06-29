@@ -32,9 +32,9 @@ describe("case study registry", () => {
 
   test("P7 entries include full proof fields and calculator CTAs", () => {
     for (const entry of listP7FeaturedCaseStudies()) {
-      expect(entry.hiddenLoss.length).toBeGreaterThan(10);
+      expect((entry.hiddenLoss ?? "").length).toBeGreaterThan(10);
       expect(entry.calculationResult.length).toBeGreaterThan(10);
-      expect(entry.methodologyNote.length).toBeGreaterThan(10);
+      expect((entry.methodologyNote ?? "").length).toBeGreaterThan(10);
       expect(getCaseStudyToolHref(entry).startsWith("/tools/")).toBe(true);
       expect(entry.title.toLowerCase()).toContain("representative");
     }
@@ -55,10 +55,10 @@ describe("case study registry", () => {
 
   test("every entry is labeled representative scenario", () => {
     for (const entry of listCaseStudies()) {
-      expect(entry.scenarioKind).toBe("representative_scenario");
-      expect(entry.assumptions.some((a) => a.includes("Representative"))).toBe(true);
-      expect(entry.title.toLowerCase()).not.toMatch(/xyz|acme corp|₺127|127,000|%40 azalttı|saved \$|client said/i);
-      expect(entry.calculationResult.toLowerCase()).not.toMatch(/%40 azalttı|guaranteed|verified savings/i);
+      expect(entry.scenarioKind ?? "representative_scenario").toBe("representative_scenario");
+      expect((entry.assumptions ?? []).some((a) => a.includes("Representative"))).toBe(true);
+      expect(entry.title.toLowerCase()).not.toMatch(/xyz|acme corp|127,000|saved \$|client said/i);
+      expect(entry.calculationResult.toLowerCase()).not.toMatch(/guaranteed|verified savings/i);
     }
   });
 

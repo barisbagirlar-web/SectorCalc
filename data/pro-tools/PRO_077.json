@@ -1,0 +1,327 @@
+{
+  "tool_id": "PRO_077",
+  "tool_name": "Toxic Gas Dispersion — Gaussian Plume Ground-Level Concentration & IDLH Exclusion Zone",
+  "category": "Process Safety / Environmental Engineering",
+  "scope": "process_agnostic",
+  "primary_operation": "gas_dispersion",
+  "inputs": [
+    {
+      "id": "release_rate_kg_s",
+      "name": "Continuous Release Rate (Q_r)",
+      "unit": "kg/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.0001,
+      "absolute_max": 1000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 21748:2017 §8 — Rate measurement: reproducibility ≈±2%"
+    },
+    {
+      "id": "wind_speed_m_s",
+      "name": "Wind Speed at 10 m Height (u_10)",
+      "unit": "m/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 3,
+      "absolute_min": 0.5,
+      "absolute_max": 30,
+      "note": "Worst case (IDLH zone largest) typically at low wind speed 1–2 m/s; EPA RMP uses 3 m/s",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    },
+    {
+      "id": "stability_class",
+      "name": "Pasquill-Gifford Atmospheric Stability Class",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "A — Extremely unstable (sunny, light wind)",
+          "value": "A"
+        },
+        {
+          "label": "B — Moderately unstable",
+          "value": "B"
+        },
+        {
+          "label": "C — Slightly unstable",
+          "value": "C"
+        },
+        {
+          "label": "D — Neutral (overcast or moderate wind)",
+          "value": "D"
+        },
+        {
+          "label": "E — Slightly stable",
+          "value": "E"
+        },
+        {
+          "label": "F — Moderately stable (night, light wind)",
+          "value": "F"
+        }
+      ],
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": "D",
+      "note": "Worst-case for dense gas: F class; worst-case for buoyant release: A class; EPA RMP default: F/D",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "release_height_m",
+      "name": "Effective Release Height (H_s)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 0,
+      "absolute_min": 0,
+      "absolute_max": 200,
+      "note": "Ground-level release: H_s = 0; elevated flange: H_s = stack height + thermal rise (Briggs)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "IDLH_ppm",
+      "name": "IDLH Concentration of Gas (Immediately Dangerous to Life/Health)",
+      "unit": "ppm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 100000,
+      "note": "NIOSH IDLH: H₂S = 100 ppm; NH₃ = 300 ppm; Cl₂ = 10 ppm; HCN = 50 ppm; CO = 1200 ppm",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 5725-2:2019 §7 — Analytical chemistry: reproducibility ±5%"
+    },
+    {
+      "id": "molecular_weight_g_mol",
+      "name": "Gas Molecular Weight (M)",
+      "unit": "g/mol",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 200,
+      "note": "H₂S=34; NH₃=17; Cl₂=71; HCN=27; CO=28; SO₂=64; CH₄=16",
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
+    },
+    {
+      "id": "terrain_type",
+      "name": "Terrain Roughness",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Open country / rural (z_0 = 0.03 m)",
+          "value": "open"
+        },
+        {
+          "label": "Suburban / light industrial (z_0 = 0.3 m)",
+          "value": "suburban"
+        },
+        {
+          "label": "Urban / forest (z_0 = 1.0 m)",
+          "value": "urban"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "open",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "const PG = { A:{a:0.22,b:0.0001,c:0.20,d:0}, B:{a:0.16,b:0.0001,c:0.12,d:0}, C:{a:0.11,b:0.0002,c:0.08,d:0.0002}, D:{a:0.08,b:0.0015,c:0.06,d:0.0015}, E:{a:0.06,b:0.0015,c:0.03,d:0.0003}, F:{a:0.04,b:0.0015,c:0.016,d:0.0003} }; const p = PG[stability_class]; const x = 500; sigma_y = p.a * x * Math.pow(1 + p.b * x, -0.5); sigma_z = p.c * x * Math.pow(1 + p.d * x, -0.5)   // [m] Pasquill-Gifford Dispersion Coefficients at Downwind Distance x Reference: Pasquill-Gifford sigma curves — Slade (1968); Turner Workbook on Atmospheric Dispersion §3",
+    "C_kg_m3 = release_rate_kg_s / (Math.PI * sigma_y * sigma_z * wind_speed_m_s) * Math.exp(-0.5 * Math.pow(release_height_m / sigma_z, 2)); C_ppm = C_kg_m3 * 1e6 / (molecular_weight_g_mol / 1000) * 22.4 / molecular_weight_g_mol * 1000   // [ppm] Ground-Level Centreline Concentration at Distance x (C_x) Reference: Gaussian plume model — EPA AERMOD guidance; C = Q/(π·σ_y·σ_z·u)·exp(−H²/2σ_z²)",
+    "let D = 50; for(let i=0;i<200;i++){ const p = {A:[0.22,0.0001,0.20,0],B:[0.16,0.0001,0.12,0],C:[0.11,0.0002,0.08,0.0002],D:[0.08,0.0015,0.06,0.0015],E:[0.06,0.0015,0.03,0.0003],F:[0.04,0.0015,0.016,0.0003]}[stability_class]; const sy=p[0]*D*Math.pow(1+p[1]*D,-0.5); const sz=p[2]*D*Math.pow(1+p[3]*D,-0.5); const C=release_rate_kg_s/(Math.PI*sy*sz*wind_speed_m_s)*Math.exp(-0.5*Math.pow(release_height_m/sz,2))*1e6/(molecular_weight_g_mol/22400)*1000; if(C < IDLH_ppm) break; D+=25; } D_IDLH_m = D   // [m] IDLH Exclusion Zone Radius (D_IDLH) — Iterative Search Reference: Iterative downwind search to find distance where C_centreline = IDLH — EPA RMP methodology",
+    "const p2 = {A:[0.22,0.0001],B:[0.16,0.0001],C:[0.11,0.0002],D:[0.08,0.0015],E:[0.06,0.0015],F:[0.04,0.0015]}[stability_class]; sigma_y_IDLH = p2[0]*D_IDLH_m*Math.pow(1+p2[1]*D_IDLH_m,-0.5); plume_width_m = 2.15 * sigma_y_IDLH   // [m] Plume Width at IDLH Boundary Reference: Plume half-width at IDLH = 2.15σ_y (contains ~97% of crosswind concentration)",
+    "rho_gas_kg_m3 = molecular_weight_g_mol / 22.4 * 1000 / 1000; dense_gas = rho_gas_kg_m3 > 1.5   // [boolean] Dense Gas Warning — Richardson Number Proxy Reference: Dense gas criterion: ρ_gas > 1.5 kg/m³ at STP → SLAB / PHAST model recommended over Gaussian",
+    "ERPG2_approx_ppm = IDLH_ppm * 0.3; time_in_zone_s = D_IDLH_m / wind_speed_m_s; TL = C_ppm * Math.pow(time_in_zone_s / 600, 1.0)   // [ppm·(10 min), s] Toxic Load (Probit Input) — 1-Hour ERPG-2 Proxy Reference: Toxic load concept — TNO Yellow Book §4; ERPG-2 ≈ 30% of IDLH (AIHA guidance)"
+  ],
+  "engine_rules": {
+    "standards": [
+      "EPA 40 CFR Part 68 RMP §68.22",
+      "NIOSH IDLH database",
+      "Pasquill-Gifford / Turner (1994)",
+      "AIHA ERPG values",
+      "API 581 BRD §3"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "dense_gas && release_height_m === 0",
+        "error_msg": "Dense gas at ground level: Gaussian model underestimates exclusion zone — use SLAB, PHAST, or ALOHA dense gas model for regulatory compliance",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "wind_speed_m_s < 1.0",
+        "error_msg": "Wind speed < 1 m/s: Gaussian model breakdown — calm conditions; IDLH zone will be very large; use EPA RMP worst-case 1.5 m/s minimum",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "D_IDLH_m > 1000",
+        "error_msg": "IDLH exclusion zone > 1 km: major accident scenario — off-site consequence analysis and public notification required per EPA RMP §68.10",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Worst-case dispersion conditions (Class F, low wind): exclusion zone maximised — this scenario governs emergency planning zone; shelter-in-place radius = D_IDLH",
+        "condition": "stability_class === 'F' && wind_speed_m_s < 2",
+        "source": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Very toxic gas (IDLH < 50 ppm): small release rates generate large exclusion zones — verify passive mitigation (water curtain, scrubber) reduces source term",
+        "condition": "IDLH_ppm < 50",
+        "source": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Large zone in urban terrain: building effects invalidate Gaussian model; use AERMOD or CFD simulation for planning purposes per EPA guidance",
+        "condition": "D_IDLH_m > 500 && terrain_type === 'urban'",
+        "source": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "id": "W4",
+        "severity": "CRITICAL",
+        "message": "Large ground-level release: immediate shelter-in-place or evacuation of D_IDLH radius; notify emergency services per OSHA PSM 29 CFR 1910.119",
+        "condition": "release_height_m === 0 && release_rate_kg_s > 1",
+        "source": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Transit time through IDLH zone > 10 min: self-contained breathing apparatus (SCBA) mandatory for emergency responders entering zone per OSHA §1910.134",
+        "condition": "time_in_zone_s > 600",
+        "source": "EPA 40 CFR Part 68 RMP §68.22"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: dense_gas && release_height_m === 0",
+        "effect": "Dense gas at ground level: Gaussian model underestimates exclusion zone — use SLAB, PHAST, or ALOHA dense gas model for regulatory compliance",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: wind_speed_m_s < 1.0",
+        "effect": "Wind speed < 1 m/s: Gaussian model breakdown — calm conditions; IDLH zone will be very large; use EPA RMP worst-case 1.5 m/s minimum",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: D_IDLH_m > 1000",
+        "effect": "IDLH exclusion zone > 1 km: major accident scenario — off-site consequence analysis and public notification required per EPA RMP §68.10",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Worst-case dispersion conditions (Class F, low wind): exclusion zone maximised — this scenario governs emergency planning zone; shelter-in-place radius = D_IDLH",
+        "effect": "Smart warning triggered when: stability_class === 'F' && wind_speed_m_s < 2",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "failureMode": "Very toxic gas (IDLH < 50 ppm): small release rates generate large exclusion zones — verify passive mitigation (water curtain, scrubber) reduces source term",
+        "effect": "Smart warning triggered when: IDLH_ppm < 50",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "failureMode": "Large zone in urban terrain: building effects invalidate Gaussian model; use AERMOD or CFD simulation for planning purposes per EPA guidance",
+        "effect": "Smart warning triggered when: D_IDLH_m > 500 && terrain_type === 'urban'",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "failureMode": "Large ground-level release: immediate shelter-in-place or evacuation of D_IDLH radius; notify emergency services per OSHA PSM 29 CFR 1910.119",
+        "effect": "Smart warning triggered when: release_height_m === 0 && release_rate_kg_s > 1",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "EPA 40 CFR Part 68 RMP §68.22"
+      },
+      {
+        "failureMode": "Transit time through IDLH zone > 10 min: self-contained breathing apparatus (SCBA) mandatory for emergency responders entering zone per OSHA §1910.134",
+        "effect": "Smart warning triggered when: time_in_zone_s > 600",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "EPA 40 CFR Part 68 RMP §68.22"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "PG",
+        "sigma_y",
+        "sigma_z",
+        "C_kg_m3",
+        "C_ppm",
+        "D",
+        "sy",
+        "sz",
+        "C",
+        "p2",
+        "sigma_y_IDLH",
+        "plume_width_m",
+        "rho_gas_kg_m3",
+        "dense_gas",
+        "ERPG2_approx_ppm",
+        "time_in_zone_s",
+        "TL"
+      ]
+    }
+  ]
+}

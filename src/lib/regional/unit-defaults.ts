@@ -72,6 +72,7 @@ const UNIT_GROUP_TO_QUANTITY: Partial<Record<UnitGroup, QuantityType>> = {
   fuel: "volume",
 };
 
+/** Turkish locale unit labels — these are the raw symbols (English). */
 const UNIT_LABEL_TR: Record<string, string> = {
   mm: "mm",
   cm: "cm",
@@ -84,18 +85,18 @@ const UNIT_LABEL_TR: Record<string, string> = {
   m2: "m²",
   ft2: "ft²",
   sqft: "ft²",
-  acre: "dönüm",
-  hectare: "hektar",
-  L: "litre",
-  l: "litre",
+  acre: "acre",
+  hectare: "ha",
+  L: "L",
+  l: "L",
   ml: "ml",
   m3: "m³",
-  gal: "galon",
+  gal: "gal",
   ft3: "ft³",
   cuft: "ft³",
   g: "g",
   kg: "kg",
-  tonne: "ton",
+  tonne: "t",
   lb: "lb",
   oz: "oz",
   kWh: "kWh",
@@ -119,9 +120,9 @@ const UNIT_LABEL_TR: Record<string, string> = {
   CHF: "CHF",
   JPY: "JPY",
   "%": "%",
-  min: "dk",
-  h: "sa",
-  hr: "sa",
+  min: "min",
+  h: "h",
+  hr: "h",
 };
 
 function resolveRegion(region: string): RegionalEngineCode {

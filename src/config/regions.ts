@@ -22,7 +22,7 @@ export interface RegionalComplianceProfile {
   readonly inflationCoefficient: number;
   /** Standard VAT / sales tax rate */
   readonly vatRate: number;
-  /** Peak-load energy tariff multiplier (TR: yüksek/düşük yük) */
+  /** Peak-load energy tariff multiplier (TR: high/low load) */
   readonly energyPeakMultiplier: number;
   readonly energyOffPeakMultiplier: number;
   /** Weight applied to energy-driven hidden loss modules */
@@ -33,7 +33,7 @@ export interface RegionalComplianceProfile {
   readonly cbamEnabled: boolean;
   /** EU ETS reference carbon price (EUR/tCO₂e) */
   readonly cbamCarbonPriceEur: number;
-  /** AB endüstriyel verimlilik katsayısı */
+  /** EU industrial efficiency factor */
   readonly euIndustrialEfficiencyFactor: number;
   /** Industrial electricity unit cost (USD/kWh equivalent) */
   readonly electricityCostPerKwh: number;
@@ -46,7 +46,7 @@ export const REGION_PROFILES: Record<RegionCode, RegionalComplianceProfile> = {
     code: "TR",
     label: "Turkey",
     currency: "TRY",
-    defaultLocale: "tr",
+    defaultLocale: "en",
     inflationCoefficient: 1.52,
     vatRate: 0.2,
     energyPeakMultiplier: 1.85,
@@ -119,7 +119,6 @@ export function getRegionProfile(region: RegionCode): RegionalComplianceProfile 
 /** Prefer explicit region; else map locale prefix to region. */
 export function localeToRegion(locale: string): RegionCode {
   const base = locale.split("-")[0]?.toLowerCase();
-  if (base === "tr") return "TR";
   if (base === "de") return "DE";
   return "EN";
 }

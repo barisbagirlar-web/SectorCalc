@@ -1,6 +1,6 @@
 /**
- * Intel Engine — anonim benchmarking katmanı.
- * Ham operasyonel veri dışarı çıkmaz; yalnızca sektör ortalaması güncellenir.
+ * Intel Engine — anonymous benchmarking layer.
+ * Raw operational data never leaves; only sector averages are updated.
  */
 
 import type { AuditInput } from "@/lib/os/core/audit-engine";
@@ -31,7 +31,7 @@ export interface SectorBenchmarkPool {
 const SCORE_MIN = 0;
 const SCORE_MAX = 100;
 
-/** Sektör havuzu boşken karşılaştırma tabanı (anonim istatistiksel varsayılan). */
+/** Comparison baseline when sector pool is empty (anonymous statistical default). */
 export const DEFAULT_INDUSTRY_BENCHMARK = 72;
 
 function clampScore(score: number): number {
@@ -45,7 +45,7 @@ function isSectorRegistryKey(value: string): value is SectorRegistryKey {
   return (listSectorRegistryKeys() as string[]).includes(value);
 }
 
-/** Hedef–gerçekleşen sapmasına göre 0–100 verimlilik skoru. */
+/** 0–100 efficiency score based on target-actual deviation. */
 export function computeEfficiencyScore(target: number, actual: number): number {
   if (!Number.isFinite(target) || !Number.isFinite(actual)) {
     return SCORE_MIN;
@@ -71,7 +71,7 @@ export function buildBenchmarkFromAudit(
   };
 }
 
-/** Veriyi anonimleştirir — yalnızca sektör kimliği + skor + zaman damgası. */
+/** Anonymizes data — only sector ID + score + timestamp. */
 export function processBenchmarking(data: BenchmarkData): AnonymizedBenchmarkRecord {
   if (!isSectorRegistryKey(data.sectorId)) {
     throw new Error("Invalid sectorId for benchmarking.");
@@ -84,7 +84,7 @@ export function processBenchmarking(data: BenchmarkData): AnonymizedBenchmarkRec
   };
 }
 
-/** Havuz ortalamasını yeni anonim örnekle günceller (saf fonksiyon). */
+/** Updates pool average with new anonymous sample (pure function). */
 export function mergeBenchmarkPool(
   pool: SectorBenchmarkPool | null,
   record: AnonymizedBenchmarkRecord,

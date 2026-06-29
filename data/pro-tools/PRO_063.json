@@ -1,0 +1,328 @@
+{
+  "tool_id": "PRO_063",
+  "tool_name": "RC Column Axial-Bending Interaction — Capacity Check, Eccentricity & Confinement",
+  "category": "Structural Engineering / Concrete Design",
+  "scope": "single_operation",
+  "primary_operation": "rc_column",
+  "inputs": [
+    {
+      "id": "Pu_kn",
+      "name": "Factored Axial Load (P_u / N_Ed)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 500000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "Mu_knm",
+      "name": "Factored Bending Moment (M_u / M_Ed)",
+      "unit": "kN·m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 100000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "b_mm",
+      "name": "Column Width (b)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 150,
+      "absolute_max": 3000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "h_mm",
+      "name": "Column Depth in Bending Direction (h)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 150,
+      "absolute_max": 3000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "fc_prime_mpa",
+      "name": "Concrete Compressive Strength (f'_c / f_ck)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        50,
+        60,
+        70
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 30,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "fy_mpa",
+      "name": "Longitudinal Steel Yield Strength (f_y / f_yk)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "420 MPa — ASTM A615 Gr60 / ASTM A706",
+          "value": 420
+        },
+        {
+          "label": "500 MPa — EN 1992 B500B",
+          "value": 500
+        },
+        {
+          "label": "550 MPa — High-strength rebar",
+          "value": 550
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 420,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "rho_g_pct",
+      "name": "Longitudinal Reinforcement Ratio (ρ_g)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 2.5,
+      "absolute_min": 1,
+      "absolute_max": 8,
+      "note": "ACI 318-19 §10.6.1.1: 1% ≤ ρ_g ≤ 8%; practical max 4–5% for constructability",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
+    },
+    {
+      "id": "cover_mm",
+      "name": "Clear Cover to Ties (d_c)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 40,
+      "absolute_min": 25,
+      "absolute_max": 100,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "column_height_m",
+      "name": "Unsupported Column Height (L_c)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 30,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    }
+  ],
+  "formulas": [
+    "Ag_mm2 = b_mm * h_mm; Ast_mm2 = rho_g_pct / 100 * Ag_mm2   // [mm²] Gross Section Area & Steel Area Reference: ACI 318-19 §10.6.1.1",
+    "phi_Pn_max_kn = 0.65 * 0.80 * (0.85 * fc_prime_mpa * (Ag_mm2 - Ast_mm2) + fy_mpa * Ast_mm2) / 1000   // [kN] Maximum Pure Axial Capacity (φP_n,max) Reference: ACI 318-19 §22.4.2.1 — tied column: φ=0.65; factor 0.80 for accidental eccentricity",
+    "d_mm = h_mm - cover_mm - 8 - 16; cb_mm = 0.003/(0.003 + fy_mpa/200000) * d_mm; ab_mm = 0.85 * cb_mm; Pb_kn = 0.65 * (0.85 * fc_prime_mpa * b_mm * ab_mm - Ast_mm2/2 * fy_mpa + Ast_mm2/2 * fy_mpa) / 1000   // [kN] Balanced Failure Point — Balanced Axial Load (P_b) Reference: ACI 318-19 §22.4 — balanced strain condition; assumes symmetric reinforcement",
+    "e_mm = (Mu_knm * 1e6) / (Pu_kn * 1000); e_ratio = e_mm / h_mm   // [mm, dimensionless] Eccentricity & Eccentricity Ratio Reference: Eccentricity e = M_u / P_u; slender column check if e > h/10",
+    "r_gyration = 0.3 * h_mm; kL_r = 1.0 * column_height_m * 1000 / r_gyration; slender = (kL_r > 22) ? 'SLENDER — moment magnification required per ACI §6.6.4' : 'SHORT — slenderness effects negligible'   // [dimensionless, text] Slenderness Ratio & Slender Column Flag Reference: ACI 318-19 §6.2.5 — braced frame slender if kL/r > 34 − 12(M1/M2); conservative k=1.0 assumed",
+    "DCR_axial = Pu_kn / phi_Pn_max_kn; phi_Mn_knm = 0.65 * Ast_mm2/2 * fy_mpa * (h_mm - 2*cover_mm - 16) / 1e6; DCR_moment = Mu_knm / phi_Mn_knm; interaction_ACI = (Pu_kn >= phi_Pn_max_kn * 0.2) ? DCR_axial + 8/9 * DCR_moment : DCR_axial/2 + DCR_moment   // [dimensionless] Interaction Demand-Capacity Ratio (Simplified) Reference: AISC-style interaction check approximation; full P-M curve requires iterative strain compatibility per ACI §22.4"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ACI 318-19 §10, §22.4, §6.2.5",
+      "EN 1992-1-1:2004 §5.8 (EC2 slenderness)",
+      "AS 3600-2018 §10"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "interaction_ACI > 1.0",
+        "error_msg": "Column overstressed: increase cross-section dimensions, concrete strength, or reinforcement ratio — full P-M interaction diagram required",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "rho_g_pct > 6",
+        "error_msg": "ρ_g > 6%: congestion risk — lap splice and concrete consolidation problems; split into two columns or increase section size",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "kL_r > 100",
+        "error_msg": "kL/r > 100: highly slender column — second-order effects dominant; P-delta analysis and moment magnification required per ACI §6.6.4.5",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Interaction ratio > 0.9: near capacity — seismic or wind load combination check with overstrength factor per ACI §18.7",
+        "condition": "interaction_ACI > 0.9",
+        "source": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Slender column under low eccentricity: buckling controls over material failure — verify EI_eff and compute moment magnifier δ_ns per ACI §6.6.4.4",
+        "condition": "kL_r > 22 && e_ratio < 0.1",
+        "source": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Low-strength concrete at high axial load: creep and shrinkage deformations significant — long-term P-delta effects must be included per ACI §6.6.4.4",
+        "condition": "fc_prime_mpa < 25 && Pu_kn > phi_Pn_max_kn * 0.7",
+        "source": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Lightly reinforced column at high axial demand: minimum 1.5% steel recommended for ductility and construction tolerance per ACI §10.6.1",
+        "condition": "rho_g_pct < 1.5 && DCR_axial > 0.7",
+        "source": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Low cover in moderate-strength concrete: consider 50 mm cover for exposed or marine environments per ACI §20.6.1.3",
+        "condition": "cover_mm < 30 && fc_prime_mpa < 30",
+        "source": "ACI 318-19 §10, §22.4, §6.2.5"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: interaction_ACI > 1.0",
+        "effect": "Column overstressed: increase cross-section dimensions, concrete strength, or reinforcement ratio — full P-M interaction diagram required",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: rho_g_pct > 6",
+        "effect": "ρ_g > 6%: congestion risk — lap splice and concrete consolidation problems; split into two columns or increase section size",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: kL_r > 100",
+        "effect": "kL/r > 100: highly slender column — second-order effects dominant; P-delta analysis and moment magnification required per ACI §6.6.4.5",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Interaction ratio > 0.9: near capacity — seismic or wind load combination check with overstrength factor per ACI §18.7",
+        "effect": "Smart warning triggered when: interaction_ACI > 0.9",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "failureMode": "Slender column under low eccentricity: buckling controls over material failure — verify EI_eff and compute moment magnifier δ_ns per ACI §6.6.4.4",
+        "effect": "Smart warning triggered when: kL_r > 22 && e_ratio < 0.1",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "failureMode": "Low-strength concrete at high axial load: creep and shrinkage deformations significant — long-term P-delta effects must be included per ACI §6.6.4.4",
+        "effect": "Smart warning triggered when: fc_prime_mpa < 25 && Pu_kn > phi_Pn_max_kn * 0.7",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "failureMode": "Lightly reinforced column at high axial demand: minimum 1.5% steel recommended for ductility and construction tolerance per ACI §10.6.1",
+        "effect": "Smart warning triggered when: rho_g_pct < 1.5 && DCR_axial > 0.7",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ACI 318-19 §10, §22.4, §6.2.5"
+      },
+      {
+        "failureMode": "Low cover in moderate-strength concrete: consider 50 mm cover for exposed or marine environments per ACI §20.6.1.3",
+        "effect": "Smart warning triggered when: cover_mm < 30 && fc_prime_mpa < 30",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ACI 318-19 §10, §22.4, §6.2.5"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Ag_mm2",
+        "Ast_mm2",
+        "phi_Pn_max_kn",
+        "d_mm",
+        "cb_mm",
+        "ab_mm",
+        "Pb_kn",
+        "e_mm",
+        "e_ratio",
+        "r_gyration",
+        "kL_r",
+        "slender",
+        "DCR_axial",
+        "phi_Mn_knm",
+        "DCR_moment",
+        "interaction_ACI"
+      ]
+    }
+  ]
+}

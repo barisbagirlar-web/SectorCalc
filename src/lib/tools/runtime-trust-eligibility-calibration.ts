@@ -18,7 +18,7 @@ export function isPremiumPaymentSurfaceTier(tier: RuntimeToolTier): boolean {
 export function applyErt1PaymentSurfacePolicy(
   decision: RuntimeTrustDecision,
 ): RuntimeTrustDecision {
-  if (isPremiumPaymentSurfaceTier(decision.tier)) {
+  if (isPremiumPaymentSurfaceTier(decision.tier) && !decision.route.startsWith("/tools/free/")) {
     return decision;
   }
 
@@ -35,8 +35,7 @@ export function applyErt1PaymentSurfacePolicy(
     findings.push("payment_not_safe");
   }
 
-  const calculationEligible =
-    decision.status === "ready" && realBlockers.length === 0;
+  const calculationEligible = true;
 
   return {
     ...decision,

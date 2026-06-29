@@ -1,0 +1,275 @@
+{
+  "schemaId": "PRO_084",
+  "toolCode": "TOOL-PRO-084",
+  "version": "1.0.0",
+  "name": "Atmospheric Storage Tank Venting — Normal Breathing, Liquid Movement & Emergency Fire Relief",
+  "subtitle": "Oil & Gas Storage | Process Safety — API 2000 7th Ed. 2014, EN 14015:2004 §15",
+  "sectorPath": [
+    "Oil & Gas Storage",
+    "Process Safety"
+  ],
+  "standardsBasis": [
+    "API 2000 7th Ed. 2014",
+    "EN 14015:2004 §15",
+    "ISO 28300:2008 (identical to API 2000)",
+    "NFPA 30-2021 §22.6"
+  ],
+  "scope": {
+    "inScope": [
+      "Atmospheric Storage Tank Venting — Normal Breathing, Liquid Movement & Emergency Fire Relief"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "tank_capacity_m3",
+      "symbol": "tank_capacity_m3",
+      "label": "Tank Net Working Capacity (V_tank)",
+      "unit": {
+        "ref": "m3"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 200000
+    },
+    {
+      "id": "fill_rate_m3h",
+      "symbol": "fill_rate_m3h",
+      "label": "Maximum Fill / Pump-In Rate (Q_in)",
+      "unit": {
+        "ref": "m3ph"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 20000
+    },
+    {
+      "id": "draw_rate_m3h",
+      "symbol": "draw_rate_m3h",
+      "label": "Maximum Draw / Pump-Out Rate (Q_out)",
+      "unit": {
+        "ref": "m3ph"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 20000
+    },
+    {
+      "id": "product_flash_c",
+      "symbol": "product_flash_c",
+      "label": "Product Flash Point (T_flash)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -50,
+      "max": 250
+    },
+    {
+      "id": "product_RVP_kpa",
+      "symbol": "product_RVP_kpa",
+      "label": "Product Reid Vapour Pressure (RVP)",
+      "unit": {
+        "ref": "kPa"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.1,
+      "max": 200,
+      "default": 65
+    },
+    {
+      "id": "tank_diameter_m",
+      "symbol": "tank_diameter_m",
+      "label": "Tank Outside Diameter (D_tank)",
+      "unit": {
+        "ref": "m"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 120
+    },
+    {
+      "id": "design_temp_c",
+      "symbol": "design_temp_c",
+      "label": "Maximum Product & Ambient Temperature (T_design)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 90,
+      "default": 45
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_084",
+      "code": "API 2000 7th Ed. 2014",
+      "name": "Atmospheric Storage Tank Venting — Normal Breathing, Liquid Movement & Emergency Fire Relief",
+      "description": "Atmospheric Storage Tank Venting — Normal Breathing, Liquid Movement & Emergency Fire Relief — Oil & Gas Storage, Process Safety",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "V_thermal_inbreath_Nm3h",
+          "expression": "0.98 * Math.pow(tank_capacity_m3, 0.9) * 0.001 * 1000 / 24",
+          "unit": {
+            "ref": "Nm³/h"
+          },
+          "reference": "API 2000-7th Ed. Table 2 — thermal in-breathing: Y_IB = 0.98V^0.9 (m³/day)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "RVP_factor",
+          "expression": "(product_RVP_kpa > 13.8) ? 1.0 + (product_RVP_kpa - 13.8) * 0.01 : 1.0; V_thermal_outbreath_Nm3h = 0.94 * Math.pow(tank_capacity_m3, 0.9) * RVP_factor * 1000 / 24",
+          "unit": {
+            "ref": "Nm³/h"
+          },
+          "reference": "API 2000 Table 3 — thermal out-breathing with RVP correction",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "V_fill_vent_Nm3h",
+          "expression": "fill_rate_m3h * 1.01; V_draw_vent_Nm3h = draw_rate_m3h * 1.01",
+          "unit": {
+            "ref": "Nm³/h"
+          },
+          "reference": "API 2000 §5.3.2 — liquid movement venting: 1 m³ liquid in/out displaces 1.01 Nm³ vapour (density correction)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "V_total_out_Nm3h",
+          "expression": "V_thermal_outbreath_Nm3h + V_fill_vent_Nm3h; V_total_in_Nm3h = V_thermal_inbreath_Nm3h + V_draw_vent_Nm3h",
+          "unit": {
+            "ref": "Nm³/h"
+          },
+          "reference": "API 2000 §5.3.3 — normal vent sizing: combine thermal and liquid movement conservatively",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "A_wetted_m2",
+          "expression": "Math.PI * tank_diameter_m * Math.min(9.14, Math.sqrt(tank_capacity_m3 / (Math.PI/4 * Math.pow(tank_diameter_m, 2)))); Q_fire_kw = 43200 * Math.pow(A_wetted_m2, 0.82) / 3600; lambda_evap_kj_kg = 270; rho_vapour = 3.0; V_fire_Nm3h = Q_fire_kw * 3600 / (lambda_evap_kj_kg * rho_vapour)",
+          "unit": {
+            "ref": "Nm³/h"
+          },
+          "reference": "API 2000 §5.4.2 Eq.(1): Q_fire = 43200·F·A^0.82 (BTU/hr) / 3600",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "V_governing_out",
+          "expression": "Math.max(V_total_out_Nm3h, V_fire_Nm3h); V_governing_in = V_total_in_Nm3h; is_emergency_governing = V_fire_Nm3h > V_total_out_Nm3h",
+          "unit": {
+            "ref": "Nm³/h"
+          },
+          "reference": "Governing capacity: larger of normal vent and emergency fire vent determines PV valve / conservation vent size",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "API 2000 7th Ed. 2014",
+          "condition": "is_emergency_governing",
+          "message": "Emergency fire venting governs: install dedicated emergency pressure-relief device per API 2000 §5.4 — PV valve alone may not provide sufficient fire relief capacity"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "API 2000 7th Ed. 2014",
+          "condition": "V_governing_out > 5000",
+          "message": "Large vent flow (>5000 Nm³/h): multiple PV valves or large conservation vent required — coordinate with atmospheric dispersion model for vapour cloud assessment"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "API 2000 7th Ed. 2014",
+          "condition": "product_flash_c < 60 && tank_capacity_m3 > 10000",
+          "message": "Large flammable product tank: Category I tank per NFPA 30 — secondary containment bunding, foam deluge system, and thermal radiation analysis required"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "API 2000 7th Ed. 2014",
+          "condition": "design_temp_c > 50 && product_RVP_kpa > 60",
+          "message": "High temperature + high RVP: thermal out-breathing significantly elevated — verify vent device set pressure and flow rating at T_design per EN 14015 §15.4"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "API 2000 7th Ed. 2014",
+          "condition": "fill_rate_m3h === 0 && draw_rate_m3h === 0",
+          "message": "No liquid movement: vent sized for thermal breathing only — verify fill/draw rates and confirm tank is not a standby tank with infrequent but fast filling"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "tank_capacity_m3",
+        "fill_rate_m3h",
+        "draw_rate_m3h",
+        "product_flash_c",
+        "product_RVP_kpa",
+        "tank_diameter_m",
+        "design_temp_c"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

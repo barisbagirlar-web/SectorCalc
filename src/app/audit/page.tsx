@@ -1,0 +1,105 @@
+import { getLocale, getTranslations } from "next-intl/server";
+
+import { ChevronRight } from "lucide-react";
+import type { Metadata } from "next";
+import { HubLink } from "@/components/layout/HubLink";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { SemanticSummary } from "@/components/seo/SemanticSummary";
+import { createPageMetadata } from "@/lib/metadata";
+import {
+  listSectorRegistryKeys,
+  MANUFACTURING_OS_I18N_NS,
+  resolveSectorTitle,
+  SectorRegistry,
+  type SectorRegistryKey,
+} from "@/lib/os/registry/sectors";
+
+type PageProps = { params: Promise<{ locale: string }> };
+
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const locale = "en";
+  return createPageMetadata({
+    title: "Master Audit Engine — 27 Industrial Sectors",
+    description:
+      "Run operational audits across CNC, logistics, construction, agriculture, and 23 more sectors. U-Engine diagnostics, hidden loss detection, industry benchmarks.",
+    path: "/audit",
+    locale: locale as "en",
+  });
+}
+
+export default async function AuditHubPage({ params }: PageProps) {
+  const locale = "en";
+  
+  const t = await getTranslations();
+  const tHome = await getTranslations();
+  const tSector = await getTranslations();
+  const appLocale = await getLocale();
+  const keys = listSectorRegistryKeys();
+
+  return (
+    <PageLayout>
+      <div className="ind-os-page">
+        <div className="ind-os-container">
+          <section className="ind-os-section ind-os-section--hero" aria-labelledby="audit-hub-heading">
+            <SemanticSummary
+              title="What is the SectorCalc Master Audit Engine?"
+              answer="SectorCalc Master Audit Engine is a registry-driven industrial intelligence pipeline: JSON-configured sectors, U-Engine formula execution, anonymized benchmarking, and AI-ready prescriptions for hidden loss and carbon compliance."
+              bullets={[
+                "27 sectors · Smart Modules per industry",
+                "3-step model: diagnose → quantify hidden loss → benchmark",
+                "No ERP required · Industrial-grade UX",
+              ]}
+            />
+            <p className="ind-os-eyebrow">{"eyebrow"}</p>
+            <h1 id="audit-hub-heading" className="ind-os-headline">
+              {"title"}
+            </h1>
+            <p className="ind-os-lead">{"subtitle"}</p>
+          </section>
+
+          <section className="ind-os-section" aria-labelledby="audit-sectors-heading">
+            <h2 id="audit-sectors-heading" className="ind-os-section-title">
+              {tHome("modulesTitle")}
+            </h2>
+            <div className="ind-os-module-grid">
+              {keys.map((key) => {
+                const sector = SectorRegistry[key as SectorRegistryKey];
+                const title = resolveSectorTitle(sector, tSector, appLocale);
+
+                return (
+                  <HubLink key={key} href={`/audit/${key}`} className="ind-os-module">
+                    <span className="ind-os-module__title">{title}</span>
+                    <span className="ind-os-module__action">
+                      {tHome("initializeAudit")}
+                      <ChevronRight className="h-3 w-3" aria-hidden />
+                    </span>
+                  </HubLink>
+                );
+              })}
+            </div>
+          </section>
+
+          <nav
+            className="ind-os-section flex flex-wrap gap-4 border-t border-technical-gray pt-4"
+            aria-label="Related hubs"
+          >
+            <HubLink
+              href="/benchmarks"
+              className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
+            >
+              Benchmarks →
+            </HubLink>
+            <HubLink
+              href="/sustainability"
+              className="text-sm font-medium text-body-charcoal transition-colors hover:text-premium-velvet"
+            >
+              CBAM Suite →
+            </HubLink>
+          </nav>
+        </div>
+      </div>
+    </PageLayout>
+  );
+}

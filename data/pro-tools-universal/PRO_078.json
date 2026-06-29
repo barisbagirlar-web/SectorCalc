@@ -1,0 +1,305 @@
+{
+  "schemaId": "PRO_078",
+  "toolCode": "TOOL-PRO-078",
+  "version": "1.0.0",
+  "name": "Compressed Air Receiver Volume Sizing — Peak Demand Buffer, Pressure Drop & ASME Certification",
+  "subtitle": "Utilities | Compressed Air Systems — ISO 1217:2009 Annex C, ASME BPVC VIII Div.1 §UG-27",
+  "sectorPath": [
+    "Utilities",
+    "Compressed Air Systems"
+  ],
+  "standardsBasis": [
+    "ISO 1217:2009 Annex C",
+    "ASME BPVC VIII Div.1 §UG-27",
+    "PSSR 2000 (UK Pressure Systems Safety Regulations)",
+    "EN 13445-3:2021",
+    "CAGI Compressed Air & Gas Handbook"
+  ],
+  "scope": {
+    "inScope": [
+      "Compressed Air Receiver Volume Sizing — Peak Demand Buffer, Pressure Drop & ASME Certification"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "compressor_capacity_m3min",
+      "symbol": "compressor_capacity_m3min",
+      "label": "Compressor Free Air Delivery (C_fad)",
+      "unit": {
+        "ref": "m³/min (FAD)"
+      },
+      "confidence": "EXACT",
+      "group": "reinforcement",
+      "min": 0.1,
+      "max": 5000
+    },
+    {
+      "id": "peak_demand_m3min",
+      "symbol": "peak_demand_m3min",
+      "label": "Peak System Air Demand (D_peak)",
+      "unit": {
+        "ref": "m³/min (FAD)"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.1,
+      "max": 10000
+    },
+    {
+      "id": "P_max_bar",
+      "symbol": "P_max_bar",
+      "label": "Maximum System Pressure - Compressor Cut-Out (P_max)",
+      "unit": {
+        "ref": "bar(a)"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 2,
+      "max": 500
+    },
+    {
+      "id": "P_min_bar",
+      "symbol": "P_min_bar",
+      "label": "Minimum Acceptable System Pressure - Cut-In / Process Minimum (P_min)",
+      "unit": {
+        "ref": "bar(a)"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1.5,
+      "max": 499
+    },
+    {
+      "id": "peak_duration_s",
+      "symbol": "peak_duration_s",
+      "label": "Duration of Peak Demand Event (t_peak)",
+      "unit": {
+        "ref": "s"
+      },
+      "confidence": "STRONG",
+      "group": "actions",
+      "min": 1,
+      "max": 3600,
+      "default": 30
+    },
+    {
+      "id": "receiver_pressure_vessel_factor",
+      "symbol": "receiver_pressure_vessel_factor",
+      "label": "Safety Factor for ASME / PSSR Receiver Rating",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 1.25,
+      "enum": [
+        {
+          "value": 1.25,
+          "label": "1.25× — Standard over-capacity allowance"
+        },
+        {
+          "value": 1.5,
+          "label": "1.50× — Future expansion margin"
+        }
+      ]
+    },
+    {
+      "id": "receiver_shape",
+      "symbol": "receiver_shape",
+      "label": "Receiver Orientation",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": "vertical",
+      "optional": true,
+      "enum": [
+        {
+          "value": "vertical",
+          "label": "Vertical — standard"
+        },
+        {
+          "value": "horizontal",
+          "label": "Horizontal — space-constrained"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "reinforcement",
+      "letter": "A",
+      "title": "Reinforcement",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "B",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "actions",
+      "letter": "C",
+      "title": "Actions",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_078",
+      "code": "ISO 1217:2009 Annex C",
+      "name": "Compressed Air Receiver Volume Sizing — Peak Demand Buffer, Pressure Drop & ASME Certification",
+      "description": "Compressed Air Receiver Volume Sizing — Peak Demand Buffer, Pressure Drop & ASME Certification — Utilities, Compressed Air Systems",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Q_deficit_m3",
+          "expression": "Math.max(0, peak_demand_m3min - compressor_capacity_m3min) * peak_duration_s / 60",
+          "unit": {
+            "ref": "m³ FAD"
+          },
+          "reference": "Volume of air that must be supplied from storage: Q_def = (D_peak − C_fad) × t_peak",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "V_r_m3",
+          "expression": "Q_deficit_m3 / ((P_max_bar - P_min_bar) / 1.013)",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "ISO 1217 / CAGI — V_r = Q_FAD / [(P_max − P_min) / P_atm]",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "V_rule_m3",
+          "expression": "compressor_capacity_m3min / 7",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "Industry rule of thumb: V_receiver ≈ C_fad (m³/min) / 7 for stable pressure band",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "V_design_m3",
+          "expression": "Math.max(V_r_m3, V_rule_m3) * receiver_pressure_vessel_factor",
+          "unit": {
+            "ref": "m3"
+          },
+          "reference": "Final design volume: larger of peak-demand and rule-of-thumb, × safety factor",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "D_vessel_mm",
+          "expression": "Math.pow(V_design_m3 * 6 / Math.PI, 1/3) * 1000; P_design_bar = P_max_bar * 1.1; S_allow_mpa = 138; E_joint = 0.85; t_wall_mm = P_design_bar * 0.1 * D_vessel_mm / (2 * S_allow_mpa * E_joint - 1.2 * P_design_bar * 0.1)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "ASME BPVC VIII Div.1 UG-27 — Barlow thin-wall",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "T_on_min",
+          "expression": "V_design_m3 * (P_max_bar - P_min_bar) / (1.013 * compressor_capacity_m3min); T_cycle_min = V_design_m3 * (P_max_bar - P_min_bar) / (1.013 * (compressor_capacity_m3min - peak_demand_m3min / 2))",
+          "unit": {
+            "ref": "min"
+          },
+          "reference": "T_on = V·ΔP/(P_atm·C_fad) — compressor cycle time",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ISO 1217:2009 Annex C",
+          "condition": "peak_demand_m3min > compressor_capacity_m3min * 1.5",
+          "message": "Peak demand > 150% of compressor FAD: receiver will empty rapidly — evaluate additional compressor or demand-side management; verify peak event frequency"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ISO 1217:2009 Annex C",
+          "condition": "P_max_bar - P_min_bar < 1.0",
+          "message": "Pressure band < 1 bar: very small storage window — tight band requires frequent compressor cycling; widen band to minimum 1.5 bar or add receiver volume"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ISO 1217:2009 Annex C",
+          "condition": "V_design_m3 > 5 && P_max_bar > 50",
+          "message": "Large high-pressure receiver: stored energy exceeds 250 bar·L — perform consequence analysis per API 521; locate receiver in blast-resistant area"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "ISO 1217:2009 Annex C",
+          "condition": "t_wall_mm < 4",
+          "message": "Calculated wall thickness < 4 mm: minimum practical plate thickness for receiver fabrication is 4 mm per ASME BPVC; use 4 mm minimum"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ISO 1217:2009 Annex C",
+          "condition": "Q_deficit_m3 === 0 && peak_demand_m3min <= compressor_capacity_m3min",
+          "message": "Compressor capacity meets peak demand with no deficit: receiver sized by rule-of-thumb only — primarily for pressure stability and wet air separation, not storage"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "compressor_capacity_m3min",
+        "peak_demand_m3min",
+        "P_max_bar",
+        "P_min_bar",
+        "peak_duration_s",
+        "receiver_pressure_vessel_factor"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

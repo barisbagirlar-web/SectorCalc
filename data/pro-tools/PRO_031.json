@@ -1,0 +1,382 @@
+{
+  "tool_id": "PRO_031",
+  "tool_name": "Assembly Line Balancing, SMV Analysis & Takt Compliance (IE / MTM-2 / MOST)",
+  "category": "Industrial Engineering / Production Planning",
+  "scope": "process_agnostic",
+  "primary_operation": "line_balancing",
+  "inputs": [
+    {
+      "id": "shift_net_time_min",
+      "name": "Net Shift Available Time",
+      "unit": "min/shift",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 60,
+      "absolute_max": 720,
+      "hint": "Gross shift minus: planned breaks, cleaning, TPM. Typical: 450 min (8h shift – 30 min break)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 5725-2:2019 §6 — Time measurement: ±1% of reading"
+    },
+    {
+      "id": "daily_demand_units",
+      "name": "Daily Production Demand (MPS)",
+      "unit": "units/day",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "num_stations",
+      "name": "Number of Workstations on Line",
+      "unit": "stations",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 200,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    },
+    {
+      "id": "station_1_smv",
+      "name": "Station 1 — Standard Minute Value (SMV)",
+      "unit": "min/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.001,
+      "hint": "From time study, MTM-2, or MOST — includes allowances (fatigue, personal, delay)",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_2_smv",
+      "name": "Station 2 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_3_smv",
+      "name": "Station 3 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_4_smv",
+      "name": "Station 4 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_5_smv",
+      "name": "Station 5 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_6_smv",
+      "name": "Station 6 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_7_smv",
+      "name": "Station 7 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "station_8_smv",
+      "name": "Station 8 — SMV",
+      "unit": "min/unit",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "allowance_pct",
+      "name": "Operator Allowance (fatigue + personal + delay)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 5,
+      "absolute_max": 30,
+      "default": 15,
+      "hint": "ILO: 10–20% for light assembly | Heavy manual: 20–30% | MTM standard: 15%",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "actual_operators",
+      "name": "Actual Number of Direct Operators",
+      "unit": "persons",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "labour_rate_usd_hr",
+      "name": "Fully Burdened Labour Rate",
+      "unit": "USD/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    },
+    {
+      "id": "num_shifts",
+      "name": "Number of Shifts per Day",
+      "unit": "shifts/day",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 3,
+      "default": 1,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "Takt_Time_min = shift_net_time_min / (daily_demand_units / num_shifts)   // [min/unit] Required cycle rate — pace of customer demand",
+    "Total_SMV_min = station_1_smv + station_2_smv + station_3_smv + station_4_smv + station_5_smv + station_6_smv + station_7_smv + station_8_smv   // [min/unit] Sum of all station work content",
+    "Bottleneck_SMV_min = MAX(station_1_smv, station_2_smv, station_3_smv, station_4_smv, station_5_smv, station_6_smv, station_7_smv, station_8_smv)   // [min/unit] Constraining station — sets line rate",
+    "Theoretical_Min_Operators = Total_SMV_min / Takt_Time_min   // [persons] Minimum operators to meet takt",
+    "Line_Efficiency_pct = (Total_SMV_min / (actual_operators * Bottleneck_SMV_min)) * 100   // [%] Work content utilisation",
+    "Balance_Delay_pct = 100 - Line_Efficiency_pct   // [%] Idle time fraction across all stations",
+    "Actual_Output_per_Shift = shift_net_time_min / Bottleneck_SMV_min   // [units/shift] Maximum achievable at bottleneck",
+    "Daily_Output_Capacity = Actual_Output_per_Shift * num_shifts   // [units/day] Total daily capacity",
+    "Capacity_vs_Demand_pct = (Daily_Output_Capacity / daily_demand_units) * 100   // [%] Capacity coverage",
+    "Labour_Cost_per_Unit_USD = (actual_operators * (shift_net_time_min / 60) * labour_rate_usd_hr * num_shifts) / MIN(Daily_Output_Capacity, daily_demand_units)   // [USD/unit] Labour cost per produced unit",
+    "Idle_Operator_Equivalent = actual_operators - Theoretical_Min_Operators   // [persons] Excess operators vs theoretical minimum",
+    "Annual_Labour_Waste_USD = Idle_Operator_Equivalent * labour_rate_usd_hr * shift_net_time_min / 60 * num_shifts * 250   // [USD/year] Cost of imbalance waste",
+    "SMV_per_Operator = Total_SMV_min / actual_operators   // [min] Average work content per operator"
+  ],
+  "engine_rules": {
+    "standards": [
+      "IE Line Balancing (Kilbridge & Wester / RPW Method)",
+      "MTM-2 Standard Data System",
+      "MOST (Maynard Operation Sequence Technique)",
+      "ILO Work Study — Allowance Tables",
+      "Toyota Production System — Takt Time"
+    ],
+    "validation": {
+      "daily_demand_positive": {
+        "absolute_min": 1,
+        "error_msg": "Daily demand must be at least 1 unit. Zero demand makes line balancing undefined.",
+        "id": "daily_demand_positive"
+      },
+      "station_smv_minimum": {
+        "condition": "station_1_smv <= 0",
+        "error_msg": "Station 1 SMV must be greater than zero — at least one workstation must have content.",
+        "id": "station_smv_minimum"
+      },
+      "operators_minimum": {
+        "condition": "actual_operators < 1",
+        "error_msg": "At least 1 operator is required on the line.",
+        "id": "operators_minimum"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Bottleneck_SMV_min > Takt_Time_min",
+        "severity": "CRITICAL",
+        "source": "Lean Manufacturing — Takt Compliance",
+        "message": "TAKT VIOLATION: Bottleneck station cycle time exceeds takt time. Meeting daily demand target is MATHEMATICALLY IMPOSSIBLE without: (1) splitting the bottleneck task, (2) adding a parallel station, or (3) increasing shift time. Calculate: required output deficit = (Bottleneck_SMV - Takt) × demand units."
+      },
+      {
+        "condition": "Line_Efficiency_pct < 75",
+        "severity": "WARNING",
+        "source": "Industrial Engineering — Balance Efficiency",
+        "message": "LOW LINE EFFICIENCY (<75%): Over 25% of operator time is idle due to imbalance. Rebalance by: (1) relocating work elements from overloaded to underloaded stations, (2) applying RPW or Kilbridge-Wester algorithm, (3) combining or splitting stations. Target: >85% for high-volume lines."
+      },
+      {
+        "condition": "Idle_Operator_Equivalent >= 1",
+        "severity": "WARNING",
+        "source": "Labour Cost Optimisation",
+        "message": "EXCESS OPERATORS IDENTIFIED: Line has more operators than theoretical minimum. Each excess operator represents avoidable annual labour cost. Conduct kaizen event to redistribute work elements before adding headcount."
+      },
+      {
+        "condition": "Capacity_vs_Demand_pct < 100",
+        "severity": "CRITICAL",
+        "source": "Production Planning / S&OP",
+        "message": "CAPACITY SHORTFALL: Line cannot meet daily demand at current bottleneck rate. Immediate actions: (1) Overtime authorisation, (2) Bottleneck relief (parallel resource), (3) Demand smoothing with customer. Quantify units short per day and escalate to production manager."
+      },
+      {
+        "condition": "allowance_pct < 10",
+        "severity": "WARNING",
+        "source": "ILO Work Study — Allowance Standards",
+        "message": "Low allowance (<10%): ILO recommends minimum 10% for light assembly work. Insufficient allowance leads to: (1) fatigue-induced quality defects, (2) absenteeism increase, (3) operator injury claims. Verify time study method includes all required rest periods."
+      },
+      {
+        "condition": "Takt_Time_min < 0.5",
+        "severity": "WARNING",
+        "source": "Ergonomics / Repetitive Strain",
+        "message": "VERY SHORT TAKT (<0.5 min): Cycle time under 30 seconds. Ergonomic risk of repetitive strain injury is high at this pace. EU Directive 2002/44/EC requires risk assessment. Consider task variety rotation and automation for highly repetitive operations."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: station_1_smv <= 0",
+        "effect": "Station 1 SMV must be greater than zero — at least one workstation must have content.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule station_smv_minimum"
+      },
+      {
+        "failureMode": "Input violation: actual_operators < 1",
+        "effect": "At least 1 operator is required on the line.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule operators_minimum"
+      },
+      {
+        "failureMode": "TAKT VIOLATION: Bottleneck station cycle time exceeds takt time. Meeting daily demand target is MATHEMATICALLY IMPOSSIBLE without: (1) splitting the bottleneck task, (2) adding a parallel station, or (3) increasing shift time. Calculate: required output deficit = (Bottleneck_SMV - Takt) × demand units.",
+        "effect": "Smart warning triggered when: Bottleneck_SMV_min > Takt_Time_min",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Lean Manufacturing — Takt Compliance"
+      },
+      {
+        "failureMode": "LOW LINE EFFICIENCY (<75%): Over 25% of operator time is idle due to imbalance. Rebalance by: (1) relocating work elements from overloaded to underloaded stations, (2) applying RPW or Kilbridge-Wester algorithm, (3) combining or splitting stations. Target: >85% for high-volume lines.",
+        "effect": "Smart warning triggered when: Line_Efficiency_pct < 75",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Industrial Engineering — Balance Efficiency"
+      },
+      {
+        "failureMode": "EXCESS OPERATORS IDENTIFIED: Line has more operators than theoretical minimum. Each excess operator represents avoidable annual labour cost. Conduct kaizen event to redistribute work elements before adding headcount.",
+        "effect": "Smart warning triggered when: Idle_Operator_Equivalent >= 1",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Labour Cost Optimisation"
+      },
+      {
+        "failureMode": "CAPACITY SHORTFALL: Line cannot meet daily demand at current bottleneck rate. Immediate actions: (1) Overtime authorisation, (2) Bottleneck relief (parallel resource), (3) Demand smoothing with customer. Quantify units short per day and escalate to production manager.",
+        "effect": "Smart warning triggered when: Capacity_vs_Demand_pct < 100",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Production Planning / S&OP"
+      },
+      {
+        "failureMode": "Low allowance (<10%): ILO recommends minimum 10% for light assembly work. Insufficient allowance leads to: (1) fatigue-induced quality defects, (2) absenteeism increase, (3) operator injury claims. Verify time study method includes all required rest periods.",
+        "effect": "Smart warning triggered when: allowance_pct < 10",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ILO Work Study — Allowance Standards"
+      },
+      {
+        "failureMode": "VERY SHORT TAKT (<0.5 min): Cycle time under 30 seconds. Ergonomic risk of repetitive strain injury is high at this pace. EU Directive 2002/44/EC requires risk assessment. Consider task variety rotation and automation for highly repetitive operations.",
+        "effect": "Smart warning triggered when: Takt_Time_min < 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Ergonomics / Repetitive Strain"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Takt_Time_min",
+        "Total_SMV_min",
+        "Bottleneck_SMV_min",
+        "Theoretical_Min_Operators",
+        "Line_Efficiency_pct",
+        "Balance_Delay_pct",
+        "Actual_Output_per_Shift",
+        "Daily_Output_Capacity",
+        "Capacity_vs_Demand_pct",
+        "Labour_Cost_per_Unit_USD",
+        "Idle_Operator_Equivalent",
+        "Annual_Labour_Waste_USD",
+        "SMV_per_Operator"
+      ]
+    }
+  ]
+}

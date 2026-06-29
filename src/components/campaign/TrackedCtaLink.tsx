@@ -7,7 +7,8 @@ import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { trackConversionEvent, mapEventToStage } from "@/lib/analytics/conversion-funnel";
 import type { SectorCalcEventName } from "@/lib/analytics/event-taxonomy";
 import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
-import { usePathname, stripLocalePrefix } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
+import { stripLocalePrefix } from "@/i18n/routing";
 
 export type TrackedCtaLinkProps = {
   readonly href: string;

@@ -26,10 +26,10 @@ const HUMAN_REVIEW_KEYWORDS = [
   "safety-critical",
   "pressure vessel",
   "electrical safety",
-  "iş güvenliği",
-  "vergi",
-  "ödeme",
-  "kimlik doğrulama",
+  "occupational safety",
+  "tax",
+  "payment",
+  "authentication",
 ];
 
 const PRO_KEYWORDS = [

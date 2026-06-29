@@ -1,0 +1,368 @@
+{
+  "schemaId": "PRO_100",
+  "toolCode": "TOOL-PRO-100",
+  "version": "1.0.0",
+  "name": "Rebar Development & Lap Splice Length — Tension, Compression & Seismic Requirements",
+  "subtitle": "Concrete Construction | Reinforcement Engineering — ACI 318-19 §25.4, §25.5, EN 1992-1-1:2004 §8.4, §8.7",
+  "sectorPath": [
+    "Concrete Construction",
+    "Reinforcement Engineering"
+  ],
+  "standardsBasis": [
+    "ACI 318-19 §25.4, §25.5",
+    "EN 1992-1-1:2004 §8.4, §8.7",
+    "ACI 318-19 §18.8 (seismic)",
+    "ISO 6935-2:2015",
+    "BS 8110-1:1997 §3.12"
+  ],
+  "scope": {
+    "inScope": [
+      "Rebar Development & Lap Splice Length — Tension, Compression & Seismic Requirements"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "bar_diameter_mm",
+      "symbol": "bar_diameter_mm",
+      "label": "Rebar Nominal Diameter (d_b)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "geometry",
+      "default": 16,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "fy_mpa",
+      "symbol": "fy_mpa",
+      "label": "Rebar Yield Strength (f_y)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 500,
+      "enum": [
+        {
+          "value": 500,
+          "label": "B500B / Grade 60 — 500 MPa (EN ISO 6935-2)"
+        },
+        {
+          "value": 420,
+          "label": "B420 — 420 MPa"
+        },
+        {
+          "value": 280,
+          "label": "Grade 40 (ASTM) — 280 MPa"
+        },
+        {
+          "value": 550,
+          "label": "ASTM A615 Grade 80 — 550 MPa"
+        }
+      ]
+    },
+    {
+      "id": "fc_prime_mpa",
+      "symbol": "fc_prime_mpa",
+      "label": "Concrete Compressive Strength (f'_c / f_ck)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 30,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "cover_mm",
+      "symbol": "cover_mm",
+      "label": "Concrete Cover to Bar Surface (c)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 15,
+      "max": 100,
+      "default": 40
+    },
+    {
+      "id": "bar_spacing_mm",
+      "symbol": "bar_spacing_mm",
+      "label": "Clear Spacing Between Bars (c_s)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 20,
+      "max": 500,
+      "default": 75
+    },
+    {
+      "id": "load_type",
+      "symbol": "load_type",
+      "label": "Rebar Loading Condition",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "actions",
+      "default": "tension",
+      "enum": [
+        {
+          "value": "tension",
+          "label": "Tension — standard development"
+        },
+        {
+          "value": "compression",
+          "label": "Compression — compression development"
+        },
+        {
+          "value": "seismic",
+          "label": "Tension — seismic (Class SDC D/E/F or DCM/DCH)"
+        }
+      ]
+    },
+    {
+      "id": "transverse_reinforcement",
+      "symbol": "transverse_reinforcement",
+      "label": "Transverse Reinforcement Along Splice",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "actions",
+      "default": "ties",
+      "enum": [
+        {
+          "value": "ties",
+          "label": "Ties/stirrups present meeting ACI §25.5.2 or EC2 §8.7"
+        },
+        {
+          "value": "none",
+          "label": "No transverse reinforcement"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "geometry",
+      "letter": "A",
+      "title": "Geometry",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "B",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "actions",
+      "letter": "C",
+      "title": "Actions",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_100",
+      "code": "ACI 318-19 §25.4, §25.5",
+      "name": "Rebar Development & Lap Splice Length — Tension, Compression & Seismic Requirements",
+      "description": "Rebar Development & Lap Splice Length — Tension, Compression & Seismic Requirements — Concrete Construction, Reinforcement Engineering",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "ld_ACI_mm",
+          "expression": "lambda = 1.0; psi_t = 1.0; psi_e = 1.0; psi_s = (bar_diameter_mm <= 19) ? 0.8 : 1.0; cb = Math.min(cover_mm + bar_diameter_mm/2, bar_spacing_mm/2 + bar_diameter_mm/2); Ktr = (transverse_reinforcement === 'ties') ? 40 * 0.00129 * bar_diameter_mm / bar_diameter_mm * 10 : 0; cb_plus_Ktr_db = Math.min((cb + Ktr) / bar_diameter_mm, 2.5); ld_ACI_mm = (3 * fy_mpa * psi_t * psi_e * psi_s * lambda / (40 * lambda * Math.sqrt(fc_prime_mpa) * cb_plus_Ktr_db)) * bar_diameter_mm",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "ACI 318-19 §25.4.2.3 Eq.(25.4.2.3a) — l_d = (3f_y ψ_t ψ_e ψ_s λ)/(40λ√f'_c × (c_b+K_tr)/d_b) × d_b",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "lbd_EC2_mm",
+          "expression": "fbd_mpa = 2.25 * 1.0 * 1.0 * 0.21 * Math.pow(fc_prime_mpa, 2/3); lb_req_mm = (bar_diameter_mm / 4) * (fy_mpa / (1.15 * fbd_mpa)); alpha1=1.0; alpha2=Math.max(1 - 0.15*(cover_mm - bar_diameter_mm)/bar_diameter_mm, 0.7); lbd_EC2_mm = Math.max(alpha1 * alpha2 * lb_req_mm, Math.max(0.3 * lb_req_mm, 10 * bar_diameter_mm, 100))",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "EN 1992-1-1:2004 §8.4.4 — f_bd = 2.25η₁η₂f_ctd; l_b,req = (d_b/4)·(σ_sd/f_bd); l_bd = α₁α₂...·l_b,req",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "ls_mm",
+          "expression": "splice_factor = (load_type === 'seismic') ? 1.7 : (transverse_reinforcement === 'none') ? 1.3 : 1.3; ld_governing = Math.max(ld_ACI_mm, lbd_EC2_mm); ls_mm = ld_governing * splice_factor",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "ACI 318-19 §25.5.2 — Class B splice: 1.3 × l_d; seismic per §18.8.2.3: 1.7 × l_d in potential hinge zones",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "ldc_mm",
+          "expression": "ldc_ACI_mm = (fy_mpa <= 420) ? Math.max(0.24 * fy_mpa / Math.sqrt(fc_prime_mpa) * bar_diameter_mm, 0.043 * fy_mpa * bar_diameter_mm) : Math.max((0.25 * fy_mpa - 24) / Math.sqrt(fc_prime_mpa) * bar_diameter_mm, 0.043 * fy_mpa * bar_diameter_mm); ldc_mm = Math.max(ldc_ACI_mm, 200)",
+          "unit": {
+            "ref": "mm"
+          },
+          "reference": "ACI 318-19 §25.4.9 — compression development length; minimum 200 mm",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "l_governing_mm, l_bars",
+          "expression": "l_governing_mm = (load_type === 'compression') ? ldc_mm : ls_mm; l_bars = Math.ceil(l_governing_mm / bar_diameter_mm)",
+          "unit": {
+            "ref": "mm, bar diameters"
+          },
+          "reference": "Governing length expressed in bar diameters for field verification; field check: L_splice / d_b",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "fc_min_recommended_mpa, fc_adequate",
+          "expression": "fc_min_recommended_mpa = (bar_diameter_mm >= 32) ? 35 : (bar_diameter_mm >= 25) ? 28 : 20; fc_adequate = fc_prime_mpa >= fc_min_recommended_mpa",
+          "unit": {
+            "ref": "MPa, boolean"
+          },
+          "reference": "ACI 318-19 Commentary §R25.4 — large bars in low-strength concrete require excessive development lengths; minimum f'_c recommendation",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "BLOCK",
+          "condition": "cover_mm < bar_diameter_mm",
+          "message": "Concrete cover less than bar diameter: ACI §20.6.1 minimum cover requirement violated — fire resistance, corrosion protection, and bond transfer all inadequate"
+        },
+        {
+          "id": "V2",
+          "action": "WARN",
+          "condition": "bar_spacing_mm < bar_diameter_mm",
+          "message": "Clear bar spacing less than bar diameter: ACI §25.2.1 minimum spacing violated — concrete cannot flow between bars; splitting failure and poor consolidation"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "load_type === 'seismic' && fc_prime_mpa < 25",
+          "message": "Seismic splices in low-strength concrete: ACI 318 §18.12.2 recommends f'_c ≥ 25 MPa in special moment frames; low concrete strength requires significantly longer lap lengths"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "l_governing_mm > 60 * bar_diameter_mm",
+          "message": "Lap splice > 60 bar diameters: very long splice — consider mechanical couplers (ISO 15835-1) or welded splices to reduce congestion; check if staggering splices is feasible"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "",
+          "condition": "load_type === 'seismic' && bar_diameter_mm > 28",
+          "message": "Large bar (d_b > 28 mm) in seismic zone: ACI 318 §18.8.2.1 prohibits lap splices within beam-column joints and in potential plastic hinge zones — use mechanical couplers"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "transverse_reinforcement === 'none' && load_type === 'tension'",
+          "message": "No transverse reinforcement on tension splice: splitting failure risk — provide minimum ties per ACI §25.5.2; minimum 2 ties within splice length at third-points"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "!fc_adequate && bar_diameter_mm >= 25",
+          "message": "Concrete strength below recommended for large bars: development length will be excessive and bond stress may cause splitting — upgrade to recommended f'_c"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "",
+          "condition": "lbd_EC2_mm > ld_ACI_mm * 1.5",
+          "message": "EC2 development length > 1.5× ACI value: significant code disparity — verify which standard governs for the project; EC2 tends to be more conservative for poor cover conditions"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "bar_diameter_mm",
+        "fy_mpa",
+        "fc_prime_mpa",
+        "cover_mm",
+        "bar_spacing_mm",
+        "load_type",
+        "transverse_reinforcement"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,0 +1,430 @@
+[
+  {
+    "id": "MFG_295",
+    "name": "Kaynak Çarpılması (Transvers Büzülme)"
+  },
+  {
+    "id": "IND_296",
+    "name": "Ultrasonik Muayene (NDT) Ses Hızı Kalibrasyonu"
+  },
+  {
+    "id": "MECH_297",
+    "name": "Rulman Minimum Yük (Skidding) Kontrolü"
+  },
+  {
+    "id": "MECH_298",
+    "name": "Hidrolik Akümülatör Kapasitesi (Boyle-Mariotte)"
+  },
+  {
+    "id": "MECH_299",
+    "name": "Kompresör Özgül Enerji Tüketimi (SEC)"
+  },
+  {
+    "id": "MECH_300",
+    "name": "V-Kayışı Kayma Oranı (Belt Slip)"
+  },
+  {
+    "id": "MFG_301",
+    "name": "Sac Derin Çekme (Deep Drawing) Oranı"
+  },
+  {
+    "id": "AUT_302",
+    "name": "4-20 mA Sensör Ölçeklendirme (Scaling)"
+  },
+  {
+    "id": "AUT_303",
+    "name": "Servo Motor Atalet Oranı (Inertia Mismatch)"
+  },
+  {
+    "id": "CNC_304",
+    "name": "Vidalı Mil (Ball Screw) Kritik Devir"
+  },
+  {
+    "id": "CNC_305",
+    "name": "Step Motor Doğrusal Çözünürlük"
+  },
+  {
+    "id": "ENG_306",
+    "name": "Afinite Yasası (Pompa/Fan Güç Tasarrufu)"
+  },
+  {
+    "id": "MNT_307",
+    "name": "MTBF (Ortalama Arızalar Arası Süre)"
+  },
+  {
+    "id": "MNT_308",
+    "name": "MTTR (Ortalama Tamir Süresi)"
+  },
+  {
+    "id": "ROB_309",
+    "name": "Robot Eksen Momenti (Payload Overload)"
+  },
+  {
+    "id": "CNC_310",
+    "name": "Lazer Odak Çapı (Spot Size)"
+  },
+  {
+    "id": "AUT_311",
+    "name": "Pnömatik Silindir Çıkış Kuvveti (Kayıplı)"
+  },
+  {
+    "id": "CNC_312",
+    "name": "Ortalama Talaş Kalınlığı (hm / Chip Thinning)"
+  },
+  {
+    "id": "MECH_313",
+    "name": "Rulman Ön Yükleme (Preload) Kuvveti"
+  },
+  {
+    "id": "MFG_314",
+    "name": "Plastik Enjeksiyon Kapama Kuvveti (Clamping Force)"
+  },
+  {
+    "id": "MFG_315",
+    "name": "Kalıp Maça Çekme Kuvveti (Core Pull Force)"
+  },
+  {
+    "id": "WELD_316",
+    "name": "Karbon Eşdeğeri (CEV) ve Ön Isıtma"
+  },
+  {
+    "id": "CNC_317",
+    "name": "Su Jeti (Waterjet) Kesim Kalitesi"
+  },
+  {
+    "id": "MECH_318",
+    "name": "Mil Balans Sınıfı (ISO 1940 / G-Grade)"
+  },
+  {
+    "id": "MECH_319",
+    "name": "Helisel Dişli Eksenel Kuvvet (Thrust Load)"
+  },
+  {
+    "id": "MECH_320",
+    "name": "O-Ring Ekstrüzyon (Akma) Boşluğu"
+  },
+  {
+    "id": "AUT_321",
+    "name": "Servo Motor Rejeneratif Frenleme Enerjisi"
+  },
+  {
+    "id": "MET_322",
+    "name": "Gerçek Konum Toleransı (True Position)"
+  },
+  {
+    "id": "CNC_323",
+    "name": "Kılavuz Ön Delik Çapı (Tap Drill Size)"
+  },
+  {
+    "id": "WELD_324",
+    "name": "Kaynak T8/5 Soğuma Süresi (Cooling Time)"
+  },
+  {
+    "id": "MFG_325",
+    "name": "Plastik Enjeksiyon Soğuma Süresi"
+  },
+  {
+    "id": "MECH_326",
+    "name": "Oransal Valf (Proportional) Akış Kapasitesi (Cv)"
+  },
+  {
+    "id": "MECH_327",
+    "name": "Mil Kritik (Rezonans) Devri (Rayleigh Yöntemi)"
+  },
+  {
+    "id": "MFG_328",
+    "name": "Sac Büküm Geri Yaylanma (Springback) Tahmini"
+  },
+  {
+    "id": "MECH_329",
+    "name": "Buhar Borusu Çaplandırma (Hız Kriteri)"
+  },
+  {
+    "id": "ENV_330",
+    "name": "Boru/Tank Korozyon Hızı (mpy)"
+  },
+  {
+    "id": "MECH_331",
+    "name": "Zincir Tahrik Hız Dalgalanması (Poligon Etkisi)"
+  },
+  {
+    "id": "MFG_332",
+    "name": "Kanban Kart / Kutu Sayısı (Supermarket Sizing)"
+  },
+  {
+    "id": "MFG_333",
+    "name": "Heijunka (Üretim Dengeleme) Pitch Süresi"
+  },
+  {
+    "id": "THERM_334",
+    "name": "Eşanjör Kirlenme Faktörü (Fouling Factor - Rf)"
+  },
+  {
+    "id": "THERM_335",
+    "name": "Langelier Doygunluk İndeksi (LSI - Kireçlenme)"
+  },
+  {
+    "id": "ROB_336",
+    "name": "Robotik TCP (Tool Center Point) Hızı"
+  },
+  {
+    "id": "ROB_337",
+    "name": "Robotik Kinematik İvme Torku"
+  },
+  {
+    "id": "MECH_338",
+    "name": "Pnömatik Hava Kaçağı (Air Leak) Maliyeti"
+  },
+  {
+    "id": "IND_339",
+    "name": "Kullanılabilirlik (Availability - OEE Metriği)"
+  },
+  {
+    "id": "MFG_340",
+    "name": "Takt Time vs Çevrim Süresi (Cycle Time)"
+  },
+  {
+    "id": "MECH_341",
+    "name": "Rulman Gres Dolum Miktarı (SKF)"
+  },
+  {
+    "id": "CNC_342",
+    "name": "CNC Frezeleme Net Güç ve Kesme Kuvveti"
+  },
+  {
+    "id": "MECH_343",
+    "name": "Millerde Kritik Devir ve Eksenel Burkulma"
+  },
+  {
+    "id": "MECH_344",
+    "name": "Hidrolik Pompa Hacimsel Verim ve Debi"
+  },
+  {
+    "id": "MFG_345",
+    "name": "Sac Şekillendirme Kalıp Radyüs ve Boşluğu"
+  },
+  {
+    "id": "WELD_346",
+    "name": "Kaynak Dikişi Mikroyapı ve Soğuma Analizi"
+  },
+  {
+    "id": "MECH_347",
+    "name": "Dişli Kutusu Verim ve Isıl Güç Kapasitesi"
+  },
+  {
+    "id": "MECH_348",
+    "name": "Pnömatik Akış Hatlarında Basınç Düşüşü"
+  },
+  {
+    "id": "CNC_349",
+    "name": "CNC Tornalamada Talaş Kırıcı ve İlerleme Limitleri"
+  },
+  {
+    "id": "IND_350",
+    "name": "Radyografik Muayene (RT) Poz Süresi Hesabı"
+  },
+  {
+    "id": "MECH_351",
+    "name": "Kaplin ve Şaft Hizalama Toleransları"
+  },
+  {
+    "id": "CNC_352",
+    "name": "Tornalama Ana Kesme Kuvveti (Fc)"
+  },
+  {
+    "id": "MFG_353",
+    "name": "Şerit Testere (Bandsaw) Kesim ve Diş Yükü"
+  },
+  {
+    "id": "MECH_354",
+    "name": "Rulman Sürtünme Momenti (SKF Yöntemi)"
+  },
+  {
+    "id": "MECH_355",
+    "name": "Yay Çeliklerinde Gevşeme (Creep/Relaxation)"
+  },
+  {
+    "id": "MECH_356",
+    "name": "Hidrolik Motor Çıkış Torku"
+  },
+  {
+    "id": "WELD_357",
+    "name": "Paslanmaz Çelik Kaynağı Ferrit Numarası (FN)"
+  },
+  {
+    "id": "CIV_358",
+    "name": "Perçin Kesme ve Ezilme (Bearing) Dayanımı"
+  },
+  {
+    "id": "MECH_359",
+    "name": "Hertzian Temas Gerilmesi (Dişli/Kam)"
+  },
+  {
+    "id": "MECH_360",
+    "name": "Pres Uyumlu Montaj İtme/Çekme Kuvveti"
+  },
+  {
+    "id": "MET_361",
+    "name": "Düzlemsellik Toleransı (Flatness - GD&T)"
+  },
+  {
+    "id": "MFG_362",
+    "name": "Döküm Akışkanlığı (Superheat Toleransı)"
+  },
+  {
+    "id": "MFG_363",
+    "name": "Kompozit Fiber Hacim Oranı (Vf)"
+  },
+  {
+    "id": "MECH_364",
+    "name": "Çok Eksenli Yorulma (Sines Kriteri Eşdeğer Gerilme)"
+  },
+  {
+    "id": "MFG_365",
+    "name": "Enjeksiyon Kalıp Çekme Payı (Shrinkage Tolerancing)"
+  },
+  {
+    "id": "CNC_366",
+    "name": "Takım Ömrü (Taylor Denklemi)"
+  },
+  {
+    "id": "MECH_367",
+    "name": "Yay İndeksi ve Sarım Zorluğu (Spring Index - C)"
+  },
+  {
+    "id": "WELD_368",
+    "name": "Kaynak Köşe Boyutu (Fillet Weld Sizing)"
+  },
+  {
+    "id": "MECH_369",
+    "name": "Rulman Sınır Hızı (Limiting Speed)"
+  },
+  {
+    "id": "MET_370",
+    "name": "CMM Prob Ucu Kompanzasyon Hatası"
+  },
+  {
+    "id": "MECH_371",
+    "name": "Basınçlı Boru Et Kalınlığı (Barlow Formülü)"
+  },
+  {
+    "id": "AUT_372",
+    "name": "Pnömatik Silindir Dinamik Yanıt Süresi"
+  },
+  {
+    "id": "CNC_373",
+    "name": "Derin Delik Delme (Gun Drilling) Parametreleri"
+  },
+  {
+    "id": "MET_374",
+    "name": "CMM Dinamik Tarama Hızı Hatası"
+  },
+  {
+    "id": "MFG_375",
+    "name": "Plastik Enjeksiyon Yolluk (Runner) Çaplandırma"
+  },
+  {
+    "id": "MECH_376",
+    "name": "Konik Dişli (Bevel Gear) Eksenel Ayrılma Kuvveti"
+  },
+  {
+    "id": "CIV_377",
+    "name": "Kaynaklı Kiriş Kayma Akısı (Shear Flow - q)"
+  },
+  {
+    "id": "MECH_378",
+    "name": "Pres Geçme (Shrink Fit) Kayma/Ayrılma Torku"
+  },
+  {
+    "id": "CNC_379",
+    "name": "Taşlama Yüzey Yanığı (Specific Energy) Riski"
+  },
+  {
+    "id": "MECH_380",
+    "name": "Hidrolik Hortum Patlama Basıncı (Burst Pressure)"
+  },
+  {
+    "id": "CNC_381",
+    "name": "Broşlama Talaş Boşluğu (Gullet) Doluluk Hacmi"
+  },
+  {
+    "id": "MECH_382",
+    "name": "Asansör / Vinç Motor Gücü"
+  },
+  {
+    "id": "MECH_383",
+    "name": "Tel Halat (Wire Rope) Güvenlik Katsayısı"
+  },
+  {
+    "id": "AUT_384",
+    "name": "Pnömatik Valf Sonik Geçirgenlik (C Değeri)"
+  },
+  {
+    "id": "AUT_385",
+    "name": "Pnömatik Valf Kritik Basınç Oranı (b Değeri)"
+  },
+  {
+    "id": "CNC_386",
+    "name": "Takım Çekme (Pull-Out) Kuvveti ve Emniyeti"
+  },
+  {
+    "id": "MFG_387",
+    "name": "Pres Şekillendirme İş Zarfı (Forming Energy)"
+  },
+  {
+    "id": "MECH_388",
+    "name": "Flanş Cıvatası Gerilme ve Conta (Gasket) Yükü"
+  },
+  {
+    "id": "MECH_389",
+    "name": "Hidrolik Pompa Emme Özgül Hızı (Nss - Suction Specific Speed)"
+  },
+  {
+    "id": "MECH_390",
+    "name": "Rulman Yağlama Filmi Kalınlık Oranı (Kappa - κ / Lambda - λ)"
+  },
+  {
+    "id": "MECH_391",
+    "name": "Isıl Genleşme Boru Mesnet (Anchor) Yükü"
+  },
+  {
+    "id": "CNC_392",
+    "name": "Kılavuz Çekme (Tapping) Torku ve Kesme Kuvveti"
+  },
+  {
+    "id": "MECH_393",
+    "name": "Volan (Flywheel) Kinetik Enerji ve Stres"
+  },
+  {
+    "id": "WELD_394",
+    "name": "Kaynaklı Dairesel Bağlantı Burulma Gerilmesi"
+  },
+  {
+    "id": "MECH_395",
+    "name": "Pnömatik/Hidrolik Orifis Akışı (Orifice Flow)"
+  },
+  {
+    "id": "MECH_396",
+    "name": "Rulman Eşdeğer Statik Yükü (P0)"
+  },
+  {
+    "id": "MFG_397",
+    "name": "Plastik Enjeksiyon Eriyik Yastığı (Melt Cushion)"
+  },
+  {
+    "id": "THERM_398",
+    "name": "Isı Eşanjörü LMTD Düzeltme Faktörü (F)"
+  },
+  {
+    "id": "MFG_399",
+    "name": "Döküm Besleyici Modülü (Chvorinov Kuralı)"
+  },
+  {
+    "id": "MECH_400",
+    "name": "Titreşim İzolasyonu Transmisbilite (Geçirgenlik)"
+  },
+  {
+    "id": "MECH_401",
+    "name": "Cıvata Yorulma Ömrü Güvenlik Faktörü (Soderberg)"
+  }
+]

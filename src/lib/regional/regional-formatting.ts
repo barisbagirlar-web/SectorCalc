@@ -7,8 +7,8 @@ import { getDefaultDisplayUnitForQuantity } from "@/lib/regional/unit-systems";
 import type { FormatOutputValueInput, FormatOutputValueResult, RegionalCurrencyCode, RegionalEngineCode } from "@/lib/regional/types";
 
 function resolveRegionFromLocale(locale: SupportedLocale): RegionalEngineCode {
-  const map: Record<SupportedLocale, RegionalEngineCode> = { en: "GLOBAL", tr: "TR", de: "DE", fr: "FR", es: "ES", ar: "AR" };
-  return map[locale];
+  const map: Record<string, RegionalEngineCode> = { en: "GLOBAL", tr: "TR", de: "DE", fr: "FR", es: "ES", ar: "AR" };
+  return map[locale] ?? "GLOBAL";
 }
 
 export function formatOutputValue(input: FormatOutputValueInput): FormatOutputValueResult {

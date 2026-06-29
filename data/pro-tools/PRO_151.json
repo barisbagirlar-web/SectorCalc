@@ -1,0 +1,2479 @@
+{
+  "tool_id": "PRO_151",
+  "tool_key": "steelColumnBucklingCapacityEn1993Aisc360",
+  "tool_name": "Steel Column Buckling Capacity Calculator - EN 1993 AISC 360",
+  "category": "Structural Engineering / Steel Members / Column Buckling",
+  "scope": "steel_compression_member_flexural_torsional_flexural_torsional_buckling_local_slenderness_and_axial_capacity_screening",
+  "primary_operation": "calculate_steel_column_elastic_buckling_slenderness_reduction_factor_design_compression_capacity_and_governing_buckling_mode",
+  "standards": [
+    "ISO 9001:2015",
+    "EN 1990",
+    "EN 1991",
+    "EN 1993-1-1",
+    "EN 1993-1-5",
+    "EN 1993-1-8",
+    "EN 1993-1-10",
+    "EN 1090-2",
+    "AISC 360-22",
+    "AISC Steel Construction Manual 16th Edition",
+    "AISC Design Guide 28 - Stability Design of Steel Buildings",
+    "ASTM A36",
+    "ASTM A572",
+    "ASTM A992",
+    "ASTM A500",
+    "EN 10025",
+    "EN 10210",
+    "EN 10219",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM"
+  ],
+  "risk_level": "HIGH",
+  "calculation_basis": "Steel compression member buckling capacity screening using EN 1993-1-1 and AISC 360-22 style checks for gross-section compression resistance, flexural buckling about major and minor axes, torsional buckling, flexural-torsional buckling, effective length, elastic critical load, nondimensional slenderness, EN buckling curve reduction factor, AISC critical stress, local slenderness/slender-element gate, built-up member review, second-order analysis review, bracing adequacy review, axial-bending interaction review gate, seismic/fatigue/fire gates and governing compression capacity. The output is a preliminary engineering screening calculation and must not replace sealed structural design, global frame stability analysis, second-order analysis, member imperfection modeling, connection/bracing design, fire design, seismic design, fatigue design or authority approval.",
+  "inputs": [
+    {
+      "id": "design_standard",
+      "name": "Design Standard",
+      "symbol": "STD",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "EN_1993_1_1",
+        "AISC_360_LRFD",
+        "AISC_360_ASD",
+        "DUAL_EN_AISC_ENVELOPE",
+        "OWNER_SPECIFICATION"
+      ],
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "DUAL_EN_AISC_ENVELOPE",
+      "validation_rule": "Must be one of supported design standard modes.",
+      "source": "ProjectBasis|User",
+      "uncertainty": "±0 Type B",
+      "note": "Dual mode reports EN and AISC style capacities and selects the lower comparable capacity."
+    },
+    {
+      "id": "member_type",
+      "name": "Compression Member Type",
+      "symbol": "MEMBER_TYPE",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "ROLLED_I_OR_H_SECTION",
+        "WELDED_I_SECTION",
+        "CHANNEL_SECTION",
+        "ANGLE_SECTION",
+        "TEE_SECTION",
+        "RECTANGULAR_HSS",
+        "SQUARE_HSS",
+        "CIRCULAR_HSS",
+        "PIPE_SECTION",
+        "BUILT_UP_MEMBER",
+        "CRUCIFORM_SECTION",
+        "USER_DEFINED_SECTION"
+      ],
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "ROLLED_I_OR_H_SECTION",
+      "validation_rule": "Must be a supported member type.",
+      "source": "SectionTable|Drawing|User",
+      "uncertainty": "±0 Type B",
+      "note": "Controls buckling curve selection, torsional review and built-up member gates."
+    },
+    {
+      "id": "section_symmetry",
+      "name": "Section Symmetry",
+      "symbol": "SYM",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "DOUBLY_SYMMETRIC",
+        "SINGLY_SYMMETRIC",
+        "ASYMMETRIC",
+        "CLOSED_TUBE",
+        "OPEN_THIN_WALLED_REVIEW_REQUIRED"
+      ],
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "DOUBLY_SYMMETRIC",
+      "validation_rule": "Must be a supported symmetry class.",
+      "source": "SectionTable|User",
+      "uncertainty": "±0 Type B",
+      "note": "Singly symmetric and asymmetric sections require torsional/flexural-torsional review."
+    },
+    {
+      "id": "section_class_en",
+      "name": "EN Section Class",
+      "symbol": "CLASS_EN",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "CLASS_1",
+        "CLASS_2",
+        "CLASS_3",
+        "CLASS_4",
+        "NOT_CLASSIFIED"
+      ],
+      "confidence_label": "MEDIUM",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "NOT_CLASSIFIED",
+      "validation_rule": "Must be a supported EN section class.",
+      "source": "EN1993SectionClassification|User",
+      "uncertainty": "±0 Type B",
+      "note": "Class 4 requires effective section properties; this tool treats Class 4 as review-required unless effective area is entered."
+    },
+    {
+      "id": "aisc_element_slenderness_class",
+      "name": "AISC Element Slenderness Class",
+      "symbol": "AISC_SLENDER",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "NONSLENDER_ELEMENTS",
+        "SLENDER_ELEMENTS",
+        "NOT_CLASSIFIED"
+      ],
+      "confidence_label": "MEDIUM",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "NOT_CLASSIFIED",
+      "validation_rule": "Must be a supported AISC element slenderness class.",
+      "source": "AISCSectionClassification|User",
+      "uncertainty": "±0 Type B",
+      "note": "Slender-element sections require effective area or AISC E7-style reduction helper."
+    },
+    {
+      "id": "factored_axial_compression_kn",
+      "name": "Design Axial Compression Demand",
+      "symbol": "N_Ed",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0,
+      "absolute_max": 100000000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "N_Ed >= 0",
+      "source": "StructuralAnalysis|LoadCombination|User",
+      "uncertainty": "±5% Type B",
+      "note": "Use factored demand for EN/LRFD. For ASD mode use service-level demand consistent with ASD resistance."
+    },
+    {
+      "id": "major_axis_moment_knm",
+      "name": "Design Major-Axis Moment",
+      "symbol": "M_x",
+      "unit": "kN*m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0,
+      "absolute_max": 100000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "M_x >= 0",
+      "source": "StructuralAnalysis|LoadCombination|User",
+      "uncertainty": "±10% Type B",
+      "note": "Used for axial-bending interaction review gate. Full beam-column design requires separate module."
+    },
+    {
+      "id": "minor_axis_moment_knm",
+      "name": "Design Minor-Axis Moment",
+      "symbol": "M_y",
+      "unit": "kN*m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0,
+      "absolute_max": 100000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "M_y >= 0",
+      "source": "StructuralAnalysis|LoadCombination|User",
+      "uncertainty": "±10% Type B",
+      "note": "Used for axial-bending interaction review gate."
+    },
+    {
+      "id": "unbraced_length_x_mm",
+      "name": "Unbraced Length for Major-Axis Buckling",
+      "symbol": "L_x",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 1,
+      "absolute_max": 1000000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "L_x > 0",
+      "source": "FrameModel|BracingLayout|User",
+      "uncertainty": "±20 mm Type B",
+      "note": "Distance between effective lateral restraints for buckling about x-axis."
+    },
+    {
+      "id": "unbraced_length_y_mm",
+      "name": "Unbraced Length for Minor-Axis Buckling",
+      "symbol": "L_y",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 1,
+      "absolute_max": 1000000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "L_y > 0",
+      "source": "FrameModel|BracingLayout|User",
+      "uncertainty": "±20 mm Type B",
+      "note": "Distance between effective lateral restraints for buckling about y-axis."
+    },
+    {
+      "id": "unbraced_length_torsion_mm",
+      "name": "Unbraced Length for Torsional Buckling",
+      "symbol": "L_t",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 1,
+      "absolute_max": 1000000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "L_t > 0",
+      "source": "FrameModel|TorsionalRestraintLayout|User",
+      "uncertainty": "±50 mm Type B",
+      "note": "Length between torsional restraints. Use same as column length if no torsional restraint exists."
+    },
+    {
+      "id": "effective_length_factor_x",
+      "name": "Effective Length Factor X",
+      "symbol": "K_x",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0.1,
+      "absolute_max": 10,
+      "resolution": 0.001,
+      "default": 1,
+      "validation_rule": "K_x > 0",
+      "source": "StabilityAnalysis|EngineerJudgement|User",
+      "uncertainty": "±20% Type B",
+      "note": "Must be derived from frame stability model, alignment chart, direct analysis or project method."
+    },
+    {
+      "id": "effective_length_factor_y",
+      "name": "Effective Length Factor Y",
+      "symbol": "K_y",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0.1,
+      "absolute_max": 10,
+      "resolution": 0.001,
+      "default": 1,
+      "validation_rule": "K_y > 0",
+      "source": "StabilityAnalysis|EngineerJudgement|User",
+      "uncertainty": "±20% Type B",
+      "note": "Must match selected stability design method."
+    },
+    {
+      "id": "effective_length_factor_torsion",
+      "name": "Effective Length Factor for Torsion",
+      "symbol": "K_t",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "LOW",
+      "absolute_min": 0.1,
+      "absolute_max": 10,
+      "resolution": 0.001,
+      "default": 1,
+      "validation_rule": "K_t > 0",
+      "source": "TorsionalStabilityAnalysis|EngineerJudgement|User",
+      "uncertainty": "±30% Type B",
+      "note": "High-uncertainty input. Torsional restraint and warping restraint must be checked."
+    },
+    {
+      "id": "gross_area_mm2",
+      "name": "Gross Section Area",
+      "symbol": "A_g",
+      "unit": "mm2",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 1,
+      "absolute_max": 100000000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "A_g > 0",
+      "source": "SectionTable|MillCertificate|User",
+      "uncertainty": "±2% Type B",
+      "note": "Gross cross-sectional area."
+    },
+    {
+      "id": "effective_area_mm2",
+      "name": "Effective Section Area",
+      "symbol": "A_eff",
+      "unit": "mm2",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0,
+      "absolute_max": 100000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "A_eff >= 0",
+      "source": "EffectiveSectionCalculation|User",
+      "uncertainty": "±10% Type B",
+      "note": "Use 0 to use gross area. Required for EN Class 4 or AISC slender-element sections."
+    },
+    {
+      "id": "radius_gyration_x_mm",
+      "name": "Radius of Gyration X",
+      "symbol": "r_x",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.1,
+      "absolute_max": 10000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "r_x > 0",
+      "source": "SectionTable|User",
+      "uncertainty": "±2% Type B",
+      "note": "Radius of gyration about x-axis."
+    },
+    {
+      "id": "radius_gyration_y_mm",
+      "name": "Radius of Gyration Y",
+      "symbol": "r_y",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0.1,
+      "absolute_max": 10000,
+      "resolution": 0.001,
+      "default": null,
+      "validation_rule": "r_y > 0",
+      "source": "SectionTable|User",
+      "uncertainty": "±2% Type B",
+      "note": "Radius of gyration about y-axis."
+    },
+    {
+      "id": "moment_of_inertia_x_mm4",
+      "name": "Moment of Inertia X",
+      "symbol": "I_x",
+      "unit": "mm4",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0,
+      "absolute_max": 1000000000000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "I_x >= 0",
+      "source": "SectionTable|User",
+      "uncertainty": "±3% Type B",
+      "note": "Use 0 to compute from A × r_x²."
+    },
+    {
+      "id": "moment_of_inertia_y_mm4",
+      "name": "Moment of Inertia Y",
+      "symbol": "I_y",
+      "unit": "mm4",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 0,
+      "absolute_max": 1000000000000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "I_y >= 0",
+      "source": "SectionTable|User",
+      "uncertainty": "±3% Type B",
+      "note": "Use 0 to compute from A × r_y²."
+    },
+    {
+      "id": "torsional_constant_j_mm4",
+      "name": "Torsional Constant",
+      "symbol": "J",
+      "unit": "mm4",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0,
+      "absolute_max": 1000000000000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "J >= 0",
+      "source": "SectionTable|TorsionalAnalysis|User",
+      "uncertainty": "±10% Type B",
+      "note": "Required for torsional/flexural-torsional buckling review."
+    },
+    {
+      "id": "warping_constant_cw_mm6",
+      "name": "Warping Constant",
+      "symbol": "C_w",
+      "unit": "mm6",
+      "type": "number",
+      "required": true,
+      "confidence_label": "LOW",
+      "absolute_min": 0,
+      "absolute_max": 100000000000000000000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "C_w >= 0",
+      "source": "SectionTable|TorsionalAnalysis|User",
+      "uncertainty": "±20% Type B",
+      "note": "Required for open-section torsional and flexural-torsional buckling."
+    },
+    {
+      "id": "shear_center_offset_x_mm",
+      "name": "Shear Center Offset X",
+      "symbol": "x_0",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "LOW",
+      "absolute_min": -10000,
+      "absolute_max": 10000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "Finite number",
+      "source": "SectionAnalysis|User",
+      "uncertainty": "±10 mm Type B",
+      "note": "Used for flexural-torsional buckling helper in singly symmetric/asymmetric sections."
+    },
+    {
+      "id": "shear_center_offset_y_mm",
+      "name": "Shear Center Offset Y",
+      "symbol": "y_0",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "LOW",
+      "absolute_min": -10000,
+      "absolute_max": 10000,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "Finite number",
+      "source": "SectionAnalysis|User",
+      "uncertainty": "±10 mm Type B",
+      "note": "Used for flexural-torsional buckling helper."
+    },
+    {
+      "id": "yield_strength_mpa",
+      "name": "Steel Yield Strength",
+      "symbol": "F_y",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 100,
+      "absolute_max": 1200,
+      "resolution": 1,
+      "default": null,
+      "validation_rule": "F_y > 0",
+      "source": "MaterialCertificate|Standard|User",
+      "uncertainty": "±5% Type B",
+      "note": "Steel yield strength."
+    },
+    {
+      "id": "ultimate_strength_mpa",
+      "name": "Steel Ultimate Strength",
+      "symbol": "F_u",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 100,
+      "absolute_max": 1500,
+      "resolution": 1,
+      "default": null,
+      "validation_rule": "F_u >= F_y",
+      "source": "MaterialCertificate|Standard|User",
+      "uncertainty": "±5% Type B",
+      "note": "Used for material traceability and review gates."
+    },
+    {
+      "id": "elastic_modulus_mpa",
+      "name": "Elastic Modulus",
+      "symbol": "E",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 100000,
+      "absolute_max": 250000,
+      "resolution": 1,
+      "default": 210000,
+      "validation_rule": "E > 0",
+      "source": "Standard|MaterialData|User",
+      "uncertainty": "±3% Type B",
+      "note": "Typical structural steel value is 210000 MPa; project material data may override."
+    },
+    {
+      "id": "shear_modulus_mpa",
+      "name": "Shear Modulus",
+      "symbol": "G",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 30000,
+      "absolute_max": 100000,
+      "resolution": 1,
+      "default": 81000,
+      "validation_rule": "G > 0",
+      "source": "Standard|MaterialData|User",
+      "uncertainty": "±5% Type B",
+      "note": "Used for torsional buckling."
+    },
+    {
+      "id": "en_buckling_curve_x",
+      "name": "EN Buckling Curve X",
+      "symbol": "curve_x",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "a0",
+        "a",
+        "b",
+        "c",
+        "d",
+        "USER_DEFINED"
+      ],
+      "confidence_label": "MEDIUM",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "b",
+      "validation_rule": "Must be supported EN buckling curve.",
+      "source": "EN1993Table|EngineerReview|User",
+      "uncertainty": "±0 Type B",
+      "note": "Buckling curve depends on section type, fabrication and axis."
+    },
+    {
+      "id": "en_buckling_curve_y",
+      "name": "EN Buckling Curve Y",
+      "symbol": "curve_y",
+      "unit": "enum",
+      "type": "enum",
+      "required": true,
+      "allowed_values": [
+        "a0",
+        "a",
+        "b",
+        "c",
+        "d",
+        "USER_DEFINED"
+      ],
+      "confidence_label": "MEDIUM",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": "c",
+      "validation_rule": "Must be supported EN buckling curve.",
+      "source": "EN1993Table|EngineerReview|User",
+      "uncertainty": "±0 Type B",
+      "note": "Minor-axis buckling often uses a different curve depending on section."
+    },
+    {
+      "id": "en_user_imperfection_factor_x",
+      "name": "EN User Imperfection Factor X",
+      "symbol": "alpha_x_user",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0,
+      "absolute_max": 2,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "alpha_x_user >= 0",
+      "source": "NationalAnnex|User",
+      "uncertainty": "±10% Type B",
+      "note": "Use 0 to map from EN buckling curve."
+    },
+    {
+      "id": "en_user_imperfection_factor_y",
+      "name": "EN User Imperfection Factor Y",
+      "symbol": "alpha_y_user",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0,
+      "absolute_max": 2,
+      "resolution": 0.001,
+      "default": 0,
+      "validation_rule": "alpha_y_user >= 0",
+      "source": "NationalAnnex|User",
+      "uncertainty": "±10% Type B",
+      "note": "Use 0 to map from EN buckling curve."
+    },
+    {
+      "id": "gamma_m1",
+      "name": "EN Partial Factor for Buckling Resistance",
+      "symbol": "gamma_M1",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 1,
+      "absolute_max": 2,
+      "resolution": 0.001,
+      "default": 1,
+      "validation_rule": "gamma_M1 >= 1",
+      "source": "EN1993NationalAnnex|User",
+      "uncertainty": "±0.05 Type B",
+      "note": "National annex may specify the value."
+    },
+    {
+      "id": "aisc_phi_c",
+      "name": "AISC LRFD Resistance Factor for Compression",
+      "symbol": "phi_c",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 0.1,
+      "absolute_max": 1,
+      "resolution": 0.001,
+      "default": 0.9,
+      "validation_rule": "0 < phi_c <= 1",
+      "source": "AISC360|User",
+      "uncertainty": "±0.02 Type B",
+      "note": "Used for AISC LRFD available compression strength."
+    },
+    {
+      "id": "aisc_omega_c",
+      "name": "AISC ASD Safety Factor for Compression",
+      "symbol": "Omega_c",
+      "unit": "ratio",
+      "type": "number",
+      "required": true,
+      "confidence_label": "MEDIUM",
+      "absolute_min": 1,
+      "absolute_max": 5,
+      "resolution": 0.001,
+      "default": 1.67,
+      "validation_rule": "Omega_c >= 1",
+      "source": "AISC360|User",
+      "uncertainty": "±0.05 Type B",
+      "note": "Used for AISC ASD allowable compression strength."
+    },
+    {
+      "id": "second_order_analysis_completed",
+      "name": "Second-Order Analysis Completed",
+      "symbol": "P_DELTA_OK",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "StructuralAnalysis|EngineerReview|User",
+      "uncertainty": "±0 Type B",
+      "note": "Frame stability, P-Delta and P-delta effects must be considered outside simple member capacity."
+    },
+    {
+      "id": "bracing_verified",
+      "name": "Bracing and Restraint Verified",
+      "symbol": "BRACE_OK",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "BracingDesign|ConnectionDesign|User",
+      "uncertainty": "±0 Type B",
+      "note": "Unbraced length assumptions are invalid unless bracing strength/stiffness and connection details are verified."
+    },
+    {
+      "id": "built_up_member_lacing_batten_verified",
+      "name": "Built-Up Member Lacing / Batten Verified",
+      "symbol": "BUILTUP_OK",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "BuiltUpMemberDesign|User",
+      "uncertainty": "±0 Type B",
+      "note": "Required for built-up members; otherwise review gate remains open."
+    },
+    {
+      "id": "local_buckling_effective_properties_verified",
+      "name": "Local Buckling Effective Properties Verified",
+      "symbol": "LOCAL_OK",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "SectionClassification|EffectiveSectionDesign|User",
+      "uncertainty": "±0 Type B",
+      "note": "Required for Class 4 or slender-element sections."
+    },
+    {
+      "id": "seismic_design_required",
+      "name": "Seismic Design Required",
+      "symbol": "SEIS",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "SeismicDesignBasis|User",
+      "uncertainty": "±0 Type B",
+      "note": "True triggers seismic review gate."
+    },
+    {
+      "id": "fire_design_required",
+      "name": "Fire Design Required",
+      "symbol": "FIRE",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "FireStrategy|User",
+      "uncertainty": "±0 Type B",
+      "note": "True triggers fire resistance review gate."
+    },
+    {
+      "id": "fatigue_or_cyclic_loading_present",
+      "name": "Fatigue or Cyclic Loading Present",
+      "symbol": "FAT",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "LoadAssessment|User",
+      "uncertainty": "±0 Type B",
+      "note": "Fatigue is not normally governing for pure compression buckling, but cyclic loading can govern details/connections."
+    },
+    {
+      "id": "corrosion_allowance_or_protection_verified",
+      "name": "Corrosion Protection Verified",
+      "symbol": "CORR_OK",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "DurabilitySpecification|User",
+      "uncertainty": "±0 Type B",
+      "note": "False triggers durability review warning."
+    },
+    {
+      "id": "licensed_engineer_review_completed",
+      "name": "Licensed Structural Engineer Review Completed",
+      "symbol": "PE_OK",
+      "unit": "boolean",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "CERTAIN",
+      "absolute_min": null,
+      "absolute_max": null,
+      "resolution": null,
+      "default": false,
+      "validation_rule": "Boolean true or false.",
+      "source": "EngineerOfRecord|User",
+      "uncertainty": "±0 Type B",
+      "note": "Final member design must be reviewed and approved by competent structural engineer."
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Selected Effective Area",
+      "expression": "effective_area_mm2 > 0 ? effective_area_mm2 : gross_area_mm2",
+      "output": "selected_effective_area_mm2",
+      "unit": "mm2",
+      "dimensional_check": "selected mm2 = mm2",
+      "reference": "Compression area selection",
+      "assumptions": [
+        "Gross area is used when no effective area is entered.",
+        "Effective area is required for EN Class 4 or AISC slender-element sections."
+      ],
+      "edge_cases": "if (selected_effective_area_mm2 <= 0) throw new Error('Selected effective area must be positive')",
+      "uncertainty_expression": "selected_effective_area_mm2 * (effective_area_mm2 > 0 ? 0.10 : 0.03)",
+      "cursor_instruction": "Render as selected effective area."
+    },
+    {
+      "id": "F2",
+      "name": "Selected Moment of Inertia X",
+      "expression": "moment_of_inertia_x_mm4 > 0 ? moment_of_inertia_x_mm4 : gross_area_mm2 * Math.pow(radius_gyration_x_mm, 2)",
+      "output": "selected_ix_mm4",
+      "unit": "mm4",
+      "dimensional_check": "mm2 × mm2 = mm4",
+      "reference": "Section property selection",
+      "assumptions": [
+        "Direct section table value is preferred.",
+        "If Ix is not entered, A × rx² is used."
+      ],
+      "edge_cases": "if (selected_ix_mm4 <= 0) throw new Error('Selected Ix must be positive')",
+      "uncertainty_expression": "selected_ix_mm4 * 0.05",
+      "cursor_instruction": "Render selected Ix."
+    },
+    {
+      "id": "F3",
+      "name": "Selected Moment of Inertia Y",
+      "expression": "moment_of_inertia_y_mm4 > 0 ? moment_of_inertia_y_mm4 : gross_area_mm2 * Math.pow(radius_gyration_y_mm, 2)",
+      "output": "selected_iy_mm4",
+      "unit": "mm4",
+      "dimensional_check": "mm2 × mm2 = mm4",
+      "reference": "Section property selection",
+      "assumptions": [
+        "Direct section table value is preferred.",
+        "If Iy is not entered, A × ry² is used."
+      ],
+      "edge_cases": "if (selected_iy_mm4 <= 0) throw new Error('Selected Iy must be positive')",
+      "uncertainty_expression": "selected_iy_mm4 * 0.05",
+      "cursor_instruction": "Render selected Iy."
+    },
+    {
+      "id": "F4",
+      "name": "Effective Buckling Length X",
+      "expression": "effective_length_factor_x * unbraced_length_x_mm",
+      "output": "effective_buckling_length_x_mm",
+      "unit": "mm",
+      "dimensional_check": "ratio × mm = mm",
+      "reference": "Effective length method",
+      "assumptions": [
+        "Effective length factor is externally determined.",
+        "Frame stability and end restraint assumptions are not calculated by this formula."
+      ],
+      "edge_cases": "if (effective_length_factor_x <= 0 || unbraced_length_x_mm <= 0) throw new Error('Effective length inputs X are invalid')",
+      "uncertainty_expression": "effective_buckling_length_x_mm * 0.25",
+      "cursor_instruction": "Render effective buckling length X."
+    },
+    {
+      "id": "F5",
+      "name": "Effective Buckling Length Y",
+      "expression": "effective_length_factor_y * unbraced_length_y_mm",
+      "output": "effective_buckling_length_y_mm",
+      "unit": "mm",
+      "dimensional_check": "ratio × mm = mm",
+      "reference": "Effective length method",
+      "assumptions": [
+        "Effective length factor is externally determined.",
+        "Frame stability and end restraint assumptions are not calculated by this formula."
+      ],
+      "edge_cases": "if (effective_length_factor_y <= 0 || unbraced_length_y_mm <= 0) throw new Error('Effective length inputs Y are invalid')",
+      "uncertainty_expression": "effective_buckling_length_y_mm * 0.25",
+      "cursor_instruction": "Render effective buckling length Y."
+    },
+    {
+      "id": "F6",
+      "name": "Effective Torsional Buckling Length",
+      "expression": "effective_length_factor_torsion * unbraced_length_torsion_mm",
+      "output": "effective_torsional_buckling_length_mm",
+      "unit": "mm",
+      "dimensional_check": "ratio × mm = mm",
+      "reference": "Torsional effective length screening",
+      "assumptions": [
+        "Torsional restraint is externally determined.",
+        "Warping restraint and torsional restraint details require engineering review."
+      ],
+      "edge_cases": "if (effective_length_factor_torsion <= 0 || unbraced_length_torsion_mm <= 0) throw new Error('Torsional length inputs are invalid')",
+      "uncertainty_expression": "effective_torsional_buckling_length_mm * 0.35",
+      "cursor_instruction": "Render effective torsional buckling length."
+    },
+    {
+      "id": "F7",
+      "name": "Slenderness Ratio X",
+      "expression": "effective_buckling_length_x_mm / radius_gyration_x_mm",
+      "output": "slenderness_ratio_x",
+      "unit": "ratio",
+      "dimensional_check": "mm / mm = ratio",
+      "reference": "Column slenderness KL/r",
+      "assumptions": [
+        "Radius of gyration is correct for buckling axis.",
+        "Effective length is valid for frame condition."
+      ],
+      "edge_cases": "if (radius_gyration_x_mm <= 0) throw new Error('Radius of gyration X must be positive')",
+      "uncertainty_expression": "slenderness_ratio_x * 0.27",
+      "cursor_instruction": "Render slenderness ratio X."
+    },
+    {
+      "id": "F8",
+      "name": "Slenderness Ratio Y",
+      "expression": "effective_buckling_length_y_mm / radius_gyration_y_mm",
+      "output": "slenderness_ratio_y",
+      "unit": "ratio",
+      "dimensional_check": "mm / mm = ratio",
+      "reference": "Column slenderness KL/r",
+      "assumptions": [
+        "Radius of gyration is correct for buckling axis.",
+        "Effective length is valid for frame condition."
+      ],
+      "edge_cases": "if (radius_gyration_y_mm <= 0) throw new Error('Radius of gyration Y must be positive')",
+      "uncertainty_expression": "slenderness_ratio_y * 0.27",
+      "cursor_instruction": "Render slenderness ratio Y."
+    },
+    {
+      "id": "F9",
+      "name": "Euler Critical Stress X",
+      "expression": "Math.pow(Math.PI, 2) * elastic_modulus_mpa / Math.pow(slenderness_ratio_x, 2)",
+      "output": "euler_critical_stress_x_mpa",
+      "unit": "MPa",
+      "dimensional_check": "MPa / ratio2 = MPa",
+      "reference": "Euler elastic buckling stress",
+      "assumptions": [
+        "Elastic flexural buckling about x-axis.",
+        "Residual stress and inelastic buckling are handled by code reduction formulas."
+      ],
+      "edge_cases": "if (slenderness_ratio_x <= 0) throw new Error('Slenderness ratio X must be positive')",
+      "uncertainty_expression": "euler_critical_stress_x_mpa * 0.55",
+      "cursor_instruction": "Render Euler critical stress X."
+    },
+    {
+      "id": "F10",
+      "name": "Euler Critical Stress Y",
+      "expression": "Math.pow(Math.PI, 2) * elastic_modulus_mpa / Math.pow(slenderness_ratio_y, 2)",
+      "output": "euler_critical_stress_y_mpa",
+      "unit": "MPa",
+      "dimensional_check": "MPa / ratio2 = MPa",
+      "reference": "Euler elastic buckling stress",
+      "assumptions": [
+        "Elastic flexural buckling about y-axis.",
+        "Residual stress and inelastic buckling are handled by code reduction formulas."
+      ],
+      "edge_cases": "if (slenderness_ratio_y <= 0) throw new Error('Slenderness ratio Y must be positive')",
+      "uncertainty_expression": "euler_critical_stress_y_mpa * 0.55",
+      "cursor_instruction": "Render Euler critical stress Y."
+    },
+    {
+      "id": "F11",
+      "name": "Elastic Critical Load X",
+      "expression": "euler_critical_stress_x_mpa * selected_effective_area_mm2 / 1000",
+      "output": "elastic_critical_load_x_kn",
+      "unit": "kN",
+      "dimensional_check": "MPa × mm2 / 1000 = kN",
+      "reference": "Euler elastic critical load",
+      "assumptions": [
+        "Selected effective area is used for screening.",
+        "Axis x critical stress governs this branch."
+      ],
+      "edge_cases": "if (elastic_critical_load_x_kn <= 0) throw new Error('Elastic critical load X must be positive')",
+      "uncertainty_expression": "elastic_critical_load_x_kn * 0.58",
+      "cursor_instruction": "Render elastic critical load X."
+    },
+    {
+      "id": "F12",
+      "name": "Elastic Critical Load Y",
+      "expression": "euler_critical_stress_y_mpa * selected_effective_area_mm2 / 1000",
+      "output": "elastic_critical_load_y_kn",
+      "unit": "kN",
+      "dimensional_check": "MPa × mm2 / 1000 = kN",
+      "reference": "Euler elastic critical load",
+      "assumptions": [
+        "Selected effective area is used for screening.",
+        "Axis y critical stress governs this branch."
+      ],
+      "edge_cases": "if (elastic_critical_load_y_kn <= 0) throw new Error('Elastic critical load Y must be positive')",
+      "uncertainty_expression": "elastic_critical_load_y_kn * 0.58",
+      "cursor_instruction": "Render elastic critical load Y."
+    },
+    {
+      "id": "F13",
+      "name": "Gross Yield Compression Resistance",
+      "expression": "selected_effective_area_mm2 * yield_strength_mpa / 1000",
+      "output": "gross_yield_compression_resistance_kn",
+      "unit": "kN",
+      "dimensional_check": "mm2 × MPa / 1000 = kN",
+      "reference": "Squash load / gross yielding compression resistance",
+      "assumptions": [
+        "Selected effective area represents local buckling reductions when needed.",
+        "No buckling reduction is applied in this formula."
+      ],
+      "edge_cases": "if (yield_strength_mpa <= 0 || selected_effective_area_mm2 <= 0) throw new Error('Yield strength and area must be positive')",
+      "uncertainty_expression": "gross_yield_compression_resistance_kn * 0.12",
+      "cursor_instruction": "Render gross yield compression resistance."
+    },
+    {
+      "id": "F14",
+      "name": "EN Non-Dimensional Slenderness X",
+      "expression": "Math.sqrt(gross_yield_compression_resistance_kn / elastic_critical_load_x_kn)",
+      "output": "en_nondimensional_slenderness_x",
+      "unit": "ratio",
+      "dimensional_check": "sqrt(kN/kN) = ratio",
+      "reference": "EN 1993 non-dimensional slenderness",
+      "assumptions": [
+        "Elastic critical load X is used.",
+        "Selected area includes effective-section reduction where required."
+      ],
+      "edge_cases": "if (elastic_critical_load_x_kn <= 0) throw new Error('Elastic critical load X must be positive')",
+      "uncertainty_expression": "en_nondimensional_slenderness_x * 0.32",
+      "cursor_instruction": "Render EN slenderness X."
+    },
+    {
+      "id": "F15",
+      "name": "EN Non-Dimensional Slenderness Y",
+      "expression": "Math.sqrt(gross_yield_compression_resistance_kn / elastic_critical_load_y_kn)",
+      "output": "en_nondimensional_slenderness_y",
+      "unit": "ratio",
+      "dimensional_check": "sqrt(kN/kN) = ratio",
+      "reference": "EN 1993 non-dimensional slenderness",
+      "assumptions": [
+        "Elastic critical load Y is used.",
+        "Selected area includes effective-section reduction where required."
+      ],
+      "edge_cases": "if (elastic_critical_load_y_kn <= 0) throw new Error('Elastic critical load Y must be positive')",
+      "uncertainty_expression": "en_nondimensional_slenderness_y * 0.32",
+      "cursor_instruction": "Render EN slenderness Y."
+    },
+    {
+      "id": "F16",
+      "name": "EN Imperfection Factor X",
+      "expression": "en_user_imperfection_factor_x > 0 ? en_user_imperfection_factor_x : mapEnBucklingCurveToImperfectionFactor(en_buckling_curve_x)",
+      "output": "en_imperfection_factor_x",
+      "unit": "ratio",
+      "dimensional_check": "ratio",
+      "reference": "EN 1993 buckling curve imperfection factor",
+      "assumptions": [
+        "User-defined alpha overrides curve mapping.",
+        "Buckling curve must be verified against section type and axis."
+      ],
+      "edge_cases": "if (en_imperfection_factor_x < 0) throw new Error('EN imperfection factor X cannot be negative')",
+      "uncertainty_expression": "en_imperfection_factor_x * 0.15",
+      "cursor_instruction": "Render EN imperfection factor X."
+    },
+    {
+      "id": "F17",
+      "name": "EN Imperfection Factor Y",
+      "expression": "en_user_imperfection_factor_y > 0 ? en_user_imperfection_factor_y : mapEnBucklingCurveToImperfectionFactor(en_buckling_curve_y)",
+      "output": "en_imperfection_factor_y",
+      "unit": "ratio",
+      "dimensional_check": "ratio",
+      "reference": "EN 1993 buckling curve imperfection factor",
+      "assumptions": [
+        "User-defined alpha overrides curve mapping.",
+        "Buckling curve must be verified against section type and axis."
+      ],
+      "edge_cases": "if (en_imperfection_factor_y < 0) throw new Error('EN imperfection factor Y cannot be negative')",
+      "uncertainty_expression": "en_imperfection_factor_y * 0.15",
+      "cursor_instruction": "Render EN imperfection factor Y."
+    },
+    {
+      "id": "F18",
+      "name": "EN Phi Factor X",
+      "expression": "0.5 * (1 + en_imperfection_factor_x * (en_nondimensional_slenderness_x - 0.2) + Math.pow(en_nondimensional_slenderness_x, 2))",
+      "output": "en_phi_x",
+      "unit": "ratio",
+      "dimensional_check": "ratio",
+      "reference": "EN 1993 buckling reduction expression",
+      "assumptions": [
+        "EN-style buckling reduction formula is used.",
+        "Non-dimensional slenderness is positive."
+      ],
+      "edge_cases": "if (en_phi_x <= 0) throw new Error('EN phi X must be positive')",
+      "uncertainty_expression": "en_phi_x * 0.35",
+      "cursor_instruction": "Render EN phi X."
+    },
+    {
+      "id": "F19",
+      "name": "EN Phi Factor Y",
+      "expression": "0.5 * (1 + en_imperfection_factor_y * (en_nondimensional_slenderness_y - 0.2) + Math.pow(en_nondimensional_slenderness_y, 2))",
+      "output": "en_phi_y",
+      "unit": "ratio",
+      "dimensional_check": "ratio",
+      "reference": "EN 1993 buckling reduction expression",
+      "assumptions": [
+        "EN-style buckling reduction formula is used.",
+        "Non-dimensional slenderness is positive."
+      ],
+      "edge_cases": "if (en_phi_y <= 0) throw new Error('EN phi Y must be positive')",
+      "uncertainty_expression": "en_phi_y * 0.35",
+      "cursor_instruction": "Render EN phi Y."
+    },
+    {
+      "id": "F20",
+      "name": "EN Buckling Reduction Factor X",
+      "expression": "Math.min(1, 1 / (en_phi_x + Math.sqrt(Math.max(0, Math.pow(en_phi_x, 2) - Math.pow(en_nondimensional_slenderness_x, 2)))))",
+      "output": "en_chi_x",
+      "unit": "ratio",
+      "dimensional_check": "ratio",
+      "reference": "EN 1993 buckling reduction factor chi",
+      "assumptions": [
+        "Reduction factor is limited to maximum 1.0.",
+        "Negative square-root term is clamped only to avoid numerical noise."
+      ],
+      "edge_cases": "if (en_chi_x <= 0 || en_chi_x > 1) throw new Error('EN chi X out of range')",
+      "uncertainty_expression": "en_chi_x * 0.25",
+      "cursor_instruction": "Render EN chi X."
+    },
+    {
+      "id": "F21",
+      "name": "EN Buckling Reduction Factor Y",
+      "expression": "Math.min(1, 1 / (en_phi_y + Math.sqrt(Math.max(0, Math.pow(en_phi_y, 2) - Math.pow(en_nondimensional_slenderness_y, 2)))))",
+      "output": "en_chi_y",
+      "unit": "ratio",
+      "dimensional_check": "ratio",
+      "reference": "EN 1993 buckling reduction factor chi",
+      "assumptions": [
+        "Reduction factor is limited to maximum 1.0.",
+        "Negative square-root term is clamped only to avoid numerical noise."
+      ],
+      "edge_cases": "if (en_chi_y <= 0 || en_chi_y > 1) throw new Error('EN chi Y out of range')",
+      "uncertainty_expression": "en_chi_y * 0.25",
+      "cursor_instruction": "Render EN chi Y."
+    },
+    {
+      "id": "F22",
+      "name": "EN Compression Buckling Resistance X",
+      "expression": "en_chi_x * selected_effective_area_mm2 * yield_strength_mpa / gamma_m1 / 1000",
+      "output": "en_compression_buckling_resistance_x_kn",
+      "unit": "kN",
+      "dimensional_check": "ratio × mm2 × MPa / 1000 = kN",
+      "reference": "EN 1993 compression buckling resistance",
+      "assumptions": [
+        "Buckling about x-axis controls this branch.",
+        "gamma_M1 is applied."
+      ],
+      "edge_cases": "if (gamma_m1 < 1) throw new Error('gamma_M1 must be at least 1')",
+      "uncertainty_expression": "en_compression_buckling_resistance_x_kn * 0.35",
+      "cursor_instruction": "Render EN compression resistance X."
+    },
+    {
+      "id": "F23",
+      "name": "EN Compression Buckling Resistance Y",
+      "expression": "en_chi_y * selected_effective_area_mm2 * yield_strength_mpa / gamma_m1 / 1000",
+      "output": "en_compression_buckling_resistance_y_kn",
+      "unit": "kN",
+      "dimensional_check": "ratio × mm2 × MPa / 1000 = kN",
+      "reference": "EN 1993 compression buckling resistance",
+      "assumptions": [
+        "Buckling about y-axis controls this branch.",
+        "gamma_M1 is applied."
+      ],
+      "edge_cases": "if (gamma_m1 < 1) throw new Error('gamma_M1 must be at least 1')",
+      "uncertainty_expression": "en_compression_buckling_resistance_y_kn * 0.35",
+      "cursor_instruction": "Render EN compression resistance Y."
+    },
+    {
+      "id": "F24",
+      "name": "AISC Fe X",
+      "expression": "euler_critical_stress_x_mpa",
+      "output": "aisc_fe_x_mpa",
+      "unit": "MPa",
+      "dimensional_check": "MPa",
+      "reference": "AISC elastic buckling stress Fe",
+      "assumptions": [
+        "AISC Fe equals Euler elastic stress for flexural buckling branch.",
+        "Effective length and radius of gyration are externally verified."
+      ],
+      "edge_cases": "if (aisc_fe_x_mpa <= 0) throw new Error('AISC Fe X must be positive')",
+      "uncertainty_expression": "aisc_fe_x_mpa * 0.55",
+      "cursor_instruction": "Render AISC Fe X."
+    },
+    {
+      "id": "F25",
+      "name": "AISC Fe Y",
+      "expression": "euler_critical_stress_y_mpa",
+      "output": "aisc_fe_y_mpa",
+      "unit": "MPa",
+      "dimensional_check": "MPa",
+      "reference": "AISC elastic buckling stress Fe",
+      "assumptions": [
+        "AISC Fe equals Euler elastic stress for flexural buckling branch.",
+        "Effective length and radius of gyration are externally verified."
+      ],
+      "edge_cases": "if (aisc_fe_y_mpa <= 0) throw new Error('AISC Fe Y must be positive')",
+      "uncertainty_expression": "aisc_fe_y_mpa * 0.55",
+      "cursor_instruction": "Render AISC Fe Y."
+    },
+    {
+      "id": "F26",
+      "name": "AISC Critical Stress X",
+      "expression": "yield_strength_mpa / aisc_fe_x_mpa <= 2.25 ? Math.pow(0.658, yield_strength_mpa / aisc_fe_x_mpa) * yield_strength_mpa : 0.877 * aisc_fe_x_mpa",
+      "output": "aisc_critical_stress_x_mpa",
+      "unit": "MPa",
+      "dimensional_check": "MPa",
+      "reference": "AISC column critical stress screening",
+      "assumptions": [
+        "Inelastic/elastic transition follows AISC-style compression member expression.",
+        "Slender-element effective area is handled separately."
+      ],
+      "edge_cases": "if (aisc_fe_x_mpa <= 0 || yield_strength_mpa <= 0) throw new Error('AISC critical stress X inputs invalid')",
+      "uncertainty_expression": "aisc_critical_stress_x_mpa * 0.30",
+      "cursor_instruction": "Render AISC critical stress X."
+    },
+    {
+      "id": "F27",
+      "name": "AISC Critical Stress Y",
+      "expression": "yield_strength_mpa / aisc_fe_y_mpa <= 2.25 ? Math.pow(0.658, yield_strength_mpa / aisc_fe_y_mpa) * yield_strength_mpa : 0.877 * aisc_fe_y_mpa",
+      "output": "aisc_critical_stress_y_mpa",
+      "unit": "MPa",
+      "dimensional_check": "MPa",
+      "reference": "AISC column critical stress screening",
+      "assumptions": [
+        "Inelastic/elastic transition follows AISC-style compression member expression.",
+        "Slender-element effective area is handled separately."
+      ],
+      "edge_cases": "if (aisc_fe_y_mpa <= 0 || yield_strength_mpa <= 0) throw new Error('AISC critical stress Y inputs invalid')",
+      "uncertainty_expression": "aisc_critical_stress_y_mpa * 0.30",
+      "cursor_instruction": "Render AISC critical stress Y."
+    },
+    {
+      "id": "F28",
+      "name": "AISC Nominal Compression Strength X",
+      "expression": "aisc_critical_stress_x_mpa * selected_effective_area_mm2 / 1000",
+      "output": "aisc_nominal_compression_strength_x_kn",
+      "unit": "kN",
+      "dimensional_check": "MPa × mm2 / 1000 = kN",
+      "reference": "AISC nominal compression strength",
+      "assumptions": [
+        "Selected effective area is used.",
+        "Buckling about x-axis controls this branch."
+      ],
+      "edge_cases": "if (aisc_nominal_compression_strength_x_kn <= 0) throw new Error('AISC nominal compression strength X must be positive')",
+      "uncertainty_expression": "aisc_nominal_compression_strength_x_kn * 0.34",
+      "cursor_instruction": "Render AISC nominal compression strength X."
+    },
+    {
+      "id": "F29",
+      "name": "AISC Nominal Compression Strength Y",
+      "expression": "aisc_critical_stress_y_mpa * selected_effective_area_mm2 / 1000",
+      "output": "aisc_nominal_compression_strength_y_kn",
+      "unit": "kN",
+      "dimensional_check": "MPa × mm2 / 1000 = kN",
+      "reference": "AISC nominal compression strength",
+      "assumptions": [
+        "Selected effective area is used.",
+        "Buckling about y-axis controls this branch."
+      ],
+      "edge_cases": "if (aisc_nominal_compression_strength_y_kn <= 0) throw new Error('AISC nominal compression strength Y must be positive')",
+      "uncertainty_expression": "aisc_nominal_compression_strength_y_kn * 0.34",
+      "cursor_instruction": "Render AISC nominal compression strength Y."
+    },
+    {
+      "id": "F30",
+      "name": "AISC Available Compression Strength X",
+      "expression": "design_standard === 'AISC_360_ASD' ? aisc_nominal_compression_strength_x_kn / aisc_omega_c : aisc_phi_c * aisc_nominal_compression_strength_x_kn",
+      "output": "aisc_available_compression_strength_x_kn",
+      "unit": "kN",
+      "dimensional_check": "kN × phi or kN / omega = kN",
+      "reference": "AISC LRFD/ASD available compression strength",
+      "assumptions": [
+        "LRFD applies phi_c.",
+        "ASD applies Omega_c."
+      ],
+      "edge_cases": "if (aisc_phi_c <= 0 || aisc_omega_c < 1) throw new Error('AISC compression factors invalid')",
+      "uncertainty_expression": "aisc_available_compression_strength_x_kn * 0.35",
+      "cursor_instruction": "Render AISC available compression strength X."
+    },
+    {
+      "id": "F31",
+      "name": "AISC Available Compression Strength Y",
+      "expression": "design_standard === 'AISC_360_ASD' ? aisc_nominal_compression_strength_y_kn / aisc_omega_c : aisc_phi_c * aisc_nominal_compression_strength_y_kn",
+      "output": "aisc_available_compression_strength_y_kn",
+      "unit": "kN",
+      "dimensional_check": "kN × phi or kN / omega = kN",
+      "reference": "AISC LRFD/ASD available compression strength",
+      "assumptions": [
+        "LRFD applies phi_c.",
+        "ASD applies Omega_c."
+      ],
+      "edge_cases": "if (aisc_phi_c <= 0 || aisc_omega_c < 1) throw new Error('AISC compression factors invalid')",
+      "uncertainty_expression": "aisc_available_compression_strength_y_kn * 0.35",
+      "cursor_instruction": "Render AISC available compression strength Y."
+    },
+    {
+      "id": "F32",
+      "name": "Torsional Buckling Critical Load",
+      "expression": "computeTorsionalBucklingCriticalLoad(section_symmetry, selected_effective_area_mm2, selected_ix_mm4, selected_iy_mm4, torsional_constant_j_mm4, warping_constant_cw_mm6, elastic_modulus_mpa, shear_modulus_mpa, effective_torsional_buckling_length_mm, shear_center_offset_x_mm, shear_center_offset_y_mm)",
+      "output": "torsional_buckling_critical_load_kn",
+      "unit": "kN",
+      "dimensional_check": "torsional buckling resistance in kN",
+      "reference": "Torsional and flexural-torsional buckling helper",
+      "assumptions": [
+        "Helper evaluates torsional or flexural-torsional critical load depending on section symmetry.",
+        "Open thin-walled, singly symmetric and asymmetric sections require specialist verification.",
+        "Warping restraint assumptions are externally verified."
+      ],
+      "edge_cases": "if (torsional_constant_j_mm4 <= 0 && section_symmetry !== 'CLOSED_TUBE') return 0",
+      "uncertainty_expression": "torsional_buckling_critical_load_kn > 0 ? torsional_buckling_critical_load_kn * 0.50 : null",
+      "cursor_instruction": "Render torsional buckling critical load or NOT_EVALUATED."
+    },
+    {
+      "id": "F33",
+      "name": "Torsional Buckling Design Resistance",
+      "expression": "torsional_buckling_critical_load_kn > 0 ? computeTorsionalBucklingDesignResistance(design_standard, torsional_buckling_critical_load_kn, gross_yield_compression_resistance_kn, yield_strength_mpa, selected_effective_area_mm2, gamma_m1, aisc_phi_c, aisc_omega_c) : null",
+      "output": "torsional_buckling_design_resistance_kn",
+      "unit": "kN|null",
+      "dimensional_check": "kN|null",
+      "reference": "Torsional buckling design resistance screening",
+      "assumptions": [
+        "Helper applies EN or AISC-style torsional/flexural-torsional reduction.",
+        "Null means torsional buckling not evaluated because required properties are missing or not applicable."
+      ],
+      "edge_cases": "if (torsional_buckling_critical_load_kn < 0) throw new Error('Torsional critical load cannot be negative')",
+      "uncertainty_expression": "torsional_buckling_design_resistance_kn === null ? null : torsional_buckling_design_resistance_kn * 0.55",
+      "cursor_instruction": "Render torsional buckling resistance or NOT_EVALUATED."
+    },
+    {
+      "id": "F34",
+      "name": "Selected EN Compression Resistance",
+      "expression": "Math.min(en_compression_buckling_resistance_x_kn, en_compression_buckling_resistance_y_kn, torsional_buckling_design_resistance_kn === null ? 1e99 : torsional_buckling_design_resistance_kn)",
+      "output": "selected_en_compression_resistance_kn",
+      "unit": "kN",
+      "dimensional_check": "min(kN) = kN",
+      "reference": "Selected EN compression resistance",
+      "assumptions": [
+        "Lowest evaluated EN resistance controls.",
+        "Torsional resistance is included when evaluated."
+      ],
+      "edge_cases": "if (selected_en_compression_resistance_kn <= 0 || selected_en_compression_resistance_kn === 1e99) throw new Error('Selected EN compression resistance invalid')",
+      "uncertainty_expression": "selected_en_compression_resistance_kn * 0.40",
+      "cursor_instruction": "Render selected EN compression resistance."
+    },
+    {
+      "id": "F35",
+      "name": "Selected AISC Compression Resistance",
+      "expression": "Math.min(aisc_available_compression_strength_x_kn, aisc_available_compression_strength_y_kn, torsional_buckling_design_resistance_kn === null ? 1e99 : torsional_buckling_design_resistance_kn)",
+      "output": "selected_aisc_compression_resistance_kn",
+      "unit": "kN",
+      "dimensional_check": "min(kN) = kN",
+      "reference": "Selected AISC compression resistance",
+      "assumptions": [
+        "Lowest evaluated AISC resistance controls.",
+        "Torsional resistance is included when evaluated."
+      ],
+      "edge_cases": "if (selected_aisc_compression_resistance_kn <= 0 || selected_aisc_compression_resistance_kn === 1e99) throw new Error('Selected AISC compression resistance invalid')",
+      "uncertainty_expression": "selected_aisc_compression_resistance_kn * 0.40",
+      "cursor_instruction": "Render selected AISC compression resistance."
+    },
+    {
+      "id": "F36",
+      "name": "Selected Design Compression Resistance",
+      "expression": "design_standard === 'EN_1993_1_1' ? selected_en_compression_resistance_kn : (design_standard === 'AISC_360_LRFD' || design_standard === 'AISC_360_ASD' ? selected_aisc_compression_resistance_kn : Math.min(selected_en_compression_resistance_kn, selected_aisc_compression_resistance_kn))",
+      "output": "selected_design_compression_resistance_kn",
+      "unit": "kN",
+      "dimensional_check": "selected kN = kN",
+      "reference": "Design standard compression resistance selection",
+      "assumptions": [
+        "Dual-code mode uses lower comparable resistance.",
+        "Owner specification requires separate review."
+      ],
+      "edge_cases": "if (selected_design_compression_resistance_kn <= 0) throw new Error('Selected design compression resistance must be positive')",
+      "uncertainty_expression": "selected_design_compression_resistance_kn * 0.45",
+      "cursor_instruction": "Render selected design compression resistance."
+    },
+    {
+      "id": "F37",
+      "name": "Compression Utilization",
+      "expression": "factored_axial_compression_kn / selected_design_compression_resistance_kn",
+      "output": "compression_utilization",
+      "unit": "ratio",
+      "dimensional_check": "kN / kN = ratio",
+      "reference": "Axial compression demand-capacity ratio",
+      "assumptions": [
+        "Selected resistance follows chosen standard mode.",
+        "Demand is consistent with LRFD/ASD/EN basis."
+      ],
+      "edge_cases": "if (selected_design_compression_resistance_kn <= 0) throw new Error('Compression resistance must be positive')",
+      "uncertainty_expression": "compression_utilization * 0.50",
+      "cursor_instruction": "Render compression utilization."
+    },
+    {
+      "id": "F38",
+      "name": "Governing Buckling Axis",
+      "expression": "identifyGoverningBucklingAxis({EN_X: en_compression_buckling_resistance_x_kn, EN_Y: en_compression_buckling_resistance_y_kn, AISC_X: aisc_available_compression_strength_x_kn, AISC_Y: aisc_available_compression_strength_y_kn, TORSIONAL: torsional_buckling_design_resistance_kn})",
+      "output": "governing_buckling_axis",
+      "unit": "enum",
+      "dimensional_check": "classification enum",
+      "reference": "Governing buckling branch identification",
+      "assumptions": [
+        "Lowest evaluated resistance is governing.",
+        "Null torsional resistance is ignored but triggers review where applicable."
+      ],
+      "edge_cases": "if (!governing_buckling_axis) throw new Error('Governing buckling axis cannot be determined')",
+      "uncertainty_expression": "Classification confidence depends on resistance uncertainty.",
+      "cursor_instruction": "Render governing buckling axis."
+    },
+    {
+      "id": "F39",
+      "name": "Local Buckling Status",
+      "expression": "(section_class_en === 'CLASS_4' || aisc_element_slenderness_class === 'SLENDER_ELEMENTS') && local_buckling_effective_properties_verified === false ? 'LOCAL_BUCKLING_EFFECTIVE_PROPERTIES_REVIEW_REQUIRED' : 'LOCAL_BUCKLING_ACCEPTABLE_FOR_SCREENING'",
+      "output": "local_buckling_status",
+      "unit": "enum",
+      "dimensional_check": "classification enum",
+      "reference": "Local buckling and effective property review gate",
+      "assumptions": [
+        "Class 4 and slender-element sections require verified effective properties.",
+        "Non-slender or Class 1-3 sections are acceptable for global buckling screening."
+      ],
+      "edge_cases": "if (!local_buckling_status) throw new Error('Local buckling status cannot be determined')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render local buckling status badge."
+    },
+    {
+      "id": "F40",
+      "name": "Second-Order Stability Status",
+      "expression": "second_order_analysis_completed ? 'SECOND_ORDER_ANALYSIS_COMPLETED' : 'SECOND_ORDER_ANALYSIS_REVIEW_REQUIRED'",
+      "output": "second_order_stability_status",
+      "unit": "enum",
+      "dimensional_check": "boolean gate classification",
+      "reference": "Frame stability and second-order analysis review gate",
+      "assumptions": [
+        "Column member strength alone does not verify frame stability.",
+        "P-Delta, P-delta, imperfections and stiffness reduction require structural analysis review."
+      ],
+      "edge_cases": "if (typeof second_order_analysis_completed !== 'boolean') throw new Error('Second-order flag must be boolean')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render second-order stability status badge."
+    },
+    {
+      "id": "F41",
+      "name": "Bracing Status",
+      "expression": "bracing_verified ? 'BRACING_AND_RESTRAINT_VERIFIED' : 'BRACING_AND_RESTRAINT_REVIEW_REQUIRED'",
+      "output": "bracing_status",
+      "unit": "enum",
+      "dimensional_check": "boolean gate classification",
+      "reference": "Bracing and restraint review gate",
+      "assumptions": [
+        "Unbraced length is valid only if bracing strength and stiffness are verified.",
+        "Connection restraint assumptions require connection design review."
+      ],
+      "edge_cases": "if (typeof bracing_verified !== 'boolean') throw new Error('Bracing flag must be boolean')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render bracing status badge."
+    },
+    {
+      "id": "F42",
+      "name": "Built-Up Member Status",
+      "expression": "member_type === 'BUILT_UP_MEMBER' && built_up_member_lacing_batten_verified === false ? 'BUILT_UP_MEMBER_LACING_BATTEN_REVIEW_REQUIRED' : 'BUILT_UP_MEMBER_ACCEPTABLE_FOR_SCREENING'",
+      "output": "built_up_member_status",
+      "unit": "enum",
+      "dimensional_check": "boolean gate classification",
+      "reference": "Built-up member review gate",
+      "assumptions": [
+        "Built-up members require lacing, batten, connector and shear deformation review.",
+        "Single rolled/welded sections do not trigger this gate."
+      ],
+      "edge_cases": "if (typeof built_up_member_lacing_batten_verified !== 'boolean') throw new Error('Built-up member flag must be boolean')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render built-up member status badge."
+    },
+    {
+      "id": "F43",
+      "name": "Torsional Review Status",
+      "expression": "(section_symmetry === 'SINGLY_SYMMETRIC' || section_symmetry === 'ASYMMETRIC' || section_symmetry === 'OPEN_THIN_WALLED_REVIEW_REQUIRED') && torsional_buckling_design_resistance_kn === null ? 'TORSIONAL_OR_FLEXURAL_TORSIONAL_REVIEW_REQUIRED' : 'TORSIONAL_REVIEW_ACCEPTABLE_FOR_SCREENING'",
+      "output": "torsional_review_status",
+      "unit": "enum",
+      "dimensional_check": "classification enum",
+      "reference": "Torsional buckling review gate",
+      "assumptions": [
+        "Singly symmetric, asymmetric and open thin-walled sections require torsional/flexural-torsional evaluation.",
+        "Closed tubes and doubly symmetric sections may still require torsional review in unusual restraint conditions."
+      ],
+      "edge_cases": "if (!torsional_review_status) throw new Error('Torsional review status cannot be determined')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render torsional review status badge."
+    },
+    {
+      "id": "F44",
+      "name": "Axial-Bending Review Status",
+      "expression": "major_axis_moment_knm > 0 || minor_axis_moment_knm > 0 ? 'AXIAL_BENDING_INTERACTION_REVIEW_REQUIRED' : 'PURE_COMPRESSION_SCREENING'",
+      "output": "axial_bending_review_status",
+      "unit": "enum",
+      "dimensional_check": "classification enum",
+      "reference": "Beam-column interaction review gate",
+      "assumptions": [
+        "This tool calculates column compression buckling capacity.",
+        "Nonzero bending moments require EN/AISC beam-column interaction module."
+      ],
+      "edge_cases": "if (major_axis_moment_knm < 0 || minor_axis_moment_knm < 0) throw new Error('Moments cannot be negative')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render axial-bending review badge."
+    },
+    {
+      "id": "F45",
+      "name": "Special Review Status",
+      "expression": "seismic_design_required ? 'SEISMIC_COLUMN_REVIEW_REQUIRED' : (fire_design_required ? 'FIRE_RESISTANCE_REVIEW_REQUIRED' : (fatigue_or_cyclic_loading_present ? 'FATIGUE_OR_CYCLIC_LOADING_REVIEW_REQUIRED' : 'NO_SPECIAL_REVIEW_TRIGGERED'))",
+      "output": "special_review_status",
+      "unit": "enum",
+      "dimensional_check": "boolean gate classification",
+      "reference": "Seismic, fire and fatigue review gates",
+      "assumptions": [
+        "Seismic, fire and fatigue/cyclic loading require specialist checks.",
+        "Ambient-temperature static compression capacity is not sufficient for those cases."
+      ],
+      "edge_cases": "if (typeof seismic_design_required !== 'boolean' || typeof fire_design_required !== 'boolean' || typeof fatigue_or_cyclic_loading_present !== 'boolean') throw new Error('Special review flags must be boolean')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render special review status badge."
+    },
+    {
+      "id": "F46",
+      "name": "Durability Status",
+      "expression": "corrosion_allowance_or_protection_verified ? 'DURABILITY_ACCEPTABLE_FOR_SCREENING' : 'DURABILITY_REVIEW_REQUIRED'",
+      "output": "durability_status",
+      "unit": "enum",
+      "dimensional_check": "boolean gate classification",
+      "reference": "Durability and corrosion review gate",
+      "assumptions": [
+        "Corrosion loss can reduce section area, radius of gyration and local buckling resistance.",
+        "Durability is not calculated unless effective corroded properties are entered."
+      ],
+      "edge_cases": "if (typeof corrosion_allowance_or_protection_verified !== 'boolean') throw new Error('Durability flag must be boolean')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render durability status badge."
+    },
+    {
+      "id": "F47",
+      "name": "Strength Status",
+      "expression": "compression_utilization <= 1 ? 'COMPRESSION_STRENGTH_ACCEPTABLE_FOR_SCREENING' : 'COMPRESSION_STRENGTH_NOT_ACCEPTABLE'",
+      "output": "strength_status",
+      "unit": "enum",
+      "dimensional_check": "utilization threshold classification",
+      "reference": "Compression strength adequacy status",
+      "assumptions": [
+        "Utilization limit is 1.0 for screening.",
+        "All mandatory compression buckling branches have been evaluated or review-gated."
+      ],
+      "edge_cases": "if (compression_utilization < 0) throw new Error('Compression utilization cannot be negative')",
+      "uncertainty_expression": "Classification confidence depends on compression utilization uncertainty.",
+      "cursor_instruction": "Render strength status badge."
+    },
+    {
+      "id": "F48",
+      "name": "Engineer Review Status",
+      "expression": "licensed_engineer_review_completed ? 'LICENSED_ENGINEER_REVIEW_COMPLETED' : 'LICENSED_ENGINEER_REVIEW_REQUIRED'",
+      "output": "engineer_review_status",
+      "unit": "enum",
+      "dimensional_check": "boolean gate classification",
+      "reference": "Structural engineering approval gate",
+      "assumptions": [
+        "Final structural member design requires competent engineer review.",
+        "Software output is not a sealed calculation."
+      ],
+      "edge_cases": "if (typeof licensed_engineer_review_completed !== 'boolean') throw new Error('Engineer review flag must be boolean')",
+      "uncertainty_expression": "Gate-based output. No numeric u_c.",
+      "cursor_instruction": "Render engineer review badge."
+    },
+    {
+      "id": "F49",
+      "name": "Column Buckling Risk Class",
+      "expression": "strength_status === 'COMPRESSION_STRENGTH_NOT_ACCEPTABLE' ? 'COLUMN_BUCKLING_STRENGTH_NOT_ACCEPTABLE' : (local_buckling_status !== 'LOCAL_BUCKLING_ACCEPTABLE_FOR_SCREENING' ? 'LOCAL_BUCKLING_REVIEW_REQUIRED' : (torsional_review_status !== 'TORSIONAL_REVIEW_ACCEPTABLE_FOR_SCREENING' ? 'TORSIONAL_BUCKLING_REVIEW_REQUIRED' : (second_order_stability_status !== 'SECOND_ORDER_ANALYSIS_COMPLETED' ? 'SECOND_ORDER_STABILITY_REVIEW_REQUIRED' : (bracing_status !== 'BRACING_AND_RESTRAINT_VERIFIED' ? 'BRACING_RESTRAINT_REVIEW_REQUIRED' : (built_up_member_status !== 'BUILT_UP_MEMBER_ACCEPTABLE_FOR_SCREENING' ? 'BUILT_UP_MEMBER_REVIEW_REQUIRED' : (axial_bending_review_status !== 'PURE_COMPRESSION_SCREENING' ? 'AXIAL_BENDING_INTERACTION_REVIEW_REQUIRED' : (special_review_status !== 'NO_SPECIAL_REVIEW_TRIGGERED' ? special_review_status : (durability_status !== 'DURABILITY_ACCEPTABLE_FOR_SCREENING' ? 'DURABILITY_REVIEW_REQUIRED' : (engineer_review_status !== 'LICENSED_ENGINEER_REVIEW_COMPLETED' ? 'ENGINEER_REVIEW_REQUIRED' : 'CONTROLLED_COLUMN_BUCKLING_SCREENING')))))))))",
+      "output": "column_buckling_risk_class",
+      "unit": "enum",
+      "dimensional_check": "classification enum",
+      "reference": "Integrated column buckling risk classification",
+      "assumptions": [
+        "Numerical strength, local buckling, torsional buckling, second-order analysis, bracing, built-up member, axial-bending, special review, durability and engineer gates are evaluated together.",
+        "Review gates can override numerical acceptance."
+      ],
+      "edge_cases": "if (!column_buckling_risk_class) throw new Error('Column buckling risk class cannot be determined')",
+      "uncertainty_expression": "Classification confidence depends on load, effective length, section properties, material, bracing, stability model and review gates.",
+      "cursor_instruction": "Render as main risk badge."
+    },
+    {
+      "id": "F50",
+      "name": "Decision",
+      "expression": "strength_status === 'COMPRESSION_STRENGTH_NOT_ACCEPTABLE' ? 'COLUMN_BUCKLING_CAPACITY_NOT_ACCEPTABLE' : (local_buckling_status !== 'LOCAL_BUCKLING_ACCEPTABLE_FOR_SCREENING' ? local_buckling_status : (torsional_review_status !== 'TORSIONAL_REVIEW_ACCEPTABLE_FOR_SCREENING' ? torsional_review_status : (second_order_stability_status !== 'SECOND_ORDER_ANALYSIS_COMPLETED' ? second_order_stability_status : (bracing_status !== 'BRACING_AND_RESTRAINT_VERIFIED' ? bracing_status : (built_up_member_status !== 'BUILT_UP_MEMBER_ACCEPTABLE_FOR_SCREENING' ? built_up_member_status : (axial_bending_review_status !== 'PURE_COMPRESSION_SCREENING' ? axial_bending_review_status : (special_review_status !== 'NO_SPECIAL_REVIEW_TRIGGERED' ? special_review_status : (durability_status !== 'DURABILITY_ACCEPTABLE_FOR_SCREENING' ? durability_status : (engineer_review_status !== 'LICENSED_ENGINEER_REVIEW_COMPLETED' ? engineer_review_status : 'COLUMN_BUCKLING_CAPACITY_ACCEPTABLE_FOR_SCREENING')))))))))",
+      "output": "decision",
+      "unit": "enum",
+      "dimensional_check": "decision enum",
+      "reference": "Integrated steel column buckling decision rule",
+      "assumptions": [
+        "Final acceptance requires correct code basis, section classification, effective length, stability analysis, bracing design, local buckling review, torsional review where applicable and structural engineer approval.",
+        "Screening acceptance does not authorize construction, fabrication or member substitution."
+      ],
+      "edge_cases": "if (!decision) throw new Error('Decision cannot be determined')",
+      "uncertainty_expression": "Decision confidence depends on design demand, effective length factors, unbraced lengths, material properties, section properties, local slenderness, torsional properties, bracing verification and engineer review.",
+      "cursor_instruction": "Render as main decision badge."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "decision",
+      "name": "Column Buckling Decision",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "STRONG",
+      "uncertainty": "Decision confidence depends on design demand, effective length factors, unbraced lengths, material properties, section properties, local slenderness, torsional properties, bracing verification and engineer review"
+    },
+    {
+      "id": "column_buckling_risk_class",
+      "name": "Column Buckling Risk Class",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "STRONG",
+      "uncertainty": "Classification confidence depends on load, effective length, section properties, material, bracing, stability model and review gates"
+    },
+    {
+      "id": "selected_design_compression_resistance_kn",
+      "name": "Selected Design Compression Resistance",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ selected design compression resistance × 0.45"
+    },
+    {
+      "id": "compression_utilization",
+      "name": "Compression Utilization",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 4,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ compression utilization × 0.50"
+    },
+    {
+      "id": "governing_buckling_axis",
+      "name": "Governing Buckling Axis / Mode",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "Classification confidence depends on resistance uncertainty"
+    },
+    {
+      "id": "selected_effective_area_mm2",
+      "name": "Selected Effective Area",
+      "unit": "mm2",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c depends on whether gross or effective area is used"
+    },
+    {
+      "id": "effective_buckling_length_x_mm",
+      "name": "Effective Buckling Length X",
+      "unit": "mm",
+      "type": "number",
+      "precision": 2,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ effective buckling length X × 0.25"
+    },
+    {
+      "id": "effective_buckling_length_y_mm",
+      "name": "Effective Buckling Length Y",
+      "unit": "mm",
+      "type": "number",
+      "precision": 2,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ effective buckling length Y × 0.25"
+    },
+    {
+      "id": "slenderness_ratio_x",
+      "name": "Slenderness Ratio X",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ slenderness ratio X × 0.27"
+    },
+    {
+      "id": "slenderness_ratio_y",
+      "name": "Slenderness Ratio Y",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ slenderness ratio Y × 0.27"
+    },
+    {
+      "id": "euler_critical_stress_x_mpa",
+      "name": "Euler Critical Stress X",
+      "unit": "MPa",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ Euler critical stress X × 0.55"
+    },
+    {
+      "id": "euler_critical_stress_y_mpa",
+      "name": "Euler Critical Stress Y",
+      "unit": "MPa",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ Euler critical stress Y × 0.55"
+    },
+    {
+      "id": "elastic_critical_load_x_kn",
+      "name": "Elastic Critical Load X",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ elastic critical load X × 0.58"
+    },
+    {
+      "id": "elastic_critical_load_y_kn",
+      "name": "Elastic Critical Load Y",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ elastic critical load Y × 0.58"
+    },
+    {
+      "id": "en_nondimensional_slenderness_x",
+      "name": "EN Non-Dimensional Slenderness X",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 4,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ EN slenderness X × 0.32"
+    },
+    {
+      "id": "en_nondimensional_slenderness_y",
+      "name": "EN Non-Dimensional Slenderness Y",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 4,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ EN slenderness Y × 0.32"
+    },
+    {
+      "id": "en_chi_x",
+      "name": "EN Buckling Reduction Factor X",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 4,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ EN chi X × 0.25"
+    },
+    {
+      "id": "en_chi_y",
+      "name": "EN Buckling Reduction Factor Y",
+      "unit": "ratio",
+      "type": "number",
+      "precision": 4,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ EN chi Y × 0.25"
+    },
+    {
+      "id": "en_compression_buckling_resistance_x_kn",
+      "name": "EN Compression Buckling Resistance X",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ EN resistance X × 0.35"
+    },
+    {
+      "id": "en_compression_buckling_resistance_y_kn",
+      "name": "EN Compression Buckling Resistance Y",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ EN resistance Y × 0.35"
+    },
+    {
+      "id": "aisc_critical_stress_x_mpa",
+      "name": "AISC Critical Stress X",
+      "unit": "MPa",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ AISC critical stress X × 0.30"
+    },
+    {
+      "id": "aisc_critical_stress_y_mpa",
+      "name": "AISC Critical Stress Y",
+      "unit": "MPa",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ AISC critical stress Y × 0.30"
+    },
+    {
+      "id": "aisc_available_compression_strength_x_kn",
+      "name": "AISC Available Compression Strength X",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ AISC available strength X × 0.35"
+    },
+    {
+      "id": "aisc_available_compression_strength_y_kn",
+      "name": "AISC Available Compression Strength Y",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "u_c ≈ AISC available strength Y × 0.35"
+    },
+    {
+      "id": "torsional_buckling_critical_load_kn",
+      "name": "Torsional Buckling Critical Load",
+      "unit": "kN",
+      "type": "number",
+      "precision": 3,
+      "confidence_label": "LOW",
+      "uncertainty": "u_c ≈ torsional critical load × 0.50 when evaluated"
+    },
+    {
+      "id": "torsional_buckling_design_resistance_kn",
+      "name": "Torsional Buckling Design Resistance",
+      "unit": "kN|null",
+      "type": "number|null",
+      "precision": 3,
+      "confidence_label": "LOW",
+      "uncertainty": "u_c ≈ torsional resistance × 0.55 when evaluated"
+    },
+    {
+      "id": "local_buckling_status",
+      "name": "Local Buckling Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "second_order_stability_status",
+      "name": "Second-Order Stability Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "bracing_status",
+      "name": "Bracing Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "built_up_member_status",
+      "name": "Built-Up Member Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "torsional_review_status",
+      "name": "Torsional Review Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "axial_bending_review_status",
+      "name": "Axial-Bending Review Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "special_review_status",
+      "name": "Special Review Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "durability_status",
+      "name": "Durability Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    },
+    {
+      "id": "strength_status",
+      "name": "Strength Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "MEDIUM",
+      "uncertainty": "Classification confidence depends on compression utilization uncertainty"
+    },
+    {
+      "id": "engineer_review_status",
+      "name": "Engineer Review Status",
+      "unit": "enum",
+      "type": "string",
+      "precision": null,
+      "confidence_label": "CERTAIN",
+      "uncertainty": "Gate-based output. No numeric u_c."
+    }
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9001:2015",
+      "EN 1990",
+      "EN 1993-1-1",
+      "EN 1993-1-5",
+      "EN 1090-2",
+      "AISC 360-22",
+      "AISC Steel Construction Manual",
+      "AISC Design Guide 28",
+      "ISO 80000",
+      "ISO/IEC Guide 98-3 GUM"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "factored_axial_compression_kn >= 0 && major_axis_moment_knm >= 0 && minor_axis_moment_knm >= 0",
+          "action": "BLOCK",
+          "message": "Axial compression and moments cannot be negative."
+        },
+        {
+          "id": "V2",
+          "condition": "unbraced_length_x_mm > 0 && unbraced_length_y_mm > 0 && unbraced_length_torsion_mm > 0",
+          "action": "BLOCK",
+          "message": "Unbraced lengths must be positive."
+        },
+        {
+          "id": "V3",
+          "condition": "effective_length_factor_x > 0 && effective_length_factor_y > 0 && effective_length_factor_torsion > 0",
+          "action": "BLOCK",
+          "message": "Effective length factors must be positive."
+        },
+        {
+          "id": "V4",
+          "condition": "gross_area_mm2 > 0 && effective_area_mm2 >= 0",
+          "action": "BLOCK",
+          "message": "Gross area must be positive and effective area cannot be negative."
+        },
+        {
+          "id": "V5",
+          "condition": "radius_gyration_x_mm > 0 && radius_gyration_y_mm > 0",
+          "action": "BLOCK",
+          "message": "Radii of gyration must be positive."
+        },
+        {
+          "id": "V6",
+          "condition": "moment_of_inertia_x_mm4 >= 0 && moment_of_inertia_y_mm4 >= 0 && torsional_constant_j_mm4 >= 0 && warping_constant_cw_mm6 >= 0",
+          "action": "BLOCK",
+          "message": "Section constants cannot be negative."
+        },
+        {
+          "id": "V7",
+          "condition": "yield_strength_mpa > 0 && ultimate_strength_mpa >= yield_strength_mpa",
+          "action": "BLOCK",
+          "message": "Steel material strengths are invalid."
+        },
+        {
+          "id": "V8",
+          "condition": "elastic_modulus_mpa > 0 && shear_modulus_mpa > 0",
+          "action": "BLOCK",
+          "message": "Elastic and shear modulus must be positive."
+        },
+        {
+          "id": "V9",
+          "condition": "gamma_m1 >= 1",
+          "action": "BLOCK",
+          "message": "EN gamma_M1 must be at least 1.0."
+        },
+        {
+          "id": "V10",
+          "condition": "aisc_phi_c > 0 && aisc_phi_c <= 1 && aisc_omega_c >= 1",
+          "action": "BLOCK",
+          "message": "AISC LRFD/ASD compression factors are invalid."
+        },
+        {
+          "id": "V11",
+          "condition": "en_user_imperfection_factor_x >= 0 && en_user_imperfection_factor_y >= 0",
+          "action": "BLOCK",
+          "message": "EN user imperfection factors cannot be negative."
+        },
+        {
+          "id": "V12",
+          "condition": "!(section_class_en === 'CLASS_4' && effective_area_mm2 <= 0)",
+          "action": "WARN",
+          "message": "EN Class 4 section requires verified effective area."
+        },
+        {
+          "id": "V13",
+          "condition": "!(aisc_element_slenderness_class === 'SLENDER_ELEMENTS' && effective_area_mm2 <= 0)",
+          "action": "WARN",
+          "message": "AISC slender-element section requires effective area or slender-element reduction helper."
+        },
+        {
+          "id": "V14",
+          "condition": "!(member_type === 'BUILT_UP_MEMBER' && built_up_member_lacing_batten_verified === false)",
+          "action": "WARN",
+          "message": "Built-up member selected but lacing/batten/connector review is not verified."
+        },
+        {
+          "id": "V15",
+          "condition": "!(section_symmetry !== 'DOUBLY_SYMMETRIC' && section_symmetry !== 'CLOSED_TUBE' && torsional_constant_j_mm4 <= 0)",
+          "action": "WARN",
+          "message": "Torsional/flexural-torsional buckling review requires torsional constant and section data."
+        },
+        {
+          "id": "V16",
+          "condition": "slenderness_ratio_x <= 300 && slenderness_ratio_y <= 300",
+          "action": "WARN",
+          "message": "Very high slenderness ratio. Verify member use, bracing, effective length and serviceability."
+        },
+        {
+          "id": "V17",
+          "condition": "selected_effective_area_mm2 <= gross_area_mm2 * 1.02",
+          "action": "WARN",
+          "message": "Effective area exceeds gross area. Review section property inputs."
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "trigger": "licensed_engineer_review_completed === false",
+        "severity": "CRITICAL",
+        "message": "Licensed structural engineer review is not completed. Do not use result for construction or fabrication."
+      },
+      {
+        "id": "W2",
+        "trigger": "strength_status === 'COMPRESSION_STRENGTH_NOT_ACCEPTABLE'",
+        "severity": "CRITICAL",
+        "message": "Design axial compression exceeds selected column buckling resistance."
+      },
+      {
+        "id": "W3",
+        "trigger": "local_buckling_status === 'LOCAL_BUCKLING_EFFECTIVE_PROPERTIES_REVIEW_REQUIRED'",
+        "severity": "CRITICAL",
+        "message": "Local buckling effective properties are not verified for Class 4/slender-element section."
+      },
+      {
+        "id": "W4",
+        "trigger": "second_order_stability_status === 'SECOND_ORDER_ANALYSIS_REVIEW_REQUIRED'",
+        "severity": "CRITICAL",
+        "message": "Second-order stability analysis is not completed. Member capacity alone does not verify frame stability."
+      },
+      {
+        "id": "W5",
+        "trigger": "bracing_status === 'BRACING_AND_RESTRAINT_REVIEW_REQUIRED'",
+        "severity": "CRITICAL",
+        "message": "Bracing and restraint assumptions are not verified."
+      },
+      {
+        "id": "W6",
+        "trigger": "torsional_review_status === 'TORSIONAL_OR_FLEXURAL_TORSIONAL_REVIEW_REQUIRED'",
+        "severity": "CRITICAL",
+        "message": "Torsional or flexural-torsional buckling review is required."
+      },
+      {
+        "id": "W7",
+        "trigger": "built_up_member_status === 'BUILT_UP_MEMBER_LACING_BATTEN_REVIEW_REQUIRED'",
+        "severity": "WARNING",
+        "message": "Built-up member requires lacing, batten, connector and shear deformation review."
+      },
+      {
+        "id": "W8",
+        "trigger": "axial_bending_review_status === 'AXIAL_BENDING_INTERACTION_REVIEW_REQUIRED'",
+        "severity": "WARNING",
+        "message": "Nonzero bending moment detected. Use beam-column interaction module for final design."
+      },
+      {
+        "id": "W9",
+        "trigger": "seismic_design_required === true",
+        "severity": "CRITICAL",
+        "message": "Seismic design required. Ductility, overstrength, compactness and system requirements are outside this tool."
+      },
+      {
+        "id": "W10",
+        "trigger": "fire_design_required === true",
+        "severity": "CRITICAL",
+        "message": "Fire design required. Ambient-temperature compression capacity is not sufficient."
+      },
+      {
+        "id": "W11",
+        "trigger": "corrosion_allowance_or_protection_verified === false",
+        "severity": "WARNING",
+        "message": "Corrosion protection is not verified. Section loss may reduce buckling capacity."
+      },
+      {
+        "id": "W12",
+        "trigger": "compression_utilization > 0.9 && compression_utilization <= 1",
+        "severity": "WARNING",
+        "message": "Compression utilization is above 0.90. Review effective length, bracing, second-order effects and section properties."
+      }
+    ],
+    "error_propagation": "ISO/IEC Guide 98-3 GUM Type A/B. Report u_c(y) for effective length, slenderness ratio, Euler critical stress, elastic critical load, EN nondimensional slenderness, EN chi factor, EN resistance, AISC critical stress, AISC resistance, torsional buckling resistance, selected design resistance and compression utilization. Use root-sum-square propagation for direct formulas. Flag high uncertainty when effective length factors are user-estimated, bracing is not verified, second-order analysis is incomplete, torsional constants are missing, section is Class 4/slender, member is built-up, or axial-bending demand is present.",
+    "fmea": "Required if compression_utilization > 0.90, second_order_analysis_completed = false, bracing_verified = false, section_class_en = CLASS_4, aisc_element_slenderness_class = SLENDER_ELEMENTS, member_type = BUILT_UP_MEMBER, torsional review is required, seismic_design_required = true, fire_design_required = true, or the column supports life-safety/public-access/production-critical structures. RPN = S×O×D.",
+    "audit_log": "ISO 9001 traceable fields: design standard, member type, section symmetry, section class, AISC slenderness class, axial compression, moments, unbraced lengths, effective length factors, gross area, effective area, radii of gyration, Ix, Iy, J, Cw, shear center offsets, yield strength, ultimate strength, E, G, EN buckling curves, EN imperfection factors, gamma_M1, AISC phi/omega, second-order flag, bracing flag, built-up member flag, local buckling flag, seismic flag, fire flag, fatigue flag, corrosion flag, engineer review flag, all formula outputs, warnings, decision, formula version, timestamp and input hash.",
+    "helpers_required": [
+      {
+        "name": "mapEnBucklingCurveToImperfectionFactor",
+        "signature": "mapEnBucklingCurveToImperfectionFactor(curve: 'a0'|'a'|'b'|'c'|'d'|'USER_DEFINED'): number",
+        "description": "Maps EN buckling curve to imperfection factor using project-configured EN table values."
+      },
+      {
+        "name": "computeTorsionalBucklingCriticalLoad",
+        "signature": "computeTorsionalBucklingCriticalLoad(symmetry: string, A: number, Ix: number, Iy: number, J: number, Cw: number, E: number, G: number, Lt: number, x0: number, y0: number): number",
+        "description": "Computes torsional or flexural-torsional critical load for open/singly symmetric/asymmetric sections where sufficient section properties are available."
+      },
+      {
+        "name": "computeTorsionalBucklingDesignResistance",
+        "signature": "computeTorsionalBucklingDesignResistance(designStandard: string, NcrT: number, Ny: number, Fy: number, Aeff: number, gammaM1: number, phiC: number, omegaC: number): number",
+        "description": "Converts torsional/flexural-torsional elastic critical load into code-style design resistance."
+      },
+      {
+        "name": "identifyGoverningBucklingAxis",
+        "signature": "identifyGoverningBucklingAxis(resistances: Record<string, number | null>): string",
+        "description": "Returns the lowest evaluated resistance branch as governing buckling axis/mode."
+      }
+    ]
+  },
+  "ui_contract": {
+    "layout": "SectorCalc PRO standard tool-card pattern",
+    "input_groups": [
+      {
+        "id": "design_basis",
+        "title": "Design Basis",
+        "fields": [
+          "design_standard",
+          "member_type",
+          "section_symmetry",
+          "section_class_en",
+          "aisc_element_slenderness_class"
+        ]
+      },
+      {
+        "id": "design_actions",
+        "title": "Design Actions",
+        "fields": [
+          "factored_axial_compression_kn",
+          "major_axis_moment_knm",
+          "minor_axis_moment_knm"
+        ]
+      },
+      {
+        "id": "length_and_restraint",
+        "title": "Length and Restraint",
+        "fields": [
+          "unbraced_length_x_mm",
+          "unbraced_length_y_mm",
+          "unbraced_length_torsion_mm",
+          "effective_length_factor_x",
+          "effective_length_factor_y",
+          "effective_length_factor_torsion"
+        ]
+      },
+      {
+        "id": "section_properties",
+        "title": "Section Properties",
+        "fields": [
+          "gross_area_mm2",
+          "effective_area_mm2",
+          "radius_gyration_x_mm",
+          "radius_gyration_y_mm",
+          "moment_of_inertia_x_mm4",
+          "moment_of_inertia_y_mm4",
+          "torsional_constant_j_mm4",
+          "warping_constant_cw_mm6",
+          "shear_center_offset_x_mm",
+          "shear_center_offset_y_mm"
+        ]
+      },
+      {
+        "id": "material_properties",
+        "title": "Material Properties",
+        "fields": [
+          "yield_strength_mpa",
+          "ultimate_strength_mpa",
+          "elastic_modulus_mpa",
+          "shear_modulus_mpa"
+        ]
+      },
+      {
+        "id": "code_factors",
+        "title": "Code Factors",
+        "fields": [
+          "en_buckling_curve_x",
+          "en_buckling_curve_y",
+          "en_user_imperfection_factor_x",
+          "en_user_imperfection_factor_y",
+          "gamma_m1",
+          "aisc_phi_c",
+          "aisc_omega_c"
+        ]
+      },
+      {
+        "id": "review_gates",
+        "title": "Review Gates",
+        "fields": [
+          "second_order_analysis_completed",
+          "bracing_verified",
+          "built_up_member_lacing_batten_verified",
+          "local_buckling_effective_properties_verified",
+          "seismic_design_required",
+          "fire_design_required",
+          "fatigue_or_cyclic_loading_present",
+          "corrosion_allowance_or_protection_verified",
+          "licensed_engineer_review_completed"
+        ]
+      }
+    ],
+    "result_cards": [
+      "decision",
+      "column_buckling_risk_class",
+      "selected_design_compression_resistance_kn",
+      "compression_utilization",
+      "governing_buckling_axis",
+      "selected_effective_area_mm2",
+      "effective_buckling_length_x_mm",
+      "effective_buckling_length_y_mm",
+      "slenderness_ratio_x",
+      "slenderness_ratio_y",
+      "euler_critical_stress_x_mpa",
+      "euler_critical_stress_y_mpa",
+      "elastic_critical_load_x_kn",
+      "elastic_critical_load_y_kn",
+      "en_nondimensional_slenderness_x",
+      "en_nondimensional_slenderness_y",
+      "en_chi_x",
+      "en_chi_y",
+      "en_compression_buckling_resistance_x_kn",
+      "en_compression_buckling_resistance_y_kn",
+      "aisc_critical_stress_x_mpa",
+      "aisc_critical_stress_y_mpa",
+      "aisc_available_compression_strength_x_kn",
+      "aisc_available_compression_strength_y_kn",
+      "torsional_buckling_critical_load_kn",
+      "torsional_buckling_design_resistance_kn",
+      "local_buckling_status",
+      "second_order_stability_status",
+      "bracing_status",
+      "built_up_member_status",
+      "torsional_review_status",
+      "axial_bending_review_status",
+      "special_review_status",
+      "durability_status",
+      "strength_status",
+      "engineer_review_status"
+    ],
+    "table_panels": [
+      {
+        "id": "axis_capacity_table",
+        "title": "Axis and Mode Capacity Table",
+        "columns": [
+          "mode",
+          "effective_length_mm",
+          "slenderness_ratio",
+          "elastic_critical_stress_mpa",
+          "elastic_critical_load_kn",
+          "en_chi",
+          "en_resistance_kn",
+          "aisc_critical_stress_mpa",
+          "aisc_resistance_kn",
+          "status"
+        ]
+      },
+      {
+        "id": "review_gate_table",
+        "title": "Review Gate Table",
+        "columns": [
+          "gate_id",
+          "gate_name",
+          "status",
+          "severity",
+          "note"
+        ]
+      }
+    ],
+    "diagram_panel": {
+      "enabled": true,
+      "title": "Column Buckling Mode Preview",
+      "features": [
+        "column_axis_visualization",
+        "major_axis_buckling_shape",
+        "minor_axis_buckling_shape",
+        "torsional_buckling_indicator",
+        "effective_length_labels",
+        "bracing_points",
+        "governing_mode_highlight",
+        "utilization_overlay"
+      ]
+    },
+    "formula_panel": true,
+    "audit_panel": true,
+    "warnings_panel": true,
+    "chart_panel": {
+      "enabled": true,
+      "charts": [
+        {
+          "id": "capacity_comparison",
+          "title": "Compression Capacity Comparison",
+          "x": "buckling_mode",
+          "y": [
+            "en_compression_buckling_resistance_x_kn",
+            "en_compression_buckling_resistance_y_kn",
+            "aisc_available_compression_strength_x_kn",
+            "aisc_available_compression_strength_y_kn",
+            "torsional_buckling_design_resistance_kn"
+          ]
+        },
+        {
+          "id": "slenderness_comparison",
+          "title": "Slenderness Comparison",
+          "x": "axis",
+          "y": [
+            "slenderness_ratio_x",
+            "slenderness_ratio_y"
+          ]
+        },
+        {
+          "id": "utilization_summary",
+          "title": "Column Buckling Utilization",
+          "x": "metric",
+          "y": [
+            "compression_utilization"
+          ]
+        }
+      ]
+    },
+    "export_pdf": true,
+    "export_csv": true
+  },
+  "reference_code": {
+    "language": "TypeScript",
+    "interface": "SteelColumnBucklingCapacityEn1993Aisc360Input / SteelColumnBucklingCapacityEn1993Aisc360Output with @unit and @uncertainty JSDoc",
+    "validation": "Zod schema. Fail closed on invalid loads, invalid unbraced lengths, invalid effective length factors, invalid areas, invalid radii of gyration, invalid section constants, invalid material strengths, invalid modulus values, invalid EN gamma_M1, invalid AISC phi/omega factors and invalid boolean review gates.",
+    "testing": "Jest cases: pinned-pinned I-section compression, minor-axis governing buckling, major-axis governing buckling, dual-code envelope selection, EN curve a/b/c/d mapping, AISC inelastic branch, AISC elastic branch, ASD mode, Class 4 without effective area warning, slender-element without effective area warning, torsional buckling not evaluated, torsional buckling governing, built-up member review gate, missing bracing review gate, missing second-order analysis gate, axial-bending review gate, seismic gate, fire gate, durability gate, engineer review missing, final acceptable screening decision.",
+    "example": "calculateSteelColumnBucklingCapacityEn1993Aisc360(input): SteelColumnBucklingCapacityEn1993Aisc360Output",
+    "implementation_notes": [
+      "Do not use eval(). Use existing AST/helper expression engine.",
+      "Use deterministic formula order F1 to F50.",
+      "Use SI-primary units: kN, mm, mm2, mm4, mm6, MPa and ratio.",
+      "Use null for not-evaluated torsional buckling design resistance, not Infinity.",
+      "Do not embed copyrighted EN/AISC tables. Buckling curve and section classification helpers must use project-configurable traceable parameters.",
+      "Dual-code envelope mode must report EN and AISC intermediate values and select the lower comparable design compression resistance.",
+      "Class 4 and slender-element sections must not silently use gross area unless effective properties are explicitly verified.",
+      "Second-order analysis and bracing verification are mandatory review gates for final use.",
+      "Nonzero major/minor moment must trigger beam-column interaction review; this calculator is not a full combined axial-flexural design tool.",
+      "Seismic and fire flags must block final acceptability and require specialist design modules.",
+      "Decision enum values: COLUMN_BUCKLING_CAPACITY_ACCEPTABLE_FOR_SCREENING, COLUMN_BUCKLING_CAPACITY_NOT_ACCEPTABLE, LOCAL_BUCKLING_EFFECTIVE_PROPERTIES_REVIEW_REQUIRED, TORSIONAL_OR_FLEXURAL_TORSIONAL_REVIEW_REQUIRED, SECOND_ORDER_ANALYSIS_REVIEW_REQUIRED, BRACING_AND_RESTRAINT_REVIEW_REQUIRED, BUILT_UP_MEMBER_LACING_BATTEN_REVIEW_REQUIRED, AXIAL_BENDING_INTERACTION_REVIEW_REQUIRED, SEISMIC_COLUMN_REVIEW_REQUIRED, FIRE_RESISTANCE_REVIEW_REQUIRED, FATIGUE_OR_CYCLIC_LOADING_REVIEW_REQUIRED, DURABILITY_REVIEW_REQUIRED, LICENSED_ENGINEER_REVIEW_REQUIRED."
+    ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "traceability_id": "TOOL-PRO-151-STEEL-COLUMN-BUCKLING-CAPACITY-EN1993-AISC360-001",
+    "quality_level": "TÜV-certifiable calculation structure",
+    "tuv_checklist": [
+      "Unit test coverage >95%",
+      "Dimensional check completed",
+      "Effective area selection implemented",
+      "Ix/Iy selection implemented",
+      "Effective buckling lengths implemented",
+      "Slenderness ratios implemented",
+      "Euler critical stress implemented",
+      "Elastic critical loads implemented",
+      "Gross yield compression resistance implemented",
+      "EN nondimensional slenderness implemented",
+      "EN imperfection factor mapping implemented",
+      "EN phi factor implemented",
+      "EN chi reduction factor implemented",
+      "EN compression resistance implemented",
+      "AISC Fe implemented",
+      "AISC critical stress implemented",
+      "AISC nominal compression strength implemented",
+      "AISC LRFD/ASD available strength implemented",
+      "Torsional/flexural-torsional buckling helper implemented",
+      "Dual-code envelope selection implemented",
+      "Compression utilization implemented",
+      "Governing buckling axis identification implemented",
+      "Local buckling review gate implemented",
+      "Second-order stability review gate implemented",
+      "Bracing and restraint review gate implemented",
+      "Built-up member review gate implemented",
+      "Torsional review gate implemented",
+      "Axial-bending interaction review gate implemented",
+      "Seismic review gate implemented",
+      "Fire review gate implemented",
+      "Durability review gate implemented",
+      "Licensed engineer review gate implemented",
+      "GUM uncertainty propagation implemented",
+      "Fail-closed validation implemented",
+      "FMEA required for high-utilization, missing bracing, missing second-order analysis, Class 4/slender-element, torsional review, seismic and fire cases",
+      "Audit hash generated for every successful calculation",
+      "No hidden defaults for design demand, unbraced length, section area, radii of gyration, yield strength, effective area, second-order analysis, bracing verification or engineer review gates"
+    ],
+    "calibration_trace": "Design compression and moments from structural analysis/load combinations; unbraced lengths from bracing layout and frame model; effective length factors from stability analysis or engineer-approved method; section properties from certified section table or measured/BIM section; material properties from mill certificate; EN buckling curve from EN 1993 section/axis classification; AISC slenderness class from AISC section classification; second-order analysis from structural model; bracing verification from bracing/connection design; final approval from engineer of record.",
+    "source_basis": [
+      "EN 1993-1-1 compression member and buckling design context",
+      "AISC 360-22 compression member and stability design context",
+      "AISC Design Guide 28 stability design context",
+      "EN 1090-2 fabrication and execution context",
+      "ISO/IEC Guide 98-3 GUM uncertainty reporting basis"
+    ],
+    "limitations": [
+      "This calculator is a column buckling capacity screening tool, not a sealed structural calculation, global frame stability analysis, second-order analysis, finite-element model, fire design, seismic design or fabrication approval.",
+      "Effective length factors must be justified by structural analysis, alignment charts, direct analysis, frame modeling or engineer-approved method.",
+      "Class 4 EN sections and AISC slender-element sections require verified effective properties.",
+      "Singly symmetric, asymmetric, open thin-walled and built-up members may require detailed torsional/flexural-torsional and connector/lacing/batten design.",
+      "Nonzero bending moments require full beam-column interaction checks under EN/AISC combined force provisions.",
+      "Final use requires competent structural engineer approval and project-specific code compliance."
+    ],
+    "last_review_status": "ENGINEERING_SCHEMA_READY",
+    "cursor_instruction": "Integrate this tool into the existing SectorCalc PRO tool architecture without creating a new UI framework. Use current tool-card, section-property input pattern, buckling mode diagram panel, results panel, formula panel, warning panel, chart panel, table panel and audit log components."
+  }
+}

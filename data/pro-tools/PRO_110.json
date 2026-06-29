@@ -1,0 +1,324 @@
+{
+  "tool_id": "PRO_110",
+  "tool_name": "RC One-Way Slab — Flexural Design Steel Area, Depth Check & One-Way Shear Verification",
+  "category": "Concrete Construction / Structural Engineering",
+  "scope": "single_operation",
+  "primary_operation": "rc_one_way_slab",
+  "inputs": [
+    {
+      "id": "Mu_knm_m",
+      "name": "Factored Bending Moment per Metre Width (M_u / M_Ed)",
+      "unit": "kN·m/m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 500,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "Vu_kn_m",
+      "name": "Factored Shear Force per Metre Width (V_u / V_Ed)",
+      "unit": "kN/m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "slab_thickness_mm",
+      "name": "Total Slab Thickness (h)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 70,
+      "absolute_max": 600,
+      "note": "ACI 318 minimum one-way slab: L/20 (simply supported); L/28 (one end continuous)",
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
+    },
+    {
+      "id": "cover_mm",
+      "name": "Clear Cover to Flexural Steel (c_c)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 25,
+      "absolute_min": 15,
+      "absolute_max": 75,
+      "note": "ACI §20.6.1: interior slab min 20 mm; exterior min 40 mm; marine: 50 mm",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "bar_diameter_mm",
+      "name": "Flexural Bar Diameter (d_b)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 12,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "fc_prime_mpa",
+      "name": "Concrete Compressive Strength (f'_c / f_ck)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        20,
+        25,
+        28,
+        30,
+        32,
+        35,
+        40
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 30,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "fy_mpa",
+      "name": "Rebar Yield Strength (f_y / f_yk)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Grade 40 / B420 — 420 MPa",
+          "value": 420
+        },
+        {
+          "label": "Grade 60 / B500 — 500 MPa",
+          "value": 500
+        },
+        {
+          "label": "Grade 80 — 550 MPa",
+          "value": 550
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 500,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "span_m",
+      "name": "Slab Clear Span (l_n)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 15,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    }
+  ],
+  "formulas": [
+    "d_mm = slab_thickness_mm - cover_mm - bar_diameter_mm / 2; Rn_mpa = Mu_knm_m * 1e6 / (0.9 * 1000 * Math.pow(d_mm, 2))  // [mm, MPa] — Effective Depth (d) & Nominal Moment Coefficient (R_n) — Ref: d = h − c_c − d_b/2; R_n = M_u/(φ·b·d²); φ=0.9 tension-controlled — ACI 318-19 §21.2.2",
+    "rho_req = (0.85 * fc_prime_mpa / fy_mpa) * (1 - Math.sqrt(1 - 2 * Rn_mpa / (0.85 * fc_prime_mpa))); rho_min = Math.max(0.25 * Math.sqrt(fc_prime_mpa) / fy_mpa, 1.4 / fy_mpa); rho_max = 0.75 * 0.85 * 0.85 * fc_prime_mpa / fy_mpa * (600 / (600 + fy_mpa)); rho_design = Math.max(rho_req, rho_min)  // Required Steel Ratio (ρ) — ACI Parabolic Method — Ref: ρ = (0.85f'c/fy)(1−√(1−2Rn/0.85f'c)) — ACI 318-19 §22.2; ρ_min per §9.6.1.2; ρ_max = 0.75ρ_balanced",
+    "As_req_mm2_m = rho_design * 1000 * d_mm; bar_area_mm2 = Math.PI / 4 * Math.pow(bar_diameter_mm, 2); spacing_mm = Math.floor(bar_area_mm2 / As_req_mm2_m * 1000)  // [mm²/m, mm] — Required Steel Area & Bar Spacing — Ref: A_s = ρ·b·d; spacing s = a_bar/A_s × 1000 — ACI §25.2.1: max spacing ≤ min(3h, 450 mm)",
+    "s_max_mm = Math.min(3 * slab_thickness_mm, 450); s_ok = spacing_mm <= s_max_mm  // [mm, boolean] — Maximum Allowable Bar Spacing Check — Ref: ACI 318-19 §7.7.2.3 — maximum flexural bar spacing: min(3h, 450 mm)",
+    "lambda = 1.0; phi_Vc_kn_m = 0.75 * 0.17 * lambda * Math.sqrt(fc_prime_mpa) * 1000 * d_mm / 1000  // [kN/m] — One-Way Shear Capacity (φV_c) — ACI Simplified — Ref: ACI 318-19 §22.5.5.1 — φV_c = 0.75×0.17λ√f'c×b_w×d; slabs without stirrups; SI units",
+    "shear_DCR = Vu_kn_m / phi_Vc_kn_m; L_d_ratio = span_m * 1000 / d_mm; L_d_limit = (fy_mpa === 420) ? 20 : 18  // Shear DCR & Span-to-Depth Check — Ref: Shear DCR ≤ 1.0 (no stirrups required); L/d deflection control per ACI §24.2 (approximate method)"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ACI 318-19 §7, §9, §22.5",
+      "EN 1992-1-1:2004 §6.2, §9.3",
+      "BS 8110-1:1997 §3.4.4",
+      "IS 456:2000 §26"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "rho_req > rho_max",
+          "action": "WARN",
+          "message": "Required steel ratio exceeds 75% of balanced — slab is over-stressed; increase slab thickness by 20–30 mm or increase f'c; compression-controlled failure mode unacceptable"
+        },
+        {
+          "id": "V2",
+          "condition": "shear_DCR > 1.0",
+          "action": "WARN",
+          "message": "One-way shear demand exceeds concrete capacity: stirrups required in slab (unusual) — verify load/span; more practical to increase slab thickness until V_u < φV_c"
+        },
+        {
+          "id": "V3",
+          "condition": "d_mm < slab_thickness_mm * 0.7",
+          "action": "WARN",
+          "message": "Effective depth < 70% of total thickness: very large cover or bar size — verify cover is correct; large bars in thin slabs reduce d significantly"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Span-to-depth ratio exceeds ACI §24.2 deflection limit — computed deflections must be checked; long-term creep deflection (×2.0 for 5+ years) may damage partitions or finishes",
+        "condition": "L_d_ratio > L_d_limit"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Bar spacing < 75 mm: congestion risk — concrete aggregate cannot flow between bars; ACI §25.2.1 requires clear spacing ≥ bar diameter, 25 mm, or 4/3 × aggregate size",
+        "condition": "spacing_mm < 75"
+      },
+      {
+        "id": "W3",
+        "severity": "CRITICAL",
+        "message": "Bar spacing exceeds ACI maximum: cracks will be wide — use smaller diameter bars at closer spacing or redesign to meet s ≤ min(3h, 450 mm)",
+        "condition": "!s_ok"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Minimum steel governs: slab is lightly loaded for its depth — consider reducing slab thickness to L/20 minimum per ACI Table 9.3.1.1 for efficiency",
+        "condition": "rho_design < rho_min * 1.1"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "High moment coefficient (R_n > 30% of 0.85f'c): approaching over-reinforced zone — verify d is adequate; increase thickness before adding reinforcement",
+        "condition": "Rn_mpa > 0.85 * fc_prime_mpa * 0.3"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Parameter warning: rho_req > rho_max",
+        "effect": "Required steel ratio exceeds 75% of balanced — slab is over-stressed; increase slab thickness by 20–30 mm or increase f'c; compression-controlled failure mode unacceptable",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V1"
+      },
+      {
+        "failureMode": "Parameter warning: shear_DCR > 1.0",
+        "effect": "One-way shear demand exceeds concrete capacity: stirrups required in slab (unusual) — verify load/span; more practical to increase slab thickness until V_u < φV_c",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: d_mm < slab_thickness_mm * 0.7",
+        "effect": "Effective depth < 70% of total thickness: very large cover or bar size — verify cover is correct; large bars in thin slabs reduce d significantly",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Span-to-depth ratio exceeds ACI §24.2 deflection limit — computed deflections must be checked; long-term creep deflection (×2.0 for 5+ years) may damage partitions or finishes",
+        "effect": "Smart warning triggered when: L_d_ratio > L_d_limit",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Bar spacing < 75 mm: congestion risk — concrete aggregate cannot flow between bars; ACI §25.2.1 requires clear spacing ≥ bar diameter, 25 mm, or 4/3 × aggregate size",
+        "effect": "Smart warning triggered when: spacing_mm < 75",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Bar spacing exceeds ACI maximum: cracks will be wide — use smaller diameter bars at closer spacing or redesign to meet s ≤ min(3h, 450 mm)",
+        "effect": "Smart warning triggered when: !s_ok",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Minimum steel governs: slab is lightly loaded for its depth — consider reducing slab thickness to L/20 minimum per ACI Table 9.3.1.1 for efficiency",
+        "effect": "Smart warning triggered when: rho_design < rho_min * 1.1",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "High moment coefficient (R_n > 30% of 0.85f'c): approaching over-reinforced zone — verify d is adequate; increase thickness before adding reinforcement",
+        "effect": "Smart warning triggered when: Rn_mpa > 0.85 * fc_prime_mpa * 0.3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "d_mm",
+        "Rn_mpa",
+        "rho_req",
+        "rho_min",
+        "rho_max",
+        "rho_design",
+        "As_req_mm2_m",
+        "bar_area_mm2",
+        "spacing_mm",
+        "s_max_mm",
+        "s_ok",
+        "lambda",
+        "phi_Vc_kn_m",
+        "shear_DCR",
+        "L_d_ratio",
+        "L_d_limit"
+      ]
+    }
+  ]
+}

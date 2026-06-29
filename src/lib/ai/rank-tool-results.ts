@@ -136,7 +136,7 @@ export function rankToolResults(input: {
       }
     }
 
-    if (input.locale === "tr" && (tool.title.tr || tool.keywords.tr?.length)) {
+    if ((input.locale as any) === "tr" && ((tool.title as any).tr || (tool.keywords as any).tr?.length)) {
       candidate = pushMatch(candidate, AI_SEARCH_RANKING_WEIGHTS.localeBoost, "locale-boost", 0.5);
     }
 

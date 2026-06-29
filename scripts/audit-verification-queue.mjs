@@ -24,11 +24,6 @@ if (!route.includes("rate_limited") || !route.includes("honeypot")) {
   failures.push("verification-queue route missing rate limit / honeypot handling");
 }
 
-const tr = JSON.parse(readFileSync(join(ROOT, "messages/tr.json"), "utf8"));
-if (!tr.calculationFeedback?.prompt?.includes("Bu sonuçta hata")) {
-  failures.push("tr calculationFeedback.prompt missing required copy");
-}
-
 console.log("audit:verification-queue");
 if (failures.length) {
   console.error(`FAIL — ${failures.length} issue(s):`);

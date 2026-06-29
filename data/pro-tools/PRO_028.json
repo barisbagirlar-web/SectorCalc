@@ -1,0 +1,368 @@
+{
+  "tool_id": "PRO_028",
+  "tool_name": "Warehouse 3D Cube Utilisation, Pallet Position Count & Storage Capacity Analysis",
+  "category": "Logistics & Supply Chain / Warehouse Engineering",
+  "scope": "single_operation",
+  "primary_operation": "warehouse_design",
+  "inputs": [
+    {
+      "id": "gross_floor_area_m2",
+      "name": "Gross Warehouse Floor Area",
+      "unit": "m²",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
+    },
+    {
+      "id": "net_storage_ratio_pct",
+      "name": "Net Storage Area Ratio",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 20,
+      "absolute_max": 75,
+      "default": 55,
+      "hint": "Gross area minus: docks, offices, charging bays, columns. Typical: 50–65% for conventional rack",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "clear_height_m",
+      "name": "Clear Stacking Height (under sprinkler/beam)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 45,
+      "hint": "Usable height after deducting sprinkler clearance (min 0.5m) and lighting",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "pallet_length_m",
+      "name": "Pallet Length",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 2.5,
+      "default": 1.2,
+      "hint": "EUR pallet: 1.20m | ISO pallet: 1.20m | US GMA: 1.22m",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "pallet_width_m",
+      "name": "Pallet Width",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.4,
+      "absolute_max": 1.5,
+      "default": 0.8,
+      "hint": "EUR pallet: 0.80m | ISO pallet: 1.00m | US GMA: 1.02m",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "loaded_pallet_height_m",
+      "name": "Loaded Pallet Height (pallet + load)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "absolute_max": 3,
+      "default": 1.4,
+      "hint": "EUR pallet 0.15m + load. Standard consumer goods: 1.0–1.5m | Industrial: 1.5–2.0m",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "rack_beam_clearance_m",
+      "name": "Beam / Safety Clearance per Level",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.05,
+      "absolute_max": 0.3,
+      "default": 0.1,
+      "hint": "Vertical clearance between top of load and next beam: min 100mm per SEMA / FEM 10.2.02",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "aisle_width_m",
+      "name": "Operating Aisle Width",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1.5,
+      "absolute_max": 5,
+      "hint": "Counterbalance FLT: 3.5–4.0m | Reach truck: 2.6–3.0m | VNA (VFLT): 1.6–1.8m | Manual: 1.5m",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "storage_system",
+      "name": "Racking / Storage System Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Single-deep selective rack — access factor 1.0",
+        "Double-deep rack — access factor 0.5 (50% directly accessible)",
+        "Drive-in / Drive-through rack — access factor 0.25",
+        "Mobile (Compact) racking — access factor 0.9",
+        "Pushback rack (2–5 deep) — access factor 0.4",
+        "Automated Storage (AS/RS) — access factor 1.0"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "selectivity_factor",
+      "name": "Storage Selectivity Factor",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 1,
+      "default": 1,
+      "hint": "From system type above: Selective=1.0 | Double-deep=0.5 | Drive-in=0.25",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
+    },
+    {
+      "id": "occupancy_target_pct",
+      "name": "Target Storage Occupancy Rate",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 50,
+      "absolute_max": 100,
+      "default": 85,
+      "hint": "Operating above 85% causes pick congestion. WMS best practice: 80–85% max",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    }
+  ],
+  "formulas": [
+    "Net_Storage_Area_m2 = gross_floor_area_m2 * (net_storage_ratio_pct / 100)   // [m²] Usable racking footprint",
+    "Rack_Bay_Footprint_m2 = (pallet_length_m + aisle_width_m / 2) * pallet_width_m   // [m²] Footprint per pallet position (incl. aisle share)",
+    "Floor_Positions = FLOOR(Net_Storage_Area_m2 / Rack_Bay_Footprint_m2)   // [positions] Ground-level pallet locations",
+    "Height_per_Level_m = loaded_pallet_height_m + rack_beam_clearance_m   // [m] Vertical pitch per rack level",
+    "Max_Rack_Levels = FLOOR(clear_height_m / Height_per_Level_m)   // [levels] Maximum stacking levels within clearance",
+    "Total_Pallet_Positions = Floor_Positions * Max_Rack_Levels   // [positions] Total rack positions",
+    "Accessible_Positions = FLOOR(Total_Pallet_Positions * selectivity_factor)   // [positions] Directly accessible positions",
+    "Required_Height_m = Max_Rack_Levels * Height_per_Level_m   // [m] Height required by rack structure",
+    "Theoretical_Volume_m3 = gross_floor_area_m2 * clear_height_m   // [m³] Total building envelope volume",
+    "Storage_Volume_m3 = Total_Pallet_Positions * (pallet_length_m * pallet_width_m * loaded_pallet_height_m)   // [m³] Actual inventory volume",
+    "Cube_Utilisation_pct = (Storage_Volume_m3 / Theoretical_Volume_m3) * 100   // [%] 3D volume efficiency",
+    "Operating_Positions = FLOOR(Total_Pallet_Positions * (occupancy_target_pct / 100))   // [positions] Usable positions at target occupancy",
+    "Positions_per_m2 = Total_Pallet_Positions / gross_floor_area_m2   // [positions/m²] Storage density KPI",
+    "Aisle_Area_m2 = gross_floor_area_m2 * (net_storage_ratio_pct / 100) * (aisle_width_m / (pallet_length_m + aisle_width_m))   // [m²] Estimated aisle area"
+  ],
+  "engine_rules": {
+    "standards": [
+      "VDI 3618 Intralogistics Planning",
+      "FEM 10.2.02 Rack Safety",
+      "SEMA Code of Practice for Static Racking",
+      "EN 15512 Steel Static Storage",
+      "MHI Warehousing Education & Research"
+    ],
+    "validation": {
+      "height_exceeds_clear": {
+        "condition": "Required_Height_m > clear_height_m",
+        "error_msg": "PHYSICAL IMPOSSIBILITY: Required rack height exceeds available clear height. Reduce rack levels, decrease loaded pallet height, or increase building clear height.",
+        "id": "height_exceeds_clear"
+      },
+      "net_storage_ratio_max": {
+        "condition": "net_storage_ratio_pct > 75",
+        "error_msg": "Net storage ratio > 75% is physically unrealistic. Minimum space is needed for: dock doors, charging bays, staging areas, columns, fire exits. Maximum achievable: 70% for automated warehouses.",
+        "id": "net_storage_ratio_max"
+      },
+      "aisle_minimum": {
+        "condition": "aisle_width_m < 1.5",
+        "error_msg": "Aisle width < 1.5m is below minimum safe passage for any powered truck. Fire safety regulations also require minimum 1.2m emergency egress width.",
+        "id": "aisle_minimum"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "aisle_width_m >= 3.5",
+        "severity": "WARNING",
+        "source": "VDI 3618 / Reach Truck Analysis",
+        "message": "WIDE AISLE SYSTEM (≥3.5m): Aisle width suitable for counterbalance forklift only. Approximately 35–40% of floor area is dedicated to aisles. Switching to reach truck (aisle 2.6–2.8m) or VNA (1.6–1.8m) could increase pallet positions by 20–40% in the same building."
+      },
+      {
+        "condition": "Cube_Utilisation_pct < 25",
+        "severity": "CRITICAL",
+        "source": "MHI Warehouse Efficiency Benchmarks",
+        "message": "POOR CUBE UTILISATION (<25%): Building volume is severely underused. Root causes: insufficient rack height, too many aisles, low stacking, or low occupancy. World-class warehouses achieve 40–60% cube utilisation. Evaluate: (1) Taller racking, (2) Narrower aisles, (3) Double-deep or mobile racking."
+      },
+      {
+        "condition": "occupancy_target_pct > 90",
+        "severity": "CRITICAL",
+        "source": "WMS Best Practice / SEMA",
+        "message": "OCCUPANCY TARGET > 90%: Operating above 90% causes severe congestion, pick path blockages, and forces multiple product relocations per pick. WMS systems degrade significantly above 85%. Required buffer for operational flexibility: minimum 15% empty positions."
+      },
+      {
+        "condition": "Max_Rack_Levels <= 2",
+        "severity": "WARNING",
+        "source": "Warehouse Design Optimisation",
+        "message": "Only 1–2 rack levels achievable: Building clear height is limiting vertical density. If building modification is not feasible, consider mezzanine floor installation or multi-tier picking to improve m³ utilisation."
+      },
+      {
+        "condition": "Positions_per_m2 < 0.8",
+        "severity": "WARNING",
+        "source": "VDI 3618 Density KPI",
+        "message": "Storage density < 0.8 positions/m² gross: Below industry benchmark for conventional racking (target: 1.0–1.5 positions/m²). Analyse: wide aisle ratios, low stacking height, and low net storage ratio as primary contributors."
+      },
+      {
+        "condition": "selectivity_factor < 0.5 && accessible_positions < 200",
+        "severity": "WARNING",
+        "source": "Warehouse Operations — FIFO Compliance",
+        "message": "Low accessibility + small absolute accessible count: With drive-in or pushback systems, FIFO rotation becomes operationally difficult. For perishable goods, pharmaceuticals, or date-coded products, minimum selectivity factor 0.8 is required to ensure FEFO compliance."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: Required_Height_m > clear_height_m",
+        "effect": "PHYSICAL IMPOSSIBILITY: Required rack height exceeds available clear height. Reduce rack levels, decrease loaded pallet height, or increase building clear height.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule height_exceeds_clear"
+      },
+      {
+        "failureMode": "Input violation: net_storage_ratio_pct > 75",
+        "effect": "Net storage ratio > 75% is physically unrealistic. Minimum space is needed for: dock doors, charging bays, staging areas, columns, fire exits. Maximum achievable: 70% for automated warehouses.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule net_storage_ratio_max"
+      },
+      {
+        "failureMode": "Input violation: aisle_width_m < 1.5",
+        "effect": "Aisle width < 1.5m is below minimum safe passage for any powered truck. Fire safety regulations also require minimum 1.2m emergency egress width.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule aisle_minimum"
+      },
+      {
+        "failureMode": "WIDE AISLE SYSTEM (≥3.5m): Aisle width suitable for counterbalance forklift only. Approximately 35–40% of floor area is dedicated to aisles. Switching to reach truck (aisle 2.6–2.8m) or VNA (1.6–1.8m) could increase pallet positions by 20–40% in the same building.",
+        "effect": "Smart warning triggered when: aisle_width_m >= 3.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 3618 / Reach Truck Analysis"
+      },
+      {
+        "failureMode": "POOR CUBE UTILISATION (<25%): Building volume is severely underused. Root causes: insufficient rack height, too many aisles, low stacking, or low occupancy. World-class warehouses achieve 40–60% cube utilisation. Evaluate: (1) Taller racking, (2) Narrower aisles, (3) Double-deep or mobile racking.",
+        "effect": "Smart warning triggered when: Cube_Utilisation_pct < 25",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "MHI Warehouse Efficiency Benchmarks"
+      },
+      {
+        "failureMode": "OCCUPANCY TARGET > 90%: Operating above 90% causes severe congestion, pick path blockages, and forces multiple product relocations per pick. WMS systems degrade significantly above 85%. Required buffer for operational flexibility: minimum 15% empty positions.",
+        "effect": "Smart warning triggered when: occupancy_target_pct > 90",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "WMS Best Practice / SEMA"
+      },
+      {
+        "failureMode": "Only 1–2 rack levels achievable: Building clear height is limiting vertical density. If building modification is not feasible, consider mezzanine floor installation or multi-tier picking to improve m³ utilisation.",
+        "effect": "Smart warning triggered when: Max_Rack_Levels <= 2",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Warehouse Design Optimisation"
+      },
+      {
+        "failureMode": "Storage density < 0.8 positions/m² gross: Below industry benchmark for conventional racking (target: 1.0–1.5 positions/m²). Analyse: wide aisle ratios, low stacking height, and low net storage ratio as primary contributors.",
+        "effect": "Smart warning triggered when: Positions_per_m2 < 0.8",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 3618 Density KPI"
+      },
+      {
+        "failureMode": "Low accessibility + small absolute accessible count: With drive-in or pushback systems, FIFO rotation becomes operationally difficult. For perishable goods, pharmaceuticals, or date-coded products, minimum selectivity factor 0.8 is required to ensure FEFO compliance.",
+        "effect": "Smart warning triggered when: selectivity_factor < 0.5 && accessible_positions < 200",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Warehouse Operations — FIFO Compliance"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Net_Storage_Area_m2",
+        "Rack_Bay_Footprint_m2",
+        "Floor_Positions",
+        "Height_per_Level_m",
+        "Max_Rack_Levels",
+        "Total_Pallet_Positions",
+        "Accessible_Positions",
+        "Required_Height_m",
+        "Theoretical_Volume_m3",
+        "Storage_Volume_m3",
+        "Cube_Utilisation_pct",
+        "Operating_Positions",
+        "Positions_per_m2",
+        "Aisle_Area_m2"
+      ]
+    }
+  ]
+}

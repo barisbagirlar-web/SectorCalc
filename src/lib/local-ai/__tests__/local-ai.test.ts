@@ -26,13 +26,5 @@ describe("local-ai answer builder", () => {
     expect(containsForbiddenClaim("Browse free calculators")).toBe(false);
   });
 
-  test("returns Turkish disclaimer for tr locale", () => {
-    const result = buildLocalAiAnswer({
-      input: "SectorCalc nedir",
-      locale: "tr",
-      routeResult: routeIntent("SectorCalc nedir", getDefaultKnowledgeItems("tr"), "tr"),
-    });
 
-    expect(result.disclaimer).toContain("simülasyon");
-  });
 });

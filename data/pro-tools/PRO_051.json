@@ -1,0 +1,339 @@
+{
+  "tool_id": "PRO_051",
+  "tool_name": "Cylindrical Gear Pair — Bending & Pitting (Contact) Stress Rating per ISO 6336",
+  "category": "Mechanical Power Transmission / Machine Design",
+  "scope": "single_operation",
+  "primary_operation": "cylindrical_gear",
+  "inputs": [
+    {
+      "id": "P_kw",
+      "name": "Transmitted Power (P)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 100000,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
+    },
+    {
+      "id": "n1_rpm",
+      "name": "Pinion Speed (n_1)",
+      "unit": "rpm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 60034-1:2017 §8.4 — Speed tolerance: ±1% at rated load"
+    },
+    {
+      "id": "gear_ratio_u",
+      "name": "Gear Ratio (u = z_2 / z_1)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 12,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "module_mm",
+      "name": "Normal Module (m_n)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        1,
+        1.25,
+        1.5,
+        2,
+        2.5,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        16,
+        20
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 4,
+      "note": "ISO 54 preferred module series",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "z1_teeth",
+      "name": "Number of Pinion Teeth (z_1)",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 8,
+      "absolute_max": 200,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    },
+    {
+      "id": "facewidth_mm",
+      "name": "Gear Facewidth (b)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 2000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "sigma_Hlim_mpa",
+      "name": "Allowable Contact Stress Number (σ_Hlim) — Pinion Material",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 400,
+      "absolute_max": 1650,
+      "note": "ISO 6336-5: case-hardened 20MnCr5 → σ_Hlim=1500 MPa; through-hardened 42CrMo4 → σ_Hlim=700 MPa",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "sigma_Flim_mpa",
+      "name": "Allowable Bending Stress Number (σ_Flim) — Pinion Material",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 500,
+      "note": "ISO 6336-5: case-hardened → σ_Flim=430 MPa; through-hardened → σ_Flim=275 MPa",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "KA_app_factor",
+      "name": "Application Factor (K_A)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "K_A=1.00 — Uniform, electric motor",
+          "value": 1
+        },
+        {
+          "label": "K_A=1.25 — Light shock, reciprocating pump",
+          "value": 1.25
+        },
+        {
+          "label": "K_A=1.50 — Moderate shock, compressor",
+          "value": 1.5
+        },
+        {
+          "label": "K_A=1.75 — Heavy shock, crusher",
+          "value": 1.75
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 1.25,
+      "note": "ISO 6336-1 Table A.1",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "d1_mm = module_mm * z1_teeth; T1_Nm = P_kw * 9549.3 / n1_rpm; Ft_N = 2000 * T1_Nm / d1_mm   // [mm, N] Pitch Circle Diameter & Tangential Force Reference: ISO 6336-1:2019 §5.3",
+    "v_m_s = Math.PI * d1_mm * n1_rpm / 60000; K_v = 1 + (0.0125 * v_m_s * Math.pow(z1_teeth * gear_ratio_u, 0.5)) / (1 + 0.0125 * v_m_s)   // [dimensionless] Dynamic Factor (K_v) — ISO Method B Reference: ISO 6336-1 §6.3.3 — simplified dynamic factor for quality grade 6",
+    "Z_E = 189.8; Z_H = 2.5; u = gear_ratio_u; sigma_H_mpa = Z_E * Z_H * Math.sqrt(Ft_N * KA_app_factor * K_v * (u+1) / (facewidth_mm * d1_mm * u))   // [MPa] Contact Stress (σ_H) — Hertz Pressure Reference: ISO 6336-2:2019 §4 — contact stress; Z_E=189.8 MPa^0.5 for steel/steel; Z_H=2.5 standard helix",
+    "Y_F = 2.7; Y_S = 1.6; sigma_F_mpa = Ft_N * KA_app_factor * K_v * Y_F * Y_S / (facewidth_mm * module_mm)   // [MPa] Bending Stress at Root (σ_F) Reference: ISO 6336-3:2019 §4 — root bending stress; Y_F=2.7 form factor z=20; Y_S=1.6 stress correction",
+    "S_H = sigma_Hlim_mpa / sigma_H_mpa   // [dimensionless] Contact Safety Factor (S_H) Reference: ISO 6336-2 §5 — S_H ≥ 1.0 minimum; ≥ 1.1–1.2 recommended",
+    "S_F = sigma_Flim_mpa / sigma_F_mpa   // [dimensionless] Bending Safety Factor (S_F) Reference: ISO 6336-3 §5 — S_F ≥ 1.4 minimum for industrial gearing"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 6336-1:2019",
+      "ISO 6336-2:2019",
+      "ISO 6336-3:2019",
+      "ISO 6336-5:2016 (materials)",
+      "AGMA 2101-D04"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "S_H < 1.0",
+        "error_msg": "Contact safety factor S_H < 1.0: pitting failure at operating load — increase facewidth, module, or use higher σ_Hlim material",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "S_F < 1.4",
+        "error_msg": "Bending safety factor S_F < 1.4: ISO 6336 minimum for industrial drives — increase module or facewidth",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "facewidth_mm > 12 * module_mm * z1_teeth",
+        "error_msg": "Facewidth exceeds 12×module×z_1: excessive width relative to pinion diameter — shaft deflection and load distribution factor K_Hβ will be critical",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "S_H < 1.1: marginal contact safety — case-harden to σ_Hlim ≥ 1400 MPa or apply profile modification (tip relief) per ISO 6336-1 §7",
+        "condition": "S_H < 1.1",
+        "source": "ISO 6336-1:2019"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Pitch-line velocity > 25 m/s: high dynamic loads — verify gear quality grade ≤ 5 per ISO 1328-1 and check lubrication viscosity",
+        "condition": "v_m_s > 25",
+        "source": "ISO 6336-1:2019"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "High ratio with few pinion teeth: undercut risk — verify minimum tooth count for standard addendum without profile shift",
+        "condition": "gear_ratio_u > 6 && z1_teeth < 17",
+        "source": "ISO 6336-1:2019"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Dynamic factor K_v > 1.5: significant dynamic load amplification — reduce speed, improve gear quality, or add mass damping",
+        "condition": "K_v > 1.5",
+        "source": "ISO 6336-1:2019"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Low bending safety under heavy shock loading: risk of tooth fracture at peak transients — consider shot-peened root fillet per ISO 6336-5 §5.4",
+        "condition": "S_F < 2.0 && KA_app_factor >= 1.5",
+        "source": "ISO 6336-1:2019"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: S_H < 1.0",
+        "effect": "Contact safety factor S_H < 1.0: pitting failure at operating load — increase facewidth, module, or use higher σ_Hlim material",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: S_F < 1.4",
+        "effect": "Bending safety factor S_F < 1.4: ISO 6336 minimum for industrial drives — increase module or facewidth",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: facewidth_mm > 12 * module_mm * z1_teeth",
+        "effect": "Facewidth exceeds 12×module×z_1: excessive width relative to pinion diameter — shaft deflection and load distribution factor K_Hβ will be critical",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "S_H < 1.1: marginal contact safety — case-harden to σ_Hlim ≥ 1400 MPa or apply profile modification (tip relief) per ISO 6336-1 §7",
+        "effect": "Smart warning triggered when: S_H < 1.1",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ISO 6336-1:2019"
+      },
+      {
+        "failureMode": "Pitch-line velocity > 25 m/s: high dynamic loads — verify gear quality grade ≤ 5 per ISO 1328-1 and check lubrication viscosity",
+        "effect": "Smart warning triggered when: v_m_s > 25",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6336-1:2019"
+      },
+      {
+        "failureMode": "High ratio with few pinion teeth: undercut risk — verify minimum tooth count for standard addendum without profile shift",
+        "effect": "Smart warning triggered when: gear_ratio_u > 6 && z1_teeth < 17",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6336-1:2019"
+      },
+      {
+        "failureMode": "Dynamic factor K_v > 1.5: significant dynamic load amplification — reduce speed, improve gear quality, or add mass damping",
+        "effect": "Smart warning triggered when: K_v > 1.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6336-1:2019"
+      },
+      {
+        "failureMode": "Low bending safety under heavy shock loading: risk of tooth fracture at peak transients — consider shot-peened root fillet per ISO 6336-5 §5.4",
+        "effect": "Smart warning triggered when: S_F < 2.0 && KA_app_factor >= 1.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 6336-1:2019"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "d1_mm",
+        "T1_Nm",
+        "Ft_N",
+        "v_m_s",
+        "K_v",
+        "Z_E",
+        "Z_H",
+        "u",
+        "sigma_H_mpa",
+        "Y_F",
+        "Y_S",
+        "sigma_F_mpa",
+        "S_H",
+        "S_F"
+      ]
+    }
+  ]
+}

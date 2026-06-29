@@ -65,14 +65,6 @@ const PREMIUM_REPORT_SECTIONS: Record<
     legalNote: "Nota legal",
   },
   ar: {
-    executiveSummary: "الملخص التنفيذي",
-    mainExposure: "التعرض الرئيسي",
-    hiddenDrivers: "العوامل الخفية",
-    thresholdCheck: "فحص الحدود",
-    suggestedActions: "الإجراءات المقترحة",
-    assumptions: "الافتراضات",
-    exportReady: "تقرير جاهز للتصدير",
-    legalNote: "إشعار قانوني",
   },
 };
 
@@ -122,11 +114,8 @@ const LEGAL: Record<
   },
   ar: {
     disclaimer:
-      "هذه النتيجة تقدير فني يعتمد على القيم المدخلة. لا يُغني عن استشارة مالية أو قانونية أو طبية أو هندسية.",
     premiumDisclaimer:
-      "هذا التقرير أداة دعم قرار. لا يُغني عن استشارة مالية أو قانونية أو طبية أو هندسية.",
     reportNote:
-      "للمرجع التشغيلي فقط — تحقق من الافتراضات قبل اعتماد الأسعار أو العقود.",
   },
 };
 
@@ -198,14 +187,8 @@ const ERRORS: Record<
   },
   ar: {
     calculationFailed:
-      "تعذر حساب النتيجة. يرجى مراجعة القيم المدخلة والمحاولة مرة أخرى.",
     invalidInput:
-      "قيمة واحدة أو أكثر غير صالحة. راجع الحقول المميزة.",
     networkError:
-      "فشل الاتصال. تحقق من الشبكة وحاول مرة أخرى.",
-    accessDenied: "يلزم وصول متقدم لهذا التقرير.",
-    notFound: "تعذر العثور على الصفحة أو الأداة.",
-    generic: "حدث خطأ. يرجى المحاولة مرة أخرى.",
   },
 };
 
@@ -294,18 +277,10 @@ const SEO: Record<
       "Diagnóstico de pérdidas, control de umbrales e informes listos para exportar.",
   },
   ar: {
-    homeTitle: "SectorCalc — حاسبات قطاعية وتقارير قرار",
     homeDescription:
-      "قِس الخسائر غير المرئية وتعرّض الهامش والمخاطر التشغيلية بأدوات قطاعية — دون تعقيد ERP.",
-    freeToolsTitle: "حاسبات قطاعية مجانية | SectorCalc",
     freeToolsDescription:
-      "حاسبات مجانية للتكلفة والقياس والطاقة وقرارات الأعمال. بدون تسجيل.",
-    pricingTitle: "الأسعار | SectorCalc",
     pricingDescription:
-      "حاسبات مجانية وتقارير متقدمة — تقرير واحد من 9$، Pro من 19$/شهر.",
-    premiumToolsTitle: "أدوات تحليل متقدمة | SectorCalc",
     premiumToolsDescription:
-      "تشخيص الخسائر وفحص الحدود وتقارير جاهزة للتصدير للفرق التشغيلية.",
   },
 };
 
@@ -318,7 +293,6 @@ const LOCALE_LABELS: Record<
   de: { label: "Sprache", fr: "Français" },
   fr: { label: "Langue", fr: "Français" },
   es: { label: "Idioma", fr: "Français" },
-  ar: { label: "اللغة", fr: "Français" },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -521,68 +495,14 @@ const PREMIUM_DECISION_REPORT: Record<SupportedLocale, Record<string, any>> = {
     },
   },
   ar: {
-    documentLabel: "تقرير قرار متقدم",
-    reportEyebrow: "تقرير القرار",
-    decisionDesk: "مكتب القرار",
-    runPrompt: "أدخل القيم وشغّل التحليل.",
-    ledgerEntries: "إدخالات الدفتر",
-    runAnalysis: "تشغيل التحليل",
-    whatThisMeans: "ماذا يعني هذا",
-    hiddenDriversTitle: "العوامل الخفية وراء النتيجة",
     hiddenDriversIntro:
-      "هذه المخرجات الثانوية تشرح ما يرفع أو يخفض النتيجة الرئيسية.",
-    thresholdTitle: "فحص الحدود",
-    suggestedActionTitle: "الإجراء المقترح",
-    actionImmediate: "فوري",
-    actionMonitoring: "مراقبة",
-    actionDecision: "قرار",
-    assumptionsTitle: "الافتراضات المستخدمة",
-    legalTitle: "إشعار قانوني",
-    exportTitle: "مخرجات التقرير المتقدم",
-    previewCta: "معاينة التقرير",
-    bufferedExposure: "التعرض المخزّن",
-    status: { Critical: "حرج", Warning: "تحذير", Acceptable: "مقبول" },
     export: {
-      title: "مخرجات التقرير المتقدم",
-      sectionExecutive: "الملخص التنفيذي",
-      sectionDrivers: "العوامل الخفية",
-      sectionThreshold: "فحص الحدود",
-      sectionAction: "الإجراء المقترح",
-      sectionAssumptions: "الافتراضات",
-      sectionReady: "PDF/CSV جاهز",
-      printPdf: "طباعة / حفظ PDF",
-      downloadCsv: "تنزيل CSV",
-      copySummary: "نسخ ملخص التقرير",
-      copied: "تم النسخ",
-      copyFailed: "فشل النسخ",
-      openPrintPage: "فتح صفحة الطباعة",
-      backToReport: "العودة إلى التقرير",
     },
     locked: {
-      title: "فتح تقرير القرار الكامل",
-      text: "المعاينة تعرض التعرض الرئيسي. التقرير الكامل يعرض العوامل الخفية وتفسير الحدود والإجراءات المقترحة والمخرجات القابلة للتصدير.",
-      bulletBreakdown: "تفصيل كامل للخسائر",
-      bulletThreshold: "تفسير الحدود",
-      bulletAction: "خطة إجراء مقترحة",
-      bulletExport: "تصدير PDF / CSV",
-      bulletSaved: "تقرير محفوظ",
-      unlockCta: "فتح التقرير",
-      pricingCta: "الأسعار",
       valueLine:
-        "الأفضل عندما تؤثر النتيجة على التسعير أو العمليات أو قرارات الإدارة.",
-      exportLocked: "التصدير مشمول في تقرير القرار الكامل.",
-      unlockPrint: "افتح للطباعة / حفظ PDF",
-      unlockCsv: "افتح لتنزيل CSV",
       samplePrintNote:
-        "معاينة نموذجية — افتح التقرير الكامل للطباعة دون تسمية نموذج.",
     },
     decisionValue: {
-      title: "قيمة القرار",
-      intro: "ما يساعدك هذا التقرير على تقريره",
-      bullet1: "تحديد عامل الخسارة الخفية الرئيسي",
-      bullet2: "المقارنة مع حدود التحذير والحرج",
-      bullet3: "تحويل النتيجة إلى إجراء عملي",
-      bullet4: "تصدير التقرير للإدارة أو العميل",
     },
   },
 };
@@ -692,26 +612,9 @@ const CRITICAL_PATCHES: Record<
     "checkoutPages.cancelPricingCta": "Volver a precios",
   },
   ar: {
-    "osGate.label": "الاشتراك مطلوب",
     "osGate.message":
-      "تتطلب هذه العملية طبقة Intelligence. افتح الوصول عبر Pro.",
-    "osGate.singleCta": "تشغيل · {price}",
     "osGate.proCta": "Pro · {price}",
-    "freeTool.unlockVerdictTitle": "عرض الحكم الكامل",
     "freeTool.unlockVerdictBody":
-      "سعر P90 الآمن وتحليل تسرب الهامش والإجراء الموصى به — غير متاح في المستوى المجاني.",
-    "freeTool.unlockVerdictCta": "عرض الحكم",
-    "freeTool.unlockVerdictLoading": "جارٍ التحقق من الوصول…",
-    "home.freeCheck.cta": "فحص هامش مجاني",
-    "home.premiumStep.title": "الحكم الكامل",
-    "home.premiumStep.cta": "أدوات التحليل المتقدمة",
-    "home.cta.primary": "أدوات مجانية",
-    "home.cta.secondary": "عرض تقرير نموذجي",
-    "emptyStates.login.cta": "تسجيل الدخول",
-    "emptyStates.reports.ctaPremium": "فتح التحليل المتقدم",
-    "checkoutPages.successTitle": "تم استلام الدفع.",
-    "checkoutPages.successPremiumCta": "فتح التحليل المتقدم",
-    "checkoutPages.cancelPricingCta": "العودة إلى الأسعار",
   },
 };
 
@@ -767,7 +670,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
               : locale === "es"
                 ? "Cuenta"
                 : locale === "ar"
-                  ? "الحساب"
                   : "Account",
       freeTools: g.freeCalculator[locale],
       premiumTools: g.premiumAnalyzer[locale],
@@ -802,7 +704,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
               : locale === "es"
                 ? "Por categoría"
                 : locale === "ar"
-                  ? "حسب الفئة"
                   : "Browse by category",
       viewAll:
         locale === "tr"
@@ -814,7 +715,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
               : locale === "es"
                 ? "Todas las categorías"
                 : locale === "ar"
-                  ? "جميع الفئات"
                   : "View all categories",
     },
     industries: {
@@ -828,7 +728,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
               : locale === "es"
                 ? "Por sector"
                 : locale === "ar"
-                  ? "حسب القطاع"
                   : "Explore by industry",
       viewAll: LOCALE_CTA[locale].chooseSector,
     },
@@ -845,7 +744,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
                 ? "Saisissez les valeurs pour voir le résultat"
                 : locale === "es"
                   ? "Introduzca valores para ver el resultado"
-                  : "أدخل القيم لعرض النتيجة",
       validationRequired:
         locale === "en"
           ? "Please select a value."
@@ -857,7 +755,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
                 ? "Veuillez sélectionner une valeur."
                 : locale === "es"
                   ? "Seleccione un valor."
-                  : "يرجى اختيار قيمة.",
       validationNumber:
         locale === "en"
           ? "Enter a valid number."
@@ -869,7 +766,6 @@ function buildSections(locale: SupportedLocale): Record<string, unknown> {
                 ? "Saisissez un nombre valide."
                 : locale === "es"
                   ? "Introduzca un número válido."
-                  : "أدخل رقمًا صالحًا.",
     },
     premiumReport: PREMIUM_REPORT_SECTIONS[locale],
     export: {

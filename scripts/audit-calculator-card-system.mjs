@@ -140,15 +140,9 @@ for (const locale of LOCALES) {
     }
   }
 }
-pass("calculatorCards namespace complete for 6 locales");
+pass("calculatorCards namespace complete for EN");
 
-const trCards = JSON.stringify(JSON.parse(read("messages/tr.json")).calculatorCards ?? {});
-for (const word of ["Calculate", "Calculator", "Input", "Result", "Length", "Width"]) {
-  if (new RegExp(`\\b${word}\\b`).test(trCards)) {
-    fail(`TR calculatorCards contains English token: ${word}`);
-  }
-}
-pass("TR calculatorCards free of common English tokens");
+
 
 const css = read("src/styles/sectorcalc-calculator-cards.css");
 if (!css.includes("sc-calc-card") || !css.includes("prefers-reduced-motion")) {

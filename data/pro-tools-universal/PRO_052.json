@@ -1,0 +1,289 @@
+{
+  "schemaId": "PRO_052",
+  "toolCode": "TOOL-PRO-052",
+  "version": "1.0.0",
+  "name": "Chilled Water Plant Energy Performance — System COP, IPLV & Carbon Footprint",
+  "subtitle": "HVAC | Energy Management — ASHRAE 90.1-2022 §6.5.1, AHRI 551/591-2023",
+  "sectorPath": [
+    "HVAC",
+    "Energy Management"
+  ],
+  "standardsBasis": [
+    "ASHRAE 90.1-2022 §6.5.1",
+    "AHRI 551/591-2023",
+    "EN 14511:2018",
+    "ISO 50001:2018",
+    "GHG Protocol Scope 2"
+  ],
+  "scope": {
+    "inScope": [
+      "Chilled Water Plant Energy Performance — System COP, IPLV & Carbon Footprint"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "chiller_capacity_kw",
+      "symbol": "chiller_capacity_kw",
+      "label": "Chiller Rated Cooling Capacity (Q_chiller)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 50000
+    },
+    {
+      "id": "chiller_COP_full",
+      "symbol": "chiller_COP_full",
+      "label": "Chiller COP at Full Load (rated condition)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 2,
+      "max": 9
+    },
+    {
+      "id": "chiller_COP_part",
+      "symbol": "chiller_COP_part",
+      "label": "Chiller COP at 50% Part Load (IPLV test point)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 2,
+      "max": 14
+    },
+    {
+      "id": "chilled_water_dT_k",
+      "symbol": "chilled_water_dT_k",
+      "label": "Chilled Water ΔT (Supply to Return)",
+      "unit": {
+        "ref": "K"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 3,
+      "max": 16,
+      "default": 6
+    },
+    {
+      "id": "pump_power_kw",
+      "symbol": "pump_power_kw",
+      "label": "Total CHW & CW Pump Power (installed)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 1,
+      "max": 5000
+    },
+    {
+      "id": "cooling_tower_power_kw",
+      "symbol": "cooling_tower_power_kw",
+      "label": "Cooling Tower Fan Power (installed)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0,
+      "max": 2000
+    },
+    {
+      "id": "annual_cooling_kwh",
+      "symbol": "annual_cooling_kwh",
+      "label": "Annual Cooling Energy Delivered (measured or estimated)",
+      "unit": {
+        "ref": "kWh/yr"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 1000,
+      "max": 500000000
+    },
+    {
+      "id": "grid_emission_factor",
+      "symbol": "grid_emission_factor",
+      "label": "Grid Carbon Emission Factor (EF)",
+      "unit": {
+        "ref": "kgCO₂e/kWh"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.05,
+      "max": 1,
+      "default": 0.4
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_052",
+      "code": "ASHRAE 90.1-2022 §6.5.1",
+      "name": "Chilled Water Plant Energy Performance — System COP, IPLV & Carbon Footprint",
+      "description": "Chilled Water Plant Energy Performance — System COP, IPLV & Carbon Footprint — HVAC, Energy Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "W_chiller_kw",
+          "expression": "chiller_capacity_kw / chiller_COP_full; W_plant_kw = W_chiller_kw + pump_power_kw + cooling_tower_power_kw",
+          "unit": {
+            "ref": "kW"
+          },
+          "reference": "ASHRAE 90.1-2022 §6.5.1 — plant-level power accounting",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "COP_system",
+          "expression": "chiller_capacity_kw / W_plant_kw",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "AHRI 551/591-2023 — system boundary includes chiller + auxiliary equipment",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "IPLV",
+          "expression": "1 / (0.01/chiller_COP_full + 0.42/chiller_COP_part + 0.45/(chiller_COP_part*1.1) + 0.12/(chiller_COP_part*0.85))",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "AHRI 551/591-2023 §6.3 — IPLV weighting: A=1%, B=42%, C=45%, D=12%",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "E_plant_kwh_yr",
+          "expression": "annual_cooling_kwh / COP_system",
+          "unit": {
+            "ref": "kWh/yr"
+          },
+          "reference": "ISO 50001:2018 energy baseline",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "CO2_tonne_yr",
+          "expression": "E_plant_kwh_yr * grid_emission_factor / 1000",
+          "unit": {
+            "ref": "tCO₂e/yr"
+          },
+          "reference": "GHG Protocol Scope 2 (location-based) — IPCC AR6 emission factors",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "m_dot_chw_kg_s",
+          "expression": "chiller_capacity_kw / (4.18 * chilled_water_dT_k)",
+          "unit": {
+            "ref": "kg/s"
+          },
+          "reference": "Q = ṁ·c_p·ΔT",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ASHRAE 90.1-2022 §6.5.1",
+          "condition": "IPLV < 4.0",
+          "message": "IPLV < 4.0: below ASHRAE 90.1-2022 minimum efficiency requirement for water-cooled chillers > 528 kW — non-compliant for new installations"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ASHRAE 90.1-2022 §6.5.1",
+          "condition": "pump_power_kw / chiller_capacity_kw > 0.10",
+          "message": "Pump power >10% of cooling capacity: excessive hydraulic loop losses — evaluate VFD on pumps, pipe sizing, and valve pressure drops"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ASHRAE 90.1-2022 §6.5.1",
+          "condition": "COP_system < IPLV * 0.7",
+          "message": "System COP significantly below IPLV: large auxiliary penalty — optimise cooling tower and pump controls for off-peak savings"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "ASHRAE 90.1-2022 §6.5.1",
+          "condition": "CO2_tonne_yr > 1000",
+          "message": "Annual CO₂ > 1,000 tonnes: material Scope 2 emission — consider PPA for renewable electricity or free-cooling economiser"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ASHRAE 90.1-2022 §6.5.1",
+          "condition": "chilled_water_dT_k > 10",
+          "message": "High CHW ΔT (>10 K): verify coil capacity and pump sizing — beneficial for energy but may indicate undersized distribution"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "chiller_capacity_kw",
+        "chiller_COP_full",
+        "chiller_COP_part",
+        "chilled_water_dT_k",
+        "pump_power_kw",
+        "cooling_tower_power_kw",
+        "annual_cooling_kwh",
+        "grid_emission_factor"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

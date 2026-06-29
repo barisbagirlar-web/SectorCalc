@@ -1,0 +1,91 @@
+import type { Metadata } from "next";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { Container } from "@/components/ui/Container";
+import Link from "next/link";
+import { createPageMetadata } from "@/lib/metadata";
+import { AUTHORITY_GUIDES } from "@/lib/content/authority-guides";
+import { getAuthorityGuideRoutePath } from "@/lib/content/authority-links";
+
+const LOCALE = "en";
+
+const T = {
+  en: {
+    eyebrow: "RESOURCES",
+    title: "Engineering Guides & Reference Manuals",
+    subtitle: "Step-by-step methodologies, formula breakdowns, and industrial calculations for operational decisions.",
+    viewGuide: "Read Guide →",
+    metaTitle: "Engineering Guides & Reference Manuals | SectorCalc",
+    metaDescription: "Step-by-step methodologies, formula breakdowns, and industrial calculations for operational decisions.",
+  },
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = T[LOCALE as keyof typeof T] || T.en;
+  return createPageMetadata({
+    title: t.metaTitle,
+    description: t.metaDescription,
+    path: "/guides",
+    locale: LOCALE as "en",
+  });
+}
+
+export default async function GuidesIndexPage() {
+  const t = T[LOCALE as keyof typeof T] || T.en;
+
+  return (
+    <PageLayout>
+      <section className="sc-craft-section sc-craft-section--white sc-craft-section--border bg-white border-b border-slate-200 py-12 md:py-16">
+        <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+          <div className="border-l-4 border-[#BD5D3A] pl-6 py-2">
+            <p className="text-xs font-mono uppercase tracking-widest text-[#BD5D3A] mb-1">{t.eyebrow}</p>
+            <h1 className="sc-craft-headline font-serif text-3xl md:text-4xl text-navy font-bold leading-tight">
+              {t.title}
+            </h1>
+            <p className="sc-craft-lead max-w-3xl mt-3 text-sm text-body-charcoal/80 leading-relaxed font-sans">
+              {t.subtitle}
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="sc-craft-section sc-craft-section--alt overflow-x-hidden bg-slate-50 py-12 md:py-16">
+        <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+          <div className="grid min-w-0 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {AUTHORITY_GUIDES.map((guide) => {
+              const categoryLabel = guide.category.replace("-", " ").toUpperCase();
+              return (
+                <article
+                  key={guide.slug}
+                  className="flex flex-col justify-between rounded-sm border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-[#BD5D3A]/40"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[10px] font-mono font-semibold tracking-wider text-[#BD5D3A]">
+                        {categoryLabel}
+                      </span>
+                    </div>
+                    <h2 className="mt-3 text-lg font-serif font-bold text-navy leading-snug">
+                      {guide.title}
+                    </h2>
+                    <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-body-charcoal/80 font-sans">
+                      {guide.seoDescription}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                    <span className="text-[10px] text-slate-400 font-mono">ID: {guide.slug}</span>
+                    <Link
+                      href={getAuthorityGuideRoutePath(guide.slug)}
+                      className="text-xs font-semibold text-[#BD5D3A] hover:underline"
+                    >
+                      {t.viewGuide}
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+    </PageLayout>
+  );
+}

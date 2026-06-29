@@ -65,7 +65,8 @@ export type CalculatorId =
  | "change-order-impact-analyzer"
  | "office-cleaning-bid-optimizer"
  | "menu-profit-leak-detector"
- | "return-rate-profit-erosion-tool";
+ | "return-rate-profit-erosion-tool"
+ | "indicated-horsepower-calculator";
 
 export interface ToolFeatures {
  /** Premium decision report, scenarios, and risk verdict */

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLocale } from "next-intl";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";

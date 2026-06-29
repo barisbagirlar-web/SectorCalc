@@ -122,7 +122,7 @@ export function LeadDetailDrawer({
  <button
  type="button"
  className="absolute inset-0 bg-deep-navy/30"
- aria-label="Detayı kapat"
+ aria-label="Close detail"
  onClick={onClose}
  />
 
@@ -135,7 +135,7 @@ export function LeadDetailDrawer({
  <header className="flex shrink-0 items-start justify-between gap-4 border-b border-slate/15 px-5 py-4">
  <div className="min-w-0">
  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
- Lead detayı
+ Lead Detail
  </p>
  <h2
  id="lead-detail-drawer-title"
@@ -149,7 +149,7 @@ export function LeadDetailDrawer({
  type="button"
  onClick={onClose}
  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate/20 text-text-secondary transition-colors hover:bg-off-white hover:text-deep-navy"
- aria-label="Kapat"
+ aria-label="Close"
  >
  <span aria-hidden className="text-xl leading-none">
  ×
@@ -159,17 +159,17 @@ export function LeadDetailDrawer({
 
  <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5">
  <div className="space-y-4">
- <DetailSection title="Lead Özeti">
- <DetailRow label="Ad Soyad" value={displayValue(lead.name)} />
- <DetailRow label="Şirket" value={displayValue(lead.company)} />
+ <DetailSection title="Lead Summary">
+ <DetailRow label="Name" value={displayValue(lead.name)} />
+ <DetailRow label="Company" value={displayValue(lead.company)} />
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
- <dt className="font-medium text-text-secondary">İletişim</dt>
+ <dt className="font-medium text-text-secondary">Contact</dt>
  <dd>
  <LeadContactCell lead={lead} />
  </dd>
  </div>
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
- <dt className="font-medium text-text-secondary">Oluşturulma</dt>
+ <dt className="font-medium text-text-secondary">Created</dt>
  <dd>
  <time
  dateTime={lead.createdAt}
@@ -184,21 +184,21 @@ export function LeadDetailDrawer({
  </dd>
  </div>
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:items-center sm:gap-3">
- <dt className="font-medium text-text-secondary">Öncelik / Durum</dt>
+ <dt className="font-medium text-text-secondary">Priority / Status</dt>
  <dd className="flex flex-wrap gap-2">
  <LeadPriorityBadge lead={lead} />
  <LeadStatusBadge status={status} />
  </dd>
  </div>
  <DetailRow label="Lead ID" value={displayValue(lead.id)} />
- <DetailRow label="Depolama" value={displayValue(lead.storageMode)} />
+ <DetailRow label="Storage" value={displayValue(lead.storageMode)} />
  </DetailSection>
 
- <DetailSection title="Lead Kalitesi">
+ <DetailSection title="Lead Quality">
  <LeadQualityDetail quality={quality} />
  </DetailSection>
 
- <DetailSection title="Veri Kalitesi">
+ <DetailSection title="Data Quality">
  <LeadDataQualityDetail
  detection={testDetection}
  lead={lead}
@@ -206,16 +206,16 @@ export function LeadDetailDrawer({
  />
  </DetailSection>
 
- <DetailSection title="Takip Durumu">
+ <DetailSection title="Follow-up Status">
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:items-center sm:gap-3">
  <dt className="font-medium text-text-secondary">SLA</dt>
  <dd>
  <LeadFollowUpSlaBadge sla={followUpSla} />
  </dd>
  </div>
- <DetailRow label="Yaş" value={followUpSla.ageLabel} />
+ <DetailRow label="Age" value={followUpSla.ageLabel} />
  <DetailRow
- label="Önerilen aksiyon"
+ label="Recommended action"
  value={followUpSla.recommendedAction}
  />
  </DetailSection>
@@ -225,25 +225,25 @@ export function LeadDetailDrawer({
  recommendation={actionRecommendation}
  />
 
- <DetailSection title="Kaynak Analizi">
+ <DetailSection title="Source Analysis">
  <DetailRow
  label="Attribution"
  value={displayValue(attribution.attributionLabel)}
  />
  <DetailRow
- label="Sayfa"
+ label="Page"
  value={displayValue(attribution.sourcePageLabel)}
  />
  <DetailRow
- label="Araç"
+ label="Tool"
  value={displayValue(attribution.sourceToolLabel)}
  />
  <DetailRow
- label="Seviye"
+ label="Tier"
  value={displayValue(attribution.toolTierLabel)}
  />
  <DetailRow
- label="Sektör"
+ label="Industry"
  value={displayValue(attribution.industryLabel)}
  />
  <DetailRow label="Plan" value={displayValue(attribution.planLabel)} />
@@ -255,28 +255,28 @@ export function LeadDetailDrawer({
  <DetailRow label="UTM" value={displayValue(attribution.utmSummary)} />
  </DetailSection>
 
- <DetailSection title="Talep Bilgisi">
+ <DetailSection title="Request Info">
  <DetailRow label="Intent" value={displayValue(formatLeadIntentSummary(lead))} />
- <DetailRow label="Araç" value={displayValue(lead.toolRequested)} />
- <DetailRow label="Kaynak" value={displayValue(formatLeadSource(lead.source))} />
+ <DetailRow label="Tool" value={displayValue(lead.toolRequested)} />
+ <DetailRow label="Source" value={displayValue(formatLeadSource(lead.source))} />
  <DetailRow label="Source tool" value={displayValue(lead.sourceTool)} />
  <DetailRow label="Plan" value={displayValue(formatLeadPlan(lead.plan))} />
- <DetailRow label="Sektör" value={displayValue(lead.industry)} />
- <DetailRow label="Sayfa" value={displayValue(lead.pagePath)} />
+ <DetailRow label="Industry" value={displayValue(lead.industry)} />
+ <DetailRow label="Page" value={displayValue(lead.pagePath)} />
  </DetailSection>
 
- <DetailSection title="Mesaj / Form Detayı">
- <DetailRow label="Kullanım amacı" value={displayValue(lead.intendedUse)} />
- <DetailRow label="Mesaj" value={displayValue(lead.message)} />
+ <DetailSection title="Message / Form Detail">
+ <DetailRow label="Intended use" value={displayValue(lead.intendedUse)} />
+ <DetailRow label="Message" value={displayValue(lead.message)} />
  </DetailSection>
 
- <DetailSection title="Admin Alanı">
- <DetailRow label="Admin notu" value={displayValue(lead.adminNote)} />
+ <DetailSection title="Admin Area">
+ <DetailRow label="Admin note" value={displayValue(lead.adminNote)} />
  <DetailRow
  label="Next action"
  value={
  suggestedNextAction
- ? `${nextAction} (öneri)`
+ ? `${nextAction} (suggestion)`
  : displayValue(nextAction)
  }
  />
@@ -285,11 +285,11 @@ export function LeadDetailDrawer({
  value={displayValue(lead.leadScore)}
  />
  <DetailRow
- label="Öncelik (hesap)"
+ label="Priority (calculation)"
  value={getLeadPriorityLabel(priority)}
  />
  <DetailRow
- label="Güncellenme"
+ label="Updated"
  value={displayValue(
  lead.updatedAt
  ? formatLocalDateTime(lead.updatedAt)
@@ -297,24 +297,24 @@ export function LeadDetailDrawer({
  )}
  />
  {lead.updatedAt ? (
- <DetailRow label="UTC güncelleme" value={lead.updatedAt} />
+ <DetailRow label="UTC updated" value={lead.updatedAt} />
  ) : null}
  </DetailSection>
 
- <DetailSection title="Aktivite Geçmişi">
+ <DetailSection title="Activity History">
  <LeadActivityList
  lead={lead}
  refreshKey={`${lead.updatedAt ?? lead.id}-${String(lead.isTestLead)}-${lead.testLeadMarkedAt ?? ""}`}
  />
  </DetailSection>
 
- <DetailSection title="Hızlı Aksiyon">
+ <DetailSection title="Quick Action">
  <LeadPipelineControls lead={lead} layout="mobile" onSaved={onLeadPatched} />
  </DetailSection>
 
  <details className="rounded-sm border border-slate/20 bg-off-white/50 px-4 py-3 text-sm">
  <summary className="cursor-pointer font-medium text-text-secondary">
- Ham kayıt (JSON)
+ Raw record (JSON)
  </summary>
  <pre className="mt-3 max-h-48 overflow-auto break-words rounded-lg border border-slate/15 bg-white p-3 text-xs text-deep-navy">
  {JSON.stringify(lead, null, 2)}

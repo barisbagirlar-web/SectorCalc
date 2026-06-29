@@ -1,0 +1,441 @@
+{
+  "schemaId": "PRO_013",
+  "toolCode": "TOOL-PRO-013",
+  "version": "1.0.0",
+  "name": "Calibration Drift Analysis & ISO 17025 Conformity Decision Risk (TUR / Guard Band)",
+  "subtitle": "Metrology & Quality | Calibration Management — ISO/IEC 17025:2017, ILAC G8:09/2019",
+  "sectorPath": [
+    "Metrology & Quality",
+    "Calibration Management"
+  ],
+  "standardsBasis": [
+    "ISO/IEC 17025:2017",
+    "ILAC G8:09/2019",
+    "JCGM 100:2008 (GUM)",
+    "ANSI Z540.3",
+    "EURACHEM/CITAC CG4",
+    "EA-4/02 M:2022"
+  ],
+  "scope": {
+    "inScope": [
+      "Calibration Drift Analysis & ISO 17025 Conformity Decision Risk (TUR / Guard Band)"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "current_error",
+      "symbol": "current_error",
+      "label": "Current Calibration Error (found error)",
+      "unit": {
+        "ref": "measurement unit (μm / Pa / mA / °C)"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -1000000,
+      "hint": "Signed error: indicated value minus reference standard value. Can be negative."
+    },
+    {
+      "id": "previous_error",
+      "symbol": "previous_error",
+      "label": "Previous Calibration Error",
+      "unit": {
+        "ref": "same measurement unit"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -1000000,
+      "hint": "Error from the immediately preceding calibration certificate"
+    },
+    {
+      "id": "days_in_service",
+      "symbol": "days_in_service",
+      "label": "Days in Service Between Calibrations",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 1,
+      "max": 1825,
+      "hint": "Actual elapsed days between calibration dates on certificates"
+    },
+    {
+      "id": "planned_next_interval_days",
+      "symbol": "planned_next_interval_days",
+      "label": "Planned Next Calibration Interval",
+      "unit": {
+        "ref": "day"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 1,
+      "max": 1825,
+      "default": 365,
+      "hint": "Your planned calibration frequency going forward"
+    },
+    {
+      "id": "process_tolerance",
+      "symbol": "process_tolerance",
+      "label": "Process Specification Tolerance (±T)",
+      "unit": {
+        "ref": "same measurement unit"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.0001,
+      "hint": "Half-range of the bilateral tolerance band: |USL - LSL| / 2"
+    },
+    {
+      "id": "reference_uncertainty_U",
+      "symbol": "reference_uncertainty_U",
+      "label": "Reference Standard Expanded Uncertainty (U, k=2)",
+      "unit": {
+        "ref": "same measurement unit"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "hint": "From calibration laboratory certificate — U at 95% confidence (k=2)"
+    },
+    {
+      "id": "ambient_temp_variation_c",
+      "symbol": "ambient_temp_variation_c",
+      "label": "Ambient Temperature Variation During Use (ΔT)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "max": 40,
+      "default": 5,
+      "hint": "Temperature range in the measurement environment (max − min)"
+    },
+    {
+      "id": "temp_coefficient",
+      "symbol": "temp_coefficient",
+      "label": "Instrument Temperature Coefficient",
+      "unit": {
+        "ref": "unit/°C"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "hint": "From manufacturer datasheet. Sensitivity to ambient temperature change."
+    },
+    {
+      "id": "resolution",
+      "symbol": "resolution",
+      "label": "Instrument Display Resolution",
+      "unit": {
+        "ref": "same measurement unit"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "default": 0,
+      "optional": true,
+      "hint": "Smallest graduation or digit. Contributes ±resolution/2 to uncertainty."
+    },
+    {
+      "id": "guard_band_rule",
+      "symbol": "guard_band_rule",
+      "label": "Guard Band Decision Rule",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": "ILAC G8 Rule — w = U (full guard band)",
+      "enum": [
+        {
+          "value": "ILAC G8 Rule — w = U (full guard band)",
+          "label": "ILAC G8 Rule — w = U (full guard band)"
+        },
+        {
+          "value": "50% Guard Band — w = 0.5U",
+          "label": "50% Guard Band — w = 0.5U"
+        },
+        {
+          "value": "No Guard Band (simple comparison) — w = 0",
+          "label": "No Guard Band (simple comparison) — w = 0"
+        }
+      ]
+    },
+    {
+      "id": "guard_band_factor",
+      "symbol": "guard_band_factor",
+      "label": "Guard Band Factor (w / U)",
+      "unit": {
+        "ref": "—"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 1,
+      "default": 1
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_013",
+      "code": "ISO/IEC 17025:2017",
+      "name": "Calibration Drift Analysis & ISO 17025 Conformity Decision Risk (TUR / Guard Band)",
+      "description": "Calibration Drift Analysis & ISO 17025 Conformity Decision Risk (TUR / Guard Band) — Metrology & Quality, Calibration Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "Absolute_Drift",
+          "expression": "ABS(current_error - previous_error)",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "Drift_Rate_per_Day",
+          "expression": "Absolute_Drift / days_in_service",
+          "unit": {
+            "ref": "unit/day"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Predicted_Drift_Next_Interval",
+          "expression": "Drift_Rate_per_Day * planned_next_interval_days",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "U_drift",
+          "expression": "Predicted_Drift_Next_Interval / SQRT(3)",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "U_env",
+          "expression": "temp_coefficient * ambient_temp_variation_c / SQRT(3)",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "U_ref",
+          "expression": "reference_uncertainty_U / 2",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F7",
+          "output": "U_res",
+          "expression": "resolution / (2 * SQRT(3))",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F8",
+          "output": "U_combined",
+          "expression": "SQRT(POWER(U_ref, 2) + POWER(U_drift, 2) + POWER(U_env, 2) + POWER(U_res, 2))",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F9",
+          "output": "U_expanded",
+          "expression": "U_combined * 2",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F10",
+          "output": "TUR",
+          "expression": "process_tolerance / U_expanded",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F11",
+          "output": "Guard_Band_w",
+          "expression": "U_expanded * guard_band_factor",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F12",
+          "output": "Acceptance_Limit",
+          "expression": "process_tolerance - Guard_Band_w",
+          "unit": {
+            "ref": "unit"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F13",
+          "output": "Instrument_In_Tolerance",
+          "expression": "ABS(current_error) <= process_tolerance",
+          "unit": {
+            "ref": "bool"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F14",
+          "output": "Instrument_Conforms_Guarded",
+          "expression": "ABS(current_error) <= Acceptance_Limit",
+          "unit": {
+            "ref": "bool"
+          },
+          "reference": ""
+        },
+        {
+          "id": "F15",
+          "output": "Calibration_Ratio_CR",
+          "expression": "U_expanded / process_tolerance",
+          "unit": {
+            "ref": "—"
+          },
+          "reference": ""
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ANSI Z540.3 / ILAC G8:2019",
+          "condition": "TUR < 4",
+          "message": "CRITICAL DECISION RISK — TUR < 4:1: The 4:1 minimum Test Uncertainty Ratio is not met. Probability of false accept (in-tolerance equipment measuring out-of-spec parts as conforming) is statistically significant. ISO 17025 cl.7.8.6 requires this risk to be disclosed in the conformity statement."
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "ANSI Z540.3 Annex B",
+          "condition": "TUR < 2",
+          "message": "EXTREME RISK — TUR < 2:1: False accept probability may exceed 5–15% depending on distribution. Guard band must be applied and expanded. Product liability exposure is severe. Internal audit required."
+        },
+        {
+          "id": "W3",
+          "severity": "CRITICAL",
+          "source": "ILAC G8 Calibration Interval Analysis",
+          "condition": "Predicted_Drift_Next_Interval > process_tolerance * 0.5",
+          "message": "DRIFT EXCEEDS 50% OF TOLERANCE before next calibration is due. At the current drift rate, instrument will be out of tolerance before planned recalibration. Shorten calibration interval to maximum half of current interval."
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "Calibration Interval Optimization (ISO 17025 cl.6.4.10)",
+          "condition": "Drift_Rate_per_Day > ABS(process_tolerance) / 90",
+          "message": "High drift rate detected: Instrument drifts more than 1% of tolerance per 90 days. Current calibration interval may be too long. Review against measurement criticality and reduce interval."
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "ILAC G8 Guard Band — Conditional Pass",
+          "condition": "ABS(current_error) > Acceptance_Limit && ABS(current_error) <= process_tolerance",
+          "message": "CONDITIONAL CONFORMITY: Instrument is within raw tolerance but fails guarded acceptance limit. Under ILAC G8, this is a NON-CONFORM result when guard banding is applied. Measurements made since last calibration may contain false accepts."
+        },
+        {
+          "id": "W6",
+          "severity": "CRITICAL",
+          "source": "ISO 17025 cl.6.4.10 Out-of-Tolerance",
+          "condition": "ABS(current_error) > process_tolerance",
+          "message": "OUT-OF-TOLERANCE FOUND: Instrument exceeded calibration specification. Mandatory action: (1) Quarantine all measurements made since last in-tolerance calibration, (2) Risk assessment of affected product/decisions, (3) Root cause analysis, (4) Customer notification if product was released."
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "current_error",
+        "previous_error",
+        "days_in_service",
+        "planned_next_interval_days",
+        "process_tolerance",
+        "reference_uncertainty_U",
+        "ambient_temp_variation_c",
+        "temp_coefficient",
+        "guard_band_rule",
+        "guard_band_factor"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -43,7 +43,7 @@ function hasWeakMessageSignal(lead: LeadIntent, quality: LeadQualityScore): bool
  if (hasWeakMessage(lead)) {
  return true;
  }
- return quality.warnings.some((warning) => warning.includes("Mesaj"));
+  return quality.warnings.some((warning) => warning.includes("Message"));
 }
 
 function buildChecklist(
@@ -52,27 +52,27 @@ function buildChecklist(
 ): string[] {
  const messageStep =
  suggestedMessageType === "whatsapp"
- ? "WhatsApp metnini kopyala ve manuel gönder"
+ ? "Copy WhatsApp text and send manually"
  : suggestedMessageType === "email"
- ? "E-posta metnini kopyala ve manuel gönder"
- : "İç notu kopyala ve CRM/not alanına yapıştır";
+ ? "Copy email text and send manually"
+ : "Copy internal note and paste to CRM/notes field";
 
- return [...items, messageStep, "Pipeline durumunu güncelle ve kaydet"];
+ return [...items, messageStep, "Update and save pipeline status"];
 }
 
 function closedRecommendation(status: LeadStatus): LeadActionRecommendation {
  return {
- recommendedActionLabel: "Kapalı kayıt",
- recommendedActionReason:
- status === "converted"
- ? "Lead dönüşüm tamamladı — yeni satış aksiyonu gerekmiyor."
- : "Lead kayıp olarak işaretlendi — kapalı kayıt olarak bırakın.",
+  recommendedActionLabel: "Closed Record",
+  recommendedActionReason:
+   status === "converted"
+   ? "Lead completed conversion — no further sales action needed."
+   : "Lead marked as lost — leave as closed record.",
  recommendedStatus: status,
  priorityLevel: "low",
- actionChecklist: buildChecklist(
- ["Kayıt durumunu doğrula", "Kayıp/dönüşüm sebebini not al"],
- "internal_note"
- ),
+  actionChecklist: buildChecklist(
+   ["Verify record status", "Note loss/conversion reason"],
+   "internal_note"
+  ),
  suggestedMessageType: "internal_note",
  shouldContactToday: false,
  };
@@ -81,23 +81,23 @@ function closedRecommendation(status: LeadStatus): LeadActionRecommendation {
 function requestMoreInfoRecommendation(
  quality: LeadQualityScore
 ): LeadActionRecommendation {
- const reasonParts = [
- "Lead kalitesi düşük ve mesaj/veri zayıf görünüyor.",
- quality.warnings.length > 0 ? quality.warnings.join(" · ") : null,
- ].filter((part): part is string => Boolean(part));
+  const reasonParts = [
+   "Lead quality is low and message/data appears weak.",
+   quality.warnings.length > 0 ? quality.warnings.join(" · ") : null,
+  ].filter((part): part is string => Boolean(part));
 
- return {
- recommendedActionLabel: "Ek bilgi iste",
- recommendedActionReason: reasonParts.join(" "),
- recommendedStatus: "reviewed",
- priorityLevel: "normal",
- actionChecklist: buildChecklist(
- [
- "Eksik şirket, mesaj veya niyet bilgisini kontrol et",
- "Ek bilgi isteyen kısa mesaj hazırla",
- ],
- "email"
- ),
+  return {
+   recommendedActionLabel: "Request More Info",
+   recommendedActionReason: reasonParts.join(" "),
+   recommendedStatus: "reviewed",
+   priorityLevel: "normal",
+   actionChecklist: buildChecklist(
+    [
+     "Check missing company, message or intent info",
+     "Prepare short message requesting more info",
+    ],
+    "email"
+   ),
  suggestedMessageType: "email",
  shouldContactToday: false,
  };
@@ -108,17 +108,17 @@ function urgentFollowUpRecommendation(
  quality: LeadQualityScore
 ): LeadActionRecommendation {
  return {
- recommendedActionLabel: "Bugün dönüş yap",
- recommendedActionReason: `SLA gecikti (${slaLabel}) ve lead kalitesi ${quality.label.toLowerCase()} (${quality.score}/100).`,
- recommendedStatus: "contacted",
- priorityLevel: "urgent",
- actionChecklist: buildChecklist(
- [
- "Attribution ve intent özetini gözden geçir",
- "Bugün mutlaka iletişime geç",
- ],
- "whatsapp"
- ),
+  recommendedActionLabel: "Respond Today",
+  recommendedActionReason: `SLA overdue (${slaLabel}) and lead quality ${quality.label.toLowerCase()} (${quality.score}/100).`,
+  recommendedStatus: "contacted",
+  priorityLevel: "urgent",
+  actionChecklist: buildChecklist(
+   [
+    "Review attribution and intent summary",
+    "Contact today without fail",
+   ],
+   "whatsapp"
+  ),
  suggestedMessageType: "whatsapp",
  shouldContactToday: true,
  };
@@ -129,14 +129,14 @@ function priorityFirstContactRecommendation(
  attributionLabel: string
 ): LeadActionRecommendation {
  return {
- recommendedActionLabel: "Öncelikli ilk temas",
- recommendedActionReason: `Yeni yüksek kalite lead (${quality.score}/100). Kaynak: ${attributionLabel}.`,
+  recommendedActionLabel: "Priority First Contact",
+  recommendedActionReason: `New high-quality lead (${quality.score}/100). Source: ${attributionLabel}.`,
  recommendedStatus: "contacted",
  priorityLevel: "high",
- actionChecklist: buildChecklist(
- ["Lead özetini oku", "İlk temas mesajını hazırla"],
- "whatsapp"
- ),
+  actionChecklist: buildChecklist(
+   ["Read lead summary", "Prepare initial contact message"],
+   "whatsapp"
+  ),
  suggestedMessageType: "whatsapp",
  shouldContactToday: true,
  };
@@ -146,14 +146,14 @@ function qualificationCallRecommendation(
  quality: LeadQualityScore
 ): LeadActionRecommendation {
  return {
- recommendedActionLabel: "Uygunluk görüşmesi yap",
- recommendedActionReason: `Lead incelendi ve ${quality.label.toLowerCase()} (${quality.score}/100) — uygunluk değerlendirmesi zamanı.`,
+  recommendedActionLabel: "Qualification Call",
+  recommendedActionReason: `Lead reviewed and ${quality.label.toLowerCase()} (${quality.score}/100) — time for qualification assessment.`,
  recommendedStatus: "qualified",
  priorityLevel: "high",
- actionChecklist: buildChecklist(
- ["İhtiyaç ve bütçe uygunluğunu netleştir", "Görüşme notunu iç nota kaydet"],
- "whatsapp"
- ),
+  actionChecklist: buildChecklist(
+   ["Clarify need and budget fit", "Save meeting notes to internal note"],
+   "whatsapp"
+  ),
  suggestedMessageType: "whatsapp",
  shouldContactToday: true,
  };
@@ -161,15 +161,15 @@ function qualificationCallRecommendation(
 
 function closingFollowUpRecommendation(): LeadActionRecommendation {
  return {
- recommendedActionLabel: "Teklif / kapanış takibi yap",
- recommendedActionReason:
- "Lead uygun olarak işaretlendi — teklif veya kapanış adımına geçilmeli.",
+  recommendedActionLabel: "Quote / Closing Follow-up",
+  recommendedActionReason:
+   "Lead marked as qualified — proceed to quote or closing step.",
  recommendedStatus: "converted",
  priorityLevel: "normal",
- actionChecklist: buildChecklist(
- ["Son teklif veya karar durumunu kontrol et", "Kapanış takibi mesajı hazırla"],
- "email"
- ),
+  actionChecklist: buildChecklist(
+   ["Check latest quote or decision status", "Prepare closing follow-up message"],
+   "email"
+  ),
  suggestedMessageType: "email",
  shouldContactToday: false,
  };
@@ -186,29 +186,29 @@ function defaultActiveRecommendation(
 
  if (status === "contacted") {
  return {
- recommendedActionLabel: "Takip mesajı gönder",
- recommendedActionReason: `Temas kuruldu (${slaLabel}). ${nextAction}.`,
+   recommendedActionLabel: "Send Follow-up Message",
+   recommendedActionReason: `Contact established (${slaLabel}). ${nextAction}.`,
  recommendedStatus: "contacted",
- priorityLevel: slaLabel === "Takip zamanı" ? "high" : "normal",
- actionChecklist: buildChecklist(
- ["Son iletişim zamanını kontrol et", "Takip mesajı hazırla"],
- "whatsapp"
- ),
- suggestedMessageType: "whatsapp",
- shouldContactToday: slaLabel === "Takip zamanı" || slaLabel === "Gecikti",
+   priorityLevel: slaLabel === "Follow-up due" ? "high" : "normal",
+   actionChecklist: buildChecklist(
+    ["Check last contact time", "Prepare follow-up message"],
+    "whatsapp"
+   ),
+   suggestedMessageType: "whatsapp",
+   shouldContactToday: slaLabel === "Follow-up due" || slaLabel === "Overdue",
  };
  }
 
  if (status === "new") {
  return {
- recommendedActionLabel: "İlk inceleme yap",
- recommendedActionReason: `Yeni lead — ${quality.label.toLowerCase()} (${quality.score}/100). Kaynak: ${attribution.attributionLabel}.`,
+   recommendedActionLabel: "Initial Review",
+   recommendedActionReason: `New lead — ${quality.label.toLowerCase()} (${quality.score}/100). Source: ${attribution.attributionLabel}.`,
  recommendedStatus: "reviewed",
  priorityLevel: "normal",
- actionChecklist: buildChecklist(
- ["Lead formunu incele", "Durumu İncelendi olarak güncelle"],
- "internal_note"
- ),
+  actionChecklist: buildChecklist(
+   ["Review lead form", "Update status to Reviewed"],
+   "internal_note"
+  ),
  suggestedMessageType: "internal_note",
  shouldContactToday: false,
  };
@@ -216,14 +216,14 @@ function defaultActiveRecommendation(
 
  if (status === "reviewed") {
  return {
- recommendedActionLabel: "İletişime geç",
- recommendedActionReason: `${nextAction}. Kalite: ${quality.score}/100.`,
+   recommendedActionLabel: "Contact",
+   recommendedActionReason: `${nextAction}. Quality: ${quality.score}/100.`,
  recommendedStatus: "contacted",
  priorityLevel: "normal",
- actionChecklist: buildChecklist(
- ["İnceleme notunu kontrol et", "İletişim mesajı hazırla"],
- "whatsapp"
- ),
+  actionChecklist: buildChecklist(
+   ["Check review notes", "Prepare contact message"],
+   "whatsapp"
+  ),
  suggestedMessageType: "whatsapp",
  shouldContactToday: false,
  };
@@ -231,13 +231,13 @@ function defaultActiveRecommendation(
 
  return {
  recommendedActionLabel: nextAction,
- recommendedActionReason: `Mevcut durum: ${getLeadStatusLabel(status)}. SLA: ${slaLabel}.`,
+  recommendedActionReason: `Current status: ${getLeadStatusLabel(status)}. SLA: ${slaLabel}.`,
  recommendedStatus: status,
  priorityLevel: "normal",
- actionChecklist: buildChecklist(
- ["Lead kaydını gözden geçir", "Sonraki adımı planla"],
- "internal_note"
- ),
+  actionChecklist: buildChecklist(
+   ["Review lead record", "Plan next step"],
+   "internal_note"
+  ),
  suggestedMessageType: "internal_note",
  shouldContactToday: false,
  };

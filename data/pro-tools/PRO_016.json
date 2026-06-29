@@ -1,0 +1,395 @@
+{
+  "tool_id": "PRO_016",
+  "tool_name": "Bolted Joint Tightening Torque, Preload & Von Mises Utilisation (VDI 2230)",
+  "category": "Mechanical Engineering / Fastener Design",
+  "scope": "single_operation",
+  "primary_operation": "bolted_joint",
+  "inputs": [
+    {
+      "id": "bolt_grade",
+      "name": "Bolt Property Class",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "8.8 — Rp0.2 = 640 MPa, Rm = 800 MPa",
+        "10.9 — Rp0.2 = 900 MPa, Rm = 1000 MPa",
+        "12.9 — Rp0.2 = 1080 MPa, Rm = 1220 MPa",
+        "A2-70 Stainless — Rp0.2 = 450 MPa",
+        "A4-80 Stainless — Rp0.2 = 600 MPa",
+        "Manual entry"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "yield_strength_mpa",
+      "name": "Bolt Proof / Yield Strength (Rp0.2)",
+      "unit": "MPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 1400,
+      "default": 640,
+      "hint": "From bolt grade: 8.8→640 | 10.9→900 | 12.9→1080 MPa",
+      "uncertainty": "±7%",
+      "uncertainty_source": "JCSS PMC Part 3 §25.2 Table 25.1 — Yield/ultimate strength (steel): CoV=0.07"
+    },
+    {
+      "id": "nominal_diameter_mm",
+      "name": "Nominal Bolt Diameter (d)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 100,
+      "hint": "M6=6 | M8=8 | M10=10 | M12=12 | M16=16 | M20=20",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 286-1:2010 §4 — Design specification nominal, zero measurement uncertainty"
+    },
+    {
+      "id": "thread_pitch_mm",
+      "name": "Thread Pitch (P)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.2,
+      "absolute_max": 6,
+      "hint": "ISO metric coarse: M6→1.0 | M8→1.25 | M10→1.5 | M12→1.75 | M16→2.0 | M20→2.5",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "friction_thread_mu_g",
+      "name": "Thread Friction Coefficient (μG)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.04,
+      "absolute_max": 0.25,
+      "default": 0.12,
+      "hint": "Dry steel: 0.14–0.18 | Lightly oiled: 0.10–0.12 | MoS2 lubricated: 0.04–0.08 | Zinc-plated dry: 0.12–0.18",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "friction_bearing_mu_k",
+      "name": "Bearing Face Friction Coefficient (μK)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.04,
+      "absolute_max": 0.25,
+      "default": 0.12,
+      "hint": "Same surface condition as thread friction — typically equal to μG",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "bearing_diameter_dw_mm",
+      "name": "Effective Bearing Diameter (dw)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "hint": "Hex bolt: dw ≈ 1.5×d | Socket head: dw ≈ 1.4×d | Washer used: washer OD",
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
+    },
+    {
+      "id": "preload_utilisation_pct",
+      "name": "Target Preload Utilisation of Yield",
+      "unit": "% of Rp0.2",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 50,
+      "absolute_max": 95,
+      "default": 90,
+      "hint": "VDI 2230 standard: 90% for torque-controlled tightening | 100% for yield-controlled (TTY)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "tightening_factor_alpha",
+      "name": "Tightening Factor (αA) — Scatter",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "1.4 — Torque wrench, single tightening (±25%)",
+        "1.6 — Torque wrench, worn or uncalibrated",
+        "1.2 — Hydraulic bolt tensioner",
+        "1.05 — Yield-controlled (TTY) / angle-controlled"
+      ],
+      "hint": "VDI 2230 Table A7 — accounts for preload scatter",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "alpha_val",
+      "name": "Tightening Factor Numerical Value (αA)",
+      "unit": "—",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 2.5,
+      "default": 1.4,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "joint_type",
+      "name": "Joint Loading Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Static — gravity, pressure, static clamping",
+        "Dynamic / Fatigue — vibration, alternating load",
+        "Shear — transverse load (friction grip)"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "d2_pitch_diam = nominal_diameter_mm - (0.649519 * thread_pitch_mm)   // [mm] Pitch diameter — ISO 724",
+    "d3_minor_diam = nominal_diameter_mm - (1.226869 * thread_pitch_mm)   // [mm] Minor (root) diameter — ISO 724",
+    "A_stress = (3.14159 / 4) * POWER((d2_pitch_diam + d3_minor_diam) / 2, 2)   // [mm²] Stress area — ISO 898-1",
+    "F_preload_max = (preload_utilisation_pct / 100) * yield_strength_mpa * A_stress   // [N] Maximum assembly preload",
+    "F_preload_min = F_preload_max / alpha_val   // [N] Minimum preload after scatter — VDI 2230",
+    "lead_angle_rad = 3.14159 * thread_pitch_mm / (3.14159 * d2_pitch_diam)   // [rad] Thread helix angle",
+    "thread_flank_angle_rad = (30 * 3.14159) / 180   // [rad] ISO metric half-angle = 30°",
+    "friction_thread_eff = friction_thread_mu_g / (3.14159 * POWER(POWER(1, 0.5 - POWER(lead_angle_rad, 0.5)), 0.5))   // simplified effective thread friction",
+    "T_thread = F_preload_max * (d2_pitch_diam / 2) * ((thread_pitch_mm / (3.14159 * d2_pitch_diam)) + friction_thread_mu_g / 0.866)   // [N·mm] Thread torque component",
+    "T_bearing = F_preload_max * friction_bearing_mu_k * (bearing_diameter_dw_mm / 2)   // [N·mm] Bearing face torque component",
+    "T_tightening_Nmm = T_thread + T_bearing   // [N·mm] Total tightening torque",
+    "T_tightening_Nm = T_tightening_Nmm / 1000   // [N·m] Tightening torque",
+    "sigma_tensile = F_preload_max / A_stress   // [MPa] Tensile stress in shank",
+    "tau_torsion = (T_thread * (d2_pitch_diam / 2)) / (0.196 * POWER(d3_minor_diam, 3))   // [MPa] Torsional shear stress",
+    "sigma_vonMises = SQRT(POWER(sigma_tensile, 2) + 3 * POWER(tau_torsion, 2))   // [MPa] Combined Von Mises stress — VDI 2230 Eq.(R9)",
+    "Utilisation_pct = (sigma_vonMises / yield_strength_mpa) * 100   // [%] Yield utilisation",
+    "K_nut_factor = T_tightening_Nmm / (F_preload_max * nominal_diameter_mm)   // [—] K-factor (Nut factor) — torque verification"
+  ],
+  "engine_rules": {
+    "standards": [
+      "VDI 2230 Part 1:2015",
+      "ISO 898-1 Mechanical Properties",
+      "ISO 724 Metric Thread Geometry",
+      "ISO 16047 Torque-Clamping Force",
+      "EN 14399 Structural Bolting"
+    ],
+    "validation": {
+      "pitch_vs_diameter": {
+        "condition": "thread_pitch_mm >= nominal_diameter_mm",
+        "error_msg": "Thread pitch cannot equal or exceed nominal diameter — geometrically impossible for ISO metric threads.",
+        "id": "pitch_vs_diameter"
+      },
+      "bearing_diameter_minimum": {
+        "condition": "bearing_diameter_dw_mm < nominal_diameter_mm",
+        "error_msg": "Bearing face diameter (dw) must be greater than nominal diameter. Typical: dw ≈ 1.4–1.7 × d.",
+        "id": "bearing_diameter_minimum"
+      },
+      "preload_pct_range": {
+        "condition": "preload_utilisation_pct > 95",
+        "error_msg": "Preload utilisation > 95%: Torsional component will cause yielding during tightening. VDI 2230 maximum for torque wrench: 90%. Use yield-controlled (TTY) method if 100% is required.",
+        "id": "preload_pct_range"
+      },
+      "yield_strength_grade": {
+        "condition": "yield_strength_mpa > 1400",
+        "error_msg": "Yield strength > 1400 MPa: Exceeds standard property class range (12.9 = 1080 MPa). Hydrogen embrittlement risk is significant above 1200 MPa. Verify material specification.",
+        "id": "yield_strength_grade"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Utilisation_pct > 100",
+        "severity": "CRITICAL",
+        "source": "VDI 2230 Eq.(R9) Von Mises Criterion",
+        "message": "BOLT YIELDS DURING ASSEMBLY: Combined Von Mises stress exceeds yield strength. Bolt will neck and lose preload or fracture during tightening. Actions: (1) Lubricate to reduce μG and μK, (2) Reduce preload utilisation target to 80%, (3) Use higher-grade bolt."
+      },
+      {
+        "condition": "Utilisation_pct > 90 && Utilisation_pct <= 100",
+        "severity": "WARNING",
+        "source": "VDI 2230 / ISO 16047",
+        "message": "Near-yield tightening: Utilisation 90–100%. Any friction variation above nominal will cause bolt yield. Calibrated torque wrench mandatory. Re-verify after first thermal cycle."
+      },
+      {
+        "condition": "friction_thread_mu_g > 0.16",
+        "severity": "WARNING",
+        "source": "VDI 2230 Table A8 / ISO 16047",
+        "message": "High thread friction (μG > 0.16): Most of applied torque is consumed overcoming friction — actual preload achieved will be much lower than calculated. Use thread lubricant or anti-seize compound. Re-measure μ with torque-angle method."
+      },
+      {
+        "condition": "alpha_val > 1.6",
+        "severity": "WARNING",
+        "source": "VDI 2230 Section 5.4.3",
+        "message": "High scatter factor (αA > 1.6): Actual preload may be only 60% of target. Joint may not achieve required clamp force. Switch to hydraulic tensioning (αA = 1.2) or angle-controlled tightening (αA = 1.05)."
+      },
+      {
+        "condition": "joint_type === 'Dynamic / Fatigue — vibration, alternating load' && preload_utilisation_pct < 80",
+        "severity": "CRITICAL",
+        "source": "VDI 2230 / Junker Vibration Test",
+        "message": "FATIGUE JOINT — INSUFFICIENT PRELOAD: Dynamic joints require high preload to prevent fretting and self-loosening (Junker effect). Preload below 80% Rp0.2 with vibration loading is a known failure mode. Use thread-locking compound or prevailing torque nut."
+      },
+      {
+        "condition": "K_nut_factor > 0.25",
+        "severity": "WARNING",
+        "source": "ISO 16047 K-factor Reference",
+        "message": "High K-factor (>0.25): Friction-dominated joint. Standard torque tables assume K≈0.20. Your actual preload from nameplate torque values may be 25–40% lower than expected. Re-calibrate using measured K-factor for this specific surface combination."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: thread_pitch_mm >= nominal_diameter_mm",
+        "effect": "Thread pitch cannot equal or exceed nominal diameter — geometrically impossible for ISO metric threads.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule pitch_vs_diameter"
+      },
+      {
+        "failureMode": "Input violation: bearing_diameter_dw_mm < nominal_diameter_mm",
+        "effect": "Bearing face diameter (dw) must be greater than nominal diameter. Typical: dw ≈ 1.4–1.7 × d.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule bearing_diameter_minimum"
+      },
+      {
+        "failureMode": "Input violation: preload_utilisation_pct > 95",
+        "effect": "Preload utilisation > 95%: Torsional component will cause yielding during tightening. VDI 2230 maximum for torque wrench: 90%. Use yield-controlled (TTY) method if 100% is required.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule preload_pct_range"
+      },
+      {
+        "failureMode": "Input violation: yield_strength_mpa > 1400",
+        "effect": "Yield strength > 1400 MPa: Exceeds standard property class range (12.9 = 1080 MPa). Hydrogen embrittlement risk is significant above 1200 MPa. Verify material specification.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule yield_strength_grade"
+      },
+      {
+        "failureMode": "BOLT YIELDS DURING ASSEMBLY: Combined Von Mises stress exceeds yield strength. Bolt will neck and lose preload or fracture during tightening. Actions: (1) Lubricate to reduce μG and μK, (2) Reduce preload utilisation target to 80%, (3) Use higher-grade bolt.",
+        "effect": "Smart warning triggered when: Utilisation_pct > 100",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "VDI 2230 Eq.(R9) Von Mises Criterion"
+      },
+      {
+        "failureMode": "Near-yield tightening: Utilisation 90–100%. Any friction variation above nominal will cause bolt yield. Calibrated torque wrench mandatory. Re-verify after first thermal cycle.",
+        "effect": "Smart warning triggered when: Utilisation_pct > 90 && Utilisation_pct <= 100",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 2230 / ISO 16047"
+      },
+      {
+        "failureMode": "High thread friction (μG > 0.16): Most of applied torque is consumed overcoming friction — actual preload achieved will be much lower than calculated. Use thread lubricant or anti-seize compound. Re-measure μ with torque-angle method.",
+        "effect": "Smart warning triggered when: friction_thread_mu_g > 0.16",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 2230 Table A8 / ISO 16047"
+      },
+      {
+        "failureMode": "High scatter factor (αA > 1.6): Actual preload may be only 60% of target. Joint may not achieve required clamp force. Switch to hydraulic tensioning (αA = 1.2) or angle-controlled tightening (αA = 1.05).",
+        "effect": "Smart warning triggered when: alpha_val > 1.6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "VDI 2230 Section 5.4.3"
+      },
+      {
+        "failureMode": "FATIGUE JOINT — INSUFFICIENT PRELOAD: Dynamic joints require high preload to prevent fretting and self-loosening (Junker effect). Preload below 80% Rp0.2 with vibration loading is a known failure mode. Use thread-locking compound or prevailing torque nut.",
+        "effect": "Smart warning triggered when: joint_type === 'Dynamic / Fatigue — vibration, alternating load' && preload_utilisation_pct < 80",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "VDI 2230 / Junker Vibration Test"
+      },
+      {
+        "failureMode": "High K-factor (>0.25): Friction-dominated joint. Standard torque tables assume K≈0.20. Your actual preload from nameplate torque values may be 25–40% lower than expected. Re-calibrate using measured K-factor for this specific surface combination.",
+        "effect": "Smart warning triggered when: K_nut_factor > 0.25",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 16047 K-factor Reference"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "d2_pitch_diam",
+        "d3_minor_diam",
+        "A_stress",
+        "F_preload_max",
+        "F_preload_min",
+        "lead_angle_rad",
+        "thread_flank_angle_rad",
+        "friction_thread_eff",
+        "T_thread",
+        "T_bearing",
+        "T_tightening_Nmm",
+        "T_tightening_Nm",
+        "sigma_tensile",
+        "tau_torsion",
+        "sigma_vonMises",
+        "Utilisation_pct",
+        "K_nut_factor"
+      ]
+    }
+  ]
+}

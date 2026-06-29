@@ -1,0 +1,1604 @@
+{
+  "tool_id": "PRO_161",
+  "tool_key": "laserCuttingTimeAssistGasCost",
+  "tool_name": "Laser Cutting Time and Assist Gas Cost Calculator — Sheet Metal Laser Process Time, Gas Consumption and Cost Check",
+  "category": "Sheet Metal / Laser Cutting / Cost Engineering",
+  "scope": "single_operation",
+  "primary_operation": "laser_cutting_time_assist_gas_consumption_cost_check",
+  "standards": [
+    "ISO 9013",
+    "ISO 11145",
+    "ISO 14955-1",
+    "ISO 11553-1",
+    "IEC 60825-1",
+    "ISO 80000",
+    "ISO/IEC Guide 98-3 GUM",
+    "ISO 9001:2015 §8.5.1",
+    "Machine OEM cutting database"
+  ],
+  "risk_level": "MEDIUM",
+  "calculation_basis": "single_operation",
+  "inputs": [
+    {
+      "id": "currency",
+      "name": "Currency",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "EUR",
+        "USD",
+        "TRY",
+        "GBP"
+      ],
+      "default": "USD",
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — no measurement uncertainty"
+    },
+    {
+      "id": "job_part_count",
+      "name": "Number of Parts in Job",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 1000000,
+      "uncertainty": "±0%",
+      "uncertainty_source": "Job order — exact quantity"
+    },
+    {
+      "id": "material_family",
+      "name": "Material Family",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "MILD_STEEL",
+        "STAINLESS_STEEL",
+        "ALUMINIUM",
+        "COPPER",
+        "BRASS",
+        "TITANIUM",
+        "GALVANIZED_STEEL",
+        "HIGH_STRENGTH_STEEL",
+        "ACRYLIC",
+        "WOOD",
+        "OTHER_METAL",
+        "OTHER_NON_METAL"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "Material specification — exact"
+    },
+    {
+      "id": "material_thickness_mm",
+      "name": "Material Thickness",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 50,
+      "hint": "Sheet or plate thickness in mm. Laser cutting range depends on laser power and material type.",
+      "uncertainty": "±0.1 mm",
+      "uncertainty_source": "ISO 2768-1:1989 — Sheet metal tolerance class 'm'"
+    },
+    {
+      "id": "laser_source_type",
+      "name": "Laser Source Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "FIBER",
+        "CO2",
+        "DISK",
+        "DIODE",
+        "CUSTOM"
+      ],
+      "default": "FIBER",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Machine specification — exact"
+    },
+    {
+      "id": "laser_power_kW",
+      "name": "Laser Power (at workpiece)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 20,
+      "hint": "Effective laser power delivered to the workpiece. Fiber: 1-12 kW, CO2: 0.5-6 kW. Check machine calibration log.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "IEC 60825-1 §5.3 — Power measurement uncertainty ±2%"
+    },
+    {
+      "id": "machine_rated_laser_power_kW",
+      "name": "Machine Rated Laser Power",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 20,
+      "hint": "Rated laser power from machine nameplate. Used for power utilization ratio calculation.",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Machine nameplate — exact"
+    },
+    {
+      "id": "programmed_cut_length_mm",
+      "name": "Programmed Cut Length",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 1000000,
+      "hint": "Total programmed cutting path length per part from CAM system.",
+      "uncertainty": "±0.5 mm",
+      "uncertainty_source": "CAM system — contour tolerance"
+    },
+    {
+      "id": "lead_in_out_length_mm",
+      "name": "Lead-in / Lead-out Length",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 100,
+      "default": 0,
+      "hint": "Total lead-in and lead-out length per contour. Typically 1-5 mm per pierce.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "CAM system estimate"
+    },
+    {
+      "id": "average_programmed_feed_rate_mm_min",
+      "name": "Average Programmed Feed Rate",
+      "unit": "mm/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 60000,
+      "hint": "Average cutting feed rate from CAM system for the programmed cutting path. Fiber laser mild steel 1mm: ~6000-12000 mm/min; 6mm: ~2000-4000 mm/min.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "CAM system — feed rate definition"
+    },
+    {
+      "id": "feed_override_factor",
+      "name": "Feed Override Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 2,
+      "default": 1,
+      "hint": "Actual feed rate as fraction of programmed. Operator override: 0.8-1.2 typical. Acceleration-limited paths may reduce effective feed.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "Machine control — override setting"
+    },
+    {
+      "id": "contour_complexity_factor",
+      "name": "Contour Complexity Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 5,
+      "default": 1,
+      "hint": "Factor compensating for acceleration/deceleration losses on complex contours. Simple rectangles: 1.0; tight radii < 2mm: 1.3-1.5; high-detail with many small features: 2.0-3.0.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Machine dynamics — acceleration limit estimate"
+    },
+    {
+      "id": "pierce_count",
+      "name": "Number of Pierces",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 10000,
+      "hint": "Total number of pierce operations per part. Each closed contour typically requires one pierce + lead-in.",
+      "uncertainty": "±0",
+      "uncertainty_source": "CAM system — exact count"
+    },
+    {
+      "id": "average_pierce_time_s",
+      "name": "Average Pierce Time",
+      "unit": "s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.05,
+      "absolute_max": 30,
+      "hint": "Average time per pierce operation. Fiber laser mild steel 1mm: 0.3-0.5 s; 6mm: 1-3 s; 12mm: 3-8 s. Pulsed piercing is faster than ramp piercing.",
+      "uncertainty": "±15%",
+      "uncertainty_source": "Machine OEM cutting database — pierce time variability"
+    },
+    {
+      "id": "rapid_traverse_distance_mm",
+      "name": "Rapid Traverse Distance",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "absolute_max": 100000,
+      "hint": "Total rapid traverse (positioning) distance per part between cutting operations.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "CAM system — travel path estimate"
+    },
+    {
+      "id": "average_rapid_speed_mm_min",
+      "name": "Average Rapid Traverse Speed",
+      "unit": "mm/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 200000,
+      "hint": "Average rapid traverse speed. Typical: 30000-60000 mm/min for mid-range; up to 120000 mm/min for high-speed gantry.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "Machine specification — rapid traverse rating"
+    },
+    {
+      "id": "auxiliary_time_per_part_s",
+      "name": "Auxiliary Time per Part",
+      "unit": "s",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 600,
+      "default": 0,
+      "hint": "Additional time per part for loading/unloading, part separation (micro-joints), marking, and inspection.",
+      "uncertainty": "±15%",
+      "uncertainty_source": "Operator time study estimate"
+    },
+    {
+      "id": "setup_time_min",
+      "name": "Setup Time",
+      "unit": "min",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 120,
+      "default": 0,
+      "hint": "Job setup time including sheet loading, program selection, nozzle check, focus calibration, and gas purge.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Machine setup log"
+    },
+    {
+      "id": "assist_gas_type",
+      "name": "Assist Gas Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "NITROGEN",
+        "OXYGEN",
+        "COMPRESSED_AIR",
+        "ARGON",
+        "MIXED_GAS",
+        "CUSTOM"
+      ],
+      "default": "NITROGEN",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Process specification — exact"
+    },
+    {
+      "id": "gas_flow_mode",
+      "name": "Gas Flow Determination Mode",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "MEASURED_FLOW",
+        "OEM_NOZZLE_TABLE",
+        "CALIBRATED_NOZZLE_PRESSURE_ESTIMATE"
+      ],
+      "default": "OEM_NOZZLE_TABLE",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Flow measurement method — exact"
+    },
+    {
+      "id": "measured_cutting_gas_flow_Nm3_h",
+      "name": "Measured Cutting Gas Flow",
+      "unit": "Nm³/h",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 500,
+      "hint": "Directly measured gas flow rate at nozzle in normal cubic meters per hour. Required when gas_flow_mode = MEASURED_FLOW.",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 5167-1:2003 — Flow measurement uncertainty ±2% for calibrated thermal mass flow meter"
+    },
+    {
+      "id": "nozzle_diameter_mm",
+      "name": "Nozzle Diameter",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 10,
+      "hint": "Cutting nozzle orifice diameter. Typical: 1.0-3.0 mm for sheet metal laser cutting.",
+      "uncertainty": "±0.02 mm",
+      "uncertainty_source": "ISO 286-1:2010 IT7 — Nozzle bore tolerance"
+    },
+    {
+      "id": "assist_gas_pressure_bar",
+      "name": "Assist Gas Pressure",
+      "unit": "bar",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 30,
+      "hint": "Assist gas pressure at nozzle inlet. Nitrogen: 6-20 bar; Oxygen: 0.5-6 bar; Compressed air: 4-10 bar.",
+      "uncertainty": "±0.5 bar",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Pressure transducer class 1.0: ±1% of span"
+    },
+    {
+      "id": "calibrated_flow_coefficient_Nm3_h_mm2_bar",
+      "name": "Calibrated Flow Coefficient (Cv_nozzle)",
+      "unit": "Nm³/h·mm²·bar",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.001,
+      "absolute_max": 10,
+      "hint": "Empirical nozzle flow coefficient for CALIBRATED_NOZZLE_PRESSURE_ESTIMATE mode. Typical range: 0.1-1.5 for conical nozzles. Derived from OEM nozzle flow characterization.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Nozzle flow calibration — empirical coefficient uncertainty"
+    },
+    {
+      "id": "pierce_gas_flow_factor",
+      "name": "Pierce Gas Flow Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 5,
+      "default": 1,
+      "hint": "Gas flow multiplier during piercing vs. steady-state cutting. Pulsed piercing at high pressure: 2-4x. Ramp piercing: 1-2x.",
+      "uncertainty": "±15%",
+      "uncertainty_source": "Machine OEM piercing sequence data"
+    },
+    {
+      "id": "assist_gas_unit_cost_per_Nm3",
+      "name": "Assist Gas Unit Cost",
+      "unit": "USD/Nm³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01,
+      "absolute_max": 100,
+      "hint": "Cost per normal cubic meter of assist gas. Nitrogen (liquid): 0.10-0.50 USD/Nm³; Oxygen: 0.15-0.60 USD/Nm³; Argon: 1.0-5.0 USD/Nm³; Compressed air: 0.02-0.10 USD/Nm³.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Gas supplier pricing"
+    },
+    {
+      "id": "machine_hour_rate",
+      "name": "Machine Hour Rate",
+      "unit": "USD/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 1000,
+      "hint": "Fully loaded machine hour rate including depreciation, maintenance, floor space, labor, and overhead. Typical laser cutting: 50-200 USD/h.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Cost accounting — machine hour rate estimate"
+    },
+    {
+      "id": "machine_average_electrical_power_kW",
+      "name": "Average Machine Electrical Power (cutting)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.5,
+      "absolute_max": 200,
+      "hint": "Average electrical power consumption during cutting (including chiller, exhaust, drives, CNC, and laser power supply). Fiber 4kW: ~15-25 kW total; CO2 4kW: ~30-50 kW total.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "IEC 61000-4-30:2015 — Power measurement uncertainty Class A: ±0.5% (system-level: ±10% including auxiliary loads)"
+    },
+    {
+      "id": "standby_electrical_power_kW",
+      "name": "Standby Electrical Power",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.1,
+      "absolute_max": 50,
+      "hint": "Electrical power consumption in standby/idle mode (laser off, drives idle, chiller standby). Typical: 3-10 kW for fiber laser systems.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "IEC 61000-4-30:2015 — Power measurement uncertainty"
+    },
+    {
+      "id": "electricity_unit_cost_per_kWh",
+      "name": "Electricity Unit Cost",
+      "unit": "USD/kWh",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01,
+      "absolute_max": 1,
+      "hint": "Industrial electricity cost per kWh including demand charges, taxes, and surcharges. Typical: 0.08-0.25 USD/kWh.",
+      "uncertainty": "±5%",
+      "uncertainty_source": "Utility tariff"
+    },
+    {
+      "id": "consumable_cost_per_pierce",
+      "name": "Consumable Cost per Pierce",
+      "unit": "USD/pierce",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "default": 0,
+      "hint": "Consumable cost attributed per pierce (nozzle wear, lens contamination, protective window degradation). Approx: 0.001-0.05 USD/pierce for fiber laser.",
+      "uncertainty": "±20%",
+      "uncertainty_source": "Consumable life tracking estimate"
+    },
+    {
+      "id": "consumable_cost_per_cut_meter",
+      "name": "Consumable Cost per Cut Meter",
+      "unit": "USD/m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 10,
+      "default": 0,
+      "hint": "Consumable cost per meter of cut (protective window, nozzle wear, focus lens degradation). Approx: 0.01-0.10 USD/m.",
+      "uncertainty": "±20%",
+      "uncertainty_source": "Consumable life tracking estimate"
+    },
+    {
+      "id": "scrap_recut_allowance_factor",
+      "name": "Scrap / Recut Allowance Factor",
+      "unit": "—",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 3,
+      "default": 1,
+      "hint": "Factor to account for scrap parts requiring re-cutting and process inefficiency. 1.0 = no scrap; 1.05 = 5% scrap rate typical.",
+      "uncertainty": "±10%",
+      "uncertainty_source": "Production scrap rate tracking"
+    },
+    {
+      "id": "quality_class_required",
+      "name": "Required Quality Class (ISO 9013)",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "ISO_9013_FINE",
+        "ISO_9013_MEDIUM",
+        "ISO_9013_ROUGH",
+        "SHOP_STANDARD",
+        "NOT_SPECIFIED"
+      ],
+      "default": "ISO_9013_MEDIUM",
+      "uncertainty": "±0%",
+      "uncertainty_source": "Quality specification — exact"
+    },
+    {
+      "id": "laser_safety_verified",
+      "name": "Laser Safety Verified (IEC 60825-1)",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "uncertainty": "±0%",
+      "uncertainty_source": "Safety audit — binary verification"
+    },
+    {
+      "id": "machine_parameter_table_verified",
+      "name": "Machine Parameter Table Verified",
+      "unit": "—",
+      "type": "boolean",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": false,
+      "uncertainty": "±0%",
+      "uncertainty_source": "Parameter audit — binary verification"
+    },
+    {
+      "id": "time_uncertainty_pct",
+      "name": "Time Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 10,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    },
+    {
+      "id": "gas_flow_uncertainty_pct",
+      "name": "Gas Flow Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 10,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    },
+    {
+      "id": "cost_uncertainty_pct",
+      "name": "Cost Uncertainty",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "default": 5,
+      "uncertainty": "±0%",
+      "uncertainty_source": "User-defined — assumed uncertainty"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F1",
+      "name": "Cutting Feed Rate (Effective)",
+      "expression": "Effective_Feed_mm_min = average_programmed_feed_rate_mm_min * feed_override_factor",
+      "output": "Effective_Feed_mm_min",
+      "unit": "mm/min",
+      "dimensional_check": true,
+      "reference": "ISO 9013 — Cutting speed definition",
+      "assumptions": [
+        "Override factor linearly scales programmed feed rate",
+        "Acceleration/deceleration effects handled by contour_complexity_factor"
+      ],
+      "edge_cases": [
+        "Effective_Feed_mm_min <= 0: Invalid feed rate"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F2",
+      "name": "Effective Cutting Path Length per Part",
+      "expression": "Effective_Cut_Length_mm = programmed_cut_length_mm + (pierce_count * lead_in_out_length_mm)",
+      "output": "Effective_Cut_Length_mm",
+      "unit": "mm",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Lead-in/out applied per pierce for each contour"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F3",
+      "name": "Pure Cutting Time per Part",
+      "expression": "Cut_Time_Part_min = (Effective_Cut_Length_mm / Effective_Feed_mm_min) * contour_complexity_factor",
+      "output": "Cut_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Complex contours reduce effective feed due to acceleration/deceleration"
+      ],
+      "edge_cases": [
+        "Effective_Feed_mm_min <= 0: Division by zero — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F4",
+      "name": "Total Pierce Time per Part",
+      "expression": "Pierce_Time_Part_min = (pierce_count * average_pierce_time_s) / 60",
+      "output": "Pierce_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Pierce time is constant per operation"
+      ],
+      "edge_cases": [
+        "pierce_count = 0: No pierce time"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F5",
+      "name": "Rapid Traverse Time per Part",
+      "expression": "Rapid_Time_Part_min = rapid_traverse_distance_mm / average_rapid_speed_mm_min",
+      "output": "Rapid_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Constant rapid speed (acceleration/deceleration ignored)"
+      ],
+      "edge_cases": [
+        "average_rapid_speed_mm_min <= 0: Division by zero — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F6",
+      "name": "Cycle Time per Part",
+      "expression": "Cycle_Time_Part_min = Cut_Time_Part_min + Pierce_Time_Part_min + Rapid_Time_Part_min + (auxiliary_time_per_part_s / 60)",
+      "output": "Cycle_Time_Part_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Machine tool cycle time definition",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F7",
+      "name": "Total Production Time (all parts, with scrap allowance)",
+      "expression": "Total_Production_Time_min = (Cycle_Time_Part_min * job_part_count * scrap_recut_allowance_factor) + setup_time_min",
+      "output": "Total_Production_Time_min",
+      "unit": "min",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies linearly to cycle time per part",
+        "Setup is fixed per job"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F8",
+      "name": "Total Production Time in Hours",
+      "expression": "Total_Production_Time_h = Total_Production_Time_min / 60",
+      "output": "Total_Production_Time_h",
+      "unit": "h",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F9",
+      "name": "Machine Cost (time-based)",
+      "expression": "Machine_Cost = Total_Production_Time_h * machine_hour_rate",
+      "output": "Machine_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Machine tool cost allocation",
+      "assumptions": [
+        "Machine hour rate includes all overhead"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F10",
+      "name": "Effective Volume Flow Rate at Nozzle (MEASURED_FLOW mode)",
+      "expression": "Effective_Gas_Flow_Nm3_h = (gas_flow_mode == 'MEASURED_FLOW') ? measured_cutting_gas_flow_Nm3_h : NULL",
+      "output": "Effective_Gas_Flow_Nm3_h",
+      "unit": "Nm³/h",
+      "dimensional_check": true,
+      "reference": "ISO 11145 — Laser gas flow measurement",
+      "assumptions": [],
+      "edge_cases": [
+        "gas_flow_mode != 'MEASURED_FLOW': Use alternative flow determination method"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs. Return null if mode is not MEASURED_FLOW."
+    },
+    {
+      "id": "F11",
+      "name": "Nozzle Cross-Sectional Area",
+      "expression": "Nozzle_Area_mm2 = (Math.PI / 4) * Math.pow(nozzle_diameter_mm, 2)",
+      "output": "Nozzle_Area_mm2",
+      "unit": "mm²",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Circular nozzle orifice"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F12",
+      "name": "Gas Flow Estimate via OEM Nozzle Table (OEM_NOZZLE_TABLE mode)",
+      "expression": "OEM_Estimate_Flow_Nm3_h = (gas_flow_mode == 'OEM_NOZZLE_TABLE') ? Nozzle_Area_mm2 * assist_gas_pressure_bar * 0.85 : NULL",
+      "output": "OEM_Estimate_Flow_Nm3_h",
+      "unit": "Nm³/h",
+      "dimensional_check": true,
+      "reference": "Machine OEM nozzle flow table — empirical correlation",
+      "assumptions": [
+        "Linear approximation: flow ∝ nozzle_area × pressure",
+        "Factor 0.85 is typical for conical nozzles"
+      ],
+      "edge_cases": [
+        "gas_flow_mode != 'OEM_NOZZLE_TABLE': Return null"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs. Return null if mode is not OEM_NOZZLE_TABLE."
+    },
+    {
+      "id": "F13",
+      "name": "Gas Flow Estimate via Calibrated Nozzle Pressure Method (CALIBRATED_NOZZLE_PRESSURE_ESTIMATE mode)",
+      "expression": "Calibrated_Estimate_Flow_Nm3_h = (gas_flow_mode == 'CALIBRATED_NOZZLE_PRESSURE_ESTIMATE') ? calibrated_flow_coefficient_Nm3_h_mm2_bar * Nozzle_Area_mm2 * assist_gas_pressure_bar : NULL",
+      "output": "Calibrated_Estimate_Flow_Nm3_h",
+      "unit": "Nm³/h",
+      "dimensional_check": true,
+      "reference": "Nozzle flow calibration — ISO 5167-1:2003 orifice flow principle",
+      "assumptions": [
+        "Flow is proportional to calibrated coefficient × area × pressure",
+        "Gas density and temperature effects implicitly included in calibration coefficient"
+      ],
+      "edge_cases": [
+        "calibrated_flow_coefficient_Nm3_h_mm2_bar is null or gas_flow_mode != 'CALIBRATED_NOZZLE_PRESSURE_ESTIMATE': Return null"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs. Return null if mode is not CALIBRATED_NOZZLE_PRESSURE_ESTIMATE."
+    },
+    {
+      "id": "F14",
+      "name": "Selected Cutting Gas Flow Rate",
+      "expression": "Selected_Cut_Flow_Nm3_h = COALESCE(Effective_Gas_Flow_Nm3_h, OEM_Estimate_Flow_Nm3_h, Calibrated_Estimate_Flow_Nm3_h, 0)",
+      "output": "Selected_Cut_Flow_Nm3_h",
+      "unit": "Nm³/h",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Precedence: measured > OEM table > calibrated estimate"
+      ],
+      "edge_cases": [
+        "All flow determination methods return null: Flow = 0 — gas cost will be zero; verify flow mode and inputs"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs. Select the first non-null flow value in priority order: measured, OEM table, calibrated estimate. If all null, return 0."
+    },
+    {
+      "id": "F15",
+      "name": "Total Cutting Gas Consumption per Part",
+      "expression": "Cut_Gas_Volume_Part_Nm3 = Selected_Cut_Flow_Nm3_h * (Cycle_Time_Part_min / 60)",
+      "output": "Cut_Gas_Volume_Part_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Steady-state gas flow during entire cycle time"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F16",
+      "name": "Total Pierce Gas Consumption per Part",
+      "expression": "Pierce_Gas_Volume_Part_Nm3 = pierce_gas_flow_factor * Selected_Cut_Flow_Nm3_h * (Pierce_Time_Part_min / 60)",
+      "output": "Pierce_Gas_Volume_Part_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Gas flow during piercing is pierce_gas_flow_factor × cutting flow rate"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F17",
+      "name": "Total Gas Consumption per Part",
+      "expression": "Total_Gas_Volume_Part_Nm3 = Cut_Gas_Volume_Part_Nm3 + Pierce_Gas_Volume_Part_Nm3",
+      "output": "Total_Gas_Volume_Part_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F18",
+      "name": "Total Gas Consumption for Job",
+      "expression": "Total_Gas_Volume_Job_Nm3 = Total_Gas_Volume_Part_Nm3 * job_part_count * scrap_recut_allowance_factor",
+      "output": "Total_Gas_Volume_Job_Nm3",
+      "unit": "Nm³",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies linearly to gas consumption"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F19",
+      "name": "Assist Gas Cost per Part",
+      "expression": "Gas_Cost_Part = Total_Gas_Volume_Part_Nm3 * assist_gas_unit_cost_per_Nm3",
+      "output": "Gas_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F20",
+      "name": "Total Assist Gas Cost for Job",
+      "expression": "Total_Gas_Cost = Total_Gas_Volume_Job_Nm3 * assist_gas_unit_cost_per_Nm3",
+      "output": "Total_Gas_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F21",
+      "name": "Electrical Energy Consumption — Cutting Phase",
+      "expression": "Cut_Energy_kWh = machine_average_electrical_power_kW * Total_Production_Time_h",
+      "output": "Cut_Energy_kWh",
+      "unit": "kWh",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Machine tool energy consumption",
+      "assumptions": [
+        "Average electrical power during cutting is representative of total cycle"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F22",
+      "name": "Electrical Energy Consumption — Setup/Standby Phase",
+      "expression": "Setup_Energy_kWh = standby_electrical_power_kW * (setup_time_min / 60)",
+      "output": "Setup_Energy_kWh",
+      "unit": "kWh",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Standby power draw during setup time"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F23",
+      "name": "Total Electrical Energy Cost",
+      "expression": "Total_Energy_Cost = (Cut_Energy_kWh + Setup_Energy_kWh) * electricity_unit_cost_per_kWh",
+      "output": "Total_Energy_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "ISO 50001 — Energy cost accounting",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F24",
+      "name": "Consumable Cost per Part",
+      "expression": "Consumable_Cost_Part = (pierce_count * consumable_cost_per_pierce) + (programmed_cut_length_mm / 1000 * consumable_cost_per_cut_meter)",
+      "output": "Consumable_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Consumable wear is linear per pierce and per meter of cut"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F25",
+      "name": "Total Consumable Cost for Job",
+      "expression": "Total_Consumable_Cost = Consumable_Cost_Part * job_part_count * scrap_recut_allowance_factor",
+      "output": "Total_Consumable_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [
+        "Scrap allowance applies to consumable consumption"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F26",
+      "name": "Total Manufacturing Cost per Part",
+      "expression": "Total_Cost_Part = Machine_Cost / (job_part_count * scrap_recut_allowance_factor) + Gas_Cost_Part + Consumable_Cost_Part + (Cut_Energy_kWh * electricity_unit_cost_per_kWh) / (job_part_count * scrap_recut_allowance_factor)",
+      "output": "Total_Cost_Part",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Manufacturing cost per unit",
+      "assumptions": [
+        "Total machine and energy cost is distributed across all parts including scrap"
+      ],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F27",
+      "name": "Total Job Cost",
+      "expression": "Total_Job_Cost = Machine_Cost + Total_Gas_Cost + Total_Energy_Cost + Total_Consumable_Cost",
+      "output": "Total_Job_Cost",
+      "unit": "USD",
+      "dimensional_check": true,
+      "reference": "",
+      "assumptions": [],
+      "edge_cases": [],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    },
+    {
+      "id": "F28",
+      "name": "Power Utilization Ratio (Laser Power vs. Rated)",
+      "expression": "Power_Utilization_Ratio = laser_power_kW / machine_rated_laser_power_kW",
+      "output": "Power_Utilization_Ratio",
+      "unit": "—",
+      "dimensional_check": true,
+      "reference": "ISO 14955-1 — Machine tool power utilization indicator",
+      "assumptions": [],
+      "edge_cases": [
+        "machine_rated_laser_power_kW <= 0: Division by zero — block calculation"
+      ],
+      "cursor_instruction": "Compute this formula deterministically using the inputs."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "Effective_Feed_mm_min",
+      "name": "Effective Cutting Feed Rate",
+      "unit": "mm/min",
+      "type": "number",
+      "precision": 1,
+      "group": "time"
+    },
+    {
+      "id": "Effective_Cut_Length_mm",
+      "name": "Effective Cutting Path Length per Part",
+      "unit": "mm",
+      "type": "number",
+      "precision": 1,
+      "group": "time"
+    },
+    {
+      "id": "Cut_Time_Part_min",
+      "name": "Pure Cutting Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Pierce_Time_Part_min",
+      "name": "Total Pierce Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Rapid_Time_Part_min",
+      "name": "Rapid Traverse Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Cycle_Time_Part_min",
+      "name": "Cycle Time per Part",
+      "unit": "min",
+      "type": "number",
+      "precision": 3,
+      "group": "time"
+    },
+    {
+      "id": "Total_Production_Time_min",
+      "name": "Total Production Time",
+      "unit": "min",
+      "type": "number",
+      "precision": 1,
+      "group": "time"
+    },
+    {
+      "id": "Total_Production_Time_h",
+      "name": "Total Production Time",
+      "unit": "h",
+      "type": "number",
+      "precision": 2,
+      "group": "time"
+    },
+    {
+      "id": "Machine_Cost",
+      "name": "Machine Time Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Selected_Cut_Flow_Nm3_h",
+      "name": "Selected Cutting Gas Flow Rate",
+      "unit": "Nm³/h",
+      "type": "number",
+      "precision": 2,
+      "group": "gas"
+    },
+    {
+      "id": "Cut_Gas_Volume_Part_Nm3",
+      "name": "Cutting Gas Consumption per Part",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 3,
+      "group": "gas"
+    },
+    {
+      "id": "Pierce_Gas_Volume_Part_Nm3",
+      "name": "Pierce Gas Consumption per Part",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 3,
+      "group": "gas"
+    },
+    {
+      "id": "Total_Gas_Volume_Part_Nm3",
+      "name": "Total Gas Consumption per Part",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 3,
+      "group": "gas"
+    },
+    {
+      "id": "Total_Gas_Volume_Job_Nm3",
+      "name": "Total Gas Consumption for Job",
+      "unit": "Nm³",
+      "type": "number",
+      "precision": 1,
+      "group": "gas"
+    },
+    {
+      "id": "Gas_Cost_Part",
+      "name": "Assist Gas Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 4,
+      "group": "cost"
+    },
+    {
+      "id": "Total_Gas_Cost",
+      "name": "Total Assist Gas Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Cut_Energy_kWh",
+      "name": "Cutting Phase Electrical Energy",
+      "unit": "kWh",
+      "type": "number",
+      "precision": 1,
+      "group": "energy"
+    },
+    {
+      "id": "Setup_Energy_kWh",
+      "name": "Setup/Standby Electrical Energy",
+      "unit": "kWh",
+      "type": "number",
+      "precision": 1,
+      "group": "energy"
+    },
+    {
+      "id": "Total_Energy_Cost",
+      "name": "Total Electrical Energy Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Consumable_Cost_Part",
+      "name": "Consumable Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 4,
+      "group": "cost"
+    },
+    {
+      "id": "Total_Consumable_Cost",
+      "name": "Total Consumable Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Total_Cost_Part",
+      "name": "Total Manufacturing Cost per Part",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Total_Job_Cost",
+      "name": "Total Job Cost",
+      "unit": "USD",
+      "type": "number",
+      "precision": 2,
+      "group": "cost"
+    },
+    {
+      "id": "Power_Utilization_Ratio",
+      "name": "Power Utilization Ratio",
+      "unit": "—",
+      "type": "number",
+      "precision": 3,
+      "group": "efficiency"
+    },
+    {
+      "id": "laser_safety_verified",
+      "name": "Laser Safety Verified",
+      "unit": "—",
+      "type": "boolean",
+      "group": "gates"
+    },
+    {
+      "id": "machine_parameter_table_verified",
+      "name": "Machine Parameter Table Verified",
+      "unit": "—",
+      "type": "boolean",
+      "group": "gates"
+    }
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 9013",
+      "ISO 11145",
+      "ISO 14955-1",
+      "ISO 11553-1",
+      "IEC 60825-1",
+      "ISO 80000",
+      "ISO/IEC Guide 98-3 GUM",
+      "ISO 9001:2015 §8.5.1"
+    ],
+    "validation": {
+      "feed_rate_positive": {
+        "condition": "average_programmed_feed_rate_mm_min <= 0",
+        "error_msg": "Average programmed feed rate must be positive.",
+        "id": "feed_rate_positive"
+      },
+      "rapid_speed_positive": {
+        "condition": "average_rapid_speed_mm_min <= 0",
+        "error_msg": "Average rapid traverse speed must be positive.",
+        "id": "rapid_speed_positive"
+      },
+      "rated_power_positive": {
+        "condition": "machine_rated_laser_power_kW <= 0",
+        "error_msg": "Machine rated laser power must be positive.",
+        "id": "rated_power_positive"
+      },
+      "laser_power_not_exceed_rated": {
+        "condition": "laser_power_kW > machine_rated_laser_power_kW",
+        "error_msg": "Laser power at workpiece cannot exceed machine rated laser power.",
+        "id": "laser_power_not_exceed_rated"
+      },
+      "nozzle_diameter_positive": {
+        "condition": "nozzle_diameter_mm <= 0",
+        "error_msg": "Nozzle diameter must be positive.",
+        "id": "nozzle_diameter_positive"
+      },
+      "gas_pressure_positive": {
+        "condition": "assist_gas_pressure_bar <= 0",
+        "error_msg": "Assist gas pressure must be positive.",
+        "id": "gas_pressure_positive"
+      },
+      "machine_hour_rate_positive": {
+        "condition": "machine_hour_rate <= 0",
+        "error_msg": "Machine hour rate must be positive.",
+        "id": "machine_hour_rate_positive"
+      },
+      "electricity_cost_positive": {
+        "condition": "electricity_unit_cost_per_kWh <= 0",
+        "error_msg": "Electricity unit cost must be positive.",
+        "id": "electricity_cost_positive"
+      },
+      "assist_gas_cost_positive": {
+        "condition": "assist_gas_unit_cost_per_Nm3 <= 0",
+        "error_msg": "Assist gas unit cost must be positive.",
+        "id": "assist_gas_cost_positive"
+      },
+      "laser_safety_required": {
+        "condition": "laser_safety_verified == false",
+        "error_msg": "Laser safety verification (IEC 60825-1) is required before proceeding. Safety audit must confirm laser enclosure, interlocks, and beam path shielding.",
+        "id": "laser_safety_required"
+      },
+      "machine_parameters_required": {
+        "condition": "machine_parameter_table_verified == false",
+        "error_msg": "Machine parameter table must be verified against current machine setup.",
+        "id": "machine_parameters_required"
+      },
+      "gas_flow_mode_measured_requires_flow_value": {
+        "condition": "gas_flow_mode == 'MEASURED_FLOW' && (measured_cutting_gas_flow_Nm3_h == null || measured_cutting_gas_flow_Nm3_h <= 0)",
+        "error_msg": "Measured gas flow mode requires a valid measured gas flow rate.",
+        "id": "gas_flow_mode_measured_requires_flow_value"
+      },
+      "gas_flow_mode_calibrated_requires_coefficient": {
+        "condition": "gas_flow_mode == 'CALIBRATED_NOZZLE_PRESSURE_ESTIMATE' && (calibrated_flow_coefficient_Nm3_h_mm2_bar == null || calibrated_flow_coefficient_Nm3_h_mm2_bar <= 0)",
+        "error_msg": "Calibrated nozzle pressure estimate mode requires a valid calibrated flow coefficient.",
+        "id": "gas_flow_mode_calibrated_requires_coefficient"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "Power_Utilization_Ratio < 0.4",
+        "severity": "WARNING",
+        "source": "ISO 14955-1",
+        "message": "Low power utilization ratio (< 40%): Laser is operating well below rated power. Consider using a lower-rated laser machine for better energy efficiency or verify that the cutting parameters are optimal for the material/thickness."
+      },
+      {
+        "condition": "Effective_Feed_mm_min < 100",
+        "severity": "WARNING",
+        "source": "ISO 9013",
+        "message": "Effective feed rate < 100 mm/min: Extremely slow cutting. Verify material thickness and laser power combination. High risk of excessive heat input, dross formation, and wide kerf."
+      },
+      {
+        "condition": "Total_Production_Time_h > 8 && job_part_count > 1",
+        "severity": "WARNING",
+        "source": "Production Planning",
+        "message": "Total production time exceeds 8 hours: Job spans multiple shifts. Verify machine availability and shift planning. Consider increasing shift utilization for cost efficiency."
+      },
+      {
+        "condition": "assist_gas_type == 'ARGON' && assist_gas_unit_cost_per_Nm3 > 2",
+        "severity": "INFO",
+        "source": "Cost Engineering",
+        "message": "Argon assist gas cost > 2 USD/Nm³: Argon is significantly more expensive than nitrogen or compressed air. For laser cutting applications, verify that argon is required (e.g., titanium cutting) rather than a less expensive alternative."
+      },
+      {
+        "condition": "Total_Gas_Cost > 0.3 * Total_Job_Cost",
+        "severity": "WARNING",
+        "source": "Cost Engineering",
+        "message": "Gas cost exceeds 30% of total job cost: Assist gas consumption is a dominant cost driver. Review gas flow rate, nozzle condition, and consider alternative gas types or lower pressure settings."
+      },
+      {
+        "condition": "contour_complexity_factor > 2.0",
+        "severity": "INFO",
+        "source": "CAM Programming",
+        "message": "Contour complexity factor > 2.0: High complexity factor indicates significant acceleration/deceleration losses. Consider optimizing part geometry for fewer tight radii or evaluating if CAM feed rate optimization could reduce effective complexity."
+      },
+      {
+        "condition": "scrap_recut_allowance_factor > 1.15",
+        "severity": "WARNING",
+        "source": "ISO 9001:2015 §8.5.1",
+        "message": "Scrap/recut allowance > 15%: High scrap rate indicates process instability or quality issues. Review cutting parameters, material quality, nozzle condition, and machine calibration before production."
+      },
+      {
+        "condition": "quality_class_required == 'ISO_9013_FINE' && material_thickness_mm > 6",
+        "severity": "WARNING",
+        "source": "ISO 9013",
+        "message": "ISO 9013 Fine quality required for material > 6mm: Achieving fine quality (Rz ≤ 40µm for thin sheet) becomes increasingly difficult above 6mm. Verify that achievable with current laser power and gas selection. Consider reducing quality class for thicker materials."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: feed_rate_positive",
+        "effect": "Feed rate must be positive.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule feed_rate_positive"
+      },
+      {
+        "failureMode": "Input violation: rapid_speed_positive",
+        "effect": "Rapid speed must be positive.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule rapid_speed_positive"
+      },
+      {
+        "failureMode": "Input violation: rated_power_positive",
+        "effect": "Rated power must be positive.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule rated_power_positive"
+      },
+      {
+        "failureMode": "Input violation: laser_power_not_exceed_rated",
+        "effect": "Laser power cannot exceed rated power.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule laser_power_not_exceed_rated"
+      },
+      {
+        "failureMode": "Input violation: laser_safety_required",
+        "effect": "Laser safety verification is required.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule laser_safety_required"
+      },
+      {
+        "failureMode": "Low power utilization ratio < 40%",
+        "effect": "Laser operating well below rated power.",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ISO 14955-1"
+      },
+      {
+        "failureMode": "Extremely slow feed rate < 100 mm/min",
+        "effect": "High risk of excessive heat input and dross formation.",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 4,
+        "rpn": 72,
+        "rpn_high": 72,
+        "rpn_low": 36,
+        "control_measure": "ISO 9013"
+      },
+      {
+        "failureMode": "Gas cost > 30% of total job cost",
+        "effect": "Gas consumption is a dominant cost driver.",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 3,
+        "rpn": 60,
+        "rpn_high": 60,
+        "rpn_low": 36,
+        "control_measure": "Cost Engineering"
+      },
+      {
+        "failureMode": "High scrap rate > 15%",
+        "effect": "Process instability or quality issues.",
+        "severity": 6,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 54,
+        "rpn_high": 54,
+        "rpn_low": 27,
+        "control_measure": "ISO 9001:2015 §8.5.1"
+      }
+    ],
+    "audit_log": true,
+    "error_propagation": {
+      "method": "GUM ISO/IEC Guide 98-3:2008 — LPU first-order Taylor expansion",
+      "correlation": "assumed_uncorrelated",
+      "coverage_factor": 2,
+      "confidence_level": "95.45%"
+    }
+  },
+  "ui_contract": {
+    "layout": "SectorCalc PRO standard tool-card pattern",
+    "input_groups": [
+      {
+        "id": "job_basis",
+        "title": "Job Basis",
+        "fields": [
+          "currency",
+          "job_part_count",
+          "material_family",
+          "material_thickness_mm",
+          "quality_class_required"
+        ]
+      },
+      {
+        "id": "laser_parameters",
+        "title": "Laser & Power Parameters",
+        "fields": [
+          "laser_source_type",
+          "laser_power_kW",
+          "machine_rated_laser_power_kW"
+        ]
+      },
+      {
+        "id": "cutting_geometry",
+        "title": "Cutting Geometry & CAM",
+        "fields": [
+          "programmed_cut_length_mm",
+          "lead_in_out_length_mm",
+          "average_programmed_feed_rate_mm_min",
+          "feed_override_factor",
+          "contour_complexity_factor",
+          "pierce_count",
+          "average_pierce_time_s",
+          "rapid_traverse_distance_mm",
+          "average_rapid_speed_mm_min"
+        ]
+      },
+      {
+        "id": "time_overhead",
+        "title": "Time Overhead",
+        "fields": [
+          "auxiliary_time_per_part_s",
+          "setup_time_min",
+          "scrap_recut_allowance_factor"
+        ]
+      },
+      {
+        "id": "assist_gas",
+        "title": "Assist Gas",
+        "fields": [
+          "assist_gas_type",
+          "gas_flow_mode",
+          "measured_cutting_gas_flow_Nm3_h",
+          "nozzle_diameter_mm",
+          "assist_gas_pressure_bar",
+          "calibrated_flow_coefficient_Nm3_h_mm2_bar",
+          "pierce_gas_flow_factor",
+          "assist_gas_unit_cost_per_Nm3"
+        ]
+      },
+      {
+        "id": "cost_rates",
+        "title": "Cost Rates",
+        "fields": [
+          "machine_hour_rate",
+          "machine_average_electrical_power_kW",
+          "standby_electrical_power_kW",
+          "electricity_unit_cost_per_kWh",
+          "consumable_cost_per_pierce",
+          "consumable_cost_per_cut_meter"
+        ]
+      },
+      {
+        "id": "review_gates",
+        "title": "Review Gates & Uncertainty",
+        "fields": [
+          "laser_safety_verified",
+          "machine_parameter_table_verified",
+          "time_uncertainty_pct",
+          "gas_flow_uncertainty_pct",
+          "cost_uncertainty_pct"
+        ]
+      }
+    ],
+    "result_cards": [
+      "Cycle_Time_Part_min",
+      "Total_Production_Time_h",
+      "Machine_Cost",
+      "Total_Gas_Cost",
+      "Total_Energy_Cost",
+      "Total_Consumable_Cost",
+      "Total_Cost_Part",
+      "Total_Job_Cost",
+      "Power_Utilization_Ratio"
+    ],
+    "gate_result_cards": [
+      "laser_safety_verified",
+      "machine_parameter_table_verified"
+    ],
+    "formula_panel": true,
+    "audit_panel": true,
+    "warnings_panel": true,
+    "chart_panel": {
+      "enabled": true,
+      "charts": [
+        {
+          "id": "time_breakdown",
+          "title": "Time Breakdown per Part",
+          "type": "bar",
+          "series": [
+            "Cut_Time_Part_min",
+            "Pierce_Time_Part_min",
+            "Rapid_Time_Part_min"
+          ]
+        },
+        {
+          "id": "cost_breakdown",
+          "title": "Cost Breakdown",
+          "type": "pie",
+          "series": [
+            "Machine_Cost",
+            "Total_Gas_Cost",
+            "Total_Energy_Cost",
+            "Total_Consumable_Cost"
+          ]
+        },
+        {
+          "id": "gas_consumption",
+          "title": "Gas Consumption per Part",
+          "type": "bar",
+          "series": [
+            "Cut_Gas_Volume_Part_Nm3",
+            "Pierce_Gas_Volume_Part_Nm3"
+          ]
+        }
+      ]
+    },
+    "export_pdf": true
+  },
+  "reference_code": {
+    "language": "TypeScript",
+    "interface": "LaserCuttingTimeAssistGasCostInput / LaserCuttingTimeAssistGasCostOutput with @unit and @uncertainty JSDoc",
+    "validation": "Zod schema. Fail closed on zero/negative feed rate, zero rated power, negative costs, unverified safety gate.",
+    "testing": "Jest cases: thin sheet fiber cutting time (1mm mild steel), thick plate CO2 cutting time (12mm), nitrogen vs oxygen gas cost comparison, scrap allowance effect on total cost, OEM nozzle table vs measured flow comparison, safety gate block on unverified, power utilization low warning.",
+    "example": "calculateLaserCuttingTimeAssistGasCost(input): LaserCuttingTimeAssistGasCostOutput",
+    "implementation_notes": [
+      "Do not use eval(). Use existing AST expression engine.",
+      "Run formulas F1-F28 in deterministic order.",
+      "All time values in minutes internally; convert hours for display.",
+      "Gas flow rate precedence: MEASURED_FLOW > OEM_NOZZLE_TABLE > CALIBRATED_NOZZLE_PRESSURE_ESTIMATE.",
+      "Power utilization ratio is a diagnostic KPIs only — does not affect calculations.",
+      "Machine cost, gas cost, energy cost, and consumable cost summed for total job cost.",
+      "Scrap/recut allowance factor applies to all variable elements (time, gas, consumables).",
+      "All gate outputs are boolean. Use null for unavailable values, not Infinity.",
+      "Uncertainty propagation: combine time, gas flow, and cost uncertainties via RSS for each cost component."
+    ]
+  },
+  "metadata": {
+    "description": "Laser Cutting Time and Assist Gas Cost Calculator — Sheet Metal Laser Process Time, Gas Consumption and Cost Check per ISO 9013, ISO 11145, and ISO 14955-1. Computes effective feed rates, cycle times, assist gas consumption (via measured flow, OEM nozzle table, or calibrated pressure estimate), machine cost, energy cost, consumable cost, and total job cost for sheet metal laser cutting operations.",
+    "version": "1.0.0",
+    "tags": [
+      "laser cutting",
+      "assist gas",
+      "sheet metal",
+      "cost engineering",
+      "cycle time",
+      "ISO 9013",
+      "gas consumption",
+      "manufacturing cost"
+    ],
+    "tuv_checklist": [
+      "ISO 9013 thermal cutting quality classification confirmed",
+      "ISO 11145 laser gas flow measurement specification verified",
+      "ISO 14955-1 machine tool energy efficiency methodology confirmed",
+      "ISO 11553-1 laser processing machine safety audit reviewed",
+      "IEC 60825-1 laser product safety verification confirmed",
+      "Machine OEM cutting database parameter correlation checked",
+      "Gas flow determination method (measured/OEM/calibrated) documented",
+      "Power utilization ratio assessed per ISO 14955-1",
+      "Cost uncertainty propagation per ISO/IEC Guide 98-3 GUM verified",
+      "Scrap/recut allowance factor rationale documented"
+    ],
+    "calibration_trace": "Feed rate and time references from CAM system and machine control logs. Gas flow calibration traceable to thermal mass flow meter standards (ISO 5167-1). Pressure transducer calibration per IEC 61298-2 Class 1.0. Uncertainty propagation per ISO/IEC Guide 98-3:2008 GUM.",
+    "last_review_status": "NOT_YET_REVIEWED",
+    "cursor_instruction": "FILE LOCKED — This is a production PRO tool data file. Do not modify the structure or content of this file except through the official PRO tool editor scripts. Manual edits risk schema violations, broken UI contracts, and audit log corruption. If changes are needed, use the PRO tool editor CLI or submit a schema change request.",
+    "traceability_id": "PRO_134_TUV_20260628_A1C7"
+  }
+}

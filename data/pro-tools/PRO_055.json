@@ -1,0 +1,312 @@
+{
+  "tool_id": "PRO_055",
+  "tool_name": "Lightning Protection — Rolling Sphere Radius, LPZ Classification & SPD Coordination",
+  "category": "Electrical Safety / Building Services",
+  "scope": "process_agnostic",
+  "primary_operation": "lightning_protection",
+  "inputs": [
+    {
+      "id": "LPL_class",
+      "name": "Lightning Protection Level (LPL)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "LPL I — 99% interception, R=20 m (highest risk)",
+          "value": 1
+        },
+        {
+          "label": "LPL II — 97% interception, R=30 m",
+          "value": 2
+        },
+        {
+          "label": "LPL III — 91% interception, R=45 m",
+          "value": 3
+        },
+        {
+          "label": "LPL IV — 84% interception, R=60 m",
+          "value": 4
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 2,
+      "note": "IEC 62305-1 §5.3 — LPL determined by risk assessment per IEC 62305-2",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "structure_height_m",
+      "name": "Structure Height (H)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 500,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "structure_length_m",
+      "name": "Structure Footprint Length (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 2000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "structure_width_m",
+      "name": "Structure Footprint Width (W)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 2000,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "ground_flash_density",
+      "name": "Ground Flash Density (N_g)",
+      "unit": "flashes/km²/yr",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 2.5,
+      "absolute_min": 0.1,
+      "absolute_max": 30,
+      "note": "From local thunderstorm isokeraunic map or CIGRE TB 549; Europe avg ≈ 0.5–4; tropics ≈ 5–30",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
+    },
+    {
+      "id": "structure_use",
+      "name": "Structure Use / Occupancy Risk Factor (C_d)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "C_d=0.5 — low occupancy, metal roof",
+          "value": 0.5
+        },
+        {
+          "label": "C_d=1.0 — normal occupied building",
+          "value": 1
+        },
+        {
+          "label": "C_d=2.0 — school, hospital, public assembly",
+          "value": 2
+        },
+        {
+          "label": "C_d=3.0 — hazardous contents (explosive, flammable)",
+          "value": 3
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 1,
+      "note": "IEC 62305-2 Table A.2 — structure type factor",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "down_conductor_spacing_m",
+      "name": "Down Conductor Spacing (s_dc)",
+      "unit": "m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "DEFAULT",
+      "default": 10,
+      "absolute_min": 5,
+      "absolute_max": 25,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    }
+  ],
+  "formulas": [
+    "Rs_m = {1: 20, 2: 30, 3: 45, 4: 60}[LPL_class]   // [m] Rolling Sphere Radius (R_s) per LPL Reference: IEC 62305-3:2010 Table 2 — rolling sphere radius by LPL",
+    "A_e_km2 = ((structure_length_m + 2*structure_height_m) * (structure_width_m + 2*structure_height_m) + Math.PI * structure_height_m^2) / 1e6   // [km²] Equivalent Collection Area of Structure (A_e) Reference: IEC 62305-2 §A.2 Eq.(A.1) — collection area of isolated structure",
+    "N_d_yr = ground_flash_density * A_e_km2 * structure_use   // [strikes/yr] Annual Lightning Strike Frequency (N_d) Reference: IEC 62305-2 §A.2 — N_d = N_g × A_e × C_d",
+    "perimeter_m = 2 * (structure_length_m + structure_width_m); n_dc_min = Math.ceil(perimeter_m / down_conductor_spacing_m)   // [count] Minimum Number of Down Conductors Required Reference: IEC 62305-3 §5.3.3 — minimum spacing per LPL: LPL I/II → 10 m; LPL III → 15 m; LPL IV → 20 m",
+    "s_dc_req_m = {1: 10, 2: 10, 3: 15, 4: 20}[LPL_class]   // [m] Recommended Down Conductor Spacing by LPL Reference: IEC 62305-3 Table 4 — down conductor mesh spacing by LPL",
+    "spd_class = (LPL_class <= 2) ? 'Type 1 (Class I) — 10/350 μs, I_imp ≥ 25 kA/pole' : 'Type 2 (Class II) — 8/20 μs, I_n ≥ 20 kA/pole'   // [text] SPD Impulse Current Class Required Reference: IEC 62305-4 §6.3.3 / IEC 61643-11 — SPD class by lightning protection zone"
+  ],
+  "engine_rules": {
+    "standards": [
+      "IEC 62305-1:2010",
+      "IEC 62305-2:2010 (Risk Assessment)",
+      "IEC 62305-3:2010",
+      "IEC 62305-4:2010",
+      "NFPA 780-2023",
+      "IEC 61643-11"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "down_conductor_spacing_m > s_dc_req_m",
+        "error_msg": "Down conductor spacing exceeds IEC 62305-3 requirement for selected LPL — increase number of conductors",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "structure_height_m > Rs_m && LPL_class > 2",
+        "error_msg": "Structure height exceeds rolling sphere radius: LPL II or I may be required — re-run risk assessment per IEC 62305-2",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "N_d_yr > 1.0",
+        "error_msg": "Expected > 1 direct strike per year: comprehensive LPS mandatory — evaluate LPMS (Lightning Protection Management System)",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "LPL I on hazardous structure: full mesh air termination network required per IEC 62305-3 §5.2.2; equipotential bonding of all metallic services mandatory",
+        "condition": "LPL_class === 1 && structure_use >= 3.0",
+        "source": "IEC 62305-1:2010"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "High strike frequency with LPL III/IV: reassess LPL — IEC 62305-2 risk assessment may require upgrade to LPL II",
+        "condition": "N_d_yr > 0.1 && LPL_class >= 3",
+        "source": "IEC 62305-1:2010"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "Structure > 60 m: lateral flash risk on upper 20% of structure — side flash air termination required per IEC 62305-3 §5.2.3",
+        "condition": "structure_height_m > 60",
+        "source": "IEC 62305-1:2010"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High Ng (>10 fl/km²/yr): tropical/subtropical zone — verify local isokeraunic data with national meteorological service; keraunic level may vary ±50%",
+        "condition": "ground_flash_density > 10",
+        "source": "IEC 62305-1:2010"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "LPL I/II: Type 1 SPD at service entrance required — coordinate with Type 2 at distribution board and Type 3 at sensitive equipment per IEC 62305-4 §6.3",
+        "condition": "LPL_class <= 2",
+        "source": "IEC 62305-1:2010"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: down_conductor_spacing_m > s_dc_req_m",
+        "effect": "Down conductor spacing exceeds IEC 62305-3 requirement for selected LPL — increase number of conductors",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: structure_height_m > Rs_m && LPL_class > 2",
+        "effect": "Structure height exceeds rolling sphere radius: LPL II or I may be required — re-run risk assessment per IEC 62305-2",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: N_d_yr > 1.0",
+        "effect": "Expected > 1 direct strike per year: comprehensive LPS mandatory — evaluate LPMS (Lightning Protection Management System)",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "LPL I on hazardous structure: full mesh air termination network required per IEC 62305-3 §5.2.2; equipotential bonding of all metallic services mandatory",
+        "effect": "Smart warning triggered when: LPL_class === 1 && structure_use >= 3.0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "IEC 62305-1:2010"
+      },
+      {
+        "failureMode": "High strike frequency with LPL III/IV: reassess LPL — IEC 62305-2 risk assessment may require upgrade to LPL II",
+        "effect": "Smart warning triggered when: N_d_yr > 0.1 && LPL_class >= 3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 62305-1:2010"
+      },
+      {
+        "failureMode": "Structure > 60 m: lateral flash risk on upper 20% of structure — side flash air termination required per IEC 62305-3 §5.2.3",
+        "effect": "Smart warning triggered when: structure_height_m > 60",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 62305-1:2010"
+      },
+      {
+        "failureMode": "High Ng (>10 fl/km²/yr): tropical/subtropical zone — verify local isokeraunic data with national meteorological service; keraunic level may vary ±50%",
+        "effect": "Smart warning triggered when: ground_flash_density > 10",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IEC 62305-1:2010"
+      },
+      {
+        "failureMode": "LPL I/II: Type 1 SPD at service entrance required — coordinate with Type 2 at distribution board and Type 3 at sensitive equipment per IEC 62305-4 §6.3",
+        "effect": "Smart warning triggered when: LPL_class <= 2",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "IEC 62305-1:2010"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Rs_m",
+        "A_e_km2",
+        "N_d_yr",
+        "perimeter_m",
+        "n_dc_min",
+        "s_dc_req_m",
+        "spd_class"
+      ]
+    }
+  ]
+}

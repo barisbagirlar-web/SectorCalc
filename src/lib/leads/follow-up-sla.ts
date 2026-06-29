@@ -50,11 +50,11 @@ export function formatFollowUpAgeLabel(ageHours: number): string {
 
  if (ageHours < 24) {
  const hours = Math.max(1, Math.round(ageHours));
- return `${hours} saat`;
+    return `${hours} hours`;
  }
 
  const days = Math.max(1, Math.floor(ageHours / 24));
- return `${days} gün`;
+    return `${days} days`;
 }
 
 interface SlaResolution {
@@ -67,21 +67,21 @@ function resolveNewSla(ageHours: number): SlaResolution {
  if (ageHours < 4) {
  return {
  slaLevel: "ok",
- slaLabel: "Yeni",
- recommendedAction: "Lead'i inceleyip durumu güncelle",
+    slaLabel: "New",
+    recommendedAction: "Review lead and update status",
  };
  }
  if (ageHours < 24) {
  return {
  slaLevel: "watch",
- slaLabel: "Bugün dön",
- recommendedAction: "Bugün dönüş yap",
+    slaLabel: "Due today",
+    recommendedAction: "Respond today",
  };
  }
  return {
  slaLevel: "urgent",
- slaLabel: "Gecikti",
- recommendedAction: "Acil dönüş yap",
+    slaLabel: "Overdue",
+    recommendedAction: "Urgent response needed",
  };
 }
 
@@ -89,21 +89,21 @@ function resolveReviewedSla(ageHours: number): SlaResolution {
  if (ageHours < 12) {
  return {
  slaLevel: "ok",
- slaLabel: "İnceleniyor",
- recommendedAction: "Ön inceleme mesajı gönder",
+    slaLabel: "In Review",
+    recommendedAction: "Send preliminary review message",
  };
  }
  if (ageHours < 24) {
  return {
  slaLevel: "watch",
- slaLabel: "Takip bekliyor",
- recommendedAction: "Takip mesajı gönder",
+    slaLabel: "Follow-up pending",
+    recommendedAction: "Send follow-up message",
  };
  }
  return {
  slaLevel: "urgent",
- slaLabel: "Gecikti",
- recommendedAction: "Geciken takip — hemen dön",
+    slaLabel: "Overdue",
+    recommendedAction: "Overdue follow-up — respond immediately",
  };
 }
 
@@ -111,14 +111,14 @@ function resolveContactedSla(ageHours: number): SlaResolution {
  if (ageHours >= 48) {
  return {
  slaLevel: "watch",
- slaLabel: "Takip zamanı",
- recommendedAction: "İletişim takibi yap",
+    slaLabel: "Follow-up due",
+    recommendedAction: "Perform contact follow-up",
  };
  }
  return {
  slaLevel: "ok",
- slaLabel: "Temas edildi",
- recommendedAction: "Yanıt bekle veya planlı takip yap",
+    slaLabel: "Contacted",
+    recommendedAction: "Wait for reply or schedule follow-up",
  };
 }
 
@@ -126,14 +126,14 @@ function resolveQualifiedSla(ageHours: number): SlaResolution {
  if (ageHours >= 72) {
  return {
  slaLevel: "watch",
- slaLabel: "Teklif / kapanış takibi",
- recommendedAction: "Teklif/kapanış takibi yap",
+    slaLabel: "Quote / closing follow-up",
+    recommendedAction: "Perform quote/closing follow-up",
  };
  }
  return {
  slaLevel: "ok",
- slaLabel: "Uygun lead",
- recommendedAction: "Teklif veya sonraki adımı planla",
+    slaLabel: "Qualified lead",
+    recommendedAction: "Plan quote or next step",
  };
 }
 
@@ -150,20 +150,20 @@ function resolveStatusSla(status: LeadStatus, ageHours: number): SlaResolution {
  case "converted":
  return {
  slaLevel: "done",
- slaLabel: "Tamamlandı",
- recommendedAction: "Lead dönüşümü tamamlandı",
+    slaLabel: "Completed",
+    recommendedAction: "Lead conversion completed",
  };
  case "lost":
  return {
  slaLevel: "done",
- slaLabel: "Kayıp",
- recommendedAction: "Kayıp sebebini kontrol et",
+    slaLabel: "Lost",
+    recommendedAction: "Check loss reason",
  };
  default:
  return {
  slaLevel: "ok",
- slaLabel: "Takipte",
- recommendedAction: "Durumu kontrol et",
+    slaLabel: "In Progress",
+    recommendedAction: "Check status",
  };
  }
 }
@@ -182,8 +182,8 @@ export function resolveLeadFollowUpSla(
  ageHours: 0,
  ageLabel: "—",
  slaLevel: "ok",
- slaLabel: "Takipte",
- recommendedAction: "Tarih bilgisi eksik — manuel kontrol et",
+    slaLabel: "In Progress",
+    recommendedAction: "Missing date info — check manually",
  };
  }
 

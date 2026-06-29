@@ -1,0 +1,324 @@
+{
+  "tool_id": "PRO_059",
+  "tool_name": "Storm Water Peak Runoff — Rational Method, Time of Concentration & Culvert Capacity",
+  "category": "Civil / Hydraulic Engineering",
+  "scope": "process_agnostic",
+  "primary_operation": "stormwater_drainage",
+  "inputs": [
+    {
+      "id": "catchment_area_ha",
+      "name": "Catchment Area (A)",
+      "unit": "ha",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01,
+      "absolute_max": 10000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
+    },
+    {
+      "id": "runoff_coeff_C",
+      "name": "Weighted Runoff Coefficient (C)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 0.65,
+      "absolute_min": 0.05,
+      "absolute_max": 0.95,
+      "note": "ASCE Manual 36: impervious pavement C=0.9; lawns C=0.25–0.35; mixed urban C=0.55–0.75",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.2 — Empirical coefficient: ±5% reproducibility"
+    },
+    {
+      "id": "rainfall_intensity_mm_h",
+      "name": "Design Rainfall Intensity (i) for Return Period",
+      "unit": "mm/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 5,
+      "absolute_max": 300,
+      "note": "From IDF (Intensity-Duration-Frequency) curve at T_c for selected return period; NOAA Atlas 14 (US)",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "return_period_yr",
+      "name": "Design Storm Return Period",
+      "unit": "years",
+      "type": "enum",
+      "options": [
+        2,
+        5,
+        10,
+        25,
+        50,
+        100
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 25,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "catchment_length_m",
+      "name": "Hydraulic Length of Catchment (L)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 10,
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    },
+    {
+      "id": "slope_pct",
+      "name": "Average Catchment Slope (S)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 2,
+      "absolute_min": 0.1,
+      "absolute_max": 60,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "culvert_diameter_mm",
+      "name": "Proposed Culvert/Pipe Internal Diameter (D)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        300,
+        375,
+        450,
+        525,
+        600,
+        750,
+        900,
+        1050,
+        1200,
+        1500,
+        1800,
+        2100
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 900,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "pipe_slope_pct",
+      "name": "Culvert / Pipe Invert Slope (S_pipe)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 1,
+      "absolute_min": 0.1,
+      "absolute_max": 20,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "manning_n",
+      "name": "Manning's Roughness Coefficient (n)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 0.013,
+      "absolute_min": 0.009,
+      "absolute_max": 0.03,
+      "note": "Concrete pipe n=0.013; corrugated metal n=0.024; smooth plastic n=0.010",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "Tc_min = 0.0195 * Math.pow(catchment_length_m, 0.77) * Math.pow(slope_pct / 100, -0.385)   // [min] Time of Concentration — Kirpich Formula (T_c) Reference: Kirpich (1940) — widely adopted in FHWA HEC-22 and ASCE practice for small catchments",
+    "Q_peak_m3s = runoff_coeff_C * rainfall_intensity_mm_h / 1000 / 3600 * catchment_area_ha * 10000   // [m³/s] Peak Runoff Rate — Rational Method (Q_peak) Reference: Rational Method: Q = C·i·A — ASCE 7-22 / EN 752:2017 §6.3; valid for A < 80 ha",
+    "AEP_pct = 100 / return_period_yr   // [%] Annual Exceedance Probability Reference: AEP = 1/T_r — FHWA HEC-22 §3.1",
+    "A_pipe_m2 = Math.PI/4 * Math.pow(culvert_diameter_mm/1000, 2); R_h_m = culvert_diameter_mm/1000/4; Q_pipe_m3s = (1/manning_n) * A_pipe_m2 * Math.pow(R_h_m, 2/3) * Math.pow(pipe_slope_pct/100, 0.5)   // [m³/s] Full-Bore Pipe Capacity — Manning's Equation (Q_pipe) Reference: Manning's equation — full-bore circular pipe; hydraulic radius R = D/4",
+    "cap_ratio = Q_pipe_m3s / Q_peak_m3s   // [dimensionless] Hydraulic Capacity Adequacy Ratio Reference: cap_ratio ≥ 1.0 required; ≥ 1.2 recommended to accommodate blockage allowance per EN 752 §7.3",
+    "v_pipe_m_s = Q_pipe_m3s / A_pipe_m2   // [m/s] Flow Velocity in Full-Bore Pipe Reference: FHWA HEC-22 §4.2 — minimum self-cleansing velocity 0.9 m/s; maximum erosion limit 3–4 m/s for concrete"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASCE 7-22",
+      "FHWA HEC-22 3rd Ed.",
+      "EN 752:2017",
+      "NOAA Atlas 14",
+      "BS EN 1295-1:1998"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "catchment_area_ha > 80 && runoff_coeff_C > 0.5",
+        "error_msg": "Catchment > 80 ha: Rational Method loses accuracy for large areas — use TR-55 or SCS unit hydrograph method per USDA NEH-4",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "cap_ratio < 1.0",
+        "error_msg": "Pipe capacity insufficient for design storm: increase diameter or slope — surface flooding will occur at design return period",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "v_pipe_m_s < 0.7",
+        "error_msg": "Flow velocity < 0.7 m/s: below self-cleansing threshold — sediment deposition and blockage; increase slope or reduce diameter",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Capacity ratio < 1.2: insufficient blockage margin per EN 752 §7.3 — upsize by one standard diameter",
+        "condition": "cap_ratio < 1.2",
+        "source": "ASCE 7-22"
+      },
+      {
+        "id": "W2",
+        "severity": "CRITICAL",
+        "message": "Velocity > 4 m/s: concrete pipe erosion risk — consider energy dissipator at outlet or use abrasion-resistant liner",
+        "condition": "v_pipe_m_s > 4.0",
+        "source": "ASCE 7-22"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "T_c < 5 min: very short time of concentration — peak rainfall intensity assumption very sensitive; verify IDF curve resolution",
+        "condition": "Tc_min < 5",
+        "source": "ASCE 7-22"
+      },
+      {
+        "id": "W4",
+        "severity": "INFO",
+        "message": "Long return period with low C: verify C accounts for soil saturation at extended storms — effective C increases with event duration",
+        "condition": "return_period_yr >= 50 && runoff_coeff_C < 0.5",
+        "source": "ASCE 7-22"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Pipe slope < 0.3%: hydraulic gradient very flat — air entrainment, surcharge, and odour release risk; maintain minimum 0.5% per EN 752 §7",
+        "condition": "pipe_slope_pct < 0.3",
+        "source": "ASCE 7-22"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: catchment_area_ha > 80 && runoff_coeff_C > 0.5",
+        "effect": "Catchment > 80 ha: Rational Method loses accuracy for large areas — use TR-55 or SCS unit hydrograph method per USDA NEH-4",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: cap_ratio < 1.0",
+        "effect": "Pipe capacity insufficient for design storm: increase diameter or slope — surface flooding will occur at design return period",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: v_pipe_m_s < 0.7",
+        "effect": "Flow velocity < 0.7 m/s: below self-cleansing threshold — sediment deposition and blockage; increase slope or reduce diameter",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Capacity ratio < 1.2: insufficient blockage margin per EN 752 §7.3 — upsize by one standard diameter",
+        "effect": "Smart warning triggered when: cap_ratio < 1.2",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASCE 7-22"
+      },
+      {
+        "failureMode": "Velocity > 4 m/s: concrete pipe erosion risk — consider energy dissipator at outlet or use abrasion-resistant liner",
+        "effect": "Smart warning triggered when: v_pipe_m_s > 4.0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ASCE 7-22"
+      },
+      {
+        "failureMode": "T_c < 5 min: very short time of concentration — peak rainfall intensity assumption very sensitive; verify IDF curve resolution",
+        "effect": "Smart warning triggered when: Tc_min < 5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASCE 7-22"
+      },
+      {
+        "failureMode": "Long return period with low C: verify C accounts for soil saturation at extended storms — effective C increases with event duration",
+        "effect": "Smart warning triggered when: return_period_yr >= 50 && runoff_coeff_C < 0.5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASCE 7-22"
+      },
+      {
+        "failureMode": "Pipe slope < 0.3%: hydraulic gradient very flat — air entrainment, surcharge, and odour release risk; maintain minimum 0.5% per EN 752 §7",
+        "effect": "Smart warning triggered when: pipe_slope_pct < 0.3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASCE 7-22"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Tc_min",
+        "Q_peak_m3s",
+        "AEP_pct",
+        "A_pipe_m2",
+        "R_h_m",
+        "Q_pipe_m3s",
+        "cap_ratio",
+        "v_pipe_m_s"
+      ]
+    }
+  ]
+}

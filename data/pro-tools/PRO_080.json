@@ -1,0 +1,300 @@
+{
+  "tool_id": "PRO_080",
+  "tool_name": "Industrial Evaporator Design — Steam Economy, Boiling Point Rise & Heat Transfer Area",
+  "category": "Chemical Process Engineering / Evaporation",
+  "scope": "single_operation",
+  "primary_operation": "evaporator",
+  "inputs": [
+    {
+      "id": "feed_flow_kg_h",
+      "name": "Feed Liquid Flow Rate (F)",
+      "unit": "kg/h",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 5000000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    },
+    {
+      "id": "feed_conc_pct",
+      "name": "Feed Solids Concentration (x_F)",
+      "unit": "% w/w",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 60,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    },
+    {
+      "id": "product_conc_pct",
+      "name": "Product Solids Concentration (x_P)",
+      "unit": "% w/w",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 5,
+      "absolute_max": 80,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "steam_pressure_bar",
+      "name": "Heating Steam Pressure (P_steam)",
+      "unit": "bar(a)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 3,
+      "absolute_min": 1.1,
+      "absolute_max": 50,
+      "note": "Steam saturation temp at 3 bar(a) = 133°C; 1.5 bar(a) = 112°C",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "evap_pressure_bar",
+      "name": "Evaporator Operating Pressure (P_evap)",
+      "unit": "bar(a)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 0.3,
+      "absolute_min": 0.05,
+      "absolute_max": 5,
+      "note": "Vacuum evaporation at 0.3 bar(a) → T_sat = 69°C; reduces thermal degradation",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "BPR_k",
+      "name": "Boiling Point Rise of Solution (BPR)",
+      "unit": "K",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 5,
+      "absolute_min": 0,
+      "absolute_max": 50,
+      "note": "At product concentration: NaCl at 20% → BPR ≈ 2.6 K; sugar at 60% → BPR ≈ 5 K; caustic at 40% → BPR ≈ 20 K",
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "U_overall_w_m2k",
+      "name": "Overall Heat Transfer Coefficient (U)",
+      "unit": "W/(m²·K)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "DEFAULT",
+      "default": 2000,
+      "absolute_min": 300,
+      "absolute_max": 8000,
+      "note": "Falling film (water) ≈ 3000–5000; forced circulation (viscous) ≈ 1000–2500; natural circ. ≈ 1500–3000",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Area: √2 × linear ≈ ±1.4% (conservatively ±2%)"
+    },
+    {
+      "id": "feed_temp_c",
+      "name": "Feed Inlet Temperature (T_F)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 25,
+      "absolute_min": 5,
+      "absolute_max": 120,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    }
+  ],
+  "formulas": [
+    "V_kg_h = feed_flow_kg_h * (1 - feed_conc_pct / product_conc_pct); P_kg_h = feed_flow_kg_h - V_kg_h   // [kg/h] Water Evaporation Rate (V) from Mass Balance Reference: Overall mass balance: F = V + P; solids balance: F·x_F = P·x_P → V = F(1 − x_F/x_P)",
+    "T_steam_c = 100 * Math.pow(steam_pressure_bar, 0.25) + 33 * Math.pow(steam_pressure_bar, 0.05) - 33; T_evap_sat_c = 100 * Math.pow(evap_pressure_bar, 0.25) + 33 * Math.pow(evap_pressure_bar, 0.05) - 33; T_boil_c = T_evap_sat_c + BPR_k   // [°C] Steam Saturation Temperatures Reference: Antoine approximation for water saturation temperature — Perry's 9th Ed. §2; BPR elevates boiling point above T_sat",
+    "dT_eff = T_steam_c - T_boil_c   // [K] Net Temperature Driving Force (ΔTLM) Reference: Effective ΔT = T_steam − T_boil; T_boil = T_evap,sat + BPR — TEMA / Perry's §11.12",
+    "lambda_steam_kj_kg = 2676 - 2.09 * T_steam_c; cp_feed_kj_kgk = 4.18 * (1 - feed_conc_pct/100) + 1.5 * feed_conc_pct/100; lambda_evap_kj_kg = 2676 - 2.09 * T_boil_c; Q_preheat_kw = feed_flow_kg_h / 3600 * cp_feed_kj_kgk * (T_boil_c - feed_temp_c); Q_evap_kw = V_kg_h / 3600 * lambda_evap_kj_kg; Q_steam_kw = Q_preheat_kw + Q_evap_kw   // [kW] Steam Heat Duty — Including Feed Pre-Heating (Q_steam) Reference: Total duty = preheat load + evaporation load; λ_steam from Antoine saturation enthalpy approximation",
+    "S_kg_h = Q_steam_kw * 3600 / (2676 - 2.09 * T_steam_c); steam_economy = V_kg_h / S_kg_h   // [kg/h, kg water/kg steam] Steam Consumption & Economy Reference: Steam economy = kg evaporation / kg steam consumed; single-effect ≈ 0.8–0.9; triple-effect ≈ 2.5–2.8",
+    "A_evap_m2 = Q_steam_kw * 1000 / (U_overall_w_m2k * dT_eff)   // [m²] Required Heat Transfer Area (A_evap) Reference: A = Q / (U·ΔT) — fundamental heat transfer equation; TEMA / GEA falling film evaporator design"
+  ],
+  "engine_rules": {
+    "standards": [
+      "Perry's Chemical Engineers' Handbook 9th Ed. §11.12",
+      "TEMA Standards 10th Ed.",
+      "AIChE Evaporation Design Guide",
+      "Alfa Laval / GEA Evaporator Engineering Practice"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "product_conc_pct <= feed_conc_pct",
+        "error_msg": "Product concentration must exceed feed concentration — check x_F and x_P inputs",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "dT_eff < 5",
+        "error_msg": "Effective ΔT < 5 K: very small driving force — heat transfer area will be enormous; increase steam pressure or reduce evaporator pressure (deeper vacuum)",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "steam_economy < 0.7",
+        "error_msg": "Steam economy < 0.7: below single-effect minimum — heat losses may be underestimated; verify feed preheat duty and BPR value",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "ΔT_eff < 10 K: economically marginal single-effect operation — evaluate multiple-effect evaporation (economy improves linearly with number of effects)",
+        "condition": "dT_eff < 10",
+        "source": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "id": "W2",
+        "severity": "CRITICAL",
+        "message": "BPR > 15 K: large boiling point rise severely reduces ΔT and increases steam consumption — evaluate mechanical vapour recompression (MVR) for high-BPR solutions",
+        "condition": "BPR_k > 15",
+        "source": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "Large heat transfer area (> 1000 m²): multiple evaporator bodies likely required — evaluate falling film with large-diameter tubes for reduced fouling",
+        "condition": "A_evap_m2 > 1000",
+        "source": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High boiling temperature at elevated concentration: thermal degradation risk for heat-sensitive products (food, pharma) — deepen vacuum to reduce T_boil",
+        "condition": "T_boil_c > 100 && product_conc_pct > 50",
+        "source": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Low economy at large evaporation rate: high operating cost — each additional effect saves ~35–40% steam; payback on triple-effect typically < 2 years",
+        "condition": "steam_economy < 1.0 && V_kg_h > 10000",
+        "source": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: product_conc_pct <= feed_conc_pct",
+        "effect": "Product concentration must exceed feed concentration — check x_F and x_P inputs",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: dT_eff < 5",
+        "effect": "Effective ΔT < 5 K: very small driving force — heat transfer area will be enormous; increase steam pressure or reduce evaporator pressure (deeper vacuum)",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: steam_economy < 0.7",
+        "effect": "Steam economy < 0.7: below single-effect minimum — heat losses may be underestimated; verify feed preheat duty and BPR value",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "ΔT_eff < 10 K: economically marginal single-effect operation — evaluate multiple-effect evaporation (economy improves linearly with number of effects)",
+        "effect": "Smart warning triggered when: dT_eff < 10",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "failureMode": "BPR > 15 K: large boiling point rise severely reduces ΔT and increases steam consumption — evaluate mechanical vapour recompression (MVR) for high-BPR solutions",
+        "effect": "Smart warning triggered when: BPR_k > 15",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "failureMode": "Large heat transfer area (> 1000 m²): multiple evaporator bodies likely required — evaluate falling film with large-diameter tubes for reduced fouling",
+        "effect": "Smart warning triggered when: A_evap_m2 > 1000",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "failureMode": "High boiling temperature at elevated concentration: thermal degradation risk for heat-sensitive products (food, pharma) — deepen vacuum to reduce T_boil",
+        "effect": "Smart warning triggered when: T_boil_c > 100 && product_conc_pct > 50",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      },
+      {
+        "failureMode": "Low economy at large evaporation rate: high operating cost — each additional effect saves ~35–40% steam; payback on triple-effect typically < 2 years",
+        "effect": "Smart warning triggered when: steam_economy < 1.0 && V_kg_h > 10000",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Perry's Chemical Engineers' Handbook 9th Ed. §11.12"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "V_kg_h",
+        "P_kg_h",
+        "T_steam_c",
+        "T_evap_sat_c",
+        "T_boil_c",
+        "dT_eff",
+        "lambda_steam_kj_kg",
+        "cp_feed_kj_kgk",
+        "lambda_evap_kj_kg",
+        "Q_preheat_kw",
+        "Q_evap_kw",
+        "Q_steam_kw",
+        "S_kg_h",
+        "steam_economy",
+        "A_evap_m2"
+      ]
+    }
+  ]
+}

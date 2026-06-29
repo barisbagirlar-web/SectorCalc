@@ -13,7 +13,7 @@ export interface SchemaMeshProps {
 export function SchemaMesh({ sector, sectorKey, locale = "en", priceUsd = "19" }: SchemaMeshProps) {
   const pageUrl = buildLocalizedUrl(
     `/audit/${sectorKey}`,
-    locale === "tr" ? "tr" : "en",
+    "en",
     SITE.url,
   );
 

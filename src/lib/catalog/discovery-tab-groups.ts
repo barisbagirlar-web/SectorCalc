@@ -55,7 +55,7 @@ export function resolveDiscoveryTabLabelKey(
   tabId: string
 ): string | null {
   if (tabId === DISCOVERY_TAB_ALL) {
-    return variant === "premium-tools" ? "discoveryTabs.premiumToolsAll" : "discoveryTabs.all";
+    return "discoveryTabs.all";
   }
   if (variant === "industries") {
     return null;

@@ -1,0 +1,176 @@
+---
+description: SectorCalc core project discipline — patch workflow, security, revenue flow, deploy
+alwaysApply: true
+---
+
+# SectorCalc Project Rules
+
+> **Üst belge:** `AI_CONSTITUTION.md` — Dual-AI bölge ayrımı, yetki kuralları ve senkronizasyon brief'i buradadır.
+> Bu dosya sektörel çalışma disiplinini tanımlar.
+
+## Project Identity
+
+SectorCalc is a global sector-specific calculation and decision-tool platform.
+
+**Main goal:** Turn sector pain into paid decision tools.
+
+**Core model:**
+- Free tools = simple quick checks, SEO, trust, visible risk.
+- Paid analyzers = safe price, bid risk, margin leak, verdict, suggested action.
+- PDF = export format of paid analyzer result, not the main product.
+- Main brand/domain = SectorCalc.com.
+
+## Current Stable Infrastructure — Do Not Break
+
+- Firebase Hosting, Firebase Auth, Admin login
+- Admin lead dashboard, lead activity log, SLA, quality score, action center, source ROI
+- Manual test lead classification
+- Cloud Functions (admin + Stripe)
+- Firestore rules
+- Stripe checkout/webhook
+- Saved reports/history, 17-sector catalog, subscription guard
+
+**Admin checkpoint:** `docs/admin-panel-stable-checkpoint.md`
+
+## Hard No (unless explicitly requested)
+
+- New repo, `npx create-next-app`, new domain
+- `src/app/api` routes **outside DeepSeek territory** (API route'ları `AI_CONSTITUTION.md`'de DeepSeek bölgesindedir)
+- Secrets in frontend, Stripe secret in `NEXT_PUBLIC_*`
+- Service account JSON in repo, commit `.env.local`
+- Whole-app rewrite, admin panel refactor during revenue work
+- Delete working features, heavy packages without justification
+- Client Firestore writes for subscription status
+- Formulas in paid analyzer UI
+- Free tools revealing full paid result (safe price, verdict, PDF)
+
+## Protected Paths — Read Before Edit
+
+Do not modify without explicit user request and risk review:
+
+| Area | Paths |
+|------|--------|
+| Admin panel | `src/app/admin/**`, `src/components/admin/**` |
+| Lead system | `**/lead*`, `functions/src/updateLead*` |
+| Stripe | `functions/src/createStripeCheckout.ts`, `functions/src/stripeWebhook.ts` |
+| Firestore rules | `firestore.rules` |
+| Secrets | `.env.local`, `functions/.env`, `*service-account*`, `*firebase-adminsdk*` |
+
+## Required Workflow (every task)
+
+1. Inspect existing files first — no guessing.
+2. List files to change + risk.
+3. Smallest working patch only.
+4. Run tests (see below).
+5. Run secret check before commit.
+6. Report: files changed, tests, deploy, manual QA, known risks.
+7. Commit only after tests pass; working tree clean when done.
+
+**Output format for large tasks:**
+1. Files to touch · 2. Risk · 3. Patch plan · 4. Test commands · 5. Deploy · 6. Manual QA · 7. Commit message
+
+## Required Commands After Code Change
+
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+npm run check:secrets   # before commit
+```
+
+Functions changed:
+```bash
+cd functions && npm run build
+firebase deploy --only functions --project sectorcalc-bf412
+```
+
+Hosting changed:
+```bash
+firebase deploy --only hosting --project sectorcalc-bf412
+```
+
+Firestore rules changed:
+```bash
+firebase deploy --only firestore:rules --project sectorcalc-bf412
+```
+
+Git (only when user requests or phase completes):
+```bash
+git status
+git add .
+git commit -m "<clear message>"
+git push
+```
+
+## Security Checks Before Commit
+
+```bash
+npm run check:secrets
+git status --short
+git diff --cached --name-only | grep -Ei "env|secret|service-account|firebase-adminsdk|credentials|private|key" || true
+git diff --cached | grep -Ei "BEGIN PRIVATE KEY|private_key|service_account|STRIPE_SECRET_KEY|STRIPE_WEBHOOK_SECRET|ADMIN_LEAD_UPDATE_SECRET" || true
+```
+
+If a real secret appears → stop, remove it, do not commit.
+
+## Revenue Flow Rules
+
+Build inside existing project. Data-driven registry (`revenue-tools.ts`, `industry-registry.ts`).
+
+**Free:** 3–5 inputs, risk signal, no safe price, no verdict, no PDF, browser-first, privacy note.
+
+**Paid:** full input, verdict, metric, risk drivers, suggested action, legal disclaimer, PDF when subscribed, paywall guard.
+
+**Legal (required):** Technical simulation; not financial/legal/engineering advice; verify before business decisions.
+
+**Privacy (required):** Free inputs processed in browser; not stored unless account/save.
+
+## Region Standard
+
+- Firestore location is fixed — do not change database region.
+- Current: Firestore `nam5`, all Cloud Functions `us-central1`.
+- New revenue functions → `us-central1` (match existing admin + Stripe).
+- Do not move working admin functions without explicit migration request.
+
+See `docs/sectorcalc-stability-settings.md`.
+
+## UI Standard
+
+Premium, clean, restrained. Mobile-first, no horizontal scroll, 44px touch targets, no clutter hero, no emoji in premium cards, no excessive animation.
+
+## SEO Standard
+
+Index working pages only. Free tools indexable; paid tools may show teaser + paywall with value copy. Use title, description, canonical, sitemap.
+
+## Testing Standard
+
+Manual QA: desktop + mobile, console clean, changed routes, admin regression if shared code touched.
+
+Catalog audit: `npm run audit:revenue-tools`
+
+## Phase Lock (Revenue / Launch)
+
+1. Region + stability check ✓
+2. 17-sector catalog ✓
+3. Full catalog QA ✓
+4. Campaign tracking + UTM
+5. Launch decision gate
+6. Stripe live readiness
+7. First paid campaign
+
+One phase per session when possible. Commit per phase. Working tree clean after each.
+
+## Terminal — Safe vs Restricted
+
+**Safe (routine):** `npm run lint`, `tsc --noEmit`, `npm run build`, `npm run audit:revenue-tools`, `npm run check:secrets`, `functions` build, targeted `firebase deploy`, `git status/add/commit/push`, `grep`, `find`, `cat`
+
+**Restricted (explain first):** `rm`, `mv`, `git reset`, `git clean`, `npm install`, function/database delete
+
+**Never without explicit approval:** `rm -rf`, `git reset --hard`, `git clean -fd`, `firebase projects:delete`, `hosting:disable`, `npm audit fix --force`
+
+## Reference Docs
+
+- `docs/sectorcalc-stability-settings.md` — Firebase, secrets, deploy
+- `docs/cursor-workflow.md` — copy-paste task prompt + final report template
+- `docs/full-catalog-qa.md` — 17-sector QA
+- `docs/revenue-flow-v1-production-readiness.md` — Stripe go/no-go

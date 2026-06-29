@@ -1,0 +1,326 @@
+{
+  "schemaId": "PRO_053",
+  "toolCode": "TOOL-PRO-053",
+  "version": "1.0.0",
+  "name": "Anchor Bolt Group — Tension, Shear & Combined Interaction for Column Baseplates",
+  "subtitle": "Structural Engineering | Foundation Design — ACI 318-19 Chapter 17, AISC Design Guide 1 3rd Ed.",
+  "sectorPath": [
+    "Structural Engineering",
+    "Foundation Design"
+  ],
+  "standardsBasis": [
+    "ACI 318-19 Chapter 17",
+    "AISC Design Guide 1 3rd Ed.",
+    "EN 1992-4:2018",
+    "ASTM F1554",
+    "ISO 898-1"
+  ],
+  "scope": {
+    "inScope": [
+      "Anchor Bolt Group — Tension, Shear & Combined Interaction for Column Baseplates"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "N_bolts",
+      "symbol": "N_bolts",
+      "label": "Number of Anchor Bolts in Group (n)",
+      "unit": {
+        "ref": "count"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 2,
+      "max": 32
+    },
+    {
+      "id": "bolt_dia_mm",
+      "symbol": "bolt_dia_mm",
+      "label": "Anchor Bolt Nominal Diameter (d_a)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 24,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "embed_depth_mm",
+      "symbol": "embed_depth_mm",
+      "label": "Effective Embedment Depth (h_ef)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 50,
+      "max": 1000
+    },
+    {
+      "id": "fc_prime_mpa",
+      "symbol": "fc_prime_mpa",
+      "label": "Concrete Compressive Strength (f'_c)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 30,
+      "enum": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "id": "Futa_mpa",
+      "symbol": "Futa_mpa",
+      "label": "Anchor Steel Ultimate Tensile Strength (f_uta)",
+      "unit": {
+        "ref": "MPa"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 517,
+      "enum": [
+        {
+          "value": 400,
+          "label": "ASTM F1554 Gr36 — 400 MPa"
+        },
+        {
+          "value": 517,
+          "label": "ASTM F1554 Gr55 — 517 MPa"
+        },
+        {
+          "value": 862,
+          "label": "ASTM F1554 Gr105 — 862 MPa"
+        },
+        {
+          "value": 800,
+          "label": "ISO 898-1 8.8 — 800 MPa"
+        },
+        {
+          "value": 1040,
+          "label": "ISO 898-1 10.9 — 1040 MPa"
+        }
+      ]
+    },
+    {
+      "id": "Nu_kn",
+      "symbol": "Nu_kn",
+      "label": "Factored Tension Demand on Bolt Group (N_u / N_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 50000
+    },
+    {
+      "id": "Vu_kn",
+      "symbol": "Vu_kn",
+      "label": "Factored Shear Demand on Bolt Group (V_u / V_Ed)",
+      "unit": {
+        "ref": "kN"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 50000
+    },
+    {
+      "id": "edge_dist_min_mm",
+      "symbol": "edge_dist_min_mm",
+      "label": "Minimum Edge Distance to Any Bolt (c_a1)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 50,
+      "max": 2000
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_053",
+      "code": "ACI 318-19 Chapter 17",
+      "name": "Anchor Bolt Group — Tension, Shear & Combined Interaction for Column Baseplates",
+      "description": "Anchor Bolt Group — Tension, Shear & Combined Interaction for Column Baseplates — Structural Engineering, Foundation Design",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "As_mm2",
+          "expression": "Math.PI/4 * Math.pow(bolt_dia_mm * 0.9, 2)",
+          "unit": {
+            "ref": "mm2"
+          },
+          "reference": "",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "phi_Nsa_kn",
+          "expression": "0.75 * N_bolts * As_mm2 * Futa_mpa / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ACI 318-19 §17.6.1 — φ=0.75 for ductile anchors in tension",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "Nb_kn",
+          "expression": "16 * Math.sqrt(fc_prime_mpa) * Math.pow(embed_depth_mm, 1.5) / 1000; AN = Math.pow(3 * embed_depth_mm, 2); AN0 = 9 * embed_depth_mm^2; phi_Ncb_kn = 0.70 * (AN/AN0) * Nb_kn",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ACI 318-19 §17.6.2 — concrete breakout for single bolt, φ=0.70 (uncracked concrete assumed)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "phi_Vsa_kn",
+          "expression": "0.65 * N_bolts * 0.6 * As_mm2 * Futa_mpa / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ACI 318-19 §17.7.1.2 — shear: φ=0.65",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "kcp",
+          "expression": "(embed_depth_mm >= 65) ? 2.0 : 1.0; phi_Vcp_kn = 0.70 * kcp * phi_Ncb_kn / 0.70",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ACI 318-19 §17.7.3 — pryout: k_cp=2 for h_ef≥65 mm",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "DCR_tension",
+          "expression": "Nu_kn / Math.min(phi_Nsa_kn, phi_Ncb_kn); DCR_shear = Vu_kn / Math.min(phi_Vsa_kn, phi_Vcp_kn); interaction = Math.pow(DCR_tension, 5/3) + Math.pow(DCR_shear, 5/3)",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "ACI 318-19 §17.8.3 — trilinear interaction: sum ≤ 1.2 required",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ACI 318-19 Chapter 17",
+          "condition": "DCR_tension > 0.8",
+          "message": "Tension DCR > 0.8: low reserve — verify load combinations include seismic overstrength per ASCE 7-22 §12.4.3 if applicable"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ACI 318-19 Chapter 17",
+          "condition": "phi_Ncb_kn < phi_Nsa_kn * 0.7",
+          "message": "Concrete breakout capacity <70% of steel capacity: brittle failure mode governs — increase embedment or add supplemental reinforcement per ACI §17.3.3"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ACI 318-19 Chapter 17",
+          "condition": "fc_prime_mpa < 25 && Nu_kn > 100",
+          "message": "Low-strength concrete with high tension: consider post-installed adhesive anchors (ETAG 001) for higher concrete capacity"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ACI 318-19 Chapter 17",
+          "condition": "N_bolts < 4 && Vu_kn > 0 && Nu_kn > 0",
+          "message": "Less than 4 bolts under combined loading: all bolts in tension and shear simultaneously — verify baseplate rotational stiffness per AISC DG1"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ACI 318-19 Chapter 17",
+          "condition": "Futa_mpa > 800 && embed_depth_mm < 200",
+          "message": "High-strength anchor with moderate embedment: steel fracture may govern before concrete breakout — desirable for ductile design per ACI §17.3.3(a)"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "N_bolts",
+        "bolt_dia_mm",
+        "embed_depth_mm",
+        "fc_prime_mpa",
+        "Futa_mpa",
+        "Nu_kn",
+        "Vu_kn",
+        "edge_dist_min_mm"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

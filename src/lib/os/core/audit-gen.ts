@@ -1,5 +1,5 @@
 /**
- * Audit generator — premium rapor üretici (global).
+ * Audit generator — premium report generator (global).
  */
 
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
@@ -55,9 +55,9 @@ export interface ProcessVariables {
  tolerance: number;
 }
 
-const OPTIMAL_DIAGNOSTIC = "Süreç kararlı. Standartlar korunuyor.";
+const OPTIMAL_DIAGNOSTIC = "Process stable. Standards maintained.";
 const INVALID_DIAGNOSTIC =
- "Geçersiz giriş: hedef, gerçekleşen, birim maliyet ve tolerans sayı olmalıdır.";
+ "Invalid input: target, actual, unit cost and tolerance must be numeric.";
 
 export function auditSeverityToVerdictCode(severity: AuditSeverity): string {
  switch (severity) {
@@ -109,13 +109,13 @@ export function runLegacyDiagnostic(m: ProcessMetrics): AuditOutput {
 
  if (core.severity === "CRITICAL") {
  severity = "CRITICAL";
- diagnostic = `KRİTİK SAPMA: Hedeflenen ${m.target} değerinden %${variancePct.toFixed(2)} sapma. 
- Bu operasyonel verimsizlik size ${formatNumber(financialImpact)} birim değer kaybına mal oluyor. 
- Aksiyon: Kaynak tahsisini optimize edin ve kalibrasyon toleranslarını gözden geçirin.`;
+   diagnostic = `CRITICAL DEVIATION: Deviation of ${variancePct.toFixed(2)}% from target value of ${m.target}. 
+This operational inefficiency costs you ${formatNumber(financialImpact)} units in value loss. 
+Action: Optimize resource allocation and review calibration tolerances.`;
  } else if (Math.abs(varianceRatio) > safeTolerance / 2) {
  severity = "WARNING";
- diagnostic =
- "Sistem tolerans sınırında. Küçük bir düzeltme ile %5 verim artışı yakalanabilir.";
+  diagnostic =
+   "System at tolerance threshold. A small adjustment can yield 5% efficiency gain.";
  } else {
  diagnostic = OPTIMAL_DIAGNOSTIC;
  }
@@ -190,7 +190,7 @@ export function runIndustryDiagnostic(
  financialLoss: 0,
  severity: "WARNING",
  recommendation:
- "Eksik veya geçersiz risk değişkeni. Hedef, gerçekleşen ve birim maliyet gerekli.",
+  "Missing or invalid risk variables. Target, actual and unit cost required.",
  verdictCode: "MARGIN_LEAK_WARNING",
  premiumAdvice: config.premiumRules.Warning ?? null,
  };

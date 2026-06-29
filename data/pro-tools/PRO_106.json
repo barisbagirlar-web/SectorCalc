@@ -1,0 +1,370 @@
+{
+  "tool_id": "PRO_106",
+  "tool_name": "High-Strength Bolt Group — Shear Capacity, Bearing Resistance & Slip Check per EC3 / AISC",
+  "category": "Steel Fabrication / Structural Connections",
+  "scope": "single_operation",
+  "primary_operation": "bolt_group_shear",
+  "inputs": [
+    {
+      "id": "bolt_diameter_mm",
+      "name": "Bolt Nominal Diameter (d)",
+      "unit": "mm",
+      "type": "enum",
+      "options": [
+        {
+          "label": "M12 — A_s=84.3 mm²",
+          "value": 12
+        },
+        {
+          "label": "M16 — A_s=157 mm²",
+          "value": 16
+        },
+        {
+          "label": "M20 — A_s=245 mm²",
+          "value": 20
+        },
+        {
+          "label": "M24 — A_s=353 mm²",
+          "value": 24
+        },
+        {
+          "label": "M27 — A_s=459 mm²",
+          "value": 27
+        },
+        {
+          "label": "M30 — A_s=561 mm²",
+          "value": 30
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 20,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "property_class",
+      "name": "Bolt Property Class",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "8.8 — f_ub=800 MPa",
+          "value": "8.8"
+        },
+        {
+          "label": "10.9 — f_ub=1040 MPa",
+          "value": "10.9"
+        },
+        {
+          "label": "12.9 — f_ub=1220 MPa",
+          "value": "12.9"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "10.9",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "n_bolts",
+      "name": "Number of Bolts in Group (n)",
+      "unit": "count",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 100,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% (unclassified parameter)"
+    },
+    {
+      "id": "n_shear_planes",
+      "name": "Number of Shear Planes (n_sp)",
+      "unit": "count",
+      "type": "enum",
+      "options": [
+        {
+          "label": "1 — Single shear (plate-to-plate)",
+          "value": 1
+        },
+        {
+          "label": "2 — Double shear (sandwich plate)",
+          "value": 2
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 1,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "V_Ed_kn",
+      "name": "Factored Shear Force on Bolt Group (V_Ed)",
+      "unit": "kN",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 50000,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "connected_plate_t_mm",
+      "name": "Thinnest Connected Plate Thickness (t)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 4,
+      "absolute_max": 100,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "plate_fy_mpa",
+      "name": "Connected Plate Yield Strength (f_y)",
+      "unit": "MPa",
+      "type": "enum",
+      "options": [
+        {
+          "label": "S235 — 235 MPa",
+          "value": 235
+        },
+        {
+          "label": "S275 — 275 MPa",
+          "value": 275
+        },
+        {
+          "label": "S355 — 355 MPa",
+          "value": 355
+        },
+        {
+          "label": "S420 — 420 MPa",
+          "value": 420
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 355,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "edge_dist_e1_mm",
+      "name": "End Distance in Load Direction (e_1)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 10,
+      "absolute_max": 200,
+      "note": "EC3 §3.5: minimum e_1 ≥ 1.2 × d_0 (hole diameter = d + 2 mm)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "pitch_p1_mm",
+      "name": "Bolt Pitch in Load Direction (p_1)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 20,
+      "absolute_max": 500,
+      "note": "EC3 §3.5: minimum p_1 ≥ 2.2 × d_0; standard: 3d to 5d",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    }
+  ],
+  "formulas": [
+    "const As_map = {12:84.3, 16:157, 20:245, 24:353, 27:459, 30:561}; As_mm2 = As_map[bolt_diameter_mm]; const fub_map = {'8.8':800, '10.9':1040, '12.9':1220}; fub_mpa = fub_map[property_class]  // [mm², MPa] — Bolt Tensile Stress Area & Ultimate Strength — Ref: ISO 898-1:2013 — tensile stress areas; ISO 4014:2011 structural bolt dimensions",
+    "gamma_M2 = 1.25; alpha_v = 0.6; Fv_Rd_kn = alpha_v * fub_mpa * As_mm2 * n_shear_planes / (gamma_M2 * 1000)  // [kN] — Single Bolt Shear Resistance (F_v,Rd) per EC3 — Ref: EC3 §3.6.1 Table 3.4 — F_v,Rd = α_v·f_ub·A_s·n_sp/γ_M2; α_v=0.6 for 8.8/10.9 (shear plane through threaded portion)",
+    "d0_mm = bolt_diameter_mm + 2; alpha_b = Math.min(e1_d0 = edge_dist_e1_mm / d0_mm / 3, p1_d0 = pitch_p1_mm / d0_mm / 3 - 0.25, fub_mpa / (plate_fy_mpa * 1.3), 1.0); k1 = Math.min(2.8 * 30 / d0_mm - 1.7, 2.5); Fb_Rd_kn = k1 * alpha_b * plate_fy_mpa * 1.3 * bolt_diameter_mm * connected_plate_t_mm / (gamma_M2 * 1000)  // [kN] — Bearing Resistance — Single Bolt on Thinnest Plate (F_b,Rd) — Ref: EC3 §3.6.1 Table 3.4 — F_b,Rd = k_1·α_b·f_u·d·t/γ_M2; f_u ≈ 1.3·f_y (conservative for S235–S460)",
+    "Fgov_single_kn = Math.min(Fv_Rd_kn, Fb_Rd_kn); phi_Rn_group_kn = n_bolts * Fgov_single_kn  // [kN] — Governing Single Bolt Resistance & Group Capacity — Ref: Group capacity = n × min(F_v,Rd, F_b,Rd) — EC3 §3.7 (no group reduction for n ≤ 6 in standard pitch)",
+    "DCR = V_Ed_kn / phi_Rn_group_kn  // Demand-Capacity Ratio (DCR) — Ref: DCR = V_Ed / R_group ≤ 1.0 required — EC3 §3.7 / AISC 360-22 §J3",
+    "n_req = Math.ceil(V_Ed_kn / Fgov_single_kn); slip_check_kn = 0.7 * fub_mpa * As_mm2 * 0.5 / (gamma_M2 * 1000) * n_bolts  // [count, kN] — Minimum Required Bolt Count for Demand — Ref: n_req = V_Ed / F_single; slip resistance (cat. B) = 0.7·f_ub·A_s·μ/γ_M3 — EC3 §3.9 (μ=0.5 class A surface)"
+  ],
+  "engine_rules": {
+    "standards": [
+      "EN 1993-1-8:2005 §3.6, §3.7, §3.9",
+      "ISO 898-1:2013",
+      "AISC 360-22 §J3",
+      "ISO 4014:2011"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "DCR > 1.0",
+          "action": "BLOCK",
+          "message": "Bolt group shear/bearing capacity exceeded — increase bolt count, diameter, or property class"
+        },
+        {
+          "id": "V2",
+          "condition": "edge_dist_e1_mm < 1.2 * (bolt_diameter_mm + 2)",
+          "action": "BLOCK",
+          "message": "End distance e_1 < 1.2 × d_0: EC3 §3.5 minimum violated — bolt will tear out of plate"
+        },
+        {
+          "id": "V3",
+          "condition": "pitch_p1_mm < 2.2 * (bolt_diameter_mm + 2)",
+          "action": "WARN",
+          "message": "Bolt pitch p_1 < 2.2 × d_0: below EC3 minimum spacing — risk of plate splitting between holes"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Bearing governs at <60% of shear capacity: plate is thin or end/edge distance is short — increase plate thickness or end distance e_1 to balance resistances",
+        "condition": "Fb_Rd_kn < Fv_Rd_kn * 0.6"
+      },
+      {
+        "id": "W2",
+        "severity": "INFO",
+        "message": "Large bolt group in single shear (n > 8): EC3 §3.8 long joint reduction factor β_Lj applies when Lj > 15d — verify connection length does not trigger reduction",
+        "condition": "n_bolts > 8 && n_shear_planes === 1"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "12.9 class bolt with thin plate: bearing governs severely — 12.9 bolts rarely needed in standard structural connections; verify whether 10.9 suffices",
+        "condition": "property_class === '12.9' && connected_plate_t_mm < 15"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Utilisation > 85%: marginal for fatigue or seismic load — add one bolt or increase diameter; fatigue class detail per EC3-1-9 is independent of static capacity",
+        "condition": "DCR > 0.85"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Slip resistance insufficient for Category B (serviceability): connection will slip under service load — specify pretensioned bolts and improve faying surface to Class A (sand-blasted) μ=0.5",
+        "condition": "slip_check_kn < V_Ed_kn && n_shear_planes === 1"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: DCR > 1.0",
+        "effect": "Bolt group shear/bearing capacity exceeded — increase bolt count, diameter, or property class",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: edge_dist_e1_mm < 1.2 * (bolt_diameter_mm + 2)",
+        "effect": "End distance e_1 < 1.2 × d_0: EC3 §3.5 minimum violated — bolt will tear out of plate",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Parameter warning: pitch_p1_mm < 2.2 * (bolt_diameter_mm + 2)",
+        "effect": "Bolt pitch p_1 < 2.2 × d_0: below EC3 minimum spacing — risk of plate splitting between holes",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Bearing governs at <60% of shear capacity: plate is thin or end/edge distance is short — increase plate thickness or end distance e_1 to balance resistances",
+        "effect": "Smart warning triggered when: Fb_Rd_kn < Fv_Rd_kn * 0.6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Large bolt group in single shear (n > 8): EC3 §3.8 long joint reduction factor β_Lj applies when Lj > 15d — verify connection length does not trigger reduction",
+        "effect": "Smart warning triggered when: n_bolts > 8 && n_shear_planes === 1",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "12.9 class bolt with thin plate: bearing governs severely — 12.9 bolts rarely needed in standard structural connections; verify whether 10.9 suffices",
+        "effect": "Smart warning triggered when: property_class === '12.9' && connected_plate_t_mm < 15",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Utilisation > 85%: marginal for fatigue or seismic load — add one bolt or increase diameter; fatigue class detail per EC3-1-9 is independent of static capacity",
+        "effect": "Smart warning triggered when: DCR > 0.85",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Slip resistance insufficient for Category B (serviceability): connection will slip under service load — specify pretensioned bolts and improve faying surface to Class A (sand-blasted) μ=0.5",
+        "effect": "Smart warning triggered when: slip_check_kn < V_Ed_kn && n_shear_planes === 1",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "As_map",
+        "As_mm2",
+        "fub_map",
+        "fub_mpa",
+        "gamma_M2",
+        "alpha_v",
+        "Fv_Rd_kn",
+        "d0_mm",
+        "alpha_b",
+        "k1",
+        "Fb_Rd_kn",
+        "Fgov_single_kn",
+        "phi_Rn_group_kn",
+        "DCR",
+        "n_req",
+        "slip_check_kn"
+      ]
+    }
+  ]
+}

@@ -44,8 +44,8 @@ describe("canonical unit normalizer", () => {
   });
 
   test("locale defaults prefer metric for tr/de", () => {
-    expect(resolveLocaleDefaultUnitSystem("tr", "areaSize", "area")).toBe("metric");
-    expect(resolveLocaleDefaultUnitSystem("de", "squareFeet", "area")).toBe("metric");
+    expect(resolveLocaleDefaultUnitSystem("tr" as any, "areaSize", "area")).toBe("metric");
+    expect(resolveLocaleDefaultUnitSystem("de" as any, "squareFeet", "area")).toBe("metric");
   });
 
   test("en locale applies imperial bias for US field hints", () => {
@@ -73,7 +73,7 @@ describe("canonical unit normalizer", () => {
   });
 
   test("metric locale keeps metric display for area fields", () => {
-    const metadata = resolveFieldUnitMetadata("areaSize", "m2", "area", "tr");
+    const metadata = resolveFieldUnitMetadata("areaSize", "m2", "area", "tr" as any);
 
     expect(metadata?.displayUnit).toBe("m²");
     expect(metadata?.unitSystem).toBe("metric");
@@ -103,7 +103,7 @@ describe("canonical unit normalizer", () => {
 
   test("resolveDisplayUnitLabel returns locale-aware label", () => {
     expect(resolveDisplayUnitLabel("areaSize", "m2", "area", "en")).toBe("sq ft");
-    expect(resolveDisplayUnitLabel("areaSize", "m2", "area", "de")).toBe("m²");
+    expect(resolveDisplayUnitLabel("areaSize", "m2", "area", "de" as any)).toBe("m²");
     expect(resolveDisplayUnitLabel("laborCost", "USD", "currency", "en")).toBe("USD");
   });
 });

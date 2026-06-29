@@ -1,0 +1,314 @@
+{
+  "schemaId": "PRO_005",
+  "toolCode": "TOOL-PRO-005",
+  "version": "1.0.0",
+  "name": "WPS Preheat Temperature & PWHT Requirements — Carbon Equivalent & Hydrogen Risk",
+  "subtitle": "Welding Engineering | WPS | PQR — AWS D1.1-2020 §3.5, Table 3.2, EN 1011-2:2001 Annex C",
+  "sectorPath": [
+    "Welding Engineering",
+    "WPS",
+    "PQR"
+  ],
+  "standardsBasis": [
+    "AWS D1.1-2020 §3.5, Table 3.2",
+    "EN 1011-2:2001 Annex C",
+    "ISO 13916:2017",
+    "ASME BPVC IX 2023"
+  ],
+  "scope": {
+    "inScope": [
+      "WPS Preheat Temperature & PWHT Requirements — Carbon Equivalent & Hydrogen Risk"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "C_pct",
+      "symbol": "C_pct",
+      "label": "Carbon Content (C)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "EXACT",
+      "group": "reinforcement",
+      "min": 0.01,
+      "max": 0.6
+    },
+    {
+      "id": "Mn_pct",
+      "symbol": "Mn_pct",
+      "label": "Manganese Content (Mn)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 2.5
+    },
+    {
+      "id": "Si_pct",
+      "symbol": "Si_pct",
+      "label": "Silicon Content (Si)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0,
+      "max": 1,
+      "default": 0.3,
+      "optional": true
+    },
+    {
+      "id": "Cr_pct",
+      "symbol": "Cr_pct",
+      "label": "Chromium Content (Cr)",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0,
+      "max": 3,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "Mo_Ni_pct",
+      "symbol": "Mo_Ni_pct",
+      "label": "Mo + Ni + Cu Combined Content",
+      "unit": {
+        "ref": "pct"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0,
+      "max": 5,
+      "default": 0,
+      "optional": true
+    },
+    {
+      "id": "plate_thickness_mm",
+      "symbol": "plate_thickness_mm",
+      "label": "Plate / Section Thickness at Joint (t)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 3,
+      "max": 300
+    },
+    {
+      "id": "HI_kj_mm",
+      "symbol": "HI_kj_mm",
+      "label": "Welding Heat Input (HI)",
+      "unit": {
+        "ref": "kJ/mm"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.3,
+      "max": 10,
+      "default": 1.5
+    },
+    {
+      "id": "H_content",
+      "symbol": "H_content",
+      "label": "Diffusible Hydrogen Level (H_d)",
+      "unit": {
+        "ref": "ml/100g"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 10,
+      "enum": [
+        {
+          "value": 15,
+          "label": "H15 — ≤15 ml/100g standard"
+        },
+        {
+          "value": 10,
+          "label": "H10 — ≤10 ml/100g low hydrogen"
+        },
+        {
+          "value": 5,
+          "label": "H5 — ≤5 ml/100g very low"
+        },
+        {
+          "value": 2.5,
+          "label": "H2.5 — ≤2.5 ml/100g ultra-low"
+        }
+      ]
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "reinforcement",
+      "letter": "A",
+      "title": "Reinforcement",
+      "cols": 2
+    },
+    {
+      "key": "general",
+      "letter": "B",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_005",
+      "code": "AWS D1.1-2020 §3.5, Table 3.2",
+      "name": "WPS Preheat Temperature & PWHT Requirements — Carbon Equivalent & Hydrogen Risk",
+      "description": "WPS Preheat Temperature & PWHT Requirements — Carbon Equivalent & Hydrogen Risk — Welding Engineering, WPS, PQR",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "CE_IIW",
+          "expression": "C_pct + Mn_pct/6 + (Si_pct + Cr_pct)/24 + Mo_Ni_pct/40",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "IIW / AWS D1.1-2020 Commentary — CE = C + Mn/6 + (Si+Cr)/24 + Mo/4 + Ni/40 + Cu/13",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "CET",
+          "expression": "C_pct + (Mn_pct + Mo_Ni_pct * 0.5 + Cr_pct * 0.1) / 10",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "EN 1011-2:2001 Annex C — CET used for preheat calculation by CET method",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "T_p_AWS_c",
+          "expression": "(CE_IIW < 0.40) ? 10 : (CE_IIW < 0.45) ? 66 : (CE_IIW < 0.60) ? 107 : 150",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "AWS D1.1-2020 Table 3.2 — minimum preheat by CE and thickness category",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "T_p_EN_c",
+          "expression": "697 * CET + 160 * Math.tanh(plate_thickness_mm / 35) + 62 * Math.pow(H_content, 0.35) - 328",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "EN 1011-2:2001 Annex C Eq.(C.3) — T_p = 697×CET + 160×tanh(t/35) + 62×H^0.35 - 328",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "T_p_governing_c",
+          "expression": "Math.max(T_p_AWS_c, T_p_EN_c, 10)",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "Conservative: maximum of AWS D1.1 and EN 1011-2 requirements",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "PWHT_required",
+          "expression": "(CE_IIW > 0.45 && plate_thickness_mm > 32) || (plate_thickness_mm > 38 && property === 'Class D/E') ? 'PWHT REQUIRED per ASME IX / AWS D1.1 §5.8' : 'PWHT not mandatory — verify per design code'",
+          "unit": {
+            "ref": "text"
+          },
+          "reference": "ASME B31.3-2022 §331.1.1 — P-No.1 PWHT required above 19 mm (¾ in) for pressure piping",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "AWS D1.1-2020 §3.5, Table 3.2",
+          "condition": "CE_IIW > 0.50 && H_content > 10",
+          "message": "CE > 0.50 + H_d > 10 ml/100g: hydrogen-assisted cold cracking risk — switch to H5 or H2.5 consumables immediately; minimum 48h inspection delay before NDT"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §3.5, Table 3.2",
+          "condition": "T_p_governing_c > 150 && HI_kj_mm > 3.0",
+          "message": "High preheat + high heat input: creep in HAZ possible during multipass welding — implement interpass temperature monitoring ≤ T_p + 100°C"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §3.5, Table 3.2",
+          "condition": "plate_thickness_mm > 50 && T_p_governing_c < 100",
+          "message": "Heavy section with low calculated preheat: heat sink effect underestimated — add 25°C for plates > 50 mm per AWS D1.1 Commentary §C-3.5"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §3.5, Table 3.2",
+          "condition": "CET > 0.45",
+          "message": "CET > 0.45: HSLA or alloy steel with elevated cold cracking susceptibility — document in WPS and PQR; hydrogen bake-out at 200°C × 2h strongly recommended"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "AWS D1.1-2020 §3.5, Table 3.2",
+          "condition": "H_content === 15 && CE_IIW > 0.40",
+          "message": "Standard hydrogen consumable on alloy steel: upgrade to H10 minimum — AWS D1.1 Table 4.5 restricts H15 for CE > 0.40 without mandatory elevated preheat"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "C_pct",
+        "Mn_pct",
+        "plate_thickness_mm",
+        "HI_kj_mm",
+        "H_content"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,0 +1,353 @@
+{
+  "schemaId": "PRO_066",
+  "toolCode": "TOOL-PRO-066",
+  "version": "1.0.0",
+  "name": "Wire Rope Sling — Safe Working Load, D/d Ratio Derating & Fatigue Life Assessment",
+  "subtitle": "Lifting & Rigging | Material Handling Safety — ISO 2408:2023, ASME B30.9-2022",
+  "sectorPath": [
+    "Lifting & Rigging",
+    "Material Handling Safety"
+  ],
+  "standardsBasis": [
+    "ISO 2408:2023",
+    "ASME B30.9-2022",
+    "EN 13414-1:2003",
+    "LEEA COPSULE 2019",
+    "OSHA 29 CFR 1926.251"
+  ],
+  "scope": {
+    "inScope": [
+      "Wire Rope Sling — Safe Working Load, D/d Ratio Derating & Fatigue Life Assessment"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "rope_diameter_mm",
+      "symbol": "rope_diameter_mm",
+      "label": "Wire Rope Nominal Diameter (d)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 6,
+      "max": 120
+    },
+    {
+      "id": "rope_grade",
+      "symbol": "rope_grade",
+      "label": "Wire Rope Grade / Minimum Breaking Force Category",
+      "unit": {
+        "ref": "N/mm²"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 1770,
+      "enum": [
+        {
+          "value": 1570,
+          "label": "1570 MPa — Standard (ISO 2408)"
+        },
+        {
+          "value": 1770,
+          "label": "1770 MPa — High-strength"
+        },
+        {
+          "value": 1960,
+          "label": "1960 MPa — Extra-high-strength"
+        },
+        {
+          "value": 2160,
+          "label": "2160 MPa — Special-high-strength"
+        }
+      ]
+    },
+    {
+      "id": "rope_construction",
+      "symbol": "rope_construction",
+      "label": "Rope Construction - Fill Factor (f_m)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 0.44,
+      "enum": [
+        {
+          "value": 0.4,
+          "label": "6×19 IWRC — f_m = 0.4"
+        },
+        {
+          "value": 0.44,
+          "label": "6×36 IWRC — f_m = 0.44"
+        },
+        {
+          "value": 0.35,
+          "label": "8×19 IWRC — f_m = 0.35"
+        },
+        {
+          "value": 0.38,
+          "label": "6×7 FC — f_m = 0.38"
+        }
+      ]
+    },
+    {
+      "id": "sling_configuration",
+      "symbol": "sling_configuration",
+      "label": "Sling Configuration & Included Angle",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 1.41,
+      "enum": [
+        {
+          "value": 1,
+          "label": "Single vertical leg — mode factor 1.0"
+        },
+        {
+          "value": 1.41,
+          "label": "2-leg bridle, 0–45° included — mode factor 1.41"
+        },
+        {
+          "value": 1.22,
+          "label": "2-leg bridle, 45–90° included — mode factor 1.22"
+        },
+        {
+          "value": 1,
+          "label": "2-leg bridle, 90–120° included — mode factor 1.00"
+        },
+        {
+          "value": 2,
+          "label": "Basket (vertical legs) — mode factor 2.0"
+        },
+        {
+          "value": 0.75,
+          "label": "Choker hitch — mode factor 0.75"
+        }
+      ]
+    },
+    {
+      "id": "design_factor",
+      "symbol": "design_factor",
+      "label": "Design Factor (Safety Factor on MBF)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "default": 5,
+      "enum": [
+        {
+          "value": 5,
+          "label": "DF = 5 — ASME B30.9 / EN 13414 standard"
+        },
+        {
+          "value": 6,
+          "label": "DF = 6 — Personnel hoisting, OSHA"
+        },
+        {
+          "value": 8,
+          "label": "DF = 8 — Shock loading / offshore"
+        }
+      ]
+    },
+    {
+      "id": "sheave_diameter_mm",
+      "symbol": "sheave_diameter_mm",
+      "label": "Sheave / Hook Radius of Contact (D_sheave)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "STRONG",
+      "group": "geometry",
+      "min": 20,
+      "max": 2000
+    },
+    {
+      "id": "lift_cycles_per_year",
+      "symbol": "lift_cycles_per_year",
+      "label": "Annual Number of Lift Cycles",
+      "unit": {
+        "ref": "cycles/yr"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 1,
+      "max": 50000,
+      "default": 500
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "geometry",
+      "letter": "B",
+      "title": "Geometry",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_066",
+      "code": "ISO 2408:2023",
+      "name": "Wire Rope Sling — Safe Working Load, D/d Ratio Derating & Fatigue Life Assessment",
+      "description": "Wire Rope Sling — Safe Working Load, D/d Ratio Derating & Fatigue Life Assessment — Lifting & Rigging, Material Handling Safety",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "MBF_kn",
+          "expression": "rope_grade * rope_construction * Math.pow(rope_diameter_mm, 2) / 1000",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ISO 2408:2023 §7 — MBF = R_r × f_m × d²",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "WLL_leg_kn",
+          "expression": "MBF_kn / design_factor",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ASME B30.9-2022 §9-1.3 — WLL = MBF / DF",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "SWL_eff_kn",
+          "expression": "WLL_leg_kn * sling_configuration",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "EN 13414-1:2003 §4.3 — configuration mode factor applied to single-leg WLL",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "Dd_ratio",
+          "expression": "sheave_diameter_mm / rope_diameter_mm; bend_eff = (Dd_ratio >= 25) ? 1.0 : (Dd_ratio >= 18) ? 0.90 : (Dd_ratio >= 12) ? 0.75 : (Dd_ratio >= 8) ? 0.65 : 0.50",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "ISO 2408 §8 / LEEA COPSULE — bending efficiency factor",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "SWL_derated_kn",
+          "expression": "SWL_eff_kn * bend_eff",
+          "unit": {
+            "ref": "kN"
+          },
+          "reference": "ASME B30.9 Commentary — SWL must be reduced for D/d < 25",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "N_fatigue",
+          "expression": "Math.pow(bend_eff * MBF_kn / (SWL_eff_kn * design_factor), 3) * 100000; years_life = N_fatigue / lift_cycles_per_year",
+          "unit": {
+            "ref": "cycles, years"
+          },
+          "reference": "Power-law fatigue estimate — indicative only",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ISO 2408:2023",
+          "condition": "Dd_ratio < 18",
+          "message": "D/d < 18: significant bending penalty (efficiency < 90%) — replace contact hardware with larger radius hook or thimble; or upsize rope"
+        },
+        {
+          "id": "W2",
+          "severity": "CRITICAL",
+          "source": "ISO 2408:2023",
+          "condition": "bend_eff < 0.75",
+          "message": "Bending efficiency < 75%: severe rope fatigue zone — mandatory inspection after every 50 lift cycles per LEEA COPSULE §7"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "ISO 2408:2023",
+          "condition": "sling_configuration === 1.0 && design_factor === 5",
+          "message": "Single-leg vertical: simplest configuration — confirm load centre of gravity alignment; off-vertical > 5° effectively applies choker mode factor"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ISO 2408:2023",
+          "condition": "rope_grade >= 1960 && Dd_ratio < 20",
+          "message": "High-grade rope with small D/d: high-strength wires are more notch-sensitive — bending fatigue is disproportionately severe; use D/d ≥ 25 for Rr ≥ 1960"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "ISO 2408:2023",
+          "condition": "lift_cycles_per_year > 5000",
+          "message": "High-cycle application (>5000 cycles/yr): wire rope slings unsuitable — consider chain slings or permanent rigging with engineered fatigue life per ISO 1704"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "rope_diameter_mm",
+        "rope_grade",
+        "rope_construction",
+        "sling_configuration",
+        "design_factor",
+        "sheave_diameter_mm",
+        "lift_cycles_per_year"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

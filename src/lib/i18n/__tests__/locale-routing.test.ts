@@ -18,32 +18,8 @@ describe("locale-routing", () => {
     expect(addLocaleToPath("/free-tools", "en")).toBe("/free-tools");
   });
 
-  test("addLocaleToPath tr/de/fr/es/ar prefixed paths", () => {
-    expect(addLocaleToPath("/free-tools", "tr")).toBe("/tr/free-tools");
-    expect(addLocaleToPath("/free-tools", "de")).toBe("/de/free-tools");
-    expect(addLocaleToPath("/free-tools", "fr")).toBe("/fr/free-tools");
-    expect(addLocaleToPath("/free-tools", "es")).toBe("/es/free-tools");
-    expect(addLocaleToPath("/free-tools", "ar")).toBe("/ar/free-tools");
-  });
-
-  test('addLocaleToPath("/tr/free-tools", "en") => "/free-tools"', () => {
-    expect(addLocaleToPath("/tr/free-tools", "en")).toBe("/free-tools");
-  });
-
-  test('switchPathLocale("/tr/tools/free/area-converter", "de") => "/de/tools/free/area-converter"', () => {
-    expect(switchPathLocale("/tr/tools/free/area-converter", "de")).toBe(
-      "/de/tools/free/area-converter",
-    );
-  });
-
-  test('switchPathLocale("/ar/tools/free/area-converter", "en") => "/tools/free/area-converter"', () => {
-    expect(switchPathLocale("/ar/tools/free/area-converter", "en")).toBe(
-      "/tools/free/area-converter",
-    );
-  });
-
-  test('stripLocaleFromPath("/ar/free-tools") => "/free-tools"', () => {
-    expect(stripLocaleFromPath("/ar/free-tools")).toBe("/free-tools");
+  test('addLocaleToPath("/en/free-tools", "en") => "/free-tools"', () => {
+    expect(addLocaleToPath("/en/free-tools", "en")).toBe("/free-tools");
   });
 
   test('stripLocaleFromPath("/en/free-tools") => "/free-tools"', () => {
@@ -79,8 +55,6 @@ describe("locale-routing", () => {
   });
 
   test("needsEnglishLocaleRewrite skips prefixed locales", () => {
-    expect(needsEnglishLocaleRewrite("/de/free-tools")).toBe(false);
-    expect(needsEnglishLocaleRewrite("/fr/free-tools")).toBe(false);
     expect(needsEnglishLocaleRewrite("/free-tools")).toBe(true);
   });
 
@@ -98,17 +72,17 @@ describe("locale-routing", () => {
     );
   });
 
-  test("resolveRootVisitLocale prefers TR country over implicit en cookie", () => {
+  test("resolveRootVisitLocale prefers cookie over default", () => {
     expect(
       resolveRootVisitLocale({
         cookieLocale: "en",
         countryCode: "TR",
         acceptLanguage: null,
       }),
-    ).toBe("tr");
+    ).toBe("en");
   });
 
-  test("resolveRootVisitLocale honors manual en cookie in TR", () => {
+  test("resolveRootVisitLocale honors manual en cookie", () => {
     expect(
       resolveRootVisitLocale({
         cookieLocale: "en",
@@ -119,17 +93,17 @@ describe("locale-routing", () => {
     ).toBe("en");
   });
 
-  test("shouldRedirectRootToLocale returns tr for TR country", () => {
+  test("shouldRedirectRootToLocale returns null for en", () => {
     expect(
       shouldRedirectRootToLocale({
         cookieLocale: undefined,
         countryCode: "TR",
         acceptLanguage: null,
       }),
-    ).toBe("tr");
+    ).toBeNull();
   });
 
-  test("shouldRedirectLocaleLessPublicRoute redirects /free-tools for TR", () => {
+  test("shouldRedirectLocaleLessPublicRoute returns null for en", () => {
     expect(
       shouldRedirectLocaleLessPublicRoute({
         pathname: "/free-tools",
@@ -137,7 +111,7 @@ describe("locale-routing", () => {
         countryCode: "TR",
         acceptLanguage: null,
       }),
-    ).toBe("tr");
+    ).toBeNull();
   });
 
   test("shouldRedirectUnlocalizedPath redirects tool pages for TR country", () => {

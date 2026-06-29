@@ -1,0 +1,381 @@
+{
+  "tool_id": "PRO_119",
+  "tool_name": "Centrifugal Pump Cavitation & NPSH Analysis (API 610)",
+  "category": "Fluid Mechanics / Pump Systems",
+  "scope": "single_operation",
+  "primary_operation": "pump_cavitation",
+  "inputs": [
+    {
+      "id": "fluid_type",
+      "name": "Fluid Type",
+      "unit": "—",
+      "type": "enum",
+      "required": true,
+      "confidence_label": "EXACT",
+      "options": [
+        "Water (20°C)",
+        "Water (60°C)",
+        "Water (80°C)",
+        "Water (100°C — Boiling)",
+        "Hydrocarbons (Crude Oil)",
+        "Acid Solution",
+        "Manual input"
+      ],
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "fluid_temp_c",
+      "name": "Fluid Temperature",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": -40,
+      "absolute_max": 350,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "fluid_density_kg_m3",
+      "name": "Fluid Density (rho)",
+      "unit": "kg/m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 500,
+      "absolute_max": 1800,
+      "default": 998,
+      "hint": "Water 20°C: 998 | Water 80°C: 972 | Crude Oil: 870",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Material density: CoV=0.01-0.03"
+    },
+    {
+      "id": "tank_pressure_bar",
+      "name": "Tank / Atmospheric Surface Pressure (P0)",
+      "unit": "bar(a)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.01,
+      "absolute_max": 50,
+      "default": 1.013,
+      "hint": "Open tank: 1.013 bar(a) | Closed vessel: operating pressure",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "vapor_pressure_bar",
+      "name": "Fluid Vapor Pressure (Pv)",
+      "unit": "bar(a)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.001,
+      "absolute_max": 50,
+      "hint": "Water 20°C: 0.023 | Water 60°C: 0.199 | Water 80°C: 0.474 | Water 100°C: 1.013",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "static_suction_head_m",
+      "name": "Static Suction Head (Hs)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": -12,
+      "absolute_max": 50,
+      "hint": "Positive suction head: (+) | Suction lift (pump above liquid): (-)",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "suction_pipe_losses_m",
+      "name": "Suction Pipe Friction Losses (hf)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "hint": "Sum of friction losses from pipe runs, valves, and fittings",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "npsh_required_m",
+      "name": "Pump Required NPSH (NPSHr)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "hint": "From pump performance curve (manufacturer datasheet)",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "pipe_diameter_mm",
+      "name": "Suction Pipe Inner Diameter (D)",
+      "unit": "mm",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 10,
+      "absolute_max": 2000,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT5 — Precision grinding tolerance: 4-18µm (≈0.5% for Ø10-50mm)"
+    },
+    {
+      "id": "flow_rate_m3h",
+      "name": "Flow Rate (Q)",
+      "unit": "m³/h",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0.01,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
+    },
+    {
+      "id": "safety_margin_m",
+      "name": "API 610 Safety Margin",
+      "unit": "m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0.5,
+      "default": 0.5,
+      "hint": "API 610 recommendation: NPSHa >= NPSHr + 0.5m",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "elevation_m",
+      "name": "Installation Altitude",
+      "unit": "m",
+      "type": "number",
+      "required": false,
+      "confidence_label": "ASSUMPTION",
+      "absolute_min": 0,
+      "absolute_max": 5000,
+      "default": 0,
+      "hint": "Sea level: 0m | Altitude decreases atmospheric pressure",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.3mm for 30-120mm range"
+    }
+  ],
+  "formulas": [
+    "Atm_Correction = 1.013 * POWER(1 - 0.0000226 * elevation_m, 5.256)   // [bar] Altitude-corrected atmospheric pressure",
+    "Head_Tank = (tank_pressure_bar * 100000) / (fluid_density_kg_m3 * 9.81)   // [m] Tank pressure head in water column equivalent",
+    "Head_Vapor = (vapor_pressure_bar * 100000) / (fluid_density_kg_m3 * 9.81)   // [m] Vapor pressure head in water column equivalent",
+    "NPSHa = Head_Tank - Head_Vapor + static_suction_head_m - suction_pipe_losses_m   // [m] Net Positive Suction Head Available (NPSHa) — API 610 Clause 6.1",
+    "NPSH_Margin_m = NPSHa - npsh_required_m   // [m] NPSH safety margin",
+    "NPSH_Ratio = NPSHa / npsh_required_m   // [—] NPSH ratio — API 610: minimum 1.1",
+    "Flow_Velocity_m_s = (flow_rate_m3h / 3600) / (3.14159 * POWER(pipe_diameter_mm / 1000 / 2, 2))   // [m/s] Suction pipe flow velocity",
+    "Velocity_Head = POWER(Flow_Velocity_m_s, 2) / (2 * 9.81)   // [m] Velocity head",
+    "Max_Suction_Lift = Head_Tank - Head_Vapor - suction_pipe_losses_m - npsh_required_m - safety_margin_m   // [m] Theoretical maximum suction lift"
+  ],
+  "engine_rules": {
+    "standards": [
+      "API 610 12th Ed.",
+      "ISO 9908",
+      "Hydraulic Institute ANSI/HI 9.6.1",
+      "ISO 13709"
+    ],
+    "validation": {
+      "vapor_exceeds_tank": {
+        "condition": "vapor_pressure_bar >= tank_pressure_bar",
+        "error_msg": "PHYSICAL ERROR: Vapor pressure is equal to or greater than tank pressure. Fluid is already at boiling point — pumping in liquid phase is impossible. Reduce temperature or increase tank pressure.",
+        "id": "vapor_exceeds_tank"
+      },
+      "density_check": {
+        "condition": "fluid_density_kg_m3 < 400",
+        "error_msg": "Fluid density < 400 kg/m³: Not a realistic liquid (LNG is ~420, others are higher). Verify input value.",
+        "id": "density_check"
+      },
+      "suction_lift_max": {
+        "condition": "static_suction_head_m < -9.0",
+        "error_msg": "Suction lift < -9m: Theoretical maximum vacuum lift for water is ~9m. This value exceeds physical limits. Revise pump position.",
+        "id": "suction_lift_max"
+      },
+      "pipe_velocity_check": {
+        "condition": "pipe_diameter_mm > 0 && flow_rate_m3h > 0 && Flow_Velocity_m_s > 3.0",
+        "error_msg": "Suction line velocity > 3 m/s: Friction losses will be excessive, reducing NPSHa and increasing cavitation risk. Hydraulic Institute recommendation: suction velocity < 1.5 m/s.",
+        "id": "pipe_velocity_check"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "NPSH_Ratio < 1.0",
+        "severity": "CRITICAL",
+        "source": "API 610 Md.6.1.4",
+        "message": "CAVITATION INITIATED: NPSHa < NPSHr. Vapor bubbles are forming in the impeller eye. Micro-implosions are causing surface erosion. Stop the pump immediately and rectify suction conditions."
+      },
+      {
+        "condition": "NPSH_Ratio >= 1.0 && NPSH_Ratio < 1.1",
+        "severity": "CRITICAL",
+        "source": "API 610 / Hydraulic Institute",
+        "message": "CAVITATION RISK: Does not meet API 610 requirement of NPSHa >= NPSHr + 10% safety margin. Cavitation will initiate immediately on flow surges or temperature rises. Reduce suction line friction losses."
+      },
+      {
+        "condition": "NPSH_Ratio >= 1.1 && NPSH_Ratio < 1.3",
+        "severity": "WARNING",
+        "source": "Hydraulic Institute ANSI/HI 9.6.1",
+        "message": "Insufficient NPSH margin: NPSHa / NPSHr is between 1.1 and 1.3. Cavitation may trigger during process fluctuations (temperature, flow). Hydraulic Institute recommends a minimum ratio of 1.3."
+      },
+      {
+        "condition": "fluid_temp_c > 60 && static_suction_head_m < 0",
+        "severity": "CRITICAL",
+        "source": "API 610 — Hot Fluid",
+        "message": "Hot fluid + negative suction lift: Vapor pressure increases exponentially with temperature, rapidly reducing NPSHa. This combination poses critical cavitation risk. Locate pump below tank level."
+      },
+      {
+        "condition": "suction_pipe_losses_m > 2.0",
+        "severity": "WARNING",
+        "source": "Hydraulic Institute Suction Line Design",
+        "message": "Suction line friction losses > 2m: Directly subtracts from NPSHa. To reduce losses: increase pipe diameter, minimize valves, shorten pipe runs, and avoid tight elbows."
+      },
+      {
+        "condition": "NPSHa < 1.0",
+        "severity": "CRITICAL",
+        "source": "API 610",
+        "message": "NPSHa < 1.0m: Operating conditions are outside normal centrifugal pump limits. Evaluate special low-NPSH pump models (with inducer) or submersible pumps."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: vapor_pressure_bar >= tank_pressure_bar",
+        "effect": "PHYSICAL ERROR: Vapor pressure is equal to or greater than tank pressure. Fluid is already at boiling point — pumping in liquid phase is impossible. Reduce temperature or increase tank pressure.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule vapor_exceeds_tank"
+      },
+      {
+        "failureMode": "Input violation: fluid_density_kg_m3 < 400",
+        "effect": "Fluid density < 400 kg/m³: Not a realistic liquid (LNG is ~420, others are higher). Verify input value.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule density_check"
+      },
+      {
+        "failureMode": "Input violation: static_suction_head_m < -9.0",
+        "effect": "Suction lift < -9m: Theoretical maximum vacuum lift for water is ~9m. This value exceeds physical limits. Revise pump position.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule suction_lift_max"
+      },
+      {
+        "failureMode": "Input violation: pipe_diameter_mm > 0 && flow_rate_m3h > 0 && Flow_Velocity_m_s > 3.0",
+        "effect": "Suction line velocity > 3 m/s: Friction losses will be excessive, reducing NPSHa and increasing cavitation risk. Hydraulic Institute recommendation: suction velocity < 1.5 m/s.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule pipe_velocity_check"
+      },
+      {
+        "failureMode": "CAVITATION INITIATED: NPSHa < NPSHr. Vapor bubbles are forming in the impeller eye. Micro-implosions are causing surface erosion. Stop the pump immediately and rectify suction conditions.",
+        "effect": "Smart warning triggered when: NPSH_Ratio < 1.0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "API 610 Md.6.1.4"
+      },
+      {
+        "failureMode": "CAVITATION RISK: Does not meet API 610 requirement of NPSHa >= NPSHr + 10% safety margin. Cavitation will initiate immediately on flow surges or temperature rises. Reduce suction line friction losses.",
+        "effect": "Smart warning triggered when: NPSH_Ratio >= 1.0 && NPSH_Ratio < 1.1",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "API 610 / Hydraulic Institute"
+      },
+      {
+        "failureMode": "Insufficient NPSH margin: NPSHa / NPSHr is between 1.1 and 1.3. Cavitation may trigger during process fluctuations (temperature, flow). Hydraulic Institute recommends a minimum ratio of 1.3.",
+        "effect": "Smart warning triggered when: NPSH_Ratio >= 1.1 && NPSH_Ratio < 1.3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Hydraulic Institute ANSI/HI 9.6.1"
+      },
+      {
+        "failureMode": "Hot fluid + negative suction lift: Vapor pressure increases exponentially with temperature, rapidly reducing NPSHa. This combination poses critical cavitation risk. Locate pump below tank level.",
+        "effect": "Smart warning triggered when: fluid_temp_c > 60 && static_suction_head_m < 0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "API 610 — Hot Fluid"
+      },
+      {
+        "failureMode": "Suction line friction losses > 2m: Directly subtracts from NPSHa. To reduce losses: increase pipe diameter, minimize valves, shorten pipe runs, and avoid tight elbows.",
+        "effect": "Smart warning triggered when: suction_pipe_losses_m > 2.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Hydraulic Institute Suction Line Design"
+      },
+      {
+        "failureMode": "NPSHa < 1.0m: Operating conditions are outside normal centrifugal pump limits. Evaluate special low-NPSH pump models (with inducer) or submersible pumps.",
+        "effect": "Smart warning triggered when: NPSHa < 1.0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "API 610"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Atm_Correction",
+        "Head_Tank",
+        "Head_Vapor",
+        "NPSHa",
+        "NPSH_Margin_m",
+        "NPSH_Ratio",
+        "Flow_Velocity_m_s",
+        "Velocity_Head",
+        "Max_Suction_Lift"
+      ]
+    }
+  ]
+}

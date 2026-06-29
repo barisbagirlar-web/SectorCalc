@@ -1,6 +1,6 @@
 /**
- * Intelligence Layer — sektörel uzmanlık modülleri ve karar desteği.
- * Gizli kayıp, reçete motoru ve CBAM/karbon etkisi.
+ * Intelligence Layer — sector expertise modules and decision support.
+ * Hidden loss, prescription engine and CBAM/carbon impact.
  */
 
 import {
@@ -25,7 +25,7 @@ const CARBON_FACTORS: Partial<Record<SectorRegistryKey, number>> = {
 
 const DEFAULT_CARBON_FACTOR = 1.0;
 
-/** Sapma oranı eşiği (0.10 = %10). */
+/** Deviation ratio threshold (0.10 = 10%). */
 export const ACTION_PLAN_VARIANCE_THRESHOLD = 0.1;
 
 export type ActionPlanCode = "IMMEDIATE_CALIBRATION" | "MONITOR_OPTIMAL";
@@ -49,7 +49,7 @@ function safeNumber(value: number): number {
   return value;
 }
 
-/** Hedef–gerçekleşen sapma oranı (ondalık; 0.10 = %10). */
+/** Target-actual deviation ratio (decimal; 0.10 = 10%). */
 export function computeVarianceRatio(target: number, actual: number): number {
   const safeTarget = safeNumber(target);
   const safeActual = safeNumber(actual);
@@ -61,13 +61,13 @@ export function computeVarianceRatio(target: number, actual: number): number {
   return (safeActual - safeTarget) / safeTarget;
 }
 
-/** Gizli operasyonel kayıp (soğutucu, boş dönüş, hava gecikmesi vb.). */
+/** Hidden operational loss (coolant, deadhead, weather delay etc.). */
 export function calculateHiddenLoss(sectorId: SectorRegistryKey, baseCost: number): number {
   const multiplier = HIDDEN_LOSS_MULTIPLIERS[sectorId] ?? DEFAULT_HIDDEN_LOSS_MULTIPLIER;
   return safeNumber(baseCost) * multiplier;
 }
 
-/** Karar desteği — tolerans sapmasına göre operasyonel reçete. */
+/** Decision support — operational prescription based on tolerance drift. */
 export function generateActionPlan(varianceRatio: number): ActionPlanResult {
   if (Math.abs(safeNumber(varianceRatio)) > ACTION_PLAN_VARIANCE_THRESHOLD) {
     return {
@@ -82,13 +82,13 @@ export function generateActionPlan(varianceRatio: number): ActionPlanResult {
   };
 }
 
-/** CBAM / karbon etkisi (kg CO₂e proxy; usage = operasyonel birim). */
+/** CBAM / carbon impact (kg CO₂e proxy; usage = operational unit). */
 export function calculateCarbonImpact(sectorId: SectorRegistryKey, usage: number): number {
   const factor = CARBON_FACTORS[sectorId] ?? DEFAULT_CARBON_FACTOR;
   return safeNumber(usage) * factor;
 }
 
-/** Audit girdilerinden tam intelligence özeti. */
+/** Full intelligence summary from audit inputs. */
 export function buildSectorIntelligence(
   sectorId: SectorRegistryKey,
   target: number,

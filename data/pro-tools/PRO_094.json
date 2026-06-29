@@ -1,0 +1,302 @@
+{
+  "tool_id": "PRO_094",
+  "tool_name": "Cantilever Retaining Wall — Overturning, Sliding, Bearing & Global Stability Check",
+  "category": "Geotechnical Engineering / Civil Structures",
+  "scope": "single_operation",
+  "primary_operation": "retaining_wall",
+  "inputs": [
+    {
+      "id": "wall_height_m",
+      "name": "Total Retained Height (H)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 15,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
+    },
+    {
+      "id": "base_width_m",
+      "name": "Wall Base Width (B)",
+      "unit": "m",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 20,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "phi_backfill_deg",
+      "name": "Backfill Friction Angle (φ_b)",
+      "unit": "°",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 30,
+      "absolute_min": 20,
+      "absolute_max": 45,
+      "note": "Compacted granular fill ≈ 32–38°; gravel ≈ 35–42°; sandy silt ≈ 28–32°",
+      "uncertainty": "±0.5°",
+      "uncertainty_source": "ISO 2768-1:1989 Table 3 — Angular tolerance class 'm': ±0°20' for >50mm side"
+    },
+    {
+      "id": "gamma_backfill_kn_m3",
+      "name": "Backfill Unit Weight (γ_b)",
+      "unit": "kN/m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 18,
+      "absolute_min": 14,
+      "absolute_max": 22,
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 376:2011 §5 — Class 1 force transducer: ±1% of applied force"
+    },
+    {
+      "id": "surcharge_kpa",
+      "name": "Uniform Surcharge on Retained Surface (q_s)",
+      "unit": "kPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 10,
+      "absolute_min": 0,
+      "absolute_max": 200,
+      "note": "Highway: 10–20 kPa; railway: 20–50 kPa; construction traffic: 12 kPa per AASHTO",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "wall_concrete_kn_m3",
+      "name": "Concrete Unit Weight (γ_c)",
+      "unit": "kN/m³",
+      "type": "number",
+      "required": false,
+      "confidence_label": "EXACT",
+      "default": 24,
+      "absolute_min": 22,
+      "absolute_max": 26,
+      "uncertainty": "±0.5%",
+      "uncertainty_source": "ISO 286-1:2010 IT6 — Precision machining (thickness): tolerance 6-19µm"
+    },
+    {
+      "id": "phi_base_deg",
+      "name": "Base-Soil Friction Angle (φ_base)",
+      "unit": "°",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 25,
+      "absolute_min": 10,
+      "absolute_max": 40,
+      "note": "Concrete on soil: δ = 2/3·φ_soil; rough concrete on gravel: δ ≈ φ_soil",
+      "uncertainty": "±0.5°",
+      "uncertainty_source": "ISO 2768-1:1989 Table 3 — Angular tolerance class 'm': ±0°20' for >50mm side"
+    },
+    {
+      "id": "q_allow_kpa",
+      "name": "Allowable Bearing Pressure of Foundation Soil (q_allow)",
+      "unit": "kPa",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "absolute_min": 50,
+      "absolute_max": 1000,
+      "note": "From geotechnical investigation; sand ≈ 150–300 kPa; gravel ≈ 300–600 kPa; clay varies widely",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    }
+  ],
+  "formulas": [
+    "phi_rad = phi_backfill_deg * Math.PI / 180; Ka = Math.pow(Math.tan(Math.PI/4 - phi_rad/2), 2)  // Rankine Active Earth Pressure Coefficient (Ka) — Ref: Ka = tan²(45 − φ/2) — Rankine (1857); valid for horizontal backfill with no wall friction",
+    "Pa_soil_kn_m = 0.5 * Ka * gamma_backfill_kn_m3 * Math.pow(wall_height_m, 2); Pa_surcharge_kn_m = Ka * surcharge_kpa * wall_height_m; Pa_total_kn_m = Pa_soil_kn_m + Pa_surcharge_kn_m  // [kN/m] — Total Active Thrust & Surcharge Force (per unit length) — Ref: P_a = ½·K_a·γ·H² + K_a·q_s·H — EN 1997-1 §9.5.2; forces per unit wall length",
+    "M_OT = Pa_soil_kn_m * wall_height_m/3 + Pa_surcharge_kn_m * wall_height_m/2; W_wall_kn_m = wall_concrete_kn_m3 * base_width_m * 0.3; W_soil_kn_m = gamma_backfill_kn_m3 * wall_height_m * (base_width_m * 0.6); M_R = (W_wall_kn_m + W_soil_kn_m) * base_width_m / 2  // [kN·m/m] — Overturning Moment & Restoring Moment (about toe) — Ref: Moments about toe; W_wall = γ_c × B × t_stem (t=0.3 B approx); M_R = W × B/2 — NAVFAC DM-7.2 §5.2",
+    "OTF = M_R / M_OT  // Overturning Safety Factor (OTF) — Ref: OTF ≥ 2.0 static (ASCE 7 / EC7 DA1-1); ≥ 1.5 seismic — required minimum varies by code",
+    "phi_base_rad = phi_base_deg * Math.PI / 180; W_total = W_wall_kn_m + W_soil_kn_m; F_resist = W_total * Math.tan(phi_base_rad); SSF = F_resist / Pa_total_kn_m  // Sliding Safety Factor (SSF) — Ref: SSF = W·tan(δ) / P_a — EN 1997-1 §6.5.3; minimum SSF ≥ 1.5 (static)",
+    "W_total_kn_m = W_wall_kn_m + W_soil_kn_m; e = base_width_m/2 - (M_R - M_OT)/W_total_kn_m; q_max_kpa = W_total_kn_m/base_width_m * (1 + 6*e/base_width_m)  // [kPa] — Maximum Bearing Pressure Under Footing (q_max) — Ref: q_max = N/B × (1 + 6e/B) — eccentric loading; e = eccentricity from centroid — EC7 §6.5.4"
+  ],
+  "engine_rules": {
+    "standards": [
+      "EN 1997-1:2004 (EC7) §6, §9",
+      "ASCE 7-22 §11 (seismic)",
+      "NAVFAC DM-7.2 §5",
+      "BS 8002:2015"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "OTF < 1.5",
+          "action": "BLOCK",
+          "message": "Overturning safety factor < 1.5: wall will overturn — increase base width, add heel extension, or install ground anchor"
+        },
+        {
+          "id": "V2",
+          "condition": "SSF < 1.2",
+          "action": "BLOCK",
+          "message": "Sliding safety factor < 1.2: wall will slide — add base key, increase base width, or install batter piles"
+        },
+        {
+          "id": "V3",
+          "condition": "q_max_kpa > q_allow_kpa",
+          "action": "WARN",
+          "message": "Maximum bearing pressure exceeds allowable: foundation failure risk — widen base, reduce eccentricity, or improve ground by compaction or piling"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "OTF < 2.0: EN 1997-1 DA1 requirement not met for permanent structures — increase base width to B ≥ 0.6H for typical granular backfill",
+        "condition": "OTF < 2.0"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Sliding SF < 1.5: marginal — NAVFAC DM-7.2 requires SSF ≥ 1.5; add shear key 300 mm deep at front third of base for significant resistance improvement",
+        "condition": "SSF < 1.5"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "High surcharge on weak backfill: active pressure substantially elevated — verify drainage behind wall; waterlogged granular fill can reach K_0 = 1.0",
+        "condition": "surcharge_kpa > 20 && phi_backfill_deg < 28"
+      },
+      {
+        "id": "W4",
+        "severity": "CRITICAL",
+        "message": "High wall with marginal OTF: seismic loading will reduce OTF further — ASCE 7 §11 seismic lateral earth pressure adds 50–100% to static thrust; perform seismic analysis",
+        "condition": "wall_height_m > 6 && OTF < 2.5"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Bearing pressure > 80% of allowable: settlement risk under sustained surcharge — monitor differential settlement; consider ground improvement if soft soil detected below",
+        "condition": "q_max_kpa > q_allow_kpa * 0.8"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: OTF < 1.5",
+        "effect": "Overturning safety factor < 1.5: wall will overturn — increase base width, add heel extension, or install ground anchor",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: SSF < 1.2",
+        "effect": "Sliding safety factor < 1.2: wall will slide — add base key, increase base width, or install batter piles",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Parameter warning: q_max_kpa > q_allow_kpa",
+        "effect": "Maximum bearing pressure exceeds allowable: foundation failure risk — widen base, reduce eccentricity, or improve ground by compaction or piling",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "OTF < 2.0: EN 1997-1 DA1 requirement not met for permanent structures — increase base width to B ≥ 0.6H for typical granular backfill",
+        "effect": "Smart warning triggered when: OTF < 2.0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Sliding SF < 1.5: marginal — NAVFAC DM-7.2 requires SSF ≥ 1.5; add shear key 300 mm deep at front third of base for significant resistance improvement",
+        "effect": "Smart warning triggered when: SSF < 1.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "High surcharge on weak backfill: active pressure substantially elevated — verify drainage behind wall; waterlogged granular fill can reach K_0 = 1.0",
+        "effect": "Smart warning triggered when: surcharge_kpa > 20 && phi_backfill_deg < 28",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "High wall with marginal OTF: seismic loading will reduce OTF further — ASCE 7 §11 seismic lateral earth pressure adds 50–100% to static thrust; perform seismic analysis",
+        "effect": "Smart warning triggered when: wall_height_m > 6 && OTF < 2.5",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Bearing pressure > 80% of allowable: settlement risk under sustained surcharge — monitor differential settlement; consider ground improvement if soft soil detected below",
+        "effect": "Smart warning triggered when: q_max_kpa > q_allow_kpa * 0.8",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "phi_rad",
+        "Ka",
+        "Pa_soil_kn_m",
+        "Pa_surcharge_kn_m",
+        "Pa_total_kn_m",
+        "M_OT",
+        "W_wall_kn_m",
+        "W_soil_kn_m",
+        "M_R",
+        "OTF",
+        "phi_base_rad",
+        "W_total",
+        "F_resist",
+        "SSF",
+        "W_total_kn_m",
+        "e",
+        "q_max_kpa"
+      ]
+    }
+  ]
+}

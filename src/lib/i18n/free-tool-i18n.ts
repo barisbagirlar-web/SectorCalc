@@ -1,9 +1,4 @@
 import enMessages from "../../../messages/en.json";
-import trMessages from "../../../messages/tr.json";
-import deMessages from "../../../messages/de.json";
-import frMessages from "../../../messages/fr.json";
-import esMessages from "../../../messages/es.json";
-import arMessages from "../../../messages/ar.json";
 import catalogI18nBundle from "../../data/free-tool-catalog-i18n.generated.json";
 import batch1I18nBundle from "../../data/roadmap-free-batch1-i18n.generated.json";
 import batch2I18nBundle from "../../data/roadmap-free-batch2-i18n.generated.json";
@@ -14,11 +9,6 @@ type MessageRecord = Record<string, unknown>;
 
 const LOCALE_MESSAGES: Record<string, MessageRecord> = {
   en: enMessages as MessageRecord,
-  tr: trMessages as MessageRecord,
-  de: deMessages as MessageRecord,
-  fr: frMessages as MessageRecord,
-  es: esMessages as MessageRecord,
-  ar: arMessages as MessageRecord,
 };
 
 const CATALOG_I18N = catalogI18nBundle as Record<
@@ -26,12 +16,12 @@ const CATALOG_I18N = catalogI18nBundle as Record<
   Record<string, { title?: string; description?: string; seoTitle?: string; seoDescription?: string }>
 >;
 
-const BATCH1_I18N = batch1I18nBundle as Record<
+const BATCH1_I18N = batch1I18nBundle as unknown as Record<
   string,
   Record<string, { title?: string; description?: string; seoTitle?: string; seoDescription?: string }>
 >;
 
-const BATCH2_I18N = batch2I18nBundle as Record<
+const BATCH2_I18N = batch2I18nBundle as unknown as Record<
   string,
   Record<string, { title?: string; description?: string; seoTitle?: string; seoDescription?: string }>
 >;
@@ -94,16 +84,6 @@ function readCatalogOverride(locale: string, slug: string): FreeToolLocalizedCop
   return bucket;
 }
 
-/**
- * Resolves tool-specific localized copy for a free tool.
- *
- * Fallback chain per field:
- *   1. messages[locale].freeToolContent[slug]
- *   2. messages[locale].freeTools.items[slug] (legacy shape)
- *   3. generated catalog i18n bundle override map
- *   4. messages.en.freeToolContent[slug] (EN locale only)
- *   5. undefined — caller falls back to English registry JSON
- */
 export function resolveFreeToolLocalizedCopy(
   slug: string,
   locale: string,
@@ -172,7 +152,6 @@ export function resolveFreeToolDisplayTitle(
   return registryTitle;
 }
 
-/** Locale-aware SEO title — never falls back to English tier-one copy on non-EN locales. */
 export function resolveFreeToolSeoTitle(
   slug: string,
   locale: string,

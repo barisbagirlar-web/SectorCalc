@@ -1,0 +1,291 @@
+{
+  "schemaId": "PRO_074",
+  "toolCode": "TOOL-PRO-074",
+  "version": "1.0.0",
+  "name": "Pipe & Vessel Thermal Insulation Thickness — Economic & Process Optimisation",
+  "subtitle": "Thermal Engineering | Energy Management — ISO 12241:1998 (EN ISO 12241:2022), ASTM C680-21",
+  "sectorPath": [
+    "Thermal Engineering",
+    "Energy Management"
+  ],
+  "standardsBasis": [
+    "ISO 12241:1998 (EN ISO 12241:2022)",
+    "ASTM C680-21",
+    "CINI Manual for Industrial Insulation",
+    "EN 13202:2021 (touch safety)"
+  ],
+  "scope": {
+    "inScope": [
+      "Pipe & Vessel Thermal Insulation Thickness — Economic & Process Optimisation"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "pipe_OD_mm",
+      "symbol": "pipe_OD_mm",
+      "label": "Pipe / Vessel Outside Diameter (D_o)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 3000
+    },
+    {
+      "id": "T_process_c",
+      "symbol": "T_process_c",
+      "label": "Process Fluid Temperature (T_p)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -200,
+      "max": 600
+    },
+    {
+      "id": "T_ambient_c",
+      "symbol": "T_ambient_c",
+      "label": "Ambient Temperature (T_a)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": -40,
+      "max": 60,
+      "default": 25
+    },
+    {
+      "id": "insulation_thickness_mm",
+      "symbol": "insulation_thickness_mm",
+      "label": "Proposed Insulation Thickness (t_ins)",
+      "unit": {
+        "ref": "mm"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 10,
+      "max": 500
+    },
+    {
+      "id": "lambda_ins_w_mk",
+      "symbol": "lambda_ins_w_mk",
+      "label": "Insulation Thermal Conductivity (λ_ins)",
+      "unit": {
+        "ref": "W/(m·K)"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.015,
+      "max": 0.25,
+      "default": 0.04
+    },
+    {
+      "id": "h_outer_w_m2k",
+      "symbol": "h_outer_w_m2k",
+      "label": "Outer Surface Heat Transfer Coefficient (h_o)",
+      "unit": {
+        "ref": "W/(m²·K)"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 2,
+      "max": 100,
+      "default": 10
+    },
+    {
+      "id": "energy_cost_usd_gj",
+      "symbol": "energy_cost_usd_gj",
+      "label": "Energy Cost (Heat / Fuel)",
+      "unit": {
+        "ref": "USD/GJ"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 1,
+      "max": 100,
+      "default": 12
+    },
+    {
+      "id": "operating_hours_yr",
+      "symbol": "operating_hours_yr",
+      "label": "Annual Operating Hours",
+      "unit": {
+        "ref": "h/yr"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 100,
+      "max": 8760,
+      "default": 8760
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_074",
+      "code": "ISO 12241:1998 (EN ISO 12241:2022)",
+      "name": "Pipe & Vessel Thermal Insulation Thickness — Economic & Process Optimisation",
+      "description": "Pipe & Vessel Thermal Insulation Thickness — Economic & Process Optimisation — Thermal Engineering, Energy Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "r1_m",
+          "expression": "pipe_OD_mm / 2000; r2_m = r1_m + insulation_thickness_mm / 1000; delta_T = Math.abs(T_process_c - T_ambient_c)",
+          "unit": {
+            "ref": "m, m, K"
+          },
+          "reference": "Radial geometry — ISO 12241:1998 §5.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "R_ins",
+          "expression": "Math.log(r2_m / r1_m) / (2 * Math.PI * lambda_ins_w_mk); R_conv = 1 / (2 * Math.PI * r2_m * h_outer_w_m2k); R_total = R_ins + R_conv",
+          "unit": {
+            "ref": "m·K/W"
+          },
+          "reference": "ISO 12241 §5.2 — cylindrical: R_ins = ln(r2/r1)/(2πλ)",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "q_L_w_m",
+          "expression": "delta_T / R_total",
+          "unit": {
+            "ref": "W/m"
+          },
+          "reference": "Fourier's law for cylindrical geometry — ASTM C680 §5 / EN ISO 12241",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "r_cr_m",
+          "expression": "lambda_ins_w_mk / h_outer_w_m2k",
+          "unit": {
+            "ref": "m"
+          },
+          "reference": "r_cr = λ/h_o — below this radius, adding insulation INCREASES heat loss",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "E_loss_gj_yr",
+          "expression": "q_L_w_m * operating_hours_yr * 3600 / 1e9; cost_loss_usd_yr = E_loss_gj_yr * energy_cost_usd_gj",
+          "unit": {
+            "ref": "GJ/m·yr, USD/m·yr"
+          },
+          "reference": "Annual energy loss per metre of pipe — CINI Manual §3.4 cost basis",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "T_surface_c",
+          "expression": "T_ambient_c + q_L_w_m / (2 * Math.PI * r2_m * h_outer_w_m2k)",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "Surface temp for personnel protection: < 60°C per EN 13202",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "WARNING",
+          "source": "ISO 12241:1998 (EN ISO 12241:2022)",
+          "condition": "T_surface_c > 50 && T_process_c > 80",
+          "message": "Surface temperature 50–60°C: borderline personnel protection threshold — increase thickness by 25 mm or add protective cladding/barrier per EN 13202 §5"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ISO 12241:1998 (EN ISO 12241:2022)",
+          "condition": "lambda_ins_w_mk > 0.08 && delta_T > 200",
+          "message": "High thermal conductivity insulation on high-ΔT service: consider aerogel blanket (λ ≈ 0.018) or calcium silicate for service above 200°C differential"
+        },
+        {
+          "id": "W3",
+          "severity": "INFO",
+          "source": "ISO 12241:1998 (EN ISO 12241:2022)",
+          "condition": "E_loss_gj_yr > 5 && energy_cost_usd_gj > 10",
+          "message": "High annual heat loss cost: evaluate economic insulation thickness — each additional 25 mm typically reduces heat loss by 30–50% on medium pipes"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ISO 12241:1998 (EN ISO 12241:2022)",
+          "condition": "insulation_thickness_mm < 25 && delta_T > 150",
+          "message": "Very thin insulation on high-ΔT service: thermal efficiency poor — minimum 50 mm recommended for ΔT > 150 K and pipe OD > 50 mm"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ISO 12241:1998 (EN ISO 12241:2022)",
+          "condition": "T_process_c < 0",
+          "message": "Cold insulation (cryogenic / chilled) service: vapour barrier on warm side mandatory — moisture ingress destroys cold insulation performance within months"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "pipe_OD_mm",
+        "T_process_c",
+        "T_ambient_c",
+        "insulation_thickness_mm",
+        "lambda_ins_w_mk",
+        "h_outer_w_m2k",
+        "energy_cost_usd_gj",
+        "operating_hours_yr"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

@@ -1,0 +1,292 @@
+{
+  "tool_id": "PRO_087",
+  "tool_name": "Dust Explosion Severity — Kst Classification, Pmax & Vent Area per EN 14491 / NFPA 68",
+  "category": "Process Safety / Fire & Explosion Protection",
+  "scope": "single_operation",
+  "primary_operation": "dust_explosion_vent",
+  "inputs": [
+    {
+      "id": "Kst_bar_m_s",
+      "name": "Dust Explosion Constant (K_st)",
+      "unit": "bar·m/s",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 1,
+      "absolute_max": 800,
+      "note": "From ISO 6184-1 20-L sphere test; St1: 1–200; St2: 201–300; St3: >300 bar·m/s",
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    },
+    {
+      "id": "Pmax_bar",
+      "name": "Maximum Explosion Pressure (P_max)",
+      "unit": "bar(g)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 12,
+      "note": "From 20-L sphere test; most organic dusts: P_max = 7–10 bar(g)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "vessel_volume_m3",
+      "name": "Protected Enclosure Volume (V)",
+      "unit": "m³",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.1,
+      "absolute_max": 10000,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 2768-1:1989 — Volume: √3 × linear ≈ ±1.7% (conservatively ±2%)"
+    },
+    {
+      "id": "Pred_bar",
+      "name": "Maximum Reduced Explosion Pressure (P_red)",
+      "unit": "bar(g)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 0.1,
+      "absolute_min": 0.05,
+      "absolute_max": 2,
+      "note": "Structural strength of enclosure; thin sheet metal ≈ 0.05–0.1 bar(g); reinforced ≈ 0.5–2.0 bar(g)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "Pstat_bar",
+      "name": "Vent Closure Opening Pressure (P_stat)",
+      "unit": "bar(g)",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 0.05,
+      "absolute_min": 0.01,
+      "absolute_max": 0.5,
+      "note": "Bursting disc or vent panel opening pressure; must be < P_red; typical 0.02–0.1 bar(g)",
+      "uncertainty": "±1%",
+      "uncertainty_source": "IEC 61298-2:2008 §4.2 — Transducer accuracy class 1.0: ±1% of span"
+    },
+    {
+      "id": "L_D_ratio",
+      "name": "Enclosure Length-to-Diameter Ratio (L/D)",
+      "unit": "dimensionless",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": 2,
+      "absolute_min": 1,
+      "absolute_max": 20,
+      "note": "Silos/bins with L/D > 5: turbulence correction required; EN 14491 §5.2.3",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "dust_class",
+      "name": "Dust Explosion Class",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "St 1 — K_st 1–200 bar·m/s (grain, coal, plastics)",
+          "value": "St1"
+        },
+        {
+          "label": "St 2 — K_st 201–300 bar·m/s (starch, wood flour)",
+          "value": "St2"
+        },
+        {
+          "label": "St 3 — K_st > 300 bar·m/s (aluminium, magnesium)",
+          "value": "St3"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "St1",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "A_v_m2 = Math.pow(10, (0.569 * Math.log10(Kst_bar_m_s) - 0.5 * Math.log10(Pred_bar + 1) + 0.4 * Math.log10(vessel_volume_m3) - 0.595))   // [m²] Vent Area — EN 14491 Nomograph Equation (A_v) Reference: EN 14491:2012 Eq.(1) — vent area from K_st, P_red, V nomograph; valid for P_stat ≤ 0.1 bar(g)",
+    "C_stat = (Pstat_bar > 0.1) ? 1 + 0.6 * Pstat_bar : 1.0   // [dimensionless] P_stat Correction Factor (C_stat) Reference: EN 14491 §5.2.2 — P_stat correction applied when P_stat > 0.1 bar(g)",
+    "C_LD = (L_D_ratio <= 2) ? 1.0 : (L_D_ratio <= 5) ? 1 + 0.05 * (L_D_ratio - 2) : 1.15 + 0.10 * (L_D_ratio - 5)   // [dimensionless] L/D Elongated Vessel Correction Factor (C_LD) Reference: EN 14491 §5.2.3 — elongation factor for L/D > 2; St3 dusts in elongated vessels require additional analysis",
+    "A_v_design_m2 = A_v_m2 * C_stat * C_LD   // [m²] Final Required Vent Area (A_v_design) Reference: EN 14491 §5.2 — final design area including all correction factors",
+    "A_nfpa_m2 = Math.exp(-1.958 + 0.8759 * Math.log(vessel_volume_m3) + 0.5765 * Math.log(Kst_bar_m_s) - 1.3985 * Math.log(Pred_bar + 1))   // [m²] NFPA 68 Vent Area Cross-Check (Low-Strength Enclosures) Reference: NFPA 68-2018 Eq.(6.9) — alternate vent area for cross-verification; EN and NFPA should agree within 20%",
+    "Av_V_ratio = A_v_design_m2 / vessel_volume_m3; governing = (A_v_design_m2 >= A_nfpa_m2) ? 'EN 14491 governs' : 'NFPA 68 governs'   // [m²/m³, text] Vent-to-Volume Ratio & Governing Standard Reference: Conservative: use larger of EN and NFPA result; typical ratio 0.005–0.1 m²/m³"
+  ],
+  "engine_rules": {
+    "standards": [
+      "EN 14491:2012 (dust explosion venting)",
+      "NFPA 68-2018 (explosion protection by deflagration venting)",
+      "VDI 2263 Part 1",
+      "ISO 6184-1:1985"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "Pstat_bar >= Pred_bar",
+        "error_msg": "P_stat ≥ P_red: vent will not open before structural failure — P_stat must be ≤ 0.5 × P_red per EN 14491 §4.2",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "Pred_bar >= Pmax_bar",
+        "error_msg": "P_red ≥ P_max: structurally the enclosure withstands full explosion — venting not required for protection; verify intent",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "dust_class === 'St3' && L_D_ratio > 5",
+        "error_msg": "St3 dust in elongated vessel: EN 14491 nomograph validity limit exceeded — perform CFD or consult VDI 2263 Part 7 for St3 + L/D > 5 combinations",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "St3 dust: highly energetic explosion — venting alone may be insufficient; evaluate suppression system, inherently safe design, or inerting as primary protection per NFPA 69",
+        "condition": "Kst_bar_m_s > 300",
+        "source": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Vent area > 50% of vessel volume (proxy): very large vent relative to enclosure — verify structural integrity of remaining panels; consider suppression as alternative",
+        "condition": "A_v_design_m2 > vessel_volume_m3 * 0.5",
+        "source": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "id": "W3",
+        "severity": "WARNING",
+        "message": "EN and NFPA results differ by > 30%: at boundary conditions or outside nomograph validity — seek qualified dust explosion specialist review",
+        "condition": "Math.abs(A_v_design_m2 - A_nfpa_m2) / A_v_design_m2 > 0.3",
+        "source": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Very low P_red on large volume: extremely large vent area required — light-duty enclosures (P_red < 0.07 bar) unsuitable for large dust collectors; reinforce or use suppression",
+        "condition": "Pred_bar < 0.07 && vessel_volume_m3 > 100",
+        "source": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "High-end St1 approaching St2 boundary: ensure test conditions (concentration, moisture, particle size) represent worst-case — conservative K_st selection critical for vent sizing",
+        "condition": "dust_class === 'St1' && Kst_bar_m_s > 150",
+        "source": "EN 14491:2012 (dust explosion venting)"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: Pstat_bar >= Pred_bar",
+        "effect": "P_stat ≥ P_red: vent will not open before structural failure — P_stat must be ≤ 0.5 × P_red per EN 14491 §4.2",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: Pred_bar >= Pmax_bar",
+        "effect": "P_red ≥ P_max: structurally the enclosure withstands full explosion — venting not required for protection; verify intent",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: dust_class === 'St3' && L_D_ratio > 5",
+        "effect": "St3 dust in elongated vessel: EN 14491 nomograph validity limit exceeded — perform CFD or consult VDI 2263 Part 7 for St3 + L/D > 5 combinations",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "St3 dust: highly energetic explosion — venting alone may be insufficient; evaluate suppression system, inherently safe design, or inerting as primary protection per NFPA 69",
+        "effect": "Smart warning triggered when: Kst_bar_m_s > 300",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "failureMode": "Vent area > 50% of vessel volume (proxy): very large vent relative to enclosure — verify structural integrity of remaining panels; consider suppression as alternative",
+        "effect": "Smart warning triggered when: A_v_design_m2 > vessel_volume_m3 * 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "failureMode": "EN and NFPA results differ by > 30%: at boundary conditions or outside nomograph validity — seek qualified dust explosion specialist review",
+        "effect": "Smart warning triggered when: Math.abs(A_v_design_m2 - A_nfpa_m2) / A_v_design_m2 > 0.3",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "failureMode": "Very low P_red on large volume: extremely large vent area required — light-duty enclosures (P_red < 0.07 bar) unsuitable for large dust collectors; reinforce or use suppression",
+        "effect": "Smart warning triggered when: Pred_bar < 0.07 && vessel_volume_m3 > 100",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "EN 14491:2012 (dust explosion venting)"
+      },
+      {
+        "failureMode": "High-end St1 approaching St2 boundary: ensure test conditions (concentration, moisture, particle size) represent worst-case — conservative K_st selection critical for vent sizing",
+        "effect": "Smart warning triggered when: dust_class === 'St1' && Kst_bar_m_s > 150",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "EN 14491:2012 (dust explosion venting)"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "A_v_m2",
+        "C_stat",
+        "C_LD",
+        "A_v_design_m2",
+        "A_nfpa_m2",
+        "Av_V_ratio",
+        "governing"
+      ]
+    }
+  ]
+}

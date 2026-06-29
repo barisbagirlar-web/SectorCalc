@@ -1,0 +1,339 @@
+{
+  "schemaId": "PRO_091",
+  "toolCode": "TOOL-PRO-091",
+  "version": "1.0.0",
+  "name": "Chiller Plant Free-Cooling Economiser — Switchover Temperature, Annual Hours & Energy Saving",
+  "subtitle": "HVAC | Energy Management — ASHRAE 90.1-2022 §6.5.1.1, CIBSE TM21:2016 (Minimising fan energy)",
+  "sectorPath": [
+    "HVAC",
+    "Energy Management"
+  ],
+  "standardsBasis": [
+    "ASHRAE 90.1-2022 §6.5.1.1",
+    "CIBSE TM21:2016 (Minimising fan energy)",
+    "EN 14511:2018",
+    "ASHRAE Fundamentals 2021 Ch.35"
+  ],
+  "scope": {
+    "inScope": [
+      "Chiller Plant Free-Cooling Economiser — Switchover Temperature, Annual Hours & Energy Saving"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "chiller_COP",
+      "symbol": "chiller_COP",
+      "label": "Chiller Full-Load COP (rated condition)",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 2,
+      "max": 9
+    },
+    {
+      "id": "chilled_water_supply_c",
+      "symbol": "chilled_water_supply_c",
+      "label": "Chilled Water Supply Set-Point (T_CHWS)",
+      "unit": {
+        "ref": "degC"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 4,
+      "max": 18,
+      "default": 7
+    },
+    {
+      "id": "approach_temp_k",
+      "symbol": "approach_temp_k",
+      "label": "Cooling Tower / Dry Cooler Approach Temperature (ΔT_approach)",
+      "unit": {
+        "ref": "K"
+      },
+      "confidence": "STRONG",
+      "group": "environment",
+      "min": 1,
+      "max": 12,
+      "default": 4
+    },
+    {
+      "id": "heat_exchanger_dT_k",
+      "symbol": "heat_exchanger_dT_k",
+      "label": "Plate Heat Exchanger Temperature Approach (ΔT_HX)",
+      "unit": {
+        "ref": "K"
+      },
+      "confidence": "DEFAULT",
+      "group": "general",
+      "min": 0.5,
+      "max": 8,
+      "default": 2
+    },
+    {
+      "id": "design_cooling_load_kw",
+      "symbol": "design_cooling_load_kw",
+      "label": "Design Peak Cooling Load (Q_design)",
+      "unit": {
+        "ref": "kW"
+      },
+      "confidence": "EXACT",
+      "group": "actions",
+      "min": 50,
+      "max": 100000
+    },
+    {
+      "id": "annual_cooling_hours",
+      "symbol": "annual_cooling_hours",
+      "label": "Annual Full-Load Equivalent Cooling Hours (FLEH)",
+      "unit": {
+        "ref": "h"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 200,
+      "max": 8760,
+      "default": 3000
+    },
+    {
+      "id": "site_climate_zone",
+      "symbol": "site_climate_zone",
+      "label": "Site Climate Zone - Bin Hours Below Switchover",
+      "unit": {
+        "ref": "dimensionless"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "default": 3000,
+      "enum": [
+        {
+          "value": 4500,
+          "label": "Cold (Helsinki, Moscow) — ~4500 h/yr below 5°C wb"
+        },
+        {
+          "value": 3000,
+          "label": "Temperate (London, Paris) — ~3000 h/yr"
+        },
+        {
+          "value": 1500,
+          "label": "Mediterranean (Barcelona, Rome) — ~1500 h/yr"
+        },
+        {
+          "value": 300,
+          "label": "Warm (Dubai, Singapore) — ~300 h/yr"
+        }
+      ]
+    },
+    {
+      "id": "electricity_rate_usd_kwh",
+      "symbol": "electricity_rate_usd_kwh",
+      "label": "Electricity Tariff",
+      "unit": {
+        "ref": "USD/kWh"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.03,
+      "max": 0.5,
+      "default": 0.1
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    },
+    {
+      "key": "environment",
+      "letter": "B",
+      "title": "Environment",
+      "cols": 2
+    },
+    {
+      "key": "actions",
+      "letter": "C",
+      "title": "Actions",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_091",
+      "code": "ASHRAE 90.1-2022 §6.5.1.1",
+      "name": "Chiller Plant Free-Cooling Economiser — Switchover Temperature, Annual Hours & Energy Saving",
+      "description": "Chiller Plant Free-Cooling Economiser — Switchover Temperature, Annual Hours & Energy Saving — HVAC, Energy Management",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "T_wb_sw_c",
+          "expression": "T_wb_sw_c = chilled_water_supply_c - approach_temp_k - heat_exchanger_dT_k",
+          "unit": {
+            "ref": "degC"
+          },
+          "reference": "T_wb,sw = T_CHWS − ΔT_approach − ΔT_HX — ASHRAE 90.1-2022 §6.5.1.1; below this outdoor WB, free-cooling is feasible",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "h_FC",
+          "expression": "h_FC = Math.min(site_climate_zone, annual_cooling_hours)",
+          "unit": {
+            "ref": "h"
+          },
+          "reference": "Free-cooling hours = min(bin hours below T_wb,sw, total cooling hours) — CIBSE TM21 §4.2",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "F_FC",
+          "expression": "F_FC = h_FC / annual_cooling_hours",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "Fraction of annual cooling delivered without mechanical refrigeration",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "E_chiller_base_kwh",
+          "expression": "E_chiller_base_kwh = design_cooling_load_kw / chiller_COP * annual_cooling_hours",
+          "unit": {
+            "ref": "kWh/yr"
+          },
+          "reference": "Baseline: all cooling via chiller at full-load COP — ASHRAE 90.1 §11 baseline building",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "E_saving_kwh",
+          "expression": "pump_fan_parasitic_kw = design_cooling_load_kw * 0.03; E_saving_kwh = (design_cooling_load_kw / chiller_COP - pump_fan_parasitic_kw) * h_FC",
+          "unit": {
+            "ref": "kWh/yr"
+          },
+          "reference": "E_saving = (Q/COP − P_parasitic) × h_FC; parasitic = 3% of load for CT fan + HX pump — CIBSE TM21 §5",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "cost_saving_usd, payback_yr",
+          "expression": "cost_saving_usd = E_saving_kwh * electricity_rate_usd_kwh; HX_cost_est_usd = design_cooling_load_kw * 40; payback_yr = HX_cost_est_usd / cost_saving_usd",
+          "unit": {
+            "ref": "USD/yr, years"
+          },
+          "reference": "HX installed cost ≈ 40 USD/kW (brazed plate, 2024 estimate); payback = CAPEX / annual saving",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [
+        {
+          "id": "V1",
+          "action": "WARN",
+          "condition": "T_wb_sw_c < 0 && site_climate_zone < 1000",
+          "message": "Switchover WB temperature below 0°C in warm climate: free-cooling hours will be negligible — evaluate dry cooler or adiabatic pre-cooling to raise T_wb,sw"
+        },
+        {
+          "id": "V2",
+          "action": "WARN",
+          "condition": "chilled_water_supply_c < 6 && heat_exchanger_dT_k < 1.5",
+          "message": "Very low CHWS temp with tight HX approach: fouling will increase ΔT_HX rapidly — specify minimum HX surface oversize of 20% per TEMA C"
+        },
+        {
+          "id": "V3",
+          "action": "WARN",
+          "condition": "F_FC > 0.8",
+          "message": "Free-cooling fraction > 80%: chiller operates less than 20% of time — evaluate chiller downsizing or VFD for part-load optimisation; chiller may fall below minimum unload point"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "INFO",
+          "source": "",
+          "condition": "payback_yr < 2",
+          "message": "Free-cooling payback < 2 years: strong ROI — prioritise HX installation in next capital cycle; consider controls upgrade for automatic switchover per ASHRAE 90.1 §6.5.1"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "site_climate_zone < 500",
+          "message": "Warm climate with few free-cooling hours: marginal economic case — evaluate night-time free-cooling for data centres where T_wb is lower overnight"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "approach_temp_k > 6",
+          "message": "High cooling tower approach (>6 K): tower fouled or undersized — cleaning or replacement can recover 2–3 K and extend free-cooling season significantly"
+        },
+        {
+          "id": "W4",
+          "severity": "INFO",
+          "source": "",
+          "condition": "E_saving_kwh > E_chiller_base_kwh * 0.5",
+          "message": "Free-cooling saves >50% of baseline chiller energy: very favourable climate — evaluate tri-mode (full/partial/zero mechanical) controls for transitional hours"
+        },
+        {
+          "id": "W5",
+          "severity": "WARNING",
+          "source": "",
+          "condition": "chiller_COP < 4 && site_climate_zone > 2000",
+          "message": "Low-efficiency chiller in cold climate: both free-cooling AND chiller replacement are warranted — combined ROI should be modelled jointly"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "chiller_COP",
+        "chilled_water_supply_c",
+        "approach_temp_k",
+        "heat_exchanger_dT_k",
+        "design_cooling_load_kw",
+        "annual_cooling_hours",
+        "site_climate_zone",
+        "electricity_rate_usd_kwh"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

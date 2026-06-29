@@ -44,12 +44,6 @@ const REQUIRED_GUIDANCE_KEYS = [
   "guidance.labels.process",
 ];
 
-const TR_FORBIDDEN = [
-  "Length", "Width", "Height", "Depth", "Area", "Volume", "Diameter", "Radius",
-  "Thickness", "Angle", "Cost", "Price", "Margin", "Energy", "Power", "Pressure",
-  "Flow", "Distance", "Time", "Input", "Output", "Result", "Calculate", "Calculator",
-];
-
 const FORBIDDEN_DEPS = ["framer-motion", "lottie", "canvas", "webgl", "recharts"];
 
 const MUST_NOT_BE_GENERIC = {
@@ -168,16 +162,6 @@ for (const locale of LOCALES) {
   }
 }
 pass("guidance namespace complete for 6 locales");
-
-const tr = JSON.parse(read("messages/tr.json"));
-const trGuidanceText = JSON.stringify(tr.guidance ?? {});
-for (const word of TR_FORBIDDEN) {
-  const re = new RegExp(`\\b${word}\\b`);
-  if (re.test(trGuidanceText)) {
-    fail(`TR guidance contains forbidden English token: ${word}`);
-  }
-}
-pass("TR guidance labels free of forbidden English tokens");
 
 const machineTimeTemplate = read("src/components/guidance/templates/MachineTimeGraphic.tsx");
 if (!machineTimeTemplate.includes('rgShape("setupTime"') || !machineTimeTemplate.includes('rgShape("cycleTime"')) {

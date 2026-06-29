@@ -71,6 +71,13 @@ import {
  hasProductMarginValidationErrors,
  type ProductMarginCalculatorInput,
 } from "@/lib/calculators/product-margin-calculator";
+import {
+ calculateIndicatedHorsepower,
+ validateIndicatedHorsepower,
+ mapIndicatedHorsepowerResults,
+ hasIndicatedHorsepowerErrors,
+ type IndicatedHorsepowerInput,
+} from "@/lib/calculators/indicated-horsepower-calculator";
 
 export type CalculatorInputValues = Record<string, number | string>;
 
@@ -232,6 +239,19 @@ function toReturnRateErosionInput(
  };
 }
 
+function toIndicatedHorsepowerInput(
+ values: CalculatorInputValues
+): IndicatedHorsepowerInput {
+ return {
+ meanEffectivePressure: Number(values.meanEffectivePressure),
+ strokeLength: Number(values.strokeLength),
+ cylinderBore: Number(values.cylinderBore),
+ engineRpm: Number(values.engineRpm),
+ cylinderCount: Number(values.cylinderCount),
+ cycleType: Number(values.cycleType),
+ };
+}
+
 export function validateCalculatorInput(
  calculatorId: CalculatorId,
  values: CalculatorInputValues
@@ -284,6 +304,10 @@ export function validateCalculatorInput(
  case "return-rate-profit-erosion-tool":
  return validateReturnRateErosion(
  toReturnRateErosionInput(values)
+ ) as Record<string, string>;
+ case "indicated-horsepower-calculator":
+ return validateIndicatedHorsepower(
+ toIndicatedHorsepowerInput(values)
  ) as Record<string, string>;
  default:
  return {};
@@ -439,6 +463,21 @@ export function runCalculator(
  results: mapReturnRateErosionResults(output),
  errors: {},
  premium: output.premium,
+ };
+ }
+ case "indicated-horsepower-calculator": {
+ const input = toIndicatedHorsepowerInput(values);
+ const errors = validateIndicatedHorsepower(input);
+ if (hasIndicatedHorsepowerErrors(errors)) {
+ return { results: [], errors: errors as Record<string, string> };
+ }
+ const output = calculateIndicatedHorsepower(input);
+ if (!output) {
+ return { results: [], errors: errors as Record<string, string> };
+ }
+ return {
+ results: mapIndicatedHorsepowerResults(output),
+ errors: {},
  };
  }
  default:

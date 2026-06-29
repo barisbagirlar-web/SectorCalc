@@ -1,0 +1,413 @@
+{
+  "tool_id": "PRO_030",
+  "tool_name": "Digital Twin Prototype ROI vs Physical Build — Cost Avoidance, TTM & NPV (ISO 23247)",
+  "category": "Industry 4.0 / R&D Engineering",
+  "scope": "process_agnostic",
+  "primary_operation": "digital_twin_roi",
+  "inputs": [
+    {
+      "id": "physical_proto_unit_cost_usd",
+      "name": "Physical Prototype Unit Cost",
+      "unit": "USD/unit",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "hint": "Full cost: materials + machining + tooling + assembly + testing per build",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "physical_iterations_avg",
+      "name": "Average Physical Iteration Count (baseline)",
+      "unit": "iterations",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 50,
+      "hint": "Historical average design cycles before release — typical product development: 3–8",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "dt_iterations_expected",
+      "name": "Expected Digital Iterations Before First Physical Build",
+      "unit": "iterations",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Virtual design cycles replacing physical builds — typically 5–15 per 1 physical",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "physical_iterations_with_dt",
+      "name": "Remaining Physical Builds Required After DT Validation",
+      "unit": "iterations",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Even with DT, at least 1 physical validation build is typically required",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "field_test_cost_usd",
+      "name": "Field / Validation Test Cost (per programme)",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Environmental, durability, regulatory testing costs per full programme",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "field_test_reduction_pct",
+      "name": "Field Test Cost Reduction from DT Preflight",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 80,
+      "default": 30,
+      "hint": "DT-validated designs require fewer field test cycles — typical: 20–50% reduction",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "dt_software_license_usd_yr",
+      "name": "Digital Twin Platform License Cost",
+      "unit": "USD/year",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0,
+      "hint": "Ansys Twin Builder / Siemens Simcenter / MATLAB SimScape / PTC ThingWorx annual fee",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "hpc_compute_cost_usd",
+      "name": "HPC / Cloud Simulation Compute Cost",
+      "unit": "USD/programme",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "AWS/Azure HPC instances for FEA, CFD, MBD simulations — per product programme",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "iot_sensor_capex_usd",
+      "name": "IoT Sensor & Data Infrastructure CAPEX",
+      "unit": "USD",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Sensors, edge devices, connectivity, historian — one-time or amortised per programme",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "engineering_effort_hrs",
+      "name": "DT Model Engineering & Calibration Effort",
+      "unit": "hours",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "hint": "Engineer hours for model build, parameter identification, and validation",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "engineer_rate_usd_hr",
+      "name": "Fully Burdened Engineer Rate",
+      "unit": "USD/hour",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 10,
+      "default": 75,
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Discrete count variable, zero measurement uncertainty"
+    },
+    {
+      "id": "ttm_gain_days",
+      "name": "Time-to-Market Acceleration (days gained)",
+      "unit": "days",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Calendar days saved by parallel virtual validation vs sequential physical build",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    },
+    {
+      "id": "daily_market_revenue_usd",
+      "name": "Daily Market Revenue at Launch",
+      "unit": "USD/day",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "hint": "Expected daily revenue from early market entry — opportunity value per day of acceleration",
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "warranty_reduction_pct",
+      "name": "Expected Warranty / Field Failure Reduction",
+      "unit": "%",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "absolute_max": 60,
+      "default": 15,
+      "hint": "DT-validated designs typically show 15–35% reduction in first-year warranty claims",
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "annual_warranty_cost_usd",
+      "name": "Current Annual Warranty Cost",
+      "unit": "USD/year",
+      "type": "number",
+      "required": false,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 0,
+      "default": 0,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7 — Market parameter Type B: cost/price estimates ±5%"
+    },
+    {
+      "id": "wacc_pct",
+      "name": "WACC / Discount Rate",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "default": 12,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "programme_life_years",
+      "name": "Product Programme Life (DT reuse period)",
+      "unit": "years",
+      "type": "number",
+      "required": true,
+      "confidence_label": "APPROXIMATE",
+      "absolute_min": 1,
+      "absolute_max": 15,
+      "default": 5,
+      "uncertainty": "±5%",
+      "uncertainty_source": "ISO 21748:2017 §7.3 — Default Type B: ±5% for unclassified parameters"
+    }
+  ],
+  "formulas": [
+    "Physical_Proto_Cost_Baseline_USD = physical_proto_unit_cost_usd * physical_iterations_avg + field_test_cost_usd   // [USD] Historical physical programme cost",
+    "Physical_Proto_Cost_With_DT_USD = physical_proto_unit_cost_usd * physical_iterations_with_dt + field_test_cost_usd * (1 - field_test_reduction_pct / 100)   // [USD] Physical cost after DT validation",
+    "DT_Engineering_Cost_USD = engineering_effort_hrs * engineer_rate_usd_hr   // [USD] Model build labour cost",
+    "DT_Total_Investment_USD = dt_software_license_usd_yr + hpc_compute_cost_usd + iot_sensor_capex_usd + DT_Engineering_Cost_USD   // [USD] Total DT programme investment",
+    "Prototype_Cost_Avoidance_USD = Physical_Proto_Cost_Baseline_USD - Physical_Proto_Cost_With_DT_USD   // [USD] Direct savings vs baseline",
+    "TTM_Revenue_Gain_USD = ttm_gain_days * daily_market_revenue_usd   // [USD] Revenue from early market entry",
+    "Warranty_Saving_USD = annual_warranty_cost_usd * (warranty_reduction_pct / 100)   // [USD/year] Annual warranty saving",
+    "Annual_Benefit_USD = Prototype_Cost_Avoidance_USD + TTM_Revenue_Gain_USD + Warranty_Saving_USD   // [USD] Total year-1 benefit (cost avoidance + revenue + warranty)",
+    "Recurring_Annual_Benefit_USD = Warranty_Saving_USD   // [USD/year] Ongoing annual benefit (warranty only)",
+    "Annuity_Factor = (1 - POWER(1 + wacc_pct / 100, -programme_life_years)) / (wacc_pct / 100)   // [—] PV annuity factor",
+    "NPV_USD = Prototype_Cost_Avoidance_USD + TTM_Revenue_Gain_USD + Warranty_Saving_USD * Annuity_Factor - DT_Total_Investment_USD   // [USD] Net Present Value",
+    "ROI_pct = (Annual_Benefit_USD / DT_Total_Investment_USD) * 100   // [%] First-year ROI",
+    "Simple_Payback_Months = DT_Total_Investment_USD > 0 && Annual_Benefit_USD > 0 ? (DT_Total_Investment_USD / Annual_Benefit_USD) * 12 : 999   // [months] Simple payback",
+    "Breakeven_Proto_Reduction = DT_Total_Investment_USD / physical_proto_unit_cost_usd   // [units] Physical builds avoided needed to break even"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 23247 Digital Twin Manufacturing Framework",
+      "Gartner Hype Cycle Industry 4.0",
+      "IEC 61360 Digital Twin Properties",
+      "INCOSE Systems Engineering Handbook",
+      "AACE International RP 96R-20 Technology ROI"
+    ],
+    "validation": {
+      "dt_iterations_vs_physical": {
+        "condition": "physical_iterations_with_dt >= physical_iterations_avg",
+        "error_msg": "Physical builds after DT must be less than baseline. If DT reduces zero physical iterations, there is no prototype cost avoidance benefit.",
+        "id": "dt_iterations_vs_physical"
+      },
+      "engineer_rate_minimum": {
+        "absolute_min": 10,
+        "error_msg": "Engineer rate cannot be below $10/h. Use fully burdened rate including overhead, benefits, and indirect costs.",
+        "id": "engineer_rate_minimum"
+      },
+      "programme_life_range": {
+        "condition": "programme_life_years < 1 || programme_life_years > 15",
+        "error_msg": "Programme life must be 1–15 years for meaningful NPV analysis.",
+        "id": "programme_life_range"
+      }
+    },
+    "smart_warnings": [
+      {
+        "condition": "NPV_USD < 0",
+        "severity": "CRITICAL",
+        "source": "Investment Analysis / AACE RP 96R-20",
+        "message": "NEGATIVE NPV: Digital Twin investment does not recover its cost at this discount rate and programme scale. Review: (1) Increase programme reuse across multiple products, (2) Negotiate platform licence sharing, (3) Quantify previously excluded benefits (regulatory approval acceleration, recall avoidance)."
+      },
+      {
+        "condition": "DT_Engineering_Cost_USD > DT_Total_Investment_USD * 0.6",
+        "severity": "WARNING",
+        "source": "Digital Twin Implementation Cost Structure",
+        "message": "Engineering labour >60% of DT investment: Model build effort is dominant cost. Evaluate: (1) Reuse existing simulation models, (2) Use vendor-supplied component models, (3) Phased modelling — start with highest-risk subsystems only."
+      },
+      {
+        "condition": "ttm_gain_days === 0",
+        "severity": "WARNING",
+        "source": "Digital Twin Value Framework",
+        "message": "Zero TTM gain entered: Time-to-market acceleration is typically the highest-value DT benefit. If parallel virtual/physical development is not planned, significant ROI is being excluded. Replan development timeline to capture TTM benefit."
+      },
+      {
+        "condition": "Simple_Payback_Months > 24",
+        "severity": "WARNING",
+        "source": "Industrial R&D Investment Benchmarks",
+        "message": "Payback >24 months: Above typical threshold for product development tool investment. Consider: (1) Shared licence across multiple simultaneous programmes, (2) Phased IoT sensor rollout, (3) Open-source simulation platforms to reduce licence cost."
+      },
+      {
+        "condition": "dt_iterations_expected < 5",
+        "severity": "INFO",
+        "source": "Digital Twin Best Practice — McKinsey / Deloitte",
+        "message": "Low virtual iteration count (<5): DT value scales with simulation depth. Less than 5 virtual iterations suggests the model is not being used to its potential. Target 10–20 virtual design cycles per physical build for full benefit realisation."
+      },
+      {
+        "condition": "iot_sensor_capex_usd > physical_proto_unit_cost_usd * physical_iterations_avg * 0.5",
+        "severity": "WARNING",
+        "source": "IoT Cost-Benefit Analysis",
+        "message": "IoT CAPEX exceeds 50% of prototype cost baseline: Sensor investment may be disproportionate. Evaluate: (1) Virtual sensor placement using FEA instead of physical measurement, (2) Shared sensor infrastructure across production lines, (3) Edge AI for data reduction before cloud transmission."
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: physical_iterations_with_dt >= physical_iterations_avg",
+        "effect": "Physical builds after DT must be less than baseline. If DT reduces zero physical iterations, there is no prototype cost avoidance benefit.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule dt_iterations_vs_physical"
+      },
+      {
+        "failureMode": "Input violation: programme_life_years < 1 || programme_life_years > 15",
+        "effect": "Programme life must be 1–15 years for meaningful NPV analysis.",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule programme_life_range"
+      },
+      {
+        "failureMode": "NEGATIVE NPV: Digital Twin investment does not recover its cost at this discount rate and programme scale. Review: (1) Increase programme reuse across multiple products, (2) Negotiate platform licence sharing, (3) Quantify previously excluded benefits (regulatory approval acceleration, recall avoidance).",
+        "effect": "Smart warning triggered when: NPV_USD < 0",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Investment Analysis / AACE RP 96R-20"
+      },
+      {
+        "failureMode": "Engineering labour >60% of DT investment: Model build effort is dominant cost. Evaluate: (1) Reuse existing simulation models, (2) Use vendor-supplied component models, (3) Phased modelling — start with highest-risk subsystems only.",
+        "effect": "Smart warning triggered when: DT_Engineering_Cost_USD > DT_Total_Investment_USD * 0.6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Digital Twin Implementation Cost Structure"
+      },
+      {
+        "failureMode": "Zero TTM gain entered: Time-to-market acceleration is typically the highest-value DT benefit. If parallel virtual/physical development is not planned, significant ROI is being excluded. Replan development timeline to capture TTM benefit.",
+        "effect": "Smart warning triggered when: ttm_gain_days === 0",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Digital Twin Value Framework"
+      },
+      {
+        "failureMode": "Payback >24 months: Above typical threshold for product development tool investment. Consider: (1) Shared licence across multiple simultaneous programmes, (2) Phased IoT sensor rollout, (3) Open-source simulation platforms to reduce licence cost.",
+        "effect": "Smart warning triggered when: Simple_Payback_Months > 24",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Industrial R&D Investment Benchmarks"
+      },
+      {
+        "failureMode": "Low virtual iteration count (<5): DT value scales with simulation depth. Less than 5 virtual iterations suggests the model is not being used to its potential. Target 10–20 virtual design cycles per physical build for full benefit realisation.",
+        "effect": "Smart warning triggered when: dt_iterations_expected < 5",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Digital Twin Best Practice — McKinsey / Deloitte"
+      },
+      {
+        "failureMode": "IoT CAPEX exceeds 50% of prototype cost baseline: Sensor investment may be disproportionate. Evaluate: (1) Virtual sensor placement using FEA instead of physical measurement, (2) Shared sensor infrastructure across production lines, (3) Edge AI for data reduction before cloud transmission.",
+        "effect": "Smart warning triggered when: iot_sensor_capex_usd > physical_proto_unit_cost_usd * physical_iterations_avg * 0.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "IoT Cost-Benefit Analysis"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "Physical_Proto_Cost_Baseline_USD",
+        "Physical_Proto_Cost_With_DT_USD",
+        "DT_Engineering_Cost_USD",
+        "DT_Total_Investment_USD",
+        "Prototype_Cost_Avoidance_USD",
+        "TTM_Revenue_Gain_USD",
+        "Warranty_Saving_USD",
+        "Annual_Benefit_USD",
+        "Recurring_Annual_Benefit_USD",
+        "Annuity_Factor",
+        "NPV_USD",
+        "ROI_pct",
+        "Simple_Payback_Months",
+        "Breakeven_Proto_Reduction"
+      ]
+    }
+  ]
+}

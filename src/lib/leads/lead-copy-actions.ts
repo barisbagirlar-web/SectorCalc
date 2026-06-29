@@ -10,7 +10,7 @@ const UNKNOWN = "Unknown";
 
 function greetingName(name: string): string {
  const trimmed = name.trim();
- return trimmed ? `Merhaba ${trimmed},` : "Merhaba,";
+  return trimmed ? `Hello ${trimmed},` : "Hello,";
 }
 
 function resolveIntentPhrase(
@@ -24,7 +24,7 @@ function resolveIntentPhrase(
  if (sourceToolLabel !== UNKNOWN) {
  return sourceToolLabel;
  }
- return "gönderdiğiniz talep";
+  return "your submitted request";
 }
 
 function resolveNextActionPhrase(lead: LeadIntent): string {
@@ -35,7 +35,7 @@ function resolveNextActionPhrase(lead: LeadIntent): string {
  if (suggested.trim()) {
  return suggested;
  }
- return "ön değerlendirme";
+  return "preliminary assessment";
 }
 
 function resolveAttributionPhrase(attributionLabel: string): string {
@@ -81,38 +81,38 @@ function buildLeadContext(lead: LeadIntent) {
 export function buildLeadWhatsappMessage(lead: LeadIntent): string {
  const ctx = buildLeadContext(lead);
 
- return [
- ctx.greeting,
- "",
- `SectorCalc üzerinden ilettiğiniz "${ctx.intentPhrase}" talebi için dönüş yapıyoruz.`,
- `Kayıt: ${ctx.attributionPhrase} · Sayfa: ${ctx.sourcePagePhrase} · Plan: ${ctx.planPhrase}`,
- "",
- `Önerilen adım: ${ctx.nextActionPhrase}. Uygun olduğunuzda kısa bir görüşme planlayabiliriz.`,
- "",
- "İyi çalışmalar,",
- "SectorCalc",
- ].join("\n");
+  return [
+   ctx.greeting,
+   "",
+   `We are following up on your "${ctx.intentPhrase}" request submitted via SectorCalc.`,
+   `Record: ${ctx.attributionPhrase} · Page: ${ctx.sourcePagePhrase} · Plan: ${ctx.planPhrase}`,
+   "",
+   `Suggested next step: ${ctx.nextActionPhrase}. We can schedule a brief call when convenient.`,
+   "",
+   "Best regards,",
+   "SectorCalc",
+  ].join("\n");
 }
 
 export function buildLeadEmailMessage(lead: LeadIntent): string {
  const ctx = buildLeadContext(lead);
  const name = lead.name.trim() || "Yetkili";
 
- return [
- "Konu: SectorCalc — talebiniz hakkında",
- "",
- `Sayın ${name},`,
- "",
- `SectorCalc üzerinden ${ctx.createdLocal} tarihinde ilettiğiniz "${ctx.intentPhrase}" talebini inceledik.`,
- `Kaynak özeti: ${ctx.attributionPhrase}. Sektör: ${ctx.industryPhrase}. Plan ilgisi: ${ctx.planPhrase}.`,
- "",
- `Bir sonraki adım olarak ${ctx.nextActionPhrase} yönünde ilerleyebiliriz. Size uygun bir zaman paylaşırsanız kısa bir değerlendirme görüşmesi planlayalım.`,
- "",
- "Bu mesaj ön bilgilendirme amaçlıdır; sonuç veya getiri taahhüdü içermez.",
- "",
- "Saygılarımızla,",
- "SectorCalc",
- ctx.email ? `İletişim: ${ctx.email}` : "",
+  return [
+   "Subject: SectorCalc — Regarding Your Request",
+   "",
+   `Dear ${name},`,
+   "",
+   `We have reviewed your "${ctx.intentPhrase}" request submitted via SectorCalc on ${ctx.createdLocal}.`,
+   `Source summary: ${ctx.attributionPhrase}. Sector: ${ctx.industryPhrase}. Plan interest: ${ctx.planPhrase}.`,
+   "",
+   `As a next step, we can proceed with ${ctx.nextActionPhrase}. Please share a suitable time and we will schedule a brief assessment call.`,
+   "",
+   "This message is for preliminary information only; it does not constitute a commitment of results or returns.",
+   "",
+   "Sincerely,",
+   "SectorCalc",
+   ctx.email ? `Contact: ${ctx.email}` : "",
  ]
  .filter((line) => line !== "")
  .join("\n");
@@ -122,16 +122,16 @@ export function buildLeadInternalNote(lead: LeadIntent): string {
  const ctx = buildLeadContext(lead);
  const { attribution } = ctx;
 
- return [
- "[SectorCalc — iç not]",
- `Lead: ${lead.name.trim() || "—"} · ${lead.company.trim() || "—"}`,
- `Tarih (yerel): ${ctx.createdLocal} · UTC: ${lead.createdAt}`,
- `Intent: ${ctx.intentPhrase}`,
- `Attribution: ${ctx.attributionPhrase}`,
- `Sayfa: ${ctx.sourcePagePhrase} · Araç: ${attribution.sourceToolLabel}`,
- `Sektör: ${ctx.industryPhrase} · Plan: ${ctx.planPhrase} · CTA: ${attribution.ctaLabel}`,
- `Next action: ${ctx.nextActionPhrase}`,
- `E-posta: ${ctx.email || "—"} · Telefon: ${ctx.phone || "—"}`,
- `Lead ID: ${lead.id}`,
- ].join("\n");
+  return [
+   "[SectorCalc — internal note]",
+   `Lead: ${lead.name.trim() || "—"} · ${lead.company.trim() || "—"}`,
+   `Date (local): ${ctx.createdLocal} · UTC: ${lead.createdAt}`,
+   `Intent: ${ctx.intentPhrase}`,
+   `Attribution: ${ctx.attributionPhrase}`,
+   `Page: ${ctx.sourcePagePhrase} · Tool: ${attribution.sourceToolLabel}`,
+   `Sector: ${ctx.industryPhrase} · Plan: ${ctx.planPhrase} · CTA: ${attribution.ctaLabel}`,
+   `Next action: ${ctx.nextActionPhrase}`,
+   `Email: ${ctx.email || "—"} · Phone: ${ctx.phone || "—"}`,
+   `Lead ID: ${lead.id}`,
+  ].join("\n");
 }

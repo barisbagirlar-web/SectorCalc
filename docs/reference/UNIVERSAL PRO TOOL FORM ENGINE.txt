@@ -1,0 +1,315 @@
+CURSOR TALİMATI — UNIVERSAL PRO TOOL FORM ENGINE + RC BEAM INTEGRATION
+Mevcut gömülü SectorCalc PRO UI form sistemini kullan.
+KRİTİK MİMARİ KARAR: Bu projede her hesaplama aracı için ayrı UI form yazılmayacak.
+Tek bir ortak PRO form yapısı kullanılacak. Her hesaplama aracının inputları, formülleri, validasyonları, sonuçları, uyarıları, FMEA ve audit bilgileri schema üzerinden dinamik olarak yerleştirilecek.
+Yeni manuel form sistemi yazma. Yeni CSS class icat etme. Mevcut HTML/CSS/component pattern korunacak.
+ZORUNLU TEK FORM YAPISI: Aşağıdaki pattern tüm PRO hesaplama araçları için ortak kalacak:
+	•	tool-card
+	•	tool-hdr
+	•	status-row
+	•	tabs
+	•	panel
+	•	inp-grid
+	•	err-panel
+	•	action-row
+	•	calc-btn
+	•	results-content
+	•	frm-list
+	•	val-table
+	•	fmea-table
+	•	audit-log
+	•	cbar
+AMAÇ: RC Beam Shear & Flexure Calculator aracını mevcut PRO tool mimarisine ekle. Ancak bunu RC Beam’e özel ayrı form yazarak yapma.
+RC Beam yalnızca yeni bir tool schema + calculation engine + result definition olarak eklenecek. Form alanları Universal PRO Tool Form Renderer tarafından dinamik üretilecek.
+TOOL:
+	•	tool_id: PRO_117
+	•	tool_key: rcBeam
+	•	title: RC Beam Shear & Flexure Calculator
+	•	category: Construction · Reinforced Concrete
+	•	standards: EN 1992-1-1 · ACI 318 · ISO 9001 · GUM
+	•	scope: Rectangular singly reinforced reinforced-concrete beam
+	•	primary_operation: rc_beam_shear_flexure_capacity_check
+GLOBAL ARCHITECTURE REQUIREMENT:
+	1	Universal renderer oluştur veya mevcut renderer varsa onu kullan:
+	•	UniversalProToolRenderer
+	•	UniversalProToolForm
+	•	renderToolInputs(toolSchema)
+	•	renderToolResults(toolSchema, calculationResult)
+	•	renderToolFormulas(toolSchema)
+	•	renderToolValidationRules(toolSchema)
+	•	renderToolFMEA(toolSchema)
+	•	renderToolAuditLog(toolSchema, input, result)
+İsimler projedeki naming standardına göre değişebilir. Ancak mimari aynı kalacak.
+	2	Her tool için ayrı form component yazmak yasak: YASAK:
+	•	RCBeamForm.tsx
+	•	CncForm.tsx
+	•	WeldForm.tsx
+	•	OeeForm.tsx
+	•	rcBeam-specific static input HTML
+	•	her araç için ayrı manuel input renderer
+SERBEST:
+	•	rcBeamToolSchema
+	•	cncToolSchema
+	•	weldToolSchema
+	•	oeeToolSchema
+	•	calculateRCBeamShearFlexure()
+	•	calculateCncTool()
+	•	calculateWeldTool()
+	3	Her tool şu schema yapısıyla tanımlanacak:
+toolSchema = { tool_id, tool_key, title, category, standards, scope, primary_operation, inputs, formulas, validationRules, warnings, fmea, auditFields, resultOutputs, calculationEngine }
+	4	Universal form renderer sadece schema okuyacak:
+	•	input label
+	•	input symbol
+	•	input unit
+	•	input type
+	•	input required
+	•	input min/max
+	•	input default
+	•	input confidence label
+	•	input uncertainty
+	•	input help text
+	•	input group
+	•	conditional visibility
+	•	validation rule
+Bunlar UI içine hard-code edilmeyecek.
+	5	Input schema zorunlu alanları:
+Her input şu alanları taşıyacak:
+{ id, name, symbol, unit, type, required, confidence_label, absolute_min, absolute_max, resolution, default, validation_rule, source, uncertainty, note, group, visibleWhen }
+	6	Conditional input davranışı schema üzerinden olacak:
+Örnek: visibleWhen: { field: "designStandard", equals: "EN_1992_1_1" }
+veya:
+visibleWhen: { field: "designStandard", equals: "ACI_318" }
+Renderer bu kurala göre inputu gösterir/gizler veya disabled yapar. Bu davranış tool-specific manuel kodla yapılmayacak.
+	7	Universal calculate handler:
+Tek generic hesap akışı olacak:
+handleToolCalculate(toolKey)
+Akış:
+	•	active toolSchema al
+	•	schema.inputs üzerinden form değerlerini oku
+	•	required kontrolü yap
+	•	type parse yap
+	•	min/max validation yap
+	•	conditional visibility’ye göre sadece aktif required inputları zorunlu tut
+	•	toolSchema.calculationEngine(input) çağır
+	•	hata varsa err-panel içinde göster
+	•	başarılıysa resultOutputs üzerinden sonuçları render et
+	•	status-row güncelle
+	•	UC varsa UC display güncelle
+	•	result tab dot görünür yap
+	•	audit log üret
+	•	cbar görünür yap
+Tool-specific rcBeamCalc() gerekiyorsa sadece wrapper olabilir: rcBeamCalc() { return handleToolCalculate("rcBeam") }
+	8	Result renderer generic olacak:
+resultOutputs schema’dan gelecek.
+RC Beam resultOutputs:
+	•	M_design | Flexural Design Capacity | kN·m
+	•	V_design | Shear Design Capacity | kN
+	•	UC_flexure | Flexural Utilization | dimensionless
+	•	UC_shear | Shear Utilization | dimensionless
+	•	UC | Governing Utilization | dimensionless
+	•	governingMode | Governing Mode | dimensionless
+	•	status | Status | PASS/FAIL
+	•	warnings | Warnings | list
+Renderer bu alanları mevcut res-table, verdict-banner, warn-panel pattern’i ile gösterecek.
+	9	PASS/FAIL generic rule:
+Eğer result.status varsa:
+	•	PASS → badge-pass / ok
+	•	FAIL → badge-fail / crit
+Eğer result.UC varsa:
+	•	UC <= 0.90 → pass
+	•	0.90 < UC <= 1.00 → warn
+	•	UC > 1.00 → fail
+UC > 1.00 ise calculation sonucu FAIL kabul edilecek. UC > 0.90 && UC <= 1.00 ise engineering review warning gösterilecek.
+	10	Formula panel generic olacak:
+toolSchema.formulas[] okunacak. Mevcut frm-list pattern’i kullanılacak. Her formula şu alanları taşıyacak:
+{ id, branch, lhs, rhs, reference, dimensional_check, note }
+RC Beam için iki branch olacak:
+	•	EN_1992_1_1
+	•	ACI_318
+Renderer seçili standarda göre ilgili branch’i öne çıkaracak. İsterse diğer branch collapsed/secondary gösterilebilir.
+	11	Validation panel generic olacak:
+toolSchema.validationRules[] okunacak. Mevcut val-table pattern’i kullanılacak.
+Her validation rule: { id, action, condition, message, standard_ref }
+BLOCK:
+	•	calculation prevented
+WARN:
+	•	calculation allowed but warning generated
+	12	FMEA panel generic olacak:
+toolSchema.fmea[] okunacak. Mevcut fmea-table pattern’i kullanılacak.
+Her FMEA item: { failure_mode, effect, severity, occurrence, detection, rpn, control_measure }
+Renderer RPN renklerini mevcut rpn-low, rpn-med, rpn-high pattern’i ile verecek.
+	13	Audit panel generic olacak:
+Her calculation sonrası audit record üretilecek:
+{ tool_id, tool_key, version, timestamp, designStandard, input_hash, calculation_engine, formula_version, status, UC, warnings_count, result_hash }
+Audit UI mevcut audit-log pattern’i ile render edilecek.
+	14	RC BEAM TOOL SCHEMA INPUTS:
+Common group:
+	•	designStandard
+	•	b_w
+	•	h
+	•	d
+	•	A_s
+	•	A_sv
+	•	s_v
+	•	M_Ed
+	•	V_Ed
+EC2 group: visibleWhen designStandard = EN_1992_1_1
+	•	f_ck
+	•	f_yk
+	•	gamma_c
+	•	gamma_s
+	•	alpha_cc
+	•	cot_theta
+	•	N_Ed
+ACI group: visibleWhen designStandard = ACI_318
+	•	f_c_prime
+	•	f_y
+	•	E_s
+	•	lambda_concrete
+	•	phi_v
+	15	RC BEAM CALCULATION ENGINE:
+Daha önce verilen calculateRCBeamShearFlexure(input) TypeScript engine’i kullan.
+Kurallar:
+	•	Formül değiştirme.
+	•	Birim değiştirme.
+	•	Silent fallback yapma.
+	•	Invalid inputta throw Error ile fail closed davran.
+	•	UI tarafında default değer gösterilebilir; ancak hesaplama bilinmeyen kritik değeri sessiz varsaymayacak.
+	16	RC Beam formulas:
+EC2 formulas:
+	•	ρ_l = A_s / (b_w × d)
+	•	f_cd = α_cc × f_ck / γ_c
+	•	f_yd = f_yk / γ_s
+	•	λ = 0.8 for f_ck ≤ 50 MPa
+	•	η = 1.0 for f_ck ≤ 50 MPa
+	•	x = A_s × f_yd / (η × f_cd × b_w × λ)
+	•	z = min(d − 0.5 × λ × x, 0.95d)
+	•	M_Rd = A_s × f_yd × z
+	•	k = min(1 + sqrt(200 / d), 2.0)
+	•	ρ_l,limited = min(A_s / (b_w × d), 0.02)
+	•	V_Rdc = max(C_Rdc × k × (100 × ρ_l × f_ck)^(1/3) + 0.15σ_cp, v_min + 0.15σ_cp) × b_w × d
+	•	V_Rds = A_sw/s × z × f_ywd × cotθ
+	•	V_Rdmax = b_w × z × v1 × f_cd / (cotθ + tanθ)
+	•	V_Rd = min(V_Rds, V_Rdmax)
+	•	UC_flexure = M_Ed / M_Rd
+	•	UC_shear = V_Ed / V_Rd
+	•	UC = max(UC_flexure, UC_shear)
+ACI formulas:
+	•	ρ_l = A_s / (b_w × d)
+	•	β1 = ACI concrete stress block factor
+	•	a = A_s × f_y / (0.85 × f'_c × b_w)
+	•	c = a / β1
+	•	ε_t = 0.003 × (d − c) / c
+	•	φ_f = ACI flexural strength reduction factor
+	•	M_n = A_s × f_y × (d − a/2)
+	•	φM_n = φ_f × M_n
+	•	V_c = 0.17 × λ × sqrt(f'_c) × b_w × d
+	•	V_s = A_v × f_y × d / s
+	•	φV_n = φ_v × (V_c + V_s)
+	•	UC_flexure = M_Ed / φM_n
+	•	UC_shear = V_Ed / φV_n
+	•	UC = max(UC_flexure, UC_shear)
+	17	RC Beam validation rules:
+BLOCK:
+	•	b_w <= 0
+	•	h <= 0
+	•	d <= 0
+	•	d >= h
+	•	A_s <= 0
+	•	M_Ed < 0
+	•	V_Ed < 0
+	•	A_sv > 0 and s_v missing
+	•	EC2 selected and f_ck missing
+	•	ACI selected and f_c_prime missing
+	•	UC > 1.00
+WARN:
+	•	UC > 0.90 && UC <= 1.00
+	•	stirrup spacing appears too large
+	•	EC2 V_Rds > V_Rdmax
+	•	ACI V_s > V_s_max
+	•	ACI epsilon_t < 0.005
+	•	EC2 x/d > 0.45
+	18	RC Beam FMEA minimum items:
+	•	Flexural yielding
+	•	Compression-controlled brittle failure
+	•	Diagonal shear failure
+	•	Concrete strut crushing
+	•	Stirrup yielding
+	•	Anchorage failure outside module
+	•	Bar placement error
+	•	Material strength mismatch
+	19	Migration rule for all PRO tools:
+Refactor mevcut PRO araçları şu yapıya taşı:
+	•	CNC
+	•	Weld
+	•	OEE
+	•	RC Beam
+	•	Gelecekteki tüm PRO tools
+Her tool ayrı form değil, ayrı schema olacak.
+Yapı:
+	•	/toolSchemas/cncToolSchema.ts
+	•	/toolSchemas/weldToolSchema.ts
+	•	/toolSchemas/oeeToolSchema.ts
+	•	/toolSchemas/rcBeamToolSchema.ts
+	•	/engines/calculateCnc.ts
+	•	/engines/calculateWeld.ts
+	•	/engines/calculateOee.ts
+	•	/engines/calculateRCBeamShearFlexure.ts
+	•	/components/UniversalProToolRenderer.tsx
+	•	/components/UniversalProToolForm.tsx
+	•	/components/UniversalProToolResults.tsx
+	•	/components/UniversalProToolFormulas.tsx
+	•	/components/UniversalProToolValidation.tsx
+	•	/components/UniversalProToolFMEA.tsx
+	•	/components/UniversalProToolAudit.tsx
+Dosya isimleri projedeki mevcut standarda göre uyarlanabilir. Ancak mimari bozulmayacak.
+	20	Eski static tool HTML varsa:
+Static tool container’ları kalıcı ana yapı olmayacak. Bunlar data/schema-driven renderer’a taşınacak.
+Geçici olarak eski HTML korunacaksa:
+	•	RC Beam için yeni static form yazma.
+	•	Önce UniversalProToolRenderer kur.
+	•	RC Beam’i ilk schema-driven tool olarak bağla.
+	•	Sonra CNC/Weld/OEE aynı yapıya migrate edilecek.
+	21	Kanıt zorunluluğu:
+İş bitince şu formatta raporla:
+	•	Added/modified files
+	•	Universal renderer location
+	•	Tool schema registry location
+	•	RC Beam schema location
+	•	Calculation engine location
+	•	Generic input renderer location
+	•	Generic result renderer location
+	•	Generic formula renderer location
+	•	Generic validation renderer location
+	•	Generic FMEA renderer location
+	•	Generic audit renderer location
+	•	Removed duplicated/static form logic if any
+	•	Test cases
+	•	Manual test input/output
+	•	DOM evidence:
+	◦	rcBeam input fields rendered from schema
+	◦	designStandard changes visible inputs dynamically
+	◦	Calculate triggers calculateRCBeamShearFlexure()
+	◦	Results panel shows UC/status
+	◦	Formula panel renders from schema
+	◦	Audit log generated from generic audit renderer
+	22	Yasak ifadeler:
+“Yaptım” deme. “Tamamlandı” deme.
+Sadece kanıt ver:
+	•	dosya yolu
+	•	fonksiyon adı
+	•	test çıktısı
+	•	DOM/render evidence
+	•	hata varsa açık hata mesajı
+	23	Kabul kriteri:
+PASS sadece şu durumda yazılabilir:
+	•	Tek Universal PRO form renderer kullanılıyor.
+	•	RC Beam için ayrı manuel form yazılmadı.
+	•	Inputlar schema’dan dinamik render ediliyor.
+	•	Conditional EC2/ACI input visibility schema’dan çalışıyor.
+	•	Calculation engine input alıp sonuç üretiyor.
+	•	Result/formula/validation/FMEA/audit panelleri schema/result üzerinden render ediliyor.
+	•	UC > 1 durumunda FAIL üretiliyor.
+	•	UC > 0.90 durumunda warning üretiliyor.
+	•	Dosya/satır/test kanıtı sunuluyor.
+Bu şartlardan biri eksikse PASS yazma. Eksik maddeyi BLOCKER olarak raporla.

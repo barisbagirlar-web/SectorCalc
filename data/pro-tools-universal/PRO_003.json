@@ -1,0 +1,274 @@
+{
+  "schemaId": "PRO_003",
+  "toolCode": "TOOL-PRO-003",
+  "version": "1.0.0",
+  "name": "OEE & TPM Analysis — Availability, Performance, Quality & Six Big Loss Breakdown",
+  "subtitle": "Manufacturing Operations | Lean | TPM — ISO 22400-2:2014, SEMI E10-0304",
+  "sectorPath": [
+    "Manufacturing Operations",
+    "Lean",
+    "TPM"
+  ],
+  "standardsBasis": [
+    "ISO 22400-2:2014",
+    "SEMI E10-0304",
+    "JIPM TPM Excellence Award Criteria"
+  ],
+  "scope": {
+    "inScope": [
+      "OEE & TPM Analysis — Availability, Performance, Quality & Six Big Loss Breakdown"
+    ],
+    "outOfScope": [
+      "Detailed design review",
+      "Site-specific conditions"
+    ],
+    "boundaryWarning": "Engineering decision support only — verify before use."
+  },
+  "inputs": [
+    {
+      "id": "planned_production_time_h",
+      "symbol": "planned_production_time_h",
+      "label": "Planned Production Time (PPT)",
+      "unit": {
+        "ref": "h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0.1,
+      "max": 744
+    },
+    {
+      "id": "downtime_unplanned_h",
+      "symbol": "downtime_unplanned_h",
+      "label": "Unplanned Downtime - Breakdowns & Failures (D_u)",
+      "unit": {
+        "ref": "h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 744
+    },
+    {
+      "id": "downtime_setup_h",
+      "symbol": "downtime_setup_h",
+      "label": "Planned Downtime - Setups & Adjustments (D_s)",
+      "unit": {
+        "ref": "h"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 744
+    },
+    {
+      "id": "ideal_cycle_time_s",
+      "symbol": "ideal_cycle_time_s",
+      "label": "Ideal (Theoretical) Cycle Time per Part (t_ideal)",
+      "unit": {
+        "ref": "s/part"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0.1,
+      "max": 86400
+    },
+    {
+      "id": "total_parts_produced",
+      "symbol": "total_parts_produced",
+      "label": "Total Parts Produced (including rejects) (N_total)",
+      "unit": {
+        "ref": "parts"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 10000000
+    },
+    {
+      "id": "rejected_parts",
+      "symbol": "rejected_parts",
+      "label": "Rejected / Defective Parts (N_reject)",
+      "unit": {
+        "ref": "parts"
+      },
+      "confidence": "EXACT",
+      "group": "general",
+      "min": 0,
+      "max": 10000000
+    },
+    {
+      "id": "rework_parts",
+      "symbol": "rework_parts",
+      "label": "Rework Parts (counted in total, N_rework)",
+      "unit": {
+        "ref": "parts"
+      },
+      "confidence": "STRONG",
+      "group": "general",
+      "min": 0,
+      "max": 10000000,
+      "default": 0,
+      "optional": true
+    }
+  ],
+  "inputGroups": [
+    {
+      "key": "general",
+      "letter": "A",
+      "title": "General",
+      "cols": 2
+    }
+  ],
+  "standards": [
+    {
+      "id": "PRO_003",
+      "code": "ISO 22400-2:2014",
+      "name": "OEE & TPM Analysis — Availability, Performance, Quality & Six Big Loss Breakdown",
+      "description": "OEE & TPM Analysis — Availability, Performance, Quality & Six Big Loss Breakdown — Manufacturing Operations, Lean, TPM",
+      "year": "2025",
+      "formulas": [
+        {
+          "id": "F1",
+          "output": "OT_h",
+          "expression": "planned_production_time_h - downtime_unplanned_h - downtime_setup_h; A = OT_h / planned_production_time_h",
+          "unit": {
+            "ref": "h, dimensionless"
+          },
+          "reference": "ISO 22400-2:2014 §4.3.3 — Availability = Operating Time / Planned Production Time",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F2",
+          "output": "P",
+          "expression": "(total_parts_produced * ideal_cycle_time_s / 3600) / OT_h",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "ISO 22400-2 §4.3.4 — Performance = (Total Pieces × Ideal CT) / Operating Time",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F3",
+          "output": "good_parts",
+          "expression": "total_parts_produced - rejected_parts - rework_parts; Q = good_parts / total_parts_produced",
+          "unit": {
+            "ref": "dimensionless, parts"
+          },
+          "reference": "ISO 22400-2 §4.3.5 — Quality = Good Parts / Total Parts",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F4",
+          "output": "OEE",
+          "expression": "A * P * Q",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "OEE = A × P × Q — JIPM TPM standard",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F5",
+          "output": "WC_OEE",
+          "expression": "0.85; actual_good = good_parts; wc_good = Math.round(total_parts_produced * WC_OEE / OEE); parts_lost = wc_good - actual_good",
+          "unit": {
+            "ref": "parts"
+          },
+          "reference": "Gap to World Class benchmark (85% OEE per JIPM) — production loss quantification",
+          "display": {
+            "resultRow": true
+          }
+        },
+        {
+          "id": "F6",
+          "output": "calendar_hours",
+          "expression": "24 * Math.ceil(planned_production_time_h / 8); utilisation = planned_production_time_h / calendar_hours; TEEP = OEE * utilisation",
+          "unit": {
+            "ref": "dimensionless"
+          },
+          "reference": "TEEP = OEE × Utilisation — SEMI E10-0304",
+          "display": {
+            "resultRow": true
+          }
+        }
+      ],
+      "validation": [],
+      "warnings": [
+        {
+          "id": "W1",
+          "severity": "CRITICAL",
+          "source": "ISO 22400-2:2014",
+          "condition": "OEE < 0.65",
+          "message": "OEE < 65%: below minimum acceptable threshold — initiate full Six Big Loss analysis; priority losses: breakdowns (Loss 1) and setup time (Loss 2)"
+        },
+        {
+          "id": "W2",
+          "severity": "WARNING",
+          "source": "ISO 22400-2:2014",
+          "condition": "A < 0.80",
+          "message": "Availability < 80%: unplanned downtime dominant loss — implement Planned Maintenance (PM Step 3) and predictive maintenance programme"
+        },
+        {
+          "id": "W3",
+          "severity": "WARNING",
+          "source": "ISO 22400-2:2014",
+          "condition": "Q < 0.95",
+          "message": "Quality rate < 95%: >5% defect/rework — conduct root cause analysis per 8D; check tooling wear schedule and incoming material certification"
+        },
+        {
+          "id": "W4",
+          "severity": "WARNING",
+          "source": "ISO 22400-2:2014",
+          "condition": "P < 0.85",
+          "message": "Performance < 85%: speed loss and minor stoppages — install cycle time monitoring; target micro-stoppage elimination through Autonomous Maintenance (AM Step 2)"
+        },
+        {
+          "id": "W5",
+          "severity": "INFO",
+          "source": "ISO 22400-2:2014",
+          "condition": "TEEP < 0.50",
+          "message": "TEEP < 50%: significant unused capacity — evaluate shift extension or weekend running before CAPEX investment per JIPM TPM §6"
+        }
+      ],
+      "decision": {
+        "governingOutput": "UC",
+        "thresholds": {
+          "pass": 0.9,
+          "fail": 1
+        },
+        "verdictText": {
+          "pass": "PASS — Capacity Satisfied",
+          "warn": "PASS — High Utilization: Peer Review Required",
+          "fail": "FAIL — Insufficient Capacity"
+        }
+      },
+      "gum": {
+        "measurand": "UC",
+        "method": "numeric",
+        "coverageFactor": 2
+      },
+      "requiredInputs": [
+        "planned_production_time_h",
+        "downtime_unplanned_h",
+        "downtime_setup_h",
+        "ideal_cycle_time_s",
+        "total_parts_produced",
+        "rejected_parts"
+      ]
+    }
+  ],
+  "fmea": {
+    "mandatoryWhen": "UC > 0.9",
+    "modes": []
+  },
+  "legalNotice": "⚠ Engineering decision support only — verify before use. This is a technical simulation, not professional engineering advice."
+}

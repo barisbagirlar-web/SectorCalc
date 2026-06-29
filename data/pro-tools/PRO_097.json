@@ -1,0 +1,348 @@
+{
+  "tool_id": "PRO_097",
+  "tool_name": "CNC Thread Milling & Tapping — Tap Drill Diameter, Helix Angle, Lead & Cutting Parameters",
+  "category": "CNC Machining / Threading Operations",
+  "scope": "single_operation",
+  "primary_operation": "thread_milling",
+  "inputs": [
+    {
+      "id": "thread_designation",
+      "name": "Thread Designation",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "M6 × 1.0 — d2=5.350, d1=4.917 mm",
+          "value": "M6"
+        },
+        {
+          "label": "M8 × 1.25 — d2=7.188, d1=6.647 mm",
+          "value": "M8"
+        },
+        {
+          "label": "M10 × 1.5 — d2=9.026, d1=8.376 mm",
+          "value": "M10"
+        },
+        {
+          "label": "M12 × 1.75 — d2=10.863, d1=10.106 mm",
+          "value": "M12"
+        },
+        {
+          "label": "M16 × 2.0 — d2=14.701, d1=13.835 mm",
+          "value": "M16"
+        },
+        {
+          "label": "M20 × 2.5 — d2=18.376, d1=17.294 mm",
+          "value": "M20"
+        },
+        {
+          "label": "M24 × 3.0 — d2=22.051, d1=20.752 mm",
+          "value": "M24"
+        },
+        {
+          "label": "M30 × 3.5 — d2=27.727, d1=26.211 mm",
+          "value": "M30"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "M12",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "thread_tolerance_class",
+      "name": "Thread Tolerance Class (Internal)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "6H — Standard engineering fit",
+          "value": "6H"
+        },
+        {
+          "label": "5H — Close fit, precision",
+          "value": "5H"
+        },
+        {
+          "label": "7H — Free fit, plated components",
+          "value": "7H"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "6H",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "workpiece_material_group",
+      "name": "Workpiece Material Group (ISO 513)",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "P — Steel (Vc=10–25 m/min for tapping)",
+          "value": "P"
+        },
+        {
+          "label": "M — Stainless steel (Vc=5–12 m/min)",
+          "value": "M"
+        },
+        {
+          "label": "K — Cast iron (Vc=15–30 m/min)",
+          "value": "K"
+        },
+        {
+          "label": "N — Aluminium / non-ferrous (Vc=30–80 m/min)",
+          "value": "N"
+        },
+        {
+          "label": "S — Heat-resistant superalloys (Vc=3–8 m/min)",
+          "value": "S"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "P",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    },
+    {
+      "id": "thread_depth_mm",
+      "name": "Required Thread Engagement Depth (L_eng)",
+      "unit": "mm",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 2,
+      "absolute_max": 150,
+      "note": "ISO 898-1: minimum engagement = 1.0D for steel-in-steel; 1.5D for bolt into aluminium",
+      "uncertainty": "±1%",
+      "uncertainty_source": "ISO 2768-1:1989 Table 1 class 'm': ±0.2mm for 6-30mm (≈1% typical)"
+    },
+    {
+      "id": "Vc_m_min",
+      "name": "Cutting Speed for Tapping / Thread Milling (V_c)",
+      "unit": "m/min",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 15,
+      "absolute_min": 1,
+      "absolute_max": 120,
+      "uncertainty": "±2%",
+      "uncertainty_source": "ISO 230-2:2014 §5 — CNC axis velocity: positioning ±5-25µm, ≈±2%"
+    },
+    {
+      "id": "coolant_type",
+      "name": "Coolant / Lubrication Strategy",
+      "unit": "dimensionless",
+      "type": "enum",
+      "options": [
+        {
+          "label": "Through-tool flood coolant — full speed",
+          "value": "flood"
+        },
+        {
+          "label": "MQL (minimum quantity lubrication) — reduce Vc 20%",
+          "value": "MQL"
+        },
+        {
+          "label": "Dry — reduce Vc 40%",
+          "value": "dry"
+        }
+      ],
+      "required": true,
+      "confidence_label": "EXACT",
+      "default": "flood",
+      "uncertainty": "±0%",
+      "uncertainty_source": "ISO 2768-1:1989 — Nominal/material selection, no measurement uncertainty"
+    }
+  ],
+  "formulas": [
+    "const TH = {M6:{D:6,p:1.0,d1:4.917,d2:5.350}, M8:{D:8,p:1.25,d1:6.647,d2:7.188}, M10:{D:10,p:1.5,d1:8.376,d2:9.026}, M12:{D:12,p:1.75,d1:10.106,d2:10.863}, M16:{D:16,p:2.0,d1:13.835,d2:14.701}, M20:{D:20,p:2.5,d1:17.294,d2:18.376}, M24:{D:24,p:3.0,d1:20.752,d2:22.051}, M30:{D:30,p:3.5,d1:26.211,d2:27.727}}; const t=TH[thread_designation]; nominal_D=t.D; pitch_mm=t.p; d1_mm=t.d1; d2_mm=t.d2; tap_drill_mm = d1_mm + (thread_tolerance_class==='7H' ? 0.2 : thread_tolerance_class==='5H' ? 0.0 : 0.1)  // [mm] — Thread Geometry — Pitch, Minor Diameter & Tap Drill Size — Ref: ISO 68-1:1998 / ISO 965-1:1998 — basic profile; tap drill = d1 + tolerance allowance per 6H/5H/7H",
+    "alpha_deg = Math.atan(pitch_mm / (Math.PI * d2_mm)) * 180 / Math.PI  // [°] — Helix Angle (α) at Thread Pitch Diameter — Ref: tan(α) = p / (π × d₂) — ISO 5408; helix angle at pitch cylinder; typical 2–6° for coarse metric",
+    "Vc_factor = {flood:1.0, MQL:0.80, dry:0.60}[coolant_type]; Vc_corrected = Vc_m_min * Vc_factor  // [m/min] — Corrected Cutting Speed for Coolant Strategy — Ref: Coolant reduction factors — Sandvik C-2920 §12.4; dry threading requires significant speed reduction",
+    "n_rpm = Vc_corrected * 1000 / (Math.PI * nominal_D)  // [rpm] — Spindle Speed for Tapping / Thread Milling (n) — Ref: n = V_c × 1000 / (π × D) — applied to nominal thread diameter",
+    "Vf_mm_min = n_rpm * pitch_mm  // [mm/min] — Synchronised Feed Rate (V_f) — Rigid Tapping — Ref: V_f = n × p — rigid tapping synchronisation; F_per_rev = p (exact); CNC G84 / G74 cycle",
+    "const Vc_mult = {P:1.0, M:1.8, K:0.7, N:0.4, S:2.5}[workpiece_material_group]; Mc_Nm = 0.00022 * Vc_mult * Math.pow(nominal_D, 2.6) * pitch_mm  // [N·m] — Cutting Torque Estimate (M_c) & Spindle Load Check — Ref: Approximate tapping torque: M_c = C_m × D^2.6 × p; C_m empirical per material group — Titex / Walter reference data"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ISO 68-1:1998",
+      "ISO 965-1:1998",
+      "DIN 13-1:1999",
+      "ASME B1.13M-2005",
+      "Sandvik C-2920 §12"
+    ],
+    "validation": {
+      "rules": [
+        {
+          "id": "V1",
+          "condition": "tap_drill_mm > nominal_D * 0.95",
+          "action": "BLOCK",
+          "message": "Tap drill diameter > 95% of nominal: insufficient thread material — tap drill calculation error; verify thread pitch"
+        },
+        {
+          "id": "V2",
+          "condition": "thread_depth_mm < nominal_D * 0.8 && workpiece_material_group !== 'P'",
+          "action": "WARN",
+          "message": "Thread engagement < 0.8D in non-steel material: strip-out risk — increase engagement to minimum 1.5D for aluminium, 2.0D for plastics"
+        },
+        {
+          "id": "V3",
+          "condition": "n_rpm > 10000 && nominal_D > 10",
+          "action": "WARN",
+          "message": "High speed on large tap (D > 10 mm): cutting speed is aggressive — verify machine spindle torque rating at this RPM; tap breakage risk increases significantly"
+        }
+      ]
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "CRITICAL",
+        "message": "Dry tapping in stainless steel: tap seizure imminent — stainless work-hardens rapidly; mandatory MQL or flood coolant; reduce Vc to ≤ 8 m/min",
+        "condition": "workpiece_material_group === 'M' && coolant_type === 'dry'"
+      },
+      {
+        "id": "W2",
+        "message": "Cutting speed too high for superalloy threading: V_c > 6 m/min in Ni/Ti alloys causes rapid BUE and tap fracture — reduce to 3–5 m/min and use HSSE-PM or solid carbide tap",
+        "severity": "WARNING",
+        "condition": "workpiece_material_group === 'S' && Vc_m_min > 6"
+      },
+      {
+        "id": "W3",
+        "severity": "INFO",
+        "message": "Very small helix angle (< 2°): fine pitch thread — chip evacuation critical; use spiral flute tap (right-hand helix) for blind holes to eject chips upward",
+        "condition": "alpha_deg < 2"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "High feed rate on small tap: synchronisation error of ±1 rpm causes proportionally large pitch error — verify CNC rigid tapping encoder resolution; use compensation chuck below M8",
+        "condition": "Vf_mm_min > 500 && nominal_D < 8"
+      },
+      {
+        "id": "W5",
+        "severity": "WARNING",
+        "message": "Deep blind hole threading: chip accumulation risk — use spiral flute tap and retract every 5 mm for chip evacuation; flood coolant at maximum pressure mandatory",
+        "condition": "thread_depth_mm > nominal_D * 2.5"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: tap_drill_mm > nominal_D * 0.95",
+        "effect": "Tap drill diameter > 95% of nominal: insufficient thread material — tap drill calculation error; verify thread pitch",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Parameter warning: thread_depth_mm < nominal_D * 0.8 && workpiece_material_group !== 'P'",
+        "effect": "Thread engagement < 0.8D in non-steel material: strip-out risk — increase engagement to minimum 1.5D for aluminium, 2.0D for plastics",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V2"
+      },
+      {
+        "failureMode": "Parameter warning: n_rpm > 10000 && nominal_D > 10",
+        "effect": "High speed on large tap (D > 10 mm): cutting speed is aggressive — verify machine spindle torque rating at this RPM; tap breakage risk increases significantly",
+        "severity": 4,
+        "occurrence": 5,
+        "detection": 5,
+        "rpn": 100,
+        "rpn_high": 100,
+        "rpn_low": 60,
+        "control_measure": "Runtime warning — user notified",
+        "description": "Validation warning V3"
+      },
+      {
+        "failureMode": "Dry tapping in stainless steel: tap seizure imminent — stainless work-hardens rapidly; mandatory MQL or flood coolant; reduce Vc to ≤ 8 m/min",
+        "effect": "Smart warning triggered when: workpiece_material_group === 'M' && coolant_type === 'dry'",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Cutting speed too high for superalloy threading: V_c > 6 m/min in Ni/Ti alloys causes rapid BUE and tap fracture — reduce to 3–5 m/min and use HSSE-PM or solid carbide tap",
+        "effect": "Smart warning triggered when: workpiece_material_group === 'S' && Vc_m_min > 6",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Very small helix angle (< 2°): fine pitch thread — chip evacuation critical; use spiral flute tap (right-hand helix) for blind holes to eject chips upward",
+        "effect": "Smart warning triggered when: alpha_deg < 2",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "High feed rate on small tap: synchronisation error of ±1 rpm causes proportionally large pitch error — verify CNC rigid tapping encoder resolution; use compensation chuck below M8",
+        "effect": "Smart warning triggered when: Vf_mm_min > 500 && nominal_D < 8",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      },
+      {
+        "failureMode": "Deep blind hole threading: chip accumulation risk — use spiral flute tap and retract every 5 mm for chip evacuation; flood coolant at maximum pressure mandatory",
+        "effect": "Smart warning triggered when: thread_depth_mm > nominal_D * 2.5",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "Engineering best practice — review parameters"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "TH",
+        "nominal_D",
+        "pitch_mm",
+        "d1_mm",
+        "d2_mm",
+        "tap_drill_mm",
+        "alpha_deg",
+        "Vc_factor",
+        "Vc_corrected",
+        "n_rpm",
+        "Vf_mm_min",
+        "Vc_mult",
+        "Mc_Nm"
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 /**
  * Compliance Engine — region-aware coefficient selection for U-Engine & MarginCore.
  *
- * TR: yerel enflasyon, vergi, enerji tarifesi (yüksek/düşük yük)
- * DE: CBAM + AB sanayi verimlilik katsayıları
+ * TR: local inflation, tax, energy tariff (peak/off-peak)
+ * DE: CBAM + EU industrial efficiency factors
  * EN: Global fallback
  */
 
@@ -136,7 +136,7 @@ export function enrichRecommendationForRegion(
   const { profile, region: code } = buildRegionalContext(region);
 
   if (code === "TR" && features.includes("hidden_loss")) {
-    return `${baseRecommendation} [TR] Enerji tarifesi (yüksek yük ×${profile.energyPeakMultiplier.toFixed(2)}) ve KDV %${(profile.vatRate * 100).toFixed(0)} dahil gizli kayıp projeksiyonu uygulandı.`;
+    return `${baseRecommendation} [TR] Energy tariff (peak load ×${profile.energyPeakMultiplier.toFixed(2)}) and VAT %${(profile.vatRate * 100).toFixed(0)} included in hidden loss projection applied.`;
   }
 
   if (code === "DE" && features.includes("carbon_cbam") && profile.cbamEnabled) {

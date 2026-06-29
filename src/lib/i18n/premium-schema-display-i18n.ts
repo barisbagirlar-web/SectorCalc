@@ -34,5 +34,5 @@ export function resolvePremiumSchemaPainStatement(
 }
 
 export function isAppLocaleValue(locale: string): locale is AppLocale {
-  return locale === "en" || locale === "tr" || locale === "de" || locale === "fr" || locale === "es" || locale === "ar";
+  return locale === "en";
 }

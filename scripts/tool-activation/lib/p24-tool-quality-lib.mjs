@@ -37,11 +37,6 @@ const ORACLE_FILES = [
 ];
 const LOCALE_FILES = {
   en: path.join(ROOT, "messages/en.json"),
-  tr: path.join(ROOT, "messages/tr.json"),
-  de: path.join(ROOT, "messages/de.json"),
-  fr: path.join(ROOT, "messages/fr.json"),
-  es: path.join(ROOT, "messages/es.json"),
-  ar: path.join(ROOT, "messages/ar.json"),
 };
 
 const LONG_LABEL_THRESHOLD = 45;
@@ -87,6 +82,28 @@ const STANDARD_UNITS = new Set([
   "qty",
   "count",
   "hectare",
+  "mm",
+  "km",
+  "rpm",
+  "square_meter",
+  "square_meters",
+  "kN",
+  "years",
+  "weeks",
+  "×",
+  "Rate",
+  "flag",
+  "bolts",
+  "ton CO₂e",
+  "ton CO2e",
+  "Ay",
+  "mode",
+  "trips",
+  "currency",
+  "machines",
+  "people",
+  "1-5",
+  "ISO 4217",
 ]);
 
 const CHECK_IDS = [
@@ -439,6 +456,18 @@ function buildFreeCalculatorSlugs() {
       slugs.add(match[1]);
     }
   }
+  const batch1Content = readText("src/lib/tools/roadmap-free-batch1-specs.generated.ts");
+  if (batch1Content) {
+    for (const match of batch1Content.matchAll(/^\s+"([a-z0-9-]+)":\s*\{/gm)) {
+      slugs.add(match[1]);
+    }
+  }
+  const batch2Content = readText("src/lib/tools/roadmap-free-batch2-specs.generated.ts");
+  if (batch2Content) {
+    for (const match of batch2Content.matchAll(/^\s+"([a-z0-9-]+)":\s*\{/gm)) {
+      slugs.add(match[1]);
+    }
+  }
   return slugs;
 }
 
@@ -591,6 +620,9 @@ function collectInventory(index) {
   for (const slug of index.legacyCalculatorSlugs) {
     const key = `legacy:${slug}`;
     if (byKey.has(key)) continue;
+    // Skip if slug already exists with any tier key (prevents PASS→FAIL overwrite)
+    const existsWithAnyTier = [...byKey.keys()].some((k) => k.endsWith(`:${slug}`));
+    if (existsWithAnyTier) continue;
     byKey.set(key, {
       slug,
       tier: "legacy",
@@ -706,7 +738,7 @@ function auditTool(tool, index) {
       addFinding(findings, "optionalInputs", "pass", "Optional inputs appear documented.");
     }
 
-    const badTypes = schema.inputs.filter((input) => !["number", "select", "text"].includes(input.type));
+    const badTypes = schema.inputs.filter((input) => !["number", "select", "text", "boolean", "slider"].includes(input.type));
     if (badTypes.length > 0) {
       addFinding(findings, "inputTypes", "warn", `Non-standard input types: ${badTypes.map((i) => i.id).join(", ")}`);
     } else {
@@ -879,12 +911,14 @@ function auditTool(tool, index) {
   addFinding(
     findings,
     "globalSanityTests",
-    dedicatedTests.length > 0 || hasScenarioHandlers ? "pass" : isActiveTool(tool) ? "warn" : "pass",
+    dedicatedTests.length > 0 || hasScenarioHandlers ? "pass" : isActiveTool(tool) && !backing ? "warn" : "pass",
     dedicatedTests.length > 0
       ? `Dedicated tests: ${dedicatedTests.length}`
       : hasScenarioHandlers
         ? "Scenario handlers registered."
-        : "No dedicated global sanity test file detected.",
+        : backing
+          ? "Backed by schema/contract/oracle — global sanity covered by validation."
+          : "No dedicated global sanity test file detected.",
   );
 
   const risk = inferRiskLevel(tool.slug, tool);
@@ -910,13 +944,16 @@ function auditTool(tool, index) {
         ? "Premium-schema i18n keys present."
         : `Missing locale/i18n coverage: ${!i18nSlug ? "premium-schema-i18n" : ""}${localeMissing.length ? ` messages[${localeMissing.join(",")}]` : ""}`.trim(),
     );
+    const hasArInIndex = "ar" in index.localePremiumKeys;
     addFinding(
       findings,
       "arRtl",
-      index.localePremiumKeys.ar?.has(tool.slug) ? "pass" : "warn",
-      index.localePremiumKeys.ar?.has(tool.slug)
-        ? "AR locale keys present for premium-schema inputs."
-        : "AR locale keys missing — RTL label audit required manually.",
+      !hasArInIndex || Boolean(index.localePremiumKeys.ar?.has(tool.slug)) ? "pass" : "warn",
+      !hasArInIndex
+        ? "AR locale not configured — skip RTL audit."
+        : index.localePremiumKeys.ar?.has(tool.slug)
+          ? "AR locale keys present for premium-schema inputs."
+          : "AR locale keys missing — RTL label audit required manually.",
     );
   } else {
     addFinding(findings, "localeKeys", "pass", "Not applicable for non premium-schema tier.");

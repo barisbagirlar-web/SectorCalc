@@ -212,7 +212,7 @@ function StochasticMarginReportPanel({
  setParsed({
  isError: true,
  errorMessage:
- "HATA: Giriş yapılmamış. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.",
+ "ERROR: Not signed in. This calculation is only available to SectorCalc Pro members.",
  naivePrice: 0,
  riskBuffer: 0,
  p90SafePrice: 0,
@@ -231,8 +231,8 @@ function StochasticMarginReportPanel({
 
  setParsed(parsePremiumVerdictTxt(txt));
 
- if (!txt.startsWith("HATA:")) {
- trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
+if (!txt.startsWith("HATA:") && !txt.startsWith("ERROR:")) {
+trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
  toolSlug,
  });
  }

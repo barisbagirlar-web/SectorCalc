@@ -1,0 +1,307 @@
+{
+  "tool_id": "PRO_044",
+  "tool_name": "Refrigeration System COP, Refrigerant Mass Flow & Condenser Heat Rejection",
+  "category": "HVAC / Refrigeration Engineering",
+  "scope": "single_operation",
+  "primary_operation": "vapor_compression_refrigeration",
+  "inputs": [
+    {
+      "id": "Q_evap_kw",
+      "name": "Refrigeration Capacity / Evaporator Duty (Q_evap)",
+      "unit": "kW",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 0.5,
+      "absolute_max": 50000,
+      "default": 100,
+      "uncertainty": "±3%",
+      "uncertainty_source": "IEC 60034-1:2017 §8 — Electric machine: efficiency tolerance ±3%"
+    },
+    {
+      "id": "T_evap_c",
+      "name": "Evaporating Temperature (T_evap)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": -60,
+      "absolute_max": 15,
+      "default": 5,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "T_cond_c",
+      "name": "Condensing Temperature (T_cond)",
+      "unit": "°C",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 20,
+      "absolute_max": 80,
+      "default": 40,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "superheat_k",
+      "name": "Suction Superheat (ΔT_sh)",
+      "unit": "K",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 10,
+      "absolute_min": 0,
+      "absolute_max": 40,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "subcooling_k",
+      "name": "Liquid Subcooling (ΔT_sc)",
+      "unit": "K",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 5,
+      "absolute_min": 0,
+      "absolute_max": 20,
+      "uncertainty": "±2°C",
+      "uncertainty_source": "IEC 60751:2008 §6 — Class A Pt100 RTD: ±(0.15+0.002|t|)°C ≈ ±2°C"
+    },
+    {
+      "id": "compressor_isentropic_eff_pct",
+      "name": "Compressor Isentropic Efficiency (η_is)",
+      "unit": "%",
+      "type": "number",
+      "required": true,
+      "confidence_label": "STRONG",
+      "default": 75,
+      "absolute_min": 40,
+      "absolute_max": 92,
+      "uncertainty": "±2%",
+      "uncertainty_source": "JCSS PMC Part 3 — Efficiency/ratio: CoV≈0.02"
+    },
+    {
+      "id": "h_evap_out_kj_kg",
+      "name": "Refrigerant Enthalpy at Compressor Suction (h_1)",
+      "unit": "kJ/kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 150,
+      "absolute_max": 800,
+      "note": "From refrigerant P-h chart or REFPROP at T_evap + superheat",
+      "default": 280,
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
+    },
+    {
+      "id": "h_cond_out_kj_kg",
+      "name": "Refrigerant Enthalpy at Expansion Valve Inlet (h_3)",
+      "unit": "kJ/kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 100,
+      "absolute_max": 500,
+      "note": "From refrigerant P-h chart at T_cond - subcooling",
+      "default": 120,
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
+    },
+    {
+      "id": "h_cond_in_kj_kg",
+      "name": "Ideal Compressor Discharge Enthalpy (h_2s)",
+      "unit": "kJ/kg",
+      "type": "number",
+      "required": true,
+      "confidence_label": "EXACT",
+      "absolute_min": 200,
+      "absolute_max": 1000,
+      "note": "From refrigerant P-h chart: isentropic compression endpoint at P_cond",
+      "default": 250,
+      "uncertainty": "±2%",
+      "uncertainty_source": "OIML R76-1:2006 §3.7.1 — Class III weighing: ±1.5% (expanded ±2%)"
+    }
+  ],
+  "formulas": [
+    "q_evap_kj_kg = h_evap_out_kj_kg - h_cond_out_kj_kg   // [kJ/kg] Specific Refrigerating Effect (q_evap) Reference: ASHRAE Fundamentals 2021 Ch.2 — vapour-compression cycle",
+    "h_2act_kj_kg = h_evap_out_kj_kg + (h_cond_in_kj_kg - h_evap_out_kj_kg) / (compressor_isentropic_eff_pct / 100)   // [kJ/kg] Actual Compressor Discharge Enthalpy (h_2act) Reference: η_is = (h_2s - h_1) / (h_2act - h_1)",
+    "w_comp_kj_kg = h_2act_kj_kg - h_evap_out_kj_kg   // [kJ/kg] Specific Compressor Work (w_comp)",
+    "m_dot_kg_s = Q_evap_kw / q_evap_kj_kg   // [kg/s] Refrigerant Mass Flow Rate",
+    "W_comp_kw = m_dot_kg_s * w_comp_kj_kg   // [kW] Compressor Power Input Reference: ASHRAE 15-2022 §8",
+    "COP = Q_evap_kw / W_comp_kw; Q_cond_kw = Q_evap_kw + W_comp_kw   // [dimensionless, kW] System COP and Condenser Heat Rejection Reference: First Law of Thermodynamics energy balance; EN 378-1:2016 §5"
+  ],
+  "engine_rules": {
+    "standards": [
+      "ASHRAE 15-2022 Safety Standard",
+      "ASHRAE 34-2022 Refrigerant Designation",
+      "EN 378-1:2016",
+      "ISO 5149-1:2014"
+    ],
+    "validation": {
+      "V1": {
+        "condition": "T_cond_c <= T_evap_c + 10",
+        "error_msg": "Condensing temperature must exceed evaporating temperature by at least 10 K — check cycle temperature inputs",
+        "id": "V1"
+      },
+      "V2": {
+        "condition": "q_evap_kj_kg <= 0",
+        "error_msg": "Specific refrigerating effect ≤ 0: h_1 must exceed h_3 — verify P-h chart enthalpy values",
+        "id": "V2"
+      },
+      "V3": {
+        "condition": "COP < 1.0",
+        "error_msg": "COP < 1.0: very low system efficiency — verify enthalpy inputs and compressor efficiency",
+        "id": "V3"
+      }
+    },
+    "smart_warnings": [
+      {
+        "id": "W1",
+        "severity": "WARNING",
+        "message": "Lift (T_cond - T_evap) > 55 K: consider two-stage compression or economiser circuit per ASHRAE 15 §8.4",
+        "condition": "T_cond_c - T_evap_c > 55",
+        "source": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "id": "W2",
+        "severity": "WARNING",
+        "message": "Isentropic efficiency < 55%: compressor in degraded condition — check valve condition, clearance volume, and refrigerant charge",
+        "condition": "compressor_isentropic_eff_pct < 55",
+        "source": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "id": "W3",
+        "severity": "CRITICAL",
+        "message": "Suction superheat < 5 K: liquid slugging risk — compressor mechanical damage imminent; adjust expansion valve",
+        "condition": "superheat_k < 5",
+        "source": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "id": "W4",
+        "severity": "WARNING",
+        "message": "Low COP for moderate evaporating temperature: check for non-condensables in system or refrigerant contamination",
+        "condition": "COP < 2.0 && T_evap_c > -10",
+        "source": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "id": "W5",
+        "severity": "INFO",
+        "message": "Condenser duty >80% above evaporator: high heat rejection load — verify cooling tower or condenser coil capacity",
+        "condition": "Q_cond_kw > Q_evap_kw * 1.8",
+        "source": "ASHRAE 15-2022 Safety Standard"
+      }
+    ],
+    "fmea": [
+      {
+        "failureMode": "Input violation: T_cond_c <= T_evap_c + 10",
+        "effect": "Condensing temperature must exceed evaporating temperature by at least 10 K — check cycle temperature inputs",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V1"
+      },
+      {
+        "failureMode": "Input violation: q_evap_kj_kg <= 0",
+        "effect": "Specific refrigerating effect ≤ 0: h_1 must exceed h_3 — verify P-h chart enthalpy values",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V2"
+      },
+      {
+        "failureMode": "Input violation: COP < 1.0",
+        "effect": "COP < 1.0: very low system efficiency — verify enthalpy inputs and compressor efficiency",
+        "severity": 7,
+        "occurrence": 5,
+        "detection": 3,
+        "rpn": 105,
+        "rpn_high": 105,
+        "rpn_low": 80,
+        "control_measure": "Input validation — automatic BLOCK on violation",
+        "description": "Validation rule V3"
+      },
+      {
+        "failureMode": "Lift (T_cond - T_evap) > 55 K: consider two-stage compression or economiser circuit per ASHRAE 15 §8.4",
+        "effect": "Smart warning triggered when: T_cond_c - T_evap_c > 55",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "failureMode": "Isentropic efficiency < 55%: compressor in degraded condition — check valve condition, clearance volume, and refrigerant charge",
+        "effect": "Smart warning triggered when: compressor_isentropic_eff_pct < 55",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "failureMode": "Suction superheat < 5 K: liquid slugging risk — compressor mechanical damage imminent; adjust expansion valve",
+        "effect": "Smart warning triggered when: superheat_k < 5",
+        "severity": 8,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 128,
+        "rpn_high": 128,
+        "rpn_low": 76,
+        "control_measure": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "failureMode": "Low COP for moderate evaporating temperature: check for non-condensables in system or refrigerant contamination",
+        "effect": "Smart warning triggered when: COP < 2.0 && T_evap_c > -10",
+        "severity": 5,
+        "occurrence": 4,
+        "detection": 4,
+        "rpn": 80,
+        "rpn_high": 80,
+        "rpn_low": 48,
+        "control_measure": "ASHRAE 15-2022 Safety Standard"
+      },
+      {
+        "failureMode": "Condenser duty >80% above evaporator: high heat rejection load — verify cooling tower or condenser coil capacity",
+        "effect": "Smart warning triggered when: Q_cond_kw > Q_evap_kw * 1.8",
+        "severity": 3,
+        "occurrence": 3,
+        "detection": 3,
+        "rpn": 27,
+        "rpn_high": 27,
+        "rpn_low": 16,
+        "control_measure": "ASHRAE 15-2022 Safety Standard"
+      }
+    ],
+    "audit_log": true
+  },
+  "result_rows": [
+    {
+      "title": "Calculation Results",
+      "formulaNames": [
+        "q_evap_kj_kg",
+        "h_2act_kj_kg",
+        "w_comp_kj_kg",
+        "m_dot_kg_s",
+        "W_comp_kw",
+        "COP",
+        "Q_cond_kw"
+      ]
+    }
+  ]
+}

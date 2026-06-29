@@ -19,17 +19,17 @@ interface CopyButtonConfig {
 const COPY_BUTTONS: CopyButtonConfig[] = [
  {
  target: "whatsapp",
- label: "WhatsApp Mesajını Kopyala",
+ label: "Copy WhatsApp Message",
  build: buildLeadWhatsappMessage,
  },
  {
  target: "email",
- label: "E-posta Metnini Kopyala",
+ label: "Copy Email Text",
  build: buildLeadEmailMessage,
  },
  {
  target: "internal",
- label: "İç Notu Kopyala",
+ label: "Copy Internal Note",
  build: buildLeadInternalNote,
  },
 ];
@@ -68,9 +68,9 @@ export function LeadMessageTemplates({ lead }: LeadMessageTemplatesProps) {
 
  return (
  <section className="rounded-sm border border-slate/20 bg-white p-4 sm:p-5">
- <h3 className="text-sm font-bold text-deep-navy">Mesaj Şablonları</h3>
+ <h3 className="text-sm font-bold text-deep-navy">Message Templates</h3>
  <p className="mt-1 text-xs leading-relaxed text-text-secondary">
- Hazır metinleri panoya kopyalayın. Otomatik gönderim yapılmaz.
+ Copy ready-made text to clipboard. No automatic sending.
  </p>
 
  <div className="mt-4 flex flex-col gap-2">
@@ -83,7 +83,7 @@ export function LeadMessageTemplates({ lead }: LeadMessageTemplatesProps) {
  onClick={() => void handleCopy(button.target, button.build)}
  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white"
  >
- {copied ? "Kopyalandı" : button.label}
+ {copied ? "Copied" : button.label}
  </button>
  );
  })}
@@ -92,14 +92,14 @@ export function LeadMessageTemplates({ lead }: LeadMessageTemplatesProps) {
  {fallbackText ? (
  <div className="mt-4 space-y-2">
  <p className="text-xs font-medium text-amber" role="alert">
- Panoya kopyalanamadı. Metni aşağıdan manuel kopyalayın.
+ Could not copy to clipboard. Copy the text manually below.
  </p>
  <textarea
  readOnly
  value={fallbackText}
  rows={8}
  className="w-full resize-y rounded-lg border border-slate/25 bg-off-white px-3 py-2 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20"
- aria-label="Kopyalanacak metin"
+ aria-label="Text to copy"
  />
  </div>
  ) : null}
