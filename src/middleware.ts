@@ -37,19 +37,20 @@ export default function middleware(request: NextRequest) {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
   }
 
-  // EN-only: rewrite OLD locale-prefixed paths (from cached geo redirects) to /en/*
-  // e.g. /tr/en → /en, /tr/free-tools → /en/free-tools, /de → /en
-  // This handles the case where a user's browser still has the old geo-locale
-  // bootstrap script cached and gets redirected to /<locale>/...
-  if (pathname.startsWith("/tr") || pathname.startsWith("/de") || pathname.startsWith("/fr") || pathname.startsWith("/es") || pathname.startsWith("/ar")) {
-    const rest = pathname.slice(3); // strip "/tr", "/de", etc.
+  // SADECE sectorcalc.com/path — hiçbir locale prefix kabul edilmez.
+  // Eski locale path'leri (ör. /tr/en, /tr, /de, /fr, /es, /ar) kalıcı
+  // olarak /'e yönlendir. Bunlar artık geçerli değil.
+  if (
+    pathname.startsWith("/tr") ||
+    pathname.startsWith("/de") ||
+    pathname.startsWith("/fr") ||
+    pathname.startsWith("/es") ||
+    pathname.startsWith("/ar") ||
+    pathname.startsWith("/en")
+  ) {
     const url = request.nextUrl.clone();
-    if (!rest || rest === "/" || rest.startsWith("/en")) {
-      url.pathname = "/en";
-    } else {
-      url.pathname = `/en${rest}`;
-    }
-    return applyRegionHeaders(NextResponse.rewrite(url), request);
+    url.pathname = "/";
+    return applyRegionHeaders(NextResponse.redirect(url, 308), request);
   }
 
   // Rewrite non-prefixed paths to /en/* so [locale] route group works.
