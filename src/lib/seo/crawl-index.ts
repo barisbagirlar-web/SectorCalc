@@ -1,4 +1,4 @@
-import { listPublicFreeTrafficTools } from "@/lib/freemium/resolve-free-to-premium-migration";
+import { listPublicFreeTrafficTools } from "@/lib/tools/free-traffic-catalog";
 import { getOrderedFreeTrafficCategories } from "@/lib/tools/free-traffic-categories";
 import { buildPremiumSchemaCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
 import { listProgrammaticSeoSlugs, PROGRAMMATIC_SEO_PAGES } from "@/lib/seo/programmatic-seo-pages";

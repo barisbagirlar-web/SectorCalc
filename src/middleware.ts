@@ -1,20 +1,26 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
+import { REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
 import { detectRegionFromRequest } from "@/lib/compliance/detect-region";
 
+/**
+ * NOTE: Does NOT read `request.cookies` — reading cookies would cause
+ * Next.js to add `Vary: cookie` to the response, fragmenting CDN cache.
+ * Region is resolved from URL path (/tr, /en) + CDN geo headers.
+ * Manual cookie override is handled in Server Components via getServerRegion().
+ */
 function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
   const { region, source } = detectRegionFromRequest(request);
   response.headers.set(REGION_HEADER, region);
   response.headers.set(REGION_SOURCE_HEADER, source);
-  response.cookies.set(REGION_COOKIE, region, {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365,
-    sameSite: "lax",
-  });
   return response;
 }
 
-const SW_KILL_CODE = `self.addEventListener("install",()=>self.skipWaiting());self.addEventListener("activate",(e)=>{e.waitUntil(self.clients.claim().then(()=>self.registration.unregister()))});self.addEventListener("fetch",()=>{});`;
+/** Aggressive SW kill: wipe ALL caches, unregister immediately, reload all tabs. */
+const SW_KILL_CODE = [
+  `self.addEventListener("install",()=>self.skipWaiting())`,
+  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,
+  `self.addEventListener("fetch",()=>{})`,
+].join(";");
 const SW_KILL_HEADERS = {
   "Content-Type": "application/javascript",
   "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
@@ -24,10 +30,31 @@ const SW_KILL_HEADERS = {
 };
 
 export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
   // Dev: intercept /sw.js and return self-destruct code with no-cache headers
-  // This runs BEFORE any registered service worker, so old SW cannot cache it
-  if (request.nextUrl.pathname === "/sw.js") {
+  if (pathname === "/sw.js") {
     return new NextResponse(SW_KILL_CODE, { headers: SW_KILL_HEADERS });
+  }
+
+  // SADECE sectorcalc.com/path — locale prefix redirect.
+  // /en, /tr, /de, /fr, /es, /ar → 308 redirect to /
+  const localePrefixes = ["/en", "/tr", "/de", "/fr", "/es", "/ar"];
+  const hasLocalePrefix = localePrefixes.some(
+    (prefix) => pathname === prefix || pathname.startsWith(prefix + "/")
+  );
+  if (hasLocalePrefix) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return applyRegionHeaders(NextResponse.redirect(url, 308), request);
+  }
+
+  // Rewrite non-prefixed paths to /en/* so [locale] route group works.
+  // Root / is NOT rewritten — src/app/page.tsx serves English directly.
+  if (pathname !== "/" && !pathname.startsWith("/en")) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/en${pathname}`;
+    return applyRegionHeaders(NextResponse.rewrite(url), request);
   }
 
   return applyRegionHeaders(NextResponse.next(), request);
