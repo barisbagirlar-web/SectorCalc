@@ -1,5 +1,14 @@
 /**
  * Global SEO configuration — canonical base URL and supported sitemap locales.
+ *
+ * IMPORTANT: SITE_BASE_URL is hardcoded to the production domain because:
+ * 1. Sitemap/canonical URLs must always point to the public origin.
+ * 2. Firebase frameworks may inject NEXT_PUBLIC_SITE_URL pointing to
+ *    the Firebase staging URL (sectorcalc-bf412.web.app) during build.
+ * 3. .env.local is gitignored and not always present in build env.
+ *
+ * For local development this value is only used for sitemap generation,
+ * which is not consumed by search engines from localhost.
  */
 
 import {
@@ -11,29 +20,8 @@ import {
   ROOT_LOCALE,
 } from "@/lib/i18n/locale-config";
 
-const PRODUCTION_FALLBACK_URL = "https://sectorcalc.com";
-
-function normalizeBaseUrl(value: string): string {
-  const trimmed = value.trim().replace(/\/$/, "");
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-    return trimmed;
-  }
-  return `https://${trimmed}`;
-}
-
-function resolveSiteBaseUrl(): string {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (raw) {
-    const normalized = normalizeBaseUrl(raw);
-    if (/localhost|127\.0\.0\.1/i.test(normalized)) {
-      return PRODUCTION_FALLBACK_URL;
-    }
-    return normalized;
-  }
-  return PRODUCTION_FALLBACK_URL;
-}
-
-export const SITE_BASE_URL = resolveSiteBaseUrl();
+/** Canonical public origin — always production domain. */
+export const SITE_BASE_URL = "https://www.sectorcalc.com";
 
 export { SUPPORTED_LOCALES, DEFAULT_LOCALE, ROOT_LOCALE, type SupportedLocale, isSupportedLocale };
 

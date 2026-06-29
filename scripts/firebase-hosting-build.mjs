@@ -22,7 +22,7 @@ function run(command, args) {
       ...process.env,
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       NEXT_PUBLIC_SITE_URL:
-        process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
+        process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.sectorcalc.com",
     },
   });
   if ((result.status ?? 1) !== 0) {
