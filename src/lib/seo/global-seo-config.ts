@@ -11,7 +11,7 @@ import {
   ROOT_LOCALE,
 } from "@/lib/i18n/locale-config";
 
-const PRODUCTION_FALLBACK_URL = "https://sectorcalc-bf412.web.app";
+const PRODUCTION_FALLBACK_URL = "https://sectorcalc.com";
 
 function normalizeBaseUrl(value: string): string {
   const trimmed = value.trim().replace(/\/$/, "");
