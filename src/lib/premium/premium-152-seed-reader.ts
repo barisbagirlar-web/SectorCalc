@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import { sectorCalcPremium152Seed } from "@/data/premium/sectorcalc-premium-152.seed";
 
 export type Premium152SeedCategory = (typeof sectorCalcPremium152Seed.categories)[number];

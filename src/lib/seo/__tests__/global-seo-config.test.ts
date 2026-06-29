@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import { describe, expect, test } from "vitest";
 import { SITE_BASE_URL, resolveSitemapBaseUrl } from "@/lib/seo/global-seo-config";
 

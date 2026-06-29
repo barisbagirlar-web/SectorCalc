@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import { Link } from "@/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";

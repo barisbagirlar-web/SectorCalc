@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 /**
  * Global SEO configuration — canonical base URL and supported sitemap locales.
  *

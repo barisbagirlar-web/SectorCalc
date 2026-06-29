@@ -116,7 +116,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
       description,
       url,
       siteName: SITE.siteName,
-      locale: locale === "en" ? "en_US" : `${locale}_${locale.toUpperCase()}`,
+      locale: locale === "en" ? "en_US" : `${locale}_${String(locale).toUpperCase()}`,
       type: "website",
     },
     twitter: {

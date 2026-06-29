@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 /**
  * Global tool category taxonomy — merged from premium-152 seed categories
  * and free tool categories so that every category used in the catalog

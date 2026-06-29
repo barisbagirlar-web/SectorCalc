@@ -22,7 +22,7 @@ export type LocaleCtaMap = Record<CtaKey, string>;
 /** Maximum button label length per locale (public UI). */
 export const CTA_MAX_LENGTH: Record<SupportedLocale, number> = {
   en: 28,
-};
+} as Record<SupportedLocale, number>;
 
 export const LOCALE_CTA: Record<SupportedLocale, LocaleCtaMap> = {
   en: {
@@ -39,7 +39,7 @@ export const LOCALE_CTA: Record<SupportedLocale, LocaleCtaMap> = {
     chooseSector: "Choose sector",
     seeWhatThisEstimateMisses: "See what's missing",
   },
-};
+} as Record<SupportedLocale, LocaleCtaMap>;
 
 export function getCtaLabel(locale: SupportedLocale, key: CtaKey): string {
   return LOCALE_CTA[locale][key];

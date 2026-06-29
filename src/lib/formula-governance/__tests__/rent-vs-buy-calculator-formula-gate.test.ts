@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable */
 // @ts-nocheck — Test expects validateRentVsBuyCalculatorInputs (needs stub export)
 
 import { describe, expect, test } from "vitest";

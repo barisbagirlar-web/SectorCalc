@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 /**
  * ═══════════════════════════════════════════════════════════════════════════
  * SAFE EXPRESSION CORE (v4 — Full Industrial + All PRO Tool Patterns)

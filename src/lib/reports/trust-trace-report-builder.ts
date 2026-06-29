@@ -264,10 +264,10 @@ export function buildTrustTraceReportPayload(
     tier,
     loopStatus:
       trustTrace.loopStatus === "SUCCESS"
-        ? "success"
+        ? "SUCCESS"
         : trustTrace.loopStatus === "BLOCKED"
-          ? "blocked"
-          : "pending",
+          ? "BLOCKED"
+          : "NEED_DATA",
     calculationStatus,
     locale: input.locale ?? "en",
     generatedAt: input.generatedAt ?? new Date().toISOString(),

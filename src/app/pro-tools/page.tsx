@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";

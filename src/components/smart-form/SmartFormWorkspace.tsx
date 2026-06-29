@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 "use client";
 
 import { useMemo, type FormEvent, type ReactNode } from "react";

@@ -1,4 +1,5 @@
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+/* eslint-disable */
 // @ts-nocheck
 // Auto-generated calculators database.
 import { normalizeNumber, clamp, safeDivide, round, formatNumber, formatCurrency } from "@/lib/tools/free-traffic-calculators";

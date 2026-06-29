@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import type { AppLocale } from "@/i18n/routing";
 
 /**

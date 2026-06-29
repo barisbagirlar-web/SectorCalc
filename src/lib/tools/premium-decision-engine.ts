@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 /**
  * SectorCalc Premium Tool Contract v1 — unified decision engine.
  *

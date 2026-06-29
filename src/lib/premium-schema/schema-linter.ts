@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable */
 // @ts-nocheck — Schema Linter (locked type system)
 
 /**

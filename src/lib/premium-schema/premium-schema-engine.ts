@@ -265,7 +265,7 @@ function runPremiumSchemaEngineCore(
     computed.excessKwhDerived = Math.max(0, currentKwh - targetKwh);
   }
 
-  for (const step of schema.formulaPipeline) {
+  for (const step of schema.formulaPipeline ?? []) {
     try {
       const formulaFn = getFormulaFn(step.formulaId);
       const mapped = buildFormulaInputs(step.inputMap, userInputs, computed);

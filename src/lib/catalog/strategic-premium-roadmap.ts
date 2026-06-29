@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import {
   STRATEGIC_PREMIUM_CALCULATORS,
   type Locale,

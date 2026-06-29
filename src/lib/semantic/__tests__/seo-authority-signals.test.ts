@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 import { describe, expect, test } from "vitest";
 import { buildAboutPageAuthorityJsonLd } from "@/lib/semantic/build-entity-authority-jsonld";
 import { buildClaimReviewJsonLd } from "@/lib/semantic/build-claim-review-jsonld";

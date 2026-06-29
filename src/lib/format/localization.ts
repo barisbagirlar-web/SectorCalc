@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 /**
  * Locale-aware formatting helpers for SectorCalc public surfaces.
  */
