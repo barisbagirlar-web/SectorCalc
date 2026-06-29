@@ -508,6 +508,9 @@ function collectInventory(index) {
   for (const slug of index.legacyCalculatorSlugs) {
     const key = `legacy:${slug}`;
     if (byKey.has(key)) continue;
+    // Skip if slug already exists with any tier key (prevents PASS→FAIL overwrite)
+    const existsWithAnyTier = [...byKey.keys()].some((k) => k.endsWith(`:${slug}`));
+    if (existsWithAnyTier) continue;
     byKey.set(key, {
       slug,
       tier: "legacy",
