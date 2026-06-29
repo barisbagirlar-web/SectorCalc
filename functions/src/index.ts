@@ -4,6 +4,8 @@ import { REVENUE_FUNCTION_REGION } from "./regions";
 import { handleUpdateLeadPipeline } from "./updateLeadPipelineHandler";
 import { handleUpdateLeadTestClassification } from "./updateLeadTestClassificationHandler";
 import { handleCreateStripeCheckout } from "./createStripeCheckout";
+import { handleCreateCreditCheckout } from "./creditCheckout";
+import { handleSpendCredits } from "./spendCredits";
 import { handleStripeWebhook } from "./stripeWebhook";
 
 /** Admin — frozen region; do not migrate without explicit approval. */
@@ -36,6 +38,26 @@ export const createStripeCheckout = onRequest(
   },
   (req, res) => {
     void handleCreateStripeCheckout(req, res);
+  }
+);
+
+export const createCreditCheckout = onRequest(
+  {
+    region: REVENUE_FUNCTION_REGION,
+    invoker: "public",
+  },
+  (req, res) => {
+    void handleCreateCreditCheckout(req, res);
+  }
+);
+
+export const spendCredits = onRequest(
+  {
+    region: REVENUE_FUNCTION_REGION,
+    invoker: "public",
+  },
+  (req, res) => {
+    void handleSpendCredits(req, res);
   }
 );
 

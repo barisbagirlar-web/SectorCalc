@@ -1,7 +1,20 @@
 export const LEAD_INTENTS_COLLECTION = "leadIntents";
 export const USERS_COLLECTION = "users";
 export const USER_PURCHASES_SUBCOLLECTION = "purchases";
+export const USER_CREDITS_SUBCOLLECTION = "credits";
+export const USER_CREDIT_BALANCE_DOC = "balance";
+export const CREDIT_TRANSACTIONS_COLLECTION = "creditTransactions";
 export const PREMIUM_ENTITLEMENTS_COLLECTION = "premiumEntitlements";
+
+/** Firebase param names for Stripe credit pack price IDs (USD). */
+export const STRIPE_PRICE_CREDITS_1_PARAM = "STRIPE_PRICE_CREDITS_1";
+export const STRIPE_PRICE_CREDITS_5_PARAM = "STRIPE_PRICE_CREDITS_5";
+export const STRIPE_PRICE_CREDITS_15_PARAM = "STRIPE_PRICE_CREDITS_15";
+export const STRIPE_PRICE_CREDITS_30_PARAM = "STRIPE_PRICE_CREDITS_30";
+export const STRIPE_PRICE_CREDITS_100_PARAM = "STRIPE_PRICE_CREDITS_100";
+
+/** Stripe Checkout one-time credit pack (session metadata). */
+export const CHECKOUT_PLAN_CREDIT_PACKAGE = "credit_package" as const;
 
 /** Stripe Checkout plan identifiers (session metadata). */
 export const CHECKOUT_PLAN_PRO = "pro" as const;

@@ -9,6 +9,7 @@ export const REVENUE_FUNCTION_REGION = DEFAULT_FUNCTION_REGION;
 /** Revenue Flow function exports — all must use REVENUE_FUNCTION_REGION in index.ts. */
 export const REVENUE_FUNCTION_NAMES = [
   "createStripeCheckout",
+  "createCreditCheckout",
   "stripeWebhook",
   "futureReportExport",
 ] as const;
