@@ -1,0 +1,6259 @@
+{
+  "timestamp": "2026-06-29T17:24:29.952Z",
+  "total": 358,
+  "valid": 70,
+  "invalid": 288,
+  "byStatus": {
+    "PASS": 0,
+    "WARN": 358,
+    "FAIL": 0,
+    "RUNTIME_FAIL": 0,
+    "QUARANTINE": 0
+  },
+  "results": [
+    {
+      "file": "0-100-kmh-acceleration-calculator-schema.json",
+      "slug": "0-100-kmh-acceleration-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input cekişKatsayisi: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "1031-exchange-cash-out-calculator-schema.json",
+      "slug": "1031-exchange-cash-out-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "2d-inverse-kinematics-calculator-schema.json",
+      "slug": "2d-inverse-kinematics-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "401k-future-value-employer-match-calculator-schema.json",
+      "slug": "401k-future-value-employer-match-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "50-30-20-budget-calculator-schema.json",
+      "slug": "50-30-20-budget-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "abc-classification-calculator-schema.json",
+      "slug": "abc-classification-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "accounts-payable-turnover-calculator-schema.json",
+      "slug": "accounts-payable-turnover-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "accounts-receivable-turnover-calculator-schema.json",
+      "slug": "accounts-receivable-turnover-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "adc-resolution-calculator-schema.json",
+      "slug": "adc-resolution-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "adhesive-quantity-calculator-schema.json",
+      "slug": "adhesive-quantity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "amazon-fba-profit-calculator-schema.json",
+      "slug": "amazon-fba-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "anchor-chain-length-calculator-schema.json",
+      "slug": "anchor-chain-length-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input dipKatsayisi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "angle-of-twist-calculator-schema.json",
+      "slug": "angle-of-twist-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "annual-term-life-insurance-premium-calculator-schema.json",
+      "slug": "annual-term-life-insurance-premium-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "annualized-return-calculator-schema.json",
+      "slug": "annualized-return-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "annuity-income-calculator-schema.json",
+      "slug": "annuity-income-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "anova-f-statistic-calculator-schema.json",
+      "slug": "anova-f-statistic-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input grup1: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input grup2: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input grup1N: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input grup2N: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input grup1Varyans: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input grup2Varyans: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "antenna-length-calculator-schema.json",
+      "slug": "antenna-length-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input tip: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "api-latency-sla-calculator-schema.json",
+      "slug": "api-latency-sla-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "apr-calculator-schema.json",
+      "slug": "apr-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "asme-shaft-diameter-bending-torsion-calculator-schema.json",
+      "slug": "asme-shaft-diameter-bending-torsion-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "asset-allocation-calculator-schema.json",
+      "slug": "asset-allocation-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "audit-risk-calculator-schema.json",
+      "slug": "audit-risk-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "backdoor-roth-ira-conversion-calculator-schema.json",
+      "slug": "backdoor-roth-ira-conversion-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "barn-ventilation-calculator-schema.json",
+      "slug": "barn-ventilation-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "basal-metabolic-rate-mifflin-st-jeor-calculator-schema.json",
+      "slug": "basal-metabolic-rate-mifflin-st-jeor-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input cinsiyet: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "baseboard-length-calculator-schema.json",
+      "slug": "baseboard-length-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "battery-backup-time-calculator-schema.json",
+      "slug": "battery-backup-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "beam-deflection-calculator-schema.json",
+      "slug": "beam-deflection-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "beam-reaction-calculator-schema.json",
+      "slug": "beam-reaction-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "bearing-wall-stress-calculator-schema.json",
+      "slug": "bearing-wall-stress-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "bernoulli-pressure-calculator-schema.json",
+      "slug": "bernoulli-pressure-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "bilge-discharge-time-calculator-schema.json",
+      "slug": "bilge-discharge-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "biological-signal-sampling-calculator-schema.json",
+      "slug": "biological-signal-sampling-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "biot-savart-field-calculator-schema.json",
+      "slug": "biot-savart-field-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "black-scholes-calculator-schema.json",
+      "slug": "black-scholes-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "bmi-obesity-risk-calculator-schema.json",
+      "slug": "bmi-obesity-risk-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "boat-loan-calculator-schema.json",
+      "slug": "boat-loan-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "bobbin-yarn-length-calculator-schema.json",
+      "slug": "bobbin-yarn-length-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "body-fat-percentage-navy-method-calculator-schema.json",
+      "slug": "body-fat-percentage-navy-method-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "bond-price-calculator-schema.json",
+      "slug": "bond-price-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "bottleneck-analysis-calculator-schema.json",
+      "slug": "bottleneck-analysis-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "breeam-leed-score-calculator-schema.json",
+      "slug": "breeam-leed-score-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input enerji: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input su: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input malzeme: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "brrrr-investment-calculator-schema.json",
+      "slug": "brrrr-investment-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "building-load-factor-calculator-schema.json",
+      "slug": "building-load-factor-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "building-shadow-duration-calculator-schema.json",
+      "slug": "building-shadow-duration-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "buoyant-force-calculator-schema.json",
+      "slug": "buoyant-force-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "burn-rate-calculator-schema.json",
+      "slug": "burn-rate-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "business-valuation-multiple-calculator-schema.json",
+      "slug": "business-valuation-multiple-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input carpan: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cac-to-clv-ratio-calculator-schema.json",
+      "slug": "cac-to-clv-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cagr-calculator-schema.json",
+      "slug": "cagr-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "calibration-drift-calculator-schema.json",
+      "slug": "calibration-drift-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cap-rate-calculator-schema.json",
+      "slug": "cap-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cap-table-calculator-schema.json",
+      "slug": "cap-table-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "capacitive-reactance-calculator-schema.json",
+      "slug": "capacitive-reactance-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "capillary-rise-calculator-schema.json",
+      "slug": "capillary-rise-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "capital-gains-tax-calculator-schema.json",
+      "slug": "capital-gains-tax-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "capm-cost-of-equity-calculator-schema.json",
+      "slug": "capm-cost-of-equity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input beta: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "car-loan-calculator-schema.json",
+      "slug": "car-loan-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "carbon-footprint-calculator-schema.json",
+      "slug": "carbon-footprint-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "carbon-offset-trees-calculator-schema.json",
+      "slug": "carbon-offset-trees-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "carnot-efficiency-calculator-schema.json",
+      "slug": "carnot-efficiency-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cash-conversion-cycle-calculator-schema.json",
+      "slug": "cash-conversion-cycle-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cash-on-cash-return-calculator-schema.json",
+      "slug": "cash-on-cash-return-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cash-out-refinance-calculator-schema.json",
+      "slug": "cash-out-refinance-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "chain-drive-calculator-schema.json",
+      "slug": "chain-drive-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "chair-rail-calculator-schema.json",
+      "slug": "chair-rail-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "chandrasekhar-limit-calculator-schema.json",
+      "slug": "chandrasekhar-limit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "circular-economy-ratio-calculator-schema.json",
+      "slug": "circular-economy-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "clamping-force-calculator-schema.json",
+      "slug": "clamping-force-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "clearance-interference-calculator-schema.json",
+      "slug": "clearance-interference-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "click-through-rate-calculator-schema.json",
+      "slug": "click-through-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "closing-costs-calculator-schema.json",
+      "slug": "closing-costs-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cold-storage-heat-gain-calculator-schema.json",
+      "slug": "cold-storage-heat-gain-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "compound-interest-calculator-schema.json",
+      "slug": "compound-interest-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "compound-late-interest-calculator-schema.json",
+      "slug": "compound-late-interest-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "compton-shift-calculator-schema.json",
+      "slug": "compton-shift-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "confidence-interval-calculator-schema.json",
+      "slug": "confidence-interval-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input ortalama: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input stdHata: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "constrained-pipe-axial-thermal-stress-calculator-schema.json",
+      "slug": "constrained-pipe-axial-thermal-stress-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "consulting-hourly-rate-calculator-schema.json",
+      "slug": "consulting-hourly-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "container-loading-calculator-schema.json",
+      "slug": "container-loading-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "continuous-compounding-calculator-schema.json",
+      "slug": "continuous-compounding-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "contribution-margin-calculator-schema.json",
+      "slug": "contribution-margin-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "conversion-rate-calculator-schema.json",
+      "slug": "conversion-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "convertible-note-calculator-schema.json",
+      "slug": "convertible-note-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "correlation-regression-calculator-schema.json",
+      "slug": "correlation-regression-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input x1: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input y1: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input x2: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input y2: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input x3: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input y3: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cost-per-click-calculator-schema.json",
+      "slug": "cost-per-click-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "cost-per-mille-calculator-schema.json",
+      "slug": "cost-per-mille-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "credit-card-interest-calculator-schema.json",
+      "slug": "credit-card-interest-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "credit-card-processing-fee-calculator-schema.json",
+      "slug": "credit-card-processing-fee-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "crypto-profit-calculator-schema.json",
+      "slug": "crypto-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "customer-acquisition-cost-calculator-schema.json",
+      "slug": "customer-acquisition-cost-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "customer-churn-rate-calculator-schema.json",
+      "slug": "customer-churn-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "customer-lifetime-value-calculator-schema.json",
+      "slug": "customer-lifetime-value-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "customs-duty-calculator-schema.json",
+      "slug": "customs-duty-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "daily-compound-interest-calculator-schema.json",
+      "slug": "daily-compound-interest-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "daily-macronutrient-targets-calculator-schema.json",
+      "slug": "daily-macronutrient-targets-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "daily-water-intake-calculator-schema.json",
+      "slug": "daily-water-intake-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "data-backup-time-calculator-schema.json",
+      "slug": "data-backup-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input sikistirmaOrani: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "dcf-valuation-calculator-schema.json",
+      "slug": "dcf-valuation-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "de-broglie-wavelength-calculator-schema.json",
+      "slug": "de-broglie-wavelength-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "debt-consolidation-calculator-schema.json",
+      "slug": "debt-consolidation-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "debt-service-coverage-ratio-calculator-schema.json",
+      "slug": "debt-service-coverage-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "debt-to-income-ratio-calculator-schema.json",
+      "slug": "debt-to-income-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "decibel-converter-calculator-schema.json",
+      "slug": "decibel-converter-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input oran: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input tip: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "deck-board-calculator-schema.json",
+      "slug": "deck-board-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "density-converter-calculator-schema.json",
+      "slug": "density-converter-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input kaynak: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "depreciation-calculator-schema.json",
+      "slug": "depreciation-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "discounted-payback-calculator-schema.json",
+      "slug": "discounted-payback-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "dividend-reinvestment-calculator-schema.json",
+      "slug": "dividend-reinvestment-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "dividend-tax-calculator-schema.json",
+      "slug": "dividend-tax-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "draft-angle-calculator-schema.json",
+      "slug": "draft-angle-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "drill-string-torque-calculator-schema.json",
+      "slug": "drill-string-torque-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input kesiciKatsayi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "drip-irrigation-pipe-calculator-schema.json",
+      "slug": "drip-irrigation-pipe-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "dropshipping-profit-calculator-schema.json",
+      "slug": "dropshipping-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "drug-half-life-calculator-schema.json",
+      "slug": "drug-half-life-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "drying-time-calculator-schema.json",
+      "slug": "drying-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input nemFarki: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "drywall-sheet-calculator-schema.json",
+      "slug": "drywall-sheet-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "dupont-roi-calculator-schema.json",
+      "slug": "dupont-roi-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "earthquake-pga-calculator-schema.json",
+      "slug": "earthquake-pga-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input zeminKatsayisi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "ebay-fee-calculator-schema.json",
+      "slug": "ebay-fee-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ebitda-calculator-schema.json",
+      "slug": "ebitda-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ecommerce-profit-calculator-schema.json",
+      "slug": "ecommerce-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "economic-order-quantity-calculator-schema.json",
+      "slug": "economic-order-quantity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "effective-annual-rate-calculator-schema.json",
+      "slug": "effective-annual-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "effective-radiation-dose-calculator-schema.json",
+      "slug": "effective-radiation-dose-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input dokuAgirlikFaktoru: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input radyasyonTuruFaktoru: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "energy-density-calculator-schema.json",
+      "slug": "energy-density-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "engine-torque-calculator-schema.json",
+      "slug": "engine-torque-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "engineering-strain-calculator-schema.json",
+      "slug": "engineering-strain-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "equity-dilution-calculator-schema.json",
+      "slug": "equity-dilution-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "esg-score-calculator-schema.json",
+      "slug": "esg-score-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input cevre: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input sosyal: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input yonetisim: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "espp-calculator-schema.json",
+      "slug": "espp-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "etf-return-calculator-schema.json",
+      "slug": "etf-return-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "etsy-fee-calculator-schema.json",
+      "slug": "etsy-fee-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "eu-import-vat-calculator-schema.json",
+      "slug": "eu-import-vat-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ev-charging-time-calculator-schema.json",
+      "slug": "ev-charging-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ev-range-calculator-schema.json",
+      "slug": "ev-range-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "eva-calculator-schema.json",
+      "slug": "eva-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "extruder-output-calculator-schema.json",
+      "slug": "extruder-output-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fabric-shrinkage-calculator-schema.json",
+      "slug": "fabric-shrinkage-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fabric-weight-calculator-schema.json",
+      "slug": "fabric-weight-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "faraday-electrolysis-calculator-schema.json",
+      "slug": "faraday-electrolysis-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input elektronSayisi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fcff-fcfe-calculator-schema.json",
+      "slug": "fcff-fcfe-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fha-loan-calculator-schema.json",
+      "slug": "fha-loan-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fiber-optic-loss-calculator-schema.json",
+      "slug": "fiber-optic-loss-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fire-load-calculator-schema.json",
+      "slug": "fire-load-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fire-pump-power-calculator-schema.json",
+      "slug": "fire-pump-power-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "flight-cost-calculator-schema.json",
+      "slug": "flight-cost-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "forex-profit-calculator-schema.json",
+      "slug": "forex-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "freelancer-hourly-rate-calculator-schema.json",
+      "slug": "freelancer-hourly-rate-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "freight-cost-calculator-schema.json",
+      "slug": "freight-cost-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fuel-cost-calculator-schema.json",
+      "slug": "fuel-cost-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "fund-return-calculator-schema.json",
+      "slug": "fund-return-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "futures-profit-calculator-schema.json",
+      "slug": "futures-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input carpan: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "gage-r-and-r-calculator-schema.json",
+      "slug": "gage-r-and-r-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input parcaVaryans: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input olcumVaryans: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "gear-root-bending-stress-lewis-calculator-schema.json",
+      "slug": "gear-root-bending-stress-lewis-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input formFaktoru: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "gravel-weight-calculator-schema.json",
+      "slug": "gravel-weight-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "greywater-savings-calculator-schema.json",
+      "slug": "greywater-savings-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "gross-net-profit-calculator-schema.json",
+      "slug": "gross-net-profit-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "h-index-calculator-schema.json",
+      "slug": "h-index-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input atif1: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input atif2: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input atif3: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input atif4: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input atif5: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "hardness-conversion-calculator-schema.json",
+      "slug": "hardness-conversion-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input HB: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "heat-transfer-rate-calculator-schema.json",
+      "slug": "heat-transfer-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "heloc-calculator-schema.json",
+      "slug": "heloc-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "high-deductible-medicare-savings-calculator-schema.json",
+      "slug": "high-deductible-medicare-savings-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "home-affordability-calculator-schema.json",
+      "slug": "home-affordability-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "hookes-law-normal-stress-calculator-schema.json",
+      "slug": "hookes-law-normal-stress-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input birimSekilDegistirme: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "horsepower-converter-calculator-schema.json",
+      "slug": "horsepower-converter-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input kaynak: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "hsa-tax-savings-calculator-schema.json",
+      "slug": "hsa-tax-savings-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "hydroelectric-power-calculator-schema.json",
+      "slug": "hydroelectric-power-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "hydrostatic-pressure-fluid-column-calculator-schema.json",
+      "slug": "hydrostatic-pressure-fluid-column-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ideal-gas-law-calculator-schema.json",
+      "slug": "ideal-gas-law-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "income-adjusted-medicare-premium-calculator-schema.json",
+      "slug": "income-adjusted-medicare-premium-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "indicated-horsepower-calculator-schema.json",
+      "slug": "indicated-horsepower-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "inductive-reactance-calculator-schema.json",
+      "slug": "inductive-reactance-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "infinite-well-energy-calculator-schema.json",
+      "slug": "infinite-well-energy-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input kuantumSayisi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "inflation-adjustment-calculator-schema.json",
+      "slug": "inflation-adjustment-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "injury-risk-asymmetry-calculator-schema.json",
+      "slug": "injury-risk-asymmetry-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "insurance-premium-calculator-schema.json",
+      "slug": "insurance-premium-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "interference-fit-contact-pressure-calculator-schema.json",
+      "slug": "interference-fit-contact-pressure-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "inventory-turnover-calculator-schema.json",
+      "slug": "inventory-turnover-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "inventory-turnover-rate-calculator-schema.json",
+      "slug": "inventory-turnover-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ira-required-minimum-distribution-calculator-schema.json",
+      "slug": "ira-required-minimum-distribution-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "irr-calculator-schema.json",
+      "slug": "irr-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "item-difficulty-discrimination-calculator-schema.json",
+      "slug": "item-difficulty-discrimination-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "joint-compound-calculator-schema.json",
+      "slug": "joint-compound-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "joint-torque-calculator-schema.json",
+      "slug": "joint-torque-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "kalman-filter-prediction-calculator-schema.json",
+      "slug": "kalman-filter-prediction-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "landfill-area-calculator-schema.json",
+      "slug": "landfill-area-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "laser-processing-energy-density-calculator-schema.json",
+      "slug": "laser-processing-energy-density-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "learning-curve-calculator-schema.json",
+      "slug": "learning-curve-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "lens-power-calculator-schema.json",
+      "slug": "lens-power-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "levelized-cost-of-energy-calculator-schema.json",
+      "slug": "levelized-cost-of-energy-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "lever-rule-calculator-schema.json",
+      "slug": "lever-rule-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "life-insurance-needs-calculator-schema.json",
+      "slug": "life-insurance-needs-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "line-balancing-calculator-schema.json",
+      "slug": "line-balancing-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "linoleum-length-calculator-schema.json",
+      "slug": "linoleum-length-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "lintel-beam-bending-stress-calculator-schema.json",
+      "slug": "lintel-beam-bending-stress-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "load-factor-calculator-schema.json",
+      "slug": "load-factor-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "loan-affordability-calculator-schema.json",
+      "slug": "loan-affordability-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "loan-payoff-calculator-schema.json",
+      "slug": "loan-payoff-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "loom-production-calculator-schema.json",
+      "slug": "loom-production-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "lvl-beam-capacity-calculator-schema.json",
+      "slug": "lvl-beam-capacity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "machine-depreciation-calculator-schema.json",
+      "slug": "machine-depreciation-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "magnetic-field-wire-calculator-schema.json",
+      "slug": "magnetic-field-wire-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "marketing-roi-calculator-schema.json",
+      "slug": "marketing-roi-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "maximum-drawdown-calculator-schema.json",
+      "slug": "maximum-drawdown-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "maximum-torsional-shear-stress-circular-calculator-schema.json",
+      "slug": "maximum-torsional-shear-stress-circular-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mean-median-mode-calculator-schema.json",
+      "slug": "mean-median-mode-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input deger1: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger2: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger3: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger4: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger5: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "metacentric-height-calculator-schema.json",
+      "slug": "metacentric-height-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "minimum-belt-tension-slack-side-calculator-schema.json",
+      "slug": "minimum-belt-tension-slack-side-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input suratme: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "minimum-credit-card-payment-calculator-schema.json",
+      "slug": "minimum-credit-card-payment-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "minimum-sample-size-calculator-schema.json",
+      "slug": "minimum-sample-size-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input Z: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input stdSapma: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input hataPayi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "minimum-weld-throat-thickness-calculator-schema.json",
+      "slug": "minimum-weld-throat-thickness-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mohrs-circle-principal-stress-calculator-schema.json",
+      "slug": "mohrs-circle-principal-stress-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "monthly-disability-insurance-benefit-calculator-schema.json",
+      "slug": "monthly-disability-insurance-benefit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "monthly-mortgage-payment-calculator-schema.json",
+      "slug": "monthly-mortgage-payment-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mooring-line-load-calculator-schema.json",
+      "slug": "mooring-line-load-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input guvenlikFaktoru: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mortgage-amortization-calculator-schema.json",
+      "slug": "mortgage-amortization-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mortgage-comparison-calculator-schema.json",
+      "slug": "mortgage-comparison-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mortgage-points-calculator-schema.json",
+      "slug": "mortgage-points-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mortgage-refinance-calculator-schema.json",
+      "slug": "mortgage-refinance-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "motor-efficiency-calculator-schema.json",
+      "slug": "motor-efficiency-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "motorcycle-loan-calculator-schema.json",
+      "slug": "motorcycle-loan-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "mud-annular-velocity-calculator-schema.json",
+      "slug": "mud-annular-velocity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "net-positive-suction-head-available-calculator-schema.json",
+      "slug": "net-positive-suction-head-available-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "nft-profit-calculator-schema.json",
+      "slug": "nft-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "noise-propagation-calculator-schema.json",
+      "slug": "noise-propagation-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "normal-shock-wave-pressure-jump-calculator-schema.json",
+      "slug": "normal-shock-wave-pressure-jump-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input k: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "normal-stress-force-area-calculator-schema.json",
+      "slug": "normal-stress-force-area-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "npv-calculator-schema.json",
+      "slug": "npv-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "operating-margin-calculator-schema.json",
+      "slug": "operating-margin-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "opportunity-cost-calculator-schema.json",
+      "slug": "opportunity-cost-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ore-reserve-volume-calculator-schema.json",
+      "slug": "ore-reserve-volume-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "oven-capacity-calculator-schema.json",
+      "slug": "oven-capacity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "overall-equipment-effectiveness-calculator-schema.json",
+      "slug": "overall-equipment-effectiveness-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pasteurization-time-calculator-schema.json",
+      "slug": "pasteurization-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "paving-stone-calculator-schema.json",
+      "slug": "paving-stone-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "payment-processor-fee-calculator-schema.json",
+      "slug": "payment-processor-fee-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pb-ratio-calculator-schema.json",
+      "slug": "pb-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pe-ratio-calculator-schema.json",
+      "slug": "pe-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "personal-loan-calculator-schema.json",
+      "slug": "personal-loan-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "photoelectric-effect-calculator-schema.json",
+      "slug": "photoelectric-effect-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pid-controller-ziegler-calculator-schema.json",
+      "slug": "pid-controller-ziegler-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input kritikKazanc: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pile-bearing-capacity-calculator-schema.json",
+      "slug": "pile-bearing-capacity-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "plaster-weight-calculator-schema.json",
+      "slug": "plaster-weight-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "plastic-cooling-time-calculator-schema.json",
+      "slug": "plastic-cooling-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "plastic-drying-time-calculator-schema.json",
+      "slug": "plastic-drying-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input nemAlmaKapasite: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pmi-calculator-schema.json",
+      "slug": "pmi-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "porosity-calculator-schema.json",
+      "slug": "porosity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "portfolio-optimization-calculator-schema.json",
+      "slug": "portfolio-optimization-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "profitability-index-calculator-schema.json",
+      "slug": "profitability-index-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "propagation-constant-calculator-schema.json",
+      "slug": "propagation-constant-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "property-tax-calculator-schema.json",
+      "slug": "property-tax-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ps-ratio-calculator-schema.json",
+      "slug": "ps-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "pump-power-calculator-schema.json",
+      "slug": "pump-power-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "quality-factor-calculator-schema.json",
+      "slug": "quality-factor-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "quantum-tunneling-probability-calculator-schema.json",
+      "slug": "quantum-tunneling-probability-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rainwater-harvest-calculator-schema.json",
+      "slug": "rainwater-harvest-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rc-time-constant-calculator-schema.json",
+      "slug": "rc-time-constant-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "real-estate-commission-calculator-schema.json",
+      "slug": "real-estate-commission-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "real-return-calculator-schema.json",
+      "slug": "real-return-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rectangular-section-moment-of-inertia-calculator-schema.json",
+      "slug": "rectangular-section-moment-of-inertia-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "recycling-rate-calculator-schema.json",
+      "slug": "recycling-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rent-to-value-ratio-calculator-schema.json",
+      "slug": "rent-to-value-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rent-vs-buy-calculator-schema.json",
+      "slug": "rent-vs-buy-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rental-property-cash-flow-calculator-schema.json",
+      "slug": "rental-property-cash-flow-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "reorder-point-calculator-schema.json",
+      "slug": "reorder-point-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input Z: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "retirement-payout-calculator-schema.json",
+      "slug": "retirement-payout-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "retirement-portfolio-value-calculator-schema.json",
+      "slug": "retirement-portfolio-value-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "retirement-savings-goal-time-calculator-schema.json",
+      "slug": "retirement-savings-goal-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "ridge-beam-calculator-schema.json",
+      "slug": "ridge-beam-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rlc-resonant-frequency-calculator-schema.json",
+      "slug": "rlc-resonant-frequency-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "roi-calculator-schema.json",
+      "slug": "roi-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "roic-calculator-schema.json",
+      "slug": "roic-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rsa-key-strength-calculator-schema.json",
+      "slug": "rsa-key-strength-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rsu-calculator-schema.json",
+      "slug": "rsu-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "runway-length-calculator-schema.json",
+      "slug": "runway-length-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "rv-loan-calculator-schema.json",
+      "slug": "rv-loan-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "safe-agreement-calculator-schema.json",
+      "slug": "safe-agreement-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sampling-weight-calculator-schema.json",
+      "slug": "sampling-weight-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input tabakaPopulasyon: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input toplamPopulasyon: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input tabakaOrneklem: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input toplamOrneklem: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "scrap-rate-optimization-calculator-schema.json",
+      "slug": "scrap-rate-optimization-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "seed-rate-calculator-schema.json",
+      "slug": "seed-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sewing-cycle-time-calculator-schema.json",
+      "slug": "sewing-cycle-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sewing-line-balancing-calculator-schema.json",
+      "slug": "sewing-line-balancing-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sharpe-ratio-calculator-schema.json",
+      "slug": "sharpe-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "shear-force-diagram-calculator-schema.json",
+      "slug": "shear-force-diagram-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "ship-draft-calculator-schema.json",
+      "slug": "ship-draft-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input blokKatsayi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "shipping-cost-calculator-schema.json",
+      "slug": "shipping-cost-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "shopify-profit-calculator-schema.json",
+      "slug": "shopify-profit-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "siding-panel-calculator-schema.json",
+      "slug": "siding-panel-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "signal-to-noise-ratio-calculator-schema.json",
+      "slug": "signal-to-noise-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "silage-weight-calculator-schema.json",
+      "slug": "silage-weight-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "simple-interest-calculator-schema.json",
+      "slug": "simple-interest-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "simply-supported-beam-deflection-calculator-schema.json",
+      "slug": "simply-supported-beam-deflection-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "slope-stability-factor-calculator-schema.json",
+      "slug": "slope-stability-factor-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "smed-setup-time-calculator-schema.json",
+      "slug": "smed-setup-time-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "social-security-benefit-adjustment-calculator-schema.json",
+      "slug": "social-security-benefit-adjustment-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "soffit-area-calculator-schema.json",
+      "slug": "soffit-area-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "soil-bearing-capacity-calculator-schema.json",
+      "slug": "soil-bearing-capacity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "solenoid-magnetic-field-calculator-schema.json",
+      "slug": "solenoid-magnetic-field-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sortino-ratio-calculator-schema.json",
+      "slug": "sortino-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "spray-paint-calculator-schema.json",
+      "slug": "spray-paint-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "spring-force-hookes-law-calculator-schema.json",
+      "slug": "spring-force-hookes-law-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "spring-mass-resonant-frequency-calculator-schema.json",
+      "slug": "spring-mass-resonant-frequency-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sprinkler-flow-rate-calculator-schema.json",
+      "slug": "sprinkler-flow-rate-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "sqnr-calculator-schema.json",
+      "slug": "sqnr-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "standard-deviation-variance-calculator-schema.json",
+      "slug": "standard-deviation-variance-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input deger1: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger2: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger3: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger4: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger5: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "standard-time-calculator-schema.json",
+      "slug": "standard-time-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "startup-valuation-calculator-schema.json",
+      "slug": "startup-valuation-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "statute-of-limitations-calculator-schema.json",
+      "slug": "statute-of-limitations-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input kesintiDurumu: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "steel-beam-maximum-bending-stress-calculator-schema.json",
+      "slug": "steel-beam-maximum-bending-stress-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "stock-return-calculator-schema.json",
+      "slug": "stock-return-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "stokes-law-calculator-schema.json",
+      "slug": "stokes-law-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "student-loan-calculator-schema.json",
+      "slug": "student-loan-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "student-loan-refinance-calculator-schema.json",
+      "slug": "student-loan-refinance-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "surface-roughness-calculator-schema.json",
+      "slug": "surface-roughness-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "surface-tension-calculator-schema.json",
+      "slug": "surface-tension-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "target-heart-rate-karvonen-calculator-schema.json",
+      "slug": "target-heart-rate-karvonen-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "tariff-extra-duty-calculator-schema.json",
+      "slug": "tariff-extra-duty-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "taxi-fare-calculator-schema.json",
+      "slug": "taxi-fare-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "terminal-velocity-calculator-schema.json",
+      "slug": "terminal-velocity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input direncKatsayisi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "tesla-unit-converter-calculator-schema.json",
+      "slug": "tesla-unit-converter-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input kaynak: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "thermal-conductivity-converter-calculator-schema.json",
+      "slug": "thermal-conductivity-converter-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input kaynak: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "thin-walled-pressure-vessel-hoop-stress-calculator-schema.json",
+      "slug": "thin-walled-pressure-vessel-hoop-stress-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "tile-waste-calculator-schema.json",
+      "slug": "tile-waste-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "timber-beam-shear-calculator-schema.json",
+      "slug": "timber-beam-shear-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "torque-converter-calculator-schema.json",
+      "slug": "torque-converter-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input deger: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "input kaynak: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "torsion-spring-calculator-schema.json",
+      "slug": "torsion-spring-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "total-daily-energy-expenditure-calculator-schema.json",
+      "slug": "total-daily-energy-expenditure-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "input aktiviteSeviyesi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "traditional-vs-roth-ira-comparison-calculator-schema.json",
+      "slug": "traditional-vs-roth-ira-comparison-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "traffic-signal-delay-calculator-schema.json",
+      "slug": "traffic-signal-delay-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "training-impulse-calculator-schema.json",
+      "slug": "training-impulse-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input cinsiyet: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "treynor-ratio-calculator-schema.json",
+      "slug": "treynor-ratio-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input beta: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "undamped-spring-mass-angular-frequency-calculator-schema.json",
+      "slug": "undamped-spring-mass-angular-frequency-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "usd-loan-cost-calculator-schema.json",
+      "slug": "usd-loan-cost-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "va-loan-calculator-schema.json",
+      "slug": "va-loan-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "vacuum-pump-time-calculator-schema.json",
+      "slug": "vacuum-pump-time-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        },
+        {
+          "layer": "trust",
+          "message": "Undefined function in formula (f, g, calc, calculate)"
+        }
+      ]
+    },
+    {
+      "file": "vehicle-top-speed-calculator-schema.json",
+      "slug": "vehicle-top-speed-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input suratmeKatsayi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "viscous-pump-power-calculator-schema.json",
+      "slug": "viscous-pump-power-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "vo2-max-cooper-test-calculator-schema.json",
+      "slug": "vo2-max-cooper-test-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 1 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "volumetric-weight-calculator-schema.json",
+      "slug": "volumetric-weight-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input bolen: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "von-mises-stress-calculator-schema.json",
+      "slug": "von-mises-stress-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "vswr-calculator-schema.json",
+      "slug": "vswr-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wacc-calculator-schema.json",
+      "slug": "wacc-calculator",
+      "valid": true,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wallpaper-roll-calculator-schema.json",
+      "slug": "wallpaper-roll-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "warehouse-capacity-calculator-schema.json",
+      "slug": "warehouse-capacity-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "water-footprint-calculator-schema.json",
+      "slug": "water-footprint-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "watershed-runoff-calculator-schema.json",
+      "slug": "watershed-runoff-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input akisKatsayisi: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wavelength-calculator-schema.json",
+      "slug": "wavelength-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "weld-heat-input-calculator-schema.json",
+      "slug": "weld-heat-input-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input verim: missing unit"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "well-bottom-pressure-calculator-schema.json",
+      "slug": "well-bottom-pressure-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wellbore-pressure-calculator-schema.json",
+      "slug": "wellbore-pressure-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "whole-life-insurance-cash-value-calculator-schema.json",
+      "slug": "whole-life-insurance-cash-value-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wind-turbine-power-calculator-schema.json",
+      "slug": "wind-turbine-power-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "input Cp: missing unit"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wood-siding-calculator-schema.json",
+      "slug": "wood-siding-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "wood-stain-calculator-schema.json",
+      "slug": "wood-stain-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "working-capital-calculator-schema.json",
+      "slug": "working-capital-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    },
+    {
+      "file": "worm-gear-efficiency-calculator-schema.json",
+      "slug": "worm-gear-efficiency-calculator",
+      "valid": false,
+      "trustStatus": "WARN",
+      "issues": [
+        {
+          "layer": "industrial",
+          "message": "inputs count 2 outside 3–8 range"
+        },
+        {
+          "layer": "industrial",
+          "message": "formulas count 1 < 2"
+        },
+        {
+          "layer": "trust",
+          "message": "Uncategorized or \"Diğer\""
+        }
+      ]
+    }
+  ]
+}
