@@ -1,11 +1,5 @@
 import type { NextRequest } from "next/server";
-import {
-  countryToRegion,
-  isRegionCode,
-  REGION_HEADER,
-  REGION_MANUAL_COOKIE,
-  type RegionCode,
-} from "@/config/regions";
+import { isRegionCode, REGION_MANUAL_COOKIE, type RegionCode } from "@/config/regions";
 import { resolveRegionFromRequestContext } from "@/lib/compliance/resolve-region";
 
 const GEO_COUNTRY_HEADERS = [
@@ -41,26 +35,17 @@ export function detectCountryFromHeaders(
 
 /**
  * Middleware-safe region detection: does NOT read cookies.
- * Reading `request.cookies` causes Next.js to add `Vary: cookie` to the response,
- * which fragments the CDN cache. Manual cookie override is handled
- * in Server Components via `getServerRegion()`.
- *
- * Priority: country header → locale fallback → global default (EN).
+ * Region is derived ONLY from URL locale path (/en, /de, /tr).
+ * CDN geo headers are IGNORED because:
+ * 1. This is a single-language (EN) site — TR and DE support does not exist.
+ * 2. Geo headers (x-country-code) would incorrectly set region=TR for TR visitors.
+ * 3. Manual cookie override is handled in Server Components via getServerRegion().
  */
 export function detectRegionFromRequest(request: NextRequest): RegionResolutionResult {
-  const detectedCountry = detectCountryFromHeaders(request.headers);
-  if (detectedCountry) {
-    const regionFromCountry = countryToRegion(detectedCountry);
-    if (detectedCountry === "TR" || detectedCountry === "DE") {
-      return { region: regionFromCountry, source: "request-country" };
-    }
-  }
-
   const localeRegion = resolveRegionFromRequestContext(request.nextUrl.pathname, null);
-  const isGlobalDefault = localeRegion === "EN" && !detectedCountry;
   return {
     region: localeRegion,
-    source: isGlobalDefault ? "global-default" : "locale-fallback",
+    source: localeRegion === "EN" ? "global-default" : "locale-fallback",
   };
 }
 
