@@ -1,7 +1,3 @@
-/**
- * Active locale definitions — single source of truth for routing, formatting, and UI.
- */
-
 export const SUPPORTED_LOCALES = ["en"] as const;
 
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
@@ -12,9 +8,9 @@ export const DEFAULT_LOCALE = ROOT_LOCALE;
 
 export type TextDirection = "ltr" | "rtl";
 
-export type LocaleDefaultRegion = "GLOBAL" | "TR" | "EU";
+export type LocaleDefaultRegion = "GLOBAL";
 
-export type LocaleCurrency = "USD" | "TRY" | "EUR";
+export type LocaleCurrency = "USD";
 
 export type LocaleDefinition = {
   readonly code: SupportedLocale;
@@ -82,8 +78,5 @@ export const LOCALE_COOKIE = "sectorcalc_locale";
 export const LOCALE_MANUAL_COOKIE = "sectorcalc_locale_manual";
 
 export const NEXT_LOCALE_COOKIE = "NEXT_LOCALE";
-
-/** ISO 3166-1 alpha-2 country from edge geo headers (client redirect fallback). */
-export const COUNTRY_COOKIE = "sectorcalc_country";
 
 export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {};

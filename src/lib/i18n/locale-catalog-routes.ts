@@ -4,7 +4,7 @@ import { addLocaleToPath } from "@/lib/i18n/locale-routing";
 /** Core catalog hubs — smoke-tested on every supported locale route. */
 export const LOCALE_CATALOG_ROUTES = [
   "/free-tools",
-  "/pro-tools",
+  "/premium-tools",
   "/categories",
   "/industries",
 ] as const;
