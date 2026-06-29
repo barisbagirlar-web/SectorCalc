@@ -1,22 +1,13 @@
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
-import { getPremiumToolContract } from "@/lib/tools/premium-tool-contracts";
-import {
-  isPremiumSchemaExtendedProductionSlug,
-} from "@/lib/formula-governance/oracle/premium-schema-extended-production-locators";
 import {
   isFreeFullLoopRuntimeSlug,
   resolveFullLoopContractSlug,
 } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
-import { getToolGuideSpec } from "@/lib/tool-guides/premium-input-guide-specs";
 import {
   localizeFreeTrafficToolInputs,
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
-import {
-  isToolBackingActivationEligible,
-  resolvePremiumSchemaFromBacking,
-  resolveRuntimeTierFromBacking,
-} from "@/lib/tools/tool-backing-detector";
+import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { hasDedicatedTrafficCalculator } from "@/lib/tools/free-traffic-calculators";
 import {
@@ -25,9 +16,9 @@ import {
   getRevenueToolByPremiumRouteSlug,
 } from "@/lib/tools/revenue-tools";
 import { isP24PassForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
-import { applyReadinessActivationBridge } from "@/lib/tools/runtime-activation-bridge";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { normalizeLocale } from "@/lib/format/localization";
+import { generatedTools } from "@/tools/generated";
 
 export type RuntimeReadinessStatus = "ready" | "review" | "blocked";
 
@@ -85,8 +76,6 @@ const GENERIC_UNITS = new Set(["value", "input", "field", "key", "amount"]);
 const ENGLISH_TOKEN =
   /\b(fee|subscription|monthly|months|value|input|enter|year|calculation|free|premium)\b/i;
 
-const TURKISH_MARKERS = /[çğıöşüÇĞİÖŞÜ]|(\b(Aylık|Ay|girin|ücret|tutar|hesap)\b)/i;
-
 type ResolvedInput = {
   readonly key: string;
   readonly label: string;
@@ -94,42 +83,8 @@ type ResolvedInput = {
   readonly required?: boolean;
 };
 
-function resolveExtendedProductionInputs(slug: string): readonly ResolvedInput[] {
-  const guideSpec = getToolGuideSpec(slug);
-  if (guideSpec?.inputMap?.length) {
-    return guideSpec.inputMap.map((entry) => ({
-      key: entry.inputKey,
-      label: entry.inputKey.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),
-      required: entry.visualRole !== "output",
-    }));
-  }
-
-  const contract =
-    getFormulaContractBySlug(slug) ?? getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
-  if (!contract?.requiredInputs?.length) {
-    return [];
-  }
-
-  return contract.requiredInputs.map((key) => ({
-    key,
-    label: key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),
-    required: true,
-  }));
-}
-
-function isExtendedProductionSlug(slug: string): boolean {
-  return isPremiumSchemaExtendedProductionSlug(slug);
-}
-
-function resolveNativePremiumSchema(slug: string) {
-  return resolvePremiumSchemaFromBacking(slug);
-}
-
 function resolveTier(slug: string): RuntimeToolTier {
-  if (resolveNativePremiumSchema(slug)) {
-    return "premium-schema";
-  }
-  if (isExtendedProductionSlug(slug)) {
+  if (getPremiumSchemaForPaidSlug(slug)) {
     return "premium-schema";
   }
   if (getRevenueToolByPaidSlug(slug) || getRevenueToolByPremiumRouteSlug(slug)) {
@@ -142,13 +97,10 @@ function resolveTier(slug: string): RuntimeToolTier {
 }
 
 function hasActiveRoute(slug: string, tier: RuntimeToolTier): boolean {
-  if (isExtendedProductionSlug(slug)) {
-    return true;
+  if (tier === "premium-schema") {
+    return Boolean(getPremiumSchemaForPaidSlug(slug));
   }
-  if (tier === "premium-schema" && resolveNativePremiumSchema(slug)) {
-    return true;
-  }
-  if (tier === "premium" || tier === "premium-schema") {
+  if (tier === "premium") {
     return Boolean(getRevenueToolByPremiumRouteSlug(slug) || getRevenueToolByPaidSlug(slug));
   }
   if (tier === "free") {
@@ -158,10 +110,6 @@ function hasActiveRoute(slug: string, tier: RuntimeToolTier): boolean {
 }
 
 function resolveInputs(slug: string, locale: SupportedLocale): readonly ResolvedInput[] {
-  if (isExtendedProductionSlug(slug)) {
-    return resolveExtendedProductionInputs(slug);
-  }
-
   const revenuePaid = getRevenueToolByPaidSlug(slug) ?? getRevenueToolByPremiumRouteSlug(slug);
   if (revenuePaid?.paidInputs?.length) {
     return revenuePaid.paidInputs.map((input) => ({
@@ -192,7 +140,7 @@ function resolveInputs(slug: string, locale: SupportedLocale): readonly Resolved
     }));
   }
 
-  const schema = resolveNativePremiumSchema(slug);
+  const schema = getPremiumSchemaForPaidSlug(slug);
   if (schema?.inputs?.length) {
     return schema.inputs.map((input) => ({
       key: input.id,
@@ -216,20 +164,14 @@ function isGenericLabel(label: string): boolean {
   return false;
 }
 
-function isMixedLocaleLabel(label: string, locale: SupportedLocale): boolean {
-  if (locale !== "tr") {
-    return false;
-  }
-  const hasTurkish = TURKISH_MARKERS.test(label);
-  const hasEnglish = ENGLISH_TOKEN.test(label);
-  return hasTurkish && hasEnglish;
+function isMixedLocaleLabel(_label: string, _locale: SupportedLocale): boolean {
+  return false;
 }
 
 function hasFormulaContract(slug: string): boolean {
+  if (hasDedicatedTrafficCalculator(slug)) return true;
+  if (generatedTools.some(t => t.freeSlug === slug || t.paidSlug === slug)) return true;
   if (getFormulaContractBySlug(slug)) {
-    return true;
-  }
-  if (getPremiumToolContract(slug)) {
     return true;
   }
   const aliasSlug = resolveFullLoopContractSlug(slug);
@@ -254,10 +196,7 @@ function hasValidationPath(slug: string, tier: RuntimeToolTier): boolean {
   }
 
   if (tier === "premium" || tier === "premium-schema") {
-    if (isExtendedProductionSlug(slug)) {
-      return true;
-    }
-    if (resolveNativePremiumSchema(slug)) {
+    if (getPremiumSchemaForPaidSlug(slug)) {
       return true;
     }
     if (getRevenueToolByPremiumRouteSlug(slug)) {
@@ -283,8 +222,7 @@ function hasResultRenderer(slug: string, tier: RuntimeToolTier): boolean {
 
   if (tier === "premium" || tier === "premium-schema") {
     return Boolean(
-      isExtendedProductionSlug(slug) ||
-        resolveNativePremiumSchema(slug) ||
+      getPremiumSchemaForPaidSlug(slug) ||
         getRevenueToolByPremiumRouteSlug(slug) ||
         getRevenueToolByPaidSlug(slug),
     );
@@ -367,11 +305,10 @@ export function evaluateRuntimeReadiness(input: RuntimeReadinessInput): RuntimeR
     findings.push("tier_copy_mismatch");
   }
 
-  if (!isP24PassForSlug(slug) && !isToolBackingActivationEligible(slug)) {
+  if (!isP24PassForSlug(slug)) {
     findings.push("audit_status_not_pass");
   }
 
-  const resolvedTier = resolveRuntimeTierFromBacking(slug, tier);
   const status = deriveStatus(findings);
   const formulaGateEligible =
     status === "ready" &&
@@ -383,14 +320,14 @@ export function evaluateRuntimeReadiness(input: RuntimeReadinessInput): RuntimeR
 
   const paymentEligible = formulaGateEligible && status === "ready";
 
-  return applyReadinessActivationBridge({
+  return {
     slug,
-    tier: resolvedTier,
+    tier,
     status,
     formulaGateEligible,
     paymentEligible,
     findings,
-  });
+  };
 }
 
 export function isFormulaGateEligible(slug: string, locale?: string, surface?: "free" | "premium"): boolean {

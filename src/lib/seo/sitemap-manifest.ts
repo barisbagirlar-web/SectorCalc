@@ -17,7 +17,7 @@ import {
 } from "@/lib/i18n/locale-routing";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import { listPremiumToolSeoLandingSlugs } from "@/lib/seo/premium-tool-seo-landings";
-import { listAllCaseStudySlugs } from "@/lib/case-studies/case-study-registry";
+import { listCaseStudySlugs } from "@/lib/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import {
   getFreeToolRoutePath,
@@ -28,9 +28,6 @@ import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonom
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/freemium/resolve-free-to-premium-migration";
-import { listFreeTrafficCategorySlugs } from "@/lib/tools/free-traffic-categories";
-import { GENERATED_CALCULATOR_SLUGS } from "@/lib/generated-tools/calculator-registry";
-import { getGeneratedToolHref } from "@/lib/generated-tools/paths";
 
 export type SitemapRouteType =
   | "core"
@@ -113,7 +110,6 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/pricing", "core", 0.85, "monthly"),
     createItem("/privacy", "core", 0.5, "yearly"),
     createItem("/terms", "core", 0.5, "yearly"),
-    createItem("/refund-policy", "core", 0.5, "yearly"),
     createItem("/disclaimer", "core", 0.5, "yearly"),
   ];
 }
@@ -122,7 +118,7 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/categories", "hub", 0.9, "weekly"),
     createItem("/free-tools", "hub", 0.9, "weekly"),
-    createItem("/pro-tools", "hub", 0.9, "weekly"),
+    createItem("/premium-tools", "hub", 0.9, "weekly"),
     createItem("/calculator-library", "hub", 0.85, "monthly"),
     createItem("/developer-showcase", "hub", 0.85, "monthly"),
     createItem("/industries", "hub", 0.9, "monthly"),
@@ -132,7 +128,7 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
     ...listGlobalCategories().map((category) =>
-      createItem(`/pro-tools/${category.slug}`, "hub", 0.85, "weekly"),
+      createItem(`/premium-tools/${category.slug}`, "hub", 0.85, "weekly"),
     ),
   ];
 }
@@ -190,7 +186,7 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
 export function getCaseStudySitemapRoutes(): readonly SitemapManifestItem[] {
   return [
     createItem("/case-studies", "hub", 0.74, "monthly"),
-    ...listAllCaseStudySlugs().map((slug) =>
+    ...listCaseStudySlugs().map((slug) =>
       createItem(`/case-studies/${slug}`, "hub", 0.72, "monthly"),
     ),
   ];
@@ -225,23 +221,10 @@ function dedupeManifestItems(items: readonly SitemapManifestItem[]): SitemapMani
   return [...byPath.values()];
 }
 
-export function getGeneratedToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  return [
-    createItem("/tools/generated", "hub", 0.8, "weekly"),
-    ...listFreeTrafficCategorySlugs().map((category) =>
-      createItem(`/tools/category/${category}`, "hub", 0.78, "weekly"),
-    ),
-    ...GENERATED_CALCULATOR_SLUGS.map((slug) =>
-      createItem(getGeneratedToolHref(slug), "free_tool", 0.7, "monthly"),
-    ),
-  ];
-}
-
 export function getSitemapManifest(): readonly SitemapManifestItem[] {
   return dedupeManifestItems([
     ...getCoreSitemapRoutes(),
     ...getHubSitemapRoutes(),
-    ...getGeneratedToolSitemapRoutes(),
     ...getActiveCategorizedToolSitemapRoutes(),
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),
@@ -293,7 +276,7 @@ export function countAuthorityGuideSitemapEntries(): number {
 export const SITEMAP_STATIC_ROUTES = [
   "/",
   "/free-tools",
-  "/pro-tools",
+  "/premium-tools",
   "/categories",
   "/industries",
   "/pricing",

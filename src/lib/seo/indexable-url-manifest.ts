@@ -44,16 +44,14 @@ const CRITICAL_INSPECTION_PATHS: readonly string[] = [
   "/tr",
   "/free-tools",
   "/tr/free-tools",
-  "/pro-tools",
-  "/tr/pro-tools",
+  "/premium-tools",
+  "/tr/premium-tools",
   "/categories",
   "/tr/categories",
   "/industries",
   "/tr/industries",
   "/pricing",
   "/tr/pricing",
-  "/case-studies",
-  "/tr/case-studies",
   "/seo/manufacturing-cost-calculators",
   "/tr/seo/manufacturing-cost-calculators",
   "/guides/what-is-oee-and-how-to-calculate-it",
@@ -102,7 +100,7 @@ function mapManifestPriority(item: SitemapManifestItem): IndexableUrlPriority {
   if (
     item.path === "/" ||
     item.path === "/free-tools" ||
-    item.path === "/pro-tools" ||
+    item.path === "/premium-tools" ||
     item.path === "/categories" ||
     item.path === "/industries" ||
     item.path === "/pricing"

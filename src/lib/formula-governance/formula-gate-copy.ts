@@ -1,26 +1,20 @@
-export const FORMULA_GATE_STATUS_LABELS: Record<string, string> = {};
-export const FORMULA_GATE_REVIEW_COPY = { pending: "Pending regeneration." } as const;
-
-export function resolveFormulaGateStatusLabel(_status: string): string {
-  return "Pending";
+export function getFormulaGateVerifiedLabel(locale: string): string {
+  return "Formula Gate Approved";
 }
 
-export function resolveFormulaGateReviewCopy(_status: string): string {
-  return FORMULA_GATE_REVIEW_COPY.pending;
+export function getFormulaGateVerifiedTitle(locale: string): string {
+  return "This calculation tool has passed the Formula Gate quality check.";
 }
 
-export function getFormulaGateVerifiedLabel(_locale: string): string {
-  return "Verified";
+export function getFormulaGateReviewLabel(locale: string): string {
+  return "Calculation under review";
 }
 
-export function getFormulaGateVerifiedTitle(_locale: string): string {
-  return "Formula verification pending regeneration.";
+export function getFormulaGateReviewTitle(locale: string): string {
+  return "This calculator is under quality review. The Formula Gate badge appears only when the live surface is runtime-ready.";
 }
 
-export function getFormulaGateReviewLabel(_locale: string): string {
-  return "Review pending";
-}
-
-export function getFormulaGateReviewTitle(_locale: string): string {
-  return "Formula review pending regeneration.";
+/** @deprecated Use getFormulaGateReviewLabel — kept for catalog meta compatibility */
+export function getFormulaGateReviewLabelLegacy(locale: string): string {
+  return "Formula Gate review in progress";
 }

@@ -8,10 +8,6 @@ import {
   type ToolGuideSpec,
   type ToolGuideVisualRole,
 } from "@/lib/tool-guides/tool-guide-spec";
-import { S2_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/tool-guides/s2-low-risk-activation-guide-specs";
-import { S3_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/tool-guides/s3-low-risk-activation-guide-specs";
-import { P6B_FORMULA_FACTORY_GUIDE_SPECS } from "@/lib/tool-guides/p6b-formula-factory-guide-specs";
-import { S5_GUIDE_ORACLE_UX_SCAFFOLD_SPECS } from "@/lib/tool-guides/s5-guide-oracle-ux-scaffold-specs";
 import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 
 const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
@@ -27,7 +23,7 @@ const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
       { inputKey: "toolCost", visualRole: "driver", nodeId: "tool-cost" },
       { inputKey: "materialCost", visualRole: "secondary", nodeId: "material" },
       { inputKey: "machineRate", visualRole: "driver", nodeId: "machine-rate" },
-      { inputKey: "riskMargin", visualRole: "output", nodeId: "risk-margin" },
+      { inputKey: "riskMargin", visualRole: "constraint", nodeId: "risk-margin" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
@@ -37,11 +33,11 @@ const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
     titleKey: "inputGuide.tools.changeOrder.title",
     descriptionKey: "inputGuide.costBreakdown.description",
     inputMap: [
-      { inputKey: "originalBudget", visualRole: "primary", nodeId: "original-budget" },
+      { inputKey: "originalBudget", visualRole: "secondary", nodeId: "original-budget" },
       { inputKey: "changeEstimate", visualRole: "driver", nodeId: "change-estimate" },
       { inputKey: "delayDays", visualRole: "primary", nodeId: "delay-days" },
-      { inputKey: "crewCostPerDay", visualRole: "driver", nodeId: "crew-cost-per-day" },
-      { inputKey: "marginTarget", visualRole: "output", nodeId: "margin-target" },
+      { inputKey: "crewCostPerDay", visualRole: "driver", nodeId: "crew-cost" },
+      { inputKey: "marginTarget", visualRole: "constraint", nodeId: "margin-target" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
@@ -55,8 +51,8 @@ const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
       { inputKey: "laborRate", visualRole: "driver", nodeId: "labor-rate" },
       { inputKey: "hoursPerVisit", visualRole: "primary", nodeId: "hours-per-visit" },
       { inputKey: "supplyCost", visualRole: "secondary", nodeId: "supply-cost" },
-      { inputKey: "visitFrequency", visualRole: "secondary", nodeId: "visit-frequency" },
-      { inputKey: "targetMargin", visualRole: "output", nodeId: "target-margin" },
+      { inputKey: "visitFrequency", visualRole: "driver", nodeId: "visit-frequency" },
+      { inputKey: "targetMargin", visualRole: "constraint", nodeId: "target-margin" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
@@ -66,14 +62,13 @@ const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
     titleKey: "inputGuide.tools.routeOptimization.title",
     descriptionKey: "inputGuide.processFlow.description",
     inputMap: [
-      { inputKey: "distanceKm", visualRole: "primary", nodeId: "distance-km" },
-      { inputKey: "fuelPricePerKm", visualRole: "driver", nodeId: "fuel-price-per-km" },
-      { inputKey: "driverHourlyRate", visualRole: "driver", nodeId: "driver-hourly-rate" },
-      { inputKey: "estimatedHours", visualRole: "secondary", nodeId: "estimated-hours" },
-      { inputKey: "returnEmpty", visualRole: "secondary", nodeId: "return-empty" },
-      { inputKey: "hasTolls", visualRole: "driver", nodeId: "has-tolls" },
-      { inputKey: "overweightRisk", visualRole: "constraint", nodeId: "overweight-risk" },
-      { inputKey: "targetMargin", visualRole: "output", nodeId: "target-margin" }
+      { inputKey: "distanceKm", visualRole: "primary", nodeId: "distance" },
+      { inputKey: "costPerKm", visualRole: "driver", nodeId: "cost-per-km" },
+      { inputKey: "emptyReturnPercent", visualRole: "constraint", nodeId: "empty-return" },
+      { inputKey: "driverHours", visualRole: "driver", nodeId: "driver-hours" },
+      { inputKey: "driverRate", visualRole: "secondary", nodeId: "driver-rate" },
+      { inputKey: "tolls", visualRole: "secondary", nodeId: "tolls" },
+      { inputKey: "quotedFreightPrice", visualRole: "output", nodeId: "quoted-price" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
@@ -148,18 +143,6 @@ function buildSpecRegistry(): Map<string, ToolGuideSpec> {
     if (shapeSpec) {
       registry.set(slug, shapeSpec);
     }
-  }
-
-  for (const spec of S2_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
-    registry.set(spec.slug, spec);
-  }
-
-  for (const spec of S3_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
-    registry.set(spec.slug, spec);
-  }
-
-  for (const spec of S5_GUIDE_ORACLE_UX_SCAFFOLD_SPECS) {
-    registry.set(spec.slug, spec);
   }
 
   return registry;

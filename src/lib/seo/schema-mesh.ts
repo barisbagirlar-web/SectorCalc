@@ -1,13 +1,9 @@
-import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
-import { buildFounderSameAs } from "@/config/knowledge-graph";
 import { SITE, siteUrl } from "@/config/site";
-import { absoluteImageUrl } from "@/lib/semantic/site-url";
 import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-routing";
 import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import type { SeoAuthorityEntity } from "@/lib/seo/seo-authority-model";
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
-import { resolveFreeTrafficToolDisplayTitle } from "@/lib/tools/free-traffic-catalog";
 import type { ProgrammaticSeoPage } from "@/lib/seo/programmatic-seo-pages";
 
 export type JsonLdRecord = Record<string, unknown>;
@@ -51,40 +47,20 @@ export function sanitizeJsonLd(value: unknown): unknown {
   return value;
 }
 
-function organizationDescription(locale: string): string {
-  return organizationDescriptionForLocale(locale);
-}
-
 export function buildOrganizationJsonLd(locale = "en"): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
-    name: ORGANIZATION_TRUST.displayName,
+    name: SITE.siteName,
     url: localizedUrl(locale, "/"),
-    logo: absoluteImageUrl(ORGANIZATION_TRUST.logoPath),
-    description: organizationDescription(locale),
-    email: ORGANIZATION_TRUST.email,
-    founder: {
-      "@type": "Person",
-      "@id": `${siteUrl}/#founder-baris-bagirlar`,
-      name: ORGANIZATION_TRUST.founder.name,
-      email: ORGANIZATION_TRUST.founder.email,
-      sameAs: buildFounderSameAs(),
-    },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: ORGANIZATION_TRUST.address.streetAddress,
-      addressLocality: ORGANIZATION_TRUST.address.addressLocality,
-      addressCountry: ORGANIZATION_TRUST.address.addressCountry,
-    },
+    description: SITE.defaultDescription,
+    email: SITE.contactEmail,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: ORGANIZATION_TRUST.phone,
-      email: ORGANIZATION_TRUST.email,
-      contactType: ORGANIZATION_TRUST.contactType,
+      email: SITE.contactEmail,
+      contactType: "customer service",
     },
-    sameAs: ORGANIZATION_TRUST.sameAs,
   }) as JsonLdRecord;
 }
 
@@ -95,20 +71,11 @@ export function buildWebsiteJsonLd(locale = "en"): JsonLdRecord {
     "@id": `${siteUrl}/#website`,
     name: SITE.siteName,
     url: localizedUrl(locale, "/"),
-    description: organizationDescription(locale),
+    description: SITE.defaultDescription,
     publisher: {
       "@id": `${siteUrl}/#organization`,
     },
     inLanguage: locale,
-    sameAs: ORGANIZATION_TRUST.sameAs,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: localizedUrl(locale, "/free-tools?q={search_term_string}"),
-      },
-      "query-input": "required name=search_term_string",
-    },
   }) as JsonLdRecord;
 }
 
@@ -116,7 +83,6 @@ export function buildSoftwareApplicationJsonLd(locale = "en"): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "@id": `${siteUrl}/#software-application`,
     name: SITE.siteName,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
@@ -151,7 +117,7 @@ export function buildCalculatorJsonLd(
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: resolveFreeTrafficToolDisplayTitle(tool.slug, locale),
+    name: tool.title,
     url: localizedUrl(locale, `/tools/free/${tool.slug}`),
     applicationCategory: "CalculatorApplication",
     operatingSystem: "Web",
@@ -159,11 +125,6 @@ export function buildCalculatorJsonLd(
     isAccessibleForFree: true,
     provider: {
       "@id": `${siteUrl}/#organization`,
-    },
-    // Speakable specification for voice/AI assistants
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".tool-description", ".result-summary"],
     },
   }) as JsonLdRecord;
 }
@@ -188,11 +149,6 @@ export function buildPremiumAnalyzerJsonLd(
       url: localizedUrl(locale, "/pricing"),
       priceCurrency: "USD",
       description: "Single decision reports from $9 or Pro access from $19/mo.",
-    },
-    // Speakable specification for voice/AI
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".tool-description", ".verdict-summary"],
     },
   }) as JsonLdRecord;
 }

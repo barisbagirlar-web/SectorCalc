@@ -1,25 +1,22 @@
-import { listPublicFreeTrafficTools, resolveFreeTrafficToolDisplayTitle } from "@/lib/tools/free-traffic-catalog";
+import { listPublicFreeTrafficTools } from "@/lib/freemium/resolve-free-to-premium-migration";
 import { getOrderedFreeTrafficCategories } from "@/lib/tools/free-traffic-categories";
 import { buildPremiumSchemaCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
 import { listProgrammaticSeoSlugs, PROGRAMMATIC_SEO_PAGES } from "@/lib/seo/programmatic-seo-pages";
 import { INDUSTRIES } from "@/data/industries";
-import { hasCanonicalToolCatalog } from "@/lib/tools/canonical-tool-slugs";
 import type { CrawlIndexGroup } from "@/components/seo/CrawlIndexLinkList";
 
-export function buildFreeToolsCrawlGroups(locale = "en"): readonly CrawlIndexGroup[] {
+export function buildFreeToolsCrawlGroups(): readonly CrawlIndexGroup[] {
   const categories = getOrderedFreeTrafficCategories();
 
-  return categories
-    .map((category) => ({
-      label: category.id.replace(/-/g, " "),
-      links: listPublicFreeTrafficTools()
-        .filter((tool) => tool.category === category.id)
-        .map((tool) => ({
-          href: `/tools/generated/${tool.slug}`,
-          label: resolveFreeTrafficToolDisplayTitle(tool.slug, locale),
-        })),
-    }))
-    .filter((group) => group.links.length > 0);
+  return categories.map((category) => ({
+    label: category.id.replace(/-/g, " "),
+    links: listPublicFreeTrafficTools()
+      .filter((tool) => tool.category === category.id)
+      .map((tool) => ({
+      href: `/tools/free/${tool.slug}`,
+      label: tool.title,
+    })),
+  }));
 }
 
 export function buildPremiumToolsCrawlGroups(locale = "en"): readonly CrawlIndexGroup[] {
@@ -33,10 +30,6 @@ export function buildPremiumToolsCrawlGroups(locale = "en"): readonly CrawlIndex
 }
 
 export function buildIndustriesCrawlGroups(): readonly CrawlIndexGroup[] {
-  if (!hasCanonicalToolCatalog()) {
-    return [];
-  }
-
   return [
     {
       label: "Industry Calculators",
@@ -66,7 +59,7 @@ export function buildCoreHubCrawlGroups(): readonly CrawlIndexGroup[] {
       label: "Core pages",
       links: [
         { href: "/free-tools", label: "Free Calculators" },
-        { href: "/pro-tools", label: "Premium Calculators" },
+        { href: "/premium-tools", label: "Premium Calculators" },
         { href: "/categories", label: "Categories" },
         { href: "/industries", label: "Industry Calculators" },
         { href: "/pricing", label: "Pricing" },
