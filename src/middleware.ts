@@ -40,14 +40,12 @@ export default function middleware(request: NextRequest) {
   // SADECE sectorcalc.com/path — hiçbir locale prefix kabul edilmez.
   // Eski locale path'leri (ör. /tr/en, /tr, /de, /fr, /es, /ar) kalıcı
   // olarak /'e yönlendir. Bunlar artık geçerli değil.
-  if (
-    pathname.startsWith("/tr") ||
-    pathname.startsWith("/de") ||
-    pathname.startsWith("/fr") ||
-    pathname.startsWith("/es") ||
-    pathname.startsWith("/ar") ||
-    pathname.startsWith("/en")
-  ) {
+  // NOT: Tam path segment bazında kontrol (ör. /free-tools /fr ile başlamaz)
+  const localePrefixes = ["/tr", "/de", "/fr", "/es", "/ar", "/en"];
+  const hasLocalePrefix = localePrefixes.some(
+    (prefix) => pathname === prefix || pathname.startsWith(prefix + "/")
+  );
+  if (hasLocalePrefix) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return applyRegionHeaders(NextResponse.redirect(url, 308), request);
