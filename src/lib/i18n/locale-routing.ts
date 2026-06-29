@@ -302,13 +302,11 @@ export type LocaleRedirectInputs = {
 };
 
 function resolvePrefixedLocaleRedirect(
-  options: LocaleRedirectInputs,
+  _options: LocaleRedirectInputs,
 ): SupportedLocale | null {
-  const resolved = resolveRootVisitLocale(options);
-  if (resolved === ROOT_LOCALE) {
-    return null;
-  }
-  return resolved;
+  // EN-only: no locale prefix redirect. Unlocalized paths stay at root
+  // and are rewritten to /en/... by next.config.ts rewrites.
+  return null;
 }
 
 export function shouldRedirectRootToLocale(
