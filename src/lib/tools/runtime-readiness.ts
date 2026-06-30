@@ -140,7 +140,8 @@ function resolveInputs(slug: string, locale: SupportedLocale): readonly Resolved
     }));
   }
 
-  const schema = getPremiumSchemaForPaidSlug(slug);
+  const baseSlug = slug.replace(/-premium$/, "");
+  const schema = getPremiumSchemaForPaidSlug(slug) ?? getPremiumSchemaForPaidSlug(baseSlug);
   if (schema?.inputs?.length) {
     return schema.inputs.map((input) => ({
       key: input.id,
@@ -172,6 +173,10 @@ function hasFormulaContract(slug: string): boolean {
   if (hasDedicatedTrafficCalculator(slug)) return true;
   if (generatedTools.some(t => t.freeSlug === slug || t.paidSlug === slug)) return true;
   if (getFormulaContractBySlug(slug)) {
+    return true;
+  }
+  const baseSlug = slug.replace(/-premium$/, "");
+  if (baseSlug !== slug && getFormulaContractBySlug(baseSlug)) {
     return true;
   }
   const aliasSlug = resolveFullLoopContractSlug(slug);
@@ -207,7 +212,11 @@ function hasValidationPath(slug: string, tier: RuntimeToolTier): boolean {
     }
   }
 
-  const contract = getFormulaContractBySlug(slug) ?? getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
+  const baseSlug = slug.replace(/-premium$/, "");
+  const contract =
+    getFormulaContractBySlug(slug) ??
+    getFormulaContractBySlug(baseSlug) ??
+    getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
   return Boolean(contract?.requiredInputs?.length);
 }
 

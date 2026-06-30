@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import {
   getP24VerdictForSlug,
-  isP24TrustPassForSlug,
+  isP24PassForSlug,
 } from "@/lib/tools/runtime-readiness-p24-verdicts";
 import {
   isRevenueBoundaryRestoreSlug,
@@ -22,7 +22,7 @@ describe("P8.1 revenue boundary restore", () => {
     test(`${slug} P24 verdict is PASS via revenue boundary sync`, () => {
       expect(isRevenueBoundaryRestoreSlug(slug)).toBe(true);
       expect(getP24VerdictForSlug(slug)).toBe("PASS");
-      expect(isP24TrustPassForSlug(slug)).toBe(true);
+      expect(isP24PassForSlug(slug)).toBe(true);
     });
   }
 

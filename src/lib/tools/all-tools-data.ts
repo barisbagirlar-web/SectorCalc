@@ -75,7 +75,8 @@ function humanizeSlug(slug: string): string {
 }
 
 function slugFromFileName(fileName: string): string | null {
-  const match = fileName.match(/^(.+)-schema\.json$/);
+  const baseName = path.basename(fileName);
+  const match = baseName.match(/^(.+)-schema\.json$/);
   return match?.[1] ?? null;
 }
 
@@ -263,8 +264,7 @@ export function getAllTools(locale = "tr"): ToolData[] {
     return [];
   }
 
-  const tools = fs
-    .readdirSync(SCHEMAS_DIR)
+  const tools = (fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[])
     .filter((fileName) => fileName.endsWith(".json"))
     .map((fileName) => {
       const raw = readSchemaFile(fileName);

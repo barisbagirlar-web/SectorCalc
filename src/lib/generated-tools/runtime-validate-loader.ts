@@ -33,7 +33,9 @@ export async function runtimeValidateCalculator(
 
   let schema = options?.schema;
   if (!schema) {
-    const schemaPath = path.join(process.cwd(), "generated/schemas", `${slug}-schema.json`);
+    const firstChar = slug.charAt(0).toLowerCase();
+    const dirName = /[a-z0-9]/.test(firstChar) ? firstChar : 'other';
+    const schemaPath = path.join(process.cwd(), "generated/schemas", dirName, `${slug}-schema.json`);
     if (!fs.existsSync(schemaPath)) {
       return { status: "FAIL", error: "Schema file not found" };
     }

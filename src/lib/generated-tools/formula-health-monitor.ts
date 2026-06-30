@@ -99,7 +99,17 @@ function collectCiGateData(): {
 
 function scanConstraintErrors(): Array<{ slug: string; formulaKey: string; message: string }> {
   const errors: Array<{ slug: string; formulaKey: string; message: string }> = [];
-  const files = fs.readdirSync(SCHEMAS_DIR).filter((f) => f.endsWith("-schema.json"));
+  const dirs = fs.readdirSync(SCHEMAS_DIR, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+  
+  let files: string[] = [];
+  for (const dir of dirs) {
+    const subFiles = fs.readdirSync(path.join(SCHEMAS_DIR, dir))
+      .filter(f => f.endsWith("-schema.json"))
+      .map(f => path.join(dir, f));
+    files = files.concat(subFiles);
+  }
 
   for (const file of files) {
     try {
@@ -220,7 +230,18 @@ function generateAlerts(
 /* ── Main entry point ─────────────────────────── */
 
 export function generateHealthReport(): FormulaHealthReport {
-  const totalSchemas = fs.readdirSync(SCHEMAS_DIR).filter((f) => f.endsWith("-schema.json")).length;
+  let totalSchemas = 0;
+  try {
+    const dirs = fs.readdirSync(SCHEMAS_DIR, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+    
+    for (const dir of dirs) {
+      const count = fs.readdirSync(path.join(SCHEMAS_DIR, dir))
+        .filter((f) => f.endsWith("-schema.json")).length;
+      totalSchemas += count;
+    }
+  } catch (e) {}
   const ciGate = collectCiGateData();
   const constraintErrors = scanConstraintErrors();
   const alerts = generateAlerts(ciGate, constraintErrors, totalSchemas);

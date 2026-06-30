@@ -5,7 +5,7 @@ import {
   type RuntimeReadinessInput,
   type RuntimeToolTier,
 } from "@/lib/tools/runtime-readiness";
-import { isP24TrustPassForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
+import { isP24PassForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
 import {
   mergeRuntimeHealthWithDecision,
   readRuntimeToolHealth,
@@ -114,7 +114,7 @@ function applyTrustPolicy(
   }
 
   if (
-    !isP24TrustPassForSlug(slug) &&
+    !isP24PassForSlug(slug) &&
     !isToolBackingActivationEligible(slug) &&
     !findings.includes("audit_status_not_pass")
   ) {
@@ -128,7 +128,7 @@ function applyTrustPolicy(
   let formulaGateEligible =
     (registryAudit || isToolBackingActivationEligible(slug)) &&
     readiness.status === "ready" &&
-    isP24TrustPassForSlug(slug) &&
+    isP24PassForSlug(slug) &&
     !findings.includes("audit_status_not_pass") &&
     !findings.includes("generic_input_labels") &&
     !findings.includes("mixed_locale_labels") &&

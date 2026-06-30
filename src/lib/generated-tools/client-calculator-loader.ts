@@ -52,9 +52,11 @@ export async function loadClientCalculator(
     let guardedCalculate: (input: Record<string, unknown>) => GeneratedToolResult;
 
     if (process.env.NODE_ENV !== "production") {
+      const firstChar = slug.charAt(0).toLowerCase();
+      const dirName = /[a-z0-9]/.test(firstChar) ? firstChar : 'other';
       const schemaJson = (await import(
         /* webpackChunkName: "schema-[request]" */
-        `@generated/schemas/${slug}-schema.json`
+        `@generated/schemas/${dirName}/${slug}-schema.json`
       )) as {
         inputs: Array<{ id: string }>;
         formulas: Record<string, string>;

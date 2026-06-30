@@ -58,7 +58,20 @@ export function listSchemaFiles(schemasDir: string = path.join(process.cwd(), SC
   if (!fs.existsSync(schemasDir)) {
     return [];
   }
-  return fs.readdirSync(schemasDir).filter((file) => file.endsWith("-schema.json")).sort();
+  
+  const dirs = fs.readdirSync(schemasDir, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+  
+  let files: string[] = [];
+  for (const dir of dirs) {
+    const subFiles = fs.readdirSync(path.join(schemasDir, dir))
+      .filter(f => f.endsWith("-schema.json"))
+      .map(f => path.join(dir, f));
+    files = files.concat(subFiles);
+  }
+  
+  return files.sort();
 }
 
 export function validateAllSchemas(schemasDir: string = path.join(process.cwd(), SCHEMAS_DIR)): SteelCoreValidationReport {

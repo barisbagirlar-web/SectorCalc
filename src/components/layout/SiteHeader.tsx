@@ -25,88 +25,17 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
 
-const LOCALES = [
-  { code: 'en', label: 'English',  short: 'EN', dir: 'ltr' },
-  { code: 'tr', label: 'Türkçe',   short: 'TR', dir: 'ltr' },
-  { code: 'de', label: 'Deutsch',  short: 'DE', dir: 'ltr' },
-  { code: 'fr', label: 'Français', short: 'FR', dir: 'ltr' },
-  { code: 'es', label: 'Español',  short: 'ES', dir: 'ltr' },
-  { code: 'ar', label: 'العربية',  short: 'AR', dir: 'rtl' },
-];
-
-const T = {
-  en: {
-    products:'Products', industries:'Industries', pricing:'Pricing', resources:'Resources',
-    signin:'Sign in', getStarted:'Get started',
-    col_free:'Free tools', col_pro:'Pro tools',
-    products_free_desc:'Engineering calculators, no login',
-    products_pro_desc:'Real parameters, PDF export',
-    view_all_industries:'All industries',
-    res_blog:'Engineering blog', res_blog_d:'Methods & case studies',
-    res_docs:'Formula reference', res_docs_d:'Standards & sources',
-    res_api:'API access', res_api_d:'Integrate calculations',
-    tools:'tools', lang_note:'All prices shown in USD',
-  },
-  tr: {
-    products:'Ürünler', industries:'Sektörler', pricing:'Fiyatlandırma', resources:'Kaynaklar',
-    signin:'Giriş yap', getStarted:'Başla',
-    col_free:'Ücretsiz araçlar', col_pro:'Pro araçlar',
-    products_free_desc:'Mühendislik hesaplayıcıları, giriş yok',
-    products_pro_desc:'Gerçek parametreler, PDF export',
-    view_all_industries:'Tüm sektörler',
-    res_blog:'Mühendislik blogu', res_blog_d:'Yöntemler & vaka analizleri',
-    res_docs:'Formül referansı', res_docs_d:'Standartlar & kaynaklar',
-    res_api:'API erişimi', res_api_d:'Hesaplamaları entegre et',
-    tools:'araç', lang_note:'Tüm fiyatlar USD cinsindendir',
-  },
-  de: {
-    products:'Produkte', industries:'Branchen', pricing:'Preise', resources:'Ressourcen',
-    signin:'Anmelden', getStarted:'Loslegen',
-    col_free:'Kostenlose Tools', col_pro:'Pro-Tools',
-    products_free_desc:'Ingenieur-Rechner, kein Login',
-    products_pro_desc:'Echte Parameter, PDF-Export',
-    view_all_industries:'Alle Branchen',
-    res_blog:'Engineering-Blog', res_blog_d:'Methoden & Fallstudien',
-    res_docs:'Formel-Referenz', res_docs_d:'Normen & Quellen',
-    res_api:'API-Zugang', res_api_d:'Berechnungen integrieren',
-    tools:'Tools', lang_note:'Alle Preise in USD',
-  },
-  fr: {
-    products:'Produits', industries:'Secteurs', pricing:'Tarifs', resources:'Ressources',
-    signin:'Connexion', getStarted:'Commencer',
-    col_free:'Outils gratuits', col_pro:'Outils Pro',
-    products_free_desc:"Calculateurs d'ingénierie, sans connexion",
-    products_pro_desc:'Paramètres réels, export PDF',
-    view_all_industries:'Tous les secteurs',
-    res_blog:"Blog d'ingénierie", res_blog_d:'Méthodes & études de cas',
-    res_docs:'Référence des formules', res_docs_d:'Normes & sources',
-    res_api:'Accès API', res_api_d:'Intégrer les calculs',
-    tools:'outils', lang_note:'Tous les prix en USD',
-  },
-  es: {
-    products:'Productos', industries:'Sectores', pricing:'Precios', resources:'Recursos',
-    signin:'Iniciar sesión', getStarted:'Empezar',
-    col_free:'Herramientas gratis', col_pro:'Herramientas Pro',
-    products_free_desc:'Calculadoras de ingeniería, sin login',
-    products_pro_desc:'Parámetros reales, exportación PDF',
-    view_all_industries:'Todos los sectores',
-    res_blog:'Blog de ingeniería', res_blog_d:'Métodos y casos de estudio',
-    res_docs:'Referencia de fórmulas', res_docs_d:'Normas y fuentes',
-    res_api:'Acceso API', res_api_d:'Integrar cálculos',
-    tools:'herramientas', lang_note:'Todos los precios en USD',
-  },
-  ar: {
-    products:'المنتجات', industries:'القطاعات', pricing:'الأسعار', resources:'الموارد',
-    signin:'تسجيل الدخول', getStarted:'ابدأ الآن',
-    col_free:'أدوات مجانية', col_pro:'أدوات احترافية',
-    products_free_desc:'حاسبات هندسية، بدون تسجيل دخول',
-    products_pro_desc:'معايير حقيقية، تصدير PDF',
-    view_all_industries:'كل القطاعات',
-    res_blog:'مدونة هندسية', res_blog_d:'طرق ودراسات حالة',
-    res_docs:'مرجع الصيغ', res_docs_d:'المعايير والمصادر',
-    res_api:'وصول API', res_api_d:'دمج الحسابات',
-    tools:'أدوات', lang_note:'جميع الأسعار بالدولار الأمريكي',
-  },
+const t = {
+  products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
+  signin: 'Sign in', getStarted: 'Get started',
+  col_free: 'Free tools', col_pro: 'Pro tools',
+  products_free_desc: 'Engineering calculators, no login',
+  products_pro_desc: 'Real parameters, PDF export',
+  view_all_industries: 'All industries',
+  res_blog: 'Case Studies', res_blog_d: 'Methods & case studies',
+  res_docs: 'FMEA RPN Calculator', res_docs_d: 'Failure Mode & Effects Analysis',
+  res_api: 'API access', res_api_d: 'Integrate calculations',
+  tools: 'tools', lang_note: 'All prices shown in USD',
 };
 
 const INDUSTRY_GROUPS = [
@@ -127,13 +56,6 @@ const INDUSTRY_GROUPS = [
   ]},
 ];
 
-function getLocale(p){ const m=p.match(/^\/(tr|de|fr|es|ar)(\/|$)/); return m?m[1]:'en'; }
-function href(loc,slug){ return loc==='en'?`/${slug}`:`/${loc}/${slug}`; }
-function rootHref(loc){ return loc==='en'?'/':`/${loc}`; }
-function buildLocalePath(p,target){
-  const s=p.replace(/^\/(tr|de|fr|es|ar)(?=\/|$)/,'')||'/';
-  return target==='en'?s:`/${target}${s==='/'?'':s}`;
-}
 
 export function SiteHeader({ 
   isAuthenticated = false,
@@ -145,11 +67,7 @@ export function SiteHeader({
   proToolsCount?: number;
 }) {
   const pathname = usePathname() || '/';
-  const router   = useRouter();
-  const locale   = 'en';
-  const dir      = LOCALES.find((l)=>l.code===locale)?.dir || 'ltr';
-  const t        = T[locale] || T.en;
-
+  
   const [openMenu,setOpenMenu]=useState(null);
   const [mobileOpen,setMobileOpen]=useState(false);
   const [mobileSection,setMobileSection]=useState(null);
@@ -169,8 +87,6 @@ export function SiteHeader({
     document.addEventListener('keydown',onKey);
     return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
   },[]);
-
-  const isProApp = false; 
 
   const accountHref = isAuthenticated ? '/account' : '/signin';
 
@@ -201,19 +117,6 @@ export function SiteHeader({
         .sc-navbtn .chev{font-size:8px;color:var(--hint);transition:transform .16s;}
         .sc-navbtn.open .chev{transform:rotate(180deg);}
         .sc-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
-        .sc-lang{position:relative;}
-        .sc-langbtn{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);padding:6px 8px;border-radius:7px;transition:background .12s;}
-        .sc-langbtn:hover{background:rgba(15,23,42,0.04);color:var(--text);}
-        .sc-globe{width:15px;height:15px;opacity:.65;}
-        .sc-langchev{font-size:8px;}
-        .sc-langmenu{position:absolute;top:calc(100% + 8px);min-width:190px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:6px;box-shadow:var(--mega-shadow);}
-        [dir="ltr"] .sc-langmenu{right:0;}
-        [dir="rtl"] .sc-langmenu{left:0;}
-        .sc-langitem{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 12px;border-radius:7px;font-size:14px;color:var(--text);background:none;border:none;width:100%;text-align:start;cursor:pointer;transition:background .1s;}
-        .sc-langitem:hover{background:var(--bg);}
-        .sc-langitem.active{background:var(--bg);font-weight:500;}
-        .sc-langitem .sh{font-size:11px;color:var(--hint);font-weight:500;font-variant-numeric:tabular-nums;}
-        .sc-langnote{padding:9px 12px 6px;margin-top:4px;border-top:1px solid var(--border);font-size:11px;color:var(--hint);}
         .sc-signin{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;padding:8px 6px;border-radius:7px;transition:color .12s;white-space:nowrap;}
         .sc-signin:hover{color:var(--accent);}
         .sc-getstarted{display:inline-flex;align-items:center;padding:9px 18px;border-radius:8px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .13s,transform .07s;}
@@ -267,15 +170,12 @@ export function SiteHeader({
         .sc-draw-cta{padding:20px 24px;display:flex;flex-direction:column;gap:10px;}
         .sc-draw-cta .sc-getstarted{display:flex;justify-content:center;}
         .sc-draw-cta .sc-signin{text-align:center;padding:12px;border:1px solid var(--border-2);border-radius:8px;}
-        .sc-draw-lang{display:flex;flex-wrap:wrap;gap:6px;padding:16px 24px;border-top:1px solid var(--border);}
-        .sc-draw-lang button{padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:none;font-size:13px;color:var(--text);cursor:pointer;}
-        .sc-draw-lang button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
       `}</style>
 
-      <header className="sc-h" dir={dir}>
+      <header className="sc-h">
         <div className="sc-inner">
 
-          <Link href={rootHref(locale)} className="sc-logo" aria-label="SectorCalc home">
+          <Link href="/" className="sc-logo" aria-label="SectorCalc home">
             <svg className="sc-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#0F172A"/>
               <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2563EB"/>
@@ -296,7 +196,7 @@ export function SiteHeader({
                 {t.industries} <span className="chev">▼</span>
               </button>
             </div>
-            <Link href={href(locale,'pricing')} className="sc-navbtn">{t.pricing}</Link>
+            <Link href="/pricing" className="sc-navbtn">{t.pricing}</Link>
             <div onMouseEnter={()=>openWithIntent('resources')} onMouseLeave={closeWithIntent}>
               <button className={`sc-navbtn${openMenu==='resources'?' open':''}`} onClick={()=>setOpenMenu(openMenu==='resources'?null:'resources')} aria-expanded={openMenu==='resources'}>
                 {t.resources} <span className="chev">▼</span>
@@ -307,12 +207,12 @@ export function SiteHeader({
               <div className="sc-megawrap" onMouseEnter={()=>openWithIntent(openMenu)} onMouseLeave={closeWithIntent}>
                 {openMenu==='products' && (
                   <div className="sc-mega sc-mega-products">
-                    <Link href={href(locale,'free-tools')} className="sc-mega-panel">
+                    <Link href="/free-tools" className="sc-mega-panel">
                       <div className="pt"><span className="pico">🧮</span><span className="ph">{t.col_free}</span></div>
                       <div className="pd">{t.products_free_desc}</div>
                       <div className="pcount">{freeToolsCount}+ {t.tools}</div>
                     </Link>
-                    <Link href={href(locale,'pro-tools')} className="sc-mega-panel">
+                    <Link href="/pro-tools" className="sc-mega-panel">
                       <div className="pt"><span className="pico">⚡</span><span className="ph">{t.col_pro}</span></div>
                       <div className="pd">{t.products_pro_desc}</div>
                       <div className="pcount">{proToolsCount} {t.tools}</div>
@@ -324,9 +224,9 @@ export function SiteHeader({
                     <div className="sc-mega-grid">
                       {INDUSTRY_GROUPS.map((g)=>(
                         <div className="sc-mega-col" key={g.groupEn}>
-                          <h4>{locale==='tr'?g.groupTr:g.groupEn}</h4>
+                          <h4>{g.groupEn}</h4>
                           {g.items.map((it)=>(
-                            <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} className="sc-mega-item">
+                            <Link key={it.slug} href={`/free-tools?sector=${it.slug}`} className="sc-mega-item">
                               <span className="ico">{it.icon}</span>
                               <span className="txt"><b>{it.en}</b><span>{it.count} {t.tools}</span></span>
                             </Link>
@@ -335,20 +235,20 @@ export function SiteHeader({
                       ))}
                     </div>
                     <div className="sc-mega-foot">
-                      <Link href={href(locale,'industries')}>{t.view_all_industries} →</Link>
+                      <Link href="/industries">{t.view_all_industries} →</Link>
                       <span className="promo">18 sectors · 300+ {t.tools}</span>
                     </div>
                   </div>
                 )}
                 {openMenu==='resources' && (
                   <div className="sc-mega sc-mega-resources">
-                    <Link href={href(locale,'blog')} className="sc-res-item">
+                    <Link href="/blog" className="sc-res-item">
                       <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
                     </Link>
-                    <Link href={href(locale,'formulas')} className="sc-res-item">
+                    <Link href="/formulas" className="sc-res-item">
                       <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
                     </Link>
-                    <Link href={href(locale,'api')} className="sc-res-item">
+                    <Link href="/api" className="sc-res-item">
                       <span className="rico">🔌</span><span className="rt"><b>{t.res_api}</b><span>{t.res_api_d}</span></span>
                     </Link>
                   </div>
@@ -359,7 +259,7 @@ export function SiteHeader({
 
           <div className="sc-right">
             <Link href={accountHref} className="sc-signin">{t.signin}</Link>
-            <Link href={href(locale,'signup')} className="sc-getstarted">{t.getStarted}</Link>
+            <Link href="/signup" className="sc-getstarted">{t.getStarted}</Link>
             <button className="sc-burger" onClick={()=>setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {mobileOpen
@@ -377,8 +277,8 @@ export function SiteHeader({
             </button>
             {mobileSection==='products' && (
               <div className="sc-draw-body">
-                <Link href={href(locale,'free-tools')} onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
-                <Link href={href(locale,'pro-tools')} onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
+                <Link href="/free-tools" onClick={()=>setMobileOpen(false)}>🧮 {t.col_free} <span className="c">{freeToolsCount}+</span></Link>
+                <Link href="/pro-tools" onClick={()=>setMobileOpen(false)}>⚡ {t.col_pro} <span className="c">{proToolsCount}</span></Link>
               </div>
             )}
           </div>
@@ -389,29 +289,29 @@ export function SiteHeader({
             {mobileSection==='industries' && (
               <div className="sc-draw-body">
                 {INDUSTRY_GROUPS.flatMap((g)=>g.items).map((it)=>(
-                  <Link key={it.slug} href={href(locale,`free-tools?sector=${it.slug}`)} onClick={()=>setMobileOpen(false)}>
+                  <Link key={it.slug} href={`/free-tools?sector=${it.slug}`} onClick={()=>setMobileOpen(false)}>
                     {it.icon} {it.en} <span className="c">{it.count}</span>
                   </Link>
                 ))}
-                <Link href={href(locale,'industries')} onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} →</Link>
+                <Link href="/industries" onClick={()=>setMobileOpen(false)} style={{color:'var(--accent)',fontWeight:600}}>{t.view_all_industries} →</Link>
               </div>
             )}
           </div>
-          <Link href={href(locale,'pricing')} className="sc-draw-link" onClick={()=>setMobileOpen(false)}>{t.pricing}</Link>
+          <Link href="/pricing" className="sc-draw-link" onClick={()=>setMobileOpen(false)}>{t.pricing}</Link>
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='resources'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='resources'?null:'resources')}>
               {t.resources} <span className="dchev">▼</span>
             </button>
             {mobileSection==='resources' && (
               <div className="sc-draw-body">
-                <Link href={href(locale,'blog')} onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
-                <Link href={href(locale,'formulas')} onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
-                <Link href={href(locale,'api')} onClick={()=>setMobileOpen(false)}>🔌 {t.res_api}</Link>
+                <Link href="/case-studies" onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
+                <Link href="/tools/fmea-rpn-calculator" onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
+                <Link href="/api" onClick={()=>setMobileOpen(false)}>🔌 {t.res_api}</Link>
               </div>
             )}
           </div>
           <div className="sc-draw-cta">
-            <Link href={href(locale,'signup')} className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>
+            <Link href="/signup" className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>
             <Link href={accountHref} className="sc-signin" onClick={()=>setMobileOpen(false)}>{t.signin}</Link>
           </div>
         </div>

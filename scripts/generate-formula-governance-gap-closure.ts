@@ -14,14 +14,15 @@ import {
 const ROOT = process.cwd();
 
 function fnName(slug: string): string {
-  return slug
+  const camel = slug
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join("");
+  return /^\d/.test(camel) ? `_${camel}` : camel;
 }
 
 function escape(str: string): string {
-  return str.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+  return str.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '');
 }
 
 function hasExistingContract(schema: (typeof PREMIUM_CALCULATOR_SCHEMAS)[number]): boolean {

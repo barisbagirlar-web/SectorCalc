@@ -20,14 +20,22 @@ export function runTrustGate(): TrustGateResult[] {
     return [];
   }
 
-  const files = fs.readdirSync(SCHEMAS_DIR).filter((file) => file.endsWith("-schema.json"));
+  const dirs = fs.readdirSync(SCHEMAS_DIR, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+  
   const results: TrustGateResult[] = [];
 
-  for (const file of files) {
-    const filePath = path.join(SCHEMAS_DIR, file);
-    const schema = JSON.parse(fs.readFileSync(filePath, "utf8")) as Record<string, unknown>;
-    const slug = readSlug(schema, file);
-    results.push(evaluateSchemaTrust(schema, slug));
+  for (const dir of dirs) {
+    const dirPath = path.join(SCHEMAS_DIR, dir);
+    const files = fs.readdirSync(dirPath).filter((file) => file.endsWith("-schema.json"));
+    
+    for (const file of files) {
+      const filePath = path.join(dirPath, file);
+      const schema = JSON.parse(fs.readFileSync(filePath, "utf8")) as Record<string, unknown>;
+      const slug = readSlug(schema, file);
+      results.push(evaluateSchemaTrust(schema, slug));
+    }
   }
 
   return results;
