@@ -1583,6 +1583,10 @@ export const USER_FORMULA_META_DETAILS: Record<
   "industrial.fives_audit_8": { description: "5S: eğitim maliyeti = çalışan * saat * birimMaliyet", requiredInputs: [], outputHint: "number" },
   // ── TOOLS #183-#193: INDUSTRIAL FORMULAS (FMEA through 5S) ──
   "industrial.fmea_risk": { description: "FMEA: RPN = S \u00d7 O \u00d7 D, average across failure modes", requiredInputs: ["severityS","occurrenceO","detectionD"], outputHint: "number" },
+  "industrial.fmea_max": { description: "FMEA: Max Possible RPN (1000)", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_priority": { description: "FMEA: Priority Order", requiredInputs: ["severityS","occurrenceO","detectionD"], outputHint: "number" },
+  "industrial.fmea_prevention_cost": { description: "FMEA: Total Prevention Cost", requiredInputs: ["maliyet_onlem", "prosesAdimiSayisi"], outputHint: "number" },
+  "industrial.fmea_recommendation": { description: "FMEA: Resolution Recommendation", requiredInputs: ["severityS","occurrenceO","detectionD"], outputHint: "number" },
   "industrial.doe_factorial": { description: "DOE: total runs = 2^k \u00d7 r + center + blocks", requiredInputs: ["factorCount_k","replications","centerPoints","blockCount"], outputHint: "number" },
   "industrial.reliability_block": { description: "RBD: system MTBF = avg MTBF / n for series", requiredInputs: ["avgMTBF","componentCount"], outputHint: "number" },
   "industrial.niosh_lifting": { description: "NIOSH: RWL = LC \u00d7 HM \u00d7 VM \u00d7 DM \u00d7 FM \u00d7 AM \u00d7 CM (LC=23)", requiredInputs: ["loadWeight_kg","horizontal_cm","verticalStart_cm","frequency_liftsPerMin","couplingQuality"], outputHint: "number" },
@@ -1614,4 +1618,9 @@ export const USER_FORMULA_META_DETAILS: Record<
   "industrial.milk_run": { description: "Milk Run: daily route cost", requiredInputs: ["tedarikciSayisi","tedarikciMesafe_ortalama","turSayisi_gunluk","arabaMaliyeti_km","surucuSaatUcreti","yuklemeBosaltmaDk","beklemeSuresiDk","ortalamaHiz_kmh"], outputHint: "number" },
   // ── HYDRAULIC CYLINDER TONNAGE & POWER ──
   "industrial.hydraulic_cylinder_tonnage_0": { description: "Hydraulic Cylinder Tonnage: push force (ton-f) = (P × A_push × η_m × (1-f)) / 9806.65", requiredInputs: ["pistonDiameter_D","rodDiameter_d","systemPressure_P","cylinderCount_n","volumetricEfficiency_η_v","mechanicalEfficiency_η_m","frictionLossCoeff"], outputHint: "number" },
+  "industrial.fmea_failure_cost": { description: "FMEA Failure Cost: cost estimation for failures", requiredInputs: ["maliyet_failure", "prosesAdimiSayisi", "ortalamaOlusma_O"], outputHint: "number" },
+  "industrial.fmea_max": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_recommendation": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_priority": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_prevention_cost": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
 };
