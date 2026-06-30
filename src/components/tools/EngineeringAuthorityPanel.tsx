@@ -19,7 +19,7 @@ export function EngineeringAuthorityPanel({ toolSlug, className = '' }: Engineer
       <div className="text-sm text-neutral-700 dark:text-neutral-300 mb-6">
         {isFallback ? (
           <p>
-            This calculation uses SectorCalc's general engineering calculation governance layer. Tool-specific authority mapping is pending internal review.
+            This calculation uses SectorCalc&apos;s general engineering calculation governance layer. Tool-specific authority mapping is pending internal review.
           </p>
         ) : (
           <p>

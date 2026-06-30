@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
@@ -14,8 +11,8 @@ import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
 import { getPremiumCatalogCategoryDetail } from "@/lib/features/premium/premium-category-resolver";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
-import { FreeToolForm } from "@/components/tools/FreeToolForm";
-import type { PremiumInputDef, PremiumFormulaRow, PremiumValidationRule, PremiumResultRow, PremiumWarning } from "@/components/tools/FreeToolForm";
+import { FreeToolPremiumCalculator } from "@/components/tools/FreeToolPremiumCalculator";
+import type { PremiumInputDef, PremiumFormulaRow, PremiumValidationRule, PremiumResultRow, PremiumWarning } from "@/components/tools/FreeToolPremiumCalculator";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
 import type { PilotFieldValues } from "@/components/tools/smart-form/pilot-calculation-payload";
@@ -675,20 +672,20 @@ export function FreeToolPage({
 </div>
 ) : (
 <div>
- <FreeToolForm
-  title={tool.freeTitle}
-  category={tool.sector}
-  toolId={`PRO_${tool.freeSlug.toUpperCase()}`}
-  standards={tool.sector ? [tool.sector] : []}
-  inputs={mapRevenueInputsToPremium(tool.freeInputs)}
-  values={values}
-  errors={errors}
-  onChange={handleChange}
-  onSubmit={() => handleSubmit()}
-  isCalculating={isCalculating}
-  calculateLabel={tCalc("calculate")}
-  onReset={() => { setValues(buildInitialValues(tool)); setErrors({}); }}
- />
+ <FreeToolPremiumCalculator
+   title={tool.freeTitle}
+   category={tool.sector}
+   toolId={`PRO_${tool.freeSlug.toUpperCase()}`}
+   standards={tool.sector ? [tool.sector] : []}
+   inputs={mapRevenueInputsToPremium(tool.freeInputs)}
+   values={values}
+   errors={errors}
+   onChange={handleChange}
+   onSubmit={(e) => { e.preventDefault(); handleSubmit(e as unknown as FormEvent<HTMLFormElement>); }}
+   isCalculating={isCalculating}
+   calculateLabel={tCalc("calculate")}
+   onReset={() => { setValues(buildInitialValues(tool)); setErrors({}); }}
+  />
   <CalculationFeedbackButton
    toolSlug={tool.freeSlug}
    toolType={surfaceTier === "premium" ? "premium" : "free"}

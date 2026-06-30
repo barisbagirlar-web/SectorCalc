@@ -48,7 +48,7 @@ export function arePremiumToolInputsValid(
       continue;
     }
     const numeric = getNumber(values, input.key);
-    if (numeric < 0) {
+    if (numeric <= 0) {
       return false;
     }
   }
