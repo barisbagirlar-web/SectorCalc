@@ -1,4 +1,4 @@
-import enMessages from "../../../../messages/en.json";
+import staticMessages from "@/data/static-free-tool-messages.json";
 
 type ValidationMessages = {
   readonly required: string;
@@ -9,8 +9,7 @@ type ValidationMessages = {
 };
 
 const LOCALE_VALIDATION: Record<string, ValidationMessages> = {
-  en: (enMessages as { freeToolUi: { fieldValidation: ValidationMessages } }).freeToolUi
-    .fieldValidation,
+  en: (staticMessages.en?.freeToolUi?.fieldValidation ?? {}) as ValidationMessages,
 };
 
 function interpolate(template: string, values: Record<string, string | number>): string {

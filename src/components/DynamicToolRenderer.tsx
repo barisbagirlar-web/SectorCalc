@@ -124,13 +124,13 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
               return (
                 <div key={field.id} className="form-group">
                   <label htmlFor={`input-${field.id}`}
-                    className="flex items-center justify-between text-sm font-medium text-gray-700 mb-1">
-                    <span>
+                    className="flex flex-col sm:flex-row sm:items-center justify-between text-sm font-medium text-gray-700 mb-1 gap-2">
+                    <span className="break-words whitespace-normal leading-tight">
                       {field.label}
                       <span className="text-xs text-gray-400 ml-1">({field.symbol})</span>
                       {field.required && <span className="text-red-500 ml-1">*</span>}
                     </span>
-                    <span className="inline-flex px-2 py-0.5 rounded text-xs font-medium text-white"
+                    <span className="inline-flex shrink-0 self-start sm:self-auto px-2 py-0.5 rounded text-xs font-medium text-white"
                       style={{ backgroundColor: confidenceColor }}>{confidenceLabel}</span>
                   </label>
 
@@ -235,11 +235,11 @@ export const DynamicToolRenderer: React.FC<DynamicToolRendererProps> = ({
                   const formula = schema.formulas.find(f => f.outputVar === key);
                   return (
                     <div key={key} className="bg-gray-50 p-3 rounded border border-gray-100">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">{key}</span>
-                        <span className="text-xs font-mono text-gray-400">{formula?.unitRef ?? ""}</span>
+                      <div className="flex flex-col gap-1 items-start justify-between">
+                        <span className="text-xs font-medium text-gray-500 uppercase tracking-wide break-words w-full">{key}</span>
+                        <span className="text-xs font-mono text-gray-400 shrink-0">{formula?.unitRef ?? ""}</span>
                       </div>
-                      <div className="text-xl font-mono font-semibold text-gray-900 mt-1">
+                      <div className="text-lg sm:text-xl font-mono font-semibold text-gray-900 mt-2 break-all">
                         {typeof value === "number"
                           ? value.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 4 })
                           : String(value)}

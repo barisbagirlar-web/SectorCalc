@@ -9,6 +9,9 @@ import {
   type ToolGuideVisualRole,
 } from "@/lib/features/tool-guides/tool-guide-spec";
 import { getPremiumSchemaForPaidSlug } from "@/lib/features/premium-schema/schema-registry";
+import { S2_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/features/tool-guides/s2-low-risk-activation-guide-specs";
+import { S3_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/features/tool-guides/s3-low-risk-activation-guide-specs";
+import { P6B_FORMULA_FACTORY_GUIDE_SPECS } from "@/lib/features/tool-guides/p6b-formula-factory-guide-specs";
 
 const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
   {
@@ -135,6 +138,18 @@ function buildSpecRegistry(): Map<string, ToolGuideSpec> {
   const registry = new Map<string, ToolGuideSpec>();
 
   for (const spec of PREMIUM_PILOT_SPECS) {
+    registry.set(spec.slug, spec);
+  }
+
+  for (const spec of S2_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
+    registry.set(spec.slug, spec);
+  }
+
+  for (const spec of S3_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
+    registry.set(spec.slug, spec);
+  }
+
+  for (const spec of P6B_FORMULA_FACTORY_GUIDE_SPECS) {
     registry.set(spec.slug, spec);
   }
 

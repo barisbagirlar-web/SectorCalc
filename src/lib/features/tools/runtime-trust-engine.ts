@@ -222,8 +222,10 @@ export function evaluateRuntimeTrust(input: RuntimeTrustInput): RuntimeTrustDeci
 
   const merged = mergeRuntimeHealthWithDecision(withRoute, readRuntimeToolHealth(healthSlug));
   return applySafetyCalculationBlock(
-    applyRuntimeTrustActivationBridge(
-      applyErt1PaymentSurfacePolicy(applyHardReviewOverride(merged)),
+    applyHardReviewOverride(
+      applyRuntimeTrustActivationBridge(
+        applyErt1PaymentSurfacePolicy(merged),
+      ),
     ),
   );
 }

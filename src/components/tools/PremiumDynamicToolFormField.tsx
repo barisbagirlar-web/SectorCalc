@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import type { Control, FieldErrors } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
@@ -25,6 +26,55 @@ type PremiumDynamicToolFormFieldProps = {
   readonly onUnitChange?: (unit: string) => void;
   readonly enterValuePlaceholder: string;
 };
+
+type NumericInputProps = {
+  value: any;
+  onChange: (val: number) => void;
+  onBlur: () => void;
+  inputId: string;
+  enterValuePlaceholder: string;
+  errorMessage: any;
+};
+
+function NumericInput({
+  value,
+  onChange,
+  onBlur,
+  inputId,
+  enterValuePlaceholder,
+  errorMessage,
+}: NumericInputProps) {
+  const [inputValue, setInputValue] = useState<string>(() => {
+    return value === undefined || value === null ? "" : String(value);
+  });
+
+  useEffect(() => {
+    const num = Number(inputValue);
+    const isTypingDecimal = inputValue.endsWith(".") || inputValue.endsWith(",");
+    if (value !== num && !isTypingDecimal && inputValue !== ".") {
+      setInputValue(value === undefined || value === null ? "" : String(value));
+    }
+  }, [value]);
+
+  return (
+    <input
+      id={inputId}
+      type="text"
+      inputMode="decimal"
+      autoComplete="off"
+      value={inputValue}
+      onChange={(event) => {
+        const { sanitized, numeric } = handleNumericInputChange(event.target.value);
+        setInputValue(sanitized);
+        onChange(numeric);
+      }}
+      onBlur={onBlur}
+      aria-invalid={Boolean(errorMessage)}
+      className="sc-premium-dtf-touch-input"
+      placeholder={enterValuePlaceholder}
+    />
+  );
+}
 
 export function PremiumDynamicToolFormField({
   input,
@@ -137,20 +187,13 @@ export function PremiumDynamicToolFormField({
         control={control}
         render={({ field }) => (
           <div className="sc-premium-dtf-input-control">
-            <input
-              id={inputId}
-              type="text"
-              inputMode="decimal"
-              autoComplete="off"
-              value={field.value === undefined || field.value === null ? "" : String(field.value)}
-              onChange={(event) => {
-                const { numeric } = handleNumericInputChange(event.target.value);
-                field.onChange(numeric);
-              }}
+            <NumericInput
+              inputId={inputId}
+              value={field.value}
+              onChange={field.onChange}
               onBlur={field.onBlur}
-              aria-invalid={Boolean(errorMessage)}
-              className="sc-premium-dtf-touch-input"
-              placeholder={enterValuePlaceholder}
+              enterValuePlaceholder={enterValuePlaceholder}
+              errorMessage={errorMessage}
             />
             {showUnitSelector && unitOptions.length > 0 ? (
               <select

@@ -1,4 +1,4 @@
-import enMessages from "../../../../messages/en.json";
+import staticMessages from "@/data/static-free-tool-messages.json";
 import catalogI18nBundle from "../../../data/free-tool-catalog-i18n.generated.json";
 import batch1I18nBundle from "../../../data/roadmap-free-batch1-i18n.generated.json";
 import batch2I18nBundle from "../../../data/roadmap-free-batch2-i18n.generated.json";
@@ -8,7 +8,7 @@ import { humanizeCanonicalSlug } from "@/lib/features/tools/canonical-tool-slugs
 type MessageRecord = Record<string, unknown>;
 
 const LOCALE_MESSAGES: Record<string, MessageRecord> = {
-  en: enMessages as MessageRecord,
+  en: (staticMessages.en ?? {}) as MessageRecord,
 };
 
 const CATALOG_I18N = catalogI18nBundle as Record<

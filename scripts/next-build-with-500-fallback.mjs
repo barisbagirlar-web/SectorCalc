@@ -40,7 +40,7 @@ const ROOT = process.cwd();
 const NEXT_DIR = join(ROOT, ".next");
 const WEBPACK_CACHE_DIR = join(ROOT, "node_modules/.cache/webpack");
 const BUILD_LOCK = join(NEXT_DIR, ".build.lock");
-const BUILD_LOG = join(NEXT_DIR, "last-next-build.log");
+const BUILD_LOG = join(ROOT, "my-next-build.log");
 const PERSISTENT_BUILD_LOG = join(ROOT, ".last-next-build.log");
 const useGlobalLock = true;
 

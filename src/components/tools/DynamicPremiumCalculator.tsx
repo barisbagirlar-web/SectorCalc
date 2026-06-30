@@ -116,6 +116,82 @@ function SevenMudaQuickDecisionSummary({
   );
 }
 
+type DynamicPremiumCalculatorInputProps = {
+  id: string;
+  type: string;
+  validation: any;
+  placeholder: string;
+  value: any;
+  onFocus: () => void;
+  onBlur: () => void;
+  onChange: (val: number) => void;
+  setSubmitted: (sub: boolean) => void;
+};
+
+function DynamicPremiumCalculatorInput({
+  id,
+  type,
+  validation,
+  placeholder,
+  value,
+  onFocus,
+  onBlur,
+  onChange,
+  setSubmitted,
+}: DynamicPremiumCalculatorInputProps) {
+  const [inputValue, setInputValue] = useState<string>(() => {
+    return value === undefined || value === null ? "" : String(value);
+  });
+
+  useEffect(() => {
+    const num = Number(inputValue);
+    const isTypingDecimal = inputValue.endsWith(".") || inputValue.endsWith(",");
+    if (value !== num && !isTypingDecimal && inputValue !== ".") {
+      setInputValue(value === undefined || value === null ? "" : String(value));
+    }
+  }, [value]);
+
+  if (type === "slider") {
+    return (
+      <input
+        id={id}
+        type="range"
+        min={validation?.min}
+        max={validation?.max}
+        step={validation?.step}
+        value={String(value ?? "")}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onChange={(e) => {
+          const val = Number(e.target.value);
+          onChange(val);
+          setSubmitted(false);
+        }}
+        className="sc-ledger-input-boxed sc-industrial-input min-h-[44px] min-w-0 flex-1"
+      />
+    );
+  }
+
+  return (
+    <input
+      id={id}
+      type="text"
+      inputMode="decimal"
+      placeholder={placeholder}
+      value={inputValue}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onChange={(e) => {
+        const { sanitized, numeric } = handleNumericInputChange(e.target.value);
+        setInputValue(sanitized);
+        onChange(numeric);
+        setSubmitted(false);
+      }}
+      className="sc-ledger-input-boxed sc-industrial-input min-h-[44px] min-w-0 flex-1"
+    />
+  );
+}
+
 export interface DynamicPremiumCalculatorProps {
   schema: PremiumCalculatorSchema;
   locale?: string;
@@ -407,27 +483,18 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 ) : null}
               </div>
               <div className="flex min-w-0 items-stretch gap-2">
-                <input
+                <DynamicPremiumCalculatorInput
                   id={id}
-                  type={input.type === "slider" ? "range" : "text"}
-                  inputMode="decimal"
-                  min={input.validation?.min}
-                  max={input.validation?.max}
-                  step={input.validation?.step}
+                  type={input.type}
+                  validation={input.validation}
                   placeholder={display.placeholder}
-                  value={String(value ?? "")}
+                  value={value}
                   onFocus={onFocus}
                   onBlur={onBlur}
-                  onChange={(e) => {
-                    if (input.type === "slider") {
-                      setValues((prev) => ({ ...prev, [input.id]: Number(e.target.value) }));
-                    } else {
-                      const { numeric } = handleNumericInputChange(e.target.value);
-                      setValues((prev) => ({ ...prev, [input.id]: numeric }));
-                    }
-                    setSubmitted(false);
+                  onChange={(numeric) => {
+                    setValues((prev) => ({ ...prev, [input.id]: numeric }));
                   }}
-                  className="sc-ledger-input-boxed sc-industrial-input min-h-[44px] min-w-0 flex-1"
+                  setSubmitted={setSubmitted}
                 />
                 {showUnitSelector && unitOptions.length > 0 ? (
                   <select

@@ -1,7 +1,7 @@
 import "server-only";
 
 import fs from "fs";
-import path from "path";
+import * as path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { buildCategorizedToolIndex, type CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
 import { PREMIUM_CALCULATOR_SCHEMAS } from "@/lib/features/premium-schema/schema-registry";

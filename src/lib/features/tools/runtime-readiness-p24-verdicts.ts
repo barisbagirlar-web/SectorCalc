@@ -528,7 +528,12 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 };
 
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
-  return P24_NON_PASS_VERDICTS[slug] ?? "PASS";
+  const normalized = slug.trim();
+  let targetSlug = normalized;
+  if (normalized === "cnc-quote-risk-analyzer") {
+    targetSlug = "cnc-minimum-safe-quote-analyzer";
+  }
+  return P24_NON_PASS_VERDICTS[targetSlug] ?? "PASS";
 }
 
 export function isP24PassForSlug(slug: string): boolean {

@@ -1,11 +1,5 @@
-import enMessages from "../../../../messages/en.json";
-
-const trMessages = enMessages;
-const deMessages = enMessages;
-const frMessages = enMessages;
-const esMessages = enMessages;
-const arMessages = enMessages;
-import fieldI18nBundle from "@/data/free-tool-inputs-i18n.generated.json";
+/* eslint-disable @typescript-eslint/no-require-imports */
+import staticMessages from "@/data/static-free-tool-messages.json";
 import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import { resolveFreeToolLocalizedCopy } from "@/lib/infrastructure/i18n/free-tool-i18n";
 import { SUPPORTED_LOCALES, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
@@ -20,20 +14,25 @@ type FieldDisplayCopy = {
 };
 
 /** UI chrome only — field copy must not read messages.freeToolInputs (legacy override risk). */
-const LOCALE_MESSAGES: Record<string, MessageRecord> = {
-  en: enMessages as MessageRecord,
-  tr: enMessages as MessageRecord,
-  de: enMessages as MessageRecord,
-  fr: enMessages as MessageRecord,
-  es: enMessages as MessageRecord,
-  ar: enMessages as MessageRecord,
-};
+const LOCALE_MESSAGES: Record<string, MessageRecord> = {};
+for (const locale of ["en", "tr", "de", "fr", "es", "ar"]) {
+  LOCALE_MESSAGES[locale] = ((staticMessages as unknown as Record<string, Record<string, unknown>>)[locale] ?? {}) as MessageRecord;
+}
 
-/** Single source of truth for calculator field label / helper copy. */
-const FIELD_I18N = fieldI18nBundle as Record<
-  string,
-  Record<string, Record<string, FieldDisplayCopy>>
->;
+/** Single source of truth for calculator field label / helper copy (dynamically loaded only on server). */
+let FIELD_I18N: Record<string, Record<string, Record<string, FieldDisplayCopy>>> = {};
+if (typeof window === "undefined") {
+  try {
+    const fs = require("node:fs");
+    const path = require("node:path");
+    const filePath = path.join(process.cwd(), "src/data/free-tool-inputs-i18n.generated.json");
+    if (fs.existsSync(filePath)) {
+      FIELD_I18N = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    }
+  } catch {
+    // Ignore in non-Node environments
+  }
+}
 
 const PLACEHOLDER_BY_LOCALE: Record<SupportedLocale, (label: string) => string> = {
   en: (label) => `Enter ${label.toLowerCase()}`,

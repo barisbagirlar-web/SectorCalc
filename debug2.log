@@ -1,0 +1,236 @@
+
+> fresh_app@0.1.0 build
+> NODE_OPTIONS=--max-old-space-size=6144 next build
+
+   ▲ Next.js 15.5.19
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 1
+     · staleTimes
+     · optimizePackageImports
+     · staticGenerationRetryCount: 5
+     · staticGenerationMaxConcurrency: 1
+     · staticGenerationMinPagesPerWorker: 50
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 37.4s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/119) ...
+   Generating static pages (29/119) 
+   Generating static pages (59/119) 
+   Generating static pages (89/119) 
+ ✓ Generating static pages (119/119)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                                                 Size  First Load JS
+┌ ƒ /                                                                                      159 B         354 kB
+├ ƒ /_not-found                                                                            239 B         112 kB
+├ ● /[locale]                                                                              158 B         354 kB
+├   └ /en
+├ ● /[locale]/about                                                                      1.42 kB         350 kB
+├   └ /en/about
+├ ● /[locale]/about-us                                                                   1.42 kB         350 kB
+├   └ /en/about-us
+├ ● /[locale]/account                                                                     4.5 kB         861 kB
+├   └ /en/account
+├ ● /[locale]/account/credits                                                            4.84 kB         777 kB
+├   └ /en/account/credits
+├ ● /[locale]/account/feedback                                                           3.22 kB         782 kB
+├   └ /en/account/feedback
+├ ● /[locale]/account/reports                                                            3.41 kB         781 kB
+├   └ /en/account/reports
+├ ƒ /[locale]/account/reports/[reportId]                                                 1.67 kB         779 kB
+├ ● /[locale]/audit                                                                      1.42 kB         350 kB
+├   └ /en/audit
+├ ● /[locale]/audit/[sectorKey]                                                          5.42 kB         358 kB
+├   ├ /en/audit/cnc
+├   ├ /en/audit/logistics
+├   ├ /en/audit/construction
+├   └ [+3 more paths]
+├ ● /[locale]/benchmarks                                                                 1.42 kB         350 kB
+├   └ /en/benchmarks
+├ ● /[locale]/calculator-library                                                         1.38 kB         350 kB
+├   └ /en/calculator-library
+├ ● /[locale]/calculators/fmea-rpn                                                       10.5 kB         783 kB
+├   └ /en/calculators/fmea-rpn
+├ ● /[locale]/case-studies                                                                 192 B         116 kB
+├   └ /en/case-studies
+├ ● /[locale]/case-studies/[slug]                                                          192 B         116 kB
+├   ├ /en/case-studies/representative-cnc-job-shop
+├   ├ /en/case-studies/representative-cleaning-contract
+├   ├ /en/case-studies/muller-prazision-5s-optimization
+├   └ [+3 more paths]
+├ ● /[locale]/categories                                                                 9.61 kB         717 kB
+├   └ /en/categories
+├ ● /[locale]/checkout/success                                                           1.38 kB         350 kB
+├   └ /en/checkout/success
+├ ● /[locale]/cleaning-contract-margin                                                   1.41 kB         350 kB
+├   └ /en/cleaning-contract-margin
+├ ● /[locale]/cnc-quote-risk                                                             1.41 kB         350 kB
+├   └ /en/cnc-quote-risk
+├ ● /[locale]/construction-bid-margin                                                    1.41 kB         350 kB
+├   └ /en/construction-bid-margin
+├ ● /[locale]/data                                                                       1.38 kB         350 kB
+├   └ /en/data
+├ ● /[locale]/disclaimer                                                                 1.41 kB         350 kB
+├   └ /en/disclaimer
+├ ● /[locale]/embed/[slug]                                                                 257 B        1.26 MB
+├ ● /[locale]/for-consultants                                                             1.7 kB         350 kB
+├   └ /en/for-consultants
+├ ● /[locale]/free-tools                                                                   163 B         369 kB
+├   └ /en/free-tools
+├ ● /[locale]/guides/[slug]                                                              1.43 kB         350 kB
+├   ├ /en/guides/how-to-calculate-manufacturing-cost
+├   ├ /en/guides/what-is-oee-and-how-to-calculate-it
+├   ├ /en/guides/how-to-calculate-scrap-rate
+├   └ [+3 more paths]
+├ ● /[locale]/how-it-works                                                               1.38 kB         350 kB
+├   └ /en/how-it-works
+├ ● /[locale]/industries                                                                   163 B         369 kB
+├   └ /en/industries
+├ ● /[locale]/industries/[slug]                                                          2.35 kB         351 kB
+├   ├ /en/industries/cnc-manufacturing
+├   ├ /en/industries/construction
+├   ├ /en/industries/cleaning
+├   └ [+3 more paths]
+├ ● /[locale]/investor-demo                                                              1.41 kB         350 kB
+├   └ /en/investor-demo
+├ ● /[locale]/login                                                                      2.65 kB         587 kB
+├   └ /en/login
+├ ● /[locale]/manifesto                                                                  1.42 kB         350 kB
+├   └ /en/manifesto
+├ ● /[locale]/methodology                                                                1.42 kB         350 kB
+├   └ /en/methodology
+├ ● /[locale]/operating-system                                                           1.41 kB         350 kB
+├   └ /en/operating-system
+├ ● /[locale]/pricing                                                                    6.43 kB         364 kB
+├   └ /en/pricing
+├ ● /[locale]/privacy                                                                    1.41 kB         350 kB
+├   └ /en/privacy
+├ ● /[locale]/pro-tools                                                                    163 B         369 kB
+├   └ /en/pro-tools
+├ ● /[locale]/pro-tools/[categorySlug]                                                   1.42 kB         350 kB
+├   ├ /en/pro-tools/lean-production
+├   ├ /en/pro-tools/quality-six-sigma
+├   ├ /en/pro-tools/process-chemical
+├   └ [+3 more paths]
+├ ● /[locale]/refund-policy                                                              1.41 kB         350 kB
+├   └ /en/refund-policy
+├ ● /[locale]/reports/sample-decision-report                                              4.2 kB         357 kB
+├   └ /en/reports/sample-decision-report
+├ ● /[locale]/seo/[slug]                                                                 2.35 kB         355 kB
+├   ├ /en/seo/3d-print-job-margin-tool
+├   ├ /en/seo/agriculture-calculators
+├   ├ /en/seo/annual-leave-severance-notice-calculator
+├   └ [+3 more paths]
+├ ● /[locale]/signup                                                                     3.65 kB         584 kB
+├   └ /en/signup
+├ ● /[locale]/sustainability                                                             1.42 kB         350 kB
+├   └ /en/sustainability
+├ ● /[locale]/team/[slug]                                                                1.42 kB         350 kB
+├   ├ /en/team/carsten-carstensen
+├   ├ /en/team/roger-fletcher
+├   └ /en/team/carol-woodward
+├ ● /[locale]/team/wil-schilders                                                         1.38 kB         350 kB
+├   └ /en/team/wil-schilders
+├ ● /[locale]/terms                                                                      1.41 kB         350 kB
+├   └ /en/terms
+├ ● /[locale]/tools                                                                        239 B         112 kB
+├   └ /en/tools
+├ ● /[locale]/tools/[tier]/[slug]                                                        5.05 kB         856 kB
+├   ├ /en/tools/free/machine-hour-estimator
+├   ├ /en/tools/free/project-cost-estimator
+├   ├ /en/tools/free/cleaning-cost-estimator
+├   └ [+4 more paths]
+├ ● /[locale]/tools/category/[category]                                                  1.42 kB         350 kB
+├   ├ /en/tools/category/imalat-uretim
+├   ├ /en/tools/category/insaat-yapi
+├   ├ /en/tools/category/lojistik-tedarik-zinciri
+├   └ [+3 more paths]
+├ ● /[locale]/tools/generated                                                            4.38 kB         404 kB
+├   └ /en/tools/generated
+├ ● /[locale]/tools/generated/[slug]                                                     1.44 kB        1.28 MB
+├ ƒ /[locale]/tools/generated/[slug]/print                                               11.9 kB         397 kB
+├ ● /[locale]/tools/premium-schema/[slug]                                                85.4 kB         1.6 MB
+├   ├ /en/tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator
+├   ├ /en/tools/premium-schema/5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator
+├   ├ /en/tools/premium-schema/3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator
+├   └ [+3 more paths]
+├ ƒ /[locale]/tools/premium-schema/[slug]/print                                           4.1 kB        1.43 MB
+├ ● /[locale]/tools/premium/[slug]                                                       1.44 kB        1.28 MB
+├   ├ /en/tools/premium/3d-print-job-margin-tool
+├   ├ /en/tools/premium/3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator
+├   ├ /en/tools/premium/3b-baski-parti-optimizasyonu-ve-yuvalama-calculator
+├   └ [+3 more paths]
+├ ● /[locale]/trust                                                                      1.42 kB         350 kB
+├   └ /en/trust
+├ ● /[locale]/verify                                                                     2.56 kB         351 kB
+├   └ /en/verify
+├ ƒ /[locale]/verify/[hash]                                                              4.04 kB         352 kB
+├ ƒ /admin                                                                                 239 B         112 kB
+├ ƒ /admin/benchmarks                                                                    8.31 kB         360 kB
+├ ƒ /admin/case-studies                                                                  2.47 kB         860 kB
+├ ƒ /admin/case-studies/[id]/edit                                                          181 B         863 kB
+├ ƒ /admin/case-studies/new                                                              3.32 kB         861 kB
+├ ƒ /admin/case-studies/new/full                                                           182 B         863 kB
+├ ƒ /admin/kpi                                                                           11.9 kB         364 kB
+├ ƒ /admin/leads                                                                         26.9 kB         379 kB
+├ ƒ /admin/login                                                                           236 B         352 kB
+├ ƒ /admin/schema-generator                                                              13.2 kB         507 kB
+├ ƒ /admin/users                                                                         8.78 kB         361 kB
+├ ƒ /admin/verification-queue                                                              172 B         116 kB
+├ ƒ /ai.txt                                                                                239 B         112 kB
+├ ƒ /api-public/bot-md/[slug]                                                              239 B         112 kB
+├ ƒ /api-public/calculate/[slug]                                                           812 B         113 kB
+├ ƒ /api/admin/case-studies                                                                239 B         112 kB
+├ ƒ /api/admin/case-studies/[id]                                                           239 B         112 kB
+├ ƒ /api/admin/parse-case-study                                                            239 B         112 kB
+├ ƒ /api/admin/users                                                                       239 B         112 kB
+├ ƒ /api/ai-gateway/customer                                                               239 B         112 kB
+├ ƒ /api/ai-repair/analyze                                                                 239 B         112 kB
+├ ƒ /api/ai/interpret-premium-result                                                       239 B         112 kB
+├ ƒ /api/assistant                                                                         239 B         112 kB
+├ ƒ /api/assistant/chat                                                                    239 B         112 kB
+├ ƒ /api/email-capture                                                                     239 B         112 kB
+├ ƒ /api/export-pdf                                                                        170 B         116 kB
+├ ƒ /api/external/webhook                                                                  239 B         112 kB
+├ ƒ /api/health                                                                            239 B         112 kB
+├ ƒ /api/indexnow-verification                                                             239 B         112 kB
+├ ƒ /api/paddle-webhook                                                                    239 B         112 kB
+├ ƒ /api/qr                                                                                239 B         112 kB
+├ ƒ /api/reports/approved                                                                  239 B         112 kB
+├ ƒ /api/tool-feedback                                                                     239 B         112 kB
+├ ƒ /api/trace/free                                                                        239 B         112 kB
+├ ƒ /api/trace/health                                                                      239 B         112 kB
+├ ƒ /api/trace/pro                                                                         239 B         112 kB
+├ ƒ /api/verification-queue                                                                239 B         112 kB
+├ ƒ /api/verify-report                                                                     239 B         112 kB
+├ ƒ /api/verify/[hash]                                                                     239 B         112 kB
+├ ○ /apple-icon.png                                                                          0 B            0 B
+├ ƒ /beta-partner                                                                        5.43 kB         358 kB
+├ ƒ /developer-showcase                                                                  1.41 kB         350 kB
+├ ƒ /faq-knowledge.txt                                                                     239 B         112 kB
+├ ƒ /guide/how-to-calculate-[slug]                                                         812 B         113 kB
+├ ○ /icon.png                                                                                0 B            0 B
+├ ƒ /llms.txt                                                                              239 B         112 kB
+├ ○ /manifest.webmanifest                                                                  239 B         112 kB
+├ ƒ /os                                                                                  2.53 kB         589 kB
+├ ○ /robots.txt                                                                            239 B         112 kB
+├ ƒ /sectorcalc-index.txt                                                                  239 B         112 kB
+└ ○ /sitemap.xml                                                                           239 B         112 kB
++ First Load JS shared by all                                                             112 kB
+  ├ chunks/31255-b3f896fce2ff5d16.js                                                     45.9 kB
+  ├ chunks/4bd1b696-bad92808725a934a.js                                                  54.2 kB
+  ├ chunks/webpack-f581bf1604c4e2da.js                                                   11.7 kB
+  └ other shared chunks (total)                                                            233 B
+
+
+ƒ Middleware                                                                             90.3 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -46,6 +46,58 @@ export type FreeToolFormProps = {
   readonly disabled?: boolean;
 };
 
+type NumericInputProps = {
+  value: any;
+  onChange: (val: number) => void;
+  onBlur: () => void;
+  inputId: string;
+  enterValuePlaceholder: string;
+  errorMessage: any;
+  errorId: string;
+};
+
+function NumericInput({
+  value,
+  onChange,
+  onBlur,
+  inputId,
+  enterValuePlaceholder,
+  errorMessage,
+  errorId,
+}: NumericInputProps) {
+  const [inputValue, setInputValue] = useState<string>(() => {
+    return value === undefined || value === null ? "" : String(value);
+  });
+
+  useEffect(() => {
+    const num = Number(inputValue);
+    const isTypingDecimal = inputValue.endsWith(".") || inputValue.endsWith(",");
+    if (value !== num && !isTypingDecimal && inputValue !== ".") {
+      setInputValue(value === undefined || value === null ? "" : String(value));
+    }
+  }, [value]);
+
+  return (
+    <input
+      id={inputId}
+      type="text"
+      inputMode="decimal"
+      autoComplete="off"
+      value={inputValue}
+      onChange={(event) => {
+        const { sanitized, numeric } = handleNumericInputChange(event.target.value);
+        setInputValue(sanitized);
+        onChange(numeric);
+      }}
+      onBlur={onBlur}
+      aria-invalid={Boolean(errorMessage)}
+      aria-describedby={errorMessage ? errorId : undefined}
+      className="sc-premium-dtf-touch-input"
+      placeholder={enterValuePlaceholder}
+    />
+  );
+}
+
 function buildDefaultValues(
   schema: GeneratedToolSchema,
   zodSchema: z.ZodTypeAny,
@@ -229,21 +281,14 @@ function FreeToolFormField({
             ) : null}
           </div>
           <div className="sc-premium-dtf-input-control">
-            <input
-              id={inputId}
-              type="text"
-              inputMode="decimal"
-              autoComplete="off"
-              value={field.value === undefined || field.value === null ? "" : String(field.value)}
-              onChange={(event) => {
-                const { numeric } = handleNumericInputChange(event.target.value);
-                field.onChange(numeric);
-              }}
+            <NumericInput
+              inputId={inputId}
+              value={field.value}
+              onChange={field.onChange}
               onBlur={field.onBlur}
-              aria-invalid={Boolean(errorMessage)}
-              aria-describedby={errorMessage ? errorId : undefined}
-              className="sc-premium-dtf-touch-input"
-              placeholder={enterValuePlaceholder}
+              enterValuePlaceholder={enterValuePlaceholder}
+              errorMessage={errorMessage}
+              errorId={errorId}
             />
             {showUnitSelector && unitOptions.length > 0 ? (
               <select
