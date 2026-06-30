@@ -16,6 +16,64 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
 
 /**
+ * Helper — ensure manifest stubs and Pages Router module stubs exist
+ * on disk before SSG workers start. Called at module init AND in the
+ * webpack done hook (for Firebase framework rebuilds).
+ */
+function ensureManifestStubs(): void {
+  const nextDir = path.join(process.cwd(), ".next");
+  const serverDir = path.join(nextDir, "server");
+  const pagesDir = path.join(serverDir, "pages");
+  const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
+  const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
+  const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
+  const documentJsPath = path.join(pagesDir, "_document.js");
+  const appJsPath = path.join(pagesDir, "_app.js");
+  // Stub Pages Router modules to prevent "Cannot find module for page: /_document" / /_app
+  // during SSG. The empty pages-manifest triggers Next.js to look for these even in App Router.
+  for (const file of [documentJsPath, appJsPath]) {
+    if (!fs.existsSync(file)) {
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, "module.exports = {};\n", "utf8");
+    }
+    // Create stub .nft.json for standalone trace collection
+    const nftPath = file + ".nft.json";
+    if (!fs.existsSync(nftPath)) {
+      fs.writeFileSync(nftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
+    }
+  }
+  if (!fs.existsSync(pagesManifestPath)) {
+    fs.mkdirSync(serverDir, { recursive: true });
+    // Only include _document — prevents Next.js from scanning src/pages/ for more pages.
+    fs.writeFileSync(pagesManifestPath, JSON.stringify({ "/_document": "pages/_document.js" }), "utf8");
+  }
+  if (!fs.existsSync(appPathsManifestPath)) {
+    fs.mkdirSync(serverDir, { recursive: true });
+    fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
+  }
+  if (!fs.existsSync(middlewareManifestPath)) {
+    fs.mkdirSync(serverDir, { recursive: true });
+    fs.writeFileSync(
+      middlewareManifestPath,
+      JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
+      "utf8",
+    );
+  }
+  const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
+  if (!fs.existsSync(serverRefManifestPath)) {
+    fs.mkdirSync(serverDir, { recursive: true });
+    fs.writeFileSync(
+      serverRefManifestPath,
+      JSON.stringify({ serverActions: [], version: 1 }),
+      "utf8",
+    );
+  }
+}
+
+// Ensure stubs exist at module init (before any webpack hook fires)
+ensureManifestStubs();
+
+/**
  * Webpack plugin — ensures Next.js manifest stubs exist after compilation
  * but before SSG ("Collecting page data").
  * Next.js 15 App Router does not create pages-manifest.json; without this
@@ -24,38 +82,7 @@ const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
     compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
-      const nextDir = path.join(process.cwd(), ".next");
-      const serverDir = path.join(nextDir, "server");
-      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
-      const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
-      const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
-      // Write minimal pages-manifest — mark it as App Router only to prevent
-      // Pages Router module resolution during SSG.
-      if (!fs.existsSync(pagesManifestPath)) {
-        fs.mkdirSync(serverDir, { recursive: true });
-        fs.writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
-      }
-      if (!fs.existsSync(appPathsManifestPath)) {
-        fs.mkdirSync(serverDir, { recursive: true });
-        fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
-      }
-      if (!fs.existsSync(middlewareManifestPath)) {
-        fs.mkdirSync(serverDir, { recursive: true });
-        fs.writeFileSync(
-          middlewareManifestPath,
-          JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
-          "utf8",
-        );
-      }
-      const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
-      if (!fs.existsSync(serverRefManifestPath)) {
-        fs.mkdirSync(serverDir, { recursive: true });
-        fs.writeFileSync(
-          serverRefManifestPath,
-          JSON.stringify({ serverActions: [], version: 1 }),
-          "utf8",
-        );
-      }
+      ensureManifestStubs();
     });
   }
 }
