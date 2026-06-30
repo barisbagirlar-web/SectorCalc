@@ -7,15 +7,13 @@
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import {
-  BigNumberSummary,
-  ExecutiveVerdictBlock,
+  PremiumDecisionReportPreview,
   LossDriverBreakdown,
   SuggestedActionSection,
-  ThresholdStatusSection,
   buildPremiumDecisionReportData,
 } from "@/components/reports/PremiumDecisionReportPreview";
 import type {
@@ -35,11 +33,6 @@ import type { BenchmarkSnapshotValue } from "@/lib/features/benchmarks/benchmark
 import { usePremiumSchemaEntitlement } from "@/lib/features/entitlements/use-premium-schema-entitlement";
 import { limitPreviewThresholdCount } from "@/lib/features/entitlements/premium-entitlements";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
-import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
-import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
-import { PremiumCalculatorShell } from "@/components/tools/PremiumCalculatorShell";
-import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
-import { resolveCalculatorInputDisplay } from "@/lib/infrastructure/i18n/free-tool-form-i18n";
 import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
@@ -528,82 +521,180 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     );
   }
 
+  // HMI template state
+  const [utcTime, setUtcTime] = useState("");
+  useEffect(() => {
+    function tick() { setUtcTime("UTC · " + new Date().toISOString().replace("T", " ").slice(0, 19)); }
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const decisionStatus = result?.verdictStatus || reportData?.verdict?.status || null;
+  const decisionLabel = decisionStatus ? String(decisionStatus).toUpperCase() : "AWAITING INPUTS";
+  const isCritical = decisionStatus === "HIGH" || decisionStatus === "CRITICAL" || decisionStatus === "REVIEW";
+  const isOK = decisionStatus === "LOW" || decisionStatus === "PASS" || decisionStatus === "OK";
+  const hasResult = Boolean(result && reportData);
+
   return (
     <>
       <style>{HMI_CSS}</style>
-    <ToolGuidanceLayout
-      toolSlug={schema.id}
-      tier="premium-schema"
-      fields={schemaGuidanceFields}
-      toolTitle={displayName}
-      toolSector={schema.sectorSlug}
-    >
-      <ToolOmniMetaSection
-        toolName={displayName}
-        slug={schema.id}
-        tier="premium"
-        excerpt={displayPain}
-        canonicalPath={`/tools/premium-schema/${schema.id}`}
-        skipStructuredData
-        onFeedback={() => {
-          document.getElementById("feedback")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }}
-      />
-      <PremiumCalculatorShell
-        title={displayName}
-        description={displayPain}
-        showHeader={false}
-        hasCalculated={Boolean(result && reportData)}
-        inputPanel={
-          <div className="flex min-w-0 flex-col gap-4">
-            <div className="order-1 min-w-0 lg:order-2">
-              <form
-                onSubmit={handleSubmit}
-                className="sc-form-shell sc-form-grid sc-industrial-form min-h-0"
-                noValidate
-                data-calculation-form="true"
-                data-testid="tool-form"
-              >
-                {visibleInputs.map((input) => renderInput(input))}
-                <div className="sc-industrial-form-actions">
-                  <button type="submit" className="sc-ledger-cta-primary sc-cta-primary min-h-[44px]">
-                    {t("runAnalysis")}
-                  </button>
-                </div>
-              </form>
-            </div>
+      {/* STATUS STRIP */}
+      <div className="status-strip">
+        <div className="brand">
+          <span className="led ok pulse" />
+          <div>
+            <div className="brand-mark">SECTORCALC PREMIUM</div>
+            <div className="brand-sub">SCHEMA ENGINE · {(schema.sectorSlug || "").toUpperCase()}</div>
           </div>
-        }
-        resultPanel={
-          result && reportData ? (
-            <ResultLayerTabs
-              quickHeadline={result.bigNumber.formatted}
-              quickSummary={getOutputMeaning(result.bigNumber)}
-              quickContent={
-                <div className="space-y-4">
-                  <ExecutiveVerdictBlock
-                    verdict={reportData.verdict}
-                    statusLabel={t(`status.${reportData.verdict.status}`)}
-                  />
-                  <BigNumberSummary result={result} meaningLabel={t("whatThisMeans")} />
-                  {schema.id === SEVEN_MUDA_WASTE_COST_SLUG && result.sevenMudaEngineering ? (
-                    <SevenMudaQuickDecisionSummary
-                      engineering={result.sevenMudaEngineering}
-                      locale={locale}
-                    />
-                  ) : null}
-                  <ThresholdStatusSection
-                    items={
-                      isFullReport
-                        ? reportData.thresholdItems
-                        : limitPreviewThresholdCount(reportData.thresholdItems, 2)
-                    }
-                    title={t("thresholdTitle")}
-                  />
+        </div>
+        <div className="indicators">
+          <div className="ind"><span className={`led ${hasResult ? "ok" : "off"}`} /><b>CALC</b></div>
+          <div className="ind"><span className={`led ${isCritical ? "danger" : isOK ? "ok" : "off"}`} /><b>ALM</b></div>
+          <div className="ind"><span className="led off" /><b>PENDING</b></div>
+          <div className="ind"><span className="led signal pulse" /><b>COM</b></div>
+          <div className="timestamp">{utcTime || "\u2014"}</div>
+        </div>
+      </div>
+
+      {/* DISPLAY HEADER */}
+      <div className="display-header">
+        <div>
+          <div className="module-id">MODULE · {schema.id} · PREMIUM SCHEMA</div>
+          <h1>{displayName}</h1>
+          <div className="sub-cap">{displayPain}</div>
+        </div>
+        <div className="meta">
+          <div className="pill-row">
+            <span className="pill pro">PREMIUM SCHEMA</span>
+            {hasResult ? <span className="pill">STATUS · {decisionLabel}</span> : null}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid">
+        <main>
+          <form ref={formRef} onSubmit={handleSubmit} noValidate data-calculation-form="true">
+            {/* INPUT GROUP */}
+            <div className="group">
+              <div className="group-head">
+                <span className="led ok group-led" />
+                <span className="group-letter">IN</span>
+                <span className="group-title">INPUT PARAMETERS</span>
+                <span className="group-count">{visibleInputs.length} fields</span>
+              </div>
+              <div className="fields">
+                {visibleInputs.map((input) => {
+                  const id = `schema-input-${schema.id}-${input.id}`;
+                  const value = values[input.id];
+                  const display = resolveCalculatorInputDisplay(schema.id, input.id, locale, {
+                    label: input.label,
+                    helper: input.helper,
+                  });
+                  return (
+                    <div key={input.id} className="field">
+                      <label>
+                        <span className="f-name">{display.label}</span>
+                        {input.unit ? <span className="f-sym">{input.unit}</span> : null}
+                      </label>
+                      <div className="ctrl">
+                        <input
+                          id={id}
+                          type="text"
+                          inputMode="decimal"
+                          placeholder={display.placeholder || "0"}
+                          value={value === undefined || value === null ? "" : String(value)}
+                          onChange={(e) => {
+                            const { sanitized, numeric } = handleNumericInputChange(e.target.value);
+                            if (input.type === "select" && input.options) {
+                              setValues((prev) => ({ ...prev, [input.id]: e.target.value }));
+                            } else {
+                              setValues((prev) => ({ ...prev, [input.id]: numeric }));
+                            }
+                            setSubmitted(false);
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* EXECUTE PANEL */}
+            <div className="exec-panel">
+              <div className="exec-status">
+                <span className="led signal pulse" />
+                <span>READY {hasResult ? <span className="tx">· last exec {new Date().toLocaleTimeString()}</span> : null}</span>
+              </div>
+              <button type="submit" className="btn-exec">
+                &#x25B6; EXECUTE
+                <span className="kbd">F9</span>
+              </button>
+            </div>
+          </form>
+        </main>
+
+        {/* RAIL */}
+        <aside className="rail">
+          {/* Decision */}
+          <div className={`decision ${isCritical ? "review" : isOK ? "ok" : ""}`}>
+            <div className="d-label">
+              PRIMARY READOUT · STATUS
+            </div>
+            <div className="d-text">{hasResult ? result.bigNumber.formatted : "\u2014"}</div>
+            <div className="d-sub">{decisionLabel}</div>
+          </div>
+
+          {/* Quick Summary */}
+          {hasResult ? (
+            <div className="card">
+              <h3>QUICK SUMMARY</h3>
+              <div className="readout">
+                <div className="blk">
+                  <p><b>Verdict:</b> {reportData.verdict.verdict}</p>
+                  <p><b>Primary Metric:</b> {result.bigNumber.formatted}</p>
+                  {result.p90Exposure != null ? <p><b>P90 Exposure:</b> {formatPremiumValue(result.p90Exposure, "currency", "", locale)}</p> : null}
+                  {result.minimumSafePrice != null ? <p><b>Min Safe Price:</b> {formatPremiumValue(result.minimumSafePrice, "currency", "", locale)}</p> : null}
                 </div>
-              }
-              deepContent={
-                <div className="space-y-4">
+              </div>
+            </div>
+          ) : null}
+
+          {/* Thresholds (first 2 preview) */}
+          {hasResult ? (
+            <div className="card">
+              <h3>THRESHOLD ALERTS</h3>
+              <div style={{ minHeight: 20 }}>
+                {(isFullReport ? reportData.thresholdItems : limitPreviewThresholdCount(reportData.thresholdItems, 2)).map((item, i) => (
+                  <div key={i} className="warn WARNING">
+                    <span className="wsev" />
+                    <span className="wmsg"><b>BAND.</b> {item.label}: {item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {/* Interpretation */}
+          {interpretationPanel ? (
+            <div className="card">{interpretationPanel}</div>
+          ) : null}
+
+          {/* Seven Muda specific */}
+          {hasResult && schema.id === SEVEN_MUDA_WASTE_COST_SLUG && result.sevenMudaEngineering ? (
+            <div className="card">
+              <h3>7 MUDA WASTE BREAKDOWN</h3>
+              <SevenMudaQuickDecisionSummary engineering={result.sevenMudaEngineering} locale={locale} />
+            </div>
+          ) : null}
+
+          {/* Deep Content (locked behind paywall) */}
+          {hasResult ? (
+            <div className="card">
+              <h3>DETAILED ANALYSIS</h3>
+              <div className="readout">
+                <div className="blk">
                   <PremiumDecisionReportPreview
                     schema={schema}
                     result={result}
@@ -612,50 +703,65 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                     entitlement={entitlement}
                     checkoutHref={checkoutHref}
                   />
-                  {isFullReport ? (
-                    <>
+                </div>
+                {isFullReport ? (
+                  <>
+                    <div className="blk">
+                      <div className="bh"><span className="bt">LOSS DRIVERS</span></div>
                       <LossDriverBreakdown
                         result={result}
-                        title={t("hiddenDriversTitle")}
-                        intro={t("hiddenDriversIntro")}
+                        title=""
+                        intro=""
                       />
+                    </div>
+                    <div className="blk">
+                      <div className="bh"><span className="bt">SUGGESTED ACTION</span></div>
                       <SuggestedActionSection
                         severity={reportData.severity}
                         engineAction={result.suggestedAction}
-                        title={t("suggestedActionTitle")}
-                        immediateLabel={t("actionImmediate")}
-                        monitoringLabel={t("actionMonitoring")}
-                        decisionLabel={t("actionDecision")}
+                        title=""
+                        immediateLabel="IMMEDIATE"
+                        monitoringLabel="MONITORING"
+                        decisionLabel="DECISION"
                       />
-                    </>
-                  ) : null}
-                </div>
-              }
-              interpretationContent={interpretationPanel}
-            />
-          ) : null
-        }
-      />
-      {feedbackSnapshots ? (
-        <div id="feedback" className="mt-6 space-y-4">
-          <PremiumReportFeedback
-            schemaSlug={schema.id}
-            sectorSlug={schema.sectorSlug}
-            reportSlug={schema.id}
-            inputSnapshot={feedbackSnapshots.inputSnapshot}
-            resultSnapshot={feedbackSnapshots.resultSnapshot}
-          />
-          <CalculationFeedbackButton
-            toolSlug={schema.id}
-            toolType="premium"
-            locale={intlLocale}
-            routePath={pagePath}
-            inputSnapshot={feedbackSnapshots.inputSnapshot}
-            resultSnapshot={feedbackSnapshots.resultSnapshot}
-          />
+                    </div>
+                  </>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
+
+          {/* Feedback */}
+          {feedbackSnapshots ? (
+            <div className="card" id="feedback">
+              <PremiumReportFeedback
+                schemaSlug={schema.id}
+                sectorSlug={schema.sectorSlug}
+                reportSlug={schema.id}
+                inputSnapshot={feedbackSnapshots.inputSnapshot}
+                resultSnapshot={feedbackSnapshots.resultSnapshot}
+              />
+              <CalculationFeedbackButton
+                toolSlug={schema.id}
+                toolType="premium"
+                locale={intlLocale}
+                routePath={pagePath}
+                inputSnapshot={feedbackSnapshots.inputSnapshot}
+                resultSnapshot={feedbackSnapshots.resultSnapshot}
+              />
+            </div>
+          ) : null}
+        </aside>
+      </div>
+
+      {/* Mobile Bar */}
+      <div className="mbar" style={{ display: "flex" }}>
+        <div>
+          <div className="ml">RESULT</div>
+          <div className="mv">{hasResult ? result.bigNumber.formatted : "\u2014"}</div>
         </div>
-      ) : null}
-    </ToolGuidanceLayout>
+        <div className="md">{decisionLabel}</div>
+      </div>
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
+import { CalculationFeedbackModal } from "@/components/feedback/CalculationFeedbackModal";
 import "@/styles/landing-page.css";
 
 interface Sector {
@@ -40,7 +41,53 @@ export function NewLandingContent({
   const [calculators, setCalculators] = useState<ApiTool[]>([]);
   const [expanded, setExpanded] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [openFeedback, setOpenFeedback] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const getSectorToolCount = (sectorName: string): number => {
+    const term = sectorName.toLowerCase();
+    let sum = 0;
+    
+    sectors.forEach(s => {
+      const name = s.name.toLowerCase();
+      
+      if (term === "manufacturing") {
+        if (name.includes("manufacturing") || name.includes("production") || name.includes("imalat") || name.includes("uretim")) {
+          sum += s.n;
+        }
+      } else if (term === "workshops") {
+        if (name.includes("workshop") || name.includes("atolye") || name.includes("repair") || name.includes("tamir")) {
+          sum += s.n;
+        }
+      } else if (term === "engineering") {
+        if (name.includes("engineering") || name.includes("design") || name.includes("tasarim") || name.includes("technical") || name.includes("mechanical") || name.includes("makine") || name.includes("metal")) {
+          sum += s.n;
+        }
+      } else if (term === "construction") {
+        if (name.includes("construction") || name.includes("building") || name.includes("insaat") || name.includes("yapi")) {
+          sum += s.n;
+        }
+      } else if (term === "energy") {
+        if (name.includes("energy") || name.includes("enerji") || name.includes("electricity") || name.includes("power") || name.includes("carbon")) {
+          sum += s.n;
+        }
+      } else if (term === "logistics") {
+        if (name.includes("logistics") || name.includes("shipping") || name.includes("freight") || name.includes("transport") || name.includes("kargo") || name.includes("sevkiyat") || name.includes("routing")) {
+          sum += s.n;
+        }
+      } else if (term === "finance") {
+        if (name.includes("finance") || name.includes("accounting") || name.includes("finans") || name.includes("muhasebe") || name.includes("cost") || name.includes("maliyet") || name.includes("budget")) {
+          sum += s.n;
+        }
+      } else if (term === "business") {
+        if (name.includes("business") || name.includes("retail") || name.includes("commerce") || name.includes("perakende") || name.includes("store") || name.includes("hr") || name.includes("personnel") || name.includes("other") || name.includes("diger")) {
+          sum += s.n;
+        }
+      }
+    });
+    
+    return sum;
+  };
 
   useEffect(() => {
     if (tools && tools.length > 0) {
@@ -214,44 +261,60 @@ export function NewLandingContent({
             
             <div className="grid cat-grid">
               <div className="cat-card">
-                <h4>Manufacturing</h4>
+                <h4>Manufacturing {getSectorToolCount("manufacturing") > 0 && `(${getSectorToolCount("manufacturing")})`}</h4>
                 <p>Machine hour rate, OEE, scrap, setup time, throughput, and production cost calculators.</p>
-                <Link href="/tools/category/manufacturing" className="btn-link">Browse Manufacturing Calculators &rarr;</Link>
+                <Link href="/tools/category/imalat-uretim" className="btn-link">
+                  Browse {getSectorToolCount("manufacturing") > 0 ? `${getSectorToolCount("manufacturing")} ` : ""}Manufacturing Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Workshops</h4>
+                <h4>Workshops {getSectorToolCount("workshops") > 0 && `(${getSectorToolCount("workshops")})`}</h4>
                 <p>Quote pricing, labor rate, job costing, material use, and margin calculators for shop-floor decisions.</p>
-                <Link href="/tools/category/workshops" className="btn-link">Browse Workshop Calculators &rarr;</Link>
+                <Link href="/tools/category/bakim-guvenilirlik" className="btn-link">
+                  Browse {getSectorToolCount("workshops") > 0 ? `${getSectorToolCount("workshops")} ` : ""}Workshop Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Engineering</h4>
+                <h4>Engineering {getSectorToolCount("engineering") > 0 && `(${getSectorToolCount("engineering")})`}</h4>
                 <p>Torque, tolerance, load, sizing, conversion, and technical calculation tools for engineering checks.</p>
-                <Link href="/tools/category/engineering" className="btn-link">Browse Engineering Calculators &rarr;</Link>
+                <Link href="/tools/category/makine-tasarim" className="btn-link">
+                  Browse {getSectorToolCount("engineering") > 0 ? `${getSectorToolCount("engineering")} ` : ""}Engineering Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Construction</h4>
+                <h4>Construction {getSectorToolCount("construction") > 0 && `(${getSectorToolCount("construction")})`}</h4>
                 <p>Concrete, volume, quantity, material, roof, labor, and project estimation calculators.</p>
-                <Link href="/tools/category/construction" className="btn-link">Browse Construction Calculators &rarr;</Link>
+                <Link href="/tools/category/insaat-yapi" className="btn-link">
+                  Browse {getSectorToolCount("construction") > 0 ? `${getSectorToolCount("construction")} ` : ""}Construction Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Energy</h4>
+                <h4>Energy {getSectorToolCount("energy") > 0 && `(${getSectorToolCount("energy")})`}</h4>
                 <p>kWh, compressor leak, carbon, peak load, efficiency, and consumption calculators.</p>
-                <Link href="/tools/category/energy" className="btn-link">Browse Energy Calculators &rarr;</Link>
+                <Link href="/tools/category/enerji-surdurulebilirlik" className="btn-link">
+                  Browse {getSectorToolCount("energy") > 0 ? `${getSectorToolCount("energy")} ` : ""}Energy Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Logistics</h4>
+                <h4>Logistics {getSectorToolCount("logistics") > 0 && `(${getSectorToolCount("logistics")})`}</h4>
                 <p>Freight, route, fuel, dimensional weight, delivery cost, and service efficiency calculators.</p>
-                <Link href="/tools/category/logistics" className="btn-link">Browse Logistics Calculators &rarr;</Link>
+                <Link href="/tools/category/lojistik-tedarik-zinciri" className="btn-link">
+                  Browse {getSectorToolCount("logistics") > 0 ? `${getSectorToolCount("logistics")} ` : ""}Logistics Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Finance</h4>
+                <h4>Finance {getSectorToolCount("finance") > 0 && `(${getSectorToolCount("finance")})`}</h4>
                 <p>VAT, payroll, depreciation, loan, margin, break-even, and cash impact calculators.</p>
-                <Link href="/tools/category/finance" className="btn-link">Browse Finance Calculators &rarr;</Link>
+                <Link href="/tools/category/maliyet-butceleme" className="btn-link">
+                  Browse {getSectorToolCount("finance") > 0 ? `${getSectorToolCount("finance")} ` : ""}Finance Calculators &rarr;
+                </Link>
               </div>
               <div className="cat-card">
-                <h4>Retail & Business</h4>
+                <h4>Retail & Business {getSectorToolCount("business") > 0 && `(${getSectorToolCount("business")})`}</h4>
                 <p>Stock, waste, discount, margin, pricing, and operational cost calculators.</p>
-                <Link href="/tools/category/business" className="btn-link">Browse Business Calculators &rarr;</Link>
+                <Link href="/tools/category/proje-yatirim" className="btn-link">
+                  Browse {getSectorToolCount("business") > 0 ? `${getSectorToolCount("business")} ` : ""}Business Calculators &rarr;
+                </Link>
               </div>
             </div>
           </div>
@@ -372,15 +435,53 @@ export function NewLandingContent({
         {/* SOCIAL PROOF */}
         <section className="sec-section community-section">
           <div className="wrap">
-            <h2>Community Feedback & Practical Use Cases</h2>
-            <p className="section-desc">SectorCalc feedback is manually reviewed before publication. The platform does not publish fake reviews, paid testimonials, or unsupported claims.</p>
+            <h2>User Feedback &amp; Reviews</h2>
+            <p className="section-desc">
+              SectorCalc feedback is manually reviewed before publication. We don&apos;t publish fake reviews or paid testimonials.
+            </p>
             
-            <div className="empty-feedback">
-              <p>No published feedback yet for this calculator category. Share how you used SectorCalc in a real calculation workflow.</p>
-            </div>
-
-            <div className="cta-center">
-              <Link href="/feedback" className="btn-secondary">Share Feedback</Link>
+            <div className="empty-feedback" style={{
+              background: "var(--surface)",
+              border: "2px dashed var(--border-strong)",
+              borderRadius: "12px",
+              padding: "48px 32px",
+              marginBottom: "32px",
+              textAlign: "center"
+            }}>
+              <div style={{ fontSize: "48px", marginBottom: "16px" }}>💬</div>
+              <h3 style={{
+                fontFamily: "var(--serif)",
+                fontSize: "20px",
+                fontWeight: 600,
+                color: "var(--ink)",
+                marginBottom: "12px"
+              }}>
+                Be the First to Share Your Experience
+              </h3>
+              <p style={{
+                color: "var(--muted)",
+                fontSize: "14.5px",
+                lineHeight: 1.6,
+                marginBottom: "24px",
+                maxWidth: "480px",
+                marginLeft: "auto",
+                marginRight: "auto"
+              }}>
+                Help others by sharing how you used SectorCalc in a real calculation workflow.
+              </p>
+              <button
+                onClick={() => setOpenFeedback(true)}
+                className="btn-primary"
+                style={{
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "var(--sans)",
+                  fontWeight: 600,
+                  fontSize: "15px"
+                }}
+              >
+                Share Feedback
+              </button>
             </div>
           </div>
         </section>
@@ -405,6 +506,16 @@ export function NewLandingContent({
           </div>
         </section>
       </main>
+
+      {openFeedback && (
+        <CalculationFeedbackModal
+          toolSlug=""
+          toolType="free"
+          locale="en"
+          routePath="/"
+          onClose={() => setOpenFeedback(false)}
+        />
+      )}
     </div>
   );
 }
