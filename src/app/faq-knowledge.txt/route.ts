@@ -21,7 +21,7 @@ export async function GET(): Promise<Response> {
     `# Languages: ${joinLocales(SUPPORTED_LOCALES)}`,
     "# Version: 2.0 (dynamic)",
     "#",
-    "# All answers apply across all 6 locales unless otherwise noted.",
+    "# All answers apply across the root English site unless otherwise noted.",
     "# For locale-specific URLs use pattern: /{locale}/tools/generated/{slug}",
     "# English root has no prefix.",
     "",

@@ -25,9 +25,9 @@ export async function GET(): Promise<Response> {
     `- Pro decision reports (${listPremiumSchemaSlugs().length})`,
     "- Hidden-loss diagnostics",
     "- Export-ready PDF/CSV reports (paid access)",
-    `- ${index.categories.length} categories across ${index.locales.length} languages`,
+    `- ${index.categories.length} categories on the root English site`,
     "",
-    "## Sector categories (all 6 locales)",
+    "## Sector categories (the root English site)",
   ];
 
   for (const industry of INDUSTRIES) {
@@ -36,7 +36,7 @@ export async function GET(): Promise<Response> {
 
   lines.push(
     "",
-    "## Programmatic SEO hubs (all 6 locales)",
+    "## Programmatic SEO hubs (the root English site)",
   );
 
   for (const page of PROGRAMMATIC_SEO_PAGES) {
