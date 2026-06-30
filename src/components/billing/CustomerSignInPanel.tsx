@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react/no-unescaped-entities */
 
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";

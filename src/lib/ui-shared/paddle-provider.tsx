@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useEffect, useRef, useState, ReactNode } from 'react'
 
+
+let isPaddleInitialized = false;
 type PaddleInstance = {
   Checkout: { open: (opts: PaddleCheckoutOptions) => void }
   Environment: { set: (env: 'sandbox' | 'production') => void }
@@ -120,14 +122,22 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
           if (initResult && typeof (initResult as any).then === 'function') {
             (initResult as any)
               .then(() => {
+                isPaddleInitialized = true
                 paddleRef.current = Paddle
                 setReady(true)
               })
               .catch((err: any) => {
-                console.warn('[PaddleProvider] Initialize rejected — payment unavailable:', err?.message || err)
-                // ready stays false — payment features gracefully disabled
+                const msg = err?.message || String(err)
+                if (msg.toLowerCase().includes('already initialized')) {
+                  isPaddleInitialized = true
+                  paddleRef.current = Paddle
+                  setReady(true)
+                } else {
+                  console.warn('[PaddleProvider] Initialize rejected — payment unavailable:', msg)
+                }
               })
           } else {
+            isPaddleInitialized = true
             console.log('[PaddleProvider] Initialize OK')
             paddleRef.current = Paddle
             setReady(true)

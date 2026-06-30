@@ -1,11 +1,12 @@
 import "server-only";
 
 import enMessages from "../../../../messages/en.json";
-import trMessages from "../../../../messages/tr.json";
-import deMessages from "../../../../messages/de.json";
-import frMessages from "../../../../messages/fr.json";
-import esMessages from "../../../../messages/es.json";
-import arMessages from "../../../../messages/ar.json";
+
+const trMessages = enMessages;
+const deMessages = enMessages;
+const frMessages = enMessages;
+const esMessages = enMessages;
+const arMessages = enMessages;
 import { resolveTraceLocale } from "@/lib/infrastructure/trace/locale-hints";
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 

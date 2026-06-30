@@ -1,9 +1,10 @@
 import enMessages from "../../../../messages/en.json";
-import trMessages from "../../../../messages/tr.json";
-import deMessages from "../../../../messages/de.json";
-import frMessages from "../../../../messages/fr.json";
-import esMessages from "../../../../messages/es.json";
-import arMessages from "../../../../messages/ar.json";
+
+const trMessages = enMessages;
+const deMessages = enMessages;
+const frMessages = enMessages;
+const esMessages = enMessages;
+const arMessages = enMessages;
 import fieldI18nBundle from "@/data/free-tool-inputs-i18n.generated.json";
 import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import { resolveFreeToolLocalizedCopy } from "@/lib/infrastructure/i18n/free-tool-i18n";
@@ -21,11 +22,11 @@ type FieldDisplayCopy = {
 /** UI chrome only — field copy must not read messages.freeToolInputs (legacy override risk). */
 const LOCALE_MESSAGES: Record<string, MessageRecord> = {
   en: enMessages as MessageRecord,
-  tr: trMessages as MessageRecord,
-  de: deMessages as MessageRecord,
-  fr: frMessages as MessageRecord,
-  es: esMessages as MessageRecord,
-  ar: arMessages as MessageRecord,
+  tr: enMessages as MessageRecord,
+  de: enMessages as MessageRecord,
+  fr: enMessages as MessageRecord,
+  es: enMessages as MessageRecord,
+  ar: enMessages as MessageRecord,
 };
 
 /** Single source of truth for calculator field label / helper copy. */

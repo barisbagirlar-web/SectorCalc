@@ -66,7 +66,9 @@ export function CategoryCardGrid({
     }
     const query = params.toString();
     const href = query ? `${pathname}?${query}` : pathname;
-    router.push(href, { scroll: false });
+    if (!href) return;
+
+    if (href) if (href) router.push(href, { scroll: false });
     if (!active) {
       scrollToToolsList();
     }

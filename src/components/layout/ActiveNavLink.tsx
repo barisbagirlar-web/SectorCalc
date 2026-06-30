@@ -27,7 +27,7 @@ export function ActiveNavLink({
   prefetch = false,
 }: ActiveNavLinkProps) {
   const pathname = usePathname();
-  const isActive = isNavLinkActive(pathname, href);
+  const isActive = isNavLinkActive(pathname ?? "/", href);
   const Icon = resolveNavIcon(stripLocalePrefix(href));
 
   return (

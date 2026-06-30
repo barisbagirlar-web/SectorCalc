@@ -2,6 +2,26 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
+const sectorCalcVerifyIgnores = {
+  ignores: [
+    ".next/**",
+    ".firebase/**",
+    "node_modules/**",
+    "functions/node_modules/**",
+    "functions/lib/**",
+    "_safe_vault/**",
+    "archive/**",
+    "backups/**",
+    "test-results/**",
+    "tmp/**",
+    "coverage/**",
+    "out/**",
+    "dist/**",
+    "build/**",
+    "public/sw.js",
+    "public/wasm/**"
+  ],
+};
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -10,6 +30,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  sectorCalcVerifyIgnores,
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     ignores: [

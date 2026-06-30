@@ -15,7 +15,7 @@ import type { AttributionContext } from "@/lib/infrastructure/analytics/attribut
  */
 export function useAttributionContext(): AttributionContext {
   const pathname = usePathname();
-  const pagePath = stripLocalePrefix(pathname);
+  const pagePath = stripLocalePrefix(pathname ?? "/");
   const [context, setContext] = useState<AttributionContext>({});
 
   useEffect(() => {
