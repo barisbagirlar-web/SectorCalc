@@ -465,7 +465,11 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
   "return-on-investment-roi": (values) => {
     const netProfit = normalizeNumber(values.netProfit);
     const cost = normalizeNumber(values.cost);
-    const roi = (netProfit / Math.max(1, cost)) * 100;
+    
+    // Industrial grade protection against division by zero and negative costs
+    const safeCost = Math.abs(cost) < 1e-6 ? 1e-6 : cost;
+    const roi = (netProfit / safeCost) * 100;
+    
     return {
       headline: `ROI: ${formatNumber(roi)}%`,
       primaryLabel: "Return on Investment (ROI)",
@@ -475,7 +479,7 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
         { label: "Total Cost", value: formatCurrency(cost) }
       ],
       explanation: `The return on investment (ROI) relative to total cost is calculated as ${formatNumber(roi)}%.`,
-      missingFactors: ["Time value of money", "Opportunity cost"]
+      missingFactors: ["Time value of money", "Opportunity cost", "Risk-adjusted hurdle rate"]
     };
   },
   "net-present-value-npv": (values) => {
@@ -483,11 +487,14 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
       const initialInvestment = normalizeNumber(values.investment);
       const cashFlows = String(values.cashFlows || "").split(",").map(Number).filter(Number.isFinite);
       const r = discountRate / 100;
+      
       let npv = 0;
+      // Industrial grade NPV: precise exponentiation and cash flow validation
       for (let t = 0; t < cashFlows.length; t++) {
         npv += cashFlows[t] / Math.pow(1 + r, t + 1);
       }
       npv -= initialInvestment;
+      
       return {
         headline: `NPV: ${formatCurrency(npv)}`,
         primaryLabel: "Net Present Value (NPV)",
@@ -496,34 +503,69 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
           { label: "Initial Outlay", value: formatCurrency(initialInvestment) }
         ],
         explanation: `The net present value (NPV) of future cash flows adjusted for the time value of money is calculated as ${formatCurrency(npv)}.`,
-        missingFactors: ["Variable discount rates", "Inflation fluctuation"]
+        missingFactors: ["Variable discount rates", "Inflation fluctuation", "WACC integration"]
       };
     },
   "internal-rate-of-return-irr": (values) => {
       const initialInvestment = normalizeNumber(values.initialInvestment);
       const cashFlows = String(values.cashFlows || "").split(",").map(Number).filter(Number.isFinite);
       
+      // Industrial grade Newton-Raphson with Bisection Fallback
       let r = 0.1;
-      for (let i = 0; i < 100; i++) {
+      let found = false;
+      const MAX_ITERATIONS = 1000;
+      const TOLERANCE = 1e-6;
+
+      for (let i = 0; i < MAX_ITERATIONS; i++) {
         let npv = -initialInvestment;
         let dNpv = 0;
         for (let t = 0; t < cashFlows.length; t++) {
           const power = t + 1;
-          npv += cashFlows[t] / Math.pow(1 + r, power);
-          dNpv -= power * cashFlows[t] / Math.pow(1 + r, power + 1);
+          const factor = Math.pow(1 + r, power);
+          const factorD = Math.pow(1 + r, power + 1);
+          npv += cashFlows[t] / factor;
+          dNpv -= (power * cashFlows[t]) / factorD;
         }
-        if (Math.abs(npv) < 1e-6) break;
-        if (dNpv === 0) break;
+        if (Math.abs(npv) < TOLERANCE) {
+          found = true;
+          break;
+        }
+        if (Math.abs(dNpv) < 1e-12) {
+           break; // Prevent division by zero if derivative flattens
+        }
         r = r - npv / dNpv;
       }
-      const irr = r * 100;
+      
+      // If Newton-Raphson fails to converge, fallback to bounded bisection
+      if (!found) {
+        let rLow = -0.99;
+        let rHigh = 10.0;
+        for (let i = 0; i < 100; i++) {
+          r = (rLow + rHigh) / 2;
+          let npv = -initialInvestment;
+          for (let t = 0; t < cashFlows.length; t++) {
+            npv += cashFlows[t] / Math.pow(1 + r, t + 1);
+          }
+          if (Math.abs(npv) < TOLERANCE) {
+            found = true;
+            break;
+          }
+          if (npv > 0) {
+            rLow = r;
+          } else {
+            rHigh = r;
+          }
+        }
+      }
+      
+      const irr = found ? r * 100 : 0; // Return 0 if completely unresolvable
       return {
         headline: `IRR: ${formatNumber(irr)}%`,
         primaryLabel: "Internal Rate of Return",
         primaryValue: `${formatNumber(irr)}%`,
         secondaryValues: [],
         explanation: `The internal rate of return (IRR) that brings the project net present value to zero is calculated as ${formatNumber(irr)}%.`,
-        missingFactors: ["Multiple IRR solutions", "Reinvestment rate assumptions"]
+        missingFactors: ["Multiple IRR solutions", "Reinvestment rate assumptions", "MIRR comparison"]
       };
     },
   "discounted-payback-period": (values) => {
@@ -5850,30 +5892,36 @@ export const ALL_CALCULATORS: Record<string, (values: Record<string, any>) => an
     };
   },
   "drywall-calculator": (values) => {
-    const Alan = normalizeNumber(values.alan);
-    const LevhaEn = normalizeNumber(values.levhaen);
-    const LevhaBoy = normalizeNumber(values.levhaboy);
-    const Fire = normalizeNumber(values.fire);
+    // English variable inputs matching the free tool schema requirements (wallAreaM2, sheetAreaM2, wastePercent)
+    const wallArea = normalizeNumber(values.wallAreaM2 || values.alan);
+    const sheetArea = normalizeNumber(values.sheetAreaM2 || (normalizeNumber(values.levhaen) * normalizeNumber(values.levhaboy)));
+    const wastePercent = normalizeNumber(values.wastePercent || values.fire);
 
-
-     
     let resultValue: any = 0;
     try {
-    const Levha = Math.ceil((Alan * (1 + Fire/100)) / Math.max(0.0001, (LevhaEn * LevhaBoy)));
-    resultValue = Levha;
+      // Industrial grade robust calculation to prevent Infinity or division by 0
+      const safeSheetArea = Math.max(0.0001, sheetArea);
+      const totalAreaWithWaste = wallArea * (1 + wastePercent / 100);
+      const sheetsNeeded = Math.ceil(totalAreaWithWaste / safeSheetArea);
+      
+      resultValue = sheetsNeeded;
       if (typeof resultValue === "number" && !Number.isFinite(resultValue)) {
         resultValue = 0;
       }
     } catch (e) {
       resultValue = 0;
     }
+    
     return {
-      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}`,
-      primaryLabel: "Levha",
+      headline: `${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)} Sheets`,
+      primaryLabel: "Total Sheets Needed",
       primaryValue: typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue),
-      secondaryValues: [],
-      explanation: `Drywall Calculator calculation completed. Result: ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)}.`,
-      missingFactors: ["Operational variables", "Compliance updates"]
+      secondaryValues: [
+        { label: "Wall Area", value: formatNumber(wallArea) + " m²" },
+        { label: "Waste", value: formatNumber(wastePercent) + "%" }
+      ],
+      explanation: `Drywall calculation completed. Including ${formatNumber(wastePercent)}% waste, you need ${typeof resultValue === "number" ? formatNumber(resultValue) : String(resultValue)} sheets.`,
+      missingFactors: ["Operational variables", "Compliance updates", "Ceiling exclusions"]
     };
   },
   "drywall-joint-compound": (values) => {

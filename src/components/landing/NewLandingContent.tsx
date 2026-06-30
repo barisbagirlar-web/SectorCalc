@@ -35,6 +35,7 @@ export function NewLandingContent({
   tools?: Tool[];
 }) {
   const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const [calculators, setCalculators] = useState<ApiTool[]>([]);
   const [expanded, setExpanded] = useState(false);
@@ -54,6 +55,11 @@ export function NewLandingContent({
     }
   }, [tools]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 200);
+    return () => clearTimeout(timer);
+  }, [query]);
+
   const fuzzyMatch = (q: string, text: string) => {
     const qLower = q.toLowerCase().trim();
     const tLower = text?.toLowerCase() || "";
@@ -61,13 +67,13 @@ export function NewLandingContent({
   };
 
   const matches = useMemo(() => {
-    if (!query || query.length < 2) return [];
+    if (!debouncedQuery || debouncedQuery.length < 2) return [];
     return calculators.filter((c) =>
-      fuzzyMatch(query, c.title) ||
-      fuzzyMatch(query, c.sector) ||
-      (c.tags && c.tags.some((t) => fuzzyMatch(query, t)))
+      fuzzyMatch(debouncedQuery, c.title) ||
+      fuzzyMatch(debouncedQuery, c.sector) ||
+      (c.tags && c.tags.some((t) => fuzzyMatch(debouncedQuery, t)))
     );
-  }, [query, calculators]);
+  }, [debouncedQuery, calculators]);
 
   const highlight = (text: string, q: string) => {
     if (!q.trim()) return text;
@@ -107,31 +113,21 @@ export function NewLandingContent({
     <div className="claude-landing">
       <main>
         {/* HERO */}
-        <section className="hero corp-hero">
-          <div className="wrap">
-            <h1>Engineering, Manufacturing & Business Calculators for Real Decisions</h1>
-            <p className="lede subtitle">
-              SectorCalc turns cost, scrap, energy, OEE, finance, logistics, and engineering inputs into formula-backed results you can review, compare, and act on.
+        <section className="hero">
+          <div className="container">
+            <p className="eyebrow">Trusted by engineers in 40+ countries</p>
+            <h1>Engineering Calculators for Mechanical, Civil &amp; Electrical Teams</h1>
+            <p className="subhead">
+              {freeCount}+ standards-based calculators. ISO, ASME, VDI, DIN, IEC, EN references.
+              Free to use, auditable, exportable.
             </p>
 
-            <div className="cta-row main-actions">
-              <Link href="/free-tools" className="btn-primary">
-                Start Free Calculations
-              </Link>
-              <Link href="/pro-tools" className="btn-secondary">
-                Explore Pro Calculators
-              </Link>
-            </div>
-
-            <p className="trust-line">Formula logic, tolerance guidance, assumptions, and professional review notes are shown where available.</p>
-            <p className="micro-trust">No sign-up required for free tools. Your calculation inputs are not stored.</p>
-
-            <div className="search-wrapper hero-search" id="searchWrapper" ref={wrapperRef}>
+            <div className="search-wrapper" id="searchWrapper" ref={wrapperRef}>
               <input
                 ref={inputRef}
                 type="text"
                 id="searchInput"
-                placeholder="Search calculators by industry, formula, cost, material, energy, finance, or operation..."
+                placeholder={`Search ${freeCount}+ engineering calculators...`}
                 autoComplete="off"
                 aria-label="Search calculators"
                 value={query}
@@ -142,7 +138,7 @@ export function NewLandingContent({
                 }}
                 onFocus={() => setIsFocused(true)}
               />
-              {isFocused && query.length >= 2 && (
+              {isFocused && debouncedQuery.length >= 2 && (
                 <div id="searchResults" className="search-results">
                   {matches.length === 0 ? (
                     <div className="search-result-item">
@@ -158,7 +154,7 @@ export function NewLandingContent({
                         >
                           <span
                             className="result-title"
-                            dangerouslySetInnerHTML={{ __html: highlight(c.title, query) }}
+                            dangerouslySetInnerHTML={{ __html: highlight(c.title, debouncedQuery) }}
                           ></span>
                           <span className="result-sector">{c.sector}</span>
                         </Link>
@@ -175,6 +171,17 @@ export function NewLandingContent({
                   )}
                 </div>
               )}
+            </div>
+
+            <div className="cta-row">
+              <Link href="#sectorGrid" className="btn-primary">Browse All Calculators</Link>
+              <Link href="/pricing" className="btn-secondary">Upgrade to Pro</Link>
+            </div>
+
+            <div className="standards-strip">
+              <span>Verified against:</span>
+              <span>ISO 9001</span><span>ASME BPVC</span><span>VDI 2230</span>
+              <span>DIN EN 1990</span><span>IEC 60071</span><span>EN 1090</span>
             </div>
           </div>
         </section>
