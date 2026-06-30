@@ -28,8 +28,7 @@ export function getPremiumToolCount(): number {
 }
 
 function compute(): void {
-  const en = (titles as Record<string, Record<string, unknown>>).en;
-  _cachedFree = en ? Object.keys(en).length : 0;
+  _cachedFree = Object.keys(titles).length;
   _cachedPremium = listPremiumSchemaIds().length;
   _cachedTotal = _cachedFree + _cachedPremium;
 }
