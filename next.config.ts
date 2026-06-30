@@ -29,7 +29,8 @@ class EnsureManifestStubsPlugin {
       const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
       const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
       const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
-      // Only create if missing — Next.js may have generated it for hybrid apps.
+      // Write minimal pages-manifest — mark it as App Router only to prevent
+      // Pages Router module resolution during SSG.
       if (!fs.existsSync(pagesManifestPath)) {
         fs.mkdirSync(serverDir, { recursive: true });
         fs.writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");

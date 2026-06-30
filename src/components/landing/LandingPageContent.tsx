@@ -161,7 +161,7 @@ export function LandingPageContent({
       <main>
         {/* HERO */}
         <section className="hero">
-          <div className="container">
+          <div className="wrap">
             <p className="eyebrow">Trusted by industrial engineering teams</p>
             <h1>Engineering-Grade Calculation &amp; Decision Platform</h1>
             <p className="subhead">

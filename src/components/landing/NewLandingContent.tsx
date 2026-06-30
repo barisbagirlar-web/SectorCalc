@@ -161,7 +161,7 @@ export function NewLandingContent({
       <main>
         {/* HERO */}
         <section className="hero">
-          <div className="container">
+          <div className="wrap">
             <p className="eyebrow">Trusted by engineers in 40+ countries</p>
             <h1>Engineering Calculators for Mechanical, Civil &amp; Electrical Teams</h1>
             <p className="subhead">

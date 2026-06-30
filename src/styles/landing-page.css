@@ -811,3 +811,132 @@
     transition: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   ANA ORTALAMA DÜZELTMELERİ / MAIN ALIGNMENT CORRECTIONS
+   ═══════════════════════════════════════════ */
+
+/* Ana container - tam ortalı */
+.claude-landing .hero,
+.claude-landing .container,
+.claude-landing .wrap,
+.claude-landing .main-content,
+.claude-landing .content-wrapper {
+  max-width: var(--maxw);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+/* Başlık - tam ortalı */
+.claude-landing h1,
+.claude-landing .hero-title,
+.claude-landing .main-heading {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 900px;
+}
+
+/* Alt başlık - tam ortalı */
+.claude-landing .hero-subtitle,
+.claude-landing .subhead,
+.claude-landing .subtitle,
+.claude-landing .tagline {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 32px;
+  max-width: 700px;
+}
+
+/* Arama kutusu - tam ortalı */
+.claude-landing .search-container,
+.claude-landing .search-wrapper,
+.claude-landing .search-box {
+  max-width: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.claude-landing .search-container input,
+.claude-landing .search-wrapper input,
+.claude-landing #searchInput {
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Butonlar - tam ortalı */
+.claude-landing .button-group,
+.claude-landing .cta-buttons,
+.claude-landing .action-buttons,
+.claude-landing .cta-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+/* "Verified Against" / Standards bölümü - tam ortalı */
+.claude-landing .verified-section,
+.claude-landing .standards-section,
+.claude-landing .standards-strip {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Mobil için responsive */
+@media (max-width: 768px) {
+  .claude-landing .hero,
+  .claude-landing .container,
+  .claude-landing .wrap,
+  .claude-landing .hero-section,
+  .claude-landing .main-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .claude-landing .button-group,
+  .claude-landing .cta-buttons,
+  .claude-landing .cta-row {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  
+  .claude-landing .button-group button,
+  .claude-landing .cta-buttons button,
+  .claude-landing .cta-row a {
+    width: 100%;
+  }
+}
+
+/* Genel ortalama - Container'lar için global güvenli fallback */
+.container,
+.wrapper {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
