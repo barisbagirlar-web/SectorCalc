@@ -15,8 +15,8 @@ import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatu
 import {
   CALC_TOOL_PAGE_CHROME_CLASS,
   CALC_TOOL_PAGE_CLASS,
-  CALC_TOOL_PAGE_FORM_ZONE_CLASS,
 } from "@/lib/ui-shared/layout/calculation-tool-mobile-layout";
+import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 
 interface ToolPageShellProps {
   definition: ToolDefinition;
@@ -50,6 +50,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
 
   return (
     <PageLayout>
+      <style>{HMI_CSS}</style>
       <div id="sector-product">
         <div className={CALC_TOOL_PAGE_CLASS}>
           {!isPremium && (
@@ -70,55 +71,55 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
             </div>
           )}
 
-          <section className={!isPremium ? "fourth-tab border-t border-border-subtle bg-white" : "bg-white"}>
-            <Container size={!isPremium ? "wide" : "default"} className="min-w-0 py-4">
-              <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
-                {!isPremium ? (
-                  <>
-                    <ToolOmniMetaSection
-                      toolName={definition.title}
-                      slug={definition.slug}
-                      tier="free"
-                      excerpt={definition.longDescription}
-                      canonicalPath={definition.seo.canonicalPath}
-                    />
-                    <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal mb-8">
-                      {t("calcRegeneration")}
-                    </div>
-                    {schema ? (
+          {!isPremium ? (
+            <section>
+              <Container size="wide" className="min-w-0 py-4">
+                <div>
+                  <ToolOmniMetaSection
+                    toolName={definition.title}
+                    slug={definition.slug}
+                    tier="free"
+                    excerpt={definition.longDescription}
+                    canonicalPath={definition.seo.canonicalPath}
+                  />
+                  <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal mb-8">
+                    {t("calcRegeneration")}
+                  </div>
+                  {schema ? (
+                    <div className="wrap" style={{ padding: "20px 0" }}>
                       <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
-                    ) : (
-                      <div className="p-8 border border-red-500 text-red-700 bg-red-50">
-                        Form schema could not be loaded for this tool.
-                      </div>
-                    )}
-                    <div className="mt-8">
-                      <ToolFeedbackTrigger toolSlug={definition.slug} />
                     </div>
-                    <PremiumUpsell />
-                    {definition.premiumTeaser && !definition.features?.decisionReport && (
-                      <div className="mt-10">
-                        <PremiumTeaserPanel
-                          teaser={definition.premiumTeaser}
-                          toolSlug={definition.slug}
-                        />
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    {schema ? (
-                      <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
-                    ) : (
-                      <div className="p-8 border border-red-500 text-red-700 bg-red-50">
-                        Form schema could not be loaded for this tool.
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            </Container>
-          </section>
+                  ) : (
+                    <div className="p-8 border border-red-500 text-red-700 bg-red-50">
+                      Form schema could not be loaded for this tool.
+                    </div>
+                  )}
+                  <div className="mt-8">
+                    <ToolFeedbackTrigger toolSlug={definition.slug} />
+                  </div>
+                  <PremiumUpsell />
+                  {definition.premiumTeaser && !definition.features?.decisionReport && (
+                    <div className="mt-10">
+                      <PremiumTeaserPanel
+                        teaser={definition.premiumTeaser}
+                        toolSlug={definition.slug}
+                      />
+                    </div>
+                  )}
+                </div>
+              </Container>
+            </section>
+          ) : (
+            <div className="wrap" style={{ padding: "20px 0" }}>
+              {schema ? (
+                <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
+              ) : (
+                <div className="card" style={{ borderLeft: "3px solid var(--danger)", padding: 20, color: "var(--ink)" }}>
+                  Form schema could not be loaded for this tool.
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <section className="seventh-tab">

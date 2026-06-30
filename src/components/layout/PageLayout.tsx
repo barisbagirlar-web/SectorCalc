@@ -8,9 +8,10 @@ import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool
 
 interface PageLayoutProps {
   children: ReactNode;
+  hideFooterCta?: boolean;
 }
 
-export function PageLayout({ children }: PageLayoutProps) {
+export function PageLayout({ children, hideFooterCta }: PageLayoutProps) {
   const freeToolsCount = getFreeToolCount();
   const proToolsCount = getPremiumToolCount();
 
@@ -18,7 +19,7 @@ export function PageLayout({ children }: PageLayoutProps) {
     <AppProviders>
       <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
       <MainLandmark>{children}</MainLandmark>
-      <EnterpriseFooter />
+      <EnterpriseFooter hideCta={hideFooterCta} />
       <TraceAI demoMode defaultOpen={false} title="Trace AI" />
     </AppProviders>
   );

@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { NewLandingContent } from "@/components/landing/NewLandingContent";
+import { LandingPageContent } from "@/components/landing/LandingPageContent";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
@@ -12,8 +12,8 @@ export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   return createPageMetadata({
-    title: "SectorCalc — Industrial Engineering Calculators",
-    description: "Audit-proof engineering calculations built on VDI, ISO, and DIN standards. Stop guessing. Start calculating.",
+    title: "SectorCalc — Engineering-Grade Calculation Platform",
+    description: "Standards-backed calculation models for manufacturing, engineering, and operations. Calculate, verify, and support your technical decisions.",
     path: "/",
     locale: "en",
   });
@@ -48,9 +48,9 @@ export default async function HomePage() {
   const popularTools = allTools.slice(0, 12);
 
   return (
-    <PageLayout>
+    <PageLayout hideFooterCta={true}>
       <SemanticJsonLd data={buildHomeJsonLd(locale)} />
-      <NewLandingContent freeCount={freeCount} sectors={sectors} tools={popularTools} />
+      <LandingPageContent freeCount={freeCount} sectors={sectors} tools={popularTools} />
     </PageLayout>
   );
 }

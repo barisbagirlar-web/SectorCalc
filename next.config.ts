@@ -24,6 +24,7 @@ class EnsureManifestStubsPlugin {
       const serverDir = path.join(nextDir, "server");
       const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
       const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
+      const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
       // Only create if missing — Next.js may have generated it for hybrid apps.
       if (!fs.existsSync(pagesManifestPath)) {
         fs.mkdirSync(serverDir, { recursive: true });
@@ -32,6 +33,23 @@ class EnsureManifestStubsPlugin {
       if (!fs.existsSync(appPathsManifestPath)) {
         fs.mkdirSync(serverDir, { recursive: true });
         fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
+      }
+      if (!fs.existsSync(middlewareManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(
+          middlewareManifestPath,
+          JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
+          "utf8",
+        );
+      }
+      const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
+      if (!fs.existsSync(serverRefManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(
+          serverRefManifestPath,
+          JSON.stringify({ serverActions: [], version: 1 }),
+          "utf8",
+        );
       }
     });
   }

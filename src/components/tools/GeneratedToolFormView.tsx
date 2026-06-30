@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
+import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
 import {
@@ -68,32 +69,55 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   const isQuarantine = trustStatus === "QUARANTINE";
 
   return (
-    <div className="container mx-auto max-w-6xl px-4 py-6">
-      {isQuarantine ? (
-        <div className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          <strong className="font-semibold">{t("quarantineWarning")}</strong>
+    <>
+      <style>{HMI_CSS}</style>
+      <div className="wrap" style={{ paddingTop: 0 }}>
+        {isQuarantine ? (
+          <div className="card" style={{ marginBottom: 18, borderLeft: "3px solid var(--warn)" }}>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span className="led warn" style={{ flex: "none", marginTop: 4 }} />
+              <div>
+                <div className="d-label">QUARANTINE</div>
+                <div className="d-sub" style={{ marginTop: 4 }}>{t("quarantineWarning")}</div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {isStubFormula && !isPremium ? (
+          <div className="card" style={{ marginBottom: 12, borderLeft: "3px solid var(--ink-50)" }}>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span className="led off" style={{ flex: "none", marginTop: 4 }} />
+              <div>
+                <div className="d-label">STUB FORMULA</div>
+                <div className="d-sub" style={{ marginTop: 4, fontSize: 10.5 }}><b>{t("stubFormulaLabel")}</b> {t("stubFormulaHint")}</div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {isStubFormula && isPremium ? (
+          <div className="card" style={{ marginBottom: 12, borderLeft: "3px solid var(--warn)" }}>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span className="led warn" style={{ flex: "none", marginTop: 4 }} />
+              <div>
+                <div className="d-label">STUB FORMULA · PREMIUM</div>
+                <div className="d-sub" style={{ marginTop: 4, fontSize: 10.5 }}><b>{t("stubFormulaLabel")}</b> {t("stubFormulaHint")}</div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        <DynamicToolFormWrapper schema={schema} slug={slug} showMasthead={false} />
+
+        <div className="card" style={{ marginTop: 22 }}>
+          <ToolDescription content={aboutContent} isPremium={isPremium} />
         </div>
-      ) : null}
 
-      {isStubFormula && !isPremium ? (
-        <div className="mb-4 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-600">
-          <strong className="font-semibold">{t("stubFormulaLabel")}</strong>
-          <span className="ml-1">{t("stubFormulaHint")}</span>
+        <div className="card" style={{ marginTop: 12 }}>
+          <ToolAcademicReferences />
         </div>
-      ) : null}
-
-      {isStubFormula && isPremium ? (
-        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-2.5 text-xs text-amber-800">
-          <strong className="font-semibold">{t("stubFormulaLabel")}</strong>
-          <span className="ml-1">{t("stubFormulaHint")}</span>
-        </div>
-      ) : null}
-
-      <DynamicToolFormWrapper schema={schema} slug={slug} showMasthead={false} />
-
-      <ToolDescription content={aboutContent} isPremium={isPremium} />
-
-      <ToolAcademicReferences />
-    </div>
+      </div>
+    </>
   );
 }

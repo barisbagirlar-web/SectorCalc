@@ -1,325 +1,520 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
-import type { LandingContent } from "@/types/landing";
+import { useState, useMemo, useEffect, useRef } from "react";
+import Link from "next/link";
+import { CalculationFeedbackModal } from "@/components/feedback/CalculationFeedbackModal";
+import "@/styles/landing-page.css";
+
+interface Sector {
+  k: string;
+  name: string;
+  n: number;
+}
+
+interface Tool {
+  sec: string;
+  name: string;
+  eq: string;
+  slug: string;
+}
+
+interface ApiTool {
+  id: string;
+  title: string;
+  sector: string;
+  slug: string;
+  tags: string[];
+}
 
 export function LandingPageContent({
-  content,
+  freeCount = 358,
+  sectors = [],
+  tools = [],
 }: {
-  content: LandingContent;
+  freeCount?: number;
+  sectors?: Sector[];
+  tools?: Tool[];
 }) {
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [calculators, setCalculators] = useState<ApiTool[]>([]);
+  const [expanded, setExpanded] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [openFeedback, setOpenFeedback] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const handleSearchChip = useCallback((text: string) => {
-    if (searchInputRef.current) {
-      searchInputRef.current.value = text;
-      searchInputRef.current.focus();
+  const getSectorToolCount = (sectorName: string): number => {
+    const term = sectorName.toLowerCase();
+    let sum = 0;
+    
+    sectors.forEach(s => {
+      const name = s.name.toLowerCase();
+      
+      if (term === "manufacturing") {
+        if (name.includes("manufacturing") || name.includes("production") || name.includes("imalat") || name.includes("uretim")) {
+          sum += s.n;
+        }
+      } else if (term === "workshops") {
+        if (name.includes("workshop") || name.includes("atolye") || name.includes("repair") || name.includes("tamir")) {
+          sum += s.n;
+        }
+      } else if (term === "engineering") {
+        if (name.includes("engineering") || name.includes("design") || name.includes("tasarim") || name.includes("technical") || name.includes("mechanical") || name.includes("makine") || name.includes("metal")) {
+          sum += s.n;
+        }
+      } else if (term === "construction") {
+        if (name.includes("construction") || name.includes("building") || name.includes("insaat") || name.includes("yapi")) {
+          sum += s.n;
+        }
+      } else if (term === "energy") {
+        if (name.includes("energy") || name.includes("enerji") || name.includes("electricity") || name.includes("power") || name.includes("carbon")) {
+          sum += s.n;
+        }
+      } else if (term === "logistics") {
+        if (name.includes("logistics") || name.includes("shipping") || name.includes("freight") || name.includes("transport") || name.includes("kargo") || name.includes("sevkiyat") || name.includes("routing")) {
+          sum += s.n;
+        }
+      } else if (term === "finance") {
+        if (name.includes("finance") || name.includes("accounting") || name.includes("finans") || name.includes("muhasebe") || name.includes("cost") || name.includes("maliyet") || name.includes("budget")) {
+          sum += s.n;
+        }
+      } else if (term === "business") {
+        if (name.includes("business") || name.includes("retail") || name.includes("commerce") || name.includes("perakende") || name.includes("store") || name.includes("hr") || name.includes("personnel") || name.includes("other") || name.includes("diger")) {
+          sum += s.n;
+        }
+      }
+    });
+    
+    return sum;
+  };
+
+  useEffect(() => {
+    if (tools && tools.length > 0) {
+      const mappedTools = tools.map((t) => ({
+        id: t.slug,
+        title: t.name,
+        sector: t.sec,
+        slug: t.slug,
+        tags: [t.eq].filter(Boolean),
+      }));
+      setCalculators(mappedTools);
     }
+  }, [tools]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 200);
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  const fuzzyMatch = (q: string, text: string) => {
+    const qLower = q.toLowerCase().trim();
+    const tLower = text?.toLowerCase() || "";
+    return qLower.split(/\s+/).every((word) => tLower.includes(word));
+  };
+
+  const matches = useMemo(() => {
+    if (!debouncedQuery || debouncedQuery.length < 2) return [];
+    return calculators.filter((c) =>
+      fuzzyMatch(debouncedQuery, c.title) ||
+      fuzzyMatch(debouncedQuery, c.sector) ||
+      (c.tags && c.tags.some((t) => fuzzyMatch(debouncedQuery, t)))
+    );
+  }, [debouncedQuery, calculators]);
+
+  const highlight = (text: string, q: string) => {
+    if (!q.trim()) return text;
+    const words = q.trim().split(/\s+/).filter(Boolean);
+    if (words.length === 0) return text;
+    const regex = new RegExp(`(${words.join('|')})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
-    const rObs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) {
-            setTimeout(() => e.target.classList.add("in"), i * 55);
-            rObs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -32px 0px" },
-    );
-
-    document.querySelectorAll(".reveal").forEach((el) => rObs.observe(el));
-    return () => rObs.disconnect();
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === "/" && document.activeElement !== inputRef.current) {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+      if (e.key === "Escape") {
+        setQuery("");
+        inputRef.current?.blur();
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
-  const hn = content.heroNew;
-
   return (
-    <div className="landing-root">
-      {/* ═══ HERO — two-column: headline + OEE mockup ═══ */}
-      <section className="hero-v2" aria-labelledby="hero-v2-heading">
-        <div className="wrap">
-          <div className="hero-v2__grid">
-            <div className="hero-v2__left">
-              <h1 className="hero-v2__h1" id="hero-v2-heading">
-                {hn?.headline ?? content.hero.headline}
-              </h1>
-              <p className="hero-v2__sub">
-                {hn?.subtitle ?? content.hero.subtitle}
-              </p>
-              <div className="hero-v2__actions">
-                <a href="/free-tools" className="hero-v2__cta hero-v2__cta--primary">
-                  {hn?.ctaPrimary ?? "Try a Free Calculator"}
-                </a>
-                <a href="/pro-tools" className="hero-v2__cta hero-v2__cta--secondary">
-                  {hn?.ctaSecondary ?? "View a Pro Report Example"}
-                </a>
-              </div>
-              <div className="hero-v2__privacy">
-                <span className="hero-v2__privacy-dot" aria-hidden="true" />
-                <span>Your data stays in your browser. No storage, no tracking.</span>
-              </div>
-            </div>
-            <div className="hero-v2__right" aria-hidden="true">
-              <div className="oee-card">
-                <div className="oee-card__header">
-                  <svg className="oee-card__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="8" width="5" height="12" rx="1" /><rect x="9.5" y="4" width="5" height="16" rx="1" /><rect x="16" y="10" width="5" height="10" rx="1" /></svg>
-                  <span className="oee-card__title">OEE Calculation</span>
-                  <span className="oee-card__badge">LIVE</span>
-                </div>
-                <div className="oee-card__metrics">
-                  <div className="oee-card__metric">
-                    <span className="oee-card__metric-label">Availability</span>
-                    <span className="oee-card__metric-val">87.2%</span>
-                  </div>
-                  <div className="oee-card__metric">
-                    <span className="oee-card__metric-label">Performance</span>
-                    <span className="oee-card__metric-val">91.4%</span>
-                  </div>
-                  <div className="oee-card__metric">
-                    <span className="oee-card__metric-label">Quality</span>
-                    <span className="oee-card__metric-val">96.1%</span>
-                  </div>
-                </div>
-                <div className="oee-card__result">
-                  <span className="oee-card__result-label">Result:</span>
-                  <span className="oee-card__result-val">OEE = 76.6%</span>
-                </div>
-                <div className="oee-card__insight">
-                  <div className="oee-card__insight-title">Pro Insight</div>
-                  <ul className="oee-card__insight-list">
-                    <li>Main loss driver: availability</li>
-                    <li>Estimated monthly loss: $18,420</li>
-                    <li>Recommended action: downtime reduction scenario</li>
-                  </ul>
-                </div>
-                <div className="oee-card__export">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7,10 12,15 17,10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-                  PDF Decision Report
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="claude-landing">
+      <main>
+        {/* HERO */}
+        <section className="hero">
+          <div className="container">
+            <p className="eyebrow">Trusted by industrial engineering teams</p>
+            <h1>Engineering-Grade Calculation &amp; Decision Platform</h1>
+            <p className="subhead">
+              {freeCount}+ standards-backed models for manufacturing, engineering, and operations. Built on ISO, ASME, VDI, and DIN references. Calculate, verify, and document your technical decisions.
+            </p>
 
-          {/* Search bar */}
-          <div className="hero-v2__search" role="search" aria-label="Calculator search">
-            <div className="search-bar">
-              <svg className="search-ico" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
-                <circle cx="8" cy="8" r="5.5" />
-                <path d="m12.5 12.5 3 3" strokeLinecap="round" />
-              </svg>
+            <div className="search-wrapper" id="searchWrapper" ref={wrapperRef}>
               <input
-                ref={searchInputRef}
-                type="search"
-                className="search-input"
-                placeholder={content.hero.searchPlaceholder}
-                aria-label={content.hero.searchPlaceholder}
+                ref={inputRef}
+                type="text"
+                id="searchInput"
+                placeholder={`Search ${freeCount}+ engineering calculators...`}
                 autoComplete="off"
-                spellCheck={false}
+                aria-label="Search calculators"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setExpanded(false);
+                  setIsFocused(true);
+                }}
+                onFocus={() => setIsFocused(true)}
               />
-              <button className="search-btn">{content.hero.search}</button>
+              <span className="search-kbd">/</span>
+              {isFocused && debouncedQuery.length >= 2 && (
+                <div id="searchResults" className="search-results">
+                  {matches.length === 0 ? (
+                    <div className="search-result-item">
+                      <span className="result-title">No results found</span>
+                    </div>
+                  ) : (
+                    <>
+                      {(expanded ? matches : matches.slice(0, 10)).map((c) => (
+                        <Link
+                          key={c.id}
+                          href={`/tools/generated/${c.slug}`}
+                          className="search-result-item"
+                        >
+                          <span
+                            className="result-title"
+                            dangerouslySetInnerHTML={{ __html: highlight(c.title, debouncedQuery) }}
+                          ></span>
+                          <span className="result-sector">{c.sector}</span>
+                        </Link>
+                      ))}
+                      {matches.length > 10 && !expanded && (
+                        <button
+                          className="show-more-btn"
+                          onClick={() => setExpanded(true)}
+                        >
+                          Show {matches.length - 10} more results
+                        </button>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
             </div>
-            <div className="search-hints" aria-label="Suggested searches">
-              <span className="search-hint-label">{content.hero.tryLabel}</span>
-              <button className="chip" onClick={() => handleSearchChip(content.hero.chipOee)}>{content.hero.chipOee}</button>
-              <button className="chip" onClick={() => handleSearchChip(content.hero.chipEoq)}>{content.hero.chipEoq}</button>
-              <button className="chip" onClick={() => handleSearchChip(content.hero.chipIrr)}>{content.hero.chipIrr}</button>
-              <button className="chip" onClick={() => handleSearchChip(content.hero.chipCpk)}>{content.hero.chipCpk}</button>
-              <button className="chip" onClick={() => handleSearchChip(content.hero.chipLmtd)}>{content.hero.chipLmtd}</button>
-              <button className="chip" onClick={() => handleSearchChip(content.hero.chipMtbf)}>{content.hero.chipMtbf}</button>
+
+            <div className="cta-row">
+              <Link href="#sectorGrid" className="btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('sectorGrid')?.scrollIntoView({ behavior: 'smooth' }); }}>Browse Calculation Models</Link>
+              <Link href="/pricing" className="btn-secondary">Explore Pro Features</Link>
+            </div>
+
+            <div className="standards-strip">
+              <span>Verified against:</span>
+              <span>ISO 9001</span><span>ASME BPVC</span><span>VDI 2230</span>
+              <span>DIN EN 1990</span><span>IEC 60071</span><span>EN 1090</span>
             </div>
           </div>
-
-          {/* Trust bar */}
-          {content.trustBar ? (
-            <div className="trust-bar" role="list" aria-label="Platform highlights">
-              {content.trustBar.items.map((item, i) => (
-                <div key={i} className="trust-bar__item" role="listitem">
-                  <span className="trust-bar__dot" aria-hidden="true" />
-                  <span>{item}</span>
-            </div>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      </section>
-
-      {/* ═══ WHAT SECTORCALC DOES ═══ */}
-      {content.whatDoes ? (
-        <section className="section-light" aria-labelledby="what-does-heading">
-          <div className="wrap">
-            <h2 className="section-title" id="what-does-heading">{content.whatDoes.title}</h2>
-            <div className="four-grid">
-              {[1, 2, 3, 4].map((i) => {
-                const titleKey = `card${i}Title` as keyof typeof content.whatDoes;
-                const descKey = `card${i}Desc` as keyof typeof content.whatDoes;
-                return (
-                  <div key={i} className="four-card">
-                    <h3 className="four-card__title">{content.whatDoes![titleKey] as string}</h3>
-                    <p className="four-card__desc">{content.whatDoes![descKey] as string}</p>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-      </section>
-      ) : null}
-
-      {/* ═══ FREE VS PRO COMPARISON ═══ */}
-      {content.freeVsPro ? (
-        <section className="section-white" aria-labelledby="fvp-heading">
-        <div className="wrap">
-            <h2 className="section-title" id="fvp-heading">{content.freeVsPro.title}</h2>
-            <div className="fvp-table">
-              <div className="fvp-row fvp-row--head">
-                <div className="fvp-cell fvp-cell--label" />
-                <div className="fvp-cell fvp-cell--free">
-                  <div className="fvp-tier-tag">{content.freeVsPro.freeTitle}</div>
-                  <div className="fvp-tier-count">{content.freeVsPro.freeTools}</div>
-                  <a href="/free-tools" className="btn-outline">{content.freeVsPro.freeCta}</a>
-                </div>
-                <div className="fvp-cell fvp-cell--pro">
-                  <div className="fvp-tier-tag fvp-tier-tag--pro">{content.freeVsPro.proTitle}</div>
-                  <div className="fvp-tier-count fvp-tier-count--pro">{content.freeVsPro.proTools}</div>
-                  <a href="/pricing" className="btn-primary">{content.freeVsPro.proCta}</a>
-                </div>
-              </div>
-              {(["feat1","feat2","feat3","feat4","feat5"] as const).map((key) => (
-                <div key={key} className="fvp-row">
-                  <div className="fvp-cell fvp-cell--label">{content.freeVsPro![key]}</div>
-                  <div className="fvp-cell fvp-cell--free"><span className="check-y" aria-label="Included"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="2,7 5.5,10.5 12,3" /></svg></span></div>
-                  <div className="fvp-cell fvp-cell--pro"><span className="check-y" aria-label="Included"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="2,7 5.5,10.5 12,3" /></svg></span></div>
-                </div>
-              ))}
-                </div>
-              </div>
         </section>
-      ) : null}
 
-      {/* ═══ WHY PRO ═══ */}
-      {content.whyPro ? (
-        <section className="section-light" aria-labelledby="why-pro-heading">
+        {/* TRUST STRIP */}
+        <section className="corp-trust-strip">
           <div className="wrap">
-            <h2 className="section-title" id="why-pro-heading">{content.whyPro.title}</h2>
-            <div className="four-grid">
-              {[1, 2, 3, 4].map((i) => {
-                const titleKey = `card${i}Title` as keyof typeof content.whyPro;
-                const descKey = `card${i}Desc` as keyof typeof content.whyPro;
-                return (
-                  <div key={i} className="four-card">
-                    <h3 className="four-card__title">{content.whyPro![titleKey] as string}</h3>
-                    <p className="four-card__desc">{content.whyPro![descKey] as string}</p>
-                  </div>
-                );
-              })}
+            <h3 className="trust-title">Built for Industrial Decision Workflows</h3>
+            <div className="trust-items">
+              <span>Manufacturing & Workshops</span>
+              <span>Engineering & Construction</span>
+              <span>Energy & Operations</span>
+              <span>Logistics & Service</span>
+              <span>Finance & Business</span>
+            </div>
+            <p className="trust-support">
+              Use SectorCalc to screen decisions, compare scenarios, and identify hidden cost, risk, waste, and performance gaps.
+            </p>
           </div>
-        </div>
-      </section>
-      ) : null}
+        </section>
 
-      {/* ═══ CATEGORY CARDS — Problem → Tools → Pro Output ═══ */}
-      {content.categories2 && content.categories2.length > 0 ? (
-        <section className="section-white" aria-labelledby="cat2-heading">
-        <div className="wrap">
-            <h2 className="section-title" id="cat2-heading">{content.categories.eyebrow}</h2>
-            <p className="section-lead-centered">{content.categories.title}</p>
-            <div className="cat2-grid">
-              {content.categories2.map((cat) => (
-                <a key={cat.id} href={cat.href} className="cat2-card">
-                  <div className="cat2-card__name">{cat.name}</div>
-                  <div className="cat2-card__section">
-                    <div className="cat2-card__label">Problem</div>
-                    <p className="cat2-card__text">{cat.problem}</p>
-          </div>
-                  <div className="cat2-card__section">
-                    <div className="cat2-card__label">Tools</div>
-                    <p className="cat2-card__text">{cat.tools}</p>
-              </div>
-                  <div className="cat2-card__section cat2-card__section--pro">
-                    <div className="cat2-card__label cat2-card__label--pro">Pro Output</div>
-                    <p className="cat2-card__text">{cat.proOutput}</p>
-              </div>
-                </a>
-              ))}
-            </div>
-              </div>
-        </section>
-      ) : (
-        /* Fallback: old category cards */
-        <section className="cat-section section section-white" aria-labelledby="cat-title">
+        {/* CATEGORY SECTION */}
+        <section className="sec-section corp-categories" id="sectorGrid">
           <div className="wrap">
-            <div className="cat-header reveal">
-              <div>
-                <div className="eyebrow">{content.categories.eyebrow}</div>
-                <h2 className="section-h2" id="cat-title">{content.categories.title}</h2>
-              </div>
-              <p className="section-lead">{content.categories.lead}</p>
+            <div className="sec-head">
+              <h2>Find the Right Calculation Model by Sector</h2>
+              <div className="meta">Choose a sector and start with the model that matches your workflow.</div>
             </div>
-            <div className="cat-grid" role="list">
-              {[
-                ["manufacturing", content.categories.manufacturingName, content.categories.manufacturingDesc, content.categories.manufacturingTools],
-                ["finance", content.categories.financeName, content.categories.financeDesc, content.categories.financeTools],
-                ["quality", content.categories.qualityName, content.categories.qualityDesc, content.categories.qualityTools],
-                ["energy", content.categories.energyName, content.categories.energyDesc, content.categories.energyTools],
-                ["logistics", content.categories.logisticsName, content.categories.logisticsDesc, content.categories.logisticsTools],
-                ["engineering", content.categories.mechanicalName, content.categories.mechanicalDesc, content.categories.mechanicalTools],
-              ].map(([id, name, desc, tools], idx) => (
-                <a key={id as string} href={`/categories/${id}`} className={`cat-card reveal ${idx === 0 ? "cat-card--feature" : ""}`} role="listitem">
-                  <div className="cat-card__body">
-                    <div className="cat-card__name">{name as string}</div>
-                    <div className="cat-card__desc">{desc as string}</div>
+            
+            <div className="grid cat-grid">
+              <div className="cat-card">
+                <h4>Manufacturing {getSectorToolCount("manufacturing") > 0 && `(${getSectorToolCount("manufacturing")})`}</h4>
+                <p>Machine hour rate, OEE, scrap, setup time, throughput, and production cost models.</p>
+                <Link href="/tools/category/imalat-uretim" className="btn-link">
+                  Browse {getSectorToolCount("manufacturing") > 0 ? `${getSectorToolCount("manufacturing")} ` : ""}Manufacturing Models &rarr;
+                </Link>
               </div>
-                  <div className="cat-card__footer">
-                    <div className="cat-count"><span className="cat-count-dot" aria-hidden="true"></span>{tools as string}</div>
+              <div className="cat-card">
+                <h4>Workshops {getSectorToolCount("workshops") > 0 && `(${getSectorToolCount("workshops")})`}</h4>
+                <p>Quote pricing, labor rate, job costing, material yield, and margin models for shop-floor decisions.</p>
+                <Link href="/tools/category/bakim-guvenilirlik" className="btn-link">
+                  Browse {getSectorToolCount("workshops") > 0 ? `${getSectorToolCount("workshops")} ` : ""}Workshop Models &rarr;
+                </Link>
               </div>
-                </a>
-              ))}
+              <div className="cat-card">
+                <h4>Engineering {getSectorToolCount("engineering") > 0 && `(${getSectorToolCount("engineering")})`}</h4>
+                <p>Torque, tolerance, load, sizing, conversion, and technical calculation tools for engineering checks.</p>
+                <Link href="/tools/category/makine-tasarim" className="btn-link">
+                  Browse {getSectorToolCount("engineering") > 0 ? `${getSectorToolCount("engineering")} ` : ""}Engineering Models &rarr;
+                </Link>
+              </div>
+              <div className="cat-card">
+                <h4>Construction {getSectorToolCount("construction") > 0 && `(${getSectorToolCount("construction")})`}</h4>
+                <p>Concrete, volume, quantity, material, roof, labor, and project estimation models.</p>
+                <Link href="/tools/category/insaat-yapi" className="btn-link">
+                  Browse {getSectorToolCount("construction") > 0 ? `${getSectorToolCount("construction")} ` : ""}Construction Models &rarr;
+                </Link>
+              </div>
+              <div className="cat-card">
+                <h4>Energy {getSectorToolCount("energy") > 0 && `(${getSectorToolCount("energy")})`}</h4>
+                <p>kWh, compressor leak, carbon footprint, peak load, efficiency, and consumption models.</p>
+                <Link href="/tools/category/enerji-surdurulebilirlik" className="btn-link">
+                  Browse {getSectorToolCount("energy") > 0 ? `${getSectorToolCount("energy")} ` : ""}Energy Models &rarr;
+                </Link>
+              </div>
+              <div className="cat-card">
+                <h4>Logistics {getSectorToolCount("logistics") > 0 && `(${getSectorToolCount("logistics")})`}</h4>
+                <p>Freight, route, fuel, dimensional weight, delivery cost, and service efficiency models.</p>
+                <Link href="/tools/category/lojistik-tedarik-zinciri" className="btn-link">
+                  Browse {getSectorToolCount("logistics") > 0 ? `${getSectorToolCount("logistics")} ` : ""}Logistics Models &rarr;
+                </Link>
+              </div>
+              <div className="cat-card">
+                <h4>Finance {getSectorToolCount("finance") > 0 && `(${getSectorToolCount("finance")})`}</h4>
+                <p>VAT, payroll, depreciation, loan, margin, break-even, and cash impact models.</p>
+                <Link href="/tools/category/maliyet-butceleme" className="btn-link">
+                  Browse {getSectorToolCount("finance") > 0 ? `${getSectorToolCount("finance")} ` : ""}Finance Models &rarr;
+                </Link>
+              </div>
+              <div className="cat-card">
+                <h4>Retail & Business {getSectorToolCount("business") > 0 && `(${getSectorToolCount("business")})`}</h4>
+                <p>Stock, waste, discount, margin, pricing, and operational cost models.</p>
+                <Link href="/tools/category/proje-yatirim" className="btn-link">
+                  Browse {getSectorToolCount("business") > 0 ? `${getSectorToolCount("business")} ` : ""}Business Models &rarr;
+                </Link>
+              </div>
             </div>
-              </div>
+          </div>
         </section>
+
+        {/* WHY SECTORCALC */}
+        <section className="sec-section why-section">
+          <div className="wrap">
+            <div className="sec-head">
+              <h2>Calculations Built for Audit and Review</h2>
+              <div className="meta">A calculation is useful only when the result is fully explainable. SectorCalc is designed to document the logic behind the output.</div>
+            </div>
+            <div className="grid feature-grid">
+              <div className="feature-card">
+                <h4>Transparent Formula Logic</h4>
+                <p>Understand exactly what the model measures, how your inputs affect the result, and where input variations can alter the output.</p>
+              </div>
+              <div className="feature-card">
+                <h4>Tolerance & Risk Zones</h4>
+                <p>Classify results into practical decision zones: optimal, acceptable, watch, warning, or professional review recommended.</p>
+              </div>
+              <div className="feature-card">
+                <h4>Assumptions & Limitations</h4>
+                <p>Review declared operational assumptions and mathematical limitations before relying on a result for your technical decisions.</p>
+              </div>
+              <div className="feature-card">
+                <h4>Professional Review Triggers</h4>
+                <p>Know exactly when the result indicates a condition that requires escalation to a qualified professional or a site-specific assessment.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FREE VS PRO */}
+        <section className="sec-section pricing-split">
+          <div className="wrap">
+            <h2>Scalable Calculation Logic: Free and Pro Tiers</h2>
+            <div className="split-grid">
+              <div className="split-col free-col">
+                <h3>Free Tools</h3>
+                <p>Use our open tools for fast estimates on production, energy, logistics, and finance questions.</p>
+                <ul>
+                  <li>Instant, formula-based results</li>
+                  <li>No sign-up or credit card required</li>
+                  <li>Basic result interpretation</li>
+                  <li>Calculation transparency where applicable</li>
+                  <li>Practical starting point for everyday decisions</li>
+                </ul>
+                <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
+              </div>
+              <div className="split-col pro-col">
+                <h3>Pro Platform</h3>
+                <p>Upgrade when the decision requires deeper inputs, scenario analysis, tolerance guidance, and audit-ready reports.</p>
+                <ul>
+                  <li>Advanced formula logic and variable control</li>
+                  <li>Deeper interpretation and sensitivity analysis</li>
+                  <li>Tolerance and risk classification zones</li>
+                  <li>Engineering authority and standards validation</li>
+                  <li>Decision summaries and exportable reports</li>
+                </ul>
+                <Link href="/pro-tools" className="btn-secondary">Explore Pro Platform</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FORMULA TRANSPARENCY */}
+        <section className="sec-section transparency-section">
+          <div className="wrap">
+            <h2>Formula-Backed Results You Can Explain</h2>
+            <p className="section-desc">SectorCalc is built so calculation outputs can expose formula logic, variable definitions, tolerance boundaries, assumptions, and professional review triggers.</p>
+            <div className="flex-cards">
+              <div className="card">What was calculated</div>
+              <div className="card">Why each input matters</div>
+              <div className="card">How the result should be interpreted</div>
+              <div className="card">When the result needs review</div>
+            </div>
+            <div className="cta-center">
+              <Link href="/calculator-library" className="btn-primary">Search Calculators</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* PROFESSIONAL USE CASES */}
+        <section className="sec-section usecases-section">
+          <div className="wrap">
+            <h2>Built for Workflows Where Minor Variances Cause Major Costs</h2>
+            <div className="uc-grid">
+              <div className="uc-card">
+                <h4>Production & Operations</h4>
+                <p><strong>Challenge:</strong> Scrap, downtime, setup delays, and weak quoting models erode margins.</p>
+                <p><strong>Solution:</strong> Convert shop-floor inputs into measurable cost, time, and performance metrics.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Workshops & Fabrication</h4>
+                <p><strong>Challenge:</strong> Jobs are often priced from estimation rather than modeled cost data.</p>
+                <p><strong>Solution:</strong> Compare material, labor, setup, overhead, and margin before finalizing a quote.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Technical Engineering</h4>
+                <p><strong>Challenge:</strong> Engineering checks require transparent formula logic and documented assumptions.</p>
+                <p><strong>Solution:</strong> Turn declared parameters into reviewable, standards-backed calculation outputs.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Finance & Controlling</h4>
+                <p><strong>Challenge:</strong> Margins, taxes, payroll, loans, and cash impacts are often realized too late.</p>
+                <p><strong>Solution:</strong> Screen financial scenarios and run sensitivity analysis before decisions lock.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Energy & Facilities</h4>
+                <p><strong>Challenge:</strong> Leaks, inefficient equipment, and peak demands create invisible financial losses.</p>
+                <p><strong>Solution:</strong> Translate consumption variables and efficiency gaps into direct cost signals.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SOCIAL PROOF */}
+        <section className="sec-section community-section">
+          <div className="wrap">
+            <h2>User Feedback &amp; Reviews</h2>
+            <p className="section-desc">
+              SectorCalc feedback is manually reviewed before publication. We don&apos;t publish fake reviews or paid testimonials.
+            </p>
+            
+            <div className="empty-feedback" style={{
+              background: "var(--surface)",
+              border: "2px dashed var(--border-strong)",
+              borderRadius: "12px",
+              padding: "48px 32px",
+              marginBottom: "32px",
+              textAlign: "center"
+            }}>
+              <div style={{ fontSize: "48px", marginBottom: "16px" }}>💬</div>
+              <h3 style={{
+                fontFamily: "var(--serif)",
+                fontSize: "20px",
+                fontWeight: 600,
+                color: "var(--ink)",
+                marginBottom: "12px"
+              }}>
+                Be the First to Share Your Experience
+              </h3>
+              <p style={{
+                color: "var(--muted)",
+                fontSize: "14.5px",
+                lineHeight: 1.6,
+                marginBottom: "24px",
+                maxWidth: "480px",
+                marginLeft: "auto",
+                marginRight: "auto"
+              }}>
+                Help others by sharing how you used SectorCalc in a real calculation workflow.
+              </p>
+              <button
+                onClick={() => setOpenFeedback(true)}
+                className="btn-primary"
+                style={{
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "var(--sans)",
+                  fontWeight: 600,
+                  fontSize: "15px"
+                }}
+              >
+                Share Feedback
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="sec-section final-cta">
+          <div className="wrap text-center">
+            <h2>Start With the Model That Matches Your Decision</h2>
+            <p className="meta-subtitle">Use free tools for fast checks. Use the Pro Platform when the result requires deeper explanation, tolerance analysis, or audit-ready documentation.</p>
+            
+            <div className="cta-row main-actions center">
+              <Link href="/free-tools" className="btn-primary">Browse Free Tools</Link>
+              <Link href="/pro-tools" className="btn-secondary">Explore Pro Platform</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO BLOCK */}
+        <section className="seo-block">
+          <div className="wrap">
+            <p>SectorCalc provides professional calculation models for manufacturing, engineering, fabrication, construction, logistics, energy, finance, and business operations. Use the platform to estimate costs, conduct sensitivity analysis, verify engineering outputs, and document technical decisions with fully transparent calculation logic based on global standards.</p>
+          </div>
+        </section>
+      </main>
+
+      {openFeedback && (
+        <CalculationFeedbackModal
+          toolSlug=""
+          toolType="free"
+          locale="en"
+          routePath="/"
+          onClose={() => setOpenFeedback(false)}
+        />
       )}
-
-      {/* ═══ METHODOLOGY / TRUST PROOF ═══ */}
-      <section className="section-light" aria-labelledby="method-title">
-        <div className="wrap">
-          <h2 className="section-title" id="method-title">{content.methodology.title}</h2>
-          <div className="method-items method-items--grid">
-            {[
-              { icon: "pen", title: content.methodology.card1Title, desc: content.methodology.card1Desc, tag: content.methodology.card1Tag },
-              { icon: "doc", title: content.methodology.card2Title, desc: content.methodology.card2Desc, tag: content.pricing.proTag },
-              { icon: "warn", title: content.methodology.card3Title, desc: content.methodology.card3Desc },
-              { icon: "shield", title: content.methodology.card4Title, desc: content.methodology.card4Desc },
-            ].map((item, i) => (
-              <div key={i} className="method-card">
-                {item.tag ? <div className={`method-card__tag ${item.tag === content.pricing.proTag ? "method-card__tag--pro" : ""}`}>{item.tag}</div> : null}
-                <h3 className="method-card__title">{item.title}</h3>
-                <p className="method-card__desc">{item.desc}</p>
-              </div>
-            ))}
-            </div>
-          <div className="method-link-wrap">
-            <a href="/methodology" className="method-link">
-              Read our methodology
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m5 2.5 4 4-4 4" /></svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ PRICING BRIDGE ═══ */}
-      {content.pricingBridge ? (
-        <section className="pricing-bridge" aria-labelledby="pricing-bridge-heading">
-        <div className="wrap">
-            <div className="pricing-bridge__card">
-              <p className="pricing-bridge__text" id="pricing-bridge-heading">{content.pricingBridge.text}</p>
-              <a href={content.pricingBridge.ctaHref} className="btn-primary">{content.pricingBridge.cta}</a>
-          </div>
-        </div>
-      </section>
-      ) : null}
     </div>
   );
 }
