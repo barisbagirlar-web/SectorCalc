@@ -608,12 +608,6 @@ export function NewLandingContent({
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p className="footer-text">
-          Built for engineers who refuse to leave money on the table.
-        </p>
-      </footer>
     </div>
   );
 }

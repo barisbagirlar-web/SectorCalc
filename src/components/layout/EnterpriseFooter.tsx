@@ -7,9 +7,6 @@ export function EnterpriseFooter() {
     <>
       <section className="footer-cta">
         <div className="container">
-          <p className="tagline">
-            Built for engineers who refuse to leave money on the table.
-          </p>
           <p className="subtitle">
             Reduce waste, optimize costs, maximize efficiency.
           </p>
