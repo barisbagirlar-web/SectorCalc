@@ -4,6 +4,7 @@ import React, { useMemo } from "react";
 import { formatCurrency } from "@/lib/core/format/currency";
 import type { PremiumCalculatorSchema, PremiumSchemaEngineResult } from "@/lib/features/premium-schema/premium-calculator-schema";
 import type { PremiumToolResult } from "@/lib/features/tools/premium-tool-results";
+import { EngineeringAuthorityPanel } from "./EngineeringAuthorityPanel";
 
 interface ProDecisionPanelProps {
   schema?: PremiumCalculatorSchema;
@@ -548,7 +549,8 @@ export function ProDecisionPanel({
                 {benchmarkDescription}
               </p>
             </div>
-
+            
+            <EngineeringAuthorityPanel toolSlug={activeSlug} />
           </div>
         </div>
       </div>

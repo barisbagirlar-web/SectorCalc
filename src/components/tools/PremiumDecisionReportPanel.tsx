@@ -27,6 +27,7 @@ import { Badge } from "@/components/ui/Badge";
 import { REPORT_EXPORT_FORMATS } from "@/data/reports";
 import { EXPORT_MOCK_MESSAGE } from "@/config/export-messages";
 import { MARGINCORE_TERMS } from "@/lib/content/terminology/margincore-identity";
+import { EngineeringAuthorityPanel } from "./EngineeringAuthorityPanel";
 
 // ---------------------------------------------------------------------------
 // Props
@@ -377,6 +378,9 @@ trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
  </p>
  ) : null}
  </div>
+
+ <EngineeringAuthorityPanel toolSlug={toolSlug || ""} />
+ 
  <p className="mt-6 text-xs leading-relaxed text-text-secondary">
  Technical simulation only — not financial, legal or engineering advice. Verify
  all outputs before quoting or accepting work.
@@ -466,7 +470,9 @@ function LegacyDecisionReportPanel({
  </article>
  ))}
 
- <article className="border border-dashed border-amber/30 bg-amber/[0.06] p-5 sm:p-6">
+ <EngineeringAuthorityPanel toolSlug={toolSlug || ""} />
+
+ <article className="border border-dashed border-amber/30 bg-amber/[0.06] p-5 sm:p-6 mt-8">
  <h3 className="text-sm font-semibold uppercase tracking-wider text-amber">
  Export (PDF preview)
  </h3>
