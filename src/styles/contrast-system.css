@@ -357,3 +357,14 @@
 [class*="bg-action-orange"] {
   color: var(--sc-inverse-text) !important;
 }
+
+/* ── Tailwind arbitrary dark value classes ── */
+[class*="bg-[#111111]"],
+[class*="bg-[#111]"] {
+  color: var(--sc-inverse-text);
+}
+
+[class*="bg-[#111111]"] :where(h1, h2, h3, h4, h5, h6, p, label, span, li, dt, dd, td, th),
+[class*="bg-[#111]"] :where(h1, h2, h3, h4, h5, h6, p, label, span, li, dt, dd, td, th) {
+  color: inherit;
+}
