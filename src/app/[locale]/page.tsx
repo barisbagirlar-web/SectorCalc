@@ -1,13 +1,11 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { LandingPageContent } from "@/components/landing/LandingPageContent";
+import { NewLandingContent } from "@/components/landing/NewLandingContent";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
+import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/metadata";
-import type { AppLocale } from "@/i18n/routing";
-import type { LandingContent } from "@/types/landing";
-import { getTotalToolCount, getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
-import "../../styles/landing-page.css";
+import { getFreeToolCount } from "@/lib/tools/tool-counts";
 
 export const revalidate = 3600;
 
@@ -16,62 +14,24 @@ type PageProps = {
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "homepageHybrid" });
+  const locale = "en";
 
   return createPageMetadata({
-    title: t("meta.title"),
-    description: t("meta.description"),
+    title: "SectorCalc — Industrial Engineering Calculators",
+    description: "Audit-proof engineering calculations built on VDI, ISO, and DIN standards. Stop guessing. Start calculating.",
     path: "/",
-    locale: locale as AppLocale,
+    locale: locale as "en",
   });
 }
 
-async function getLandingContent(locale: string): Promise<LandingContent> {
-  const messages = await getMessages({ locale });
-  const lp = (messages as Record<string, unknown>).landingPage as
-    | LandingContent
-    | undefined;
-  if (lp) return lp;
-  // Fallback: load English
-  const enMsgs = await getMessages({ locale: "en" });
-  return ((enMsgs as Record<string, unknown>).landingPage ?? {}) as LandingContent;
-}
-
-/** Deep-replace `{toolCount}`, `{freeCount}`, `{proCount}` in every string of an object. */
-function replaceCounts(obj: Record<string, unknown>, total: number, free: number, pro: number): Record<string, unknown> {
-  const result: Record<string, unknown> = {};
-  for (const [key, val] of Object.entries(obj)) {
-    if (typeof val === "string") {
-      result[key] = val
-        .replace(/\{toolCount\}/g, String(total))
-        .replace(/\{freeCount\}/g, String(free))
-        .replace(/\{proCount\}/g, String(pro));
-    } else if (val && typeof val === "object" && !Array.isArray(val)) {
-      result[key] = replaceCounts(val as Record<string, unknown>, total, free, pro);
-    } else {
-      result[key] = val;
-    }
-  }
-  return result;
-}
-
 export default async function HomePage({ params }: PageProps) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  const [rawContent, total, freeCount, proCount] = await Promise.all([
-    getLandingContent(locale),
-    getTotalToolCount(),
-    getFreeToolCount(),
-    getPremiumToolCount(),
-  ]);
-
-  const content = replaceCounts(rawContent as unknown as Record<string, unknown>, total, freeCount, proCount) as unknown as LandingContent;
+  const locale = "en";
+  const freeCount = getFreeToolCount();
 
   return (
     <PageLayout>
-      <LandingPageContent content={content} />
+      <SemanticJsonLd data={buildHomeJsonLd(locale)} />
+      <NewLandingContent freeCount={freeCount} />
     </PageLayout>
   );
 }

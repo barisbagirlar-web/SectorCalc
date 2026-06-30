@@ -23,7 +23,11 @@ const SAMPLE_TOOLS = [
   { name: "Cost Recovery Model", cat: "Finance" },
 ];
 
-export function NewLandingContent() {
+export function NewLandingContent({
+  freeCount = 358,
+}: {
+  freeCount?: number;
+}) {
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -521,7 +525,7 @@ export function NewLandingContent() {
           )}
 
           <div className="search-meta">
-            <span className="search-stats">47 calculators available</span>
+            <span className="search-stats">{freeCount} calculators available</span>
             <a href="#all" className="search-cta">Browse all →</a>
           </div>
         </div>
