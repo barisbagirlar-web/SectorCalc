@@ -51,12 +51,12 @@ describe("indexable URL manifest", () => {
     expect(getIndexableUrlManifest().some((item) => item.path === "/free-tools")).toBe(true);
   });
 
-  test("Turkish /tr/free-tools var", () => {
-    expect(getIndexableUrlManifest().some((item) => item.path === "/tr/free-tools")).toBe(true);
+  test("Turkish /tr/free-tools yok", () => {
+    expect(getIndexableUrlManifest().some((item) => item.path === "/tr/free-tools")).toBe(false);
   });
 
-  test("English /pro-tools var", () => {
-    expect(getIndexableUrlManifest().some((item) => item.path === "/pro-tools")).toBe(true);
+  test("English /premium-tools var", () => {
+    expect(getIndexableUrlManifest().some((item) => item.path === "/premium-tools")).toBe(true);
   });
 
   test("free tool path count >= 100 (EN root)", () => {
@@ -103,7 +103,7 @@ describe("indexable URL manifest", () => {
   test("critical GSC paths included in EN manifest", () => {
     const enPaths = getManifestEnPathSet();
     expect(enPaths.has("/")).toBe(true);
-    expect(enPaths.has("/tools/generated/break-even-calculator")).toBe(true);
+    expect(enPaths.has("/tools/generated/overall-equipment-effectiveness-calculator")).toBe(true);
     expect(enPaths.has("/tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator")).toBe(true);
     expect(enPaths.has("/guides/what-is-oee-and-how-to-calculate-it")).toBe(true);
   });
