@@ -754,6 +754,82 @@ select.ctrl-el,
 }
 /* /SECTORCALC_BALANCED_INPUT_FIELDS_V1 */
 
+
+
+/* SECTORCALC_HEADER_CONTROL_CLICK_TARGETS_V1 */
+/* Keep calculator header controls above form cards and pseudo visual layers. */
+.sc-tool-header,
+.sc-tool-header *,
+.sc-mode-switch,
+.sc-mode-switch *,
+.sc-tool-omni-meta,
+.sc-tool-omni-meta *,
+.sc-tool-compact-header,
+.sc-tool-compact-header *,
+.sc-filter-bar,
+.sc-filter-bar *,
+.sc-catalog-search__results,
+.sc-catalog-search__results *,
+.sc-tool-tier-band,
+.sc-tool-tier-band * {
+  pointer-events: auto;
+}
+
+.sc-tool-header,
+.sc-mode-switch,
+.sc-tool-omni-meta,
+.sc-tool-omni-meta__actions,
+.sc-tool-compact-header,
+.sc-filter-bar,
+.sc-catalog-search__results,
+.sc-tool-tier-band {
+  position: relative;
+  z-index: 40;
+}
+
+.sc-mode-switch button,
+.sc-tool-omni-meta button,
+.sc-tool-omni-meta a,
+.sc-tool-compact-header button,
+.sc-tool-compact-header a,
+.sc-filter-btn,
+.sc-catalog-search__result,
+.sc-tool-tier-band button,
+.sc-tool-tier-band a {
+  position: relative;
+  z-index: 41;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.sc-tool-header::before,
+.sc-tool-header::after,
+.sc-tool-omni-meta::before,
+.sc-tool-omni-meta::after,
+.sc-filter-bar::before,
+.sc-filter-bar::after,
+.sc-universal-dtf-shell::before,
+.sc-universal-dtf-shell::after,
+.sc-premium-dtf-card::before,
+.sc-premium-dtf-card::after,
+.pro-tool-card::before,
+.pro-tool-card::after {
+  pointer-events: none;
+}
+
+.sc-universal-dtf-shell,
+.sc-premium-dtf-container,
+.pro-form {
+  position: relative;
+  z-index: 0;
+}
+
+.sc-universal-dtf-shell form[data-calculation-form="true"] {
+  position: relative;
+  z-index: 1;
+}
+/* /SECTORCALC_HEADER_CONTROL_CLICK_TARGETS_V1 */
+
 /* SECTORCALC_SAFE_STANDARD_RUNTIME_LAYOUT_V1 */
 .sc-universal-dtf-shell form[data-calculation-form="true"] {
   width: 100%;
@@ -770,8 +846,8 @@ select.ctrl-el,
   min-width: 0;
 }
 
-.sc-universal-dtf-shell form[data-calculation-form="true"] section > div[class*="grid"],
-.sc-universal-dtf-shell form[data-calculation-form="true"] .grid {
+/* Deliberately target only form input sections; do not hijack header/filter grids. */
+.sc-universal-dtf-shell form[data-calculation-form="true"] section > .grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--sc-field-gap-y, 18px) var(--sc-field-gap-x, 20px);
 }
@@ -812,8 +888,7 @@ select.ctrl-el,
     padding: 18px;
   }
 
-  .sc-universal-dtf-shell form[data-calculation-form="true"] section > div[class*="grid"],
-  .sc-universal-dtf-shell form[data-calculation-form="true"] .grid {
+  .sc-universal-dtf-shell form[data-calculation-form="true"] section > .grid {
     grid-template-columns: 1fr;
   }
 }
