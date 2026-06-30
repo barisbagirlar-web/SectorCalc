@@ -228,4 +228,6 @@ Detay: `.cursor/rules/02-ui-quality/RULE.md`
 Kullanıcı talimatı: "deep seek apiyi bu gıubı formul /ınput yaratma yetkısını ıptal edıyorum bunu kaydet..ve kıtlıtle"
 DeepSeek Priority Lock (Madde 1) kuralı, **formül analizi, formül yaratma, input doğrulama ve txt dosyasından sisteme aktarma** işlemleri için GEÇERSİZDİR. Bu işlemlerde DeepSeek API KESİNLİKLE kullanılmayacak, doğrudan ana yapay zeka ajanının (benim) kodlama, okuma ve muhakeme yeteneği kullanılacaktır.
 
+## 14. Deployment ve Hosting
+Vercel ile ÇALIŞMIYORUZ. Sadece Firebase Host (Firebase Hosting / App Hosting) ile çalışıyoruz. Deployment süreçleri ve yapılandırmaları Vercel'e göre değil, Firebase'e göre hazırlanmalıdır.
 
