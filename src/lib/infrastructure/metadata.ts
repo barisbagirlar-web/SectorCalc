@@ -8,6 +8,7 @@ import {
   resolveToolMetadataDescription,
   resolveToolTierLabel,
 } from "@/lib/infrastructure/metadata/tool-metadata-copy";
+import { metadataRobots } from "@/lib/infrastructure/seo/seo-indexing-control";
 
 const SITE_ICONS: Metadata["icons"] = {
   icon: [
@@ -28,7 +29,6 @@ const SITE_ICONS: Metadata["icons"] = {
 export interface PageMetadataOptions {
   title?: string;
   description?: string;
-  /** Path without locale prefix, e.g. `/audit/cnc` */
   path?: string;
   locale?: AppLocale;
 }
@@ -100,17 +100,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
     description,
     metadataBase: new URL(SITE.url),
     icons: SITE_ICONS,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-snippet": 160,
-        "max-image-preview": "large",
-        "max-video-preview": -1,
-      },
-    },
+    robots: metadataRobots(),
     openGraph: {
       title,
       description,

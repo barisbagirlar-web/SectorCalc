@@ -5,6 +5,10 @@ import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
 import fs from "node:fs";
 import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/infrastructure/i18n/locale-rewrite-exclude";
+import {
+  xRobotsTagValue,
+  X_ROBOTS_TAG_HEADER,
+} from "./src/lib/infrastructure/seo/seo-indexing-control";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -171,7 +175,7 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      // Security headers (HSTS, XSS protection, etc.)
+      // Security headers (HSTS, XSS protection, etc.) + X-Robots-Tag (SEO indexing)
       {
         source: "/(.*)",
         headers: [
@@ -194,6 +198,10 @@ const nextConfig: NextConfig = {
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+          {
+            key: X_ROBOTS_TAG_HEADER,
+            value: xRobotsTagValue(),
           },
         ],
       },

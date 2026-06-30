@@ -2,17 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { THEME_COLOR } from "@/config/organization-trust";
+import { metadataRobots } from "@/lib/infrastructure/seo/seo-indexing-control";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  },
+  robots: metadataRobots(),
 };
 
 export const viewport: Viewport = {

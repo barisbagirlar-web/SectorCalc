@@ -36,7 +36,7 @@ export default function middleware(request: NextRequest) {
       headers: {
         "content-type": "text/plain; charset=utf-8",
         "x-sectorcalc-route-policy": "root-only-no-en-prefix",
-        "x-robots-tag": "noindex, nofollow",
+        "x-robots-tag": "all",
       },
     });
   }
