@@ -31,39 +31,35 @@ function ensureManifestStubs(): void {
   const appJsPath = path.join(pagesDir, "_app.js");
   // Stub Pages Router modules to prevent "Cannot find module for page: /_document" / /_app
   // during SSG. The empty pages-manifest triggers Next.js to look for these even in App Router.
-  if (!fs.existsSync(appJsPath)) {
-    fs.mkdirSync(path.dirname(appJsPath), { recursive: true });
-    fs.writeFileSync(
-      appJsPath,
-      'const React = require("react");\n' +
-      'function App({ Component, pageProps }) {\n' +
-      '  return React.createElement(Component, pageProps);\n' +
-      '}\n' +
-      'module.exports = App;\n' +
-      'module.exports.default = App;\n',
-      "utf8"
-    );
-  }
-  if (!fs.existsSync(documentJsPath)) {
-    fs.mkdirSync(path.dirname(documentJsPath), { recursive: true });
-    fs.writeFileSync(
-      documentJsPath,
-      'const React = require("react");\n' +
-      'const { Html, Head, Main, NextScript } = require("next/document");\n' +
-      'function Document() {\n' +
-      '  return React.createElement(Html, { lang: "en" },\n' +
-      '    React.createElement(Head),\n' +
-      '    React.createElement("body", null,\n' +
-      '      React.createElement(Main),\n' +
-      '      React.createElement(NextScript)\n' +
-      '    )\n' +
-      '  );\n' +
-      '}\n' +
-      'module.exports = Document;\n' +
-      'module.exports.default = Document;\n',
-      "utf8"
-    );
-  }
+  fs.mkdirSync(path.dirname(appJsPath), { recursive: true });
+  fs.writeFileSync(
+    appJsPath,
+    'const React = require("react");\n' +
+    'function App({ Component, pageProps }) {\n' +
+    '  return React.createElement(Component, pageProps);\n' +
+    '}\n' +
+    'module.exports = App;\n' +
+    'module.exports.default = App;\n',
+    "utf8"
+  );
+  fs.mkdirSync(path.dirname(documentJsPath), { recursive: true });
+  fs.writeFileSync(
+    documentJsPath,
+    'const React = require("react");\n' +
+    'const { Html, Head, Main, NextScript } = require("next/document");\n' +
+    'function Document() {\n' +
+    '  return React.createElement(Html, { lang: "en" },\n' +
+    '    React.createElement(Head),\n' +
+    '    React.createElement("body", null,\n' +
+    '      React.createElement(Main),\n' +
+    '      React.createElement(NextScript)\n' +
+    '    )\n' +
+    '  );\n' +
+    '}\n' +
+    'module.exports = Document;\n' +
+    'module.exports.default = Document;\n',
+    "utf8"
+  );
   for (const file of [documentJsPath, appJsPath]) {
     // Create stub .nft.json for standalone trace collection
     const nftPath = file + ".nft.json";

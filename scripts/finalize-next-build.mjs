@@ -82,8 +82,29 @@ function stubMissingNftTraces(dir) {
 function ensureFirebasePagesManifest() {
   const serverPagesDir = join(NEXT, "server/pages");
   mkdirSync(serverPagesDir, { recursive: true });
-  writeFileSync(join(serverPagesDir, "_document.js"), "module.exports = {};\n", "utf8");
-  writeFileSync(join(serverPagesDir, "_app.js"), "module.exports = {};\n", "utf8");
+  const appCode = 'const React = require("react");\n' +
+    'function App({ Component, pageProps }) {\n' +
+    '  return React.createElement(Component, pageProps);\n' +
+    '}\n' +
+    'module.exports = App;\n' +
+    'module.exports.default = App;\n';
+
+  const docCode = 'const React = require("react");\n' +
+    'const { Html, Head, Main, NextScript } = require("next/document");\n' +
+    'function Document() {\n' +
+    '  return React.createElement(Html, { lang: "en" },\n' +
+    '    React.createElement(Head),\n' +
+    '    React.createElement("body", null,\n' +
+    '      React.createElement(Main),\n' +
+    '      React.createElement(NextScript)\n' +
+    '    )\n' +
+    '  );\n' +
+    '}\n' +
+    'module.exports = Document;\n' +
+    'module.exports.default = Document;\n';
+
+  writeFileSync(join(serverPagesDir, "_document.js"), docCode, "utf8");
+  writeFileSync(join(serverPagesDir, "_app.js"), appCode, "utf8");
 
   const manifestPath = join(NEXT, "server/pages-manifest.json");
   let manifest = {};
