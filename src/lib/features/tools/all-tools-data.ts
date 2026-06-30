@@ -264,7 +264,9 @@ function isPremiumTool(
   return tier === "premium" || tier === "premium-schema";
 }
 
-export function getAllTools(locale = "en"): ToolData[] {
+export function getAllTools(_locale = "en"): ToolData[] {
+  // Force English — no Turkish content allowed in UI
+  const locale = "en";
   const cached = toolsCache.get(locale);
   if (cached) {
     return cached;
@@ -327,7 +329,8 @@ export function getAllTools(locale = "en"): ToolData[] {
   return tools;
 }
 
-export function getFreeTools(locale = "en"): ToolData[] {
+export function getFreeTools(_locale = "en"): ToolData[] {
+  const locale = "en";
   return getAllTools(locale).filter((tool) => !tool.premiumRequired);
 }
 
@@ -427,7 +430,8 @@ function categorizedToToolData(
   };
 }
 
-export function getPremiumTools(locale = "en"): ToolData[] {
+export function getPremiumTools(_locale = "en"): ToolData[] {
+  const locale = "en";
   const bySlug = new Map<string, ToolData>();
 
   // 1. Premium schemas from schema-registry — these are the user's premium
@@ -450,10 +454,12 @@ export function getPremiumTools(locale = "en"): ToolData[] {
   return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, locale));
 }
 
-export function getToolsByCategory(categoryKey: string, locale = "en"): ToolData[] {
+export function getToolsByCategory(categoryKey: string, _locale = "en"): ToolData[] {
+  const locale = "en";
   return getAllTools(locale).filter((tool) => tool.categoryKey === categoryKey);
 }
 
-export function getToolsBySector(sectorKey: string, locale = "en"): ToolData[] {
+export function getToolsBySector(sectorKey: string, _locale = "en"): ToolData[] {
+  const locale = "en";
   return getAllTools(locale).filter((tool) => tool.sectorKey === sectorKey);
 }
