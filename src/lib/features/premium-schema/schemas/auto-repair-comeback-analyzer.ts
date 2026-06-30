@@ -30,7 +30,10 @@ export const AUTO_REPAIR_COMEBACK_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "comebackRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Comeback oranı > %5 — süreç iyileştirme planı başlatılmalı.", warningMessage_i18n: {"en":"Comeback oranı > %5 — süreç iyileştirme planı başlatılmalı.","tr":"Comeback oranı > %5 — süreç iyileştirme planı başlatılmalı."}, criticalMessage: "Comeback oranı > %10 — acil kalite revizyonu gerekiyor.", criticalMessage_i18n: {"en":"Comeback oranı > %10 — acil kalite revizyonu gerekiyor.","tr":"Comeback oranı > %10 — acil kalite revizyonu gerekiyor."} },
   ],
   formulaPipeline: [
-    { formulaId: "cost.comeback_direct", inputMap: { comebackOrders: "comebackOrders", avgDiagnosisMinutes: "avgDiagnosisMinutes", avgRepairMinutes: "avgRepairMinutes", laborRate: "laborRate", avgWastedPartsValue: "avgWastedPartsValue", bayOccupancyHours: "bayOccupancyHours", revenuePerBayHour: "revenuePerBayHour" }, outputId: "comebackCostDirect" },
+    { formulaId: "cost.comeback_direct", inputMap: { comebackOrders: "comebackOrders", avgDiagnosisMinutes: "avgDiagnosisMinutes", avgRepairMinutes: "avgRepairMinutes", laborRate: "laborRate", avgWastedPartsValue: "avgWastedPartsValue", bayOccupancyHours: "bayOccupancyHours", revenuePerBayHour: "revenuePerBayHour" ,
+        laborCost: "laborCost",
+        partsCost: "partsCost",
+        opportunityCost: "opportunityCost"}, outputId: "comebackCostDirect" },
     { formulaId: "cost.comeback_total", inputMap: { directCost: "comebackCostDirect", warrantyCost: "warrantyClaimFee", goodwillCost: "goodwillDiscountAvg" }, outputId: "totalComebackCost" },
   ],
   reportTemplate: { title: "Auto Repair Comeback Cost Report", title_i18n: {"en":"Auto Repair Comeback Cost Report","tr":"Auto Repair Comeback Cost Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

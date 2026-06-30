@@ -23,7 +23,8 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "fcr", warning: 2.5, critical: 3.0, direction: "higher_is_bad", warningMessage: "FCR > 2.5 — yem verimliliği düşük.", warningMessage_i18n: {"en":"FCR > 2.5 — yem verimliliği düşük.","tr":"FCR > 2.5 — yem verimliliği düşük."}, criticalMessage: "FCR > 3.0 — rasyon optimizasyonu acil.", criticalMessage_i18n: {"en":"FCR > 3.0 — rasyon optimizasyonu acil.","tr":"FCR > 3.0 — rasyon optimizasyonu acil."} }],
   formulaPipeline: [
-    { formulaId: "cost.feed_base_cost", inputMap: { inclusionRates: "inclusionRates", prices: "prices" }, outputId: "baseCost" },
+    { formulaId: "cost.feed_base_cost", inputMap: { inclusionRates: "inclusionRates", prices: "prices" ,
+        inclRates: "inclRates"}, outputId: "baseCost" },
     { formulaId: "measurement.feed_fcr", inputMap: {
         weightGain: "weightGain",
         feedCons: "feedConsumed"

@@ -29,7 +29,9 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "renewableIrr", warning: 8, critical: 5, direction: "lower_is_bad", warningMessage: "IRR < %8 — iskonto oranının altında getiri.", warningMessage_i18n: {"en":"IRR < %8 — iskonto oranının altında getiri.","tr":"IRR < %8 — iskonto oranının altında getiri."}, criticalMessage: "IRR < %5 — alternatif yatırımlar daha cazip.", criticalMessage_i18n: {"en":"IRR < %5 — alternatif yatırımlar daha cazip.","tr":"IRR < %5 — alternatif yatırımlar daha cazip."} },
   ],
   formulaPipeline: [
-    { formulaId: "measurement.renewable_annual_gen", inputMap: { annualGeneration: "annualGeneration", degradationRate: "degradationRate" }, outputId: "renewableAnnualGen" },
+    { formulaId: "measurement.renewable_annual_gen", inputMap: { annualGeneration: "annualGeneration", degradationRate: "degradationRate" ,
+        installedCapacity: "installedCapacity",
+        capacityFactor: "capacityFactor"}, outputId: "renewableAnnualGen" },
     { formulaId: "cost.renewable_npv", inputMap: {
         discountRate: "discountRate",
         annualCashFlow: "annualGeneration",
@@ -48,8 +50,12 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
         projectLife: "projectLife",
         degradationRate: "degradationRate"
       }, outputId: "renewableLcoe" },
-    { formulaId: "cost.renewable_irr", inputMap: { installationCost: "installationCost", annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", projectLife: "projectLife", degradationRate: "degradationRate", incentiveAmount: "incentiveAmount" }, outputId: "renewableIrr" },
-    { formulaId: "measurement.renewable_payback", inputMap: { installationCost: "installationCost", annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", incentiveAmount: "incentiveAmount" }, outputId: "paybackPeriod" },
+    { formulaId: "cost.renewable_irr", inputMap: { installationCost: "installationCost", annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", projectLife: "projectLife", degradationRate: "degradationRate", incentiveAmount: "incentiveAmount" ,
+        annualCashFlow: "annualCashFlow",
+        totalInvestment: "totalInvestment"}, outputId: "renewableIrr" },
+    { formulaId: "measurement.renewable_payback", inputMap: { installationCost: "installationCost", annualGeneration: "annualGeneration", tariffRate: "tariffRate", operatingCost: "operatingCost", incentiveAmount: "incentiveAmount" ,
+        totalInvestment: "totalInvestment",
+        annualCashFlow: "annualCashFlow"}, outputId: "paybackPeriod" },
   ],
   reportTemplate: { title: "Yenilenebilir Enerji IRR Analiz Raporu", title_i18n: {"en":"Yenilenebilir Enerji IRR Analiz Raporu","tr":"Yenilenebilir Enerji IRR Analiz Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "sensitivity", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 12, assumptionNotes: ["LCOE = (CAPEX + PV OPEX) / PV üretim.", "IRR, NPV'yi sıfır yapan iskonto oranıdır.", "Degradasyon yıllık üretimi doğrusal azaltır.", "Teşvik miktarı peşin alınmış varsayılır."],assumptionNotes_i18n:[{"en":"LCOE = (CAPEX + PV OPEX) / PV üretim.","tr":"LCOE = (CAPEX + PV OPEX) / PV üretim."},{"en":"IRR, NPV'yi sıfır yapan iskonto oranıdır.","tr":"IRR, NPV'yi sıfır yapan iskonto oranıdır."},{"en":"Degradasyon yıllık üretimi doğrusal azaltır.","tr":"Degradasyon yıllık üretimi doğrusal azaltır."},{"en":"Teşvik miktarı peşin alınmış varsayılır.","tr":"Teşvik miktarı peşin alınmış varsayılır."}] },

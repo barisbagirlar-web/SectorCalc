@@ -38,7 +38,9 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.weld_filler_cost", inputMap: {
         weldWeight: "electrodeWeight",
         fillerPrice: "pricePerKg"
-      }, outputId: "fillerCost" },
+      ,
+        electrodeWeight: "electrodeWeight",
+        pricePerKg: "pricePerKg"}, outputId: "fillerCost" },
     { formulaId: "cost.weld_gas_cost", inputMap: { gasFlowRate: "gasFlowRate", arcTime: "arcTime", gasPrice: "gasPrice" }, outputId: "gasCost" },
     { formulaId: "cost.weld_power_cost", inputMap: { voltage: "voltage", current: "current", arcTime: "arcTime", machineEff: "machineEff", elecRate: "elecRate" }, outputId: "powerCost" },
     { formulaId: "cost.weld_total_cost", inputMap: { fillerCost: "fillerCost", gasCost: "gasCost", powerCost: "powerCost", arcTime: "arcTime", depRate: "depRate", laborRate: "laborRate" }, outputId: "totalWeldCost" },

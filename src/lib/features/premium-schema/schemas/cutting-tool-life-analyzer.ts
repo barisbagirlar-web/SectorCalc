@@ -32,7 +32,12 @@ export const CUTTING_TOOL_LIFE_SCHEMA: PremiumCalculatorSchema = {
         taylorN: "taylorN",
         taylorM: "taylorM",
         feedPerRev: "feed"
-      }, outputId: "toolLife" },
+      ,
+        cTaylor: "cTaylor",
+        vc: "vc",
+        nTaylor: "nTaylor",
+        feed: "feed",
+        mTaylor: "mTaylor"}, outputId: "toolLife" },
     { formulaId: "cost.cnc_tooling", inputMap: { cutTime: "machiningTime", toolLife: "toolLife", toolCost: "toolCost" }, outputId: "costPerPartTool" },
   ],
   reportTemplate: { title: "Takım Ömrü Raporu", title_i18n: {"en":"Tool Life Report","tr":"Takım Ömrü Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

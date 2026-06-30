@@ -29,25 +29,32 @@ export const MUDA_WASTE_COST_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "cost.muda_overproduction", inputMap: {
         overproducedQty: "overproductionCost"
-      }, outputId: "mudaOverproduction" },
+      ,
+        unitCost: "unitCost"}, outputId: "mudaOverproduction" },
     { formulaId: "cost.muda_waiting", inputMap: {
         waitingHours: "waitingCost"
-      }, outputId: "mudaWaiting" },
+      ,
+        laborRate: "laborRate"}, outputId: "mudaWaiting" },
     { formulaId: "cost.muda_transport", inputMap: {
         excessDist: "transportCost"
-      }, outputId: "mudaTransport" },
+      ,
+        costPerKm: "costPerKm"}, outputId: "mudaTransport" },
     { formulaId: "cost.muda_overprocessing", inputMap: {
         extraProcessHours: "overprocessingCost"
-      }, outputId: "mudaOverprocessing" },
+      ,
+        processRate: "processRate"}, outputId: "mudaOverprocessing" },
     { formulaId: "cost.muda_inventory", inputMap: {
         excessInventory: "inventoryCost"
-      }, outputId: "mudaInventory" },
+      ,
+        holdingCostPerUnit: "holdingCostPerUnit"}, outputId: "mudaInventory" },
     { formulaId: "cost.muda_motion", inputMap: {
         excessMotionHours: "motionCost"
-      }, outputId: "mudaMotion" },
+      ,
+        laborRate: "laborRate"}, outputId: "mudaMotion" },
     { formulaId: "cost.muda_defects", inputMap: {
         defectQty: "defectCost"
-      }, outputId: "mudaDefects" },
+      ,
+        reworkCostPerUnit: "reworkCostPerUnit"}, outputId: "mudaDefects" },
     { formulaId: "cost.muda_total", inputMap: { mudaOverproduction: "mudaOverproduction", mudaWaiting: "mudaWaiting", mudaTransport: "mudaTransport", mudaOverprocessing: "mudaOverprocessing", mudaInventory: "mudaInventory", mudaMotion: "mudaMotion", mudaDefects: "mudaDefects" }, outputId: "mudaTotal" },
   ],
   reportTemplate: { title: "Muda Waste Cost Report", title_i18n: {"en":"Muda Waste Cost Report","tr":"Muda Waste Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

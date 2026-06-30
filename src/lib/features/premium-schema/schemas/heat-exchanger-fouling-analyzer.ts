@@ -29,7 +29,9 @@ export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "cost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Enerji kaybı > $10K/yıl — temizlik planlanmalı.", warningMessage_i18n: {"en":"Enerji kaybı > $10K/yıl — temizlik planlanmalı.","tr":"Enerji kaybı > $10K/yıl — temizlik planlanmalı."}, criticalMessage: "Kayıp > $30K/yıl — acil temizlik gerekli.", criticalMessage_i18n: {"en":"Kayıp > $30K/yıl — acil temizlik gerekli.","tr":"Kayıp > $30K/yıl — acil temizlik gerekli."} }],
   formulaPipeline: [
     { formulaId: "energy.fouling_resistance", inputMap: { uClean: "uClean", uDirty: "uDirty" }, outputId: "rf" },
-    { formulaId: "energy.fouling_cost", inputMap: { heatLoss: "heatLoss", fuelCost: "fuelCost", pumpIncrease: "deltaPIncrease" }, outputId: "cost" },
+    { formulaId: "energy.fouling_cost", inputMap: { heatLoss: "heatLoss", fuelCost: "fuelCost", pumpIncrease: "deltaPIncrease" ,
+        hours: "hours",
+        boilEff: "boilEff"}, outputId: "cost" },
     { formulaId: "energy.fouling_roi", inputMap: { totalCost: "cost", cleanCost: "cleanCost" }, outputId: "roi" },
   ],
   reportTemplate: { title: "Heat Exchanger Fouling Report", title_i18n: {"en":"Heat Exchanger Fouling Report","tr":"Heat Exchanger Fouling Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

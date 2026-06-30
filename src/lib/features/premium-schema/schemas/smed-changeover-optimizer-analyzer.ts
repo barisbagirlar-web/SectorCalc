@@ -21,12 +21,18 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI <%100 — SMED uygulaması sorgulanmalı.", warningMessage_i18n: {"en":"ROI <%100 — SMED uygulaması sorgulanmalı.","tr":"ROI <%100 — SMED uygulaması sorgulanmalı."}, criticalMessage: "ROI <%50 — SMED projesi yeniden değerlendirilmeli.", criticalMessage_i18n: {"en":"ROI <%50 — SMED projesi yeniden değerlendirilmeli.","tr":"ROI <%50 — SMED projesi yeniden değerlendirilmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.smed_capacity_recovered", inputMap: { currentChangeoverTime: "currentChangeoverTime", targetChangeoverTime: "targetChangeoverTime", changeoversPerMonth: "changeoversPerMonth" }, outputId: "capacityRecovered" },
-    { formulaId: "cost.smed_financial_gain", inputMap: { capacityRecovered: "capacityRecovered", machineHourlyRate: "machineHourlyRate", operatorCount: "operatorCount" }, outputId: "financialGain" },
+    { formulaId: "measurement.smed_capacity_recovered", inputMap: { currentChangeoverTime: "currentChangeoverTime", targetChangeoverTime: "targetChangeoverTime", changeoversPerMonth: "changeoversPerMonth" ,
+        currentSetup: "currentSetup",
+        targetSetup: "targetSetup",
+        changeoverFreq: "changeoverFreq"}, outputId: "capacityRecovered" },
+    { formulaId: "cost.smed_financial_gain", inputMap: { capacityRecovered: "capacityRecovered", machineHourlyRate: "machineHourlyRate", operatorCount: "operatorCount" ,
+        bottleneckThroughput: "bottleneckThroughput",
+        unitMargin: "unitMargin"}, outputId: "financialGain" },
     { formulaId: "cost.smed_roi", inputMap: {
         financialGain: "financialGain",
         smedImplementationCost: "smedImplementationCost"
-      }, outputId: "roi" },
+      ,
+        smedInvestment: "smedInvestment"}, outputId: "roi" },
   ],
   reportTemplate: { title: "SMED Değişim Optimizasyon Raporu", title_i18n: {"en":"SMED Değişim Optimizasyon Raporu","tr":"SMED Değişim Optimizasyon Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kazanılan kapasite = (mevcut − hedef) × değişim sayısı × 12 / 60 saat.", "Finansal kazanç = kapasite × (makine + operatör) saatlik maliyet.", "ROI = (kazanç − uygulama) / uygulama × 100.", "SMED iç ve dış ayırma prensibine dayanır."],assumptionNotes_i18n:[{"en":"Kazanılan kapasite = (mevcut − hedef) × değişim sayısı × 12 / 60 saat.","tr":"Kazanılan kapasite = (mevcut − hedef) × değişim sayısı × 12 / 60 saat."},{"en":"Finansal kazanç = kapasite × (makine + operatör) saatlik maliyet.","tr":"Finansal kazanç = kapasite × (makine + operatör) saatlik maliyet."},{"en":"ROI = (kazanç − uygulama) / uygulama × 100.","tr":"ROI = (kazanç − uygulama) / uygulama × 100."},{"en":"SMED iç ve dış ayırma prensibine dayanır.","tr":"SMED iç ve dış ayırma prensibine dayanır."}] },

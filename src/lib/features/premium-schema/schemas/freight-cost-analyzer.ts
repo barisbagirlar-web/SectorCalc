@@ -36,16 +36,19 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.bunker_surcharge", inputMap: { baseFreight: "baseFreight", bunkerPct: "bunkerPct" }, outputId: "bunkerSurcharge" },
     { formulaId: "cost.terminal_handling", inputMap: {
         chargeableWeight: "terminalFee"
-      }, outputId: "terminalCost" },
+      ,
+        handlingRate: "handlingRate"}, outputId: "terminalCost" },
     { formulaId: "cost.customs_clearance", inputMap: {
         declaredValue: "customsFee"
-      }, outputId: "customsCost" },
+      ,
+        customsRate: "customsRate"}, outputId: "customsCost" },
     { formulaId: "cost.total_freight_cost", inputMap: {
         baseFreight: "baseFreight",
         bunkerSurcharge: "bunkerSurcharge",
         terminalHandling: "terminalCost",
         customsClearance: "customsCost"
-      }, outputId: "totalFreightCost" },
+      ,
+        insurance: "insurance"}, outputId: "totalFreightCost" },
     { formulaId: "measurement.freight_cost_per_unit", inputMap: {
         totalFreightCost: "totalFreightCost",
         unitCount: "chargeableWeight"

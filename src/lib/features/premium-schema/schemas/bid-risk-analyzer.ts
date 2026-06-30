@@ -24,7 +24,9 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "cost.base_estimate", inputMap: {
         directCost: "baseEstimate"
-      }, outputId: "baseEstimateOut" },
+      ,
+        indirectCost: "indirectCost",
+        profitMargin: "profitMargin"}, outputId: "baseEstimateOut" },
     { formulaId: "cost.contingency_total", inputMap: {
         baseEstimate: "baseEstimate",
         contingencyPct: "materialUncertainty",

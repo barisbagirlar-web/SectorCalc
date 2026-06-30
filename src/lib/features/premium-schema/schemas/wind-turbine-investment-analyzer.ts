@@ -46,14 +46,21 @@ export const WIND_TURBINE_INVESTMENT_ANALYZER: PremiumCalculatorSchema = {
         costPerMW: "investmentCost",
         opexAnnual: "aep",
         annualGeneration: "opexPerYear"
-      }, outputId: "lcoe" },
+      ,
+        totalCapex: "totalCapex",
+        opex: "opex",
+        lifeYears: "lifeYears",
+        aep: "aep"}, outputId: "lcoe" },
     { formulaId: "cost.wind_npv", inputMap: {
         discountRate: "discountRate",
         projectLife: "projectLife",
         annualGeneration: "annualRevenue",
         wacc: "opexPerYear",
         costPerMW: "investmentCost"
-      }, outputId: "npv" },
+      ,
+        ebitda: "ebitda",
+        lifeYears: "lifeYears",
+        totalCapex: "totalCapex"}, outputId: "npv" },
   ],
   reportTemplate: { title: "Rüzgar Türbini Yatırım Raporu", title_i18n: {"en":"Rüzgar Türbini Yatırım Raporu","tr":"Rüzgar Türbini Yatırım Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6.", "LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ.", "NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX.", "Rüzgar hızı Weibull dağılımı varsayılmıştır."],assumptionNotes_i18n:[{"en":"AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6.","tr":"AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6."},{"en":"LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ.","tr":"LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ."},{"en":"NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX.","tr":"NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX."},{"en":"Rüzgar hızı Weibull dağılımı varsayılmıştır.","tr":"Rüzgar hızı Weibull dağılımı varsayılmıştır."}] },

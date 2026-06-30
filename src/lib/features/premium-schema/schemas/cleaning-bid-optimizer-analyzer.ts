@@ -30,7 +30,8 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
         cleaningLaborCost: "cleaningLaborCost",
         cleaningMaterialCost: "materialCostPerVisit",
         cleaningOverhead: "desiredMargin"
-      }, outputId: "cleaningBidPrice" },
+      ,
+        cleaningMargin: "cleaningMargin"}, outputId: "cleaningBidPrice" },
   ],
   reportTemplate: { title: "Cleaning Bid Optimization Report", title_i18n: {"en":"Cleaning Bid Optimization Report","tr":"Cleaning Bid Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 25, assumptionNotes: ["Labor cost = Rate × Hours × Visits/month.", "Bid price = (Labor + Material) / (1 − Margin%).", "Competitor benchmark adjusts strategy."],assumptionNotes_i18n:[{"en":"Labor cost = Rate × Hours × Visits/month.","tr":"Labor cost = Rate × Hours × Visits/month."},{"en":"Bid price = (Labor + Material) / (1 − Margin%).","tr":"Bid price = (Labor + Material) / (1 − Margin%)."},{"en":"Competitor benchmark adjusts strategy.","tr":"Competitor benchmark adjusts strategy."}] },

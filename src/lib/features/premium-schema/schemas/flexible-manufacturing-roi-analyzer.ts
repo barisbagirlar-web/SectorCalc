@@ -30,7 +30,10 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
         capex: "capex",
         costDed: "costDedicated",
         costFms: "costFlex"
-      }, outputId: "roi" },
+      ,
+        flexVal: "flexVal",
+        invSav: "invSav",
+        scrapRed: "scrapRed"}, outputId: "roi" },
   ],
   reportTemplate: { title: "Flexible Manufacturing ROI Report", title_i18n: {"en":"Flexible Manufacturing ROI Report","tr":"Flexible Manufacturing ROI Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Compares dedicated vs flexible manufacturing cost.", "Includes flex value (TTM + customer premium), WIP savings, scrap reduction.", "ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex."],assumptionNotes_i18n:[{"en":"Compares dedicated vs flexible manufacturing cost.","tr":"Compares dedicated vs flexible manufacturing cost."},{"en":"Includes flex value (TTM + customer premium), WIP savings, scrap reduction.","tr":"Includes flex value (TTM + customer premium), WIP savings, scrap reduction."},{"en":"ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex.","tr":"ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex."}] },

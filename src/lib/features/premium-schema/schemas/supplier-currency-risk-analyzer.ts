@@ -42,7 +42,8 @@ export const SUPPLIER_CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "fxNetRiskCost" },
     { formulaId: "cost.fx_clause_savings", inputMap: {
         fxExposureSupplier: "contractClauseSavings"
-      }, outputId: "fxClauseSavings" },
+      ,
+        clauseDiscountPct: "clauseDiscountPct"}, outputId: "fxClauseSavings" },
   ],
   reportTemplate: { title: "Supplier Currency Risk Report", title_i18n: {"en":"Supplier Currency Risk Report","tr":"Tedarikçi Döviz Kuru Risk Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 15, targetMarginPercent: 12, assumptionNotes: ["FX exposure = Invoice × Rate.", "Expected loss = Exposure × Shift%.", "VAR at 95% confidence using volatility."],assumptionNotes_i18n:[{"en":"FX exposure = Invoice × Rate.","tr":"FX exposure = Invoice × Rate."},{"en":"Expected loss = Exposure × Shift%.","tr":"Expected loss = Exposure × Shift%."},{"en":"VAR at 95% confidence using volatility.","tr":"VAR at 95% confidence using volatility."}] },

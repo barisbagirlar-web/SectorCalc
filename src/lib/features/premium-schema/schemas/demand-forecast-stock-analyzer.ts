@@ -26,7 +26,8 @@ export const DEMAND_FORECAST_STOCK_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.safety_stock_forecast", inputMap: {
         leadTime: "leadTime",
         serviceFactor: "forecastError"
-      }, outputId: "safetyStockForecast" },
+      ,
+        demandStdDev: "demandStdDev"}, outputId: "safetyStockForecast" },
     { formulaId: "cost.forecast_carrying_cost", inputMap: {
         safetyStock: "forecastError",
         holdingCostPerUnit: "unitCost"

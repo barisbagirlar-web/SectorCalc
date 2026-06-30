@@ -23,8 +23,10 @@ export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "inventoryTurnoverRatio", warning: 4, critical: 2, direction: "lower_is_bad", warningMessage: "Stok devir hızı <4 — sermaye atıl kalıyor.", warningMessage_i18n: {"en":"Stok devir hızı <4 — sermaye atıl kalıyor.","tr":"Stok devir hızı <4 — sermaye atıl kalıyor."}, criticalMessage: "Stok devir hızı <2 — acil stok eritme aksiyonu gerekli.", criticalMessage_i18n: {"en":"Stok devir hızı <2 — acil stok eritme aksiyonu gerekli.","tr":"Stok devir hızı <2 — acil stok eritme aksiyonu gerekli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.inventory_turnover_ratio", inputMap: { annualCogs: "annualCogs", avgInventory: "avgInventory" }, outputId: "inventoryTurnoverRatio" },
-    { formulaId: "measurement.dsi_days", inputMap: { daysInPeriod: "daysInPeriod", inventoryTurnoverRatio: "inventoryTurnoverRatio" }, outputId: "dsiDays" },
+    { formulaId: "measurement.inventory_turnover_ratio", inputMap: { annualCogs: "annualCogs", avgInventory: "avgInventory" ,
+        cogs: "cogs"}, outputId: "inventoryTurnoverRatio" },
+    { formulaId: "measurement.dsi_days", inputMap: { daysInPeriod: "daysInPeriod", inventoryTurnoverRatio: "inventoryTurnoverRatio" ,
+        inventoryTurnover: "inventoryTurnover"}, outputId: "dsiDays" },
     { formulaId: "cost.obsolescence_risk_cost", inputMap: { avgInventory: "avgInventory", obsolescenceRate: "obsolescenceRate" }, outputId: "obsolescenceRiskCost" },
     { formulaId: "cost.liquidation_loss", inputMap: {
         slowMovingInv: "inventoryUnitCount",

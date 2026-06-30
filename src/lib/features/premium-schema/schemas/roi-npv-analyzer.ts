@@ -56,7 +56,8 @@ export const ROI_NPV_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.profitability_index", inputMap: {
         discountRate: "npvInvestment",
         initialInv: "initialInvestment"
-      }, outputId: "profitabilityIndex" },
+      ,
+        cashFlows: "cashFlows"}, outputId: "profitabilityIndex" },
   ],
   reportTemplate: { title: "YG ve NBD Analiz Raporu", title_i18n: {"en":"ROI and NPV Analysis Report","tr":"YG ve NBD Analiz Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "sensitivity", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["NPV = Σ (nakit akışı / (1+r)^t) - yatırım.", "IRR, NPV'yi sıfırlayan iskonto oranıdır.", "ROI = (toplam net kâr / yatırım) × 100.", "Geri ödeme süresi nakit akışlarının kümülatif toplamına dayanır."],assumptionNotes_i18n:[{"en":"NPV = Σ (cash flow / (1+r)^t) - investment.","tr":"NPV = Σ (nakit akışı / (1+r)^t) - yatırım."},{"en":"IRR is the discount rate that makes NPV zero.","tr":"IRR, NPV'yi sıfırlayan iskonto oranıdır."},{"en":"ROI = (total net profit / investment) × 100.","tr":"ROI = (toplam net kâr / yatırım) × 100."},{"en":"Payback period is based on cumulative cash flows.","tr":"Geri ödeme süresi nakit akışlarının kümülatif toplamına dayanır."}] },

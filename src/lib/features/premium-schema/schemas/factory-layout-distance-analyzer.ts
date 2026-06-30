@@ -32,7 +32,9 @@ export const FACTORY_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
         spaceCost: "spaceCost",
         matHandCost: "matHandlingCost",
         spaceUtil: "congestionCost"
-      }, outputId: "totalLayoutCost" },
+      ,
+        congestion: "congestion",
+        congCost: "congCost"}, outputId: "totalLayoutCost" },
   ],
   reportTemplate: { title: "Factory Layout Distance Report", title_i18n: {"en":"Factory Layout Distance Report","tr":"Factory Layout Distance Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Flow cost = Σ(Flow×Dist×CostPerDist).", "Space util = EquipArea/FacArea.", "Total = MatHandling+Space+Congestion."],assumptionNotes_i18n:[{"en":"Flow cost = Σ(Flow×Dist×CostPerDist).","tr":"Flow cost = Σ(Flow×Dist×CostPerDist)."},{"en":"Space util = EquipArea/FacArea.","tr":"Space util = EquipArea/FacArea."},{"en":"Total = MatHandling+Space+Congestion.","tr":"Total = MatHandling+Space+Congestion."}] },

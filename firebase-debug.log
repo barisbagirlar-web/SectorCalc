@@ -889,3 +889,29 @@ Source path: /Users/macair1/projects/SectorCalc-p5a/src/styles/premium-calculato
 [debug] [2026-06-30T15:49:04.593Z] Error: ENOENT: no such file or directory, open '/Users/macair1/projects/SectorCalc-p5a/.next/server/middleware-manifest.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2026-06-30T16:55:35.288Z] ----------------------------------------------------------------------
+[debug] [2026-06-30T16:55:35.290Z] Command:       /Users/macair1/.nvm/versions/node/v22.22.2/bin/node /tmp/npm-cache/_npx/ba4f1959e38407b5/node_modules/.bin/firebase deploy
+[debug] [2026-06-30T16:55:35.290Z] CLI Version:   15.22.3
+[debug] [2026-06-30T16:55:35.290Z] Platform:      darwin
+[debug] [2026-06-30T16:55:35.290Z] Node Version:  v22.22.2
+[debug] [2026-06-30T16:55:35.290Z] Detected Agent: antigravity
+[debug] [2026-06-30T16:55:35.290Z] Time:          Tue Jun 30 2026 19:55:35 GMT+0300 (Türkiye Standard Time)
+[debug] [2026-06-30T16:55:35.290Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-06-30T16:55:35.615Z] Object "/hosting" in "firebase.json" has unknown property: {"additionalProperty":"build"}
+[debug] [2026-06-30T16:55:35.615Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2026-06-30T16:55:35.615Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-06-30T16:55:35.617Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-30T16:55:35.618Z] > authorizing via signed-in user (barisbagirlar@gmail.com)
+[debug] [2026-06-30T16:55:35.618Z] [iam] checking project sectorcalc-bf412 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-06-30T16:55:35.618Z] Checked if tokens are valid: true, expires at: 1782839745268
+[debug] [2026-06-30T16:55:35.618Z] Checked if tokens are valid: true, expires at: 1782839745268
+[debug] [2026-06-30T16:55:35.618Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions [none]
+[debug] [2026-06-30T16:55:35.618Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions  x-goog-user-project=sectorcalc-bf412
+[debug] [2026-06-30T16:55:35.618Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T16:55:36.558Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions 200
+[debug] [2026-06-30T16:55:36.558Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T16:55:36.558Z] Checked if tokens are valid: true, expires at: 1782839745268
+[debug] [2026-06-30T16:55:36.558Z] Checked if tokens are valid: true, expires at: 1782839745268
+[debug] [2026-06-30T16:55:36.558Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/sectorcalc-bf412/serviceAccounts/sectorcalc-bf412@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-06-30T16:55:36.559Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/sectorcalc-bf412/serviceAccounts/sectorcalc-bf412@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}

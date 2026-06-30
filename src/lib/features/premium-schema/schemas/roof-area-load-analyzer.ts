@@ -27,7 +27,9 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.","tr":"Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir."}, criticalMessage: "Yük > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Yük > 8 kN/m² — acil statik analiz gerekiyor.","tr":"Yük > 8 kN/m² — acil statik analiz gerekiyor."} }],
   formulaPipeline: [
-    { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" }, outputId: "footprint" },
+    { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" ,
+        buildingLength: "buildingLength",
+        buildingWidth: "buildingWidth"}, outputId: "footprint" },
     { formulaId: "measurement.roof_gable_area", inputMap: { footprint: "footprint", pitchAngle: "pitchAngle" }, outputId: "gableArea" },
   ],
   reportTemplate: { title: "Roof Area & Load Report", title_i18n: {"en":"Roof Area & Load Report","tr":"Çatı Alanı ve Yük Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

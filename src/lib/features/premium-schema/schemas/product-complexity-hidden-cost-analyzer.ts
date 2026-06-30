@@ -27,7 +27,9 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "complexityIndex", warning: 50, critical: 80, direction: "higher_is_bad", warningMessage: "Karmaşıklık endeksi > 50 — üretim hücreleri gözden geçirilmeli.", warningMessage_i18n: {"en":"Karmaşıklık endeksi > 50 — üretim hücreleri gözden geçirilmeli.","tr":"Karmaşıklık endeksi > 50 — üretim hücreleri gözden geçirilmeli."}, criticalMessage: "Karmaşıklık endeksi > 80 — ürün mimarisi yeniden tasarlanmalı.", criticalMessage_i18n: {"en":"Karmaşıklık endeksi > 80 — ürün mimarisi yeniden tasarlanmalı.","tr":"Karmaşıklık endeksi > 80 — ürün mimarisi yeniden tasarlanmalı."} },
   ],
   formulaPipeline: [
-    { formulaId: "measurement.complexity_index", inputMap: { numSkus: "numSkus", numPartsPerSku: "numPartsPerSku", setupTime: "setupTime", complexityScore: "complexityScore" }, outputId: "complexityIndex" },
+    { formulaId: "measurement.complexity_index", inputMap: { numSkus: "numSkus", numPartsPerSku: "numPartsPerSku", setupTime: "setupTime", complexityScore: "complexityScore" ,
+        uniqueParts: "uniqueParts",
+        totalParts: "totalParts"}, outputId: "complexityIndex" },
     { formulaId: "cost.hidden_cost_complexity", inputMap: {
         complexityIndex: "complexityIndex",
         annualOverhead: "hourlyRate",
@@ -39,8 +41,12 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
         skuCost: "hiddenCostComplexity",
         skuQty: "numSkus"
       }, outputId: "profitabilityPerSku" },
-    { formulaId: "cost.setup_total_cost", inputMap: { setupTime: "setupTime", hourlyRate: "hourlyRate", batchFrequency: "batchFrequency", numSkus: "numSkus" }, outputId: "totalSetupCost" },
-    { formulaId: "measurement.waste_percentage", inputMap: { hiddenCostComplexity: "hiddenCostComplexity", numSkus: "numSkus", numPartsPerSku: "numPartsPerSku" }, outputId: "wastePercent" },
+    { formulaId: "cost.setup_total_cost", inputMap: { setupTime: "setupTime", hourlyRate: "hourlyRate", batchFrequency: "batchFrequency", numSkus: "numSkus" ,
+        changeoverTime: "changeoverTime",
+        costPerMinute: "costPerMinute"}, outputId: "totalSetupCost" },
+    { formulaId: "measurement.waste_percentage", inputMap: { hiddenCostComplexity: "hiddenCostComplexity", numSkus: "numSkus", numPartsPerSku: "numPartsPerSku" ,
+        waste: "waste",
+        total: "total"}, outputId: "wastePercent" },
   ],
   reportTemplate: { title: "Ürün Karmaşıklığı Gizli Maliyet Raporu", title_i18n: {"en":"Product Complexity Hidden Cost Report","tr":"Ürün Karmaşıklığı Gizli Maliyet Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 12, assumptionNotes: ["Karmaşıklık endeksi SKU, parça ve hazırlık süresine göre hesaplanır.", "Gizli maliyet = endeks × işçilik × parti sıklığı.", "SKU kârlılığı ortalama marjdan gizli maliyet düşülerek bulunur."],assumptionNotes_i18n:[{"en":"Karmaşıklık endeksi SKU, parça ve hazırlık süresine göre hesaplanır.","tr":"Karmaşıklık endeksi SKU, parça ve hazırlık süresine göre hesaplanır."},{"en":"Gizli maliyet = endeks × işçilik × parti sıklığı.","tr":"Gizli maliyet = endeks × işçilik × parti sıklığı."},{"en":"SKU kârlılığı ortalama marjdan gizli maliyet düşülerek bulunur.","tr":"SKU kârlılığı ortalama marjdan gizli maliyet düşülerek bulunur."}] },

@@ -30,7 +30,10 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
         consumptionKwh: "activeEnergy",
         ratePerKwh: "energyRate"
       }, outputId: "energyCharge" },
-    { formulaId: "cost.demand_charge", inputMap: { peakDemand: "peakDemand", demandRate: "demandRate" }, outputId: "demandCharge" },
+    { formulaId: "cost.demand_charge", inputMap: { peakDemand: "peakDemand", demandRate: "demandRate" ,
+        peakDemandKW: "peakDemandKW",
+        demandRatePerKW: "demandRatePerKW",
+        months: "months"}, outputId: "demandCharge" },
     { formulaId: "cost.reactive_penalty_kwh", inputMap: {
         penaltyRate: "penaltyRate",
         reactivePower: "powerFactor",

@@ -29,7 +29,9 @@ export const HYDRAULIC_LOSS_SCHEMA: PremiumCalculatorSchema = {
         qLeak: "qLeak",
         p: "deltaPipe",
         deltaPPipe: "deltaValve"
-      }, outputId: "heatLoss" },
+      ,
+        qFlow: "qFlow",
+        deltaPValve: "deltaPValve"}, outputId: "heatLoss" },
     { formulaId: "energy.hydraulic_cost", inputMap: {
         elecRate: "elecRate",
         heat: "heatLoss",

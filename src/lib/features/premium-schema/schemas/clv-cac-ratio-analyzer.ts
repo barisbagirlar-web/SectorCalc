@@ -43,7 +43,9 @@ export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.payback", inputMap: {
         cac: "cac",
         avgOrderValue: "avgMonthlyGpInput"
-      }, outputId: "payback" },
+      ,
+        purchaseFreq: "purchaseFreq",
+        grossMarginPct: "grossMarginPct"}, outputId: "payback" },
     { formulaId: "cost.ltv_cac", inputMap: { discountedClv: "discountedClv", cac: "cac" }, outputId: "ltvCac" },
   ],
   reportTemplate: { title: "CLV/CAC Ratio Report", title_i18n: {"en":"CLV/CAC Ratio Report","tr":"CLV/CAC Ratio Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

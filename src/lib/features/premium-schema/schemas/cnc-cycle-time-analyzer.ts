@@ -44,7 +44,8 @@ export const CNC_CYCLE_TIME_SCHEMA: PremiumCalculatorSchema = {
         feedSpeed: "feedSpeed",
         length: "cutLength",
         depth: "depthOfCut"
-      }, outputId: "cutTime" },
+      ,
+        axialDepth: "axialDepth"}, outputId: "cutTime" },
     { formulaId: "measurement.cnc_rapid_time", inputMap: { rapidDistance: "rapidDistance", rapidSpeed: "rapidSpeed" }, outputId: "rapidTime" },
     { formulaId: "measurement.cnc_tool_change_time", inputMap: {
         timePerChange: "timePerChange",

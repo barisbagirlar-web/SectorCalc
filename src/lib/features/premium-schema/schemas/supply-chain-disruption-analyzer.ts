@@ -22,8 +22,13 @@ export const SUPPLY_CHAIN_DISRUPTION_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "resilienceIndex", warning: 60, critical: 30, direction: "lower_is_bad", warningMessage: "Dayanıklılık endeksi < 60 — risk azaltma planı önerilir.", warningMessage_i18n: {"en":"Resilience index < 60 — risk mitigation plan recommended.","tr":"Dayanıklılık endeksi < 60 — risk azaltma planı önerilir."}, criticalMessage: "Dayanıklılık endeksi < 30 — tedarik zinciri kırılgan.", criticalMessage_i18n: {"en":"Resilience index < 30 — supply chain is fragile.","tr":"Dayanıklılık endeksi < 30 — tedarik zinciri kırılgan."} }],
   formulaPipeline: [
-    { formulaId: "cost.risk_exposure_sc", inputMap: { annualRevenue: "annualRevenue", disruptionProbability: "disruptionProbability", revenueAtRisk: "revenueAtRisk" }, outputId: "riskExposureSc" },
-    { formulaId: "cost.revenue_loss_sc", inputMap: { annualRevenue: "annualRevenue", revenueAtRisk: "revenueAtRisk", recoveryDays: "recoveryDays" }, outputId: "revenueLossSc" },
+    { formulaId: "cost.risk_exposure_sc", inputMap: { annualRevenue: "annualRevenue", disruptionProbability: "disruptionProbability", revenueAtRisk: "revenueAtRisk" ,
+        supplierSpend: "supplierSpend",
+        disruptionProb: "disruptionProb"}, outputId: "riskExposureSc" },
+    { formulaId: "cost.revenue_loss_sc", inputMap: { annualRevenue: "annualRevenue", revenueAtRisk: "revenueAtRisk", recoveryDays: "recoveryDays" ,
+        disruptionDays: "disruptionDays",
+        dailyRevenue: "dailyRevenue",
+        impactPct: "impactPct"}, outputId: "revenueLossSc" },
     { formulaId: "cost.risk_adjusted_cost_sc", inputMap: { riskExposureSc: "riskExposureSc", revenueLossSc: "revenueLossSc", mitigationCost: "mitigationCost" }, outputId: "riskAdjustedCostSc" },
     { formulaId: "measurement.resilience_index", inputMap: {
         recoveryCapacity: "riskExposureSc",

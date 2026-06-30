@@ -41,7 +41,10 @@ export const OEE_DOWNTIME_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.oee_score", inputMap: { oeeAvailability: "oeeAvailability", oeePerformance: "oeePerformance", oeeQuality: "oeeQuality" }, outputId: "oeeScore" },
     { formulaId: "measurement.teep_score", inputMap: {
         operatingTime: "oeeScore"
-      }, outputId: "teepScore" },
+      ,
+        totalCalendarTime: "totalCalendarTime",
+        oeePerformance: "oeePerformance",
+        oeeQuality: "oeeQuality"}, outputId: "teepScore" },
     { formulaId: "cost.oee_downtime_cost", inputMap: {
         plannedProdTime: "downtimeMinutes",
         operatingTime: "machineHourlyCost",

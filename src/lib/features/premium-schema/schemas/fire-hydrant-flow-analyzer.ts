@@ -41,7 +41,9 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
         remediationCost: "requiredFlow",
         numHydrants: "numHydrants"
       }, outputId: "hydrantCompliance" },
-    { formulaId: "cost.hydrant_compliance_penalty", inputMap: { hydrantCompliance: "hydrantCompliance", complianceFine: "complianceFine", numHydrants: "numHydrants" }, outputId: "complianceCost" },
+    { formulaId: "cost.hydrant_compliance_penalty", inputMap: { hydrantCompliance: "hydrantCompliance", complianceFine: "complianceFine", numHydrants: "numHydrants" ,
+        deficientHydrants: "deficientHydrants",
+        penaltyPerHydrant: "penaltyPerHydrant"}, outputId: "complianceCost" },
   ],
   reportTemplate: { title: "Yangın Hidrantı Akış Analiz Raporu", title_i18n: {"en":"Yangın Hidrantı Akış Analiz Raporu","tr":"Yangın Hidrantı Akış Analiz Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Hidrant debisi çap ve basınç düşümüne göre hesaplanır.", "Kullanılabilir akış statik ve rezidüel basınç farkına dayanır.", "Uyumluluk skoru NFPA standardı referans alınarak belirlenir."],assumptionNotes_i18n:[{"en":"Hidrant debisi çap ve basınç düşümüne göre hesaplanır.","tr":"Hidrant debisi çap ve basınç düşümüne göre hesaplanır."},{"en":"Kullanılabilir akış statik ve rezidüel basınç farkına dayanır.","tr":"Kullanılabilir akış statik ve rezidüel basınç farkına dayanır."},{"en":"Uyumluluk skoru NFPA standardı referans alınarak belirlenir.","tr":"Uyumluluk skoru NFPA standardı referans alınarak belirlenir."}] },

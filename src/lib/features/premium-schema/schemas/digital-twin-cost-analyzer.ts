@@ -42,7 +42,9 @@ export const DIGITAL_TWIN_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.digital_twin_roi", inputMap: {
         costTrad: "totalSavings",
         costDt: "dtCost"
-      }, outputId: "roi" },
+      ,
+        revenueGain: "revenueGain",
+        qualitySavings: "qualitySavings"}, outputId: "roi" },
   ],
   reportTemplate: { title: "Digital Twin Cost & ROI Report", title_i18n: {"en":"Digital Twin Cost & ROI Report","tr":"Digital Twin Cost & ROI Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Time gain = (Physical-Digital)×Iterations.", "Quality savings = DefectRed%×Warranty×Volume.", "ROI = (TradCost-DTCost+RevGain+QualSav)/DTCost."],assumptionNotes_i18n:[{"en":"Time gain = (Physical-Digital)×Iterations.","tr":"Time gain = (Physical-Digital)×Iterations."},{"en":"Quality savings = DefectRed%×Warranty×Volume.","tr":"Quality savings = DefectRed%×Warranty×Volume."},{"en":"ROI = (TradCost-DTCost+RevGain+QualSav)/DTCost.","tr":"ROI = (TradCost-DTCost+RevGain+QualSav)/DTCost."}] },

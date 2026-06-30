@@ -28,13 +28,18 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "otCostHour" },
     { formulaId: "cost.hiring_total_cost", inputMap: {
         advertising: "hiringCost"
-      }, outputId: "hiringTotalCost" },
+      ,
+        recruiting: "recruiting",
+        training: "training",
+        onboarding: "onboarding"}, outputId: "hiringTotalCost" },
     { formulaId: "cost.annual_new_hire_cost", inputMap: {
         hiringTotalCost: "hiringTotalCost",
         salary: "annualSalary"
-      }, outputId: "annualNewHireCost" },
+      ,
+        benefits: "benefits"}, outputId: "annualNewHireCost" },
     { formulaId: "measurement.breakeven_hours_base", inputMap: { annualNewHireCost: "annualNewHireCost", otCostHour: "otCostHour" }, outputId: "breakevenHours" },
-    { formulaId: "measurement.ot_hire_decision", inputMap: { overtimeHoursPerMonth: "overtimeHoursPerMonth", breakevenHours: "breakevenHours" }, outputId: "otHireDecision" },
+    { formulaId: "measurement.ot_hire_decision", inputMap: { overtimeHoursPerMonth: "overtimeHoursPerMonth", breakevenHours: "breakevenHours" ,
+        annualOtHours: "annualOtHours"}, outputId: "otHireDecision" },
   ],
   reportTemplate: { title: "Overtime vs Hiring Report", title_i18n: {"en":"Overtime vs Hiring Report","tr":"Overtime vs Hiring Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["OT maliyeti = saat ücreti × 1.5 + kalite etkisi.", "İşe alma maliyeti: ilan, mülakat, eğitim, kayıp verim.", "Yıllık maliyet = maaş + işe alma amortismanı.", "Başabaş = yıllık maliyet / OT birim maliyet / 12."],assumptionNotes_i18n:[{"en":"OT maliyeti = saat ücreti × 1.5 + kalite etkisi.","tr":"OT maliyeti = saat ücreti × 1.5 + kalite etkisi."},{"en":"İşe alma maliyeti: ilan, mülakat, eğitim, kayıp verim.","tr":"İşe alma maliyeti: ilan, mülakat, eğitim, kayıp verim."},{"en":"Yıllık maliyet = maaş + işe alma amortismanı.","tr":"Yıllık maliyet = maaş + işe alma amortismanı."},{"en":"Başabaş = yıllık maliyet / OT birim maliyet / 12.","tr":"Başabaş = yıllık maliyet / OT birim maliyet / 12."}] },

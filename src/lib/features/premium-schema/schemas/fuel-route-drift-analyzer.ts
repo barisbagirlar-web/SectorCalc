@@ -30,11 +30,13 @@ export const FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.fuel_waste_distance", inputMap: {
         actualKm: "plannedDistance",
         optimalKm: "actualDistance"
-      }, outputId: "fuelWasteDistance" },
+      ,
+        fuelCostPerKm: "fuelCostPerKm"}, outputId: "fuelWasteDistance" },
     { formulaId: "cost.fuel_waste_efficiency", inputMap: {
         actualFuelUsed: "fuelWasteDistance",
         fuelPrice: "fuelEfficiency"
-      }, outputId: "fuelWasteEfficiency" },
+      ,
+        expectedFuelCost: "expectedFuelCost"}, outputId: "fuelWasteEfficiency" },
     { formulaId: "cost.idle_fuel_cost", inputMap: {
         idleHours: "idleTimePerTrip",
         fuelCostPerHour: "driverCostPerHour",

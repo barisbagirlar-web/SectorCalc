@@ -22,10 +22,13 @@ export const HVAC_CAPACITY_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "annualCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Enerji maliyeti > $5000 — EER iyileştirilmeli.", warningMessage_i18n: {"en":"Enerji maliyeti > $5000 — EER iyileştirilmeli.","tr":"Enerji maliyeti > $5000 — EER iyileştirilmeli."}, criticalMessage: "Maliyet > $15000 — sistem yenileme değerlendirilmeli.", criticalMessage_i18n: {"en":"Maliyet > $15000 — sistem yenileme değerlendirilmeli.","tr":"Maliyet > $15000 — sistem yenileme değerlendirilmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.hvac_sensible", inputMap: { cfm: "cfm", deltaTemp: "deltaTemp" }, outputId: "sensible" },
-    { formulaId: "measurement.hvac_latent", inputMap: { cfm: "cfm", deltaHumidity: "deltaHumidity" }, outputId: "latent" },
+    { formulaId: "measurement.hvac_sensible", inputMap: { cfm: "cfm", deltaTemp: "deltaTemp" ,
+        deltaT: "deltaT"}, outputId: "sensible" },
+    { formulaId: "measurement.hvac_latent", inputMap: { cfm: "cfm", deltaHumidity: "deltaHumidity" ,
+        deltaW: "deltaW"}, outputId: "latent" },
     { formulaId: "measurement.hvac_total_btu", inputMap: { sensible: "sensible", latent: "latent" }, outputId: "totalBtu" },
-    { formulaId: "measurement.hvac_tons", inputMap: { totalBtu: "totalBtu" }, outputId: "tons" },
+    { formulaId: "measurement.hvac_tons", inputMap: { totalBtu: "totalBtu" ,
+        totalLoad: "totalLoad"}, outputId: "tons" },
     { formulaId: "cost.hvac_annual_cost", inputMap: {
         eer: "eer",
         elecRate: "elecRate",

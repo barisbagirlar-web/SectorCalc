@@ -26,14 +26,19 @@ export const VACUUM_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { fieldId: "vacuumCapacityWaste", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Kapasite kaybı > %10 — kompresör yükü optimize edilmeli.", warningMessage_i18n: {"en":"Kapasite kaybı > %10 — kompresör yükü optimize edilmeli.","tr":"Kapasite kaybı > %10 — kompresör yükü optimize edilmeli."}, criticalMessage: "Kapasite kaybı > %25 — sistem yeniden tasarlanmalı.", criticalMessage_i18n: {"en":"Kapasite kaybı > %25 — sistem yeniden tasarlanmalı.","tr":"Kapasite kaybı > %25 — sistem yeniden tasarlanmalı."} },
   ],
   formulaPipeline: [
-    { formulaId: "measurement.vacuum_leak_rate", inputMap: { leakRate: "leakRate", numLeaks: "numLeaks" }, outputId: "vacuumLeakRate" },
+    { formulaId: "measurement.vacuum_leak_rate", inputMap: { leakRate: "leakRate", numLeaks: "numLeaks" ,
+        pressureDrop: "pressureDrop",
+        chamberVolume: "chamberVolume",
+        testDuration: "testDuration"}, outputId: "vacuumLeakRate" },
     { formulaId: "cost.vacuum_leak_cost", inputMap: {
         vacuumLeakRate: "vacuumLeakRate",
         operatingHours: "operatingHours",
         energyCostPerUnit: "energyRate",
         motorPower: "motorPower"
       }, outputId: "vacuumLeakCost" },
-    { formulaId: "measurement.vacuum_capacity_waste", inputMap: { capacityWaste: "capacityWaste", motorPower: "motorPower" }, outputId: "vacuumCapacityWaste" },
+    { formulaId: "measurement.vacuum_capacity_waste", inputMap: { capacityWaste: "capacityWaste", motorPower: "motorPower" ,
+        vacuumLeakRate: "vacuumLeakRate",
+        vacuumCapacity: "vacuumCapacity"}, outputId: "vacuumCapacityWaste" },
     { formulaId: "cost.vacuum_savings_potential", inputMap: { vacuumLeakCost: "vacuumLeakCost", capacityWaste: "capacityWaste" }, outputId: "potentialSavings" },
   ],
   reportTemplate: { title: "Vakum Kaçağı Enerji Maliyeti Raporu", title_i18n: {"en":"Vakum Kaçağı Enerji Maliyeti Raporu","tr":"Vakum Kaçağı Enerji Maliyeti Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

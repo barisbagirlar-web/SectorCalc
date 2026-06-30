@@ -33,8 +33,11 @@ export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.effective_labor_rate", inputMap: {
         totalLaborCost: "monthlyLaborRevenue",
         billableHours: "totalFlagHours"
-      }, outputId: "effectiveLaborRate" },
-    { formulaId: "cost.annual_margin_leakage", inputMap: { totalRevenue: "monthlyLaborRevenue", targetMargin: "industryBenchmarkMargin", actualMargin: "netMarginInput" }, outputId: "annualLeakage" },
+      ,
+        laborRevenue: "laborRevenue",
+        flagHours: "flagHours"}, outputId: "effectiveLaborRate" },
+    { formulaId: "cost.annual_margin_leakage", inputMap: { totalRevenue: "monthlyLaborRevenue", targetMargin: "industryBenchmarkMargin", actualMargin: "netMarginInput" ,
+        netMargin: "netMargin"}, outputId: "annualLeakage" },
   ],
   reportTemplate: { title: "Auto Shop Margin Leak Report", title_i18n: {"en":"Auto Shop Margin Leak Report","tr":"Auto Shop Margin Leak Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 20, assumptionNotes: ["Gross margin = (Revenue - COGS) / Revenue. Parts margin excludes labor.", "Effective labor rate = Labor revenue / Flag hours.", "Net margin = (Total Revenue - COGS - OpEx) / Total Revenue.", "Annual leakage = Monthly revenue × (Target margin - Net margin) × 12."],assumptionNotes_i18n:[{"en":"Gross margin = (Revenue - COGS) / Revenue. Parts margin excludes labor.","tr":"Gross margin = (Revenue - COGS) / Revenue. Parts margin excludes labor."},{"en":"Effective labor rate = Labor revenue / Flag hours.","tr":"Effective labor rate = Labor revenue / Flag hours."},{"en":"Net margin = (Total Revenue - COGS - OpEx) / Total Revenue.","tr":"Net margin = (Total Revenue - COGS - OpEx) / Total Revenue."},{"en":"Annual leakage = Monthly revenue × (Target margin - Net margin) × 12.","tr":"Annual leakage = Monthly revenue × (Target margin - Net margin) × 12."}]},

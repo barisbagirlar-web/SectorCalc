@@ -22,7 +22,8 @@ export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "cycleFlexibility", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Esneklik farkı > %15 — hat dengeleme önerilir.", warningMessage_i18n: {"en":"Flexibility gap > 15% — line balancing recommended.","tr":"Esneklik farkı > %15 — hat dengeleme önerilir."}, criticalMessage: "Esneklik farkı > %30 — takt süresi revize edilmeli.", criticalMessage_i18n: {"en":"Flexibility gap > 30% — revise takt time.","tr":"Esneklik farkı > %30 — takt süresi revize edilmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.takt_time", inputMap: { availableTime: "availableTime", customerDemand: "customerDemand" }, outputId: "taktTime" },
-    { formulaId: "measurement.cycle_flexibility", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime" }, outputId: "cycleFlexibility" },
+    { formulaId: "measurement.cycle_flexibility", inputMap: { cycleTime: "cycleTime", taktTime: "taktTime" ,
+        actualCycleTime: "actualCycleTime"}, outputId: "cycleFlexibility" },
     { formulaId: "cost.balance_loss", inputMap: {
         balanceDelay: "cycleTime",
         laborRate: "taktTime",

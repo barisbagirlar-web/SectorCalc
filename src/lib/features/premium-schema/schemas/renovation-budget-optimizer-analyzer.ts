@@ -33,13 +33,17 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.renovation_total_budget", inputMap: {
         renovationBaseCost: "renovationBaseCost",
         contingencyBudget: "contingencyPercent"
-      }, outputId: "renovationTotalBudget" },
+      ,
+        designFee: "designFee"}, outputId: "renovationTotalBudget" },
     { formulaId: "cost.renovation_roi", inputMap: {
         renovationTotalBudget: "renovationTotalBudget",
         valueAfter: "expectedValueAfter",
         propertyValue: "propertyValue"
       }, outputId: "renovationRoi" },
-    { formulaId: "cost.renovation_budget_breakdown", inputMap: { renovationTotalBudget: "renovationTotalBudget", laborCostPercent: "laborCostPercent", materialCostPercent: "materialCostPercent" }, outputId: "budgetBreakdown" },
+    { formulaId: "cost.renovation_budget_breakdown", inputMap: { renovationTotalBudget: "renovationTotalBudget", laborCostPercent: "laborCostPercent", materialCostPercent: "materialCostPercent" ,
+        renovationBaseCost: "renovationBaseCost",
+        contingencyBudget: "contingencyBudget",
+        designFee: "designFee"}, outputId: "budgetBreakdown" },
   ],
   reportTemplate: { title: "Yenileme Bütçe Optimizasyon Raporu", title_i18n: {"en":"Renovation Budget Optimization Report","tr":"Yenileme Bütçe Optimizasyon Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Temel maliyet = alan × birim maliyet.", "Toplam bütçe = temel maliyet × (1 + beklenmeyen gider oranı).", "YG = (yeni değer - mevcut değer - bütçe) / bütçe × 100."],assumptionNotes_i18n:[{"en":"Base cost = area × unit cost.","tr":"Temel maliyet = alan × birim maliyet."},{"en":"Total budget = base cost × (1 + contingency rate).","tr":"Toplam bütçe = temel maliyet × (1 + beklenmeyen gider oranı)."},{"en":"ROI = (new value - current value - budget) / budget × 100.","tr":"YG = (yeni değer - mevcut değer - bütçe) / bütçe × 100."}] },

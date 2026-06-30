@@ -25,11 +25,15 @@ export const VOLUMETRIC_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.volumetric_chargeable", inputMap: {
         length: "grossWeight",
         width: "volWeight"
-      }, outputId: "chargeable" },
+      ,
+        height: "height",
+        mode: "mode",
+        gross: "gross"}, outputId: "chargeable" },
     { formulaId: "cost.volumetric_freight", inputMap: {
         gross: "chargeable",
         volWeight: "freightRate"
-      }, outputId: "freightCost" },
+      ,
+        rate: "rate"}, outputId: "freightCost" },
   ],
   reportTemplate: { title: "Volumetric Weight Report", title_i18n: {"en":"Volumetric Weight Report","tr":"Volumetric Weight Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Air: (L×W×H)/6000. Road: /5000. Sea: /1000.", "Chargeable = MAX(Gross, VolWeight).", "Freight = Chargeable × Rate."],assumptionNotes_i18n:[{"en":"Air: (L×W×H)/6000. Road: /5000. Sea: /1000.","tr":"Air: (L×W×H)/6000. Road: /5000. Sea: /1000."},{"en":"Chargeable = MAX(Gross, VolWeight).","tr":"Chargeable = MAX(Gross, VolWeight)."},{"en":"Freight = Chargeable × Rate.","tr":"Freight = Chargeable × Rate."}] },

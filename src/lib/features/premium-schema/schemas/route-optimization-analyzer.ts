@@ -30,9 +30,14 @@ export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
     { formulaId: "measurement.route_clarke_wright", inputMap: {
         depotDistA: "numStops",
         depotDistB: "totalDistance"
-      }, outputId: "clarkeWrightDist" },
-    { formulaId: "measurement.route_efficiency_score", inputMap: { nearestNeighborDist: "nearestNeighborDist", clarkeWrightDist: "clarkeWrightDist" }, outputId: "efficiencyScore" },
-    { formulaId: "cost.route_total_savings", inputMap: { totalDistance: "totalDistance", fuelCostPerKm: "fuelCostPerKm", driverCostPerHour: "driverCostPerHour", avgSpeed: "avgSpeed", vehicleCount: "vehicleCount", workingDaysPerYear: "workingDaysPerYear", efficiencyScore: "efficiencyScore" }, outputId: "totalSavings" },
+      ,
+        distAB: "distAB"}, outputId: "clarkeWrightDist" },
+    { formulaId: "measurement.route_efficiency_score", inputMap: { nearestNeighborDist: "nearestNeighborDist", clarkeWrightDist: "clarkeWrightDist" ,
+        theoreticalMin: "theoreticalMin",
+        actualRouteDist: "actualRouteDist"}, outputId: "efficiencyScore" },
+    { formulaId: "cost.route_total_savings", inputMap: { totalDistance: "totalDistance", fuelCostPerKm: "fuelCostPerKm", driverCostPerHour: "driverCostPerHour", avgSpeed: "avgSpeed", vehicleCount: "vehicleCount", workingDaysPerYear: "workingDaysPerYear", efficiencyScore: "efficiencyScore" ,
+        baselineCost: "baselineCost",
+        optimizedCost: "optimizedCost"}, outputId: "totalSavings" },
   ],
   reportTemplate: { title: "Rota Optimizasyon Raporu", title_i18n: {"en":"Route Optimization Report","tr":"Rota Optimizasyon Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["NN ve CW algoritmaları karşılaştırmalı analiz yapar.", "Verimlilik = (CW mesafesi / NN mesafesi) × 100.", "Tasarruf yıllık çalışma günü ve filo büyüklüğüne göre projekte edilir."],assumptionNotes_i18n:[{"en":"NN and CW algorithms perform comparative analysis.","tr":"NN ve CW algoritmaları karşılaştırmalı analiz yapar."},{"en":"Efficiency = (CW distance / NN distance) × 100.","tr":"Verimlilik = (CW mesafesi / NN mesafesi) × 100."},{"en":"Savings are projected based on annual working days and fleet size.","tr":"Tasarruf yıllık çalışma günü ve filo büyüklüğüne göre projekte edilir."}] },

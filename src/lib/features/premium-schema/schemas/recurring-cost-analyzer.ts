@@ -21,13 +21,17 @@ export const RECURRING_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "rootCausePayback", warning: 12, critical: 24, direction: "higher_is_bad", warningMessage: "Geri ödeme süresi > 12 ay — önceliklendirme yapılmalı.", warningMessage_i18n: {"en":"Payback period > 12 months — prioritize accordingly.","tr":"Geri ödeme süresi > 12 ay — önceliklendirme yapılmalı."}, criticalMessage: "Geri ödeme süresi > 24 ay — proje fizibilitesi sorgulanmalı.", criticalMessage_i18n: {"en":"Payback period > 24 months — question project feasibility.","tr":"Geri ödeme süresi > 24 ay — proje fizibilitesi sorgulanmalı."} }],
   formulaPipeline: [
-    { formulaId: "cost.recurring_annual_cost", inputMap: { monthlyRecurringCost: "monthlyRecurringCost" }, outputId: "recurringAnnualCost" },
-    { formulaId: "cost.present_value_recurring", inputMap: { recurringAnnualCost: "recurringAnnualCost", discountRate: "discountRate", expectedLifeYears: "expectedLifeYears" }, outputId: "presentValueRecurring" },
-    { formulaId: "cost.npv_elimination", inputMap: { presentValueRecurring: "presentValueRecurring", eliminationProjectCost: "eliminationProjectCost" }, outputId: "npvElimination" },
+    { formulaId: "cost.recurring_annual_cost", inputMap: { monthlyRecurringCost: "monthlyRecurringCost" ,
+        monthlyCost: "monthlyCost"}, outputId: "recurringAnnualCost" },
+    { formulaId: "cost.present_value_recurring", inputMap: { recurringAnnualCost: "recurringAnnualCost", discountRate: "discountRate", expectedLifeYears: "expectedLifeYears" ,
+        years: "years"}, outputId: "presentValueRecurring" },
+    { formulaId: "cost.npv_elimination", inputMap: { presentValueRecurring: "presentValueRecurring", eliminationProjectCost: "eliminationProjectCost" ,
+        eliminationCost: "eliminationCost"}, outputId: "npvElimination" },
     { formulaId: "cost.root_cause_payback", inputMap: {
         eliminationProjectCost: "eliminationProjectCost",
         recurringAnnualCost: "monthlyRecurringCost"
-      }, outputId: "rootCausePayback" },
+      ,
+        fixCost: "fixCost"}, outputId: "rootCausePayback" },
   ],
   reportTemplate: { title: "Recurring Cost Root Cause Report", title_i18n: {"en":"Recurring Cost Root Cause Report","tr":"Tekrarlayan Maliyet Kök Neden Analizi Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 8, targetMarginPercent: 15, assumptionNotes: ["NPV = PV(Savings) − ProjectCost.", "Payback = ProjectCost / MonthlySavings.", "Discount rate reflects WACC."],assumptionNotes_i18n:[{"en":"NPV = PV(Savings) − ProjectCost.","tr":"NBD = Tasarrufların BD'si − Proje Maliyeti."},{"en":"Payback = ProjectCost / MonthlySavings.","tr":"Geri Ödeme = ProjeMaliyeti / AylıkTasarruf."},{"en":"Discount rate reflects WACC.","tr":"İskonto oranı AOSM'yi yansıtır."}] },

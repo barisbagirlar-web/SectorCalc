@@ -27,7 +27,8 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.current_defect_rate", inputMap: {
         defects: "currentDefectRate"
-      }, outputId: "currentDefectRate" },
+      ,
+        totalInspected: "totalInspected"}, outputId: "currentDefectRate" },
     { formulaId: "cost.defect_cost_annual", inputMap: {
         currentDefectRate: "currentDefectRate",
         annualVolume: "productionVolume",
@@ -35,15 +36,19 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "defectCostAnnual" },
     { formulaId: "cost.poka_yoke_cost", inputMap: {
         deviceCost: "pokaYokeInvestment"
-      }, outputId: "pokaYokeCost" },
+      ,
+        installationCost: "installationCost",
+        trainingCost: "trainingCost"}, outputId: "pokaYokeCost" },
     { formulaId: "measurement.new_defect_rate", inputMap: {
         currentDefectRate: "newDefectRate"
-      }, outputId: "newDefectRate" },
+      ,
+        reductionFactor: "reductionFactor"}, outputId: "newDefectRate" },
     { formulaId: "cost.poka_yoke_savings", inputMap: {
         currentDefectRate: "currentDefectRate",
         newDefectRate: "newDefectRate",
         annualVolume: "defectCostAnnual"
-      }, outputId: "pokaYokeSavings" },
+      ,
+        costPerDefect: "costPerDefect"}, outputId: "pokaYokeSavings" },
     { formulaId: "cost.poka_yoke_roi", inputMap: { pokaYokeSavings: "pokaYokeSavings", pokaYokeCost: "pokaYokeCost", usefulLife: "usefulLife" }, outputId: "pokaYokeRoi" },
     { formulaId: "cost.poka_yoke_payback", inputMap: { pokaYokeCost: "pokaYokeCost", pokaYokeSavings: "pokaYokeSavings" }, outputId: "pokaYokePayback" },
   ],

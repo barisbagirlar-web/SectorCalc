@@ -47,7 +47,9 @@ export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
         maxLoadRating: "loadCapacity",
         actualLoad: "rackHeight"
       }, outputId: "rackSafetyFactor" },
-    { formulaId: "cost.rack_cost_per_position", inputMap: { costPerPosition: "costPerPosition", numberOfLevels: "numberOfLevels" }, outputId: "rackCostPerPosition" },
+    { formulaId: "cost.rack_cost_per_position", inputMap: { costPerPosition: "costPerPosition", numberOfLevels: "numberOfLevels" ,
+        totalRackCost: "totalRackCost",
+        rackCapacity: "rackCapacity"}, outputId: "rackCostPerPosition" },
     { formulaId: "measurement.rack_retrieval_time", inputMap: {
         totalTravelDist: "rackHeight",
         forkSpeed: "rackDepth"

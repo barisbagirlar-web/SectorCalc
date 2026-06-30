@@ -23,7 +23,9 @@ export const PRICE_ELASTICITY_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "elasticity", warning: -2, critical: -4, direction: "lower_is_bad", warningMessage: "Esneklik < -2 — fiyat artışı talebi çok düşürüyor.", warningMessage_i18n: {"en":"Elasticity < -2 — price increase significantly reduces demand.","tr":"Esneklik < -2 — fiyat artışı talebi çok düşürüyor."}, criticalMessage: "Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor.", criticalMessage_i18n: {"en":"Elasticity < -4 — price increase causes severe demand loss.","tr":"Esneklik < -4 — fiyat artışı ciddi talep kaybına yol açıyor."} }],
   formulaPipeline: [
-    { formulaId: "measurement.price_elasticity", inputMap: { pctDemandChange: "pctDemandChange", pctPriceChange: "pctPriceChange" }, outputId: "elasticity" },
+    { formulaId: "measurement.price_elasticity", inputMap: { pctDemandChange: "pctDemandChange", pctPriceChange: "pctPriceChange" ,
+        pctChangeDem: "pctChangeDem",
+        pctChangePrice: "pctChangePrice"}, outputId: "elasticity" },
     { formulaId: "cost.price_optimal_markup", inputMap: { elasticity: "elasticity" }, outputId: "optimalMarkup" },
   ],
   reportTemplate: { title: "Price Elasticity Report", title_i18n: {"en":"Price Elasticity Report","tr":"Fiyat Esnekliği Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

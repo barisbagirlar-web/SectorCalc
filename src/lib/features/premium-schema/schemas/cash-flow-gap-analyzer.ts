@@ -30,19 +30,28 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.cash_inflow", inputMap: {
         salesRevenue: "monthlyRevenue"
-      }, outputId: "cashInflow" },
+      ,
+        receivablesCollected: "receivablesCollected",
+        otherIncome: "otherIncome"}, outputId: "cashInflow" },
     { formulaId: "measurement.cash_outflow", inputMap: {
         supplierPayments: "monthlyExpenses"
-      }, outputId: "cashOutflow" },
+      ,
+        payroll: "payroll",
+        operatingExpenses: "operatingExpenses",
+        taxPayment: "taxPayment"}, outputId: "cashOutflow" },
     { formulaId: "measurement.net_cash_flow", inputMap: { cashInflow: "cashInflow", cashOutflow: "cashOutflow" }, outputId: "netCashFlow" },
     { formulaId: "measurement.cumulative_cash", inputMap: {
         netCashFlow: "netCashFlow",
         openingBalance: "numMonths"
       }, outputId: "cumulativeCash" },
     { formulaId: "measurement.cash_gap", inputMap: { cumulativeCash: "cumulativeCash", netCashFlow: "netCashFlow" }, outputId: "cashGap" },
-    { formulaId: "measurement.dso", inputMap: { accountsReceivable: "accountsReceivable", monthlyRevenue: "monthlyRevenue" }, outputId: "dso" },
-    { formulaId: "measurement.dpo", inputMap: { accountsPayable: "accountsPayable", cogsMonthly: "cogsMonthly" }, outputId: "dpo" },
-    { formulaId: "measurement.dio", inputMap: { inventoryValue: "inventoryValue", cogsMonthly: "cogsMonthly" }, outputId: "dio" },
+    { formulaId: "measurement.dso", inputMap: { accountsReceivable: "accountsReceivable", monthlyRevenue: "monthlyRevenue" ,
+        annualRevenue: "annualRevenue"}, outputId: "dso" },
+    { formulaId: "measurement.dpo", inputMap: { accountsPayable: "accountsPayable", cogsMonthly: "cogsMonthly" ,
+        annualCOGS: "annualCOGS"}, outputId: "dpo" },
+    { formulaId: "measurement.dio", inputMap: { inventoryValue: "inventoryValue", cogsMonthly: "cogsMonthly" ,
+        inventory: "inventory",
+        annualCOGS: "annualCOGS"}, outputId: "dio" },
     { formulaId: "measurement.cash_conversion_cycle", inputMap: { dso: "dso", dpo: "dpo", dio: "dio" }, outputId: "cashConversionCycle" },
   ],
   reportTemplate: { title: "Cash Flow Gap Report", title_i18n: {"en":"Cash Flow Gap Report","tr":"Cash Flow Gap Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

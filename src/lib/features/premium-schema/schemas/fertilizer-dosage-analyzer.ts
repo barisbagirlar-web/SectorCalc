@@ -28,7 +28,8 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.fertilizer_need", inputMap: {
         nutReq: "yieldTarget",
         soilSupp: "removalRate"
-      }, outputId: "fertNeed" },
+      ,
+        eff: "eff"}, outputId: "fertNeed" },
     { formulaId: "measurement.fertilizer_application", inputMap: {
         fertNeed: "fertNeed",
         contentPct: "nutrientContentPct",
