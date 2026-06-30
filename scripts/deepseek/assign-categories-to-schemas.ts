@@ -12,12 +12,12 @@ import {
   parseCalculatorListEntries,
   resolveSectionCategory,
 } from "./parse-calculator-list";
-import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
-import { CATALOG_CATEGORY_TO_SECTOR_SLUG, type SchemaCatalogMetadata } from "@/lib/catalog/catalog-category-mappings";
-import { FREE_TRAFFIC_CATEGORY_TO_GLOBAL } from "@/lib/catalog/resolve-tool-category";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
-import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
-import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
+import { inferFreeTrafficCategory } from "../../src/lib/features/tools/free-traffic-infer";
+import { CATALOG_CATEGORY_TO_SECTOR_SLUG, type SchemaCatalogMetadata } from "../../src/lib/catalog/catalog-category-mappings";
+import { FREE_TRAFFIC_CATEGORY_TO_GLOBAL } from "../../src/lib/catalog/resolve-tool-category";
+import type { FreeTrafficCategory } from "../../src/lib/features/tools/free-traffic-infer";
+import type { GlobalToolCategorySlug } from "../../src/lib/catalog/global-tool-category-taxonomy";
+import { resolveToolCategory } from "../../src/lib/catalog/resolve-tool-category";
 
 const SCHEMAS_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
 
@@ -77,9 +77,10 @@ function main(): void {
   let skipped = 0;
   const metadata: Record<string, SchemaCatalogMetadata> = {};
 
-  for (const file of fs.readdirSync(SCHEMAS_DIR)) {
+  const files = fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[];
+  for (const file of files) {
     if (!file.endsWith("-schema.json")) continue;
-    const slug = file.replace(/-schema\.json$/, "");
+    const slug = path.basename(file).replace(/-schema\.json$/, "");
     const filePath = path.join(SCHEMAS_DIR, file);
     const raw = JSON.parse(fs.readFileSync(filePath, "utf-8")) as Record<string, unknown>;
 

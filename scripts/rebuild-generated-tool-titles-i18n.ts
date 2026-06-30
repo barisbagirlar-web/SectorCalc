@@ -10,13 +10,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { loadEnvLocal } from "./ai/load-env-local.mjs";
-import { translateCalculatorPhrase } from "../src/lib/i18n/calculator-phrase-translate";
+import { translateCalculatorPhrase } from "../src/lib/infrastructure/i18n/calculator-phrase-translate";
 import {
   resolveSchemaEnglishTitle,
   sortToolTitleLocales,
   titleNeedsLocaleTranslation,
   type ToolTitleLocale,
-} from "../src/lib/i18n/tool-title-locale-policy";
+} from "../src/lib/infrastructure/i18n/tool-title-locale-policy";
 
 const ROOT = process.cwd();
 const SCHEMAS_DIR = path.join(ROOT, "generated", "schemas");
@@ -138,12 +138,25 @@ const TITLE_GLOSSARY_OVERLAY: Record<string, Record<string, string>> = {
 const useDeepSeek = process.argv.includes("--deepseek");
 
 function listSchemaSlugs(): string[] {
-  return fs
-    .readdirSync(SCHEMAS_DIR)
+  if (!fs.existsSync(SCHEMAS_DIR)) {
+    return [];
+  }
+  const files = fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[];
+  return files
     .filter((name) => name.endsWith("-schema.json"))
-    .map((name) => name.replace(/-schema\.json$/, ""))
+    .map((name) => path.basename(name).replace(/-schema\.json$/, ""))
     .sort((a, b) => a.localeCompare(b));
 }
+
+function getSchemaPath(slug: string): string {
+  const nestedPath = path.join(SCHEMAS_DIR, slug.charAt(0).toLowerCase(), `${slug}-schema.json`);
+  if (fs.existsSync(nestedPath)) {
+    return nestedPath;
+  }
+  const fallbackPath = path.join(SCHEMAS_DIR, `${slug}-schema.json`);
+  return fallbackPath;
+}
+
 
 function loadCopyMap(): {
   toolTitles: Record<string, Partial<Record<ToolTitleLocale, string>>>;
@@ -283,7 +296,7 @@ async function main(): Promise<void> {
   const output: Record<string, Partial<Record<ToolTitleLocale, string>>> = {};
 
   for (const slug of slugs) {
-    const schemaPath = path.join(SCHEMAS_DIR, `${slug}-schema.json`);
+    const schemaPath = getSchemaPath(slug);
     const raw = JSON.parse(fs.readFileSync(schemaPath, "utf8")) as {
       title?: string;
       toolName?: string;

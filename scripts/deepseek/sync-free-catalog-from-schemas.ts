@@ -8,7 +8,7 @@ import {
   parseCalculatorListEntries,
   resolveSectionCategory,
 } from "./parse-calculator-list";
-import { normalizeRawGeneratedSchema } from "@/lib/generated-tools/normalize-schema";
+import { normalizeRawGeneratedSchema } from "../../src/lib/features/generated-tools/normalize-schema";
 
 const SCHEMAS_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
 const FREE_SLUGS_PATH = path.join(PROJECT_ROOT, "free-slugs.json");
@@ -24,8 +24,8 @@ function readFreeSlugs(): string[] {
   return JSON.parse(fs.readFileSync(FREE_SLUGS_PATH, "utf-8")) as string[];
 }
 
-function isFreeSchema(slug: string): boolean {
-  const schemaPath = path.join(SCHEMAS_DIR, `${slug}-schema.json`);
+function isFreeSchema(slug: string, relativePath: string): boolean {
+  const schemaPath = path.join(SCHEMAS_DIR, relativePath);
   const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
   const schema = normalizeRawGeneratedSchema(raw, slug);
   return schema !== null && schema.premiumRequired !== true;
@@ -34,10 +34,11 @@ function isFreeSchema(slug: string): boolean {
 function main(): void {
   const existing = new Set(readFreeSlugs());
   if (fs.existsSync(SCHEMAS_DIR)) {
-    for (const file of fs.readdirSync(SCHEMAS_DIR)) {
+    const files = fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[];
+    for (const file of files) {
       if (!file.endsWith("-schema.json")) continue;
-      const slug = file.replace(/-schema\.json$/, "");
-      if (isFreeSchema(slug)) existing.add(slug);
+      const slug = path.basename(file).replace(/-schema\.json$/, "");
+      if (isFreeSchema(slug, file)) existing.add(slug);
     }
   }
 
@@ -46,9 +47,10 @@ function main(): void {
   const categoryMap = buildSlugCategoryMap(listEntries);
 
   if (fs.existsSync(SCHEMAS_DIR)) {
-    for (const file of fs.readdirSync(SCHEMAS_DIR)) {
+    const files = fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[];
+    for (const file of files) {
       if (!file.endsWith("-schema.json")) continue;
-      const slug = file.replace(/-schema\.json$/, "");
+      const slug = path.basename(file).replace(/-schema\.json$/, "");
       const raw = JSON.parse(
         fs.readFileSync(path.join(SCHEMAS_DIR, file), "utf-8"),
       ) as { catalogCategory?: string; premiumRequired?: boolean };
