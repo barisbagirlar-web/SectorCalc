@@ -248,6 +248,13 @@ const CATEGORY_CLAIM_TEMPLATES: Readonly<
       "This analyzer prices schedule slip, rework hours and labor drift from your inputs.",
     decisionValue: "See whether time, rework or labor is the main margin driver.",
   },
+  industrial: {
+    claimType: "benchmark_model",
+    headline: "Hidden industrial losses compound into major operational costs.",
+    valueStatement:
+      "This analyzer converts industrial parameters into clear cost exposure.",
+    decisionValue: "Identify and prioritize industrial efficiency improvements.",
+  },
   route: {
     claimType: "potential_exposure",
     headline: "Route margin leaks when empty miles and fuel drift stay blended.",
@@ -300,6 +307,13 @@ const CATEGORY_CLAIM_TEMPLATES: Readonly<
     headline: "An unbalanced line hides bottleneck idle time that extends lead time by 40%.",
     valueStatement: "This analyzer computes balance efficiency, bottleneck utilization and kaizen prioritization.",
     decisionValue: "Decide station rebalancing, task reassignment or automation investment.",
+  },
+  industrial: {
+    claimType: "potential_exposure",
+    headline: "Industrial bottlenecks constrain capacity quietly until margin drops.",
+    valueStatement:
+      "This analyzer prices operational friction and capacity limits from your current inputs.",
+    decisionValue: "Identify whether labor, machine or material flow is the main constraint.",
   },
 };
 

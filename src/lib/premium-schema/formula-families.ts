@@ -18,6 +18,7 @@ export const FORMULA_FAMILIES = [
   "finance",
   "fluid",
   "lean",
+  "industrial",
 ] as const;
 
 export type FormulaFamilyId = (typeof FORMULA_FAMILIES)[number];
@@ -36,6 +37,7 @@ export const FORMULA_FAMILY_LABELS: Record<FormulaFamilyId, string> = {
   finance: "Finance — IRR, NPV, DCF, ROI, valuation",
   fluid: "Fluid — pipe flow, heat exchange, hydraulic systems",
   lean: "Lean — balance, muda, efficiency, standard work",
+  industrial: "Industrial — machinery, power, metal, HVAC",
 };
 
 /** Schema category aligns 1:1 with formula family id. */

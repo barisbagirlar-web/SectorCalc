@@ -95,7 +95,6 @@ function normSInv(p: number): number {
 // USER-PROVIDED FORMULA DEFINITIONS
 // ═══════════════════════════════════════════════════════════════════════════
 
-// @ts-expect-error TS2590 — union type complexity limit exceeded with large function array. Type safety maintained via `readonly FormulaDefinition[]` annotation.
 
 import { CHUNK_01_DEFINITIONS } from "./formulas/chunk-01";
 import { CHUNK_02_DEFINITIONS } from "./formulas/chunk-02";
@@ -165,7 +164,6 @@ import { CHUNK_65_DEFINITIONS } from "./formulas/chunk-65";
 import { CHUNK_66_DEFINITIONS } from "./formulas/chunk-66";
 import { CHUNK_67_DEFINITIONS } from "./formulas/chunk-67";
 
-// @ts-expect-error TS2590 - combined array
 export const USER_FORMULA_DEFINITIONS: FormulaDefinition[] = [];
 USER_FORMULA_DEFINITIONS.push(...CHUNK_01_DEFINITIONS);
 USER_FORMULA_DEFINITIONS.push(...CHUNK_02_DEFINITIONS);

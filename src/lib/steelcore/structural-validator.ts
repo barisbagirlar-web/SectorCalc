@@ -45,7 +45,7 @@ let cachedValidator: ValidateFunction | null = null;
 
 function getValidator(): ValidateFunction {
   if (!cachedValidator) {
-    const ajv = new Ajv({ allErrors: true, strict: false });
+    const ajv = new Ajv({ allErrors: true });
     cachedValidator = ajv.compile(CALCULATOR_SCHEMA);
   }
   return cachedValidator;
@@ -57,7 +57,8 @@ export function validateStructuralSchema(schema: Record<string, unknown>): reado
     return [];
   }
   return (validate.errors ?? []).map((error: ErrorObject) => {
-    const path = error.instancePath || "/";
+    // @ts-expect-error fallback to dataPath for older ajv versions
+    const path = error.instancePath || error.dataPath || "/";
     return `${path}: ${error.message ?? "invalid"}`;
   });
 }

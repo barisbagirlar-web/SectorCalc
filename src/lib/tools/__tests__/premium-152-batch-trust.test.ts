@@ -38,18 +38,18 @@ function buildSmartDefaultInputs(slug: string): Record<string, number | string |
 }
 
 describe("Premium 152 batch 1 — trust and i18n", () => {
-  test.each(PREMIUM_152_BATCH1_SLUGS)("backing complete for %s", (slug) => {
+  test.each(PREMIUM_152_BATCH1_SLUGS)("backing complete for %s", (slug: string) => {
     const backing = checkToolBacking(slug);
     expect(backing.isComplete).toBe(true);
   });
 
-  test.each(PREMIUM_152_BATCH1_SLUGS)("runtime trust ready for %s", (slug) => {
+  test.each(PREMIUM_152_BATCH1_SLUGS)("runtime trust ready for %s", (slug: string) => {
     const trust = evaluateRuntimeTrust({ slug, locale: "en", surface: "premium" });
     expect(trust.status).toBe("ready");
     expect(trust.calculationEligible).toBe(true);
   });
 
-  test.each(PREMIUM_152_BATCH1_SLUGS)("engine produces numeric outputs for %s", (slug) => {
+  test.each(PREMIUM_152_BATCH1_SLUGS)("engine produces numeric outputs for %s", (slug: string) => {
     const schema = getPremiumCalculatorSchema(slug);
     expect(schema).toBeDefined();
     const result = runPremiumSchemaEngine(schema!, buildSmartDefaultInputs(slug), "en");
@@ -61,7 +61,7 @@ describe("Premium 152 batch 1 — trust and i18n", () => {
     PREMIUM_152_BATCH1_SLUGS.flatMap((slug) =>
       SUPPORTED_LOCALES.map((locale) => [slug, locale] as const),
     ),
-  )("localized display name for %s (%s)", (slug, locale) => {
+  )("localized display name for %s (%s)", (slug: string, locale: string) => {
     const schema = getPremiumCalculatorSchema(slug)!;
     const localized = getLocalizedPremiumSchema(slug, locale);
     const displayName = resolvePremiumSchemaDisplayName(slug, schema.name, locale);
@@ -78,7 +78,7 @@ describe("Premium 152 batch 1 — trust and i18n", () => {
     PREMIUM_152_BATCH1_SLUGS.flatMap((slug) =>
       SUPPORTED_LOCALES.map((locale) => [slug, locale] as const),
     ),
-  )("catalog title for %s (%s)", (slug, locale) => {
+  )("catalog title for %s (%s)", (slug: string, locale: string) => {
     const tool = buildPremiumCatalogTools(locale).find((entry) => entry.slug === slug);
     expect(tool).toBeDefined();
     expect(tool?.title.length ?? 0).toBeGreaterThan(5);

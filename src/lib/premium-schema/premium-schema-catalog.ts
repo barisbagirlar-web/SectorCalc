@@ -115,6 +115,7 @@ const CATEGORY_TO_CATALOG_GROUP: Record<FormulaFamilyId, PremiumSchemaCatalogGro
   finance: "cost_margin",
   fluid: "measurement_calibration",
   lean: "oee_productivity",
+  industrial: "oee_productivity",
 };
 
 const SCHEMA_SECTOR_TO_INDUSTRY_CATEGORY: Record<string, IndustryCategory> = {

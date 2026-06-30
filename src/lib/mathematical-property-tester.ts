@@ -87,7 +87,7 @@ function tryAllProperties(
 
   // P1 — STRICT: Finite output for any valid input
   const p1 = fc.check(
-    fc.property(buildArbitrary(inputIds, ranges), (inputs) => {
+    fc.property(buildArbitrary(inputIds, ranges), (inputs: Record<string, number>) => {
       const r = evaluateSafe(compiled, inputs);
       return Number.isFinite(r);
     }),
@@ -102,7 +102,7 @@ function tryAllProperties(
     extremeRanges[id] = { min, max, type: r.type };
   }
   const p3 = fc.check(
-    fc.property(buildArbitrary(inputIds, extremeRanges), (inputs) => {
+    fc.property(buildArbitrary(inputIds, extremeRanges), (inputs: Record<string, number>) => {
       const r = evaluateSafe(compiled, inputs);
       return !Number.isFinite(r) || Math.abs(r) < 1e15;
     }),
@@ -141,7 +141,7 @@ function tryAllProperties(
 
   // P7 — STRICT: Boundary adherence — min/max values don't crash
   const p7 = fc.check(
-    fc.property(buildArbitrary(inputIds, ranges), (inputs) => {
+    fc.property(buildArbitrary(inputIds, ranges), (inputs: Record<string, number>) => {
       const r = evaluateSafe(compiled, inputs);
       return Number.isFinite(r);
     }),

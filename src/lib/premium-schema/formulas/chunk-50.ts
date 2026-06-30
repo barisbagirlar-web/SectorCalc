@@ -68,7 +68,7 @@ function normSInv(p: number): number {
   return q < 0 ? -z : z;
 }
 
-// @ts-expect-error TS2590 - chunk to avoid OOM
+// @ts-ignore TS2590 - chunk to avoid OOM
 export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.saas_shelfware_0",

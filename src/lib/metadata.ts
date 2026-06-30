@@ -53,7 +53,7 @@ function buildHreflangAlternates(path: string): Metadata["alternates"] {
     languages[locale] = `${SITE.url}${buildLocalizedPath(normalized, locale)}`;
   }
 
-  languages["x-default"] = `${SITE.url}${buildLocalizedPath(normalized, "en")}`;
+  languages["x-default"] = `${SITE.url}${buildLocalizedPath(normalized, "en" as AppLocale)}`;
 
   return { languages };
 }
