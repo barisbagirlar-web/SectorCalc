@@ -41,7 +41,7 @@ export default async function ProToolsPage({ params }: PageProps) {
 
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "premiumTools" });
-  const tools = getPremiumTools(locale);
+  const tools = getPremiumTools("en");
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.premium-tools.allLabel"),
@@ -50,7 +50,7 @@ export default async function ProToolsPage({ params }: PageProps) {
   );
 
   // Flat tool list from grouped categories
-  const groupedByCategory = getAllToolsGroupedByCategory(locale, true);
+  const groupedByCategory = getAllToolsGroupedByCategory("en", true);
   const orderedCategorySlugs = getOrderedCategorySlugsWithTools(groupedByCategory);
   const allTools = orderedCategorySlugs.flatMap((slug) => groupedByCategory[slug] ?? []);
 
