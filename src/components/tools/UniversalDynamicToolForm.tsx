@@ -18,7 +18,8 @@ export function UniversalDynamicToolForm({
   const resolvedTier =
     tier === "auto" ? (schema.premiumRequired === true ? "premium" : "free") : tier;
 
-  const resolvedLayout = layout === "standard" ? "standard" : "premium";
+  const resolvedLayout =
+    layout === "standard" ? "standard" : resolvedTier === "free" ? "standard" : "premium";
 
   return (
     <section

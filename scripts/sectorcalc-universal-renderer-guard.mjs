@@ -40,8 +40,8 @@ if (!fs.existsSync(componentFile)) {
     fail("UNIVERSAL_COMPONENT_MISSING_STANDARD_SHELL_CLASS");
   }
 
-  if (!component.includes('const resolvedLayout = layout === "standard" ? "standard" : "premium";')) {
-    fail("UNIVERSAL_COMPONENT_DOES_NOT_FORCE_SHARED_PREMIUM_LAYOUT");
+  if (!component.includes('resolvedTier === "free" ? "standard" : "premium"')) {
+    fail("UNIVERSAL_COMPONENT_DOES_NOT_USE_SAFE_FREE_STANDARD_PREMIUM_POLICY");
   }
   if (component.includes("layout={layout}")) {
     fail("UNIVERSAL_COMPONENT_STILL_DELEGATES_TO_AUTO_LEGACY_LAYOUT");

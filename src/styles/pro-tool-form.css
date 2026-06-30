@@ -715,3 +715,68 @@ select.ctrl-el,
   }
 }
 /* /SECTORCALC_BALANCED_INPUT_FIELDS_V1 */
+
+/* SECTORCALC_SAFE_STANDARD_RUNTIME_LAYOUT_V1 */
+.sc-universal-dtf-shell form[data-calculation-form="true"] {
+  width: 100%;
+}
+
+.sc-universal-dtf-shell form[data-calculation-form="true"][data-tool-tier="standard"],
+.sc-universal-dtf-shell form[data-calculation-form="true"] {
+  background: var(--sc-udtf-surface, #FAF9F5);
+  border: 1px solid var(--sc-udtf-line, rgba(26,25,21,.10));
+  padding: 24px;
+}
+
+.sc-universal-dtf-shell form[data-calculation-form="true"] section {
+  min-width: 0;
+}
+
+.sc-universal-dtf-shell form[data-calculation-form="true"] section > div[class*="grid"],
+.sc-universal-dtf-shell form[data-calculation-form="true"] .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sc-field-gap-y, 18px) var(--sc-field-gap-x, 20px);
+}
+
+.sc-universal-dtf-shell .sc-industrial-field,
+.sc-universal-dtf-shell .sc-form-field {
+  background: transparent;
+  border: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.sc-universal-dtf-shell .sc-industrial-field__label-row {
+  min-height: var(--sc-field-label-min-height, 34px);
+  margin-bottom: 6px;
+}
+
+.sc-universal-dtf-shell .sc-ledger-input-boxed,
+.sc-universal-dtf-shell .sc-industrial-input,
+.sc-universal-dtf-shell .sc-industrial-field__unit-select {
+  min-height: var(--sc-field-min-height, 56px);
+  width: 100%;
+}
+
+.sc-universal-dtf-shell .sc-industrial-form-actions {
+  margin-top: 20px;
+}
+
+.sc-universal-dtf-shell .sc-industrial-form-actions .sc-ledger-cta-primary,
+.sc-universal-dtf-shell .sc-industrial-form-actions .sc-cta-primary {
+  width: 100%;
+  min-height: var(--sc-field-min-height, 56px);
+  border-radius: 0;
+}
+
+@media (max-width: 680px) {
+  .sc-universal-dtf-shell form[data-calculation-form="true"] {
+    padding: 18px;
+  }
+
+  .sc-universal-dtf-shell form[data-calculation-form="true"] section > div[class*="grid"],
+  .sc-universal-dtf-shell form[data-calculation-form="true"] .grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* /SECTORCALC_SAFE_STANDARD_RUNTIME_LAYOUT_V1 */

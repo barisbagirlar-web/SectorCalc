@@ -65,6 +65,10 @@ for (const file of styleTargets) {
     fail(`MISSING_FULL_WIDTH_INPUT_RULE:${file}`);
   }
 
+  if (!css.includes("SECTORCALC_SAFE_STANDARD_RUNTIME_LAYOUT_V1")) {
+    fail(`MISSING_SAFE_STANDARD_RUNTIME_LAYOUT_MARKER:${file}`);
+  }
+
   if (hasNonEnglishVisibleLabelRisk(css)) {
     fail(`VISIBLE_NON_ENGLISH_LABEL_RISK:${file}`);
   }
