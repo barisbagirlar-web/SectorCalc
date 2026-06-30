@@ -12,9 +12,9 @@ export type CategoryTaxonomyEntry = {
 
 /** 21 professional tool categories — profession, sector, and expertise oriented. */
 export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> = {
-  "Makine & Tasarım": {
+  "Machinery & Design": {
     slug: "makine-tasarim",
-    trTitle: "Makine & Tasarım",
+    trTitle: "Machinery & Design",
     enTitle: "Mechanical Design",
     sector: "Teknik & Mühendislik",
     sectorKey: "teknik-muhendislik",
@@ -43,11 +43,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "dynamic",
     ],
   },
-  "İmalat & Üretim": {
+  "Manufacturing & Production": {
     slug: "imalat-uretim",
-    trTitle: "İmalat & Üretim",
+    trTitle: "Manufacturing & Production",
     enTitle: "Manufacturing & Production",
-    sector: "Üretim & İmalat",
+    sector: "Manufacturing & Production",
     sectorKey: "uretim-imalat",
     globalCategorySlug: "cnc-additive-manufacturing",
     keywords: [
@@ -94,9 +94,9 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "composite",
     ],
   },
-  "Akışkanlar & Termodinamik": {
+  "Fluids & Thermodynamics": {
     slug: "akiskanlar-termodinamik",
-    trTitle: "Akışkanlar & Termodinamik",
+    trTitle: "Fluids & Thermodynamics",
     enTitle: "Fluids & Thermodynamics",
     sector: "Teknik & Mühendislik",
     sectorKey: "teknik-muhendislik",
@@ -147,11 +147,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "inverter",
     ],
   },
-  "İnşaat & Yapı": {
+  "Construction & Building": {
     slug: "insaat-yapi",
-    trTitle: "İnşaat & Yapı",
+    trTitle: "Construction & Building",
     enTitle: "Construction & Structures",
-    sector: "İnşaat & Saha",
+    sector: "Construction & Field",
     sectorKey: "insaat-saha",
     globalCategorySlug: "project-construction-management",
     keywords: [
@@ -173,11 +173,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "structural",
     ],
   },
-  "Yalın Üretim": {
+  "Lean Manufacturing": {
     slug: "yalin-uretim",
-    trTitle: "Yalın Üretim",
+    trTitle: "Lean Manufacturing",
     enTitle: "Lean Production",
-    sector: "Üretim & İmalat",
+    sector: "Manufacturing & Production",
     sectorKey: "uretim-imalat",
     globalCategorySlug: "lean-production",
     keywords: [
@@ -200,7 +200,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "kalite-surec-kontrol",
     trTitle: "Kalite & Süreç Kontrol",
     enTitle: "Quality & Process Control",
-    sector: "Üretim & İmalat",
+    sector: "Manufacturing & Production",
     sectorKey: "uretim-imalat",
     globalCategorySlug: "quality-six-sigma",
     keywords: [
@@ -219,11 +219,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "process capability",
     ],
   },
-  "Bakım & Güvenilirlik": {
+  "Maintenance & Reliability": {
     slug: "bakim-guvenilirlik",
-    trTitle: "Bakım & Güvenilirlik",
+    trTitle: "Maintenance & Reliability",
     enTitle: "Maintenance & Reliability",
-    sector: "Üretim & İmalat",
+    sector: "Manufacturing & Production",
     sectorKey: "uretim-imalat",
     globalCategorySlug: "maintenance-reliability",
     keywords: [
@@ -291,7 +291,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "maliyet-butceleme",
     trTitle: "Maliyet & Bütçeleme",
     enTitle: "Cost & Budgeting",
-    sector: "Finans & İK",
+    sector: "Finance & HR",
     sectorKey: "finans-ik",
     globalCategorySlug: "finance-sales-working-capital",
     keywords: [
@@ -309,11 +309,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "breakeven",
     ],
   },
-  "İK & Personel": {
+  "HR & Personnel": {
     slug: "ik-personel",
-    trTitle: "İK & Personel",
+    trTitle: "HR & Personnel",
     enTitle: "HR & Personnel",
-    sector: "Finans & İK",
+    sector: "Finance & HR",
     sectorKey: "finans-ik",
     globalCategorySlug: "workforce-hr",
     keywords: [
@@ -332,11 +332,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "headcount",
     ],
   },
-  "Proje & Yatırım": {
+  "Project & Investment": {
     slug: "proje-yatirim",
-    trTitle: "Proje & Yatırım",
+    trTitle: "Project & Investment",
     enTitle: "Project & Investment",
-    sector: "Finans & İK",
+    sector: "Finance & HR",
     sectorKey: "finans-ik",
     globalCategorySlug: "finance-sales-working-capital",
     keywords: [
@@ -358,7 +358,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "vergi-finansal-raporlama",
     trTitle: "Vergi & Finansal Raporlama",
     enTitle: "Tax & Financial Reporting",
-    sector: "Finans & İK",
+    sector: "Finance & HR",
     sectorKey: "finans-ik",
     globalCategorySlug: "finance-sales-working-capital",
     keywords: [
@@ -377,11 +377,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "capital gains",
     ],
   },
-  "İSG & Risk Yönetimi": {
+  "OHS & Risk Management": {
     slug: "isg-risk-yonetimi",
-    trTitle: "İSG & Risk Yönetimi",
+    trTitle: "OHS & Risk Management",
     enTitle: "HSE & Risk Management",
-    sector: "İSG & Risk",
+    sector: "OHS & Risk",
     sectorKey: "isg-risk",
     globalCategorySlug: "hse-ergonomics",
     keywords: [
@@ -422,7 +422,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "kalite-laboratuvar",
     trTitle: "Kalite & Laboratuvar",
     enTitle: "Quality & Laboratory",
-    sector: "Kalite, SPC & Altı Sigma",
+    sector: "Quality, SPC & Six Sigma",
     sectorKey: "kalite-spc-alti-sigma",
     globalCategorySlug: "quality-six-sigma",
     keywords: [
@@ -443,11 +443,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "gauge",
     ],
   },
-  "Gıda & Tarım": {
+  "Food & Agriculture": {
     slug: "gida-tarim",
-    trTitle: "Gıda & Tarım",
+    trTitle: "Food & Agriculture",
     enTitle: "Food & Agriculture",
-    sector: "Perakende & Gıda",
+    sector: "Retail & Food",
     sectorKey: "perakende-gida",
     globalCategorySlug: "food-cold-chain-hygiene",
     keywords: [
@@ -470,7 +470,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "tekstil-moda",
     trTitle: "Tekstil & Moda",
     enTitle: "Textile & Fashion",
-    sector: "Perakende & Gıda",
+    sector: "Retail & Food",
     sectorKey: "perakende-gida",
     globalCategorySlug: "textile-print-lab",
     keywords: [
@@ -489,7 +489,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "otomotiv",
     trTitle: "Otomotiv",
     enTitle: "Automotive",
-    sector: "Üretim & İmalat",
+    sector: "Manufacturing & Production",
     sectorKey: "uretim-imalat",
     globalCategorySlug: "maintenance-reliability",
     keywords: [

@@ -1619,8 +1619,5 @@ export const USER_FORMULA_META_DETAILS: Record<
   // ── HYDRAULIC CYLINDER TONNAGE & POWER ──
   "industrial.hydraulic_cylinder_tonnage_0": { description: "Hydraulic Cylinder Tonnage: push force (ton-f) = (P × A_push × η_m × (1-f)) / 9806.65", requiredInputs: ["pistonDiameter_D","rodDiameter_d","systemPressure_P","cylinderCount_n","volumetricEfficiency_η_v","mechanicalEfficiency_η_m","frictionLossCoeff"], outputHint: "number" },
   "industrial.fmea_failure_cost": { description: "FMEA Failure Cost: cost estimation for failures", requiredInputs: ["maliyet_failure", "prosesAdimiSayisi", "ortalamaOlusma_O"], outputHint: "number" },
-  "industrial.fmea_max": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
-  "industrial.fmea_recommendation": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
-  "industrial.fmea_priority": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
-  "industrial.fmea_prevention_cost": { description: "Dummy FMEA", requiredInputs: [], outputHint: "number" },
+
 };

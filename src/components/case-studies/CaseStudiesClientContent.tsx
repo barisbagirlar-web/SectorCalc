@@ -1052,7 +1052,7 @@ export function CaseStudiesClientContent({ locale, studies, toolHrefs }: CaseStu
         </div>
 
         <footer>
-          <span>SectorCalc · Izmir, Turkey</span>
+          <span>SectorCalc · Izmir</span>
           <span>{tr.footer_text}</span>
         </footer>
       </main>

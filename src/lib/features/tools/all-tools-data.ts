@@ -32,7 +32,7 @@ import {
 } from "@/lib/features/tools/taxonomy";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
-const DEFAULT_LABEL = "Diğer";
+const DEFAULT_LABEL = "Other";
 
 /** Module-level cache keyed by locale: tools are built at cold start and stable for the lifetime of the server.
  *  Prevents flickering caused by redundant filesystem reads during ISR revalidation. */

@@ -17,6 +17,14 @@ interface Tool {
   slug: string;
 }
 
+interface ApiTool {
+  id: string;
+  title: string;
+  sector: string;
+  slug: string;
+  tags: string[];
+}
+
 export function NewLandingContent({
   freeCount = 358,
   sectors = [],
@@ -29,6 +37,54 @@ export function NewLandingContent({
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const [calculators, setCalculators] = useState<ApiTool[]>([]);
+  const [sectorCount, setSectorCount] = useState(sectors.length);
+  const [expanded, setExpanded] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    async function loadCalculators() {
+      try {
+        const res = await fetch('/api/calculators.json');
+        const data = await res.json();
+        if (data.calculators) {
+          setCalculators(data.calculators);
+        }
+        if (data.sectorCount) {
+          setSectorCount(data.sectorCount);
+        }
+      } catch (err) {
+        console.error("Failed to load calculators", err);
+      }
+    }
+    loadCalculators();
+  }, []);
+
+  const fuzzyMatch = (q: string, text: string) => {
+    const qLower = q.toLowerCase().trim();
+    const tLower = text?.toLowerCase() || "";
+    return qLower.split(/\s+/).every((word) => tLower.includes(word));
+  };
+
+  const matches = useMemo(() => {
+    if (!query || query.length < 2) return [];
+    return calculators.filter((c) =>
+      fuzzyMatch(query, c.title) ||
+      fuzzyMatch(query, c.sector) ||
+      (c.tags && c.tags.some((t) => fuzzyMatch(query, t)))
+    );
+  }, [query, calculators]);
+
+  const highlight = (text: string, q: string) => {
+    if (!q.trim()) return text;
+    const words = q.trim().split(/\s+/).filter(Boolean);
+    if (words.length === 0) return text;
+    const regex = new RegExp(`(${words.join('|')})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  };
+
+  // Keep old grid filtering so that the page still updates
   const filteredSectors = useMemo(() => {
     if (!query.trim()) return sectors;
     const q = query.toLowerCase();
@@ -51,6 +107,16 @@ export function NewLandingContent({
   }, [query, tools]);
 
   useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {
       if (e.key === "/" && document.activeElement !== inputRef.current) {
         e.preventDefault();
@@ -59,6 +125,7 @@ export function NewLandingContent({
       if (e.key === "Escape") {
         setQuery("");
         inputRef.current?.blur();
+        setIsFocused(false);
       }
     };
     document.addEventListener("keydown", handleKeydown);
@@ -74,60 +141,83 @@ export function NewLandingContent({
         {/* HERO */}
         <section className="hero">
           <div className="wrap">
-            <div className="eyebrow">Engineering Calculation Platform</div>
+            <p className="eyebrow">Trusted by engineers in 40+ countries</p>
             <h1>
-              <span className="num" id="totalNum">
-                {freeCount}+
-              </span>{" "}
-              engineering calculators, <br />
-              built to the standard.
+              Engineering Calculators for Mechanical, Civil &amp; Electrical Teams
             </h1>
             <p className="lede">
-              Search across {sectors.length} industrial sectors. Every result
-              traceable, auditable, and grounded in ISO, ASME &amp; VDI
-              references.
+              {freeCount}+ calculators built to international standards. ISO, ASME, VDI, DIN, IEC, EN references.
+              Free to use, auditable, exportable.
             </p>
 
-            <div className="search" role="search">
-              <div className="search-box">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="M21 21l-4.3-4.3" />
-                </svg>
-                <input
-                  ref={inputRef}
-                  id="q"
-                  type="text"
-                  autoComplete="off"
-                  placeholder="Search a tool, sector, or formula — e.g. bolt torque, beam deflection…"
-                  aria-label="Search calculators"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-                <span className="kbd">/</span>
-              </div>
-              <div className="counter" id="counter">
-                {isSearchActive ? (
-                  <>
-                    <b>{totalShown}</b> match{totalShown === 1 ? "" : "es"} for “{query}”
-                  </>
-                ) : (
-                  <>
-                    <b>{freeCount}</b> tools across {sectors.length} sectors
-                  </>
-                )}
-              </div>
+            <div className="search-wrapper" id="searchWrapper" ref={wrapperRef}>
+              <input
+                ref={inputRef}
+                type="text"
+                id="searchInput"
+                placeholder={`Search ${freeCount}+ engineering calculators...`}
+                autoComplete="off"
+                aria-label="Search calculators"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setExpanded(false);
+                  setIsFocused(true);
+                }}
+                onFocus={() => setIsFocused(true)}
+              />
+              {isFocused && query.length >= 2 && (
+                <div id="searchResults" className="search-results">
+                  {matches.length === 0 ? (
+                    <div className="search-result-item">
+                      <span className="result-title">No results found</span>
+                    </div>
+                  ) : (
+                    <>
+                      {(expanded ? matches : matches.slice(0, 10)).map((c) => (
+                        <Link
+                          key={c.id}
+                          href={`/tools/generated/${c.slug}`}
+                          className="search-result-item"
+                        >
+                          <span
+                            className="result-title"
+                            dangerouslySetInnerHTML={{ __html: highlight(c.title, query) }}
+                          ></span>
+                          <span className="result-sector">{c.sector}</span>
+                        </Link>
+                      ))}
+                      {matches.length > 10 && !expanded && (
+                        <button
+                          className="show-more-btn"
+                          onClick={() => setExpanded(true)}
+                        >
+                          Show {matches.length - 10} more results
+                        </button>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
             </div>
 
-            <div className="standards-line">
-              Verified against <span>ISO · ASME · VDI · DIN · IEC · EN</span>
+            <div className="cta-row">
+              <Link href="#sectors" className="btn-primary">
+                Browse All Calculators
+              </Link>
+              <Link href="/pricing" className="btn-secondary">
+                Upgrade to Pro
+              </Link>
+            </div>
+
+            <div className="standards-strip">
+              <span>Verified against:</span>
+              <span>ISO 9001</span>
+              <span>ASME BPVC</span>
+              <span>VDI 2230</span>
+              <span>DIN EN 1990</span>
+              <span>IEC 60071</span>
+              <span>EN 1090</span>
             </div>
           </div>
         </section>
@@ -137,7 +227,7 @@ export function NewLandingContent({
           <div className="wrap">
             <div className="sec-head">
               <h2>Browse by sector</h2>
-              <div className="meta">{sectors.length} industrial sectors</div>
+              <div className="meta">{sectorCount} industrial sectors</div>
             </div>
             
             <div className="grid sectors" id="sectorGrid">

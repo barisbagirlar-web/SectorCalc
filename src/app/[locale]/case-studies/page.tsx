@@ -96,14 +96,6 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
   return (
     <PageLayout>
       <div className="academic-database">
-        <header className="header">
-          <div className="header-inner">
-            <Link href="/" className="header-title">
-              {t("headerTitle")}
-            </Link>
-          </div>
-          <div className="header-line" />
-        </header>
 
         <nav aria-label="Breadcrumb" className="breadcrumb">
           <Link href="/">{t("breadcrumbHome")}</Link>
@@ -260,19 +252,6 @@ export default async function CaseStudiesPage({ params, searchParams }: PageProp
           </div>
         </div>
 
-        <footer className="footer">
-          <div className="footer-line" />
-          <div className="footer-text">
-            <div>{t("footerLine1")}</div>
-            <div>{t("footerLine2")}</div>
-            <div>
-              {t("footerContact")}{" "}
-              <a href="mailto:info@sectorcalc.com" className="footer-link">
-                info@sectorcalc.com
-              </a>
-            </div>
-          </div>
-        </footer>
       </div>
     </PageLayout>
   );

@@ -24,15 +24,6 @@ export async function AcademicDatabaseChrome({
 
   return (
     <div className="academic-database">
-      <header className="header">
-        <div className="header-inner">
-          <Link href="/" className="header-title">
-            {t("headerTitle")}
-          </Link>
-        </div>
-        <div className="header-line" />
-      </header>
-
       <nav className="breadcrumb" aria-label="Breadcrumb">
         {breadcrumb.map((item, index) => (
           <span key={`${item.label}-${index}`}>
@@ -50,20 +41,6 @@ export async function AcademicDatabaseChrome({
       </div>
 
       {children}
-
-      <footer className="footer">
-        <div className="footer-line" />
-        <div className="footer-text">
-          <div>{t("footerLine1")}</div>
-          <div>{t("footerLine2")}</div>
-          <div>
-            {t("footerContact")}{" "}
-            <a href="mailto:info@sectorcalc.com" className="footer-link">
-              info@sectorcalc.com
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
