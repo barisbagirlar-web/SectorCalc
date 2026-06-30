@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Real_return_calculatorInput {
+  dataConfidence?: number;
   nominalGetiri: number;
   enflasyon: number;
-  dataConfidence?: number;
 }
 
 export const Real_return_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   nominalGetiri: z.number().min(0).default(20),
   enflasyon: z.number().min(0).default(15),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Real_return_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((1 + input.nominalGetiri / 100) / Math.max(0.0001, (1 + input.enflasyon / 100)) - 1) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = ((1 + input["nominalGetiri"] / 100) / Math.max(0.0001, (1 + input["enflasyon"] / 100)) - 1) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateReal_return_calculator(input: Real_return_calculatorInput): Real_return_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateReal_return_calculator(input: Real_return_calculatorInp
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateReal_return_calculator(input: Real_return_calculatorInp
   };
 }
 
-
 export interface Real_return_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Real_return_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Total_daily_energy_expenditure_calculatorInput {
+  dataConfidence?: number;
   bmr: number;
   aktiviteSeviyesi: number;
-  dataConfidence?: number;
 }
 
 export const Total_daily_energy_expenditure_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   bmr: z.number().min(0).default(1650),
   aktiviteSeviyesi: z.number().min(1.2).max(2).default(1.55),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Total_daily_energy_expenditure_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.bmr * input.aktiviteSeviyesi; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["bmr"] * input["aktiviteSeviyesi"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateTotal_daily_energy_expenditure_calculator(input: Total_daily_energy_expenditure_calculatorInput): Total_daily_energy_expenditure_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Consult a healthcare professional before starting any diet or exercise program.","Individual results may vary."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateTotal_daily_energy_expenditure_calculator(input: Total_
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateTotal_daily_energy_expenditure_calculator(input: Total_
   };
 }
 
-
 export interface Total_daily_energy_expenditure_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Total_daily_energy_expenditure_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "kcal",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

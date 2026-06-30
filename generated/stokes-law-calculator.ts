@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Stokes_law_calculatorInput {
+  dataConfidence?: number;
   yariCap: number;
   parcacikYogunluk: number;
   akiskanYogunluk: number;
   viskozite: number;
-  dataConfidence?: number;
 }
 
 export const Stokes_law_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   yariCap: z.number().min(0).default(0.001),
   parcacikYogunluk: z.number().min(0).default(2500),
   akiskanYogunluk: z.number().min(0).default(1000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Stokes_law_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (2 * Math.pow(input.yariCap, 2) * (input.parcacikYogunluk - input.akiskanYogunluk) * 9.81) / Math.max(0.0001, (9 * input.viskozite)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (2 * Math.pow(input["yariCap"], 2) * (input["parcacikYogunluk"] - input["akiskanYogunluk"]) * 9.81) / Math.max(0.0001, (9 * input["viskozite"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateStokes_law_calculator(input: Stokes_law_calculatorInput): Stokes_law_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Use calibrated equipment for measurements.","Consider temperature effects on material properties."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateStokes_law_calculator(input: Stokes_law_calculatorInput
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateStokes_law_calculator(input: Stokes_law_calculatorInput
   };
 }
 
-
 export interface Stokes_law_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Stokes_law_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m/s",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

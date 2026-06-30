@@ -1,0 +1,294 @@
+{
+  "slug": "gida-fire-marj",
+  "name": "GIDA FİRE MARJ",
+  "description": "GIDA FİRE MARJ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "girenCıkanAgırlık",
+      "label": "Giren/Çıkan Ağırlık",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Giren/Çıkan Ağırlık",
+        "tr": "Giren/Çıkan Ağırlık",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "bozulmaAsırı",
+      "label": "Bozulma/Aşırı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Bozulma/Aşırı",
+        "tr": "Bozulma/Aşırı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "teorikKullanım",
+      "label": "Teorik Kullanım",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Teorik Kullanım",
+        "tr": "Teorik Kullanım",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kgMaliyet",
+      "label": "kg Maliyet",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "kg Maliyet",
+        "tr": "kg Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "salvage",
+      "label": "Salvage",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Salvage",
+        "tr": "Salvage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Indirimli",
+      "label": "İndirimli",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İndirimli",
+        "tr": "İndirimli",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "yield",
+      "label": "Yield",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Yield",
+        "tr": "Yield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "shrinkage",
+      "label": "Shrinkage",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Shrinkage",
+        "tr": "Shrinkage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costShrink",
+      "label": "Cost_Shrink",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Shrink",
+        "tr": "Cost_Shrink",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costSpoil",
+      "label": "Cost_Spoil",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Spoil",
+        "tr": "Cost_Spoil",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "costOver",
+      "label": "Cost_Over",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Over",
+        "tr": "Cost_Over",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "marginLeak",
+      "label": "MarginLeak",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarginLeak",
+        "tr": "MarginLeak",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "oEEFood",
+      "label": "OEE_Food",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OEE_Food",
+        "tr": "OEE_Food",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "theoUsage",
+      "label": "TheoUsage",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TheoUsage",
+        "tr": "TheoUsage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "variance",
+      "label": "Variance",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Variance",
+        "tr": "Variance",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

@@ -1,0 +1,299 @@
+{
+  "slug": "seed-rate-calculator",
+  "name": "Seed Rate Calculator",
+  "description": "Industrial-grade seed rate calculator for precision agriculture, incorporating ISO 5692, Six Sigma DMAIC, and Lean principles to optimize planting density, minimize waste, and maximize yield.",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-field comparison",
+    "Historical data integration"
+  ],
+  "inputs": [
+    {
+      "id": "target_population",
+      "label": "Target Plant Population (plants/ha)",
+      "type": "number",
+      "unit": "plants/ha",
+      "default": 75000,
+      "min": 10000,
+      "max": 200000,
+      "businessContext": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
+      "label_i18n": {
+        "en": "Target Plant Population (plants/ha)",
+        "tr": "Hedef Bitki Popülasyonu (bitki/ha)",
+        "de": "Ziel-Pflanzenbestand (Pflanzen/ha)",
+        "fr": "Population végétale cible (plants/ha)",
+        "es": "Población objetivo de plantas (plantas/ha)",
+        "ar": "عدد النباتات المستهدف (نبات/هكتار)"
+      },
+      "businessContext_i18n": {
+        "en": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
+        "tr": "Agronomik önerilere ve verim hedeflerine dayalı olarak hektar başına istenen nihai bitki sayısı.",
+        "de": "Gewünschter Endbestand pro Hektar basierend auf agronomischen Empfehlungen und Ertragszielen.",
+        "fr": "Nombre final de pieds souhaité par hectare, basé sur les recommandations agronomiques et les objectifs de rendement.",
+        "es": "Número final deseado de plantas por hectárea basado en recomendaciones agronómicas y objetivos de rendimiento.",
+        "ar": "العدد النهائي المطلوب من النباتات لكل هكتار بناءً على التوصيات الزراعية وأهداف الإنتاجية."
+      }
+    },
+    {
+      "id": "germination_rate",
+      "label": "Germination Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
+      "label_i18n": {
+        "en": "Germination Rate (%)",
+        "tr": "Çimlenme Oranı (%)",
+        "de": "Keimrate (%)",
+        "fr": "Taux de germination (%)",
+        "es": "Tasa de germinación (%)",
+        "ar": "نسبة الإنبات (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
+        "tr": "Optimal koşullar altında çimlenmesi beklenen tohum yüzdesi, tipik olarak tohum partisi analizinden.",
+        "de": "Prozentsatz der Samen, die unter optimalen Bedingungen keimen, typischerweise aus der Saatgutanalyse.",
+        "fr": "Pourcentage de semences censées germer dans des conditions optimales, généralement issu de l'analyse du lot de semences.",
+        "es": "Porcentaje de semillas que se espera germinen en condiciones óptimas, típicamente del análisis del lote de semillas.",
+        "ar": "النسبة المئوية للبذور المتوقع إنباتها تحت الظروف المثلى، عادةً من تحليل دفعة البذور."
+      }
+    },
+    {
+      "id": "field_emergence_factor",
+      "label": "Field Emergence Factor (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
+      "label_i18n": {
+        "en": "Field Emergence Factor (%)",
+        "tr": "Tarla Çıkış Faktörü (%)",
+        "de": "Feldaufgangsfaktor (%)",
+        "fr": "Facteur de levée au champ (%)",
+        "es": "Factor de emergencia en campo (%)",
+        "ar": "عامل ظهور الحقل (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
+        "tr": "Çimlenen tohumların sağlıklı fide olarak çıkması beklenen yüzde, toprak koşulları, zararlılar ve hava durumu dikkate alınarak.",
+        "de": "Erwarteter Prozentsatz der gekeimten Samen, die als gesunde Sämlinge auflaufen, unter Berücksichtigung von Bodenbedingungen, Schädlingen und Wetter.",
+        "fr": "Pourcentage attendu de semences germées qui émergent en plantules saines, tenant compte des conditions du sol, des ravageurs et de la météo.",
+        "es": "Porcentaje esperado de semillas germinadas que emergen como plántulas sanas, considerando condiciones del suelo, plagas y clima.",
+        "ar": "النسبة المئوية المتوقعة للبذور المنبتة التي تظهر كشتلات سليمة، مع مراعاة ظروف التربة والآفات والطقس."
+      }
+    },
+    {
+      "id": "seed_weight",
+      "label": "Seed Weight (g per 1000 seeds)",
+      "type": "number",
+      "unit": "g/1000 seeds",
+      "default": 250,
+      "min": 100,
+      "max": 600,
+      "businessContext": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
+      "label_i18n": {
+        "en": "Seed Weight (g per 1000 seeds)",
+        "tr": "Tohum Ağırlığı (g/1000 tohum)",
+        "de": "Saatgutgewicht (g pro 1000 Samen)",
+        "fr": "Poids des semences (g pour 1000 semences)",
+        "es": "Peso de la semilla (g por 1000 semillas)",
+        "ar": "وزن البذور (جم لكل 1000 بذرة)"
+      },
+      "businessContext_i18n": {
+        "en": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
+        "tr": "Tohum tedarikçisinden veya laboratuvar testinden bin tane ağırlığı (BTA), tohum sayısını kütleye dönüştürmek için kullanılır.",
+        "de": "Tausendkorngewicht (TKG) vom Saatgutlieferanten oder aus dem Labor, zur Umrechnung von Samenzahl in Masse.",
+        "fr": "Poids de mille grains (PMG) du fournisseur de semences ou d'un test en laboratoire, utilisé pour convertir le nombre de semences en masse.",
+        "es": "Peso de mil granos (PMG) del proveedor de semillas o prueba de laboratorio, utilizado para convertir el número de semillas a masa.",
+        "ar": "وزن الألف حبة (TKW) من مورد البذور أو اختبار معملي، يُستخدم لتحويل عدد البذور إلى كتلة."
+      }
+    },
+    {
+      "id": "row_spacing",
+      "label": "Row Spacing (cm)",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "min": 15,
+      "max": 100,
+      "businessContext": "Distance between planting rows, typically set by planter configuration and crop type.",
+      "label_i18n": {
+        "en": "Row Spacing (cm)",
+        "tr": "Sıra Aralığı (cm)",
+        "de": "Reihenabstand (cm)",
+        "fr": "Espacement des rangs (cm)",
+        "es": "Espaciado entre hileras (cm)",
+        "ar": "تباعد الصفوف (سم)"
+      },
+      "businessContext_i18n": {
+        "en": "Distance between planting rows, typically set by planter configuration and crop type.",
+        "tr": "Ekim sıraları arasındaki mesafe, tipik olarak ekim makinesi konfigürasyonu ve ürün tipine göre belirlenir.",
+        "de": "Abstand zwischen den Pflanzreihen, typischerweise durch die Sämaschinenkonfiguration und die Kulturart festgelegt.",
+        "fr": "Distance entre les rangs de plantation, généralement définie par la configuration du semoir et le type de culture.",
+        "es": "Distancia entre hileras de siembra, típicamente configurada por la sembradora y el tipo de cultivo.",
+        "ar": "المسافة بين صفوف الزراعة، تُحدد عادةً بتكوين آلة الزراعة ونوع المحصول."
+      }
+    },
+    {
+      "id": "planter_efficiency",
+      "label": "Planter Efficiency (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 70,
+      "max": 100,
+      "businessContext": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
+      "label_i18n": {
+        "en": "Planter Efficiency (%)",
+        "tr": "Ekim Makinesi Verimliliği (%)",
+        "de": "Sämaschinen-Effizienz (%)",
+        "fr": "Efficacité du semoir (%)",
+        "es": "Eficiencia de la sembradora (%)",
+        "ar": "كفاءة آلة الزراعة (%)"
+      },
+      "businessContext_i18n": {
+        "en": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
+        "tr": "Ekim makinesinin atlama, çift ekim ve mekanik kayıpları hesaba katan operasyonel verimliliği (Yalın OEE metriği).",
+        "de": "Betriebseffizienz der Sämaschine unter Berücksichtigung von Auslassungen, Doppelbelegungen und mechanischen Verlusten (Lean OEE-Kennzahl).",
+        "fr": "Efficacité opérationnelle du semoir tenant compte des sauts, des doubles et des pertes mécaniques (métrique OEE Lean).",
+        "es": "Eficiencia operativa de la sembradora considerando fallos, duplicados y pérdidas mecánicas (métrica OEE Lean).",
+        "ar": "الكفاءة التشغيلية لآلة الزراعة مع مراعاة الفقد والمضاعفة والخسائر الميكانيكية (مقياس OEE اللين)."
+      }
+    },
+    {
+      "id": "seed_cost_per_unit",
+      "label": "Seed Cost per Unit ($/kg)",
+      "type": "number",
+      "unit": "$/kg",
+      "default": 5,
+      "min": 0.5,
+      "max": 50,
+      "businessContext": "Purchase price of seed per kilogram, used for economic analysis.",
+      "label_i18n": {
+        "en": "Seed Cost per Unit ($/kg)",
+        "tr": "Tohum Birim Maliyeti ($/kg)",
+        "de": "Saatgutkosten pro Einheit ($/kg)",
+        "fr": "Coût des semences par unité ($/kg)",
+        "es": "Costo de la semilla por unidad ($/kg)",
+        "ar": "تكلفة البذور لكل وحدة ($/كجم)"
+      },
+      "businessContext_i18n": {
+        "en": "Purchase price of seed per kilogram, used for economic analysis.",
+        "tr": "Tohumun kilogram başına satın alma fiyatı, ekonomik analiz için kullanılır.",
+        "de": "Kaufpreis des Saatguts pro Kilogramm, für wirtschaftliche Analysen.",
+        "fr": "Prix d'achat des semences par kilogramme, utilisé pour l'analyse économique.",
+        "es": "Precio de compra de la semilla por kilogramo, utilizado para análisis económico.",
+        "ar": "سعر شراء البذور لكل كيلوغرام، يُستخدم للتحليل الاقتصادي."
+      }
+    },
+    {
+      "id": "expected_yield_value",
+      "label": "Expected Yield Value ($/tonne)",
+      "type": "number",
+      "unit": "$/tonne",
+      "default": 200,
+      "min": 50,
+      "max": 1000,
+      "businessContext": "Market price per tonne of harvested crop, used for ROI calculations.",
+      "label_i18n": {
+        "en": "Expected Yield Value ($/tonne)",
+        "tr": "Beklenen Verim Değeri ($/ton)",
+        "de": "Erwarteter Ertragswert ($/Tonne)",
+        "fr": "Valeur de rendement attendue ($/tonne)",
+        "es": "Valor esperado del rendimiento ($/tonelada)",
+        "ar": "قيمة الإنتاجية المتوقعة ($/طن)"
+      },
+      "businessContext_i18n": {
+        "en": "Market price per tonne of harvested crop, used for ROI calculations.",
+        "tr": "Hasat edilen ürünün ton başına piyasa fiyatı, yatırım getirisi hesaplamaları için kullanılır.",
+        "de": "Marktpreis pro Tonne der geernteten Kultur, für ROI-Berechnungen.",
+        "fr": "Prix du marché par tonne de récolte, utilisé pour les calculs de retour sur investissement.",
+        "es": "Precio de mercado por tonelada del cultivo cosechado, utilizado para cálculos de retorno de inversión.",
+        "ar": "سعر السوق لكل طن من المحصول المحصود، يُستخدم لحسابات العائد على الاستثمار."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "germination_emergence_consistency",
+        "condition": "germination_rate < field_emergence_factor",
+        "message": "Germination rate should not be lower than field emergence factor. Check input values.",
+        "severity": "warning"
+      },
+      {
+        "id": "target_population_range",
+        "condition": "target_population < 20000 OR target_population > 150000",
+        "message": "Target population outside typical range for most row crops. Verify agronomic recommendation.",
+        "severity": "info"
+      },
+      {
+        "id": "row_spacing_planter_compatibility",
+        "condition": "row_spacing < 20 AND planter_efficiency < 90",
+        "message": "Narrow rows with low planter efficiency may cause significant seed spacing variability.",
+        "severity": "warning"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "low_germination_alert",
+        "condition": "germination_rate < 80",
+        "message": "Germination rate below 80%: consider seed treatment or replanting plan.",
+        "severity": "critical"
+      },
+      {
+        "id": "high_seed_cost_alert",
+        "condition": "seed_cost_per_unit > 20",
+        "message": "Seed cost exceeds $20/kg: evaluate economic viability with ROI analysis.",
+        "severity": "warning"
+      },
+      {
+        "id": "low_planter_efficiency_alert",
+        "condition": "planter_efficiency < 85",
+        "message": "Planter efficiency below 85%: perform Six Sigma root cause analysis to reduce losses.",
+        "severity": "critical"
+      }
+    ]
+  },
+  "formulas": {
+    "base_cost": "seed_weight * seed_cost_per_unit",
+    "adjusted_cost": "seed_weight * seed_cost_per_unit * (1 + (germination_rate / 100))",
+    "result": "seed_weight * seed_cost_per_unit * (1 + (germination_rate / 100)) * (target_population)",
+    "factor_target_population": "target_population"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_target_population"
+    ],
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
+    "suggestedActions": [
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "quality-six-sigma",
+  "category": "Dönüşüm & Ölçüm",
+  "sector": "Tarım & Hayvancılık",
+  "toolName": "seed-rate-calculator",
+  "sectorId": "tarim",
+  "profession": "Ziraat Mühendisi",
+  "categoryId": "conversion"
+}

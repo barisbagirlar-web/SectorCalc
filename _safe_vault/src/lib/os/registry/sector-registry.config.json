@@ -1,0 +1,426 @@
+{
+  "version": 1,
+  "sectors": {
+    "cnc": {
+      "name": {
+        "en": "CNC",
+        "tr": "CNC",
+        "de": "CNC"
+      },
+      "params": [
+        "Ideal_Cycle_Time",
+        "Actual_Cycle_Time",
+        "Machine_Rate"
+      ],
+      "tolerance": 0.05,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "hidden_loss",
+        "benchmarking",
+        "prescriptions",
+        "energy_opt",
+        "carbon_cbam"
+      ]
+    },
+    "logistics": {
+      "name": "Logistics & Routing",
+      "params": [
+        "Planned_KM",
+        "Actual_KM",
+        "Fuel_Price"
+      ],
+      "tolerance": 0.08,
+      "features": [
+        "decision_support",
+        "deadhead",
+        "compliance",
+        "fiscal_multi",
+        "benchmarking"
+      ]
+    },
+    "construction": {
+      "name": "Construction Project",
+      "params": [
+        "Target_Cost",
+        "Actual_Cost",
+        "Labor_Hours"
+      ],
+      "tolerance": 0.1,
+      "features": [
+        "decision_support",
+        "seasonal_loss",
+        "compliance",
+        "benchmarking"
+      ]
+    },
+    "agriculture": {
+      "name": "Crop Yield Management",
+      "params": [
+        "Target_Yield_Ha",
+        "Actual_Yield_Ha",
+        "Input_Cost"
+      ],
+      "tolerance": 0.08,
+      "features": [
+        "soil_nutrients",
+        "seasonal_loss",
+        "hidden_loss"
+      ]
+    },
+    "textile": {
+      "name": "Textile Manufacturing",
+      "params": [
+        "Target_Fabric_Usage",
+        "Actual_Usage",
+        "Fabric_Cost"
+      ],
+      "tolerance": 0.02,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "hidden_loss",
+        "benchmarking",
+        "carbon_cbam"
+      ]
+    },
+    "plastics": {
+      "name": "Plastic Injection",
+      "params": [
+        "Target_Cycle_Time",
+        "Scrap_Rate",
+        "Material_Cost"
+      ],
+      "tolerance": 0.03,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "machine_age",
+        "benchmarking",
+        "prescriptions"
+      ]
+    },
+    "food_bev": {
+      "name": "Food & Beverage",
+      "params": [
+        "Standard_Yield",
+        "Actual_Output",
+        "Batch_Cost"
+      ],
+      "tolerance": 0.01,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "seasonal_loss",
+        "compliance",
+        "benchmarking"
+      ]
+    },
+    "automotive": {
+      "name": "Automotive Assembly",
+      "params": [
+        "Target_Throughput",
+        "Actual_Throughput",
+        "Unit_Labor_Cost"
+      ],
+      "tolerance": 0.02,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "machine_age",
+        "benchmarking",
+        "prescriptions"
+      ]
+    },
+    "electronics": {
+      "name": "Electronics PCB",
+      "params": [
+        "Yield_Rate",
+        "Defect_Count",
+        "Component_Cost"
+      ],
+      "tolerance": 0.005,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "hidden_loss",
+        "benchmarking"
+      ]
+    },
+    "metalworking": {
+      "name": "Metal Fabrication",
+      "params": [
+        "Standard_Weight",
+        "Actual_Weight",
+        "Raw_Material_Cost"
+      ],
+      "tolerance": 0.04,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "hidden_loss",
+        "carbon_cbam",
+        "benchmarking"
+      ]
+    },
+    "pharma": {
+      "name": "Pharmaceuticals",
+      "params": [
+        "Target_Potency",
+        "Actual_Potency",
+        "Batch_Cost"
+      ],
+      "tolerance": 0.001,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "compliance",
+        "benchmarking",
+        "prescriptions"
+      ]
+    },
+    "warehousing": {
+      "name": "Warehouse Inventory",
+      "params": [
+        "Target_Stock_Turn",
+        "Actual_Turn",
+        "Storage_Cost"
+      ],
+      "tolerance": 0.05,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "benchmarking",
+        "offline_mode"
+      ]
+    },
+    "marine": {
+      "name": "Marine Shipping",
+      "params": [
+        "Planned_Fuel",
+        "Actual_Fuel",
+        "Voyage_Cost"
+      ],
+      "tolerance": 0.1,
+      "features": [
+        "decision_support",
+        "deadhead",
+        "compliance",
+        "fiscal_multi",
+        "seasonal_loss"
+      ]
+    },
+    "waste_mgmt": {
+      "name": "Waste Management",
+      "params": [
+        "Target_Disposal_Cost",
+        "Actual_Disposal_Cost",
+        "Volume"
+      ],
+      "tolerance": 0.06,
+      "features": [
+        "decision_support",
+        "compliance",
+        "carbon_cbam",
+        "benchmarking"
+      ]
+    },
+    "water_utility": {
+      "name": "Water Utility",
+      "params": [
+        "Target_Flow_Rate",
+        "Actual_Flow_Rate",
+        "Operational_Cost"
+      ],
+      "tolerance": 0.02,
+      "features": [
+        "decision_support",
+        "energy_opt",
+        "compliance",
+        "benchmarking"
+      ]
+    },
+    "energy_plant": {
+      "name": "Energy & Utilities",
+      "params": [
+        "Target_Output_Kwh",
+        "Actual_Output_Kwh",
+        "Operational_Cost"
+      ],
+      "tolerance": 0.03,
+      "features": [
+        "decision_support",
+        "energy_opt",
+        "carbon_cbam",
+        "benchmarking"
+      ]
+    },
+    "hvac": {
+      "name": "HVAC Facilities",
+      "params": [
+        "Target_Energy_Consumption",
+        "Actual_Consumption",
+        "Cost_Per_Unit"
+      ],
+      "tolerance": 0.05,
+      "features": [
+        "decision_support",
+        "energy_opt",
+        "machine_age",
+        "benchmarking"
+      ]
+    },
+    "mining": {
+      "name": "Mining Operations",
+      "params": [
+        "Target_Ore_Grade",
+        "Actual_Ore_Grade",
+        "Extraction_Cost"
+      ],
+      "tolerance": 0.07,
+      "features": [
+        "decision_support",
+        "machine_age",
+        "compliance",
+        "seasonal_loss",
+        "benchmarking"
+      ]
+    },
+    "printing": {
+      "name": "Printing & Packaging",
+      "params": [
+        "Target_Ink_Usage",
+        "Actual_Ink_Usage",
+        "Material_Cost"
+      ],
+      "tolerance": 0.04,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "hidden_loss",
+        "benchmarking"
+      ]
+    },
+    "livestock": {
+      "name": "Livestock & Dairy",
+      "params": [
+        "Target_Feed_Efficiency",
+        "Actual_Efficiency",
+        "Feed_Cost"
+      ],
+      "tolerance": 0.06,
+      "features": [
+        "decision_support",
+        "feed_efficiency",
+        "seasonal_loss",
+        "benchmarking"
+      ]
+    },
+    "hospitality": {
+      "name": "Hospitality / F&B",
+      "params": [
+        "Target_Food_Cost_%",
+        "Actual_Food_Cost_%",
+        "Revenue"
+      ],
+      "tolerance": 0.04,
+      "features": [
+        "decision_support",
+        "seasonal_loss",
+        "fiscal_multi",
+        "benchmarking"
+      ]
+    },
+    "retail": {
+      "name": "Retail Operations",
+      "params": [
+        "Target_Margin_%",
+        "Actual_Margin_%",
+        "Operating_Cost"
+      ],
+      "tolerance": 0.05,
+      "features": [
+        "decision_support",
+        "fiscal_multi",
+        "offline_mode",
+        "benchmarking"
+      ]
+    },
+    "finance": {
+      "name": "Corporate Finance",
+      "params": [
+        "Target_Budget",
+        "Actual_Expenditure",
+        "Admin_Cost"
+      ],
+      "tolerance": 0.01,
+      "features": [
+        "decision_support",
+        "fiscal_multi",
+        "tolerance_opt",
+        "compliance"
+      ]
+    },
+    "legal_it": {
+      "name": "IT & Software Services",
+      "params": [
+        "Projected_Hours",
+        "Actual_Hours",
+        "Hourly_Rate"
+      ],
+      "tolerance": 0.05,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "prescriptions",
+        "offline_mode"
+      ]
+    },
+    "facility_mgmt": {
+      "name": "Facility Maintenance",
+      "params": [
+        "Planned_Maintenance_Cost",
+        "Actual_Cost",
+        "Downtime_Hrs"
+      ],
+      "tolerance": 0.05,
+      "features": [
+        "decision_support",
+        "machine_age",
+        "compliance",
+        "benchmarking"
+      ]
+    },
+    "aviation_mro": {
+      "name": "Aviation MRO",
+      "params": [
+        "Target_Repair_Time",
+        "Actual_Repair_Time",
+        "Parts_Cost"
+      ],
+      "tolerance": 0.01,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "compliance",
+        "machine_age",
+        "prescriptions"
+      ]
+    },
+    "paper_pkg": {
+      "name": "Paper & Packaging",
+      "params": [
+        "Target_GSM",
+        "Actual_GSM",
+        "Production_Cost"
+      ],
+      "tolerance": 0.03,
+      "features": [
+        "decision_support",
+        "tolerance_opt",
+        "hidden_loss",
+        "carbon_cbam"
+      ]
+    }
+  }
+}

@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Compound_late_interest_calculatorInput {
+  dataConfidence?: number;
   anapara: number;
   yillikFaiz: number;
   gecikmeGun: number;
   bilesimSikligi: number;
-  dataConfidence?: number;
 }
 
 export const Compound_late_interest_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   anapara: z.number().min(0).default(10000),
   yillikFaiz: z.number().min(0).default(24),
   gecikmeGun: z.number().min(0).default(90),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Compound_late_interest_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.anapara * Math.pow((1 + (input.yillikFaiz / 100) * (input.bilesimSikligi / 365)), input.gecikmeGun / Math.max(1, input.bilesimSikligi)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["anapara"] * Math.pow((1 + (input["yillikFaiz"] / 100) * (input["bilesimSikligi"] / 365)), input["gecikmeGun"] / Math.max(1, input["bilesimSikligi"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateCompound_late_interest_calculator(input: Compound_late_interest_calculatorInput): Compound_late_interest_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["High asymmetry increases injury risk.","Low H-index may indicate limited academic impact."];
   const suggestedActions: string[] = ["Balance training for injury prevention.","Use peer review to validate research quality."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateCompound_late_interest_calculator(input: Compound_late_
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateCompound_late_interest_calculator(input: Compound_late_
   };
 }
 
-
 export interface Compound_late_interest_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Compound_late_interest_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "TL",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

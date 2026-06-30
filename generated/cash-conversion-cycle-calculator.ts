@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Cash_conversion_cycle_calculatorInput {
+  dataConfidence?: number;
   stokGun: number;
   alacakGun: number;
   borcGun: number;
-  dataConfidence?: number;
 }
 
 export const Cash_conversion_cycle_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   stokGun: z.number().min(0).default(60),
   alacakGun: z.number().min(0).default(45),
   borcGun: z.number().min(0).default(30),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Cash_conversion_cycle_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.stokGun + input.alacakGun - input.borcGun; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["stokGun"] + input["alacakGun"] - input["borcGun"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateCash_conversion_cycle_calculator(input: Cash_conversion_cycle_calculatorInput): Cash_conversion_cycle_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify financial projections with actual data.","Review assumptions quarterly."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateCash_conversion_cycle_calculator(input: Cash_conversion
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateCash_conversion_cycle_calculator(input: Cash_conversion
   };
 }
 
-
 export interface Cash_conversion_cycle_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Cash_conversion_cycle_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "days",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

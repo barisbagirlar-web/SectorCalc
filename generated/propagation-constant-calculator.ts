@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Propagation_constant_calculatorInput {
+  dataConfidence?: number;
   direnc: number;
   induktans: number;
   kapasite: number;
   frekans: number;
-  dataConfidence?: number;
 }
 
 export const Propagation_constant_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   direnc: z.number().min(0).default(0.01),
   induktans: z.number().min(0).default(0.000001),
   kapasite: z.number().min(0).default(1e-12),
@@ -22,18 +23,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Propagation_constant_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * Math.PI * input.frekans; results["w"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["w"] = Number.NaN; }
-  try { const v = Math.sqrt(Math.max(0, (input.direnc + 0 + input.induktans * 2 * Math.PI * input.frekans) * (0 + 0 + input.kapasite * 2 * Math.PI * input.frekans))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = 2 * Math.PI * input["frekans"]; results["w"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["w"] = Number.NaN; }
+  try { const v = Math.sqrt(Math.max(0, (input["direnc"] + 0 + input["induktans"] * 2 * Math.PI * input["frekans"]) * (0 + 0 + input["kapasite"] * 2 * Math.PI * input["frekans"]))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculatePropagation_constant_calculator(input: Propagation_constant_calculatorInput): Propagation_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Low SNR indicates poor signal quality.","High Q indicates narrow bandwidth."];
   const suggestedActions: string[] = ["Use proper shielding for sensitive measurements.","Consider efficiency losses in energy calculations."];
   const dataConfidenceAdjusted =
@@ -42,6 +40,7 @@ export function calculatePropagation_constant_calculator(input: Propagation_cons
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -52,21 +51,20 @@ export function calculatePropagation_constant_calculator(input: Propagation_cons
   };
 }
 
-
 export interface Propagation_constant_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Propagation_constant_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "Np/m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["w"],
 } as const;
-

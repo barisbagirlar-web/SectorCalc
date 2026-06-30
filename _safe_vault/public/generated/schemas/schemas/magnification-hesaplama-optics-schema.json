@@ -1,0 +1,75 @@
+{
+  "slug": "magnification-hesaplama-optics",
+  "name": "Magnification Hesaplama Optics",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "focalLength",
+      "label": "Score",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Mercek odak uzaklığı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Odak Uzaklığı",
+        "fr": "Odak Uzaklığı",
+        "es": "Odak Uzaklığı",
+        "ar": "Odak Uzaklığı"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Mercek odak uzaklığı.",
+        "fr": "Mercek odak uzaklığı.",
+        "es": "Mercek odak uzaklığı.",
+        "ar": "Mercek odak uzaklığı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "focalLength * (1 + focalLength/500) + Math.sqrt(focalLength) * 5",
+    "result": "focalLength * (1 + focalLength/500) + Math.sqrt(focalLength) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "focalLength"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick magnification hesaplama optics.",
+      "long": "Free magnification hesaplama optics tool."
+    }
+  },
+  "sector": "Fizik",
+  "toolName": "magnification-hesaplama-optics",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "physics"
+}

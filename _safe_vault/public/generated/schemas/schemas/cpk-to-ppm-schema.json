@@ -1,0 +1,314 @@
+{
+  "slug": "cpk-to-ppm",
+  "name": "CPK TO PPM",
+  "description": "CPK TO PPM premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "uSL",
+      "label": "USL",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "USL",
+        "tr": "USL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lSL",
+      "label": "LSL",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "LSL",
+        "tr": "LSL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mean",
+      "label": "Mean",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Mean",
+        "tr": "Mean",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "stdDev",
+      "label": "StdDev",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "StdDev",
+        "tr": "StdDev",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedefCpk",
+      "label": "Hedef Cpk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef Cpk",
+        "tr": "Hedef Cpk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gunlukHacim",
+      "label": "Günlük Hacim",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Günlük Hacim",
+        "tr": "Günlük Hacim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "zUSL",
+      "label": "Z_USL",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Z_USL",
+        "tr": "Z_USL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "zLSL",
+      "label": "Z_LSL",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Z_LSL",
+        "tr": "Z_LSL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "cpk",
+      "label": "Cpk",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cpk",
+        "tr": "Cpk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "pUSL",
+      "label": "P_USL",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "P_USL",
+        "tr": "P_USL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "pLSL",
+      "label": "P_LSL",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "P_LSL",
+        "tr": "P_LSL",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "pTotal",
+      "label": "P_Total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "P_Total",
+        "tr": "P_Total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "pPM",
+      "label": "PPM",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PPM",
+        "tr": "PPM",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "7": {
+      "id": "yield",
+      "label": "Yield",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Yield",
+        "tr": "Yield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "8": {
+      "id": "sigmaShortTerm",
+      "label": "Sigma_ShortTerm",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Sigma_ShortTerm",
+        "tr": "Sigma_ShortTerm",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "measurement",
+  "formulas": {
+    "normalized_product": "uSL * lSL * mean * stdDev",
+    "result": "uSL * lSL * mean * stdDev * (hedefCpk * gunlukHacim)",
+    "adjustment_factor": "hedefCpk * gunlukHacim"
+  }
+}

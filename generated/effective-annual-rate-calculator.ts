@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Effective_annual_rate_calculatorInput {
+  dataConfidence?: number;
   nominal: number;
   siklik: number;
-  dataConfidence?: number;
 }
 
 export const Effective_annual_rate_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   nominal: z.number().min(0).default(12),
   siklik: z.number().min(1).default(12),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Effective_annual_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (Math.pow(1 + (input.nominal / 100) / Math.max(1, input.siklik), input.siklik) - 1) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (Math.pow(1 + (input["nominal"] / 100) / Math.max(1, input["siklik"]), input["siklik"]) - 1) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateEffective_annual_rate_calculator(input: Effective_annual_rate_calculatorInput): Effective_annual_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateEffective_annual_rate_calculator(input: Effective_annua
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateEffective_annual_rate_calculator(input: Effective_annua
   };
 }
 
-
 export interface Effective_annual_rate_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Effective_annual_rate_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

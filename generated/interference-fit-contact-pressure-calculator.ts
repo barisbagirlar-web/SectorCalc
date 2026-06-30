@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Interference_fit_contact_pressure_calculatorInput {
+  dataConfidence?: number;
   girisim: number;
   cap: number;
   E1: number;
   E2: number;
-  dataConfidence?: number;
 }
 
 export const Interference_fit_contact_pressure_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   girisim: z.number().min(0).default(0.00005),
   cap: z.number().min(0).default(0.05),
   E1: z.number().min(0).default(200000000000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Interference_fit_contact_pressure_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.girisim / Math.max(0.0001, (input.cap * (1 / Math.max(0.0001, input.E1) + 1 / Math.max(0.0001, input.E2)))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["girisim"] / Math.max(0.0001, (input["cap"] * (1 / Math.max(0.0001, input["E1"]) + 1 / Math.max(0.0001, input["E2"])))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateInterference_fit_contact_pressure_calculator(input: Interference_fit_contact_pressure_calculatorInput): Interference_fit_contact_pressure_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify calculations with FEA or physical testing.","Use appropriate safety factors for design."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateInterference_fit_contact_pressure_calculator(input: Int
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateInterference_fit_contact_pressure_calculator(input: Int
   };
 }
 
-
 export interface Interference_fit_contact_pressure_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Interference_fit_contact_pressure_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "Pa",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

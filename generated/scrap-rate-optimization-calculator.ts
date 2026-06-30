@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Scrap_rate_optimization_calculatorInput {
+  dataConfidence?: number;
   uretim: number;
   hurda: number;
   birimMaliyet: number;
-  dataConfidence?: number;
 }
 
 export const Scrap_rate_optimization_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   uretim: z.number().min(1).default(10000),
   hurda: z.number().min(0).default(500),
   birimMaliyet: z.number().min(0).default(50),
@@ -20,18 +21,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Scrap_rate_optimization_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.hurda / Math.max(1, input.uretim)) * 100; results["oran"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oran"] = Number.NaN; }
-  try { const v = input.hurda * input.birimMaliyet; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["hurda"] / Math.max(1, input["uretim"])) * 100; results["oran"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oran"] = Number.NaN; }
+  try { const v = input["hurda"] * input["birimMaliyet"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateScrap_rate_optimization_calculator(input: Scrap_rate_optimization_calculatorInput): Scrap_rate_optimization_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Conduct regular OEE audits for improvement.","Use SMED to reduce setup times."];
   const dataConfidenceAdjusted =
@@ -40,6 +38,7 @@ export function calculateScrap_rate_optimization_calculator(input: Scrap_rate_op
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -50,21 +49,20 @@ export function calculateScrap_rate_optimization_calculator(input: Scrap_rate_op
   };
 }
 
-
 export interface Scrap_rate_optimization_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Scrap_rate_optimization_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["oran"],
 } as const;
-

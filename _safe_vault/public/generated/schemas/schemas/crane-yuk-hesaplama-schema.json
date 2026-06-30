@@ -1,0 +1,75 @@
+{
+  "slug": "crane-yuk-hesaplama",
+  "name": "Crane Yük Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "shipmentWeight",
+      "label": "Score",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Toplam gönderi ağırlığı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "shipmentWeight * shipmentWeight / 100 + Math.sqrt(shipmentWeight) * 10",
+    "result": "shipmentWeight * shipmentWeight / 100 + Math.sqrt(shipmentWeight) * 10"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "shipmentWeight"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick crane yük hesaplama.",
+      "long": "Free crane yük hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "crane-yuk-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

@@ -2,11 +2,12 @@
 import * as z from 'zod';
 
 export interface Vo2_max_cooper_test_calculatorInput {
-  kosuMesafesi: number;
   dataConfidence?: number;
+  kosuMesafesi: number;
 }
 
 export const Vo2_max_cooper_test_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   kosuMesafesi: z.number().min(500).default(2400),
 });
 
@@ -16,17 +17,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Vo2_max_cooper_test_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.kosuMesafesi - 504.9) / 44.73; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["kosuMesafesi"] - 504.9) / 44.73; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateVo2_max_cooper_test_calculator(input: Vo2_max_cooper_test_calculatorInput): Vo2_max_cooper_test_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Consult a healthcare professional before starting any diet or exercise program.","Individual results may vary."];
   const dataConfidenceAdjusted =
@@ -35,6 +33,7 @@ export function calculateVo2_max_cooper_test_calculator(input: Vo2_max_cooper_te
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -45,21 +44,20 @@ export function calculateVo2_max_cooper_test_calculator(input: Vo2_max_cooper_te
   };
 }
 
-
 export interface Vo2_max_cooper_test_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Vo2_max_cooper_test_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "ml/kg/min",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

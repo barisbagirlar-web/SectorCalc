@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Faraday_electrolysis_calculatorInput {
+  dataConfidence?: number;
   akim: number;
   sure: number;
   esdegerAgirlik: number;
   elektronSayisi: number;
-  dataConfidence?: number;
 }
 
 export const Faraday_electrolysis_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   akim: z.number().min(0).default(2),
   sure: z.number().min(0).default(3600),
   esdegerAgirlik: z.number().min(0).default(27),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Faraday_electrolysis_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.akim * input.sure * input.esdegerAgirlik) / Math.max(0.0001, (96485 * input.elektronSayisi)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["akim"] * input["sure"] * input["esdegerAgirlik"]) / Math.max(0.0001, (96485 * input["elektronSayisi"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateFaraday_electrolysis_calculator(input: Faraday_electrolysis_calculatorInput): Faraday_electrolysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Low SNR indicates poor signal quality.","High Q indicates narrow bandwidth."];
   const suggestedActions: string[] = ["Use proper shielding for sensitive measurements.","Consider efficiency losses in energy calculations."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateFaraday_electrolysis_calculator(input: Faraday_electrol
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateFaraday_electrolysis_calculator(input: Faraday_electrol
   };
 }
 
-
 export interface Faraday_electrolysis_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Faraday_electrolysis_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "g",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

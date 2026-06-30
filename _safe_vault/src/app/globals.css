@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Anthropic Kil Palette v1.0 — SectorCalc */
+    --sc-bg: #f0eee6;
+    --sc-surface: #faf9f5;
+    --sc-text: #1a1915;
+    --sc-muted: #696764;
+    --sc-border: rgba(26, 25, 21, 0.10);
+    --sc-copper: #bd5d3a;
+    --sc-copper-hover: #a34d2e;
+    --sc-navy: #bd5d3a;
+    --sc-premium-bordo: #8b2635;
+    --sc-premium-bordo-hover: #6b1d28;
+    --sc-success: #166534;
+    --sc-warning: #d97706;
+    --sc-danger: #991b1b;
+    --sc-inverse-bg: #1a1915;
+    --sc-inverse-text: #faf9f5;
+    --sc-inverse-muted: rgba(250, 249, 245, 0.78);
+
+    --bg-industrial-matte: var(--sc-bg);
+    --text-premium-velvet: var(--sc-text);
+    --text-body-charcoal: var(--sc-muted);
+    --border-technical-gray: var(--sc-border);
+    --action-industrial-orange: var(--sc-copper);
+
+    /* Typography stack — serif headings / Inter sans / JetBrains Mono */
+    --font-sans: var(--font-inter);
+    --font-heading: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+    --font-mono-os: var(--font-jetbrains);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--sc-bg);
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    @apply bg-kil-bg text-kil-text antialiased;
+    position: relative;
+    background-color: var(--sc-bg);
+    max-width: 100%;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html[data-locale="ar"] body {
+    font-family: var(--font-arabic), var(--font-inter), -apple-system, BlinkMacSystemFont,
+      "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.018;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(26, 25, 21, 0.03) 2px,
+      rgba(26, 25, 21, 0.03) 3px
+    );
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--text-premium-velvet);
+  }
+
+  ::placeholder {
+    color: var(--text-body-charcoal);
+    opacity: 0.7;
+  }
+
+  input:disabled,
+  textarea:disabled,
+  select:disabled,
+  button:disabled {
+    color: var(--text-body-charcoal);
+    opacity: 0.6;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@layer components {
+  /* Numeric output — G-code / audit / financial data */
+  .data-value,
+  .calculation-result,
+  .tabular-data {
+    font-family: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .label-badge {
+    @apply font-sans text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .heading-serif {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .shadow-card,
+  .shadow-card-dark,
+  .shadow-card-hover,
+  .shadow-card-premium,
+  .shadow-sm {
+    box-shadow: none !important;
+  }
+
+  .text-placeholder {
+    color: var(--text-body-charcoal);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .route-loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    height: 2px;
+    width: 100%;
+    background: var(--action-industrial-orange);
+    animation: route-loading-pulse 0.9s ease-in-out infinite;
+    transform-origin: 0 50%;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes route-loading-pulse {
+    0% {
+      transform: scaleX(0.08);
+      opacity: 0.55;
+    }
+    50% {
+      transform: scaleX(0.72);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0.35;
+    }
+  }
+}
+
+/* RTL — minimal overrides for Arabic locale */
+[dir="rtl"] .apple-locale__select {
+  direction: rtl;
+}
+
+[dir="rtl"] .sc-pro-panel,
+[dir="rtl"] .sc-decision-block,
+[dir="rtl"] .sc-pro-container {
+  text-align: start;
+}
+
+[dir="rtl"] .route-loading-bar {
+  left: auto;
+  right: 0;
+  transform-origin: 100% 50%;
+}
+
+[dir="rtl"] .locale-sensitive-row {
+  direction: rtl;
+}
+
+[dir="rtl"] .sc-report-table,
+[dir="rtl"] .sc-premium-preview {
+  text-align: start;
+  overflow-x: auto;
+}

@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Wood_siding_calculatorInput {
+  dataConfidence?: number;
   alan: number;
   tahtaEn: number;
   bindirmePayi: number;
-  dataConfidence?: number;
 }
 
 export const Wood_siding_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   alan: z.number().min(0).default(40),
   tahtaEn: z.number().min(0).default(0.15),
   bindirmePayi: z.number().min(0).default(0.025),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Wood_siding_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.alan / Math.max(0.0001, (input.tahtaEn - input.bindirmePayi)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["alan"] / Math.max(0.0001, (input["tahtaEn"] - input["bindirmePayi"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateWood_siding_calculator(input: Wood_siding_calculatorInput): Wood_siding_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Order 5-10% extra material for waste.","Verify local building codes before purchasing."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateWood_siding_calculator(input: Wood_siding_calculatorInp
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateWood_siding_calculator(input: Wood_siding_calculatorInp
   };
 }
 
-
 export interface Wood_siding_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Wood_siding_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

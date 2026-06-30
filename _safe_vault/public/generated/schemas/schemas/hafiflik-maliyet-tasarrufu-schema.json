@@ -1,0 +1,266 @@
+{
+  "slug": "hafiflik-maliyet-tasarrufu",
+  "name": "HAFİFLİK MALİYET TASARRUFU",
+  "description": "HAFİFLİK MALİYET TASARRUFU premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "orijinalYeniAgırlık",
+      "label": "Orijinal/Yeni Ağırlık",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Orijinal/Yeni Ağırlık",
+        "tr": "Orijinal/Yeni Ağırlık",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "malzeme",
+      "label": "Malzeme",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Malzeme",
+        "tr": "Malzeme",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yeniKgFiyat",
+      "label": "Yeni kg Fiyat",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yeni kg Fiyat",
+        "tr": "Yeni kg Fiyat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kalıpFarkı",
+      "label": "Kalıp Farkı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kalıp Farkı",
+        "tr": "Kalıp Farkı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "OmurSaat",
+      "label": "Ömür/Saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ömür/Saat",
+        "tr": "Ömür/Saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yakıt",
+      "label": "Yakıt",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yakıt",
+        "tr": "Yakıt",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "weightRed",
+      "label": "WeightRed",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WeightRed",
+        "tr": "WeightRed",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fuelSavAuto",
+      "label": "FuelSav_Auto",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FuelSav_Auto",
+        "tr": "FuelSav_Auto",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fuelSavAero",
+      "label": "FuelSav_Aero",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FuelSav_Aero",
+        "tr": "FuelSav_Aero",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "payloadGain",
+      "label": "PayloadGain",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PayloadGain",
+        "tr": "PayloadGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "matPrem",
+      "label": "MatPrem",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MatPrem",
+        "tr": "MatPrem",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "toolDelta",
+      "label": "ToolDelta",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ToolDelta",
+        "tr": "ToolDelta",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "netSav",
+      "label": "NetSav",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NetSav",
+        "tr": "NetSav",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

@@ -1,0 +1,280 @@
+{
+  "slug": "kaizen-tasarruf-takipisi",
+  "name": "KAIZEN TASARRUF TAKİPÇİSİ",
+  "description": "KAIZEN TASARRUF TAKİPÇİSİ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "bazGercekMaliyet",
+      "label": "Baz/Gerçek Maliyet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Baz/Gerçek Maliyet",
+        "tr": "Baz/Gerçek Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sure",
+      "label": "Süre",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Süre",
+        "tr": "Süre",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hacim",
+      "label": "Hacim",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hacim",
+        "tr": "Hacim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IscilikMalzeme",
+      "label": "İşçilik/Malzeme",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşçilik/Malzeme",
+        "tr": "İşçilik/Malzeme",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "donusum",
+      "label": "Dönüşüm",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Dönüşüm",
+        "tr": "Dönüşüm",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kontrolAyı",
+      "label": "Kontrol Ayı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kontrol Ayı",
+        "tr": "Kontrol Ayı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "hard",
+      "label": "Hard",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Hard",
+        "tr": "Hard",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "soft",
+      "label": "Soft",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Soft",
+        "tr": "Soft",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "impCost",
+      "label": "ImpCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ImpCost",
+        "tr": "ImpCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rOI",
+      "label": "ROI",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ROI",
+        "tr": "ROI",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "payback",
+      "label": "Payback",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Payback",
+        "tr": "Payback",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sust",
+      "label": "Sust",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Sust",
+        "tr": "Sust",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cum",
+      "label": "Cum",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cum",
+        "tr": "Cum",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "opp",
+      "label": "Opp",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Opp",
+        "tr": "Opp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "finance"
+}

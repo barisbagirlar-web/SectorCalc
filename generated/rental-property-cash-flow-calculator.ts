@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Rental_property_cash_flow_calculatorInput {
+  dataConfidence?: number;
   brutKira: number;
   bosluk: number;
   isletme: number;
   kredi: number;
-  dataConfidence?: number;
 }
 
 export const Rental_property_cash_flow_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   brutKira: z.number().min(0).default(10000),
   bosluk: z.number().min(0).max(100).default(5),
   isletme: z.number().min(0).default(2000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Rental_property_cash_flow_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.brutKira * (1 - input.bosluk / 100)) - input.isletme - input.kredi; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["brutKira"] * (1 - input["bosluk"] / 100)) - input["isletme"] - input["kredi"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateRental_property_cash_flow_calculator(input: Rental_property_cash_flow_calculatorInput): Rental_property_cash_flow_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify all property data with official documents.","Consult a mortgage broker for personalized rates."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateRental_property_cash_flow_calculator(input: Rental_prop
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateRental_property_cash_flow_calculator(input: Rental_prop
   };
 }
 
-
 export interface Rental_property_cash_flow_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Rental_property_cash_flow_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

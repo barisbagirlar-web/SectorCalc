@@ -2,15 +2,16 @@
 import * as z from 'zod';
 
 export interface Taxi_fare_calculatorInput {
+  dataConfidence?: number;
   acilis: number;
   kmFiyati: number;
   dakikaFiyati: number;
   mesafe: number;
   sure: number;
-  dataConfidence?: number;
 }
 
 export const Taxi_fare_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   acilis: z.number().min(0).default(10),
   kmFiyati: z.number().min(0).default(15),
   dakikaFiyati: z.number().min(0).default(3),
@@ -24,17 +25,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Taxi_fare_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.acilis + (input.mesafe * input.kmFiyati) + (input.sure * input.dakikaFiyati); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["acilis"] + (input["mesafe"] * input["kmFiyati"]) + (input["sure"] * input["dakikaFiyati"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateTaxi_fare_calculator(input: Taxi_fare_calculatorInput): Taxi_fare_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inventory turnover metrics monthly.","Factor in seasonality for safety stock."];
   const dataConfidenceAdjusted =
@@ -43,6 +41,7 @@ export function calculateTaxi_fare_calculator(input: Taxi_fare_calculatorInput):
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -53,21 +52,20 @@ export function calculateTaxi_fare_calculator(input: Taxi_fare_calculatorInput):
   };
 }
 
-
 export interface Taxi_fare_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Taxi_fare_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

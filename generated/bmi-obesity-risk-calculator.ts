@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Bmi_obesity_risk_calculatorInput {
+  dataConfidence?: number;
   agirlik: number;
   boy: number;
-  dataConfidence?: number;
 }
 
 export const Bmi_obesity_risk_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   agirlik: z.number().min(20).max(300).default(75),
   boy: z.number().min(0.5).max(2.5).default(1.75),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Bmi_obesity_risk_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.agirlik / Math.max(0.0001, (input.boy * input.boy)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["agirlik"] / Math.max(0.0001, (input["boy"] * input["boy"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateBmi_obesity_risk_calculator(input: Bmi_obesity_risk_calculatorInput): Bmi_obesity_risk_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Consult a healthcare professional before starting any diet or exercise program.","Individual results may vary."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateBmi_obesity_risk_calculator(input: Bmi_obesity_risk_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateBmi_obesity_risk_calculator(input: Bmi_obesity_risk_cal
   };
 }
 
-
 export interface Bmi_obesity_risk_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Bmi_obesity_risk_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "kg/m2",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

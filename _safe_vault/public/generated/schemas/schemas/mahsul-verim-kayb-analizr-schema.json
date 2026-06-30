@@ -1,0 +1,280 @@
+{
+  "slug": "mahsul-verim-kayb-analizr",
+  "name": "Mahsul Verim Kaybı Analizörü",
+  "description": "Mahsul Verim Kaybı Analizörü premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "genetikPotansiyelKgda",
+      "label": "Genetik Potansiyel kg/da",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Genetik Potansiyel kg/da",
+        "tr": "Genetik Potansiyel kg/da",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CevreFaktoru",
+      "label": "Çevre Faktörü",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çevre Faktörü",
+        "tr": "Çevre Faktörü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hasatEdilenKg",
+      "label": "Hasat Edilen kg",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hasat Edilen kg",
+        "tr": "Hasat Edilen kg",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "zararlıHavaBesinKayıpOranları",
+      "label": "Zararlı/Hava/Besin Kayıp Oranları",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Zararlı/Hava/Besin Kayıp Oranları",
+        "tr": "Zararlı/Hava/Besin Kayıp Oranları",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "piyasaFiyatıCurrencykg",
+      "label": "Piyasa Fiyatı currency/kg",
+      "type": "number",
+      "unit": "kg",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Piyasa Fiyatı currency/kg",
+        "tr": "Piyasa Fiyatı currency/kg",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mudahaleMaliyeti",
+      "label": "Müdahale Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Müdahale Maliyeti",
+        "tr": "Müdahale Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "potentialYield",
+      "label": "PotentialYield",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PotentialYield",
+        "tr": "PotentialYield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "actualYield",
+      "label": "ActualYield",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ActualYield",
+        "tr": "ActualYield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yieldGap",
+      "label": "YieldGap",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "YieldGap",
+        "tr": "YieldGap",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lossPest",
+      "label": "Loss_Pest",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Loss_Pest",
+        "tr": "Loss_Pest",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lossWeather",
+      "label": "Loss_Weather",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Loss_Weather",
+        "tr": "Loss_Weather",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "lossNutrient",
+      "label": "Loss_Nutrient",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Loss_Nutrient",
+        "tr": "Loss_Nutrient",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "financialLoss",
+      "label": "FinancialLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FinancialLoss",
+        "tr": "FinancialLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rOIIntervention",
+      "label": "ROI_Intervention",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ROI_Intervention",
+        "tr": "ROI_Intervention",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

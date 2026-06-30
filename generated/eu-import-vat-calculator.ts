@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Eu_import_vat_calculatorInput {
+  dataConfidence?: number;
   netFiyat: number;
   kargo: number;
   ulkeKDV: number;
-  dataConfidence?: number;
 }
 
 export const Eu_import_vat_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   netFiyat: z.number().min(0).default(100),
   kargo: z.number().min(0).default(15),
   ulkeKDV: z.number().min(0).default(20),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Eu_import_vat_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.netFiyat + input.kargo) * (input.ulkeKDV / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["netFiyat"] + input["kargo"]) * (input["ulkeKDV"] / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateEu_import_vat_calculator(input: Eu_import_vat_calculatorInput): Eu_import_vat_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Factor in return rates and chargebacks.","Review platform fee schedules regularly."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateEu_import_vat_calculator(input: Eu_import_vat_calculato
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateEu_import_vat_calculator(input: Eu_import_vat_calculato
   };
 }
 
-
 export interface Eu_import_vat_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Eu_import_vat_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "EUR",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

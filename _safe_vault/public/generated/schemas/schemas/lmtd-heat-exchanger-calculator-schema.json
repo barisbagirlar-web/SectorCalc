@@ -1,0 +1,383 @@
+{
+  "slug": "lmtd-heat-exchanger-calculator",
+  "name": "Heat Exchanger (LMTD/NTU) Calculator",
+  "description": "Isı değiştirici tasarımında LMTD, NTU ve kirletici faktörler hesaba katılmadan doğru boyutlandırma yapılamaz.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "massFlowRate",
+      "label": "Kütle Akış Hızı",
+      "type": "number",
+      "unit": "kg/s",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kütle Akış Hızı",
+        "tr": "Kütle Akış Hızı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tHotIn",
+      "label": "Sıcak Giriş Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sıcak Giriş Sıcaklığı",
+        "tr": "Sıcak Giriş Sıcaklığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tHotOut",
+      "label": "Sıcak Çıkış Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sıcak Çıkış Sıcaklığı",
+        "tr": "Sıcak Çıkış Sıcaklığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tColdIn",
+      "label": "Soğuk Giriş Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Soğuk Giriş Sıcaklığı",
+        "tr": "Soğuk Giriş Sıcaklığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tColdOut",
+      "label": "Soğuk Çıkış Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Soğuk Çıkış Sıcaklığı",
+        "tr": "Soğuk Çıkış Sıcaklığı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cp",
+      "label": "Özgül Isı (Cp)",
+      "type": "number",
+      "unit": "kJ/kgK",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Özgül Isı (Cp)",
+        "tr": "Özgül Isı (Cp)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uClean",
+      "label": "Temiz Isı Transfer Katsayısı",
+      "type": "number",
+      "unit": "W/m²K",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Temiz Isı Transfer Katsayısı",
+        "tr": "Temiz Isı Transfer Katsayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rFoulingHot",
+      "label": "Sıcak Taraf Kirlenme Faktörü",
+      "type": "number",
+      "unit": "m²K/W",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Sıcak Taraf Kirlenme Faktörü",
+        "tr": "Sıcak Taraf Kirlenme Faktörü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "rFoulingCold",
+      "label": "Soğuk Taraf Kirlenme Faktörü",
+      "type": "number",
+      "unit": "m²K/W",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Soğuk Taraf Kirlenme Faktörü",
+        "tr": "Soğuk Taraf Kirlenme Faktörü",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "deltaT",
+      "label": "Delta T (sıcaklık farkı)",
+      "type": "number",
+      "unit": "°C",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Delta T (sıcaklık farkı)",
+        "tr": "Delta T (sıcaklık farkı)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cMin",
+      "label": "Min. Isıl Kapasite (Cmin)",
+      "type": "number",
+      "unit": "kW/K",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Min. Isıl Kapasite (Cmin)",
+        "tr": "Min. Isıl Kapasite (Cmin)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "lmtd",
+      "label": "LMTD",
+      "unit": "°C",
+      "format": "number",
+      "label_i18n": {
+        "en": "LMTD",
+        "tr": "LMTD",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "heatArea",
+      "label": "Isı Değiştirici Alanı",
+      "unit": "m²",
+      "format": "number",
+      "label_i18n": {
+        "en": "Isı Değiştirici Alanı",
+        "tr": "Isı Değiştirici Alanı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "uDirty",
+      "label": "Kirli U Değeri",
+      "unit": "W/m²K",
+      "format": "number",
+      "label_i18n": {
+        "en": "Kirli U Değeri",
+        "tr": "Kirli U Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "ntu",
+      "label": "NTU",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NTU",
+        "tr": "NTU",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "fFactor",
+      "label": "Düzeltme Faktörü F",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Düzeltme Faktörü F",
+        "tr": "Düzeltme Faktörü F",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "energy",
+  "formulas": {
+    "normalized_product": "massFlowRate * tHotIn * tHotOut * tColdIn",
+    "result": "massFlowRate * tHotIn * tHotOut * tColdIn * (tColdOut * cp * uClean * rFoulingHot * rFoulingCold * deltaT * cMin)",
+    "adjustment_factor": "tColdOut * cp * uClean * rFoulingHot * rFoulingCold * deltaT * cMin"
+  }
+}

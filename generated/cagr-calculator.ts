@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Cagr_calculatorInput {
+  dataConfidence?: number;
   ilkDeger: number;
   sonDeger: number;
   yil: number;
-  dataConfidence?: number;
 }
 
 export const Cagr_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   ilkDeger: z.number().min(0).default(10000),
   sonDeger: z.number().min(0).default(20000),
   yil: z.number().min(0).default(5),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Cagr_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (Math.pow(input.sonDeger / Math.max(1, input.ilkDeger), 1 / Math.max(1, input.yil)) - 1) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (Math.pow(input["sonDeger"] / Math.max(1, input["ilkDeger"]), 1 / Math.max(1, input["yil"])) - 1) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateCagr_calculator(input: Cagr_calculatorInput): Cagr_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateCagr_calculator(input: Cagr_calculatorInput): Cagr_calc
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateCagr_calculator(input: Cagr_calculatorInput): Cagr_calc
   };
 }
 
-
 export interface Cagr_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Cagr_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

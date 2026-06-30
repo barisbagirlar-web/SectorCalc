@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Capital_gains_tax_calculatorInput {
+  dataConfidence?: number;
   satis: number;
   alis: number;
   vergiOrani: number;
   istisna: number;
-  dataConfidence?: number;
 }
 
 export const Capital_gains_tax_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   satis: z.number().min(0).default(500000),
   alis: z.number().min(0).default(300000),
   vergiOrani: z.number().min(0).max(100).default(15),
@@ -22,18 +23,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Capital_gains_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.max(0, input.satis - input.alis - input.istisna); results["matrah"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["matrah"] = Number.NaN; }
-  try { const v = Math.max(0, (input.satis - input.alis - input.istisna)) * input.vergiOrani / 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.max(0, input["satis"] - input["alis"] - input["istisna"]); results["matrah"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["matrah"] = Number.NaN; }
+  try { const v = Math.max(0, (input["satis"] - input["alis"] - input["istisna"])) * input["vergiOrani"] / 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateCapital_gains_tax_calculator(input: Capital_gains_tax_calculatorInput): Capital_gains_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
@@ -42,6 +40,7 @@ export function calculateCapital_gains_tax_calculator(input: Capital_gains_tax_c
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -52,21 +51,20 @@ export function calculateCapital_gains_tax_calculator(input: Capital_gains_tax_c
   };
 }
 
-
 export interface Capital_gains_tax_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Capital_gains_tax_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["matrah"],
 } as const;
-

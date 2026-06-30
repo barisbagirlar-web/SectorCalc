@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Rlc_resonant_frequency_calculatorInput {
+  dataConfidence?: number;
   L: number;
   C: number;
   R: number;
-  dataConfidence?: number;
 }
 
 export const Rlc_resonant_frequency_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   L: z.number().min(0).default(0.01),
   C: z.number().min(0).default(1e-7),
   R: z.number().min(0).default(10),
@@ -20,18 +21,16 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Rlc_resonant_frequency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, input.L * input.C)))); results["f0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["f0"] = Number.NaN; }
-  try { const v = (1 / Math.max(0.0001, input.R)) * Math.sqrt(Math.max(0.0001, input.L / Math.max(0.0001, input.C))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, input["L"] * input["C"])))); results["f0"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["f0"] = Number.NaN; }
+  try { const v = (1 / Math.max(0.0001, input["R"])) * Math.sqrt(Math.max(0.0001, input["L"] / Math.max(0.0001, input["C"]))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateRlc_resonant_frequency_calculator(input: Rlc_resonant_frequency_calculatorInput): Rlc_resonant_frequency_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    f0: toNumericFormulaValue(values["f0"]),
-    sonuc: toNumericFormulaValue(values["sonuc"])
+  const breakdown: Record<string, number> = {
+    "f0": toNumericFormulaValue(values["f0"])
   };
   const hiddenLossDrivers: string[] = ["Low Q factor indicates broader frequency response."];
   const suggestedActions: string[] = ["Verify component tolerances affect circuit performance.","Use proper safety equipment for high voltage/current work."];
@@ -41,6 +40,7 @@ export function calculateRlc_resonant_frequency_calculator(input: Rlc_resonant_f
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +51,20 @@ export function calculateRlc_resonant_frequency_calculator(input: Rlc_resonant_f
   };
 }
 
-
 export interface Rlc_resonant_frequency_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { f0: number; sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Rlc_resonant_frequency_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "Q",
-  breakdownKeys: ["f0","sonuc"],
+  breakdownKeys: ["f0"],
 } as const;
-

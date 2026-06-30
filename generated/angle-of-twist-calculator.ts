@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Angle_of_twist_calculatorInput {
+  dataConfidence?: number;
   tork: number;
   uzunluk: number;
   kaymaModulu: number;
   kutupsalAtalet: number;
-  dataConfidence?: number;
 }
 
 export const Angle_of_twist_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   tork: z.number().min(0).default(1000),
   uzunluk: z.number().min(0).default(2),
   kaymaModulu: z.number().min(0).default(80000000000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Angle_of_twist_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.tork * input.uzunluk) / Math.max(0.0001, (input.kaymaModulu * input.kutupsalAtalet)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["tork"] * input["uzunluk"]) / Math.max(0.0001, (input["kaymaModulu"] * input["kutupsalAtalet"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateAngle_of_twist_calculator(input: Angle_of_twist_calculatorInput): Angle_of_twist_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify calculations with FEA or physical testing.","Use appropriate safety factors for design."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateAngle_of_twist_calculator(input: Angle_of_twist_calcula
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateAngle_of_twist_calculator(input: Angle_of_twist_calcula
   };
 }
 
-
 export interface Angle_of_twist_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Angle_of_twist_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "rad",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

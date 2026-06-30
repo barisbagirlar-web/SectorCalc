@@ -1,0 +1,115 @@
+{
+  "slug": "excise-vergi-hesaplama",
+  "name": "Excise Vergi Hesaplama",
+  "description": "Professional excise vergi hesaplama tool for accurate calculations.",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "Detailed PDF report",
+    "Scenario comparison",
+    "Multi-year projections"
+  ],
+  "inputs": [
+    {
+      "id": "income",
+      "label": "Gelir / Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 80000,
+      "min": 0,
+      "businessContext": "Annual income.",
+      "label_i18n": {
+        "en": "Annual Income",
+        "tr": "Yıllık Gelir"
+      },
+      "businessContext_i18n": {
+        "en": "Annual income.",
+        "tr": "Yıllık gelir."
+      }
+    },
+    {
+      "id": "deductions",
+      "label": "İndirimler / Deductions",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "businessContext": "Total deductions.",
+      "label_i18n": {
+        "en": "Deductions",
+        "tr": "İndirimler"
+      },
+      "businessContext_i18n": {
+        "en": "Total deductions.",
+        "tr": "Toplam indirimler."
+      }
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı / Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Effective tax rate.",
+      "label_i18n": {
+        "en": "Tax Rate",
+        "tr": "Vergi Oranı"
+      },
+      "businessContext_i18n": {
+        "en": "Effective tax rate.",
+        "tr": "Efektif vergi oranı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All inputs should be positive numbers where applicable."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "(income - deductions) * (1 - taxRate/100)",
+    "result": "(income - deductions) * (1 - taxRate/100)"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "USD",
+    "breakdown": {
+      "result": "(income - deductions) * (1 - taxRate/100)"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Consult with a professional.",
+      "Review assumptions regularly."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate — not professional advice."
+  },
+  "about": {
+    "description": {
+      "short": "Quick excise vergi hesaplama calculation.",
+      "long": "This free tool provides a quick excise vergi hesaplama."
+    },
+    "faqs": [
+      {
+        "question": "What does this Excise Vergi Hesaplama include?",
+        "answer": "Basic excise vergi hesaplama calculation."
+      },
+      {
+        "question": "What is missing from the free version?",
+        "answer": "The free version does not include detailed reporting and projections."
+      }
+    ]
+  },
+  "sector": "Vergi",
+  "toolName": "excise-vergi-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "tax"
+}

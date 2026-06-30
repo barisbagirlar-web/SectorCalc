@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Landfill_area_calculatorInput {
+  dataConfidence?: number;
   atikHacmi: number;
   sikistirma: number;
   derinlik: number;
-  dataConfidence?: number;
 }
 
 export const Landfill_area_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   atikHacmi: z.number().min(0).default(50000),
   sikistirma: z.number().min(0).default(20),
   derinlik: z.number().min(0).default(10),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Landfill_area_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.atikHacmi * (1 - input.sikistirma / 100)) / Math.max(0.0001, input.derinlik); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["atikHacmi"] * (1 - input["sikistirma"] / 100)) / Math.max(0.0001, input["derinlik"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateLandfill_area_calculator(input: Landfill_area_calculatorInput): Landfill_area_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["High environmental score may reduce operational costs.","Low ESG score may increase capital costs."];
   const suggestedActions: string[] = ["Set improvement targets for each ESG pillar.","Consider carbon offset programs for residual emissions."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateLandfill_area_calculator(input: Landfill_area_calculato
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateLandfill_area_calculator(input: Landfill_area_calculato
   };
 }
 
-
 export interface Landfill_area_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Landfill_area_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m2",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

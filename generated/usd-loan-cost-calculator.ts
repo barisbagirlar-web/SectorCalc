@@ -2,15 +2,16 @@
 import * as z from 'zod';
 
 export interface Usd_loan_cost_calculatorInput {
+  dataConfidence?: number;
   tutar: number;
   faiz: number;
   vade: number;
   kurBeklentisi: number;
   mevcutKur: number;
-  dataConfidence?: number;
 }
 
 export const Usd_loan_cost_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   tutar: z.number().min(0).default(50000),
   faiz: z.number().min(0).default(8),
   vade: z.number().min(1).default(36),
@@ -24,18 +25,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Usd_loan_cost_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.faiz === 0 ? input.tutar / Math.max(1, input.vade) : input.tutar * ((input.faiz / 1200) * Math.pow(1 + input.faiz / 1200, input.vade)) / (Math.pow(1 + input.faiz / 1200, input.vade) - 1); results["usdTaksit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["usdTaksit"] = Number.NaN; }
-  try { const v = (input.faiz === 0 ? input.tutar / Math.max(1, input.vade) : input.tutar * ((input.faiz / 1200) * Math.pow(1 + input.faiz / 1200, input.vade)) / (Math.pow(1 + input.faiz / 1200, input.vade) - 1)) * input.mevcutKur * Math.pow(1 + input.kurBeklentisi / 100, input.vade / 12); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["faiz"] === 0 ? input["tutar"] / Math.max(1, input["vade"]) : input["tutar"] * ((input["faiz"] / 1200) * Math.pow(1 + input["faiz"] / 1200, input["vade"])) / (Math.pow(1 + input["faiz"] / 1200, input["vade"]) - 1); results["usdTaksit"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["usdTaksit"] = Number.NaN; }
+  try { const v = (input["faiz"] === 0 ? input["tutar"] / Math.max(1, input["vade"]) : input["tutar"] * ((input["faiz"] / 1200) * Math.pow(1 + input["faiz"] / 1200, input["vade"])) / (Math.pow(1 + input["faiz"] / 1200, input["vade"]) - 1)) * input["mevcutKur"] * Math.pow(1 + input["kurBeklentisi"] / 100, input["vade"] / 12); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateUsd_loan_cost_calculator(input: Usd_loan_cost_calculatorInput): Usd_loan_cost_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Compare multiple loan offers before committing.","Consider total cost including fees."];
   const dataConfidenceAdjusted =
@@ -44,6 +42,7 @@ export function calculateUsd_loan_cost_calculator(input: Usd_loan_cost_calculato
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -54,21 +53,20 @@ export function calculateUsd_loan_cost_calculator(input: Usd_loan_cost_calculato
   };
 }
 
-
 export interface Usd_loan_cost_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Usd_loan_cost_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["usdTaksit"],
 } as const;
-

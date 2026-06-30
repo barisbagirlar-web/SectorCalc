@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Life_insurance_needs_calculatorInput {
+  dataConfidence?: number;
   yillikGelir: number;
   bagimliSayisi: number;
   borclar: number;
   birikim: number;
-  dataConfidence?: number;
 }
 
 export const Life_insurance_needs_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   yillikGelir: z.number().min(0).default(200000),
   bagimliSayisi: z.number().min(0).default(2),
   borclar: z.number().min(0).default(500000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Life_insurance_needs_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.max(0, (input.yillikGelir * 10 * input.bagimliSayisi) + input.borclar - input.birikim); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.max(0, (input["yillikGelir"] * 10 * input["bagimliSayisi"]) + input["borclar"] - input["birikim"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateLife_insurance_needs_calculator(input: Life_insurance_needs_calculatorInput): Life_insurance_needs_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review insurance coverage annually.","Consult a retirement planner for personalized strategy."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateLife_insurance_needs_calculator(input: Life_insurance_n
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateLife_insurance_needs_calculator(input: Life_insurance_n
   };
 }
 
-
 export interface Life_insurance_needs_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Life_insurance_needs_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

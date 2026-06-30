@@ -1,0 +1,966 @@
+{
+  "generatedAt": "2026-06-29T21:56:16.646Z",
+  "totalCategories": 35,
+  "categories": [
+    {
+      "slug": "lean-production",
+      "title": {
+        "en": "Lean Production & Line Efficiency",
+        "de": "Lean-Produktion & Linieneffizienz",
+        "fr": "Production lean et efficacité de ligne",
+        "es": "Producción lean y eficiencia de línea",
+        "ar": "الإنتاج الرشيق وكفاءة الخط"
+      },
+      "summary": {
+        "en": "SMED, Kanban, VSM, Kaizen, Andon, and line balancing tools.",
+        "tr": "SMED, Kanban, VSM, Kaizen, Andon, and line balancing tools.",
+        "de": "SMED, Kanban, VSM, Kaizen, Andon, and line balancing tools.",
+        "fr": "SMED, Kanban, VSM, Kaizen, Andon, and line balancing tools.",
+        "es": "SMED, Kanban, VSM, Kaizen, Andon, and line balancing tools.",
+        "ar": "SMED, Kanban, VSM, Kaizen, Andon, and line balancing tools."
+      },
+      "toolCount": 22,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/lean-production",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/lean-production",
+        "de": "https://www.sectorcalc.com/de/pro-tools/lean-production",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/lean-production",
+        "es": "https://www.sectorcalc.com/es/pro-tools/lean-production",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/lean-production"
+      }
+    },
+    {
+      "slug": "quality-six-sigma",
+      "title": {
+        "en": "Quality, SPC & Six Sigma",
+        "de": "Qualität, SPC & Six Sigma",
+        "fr": "Qualité, SPC et Six Sigma",
+        "es": "Calidad, SPC y Seis Sigma",
+        "ar": "الجودة وSPC وسيغما الستة"
+      },
+      "summary": {
+        "en": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY, and quality project selection.",
+        "tr": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY, and quality project selection.",
+        "de": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY, and quality project selection.",
+        "fr": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY, and quality project selection.",
+        "es": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY, and quality project selection.",
+        "ar": "Cpk/Ppk, MSA, FMEA, SPC, Taguchi, RTY, and quality project selection."
+      },
+      "toolCount": 22,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/quality-six-sigma",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/quality-six-sigma",
+        "de": "https://www.sectorcalc.com/de/pro-tools/quality-six-sigma",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/quality-six-sigma",
+        "es": "https://www.sectorcalc.com/es/pro-tools/quality-six-sigma",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/quality-six-sigma"
+      }
+    },
+    {
+      "slug": "process-chemical",
+      "title": {
+        "en": "Process, Chemical & Fluids",
+        "de": "Prozess, Chemie & Fluide",
+        "fr": "Procédés, chimie et fluides",
+        "es": "Proceso, química y fluidos",
+        "ar": "العمليات والكيمياء والموائع"
+      },
+      "summary": {
+        "en": "Batch yield, mass balance, pump loss, blending, and safety valve.",
+        "tr": "Batch yield, mass balance, pump loss, blending, and safety valve.",
+        "de": "Batch yield, mass balance, pump loss, blending, and safety valve.",
+        "fr": "Batch yield, mass balance, pump loss, blending, and safety valve.",
+        "es": "Batch yield, mass balance, pump loss, blending, and safety valve.",
+        "ar": "Batch yield, mass balance, pump loss, blending, and safety valve."
+      },
+      "toolCount": 13,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/process-chemical",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/process-chemical",
+        "de": "https://www.sectorcalc.com/de/pro-tools/process-chemical",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/process-chemical",
+        "es": "https://www.sectorcalc.com/es/pro-tools/process-chemical",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/process-chemical"
+      }
+    },
+    {
+      "slug": "cnc-additive-manufacturing",
+      "title": {
+        "en": "CNC, 3D Printing & Advanced Manufacturing",
+        "de": "CNC, 3D-Druck & Advanced Manufacturing",
+        "fr": "CNC, impression 3D et fabrication avancée",
+        "es": "CNC, impresión 3D y fabricación avanzada",
+        "ar": "CNC والطباعة ثلاثية الأبعاد والتصنيع المتقدم"
+      },
+      "summary": {
+        "en": "CNC time, tool life, 3D printing, chip, fixture, and machining strategies.",
+        "tr": "CNC time, tool life, 3D printing, chip, fixture, and machining strategies.",
+        "de": "CNC time, tool life, 3D printing, chip, fixture, and machining strategies.",
+        "fr": "CNC time, tool life, 3D printing, chip, fixture, and machining strategies.",
+        "es": "CNC time, tool life, 3D printing, chip, fixture, and machining strategies.",
+        "ar": "CNC time, tool life, 3D printing, chip, fixture, and machining strategies."
+      },
+      "toolCount": 19,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/cnc-additive-manufacturing",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/cnc-additive-manufacturing",
+        "de": "https://www.sectorcalc.com/de/pro-tools/cnc-additive-manufacturing",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/cnc-additive-manufacturing",
+        "es": "https://www.sectorcalc.com/es/pro-tools/cnc-additive-manufacturing",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/cnc-additive-manufacturing"
+      }
+    },
+    {
+      "slug": "metal-plastics-forming",
+      "title": {
+        "en": "Sheet Metal, Casting, Plastics & Forming",
+        "de": "Blech, Guss, Kunststoff & Umformung",
+        "fr": "Tôle, fonderie, plastique et formage",
+        "es": "Chapa, fundición, plástico y conformado",
+        "ar": "الصفائح والسبك والبلاستيك والتشكيل"
+      },
+      "summary": {
+        "en": "Nesting scrap, casting yield, injection cycle, press force, and bending springback.",
+        "tr": "Nesting scrap, casting yield, injection cycle, press force, and bending springback.",
+        "de": "Nesting scrap, casting yield, injection cycle, press force, and bending springback.",
+        "fr": "Nesting scrap, casting yield, injection cycle, press force, and bending springback.",
+        "es": "Nesting scrap, casting yield, injection cycle, press force, and bending springback.",
+        "ar": "Nesting scrap, casting yield, injection cycle, press force, and bending springback."
+      },
+      "toolCount": 24,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/metal-plastics-forming",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/metal-plastics-forming",
+        "de": "https://www.sectorcalc.com/de/pro-tools/metal-plastics-forming",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/metal-plastics-forming",
+        "es": "https://www.sectorcalc.com/es/pro-tools/metal-plastics-forming",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/metal-plastics-forming"
+      }
+    },
+    {
+      "slug": "project-construction-management",
+      "title": {
+        "en": "Project, Site & Construction Management",
+        "de": "Projekt, Baustelle & Bauleitung",
+        "fr": "Projet, chantier et gestion de construction",
+        "es": "Proyecto, obra y gestión de construcción",
+        "ar": "إدارة المشاريع والمواقع والبناء"
+      },
+      "summary": {
+        "en": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization, and site decisions.",
+        "tr": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization, and site decisions.",
+        "de": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization, and site decisions.",
+        "fr": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization, and site decisions.",
+        "es": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization, and site decisions.",
+        "ar": "EVM, CPM, resource leveling, contract risk, progress payment, mobilization, and site decisions."
+      },
+      "toolCount": 20,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/project-construction-management",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/project-construction-management",
+        "de": "https://www.sectorcalc.com/de/pro-tools/project-construction-management",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/project-construction-management",
+        "es": "https://www.sectorcalc.com/es/pro-tools/project-construction-management",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/project-construction-management"
+      }
+    },
+    {
+      "slug": "digital-factory-automation",
+      "title": {
+        "en": "Digital Factory & Automation",
+        "de": "Digitale Fabrik & Automatisierung",
+        "fr": "Usine numérique et automatisation",
+        "es": "Fábrica digital y automatización",
+        "ar": "المصنع الرقمي والأتمتة"
+      },
+      "summary": {
+        "en": "IoT, digital twin, cobot, AGV, energy monitoring, and paperless production ROI tools.",
+        "tr": "IoT, digital twin, cobot, AGV, energy monitoring, and paperless production ROI tools.",
+        "de": "IoT, digital twin, cobot, AGV, energy monitoring, and paperless production ROI tools.",
+        "fr": "IoT, digital twin, cobot, AGV, energy monitoring, and paperless production ROI tools.",
+        "es": "IoT, digital twin, cobot, AGV, energy monitoring, and paperless production ROI tools.",
+        "ar": "IoT, digital twin, cobot, AGV, energy monitoring, and paperless production ROI tools."
+      },
+      "toolCount": 8,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/digital-factory-automation",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/digital-factory-automation",
+        "de": "https://www.sectorcalc.com/de/pro-tools/digital-factory-automation",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/digital-factory-automation",
+        "es": "https://www.sectorcalc.com/es/pro-tools/digital-factory-automation",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/digital-factory-automation"
+      }
+    },
+    {
+      "slug": "maintenance-reliability",
+      "title": {
+        "en": "Maintenance & Reliability",
+        "de": "Instandhaltung & Zuverlässigkeit",
+        "fr": "Maintenance et fiabilité",
+        "es": "Mantenimiento y fiabilidad",
+        "ar": "الصيانة والموثوقية"
+      },
+      "summary": {
+        "en": "MTBF/MTTR, spare parts, preventive maintenance, RCA, and criticality matrix.",
+        "tr": "MTBF/MTTR, spare parts, preventive maintenance, RCA, and criticality matrix.",
+        "de": "MTBF/MTTR, spare parts, preventive maintenance, RCA, and criticality matrix.",
+        "fr": "MTBF/MTTR, spare parts, preventive maintenance, RCA, and criticality matrix.",
+        "es": "MTBF/MTTR, spare parts, preventive maintenance, RCA, and criticality matrix.",
+        "ar": "MTBF/MTTR, spare parts, preventive maintenance, RCA, and criticality matrix."
+      },
+      "toolCount": 5,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/maintenance-reliability",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/maintenance-reliability",
+        "de": "https://www.sectorcalc.com/de/pro-tools/maintenance-reliability",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/maintenance-reliability",
+        "es": "https://www.sectorcalc.com/es/pro-tools/maintenance-reliability",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/maintenance-reliability"
+      }
+    },
+    {
+      "slug": "hse-ergonomics",
+      "title": {
+        "en": "HSE, Ergonomics & Risk Cost",
+        "de": "HSE, Ergonomie & Risikokosten",
+        "fr": "HSE, ergonomie et coût des risques",
+        "es": "HSE, ergonomía y coste de riesgo",
+        "ar": "السلامة والصحة المهنية وعلم الإنسان وتكلفة المخاطر"
+      },
+      "summary": {
+        "en": "Accident cost, OHS investment, noise/vibration, and ergonomic losses.",
+        "tr": "Accident cost, OHS investment, noise/vibration, and ergonomic losses.",
+        "de": "Accident cost, OHS investment, noise/vibration, and ergonomic losses.",
+        "fr": "Accident cost, OHS investment, noise/vibration, and ergonomic losses.",
+        "es": "Accident cost, OHS investment, noise/vibration, and ergonomic losses.",
+        "ar": "Accident cost, OHS investment, noise/vibration, and ergonomic losses."
+      },
+      "toolCount": 5,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/hse-ergonomics",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/hse-ergonomics",
+        "de": "https://www.sectorcalc.com/de/pro-tools/hse-ergonomics",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/hse-ergonomics",
+        "es": "https://www.sectorcalc.com/es/pro-tools/hse-ergonomics",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/hse-ergonomics"
+      }
+    },
+    {
+      "slug": "procurement-supply-chain",
+      "title": {
+        "en": "Procurement, Supply Chain & Logistics",
+        "de": "Beschaffung, Lieferkette & Logistik",
+        "fr": "Achats, chaîne d'approvisionnement et logistique",
+        "es": "Compras, cadena de suministro y logística",
+        "ar": "المشتريات وسلسلة التوريد واللوجستيات"
+      },
+      "summary": {
+        "en": "Supplier TCO, transport mode, MOQ, import/domestic risk, warehouse, and reverse logistics.",
+        "tr": "Supplier TCO, transport mode, MOQ, import/domestic risk, warehouse, and reverse logistics.",
+        "de": "Supplier TCO, transport mode, MOQ, import/domestic risk, warehouse, and reverse logistics.",
+        "fr": "Supplier TCO, transport mode, MOQ, import/domestic risk, warehouse, and reverse logistics.",
+        "es": "Supplier TCO, transport mode, MOQ, import/domestic risk, warehouse, and reverse logistics.",
+        "ar": "Supplier TCO, transport mode, MOQ, import/domestic risk, warehouse, and reverse logistics."
+      },
+      "toolCount": 18,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/procurement-supply-chain",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/procurement-supply-chain",
+        "de": "https://www.sectorcalc.com/de/pro-tools/procurement-supply-chain",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/procurement-supply-chain",
+        "es": "https://www.sectorcalc.com/es/pro-tools/procurement-supply-chain",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/procurement-supply-chain"
+      }
+    },
+    {
+      "slug": "workforce-hr",
+      "title": {
+        "en": "Workforce, Shift & HR Cost",
+        "de": "Belegschaft, Schicht & HR-Kosten",
+        "fr": "Effectifs, équipes et coûts RH",
+        "es": "Plantilla, turnos y costes de RR. HH.",
+        "ar": "القوى العاملة والورديات وتكاليف الموارد البشرية"
+      },
+      "summary": {
+        "en": "Turnover, shift, bonus, training ROI, and overtime/new hire decision.",
+        "tr": "Turnover, shift, bonus, training ROI, and overtime/new hire decision.",
+        "de": "Turnover, shift, bonus, training ROI, and overtime/new hire decision.",
+        "fr": "Turnover, shift, bonus, training ROI, and overtime/new hire decision.",
+        "es": "Turnover, shift, bonus, training ROI, and overtime/new hire decision.",
+        "ar": "Turnover, shift, bonus, training ROI, and overtime/new hire decision."
+      },
+      "toolCount": 9,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/workforce-hr",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/workforce-hr",
+        "de": "https://www.sectorcalc.com/de/pro-tools/workforce-hr",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/workforce-hr",
+        "es": "https://www.sectorcalc.com/es/pro-tools/workforce-hr",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/workforce-hr"
+      }
+    },
+    {
+      "slug": "finance-sales-working-capital",
+      "title": {
+        "en": "Finance, Sales & Working Capital",
+        "de": "Finanzen, Vertrieb & Working Capital",
+        "fr": "Finance, ventes et fonds de roulement",
+        "es": "Finanzas, ventas y capital circulante",
+        "ar": "المالية والمبيعات ورأس المال العامل"
+      },
+      "summary": {
+        "en": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity, and price elasticity.",
+        "tr": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity, and price elasticity.",
+        "de": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity, and price elasticity.",
+        "fr": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity, and price elasticity.",
+        "es": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity, and price elasticity.",
+        "ar": "CLV/CAC, churn, channel profitability, warranty, cash cycle, hedging, leasing, maturity, and price elasticity."
+      },
+      "toolCount": 114,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/finance-sales-working-capital",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/finance-sales-working-capital",
+        "de": "https://www.sectorcalc.com/de/pro-tools/finance-sales-working-capital",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/finance-sales-working-capital",
+        "es": "https://www.sectorcalc.com/es/pro-tools/finance-sales-working-capital",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/finance-sales-working-capital"
+      }
+    },
+    {
+      "slug": "sustainability-resource-esg",
+      "title": {
+        "en": "Sustainability, Resources & ESG",
+        "de": "Nachhaltigkeit, Ressourcen & ESG",
+        "fr": "Durabilité, ressources et ESG",
+        "es": "Sostenibilidad, recursos y ESG",
+        "ar": "الاستدامة والموارد وحوكمة ESG"
+      },
+      "summary": {
+        "en": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM, and Scope emissions.",
+        "tr": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM, and Scope emissions.",
+        "de": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM, and Scope emissions.",
+        "fr": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM, and Scope emissions.",
+        "es": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM, and Scope emissions.",
+        "ar": "Water, waste, ISO 50001, circular economy, solar/wind, CBAM, and Scope emissions."
+      },
+      "toolCount": 26,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/sustainability-resource-esg",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/sustainability-resource-esg",
+        "de": "https://www.sectorcalc.com/de/pro-tools/sustainability-resource-esg",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/sustainability-resource-esg",
+        "es": "https://www.sectorcalc.com/es/pro-tools/sustainability-resource-esg",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/sustainability-resource-esg"
+      }
+    },
+    {
+      "slug": "food-cold-chain-hygiene",
+      "title": {
+        "en": "Food, Cold Chain & Hygiene",
+        "de": "Lebensmittel, Kühlkette & Hygiene",
+        "fr": "Alimentation, chaîne du froid et hygiène",
+        "es": "Alimentación, cadena de frío e higiene",
+        "ar": "الغذاء وسلسلة التبريد والنظافة"
+      },
+      "summary": {
+        "en": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost, and hygiene chemicals.",
+        "tr": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost, and hygiene chemicals.",
+        "de": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost, and hygiene chemicals.",
+        "fr": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost, and hygiene chemicals.",
+        "es": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost, and hygiene chemicals.",
+        "ar": "Shelf life, recipe cost, HACCP, cold chain, restaurant plate cost, and hygiene chemicals."
+      },
+      "toolCount": 8,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/food-cold-chain-hygiene",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/food-cold-chain-hygiene",
+        "de": "https://www.sectorcalc.com/de/pro-tools/food-cold-chain-hygiene",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/food-cold-chain-hygiene",
+        "es": "https://www.sectorcalc.com/es/pro-tools/food-cold-chain-hygiene",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/food-cold-chain-hygiene"
+      }
+    },
+    {
+      "slug": "textile-print-lab",
+      "title": {
+        "en": "Textile, Printing & Laboratory",
+        "de": "Textil, Druck & Labor",
+        "fr": "Textile, impression et laboratoire",
+        "es": "Textil, impresión y laboratorio",
+        "ar": "النسيج والطباعة والمختبر"
+      },
+      "summary": {
+        "en": "Fabric laying, sewing line, dyeing/finishing, printing waste, and lab analysis cost.",
+        "tr": "Fabric laying, sewing line, dyeing/finishing, printing waste, and lab analysis cost.",
+        "de": "Fabric laying, sewing line, dyeing/finishing, printing waste, and lab analysis cost.",
+        "fr": "Fabric laying, sewing line, dyeing/finishing, printing waste, and lab analysis cost.",
+        "es": "Fabric laying, sewing line, dyeing/finishing, printing waste, and lab analysis cost.",
+        "ar": "Fabric laying, sewing line, dyeing/finishing, printing waste, and lab analysis cost."
+      },
+      "toolCount": 10,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/textile-print-lab",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/textile-print-lab",
+        "de": "https://www.sectorcalc.com/de/pro-tools/textile-print-lab",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/textile-print-lab",
+        "es": "https://www.sectorcalc.com/es/pro-tools/textile-print-lab",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/textile-print-lab"
+      }
+    },
+    {
+      "slug": "electrical-power-systems",
+      "title": {
+        "en": "Electrical, Panel & Power Systems",
+        "de": "Elektrik, Schaltschrank & Energiesysteme",
+        "fr": "Électricité, armoires et systèmes d'alimentation",
+        "es": "Electricidad, cuadros y sistemas de potencia",
+        "ar": "الأنظمة الكهربائية واللوحات والطاقة"
+      },
+      "summary": {
+        "en": "Panel heat load, cable cross-section, compensation, generator, and UPS capacity selection.",
+        "tr": "Panel heat load, cable cross-section, compensation, generator, and UPS capacity selection.",
+        "de": "Panel heat load, cable cross-section, compensation, generator, and UPS capacity selection.",
+        "fr": "Panel heat load, cable cross-section, compensation, generator, and UPS capacity selection.",
+        "es": "Panel heat load, cable cross-section, compensation, generator, and UPS capacity selection.",
+        "ar": "Panel heat load, cable cross-section, compensation, generator, and UPS capacity selection."
+      },
+      "toolCount": 22,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/electrical-power-systems",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/electrical-power-systems",
+        "de": "https://www.sectorcalc.com/de/pro-tools/electrical-power-systems",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/electrical-power-systems",
+        "es": "https://www.sectorcalc.com/es/pro-tools/electrical-power-systems",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/electrical-power-systems"
+      }
+    },
+    {
+      "slug": "mechanical-hvac-energy-loss",
+      "title": {
+        "en": "Mechanical, HVAC & Energy Loss",
+        "de": "Mechanik, HVAC & Energieverlust",
+        "fr": "Mécanique, CVC et pertes énergétiques",
+        "es": "Mecánica, HVAC y pérdida energética",
+        "ar": "الميكانيكا وتكييف الهواء وفقد الطاقة"
+      },
+      "summary": {
+        "en": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum, and hydraulic systems.",
+        "tr": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum, and hydraulic systems.",
+        "de": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum, and hydraulic systems.",
+        "fr": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum, and hydraulic systems.",
+        "es": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum, and hydraulic systems.",
+        "ar": "Welding cost, solder, adhesive, heat load, duct, insulation, steam, heat exchanger, vacuum, and hydraulic systems."
+      },
+      "toolCount": 16,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/mechanical-hvac-energy-loss",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/mechanical-hvac-energy-loss",
+        "de": "https://www.sectorcalc.com/de/pro-tools/mechanical-hvac-energy-loss",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/mechanical-hvac-energy-loss",
+        "es": "https://www.sectorcalc.com/es/pro-tools/mechanical-hvac-energy-loss",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/mechanical-hvac-energy-loss"
+      }
+    },
+    {
+      "slug": "packaging-local-business",
+      "title": {
+        "en": "Packaging & Local Business Tools",
+        "de": "Verpackung & lokale Geschäftstools",
+        "fr": "Emballage et outils métier locaux",
+        "es": "Embalaje y herramientas locales",
+        "ar": "التعبئة وأدوات الأعمال المحلية"
+      },
+      "summary": {
+        "en": "Packaging volume, material change, pallet configuration, and auto service quote consistency.",
+        "tr": "Packaging volume, material change, pallet configuration, and auto service quote consistency.",
+        "de": "Packaging volume, material change, pallet configuration, and auto service quote consistency.",
+        "fr": "Packaging volume, material change, pallet configuration, and auto service quote consistency.",
+        "es": "Packaging volume, material change, pallet configuration, and auto service quote consistency.",
+        "ar": "Packaging volume, material change, pallet configuration, and auto service quote consistency."
+      },
+      "toolCount": 6,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/packaging-local-business",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/packaging-local-business",
+        "de": "https://www.sectorcalc.com/de/pro-tools/packaging-local-business",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/packaging-local-business",
+        "es": "https://www.sectorcalc.com/es/pro-tools/packaging-local-business",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/packaging-local-business"
+      }
+    },
+    {
+      "slug": "global-compliance-trade",
+      "title": {
+        "en": "Global Compliance, Trade & Tax",
+        "de": "Compliance, Handel & Steuern",
+        "fr": "Conformité, commerce et fiscalité",
+        "es": "Cumplimiento, comercio e impuestos",
+        "ar": "الامتثال والتجارة والضرائب"
+      },
+      "summary": {
+        "en": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA, and country risk premium.",
+        "tr": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA, and country risk premium.",
+        "de": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA, and country risk premium.",
+        "fr": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA, and country risk premium.",
+        "es": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA, and country risk premium.",
+        "ar": "Data/privacy, IFRS/SOX, AML/KYC, supply chain risk, transfer pricing, FTA, and country risk premium."
+      },
+      "toolCount": 10,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/global-compliance-trade",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/global-compliance-trade",
+        "de": "https://www.sectorcalc.com/de/pro-tools/global-compliance-trade",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/global-compliance-trade",
+        "es": "https://www.sectorcalc.com/es/pro-tools/global-compliance-trade",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/global-compliance-trade"
+      }
+    },
+    {
+      "slug": "technology-ai-cloud-cyber",
+      "title": {
+        "en": "Technology, AI, Cloud & Cyber Risk",
+        "de": "Technologie, KI, Cloud & Cyberrisiko",
+        "fr": "Technologie, IA, cloud et risque cyber",
+        "es": "Tecnología, IA, nube y riesgo cibernético",
+        "ar": "التكنولوجيا والذكاء الاصطناعي والسحابة والمخاطر السيبرانية"
+      },
+      "summary": {
+        "en": "Cloud cost, SaaS shelfware, AI token, automation ROI, EU AI Act, EOR, localization, and cyber security.",
+        "tr": "Cloud cost, SaaS shelfware, AI token, automation ROI, EU AI Act, EOR, localization, and cyber security.",
+        "de": "Cloud cost, SaaS shelfware, AI token, automation ROI, EU AI Act, EOR, localization, and cyber security.",
+        "fr": "Cloud cost, SaaS shelfware, AI token, automation ROI, EU AI Act, EOR, localization, and cyber security.",
+        "es": "Cloud cost, SaaS shelfware, AI token, automation ROI, EU AI Act, EOR, localization, and cyber security.",
+        "ar": "Cloud cost, SaaS shelfware, AI token, automation ROI, EU AI Act, EOR, localization, and cyber security."
+      },
+      "toolCount": 21,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/technology-ai-cloud-cyber",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/technology-ai-cloud-cyber",
+        "de": "https://www.sectorcalc.com/de/pro-tools/technology-ai-cloud-cyber",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/technology-ai-cloud-cyber",
+        "es": "https://www.sectorcalc.com/es/pro-tools/technology-ai-cloud-cyber",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/technology-ai-cloud-cyber"
+      }
+    },
+    {
+      "slug": "mathematics-statistics",
+      "title": {
+        "en": "Mathematics, Statistics & Analytics",
+        "tr": "Matematik, İstatistik ve Analiz",
+        "de": "Mathematics, Statistics & Analytics",
+        "fr": "Mathematics, Statistics & Analytics",
+        "es": "Mathematics, Statistics & Analytics",
+        "ar": "Mathematics, Statistics & Analytics"
+      },
+      "summary": {
+        "en": "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
+        "tr": "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
+        "de": "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
+        "fr": "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
+        "es": "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
+        "ar": "Algebra, calculus, probability, regression, hypothesis testing and data analysis."
+      },
+      "toolCount": 18,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/mathematics-statistics",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/mathematics-statistics",
+        "de": "https://www.sectorcalc.com/de/pro-tools/mathematics-statistics",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/mathematics-statistics",
+        "es": "https://www.sectorcalc.com/es/pro-tools/mathematics-statistics",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/mathematics-statistics"
+      }
+    },
+    {
+      "slug": "health-fitness-daily-life",
+      "title": {
+        "en": "Health, Sports & Daily Life",
+        "tr": "Sağlık, Spor ve Günlük Yaşam",
+        "de": "Health, Sports & Daily Life",
+        "fr": "Health, Sports & Daily Life",
+        "es": "Health, Sports & Daily Life",
+        "ar": "Health, Sports & Daily Life"
+      },
+      "summary": {
+        "en": "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
+        "tr": "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
+        "de": "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
+        "fr": "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
+        "es": "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
+        "ar": "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators."
+      },
+      "toolCount": 16,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/health-fitness-daily-life",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/health-fitness-daily-life",
+        "de": "https://www.sectorcalc.com/de/pro-tools/health-fitness-daily-life",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/health-fitness-daily-life",
+        "es": "https://www.sectorcalc.com/es/pro-tools/health-fitness-daily-life",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/health-fitness-daily-life"
+      }
+    },
+    {
+      "slug": "conversion-measurement",
+      "title": {
+        "en": "Conversion & Measurement",
+        "tr": "Dönüşüm ve Ölçüm",
+        "de": "Conversion & Measurement",
+        "fr": "Conversion & Measurement",
+        "es": "Conversion & Measurement",
+        "ar": "Conversion & Measurement"
+      },
+      "summary": {
+        "en": "Unit conversion, measurement systems, scales and dimensional analysis tools.",
+        "tr": "Unit conversion, measurement systems, scales and dimensional analysis tools.",
+        "de": "Unit conversion, measurement systems, scales and dimensional analysis tools.",
+        "fr": "Unit conversion, measurement systems, scales and dimensional analysis tools.",
+        "es": "Unit conversion, measurement systems, scales and dimensional analysis tools.",
+        "ar": "Unit conversion, measurement systems, scales and dimensional analysis tools."
+      },
+      "toolCount": 5,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/conversion-measurement",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/conversion-measurement",
+        "de": "https://www.sectorcalc.com/de/pro-tools/conversion-measurement",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/conversion-measurement",
+        "es": "https://www.sectorcalc.com/es/pro-tools/conversion-measurement",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/conversion-measurement"
+      }
+    },
+    {
+      "slug": "automotive-transport",
+      "title": {
+        "en": "Automotive & Transport",
+        "tr": "Otomotiv & Taşımacılık",
+        "de": "Automotive & Transport",
+        "fr": "Automotive & Transport",
+        "es": "Automotive & Transport",
+        "ar": "Automotive & Transport"
+      },
+      "summary": {
+        "en": "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
+        "tr": "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
+        "de": "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
+        "fr": "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
+        "es": "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
+        "ar": "Fuel economy, engine performance, vehicle dynamics and fleet management tools."
+      },
+      "toolCount": 7,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/automotive-transport",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/automotive-transport",
+        "de": "https://www.sectorcalc.com/de/pro-tools/automotive-transport",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/automotive-transport",
+        "es": "https://www.sectorcalc.com/es/pro-tools/automotive-transport",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/automotive-transport"
+      }
+    },
+    {
+      "slug": "agriculture-food-beverage",
+      "title": {
+        "en": "Agriculture, Food & Beverage",
+        "tr": "Tarım, Gıda & İçecek",
+        "de": "Agriculture, Food & Beverage",
+        "fr": "Agriculture, Food & Beverage",
+        "es": "Agriculture, Food & Beverage",
+        "ar": "Agriculture, Food & Beverage"
+      },
+      "summary": {
+        "en": "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
+        "tr": "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
+        "de": "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
+        "fr": "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
+        "es": "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
+        "ar": "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools."
+      },
+      "toolCount": 1,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/agriculture-food-beverage",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/agriculture-food-beverage",
+        "de": "https://www.sectorcalc.com/de/pro-tools/agriculture-food-beverage",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/agriculture-food-beverage",
+        "es": "https://www.sectorcalc.com/es/pro-tools/agriculture-food-beverage",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/agriculture-food-beverage"
+      }
+    },
+    {
+      "slug": "maritime-shipping",
+      "title": {
+        "en": "Maritime & Shipping",
+        "tr": "Denizcilik & Nakliye",
+        "de": "Maritime & Shipping",
+        "fr": "Maritime & Shipping",
+        "es": "Maritime & Shipping",
+        "ar": "Maritime & Shipping"
+      },
+      "summary": {
+        "en": "Ship stability, cargo calculations, port operations and maritime safety tools.",
+        "tr": "Ship stability, cargo calculations, port operations and maritime safety tools.",
+        "de": "Ship stability, cargo calculations, port operations and maritime safety tools.",
+        "fr": "Ship stability, cargo calculations, port operations and maritime safety tools.",
+        "es": "Ship stability, cargo calculations, port operations and maritime safety tools.",
+        "ar": "Ship stability, cargo calculations, port operations and maritime safety tools."
+      },
+      "toolCount": 6,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/maritime-shipping",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/maritime-shipping",
+        "de": "https://www.sectorcalc.com/de/pro-tools/maritime-shipping",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/maritime-shipping",
+        "es": "https://www.sectorcalc.com/es/pro-tools/maritime-shipping",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/maritime-shipping"
+      }
+    },
+    {
+      "slug": "mining-geology",
+      "title": {
+        "en": "Mining & Geology",
+        "tr": "Madencilik & Jeoloji",
+        "de": "Mining & Geology",
+        "fr": "Mining & Geology",
+        "es": "Mining & Geology",
+        "ar": "Mining & Geology"
+      },
+      "summary": {
+        "en": "Ore grade, drilling, blasting, mineral processing and geological survey tools.",
+        "tr": "Ore grade, drilling, blasting, mineral processing and geological survey tools.",
+        "de": "Ore grade, drilling, blasting, mineral processing and geological survey tools.",
+        "fr": "Ore grade, drilling, blasting, mineral processing and geological survey tools.",
+        "es": "Ore grade, drilling, blasting, mineral processing and geological survey tools.",
+        "ar": "Ore grade, drilling, blasting, mineral processing and geological survey tools."
+      },
+      "toolCount": 5,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/mining-geology",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/mining-geology",
+        "de": "https://www.sectorcalc.com/de/pro-tools/mining-geology",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/mining-geology",
+        "es": "https://www.sectorcalc.com/es/pro-tools/mining-geology",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/mining-geology"
+      }
+    },
+    {
+      "slug": "furniture-woodworking",
+      "title": {
+        "en": "Furniture & Woodworking",
+        "tr": "Mobilya & Ahşap İşleri",
+        "de": "Furniture & Woodworking",
+        "fr": "Furniture & Woodworking",
+        "es": "Furniture & Woodworking",
+        "ar": "Furniture & Woodworking"
+      },
+      "summary": {
+        "en": "Lumber volume, furniture costing, board foot and workshop material tools.",
+        "tr": "Lumber volume, furniture costing, board foot and workshop material tools.",
+        "de": "Lumber volume, furniture costing, board foot and workshop material tools.",
+        "fr": "Lumber volume, furniture costing, board foot and workshop material tools.",
+        "es": "Lumber volume, furniture costing, board foot and workshop material tools.",
+        "ar": "Lumber volume, furniture costing, board foot and workshop material tools."
+      },
+      "toolCount": 0,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/furniture-woodworking",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/furniture-woodworking",
+        "de": "https://www.sectorcalc.com/de/pro-tools/furniture-woodworking",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/furniture-woodworking",
+        "es": "https://www.sectorcalc.com/es/pro-tools/furniture-woodworking",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/furniture-woodworking"
+      }
+    },
+    {
+      "slug": "cleaning-facility",
+      "title": {
+        "en": "Cleaning & Facility Management",
+        "tr": "Temizlik & Tesis Yönetimi",
+        "de": "Cleaning & Facility Management",
+        "fr": "Cleaning & Facility Management",
+        "es": "Cleaning & Facility Management",
+        "ar": "Cleaning & Facility Management"
+      },
+      "summary": {
+        "en": "Solution dilution, detergent dosage, surface area and labor time calculators.",
+        "tr": "Solution dilution, detergent dosage, surface area and labor time calculators.",
+        "de": "Solution dilution, detergent dosage, surface area and labor time calculators.",
+        "fr": "Solution dilution, detergent dosage, surface area and labor time calculators.",
+        "es": "Solution dilution, detergent dosage, surface area and labor time calculators.",
+        "ar": "Solution dilution, detergent dosage, surface area and labor time calculators."
+      },
+      "toolCount": 0,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/cleaning-facility",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/cleaning-facility",
+        "de": "https://www.sectorcalc.com/de/pro-tools/cleaning-facility",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/cleaning-facility",
+        "es": "https://www.sectorcalc.com/es/pro-tools/cleaning-facility",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/cleaning-facility"
+      }
+    },
+    {
+      "slug": "water-wastewater",
+      "title": {
+        "en": "Water & Wastewater",
+        "tr": "Su & Atıksu Yönetimi",
+        "de": "Water & Wastewater",
+        "fr": "Water & Wastewater",
+        "es": "Water & Wastewater",
+        "ar": "Water & Wastewater"
+      },
+      "summary": {
+        "en": "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
+        "tr": "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
+        "de": "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
+        "fr": "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
+        "es": "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
+        "ar": "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools."
+      },
+      "toolCount": 2,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/water-wastewater",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/water-wastewater",
+        "de": "https://www.sectorcalc.com/de/pro-tools/water-wastewater",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/water-wastewater",
+        "es": "https://www.sectorcalc.com/es/pro-tools/water-wastewater",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/water-wastewater"
+      }
+    },
+    {
+      "slug": "tourism-hospitality",
+      "title": {
+        "en": "Tourism & Hospitality",
+        "tr": "Turizm & Konaklama",
+        "de": "Tourism & Hospitality",
+        "fr": "Tourism & Hospitality",
+        "es": "Tourism & Hospitality",
+        "ar": "Tourism & Hospitality"
+      },
+      "summary": {
+        "en": "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools.",
+        "tr": "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools.",
+        "de": "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools.",
+        "fr": "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools.",
+        "es": "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools.",
+        "ar": "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools."
+      },
+      "toolCount": 0,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/tourism-hospitality",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/tourism-hospitality",
+        "de": "https://www.sectorcalc.com/de/pro-tools/tourism-hospitality",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/tourism-hospitality",
+        "es": "https://www.sectorcalc.com/es/pro-tools/tourism-hospitality",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/tourism-hospitality"
+      }
+    },
+    {
+      "slug": "education-academic",
+      "title": {
+        "en": "Education & Academic",
+        "tr": "Eğitim & Akademik",
+        "de": "Education & Academic",
+        "fr": "Education & Academic",
+        "es": "Education & Academic",
+        "ar": "Education & Academic"
+      },
+      "summary": {
+        "en": "GPA, grade, exam score, college planning and study tools.",
+        "tr": "GPA, grade, exam score, college planning and study tools.",
+        "de": "GPA, grade, exam score, college planning and study tools.",
+        "fr": "GPA, grade, exam score, college planning and study tools.",
+        "es": "GPA, grade, exam score, college planning and study tools.",
+        "ar": "GPA, grade, exam score, college planning and study tools."
+      },
+      "toolCount": 2,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/education-academic",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/education-academic",
+        "de": "https://www.sectorcalc.com/de/pro-tools/education-academic",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/education-academic",
+        "es": "https://www.sectorcalc.com/es/pro-tools/education-academic",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/education-academic"
+      }
+    },
+    {
+      "slug": "real-estate-property",
+      "title": {
+        "en": "Real Estate & Property",
+        "tr": "Emlak & Gayrimenkul",
+        "de": "Real Estate & Property",
+        "fr": "Real Estate & Property",
+        "es": "Real Estate & Property",
+        "ar": "Real Estate & Property"
+      },
+      "summary": {
+        "en": "Mortgage, property valuation, rental yield and home affordability calculators.",
+        "tr": "Mortgage, property valuation, rental yield and home affordability calculators.",
+        "de": "Mortgage, property valuation, rental yield and home affordability calculators.",
+        "fr": "Mortgage, property valuation, rental yield and home affordability calculators.",
+        "es": "Mortgage, property valuation, rental yield and home affordability calculators.",
+        "ar": "Mortgage, property valuation, rental yield and home affordability calculators."
+      },
+      "toolCount": 0,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/real-estate-property",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/real-estate-property",
+        "de": "https://www.sectorcalc.com/de/pro-tools/real-estate-property",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/real-estate-property",
+        "es": "https://www.sectorcalc.com/es/pro-tools/real-estate-property",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/real-estate-property"
+      }
+    },
+    {
+      "slug": "aerospace-aviation",
+      "title": {
+        "en": "Aerospace & Aviation",
+        "tr": "Havacılık & Uzay",
+        "de": "Aerospace & Aviation",
+        "fr": "Aerospace & Aviation",
+        "es": "Aerospace & Aviation",
+        "ar": "Aerospace & Aviation"
+      },
+      "summary": {
+        "en": "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
+        "tr": "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
+        "de": "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
+        "fr": "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
+        "es": "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
+        "ar": "Flight performance, aerodynamics, fuel range and spacecraft engineering tools."
+      },
+      "toolCount": 0,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/aerospace-aviation",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/aerospace-aviation",
+        "de": "https://www.sectorcalc.com/de/pro-tools/aerospace-aviation",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/aerospace-aviation",
+        "es": "https://www.sectorcalc.com/es/pro-tools/aerospace-aviation",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/aerospace-aviation"
+      }
+    },
+    {
+      "slug": "other",
+      "title": {
+        "en": "Other & Cross-Field Tools",
+        "tr": "Diğer ve Çapraz Alan Araçları",
+        "de": "Other & Cross-Field Tools",
+        "fr": "Other & Cross-Field Tools",
+        "es": "Other & Cross-Field Tools",
+        "ar": "Other & Cross-Field Tools"
+      },
+      "summary": {
+        "en": "General-purpose and cross-domain calculators not fitting a single category.",
+        "tr": "General-purpose and cross-domain calculators not fitting a single category.",
+        "de": "General-purpose and cross-domain calculators not fitting a single category.",
+        "fr": "General-purpose and cross-domain calculators not fitting a single category.",
+        "es": "General-purpose and cross-domain calculators not fitting a single category.",
+        "ar": "General-purpose and cross-domain calculators not fitting a single category."
+      },
+      "toolCount": 50,
+      "categoryUrl": {
+        "en": "https://www.sectorcalc.com/pro-tools/other",
+        "tr": "https://www.sectorcalc.com/tr/pro-tools/other",
+        "de": "https://www.sectorcalc.com/de/pro-tools/other",
+        "fr": "https://www.sectorcalc.com/fr/pro-tools/other",
+        "es": "https://www.sectorcalc.com/es/pro-tools/other",
+        "ar": "https://www.sectorcalc.com/ar/pro-tools/other"
+      }
+    }
+  ]
+}

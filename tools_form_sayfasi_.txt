@@ -1,0 +1,594 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SectorCalc PRO — Freight Landed Cost &amp; Chargeable Weight</title>
+<style>
+  :root{
+    --bg:#F0EEE6;          /* Anthropic clay */
+    --surface:#FAF9F5;     /* paper */
+    --surface-2:#F4F2EA;   /* recessed */
+    --ink:#1A1915;         /* near-black, not pure */
+    --ink-70:rgba(26,25,21,.70);
+    --ink-50:rgba(26,25,21,.50);
+    --ink-38:rgba(26,25,21,.38);
+    --accent:#BD5D3A;      /* terracotta */
+    --accent-12:rgba(189,93,58,.12);
+    --accent-24:rgba(189,93,58,.24);
+    --line:rgba(26,25,21,.10);
+    --line-18:rgba(26,25,21,.18);
+    --ok:#4F6F52;          /* muted reseda, used sparingly for "pass" */
+    --serif:Georgia,'Times New Roman',Times,serif;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
+    padding:0 0 96px;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  ::selection{background:var(--accent-24)}
+  a{color:var(--accent)}
+
+  /* ---------- masthead ---------- */
+  .masthead{border-bottom:1px solid var(--line);padding:26px 0 18px;margin-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50)}
+  .mast-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  h1{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.08;margin:6px 0 0;letter-spacing:-.01em;max-width:18ch}
+  .mast-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right}
+  .pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid var(--line-18);padding:4px 9px;color:var(--ink-70);white-space:nowrap}
+  .pill.accent{border-color:var(--accent);color:var(--accent)}
+  .stds{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:520px}
+  .std{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--ink-50);
+    border-bottom:1px solid var(--line);padding-bottom:1px}
+
+  /* ---------- layout ---------- */
+  .grid{display:grid;grid-template-columns:1fr 392px;gap:28px;align-items:start}
+  @media(max-width:1000px){.grid{grid-template-columns:1fr}}
+
+  /* ---------- form ---------- */
+  .group{margin-bottom:26px}
+  .group-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--ink);
+    padding-bottom:7px;margin-bottom:16px}
+  .group-letter{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+  .group-title{font-family:var(--serif);font-size:18px;font-weight:600}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+  @media(max-width:560px){.fields{grid-template-columns:1fr}}
+  .field.span{grid-column:1/-1}
+
+  .field label{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+  .f-name{font-weight:550;font-size:13.5px}
+  .f-sym{font-family:var(--mono);font-size:11px;color:var(--ink-38);margin-left:auto}
+  .chip{font-family:var(--mono);font-size:9px;letter-spacing:.06em;padding:1px 5px;border:1px solid var(--line-18);color:var(--ink-50)}
+  .chip.kesin{color:var(--ok);border-color:rgba(79,111,82,.4)}
+  .chip.guclu{color:var(--ink-70)}
+  .chip.orta{color:var(--accent);border-color:var(--accent-24)}
+
+  .ctrl{display:flex;align-items:stretch;border:1px solid var(--line-18);background:var(--surface)}
+  .ctrl:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-12)}
+  .ctrl input{
+    -webkit-appearance:none;appearance:none;border:0;background:transparent;
+    font-family:var(--mono);font-size:18px;color:var(--ink);
+    padding:12px 12px;width:100%;text-align:right;min-height:50px;letter-spacing:.01em;
+  }
+  .ctrl input:focus{outline:none}
+  .ctrl input::-webkit-outer-spin-button,.ctrl input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .ctrl input[type=number]{-moz-appearance:textfield}
+  .unit{display:flex;align-items:center;padding:0 12px;font-family:var(--mono);font-size:12px;
+    color:var(--ink-50);background:var(--surface-2);border-left:1px solid var(--line);white-space:nowrap}
+  .step{width:46px;border:0;background:var(--surface-2);color:var(--ink-70);font-size:20px;
+    cursor:pointer;font-family:var(--mono);line-height:1;display:flex;align-items:center;justify-content:center}
+  .step:hover{background:var(--accent-12);color:var(--accent)}
+  .step:active{background:var(--accent-24)}
+  .step.minus{border-right:1px solid var(--line)}
+  .step.plus{border-left:1px solid var(--line)}
+
+  select.ctrl-el,.toggle{
+    -webkit-appearance:none;appearance:none;width:100%;min-height:50px;
+    border:1px solid var(--line-18);background:var(--surface);color:var(--ink);
+    font-family:var(--sans);font-size:15px;padding:0 14px;cursor:pointer;
+  }
+  select.ctrl-el{
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink-50) 50%),linear-gradient(135deg,var(--ink-50) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 22px,calc(100% - 12px) 22px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+  }
+  select.ctrl-el:focus,.toggle:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-12)}
+  .toggle{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:13px;text-align:left}
+  .toggle .state{color:var(--accent);font-weight:600}
+  .toggle[aria-pressed=false] .state{color:var(--ink-38)}
+  .tog-track{width:42px;height:22px;border:1px solid var(--line-18);position:relative;background:var(--surface-2);flex:none}
+  .tog-knob{position:absolute;top:1px;left:1px;width:18px;height:18px;background:var(--ink-38);transition:left .14s,background .14s}
+  .toggle[aria-pressed=true] .tog-knob{left:21px;background:var(--accent)}
+
+  /* reference strip — the RGGS layer */
+  .ref{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px;
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-50);letter-spacing:.01em}
+  .ref b{color:var(--ink-70);font-weight:600}
+  .ref .seg{display:flex;gap:4px;align-items:center}
+  .ref .dot{width:3px;height:3px;background:var(--ink-38);border-radius:50%}
+  .ref .pct{color:var(--accent)}
+  .info{position:relative;cursor:help;border-bottom:1px dotted var(--ink-38);color:var(--ink-70)}
+  .info:hover .tip,.info:focus .tip{opacity:1;transform:translateY(0);pointer-events:auto}
+  .tip{position:absolute;left:0;bottom:130%;width:240px;background:var(--ink);color:var(--surface);
+    font-family:var(--sans);font-size:11.5px;line-height:1.4;letter-spacing:0;padding:9px 11px;
+    opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;pointer-events:none;z-index:20}
+  .tip:after{content:'';position:absolute;left:14px;top:100%;border:5px solid transparent;border-top-color:var(--ink)}
+  .err{color:var(--accent);font-size:11.5px;margin-top:5px;font-weight:500;display:none}
+  .field.invalid .ctrl,.field.invalid select.ctrl-el{border-color:var(--accent)}
+  .field.invalid .err{display:block}
+
+  /* ---------- results rail ---------- */
+  .rail{position:sticky;top:18px;display:flex;flex-direction:column;gap:16px}
+  @media(max-width:1000px){.rail{position:static}}
+  .card{background:var(--surface);border:1px solid var(--line);padding:18px}
+  .card h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-50);margin:0 0 12px;font-weight:600}
+
+  .decision{border:1px solid var(--ink);padding:18px}
+  .decision .d-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50)}
+  .decision .d-text{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15;margin-top:6px}
+  .decision.review{border-color:var(--accent);background:var(--accent-12)}
+  .decision.review .d-text{color:var(--accent)}
+  .decision.ok{border-color:var(--ok)}
+  .decision .d-sub{font-size:12px;color:var(--ink-70);margin-top:8px}
+
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+  .kpi{background:var(--surface);padding:13px 14px}
+  .kpi .k-label{font-size:11px;color:var(--ink-50);letter-spacing:.02em}
+  .kpi .k-val{font-family:var(--mono);font-size:22px;font-weight:500;margin-top:3px;letter-spacing:-.01em;line-height:1.05}
+  .kpi .k-unit{font-size:11px;color:var(--ink-38);font-family:var(--mono)}
+  .kpi.lead{grid-column:1/-1}
+  .kpi.lead .k-val{font-size:30px}
+
+  /* resolver — signature element */
+  .resolver .bar-row{display:flex;align-items:center;gap:10px;margin:9px 0}
+  .resolver .bl{width:78px;font-family:var(--mono);font-size:10.5px;color:var(--ink-70);text-align:right;flex:none}
+  .resolver .track{flex:1;height:20px;background:var(--surface-2);position:relative;border:1px solid var(--line)}
+  .resolver .fill{height:100%;background:var(--ink-38);transition:width .3s}
+  .resolver .bar-row.bind .fill{background:var(--accent)}
+  .resolver .bv{width:62px;font-family:var(--mono);font-size:11px;text-align:left;flex:none}
+  .resolver .bar-row.bind .bv{color:var(--accent);font-weight:600}
+  .resolver .note{font-size:11.5px;color:var(--ink-70);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .resolver .note b{color:var(--accent)}
+
+  /* breakdown */
+  .stack{display:flex;height:26px;border:1px solid var(--line);overflow:hidden}
+  .seg-b{height:100%}
+  .legend{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;margin-top:12px}
+  .lg{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--ink-70)}
+  .lg .sw{width:9px;height:9px;flex:none}
+  .lg .lv{margin-left:auto;font-family:var(--mono);color:var(--ink)}
+
+  /* warnings */
+  .warn{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:12.5px;line-height:1.4}
+  .warn:first-of-type{border-top:0}
+  .wsev{width:9px;height:9px;border-radius:50%;flex:none;margin-top:4px;border:1.5px solid var(--accent)}
+  .warn.CRITICAL .wsev{background:var(--accent)}
+  .warn.WARNING .wsev{background:transparent}
+  .warn.INFO .wsev{border-color:var(--ink-38);background:transparent}
+  .warn .wmsg b{color:var(--accent)}
+  .warn.INFO .wmsg{color:var(--ink-70)}
+  .no-warn{font-size:12.5px;color:var(--ok)}
+
+  /* panels */
+  details{border-top:1px solid var(--line)}
+  details summary{cursor:pointer;list-style:none;padding:13px 0 12px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50);
+    display:flex;align-items:center;justify-content:space-between}
+  details summary::-webkit-details-marker{display:none}
+  details summary .arrow{transition:transform .15s;color:var(--ink-38)}
+  details[open] summary .arrow{transform:rotate(90deg)}
+  .frow{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-top:1px dashed var(--line);
+    font-family:var(--mono);font-size:11px}
+  .frow .fn{color:var(--ink-70)}
+  .frow .fid{color:var(--ink-38);margin-right:8px}
+  .frow .fv{color:var(--ink);text-align:right;white-space:nowrap}
+  .audit-line{font-family:var(--mono);font-size:10.5px;color:var(--ink-70);padding:4px 0;display:flex;justify-content:space-between;gap:12px}
+  .audit-line span:last-child{color:var(--ink)}
+
+  .btn{width:100%;border:1px solid var(--ink);background:var(--ink);color:var(--surface);
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    padding:14px;cursor:pointer}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* mobile sticky decision */
+  .mbar{display:none}
+  @media(max-width:1000px){
+    .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);color:var(--surface);
+      align-items:center;justify-content:space-between;padding:11px 18px;gap:14px;border-top:2px solid var(--accent)}
+    .mbar .ml{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+    .mbar .mv{font-family:var(--mono);font-size:17px}
+    .mbar .md{font-family:var(--serif);font-size:13px;text-align:right;max-width:46%}
+    .mbar.review{border-top-color:var(--accent)}
+  }
+  *:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media print{.rail{position:static}.btn,.mbar,.step,.info{display:none}body{background:#fff;padding:0}}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">SectorCalc PRO · Logistics / Freight / Import Costing</div>
+    <div class="mast-row">
+      <h1>Freight Landed Cost &amp; Chargeable Weight</h1>
+      <div class="mast-meta">
+        <div style="display:flex;gap:8px">
+          <span class="pill accent">PRO</span>
+          <span class="pill">Risk · Medium</span>
+          <span class="pill" id="ccyPill">USD</span>
+        </div>
+        <div class="stds" id="stds"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <main id="form"></main>
+
+    <aside class="rail">
+      <div class="decision" id="decision">
+        <div class="d-label">Decision</div>
+        <div class="d-text" id="dText">Complete required fields</div>
+        <div class="d-sub" id="dSub">Enter shipment geometry, gross weight and freight quote to resolve.</div>
+      </div>
+
+      <div class="card">
+        <h3>Key results</h3>
+        <div class="kpis" id="kpis"></div>
+      </div>
+
+      <div class="card resolver">
+        <h3>Chargeable weight resolver</h3>
+        <div id="resolver"></div>
+      </div>
+
+      <div class="card">
+        <h3>Landed cost breakdown</h3>
+        <div class="stack" id="stack"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+
+      <div class="card" id="warnCard">
+        <h3>Smart warnings</h3>
+        <div id="warnings"></div>
+      </div>
+
+      <div class="card" style="padding-top:4px">
+        <details>
+          <summary>Formula trace · F1–F30 <span class="arrow">›</span></summary>
+          <div id="formulas" style="padding-bottom:10px"></div>
+        </details>
+        <details>
+          <summary>Audit record · ISO 9001 §8.5.1 <span class="arrow">›</span></summary>
+          <div id="audit" style="padding-bottom:12px"></div>
+        </details>
+      </div>
+
+      <button class="btn" onclick="window.print()">Export PDF report</button>
+    </aside>
+  </div>
+</div>
+
+<div class="mbar" id="mbar">
+  <div><div class="ml">Landed / unit</div><div class="mv" id="mUnit">—</div></div>
+  <div class="md" id="mDecision">—</div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG-DRIVEN. The schema below is the single source of truth;
+   swapping it (same shape) re-renders the entire form for any tool.
+   No eval — formulas are deterministic JS in compute(), F1..F30.
+   ============================================================ */
+const SCHEMA = {
+  tool_name:"Freight Landed Cost & Chargeable Weight",
+  currency_input:"currency",
+  formula_version:"1.0.0",
+  traceability_id:"TOOL-PRO-122-FREIGHT-LANDED-COST-001",
+  standards:["ISO 9001:2015","ISO 80000","ICC Incoterms 2020","IATA TACT","FIATA","ISO 6346","ISO 668","ISO 1496","WCO HS","GUM 98-3"],
+  inputs:[
+    {id:"currency",name:"Currency",sym:"CCY",type:"enum",values:["EUR","USD","TRY","GBP"],def:"USD",conf:"KESİN",note:"Display currency only. No FX conversion happens inside this tool."},
+    {id:"freight_mode",name:"Freight Mode",sym:"M",type:"enum",values:["AIR_CARGO","AIR_EXPRESS","ROAD","SEA_LCL","SEA_FCL","RAIL","COURIER"],def:"AIR_CARGO",conf:"KESİN",note:"Mode drives warning logic only. The carrier divisor stays an explicit input."},
+    {id:"incoterm",name:"Incoterm",sym:"INC",type:"enum",values:["EXW","FCA","FOB","CFR","CIF","CPT","CIP","DAP","DPU","DDP"],def:"FOB",conf:"KESİN",note:"Used for warnings and cost-responsibility interpretation. Entered charges remain source of truth."},
+    {id:"shipment_units",name:"Saleable Units",sym:"Q",type:"int",unit:"unit",min:1,max:1e9,step:1,def:200,conf:"KESİN",note:"Number of saleable product units carried by this shipment."},
+    {id:"package_count",name:"Package Count",sym:"N_pkg",type:"int",unit:"pkg",min:1,max:1e7,step:1,def:4,conf:"KESİN",note:"Number of identical packages / pallets / cartons in this line."},
+    {id:"package_length_cm",name:"Package Length",sym:"L",type:"num",unit:"cm",min:0.1,max:2000,step:0.1,def:80,conf:"GÜÇLÜ",note:"Outer package dimension used for volumetric weight."},
+    {id:"package_width_cm",name:"Package Width",sym:"W",type:"num",unit:"cm",min:0.1,max:2000,step:0.1,def:60,conf:"GÜÇLÜ",note:"Outer package dimension used for volumetric weight."},
+    {id:"package_height_cm",name:"Package Height",sym:"H",type:"num",unit:"cm",min:0.1,max:2000,step:0.1,def:60,conf:"GÜÇLÜ",note:"Outer package dimension used for volumetric weight."},
+    {id:"gross_weight_total_kg",name:"Total Gross Weight",sym:"GW",type:"num",unit:"kg",min:0.001,max:1e8,step:0.5,def:180,conf:"GÜÇLÜ",note:"Total actual gross weight including packaging."},
+    {id:"volumetric_divisor_cm3_per_kg",name:"Volumetric Divisor",sym:"D_v",type:"num",unit:"cm³/kg",min:1,max:1e5,step:100,def:6000,conf:"KESİN",ref:"6000 air · 5000 courier",note:"Carrier-specific volumetric divisor. Air commonly 6000; courier may use 5000 or 6000."},
+    {id:"minimum_chargeable_weight_kg",name:"Min Chargeable Weight",sym:"CW_min",type:"num",unit:"kg",min:0,max:1e8,step:0.5,def:0,conf:"KESİN",note:"Minimum billable weight in the freight quote. 0 if none."},
+    {id:"chargeable_rounding_increment_kg",name:"Rounding Increment",sym:"R_cw",type:"num",unit:"kg",min:0.001,max:1e5,step:0.5,def:0.5,conf:"KESİN",ref:"0.5 · 1 · 100",note:"Chargeable weight is always rounded UP to this increment."},
+    {id:"product_value_total",name:"Product Invoice Value",sym:"C_goods",type:"num",unit:"ccy",min:0,max:1e11,step:100,def:12000,conf:"KESİN",note:"Commercial invoice value of goods in the selected currency."},
+    {id:"freight_rate_per_chargeable_kg",name:"Freight Rate / chargeable kg",sym:"R_f",type:"num",unit:"ccy/kg",min:0,max:1e7,step:0.05,def:3.2,conf:"KESİN",note:"Line-haul rate per chargeable kg. Enter 0 if using flat freight only."},
+    {id:"flat_freight_charge",name:"Flat Freight Charge",sym:"C_flat",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:0,conf:"KESİN",note:"Flat freight added on top of weight-based freight."},
+    {id:"minimum_freight_charge",name:"Minimum Freight Charge",sym:"C_f_min",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:75,conf:"KESİN",note:"Minimum payable freight charge."},
+    {id:"fuel_surcharge_rate",name:"Fuel Surcharge",sym:"r_fuel",type:"ratio",unit:"%",min:0,max:10,step:0.01,def:0.18,conf:"GÜÇLÜ",note:"Applied to base freight. Enter 0.18 for 18%."},
+    {id:"security_surcharge_per_kg",name:"Security Surcharge / kg",sym:"R_sec",type:"num",unit:"ccy/kg",min:0,max:1e7,step:0.01,def:0.15,conf:"GÜÇLÜ",note:"Security / screening surcharge per chargeable kg."},
+    {id:"other_freight_surcharge_total",name:"Other Freight Surcharges",sym:"C_ofs",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:40,conf:"GÜÇLÜ",note:"Peak, remote area, congestion, BAF, CAF or war-risk surcharge total."},
+    {id:"origin_local_charges",name:"Origin Local Charges",sym:"C_org",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:90,conf:"GÜÇLÜ",note:"Origin handling, pickup, export clearance, terminal or documentation."},
+    {id:"destination_local_charges",name:"Destination Local Charges",sym:"C_dest",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:120,conf:"GÜÇLÜ",note:"Destination handling, terminal, delivery order or port/airport service."},
+    {id:"origin_inland_transport_cost",name:"Origin Inland Transport",sym:"C_in_org",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:60,conf:"GÜÇLÜ",note:"Factory-to-terminal transport if buyer-paid."},
+    {id:"destination_inland_transport_cost",name:"Destination Inland Transport",sym:"C_in_dest",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:80,conf:"GÜÇLÜ",note:"Terminal-to-warehouse delivery if buyer-paid."},
+    {id:"customs_brokerage_fee",name:"Customs Brokerage Fee",sym:"C_broker",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:85,conf:"GÜÇLÜ",note:"Declaration, broker service, inspection coordination or agency fee."},
+    {id:"storage_demurrage_detention_cost",name:"Storage / Demurrage / Detention",sym:"C_sdd",type:"num",unit:"ccy",min:0,max:1e11,step:10,def:0,conf:"ORTA",note:"Storage, demurrage, detention, exam, scan or hold charges."},
+    {id:"bank_payment_fee",name:"Bank & Payment Fee",sym:"C_bank",type:"num",unit:"ccy",min:0,max:1e11,step:5,def:25,conf:"ORTA",note:"Letter of credit, SWIFT, collection or financing fee."},
+    {id:"product_value_total_anchor"},
+    {id:"insurance_rate",name:"Cargo Insurance Rate",sym:"r_ins",type:"ratio",unit:"%",min:0,max:10,step:0.001,def:0.004,conf:"GÜÇLÜ",note:"Applied to insured value basis. Enter 0.004 for 0.4%."},
+    {id:"insurance_uplift_rate",name:"Insurance Uplift",sym:"r_ins_up",type:"ratio",unit:"%",min:0,max:10,step:0.01,def:0.1,conf:"ORTA",ref:"10% typical",note:"Uplift applied to goods + freight for insured value. Enter 0.10 for 10%."},
+    {id:"customs_value_adjustment",name:"Customs Value Adjustment",sym:"C_c_adj",type:"num",unit:"ccy",min:-1e11,max:1e11,step:10,def:0,conf:"ORTA",note:"Royalties, assists, additions or deductions. May be negative; basis stays ≥ 0."},
+    {id:"duty_rate",name:"Customs Duty Rate",sym:"r_duty",type:"ratio",unit:"%",min:0,max:10,step:0.001,def:0.065,conf:"GÜÇLÜ",note:"Applied to customs value. Enter 0.065 for 6.5%."},
+    {id:"import_tax_rate",name:"Import VAT / GST Rate",sym:"r_tax",type:"ratio",unit:"%",min:0,max:10,step:0.01,def:0.2,conf:"GÜÇLÜ",note:"Import VAT/GST/sales tax on the taxable import base."},
+    {id:"tax_recoverable",name:"Import Tax Recoverable",sym:"T_rec",type:"bool",def:false,conf:"GÜÇLÜ",note:"If ON, import tax is excluded from economic landed cost; cash tax is still reported."},
+    {id:"target_selling_price_per_unit",name:"Target Selling Price / unit",sym:"P_sell",type:"num",unit:"ccy/unit",min:0,max:1e11,step:1,def:95,conf:"GÜÇLÜ",note:"Enter 0 if no margin decision is required."},
+    {id:"minimum_margin_rate",name:"Minimum Gross Margin",sym:"GM_min",type:"ratio",unit:"%",min:0,max:0.999,step:0.01,def:0.25,conf:"GÜÇLÜ",note:"Minimum acceptable gross margin after landed cost. Enter 0.25 for 25%."}
+  ].filter(f=>f.name),
+  groups:[
+    {l:"A",t:"Shipment Basis",f:["currency","freight_mode","incoterm","shipment_units"]},
+    {l:"B",t:"Geometry & Weight",f:["package_count","package_length_cm","package_width_cm","package_height_cm","gross_weight_total_kg"]},
+    {l:"C",t:"Chargeable Weight Rules",f:["volumetric_divisor_cm3_per_kg","minimum_chargeable_weight_kg","chargeable_rounding_increment_kg"]},
+    {l:"D",t:"Freight Quote",f:["freight_rate_per_chargeable_kg","flat_freight_charge","minimum_freight_charge","fuel_surcharge_rate","security_surcharge_per_kg","other_freight_surcharge_total"]},
+    {l:"E",t:"Local & Administrative",f:["origin_local_charges","destination_local_charges","origin_inland_transport_cost","destination_inland_transport_cost","customs_brokerage_fee","storage_demurrage_detention_cost","bank_payment_fee"]},
+    {l:"F",t:"Customs, Insurance & Tax",f:["product_value_total","insurance_rate","insurance_uplift_rate","customs_value_adjustment","duty_rate","import_tax_rate","tax_recoverable"]},
+    {l:"G",t:"Commercial Decision",f:["target_selling_price_per_unit","minimum_margin_rate"]}
+  ]
+};
+
+const byId = Object.fromEntries(SCHEMA.inputs.map(f=>[f.id,f]));
+const state = {};
+SCHEMA.inputs.forEach(f=>state[f.id]=f.def);
+
+const fmtN=(v,d=2)=>{ if(v===null||v===undefined||!isFinite(v))return"—";
+  return Number(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d}); };
+const ccy=()=>state.currency||"USD";
+
+/* ---------- render form ---------- */
+function unitLabel(f){ return f.unit==="ccy"?ccy() : f.unit==="ccy/kg"?ccy()+"/kg" : f.unit==="ccy/unit"?ccy()+"/unit" : f.unit; }
+
+function refStrip(f){
+  if(f.type==="enum"||f.type==="bool") return `<div class="ref"><span class="info" tabindex="0">guidance<span class="tip">${f.note}</span></span></div>`;
+  const segs=[];
+  if(f.type==="ratio"){
+    segs.push(`<span class="seg">range <b>${f.min*100}–${(f.max*100)}%</b></span>`);
+    segs.push(`<span class="seg">ref <b>${(f.def*100).toFixed(f.step<0.01?1:0)}%</b></span>`);
+  }else{
+    segs.push(`<span class="seg">range <b>${fmtN(f.min,f.step<1?1:0)}–${f.max>=1e7?"∞":fmtN(f.max,0)}</b></span>`);
+    segs.push(`<span class="seg">step <b>${f.step}</b></span>`);
+    if(f.ref) segs.push(`<span class="seg">ref <b>${f.ref}</b></span>`);
+    else if(f.def!==null&&f.def!==0) segs.push(`<span class="seg">ref <b>${fmtN(f.def,f.step<1?1:0)}</b></span>`);
+  }
+  return `<div class="ref">${segs.join('<span class="dot"></span>')}<span class="dot"></span><span class="info" tabindex="0">i<span class="tip">${f.note}</span></span><span class="pct" id="pct_${f.id}"></span></div>`;
+}
+
+function renderForm(){
+  const host=document.getElementById("form");
+  host.innerHTML=SCHEMA.groups.map(g=>{
+    const fields=g.f.map(id=>{
+      const f=byId[id]; const span=(f.type==="bool"||f.type==="enum")?"":"";
+      const chip=`<span class="chip ${({"KESİN":"kesin","GÜÇLÜ":"guclu","ORTA":"orta"})[f.conf]||"guclu"}">${f.conf}</span>`;
+      let ctrl="";
+      if(f.type==="enum"){
+        ctrl=`<select class="ctrl-el" data-id="${f.id}">${f.values.map(v=>`<option ${v===state[f.id]?"selected":""}>${v}</option>`).join("")}</select>`;
+      }else if(f.type==="bool"){
+        ctrl=`<button type="button" class="toggle" data-id="${f.id}" aria-pressed="${!!state[f.id]}">
+          <span><span class="tog-track"><span class="tog-knob"></span></span></span>
+          <span class="state">${state[f.id]?"Recoverable — excluded from economic cost":"Not recoverable — included"}</span></button>`;
+      }else{
+        const dispVal = f.type==="ratio" ? state[f.id] : state[f.id];
+        ctrl=`<div class="ctrl">
+          <button type="button" class="step minus" data-id="${f.id}" aria-label="decrease">−</button>
+          <input inputmode="decimal" data-id="${f.id}" value="${dispVal}" aria-label="${f.name}">
+          <button type="button" class="step plus" data-id="${f.id}" aria-label="increase">+</button>
+          <span class="unit">${unitLabel(f)}</span></div>`;
+      }
+      return `<div class="field ${(f.type==='bool'||g.f.length%2===1&&g.f.indexOf(id)===g.f.length-1)?'span':''}" id="field_${f.id}">
+        <label><span class="f-name">${f.name}</span>${chip}<span class="f-sym">${f.sym}</span></label>
+        ${ctrl}${refStrip(f)}
+        <div class="err" id="err_${f.id}"></div></div>`;
+    }).join("");
+    return `<section class="group"><div class="group-head"><span class="group-letter">${g.l}</span><span class="group-title">${g.t}</span></div><div class="fields">${fields}</div></section>`;
+  }).join("");
+
+  host.querySelectorAll("input[data-id]").forEach(inp=>{
+    inp.addEventListener("input",e=>{ setVal(e.target.dataset.id, e.target.value); });
+  });
+  host.querySelectorAll(".step").forEach(btn=>{
+    btn.addEventListener("click",()=>{ const f=byId[btn.dataset.id];
+      const cur=Number(state[f.id])||0; const nv=cur+(btn.classList.contains("plus")?f.step:-f.step);
+      const v=Math.max(f.min, Math.min(f.max, +nv.toFixed(6)));
+      state[f.id]=v; const el=host.querySelector(`input[data-id="${f.id}"]`); el.value=v; recompute(); });
+  });
+  host.querySelectorAll("select[data-id]").forEach(s=>{
+    s.addEventListener("change",e=>{ state[e.target.dataset.id]=e.target.value;
+      if(e.target.dataset.id==="currency"){ document.getElementById("ccyPill").textContent=e.target.value;
+        renderForm(); } recompute(); });
+  });
+  host.querySelectorAll(".toggle").forEach(t=>{
+    t.addEventListener("click",()=>{ const id=t.dataset.id; state[id]=!state[id];
+      t.setAttribute("aria-pressed",state[id]); t.querySelector(".state").textContent=state[id]?"Recoverable — excluded from economic cost":"Not recoverable — included"; recompute(); });
+  });
+}
+function setVal(id,raw){ const f=byId[id]; let v=raw===""?null:Number(raw);
+  state[id]=(v===null||isNaN(v))?null:v; recompute(); }
+
+/* ---------- validation (V1..V17, fail-closed) ---------- */
+function validate(){
+  const e={}; const s=state; const num=id=>Number(s[id]);
+  const req=["shipment_units","package_count","package_length_cm","package_width_cm","package_height_cm","gross_weight_total_kg","volumetric_divisor_cm3_per_kg","product_value_total","freight_rate_per_chargeable_kg"];
+  req.forEach(id=>{ if(s[id]===null||s[id]===undefined||s[id]==="") e[id]="Required."; });
+  if(!e.shipment_units && (num("shipment_units")<1||!Number.isInteger(num("shipment_units")))) e.shipment_units="Must be a positive integer.";
+  if(!e.package_count && (num("package_count")<1||!Number.isInteger(num("package_count")))) e.package_count="Must be a positive integer.";
+  ["package_length_cm","package_width_cm","package_height_cm"].forEach(id=>{ if(!e[id]&&num(id)<=0)e[id]="Must be positive."; });
+  if(!e.gross_weight_total_kg && num("gross_weight_total_kg")<=0) e.gross_weight_total_kg="Must be positive.";
+  if(!e.volumetric_divisor_cm3_per_kg && num("volumetric_divisor_cm3_per_kg")<=0) e.volumetric_divisor_cm3_per_kg="Must be positive.";
+  if(num("chargeable_rounding_increment_kg")<=0) e.chargeable_rounding_increment_kg="Increment must be positive.";
+  if(num("minimum_chargeable_weight_kg")<0) e.minimum_chargeable_weight_kg="Cannot be negative.";
+  if(!e.product_value_total && num("product_value_total")<0) e.product_value_total="Cannot be negative.";
+  ["freight_rate_per_chargeable_kg","flat_freight_charge","minimum_freight_charge","fuel_surcharge_rate","security_surcharge_per_kg","other_freight_surcharge_total","origin_local_charges","destination_local_charges","origin_inland_transport_cost","destination_inland_transport_cost","insurance_rate","insurance_uplift_rate","duty_rate","import_tax_rate","customs_brokerage_fee","storage_demurrage_detention_cost","bank_payment_fee","target_selling_price_per_unit"].forEach(id=>{ if(s[id]!==null&&num(id)<0)e[id]="Cannot be negative."; });
+  if(num("minimum_margin_rate")<0||num("minimum_margin_rate")>=1) e.minimum_margin_rate="Must be 0 to <1.";
+  return e;
+}
+
+/* ---------- compute F1..F30 ---------- */
+function compute(){
+  const s=state, n=id=>Number(s[id]);
+  const F={};
+  F.package_volume_cm3 = n("package_length_cm")*n("package_width_cm")*n("package_height_cm");
+  F.total_volume_cm3 = F.package_volume_cm3*n("package_count");
+  F.total_volume_m3 = F.total_volume_cm3/1e6;
+  F.volumetric_weight_kg = F.total_volume_cm3/n("volumetric_divisor_cm3_per_kg");
+  F.shipment_density_kg_per_m3 = n("gross_weight_total_kg")/Math.max(1e-9,F.total_volume_m3);
+  F.raw_chargeable_weight_kg = Math.max(n("gross_weight_total_kg"),F.volumetric_weight_kg,n("minimum_chargeable_weight_kg"));
+  const R=n("chargeable_rounding_increment_kg");
+  F.chargeable_weight_kg = Math.ceil(F.raw_chargeable_weight_kg/R)*R;
+  F.chargeable_weight_driver = F.raw_chargeable_weight_kg===n("minimum_chargeable_weight_kg") ? "MINIMUM_WEIGHT"
+      : (F.volumetric_weight_kg>n("gross_weight_total_kg")?"VOLUMETRIC_WEIGHT":"GROSS_WEIGHT");
+  F.weight_based_freight_charge = F.chargeable_weight_kg*n("freight_rate_per_chargeable_kg");
+  F.base_freight_charge = Math.max(n("minimum_freight_charge"),F.weight_based_freight_charge+n("flat_freight_charge"));
+  F.fuel_surcharge_cost = F.base_freight_charge*n("fuel_surcharge_rate");
+  F.security_surcharge_cost = F.chargeable_weight_kg*n("security_surcharge_per_kg");
+  F.total_freight_cost = F.base_freight_charge+F.fuel_surcharge_cost+F.security_surcharge_cost+n("other_freight_surcharge_total");
+  F.insurance_value_basis = (n("product_value_total")+F.total_freight_cost)*(1+n("insurance_uplift_rate"));
+  F.insurance_cost = F.insurance_value_basis*n("insurance_rate");
+  F.customs_value_basis = Math.max(0,n("product_value_total")+F.total_freight_cost+F.insurance_cost+n("customs_value_adjustment"));
+  F.customs_duty_cost = F.customs_value_basis*n("duty_rate");
+  F.import_tax_base = F.customs_value_basis+F.customs_duty_cost+n("customs_brokerage_fee")+n("destination_local_charges");
+  F.import_tax_cash_cost = F.import_tax_base*n("import_tax_rate");
+  F.economic_import_tax_cost = s.tax_recoverable?0:F.import_tax_cash_cost;
+  F.total_local_admin_charges = n("origin_local_charges")+n("destination_local_charges")+n("origin_inland_transport_cost")+n("destination_inland_transport_cost")+n("customs_brokerage_fee")+n("storage_demurrage_detention_cost")+n("bank_payment_fee");
+  F.total_landed_cost = n("product_value_total")+F.total_freight_cost+F.insurance_cost+F.customs_duty_cost+F.economic_import_tax_cost+F.total_local_admin_charges;
+  F.landed_cost_per_unit = F.total_landed_cost/n("shipment_units");
+  F.freight_cost_per_unit = F.total_freight_cost/n("shipment_units");
+  F.landed_to_goods_value_ratio = n("product_value_total")>0?F.total_landed_cost/n("product_value_total"):null;
+  F.target_selling_revenue = n("target_selling_price_per_unit")*n("shipment_units");
+  F.gross_margin_after_landed_cost = n("target_selling_price_per_unit")>0?(F.target_selling_revenue-F.total_landed_cost)/F.target_selling_revenue:null;
+  F.required_selling_price_per_unit = n("minimum_margin_rate")<1?F.landed_cost_per_unit/(1-n("minimum_margin_rate")):null;
+  F.margin_gap = F.gross_margin_after_landed_cost===null?null:F.gross_margin_after_landed_cost-n("minimum_margin_rate");
+  F.decision = F.gross_margin_after_landed_cost===null?"COST_ONLY_NO_SELLING_PRICE"
+      : (F.gross_margin_after_landed_cost>=n("minimum_margin_rate")?"LANDED_COST_ACCEPTABLE":"PRICE_OR_FREIGHT_REVIEW_REQUIRED");
+  return F;
+}
+
+/* ---------- smart warnings W1..W9 ---------- */
+function warnings(F){
+  const s=state,n=id=>Number(s[id]); const out=[];
+  if(F.chargeable_weight_driver==="VOLUMETRIC_WEIGHT") out.push(["WARNING","Volumetric weight controls freight cost. Review packaging density and carton/pallet dimensions."]);
+  if(F.volumetric_weight_kg>n("gross_weight_total_kg")*2) out.push(["WARNING","Volumetric weight exceeds 2× gross weight. Low-density shipment — packaging optimization may cut freight cost."]);
+  if(s.freight_mode==="SEA_FCL"&&n("volumetric_divisor_cm3_per_kg")===6000) out.push(["WARNING","Sea FCL is usually costed per container, not with an air-style volumetric divisor. Verify the charge basis."]);
+  if(s.incoterm==="DDP"&&(F.customs_duty_cost+F.import_tax_cash_cost)>0) out.push(["WARNING","DDP normally assigns duty/tax to the seller. Confirm whether the buyer should carry customs charges."]);
+  if(s.tax_recoverable&&F.import_tax_cash_cost>0) out.push(["INFO","Import tax is recoverable and excluded from economic landed cost, but the cash outflow is still reported."]);
+  if(F.landed_to_goods_value_ratio!==null&&F.landed_to_goods_value_ratio>1.5) out.push(["WARNING","Landed cost exceeds 150% of goods value. Review freight mode, duty rate, local charges and consolidation."]);
+  if(F.gross_margin_after_landed_cost!==null&&F.gross_margin_after_landed_cost<n("minimum_margin_rate")) out.push(["CRITICAL","Gross margin after landed cost is below threshold. Raise price, renegotiate freight, consolidate, or change sourcing."]);
+  if(n("storage_demurrage_detention_cost")>F.total_freight_cost*0.25&&F.total_freight_cost>0) out.push(["WARNING","Storage/demurrage/detention is high versus freight. Investigate customs delay, free time and document readiness."]);
+  if(n("duty_rate")>0.25) out.push(["WARNING","High duty rate. Verify HS code, origin preference, anti-dumping exposure and classification."]);
+  return out;
+}
+
+/* ---------- audit hash (deterministic, no crypto dep) ---------- */
+function hash(str){ let h=5381; for(let i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))>>>0; return ("00000000"+h.toString(16)).slice(-8); }
+
+/* ---------- paint ---------- */
+const DRIVER_TXT={VOLUMETRIC_WEIGHT:"Volumetric weight binds",GROSS_WEIGHT:"Gross weight binds",MINIMUM_WEIGHT:"Carrier minimum binds"};
+const DEC_TXT={LANDED_COST_ACCEPTABLE:"Landed cost acceptable",PRICE_OR_FREIGHT_REVIEW_REQUIRED:"Price or freight review required",COST_ONLY_NO_SELLING_PRICE:"Cost computed — no selling price"};
+const SEG=[["product_value_total","Goods","var(--ink)"],["total_freight_cost","Freight","var(--accent)"],["insurance_cost","Insurance","rgba(189,93,58,.55)"],["customs_duty_cost","Duty","rgba(26,25,21,.6)"],["economic_import_tax_cost","Tax (econ.)","rgba(26,25,21,.4)"],["total_local_admin_charges","Local/admin","rgba(26,25,21,.25)"]];
+
+function recompute(){
+  const errs=validate();
+  SCHEMA.inputs.forEach(f=>{ const el=document.getElementById("field_"+f.id); if(!el)return;
+    el.classList.toggle("invalid",!!errs[f.id]); const er=document.getElementById("err_"+f.id); if(er)er.textContent=errs[f.id]||""; });
+  // live % hint for ratio fields
+  SCHEMA.inputs.filter(f=>f.type==="ratio").forEach(f=>{ const p=document.getElementById("pct_"+f.id);
+    if(p){ const v=state[f.id]; p.textContent=(v===null||v==="")?"":"= "+(Number(v)*100).toFixed(2).replace(/\.?0+$/,"")+"%"; }});
+
+  const blocking = Object.keys(errs).some(k=>["shipment_units","package_count","package_length_cm","package_width_cm","package_height_cm","gross_weight_total_kg","volumetric_divisor_cm3_per_kg","product_value_total","freight_rate_per_chargeable_kg","chargeable_rounding_increment_kg","minimum_margin_rate"].includes(k));
+  const dec=document.getElementById("decision");
+  if(blocking){ dec.className="decision"; document.getElementById("dText").textContent="Complete required fields";
+    document.getElementById("dSub").textContent="Resolve the highlighted inputs to compute landed cost."; 
+    paintEmpty(); return; }
+
+  const F=compute();
+
+  // decision
+  dec.className="decision "+(F.decision==="LANDED_COST_ACCEPTABLE"?"ok":F.decision==="PRICE_OR_FREIGHT_REVIEW_REQUIRED"?"review":"");
+  document.getElementById("dText").textContent=DEC_TXT[F.decision];
+  document.getElementById("dSub").textContent = F.gross_margin_after_landed_cost===null
+    ? "Enter a target selling price to evaluate margin."
+    : `Margin after landed cost ${(F.gross_margin_after_landed_cost*100).toFixed(1)}% · target ${(state.minimum_margin_rate*100).toFixed(0)}% · gap ${(F.margin_gap*100).toFixed(1)} pts`;
+
+  // KPIs
+  const C=ccy();
+  const kpis=[
+    ["lead","Total landed cost",fmtN(F.total_landed_cost),C],
+    ["","Landed / unit",fmtN(F.landed_cost_per_unit,2),C+"/u"],
+    ["","Chargeable weight",fmtN(F.chargeable_weight_kg,1),"kg"],
+    ["","Total freight",fmtN(F.total_freight_cost),C],
+    ["","Duty + tax",fmtN(F.customs_duty_cost+F.economic_import_tax_cost),C],
+    ["","Margin after cost",F.gross_margin_after_landed_cost===null?"—":(F.gross_margin_after_landed_cost*100).toFixed(1),F.gross_margin_after_landed_cost===null?"":"%"],
+    ["","Required price / unit",F.required_selling_price_per_unit===null?"—":fmtN(F.required_selling_price_per_unit,2),C+"/u"]
+  ];
+  document.getElementById("kpis").innerHTML=kpis.map(k=>`<div class="kpi ${k[0]}"><div class="k-label">${k[1]}</div><div class="k-val">${k[2]} <span class="k-unit">${k[3]}</span></div></div>`).join("");
+
+  // resolver
+  const gw=Number(state.gross_weight_total_kg),vw=F.volumetric_weight_kg,mw=Number(state.minimum_chargeable_weight_kg);
+  const mx=Math.max(gw,vw,mw,F.chargeable_weight_kg)||1;
+  const rows=[["Gross",gw,"GROSS_WEIGHT"],["Volumetric",vw,"VOLUMETRIC_WEIGHT"],["Minimum",mw,"MINIMUM_WEIGHT"]];
+  document.getElementById("resolver").innerHTML=rows.map(r=>`
+    <div class="bar-row ${F.chargeable_weight_driver===r[2]?'bind':''}">
+      <span class="bl">${r[0]}</span>
+      <span class="track"><span class="fill" style="width:${Math.max(2,r[1]/mx*100)}%"></span></span>
+      <span class="bv">${fmtN(r[1],1)} kg</span></div>`).join("")
+    + `<div class="note"><b>${DRIVER_TXT[F.chargeable_weight_driver]}.</b> Charged at ${fmtN(F.chargeable_weight_kg,1)} kg after rounding up to ${state.chargeable_rounding_increment_kg} kg. Density ${fmtN(F.shipment_density_kg_per_m3,0)} kg/m³ over ${fmtN(F.total_volume_m3,3)} m³.</div>`;
+
+  // breakdown
+  const tot=F.total_landed_cost||1;
+  document.getElementById("stack").innerHTML=SEG.map(sg=>{ const val=sg[0]==="product_value_total"?Number(state.product_value_total):F[sg[0]];
+    return `<span class="seg-b" title="${sg[1]}" style="width:${Math.max(0,val/tot*100)}%;background:${sg[2]}"></span>`; }).join("");
+  document.getElementById("legend").innerHTML=SEG.map(sg=>{ const val=sg[0]==="product_value_total"?Number(state.product_value_total):F[sg[0]];
+    return `<div class="lg"><span class="sw" style="background:${sg[2]}"></span>${sg[1]}<span class="lv">${fmtN(val)}</span></div>`; }).join("");
+
+  // warnings
+  const ws=warnings(F);
+  document.getElementById("warnings").innerHTML = ws.length
+    ? ws.map(w=>`<div class="warn ${w[0]}"><span class="wsev"></span><span class="wmsg"><b>${w[0]}.</b> ${w[1]}</span></div>`).join("")
+    : `<div class="no-warn">No threshold alerts. Inputs within expected operating ranges.</div>`;
+
+  // formula trace
+  const order=[["F1","package_volume_cm3","cm³"],["F2","total_volume_cm3","cm³"],["F3","total_volume_m3","m³",3],["F4","volumetric_weight_kg","kg",2],["F5","shipment_density_kg_per_m3","kg/m³",1],["F6","raw_chargeable_weight_kg","kg",2],["F7","chargeable_weight_kg","kg",2],["F9","weight_based_freight_charge",C],["F10","base_freight_charge",C],["F11","fuel_surcharge_cost",C],["F12","security_surcharge_cost",C],["F13","total_freight_cost",C],["F14","insurance_value_basis",C],["F15","insurance_cost",C],["F16","customs_value_basis",C],["F17","customs_duty_cost",C],["F18","import_tax_base",C],["F19","import_tax_cash_cost",C],["F20","economic_import_tax_cost",C],["F21","total_local_admin_charges",C],["F22","total_landed_cost",C],["F23","landed_cost_per_unit",C+"/u",2],["F24","freight_cost_per_unit",C+"/u",2],["F28","required_selling_price_per_unit",C+"/u",2]];
+  document.getElementById("formulas").innerHTML=order.map(o=>{ const v=F[o[1]]; const d=o[3]!==undefined?o[3]:(typeof o[2]==="string"&&o[2].length<=3&&o[2].indexOf("/")<0&&!["EUR","USD","TRY","GBP"].includes(o[2])?2:2);
+    return `<div class="frow"><span class="fn"><span class="fid">${o[0]}</span>${o[1]}</span><span class="fv">${fmtN(v,o[3]!==undefined?o[3]:2)} ${o[2].length<=4?o[2]:o[2]}</span></div>`; }).join("")
+    + `<div class="frow"><span class="fn"><span class="fid">F8</span>chargeable_weight_driver</span><span class="fv">${F.chargeable_weight_driver}</span></div>`
+    + `<div class="frow"><span class="fn"><span class="fid">F30</span>decision</span><span class="fv">${F.decision}</span></div>`;
+
+  // audit
+  const inputHash=hash(JSON.stringify(state));
+  document.getElementById("audit").innerHTML=[
+    ["Formula version",SCHEMA.formula_version],
+    ["Traceability ID",SCHEMA.traceability_id],
+    ["Timestamp (UTC)",new Date().toISOString().replace("T"," ").slice(0,19)],
+    ["Input hash","#"+inputHash],
+    ["Chargeable driver",F.chargeable_weight_driver],
+    ["Customs basis","screening · "+fmtN(F.customs_value_basis)+" "+C],
+    ["Uncertainty model","GUM 98-3 · RSS Type B"]
+  ].map(a=>`<div class="audit-line"><span>${a[0]}</span><span>${a[1]}</span></div>`).join("");
+
+  // mobile bar
+  const mb=document.getElementById("mbar");
+  mb.className="mbar"+(F.decision==="PRICE_OR_FREIGHT_REVIEW_REQUIRED"?" review":"");
+  document.getElementById("mUnit").textContent=fmtN(F.landed_cost_per_unit,2)+" "+C;
+  document.getElementById("mDecision").textContent=DEC_TXT[F.decision];
+}
+function paintEmpty(){
+  document.getElementById("kpis").innerHTML=`<div class="kpi lead"><div class="k-label">Total landed cost</div><div class="k-val">— <span class="k-unit">${ccy()}</span></div></div>`;
+  document.getElementById("resolver").innerHTML=`<div class="note" style="border-top:0;padding-top:0">Enter geometry, gross weight and divisor to resolve the binding charge basis.</div>`;
+  document.getElementById("stack").innerHTML=""; document.getElementById("legend").innerHTML="";
+  document.getElementById("warnings").innerHTML=`<div class="no-warn" style="color:var(--ink-50)">Awaiting valid inputs.</div>`;
+  document.getElementById("mbar").className="mbar"; document.getElementById("mUnit").textContent="—"; document.getElementById("mDecision").textContent="Fields incomplete";
+}
+
+document.getElementById("stds").innerHTML=SCHEMA.standards.map(s=>`<span class="std">${s}</span>`).join("");
+renderForm();
+recompute();
+</script>

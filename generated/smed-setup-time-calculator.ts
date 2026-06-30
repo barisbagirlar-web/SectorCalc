@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Smed_setup_time_calculatorInput {
+  dataConfidence?: number;
   icAyar: number;
   disAyar: number;
   donusum: number;
-  dataConfidence?: number;
 }
 
 export const Smed_setup_time_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   icAyar: z.number().min(0).default(60),
   disAyar: z.number().min(0).default(15),
   donusum: z.number().min(0).max(100).default(50),
@@ -20,18 +21,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Smed_setup_time_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.icAyar * (1 - input.donusum / 100); results["hedefIc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hedefIc"] = Number.NaN; }
-  try { const v = (input.icAyar * (1 - input.donusum / 100)) + input.disAyar; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["icAyar"] * (1 - input["donusum"] / 100); results["hedefIc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["hedefIc"] = Number.NaN; }
+  try { const v = (input["icAyar"] * (1 - input["donusum"] / 100)) + input["disAyar"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateSmed_setup_time_calculator(input: Smed_setup_time_calculatorInput): Smed_setup_time_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Conduct regular OEE audits for improvement.","Use SMED to reduce setup times."];
   const dataConfidenceAdjusted =
@@ -40,6 +38,7 @@ export function calculateSmed_setup_time_calculator(input: Smed_setup_time_calcu
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -50,21 +49,20 @@ export function calculateSmed_setup_time_calculator(input: Smed_setup_time_calcu
   };
 }
 
-
 export interface Smed_setup_time_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Smed_setup_time_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "min",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["hedefIc"],
 } as const;
-

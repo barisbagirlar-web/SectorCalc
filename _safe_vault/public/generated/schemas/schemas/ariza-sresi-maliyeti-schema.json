@@ -1,0 +1,263 @@
+{
+  "slug": "ariza-sresi-maliyeti",
+  "name": "ARIZA SÜRESİ MALİYETİ",
+  "description": "ARIZA SÜRESİ MALİYETİ premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "arızaSuresi",
+      "label": "Arıza Süresi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Arıza Süresi",
+        "tr": "Arıza Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "etkilenen Isci",
+      "label": "Etkilenen İşçi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Etkilenen İşçi",
+        "tr": "Etkilenen İşçi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "saatlik Ucret",
+      "label": "Saatlik Ücret",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Saatlik Ücret",
+        "tr": "Saatlik Ücret",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hatKapasitesi",
+      "label": "Hat Kapasitesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hat Kapasitesi",
+        "tr": "Hat Kapasitesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "birimMarj",
+      "label": "Birim Marj",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Birim Marj",
+        "tr": "Birim Marj",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "bostaGuc",
+      "label": "Boşta Güç",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Boşta Güç",
+        "tr": "Boşta Güç",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "markaHasar Carpanı",
+      "label": "Marka Hasar Çarpanı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Marka Hasar Çarpanı",
+        "tr": "Marka Hasar Çarpanı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "directLaborLoss",
+      "label": "DirectLaborLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DirectLaborLoss",
+        "tr": "DirectLaborLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "productionLoss",
+      "label": "ProductionLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProductionLoss",
+        "tr": "ProductionLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "energyWaste",
+      "label": "EnergyWaste",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EnergyWaste",
+        "tr": "EnergyWaste",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "recoveryCost",
+      "label": "RecoveryCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RecoveryCost",
+        "tr": "RecoveryCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalDowntimeCost",
+      "label": "TotalDowntimeCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalDowntimeCost",
+        "tr": "TotalDowntimeCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "oee"
+}

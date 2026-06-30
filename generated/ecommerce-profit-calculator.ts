@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Ecommerce_profit_calculatorInput {
+  dataConfidence?: number;
   ciro: number;
   cogs: number;
   pazarlama: number;
   operasyon: number;
-  dataConfidence?: number;
 }
 
 export const Ecommerce_profit_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   ciro: z.number().min(0).default(500000),
   cogs: z.number().min(0).default(300000),
   pazarlama: z.number().min(0).default(80000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Ecommerce_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ciro - input.cogs - input.pazarlama - input.operasyon; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["ciro"] - input["cogs"] - input["pazarlama"] - input["operasyon"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateEcommerce_profit_calculator(input: Ecommerce_profit_calculatorInput): Ecommerce_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Factor in return rates and chargebacks.","Review platform fee schedules regularly."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateEcommerce_profit_calculator(input: Ecommerce_profit_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateEcommerce_profit_calculator(input: Ecommerce_profit_cal
   };
 }
 
-
 export interface Ecommerce_profit_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Ecommerce_profit_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

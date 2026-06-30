@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Inductive_reactance_calculatorInput {
+  dataConfidence?: number;
   frekans: number;
   induktans: number;
-  dataConfidence?: number;
 }
 
 export const Inductive_reactance_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   frekans: z.number().min(0).default(50),
   induktans: z.number().min(0).default(0.1),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Inductive_reactance_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 2 * Math.PI * input.frekans * input.induktans; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = 2 * Math.PI * input["frekans"] * input["induktans"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateInductive_reactance_calculator(input: Inductive_reactance_calculatorInput): Inductive_reactance_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Low Q factor indicates broader frequency response."];
   const suggestedActions: string[] = ["Verify component tolerances affect circuit performance.","Use proper safety equipment for high voltage/current work."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateInductive_reactance_calculator(input: Inductive_reactan
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateInductive_reactance_calculator(input: Inductive_reactan
   };
 }
 
-
 export interface Inductive_reactance_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Inductive_reactance_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "ohms",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

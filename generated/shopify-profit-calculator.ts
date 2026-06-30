@@ -2,15 +2,16 @@
 import * as z from 'zod';
 
 export interface Shopify_profit_calculatorInput {
+  dataConfidence?: number;
   satis: number;
   urun: number;
   kargo: number;
   platform: number;
   sabit: number;
-  dataConfidence?: number;
 }
 
 export const Shopify_profit_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   satis: z.number().min(0).default(200),
   urun: z.number().min(0).default(80),
   kargo: z.number().min(0).default(20),
@@ -24,17 +25,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Shopify_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.satis - input.urun - input.kargo - (input.satis * input.platform / 100) - input.sabit; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["satis"] - input["urun"] - input["kargo"] - (input["satis"] * input["platform"] / 100) - input["sabit"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateShopify_profit_calculator(input: Shopify_profit_calculatorInput): Shopify_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Factor in return rates and chargebacks.","Review platform fee schedules regularly."];
   const dataConfidenceAdjusted =
@@ -43,6 +41,7 @@ export function calculateShopify_profit_calculator(input: Shopify_profit_calcula
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -53,21 +52,20 @@ export function calculateShopify_profit_calculator(input: Shopify_profit_calcula
   };
 }
 
-
 export interface Shopify_profit_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Shopify_profit_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

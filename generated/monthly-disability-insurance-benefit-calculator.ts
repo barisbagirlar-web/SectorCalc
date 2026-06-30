@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Monthly_disability_insurance_benefit_calculatorInput {
+  dataConfidence?: number;
   aylikGelir: number;
   odemeYuzdesi: number;
-  dataConfidence?: number;
 }
 
 export const Monthly_disability_insurance_benefit_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   aylikGelir: z.number().min(0).default(15000),
   odemeYuzdesi: z.number().min(0).max(100).default(60),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Monthly_disability_insurance_benefit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.aylikGelir * (input.odemeYuzdesi / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["aylikGelir"] * (input["odemeYuzdesi"] / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateMonthly_disability_insurance_benefit_calculator(input: Monthly_disability_insurance_benefit_calculatorInput): Monthly_disability_insurance_benefit_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review insurance coverage annually.","Consult a retirement planner for personalized strategy."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateMonthly_disability_insurance_benefit_calculator(input: 
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateMonthly_disability_insurance_benefit_calculator(input: 
   };
 }
 
-
 export interface Monthly_disability_insurance_benefit_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Monthly_disability_insurance_benefit_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

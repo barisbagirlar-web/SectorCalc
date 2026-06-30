@@ -1,0 +1,300 @@
+{
+  "slug": "changeover-matrix-optimizer",
+  "name": "Changeover Matrix Optimizer",
+  "description": "Industrial-grade tool for analyzing and optimizing changeover times between product families using Lean/SMED principles and Six Sigma methodologies.",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-plant comparison",
+    "Automated SMED video analysis integration",
+    "Real-time OEE dashboard sync"
+  ],
+  "inputs": [
+    {
+      "id": "changeover_time_matrix",
+      "label": "Changeover Time Matrix (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 45,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards.",
+      "label_i18n": {
+        "en": "Changeover Time Matrix (minutes)",
+        "tr": "Değişim Süresi Matrisi (dakika)",
+        "de": "Rüstzeitmatrix (Minuten)",
+        "fr": "Matrice des temps de changement (minutes)",
+        "es": "Matriz de tiempo de cambio (minutos)",
+        "ar": "مصفوفة وقت التحويل (بالدقائق)"
+      },
+      "businessContext_i18n": {
+        "en": "Average time to switch from one product to another within the same production line. Based on SMED (Single-Minute Exchange of Die) standards.",
+        "tr": "Aynı üretim hattında bir üründen diğerine geçiş için ortalama süre. SMED (Tek Dakikada Kalıp Değişimi) standartlarına dayanır.",
+        "de": "Durchschnittliche Zeit für den Wechsel von einem Produkt zum anderen innerhalb derselben Produktionslinie. Basierend auf SMED-Standards (Single-Minute Exchange of Die).",
+        "fr": "Temps moyen pour passer d'un produit à un autre sur la même ligne de production. Basé sur les normes SMED (Single-Minute Exchange of Die).",
+        "es": "Tiempo promedio para cambiar de un producto a otro dentro de la misma línea de producción. Basado en estándares SMED (Single-Minute Exchange of Die).",
+        "ar": "متوسط الوقت اللازم للتبديل من منتج إلى آخر ضمن نفس خط الإنتاج. بناءً على معايير SMED (تبادل القوالب في دقيقة واحدة)."
+      }
+    },
+    {
+      "id": "number_of_changeovers_per_month",
+      "label": "Number of Changeovers per Month",
+      "type": "number",
+      "unit": "count",
+      "default": 120,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime.",
+      "label_i18n": {
+        "en": "Number of Changeovers per Month",
+        "tr": "Aylık Değişim Sayısı",
+        "de": "Anzahl der Rüstvorgänge pro Monat",
+        "fr": "Nombre de changements par mois",
+        "es": "Número de cambios por mes",
+        "ar": "عدد التحويلات شهريًا"
+      },
+      "businessContext_i18n": {
+        "en": "Total changeovers performed monthly across all shifts. Used to calculate total changeover downtime.",
+        "tr": "Tüm vardiyalarda aylık olarak gerçekleştirilen toplam değişim sayısı. Toplam değişim duruş süresini hesaplamak için kullanılır.",
+        "de": "Gesamtzahl der monatlich durchgeführten Rüstvorgänge über alle Schichten. Wird zur Berechnung der gesamten Rüstzeit verwendet.",
+        "fr": "Nombre total de changements effectués mensuellement sur tous les postes. Utilisé pour calculer le temps d'arrêt total dû aux changements.",
+        "es": "Total de cambios realizados mensualmente en todos los turnos. Se utiliza para calcular el tiempo total de inactividad por cambios.",
+        "ar": "إجمالي التحويلات التي تتم شهريًا عبر جميع الورديات. يُستخدم لحساب إجمالي وقت التوقف بسبب التحويلات."
+      }
+    },
+    {
+      "id": "setup_external_time",
+      "label": "External Setup Time per Changeover (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 15,
+      "min": 0,
+      "max": 240,
+      "businessContext": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization.",
+      "label_i18n": {
+        "en": "External Setup Time per Changeover (minutes)",
+        "tr": "Değişim Başına Harici Kurulum Süresi (dakika)",
+        "de": "Externe Rüstzeit pro Rüstvorgang (Minuten)",
+        "fr": "Temps de réglage externe par changement (minutes)",
+        "es": "Tiempo de preparación externa por cambio (minutos)",
+        "ar": "وقت الإعداد الخارجي لكل تحويل (بالدقائق)"
+      },
+      "businessContext_i18n": {
+        "en": "Setup activities that can be performed while the machine is running (e.g., tool preparation). Target for SMED optimization.",
+        "tr": "Makine çalışırken gerçekleştirilebilen kurulum faaliyetleri (örneğin, takım hazırlığı). SMED optimizasyonu için hedef.",
+        "de": "Rüstaktivitäten, die bei laufender Maschine durchgeführt werden können (z. B. Werkzeugvorbereitung). Ziel für SMED-Optimierung.",
+        "fr": "Activités de réglage pouvant être effectuées pendant que la machine fonctionne (ex. préparation des outils). Cible pour l'optimisation SMED.",
+        "es": "Actividades de preparación que se pueden realizar mientras la máquina está en funcionamiento (por ejemplo, preparación de herramientas). Objetivo para la optimización SMED.",
+        "ar": "أنشطة الإعداد التي يمكن تنفيذها أثناء تشغيل الماكينة (مثل تجهيز الأدوات). الهدف الأمثل لتحسين SMED."
+      }
+    },
+    {
+      "id": "setup_internal_time",
+      "label": "Internal Setup Time per Changeover (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED.",
+      "label_i18n": {
+        "en": "Internal Setup Time per Changeover (minutes)",
+        "tr": "Değişim Başına Dahili Kurulum Süresi (dakika)",
+        "de": "Interne Rüstzeit pro Rüstvorgang (Minuten)",
+        "fr": "Temps de réglage interne par changement (minutes)",
+        "es": "Tiempo de preparación interna por cambio (minutos)",
+        "ar": "وقت الإعداد الداخلي لكل تحويل (بالدقائق)"
+      },
+      "businessContext_i18n": {
+        "en": "Setup activities that require the machine to be stopped. Primary target for reduction via SMED.",
+        "tr": "Makinenin durdurulmasını gerektiren kurulum faaliyetleri. SMED ile azaltma için birincil hedef.",
+        "de": "Rüstaktivitäten, die einen Maschinenstopp erfordern. Primäres Ziel für Reduzierung durch SMED.",
+        "fr": "Activités de réglage nécessitant l'arrêt de la machine. Cible principale de réduction via SMED.",
+        "es": "Actividades de preparación que requieren que la máquina se detenga. Objetivo principal de reducción mediante SMED.",
+        "ar": "أنشطة الإعداد التي تتطلب إيقاف الماكينة. الهدف الأساسي للتقليل عبر SMED."
+      }
+    },
+    {
+      "id": "product_family_count",
+      "label": "Number of Product Families",
+      "type": "number",
+      "unit": "count",
+      "default": 5,
+      "min": 2,
+      "max": 50,
+      "businessContext": "Distinct product groups processed on the line. Higher counts increase changeover complexity.",
+      "label_i18n": {
+        "en": "Number of Product Families",
+        "tr": "Ürün Ailesi Sayısı",
+        "de": "Anzahl der Produktfamilien",
+        "fr": "Nombre de familles de produits",
+        "es": "Número de familias de productos",
+        "ar": "عدد عائلات المنتجات"
+      },
+      "businessContext_i18n": {
+        "en": "Distinct product groups processed on the line. Higher counts increase changeover complexity.",
+        "tr": "Hatta işlenen farklı ürün grupları. Yüksek sayılar değişim karmaşıklığını artırır.",
+        "de": "Unterschiedliche Produktgruppen, die auf der Linie verarbeitet werden. Höhere Anzahl erhöht die Rüstkomplexität.",
+        "fr": "Groupes de produits distincts traités sur la ligne. Un nombre plus élevé augmente la complexité des changements de série.",
+        "es": "Grupos de productos distintos procesados en la línea. Un mayor número aumenta la complejidad de los cambios.",
+        "ar": "مجموعات المنتجات المميزة التي تتم معالجتها على الخط. الأعداد الأعلى تزيد من تعقيد التحويلات."
+      }
+    },
+    {
+      "id": "standard_deviation_changeover_time",
+      "label": "Standard Deviation of Changeover Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 8,
+      "min": 0,
+      "max": 120,
+      "businessContext": "Measure of variability in changeover times. Used for Six Sigma process capability analysis.",
+      "label_i18n": {
+        "en": "Standard Deviation of Changeover Time (minutes)",
+        "tr": "Değişim Süresinin Standart Sapması (dakika)",
+        "de": "Standardabweichung der Rüstzeit (Minuten)",
+        "fr": "Écart type du temps de changement de série (minutes)",
+        "es": "Desviación estándar del tiempo de cambio (minutos)",
+        "ar": "الانحراف المعياري لوقت التحويل (بالدقائق)"
+      },
+      "businessContext_i18n": {
+        "en": "Measure of variability in changeover times. Used for Six Sigma process capability analysis.",
+        "tr": "Değişim sürelerindeki değişkenlik ölçüsü. Altı Sigma proses yetenek analizi için kullanılır.",
+        "de": "Maß für die Variabilität der Rüstzeiten. Wird für die Six-Sigma-Prozessfähigkeitsanalyse verwendet.",
+        "fr": "Mesure de la variabilité des temps de changement de série. Utilisé pour l'analyse de capabilité de processus Six Sigma.",
+        "es": "Medida de variabilidad en tiempos de cambio. Se utiliza para el análisis de capacidad de Seis Sigma.",
+        "ar": "مقياس التباين في أوقات التحويل. يُستخدم لتحليل قدرة العملية وفقًا لستة سيجما."
+      }
+    },
+    {
+      "id": "shift_pattern",
+      "label": "Shift Pattern",
+      "type": "select",
+      "unit": "unit",
+      "default": "2-shift",
+      "options": [
+        "1-shift",
+        "2-shift",
+        "3-shift",
+        "continuous"
+      ],
+      "businessContext": "Operating schedule affecting available production time and changeover frequency.",
+      "label_i18n": {
+        "en": "Shift Pattern",
+        "tr": "Vardiya Düzeni",
+        "de": "Schichtmodell",
+        "fr": "Mode de poste",
+        "es": "Patrón de turnos",
+        "ar": "نمط الورديات"
+      },
+      "businessContext_i18n": {
+        "en": "Operating schedule affecting available production time and changeover frequency.",
+        "tr": "Kullanılabilir üretim süresini ve değişim sıklığını etkileyen çalışma takvimi.",
+        "de": "Betriebsplan, der die verfügbare Produktionszeit und Rüsthäufigkeit beeinflusst.",
+        "fr": "Horaire de fonctionnement affectant le temps de production disponible et la fréquence des changements de série.",
+        "es": "Horario operativo que afecta el tiempo de producción disponible y la frecuencia de cambios.",
+        "ar": "الجدول التشغيلي الذي يؤثر على وقت الإنتاج المتاح وتكرار التحويلات."
+      }
+    },
+    {
+      "id": "lean_smed_implemented",
+      "label": "SMED Implementation Status",
+      "type": "boolean",
+      "unit": "unit",
+      "default": false,
+      "businessContext": "Indicates whether Single-Minute Exchange of Die principles have been formally applied.",
+      "label_i18n": {
+        "en": "SMED Implementation Status",
+        "tr": "SMED Uygulama Durumu",
+        "de": "SMED-Implementierungsstatus",
+        "fr": "Statut de mise en œuvre du SMED",
+        "es": "Estado de implementación de SMED",
+        "ar": "حالة تطبيق SMED"
+      },
+      "businessContext_i18n": {
+        "en": "Indicates whether Single-Minute Exchange of Die principles have been formally applied.",
+        "tr": "Tek Dakikada Kalıp Değiştirme prensiplerinin resmi olarak uygulanıp uygulanmadığını belirtir.",
+        "de": "Gibt an, ob die SMED-Prinzipien (Single-Minute Exchange of Die) formal angewendet wurden.",
+        "fr": "Indique si les principes du Single-Minute Exchange of Die ont été formellement appliqués.",
+        "es": "Indica si los principios de SMED se han aplicado formalmente.",
+        "ar": "يشير إلى ما إذا تم تطبيق مبادئ تبادل القوالب في دقيقة واحدة رسميًا."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "internal_external_sum",
+        "condition": "setup_internal_time + setup_external_time <= changeover_time_matrix",
+        "message": "Sum of internal and external setup times cannot exceed total changeover time.",
+        "severity": "error"
+      },
+      {
+        "id": "smed_target_feasibility",
+        "condition": "target_changeover_time >= 0.5 * (setup_internal_time + setup_external_time) OR lean_smed_implemented == true",
+        "message": "Target changeover time may be unrealistic without SMED implementation.",
+        "severity": "warning"
+      },
+      {
+        "id": "product_family_minimum",
+        "condition": "product_family_count >= 2",
+        "message": "At least 2 product families required for matrix optimization.",
+        "severity": "error"
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "high_changeover_time",
+        "condition": "changeover_time_matrix > 60",
+        "message": "Changeover time exceeds 60 minutes. Immediate SMED analysis recommended.",
+        "severity": "critical"
+      },
+      {
+        "id": "high_variability",
+        "condition": "standard_deviation_changeover_time / changeover_time_matrix > 0.3",
+        "message": "Coefficient of variation >30%. Process is unstable. Apply Six Sigma DMAIC.",
+        "severity": "warning"
+      },
+      {
+        "id": "low_external_ratio",
+        "condition": "setup_external_time / (setup_internal_time + setup_external_time) < 0.2",
+        "message": "External setup ratio below 20%. Opportunity to convert internal to external tasks.",
+        "severity": "warning"
+      }
+    ]
+  },
+  "formulas": {
+    "total_changeover_downtime": "number_of_changeovers_per_month * changeover_time_matrix",
+    "smed_reduction_potential": "setup_internal_time - (setup_external_time * 0.5)",
+    "six_sigma_sigma_level": "(changeover_time_matrix - setup_internal_time) / (standard_deviation_changeover_time + 0.001)",
+    "result": "total_changeover_downtime * (1 - (lean_smed_implemented ? 0.3 : 0)) * (1 + (product_family_count - 1) * 0.05) * (1 + (standard_deviation_changeover_time / (changeover_time_matrix + 0.001)) * 0.2)"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "total_changeover_downtime",
+      "smed_reduction_potential"
+    ],
+    "hiddenLossDrivers": [
+      "Unplanned downtime due to tooling issues",
+      "Lack of standardized work instructions"
+    ],
+    "suggestedActions": [
+      "Implement SMED to convert internal setup to external",
+      "Standardize changeover procedures across shifts"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "hours"
+  },
+  "toolName": "changeover-matrix-optimizer-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "lean-production",
+  "category": "Matematik & Analiz",
+  "sector": "Matematik & Geometri",
+  "sectorId": "matematik",
+  "profession": "Matematikçi",
+  "categoryId": "math"
+}

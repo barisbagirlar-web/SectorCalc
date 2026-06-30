@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Von_mises_stress_calculatorInput {
+  dataConfidence?: number;
   sigmaX: number;
   sigmaY: number;
   tauXY: number;
-  dataConfidence?: number;
 }
 
 export const Von_mises_stress_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   sigmaX: z.number().min(0).default(150000000),
   sigmaY: z.number().min(0).default(50000000),
   tauXY: z.number().min(0).default(40000000),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Von_mises_stress_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.sqrt(Math.max(0, input.sigmaX*input.sigmaX - input.sigmaX*input.sigmaY + input.sigmaY*input.sigmaY + 3*input.tauXY*input.tauXY)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.sqrt(Math.max(0, input["sigmaX"]*input["sigmaX"] - input["sigmaX"]*input["sigmaY"] + input["sigmaY"]*input["sigmaY"] + 3*input["tauXY"]*input["tauXY"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateVon_mises_stress_calculator(input: Von_mises_stress_calculatorInput): Von_mises_stress_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify calculations with FEA or physical testing.","Use appropriate safety factors for design."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateVon_mises_stress_calculator(input: Von_mises_stress_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateVon_mises_stress_calculator(input: Von_mises_stress_cal
   };
 }
 
-
 export interface Von_mises_stress_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Von_mises_stress_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "Pa",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

@@ -1,0 +1,75 @@
+{
+  "slug": "coffee-to-su-ratio-hesaplama",
+  "name": "Coffee To Su Ratio Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "baseAmount",
+      "label": "Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Dönüştürülecek tutar.",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Değer",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Input value.",
+        "tr": "Giriş değeri.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "baseAmount * 1.0 + Math.log(baseAmount + 1) * 0.5",
+    "result": "baseAmount * 1.0 + Math.log(baseAmount + 1) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "baseAmount"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick coffee to su ratio hesaplama.",
+      "long": "Free coffee to su ratio hesaplama tool."
+    }
+  },
+  "sector": "Yemek & İçecek",
+  "toolName": "coffee-to-su-ratio-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "food"
+}

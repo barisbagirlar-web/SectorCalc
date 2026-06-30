@@ -1,0 +1,75 @@
+{
+  "slug": "active-metabolic-oran-hesaplama",
+  "name": "Active Metabolic Oran Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "bodyWeight",
+      "label": "Score",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Mevcut vücut ağırlığı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Vücut Ağırlığı",
+        "fr": "Vücut Ağırlığı",
+        "es": "Vücut Ağırlığı",
+        "ar": "Vücut Ağırlığı"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Mevcut vücut ağırlığı.",
+        "fr": "Mevcut vücut ağırlığı.",
+        "es": "Mevcut vücut ağırlığı.",
+        "ar": "Mevcut vücut ağırlığı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "Math.pow(bodyWeight / 100, 2) * 100 + Math.sqrt(bodyWeight) * 2",
+    "result": "Math.pow(bodyWeight / 100, 2) * 100 + Math.sqrt(bodyWeight) * 2"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "bodyWeight"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick active metabolic oran hesaplama.",
+      "long": "Free active metabolic oran hesaplama tool."
+    }
+  },
+  "sector": "Eğitim",
+  "toolName": "active-metabolic-oran-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "education"
+}

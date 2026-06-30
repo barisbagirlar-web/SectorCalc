@@ -1,0 +1,252 @@
+{
+  "slug": "noise-vibration-maliyet",
+  "name": "Noise & Vibration Maliyet",
+  "description": "Noise & Vibration Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "gurultuSeviyeleriVeSureler",
+      "label": "Gürültü Seviyeleri ve Süreler",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Gürültü Seviyeleri ve Süreler",
+        "tr": "Gürültü Seviyeleri ve Süreler",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "titresim Ivmeleri",
+      "label": "Titreşim İvmeleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Titreşim İvmeleri",
+        "tr": "Titreşim İvmeleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "titresimKaynaklıHataOranı",
+      "label": "Titreşim Kaynaklı Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Titreşim Kaynaklı Hata Oranı",
+        "tr": "Titreşim Kaynaklı Hata Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CıktıFarkı",
+      "label": "Çıktı Farkı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çıktı Farkı",
+        "tr": "Çıktı Farkı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taramaKKDSigortaMaliyeti",
+      "label": "Tarama/KKD/Sigorta Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tarama/KKD/Sigorta Maliyeti",
+        "tr": "Tarama/KKD/Sigorta Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yalıtımYatırımı",
+      "label": "Yalıtım Yatırımı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yalıtım Yatırımı",
+        "tr": "Yalıtım Yatırımı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "noiseExposureDBA",
+      "label": "NoiseExposure_dBA",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NoiseExposure_dBA",
+        "tr": "NoiseExposure_dBA",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "vibrationRMS",
+      "label": "Vibration_RMS",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Vibration_RMS",
+        "tr": "Vibration_RMS",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "healthCost",
+      "label": "HealthCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "HealthCost",
+        "tr": "HealthCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "productivityLoss",
+      "label": "ProductivityLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProductivityLoss",
+        "tr": "ProductivityLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "reworkCost",
+      "label": "ReworkCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ReworkCost",
+        "tr": "ReworkCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mitigationROI",
+      "label": "MitigationROI",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MitigationROI",
+        "tr": "MitigationROI",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

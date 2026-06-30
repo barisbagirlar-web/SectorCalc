@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Spring_mass_resonant_frequency_calculatorInput {
+  dataConfidence?: number;
   kutle: number;
   yayKatsayisi: number;
-  dataConfidence?: number;
 }
 
 export const Spring_mass_resonant_frequency_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   kutle: z.number().min(0).default(10),
   yayKatsayisi: z.number().min(0).default(1000),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Spring_mass_resonant_frequency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, input.kutle / input.yayKatsayisi)))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = 1 / Math.max(0.0001, (2 * Math.PI * Math.sqrt(Math.max(0.0001, input["kutle"] / input["yayKatsayisi"])))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateSpring_mass_resonant_frequency_calculator(input: Spring_mass_resonant_frequency_calculatorInput): Spring_mass_resonant_frequency_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify calculations with FEA or physical testing.","Use appropriate safety factors for design."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateSpring_mass_resonant_frequency_calculator(input: Spring
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateSpring_mass_resonant_frequency_calculator(input: Spring
   };
 }
 
-
 export interface Spring_mass_resonant_frequency_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Spring_mass_resonant_frequency_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "Hz",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

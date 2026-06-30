@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Economic_order_quantity_calculatorInput {
+  dataConfidence?: number;
   yillikTalep: number;
   siparisMaliyeti: number;
   tasimaMaliyeti: number;
-  dataConfidence?: number;
 }
 
 export const Economic_order_quantity_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   yillikTalep: z.number().min(1).default(10000),
   siparisMaliyeti: z.number().min(0).default(100),
   tasimaMaliyeti: z.number().min(0).default(5),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Economic_order_quantity_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.sqrt(Math.max(0, (2 * input.yillikTalep * input.siparisMaliyeti) / Math.max(0.0001, input.tasimaMaliyeti))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.sqrt(Math.max(0, (2 * input["yillikTalep"] * input["siparisMaliyeti"]) / Math.max(0.0001, input["tasimaMaliyeti"]))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateEconomic_order_quantity_calculator(input: Economic_order_quantity_calculatorInput): Economic_order_quantity_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inventory turnover metrics monthly.","Factor in seasonality for safety stock."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateEconomic_order_quantity_calculator(input: Economic_orde
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateEconomic_order_quantity_calculator(input: Economic_orde
   };
 }
 
-
 export interface Economic_order_quantity_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Economic_order_quantity_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "units",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

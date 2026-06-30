@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Fabric_shrinkage_calculatorInput {
+  dataConfidence?: number;
   hamOlcu: number;
   bitmisOlcu: number;
-  dataConfidence?: number;
 }
 
 export const Fabric_shrinkage_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   hamOlcu: z.number().min(0).default(100),
   bitmisOlcu: z.number().min(0).default(96),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Fabric_shrinkage_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.hamOlcu - input.bitmisOlcu) / Math.max(0.0001, input.hamOlcu)) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = ((input["hamOlcu"] - input["bitmisOlcu"]) / Math.max(0.0001, input["hamOlcu"])) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateFabric_shrinkage_calculator(input: Fabric_shrinkage_calculatorInput): Fabric_shrinkage_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Waste in material or time indicates process improvement opportunity."];
   const suggestedActions: string[] = ["Optimize drying/cooling parameters for cycle time reduction.","Monitor defects and adjust process conditions accordingly."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateFabric_shrinkage_calculator(input: Fabric_shrinkage_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateFabric_shrinkage_calculator(input: Fabric_shrinkage_cal
   };
 }
 
-
 export interface Fabric_shrinkage_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Fabric_shrinkage_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

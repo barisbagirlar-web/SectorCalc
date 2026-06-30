@@ -1,0 +1,291 @@
+{
+  "slug": "deme-vadesi-optimize-edici",
+  "name": "Ödeme Vadesi Optimize Edici",
+  "description": "Ödeme Vadesi Optimize Edici premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "yıllıkGelir",
+      "label": "Yıllık Gelir",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Gelir",
+        "tr": "Yıllık Gelir",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "ortalamaVadeGun",
+      "label": "Ortalama Vade gün",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ortalama Vade gün",
+        "tr": "Ortalama Vade gün",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wACC",
+      "label": "WACC",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WACC",
+        "tr": "WACC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "erken Odeme Iskontosu",
+      "label": "Erken Ödeme İskontosu",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Erken Ödeme İskontosu",
+        "tr": "Erken Ödeme İskontosu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IskontoKullanımOranı",
+      "label": "İskonto Kullanım Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İskonto Kullanım Oranı",
+        "tr": "İskonto Kullanım Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "temerrutBatmaOranı",
+      "label": "Temerrüt/Batma Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Temerrüt/Batma Oranı",
+        "tr": "Temerrüt/Batma Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "alacakBakiyesi",
+      "label": "Alacak Bakiyesi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Alacak Bakiyesi",
+        "tr": "Alacak Bakiyesi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dSO",
+      "label": "DSO",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DSO",
+        "tr": "DSO",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "carryingCostAR",
+      "label": "CarryingCost_AR",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CarryingCost_AR",
+        "tr": "CarryingCost_AR",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "badDebtExpense",
+      "label": "BadDebtExpense",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BadDebtExpense",
+        "tr": "BadDebtExpense",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "discountCost",
+      "label": "DiscountCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DiscountCost",
+        "tr": "DiscountCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "optimalTerms",
+      "label": "OptimalTerms",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OptimalTerms",
+        "tr": "OptimalTerms",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cashFlowImpact",
+      "label": "CashFlowImpact",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CashFlowImpact",
+        "tr": "CashFlowImpact",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nPVTerms",
+      "label": "NPV_Terms",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV_Terms",
+        "tr": "NPV_Terms",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "finance"
+}

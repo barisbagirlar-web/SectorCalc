@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Sortino_ratio_calculatorInput {
+  dataConfidence?: number;
   portfoyGetirisi: number;
   risksizFaiz: number;
   asagiSapma: number;
-  dataConfidence?: number;
 }
 
 export const Sortino_ratio_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   portfoyGetirisi: z.number().min(0).default(15),
   risksizFaiz: z.number().min(0).default(8),
   asagiSapma: z.number().min(0).default(8),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Sortino_ratio_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.portfoyGetirisi - input.risksizFaiz) / Math.max(0.0001, input.asagiSapma); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["portfoyGetirisi"] - input["risksizFaiz"]) / Math.max(0.0001, input["asagiSapma"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateSortino_ratio_calculator(input: Sortino_ratio_calculatorInput): Sortino_ratio_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateSortino_ratio_calculator(input: Sortino_ratio_calculato
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateSortino_ratio_calculator(input: Sortino_ratio_calculato
   };
 }
 
-
 export interface Sortino_ratio_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Sortino_ratio_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "ratio",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

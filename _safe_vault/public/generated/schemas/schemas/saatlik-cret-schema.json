@@ -1,0 +1,316 @@
+{
+  "slug": "saatlik-cret",
+  "name": "Saatlik Ücret",
+  "description": "Saatlik Ücret premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "brutMaas",
+      "label": "Brüt Maaş",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Brüt Maaş",
+        "tr": "Brüt Maaş",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "Ikramiye",
+      "label": "İkramiye",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İkramiye",
+        "tr": "İkramiye",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yanHaklar",
+      "label": "Yan Haklar",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yan Haklar",
+        "tr": "Yan Haklar",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IsverenVergiOranı",
+      "label": "İşveren Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşveren Vergi Oranı",
+        "tr": "İşveren Vergi Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yıllıkHaftaSaat",
+      "label": "Yıllık Hafta/Saat",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Hafta/Saat",
+        "tr": "Yıllık Hafta/Saat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IzinHaftası",
+      "label": "İzin Haftası",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İzin Haftası",
+        "tr": "İzin Haftası",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "atılZaman",
+      "label": "Atıl Zaman",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Atıl Zaman",
+        "tr": "Atıl Zaman",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedefKarMarjı",
+      "label": "Hedef Kâr Marjı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef Kâr Marjı",
+        "tr": "Hedef Kâr Marjı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossAnnualSalary",
+      "label": "GrossAnnualSalary",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "GrossAnnualSalary",
+        "tr": "GrossAnnualSalary",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "employerTaxes",
+      "label": "EmployerTaxes",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EmployerTaxes",
+        "tr": "EmployerTaxes",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "benefits",
+      "label": "Benefits",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Benefits",
+        "tr": "Benefits",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "totalLaborCost",
+      "label": "TotalLaborCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalLaborCost",
+        "tr": "TotalLaborCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "productiveHours",
+      "label": "ProductiveHours",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProductiveHours",
+        "tr": "ProductiveHours",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fullyBurdenedHourlyRate",
+      "label": "FullyBurdenedHourlyRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FullyBurdenedHourlyRate",
+        "tr": "FullyBurdenedHourlyRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "marginRate",
+      "label": "MarginRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarginRate",
+        "tr": "MarginRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

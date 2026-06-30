@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Inventory_turnover_rate_calculatorInput {
+  dataConfidence?: number;
   yillikCOGS: number;
   ortStok: number;
-  dataConfidence?: number;
 }
 
 export const Inventory_turnover_rate_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   yillikCOGS: z.number().min(0).default(1000000),
   ortStok: z.number().min(0).default(200000),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Inventory_turnover_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.yillikCOGS / Math.max(0.0001, input.ortStok); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["yillikCOGS"] / Math.max(0.0001, input["ortStok"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateInventory_turnover_rate_calculator(input: Inventory_turnover_rate_calculatorInput): Inventory_turnover_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inventory turnover metrics monthly.","Factor in seasonality for safety stock."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateInventory_turnover_rate_calculator(input: Inventory_tur
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateInventory_turnover_rate_calculator(input: Inventory_tur
   };
 }
 
-
 export interface Inventory_turnover_rate_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Inventory_turnover_rate_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "times",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

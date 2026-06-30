@@ -1,0 +1,75 @@
+{
+  "slug": "kesim-hesaplama",
+  "name": "Kesim Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "woodLength",
+      "label": "Score",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Ahşap malzeme uzunluğu.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "woodLength * (1 + woodLength/500) + Math.sqrt(woodLength) * 5",
+    "result": "woodLength * (1 + woodLength/500) + Math.sqrt(woodLength) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "woodLength"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick kesim hesaplama.",
+      "long": "Free kesim hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "kesim-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

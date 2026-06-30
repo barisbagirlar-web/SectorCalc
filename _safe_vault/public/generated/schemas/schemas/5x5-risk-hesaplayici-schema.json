@@ -1,0 +1,75 @@
+{
+  "slug": "5x5-risk-hesaplayici",
+  "name": "5x5 Risk Hesaplayıcı",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "maxWeight",
+      "label": "Score",
+      "type": "number",
+      "unit": "kg",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Bir tekrar maksimum ağırlık.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Maksimum Ağırlık",
+        "fr": "Maksimum Ağırlık",
+        "es": "Maksimum Ağırlık",
+        "ar": "Maksimum Ağırlık"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Bir tekrar maksimum ağırlık.",
+        "fr": "Bir tekrar maksimum ağırlık.",
+        "es": "Bir tekrar maksimum ağırlık.",
+        "ar": "Bir tekrar maksimum ağırlık."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "Math.pow(maxWeight / 100, 2) * 100 + Math.sqrt(maxWeight) * 2",
+    "result": "Math.pow(maxWeight / 100, 2) * 100 + Math.sqrt(maxWeight) * 2"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "maxWeight"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick 5x5 risk hesaplayıcı.",
+      "long": "Free 5x5 risk hesaplayıcı tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "5x5-risk-hesaplayici",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

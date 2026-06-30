@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Seed_rate_calculatorInput {
+  dataConfidence?: number;
   siraAraligi: number;
   uzeriMesafe: number;
   binTaneAgirlik: number;
   cimlenme: number;
-  dataConfidence?: number;
 }
 
 export const Seed_rate_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   siraAraligi: z.number().min(0).default(0.7),
   uzeriMesafe: z.number().min(0).default(0.2),
   binTaneAgirlik: z.number().min(0).default(350),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Seed_rate_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (10000 / Math.max(0.0001, (input.siraAraligi * input.uzeriMesafe))) * (input.binTaneAgirlik / 1000) / Math.max(0.0001, (input.cimlenme / 100)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (10000 / Math.max(0.0001, (input["siraAraligi"] * input["uzeriMesafe"]))) * (input["binTaneAgirlik"] / 1000) / Math.max(0.0001, (input["cimlenme"] / 100)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateSeed_rate_calculator(input: Seed_rate_calculatorInput): Seed_rate_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Low efficiency may indicate equipment or process issues."];
   const suggestedActions: string[] = ["Calibrate all measuring equipment regularly.","Use site-specific data when available."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateSeed_rate_calculator(input: Seed_rate_calculatorInput):
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateSeed_rate_calculator(input: Seed_rate_calculatorInput):
   };
 }
 
-
 export interface Seed_rate_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Seed_rate_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "kg/da",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

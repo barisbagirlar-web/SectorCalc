@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Machine_depreciation_calculatorInput {
+  dataConfidence?: number;
   bedel: number;
   kalinti: number;
   uretimKapasite: number;
-  dataConfidence?: number;
 }
 
 export const Machine_depreciation_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   bedel: z.number().min(0).default(500000),
   kalinti: z.number().min(0).default(50000),
   uretimKapasite: z.number().min(1).default(1000000),
@@ -20,17 +21,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Machine_depreciation_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.bedel - input.kalinti) / Math.max(1, input.uretimKapasite); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["bedel"] - input["kalinti"]) / Math.max(1, input["uretimKapasite"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateMachine_depreciation_calculator(input: Machine_depreciation_calculatorInput): Machine_depreciation_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Conduct regular OEE audits for improvement.","Use SMED to reduce setup times."];
   const dataConfidenceAdjusted =
@@ -39,6 +37,7 @@ export function calculateMachine_depreciation_calculator(input: Machine_deprecia
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -49,21 +48,20 @@ export function calculateMachine_depreciation_calculator(input: Machine_deprecia
   };
 }
 
-
 export interface Machine_depreciation_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Machine_depreciation_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "TRY/unit",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

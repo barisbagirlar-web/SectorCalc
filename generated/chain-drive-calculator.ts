@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Chain_drive_calculatorInput {
+  dataConfidence?: number;
   Z1: number;
   Z2: number;
   adim: number;
   merkezC: number;
-  dataConfidence?: number;
 }
 
 export const Chain_drive_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   Z1: z.number().min(6).default(17),
   Z2: z.number().min(6).default(45),
   adim: z.number().min(0).default(12.7),
@@ -22,18 +23,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Chain_drive_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.Z2 / Math.max(1, input.Z1); results["oran"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oran"] = Number.NaN; }
-  try { const v = 2*input.merkezC + (input.Z1+input.Z2)*input.adim/2 + Math.pow(((input.Z2-input.Z1)*input.adim)/(2*Math.PI), 2)/Math.max(0.0001, input.merkezC); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["Z2"] / Math.max(1, input["Z1"]); results["oran"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["oran"] = Number.NaN; }
+  try { const v = 2*input["merkezC"] + (input["Z1"]+input["Z2"])*input["adim"]/2 + Math.pow(((input["Z2"]-input["Z1"])*input["adim"])/(2*Math.PI), 2)/Math.max(0.0001, input["merkezC"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateChain_drive_calculator(input: Chain_drive_calculatorInput): Chain_drive_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["High fuel/energy consumption indicates efficiency losses."];
   const suggestedActions: string[] = ["Regular maintenance improves overall equipment efficiency.","Simulate real-world driving conditions for accurate range estimates."];
   const dataConfidenceAdjusted =
@@ -42,6 +40,7 @@ export function calculateChain_drive_calculator(input: Chain_drive_calculatorInp
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -52,21 +51,20 @@ export function calculateChain_drive_calculator(input: Chain_drive_calculatorInp
   };
 }
 
-
 export interface Chain_drive_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Chain_drive_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "mm",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["oran"],
 } as const;
-

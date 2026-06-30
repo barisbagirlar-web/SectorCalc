@@ -1,0 +1,75 @@
+{
+  "slug": "hedef-heart-oran-hesaplama",
+  "name": "Hedef Heart Oran Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "completedCount",
+      "label": "Score",
+      "type": "number",
+      "unit": "n",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Tamamlanan aktivite sayısı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "Math.pow(completedCount / 100, 2) * 100 + Math.sqrt(completedCount) * 2",
+    "result": "Math.pow(completedCount / 100, 2) * 100 + Math.sqrt(completedCount) * 2"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "completedCount"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick hedef heart oran hesaplama.",
+      "long": "Free hedef heart oran hesaplama tool."
+    }
+  },
+  "sector": "Sağlık & Fitness",
+  "toolName": "hedef-heart-oran-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "health"
+}

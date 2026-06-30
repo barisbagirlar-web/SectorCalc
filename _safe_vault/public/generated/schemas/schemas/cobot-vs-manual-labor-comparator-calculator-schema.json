@@ -1,0 +1,295 @@
+{
+  "slug": "cobot-vs-manual-labor-comparator",
+  "name": "Cobot vs Manual Labor Comparator",
+  "description": "Industrial-grade decision support tool comparing collaborative robot (cobot) investment against manual labor costs, incorporating Lean, Six Sigma, and ISO standards.",
+  "version": "1.0.0",
+  "premiumRequired": true,
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-scenario simulation",
+    "Sensitivity analysis",
+    "Custom reporting"
+  ],
+  "inputs": [
+    {
+      "id": "annual_manual_labor_cost",
+      "label": "Annual Manual Labor Cost (per FTE)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 45000,
+      "min": 20000,
+      "max": 120000,
+      "businessContext": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead.",
+      "label_i18n": {
+        "en": "Annual Manual Labor Cost (per FTE)",
+        "tr": "Yıllık Manuel İşçilik Maliyeti (tam zamanlı eşdeğer başına)",
+        "de": "Jährliche manuelle Arbeitskosten (pro VZÄ)",
+        "fr": "Coût annuel de la main-d'œuvre manuelle (par ETP)",
+        "es": "Costo anual de mano de obra manual (por ETC)",
+        "ar": "التكلفة السنوية للعمالة اليدوية (لكل مكافئ دوام كامل)"
+      },
+      "businessContext_i18n": {
+        "en": "Total annual cost per full-time equivalent worker including wages, benefits, and overhead.",
+        "tr": "Ücretler, yan haklar ve genel giderler dahil tam zamanlı eşdeğer işçi başına toplam yıllık maliyet.",
+        "de": "Jährliche Gesamtkosten pro Vollzeitäquivalent inkl. Löhne, Sozialleistungen und Gemeinkosten.",
+        "fr": "Coût annuel total par équivalent temps plein incluant salaires, avantages et frais généraux.",
+        "es": "Costo anual total por trabajador equivalente a tiempo completo, incluyendo salarios, beneficios y gastos generales.",
+        "ar": "إجمالي التكلفة السنوية لكل عامل مكافئ دوام كامل بما في ذلك الأجور والمزايا والتكاليف العامة."
+      }
+    },
+    {
+      "id": "number_of_workers",
+      "label": "Number of Workers Replaced",
+      "type": "number",
+      "unit": "FTE",
+      "default": 2,
+      "min": 1,
+      "max": 20,
+      "businessContext": "Number of manual workers that could be replaced or augmented by one cobot.",
+      "label_i18n": {
+        "en": "Number of Workers Replaced",
+        "tr": "Değiştirilen İşçi Sayısı",
+        "de": "Anzahl der ersetzten Arbeitskräfte",
+        "fr": "Nombre de travailleurs remplacés",
+        "es": "Número de trabajadores reemplazados",
+        "ar": "عدد العمال المستبدلين"
+      },
+      "businessContext_i18n": {
+        "en": "Number of manual workers that could be replaced or augmented by one cobot.",
+        "tr": "Bir cobot tarafından değiştirilebilecek veya desteklenebilecek manuel işçi sayısı.",
+        "de": "Anzahl der manuellen Arbeitskräfte, die durch einen Cobot ersetzt oder ergänzt werden könnten.",
+        "fr": "Nombre de travailleurs manuels pouvant être remplacés ou augmentés par un cobot.",
+        "es": "Número de trabajadores manuales que podrían ser reemplazados o aumentados por un cobot.",
+        "ar": "عدد العمال اليدويين الذين يمكن استبدالهم أو تعزيزهم بواسطة روبوت تعاوني واحد."
+      }
+    },
+    {
+      "id": "cobot_purchase_price",
+      "label": "Cobot Purchase Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 35000,
+      "min": 15000,
+      "max": 150000,
+      "businessContext": "Initial capital expenditure for the cobot including end-effector and controller.",
+      "label_i18n": {
+        "en": "Cobot Purchase Price",
+        "tr": "Cobot Satın Alma Fiyatı",
+        "de": "Kaufpreis des Cobots",
+        "fr": "Prix d'achat du cobot",
+        "es": "Precio de compra del cobot",
+        "ar": "سعر شراء الروبوت التعاوني"
+      },
+      "businessContext_i18n": {
+        "en": "Initial capital expenditure for the cobot including end-effector and controller.",
+        "tr": "Uç efektör ve kontrolör dahil cobot için ilk sermaye harcaması.",
+        "de": "Anfängliche Investitionsausgaben für den Cobot inkl. Endeffektor und Steuerung.",
+        "fr": "Dépense d'investissement initiale pour le cobot incluant effecteur et contrôleur.",
+        "es": "Gasto de capital inicial para el cobot, incluyendo efector final y controlador.",
+        "ar": "النفقات الرأسمالية الأولية للروبوت التعاوني بما في ذلك الأداة الطرفية والمتحكم."
+      }
+    },
+    {
+      "id": "cobot_annual_maintenance",
+      "label": "Cobot Annual Maintenance Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 3000,
+      "min": 500,
+      "max": 15000,
+      "businessContext": "Annual service contract, spare parts, and software updates.",
+      "label_i18n": {
+        "en": "Cobot Annual Maintenance Cost",
+        "tr": "Cobot Yıllık Bakım Maliyeti",
+        "de": "Jährliche Wartungskosten Cobot",
+        "fr": "Coût annuel de maintenance du cobot",
+        "es": "Costo anual de mantenimiento del cobot",
+        "ar": "تكلفة الصيانة السنوية للروبوت التعاوني"
+      },
+      "businessContext_i18n": {
+        "en": "Annual service contract, spare parts, and software updates.",
+        "tr": "Yıllık servis sözleşmesi, yedek parçalar ve yazılım güncellemeleri.",
+        "de": "Jährlicher Servicevertrag, Ersatzteile und Software-Updates.",
+        "fr": "Contrat de service annuel, pièces de rechange et mises à jour logicielles.",
+        "es": "Contrato de servicio anual, piezas de repuesto y actualizaciones de software.",
+        "ar": "عقد الخدمة السنوي وقطع الغيار وتحديثات البرامج."
+      }
+    },
+    {
+      "id": "cobot_lifespan_years",
+      "label": "Cobot Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 8,
+      "min": 3,
+      "max": 15,
+      "businessContext": "Expected operational life before major overhaul or replacement.",
+      "label_i18n": {
+        "en": "Cobot Lifespan",
+        "tr": "Cobot Kullanım Ömrü",
+        "de": "Lebensdauer Cobot",
+        "fr": "Durée de vie du cobot",
+        "es": "Vida útil del cobot",
+        "ar": "عمر الروبوت التعاوني"
+      },
+      "businessContext_i18n": {
+        "en": "Expected operational life before major overhaul or replacement.",
+        "tr": "Büyük revizyon veya değiştirme öncesi beklenen operasyonel ömür.",
+        "de": "Erwartete Betriebsdauer vor größerer Überholung oder Austausch.",
+        "fr": "Durée de vie opérationnelle prévue avant révision majeure ou remplacement.",
+        "es": "Vida operativa esperada antes de una revisión o reemplazo importante.",
+        "ar": "العمر التشغيلي المتوقع قبل الإصلاح الشامل أو الاستبدال."
+      }
+    },
+    {
+      "id": "discount_rate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 2,
+      "max": 20,
+      "businessContext": "Weighted average cost of capital for NPV calculation.",
+      "label_i18n": {
+        "en": "Discount Rate (WACC)",
+        "tr": "İskonto Oranı (AOSM)",
+        "de": "Diskontierungssatz (WACC)",
+        "fr": "Taux d'actualisation (WACC)",
+        "es": "Tasa de descuento (WACC)",
+        "ar": "معدل الخصم (متوسط التكلفة المرجح لرأس المال)"
+      },
+      "businessContext_i18n": {
+        "en": "Weighted average cost of capital for NPV calculation.",
+        "tr": "NBD hesaplaması için ağırlıklı ortalama sermaye maliyeti.",
+        "de": "Gewichteter durchschnittlicher Kapitalkostensatz für die Kapitalwertberechnung.",
+        "fr": "Coût moyen pondéré du capital pour le calcul de la VAN.",
+        "es": "Costo promedio ponderado del capital para el cálculo del VAN.",
+        "ar": "متوسط التكلفة المرجح لرأس المال لحساب صافي القيمة الحالية."
+      }
+    },
+    {
+      "id": "labor_productivity_factor",
+      "label": "Manual Labor Productivity Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.85,
+      "min": 0.5,
+      "max": 1,
+      "businessContext": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors).",
+      "label_i18n": {
+        "en": "Manual Labor Productivity Factor",
+        "tr": "Manuel İşçilik Verimlilik Faktörü",
+        "de": "Produktivitätsfaktor manuelle Arbeit",
+        "fr": "Facteur de productivité de la main-d'œuvre manuelle",
+        "es": "Factor de productividad de la mano de obra manual",
+        "ar": "عامل إنتاجية العمالة اليدوية"
+      },
+      "businessContext_i18n": {
+        "en": "Efficiency factor for manual labor (1.0 = 100% productive, 0.85 = typical with breaks/errors).",
+        "tr": "Manuel işçilik için verimlilik faktörü (1.0 = %100 verimli, 0.85 = molalar/hatalarla tipik).",
+        "de": "Effizienzfaktor für manuelle Arbeit (1,0 = 100 % produktiv, 0,85 = typisch mit Pausen/Fehlern).",
+        "fr": "Facteur d'efficacité pour le travail manuel (1,0 = 100% productif, 0,85 = typique avec pauses/erreurs).",
+        "es": "Factor de eficiencia para mano de obra manual (1.0 = 100% productivo, 0.85 = típico con descansos/errores).",
+        "ar": "عامل الكفاءة للعمالة اليدوية (1.0 = إنتاجية 100%، 0.85 = نموذجي مع فترات راحة/أخطاء)."
+      }
+    },
+    {
+      "id": "cobot_uptime_percent",
+      "label": "Cobot Uptime",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 80,
+      "max": 99.9,
+      "businessContext": "Percentage of scheduled time the cobot is operational (excluding planned maintenance).",
+      "label_i18n": {
+        "en": "Cobot Uptime",
+        "tr": "Cobot Çalışma Süresi",
+        "de": "Cobot-Betriebszeit",
+        "fr": "Temps de fonctionnement du cobot",
+        "es": "Tiempo de actividad del cobot",
+        "ar": "وقت تشغيل الروبوت التعاوني"
+      },
+      "businessContext_i18n": {
+        "en": "Percentage of scheduled time the cobot is operational (excluding planned maintenance).",
+        "tr": "Cobot'un planlı bakım hariç programlanan sürenin yüzdesi olarak çalışır durumda olduğu süre.",
+        "de": "Prozentsatz der geplanten Zeit, in der der Cobot betriebsbereit ist (ohne geplante Wartung).",
+        "fr": "Pourcentage du temps programmé pendant lequel le cobot est opérationnel (hors maintenance planifiée).",
+        "es": "Porcentaje del tiempo programado en que el cobot está operativo (excluyendo mantenimiento planificado).",
+        "ar": "النسبة المئوية للوقت المقرر الذي يكون فيه الروبوت التعاوني قيد التشغيل (باستثناء الصيانة المخطط لها)."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      {
+        "id": "rule_shift_workers",
+        "condition": "shift_type == 'Double' && number_of_workers < 2",
+        "message": "For double shifts, consider at least 2 workers replaced to justify investment."
+      },
+      {
+        "id": "rule_training_boolean",
+        "condition": "include_training_cost == false && training_cost > 0",
+        "message": "Training cost is set to zero because include_training_cost is false."
+      },
+      {
+        "id": "rule_discount_rate_range",
+        "condition": "discount_rate < 2 || discount_rate > 20",
+        "message": "Discount rate should be between 2% and 20%."
+      }
+    ],
+    "thresholds": [
+      {
+        "id": "threshold_payback_years",
+        "condition": "payback_years > cobot_lifespan_years",
+        "alert": "Payback period exceeds cobot lifespan. Investment may not be viable.",
+        "severity": "critical"
+      },
+      {
+        "id": "threshold_npv_negative",
+        "condition": "net_present_value < 0",
+        "alert": "Net present value is negative. Consider alternative automation or process improvement.",
+        "severity": "warning"
+      },
+      {
+        "id": "threshold_roi_low",
+        "condition": "return_on_investment < 15",
+        "alert": "ROI below 15% threshold. Review assumptions or consider lean improvements first.",
+        "severity": "info"
+      }
+    ]
+  },
+  "formulas": {
+    "annual_exposure_hours": "1",
+    "direct_labor_cost": "number_of_workers * (discount_rate / 100) * 1 * annual_manual_labor_cost",
+    "result": "number_of_workers * (discount_rate / 100) * 1 * annual_manual_labor_cost * cobot_lifespan_years"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": [
+      "annual_exposure_hours",
+      "direct_labor_cost"
+    ],
+    "hiddenLossDrivers": [
+      "Composite model — validate each cost leg against actuals",
+      "Physical exposure factors are normalized estimates"
+    ],
+    "suggestedActions": [
+      "Reconcile labor and maintenance legs separately",
+      "Benchmark noise/vibration factors with site measurement"
+    ],
+    "dataConfidenceAdjusted": "result",
+    "unit": "USD"
+  },
+  "toolName": "cobot-vs-manual-labor-comparator-calculator",
+  "catalogCategory": "everyday-life",
+  "sectorSlug": "daily-renovation",
+  "categorySlug": "quality-six-sigma",
+  "category": "Matematik & Analiz",
+  "sector": "Günlük Yaşam & Ev",
+  "sectorId": "ev-yasam",
+  "profession": "Ev Yöneticisi",
+  "categoryId": "math"
+}

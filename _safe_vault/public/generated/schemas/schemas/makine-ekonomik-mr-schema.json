@@ -1,0 +1,286 @@
+{
+  "slug": "makine-ekonomik-mr",
+  "name": "Makine Ekonomik Ömrü",
+  "description": "Makine Ekonomik Ömrü premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "IlkMaliyetPiyasaDegeri",
+      "label": "İlk Maliyet/Piyasa Değeri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İlk Maliyet/Piyasa Değeri",
+        "tr": "İlk Maliyet/Piyasa Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kalıntıDeger",
+      "label": "Kalıntı Değer",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kalıntı Değer",
+        "tr": "Kalıntı Değer",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yıllık IsletmeBakımMaliyetleri",
+      "label": "Yıllık İşletme/Bakım Maliyetleri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık İşletme/Bakım Maliyetleri",
+        "tr": "Yıllık İşletme/Bakım Maliyetleri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IskontoOranıI",
+      "label": "İskonto Oranı i",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İskonto Oranı i",
+        "tr": "İskonto Oranı i",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "analizPeriyoduN",
+      "label": "Analiz Periyodu n",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Analiz Periyodu n",
+        "tr": "Analiz Periyodu n",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yeniMakineTeklifi",
+      "label": "Yeni Makine Teklifi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yeni Makine Teklifi",
+        "tr": "Yeni Makine Teklifi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "eUACCapital",
+      "label": "EUAC_Capital",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EUAC_Capital",
+        "tr": "EUAC_Capital",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "eUACOperating",
+      "label": "EUAC_Operating",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EUAC_Operating",
+        "tr": "EUAC_Operating",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "totalEUAC",
+      "label": "TotalEUAC",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalEUAC",
+        "tr": "TotalEUAC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "economicLife",
+      "label": "EconomicLife",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EconomicLife",
+        "tr": "EconomicLife",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "defenderEUAC",
+      "label": "Defender_EUAC",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Defender_EUAC",
+        "tr": "Defender_EUAC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "challengerEUAC",
+      "label": "Challenger_EUAC",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Challenger_EUAC",
+        "tr": "Challenger_EUAC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "replacementDecision",
+      "label": "ReplacementDecision",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ReplacementDecision",
+        "tr": "ReplacementDecision",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "%",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "normalized_product": "IlkMaliyetPiyasaDegeri * kalıntıDeger * yıllık IsletmeBakımMaliyetleri * (IskontoOranıI / 100)",
+    "result": "IlkMaliyetPiyasaDegeri * kalıntıDeger * yıllık IsletmeBakımMaliyetleri * (IskontoOranıI / 100) * (analizPeriyoduN * yeniMakineTeklifi)",
+    "adjustment_factor": "analizPeriyoduN * yeniMakineTeklifi"
+  }
+}

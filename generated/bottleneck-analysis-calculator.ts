@@ -2,13 +2,14 @@
 import * as z from 'zod';
 
 export interface Bottleneck_analysis_calculatorInput {
+  dataConfidence?: number;
   istasyon1: number;
   istasyon2: number;
   istasyon3: number;
-  dataConfidence?: number;
 }
 
 export const Bottleneck_analysis_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   istasyon1: z.number().min(0).default(45),
   istasyon2: z.number().min(0).default(60),
   istasyon3: z.number().min(0).default(50),
@@ -20,18 +21,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Bottleneck_analysis_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.max(input.istasyon1, input.istasyon2, input.istasyon3); results["darbogaz"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["darbogaz"] = Number.NaN; }
-  try { const v = 60 / Math.max(0.0001, Math.max(input.istasyon1, input.istasyon2, input.istasyon3)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.max(input["istasyon1"], input["istasyon2"], input["istasyon3"]); results["darbogaz"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["darbogaz"] = Number.NaN; }
+  try { const v = 60 / Math.max(0.0001, Math.max(input["istasyon1"], input["istasyon2"], input["istasyon3"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateBottleneck_analysis_calculator(input: Bottleneck_analysis_calculatorInput): Bottleneck_analysis_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Conduct regular OEE audits for improvement.","Use SMED to reduce setup times."];
   const dataConfidenceAdjusted =
@@ -40,6 +38,7 @@ export function calculateBottleneck_analysis_calculator(input: Bottleneck_analys
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -50,21 +49,20 @@ export function calculateBottleneck_analysis_calculator(input: Bottleneck_analys
   };
 }
 
-
 export interface Bottleneck_analysis_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Bottleneck_analysis_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "units/hour",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["darbogaz"],
 } as const;
-

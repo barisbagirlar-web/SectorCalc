@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Tariff_extra_duty_calculatorInput {
+  dataConfidence?: number;
   urunBedeli: number;
   ekVergi: number;
-  dataConfidence?: number;
 }
 
 export const Tariff_extra_duty_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   urunBedeli: z.number().min(0).default(50000),
   ekVergi: z.number().min(0).default(25),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Tariff_extra_duty_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.urunBedeli * (input.ekVergi / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["urunBedeli"] * (input["ekVergi"] / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateTariff_extra_duty_calculator(input: Tariff_extra_duty_calculatorInput): Tariff_extra_duty_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Factor in return rates and chargebacks.","Review platform fee schedules regularly."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateTariff_extra_duty_calculator(input: Tariff_extra_duty_c
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateTariff_extra_duty_calculator(input: Tariff_extra_duty_c
   };
 }
 
-
 export interface Tariff_extra_duty_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Tariff_extra_duty_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

@@ -1,0 +1,58 @@
+{
+  "slug": "hit-points-hesaplama",
+  "name": "Hit Points Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "hitDiceTotal",
+      "label": "Hit Dice Total",
+      "type": "number",
+      "unit": "hp",
+      "default": 0,
+      "businessContext": "Karakterin toplam hit dice (can zarı) miktarı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "hitDiceTotal * (1 + hitDiceTotal/500) + Math.sqrt(hitDiceTotal) * 5",
+    "result": "hitDiceTotal * (1 + hitDiceTotal/500) + Math.sqrt(hitDiceTotal) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "hitPoints"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick hit points hesaplama.",
+      "long": "Free hit points hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "hit-points-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

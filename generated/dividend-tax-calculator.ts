@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Dividend_tax_calculatorInput {
+  dataConfidence?: number;
   temettu: number;
   stopaj: number;
-  dataConfidence?: number;
 }
 
 export const Dividend_tax_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   temettu: z.number().min(0).default(10000),
   stopaj: z.number().min(0).max(100).default(15),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Dividend_tax_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.temettu * (1 - input.stopaj / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["temettu"] * (1 - input["stopaj"] / 100); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateDividend_tax_calculator(input: Dividend_tax_calculatorInput): Dividend_tax_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify inputs before making financial decisions.","Consult a licensed financial advisor for personalized advice."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateDividend_tax_calculator(input: Dividend_tax_calculatorI
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateDividend_tax_calculator(input: Dividend_tax_calculatorI
   };
 }
 
-
 export interface Dividend_tax_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Dividend_tax_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

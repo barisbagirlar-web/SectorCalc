@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Thermal_conductivity_converter_calculatorInput {
+  dataConfidence?: number;
   deger: number;
   kaynak: number;
-  dataConfidence?: number;
 }
 
 export const Thermal_conductivity_converter_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   deger: z.number().min(0).default(1),
   kaynak: z.number().min(0).default(0),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Thermal_conductivity_converter_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input.kaynak === 0 ? input.deger : input.deger * 1.163) ? 1 : 0); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["kaynak"] === 0 ? input["deger"] : input["deger"] * 1.163; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateThermal_conductivity_converter_calculator(input: Thermal_conductivity_converter_calculatorInput): Thermal_conductivity_converter_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Use calibrated equipment for measurements.","Consider temperature effects on material properties."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateThermal_conductivity_converter_calculator(input: Therma
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateThermal_conductivity_converter_calculator(input: Therma
   };
 }
 
-
 export interface Thermal_conductivity_converter_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Thermal_conductivity_converter_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "W/mK",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

@@ -1,0 +1,291 @@
+{
+  "slug": "ara-amortismani",
+  "name": "ARAÇ AMORTİSMANI",
+  "description": "ARAÇ AMORTİSMANI premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "edinmeBedeli",
+      "label": "Edinme Bedeli",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Edinme Bedeli",
+        "tr": "Edinme Bedeli",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kalıntıDeger",
+      "label": "Kalıntı Değer",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kalıntı Değer",
+        "tr": "Kalıntı Değer",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "faydalı Omur",
+      "label": "Faydalı Ömür",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Faydalı Ömür",
+        "tr": "Faydalı Ömür",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yıllıkKm",
+      "label": "Yıllık Km",
+      "type": "number",
+      "unit": "km",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Km",
+        "tr": "Yıllık Km",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "amortismanYontemi",
+      "label": "Amortisman Yöntemi",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Amortisman Yöntemi",
+        "tr": "Amortisman Yöntemi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kurumlarVergisi",
+      "label": "Kurumlar Vergisi",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kurumlar Vergisi",
+        "tr": "Kurumlar Vergisi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wACC",
+      "label": "WACC",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WACC",
+        "tr": "WACC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "sLAnnual",
+      "label": "SL_Annual",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "SL_Annual",
+        "tr": "SL_Annual",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dBRate",
+      "label": "DB_Rate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DB_Rate",
+        "tr": "DB_Rate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "dBYearT",
+      "label": "DB_Year_t",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "DB_Year_t",
+        "tr": "DB_Year_t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "mACRSYearT",
+      "label": "MACRS_Year_t",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MACRS_Year_t",
+        "tr": "MACRS_Year_t",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "uoPPerUnit",
+      "label": "UoP_PerUnit",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "UoP_PerUnit",
+        "tr": "UoP_PerUnit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tCO",
+      "label": "TCO",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TCO",
+        "tr": "TCO",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taxShield",
+      "label": "TaxShield",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TaxShield",
+        "tr": "TaxShield",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

@@ -1,0 +1,507 @@
+/**
+ * SectorCalc Industrial UI — Terminal-first design system
+ * Apple-clean surfaces · engineering typography · zero decorative shadow
+ */
+
+:root {
+  /* Anthropic Kil Palette — Engineering Override */
+  --bg-industrial-matte: #f0eee6;
+  --text-premium-velvet: #1a1915;
+  --text-body-charcoal: #696764;
+  --border-technical-gray: rgba(26, 25, 21, 0.10);
+  --action-industrial-orange: #bd5d3a;
+
+  --ind-bg: var(--bg-industrial-matte);
+  --ind-surface: #ffffff;
+  --ind-surface-muted: var(--bg-industrial-matte);
+  --ind-terminal: var(--text-premium-velvet);
+  --ind-terminal-surface: #ffffff;
+  --ind-terminal-border: var(--border-technical-gray);
+
+  --ind-navy: var(--text-premium-velvet);
+  --ind-navy-dark: var(--text-premium-velvet);
+  --ind-amber: var(--action-industrial-orange);
+
+  --ind-text: var(--text-premium-velvet);
+  --ind-text-secondary: var(--text-body-charcoal);
+  --ind-text-muted: var(--text-body-charcoal);
+
+  --ind-border: var(--border-technical-gray);
+  --ind-focus: var(--text-premium-velvet);
+  --ind-radius: 0;
+
+  --ind-section-py: 0.75rem;
+  --ind-card-p: 0.5rem;
+  --ind-gap: 0.25rem;
+  --ind-cta-h: 2rem;
+  --ind-input-h: 2rem;
+
+  --ind-font: var(--font-inter), -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  --ind-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+  --ind-h1: 0.875rem;
+  --ind-h2: 0.8125rem;
+  --ind-h3: 0.8125rem;
+  --ind-body: 0.8125rem;
+  --ind-small: 0.75rem;
+  --ind-eyebrow: 0.6875rem;
+
+  /* Legacy token aliases (MarginCore / Big Four) */
+  --bg-primary: var(--ind-bg);
+  --bg-card: var(--ind-surface);
+  --bg-subtle: var(--ind-surface-muted);
+  --navy: var(--ind-navy);
+  --amber: var(--ind-amber);
+  --text-primary: var(--ind-text);
+  --text-secondary: var(--ind-text-secondary);
+  --text-muted: var(--ind-text-muted);
+  --border-subtle: var(--ind-border);
+  --border-focus: var(--ind-focus);
+  --bf-navy: var(--ind-navy);
+  --bf-amber: var(--ind-amber);
+  --bf-text: var(--ind-text);
+  --bf-text-secondary: var(--ind-text-secondary);
+  --bf-text-muted: var(--ind-text-muted);
+  --bf-border: var(--ind-border);
+  --bf-surface: var(--ind-surface);
+  --bf-surface-subtle: var(--ind-surface-muted);
+  --bf-font: var(--ind-font);
+  --sc-font: var(--ind-font);
+  --sc-navy: var(--ind-navy);
+  --sc-amber: var(--ind-amber);
+  --sc-text: var(--ind-text);
+  --sc-text-secondary: var(--ind-text-secondary);
+  --sc-text-muted: var(--ind-text-muted);
+  --sc-page-bg: var(--ind-bg);
+  --sc-card-bg: var(--ind-surface);
+  --sc-border: var(--ind-border);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ind-section-py: 1rem;
+    --ind-card-p: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --ind-section-py: 1rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Typography                                                                 */
+/* -------------------------------------------------------------------------- */
+
+.ind-h1,
+.sc-h1 {
+  font-size: var(--ind-h1);
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ind-text-secondary);
+}
+
+.ind-h2,
+.sc-h2,
+.bf-display {
+  font-size: var(--ind-h2);
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ind-text-secondary);
+}
+
+.ind-h3,
+.sc-h3,
+.bf-heading {
+  font-size: var(--ind-h3);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--ind-text-secondary);
+}
+
+.ind-eyebrow,
+.sc-eyebrow,
+.bf-eyebrow {
+  font-size: var(--ind-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ind-text-secondary);
+}
+
+.ind-body-muted,
+.sc-body-muted,
+.bf-body-muted {
+  font-size: var(--ind-body);
+  line-height: 1.65;
+  color: var(--ind-text-secondary);
+}
+
+.ind-mono-label {
+  font-family: var(--ind-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Layout & surfaces                                                          */
+/* -------------------------------------------------------------------------- */
+
+.ind-section,
+.sc-section,
+.bf-section {
+  padding-top: var(--ind-section-py);
+  padding-bottom: var(--ind-section-py);
+}
+
+.ind-card,
+.sc-card,
+.bf-card,
+.card-premium {
+  border-radius: 0;
+  border: none;
+  background: var(--ind-surface);
+  padding: var(--ind-card-p);
+  box-shadow: none;
+}
+
+.ind-card-interactive:hover,
+.sc-card-interactive:hover {
+  border-color: transparent;
+}
+
+.ind-panel,
+.premium-panel {
+  border: none;
+  background: var(--ind-surface);
+  border-radius: 0;
+  padding: 0.5rem;
+  box-shadow: none;
+  color: var(--ind-text);
+}
+
+.ind-panel-navy,
+.bf-panel-navy {
+  border: none;
+  border-radius: 0;
+  background: var(--ind-terminal-surface);
+  color: #ffffff;
+  padding: var(--ind-card-p);
+  box-shadow: none;
+}
+
+.report-heading {
+  color: var(--ind-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  border-bottom: 2px solid var(--ind-amber);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.heading-engineering {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--ind-text);
+}
+
+.body-engineering {
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ind-text-secondary);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Controls                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.ind-btn,
+.sc-btn-primary,
+.sc-btn-secondary,
+.bf-btn {
+  display: inline-flex;
+  min-height: var(--ind-cta-h);
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.5rem;
+  border-radius: var(--ind-radius);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.ind-btn-primary,
+.sc-btn-primary,
+.bf-btn-primary {
+  background: var(--base-black);
+  color: var(--base-white);
+  border: 1px solid var(--base-black);
+}
+
+.ind-btn-primary:hover,
+.sc-btn-primary:hover,
+.bf-btn-primary:hover {
+  background: #000000;
+}
+
+.ind-btn-secondary,
+.sc-btn-secondary,
+.bf-btn-secondary {
+  background: transparent;
+  border: 1px solid var(--base-black);
+  color: var(--base-black);
+}
+
+.ind-btn-secondary:hover,
+.sc-btn-secondary:hover,
+.bf-btn-secondary:hover {
+  background: var(--light-gray);
+}
+
+.ind-btn-risk,
+.bf-btn-risk {
+  background: var(--base-black);
+  color: var(--base-white);
+  border: 1px solid var(--base-black);
+}
+
+.ind-input,
+.sc-input {
+  min-height: var(--ind-input-h);
+  width: 100%;
+  border-radius: var(--ind-radius);
+  border: 1px solid var(--ind-border);
+  background: var(--ind-surface);
+  color: var(--ind-text);
+  padding-inline: 1rem;
+  font-size: 1rem;
+  transition: border-color 150ms ease;
+}
+
+.ind-input:focus,
+.sc-input:focus {
+  outline: none;
+  border-color: var(--base-black);
+  box-shadow: none;
+}
+
+.ind-input-error,
+.sc-input-error {
+  border-color: var(--crit-red);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Data tables                                                                */
+/* -------------------------------------------------------------------------- */
+
+.ind-table,
+.bf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ind-table th,
+.bf-table th {
+  background: var(--ind-terminal-surface);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--ind-border);
+}
+
+.ind-table td,
+.bf-table td {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--ind-border);
+  color: var(--ind-text);
+}
+
+.ind-table tr:nth-child(even) td,
+.bf-table tr:nth-child(even) td {
+  background: var(--ind-surface-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Terminal shell                                                             */
+/* -------------------------------------------------------------------------- */
+
+.ind-terminal {
+  background: var(--ind-terminal);
+  border: 1px solid var(--ind-terminal-border);
+  color: rgb(241 245 249);
+  font-family: var(--ind-mono);
+}
+
+/* Black terminal — force white text/icons (archive, audit panels) */
+.ind-terminal--inverse {
+  color: #ffffff;
+}
+
+.ind-terminal--inverse :where(h1, h2, h3, h4, p, th, td, span, label, a) {
+  color: inherit;
+}
+
+.ind-terminal--inverse svg {
+  color: #ffffff;
+  stroke: currentColor;
+}
+
+.ind-terminal-metric {
+  border: 1px solid rgb(51 65 85);
+  background: var(--ind-terminal-surface);
+  padding: 1rem;
+}
+
+.ind-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--ind-terminal-border);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* App shell (header / footer)                                                */
+/* -------------------------------------------------------------------------- */
+
+.ind-shell-header {
+  /* superseded by .apple-nav — kept for legacy pages */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.ind-shell-header .ind-shell-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .ind-shell-header .ind-shell-inner {
+    padding-inline: 2rem;
+  }
+}
+
+.ind-shell-footer {
+  background: var(--light-gray);
+  color: var(--slate-gray);
+  font-size: 0.8125rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-line);
+}
+
+.ind-shell-footer .ind-shell-inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .ind-shell-footer .ind-shell-inner {
+    padding-inline: 2rem;
+  }
+}
+
+.ind-page-hero {
+  border-bottom: 1px solid var(--border-line);
+  background: var(--base-white);
+  color: var(--base-black);
+}
+
+.ind-page-hero-inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .ind-page-hero-inner {
+    padding: 1rem 2rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark surface readability                                                   */
+/* -------------------------------------------------------------------------- */
+
+.bg-deep-navy,
+.bg-dark-navy,
+.bg-slate-900,
+.bg-navy,
+.bf-panel-navy,
+.ind-panel-navy {
+  color: #ffffff;
+}
+
+.bg-deep-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.bg-dark-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.bg-slate-900 :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.bg-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.bf-panel-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.ind-panel-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th) {
+  color: #ffffff;
+}
+
+.bg-deep-navy :is(.text-text-secondary, .text-text-primary, .text-text-muted),
+.bg-dark-navy :is(.text-text-secondary, .text-text-primary, .text-text-muted) {
+  color: rgb(255 255 255 / 0.78) !important;
+}
+
+.bg-deep-navy .text-amber,
+.bg-dark-navy .text-amber {
+  color: var(--ind-amber) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Motion & focus                                                             */
+/* -------------------------------------------------------------------------- */
+
+.sc-reveal {
+  animation: ind-fade-up 350ms ease forwards;
+}
+
+.sc-result-reveal {
+  animation: ind-fade-in 300ms ease forwards;
+}
+
+@keyframes ind-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ind-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--base-black);
+  outline-offset: 2px;
+}

@@ -1,0 +1,252 @@
+{
+  "slug": "transfer-fiyatlandrmas-optimize-edici",
+  "name": "Transfer Fiyatlandırması Optimize Edici",
+  "description": "Transfer Fiyatlandırması Optimize Edici premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "karsılastırılabilirPiyasaFiyatı",
+      "label": "Karşılaştırılabilir Piyasa Fiyatı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Karşılaştırılabilir Piyasa Fiyatı",
+        "tr": "Karşılaştırılabilir Piyasa Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yuksekDusukVergiOranları",
+      "label": "Yüksek/Düşük Vergi Oranları",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yüksek/Düşük Vergi Oranları",
+        "tr": "Yüksek/Düşük Vergi Oranları",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "tamMaliyetDegiskenMaliyet",
+      "label": "Tam Maliyet/Değişken Maliyet",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tam Maliyet/Değişken Maliyet",
+        "tr": "Tam Maliyet/Değişken Maliyet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "fırsatMaliyeti",
+      "label": "Fırsat Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Fırsat Maliyeti",
+        "tr": "Fırsat Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hedefMarj",
+      "label": "Hedef Marj",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hedef Marj",
+        "tr": "Hedef Marj",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "duzenleyiciCezaRiski",
+      "label": "Düzenleyici Ceza Riski",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Düzenleyici Ceza Riski",
+        "tr": "Düzenleyici Ceza Riski",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "costPlusPrice",
+      "label": "CostPlusPrice",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CostPlusPrice",
+        "tr": "CostPlusPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "marketBasedPrice",
+      "label": "MarketBasedPrice",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarketBasedPrice",
+        "tr": "MarketBasedPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "marginalCost",
+      "label": "MarginalCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarginalCost",
+        "tr": "MarginalCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taxImpact",
+      "label": "TaxImpact",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TaxImpact",
+        "tr": "TaxImpact",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "globalProfit",
+      "label": "GlobalProfit",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "GlobalProfit",
+        "tr": "GlobalProfit",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "optimalTransferPrice",
+      "label": "OptimalTransferPrice",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "OptimalTransferPrice",
+        "tr": "OptimalTransferPrice",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

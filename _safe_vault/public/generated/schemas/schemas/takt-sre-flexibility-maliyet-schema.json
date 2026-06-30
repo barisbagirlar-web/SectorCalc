@@ -1,0 +1,252 @@
+{
+  "slug": "takt-sre-flexibility-maliyet",
+  "name": "Takt Süre Flexibility Maliyet",
+  "description": "Takt Süre Flexibility Maliyet premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "CevrimSureleriArray",
+      "label": "Çevrim Süreleri array",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çevrim Süreleri array",
+        "tr": "Çevrim Süreleri array",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kullanılabilirSureDk",
+      "label": "Kullanılabilir Süre dk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kullanılabilir Süre dk",
+        "tr": "Kullanılabilir Süre dk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "musteriTalebiAdet",
+      "label": "Müşteri Talebi adet",
+      "type": "number",
+      "unit": "adet",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Müşteri Talebi adet",
+        "tr": "Müşteri Talebi adet",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "operatorSayısı",
+      "label": "Operatör Sayısı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Operatör Sayısı",
+        "tr": "Operatör Sayısı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "CaprazEgitimSaati",
+      "label": "Çapraz Eğitim Saati",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Çapraz Eğitim Saati",
+        "tr": "Çapraz Eğitim Saati",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "IscilikDengeKaybıMaliyeti",
+      "label": "İşçilik/Denge Kaybı Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "İşçilik/Denge Kaybı Maliyeti",
+        "tr": "İşçilik/Denge Kaybı Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taktTime",
+      "label": "TaktTime",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TaktTime",
+        "tr": "TaktTime",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cycleTimeFlexibility",
+      "label": "CycleTimeFlexibility",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CycleTimeFlexibility",
+        "tr": "CycleTimeFlexibility",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "balanceLoss",
+      "label": "BalanceLoss",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BalanceLoss",
+        "tr": "BalanceLoss",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "crossTrainingCost",
+      "label": "CrossTrainingCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "CrossTrainingCost",
+        "tr": "CrossTrainingCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "flexibilityPremium",
+      "label": "FlexibilityPremium",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "FlexibilityPremium",
+        "tr": "FlexibilityPremium",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "volumeVariationCost",
+      "label": "VolumeVariationCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "VolumeVariationCost",
+        "tr": "VolumeVariationCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "time"
+}

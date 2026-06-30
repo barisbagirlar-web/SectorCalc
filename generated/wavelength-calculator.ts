@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Wavelength_calculatorInput {
+  dataConfidence?: number;
   hiz: number;
   frekans: number;
-  dataConfidence?: number;
 }
 
 export const Wavelength_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   hiz: z.number().min(0).default(343),
   frekans: z.number().min(0).default(440),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Wavelength_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.hiz / Math.max(0.0001, input.frekans); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["hiz"] / Math.max(0.0001, input["frekans"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateWavelength_calculator(input: Wavelength_calculatorInput): Wavelength_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Use calibrated equipment for measurements.","Consider temperature effects on material properties."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateWavelength_calculator(input: Wavelength_calculatorInput
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateWavelength_calculator(input: Wavelength_calculatorInput
   };
 }
 
-
 export interface Wavelength_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Wavelength_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

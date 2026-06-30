@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Rc_time_constant_calculatorInput {
+  dataConfidence?: number;
   R: number;
   C: number;
-  dataConfidence?: number;
 }
 
 export const Rc_time_constant_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   R: z.number().min(0).default(10000),
   C: z.number().min(0).default(0.000001),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Rc_time_constant_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.R * input.C; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["R"] * input["C"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateRc_time_constant_calculator(input: Rc_time_constant_calculatorInput): Rc_time_constant_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Low Q factor indicates broader frequency response."];
   const suggestedActions: string[] = ["Verify component tolerances affect circuit performance.","Use proper safety equipment for high voltage/current work."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateRc_time_constant_calculator(input: Rc_time_constant_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateRc_time_constant_calculator(input: Rc_time_constant_cal
   };
 }
 
-
 export interface Rc_time_constant_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Rc_time_constant_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "s",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

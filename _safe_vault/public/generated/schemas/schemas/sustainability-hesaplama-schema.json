@@ -1,0 +1,75 @@
+{
+  "slug": "sustainability-hesaplama",
+  "name": "Sustainability Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "consumptionAmount",
+      "label": "Score",
+      "type": "number",
+      "unit": "kWh",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Enerji/kaynak tüketim miktarı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Tüketim",
+        "fr": "Tüketim",
+        "es": "Tüketim",
+        "ar": "Tüketim"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Enerji/kaynak tüketim miktarı.",
+        "fr": "Enerji/kaynak tüketim miktarı.",
+        "es": "Enerji/kaynak tüketim miktarı.",
+        "ar": "Enerji/kaynak tüketim miktarı."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "consumptionAmount * (1 + consumptionAmount/500) + Math.sqrt(consumptionAmount) * 5",
+    "result": "consumptionAmount * (1 + consumptionAmount/500) + Math.sqrt(consumptionAmount) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "consumptionAmount"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick sustainability hesaplama.",
+      "long": "Free sustainability hesaplama tool."
+    }
+  },
+  "sector": "Enerji & Sürdürülebilirlik",
+  "toolName": "sustainability-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "energy"
+}

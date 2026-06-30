@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Beam_deflection_calculatorInput {
+  dataConfidence?: number;
   yuk: number;
   aciklik: number;
   elastisiteModulu: number;
   ataletMomenti: number;
-  dataConfidence?: number;
 }
 
 export const Beam_deflection_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   yuk: z.number().min(0).default(15000),
   aciklik: z.number().min(0).default(4),
   elastisiteModulu: z.number().min(0).default(200000000000),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Beam_deflection_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.yuk * Math.pow(input.aciklik, 3)) / Math.max(0.0001, (48 * input.elastisiteModulu * input.ataletMomenti)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["yuk"] * Math.pow(input["aciklik"], 3)) / Math.max(0.0001, (48 * input["elastisiteModulu"] * input["ataletMomenti"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateBeam_deflection_calculator(input: Beam_deflection_calculatorInput): Beam_deflection_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify calculations with FEA or physical testing.","Use appropriate safety factors for design."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateBeam_deflection_calculator(input: Beam_deflection_calcu
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateBeam_deflection_calculator(input: Beam_deflection_calcu
   };
 }
 
-
 export interface Beam_deflection_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Beam_deflection_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

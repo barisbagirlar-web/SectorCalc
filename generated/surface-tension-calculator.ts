@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Surface_tension_calculatorInput {
+  dataConfidence?: number;
   kuvvet: number;
   uzunluk: number;
-  dataConfidence?: number;
 }
 
 export const Surface_tension_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   kuvvet: z.number().min(0).default(0.05),
   uzunluk: z.number().min(0).default(0.5),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Surface_tension_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.kuvvet / Math.max(0.0001, input.uzunluk); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["kuvvet"] / Math.max(0.0001, input["uzunluk"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateSurface_tension_calculator(input: Surface_tension_calculatorInput): Surface_tension_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Use calibrated equipment for measurements.","Consider temperature effects on material properties."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateSurface_tension_calculator(input: Surface_tension_calcu
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateSurface_tension_calculator(input: Surface_tension_calcu
   };
 }
 
-
 export interface Surface_tension_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Surface_tension_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "N/m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

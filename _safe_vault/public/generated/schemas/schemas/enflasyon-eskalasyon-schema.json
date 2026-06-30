@@ -1,0 +1,305 @@
+{
+  "slug": "enflasyon-eskalasyon",
+  "name": "ENFLASYON ESKALASYON",
+  "description": "ENFLASYON ESKALASYON premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "bazMalzeme",
+      "label": "Baz Malzeme",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Baz Malzeme",
+        "tr": "Baz Malzeme",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "malzemeEnflasyon",
+      "label": "Malzeme Enflasyon",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Malzeme Enflasyon",
+        "tr": "Malzeme Enflasyon",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "baz Iscilik",
+      "label": "Baz İşçilik",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Baz İşçilik",
+        "tr": "Baz İşçilik",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "UcretArtıs",
+      "label": "Ücret Artış",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ücret Artış",
+        "tr": "Ücret Artış",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "sure",
+      "label": "Süre",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Süre",
+        "tr": "Süre",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "risk",
+      "label": "Risk",
+      "type": "string",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Risk",
+        "tr": "Risk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nominalGenelEnflasyon",
+      "label": "Nominal/Genel Enflasyon",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Nominal/Genel Enflasyon",
+        "tr": "Nominal/Genel Enflasyon",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "escMat",
+      "label": "Esc_Mat",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Esc_Mat",
+        "tr": "Esc_Mat",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "escLab",
+      "label": "Esc_Lab",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Esc_Lab",
+        "tr": "Esc_Lab",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "baseAdj",
+      "label": "BaseAdj",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "BaseAdj",
+        "tr": "BaseAdj",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "realDisc",
+      "label": "RealDisc",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "RealDisc",
+        "tr": "RealDisc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nPVNom",
+      "label": "NPV_Nom",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV_Nom",
+        "tr": "NPV_Nom",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "nPVReal",
+      "label": "NPV_Real",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV_Real",
+        "tr": "NPV_Real",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "contingency",
+      "label": "Contingency",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Contingency",
+        "tr": "Contingency",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "total",
+      "label": "Total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Total",
+        "tr": "Total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "category": "cost"
+}

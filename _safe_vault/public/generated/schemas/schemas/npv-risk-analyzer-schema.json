@@ -1,0 +1,310 @@
+{
+  "slug": "npv-risk-analyzer",
+  "name": "NPV Risk Analyzer (Discrete / Continuous / Risk-Adjusted)",
+  "description": "Nakit akışlarının riskini WACC, sürekli iskonto ve olasılık düzeltmesi ile hesaplamadan yatırım kararı eksik kalır.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "cashFlows",
+      "label": "Nakit Akışları (virgülle)",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Nakit Akışları (virgülle)",
+        "tr": "Nakit Akışları (virgülle)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "equityCost",
+      "label": "Özsermaye Maliyeti",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Özsermaye Maliyeti",
+        "tr": "Özsermaye Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "debtCost",
+      "label": "Borçlanma Maliyeti",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Borçlanma Maliyeti",
+        "tr": "Borçlanma Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vergi Oranı",
+        "tr": "Vergi Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "debtToEquity",
+      "label": "Borç/Özsermaye Oranı",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Borç/Özsermaye Oranı",
+        "tr": "Borç/Özsermaye Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "riskFreeRate",
+      "label": "Risksiz Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Risksiz Faiz Oranı",
+        "tr": "Risksiz Faiz Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "probabilityArray",
+      "label": "Başarı Olasılıkları (%)",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Başarı Olasılıkları (%)",
+        "tr": "Başarı Olasılıkları (%)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "riskPremium",
+      "label": "Risk Primi",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Risk Primi",
+        "tr": "Risk Primi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "wacc",
+      "label": "WACC",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "WACC",
+        "tr": "WACC",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "npvDiscrete",
+      "label": "NPV (Ayrık)",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV (Ayrık)",
+        "tr": "NPV (Ayrık)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "npvContinuous",
+      "label": "NPV (Sürekli)",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "NPV (Sürekli)",
+        "tr": "NPV (Sürekli)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "riskAdjustedNpv",
+      "label": "Risk-Düzeltilmiş NPV",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "Risk-Düzeltilmiş NPV",
+        "tr": "Risk-Düzeltilmiş NPV",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "durationMacaulay",
+      "label": "Macaulay Süresi",
+      "unit": "yıl",
+      "format": "number",
+      "label_i18n": {
+        "en": "Macaulay Süresi",
+        "tr": "Macaulay Süresi",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_debtCost"
+    ],
+    "unit": "USD",
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
+    "suggestedActions": [
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "base_cost": "debtToEquity * cashFlows",
+    "adjusted_cost": "debtToEquity * cashFlows * (1 + (equityCost / 100))",
+    "result": "debtToEquity * cashFlows * (1 + (equityCost / 100)) * ((debtCost / 100))",
+    "factor_debtCost": "(debtCost / 100)"
+  }
+}

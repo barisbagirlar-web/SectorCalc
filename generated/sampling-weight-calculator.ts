@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Sampling_weight_calculatorInput {
+  dataConfidence?: number;
   tabakaPopulasyon: number;
   toplamPopulasyon: number;
   tabakaOrneklem: number;
   toplamOrneklem: number;
-  dataConfidence?: number;
 }
 
 export const Sampling_weight_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   tabakaPopulasyon: z.number().min(0).default(500),
   toplamPopulasyon: z.number().min(0).default(5000),
   tabakaOrneklem: z.number().min(0).default(50),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Sampling_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.tabakaPopulasyon / Math.max(1, input.toplamPopulasyon)) / Math.max(0.0001, (input.tabakaOrneklem / Math.max(1, input.toplamOrneklem))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["tabakaPopulasyon"] / Math.max(1, input["toplamPopulasyon"])) / Math.max(0.0001, (input["tabakaOrneklem"] / Math.max(1, input["toplamOrneklem"]))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateSampling_weight_calculator(input: Sampling_weight_calculatorInput): Sampling_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["High asymmetry increases injury risk.","Low H-index may indicate limited academic impact."];
   const suggestedActions: string[] = ["Balance training for injury prevention.","Use peer review to validate research quality."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateSampling_weight_calculator(input: Sampling_weight_calcu
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateSampling_weight_calculator(input: Sampling_weight_calcu
   };
 }
 
-
 export interface Sampling_weight_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Sampling_weight_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "weight",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

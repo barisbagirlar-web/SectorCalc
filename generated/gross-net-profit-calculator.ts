@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Gross_net_profit_calculatorInput {
+  dataConfidence?: number;
   ciro: number;
   cogs: number;
   isletmeGideri: number;
   vergi: number;
-  dataConfidence?: number;
 }
 
 export const Gross_net_profit_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   ciro: z.number().min(0).default(1000000),
   cogs: z.number().min(0).default(600000),
   isletmeGideri: z.number().min(0).default(200000),
@@ -22,18 +23,16 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Gross_net_profit_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.ciro - input.cogs; results["brut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["brut"] = Number.NaN; }
-  try { const v = (input.ciro - input.cogs) - input.isletmeGideri - input.vergi; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["ciro"] - input["cogs"]; results["brut"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["brut"] = Number.NaN; }
+  try { const v = (input["ciro"] - input["cogs"]) - input["isletmeGideri"] - input["vergi"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateGross_net_profit_calculator(input: Gross_net_profit_calculatorInput): Gross_net_profit_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    brut: toNumericFormulaValue(values["brut"]),
-    sonuc: toNumericFormulaValue(values["sonuc"])
+  const breakdown: Record<string, number> = {
+    "brut": toNumericFormulaValue(values["brut"])
   };
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify financial projections with actual data.","Review assumptions quarterly."];
@@ -43,6 +42,7 @@ export function calculateGross_net_profit_calculator(input: Gross_net_profit_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -53,21 +53,20 @@ export function calculateGross_net_profit_calculator(input: Gross_net_profit_cal
   };
 }
 
-
 export interface Gross_net_profit_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { brut: number; sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Gross_net_profit_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "USD",
-  breakdownKeys: ["brut","sonuc"],
+  breakdownKeys: ["brut"],
 } as const;
-

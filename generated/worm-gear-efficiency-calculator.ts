@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Worm_gear_efficiency_calculatorInput {
+  dataConfidence?: number;
   helisAcisi: number;
   suratmeAcisi: number;
-  dataConfidence?: number;
 }
 
 export const Worm_gear_efficiency_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   helisAcisi: z.number().min(0).default(0.35),
   suratmeAcisi: z.number().min(0).default(0.15),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Worm_gear_efficiency_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.tan(input.helisAcisi) / Math.max(0.0001, Math.tan(input.helisAcisi + input.suratmeAcisi)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.tan(input["helisAcisi"]) / Math.max(0.0001, Math.tan(input["helisAcisi"] + input["suratmeAcisi"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateWorm_gear_efficiency_calculator(input: Worm_gear_efficiency_calculatorInput): Worm_gear_efficiency_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify calculations with FEA or physical testing.","Use appropriate safety factors for design."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateWorm_gear_efficiency_calculator(input: Worm_gear_effici
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateWorm_gear_efficiency_calculator(input: Worm_gear_effici
   };
 }
 
-
 export interface Worm_gear_efficiency_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Worm_gear_efficiency_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "efficiency",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

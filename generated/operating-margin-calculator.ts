@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Operating_margin_calculatorInput {
+  dataConfidence?: number;
   favok: number;
   ciro: number;
-  dataConfidence?: number;
 }
 
 export const Operating_margin_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   favok: z.number().min(0).default(300000),
   ciro: z.number().min(0).default(1000000),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Operating_margin_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.favok / Math.max(0.0001, input.ciro)) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["favok"] / Math.max(0.0001, input["ciro"])) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateOperating_margin_calculator(input: Operating_margin_calculatorInput): Operating_margin_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Verify financial projections with actual data.","Review assumptions quarterly."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateOperating_margin_calculator(input: Operating_margin_cal
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateOperating_margin_calculator(input: Operating_margin_cal
   };
 }
 
-
 export interface Operating_margin_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Operating_margin_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

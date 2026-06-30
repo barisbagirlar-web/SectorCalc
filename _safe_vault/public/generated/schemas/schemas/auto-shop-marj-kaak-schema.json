@@ -1,0 +1,261 @@
+{
+  "slug": "auto-shop-marj-kaak",
+  "name": "AUTO SHOP MARJ KAÇAK",
+  "description": "AUTO SHOP MARJ KAÇAK premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "parcaIscilikGeliri",
+      "label": "Parça/İşçilik Geliri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Parça/İşçilik Geliri",
+        "tr": "Parça/İşçilik Geliri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cOGS",
+      "label": "COGS",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "COGS",
+        "tr": "COGS",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "envanterFire",
+      "label": "Envanter Fire",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Envanter Fire",
+        "tr": "Envanter Fire",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "flagMevcutSaatler",
+      "label": "Flag/Mevcut Saatler",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Flag/Mevcut Saatler",
+        "tr": "Flag/Mevcut Saatler",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "benchmarkMarj",
+      "label": "Benchmark Marj",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Benchmark Marj",
+        "tr": "Benchmark Marj",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "grossMarginParts",
+      "label": "GrossMargin_Parts",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "GrossMargin_Parts",
+        "tr": "GrossMargin_Parts",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "effectiveLaborRate",
+      "label": "EffectiveLaborRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "EffectiveLaborRate",
+        "tr": "EffectiveLaborRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "productivityRate",
+      "label": "ProductivityRate",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProductivityRate",
+        "tr": "ProductivityRate",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "marginLeakDiscount",
+      "label": "MarginLeak_Discount",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarginLeak_Discount",
+        "tr": "MarginLeak_Discount",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "marginLeakShrinkage",
+      "label": "MarginLeak_Shrinkage",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "MarginLeak_Shrinkage",
+        "tr": "MarginLeak_Shrinkage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "netMargin",
+      "label": "NetMargin",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NetMargin",
+        "tr": "NetMargin",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "annualLeakage",
+      "label": "AnnualLeakage",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "AnnualLeakage",
+        "tr": "AnnualLeakage",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "finance",
+  "formulas": {
+    "normalized_product": "parcaIscilikGeliri * cOGS * envanterFire * flagMevcutSaatler",
+    "result": "parcaIscilikGeliri * cOGS * envanterFire * flagMevcutSaatler * (benchmarkMarj)",
+    "adjustment_factor": "benchmarkMarj"
+  }
+}

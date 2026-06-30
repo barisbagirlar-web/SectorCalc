@@ -1,0 +1,297 @@
+{
+  "slug": "vsm-finansal-dntrc",
+  "name": "Vsm finansal Dönüştürücü",
+  "description": "Vsm finansal Dönüştürücü premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "toplamLeadTimeGun",
+      "label": "Toplam Lead Time gün",
+      "type": "number",
+      "unit": "saat",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Toplam Lead Time gün",
+        "tr": "Toplam Lead Time gün",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "katmaDegerliSureDk",
+      "label": "Katma Değerli Süre dk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Katma Değerli Süre dk",
+        "tr": "Katma Değerli Süre dk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "wIPStokDegeri",
+      "label": "WIP Stok Değeri",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "WIP Stok Değeri",
+        "tr": "WIP Stok Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "gunlukTasımaMaliyeti",
+      "label": "Günlük Taşıma Maliyeti",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Günlük Taşıma Maliyeti",
+        "tr": "Günlük Taşıma Maliyeti",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "eskiYeni CevrimSuresiDk",
+      "label": "Eski/Yeni Çevrim Süresi dk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Eski/Yeni Çevrim Süresi dk",
+        "tr": "Eski/Yeni Çevrim Süresi dk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "yıllıkHacim",
+      "label": "Yıllık Hacim",
+      "type": "number",
+      "unit": "m³",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Yıllık Hacim",
+        "tr": "Yıllık Hacim",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "kalite IyilestirmeTasarrufu",
+      "label": "Kalite İyileştirme Tasarrufu",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kalite İyileştirme Tasarrufu",
+        "tr": "Kalite İyileştirme Tasarrufu",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "leadTimeCost",
+      "label": "LeadTimeCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "LeadTimeCost",
+        "tr": "LeadTimeCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "valueAddedRatio",
+      "label": "ValueAddedRatio",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ValueAddedRatio",
+        "tr": "ValueAddedRatio",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "nonValueAddedCost",
+      "label": "NonValueAddedCost",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "NonValueAddedCost",
+        "tr": "NonValueAddedCost",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "inventoryReductionSavings",
+      "label": "InventoryReductionSavings",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "InventoryReductionSavings",
+        "tr": "InventoryReductionSavings",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "productivityGain",
+      "label": "ProductivityGain",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "ProductivityGain",
+        "tr": "ProductivityGain",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "totalFinancialImpact",
+      "label": "TotalFinancialImpact",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "TotalFinancialImpact",
+        "tr": "TotalFinancialImpact",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "normalized_product": "toplamLeadTimeGun * katmaDegerliSureDk * wIPStokDegeri * gunlukTasımaMaliyeti",
+    "result": "toplamLeadTimeGun * katmaDegerliSureDk * wIPStokDegeri * gunlukTasımaMaliyeti * (eskiYeni CevrimSuresiDk * yıllıkHacim * kalite IyilestirmeTasarrufu)",
+    "adjustment_factor": "eskiYeni CevrimSuresiDk * yıllıkHacim * kalite IyilestirmeTasarrufu"
+  }
+}

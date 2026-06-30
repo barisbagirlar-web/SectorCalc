@@ -1,0 +1,271 @@
+{
+  "slug": "lease-vs-buy-analyzer",
+  "name": "Lease vs Buy (NAL) Analyzer",
+  "description": "Ekipman yatırımında kiralamanın mı satın almanın mı avantajlı olduğu Net Avantaj (NAL) ile hesaplanmadan doğru karar verilemez.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Satın Alma Fiyatı",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Satın Alma Fiyatı",
+        "tr": "Satın Alma Fiyatı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "leasePayment",
+      "label": "Kiralama Ödemesi (yıllık)",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Kiralama Ödemesi (yıllık)",
+        "tr": "Kiralama Ödemesi (yıllık)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "depreciationSchedule",
+      "label": "Amortisman Tablosu (yıllık)",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Amortisman Tablosu (yıllık)",
+        "tr": "Amortisman Tablosu (yıllık)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "salvageValue",
+      "label": "Hurda Değeri",
+      "type": "number",
+      "unit": "USD",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hurda Değeri",
+        "tr": "Hurda Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Vergi Oranı",
+        "tr": "Vergi Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "interestRate",
+      "label": "Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Faiz Oranı",
+        "tr": "Faiz Oranı",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "assetLife",
+      "label": "Ekipman Ömrü (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ekipman Ömrü (yıl)",
+        "tr": "Ekipman Ömrü (yıl)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "nal",
+      "label": "Net Leasing Avantajı (NAL)",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "Net Leasing Avantajı (NAL)",
+        "tr": "Net Leasing Avantajı (NAL)",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "pvLease",
+      "label": "Kiralama Bugünkü Değeri",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "Kiralama Bugünkü Değeri",
+        "tr": "Kiralama Bugünkü Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "pvBuy",
+      "label": "Satın Alma Bugünkü Değeri",
+      "unit": "USD",
+      "format": "number",
+      "label_i18n": {
+        "en": "Satın Alma Bugünkü Değeri",
+        "tr": "Satın Alma Bugünkü Değeri",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "irrLease",
+      "label": "Lease IRR",
+      "unit": "%",
+      "format": "percentage",
+      "label_i18n": {
+        "en": "Lease IRR",
+        "tr": "Lease IRR",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "base_cost",
+      "adjusted_cost",
+      "factor_leasePayment"
+    ],
+    "unit": "USD",
+    "hiddenLossDrivers": [
+      "Scrap and rework not in unit price",
+      "Volume discount not applied"
+    ],
+    "suggestedActions": [
+      "Reconcile unit cost with last PO",
+      "Stress-test with +10% waste"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "cost",
+  "formulas": {
+    "base_cost": "assetLife * purchasePrice",
+    "adjusted_cost": "assetLife * purchasePrice * (1 + (taxRate / 100))",
+    "result": "assetLife * purchasePrice * (1 + (taxRate / 100)) * (leasePayment)",
+    "factor_leasePayment": "leasePayment"
+  }
+}

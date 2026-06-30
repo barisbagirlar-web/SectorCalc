@@ -1,0 +1,75 @@
+{
+  "slug": "gestational-diabetes-risk-hesaplama",
+  "name": "Gestational Diabetes Risk Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "lastPeriodDate",
+      "label": "Score",
+      "type": "number",
+      "unit": "date",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Son adet döneminin ilk günü.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "Math.pow(lastPeriodDate / 100, 2) * 100 + Math.sqrt(lastPeriodDate) * 2",
+    "result": "Math.pow(lastPeriodDate / 100, 2) * 100 + Math.sqrt(lastPeriodDate) * 2"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "lastPeriodDate"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick gestational diabetes risk hesaplama.",
+      "long": "Free gestational diabetes risk hesaplama tool."
+    }
+  },
+  "sector": "Kimya",
+  "toolName": "gestational-diabetes-risk-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "chemistry"
+}

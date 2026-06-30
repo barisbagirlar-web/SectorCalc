@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Wallpaper_roll_calculatorInput {
+  dataConfidence?: number;
   alan: number;
   ruloEn: number;
   ruloBoy: number;
   desenTekrari: number;
-  dataConfidence?: number;
 }
 
 export const Wallpaper_roll_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   alan: z.number().min(0).default(50),
   ruloEn: z.number().min(0).default(0.53),
   ruloBoy: z.number().min(0).default(10),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Wallpaper_roll_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = Math.ceil(input.alan / Math.max(0.0001, (input.ruloEn * input.ruloBoy * (1 - input.desenTekrari / Math.max(0.0001, input.ruloBoy))))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = Math.ceil(input["alan"] / Math.max(0.0001, (input["ruloEn"] * input["ruloBoy"] * (1 - input["desenTekrari"] / Math.max(0.0001, input["ruloBoy"]))))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateWallpaper_roll_calculator(input: Wallpaper_roll_calculatorInput): Wallpaper_roll_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Order 5-10% extra material for waste.","Verify local building codes before purchasing."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateWallpaper_roll_calculator(input: Wallpaper_roll_calcula
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateWallpaper_roll_calculator(input: Wallpaper_roll_calcula
   };
 }
 
-
 export interface Wallpaper_roll_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Wallpaper_roll_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "rolls",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

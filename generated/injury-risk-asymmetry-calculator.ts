@@ -2,12 +2,13 @@
 import * as z from 'zod';
 
 export interface Injury_risk_asymmetry_calculatorInput {
+  dataConfidence?: number;
   sagKuvvet: number;
   solKuvvet: number;
-  dataConfidence?: number;
 }
 
 export const Injury_risk_asymmetry_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   sagKuvvet: z.number().min(0).default(500),
   solKuvvet: z.number().min(0).default(450),
 });
@@ -18,17 +19,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Injury_risk_asymmetry_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (Math.abs(input.sagKuvvet - input.solKuvvet) / Math.max(0.0001, Math.max(input.sagKuvvet, input.solKuvvet))) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (Math.abs(input["sagKuvvet"] - input["solKuvvet"]) / Math.max(0.0001, Math.max(input["sagKuvvet"], input["solKuvvet"]))) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateInjury_risk_asymmetry_calculator(input: Injury_risk_asymmetry_calculatorInput): Injury_risk_asymmetry_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["High asymmetry increases injury risk.","Low H-index may indicate limited academic impact."];
   const suggestedActions: string[] = ["Balance training for injury prevention.","Use peer review to validate research quality."];
   const dataConfidenceAdjusted =
@@ -37,6 +35,7 @@ export function calculateInjury_risk_asymmetry_calculator(input: Injury_risk_asy
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -47,21 +46,20 @@ export function calculateInjury_risk_asymmetry_calculator(input: Injury_risk_asy
   };
 }
 
-
 export interface Injury_risk_asymmetry_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Injury_risk_asymmetry_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Cold_storage_heat_gain_calculatorInput {
+  dataConfidence?: number;
   alan: number;
   U_Katsayi: number;
   disSicaklik: number;
   icSicaklik: number;
-  dataConfidence?: number;
 }
 
 export const Cold_storage_heat_gain_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   alan: z.number().min(0).default(200),
   U_Katsayi: z.number().min(0).default(0.3),
   disSicaklik: z.number().min(0).default(35),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Cold_storage_heat_gain_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.alan * input.U_Katsayi * (input.disSicaklik - input.icSicaklik); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["alan"] * input["U_Katsayi"] * (input["disSicaklik"] - input["icSicaklik"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateCold_storage_heat_gain_calculator(input: Cold_storage_heat_gain_calculatorInput): Cold_storage_heat_gain_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Waste in material or time indicates process improvement opportunity."];
   const suggestedActions: string[] = ["Optimize drying/cooling parameters for cycle time reduction.","Monitor defects and adjust process conditions accordingly."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateCold_storage_heat_gain_calculator(input: Cold_storage_h
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateCold_storage_heat_gain_calculator(input: Cold_storage_h
   };
 }
 
-
 export interface Cold_storage_heat_gain_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Cold_storage_heat_gain_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "W",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

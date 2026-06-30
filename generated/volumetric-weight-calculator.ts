@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Volumetric_weight_calculatorInput {
+  dataConfidence?: number;
   en: number;
   boy: number;
   yukseklik: number;
   bolen: number;
-  dataConfidence?: number;
 }
 
 export const Volumetric_weight_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   en: z.number().min(0).default(30),
   boy: z.number().min(0).default(40),
   yukseklik: z.number().min(0).default(30),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Volumetric_weight_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.en * input.boy * input.yukseklik) / Math.max(1, input.bolen); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["en"] * input["boy"] * input["yukseklik"]) / Math.max(1, input["bolen"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateVolumetric_weight_calculator(input: Volumetric_weight_calculatorInput): Volumetric_weight_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Factor in return rates and chargebacks.","Review platform fee schedules regularly."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateVolumetric_weight_calculator(input: Volumetric_weight_c
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateVolumetric_weight_calculator(input: Volumetric_weight_c
   };
 }
 
-
 export interface Volumetric_weight_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Volumetric_weight_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "kg",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

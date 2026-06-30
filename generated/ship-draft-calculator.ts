@@ -2,15 +2,16 @@
 import * as z from 'zod';
 
 export interface Ship_draft_calculatorInput {
+  dataConfidence?: number;
   deplasman: number;
   suYogunlugu: number;
   boy: number;
   en: number;
   blokKatsayi: number;
-  dataConfidence?: number;
 }
 
 export const Ship_draft_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   deplasman: z.number().min(0).default(5000),
   suYogunlugu: z.number().min(0).default(1.025),
   boy: z.number().min(0).default(100),
@@ -24,17 +25,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Ship_draft_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.deplasman / Math.max(0.0001, (input.suYogunlugu * input.boy * input.en * input.blokKatsayi)); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["deplasman"] / Math.max(0.0001, (input["suYogunlugu"] * input["boy"] * input["en"] * input["blokKatsayi"])); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateShip_draft_calculator(input: Ship_draft_calculatorInput): Ship_draft_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["Low efficiency may indicate equipment or process issues."];
   const suggestedActions: string[] = ["Calibrate all measuring equipment regularly.","Use site-specific data when available."];
   const dataConfidenceAdjusted =
@@ -43,6 +41,7 @@ export function calculateShip_draft_calculator(input: Ship_draft_calculatorInput
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -53,21 +52,20 @@ export function calculateShip_draft_calculator(input: Ship_draft_calculatorInput
   };
 }
 
-
 export interface Ship_draft_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Ship_draft_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

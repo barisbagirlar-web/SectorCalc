@@ -1,0 +1,75 @@
+{
+  "slug": "perc-rule-hesaplama",
+  "name": "PERC Rule Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "totalValue",
+      "label": "Score",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Toplam değer.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "totalValue * (1 + totalValue/500) + Math.sqrt(totalValue) * 5",
+    "result": "totalValue * (1 + totalValue/500) + Math.sqrt(totalValue) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "totalValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick perc rule hesaplama.",
+      "long": "Free perc rule hesaplama tool."
+    }
+  },
+  "sector": "Genel",
+  "toolName": "perc-rule-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "general"
+}

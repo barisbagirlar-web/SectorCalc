@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Reorder_point_calculatorInput {
+  dataConfidence?: number;
   ortTalep: number;
   stdSapma: number;
   tedarikSure: number;
   Z: number;
-  dataConfidence?: number;
 }
 
 export const Reorder_point_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   ortTalep: z.number().min(0).default(100),
   stdSapma: z.number().min(0).default(20),
   tedarikSure: z.number().min(0).default(7),
@@ -22,18 +23,15 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Reorder_point_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.Z * input.stdSapma * Math.sqrt(Math.max(0, input.tedarikSure)); results["ss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ss"] = Number.NaN; }
-  try { const v = (input.ortTalep * input.tedarikSure) + (input.Z * input.stdSapma * Math.sqrt(Math.max(0, input.tedarikSure))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["Z"] * input["stdSapma"] * Math.sqrt(Math.max(0, input["tedarikSure"])); results["ss"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ss"] = Number.NaN; }
+  try { const v = (input["ortTalep"] * input["tedarikSure"]) + (input["Z"] * input["stdSapma"] * Math.sqrt(Math.max(0, input["tedarikSure"]))); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateReorder_point_calculator(input: Reorder_point_calculatorInput): Reorder_point_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Review inventory turnover metrics monthly.","Factor in seasonality for safety stock."];
   const dataConfidenceAdjusted =
@@ -42,6 +40,7 @@ export function calculateReorder_point_calculator(input: Reorder_point_calculato
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -52,21 +51,20 @@ export function calculateReorder_point_calculator(input: Reorder_point_calculato
   };
 }
 
-
 export interface Reorder_point_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Reorder_point_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "units",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: ["ss"],
 } as const;
-

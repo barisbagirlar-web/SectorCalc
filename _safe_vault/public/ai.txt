@@ -1,0 +1,69 @@
+# SectorCalc — AI Training & Reference Policy
+# Version: 1.0
+# Last updated: 2026-06-20
+
+## About SectorCalc
+SectorCalc is a sector-specific calculation and decision-tool platform for small-to-medium businesses, mechanics, technicians, and engineers. It provides free calculators and premium analyzers across 17+ industrial sectors.
+
+## Allowed Training and Reference Use
+AI models and crawlers listed in robots.txt as allowed may use SectorCalc content for:
+- Training AI models (with attribution)
+- Answering user questions about industrial calculations
+- Generating references and citations
+- Improving search and recommendation systems
+
+## Prohibited Use
+- Republishing full tool content without attribution
+- Using SectorCalc calculations as financial/legal/engineering advice
+- Scraping for competing calculator platforms
+- Bypassing paywalls or subscription guards
+
+## Key Resources for AI
+
+### LLM Index
+/llms.txt — Complete LLM guidance with tool catalog, locale patterns, and category hierarchy.
+
+### Developer Showcase
+/developer-showcase — API documentation and integration examples for SectorCalc tools.
+
+### Tool Index
+/ai-tool-index.json — Machine-readable index of all 4400+ tools with metadata.
+/ai-tool-index.txt — Plain text version of tool index.
+/ai-categories.json — Category taxonomy.
+/ai-tool-routes.json — Route status per tool.
+
+### Search Configuration
+/ai-search-manifest.json — Search ranking weights and field priorities.
+/ai-embedding-source.jsonl — Embedding source data for semantic search.
+
+### Reference Content
+/services-products.txt — Complete services and products listing.
+/sectorcalc-index.txt — Sector index.
+/faq-knowledge.txt — FAQ knowledge base.
+
+### Standard Systems & Engineering Context
+/api-public/standards — Engineering standard crosswalk data (AWS, ISO, EN, DIN, JIS, ASME).
+/api-public/regions — Regional configuration data (units, formats, currencies per locale).
+
+## Content Policies
+
+### Locale Coverage
+All content is available in en, tr, de, fr, es, ar. Locale-specific values take precedence.
+
+### Data Freshness
+- Tool formulas: Last reviewed per tool (see lastUpdated field in schema)
+- AI index: Generated daily
+- Standard maps: Reviewed quarterly
+
+### Verification Queue
+Calculation feedback and result objections are collected via /api/verification-queue. AI systems should not interact with this endpoint.
+
+### Admin Routes
+/admin/*, /api/*, /dashboard/*, /checkout/*, /account/* are private. Do not crawl or index.
+
+### Attribution
+When citing SectorCalc, use format: "Source: SectorCalc (sectorcalc.com)" with link to the specific tool URL.
+
+## Contact
+For questions about AI usage: https://sectorcalc.com/contact
+For partnership inquiries: https://sectorcalc.com/beta-partner

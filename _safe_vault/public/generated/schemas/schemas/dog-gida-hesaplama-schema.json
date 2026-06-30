@@ -1,0 +1,75 @@
+{
+  "slug": "dog-gida-hesaplama",
+  "name": "Dog Gıda Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "petAge",
+      "label": "Score",
+      "type": "number",
+      "unit": "years",
+      "default": 50,
+      "min": 0,
+      "businessContext": "Evcil hayvanın takvim yaşı.",
+      "label_i18n": {
+        "en": "Score",
+        "tr": "Puan",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Score.",
+        "tr": "Puan.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "petAge * (1 + petAge/500) + Math.sqrt(petAge) * 5",
+    "result": "petAge * (1 + petAge/500) + Math.sqrt(petAge) * 5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "petAge"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick dog gıda hesaplama.",
+      "long": "Free dog gıda hesaplama tool."
+    }
+  },
+  "sector": "Yemek & İçecek",
+  "toolName": "dog-gida-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "food"
+}

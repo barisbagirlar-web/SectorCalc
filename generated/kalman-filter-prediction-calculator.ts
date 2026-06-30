@@ -2,14 +2,15 @@
 import * as z from 'zod';
 
 export interface Kalman_filter_prediction_calculatorInput {
+  dataConfidence?: number;
   oncekiKonum: number;
   oncekiHiz: number;
   kontrolIvme: number;
   dt: number;
-  dataConfidence?: number;
 }
 
 export const Kalman_filter_prediction_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   oncekiKonum: z.number().min(0).default(10),
   oncekiHiz: z.number().min(0).default(1),
   kontrolIvme: z.number().min(0).default(0),
@@ -22,17 +23,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Kalman_filter_prediction_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = input.oncekiKonum + input.oncekiHiz * input.dt + 0.5 * input.kontrolIvme * input.dt * input.dt; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = input["oncekiKonum"] + input["oncekiHiz"] * input["dt"] + 0.5 * input["kontrolIvme"] * input["dt"] * input["dt"]; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateKalman_filter_prediction_calculator(input: Kalman_filter_prediction_calculatorInput): Kalman_filter_prediction_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = ["High asymmetry increases injury risk.","Low H-index may indicate limited academic impact."];
   const suggestedActions: string[] = ["Balance training for injury prevention.","Use peer review to validate research quality."];
   const dataConfidenceAdjusted =
@@ -41,6 +39,7 @@ export function calculateKalman_filter_prediction_calculator(input: Kalman_filte
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -51,21 +50,20 @@ export function calculateKalman_filter_prediction_calculator(input: Kalman_filte
   };
 }
 
-
 export interface Kalman_filter_prediction_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Kalman_filter_prediction_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "m",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-

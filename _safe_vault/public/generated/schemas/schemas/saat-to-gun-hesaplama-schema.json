@@ -1,0 +1,75 @@
+{
+  "slug": "saat-to-gun-hesaplama",
+  "name": "Saat To Gün Hesaplama",
+  "premiumRequired": false,
+  "premiumFeatures": [
+    "PDF report",
+    "Scenario comparison"
+  ],
+  "inputs": [
+    {
+      "id": "timeValue",
+      "label": "Value",
+      "type": "number",
+      "unit": "min",
+      "default": 100,
+      "min": 0,
+      "businessContext": "Zaman değeri.",
+      "label_i18n": {
+        "en": "Value",
+        "tr": "Değer",
+        "de": "Giriş Değeri",
+        "fr": "Giriş Değeri",
+        "es": "Giriş Değeri",
+        "ar": "Giriş Değeri"
+      },
+      "businessContext_i18n": {
+        "en": "Input value.",
+        "tr": "Giriş değeri.",
+        "de": "Hesaplama için giriş değeri.",
+        "fr": "Hesaplama için giriş değeri.",
+        "es": "Hesaplama için giriş değeri.",
+        "ar": "Hesaplama için giriş değeri."
+      }
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Positive numbers required."
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "main": "timeValue * 1.0 + Math.log(timeValue + 1) * 0.5",
+    "result": "timeValue * 1.0 + Math.log(timeValue + 1) * 0.5"
+  },
+  "outputs": {
+    "primary": "result",
+    "unit": "",
+    "breakdown": {
+      "result": "timeValue"
+    },
+    "breakdown_i18n": {
+      "result": {
+        "en": "Result",
+        "tr": "Sonuç"
+      }
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Review assumptions."
+    ],
+    "dataConfidenceAdjusted": "Free-tier estimate."
+  },
+  "about": {
+    "description": {
+      "short": "Quick saat to gün hesaplama.",
+      "long": "Free saat to gün hesaplama tool."
+    }
+  },
+  "sector": "Dönüştürücü",
+  "toolName": "saat-to-gun-hesaplama",
+  "sectorId": "genel",
+  "profession": "Professional",
+  "categoryId": "converter"
+}

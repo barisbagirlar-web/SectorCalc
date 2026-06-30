@@ -1,0 +1,275 @@
+{
+  "slug": "environmental-fire",
+  "name": "ENVIRONMENTAL FIRE",
+  "description": "ENVIRONMENTAL FIRE premium calculation tool.",
+  "premiumRequired": true,
+  "standardOptions": [],
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Verdict report"
+  ],
+  "inputs": [
+    {
+      "id": "tehlikesizTehlikeliGeriDonusum",
+      "label": "Tehlikesiz/Tehlikeli/Geri Dönüşüm",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Tehlikesiz/Tehlikeli/Geri Dönüşüm",
+        "tr": "Tehlikesiz/Tehlikeli/Geri Dönüşüm",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "havaEmisyon",
+      "label": "Hava Emisyon",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hava Emisyon",
+        "tr": "Hava Emisyon",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "depolamaBertarafBedeli",
+      "label": "Depolama/Bertaraf Bedeli",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Depolama/Bertaraf Bedeli",
+        "tr": "Depolama/Bertaraf Bedeli",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "hurdaGelir",
+      "label": "Hurda Gelir",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Hurda Gelir",
+        "tr": "Hurda Gelir",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "cezaRisk",
+      "label": "Ceza Risk",
+      "type": "number",
+      "unit": "",
+      "min": 0,
+      "default": 0,
+      "businessContext": "",
+      "label_i18n": {
+        "en": "Ceza Risk",
+        "tr": "Ceza Risk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      },
+      "businessContext_i18n": {
+        "en": "",
+        "tr": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    }
+  ],
+  "outputs": {
+    "0": {
+      "id": "costDisp",
+      "label": "Cost_Disp",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Disp",
+        "tr": "Cost_Disp",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "1": {
+      "id": "costHaz",
+      "label": "Cost_Haz",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Haz",
+        "tr": "Cost_Haz",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "2": {
+      "id": "costRecyc",
+      "label": "Cost_Recyc",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Recyc",
+        "tr": "Cost_Recyc",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "3": {
+      "id": "costEmis",
+      "label": "Cost_Emis",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Cost_Emis",
+        "tr": "Cost_Emis",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "4": {
+      "id": "penaltyRisk",
+      "label": "PenaltyRisk",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "PenaltyRisk",
+        "tr": "PenaltyRisk",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "5": {
+      "id": "total",
+      "label": "Total",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Total",
+        "tr": "Total",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "6": {
+      "id": "wasteIntensity",
+      "label": "WasteIntensity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "WasteIntensity",
+        "tr": "WasteIntensity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "7": {
+      "id": "circularity",
+      "label": "Circularity",
+      "unit": "",
+      "format": "number",
+      "label_i18n": {
+        "en": "Circularity",
+        "tr": "Circularity",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "ar": ""
+      }
+    },
+    "primary": "result",
+    "breakdown": [
+      "normalized_product",
+      "adjustment_factor"
+    ],
+    "unit": "units",
+    "hiddenLossDrivers": [
+      "Model uses normalized input chain — validate units",
+      "Assumption-heavy without site benchmark"
+    ],
+    "suggestedActions": [
+      "Cross-check with historical actuals",
+      "Run sensitivity on top 2 inputs"
+    ],
+    "dataConfidenceAdjusted": "result"
+  },
+  "category": "scrap",
+  "formulas": {
+    "normalized_product": "tehlikesizTehlikeliGeriDonusum * havaEmisyon * depolamaBertarafBedeli * hurdaGelir",
+    "result": "tehlikesizTehlikeliGeriDonusum * havaEmisyon * depolamaBertarafBedeli * hurdaGelir * (cezaRisk)",
+    "adjustment_factor": "cezaRisk"
+  }
+}

@@ -2,11 +2,12 @@
 import * as z from 'zod';
 
 export interface Hardness_conversion_calculatorInput {
-  HB: number;
   dataConfidence?: number;
+  HB: number;
 }
 
 export const Hardness_conversion_calculatorInputSchema = z.object({
+  dataConfidence: z.number().optional(),
   HB: z.number().min(100).max(700).default(300),
 });
 
@@ -16,17 +17,14 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: Hardness_conversion_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = (input.HB - 100) / 10; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
+  try { const v = (input["HB"] - 100) / 10; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
-
 
 export function calculateHardness_conversion_calculator(input: Hardness_conversion_calculatorInput): Hardness_conversion_calculatorOutput {
   const values = evaluateAllFormulas(input);
   const totalWasteCost = toNumericFormulaValue(values["sonuc"]);
-  const breakdown = {
-    sonuc: toNumericFormulaValue(values["sonuc"])
-  };
+  const breakdown: Record<string, number> = {};
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = ["Use calibrated equipment for measurements.","Consider temperature effects on material properties."];
   const dataConfidenceAdjusted =
@@ -35,6 +33,7 @@ export function calculateHardness_conversion_calculator(input: Hardness_conversi
       : totalWasteCost;
   return {
     totalWasteCost,
+    ["sonuc"]: totalWasteCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
@@ -45,21 +44,20 @@ export function calculateHardness_conversion_calculator(input: Hardness_conversi
   };
 }
 
-
 export interface Hardness_conversion_calculatorOutput {
   totalWasteCost: number;
   unit: string;
-  breakdown: { sonuc: number };
+  breakdown: Record<string, number>;
   hiddenLossDrivers: string[];
   suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
-};
+  [key: string]: unknown;
+}
 
 export const Hardness_conversion_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "HRC",
-  breakdownKeys: ["sonuc"],
+  breakdownKeys: [],
 } as const;
-
