@@ -15,16 +15,20 @@ export function ServiceWorkerRegister() {
       });
       return;
     }
-    // Production: register SW
-    const register = () => {
-      navigator.serviceWorker.register("/sw.js").catch(() => {
-        /* registration failure is non-fatal */
+    // Production (Temporary Fix): Unregister all SWs to fix caching and ReferenceError bugs
+    const nukeServiceWorkers = () => {
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        regs.forEach((reg) => reg.unregister());
+        // Reload page once if we had active workers to clear out old chunks
+        if (regs.length > 0) {
+          window.location.reload();
+        }
       });
     };
     if (document.readyState === "complete") {
-      register();
+      nukeServiceWorkers();
     } else {
-      window.addEventListener("load", register, { once: true });
+      window.addEventListener("load", nukeServiceWorkers, { once: true });
     }
   }, []);
 

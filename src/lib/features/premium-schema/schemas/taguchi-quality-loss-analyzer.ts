@@ -1,0 +1,35 @@
+/**
+ * Tool — Taguchi Kalite
+ */
+import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
+export const TAGUCHI_QUALITY_LOSS_ANALYZER: PremiumCalculatorSchema = {
+  id: "taguchi-quality-loss-analyzer", legacyPaidSlug: "taguchi-quality-loss-analyzer",
+  name: "Taguchi Kalite Kaybı Analizi", name_i18n: {"en":"Taguchi Quality Loss Analysis","tr":"Taguchi Kalite Kaybı Analizi"}, sectorSlug: "quality", category: "cost",
+  painStatement: "Ürün toleranslarından sapmaların maliyeti Taguchi kayıp fonksiyonu ile ölçülmezse gizli kalite kayıpları fark edilmez ve iyileştirme önceliklendirilemez.", painStatement_i18n: {"en":"If the cost of deviations from product tolerances is not measured with the Taguchi loss function, hidden quality losses go unnoticed and improvement cannot be prioritized.","tr":"Ürün toleranslarından sapmaların maliyeti Taguchi kayıp fonksiyonu ile ölçülmezse gizli kalite kayıpları fark edilmez ve iyileştirme önceliklendirilemez."},
+  inputs: [
+    { id: "targetValue", label: "Hedef Değer", label_i18n: {"en":"Target Value","tr":"Hedef Değer"}, type: "number", unit: "", required: true, smartDefault: 10, validation: { min: 0.01 }, helper: "", expertMeaning: "Nominal target value", expertMeaning_i18n: {"en":"Nominal target value","tr":"Nominal hedef değer"} },
+    { id: "tolerance", label: "Tolerans", label_i18n: {"en":"Tolerance","tr":"Tolerans"}, type: "number", unit: "", required: true, smartDefault: 1, validation: { min: 0.01 }, helper: "", expertMeaning: "Specification tolerance (±)", expertMeaning_i18n: {"en":"Specification tolerance (±)","tr":"Spesifikasyon toleransı (±)"} },
+    { id: "lossAtTolerance", label: "Tolerans Sınırında Kayıp", label_i18n: {"en":"Loss at Tolerance Limit","tr":"Tolerans Sınırında Kayıp"}, type: "number", unit: "USD", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Loss at tolerance limit", expertMeaning_i18n: {"en":"Loss at tolerance limit","tr":"Tolerans sınırında kayıp"} },
+    { id: "processMean", label: "Süreç Ortalaması", label_i18n: {"en":"Process Mean","tr":"Süreç Ortalaması"}, type: "number", unit: "", required: true, smartDefault: 10.3, validation: { min: 0.01 }, helper: "", expertMeaning: "Actual process mean", expertMeaning_i18n: {"en":"Actual process mean","tr":"Gerçek süreç ortalaması"} },
+    { id: "processStdDev", label: "Süreç Standart Sapması", label_i18n: {"en":"Process Standard Deviation","tr":"Süreç Standart Sapması"}, type: "number", unit: "", required: true, smartDefault: 0.4, validation: { min: 0.001 }, helper: "", expertMeaning: "Process standard deviation", expertMeaning_i18n: {"en":"Process standard deviation","tr":"Süreç standart sapması"} },
+    { id: "annualProductionVolume", label: "Yıllık Üretim Miktarı", label_i18n: {"en":"Annual Production Volume","tr":"Yıllık Üretim Miktarı"}, type: "number", unit: "adet", required: true, smartDefault: 100000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production volume", expertMeaning_i18n: {"en":"Annual production volume","tr":"Yıllık üretim hacmi"} },
+    { id: "specLower", label: "Alt Spesifikasyon Limiti", label_i18n: {"en":"Lower Specification Limit","tr":"Alt Spesifikasyon Limiti"}, type: "number", unit: "", required: false, smartDefault: 9, validation: { min: 0.01 }, helper: "", expertMeaning: "Lower specification limit", expertMeaning_i18n: {"en":"Lower specification limit","tr":"Alt spesifikasyon limiti"} },
+    { id: "specUpper", label: "Üst Spesifikasyon Limiti", label_i18n: {"en":"Upper Specification Limit","tr":"Üst Spesifikasyon Limiti"}, type: "number", unit: "", required: false, smartDefault: 11, validation: { min: 0.01 }, helper: "", expertMeaning: "Upper specification limit", expertMeaning_i18n: {"en":"Upper specification limit","tr":"Üst spesifikasyon limiti"} },
+  ],
+  outputs: [
+    { id: "taguchiLossPerUnit", label: "Birim Başına Taguchi Kaybı", label_i18n: {"en":"Taguchi Loss per Unit","tr":"Birim Başına Taguchi Kaybı"}, unit: "USD/adet", format: "currency" },
+  ],
+  thresholds: [{ fieldId: "taguchiLossPerUnit", warning: 0.5, critical: 1, direction: "higher_is_bad", warningMessage: "Birim kayıp >$0.50 — süreç iyileştirme fırsatı var.", warningMessage_i18n: {"en":"Unit loss >$0.50 — process improvement opportunity exists.","tr":"Birim kayıp >$0.50 — süreç iyileştirme fırsatı var."}, criticalMessage: "Birim kayıp >$1.00 — tolerans veya süç parametreleri gözden geçirilmeli.", criticalMessage_i18n: {"en":"Unit loss >$1.00 — review tolerance or process parameters.","tr":"Birim kayıp >$1.00 — tolerans veya süç parametreleri gözden geçirilmeli."} }],
+  formulaPipeline: [
+    { formulaId: "cost.taguchi_loss_per_unit", inputMap: {
+        targetValue: "targetValue",
+        toleranceCost: "tolerance",
+        toleranceLimit: "lossAtTolerance",
+        actualValue: "processMean",
+        processStdDev: "processStdDev",
+        annualProductionVolume: "annualProductionVolume"
+      }, outputId: "taguchiLossPerUnit" },
+  ],
+  reportTemplate: { title: "Taguchi Kalite Kaybı Raporu", title_i18n: {"en":"Taguchi Quality Loss Report","tr":"Taguchi Kalite Kaybı Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taguchi kayıp = k × (MSD), MSD = σ² + (μ − T)².", "k = kayıp_tolerans / tolerans² — kalite kaybı katsayısı.", "Nominal-en iyi (NTB) tipi Taguchi fonksiyonu kullanılır.", "Süreç normal dağılım varsayımı altında hesaplanır."],assumptionNotes_i18n:[{"en":"Taguchi loss = k × (MSD), MSD = σ² + (μ − T)².","tr":"Taguchi kayıp = k × (MSD), MSD = σ² + (μ − T)²."},{"en":"k = loss_tolerance / tolerance² — quality loss coefficient.","tr":"k = kayıp_tolerans / tolerans² — kalite kaybı katsayısı."},{"en":"Nominal-the-best (NTB) type Taguchi function is used.","tr":"Nominal-en iyi (NTB) tipi Taguchi fonksiyonu kullanılır."},{"en":"Process is calculated under normal distribution assumption.","tr":"Süreç normal dağılım varsayımı altında hesaplanır."}] },
+};
