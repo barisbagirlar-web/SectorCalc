@@ -39,6 +39,19 @@ if (!fs.existsSync(componentFile)) {
   if (!component.includes("sc-universal-dtf-shell")) {
     fail("UNIVERSAL_COMPONENT_MISSING_STANDARD_SHELL_CLASS");
   }
+
+  if (!component.includes('const resolvedLayout = layout === "standard" ? "standard" : "premium";')) {
+    fail("UNIVERSAL_COMPONENT_DOES_NOT_FORCE_SHARED_PREMIUM_LAYOUT");
+  }
+  if (component.includes("layout={layout}")) {
+    fail("UNIVERSAL_COMPONENT_STILL_DELEGATES_TO_AUTO_LEGACY_LAYOUT");
+  }
+  if (!component.includes("layout={resolvedLayout}")) {
+    fail("UNIVERSAL_COMPONENT_DOES_NOT_PASS_RESOLVED_LAYOUT");
+  }
+  if (!component.includes("data-universal-layout={resolvedLayout}")) {
+    fail("UNIVERSAL_COMPONENT_MISSING_LAYOUT_TRACE_ATTRIBUTE");
+  }
   if (/KESİN|GÜÇLÜ|ORTA|EKSİK VERİ|varsayım|karar|maliyet|denetim/i.test(component)) {
     fail("UNIVERSAL_COMPONENT_CONTAINS_NON_ENGLISH_VISIBLE_LABEL_RISK");
   }

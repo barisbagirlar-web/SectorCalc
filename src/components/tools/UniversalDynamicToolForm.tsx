@@ -18,11 +18,14 @@ export function UniversalDynamicToolForm({
   const resolvedTier =
     tier === "auto" ? (schema.premiumRequired === true ? "premium" : "free") : tier;
 
+  const resolvedLayout = layout === "standard" ? "standard" : "premium";
+
   return (
     <section
       className="sc-universal-dtf-shell"
       data-tool-slug={slug}
       data-tool-tier={resolvedTier}
+      data-universal-layout={resolvedLayout}
       data-schema-driven="true"
       data-formula-engine="existing-runtime"
     >
@@ -30,7 +33,7 @@ export function UniversalDynamicToolForm({
         {...props}
         slug={slug}
         schema={schema}
-        layout={layout}
+        layout={resolvedLayout}
       />
     </section>
   );
