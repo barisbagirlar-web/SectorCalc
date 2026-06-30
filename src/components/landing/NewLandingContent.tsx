@@ -140,65 +140,68 @@ export function NewLandingContent({
         }
         
         /* Search Component */
-        .home-page-wrapper .search-container {
+        .home-page-wrapper .search-wrapper {
             width: 100%;
             max-width: 720px;
             position: relative;
             margin-bottom: var(--space-lg);
+            z-index: 9999;
         }
-        
-        .home-page-wrapper .search-input-wrapper {
-            display: flex;
-            align-items: center;
-            background: var(--bg-ground);
-            border: 2px solid var(--border-medium);
-            border-radius: 8px;
-            padding: var(--space-md) var(--space-lg);
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(26, 25, 21, 0.04);
+
+        .home-page-wrapper .search-container {
+          background: #FFFFFF;
+          border: 1px solid #E5E7EB;
+          border-radius: 8px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+                      0 4px 12px rgba(0, 0, 0, 0.06);
+          padding: 12px 16px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          transition: box-shadow 0.2s ease, border-color 0.2s ease;
+          position: relative;
         }
-        
-        .home-page-wrapper .search-input-wrapper:focus-within {
-            border-color: var(--accent-terracotta);
-            box-shadow: 0 4px 16px rgba(189, 93, 58, 0.12);
+
+        .home-page-wrapper .search-container:focus-within {
+          border-color: #D1D5DB;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+                      0 4px 16px rgba(0, 0, 0, 0.10);
         }
-        
+
         .home-page-wrapper .search-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: var(--space-md);
-            opacity: 0.4;
-            flex-shrink: 0;
+          color: #6B7280;
+          flex-shrink: 0;
+          width: 20px;
+          height: 20px;
         }
-        
+
         .home-page-wrapper .search-input {
-            flex: 1;
-            border: none;
-            background: transparent;
-            font-size: 18px;
-            font-family: var(--font-sans);
-            color: var(--text-primary);
-            outline: none;
-            width: 100%;
-            margin: 0;
-            padding: 0;
+          flex: 1;
+          border: none;
+          outline: none;
+          background: transparent;
+          font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          color: #111827;
+          width: 100%;
+          padding: 0;
+          margin: 0;
         }
-        
+
         .home-page-wrapper .search-input::placeholder {
-            color: var(--text-primary);
-            opacity: 0.4;
+          color: #9CA3AF;
         }
-        
+
         .home-page-wrapper .search-shortcut {
-            font-size: 12px;
-            font-family: var(--font-mono);
-            padding: 4px 8px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            color: var(--text-primary);
-            opacity: 0.6;
-            flex-shrink: 0;
+          background: #F3F4F6;
+          border: 1px solid #E5E7EB;
+          border-radius: 6px;
+          padding: 4px 8px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #6B7280;
+          flex-shrink: 0;
         }
         
         .home-page-wrapper .search-meta {
@@ -230,16 +233,17 @@ export function NewLandingContent({
         
         .home-page-wrapper .search-dropdown {
           position: absolute;
-          top: calc(100% + 4px);
+          top: 100%;
           left: 0;
           right: 0;
-          background: var(--bg-surface);
-          border: 1px solid var(--border-medium);
+          z-index: 9999;
+          margin-top: 8px;
+          background: #FFFFFF;
+          border: 1px solid #E5E7EB;
           border-radius: 8px;
-          box-shadow: 0 8px 30px rgba(26, 25, 21, 0.10);
-          max-height: 300px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+          max-height: 400px;
           overflow-y: auto;
-          z-index: 100;
         }
 
         .home-page-wrapper .search-result {
@@ -273,10 +277,15 @@ export function NewLandingContent({
         }
 
         /* Popular Calculations */
+        .home-page-wrapper .feature-cards-container {
+          position: relative;
+          z-index: 1;
+          margin-top: 24px;
+        }
+
         .home-page-wrapper .popular-section {
             width: 100%;
             max-width: 900px;
-            margin-top: var(--space-xl);
         }
         
         .home-page-wrapper .section-label {
@@ -484,8 +493,8 @@ export function NewLandingContent({
         </p>
         
         {/* Central Search Component */}
-        <div className="search-container">
-          <div className="search-input-wrapper">
+        <div className="search-wrapper">
+          <div className="search-container">
             <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="11" cy="11" r="8"/>
               <path d="m21 21-4.35-4.35"/>
@@ -531,7 +540,7 @@ export function NewLandingContent({
         </div>
         
         {/* Popular Calculations */}
-        <div className="popular-section">
+        <div className="popular-section feature-cards-container">
           <div className="section-label">Most Used This Week</div>
           
           <div className="popular-grid">

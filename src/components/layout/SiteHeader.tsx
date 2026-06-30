@@ -34,7 +34,6 @@ const t = {
   view_all_industries: 'All industries',
   res_blog: 'Case Studies', res_blog_d: 'Methods & case studies',
   res_docs: 'FMEA RPN Calculator', res_docs_d: 'Failure Mode & Effects Analysis',
-  res_api: 'API access', res_api_d: 'Integrate calculations',
   tools: 'tools', lang_note: 'All prices shown in USD',
 };
 
@@ -242,14 +241,11 @@ export function SiteHeader({
                 )}
                 {openMenu==='resources' && (
                   <div className="sc-mega sc-mega-resources">
-                    <Link href="/blog" className="sc-res-item">
+                    <Link href="/case-studies" className="sc-res-item">
                       <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
                     </Link>
-                    <Link href="/formulas" className="sc-res-item">
+                    <Link href="/tools/fmea-rpn-calculator" className="sc-res-item">
                       <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
-                    </Link>
-                    <Link href="/api" className="sc-res-item">
-                      <span className="rico">🔌</span><span className="rt"><b>{t.res_api}</b><span>{t.res_api_d}</span></span>
                     </Link>
                   </div>
                 )}
@@ -306,7 +302,6 @@ export function SiteHeader({
               <div className="sc-draw-body">
                 <Link href="/case-studies" onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
                 <Link href="/tools/fmea-rpn-calculator" onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
-                <Link href="/api" onClick={()=>setMobileOpen(false)}>🔌 {t.res_api}</Link>
               </div>
             )}
           </div>
