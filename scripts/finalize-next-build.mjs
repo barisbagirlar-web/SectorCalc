@@ -58,6 +58,23 @@ function ensureExportDetail() {
   );
 }
 
+function ensureFirebasePagesManifest() {
+  const serverPagesDir = join(NEXT, "server/pages");
+  mkdirSync(serverPagesDir, { recursive: true });
+  writeFileSync(join(serverPagesDir, "_document.js"), "module.exports = {};\n", "utf8");
+  writeFileSync(join(serverPagesDir, "_app.js"), "module.exports = {};\n", "utf8");
+
+  const manifestPath = join(NEXT, "server/pages-manifest.json");
+  let manifest = {};
+  if (existsSync(manifestPath)) {
+    try { manifest = JSON.parse(readFileSync(manifestPath, "utf8")); } catch {}
+  }
+  manifest["/_document"] = "pages/_document.js";
+  manifest["/_app"] = "pages/_app.js";
+  writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), "utf8");
+}
+
+
 function main() {
   if (!existsSync(join(NEXT, "BUILD_ID"))) {
     console.error("finalize-next-build: BUILD_ID missing — run next build first.");
@@ -67,6 +84,7 @@ function main() {
   ensure500StaticFiles();
   ensureExportMarker();
   ensureExportDetail();
+  ensureFirebasePagesManifest();
 
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);
