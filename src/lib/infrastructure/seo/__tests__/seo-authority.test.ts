@@ -104,16 +104,16 @@ describe("seo-authority architecture", () => {
     expect(listPremiumSchemaSlugs().length).toBe(5);
   });
 
-  test("sitemap helper produces indexable public routes", () => {
-    const entries = buildSitemapEntries();
+  test("sitemap helper produces indexable public routes", async () => {
+    const entries = await buildSitemapEntries();
     const urls = entries.map((entry) => entry.url);
     expect(entries.length).toBeGreaterThan(200);
     expect(urls.some((url) => url.includes("/free-tools") && !url.includes("/en/"))).toBe(true);
     expect(urls.some((url) => url.includes("/seo/manufacturing-cost-calculators"))).toBe(true);
   });
 
-  test("sitemap excludes admin, api and print routes", () => {
-    const urls = buildSitemapEntries().map((entry) => entry.url);
+  test("sitemap excludes admin, api and print routes", async () => {
+    const urls = (await buildSitemapEntries()).map((entry) => entry.url);
     expect(urls.some((url) => url.includes("/admin"))).toBe(false);
     expect(urls.some((url) => url.includes("/api/"))).toBe(false);
     expect(urls.some((url) => /\/premium-schema\/[^/]+\/print/.test(url))).toBe(false);
@@ -178,10 +178,10 @@ describe("seo-authority architecture", () => {
     expect(script).toContain("process.exit(0)");
   });
 
-  test("manifest EN paths appear in sitemap", () => {
+  test("manifest EN paths appear in sitemap", async () => {
     const manifestPaths = getManifestEnPathSet();
     const sitemapPaths = new Set(
-      buildSitemapEntries().map((entry) => new URL(entry.url).pathname),
+      (await buildSitemapEntries()).map((entry) => new URL(entry.url).pathname),
     );
     for (const path of manifestPaths) {
       expect(sitemapPaths.has(path)).toBe(true);

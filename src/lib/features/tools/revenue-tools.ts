@@ -8,6 +8,7 @@ import { getToolHref } from "@/lib/features/tools/paths";
 import { additionalRevenueTools } from "@/lib/features/tools/revenue-tools-additional";
 import { industrialFormulaTools } from "@/lib/features/tools/revenue-tools-industrial-formulas";
 import { legacyRevenueToolsCore } from "@/lib/features/tools/legacy-revenue-tools-core";
+import { phase2RevenueTools } from "@/lib/features/tools/revenue-tools-phase2";
 import { revenueLegalDisclaimer } from "@/lib/features/tools/revenue-legal-disclaimer";
 import premiumSlugs from "../../../../premium-slugs.json";
 
@@ -160,6 +161,7 @@ const LEGACY_REVENUE_TOOLS: RevenueTool[] = [
   ...legacyRevenueToolsCore,
   ...additionalRevenueTools,
   ...industrialFormulaTools,
+  ...phase2RevenueTools,
 ];
 
 const LEGACY_PAID_SLUGS = new Set(LEGACY_REVENUE_TOOLS.map((tool) => tool.paidSlug));

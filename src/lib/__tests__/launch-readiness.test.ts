@@ -156,8 +156,8 @@ describe("launch-readiness", () => {
     }
   });
 
-  test("sitemap covers launch routes and excludes print/admin/api", { timeout: 60000 }, () => {
-    const entries = buildSitemapEntries();
+  test("sitemap covers launch routes and excludes print/admin/api", { timeout: 60000 }, async () => {
+    const entries = await buildSitemapEntries();
     const urls = entries.map((entry) => entry.url);
 
     expect(entries.length).toBeGreaterThanOrEqual(countExpectedSitemapMinimum());
@@ -186,8 +186,8 @@ describe("launch-readiness", () => {
     expect(listAllFreeToolSlugs().length).toBeGreaterThan(0);
   });
 
-  test("all routable free slugs are in sitemap", { timeout: 60000 }, () => {
-    const urls = buildSitemapEntries().map((entry) => entry.url);
+  test("all routable free slugs are in sitemap", { timeout: 60000 }, async () => {
+    const urls = (await buildSitemapEntries()).map((entry) => entry.url);
     for (const slug of listAllFreeToolSlugs()) {
       expect(urls.some((url) => url.includes(`/tools/generated/${slug}`))).toBe(true);
     }

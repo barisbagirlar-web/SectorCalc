@@ -136,8 +136,8 @@ describe("authority guides", () => {
     expect(joined).not.toMatch(/\bpilot\b/i);
   });
 
-  test("sitemap guide route'ları eklenebilir", () => {
-    const entries = buildSitemapEntries(new Date("2026-06-04T00:00:00.000Z"));
+  test("sitemap guide route'ları eklenebilir", async () => {
+    const entries = await buildSitemapEntries(new Date("2026-06-04T00:00:00.000Z"));
     const guideUrls = entries
       .map((entry) => entry.url)
       .filter((url) => url.includes("/guides/"));

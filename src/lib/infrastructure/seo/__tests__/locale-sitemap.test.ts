@@ -24,7 +24,7 @@ describe("locale sitemap", () => {
     const manifest = getSitemapManifest();
     const manifestCountForEn = manifest.filter((item) => item.locales.includes("en")).length;
 
-    const activeLocales = ["en"]; // Only English is indexable and active
+    const activeLocales = ["en"] as const; // Only English is indexable and active
     for (const locale of activeLocales) {
       const entries = await buildLocaleSitemapEntries(locale);
       const expectedCount = manifest.filter((item) => item.locales.includes(locale)).length;

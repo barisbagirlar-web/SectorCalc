@@ -104,8 +104,8 @@ describe("production-hardening", () => {
     expect(listPremiumSchemaSlugs().length).toBeGreaterThanOrEqual(1);
   });
 
-  test("sitemap includes core public routes and expected minimum count", { timeout: 60000 }, () => {
-    const entries = buildSitemapEntries();
+  test("sitemap includes core public routes and expected minimum count", { timeout: 60000 }, async () => {
+    const entries = await buildSitemapEntries();
     const urls = entries.map((entry) => entry.url);
 
     expect(entries.length).toBeGreaterThanOrEqual(countExpectedSitemapMinimum());
