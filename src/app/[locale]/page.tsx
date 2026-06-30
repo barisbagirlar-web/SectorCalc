@@ -6,6 +6,7 @@ import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { getFreeToolCount } from "@/lib/features/tools/tool-counts";
+import { getAllTools } from "@/lib/features/tools/all-tools-data";
 
 export const revalidate = 3600;
 
@@ -27,11 +28,36 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function HomePage({ params }: PageProps) {
   const locale = "en";
   const freeCount = getFreeToolCount();
+  const rawTools = getAllTools(locale);
+
+  // Aggregate sectors and tools from the unified registry
+  const sectorCounts: Record<string, number> = {};
+  
+  const allTools = rawTools.map((tool) => {
+    const sec = tool.sector || tool.category || "General";
+    sectorCounts[sec] = (sectorCounts[sec] || 0) + 1;
+    return {
+      sec,
+      name: tool.name || "Tool",
+      eq: tool.description?.substring(0, 40) || "",
+      slug: tool.slug || "",
+    };
+  });
+
+  const sectors = Object.entries(sectorCounts)
+    .map(([name, n]) => ({
+      k: name.substring(0, 4).toUpperCase(),
+      name,
+      n,
+    }))
+    .sort((a, b) => b.n - a.n);
+
+  const popularTools = allTools.slice(0, 12);
 
   return (
     <PageLayout>
       <SemanticJsonLd data={buildHomeJsonLd(locale)} />
-      <NewLandingContent freeCount={freeCount} />
+      <NewLandingContent freeCount={freeCount} sectors={sectors} tools={popularTools} />
     </PageLayout>
   );
 }

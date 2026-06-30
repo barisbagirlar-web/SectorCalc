@@ -1,613 +1,244 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
+import Link from "next/link";
+import "@/styles/landing-page.css";
 
-const SAMPLE_TOOLS = [
-  { name: "Scrap Rate Analysis", cat: "Manufacturing" },
-  { name: "OEE Calculator", cat: "Manufacturing" },
-  { name: "Machine Hour Rate", cat: "Manufacturing" },
-  { name: "Route Cost Calculator", cat: "Logistics" },
-  { name: "Deadhead Exposure", cat: "Logistics" },
-  { name: "Concrete Volume", cat: "Construction" },
-  { name: "kWh Cost Calculator", cat: "Energy" },
-  { name: "Energy Savings Package", cat: "Energy" },
-  { name: "Food Cost Calculator", cat: "Food & Beverage" },
-  { name: "Portion Cost Variance", cat: "Food & Beverage" },
-  { name: "VAT Calculator", cat: "Finance" },
-  { name: "Break-Even Calculator", cat: "Workshop" },
-  { name: "Quote Margin Calculator", cat: "Workshop" },
-  { name: "Bolt Torque Calculator", cat: "Engineering" },
-  { name: "Cutting Speed Calculator", cat: "Manufacturing" },
-  { name: "VDI 2067 Compliance", cat: "Building Services" },
-  { name: "Tolerance Stack-up", cat: "GD&T" },
-  { name: "Cost Recovery Model", cat: "Finance" },
-];
+interface Sector {
+  k: string;
+  name: string;
+  n: number;
+}
+
+interface Tool {
+  sec: string;
+  name: string;
+  eq: string;
+  slug: string;
+}
 
 export function NewLandingContent({
   freeCount = 358,
+  sectors = [],
+  tools = [],
 }: {
   freeCount?: number;
+  sectors?: Sector[];
+  tools?: Tool[];
 }) {
   const [query, setQuery] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const results = query.trim()
-    ? SAMPLE_TOOLS.filter(
-        (t) =>
-          t.name.toLowerCase().includes(query.toLowerCase()) ||
-          t.cat.toLowerCase().includes(query.toLowerCase())
-      ).slice(0, 8)
-    : [];
+  const filteredSectors = useMemo(() => {
+    if (!query.trim()) return sectors;
+    const q = query.toLowerCase();
+    return sectors.filter(
+      (s) =>
+        s.name.toLowerCase().includes(q) ||
+        s.k.toLowerCase().includes(q)
+    );
+  }, [query, sectors]);
+
+  const filteredTools = useMemo(() => {
+    if (!query.trim()) return tools.slice(0, 12);
+    const q = query.toLowerCase();
+    return tools.filter(
+      (t) =>
+        t.name.toLowerCase().includes(q) ||
+        t.sec.toLowerCase().includes(q) ||
+        t.eq.toLowerCase().includes(q)
+    );
+  }, [query, tools]);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === "/" && document.activeElement !== inputRef.current) {
         e.preventDefault();
-        document.getElementById("hero-search-input")?.focus();
+        inputRef.current?.focus();
+      }
+      if (e.key === "Escape") {
+        setQuery("");
+        inputRef.current?.blur();
       }
     };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
+  const totalShown = Math.max(filteredSectors.length, filteredTools.length);
+  const isSearchActive = query.trim().length > 0;
+
   return (
-    <div className="home-page-wrapper">
-      <style>{`
-        .home-page-wrapper {
-            --bg-ground: #F0EEE6;
-            --bg-surface: #FAF9F5;
-            --text-primary: #1A1915;
-            --accent-terracotta: #BD5D3A;
-            --border-light: rgba(26, 25, 21, 0.10);
-            --border-medium: rgba(26, 25, 21, 0.20);
-            
-            --font-serif: 'Georgia', 'Tiempos', 'Times New Roman', serif;
-            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            --font-mono: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-            
-            --space-unit: 8px;
-            --space-xs: calc(var(--space-unit) * 0.5);
-            --space-sm: var(--space-unit);
-            --space-md: calc(var(--space-unit) * 2);
-            --space-lg: calc(var(--space-unit) * 4);
-            --space-xl: calc(var(--space-unit) * 8);
-            --space-2xl: calc(var(--space-unit) * 12);
-            
-            font-family: var(--font-sans);
-            background-color: var(--bg-ground);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .home-page-wrapper * {
-            box-sizing: border-box;
-        }
+    <div className="claude-landing">
+      <main>
+        {/* HERO */}
+        <section className="hero">
+          <div className="wrap">
+            <div className="eyebrow">Engineering Calculation Platform</div>
+            <h1>
+              <span className="num" id="totalNum">
+                {freeCount}+
+              </span>{" "}
+              engineering calculators, <br />
+              built to the standard.
+            </h1>
+            <p className="lede">
+              Search across {sectors.length} industrial sectors. Every result
+              traceable, auditable, and grounded in ISO, ASME &amp; VDI
+              references.
+            </p>
 
-        /* Scoped to wrapper to not affect the header */
-        .home-page-wrapper h1,
-        .home-page-wrapper h2,
-        .home-page-wrapper h3,
-        .home-page-wrapper p {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .home-page-wrapper .hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: var(--space-2xl) var(--space-xl);
-            background: var(--bg-surface);
-        }
-        
-        .home-page-wrapper .hero-badge {
-            font-size: 13px;
-            font-family: var(--font-mono);
-            color: var(--accent-terracotta);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: var(--space-lg);
-            opacity: 0.9;
-        }
-        
-        .home-page-wrapper .hero-title {
-            font-family: var(--font-serif);
-            font-size: clamp(42px, 6vw, 72px);
-            font-weight: 400;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            text-align: center;
-            max-width: 900px;
-            margin-bottom: var(--space-md);
-        }
-        
-        .home-page-wrapper .hero-title .accent {
-            color: var(--accent-terracotta);
-        }
-        
-        .home-page-wrapper .hero-subtitle {
-            font-size: 18px;
-            line-height: 1.6;
-            opacity: 0.7;
-            text-align: center;
-            max-width: 600px;
-            margin-bottom: var(--space-xl);
-        }
-        
-        /* Search Component */
-        .home-page-wrapper .search-wrapper {
-            width: 100%;
-            max-width: 720px;
-            position: relative;
-            margin-bottom: var(--space-lg);
-            z-index: 9999;
-        }
+            <div className="search" role="search">
+              <div className="search-box">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M21 21l-4.3-4.3" />
+                </svg>
+                <input
+                  ref={inputRef}
+                  id="q"
+                  type="text"
+                  autoComplete="off"
+                  placeholder="Search a tool, sector, or formula — e.g. bolt torque, beam deflection…"
+                  aria-label="Search calculators"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+                <span className="kbd">/</span>
+              </div>
+              <div className="counter" id="counter">
+                {isSearchActive ? (
+                  <>
+                    <b>{totalShown}</b> match{totalShown === 1 ? "" : "es"} for “{query}”
+                  </>
+                ) : (
+                  <>
+                    <b>{freeCount}</b> tools across {sectors.length} sectors
+                  </>
+                )}
+              </div>
+            </div>
 
-        .home-page-wrapper .search-container {
-          background: #FFFFFF;
-          border: 1px solid #E5E7EB;
-          border-radius: 8px;
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
-                      0 4px 12px rgba(0, 0, 0, 0.06);
-          padding: 12px 16px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          transition: box-shadow 0.2s ease, border-color 0.2s ease;
-          position: relative;
-        }
-
-        .home-page-wrapper .search-container:focus-within {
-          border-color: #D1D5DB;
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
-                      0 4px 16px rgba(0, 0, 0, 0.10);
-        }
-
-        .home-page-wrapper .search-icon {
-          color: #6B7280;
-          flex-shrink: 0;
-          width: 20px;
-          height: 20px;
-        }
-
-        .home-page-wrapper .search-input {
-          flex: 1;
-          border: none;
-          outline: none;
-          background: transparent;
-          font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
-          font-size: 15px;
-          font-weight: 400;
-          color: #111827;
-          width: 100%;
-          padding: 0;
-          margin: 0;
-        }
-
-        .home-page-wrapper .search-input::placeholder {
-          color: #9CA3AF;
-        }
-
-        .home-page-wrapper .search-shortcut {
-          background: #F3F4F6;
-          border: 1px solid #E5E7EB;
-          border-radius: 6px;
-          padding: 4px 8px;
-          font-size: 12px;
-          font-weight: 500;
-          color: #6B7280;
-          flex-shrink: 0;
-        }
-        
-        .home-page-wrapper .search-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: var(--space-sm);
-            padding: 0 var(--space-sm);
-        }
-        
-        .home-page-wrapper .search-stats {
-            font-size: 13px;
-            font-family: var(--font-mono);
-            opacity: 0.5;
-        }
-        
-        .home-page-wrapper .search-cta {
-            font-size: 13px;
-            color: var(--accent-terracotta);
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.2s;
-        }
-        
-        .home-page-wrapper .search-cta:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-        
-        .home-page-wrapper .search-dropdown {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          z-index: 9999;
-          margin-top: 8px;
-          background: #FFFFFF;
-          border: 1px solid #E5E7EB;
-          border-radius: 8px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-          max-height: 400px;
-          overflow-y: auto;
-        }
-
-        .home-page-wrapper .search-result {
-          padding: 12px 16px;
-          font-size: 14px;
-          color: var(--text-primary);
-          border-bottom: 1px solid var(--border-light);
-          cursor: pointer;
-          display: block;
-          text-decoration: none;
-          transition: background 0.15s;
-        }
-
-        .home-page-wrapper .search-result:last-child { border-bottom: none; }
-        .home-page-wrapper .search-result:hover { background: var(--bg-ground); }
-
-        .home-page-wrapper .search-result-cat {
-          font-size: 11px;
-          font-family: var(--font-mono);
-          color: var(--accent-terracotta);
-          margin-top: 3px;
-          opacity: 0.8;
-        }
-
-        .home-page-wrapper .search-empty {
-          padding: 14px 16px;
-          font-size: 13px;
-          color: var(--text-primary);
-          opacity: 0.5;
-          text-align: center;
-        }
-
-        /* Popular Calculations */
-        .home-page-wrapper .feature-cards-container {
-          position: relative;
-          z-index: 1;
-          margin-top: 24px;
-        }
-
-        .home-page-wrapper .popular-section {
-            width: 100%;
-            max-width: 900px;
-        }
-        
-        .home-page-wrapper .section-label {
-            font-size: 12px;
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            opacity: 0.5;
-            margin-bottom: var(--space-md);
-            text-align: center;
-        }
-        
-        .home-page-wrapper .popular-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-md);
-        }
-        
-        .home-page-wrapper .popular-item {
-            padding: var(--space-md) var(--space-lg);
-            background: var(--bg-ground);
-            border: 1px solid var(--border-light);
-            border-radius: 6px;
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.2s;
-            cursor: pointer;
-            display: block;
-        }
-        
-        .home-page-wrapper .popular-item:hover {
-            border-color: var(--accent-terracotta);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 25, 21, 0.08);
-        }
-        
-        .home-page-wrapper .popular-item-title {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .home-page-wrapper .popular-item-meta {
-            font-size: 12px;
-            font-family: var(--font-mono);
-            opacity: 0.6;
-        }
-        
-        /* Value Proposition */
-        .home-page-wrapper .value-section {
-            padding: var(--space-2xl) var(--space-xl);
-            background: var(--bg-ground);
-            border-top: 1px solid var(--border-light);
-        }
-        
-        .home-page-wrapper .value-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .home-page-wrapper .value-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .home-page-wrapper .value-title {
-            font-family: var(--font-serif);
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: var(--space-md);
-        }
-        
-        .home-page-wrapper .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--space-xl);
-        }
-        
-        .home-page-wrapper .value-card {
-            padding: var(--space-lg);
-            background: var(--bg-surface);
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .home-page-wrapper .value-card-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-ground);
-            border-radius: 6px;
-            margin-bottom: var(--space-md);
-            font-size: 24px;
-        }
-        
-        .home-page-wrapper .value-card-title {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: var(--space-sm);
-            letter-spacing: -0.01em;
-        }
-        
-        .home-page-wrapper .value-card-description {
-            font-size: 15px;
-            line-height: 1.6;
-            opacity: 0.7;
-        }
-        
-        .home-page-wrapper .value-card-metric {
-            font-family: var(--font-mono);
-            font-size: 13px;
-            color: var(--accent-terracotta);
-            margin-top: var(--space-md);
-            padding-top: var(--space-md);
-            border-top: 1px solid var(--border-light);
-        }
-        
-        /* Footer */
-        .home-page-wrapper .footer {
-            padding: var(--space-2xl) var(--space-xl);
-            background: var(--bg-surface);
-            border-top: 1px solid var(--border-light);
-            text-align: center;
-        }
-        
-        .home-page-wrapper .footer-text {
-            font-size: 13px;
-            opacity: 0.5;
-            font-family: var(--font-mono);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .home-page-wrapper .hero {
-                padding: var(--space-xl) var(--space-lg);
-            }
-            
-            .home-page-wrapper .search-input-wrapper {
-                padding: var(--space-sm) var(--space-md);
-            }
-            
-            .home-page-wrapper .search-input {
-                font-size: 16px;
-            }
-            
-            .home-page-wrapper .search-shortcut {
-                display: none;
-            }
-            
-            .home-page-wrapper .popular-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .home-page-wrapper .value-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .home-page-wrapper .value-section {
-                padding: var(--space-xl) var(--space-lg);
-            }
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .home-page-wrapper .hero-badge,
-        .home-page-wrapper .hero-title,
-        .home-page-wrapper .hero-subtitle,
-        .home-page-wrapper .search-container,
-        .home-page-wrapper .popular-section {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-        
-        .home-page-wrapper .hero-badge { animation-delay: 0.1s; }
-        .home-page-wrapper .hero-title { animation-delay: 0.2s; }
-        .home-page-wrapper .hero-subtitle { animation-delay: 0.3s; }
-        .home-page-wrapper .search-container { animation-delay: 0.4s; }
-        .home-page-wrapper .popular-section { animation-delay: 0.5s; }
-      `}</style>
-
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-badge">Industrial Engineering Calculators</div>
-        
-        <h1 className="hero-title">
-          Stop guessing.<br />Start <span className="accent">calculating.</span>
-        </h1>
-        
-        <p className="hero-subtitle">
-          Audit-proof engineering calculations built on VDI, ISO, and DIN standards. 
-          See your losses before they compound.
-        </p>
-        
-        {/* Central Search Component */}
-        <div className="search-wrapper">
-          <div className="search-container">
-            <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="m21 21-4.35-4.35"/>
-            </svg>
-            <input 
-              id="hero-search-input"
-              type="text" 
-              className="search-input" 
-              placeholder="Search calculators: scrap rate, VDI 2067, tolerance analysis..."
-              value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                setShowDropdown(true);
-              }}
-              onFocus={() => query.trim() && setShowDropdown(true)}
-              onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
-              autoFocus
-            />
-            <span className="search-shortcut">⌘K</span>
+            <div className="standards-line">
+              Verified against <span>ISO · ASME · VDI · DIN · IEC · EN</span>
+            </div>
           </div>
-          
-          {showDropdown && results.length > 0 && (
-            <div className="search-dropdown">
-              {results.map((tool, i) => (
-                <a key={i} href="#" className="search-result">
-                  {tool.name}
-                  <div className="search-result-cat">{tool.cat}</div>
-                </a>
+        </section>
+
+        {/* SECTORS */}
+        <section id="sectors" className="sec-section">
+          <div className="wrap">
+            <div className="sec-head">
+              <h2>Browse by sector</h2>
+              <div className="meta">{sectors.length} industrial sectors</div>
+            </div>
+            
+            <div className="grid sectors" id="sectorGrid">
+              {filteredSectors.map((s) => (
+                <Link
+                  key={s.k}
+                  href={`/tools/category/${s.name.toLowerCase()}`}
+                  className="tile"
+                >
+                  <span className="tile-name">
+                    <b>{s.k}</b>
+                    {s.name}
+                  </span>
+                  <span className="tile-count">{s.n}</span>
+                </Link>
               ))}
             </div>
-          )}
 
-          {showDropdown && query.trim() && results.length === 0 && (
-            <div className="search-dropdown">
-              <div className="search-empty">No calculators found</div>
-            </div>
-          )}
+            {isSearchActive && filteredSectors.length === 0 && (
+              <div className="empty show" id="sectorEmpty">
+                No sector matches “<span className="qref">{query}</span>”. Try a tool name instead.
+              </div>
+            )}
+          </div>
+        </section>
 
-          <div className="search-meta">
-            <span className="search-stats">{freeCount} calculators available</span>
-            <a href="#all" className="search-cta">Browse all →</a>
-          </div>
-        </div>
-        
-        {/* Popular Calculations */}
-        <div className="popular-section feature-cards-container">
-          <div className="section-label">Most Used This Week</div>
-          
-          <div className="popular-grid">
-            <a href="#scrap" className="popular-item">
-              <div className="popular-item-title">Scrap Rate Analysis</div>
-              <div className="popular-item-meta">3 inputs · 60 seconds</div>
-            </a>
-            
-            <a href="#vdi" className="popular-item">
-              <div className="popular-item-title">VDI 2067 Compliance</div>
-              <div className="popular-item-meta">Building services · Audit-ready</div>
-            </a>
-            
-            <a href="#tolerance" className="popular-item">
-              <div className="popular-item-title">Tolerance Stack-up</div>
-              <div className="popular-item-meta">GD&T · ISO 286</div>
-            </a>
-            
-            <a href="#cost" className="popular-item">
-              <div className="popular-item-title">Cost Recovery Model</div>
-              <div className="popular-item-meta">Annual loss projection</div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Value Proposition */}
-      <section className="value-section">
-        <div className="value-container">
-          <div className="value-header">
-            <h2 className="value-title">Why engineers choose SectorCalc</h2>
-          </div>
-          
-          <div className="value-grid">
-            <div className="value-card">
-              <div className="value-card-icon">⚡</div>
-              <h3 className="value-card-title">Instant Results</h3>
-              <p className="value-card-description">
-                Three inputs. Sixty seconds. See your annual scrap cost and recovery potential 
-                without wrestling with spreadsheet formulas.
-              </p>
-              <div className="value-card-metric">40% faster quotation cycles</div>
+        {/* POPULAR TOOLS */}
+        <section id="popular" className="sec-section">
+          <div className="wrap">
+            <div className="sec-head">
+              <h2>{isSearchActive ? "Search Results" : "Most used calculators"}</h2>
+              <div className="meta">updated weekly</div>
             </div>
             
-            <div className="value-card">
-              <div className="value-card-icon">📐</div>
-              <h3 className="value-card-title">Standards-Verified</h3>
-              <p className="value-card-description">
-                Every calculation strictly verified against VDI, ISO, and DIN standards. 
-                Audit-proof accuracy you can defend in front of stakeholders.
-              </p>
-              <div className="value-card-metric">100% standards compliance</div>
+            <div className="grid tools" id="toolGrid">
+              {filteredTools.map((t) => (
+                <Link
+                  key={t.slug}
+                  href={`/tools/generated/${t.slug}`}
+                  className="tool"
+                >
+                  <span className="tool-sec">{t.sec}</span>
+                  <span className="tool-name">{t.name}</span>
+                  <span className="tool-eq">{t.eq}</span>
+                </Link>
+              ))}
             </div>
-            
-            <div className="value-card">
-              <div className="value-card-icon">🎯</div>
-              <h3 className="value-card-title">Decision-Ready</h3>
-              <p className="value-card-description">
-                Free tools give you numbers. Pro tells you what the numbers mean and what 
-                you need to do next. No more analysis paralysis.
-              </p>
-              <div className="value-card-metric">From data to action</div>
+
+            {isSearchActive && filteredTools.length === 0 && (
+              <div className="empty show" id="toolEmpty">
+                No tool matches “<span className="qref">{query}</span>”.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* TRUST / STANDARDS */}
+        <section className="trust sec-section">
+          <div className="wrap">
+            <div className="label">Every calculation is standards-backed</div>
+            <div className="badges">
+              <div className="badge">
+                ISO<small>Int’l Standards</small>
+              </div>
+              <div className="badge">
+                ASME<small>Mech. Engineers</small>
+              </div>
+              <div className="badge">
+                VDI<small>German Eng.</small>
+              </div>
+              <div className="badge">
+                DIN<small>German Inst.</small>
+              </div>
+              <div className="badge">
+                IEC<small>Electrotech.</small>
+              </div>
+              <div className="badge">
+                EN<small>European Norm</small>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* CTA */}
+        <section className="cta sec-section">
+          <div className="wrap">
+            <h2>From a quick check to a full audit trail.</h2>
+            <p>
+              Run any calculation free. Unlock FMEA, uncertainty quantification, and exportable reports with Pro.
+            </p>
+            <div>
+              <Link className="btn" href="#sectors">
+                Explore tools
+              </Link>
+              <Link className="btn ghost" href="/pricing">
+                See Pro
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
