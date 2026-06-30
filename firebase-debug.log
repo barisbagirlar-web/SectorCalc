@@ -915,3 +915,77 @@ Source path: /Users/macair1/projects/SectorCalc-p5a/src/styles/premium-calculato
 [debug] [2026-06-30T16:55:36.558Z] Checked if tokens are valid: true, expires at: 1782839745268
 [debug] [2026-06-30T16:55:36.558Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/sectorcalc-bf412/serviceAccounts/sectorcalc-bf412@appspot.gserviceaccount.com:testIamPermissions [none]
 [debug] [2026-06-30T16:55:36.559Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/sectorcalc-bf412/serviceAccounts/sectorcalc-bf412@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-06-30T17:09:14.343Z] ----------------------------------------------------------------------
+[debug] [2026-06-30T17:09:14.344Z] Command:       /Users/macair1/.nvm/versions/node/v22.22.2/bin/node /Users/macair1/.nvm/versions/node/v22.22.2/bin/firebase deploy --only hosting,firestore:rules --project sectorcalc-bf412
+[debug] [2026-06-30T17:09:14.344Z] CLI Version:   15.18.0
+[debug] [2026-06-30T17:09:14.344Z] Platform:      darwin
+[debug] [2026-06-30T17:09:14.344Z] Node Version:  v22.22.2
+[debug] [2026-06-30T17:09:14.345Z] Time:          Tue Jun 30 2026 20:09:14 GMT+0300 (Türkiye Standard Time)
+[debug] [2026-06-30T17:09:14.345Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-06-30T17:09:14.739Z] Object "/hosting" in "firebase.json" has unknown property: {"additionalProperty":"build"}
+[debug] [2026-06-30T17:09:14.739Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2026-06-30T17:09:14.739Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-06-30T17:09:14.741Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-30T17:09:14.742Z] > authorizing via signed-in user (barisbagirlar@gmail.com)
+[debug] [2026-06-30T17:09:14.742Z] [iam] checking project sectorcalc-bf412 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-06-30T17:09:14.742Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:14.742Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:14.743Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions [none]
+[debug] [2026-06-30T17:09:14.743Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions  x-goog-user-project=sectorcalc-bf412
+[debug] [2026-06-30T17:09:14.743Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T17:09:15.788Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions 200
+[debug] [2026-06-30T17:09:15.788Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T17:09:15.788Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:15.788Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:15.788Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 [none]
+[debug] [2026-06-30T17:09:16.190Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 200
+[debug] [2026-06-30T17:09:16.190Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 {"projectId":"sectorcalc-bf412","projectNumber":"1036979054000","displayName":"SectorCalc","name":"projects/sectorcalc-bf412","resources":{"hostingSite":"sectorcalc-bf412"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_62f6c7ef-e6ed-4545-9f45-ad82cd3f185f"}
+[debug] [2026-06-30T17:09:16.964Z] defaultcredentials: writing to file /Users/macair1/.config/firebase/barisbagirlar_gmail_com_application_default_credentials.json
+[debug] [2026-06-30T17:09:16.964Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:16.964Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:16.964Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites pageToken=&pageSize=10
+[debug] [2026-06-30T17:09:18.285Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 200
+[debug] [2026-06-30T17:09:18.285Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites {"sites":[{"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-30T17:09:18.286Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:18.286Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:18.286Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 
+[debug] [2026-06-30T17:09:19.368Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 200
+[debug] [2026-06-30T17:09:19.368Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites {"sites":[{"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-30T17:09:19.369Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:19.369Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:19.369Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config [none]
+[debug] [2026-06-30T17:09:20.172Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config 200
+[debug] [2026-06-30T17:09:20.172Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config {"projectId":"sectorcalc-bf412","appId":"1:1036979054000:web:a317123fd6ff1c9336a275","storageBucket":"sectorcalc-bf412.firebasestorage.app","apiKey":"AIzaSyCYQPcUivyeIio80gxEm8DbFhWV6XEXs78","authDomain":"sectorcalc-bf412.firebaseapp.com","messagingSenderId":"1036979054000","projectNumber":"1036979054000","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-06-30T17:09:22.161Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:22.162Z] Checked if tokens are valid: true, expires at: 1782842454106
+[debug] [2026-06-30T17:09:22.162Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 [none]
+[debug] [2026-06-30T17:09:23.145Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 200
+[debug] [2026-06-30T17:09:23.145Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 {"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}
+[info] 
+audit:i18n-hardcoded — scanning 576 component file(s)...
+
+[info] 
+audit:i18n-hardcoded — 0 issue(s) across 0 file(s)
+PASS — All component text is locale-safe.
+
+
+[info] npm warn exec The following package was not found and will be installed: tsx@4.22.4
+
+[info] 🔍 Pre-build syntax validation: 358 generated files
+
+
+[info] ✅ All 358 generated files pass syntax validation.
+
+[info] === DEBUG: entering build loop ===
+
