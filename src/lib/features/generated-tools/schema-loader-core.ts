@@ -4,10 +4,33 @@ import { normalizeGeneratedI18nText } from "@/lib/features/generated-tools/resol
 import { normalizeRawGeneratedSchema } from "@/lib/features/generated-tools/normalize-schema";
 import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
-const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
+/** Resolve generated schemas directory — tries multiple deployment paths. */
+function resolveSchemasDir(): string {
+  const candidates = [
+    // Local dev / standard
+    path.join(process.cwd(), "generated", "schemas"),
+    // Firebase framework-managed function
+    path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return candidates[0];
+}
+
+const SCHEMAS_DIR = resolveSchemasDir();
 
 function schemaPathForSlug(slug: string): string {
-  return path.join(SCHEMAS_DIR, `${slug}-schema.json`);
+  // Schemas are organized in subdirectories by first character (a/, b/, c/…)
+  const firstChar = slug.charAt(0).toLowerCase();
+  const subDir = /[a-z0-9]/.test(firstChar) ? firstChar : "other";
+  const directPath = path.join(SCHEMAS_DIR, `${slug}-schema.json`);
+  if (fs.existsSync(directPath)) {
+    return directPath;
+  }
+  return path.join(SCHEMAS_DIR, subDir, `${slug}-schema.json`);
 }
 
 function normalizeGeneratedToolInput(input: GeneratedToolInput): GeneratedToolInput {
@@ -34,10 +57,10 @@ export function listGeneratedToolSchemaSlugs(): string[] {
   if (!fs.existsSync(SCHEMAS_DIR)) {
     return [];
   }
-  return fs
-    .readdirSync(SCHEMAS_DIR)
+  // Use recursive readdir to find all schema files in subdirectories
+  return (fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[])
     .filter((name) => name.endsWith("-schema.json"))
-    .map((name) => name.replace(/-schema\.json$/, ""))
+    .map((name) => path.basename(name).replace(/-schema\.json$/, ""))
     .sort((left, right) => left.localeCompare(right));
 }
 
@@ -55,11 +78,16 @@ export function getGeneratedToolSchema(slug: string): GeneratedToolSchema | null
 }
 
 export function generatedToolDiagramPublicPath(slug: string): string {
-  return `/generated/schemas/${slug}-diagram.svg`;
+  // Diagrams follow same subdirectory pattern as schemas
+  const firstChar = slug.charAt(0).toLowerCase();
+  const subDir = /[a-z0-9]/.test(firstChar) ? firstChar : "other";
+  return `/generated/schemas/${subDir}/${slug}-diagram.svg`;
 }
 
 export function generatedToolDiagramExists(slug: string): boolean {
-  const sourcePath = path.join(SCHEMAS_DIR, `${slug}-diagram.svg`);
-  const publicPath = path.join(process.cwd(), "public", "generated", "schemas", `${slug}-diagram.svg`);
+  const firstChar = slug.charAt(0).toLowerCase();
+  const subDir = /[a-z0-9]/.test(firstChar) ? firstChar : "other";
+  const sourcePath = path.join(SCHEMAS_DIR, subDir, `${slug}-diagram.svg`);
+  const publicPath = path.join(process.cwd(), "public", "generated", "schemas", subDir, `${slug}-diagram.svg`);
   return fs.existsSync(sourcePath) || fs.existsSync(publicPath);
 }
