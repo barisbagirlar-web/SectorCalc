@@ -65,7 +65,7 @@ describe("premium auto sitemap manifest", () => {
   });
 
   test("api path yok", () => {
-    expect(paths.some((path) => path.includes("/api"))).toBe(false);
+    expect(paths.some((path) => /^\/api(?:\/|$)/.test(path))).toBe(false);
   });
 
   test("print path yok", () => {
@@ -123,42 +123,35 @@ describe("premium auto sitemap manifest", () => {
     expect(buildLocalizedUrl("/", "de", "https://example.com")).toBe("https://example.com/de");
   });
 
-  test("free tool routes 6 locale için üretilir", () => {
+  test("free tool routes 1 locale için üretilir", () => {
     const freeItem = manifest.find((item) => item.type === "free_tool");
     expect(freeItem).toBeDefined();
     expect(freeItem!.locales).toEqual(getActiveSitemapLocales());
     const localized = freeItem!.locales.map((locale) => buildLocalizedPath(freeItem!.path, locale));
-    expect(localized.length).toBe(6);
+    expect(localized.length).toBe(1);
     for (const locale of getActiveSitemapLocales()) {
       if (locale === "en") {
         expect(localized).toContain(freeItem!.path);
-      } else {
-        expect(localized).toContain(`/${locale}${freeItem!.path}`);
       }
     }
   });
 
-  test("premium routes 6 locale için üretilir", () => {
+  test("premium routes 1 locale için üretilir", () => {
     const premiumItem = manifest.find((item) => item.type === "premium_analyzer" && item.path.startsWith("/tools/premium-schema/"));
     if (!premiumItem) {
       return;
     }
     const localized = getActiveSitemapLocales().map((locale) => buildLocalizedPath(premiumItem.path, locale));
     expect(localized).toContain(premiumItem.path);
-    expect(localized).toContain(`/ar${premiumItem.path}`);
-    expect(localized.length).toBe(6);
+    expect(localized.length).toBe(1);
   });
 
-  test("alternates en,tr,de,fr,es,ar,x-default içerir", () => {
+  test("alternates en, x-default içerir", () => {
     const locales = getActiveSitemapLocales();
     const alternates = buildAlternates("/free-tools", locales, "https://example.com");
     expect(alternates.languages.en).toBe("https://example.com/free-tools");
-    expect(alternates.languages.tr).toBe("https://example.com/tr/free-tools");
-    expect(alternates.languages.de).toBe("https://example.com/de/free-tools");
-    expect(alternates.languages.fr).toBe("https://example.com/fr/free-tools");
-    expect(alternates.languages.es).toBe("https://example.com/es/free-tools");
-    expect(alternates.languages.ar).toBe("https://example.com/ar/free-tools");
     expect(alternates.languages["x-default"]).toBe("https://example.com/free-tools");
+    expect(alternates.languages.tr).toBeUndefined();
   });
 
   test("SITE_BASE_URL https ile başlar", () => {

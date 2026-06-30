@@ -29,10 +29,11 @@ function ensureManifestStubs(): void {
   const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
   const documentJsPath = path.join(pagesDir, "_document.js");
   const appJsPath = path.join(pagesDir, "_app.js");
-  const errorJsPath = path.join(pagesDir, "_error.js");
   // Stub Pages Router modules to prevent "Cannot find module for page: /_document" / /_app
   // during SSG. The empty pages-manifest triggers Next.js to look for these even in App Router.
-  for (const file of [documentJsPath, appJsPath, errorJsPath]) {
+  // NOTE: Do NOT add _error.js here — Next.js tries to render it during 404/SSG and
+  // crashes with "Element type is invalid". _error.js .nft.json is handled by stubMissingNftFiles.
+  for (const file of [documentJsPath, appJsPath]) {
     if (!fs.existsSync(file)) {
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.writeFileSync(file, "module.exports = {};\n", "utf8");
@@ -73,19 +74,44 @@ function ensureManifestStubs(): void {
 
 // Ensure stubs exist at module init (before any webpack hook fires)
 ensureManifestStubs();
+stubMissingNftFiles();
 
 /**
- * Webpack plugin — ensures Next.js manifest stubs exist after compilation
- * but before SSG ("Collecting page data").
+ * Webpack plugin — ensures Next.js manifest stubs and .nft.json trace files
+ * exist after compilation but before SSG ("Collecting page data").
  * Next.js 15 App Router does not create pages-manifest.json; without this
- * stub the build crashes during page data collection.
+ * stub the build crashes during page data collection. Stub .nft.json files
+ * prevent standalone trace collection crashes (ENOENT) for non-compiled
+ * Pages Router stubs and edge modules.
  */
+function stubMissingNftFiles(): void {
+  const serverDir = path.join(process.cwd(), ".next", "server");
+  if (!fs.existsSync(serverDir)) return;
+
+  const walk = (dir: string): void => {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (entry.name.endsWith(".js")) {
+        const nft = full + ".nft.json";
+        if (!fs.existsSync(nft)) {
+          fs.writeFileSync(nft, JSON.stringify({ version: 1, files: [] }), "utf8");
+        }
+      }
+    }
+  };
+  walk(serverDir);
+}
+
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
     // Stubs already created at module init (line 74). This hook just re-asserts
     // them after compilation in case Firebase build pipeline cleaned them.
     compiler.hooks.afterCompile.tapAsync("EnsureManifestStubsPlugin", (_compilation, callback) => {
       ensureManifestStubs();
+      stubMissingNftFiles();
       callback();
     });
   }
@@ -239,11 +265,15 @@ const nextConfig: NextConfig = {
       },
       // Sitemap cache headers
       {
-        source: "/sitemap/:path*",
+        source: "/sitemap.xml",
         headers: [
           {
+            key: "Content-Type",
+            value: "application/xml",
+          },
+          {
             key: "Cache-Control",
-            value: "public, max-age=3600, stale-while-revalidate=86400",
+            value: "public, max-age=3600",
           },
         ],
       },

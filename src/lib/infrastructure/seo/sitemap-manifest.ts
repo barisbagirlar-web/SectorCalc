@@ -229,6 +229,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
+    ...getPremiumAnalyzerSitemapRoutes(),
     ...getAiIndexSitemapRoutes(),
   ]);
 }

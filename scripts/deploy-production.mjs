@@ -151,7 +151,8 @@ try {
   shimInstalled = true;
 
   console.log("deploy-production: deploying Firebase Hosting + Firestore rules…");
-  const deployStatus = run("firebase", [
+  const deployStatus = run("npx", [
+    "firebase",
     "deploy",
     "--only",
     "hosting,firestore:rules",

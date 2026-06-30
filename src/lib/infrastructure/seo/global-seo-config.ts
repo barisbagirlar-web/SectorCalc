@@ -35,3 +35,12 @@ export const INDEXABLE_LOCALE_ROUTES: Record<SupportedLocale, boolean> = {
 export function getActiveSitemapLocales(): readonly SupportedLocale[] {
   return getActiveLocales().filter((locale) => INDEXABLE_LOCALE_ROUTES[locale]);
 }
+
+export function resolveSitemapBaseUrl(request?: Request): string {
+  if (!request) return SITE_BASE_URL;
+  const host = request.headers.get("host") || request.headers.get("x-forwarded-host") || "";
+  if (host.includes("sectorcalc.com")) {
+    return "https://www.sectorcalc.com";
+  }
+  return SITE_BASE_URL;
+}

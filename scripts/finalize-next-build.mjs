@@ -2,7 +2,7 @@
 /**
  * Post-build artifacts required by Firebase Hosting (web frameworks) + static 500 fallback.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
@@ -58,6 +58,27 @@ function ensureExportDetail() {
   );
 }
 
+/**
+ * Stub missing .nft.json trace files for any server JS modules.
+ * Without these, standalone trace collection crashes with ENOENT during
+ * Firebase Hosting deploy for stub modules and some edge/API routes.
+ */
+function stubMissingNftTraces(dir) {
+  if (!existsSync(dir)) return;
+  const entries = readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      stubMissingNftTraces(fullPath);
+    } else if (entry.name.endsWith(".js")) {
+      const nftPath = fullPath + ".nft.json";
+      if (!existsSync(nftPath)) {
+        writeFileSync(nftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
+      }
+    }
+  }
+}
+
 function ensureFirebasePagesManifest() {
   const serverPagesDir = join(NEXT, "server/pages");
   mkdirSync(serverPagesDir, { recursive: true });
@@ -85,6 +106,9 @@ function main() {
   ensureExportMarker();
   ensureExportDetail();
   ensureFirebasePagesManifest();
+
+  // Stub any .js files missing .nft.json traces in server/ (stubs, edge, API routes)
+  stubMissingNftTraces(join(NEXT, "server"));
 
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);

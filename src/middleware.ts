@@ -26,6 +26,16 @@ const SW_KILL_HEADERS = {
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  if (pathname.startsWith("/sitemap/")) {
+    return new Response("Gone", {
+      status: 410,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "x-robots-tag": "noindex, nofollow",
+      },
+    });
+  }
+
   if (pathname.startsWith("/_next") || pathname.startsWith("/api")) {
     return applyRegionHeaders(NextResponse.next(), request);
   }
@@ -68,6 +78,7 @@ export const config = {
   matcher: [
     "/",
     "/sw.js",
+    "/sitemap/:path*",
     "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };

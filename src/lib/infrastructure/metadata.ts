@@ -95,12 +95,24 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
   const url = `${SITE.url}${buildLocalizedPath(path, locale)}`;
   const hreflang = buildHreflangAlternates(path);
 
+  // Canonical is always English (without locale prefix)
+  const canonicalUrl = `${SITE.url}${path === "/" ? "" : path}`;
+
+  const isEnglish = locale === "en";
+  const robots = isEnglish
+    ? metadataRobots()
+    : {
+        index: false,
+        follow: true,
+        googleBot: { index: false, follow: true },
+      };
+
   return {
     title,
     description,
     metadataBase: new URL(SITE.url),
     icons: SITE_ICONS,
-    robots: metadataRobots(),
+    robots,
     openGraph: {
       title,
       description,
@@ -115,7 +127,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
       description,
     },
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
       ...hreflang,
     },
     verification: {
