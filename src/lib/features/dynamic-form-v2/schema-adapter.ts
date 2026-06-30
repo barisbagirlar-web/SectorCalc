@@ -11,31 +11,32 @@ import type { ToolData, ToolInputField, ToolOutput, InputGroup, ValidationRule, 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyToolSchema = Record<string, any>;
 
-const TR_CONFIDENCE_LABELS = ["KESİN", "GÜÇLÜ", "ORTA", "EKSİK VERİ"];
+const EN_CONFIDENCE_LABELS = ["EXACT", "HIGH", "MEDIUM", "LOW"];
 
-// English → Turkish confidence label mapping
+// Confidence label normalization → English
 const CONF_MAP: Record<string, string> = {
-  EXACT: "KESİN",
-  CERTAIN: "KESİN",
-  HIGH: "GÜÇLÜ",
-  STRONG: "GÜÇLÜ",
-  MEDIUM: "ORTA",
-  DEFAULT: "ORTA",
-  COMPUTED: "ORTA",
-  APPROXIMATE: "EKSİK VERİ",
-  ASSUMPTION: "EKSİK VERİ",
-  LOW: "EKSİK VERİ",
+  EXACT: "EXACT",
+  CERTAIN: "EXACT",
+  HIGH: "HIGH",
+  STRONG: "HIGH",
+  MEDIUM: "MEDIUM",
+  DEFAULT: "MEDIUM",
+  COMPUTED: "MEDIUM",
+  APPROXIMATE: "LOW",
+  ASSUMPTION: "LOW",
+  LOW: "LOW",
+  KESİN: "EXACT",
+  GÜÇLÜ: "HIGH",
+  ORTA: "MEDIUM",
+  "EKSİK VERİ": "LOW",
 };
 
 function inferConfidence(input: { confidence?: string; confidence_label?: string; uncertainty?: unknown }): string {
   const raw = (input.confidence || input.confidence_label || "").toUpperCase();
-  // Direct Turkish match
-  if (TR_CONFIDENCE_LABELS.includes(raw)) return raw;
-  // English → Turkish map
   if (CONF_MAP[raw]) return CONF_MAP[raw];
   // Infer from uncertainty presence
-  if (input.uncertainty != null) return "GÜÇLÜ";
-  return "KESİN";
+  if (input.uncertainty != null) return "HIGH";
+  return "EXACT";
 }
 
 function inferUnitDisplay(unit: string): string {
@@ -45,6 +46,20 @@ function inferUnitDisplay(unit: string): string {
 
 function toTitleCase(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1).replace(/_/g, " ");
+}
+
+/** Resolve English label from i18n map, falling back to default label */
+function resolveEnglishLabel(inp: AnyToolSchema): string {
+  if (inp.label_i18n?.en) return inp.label_i18n.en;
+  if (inp.name_i18n?.en) return inp.name_i18n.en;
+  return inp.label || inp.name || toTitleCase(inp.id);
+}
+
+/** Resolve English note from i18n map */
+function resolveEnglishNote(inp: AnyToolSchema): string {
+  if (inp.businessContext_i18n?.en) return inp.businessContext_i18n.en;
+  if (inp.note_i18n?.en) return inp.note_i18n.en;
+  return inp.businessContext || inp.note || inp.helperText || inp.placeholder || inp.hint || "";
 }
 
 export function adaptToolSchema(
@@ -64,7 +79,7 @@ export function adaptToolSchema(
 
     return {
       id: inp.id,
-      name: inp.label || inp.name || toTitleCase(inp.id),
+      name: resolveEnglishLabel(inp),
       symbol: inp.symbol || inp.id.slice(0, 2).toUpperCase(),
       unit: isEnum ? "enum" : inferUnitDisplay(unit),
       allowed_values: isEnum
@@ -75,7 +90,7 @@ export function adaptToolSchema(
       absolute_max: inp.max ?? inp.absolute_max ?? (unit === "ratio" ? 1 : undefined),
       resolution: inp.step ?? inp.resolution ?? (inp.type === "number" ? 0.01 : undefined),
       confidence_label: conf,
-      note: inp.businessContext || inp.note || inp.helperText || inp.placeholder || "",
+      note: resolveEnglishNote(inp),
       reference: inp.reference || inp.ref || undefined,
     };
   });
@@ -107,7 +122,7 @@ export function adaptToolSchema(
     name: def.name || toTitleCase(id),
     unit: def.unit || "unit",
     precision: def.precision ?? null,
-    confidence_label: def.confidence_label || "GÜÇLÜ",
+    confidence_label: def.confidence_label || "HIGH",
     enum_labels: def.enum_labels || undefined,
   }));
 
@@ -199,7 +214,7 @@ export function adaptToolSchema(
       insights: [
         {
           title: "Verdict",
-          conf: "GÜÇLÜ",
+          conf: "HIGH",
           verdict: true,
           lines: [`{${primaryKey}} computed from ${rawInputs.length} inputs.`],
         },

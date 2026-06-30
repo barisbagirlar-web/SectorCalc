@@ -36,9 +36,9 @@ const FORM_CSS = `
 .dfe .f-name{font-weight:550;font-size:13.5px}
 .dfe .f-sym{font-family:var(--mono);font-size:11px;color:var(--ink-38);margin-left:auto}
 .dfe .chip{font-family:var(--mono);font-size:9px;letter-spacing:.06em;padding:1px 5px;border:1px solid var(--line-18);color:var(--ink-50)}
-.dfe .chip.kesin{color:var(--ok);border-color:rgba(79,111,82,.4)}
-.dfe .chip.guclu{color:var(--ink-70)}
-.dfe .chip.orta{color:var(--accent);border-color:var(--accent-24)}
+.dfe .chip.exact{color:var(--ok);border-color:rgba(79,111,82,.4)}
+.dfe .chip.high{color:var(--ink-70)}
+.dfe .chip.medium{color:var(--accent);border-color:var(--accent-24)}
 .dfe .ctrl{display:flex;align-items:stretch;border:1px solid var(--line-18);background:var(--surface)}
 .dfe .ctrl:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-12)}
 .dfe .ctrl input{appearance:none;-webkit-appearance:none;border:0;background:transparent;font-family:var(--mono);font-size:18px;color:var(--ink);padding:13px 14px;width:100%;text-align:right;min-height:50px}
@@ -530,9 +530,9 @@ export function DynamicFormEngine({ tool, showMasthead = true, onCompute }: Dyna
                       const cl = classify(inp);
                       const chipLabel = inp.confidence_label;
                       const chipClass =
-                        chipLabel === "KESİN" ? "kesin" :
-                        chipLabel === "GÜÇLÜ" ? "guclu" :
-                        chipLabel === "ORTA" ? "orta" : "guclu";
+                        chipLabel === "EXACT" ? "exact" :
+                        chipLabel === "HIGH" ? "high" :
+                        chipLabel === "MEDIUM" ? "medium" : "high";
 
                       // Reference strip
                       const refParts: React.ReactNode[] = [];
@@ -792,7 +792,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, onCompute }: Dyna
                       <div className="blk">
                         <div className="bh">
                           <span className="bt">Confidence &amp; uncertainty</span>
-                          <span className="bc">GÜÇLÜ</span>
+                          <span className="bc">HIGH</span>
                         </div>
                         <p>
                           GUM (ISO/IEC 98-3) combined Type-B, root-sum-square: <b>{pv} {pu} ± {fmt(uncVal, 0)}</b> (±{pctf(uncVal / (computed[pKey] as number))}). Tighten the highest-variance inputs before committing.
