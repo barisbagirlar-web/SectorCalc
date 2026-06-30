@@ -6,9 +6,9 @@ import type { ToolData, ToolInputField, ToolOutput } from "./types";
 import { compile, safeEval, type CompiledExpression } from "./ast-parser";
 import { FAM, UNIT_MAP, convert as unitConvert } from "./unit-conversion";
 import { fmt, pctf, hash, interp } from "./formatter";
+import { HMI_CSS as FORM_CSS } from "./hmi-css";
 
 /* ===== SECTORCALC PRO · PREMIUM INDUSTRIAL HMI CSS (v2) ===== */
-const FORM_CSS = `
 :root{--bg:#080B10;--bg-grid:rgba(255,184,0,0.028);--panel:#11151C;--panel-2:#161B24;--bezel:#1C212B;--bezel-hi:#2A303C;--bezel-lo:#0B0E14;--ink:#E6EAF1;--ink-70:rgba(230,234,241,.7);--ink-50:rgba(230,234,241,.5);--ink-30:rgba(230,234,241,.3);--line:#232833;--line-hi:#313846;--accent:#FFB800;--accent-dim:rgba(255,184,0,.14);--accent-24:rgba(255,184,0,.24);--signal:#00D4FF;--signal-dim:rgba(0,212,255,.16);--ok:#00FF88;--warn:#FFB800;--danger:#FF3B30;--lcd:#00FFCC;--mono:'JetBrains Mono',ui-monospace,'SF Mono',Consolas,monospace;--sans:'Inter',-apple-system,system-ui,sans-serif;}
 body{background:linear-gradient(var(--bg-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bg-grid) 1px,transparent 1px),radial-gradient(ellipse at top,#0E1219 0%,#080B10 60%);background-size:44px 44px,44px 44px,100% 100%;background-attachment:fixed;color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:60px}
 ::selection{background:var(--accent);color:#000}

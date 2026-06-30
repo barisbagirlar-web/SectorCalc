@@ -558,8 +558,8 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  })();
  };
 
- const isOK = result?.severity === "LOW" || result?.verdict === "ACCEPTABLE";
- const isDanger = result?.severity === "HIGH" || result?.verdict === "REJECT";
+ const isOK = (result?.severity as string) === "LOW" || result?.verdict === "ACCEPTABLE";
+ const isDanger = (result?.severity as string) === "HIGH" || result?.verdict === "REJECT";
 
  return (
  <PageLayout>

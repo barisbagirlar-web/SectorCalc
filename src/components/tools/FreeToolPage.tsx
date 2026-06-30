@@ -547,7 +547,7 @@ export function FreeToolPage({
              <div className="d-sub">{decisionLabel}</div>
            </>
          ) : (
-           <div className="d-text" style={{ fontSize: "14px", color: "var(--ink-50)" }}>{\u2014}</div>
+           <div className="d-text" style={{ fontSize: "14px", color: "var(--ink-50)" }}>{"\u2014"}</div>
          )}
        </div>
 
