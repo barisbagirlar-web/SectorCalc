@@ -1049,3 +1049,429 @@
     min-width: 4rem;
   }
 }
+
+/* SECTORCALC_UNIVERSAL_DYNAMIC_TOOL_FORM_V1 */
+.sc-universal-dtf-shell,
+.sc-premium-dtf-container,
+.pro-form {
+  --sc-udtf-bg: #F0EEE6;
+  --sc-udtf-surface: #FAF9F5;
+  --sc-udtf-surface-2: #F4F2EA;
+  --sc-udtf-ink: #1A1915;
+  --sc-udtf-ink-70: rgba(26,25,21,.70);
+  --sc-udtf-ink-50: rgba(26,25,21,.50);
+  --sc-udtf-ink-38: rgba(26,25,21,.38);
+  --sc-udtf-accent: #BD5D3A;
+  --sc-udtf-accent-12: rgba(189,93,58,.12);
+  --sc-udtf-accent-24: rgba(189,93,58,.24);
+  --sc-udtf-line: rgba(26,25,21,.10);
+  --sc-udtf-line-18: rgba(26,25,21,.18);
+  --sc-udtf-ok: #4F6F52;
+  --sc-udtf-serif: Georgia, "Times New Roman", Times, serif;
+  --sc-udtf-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --sc-udtf-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+.sc-universal-dtf-shell {
+  color: var(--sc-udtf-ink);
+  font-family: var(--sc-udtf-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sc-universal-dtf-shell *,
+.sc-premium-dtf-container *,
+.pro-form * {
+  box-sizing: border-box;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-card,
+.sc-premium-dtf-card,
+.pro-tool-card {
+  background: var(--sc-udtf-surface);
+  border: 1px solid var(--sc-udtf-line);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-columns,
+.sc-premium-dtf-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+  gap: 30px;
+  align-items: start;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-panel,
+.sc-premium-dtf-input-panel {
+  background: transparent;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-grid,
+.sc-premium-dtf-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 20px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-row,
+.sc-premium-dtf-input-row,
+.sc-industrial-field,
+.sc-form-field {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-label,
+.sc-premium-dtf-input-label,
+.sc-industrial-field__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-title,
+.sc-premium-dtf-input-title,
+.sc-industrial-field__label,
+.sc-ledger-label {
+  color: var(--sc-udtf-ink);
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-desc,
+.sc-premium-dtf-input-desc,
+.sc-industrial-field__helper,
+.sc-ledger-helper {
+  color: var(--sc-udtf-ink-50);
+  font-family: var(--sc-udtf-mono);
+  font-size: 10.5px;
+  line-height: 1.45;
+  margin-top: 6px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-control,
+.sc-premium-dtf-input-control {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--sc-udtf-line-18);
+  background: var(--sc-udtf-surface);
+  min-height: 50px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-input-control:focus-within,
+.sc-premium-dtf-input-control:focus-within,
+.sc-industrial-field:focus-within {
+  border-color: var(--sc-udtf-accent);
+  box-shadow: 0 0 0 3px var(--sc-udtf-accent-12);
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-touch-input,
+.sc-premium-dtf-touch-input,
+.sc-ledger-input-boxed,
+.sc-industrial-input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--sc-udtf-ink);
+  font-family: var(--sc-udtf-mono);
+  font-size: 18px;
+  min-height: 50px;
+  min-width: 0;
+  padding: 13px 14px;
+  text-align: right;
+  width: 100%;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-touch-input:focus,
+.sc-premium-dtf-touch-input:focus,
+.sc-ledger-input-boxed:focus,
+.sc-industrial-input:focus {
+  outline: none;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-touch-select,
+.sc-premium-dtf-touch-select {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid var(--sc-udtf-line-18);
+  background: var(--sc-udtf-surface);
+  color: var(--sc-udtf-ink);
+  font-family: var(--sc-udtf-sans);
+  font-size: 15px;
+  padding: 0 14px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-unit-select,
+.sc-premium-dtf-unit-select {
+  min-width: 72px;
+  border: 0;
+  border-left: 1px solid var(--sc-udtf-line);
+  background: var(--sc-udtf-surface-2);
+  color: var(--sc-udtf-ink-70);
+  font-family: var(--sc-udtf-mono);
+  font-size: 12.5px;
+  padding: 0 12px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-boolean-row,
+.sc-premium-dtf-boolean-row {
+  min-height: 50px;
+  border: 1px solid var(--sc-udtf-line-18);
+  background: var(--sc-udtf-surface);
+  color: var(--sc-udtf-ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  font-family: var(--sc-udtf-mono);
+  font-size: 13px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-field-error,
+.sc-premium-dtf-field-error,
+.sc-industrial-field__error {
+  color: var(--sc-udtf-accent);
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-btn-calculate,
+.sc-premium-dtf-btn-calculate,
+.pro-calc-btn {
+  width: 100%;
+  border: 1px solid var(--sc-udtf-ink);
+  background: var(--sc-udtf-ink);
+  color: var(--sc-udtf-surface);
+  cursor: pointer;
+  font-family: var(--sc-udtf-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  margin-top: 18px;
+  padding: 14px;
+  text-transform: uppercase;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-btn-calculate:hover,
+.sc-premium-dtf-btn-calculate:hover,
+.pro-calc-btn:hover {
+  background: var(--sc-udtf-accent);
+  border-color: var(--sc-udtf-accent);
+}
+
+.sc-universal-dtf-shell [role="status"],
+.sc-universal-dtf-shell [role="alert"] {
+  border-radius: 0;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-alert,
+.sc-premium-dtf-alert {
+  border: 1px solid var(--sc-udtf-accent-24);
+  background: var(--sc-udtf-accent-12);
+  color: var(--sc-udtf-accent);
+  font-size: 12.5px;
+  line-height: 1.45;
+  padding: 10px 12px;
+}
+
+.sc-universal-dtf-shell .sc-premium-dtf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .sc-universal-dtf-shell .sc-premium-dtf-columns,
+  .sc-premium-dtf-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .sc-universal-dtf-shell .sc-premium-dtf-input-grid,
+  .sc-premium-dtf-input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-universal-dtf-shell .sc-premium-dtf-touch-input,
+  .sc-premium-dtf-touch-input,
+  .sc-ledger-input-boxed,
+  .sc-industrial-input {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-universal-dtf-shell *,
+  .sc-premium-dtf-container *,
+  .pro-form * {
+    transition: none !important;
+  }
+}
+
+@media print {
+  .sc-universal-dtf-shell .sc-premium-dtf-btn-calculate,
+  .sc-premium-dtf-btn-calculate {
+    display: none;
+  }
+}
+/* /SECTORCALC_UNIVERSAL_DYNAMIC_TOOL_FORM_V1 */
+
+/* SECTORCALC_BALANCED_INPUT_FIELDS_V1 */
+.sc-universal-dtf-shell,
+.sc-premium-dtf-container,
+.pro-form {
+  --sc-field-min-width: 320px;
+  --sc-field-preferred-width: 360px;
+  --sc-field-min-height: 56px;
+  --sc-field-gap-x: 20px;
+  --sc-field-gap-y: 18px;
+  --sc-field-label-min-height: 34px;
+  --sc-field-helper-min-height: 32px;
+}
+
+/* Universal symmetric field grid for generated FREE and PRO tools. */
+.sc-universal-dtf-shell .sc-premium-dtf-input-grid,
+.sc-premium-dtf-input-grid,
+.sc-universal-dtf-shell .sc-free-tool-input-grid,
+.sc-free-tool-input-grid,
+.pro-inp-grid,
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--sc-field-min-width)), 1fr));
+  gap: var(--sc-field-gap-y) var(--sc-field-gap-x);
+  align-items: start;
+}
+
+/* Prevent short, cramped calculator controls on desktop and tablet. */
+.sc-universal-dtf-shell .sc-premium-dtf-input-row,
+.sc-premium-dtf-input-row,
+.sc-industrial-field,
+.sc-form-field,
+.pro-inp-item,
+.field {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Keep labels balanced so adjacent inputs align visually. */
+.sc-universal-dtf-shell .sc-premium-dtf-input-label,
+.sc-premium-dtf-input-label,
+.sc-industrial-field__label-row,
+.pro-inp-lbl,
+.field label {
+  min-height: var(--sc-field-label-min-height);
+  align-items: flex-start;
+}
+
+/* Keep helper text from collapsing one field while the neighbor remains taller. */
+.sc-universal-dtf-shell .sc-premium-dtf-input-desc,
+.sc-premium-dtf-input-desc,
+.sc-industrial-field__helper,
+.sc-ledger-helper,
+.pro-inp-hint,
+.ref {
+  min-height: var(--sc-field-helper-min-height);
+}
+
+/* Field-safe touch target and professional visual weight. */
+.sc-universal-dtf-shell .sc-premium-dtf-input-control,
+.sc-premium-dtf-input-control,
+.sc-universal-dtf-shell .sc-premium-dtf-touch-select,
+.sc-premium-dtf-touch-select,
+.sc-universal-dtf-shell .sc-premium-dtf-boolean-row,
+.sc-premium-dtf-boolean-row,
+.sc-ledger-input-boxed,
+.sc-industrial-input,
+.pro-inp-row,
+.ctrl,
+select.ctrl-el,
+.toggle {
+  min-height: var(--sc-field-min-height);
+  width: 100%;
+}
+
+/* Numeric inputs must not appear as tiny boxes; they use the full available field width. */
+.sc-universal-dtf-shell .sc-premium-dtf-touch-input,
+.sc-premium-dtf-touch-input,
+.sc-ledger-input-boxed,
+.sc-industrial-input,
+.pro-inp-row input[type="number"],
+.pro-inp-row input[type="text"],
+.pro-inp-row select,
+.ctrl input {
+  min-height: var(--sc-field-min-height);
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* Unit selectors stay compact without shrinking the input itself. */
+.sc-universal-dtf-shell .sc-premium-dtf-unit-select,
+.sc-premium-dtf-unit-select,
+.pro-inp-unit,
+.unit {
+  flex: 0 0 auto;
+  min-height: var(--sc-field-min-height);
+  min-width: 72px;
+}
+
+/* Select and boolean rows must visually match numeric rows. */
+.sc-universal-dtf-shell select,
+.sc-universal-dtf-shell button,
+.sc-premium-dtf-touch-select,
+.sc-premium-dtf-boolean-row,
+.pro-inp-row select,
+select.ctrl-el,
+.toggle {
+  min-height: var(--sc-field-min-height);
+}
+
+/* Wider forms use two balanced columns instead of narrow three-column fragments. */
+@media (min-width: 920px) {
+  .sc-universal-dtf-shell .sc-premium-dtf-input-grid,
+  .sc-premium-dtf-input-grid,
+  .sc-universal-dtf-shell .sc-free-tool-input-grid,
+  .sc-free-tool-input-grid,
+  .fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Large industrial legacy PRO tools can breathe, but every column remains field-safe. */
+@media (min-width: 1280px) {
+  .pro-inp-grid {
+    grid-template-columns: repeat(auto-fit, minmax(var(--sc-field-min-width), 1fr));
+  }
+}
+
+/* Mobile: single column, full width, still not cramped. */
+@media (max-width: 680px) {
+  .sc-universal-dtf-shell,
+  .sc-premium-dtf-container,
+  .pro-form {
+    --sc-field-min-width: 100%;
+    --sc-field-min-height: 54px;
+    --sc-field-gap-x: 0;
+    --sc-field-gap-y: 16px;
+    --sc-field-label-min-height: auto;
+    --sc-field-helper-min-height: auto;
+  }
+
+  .sc-universal-dtf-shell .sc-premium-dtf-input-grid,
+  .sc-premium-dtf-input-grid,
+  .sc-universal-dtf-shell .sc-free-tool-input-grid,
+  .sc-free-tool-input-grid,
+  .pro-inp-grid,
+  .fields {
+    grid-template-columns: 1fr;
+  }
+}
+/* /SECTORCALC_BALANCED_INPUT_FIELDS_V1 */

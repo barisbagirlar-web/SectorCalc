@@ -3,8 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ClaimReviewJsonLd } from "@/components/seo/ClaimReviewJsonLd";
-import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
-import { FreeToolForm } from "@/components/tools/FreeToolForm";
+import { UniversalDynamicToolForm } from "@/components/tools/UniversalDynamicToolForm";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
 import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
@@ -135,30 +134,18 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
         </div>
       ) : null}
 
-      {isPremium ? (
-        <DynamicToolForm
-          slug={slug}
-          schema={schema}
-          zodSchema={zodSchema}
-          toolTitle={title}
-          primaryOutputKey={primaryOutputKey}
-          result={result}
-          onSubmit={handleCalculate}
-          breakdown={result?.breakdown ?? null}
-          breakdownInputs={lastInputs}
-          breakdownLabelMap={schema.outputs.breakdown}
-        />
-      ) : (
-        <FreeToolForm
-          slug={slug}
-          schema={schema}
-          zodSchema={zodSchema}
-          toolTitle={title}
-          primaryOutputKey={primaryOutputKey}
-          result={result}
-          onSubmit={handleCalculate}
-        />
-      )}
+      <UniversalDynamicToolForm
+        slug={slug}
+        schema={schema}
+        zodSchema={zodSchema}
+        toolTitle={title}
+        primaryOutputKey={primaryOutputKey}
+        result={result}
+        onSubmit={handleCalculate}
+        breakdown={result?.breakdown ?? null}
+        breakdownInputs={lastInputs}
+        breakdownLabelMap={schema.outputs.breakdown}
+      />
 
       {result ? (
         <VerificationQueueButton

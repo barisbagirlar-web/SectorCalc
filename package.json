@@ -15,7 +15,9 @@
     "guard:root-only": "node scripts/sectorcalc-root-only-route-guard.mjs",
     "smoke:root-only": "node scripts/sectorcalc-root-only-runtime-smoke.mjs",
     "verify:global-root-only": "npm run verify:gate && git restore -- next-env.d.ts firebase-debug.log 2>/dev/null || true && npm run smoke:root-only",
-    "verify:root-only-hard": "npm run guard:root-only && npm run verify:gate && npm run smoke:root-only"
+    "verify:root-only-hard": "npm run guard:root-only && npm run verify:gate && npm run smoke:root-only",
+    "guard:universal-renderer": "node scripts/sectorcalc-universal-renderer-guard.mjs",
+    "guard:balanced-input-fields": "node scripts/sectorcalc-balanced-input-fields-guard.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

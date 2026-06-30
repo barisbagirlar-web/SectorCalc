@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { spawn } from "node:child_process";
 import net from "node:net";
 
@@ -12,9 +14,23 @@ async function getFreePort() {
   });
 }
 
-const runToEnd = (cmd, args) =>
+const realNextBinary = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
+
+if (!fs.existsSync(realNextBinary)) {
+  console.log("BLOCKER=REAL_NEXT_BINARY_NOT_FOUND");
+  console.log(`EXPECTED_REAL_NEXT_BINARY=${realNextBinary}`);
+  process.exit(1);
+}
+
+const runNextToEnd = (...args) =>
   new Promise((resolve) => {
-    const child = spawn(cmd, args, { stdio: "inherit", env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1" } });
+    const child = spawn(process.execPath, [realNextBinary, ...args], {
+      stdio: "inherit",
+      env: {
+        ...process.env,
+        NEXT_TELEMETRY_DISABLED: "1",
+      },
+    });
     child.on("exit", (code) => resolve(code ?? 1));
   });
 
@@ -75,16 +91,20 @@ async function waitForReady() {
 console.log("ROOT_ONLY_RUNTIME_SMOKE=START");
 console.log("POLICY=ROOT_ROUTES_200_AND_PUBLIC_EN_PREFIX_404_OR_410");
 console.log(`LOCAL_BASE=${base}`);
+console.log(`REAL_NEXT_BINARY=${realNextBinary}`);
 
-if (await runToEnd("npx", ["next", "build"]) !== 0) {
+if (await runNextToEnd("build") !== 0) {
   console.log("BLOCKER=SMOKE_BUILD_FAILED");
   process.exit(1);
 }
 
-const server = spawn("npx", ["next", "start", "-p", port, "-H", host], {
+const server = spawn(process.execPath, [realNextBinary, "start", "-p", port, "-H", host], {
   stdio: ["ignore", "pipe", "pipe"],
   detached: true,
-  env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1" },
+  env: {
+    ...process.env,
+    NEXT_TELEMETRY_DISABLED: "1",
+  },
 });
 
 server.stdout.on("data", (chunk) => process.stdout.write(chunk));
