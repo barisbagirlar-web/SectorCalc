@@ -201,6 +201,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const displayPain = resolvePremiumSchemaPainStatement(schema.id, schema.painStatement, locale);
   const { entitlement, checkoutHref } = usePremiumSchemaEntitlement(schema);
   const isFullReport = entitlement.canViewFullReport;
+  const formRef = useRef<HTMLFormElement>(null);
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
   const unitSystem = usePreferredUnitSystem();

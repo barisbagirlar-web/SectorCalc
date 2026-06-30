@@ -29,9 +29,10 @@ function ensureManifestStubs(): void {
   const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
   const documentJsPath = path.join(pagesDir, "_document.js");
   const appJsPath = path.join(pagesDir, "_app.js");
+  const errorJsPath = path.join(pagesDir, "_error.js");
   // Stub Pages Router modules to prevent "Cannot find module for page: /_document" / /_app
   // during SSG. The empty pages-manifest triggers Next.js to look for these even in App Router.
-  for (const file of [documentJsPath, appJsPath]) {
+  for (const file of [documentJsPath, appJsPath, errorJsPath]) {
     if (!fs.existsSync(file)) {
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.writeFileSync(file, "module.exports = {};\n", "utf8");
@@ -81,8 +82,11 @@ ensureManifestStubs();
  */
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
-    compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
+    // Stubs already created at module init (line 74). This hook just re-asserts
+    // them after compilation in case Firebase build pipeline cleaned them.
+    compiler.hooks.afterCompile.tapAsync("EnsureManifestStubsPlugin", (_compilation, callback) => {
       ensureManifestStubs();
+      callback();
     });
   }
 }
