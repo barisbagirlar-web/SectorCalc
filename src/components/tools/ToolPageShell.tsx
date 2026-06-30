@@ -23,14 +23,17 @@ interface ToolPageShellProps {
   locale: string;
 }
 
-import { PremiumStaticForm } from "@/components/tools/PremiumStaticForm";
+import UniversalDynamicForm from "@/components/tools/UniversalDynamicForm";
 import { ToolFeedbackTrigger } from "@/components/tools/ToolFeedbackTrigger";
+import { getProToolSchemaBySlug } from "@/lib/features/dynamic-engine/schema-loader";
 
 export async function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShellProps) {
   const definition = applyRevenueToolDisplay(rawDefinition);
   const industry = getIndustryBySlug(definition.industryId);
   const isPremium = definition.tier === "premium";
   const t = await getTranslations({ locale, namespace: "toolPageShell" });
+
+  const schema = getProToolSchemaBySlug(definition.slug, isPremium ? "premium" : "free");
 
   const tierLabel = isPremium ? t("premiumVerdicts") : t("freePreChecks");
   const tierHref = isPremium ? "/pricing" : "/free-tools";
@@ -79,10 +82,19 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                       excerpt={definition.longDescription}
                       canonicalPath={definition.seo.canonicalPath}
                     />
-                    <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
+                    <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal mb-8">
                       {t("calcRegeneration")}
                     </div>
-                    <ToolFeedbackTrigger toolSlug={definition.slug} />
+                    {schema ? (
+                      <UniversalDynamicForm schema={schema} />
+                    ) : (
+                      <div className="p-8 border border-red-500 text-red-700 bg-red-50">
+                        Form schema could not be loaded for this tool.
+                      </div>
+                    )}
+                    <div className="mt-8">
+                      <ToolFeedbackTrigger toolSlug={definition.slug} />
+                    </div>
                     <PremiumUpsell />
                     {definition.premiumTeaser && !definition.features?.decisionReport && (
                       <div className="mt-10">
@@ -94,7 +106,15 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                     )}
                   </>
                 ) : (
-                  <PremiumStaticForm />
+                  <>
+                    {schema ? (
+                      <UniversalDynamicForm schema={schema} />
+                    ) : (
+                      <div className="p-8 border border-red-500 text-red-700 bg-red-50">
+                        Form schema could not be loaded for this tool.
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             </Container>
