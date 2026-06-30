@@ -3,7 +3,7 @@ import type { Compiler } from "webpack";
 import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
-import fs from "node:fs";
+import fs, { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/infrastructure/i18n/locale-rewrite-exclude";
 import {
   xRobotsTagValue,
@@ -12,127 +12,62 @@ import {
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+/**
+ * Ensure Pages Router stubs exist on disk before webpack/SSG starts.
+ * Called at module init so they're available during "Collecting page data".
+ */
+function ensurePageRouterStubs(): void {
+  const pagesDir = path.join(process.cwd(), ".next", "server", "pages");
+  mkdirSync(pagesDir, { recursive: true });
+  for (const name of ["_document.js", "_app.js"]) {
+    const p = path.join(pagesDir, name);
+    if (!fs.existsSync(p)) {
+      writeFileSync(p, "module.exports = {};\n", "utf8");
+    }
+  }
+}
+ensurePageRouterStubs();
+
 /** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
 const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
 
 /**
- * Helper — ensure manifest stubs and Pages Router module stubs exist
- * on disk before SSG workers start. Called at module init AND in the
- * webpack done hook (for Firebase framework rebuilds).
- */
-function ensureManifestStubs(): void {
-  const nextDir = path.join(process.cwd(), ".next");
-  const serverDir = path.join(nextDir, "server");
-  const pagesDir = path.join(serverDir, "pages");
-  const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
-  const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
-  const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
-  const documentJsPath = path.join(pagesDir, "_document.js");
-  const appJsPath = path.join(pagesDir, "_app.js");
-  // Stub Pages Router modules to prevent "Cannot find module for page: /_document" / /_app
-  // during SSG. The empty pages-manifest triggers Next.js to look for these even in App Router.
-  fs.mkdirSync(path.dirname(appJsPath), { recursive: true });
-  fs.writeFileSync(
-    appJsPath,
-    'const React = require("react");\n' +
-    'function App({ Component, pageProps }) {\n' +
-    '  return React.createElement(Component, pageProps);\n' +
-    '}\n' +
-    'module.exports = App;\n' +
-    'module.exports.default = App;\n',
-    "utf8"
-  );
-  fs.mkdirSync(path.dirname(documentJsPath), { recursive: true });
-  fs.writeFileSync(
-    documentJsPath,
-    'const React = require("react");\n' +
-    'const { Html, Head, Main, NextScript } = require("next/document");\n' +
-    'function Document() {\n' +
-    '  return React.createElement(Html, { lang: "en" },\n' +
-    '    React.createElement(Head),\n' +
-    '    React.createElement("body", null,\n' +
-    '      React.createElement(Main),\n' +
-    '      React.createElement(NextScript)\n' +
-    '    )\n' +
-    '  );\n' +
-    '}\n' +
-    'module.exports = Document;\n' +
-    'module.exports.default = Document;\n',
-    "utf8"
-  );
-  for (const file of [documentJsPath, appJsPath]) {
-    // Create stub .nft.json for standalone trace collection
-    const nftPath = file + ".nft.json";
-    if (!fs.existsSync(nftPath)) {
-      fs.writeFileSync(nftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
-    }
-  }
-  if (!fs.existsSync(pagesManifestPath)) {
-    fs.mkdirSync(serverDir, { recursive: true });
-    // Only include _document — prevents Next.js from scanning src/pages/ for more pages.
-    fs.writeFileSync(pagesManifestPath, JSON.stringify({ "/_document": "pages/_document.js" }), "utf8");
-  }
-  if (!fs.existsSync(appPathsManifestPath)) {
-    fs.mkdirSync(serverDir, { recursive: true });
-    fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
-  }
-  if (!fs.existsSync(middlewareManifestPath)) {
-    fs.mkdirSync(serverDir, { recursive: true });
-    fs.writeFileSync(
-      middlewareManifestPath,
-      JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
-      "utf8",
-    );
-  }
-  const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
-  if (!fs.existsSync(serverRefManifestPath)) {
-    fs.mkdirSync(serverDir, { recursive: true });
-    fs.writeFileSync(
-      serverRefManifestPath,
-      JSON.stringify({ serverActions: [], version: 1 }),
-      "utf8",
-    );
-  }
-}
-
-// Ensure stubs exist at module init (before any webpack hook fires)
-ensureManifestStubs();
-stubMissingNftFiles();
-
-/**
- * Webpack plugin — ensures Next.js manifest stubs and .nft.json trace files
- * exist after compilation but before SSG ("Collecting page data").
+ * Webpack plugin — ensures Next.js manifest stubs exist after compilation
+ * but before SSG ("Collecting page data").
  * Next.js 15 App Router does not create pages-manifest.json; without this
- * stub the build crashes during page data collection. Stub .nft.json files
- * prevent standalone trace collection crashes (ENOENT) for non-compiled
- * Pages Router stubs and edge modules.
+ * stub the build crashes during page data collection.
  */
-function stubMissingNftFiles(): void {
-  const serverDir = path.join(process.cwd(), ".next", "server");
-  if (!fs.existsSync(serverDir)) return;
-
-  const walk = (dir: string): void => {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        walk(full);
-      } else if (entry.name.endsWith(".js")) {
-        const nft = full + ".nft.json";
-        if (!fs.existsSync(nft)) {
-          fs.writeFileSync(nft, JSON.stringify({ version: 1, files: [] }), "utf8");
-        }
-      }
-    }
-  };
-  walk(serverDir);
-}
-
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
     compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
-      ensureManifestStubs();
-      stubMissingNftFiles();
+      const nextDir = path.join(process.cwd(), ".next");
+      const serverDir = path.join(nextDir, "server");
+      const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
+      const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
+      // Only create app paths/middleware manifests — skip pages-manifest
+      // (empty pages-manifest triggers Pages Router module resolution during SSG).
+      // finalize-next-build.mjs creates pages-manifest + _document + _app stubs post-build.
+      if (!fs.existsSync(appPathsManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
+      }
+      if (!fs.existsSync(middlewareManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(
+          middlewareManifestPath,
+          JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
+          "utf8",
+        );
+      }
+      const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
+      if (!fs.existsSync(serverRefManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(
+          serverRefManifestPath,
+          JSON.stringify({ serverActions: [], version: 1 }),
+          "utf8",
+        );
+      }
     });
   }
 }
@@ -205,8 +140,8 @@ const nextConfig: NextConfig = {
 
   reactStrictMode: true,
   // Firebase Hosting web frameworks adapter handles server bundling.
-  // Do not use output: "standalone" — it triggers trace collection that
-  // crashes on Pages Router stubs with pre-existing ENOENT errors.
+  // output: "standalone" is NOT used — it triggers trace collection ENOENT
+  // errors on Pages Router stubs that break Firebase SSR function deploy.
   serverExternalPackages: ["@react-pdf/renderer"],
   eslint: {
     // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).
@@ -287,15 +222,11 @@ const nextConfig: NextConfig = {
       },
       // Sitemap cache headers
       {
-        source: "/sitemap.xml",
+        source: "/sitemap/:path*",
         headers: [
           {
-            key: "Content-Type",
-            value: "application/xml",
-          },
-          {
             key: "Cache-Control",
-            value: "public, max-age=3600",
+            value: "public, max-age=3600, stale-while-revalidate=86400",
           },
         ],
       },
