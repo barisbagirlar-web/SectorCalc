@@ -38,6 +38,7 @@ const SCHEMA_CATEGORY_TO_GROUP: Record<FormulaFamilyId, PremiumSchemaCatalogGrou
   finance: "cost_margin",
   fluid: "measurement_calibration",
   lean: "oee_productivity",
+  industrial: "oee_productivity",
 };
 
 const LOCALE_MESSAGES: Record<string, Record<string, unknown>> = {
