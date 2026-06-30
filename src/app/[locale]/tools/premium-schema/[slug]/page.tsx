@@ -10,6 +10,8 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
+import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { buildFAQJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
@@ -189,6 +191,13 @@ export default async function PremiumSchemaPilotPage({
             pricingCta: tAuthority("pricingCta"),
           }}
         />
+        <VerificationQueueButton
+          toolSlug={slug}
+          locale={locale}
+          tier="premium"
+          pageUrl={`/tools/premium-schema/${slug}`}
+        />
+        <ExpertAuthoritySection toolName={displayName} />
       </Container>
     </PageLayout>
   );

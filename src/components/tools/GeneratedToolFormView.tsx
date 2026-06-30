@@ -6,6 +6,8 @@ import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
 import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
+import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
 import {
   resolveGeneratedToolTitle,
 } from "@/lib/features/generated-tools/resolve-tool-display";
@@ -48,6 +50,10 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     });
   }, [schema]);
 
+  const displayName = useMemo(
+    () => resolveGeneratedToolTitle(slug, schema, locale),
+    [locale, schema, slug],
+  );
   const isPremium = schema.premiumRequired === true;
 
   if (loading) {
@@ -119,6 +125,15 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
         <div className="card" style={{ marginTop: 12 }}>
           <ToolAcademicReferences />
         </div>
+
+        <VerificationQueueButton
+          toolSlug={slug}
+          locale={locale}
+          tier={isPremium ? "premium" : "free"}
+          pageUrl={typeof window !== "undefined" ? window.location.href : `/tools/${isPremium ? "premium" : "generated"}/${slug}`}
+        />
+
+        <ExpertAuthoritySection toolName={displayName} />
       </div>
     </>
   );

@@ -25,6 +25,8 @@ interface ToolPageShellProps {
 
 import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
 import { ToolFeedbackTrigger } from "@/components/tools/ToolFeedbackTrigger";
+import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
+import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { getProToolSchemaBySlug } from "@/lib/features/dynamic-engine/schema-loader";
 
 export async function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShellProps) {
@@ -97,6 +99,13 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                   <div className="mt-8">
                     <ToolFeedbackTrigger toolSlug={definition.slug} />
                   </div>
+                  <VerificationQueueButton
+                    toolSlug={definition.slug}
+                    locale={locale}
+                    tier="free"
+                    pageUrl={definition.seo.canonicalPath}
+                  />
+                  <ExpertAuthoritySection toolName={definition.title} />
                   <PremiumUpsell />
                   {definition.premiumTeaser && !definition.features?.decisionReport && (
                     <div className="mt-10">
@@ -118,6 +127,16 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                   Form schema could not be loaded for this tool.
                 </div>
               )}
+              <div style={{ marginTop: 24 }}>
+                <ToolFeedbackTrigger toolSlug={definition.slug} />
+                <VerificationQueueButton
+                  toolSlug={definition.slug}
+                  locale={locale}
+                  tier="premium"
+                  pageUrl={definition.seo.canonicalPath}
+                />
+                <ExpertAuthoritySection toolName={definition.title} />
+              </div>
             </div>
           )}
         </div>
