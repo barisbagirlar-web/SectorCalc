@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { NewLandingContent } from "@/components/landing/NewLandingContent";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
@@ -15,24 +16,26 @@ type PageProps = {
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const locale = "en";
+  const { locale } = await params;
+  if (locale !== "en") notFound();
 
   return createPageMetadata({
     title: "SectorCalc — Industrial Engineering Calculators",
     description: "Audit-proof engineering calculations built on VDI, ISO, and DIN standards. Stop guessing. Start calculating.",
     path: "/",
-    locale: locale as "en",
+    locale: "en",
   });
 }
 
 export default async function HomePage({ params }: PageProps) {
-  const locale = "en";
+  const { locale } = await params;
+  if (locale !== "en") notFound();
+
   const freeCount = getFreeToolCount();
   const rawTools = getAllTools(locale);
 
-  // Aggregate sectors and tools from the unified registry
   const sectorCounts: Record<string, number> = {};
-  
+
   const allTools = rawTools.map((tool) => {
     const sec = tool.sector || tool.category || "General";
     sectorCounts[sec] = (sectorCounts[sec] || 0) + 1;

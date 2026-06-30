@@ -138,6 +138,7 @@ export function NewLandingContent({
                 }}
                 onFocus={() => setIsFocused(true)}
               />
+              <span className="search-kbd">/</span>
               {isFocused && debouncedQuery.length >= 2 && (
                 <div id="searchResults" className="search-results">
                   {matches.length === 0 ? (
@@ -174,7 +175,7 @@ export function NewLandingContent({
             </div>
 
             <div className="cta-row">
-              <Link href="#sectorGrid" className="btn-primary">Browse All Calculators</Link>
+              <Link href="#sectorGrid" className="btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('sectorGrid')?.scrollIntoView({ behavior: 'smooth' }); }}>Browse All Calculators</Link>
               <Link href="/pricing" className="btn-secondary">Upgrade to Pro</Link>
             </div>
 
@@ -204,7 +205,7 @@ export function NewLandingContent({
         </section>
 
         {/* CATEGORY SECTION */}
-        <section className="sec-section corp-categories">
+        <section className="sec-section corp-categories" id="sectorGrid">
           <div className="wrap">
             <div className="sec-head">
               <h2>Find the Right Calculator by Sector</h2>
