@@ -10,7 +10,6 @@ import {
   buildLocalizedUrl,
   getSitemapManifest,
 } from "@/lib/infrastructure/seo/sitemap-manifest";
-import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 
 describe("premium auto sitemap manifest", () => {

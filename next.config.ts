@@ -31,13 +31,40 @@ function ensureManifestStubs(): void {
   const appJsPath = path.join(pagesDir, "_app.js");
   // Stub Pages Router modules to prevent "Cannot find module for page: /_document" / /_app
   // during SSG. The empty pages-manifest triggers Next.js to look for these even in App Router.
-  // NOTE: Do NOT add _error.js here — Next.js tries to render it during 404/SSG and
-  // crashes with "Element type is invalid". _error.js .nft.json is handled by stubMissingNftFiles.
+  if (!fs.existsSync(appJsPath)) {
+    fs.mkdirSync(path.dirname(appJsPath), { recursive: true });
+    fs.writeFileSync(
+      appJsPath,
+      'const React = require("react");\n' +
+      'function App({ Component, pageProps }) {\n' +
+      '  return React.createElement(Component, pageProps);\n' +
+      '}\n' +
+      'module.exports = App;\n' +
+      'module.exports.default = App;\n',
+      "utf8"
+    );
+  }
+  if (!fs.existsSync(documentJsPath)) {
+    fs.mkdirSync(path.dirname(documentJsPath), { recursive: true });
+    fs.writeFileSync(
+      documentJsPath,
+      'const React = require("react");\n' +
+      'const { Html, Head, Main, NextScript } = require("next/document");\n' +
+      'function Document() {\n' +
+      '  return React.createElement(Html, { lang: "en" },\n' +
+      '    React.createElement(Head),\n' +
+      '    React.createElement("body", null,\n' +
+      '      React.createElement(Main),\n' +
+      '      React.createElement(NextScript)\n' +
+      '    )\n' +
+      '  );\n' +
+      '}\n' +
+      'module.exports = Document;\n' +
+      'module.exports.default = Document;\n',
+      "utf8"
+    );
+  }
   for (const file of [documentJsPath, appJsPath]) {
-    if (!fs.existsSync(file)) {
-      fs.mkdirSync(path.dirname(file), { recursive: true });
-      fs.writeFileSync(file, "module.exports = {};\n", "utf8");
-    }
     // Create stub .nft.json for standalone trace collection
     const nftPath = file + ".nft.json";
     if (!fs.existsSync(nftPath)) {
@@ -107,12 +134,9 @@ function stubMissingNftFiles(): void {
 
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
-    // Stubs already created at module init (line 74). This hook just re-asserts
-    // them after compilation in case Firebase build pipeline cleaned them.
-    compiler.hooks.afterCompile.tapAsync("EnsureManifestStubsPlugin", (_compilation, callback) => {
+    compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
       ensureManifestStubs();
       stubMissingNftFiles();
-      callback();
     });
   }
 }
@@ -184,7 +208,9 @@ const nextConfig: NextConfig = {
   },
 
   reactStrictMode: true,
-  output: "standalone",
+  // Firebase Hosting web frameworks adapter handles server bundling.
+  // Do not use output: "standalone" — it triggers trace collection that
+  // crashes on Pages Router stubs with pre-existing ENOENT errors.
   serverExternalPackages: ["@react-pdf/renderer"],
   eslint: {
     // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).

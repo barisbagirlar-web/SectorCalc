@@ -91,6 +91,14 @@ const HIGH_PRIORITY_PREMIUM_SLUGS = new Set([
 ]);
 
 export function isPathIndexable(path: string): boolean {
+  if (
+    path.endsWith(".json") ||
+    path.endsWith(".jsonl") ||
+    path.endsWith(".txt") ||
+    path.endsWith(".xml")
+  ) {
+    return false;
+  }
   return isSitemapPathAllowed(path);
 }
 

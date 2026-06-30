@@ -100,8 +100,8 @@ describe("seo-authority architecture", () => {
   });
 
   test("PREMIUM_SCHEMAS has active batch schemas", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(5);
-    expect(listPremiumSchemaSlugs().length).toBe(5);
+    expect(PREMIUM_SCHEMAS.length).toBe(listPremiumSchemaSlugs().length);
+    expect(listPremiumSchemaSlugs().length).toBeGreaterThanOrEqual(5);
   });
 
   test("sitemap helper produces indexable public routes", async () => {

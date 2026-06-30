@@ -1,5 +1,4 @@
 import { describe, expect, test } from "vitest";
-import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 import {
   INDEXNOW_MAX_URLS_PER_BATCH,
   getIndexNowSubmissionUrls,

@@ -8,7 +8,6 @@ import {
   INDEXABLE_LOCALES,
   isPathIndexable,
 } from "@/lib/infrastructure/seo/indexable-url-manifest";
-import { listAllFreeToolSlugs } from "@/lib/features/tools/free-traffic-routes";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 
 function pathsForLocale(locale: "en" | "tr" | "de" | "fr" | "es" | "ar"): string[] {
