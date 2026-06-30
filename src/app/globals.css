@@ -226,3 +226,190 @@
   text-align: start;
   overflow-x: auto;
 }
+
+/* GLOBAL FORM RESET & NORMALIZATION */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Tüm form elementleri için base stil */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #111827;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Focus durumu */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #9CA3AF;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
+}
+
+/* Select elementleri için özel düzenleme */
+select {
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+/* Form grupları için container */
+.form-group {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Input grupları (prefix/suffix için) */
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  gap: 0;
+}
+
+.input-group input,
+.input-group select {
+  flex: 1;
+  border-radius: 8px;
+}
+
+.input-group.has-prefix input,
+.input-group.has-prefix select {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group.has-suffix input,
+.input-group.has-suffix select {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Prefix ve suffix elementleri */
+.input-prefix,
+.input-suffix {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: #F9FAFB;
+  border: 1px solid #D1D5DB;
+  font-size: 15px;
+  font-weight: 500;
+  color: #6B7280;
+  white-space: nowrap;
+}
+
+.input-prefix {
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+.input-suffix {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+/* Responsive düzenleme */
+@media (max-width: 640px) {
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group input,
+  .input-group select {
+    border-radius: 8px !important;
+  }
+  
+  .input-prefix,
+  .input-suffix {
+    border-radius: 8px !important;
+    border: 1px solid #D1D5DB;
+    margin-bottom: 8px;
+  }
+}
+
+/* Grid layout for multiple inputs */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Disabled ve readonly durumları */
+input:disabled,
+select:disabled,
+textarea:disabled,
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  background: #F3F4F6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Placeholder stil */
+input::placeholder,
+textarea::placeholder {
+  color: #9CA3AF;
+  opacity: 1;
+}
+
+/* Number input spinner kaldırma (isteğe bağlı) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

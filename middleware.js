@@ -1,16 +1,11 @@
 import { NextResponse } from 'next/server';
 
-const SUPPORTED_LOCALES = ['en', 'tr', 'de', 'fr', 'es', 'ar'];
+const SUPPORTED_LOCALES = ['en'];
 const DEFAULT_LOCALE    = 'en';
 
 // Maps Accept-Language substrings to supported locales
 const LANG_MAP = {
-  tr: 'tr',
-  de: 'de',
-  fr: 'fr',
-  es: 'es',
-  ar: 'ar',
-  // All others → English
+  // Only English is active as per routing.ts policy
 };
 
 export function middleware(request) {
