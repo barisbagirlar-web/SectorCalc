@@ -474,13 +474,6 @@ export function DynamicToolForm({
         <FreeToolForm
           slug={slug}
           schema={schema}
-          zodSchema={zodSchema}
-          toolTitle={toolTitle ?? schema.toolName}
-          primaryOutputKey={resolvedPrimaryOutputKey}
-          onSubmit={onSubmit}
-          result={result}
-          loading={loading}
-          disabled={disabled}
         />
         {scenarioComparisonSection}
         {breakdownSection}

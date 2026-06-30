@@ -23,7 +23,7 @@ interface ToolPageShellProps {
   locale: string;
 }
 
-import UniversalDynamicForm from "@/components/tools/UniversalDynamicForm";
+import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
 import { ToolFeedbackTrigger } from "@/components/tools/ToolFeedbackTrigger";
 import { getProToolSchemaBySlug } from "@/lib/features/dynamic-engine/schema-loader";
 
@@ -86,7 +86,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                       {t("calcRegeneration")}
                     </div>
                     {schema ? (
-                      <UniversalDynamicForm schema={schema} />
+                      <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
                     ) : (
                       <div className="p-8 border border-red-500 text-red-700 bg-red-50">
                         Form schema could not be loaded for this tool.
@@ -108,7 +108,7 @@ export async function ToolPageShell({ definition: rawDefinition, locale }: ToolP
                 ) : (
                   <>
                     {schema ? (
-                      <UniversalDynamicForm schema={schema} />
+                      <DynamicToolFormWrapper schema={schema} slug={definition.slug} showMasthead={false} />
                     ) : (
                       <div className="p-8 border border-red-500 text-red-700 bg-red-50">
                         Form schema could not be loaded for this tool.

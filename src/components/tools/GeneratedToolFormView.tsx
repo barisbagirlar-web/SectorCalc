@@ -1,28 +1,18 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ClaimReviewJsonLd } from "@/components/seo/ClaimReviewJsonLd";
-import { UniversalDynamicToolForm } from "@/components/tools/UniversalDynamicToolForm";
+import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
-import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
 import {
   resolveGeneratedToolTitle,
-  resolvePrimaryOutputKey,
 } from "@/lib/features/generated-tools/resolve-tool-display";
 import { resolveGeneratedToolAboutContent } from "@/lib/features/generated-tools/resolve-tool-about";
-import { resolvePrimaryOutputUnit } from "@/lib/features/generated-tools/resolve-output-unit";
 import {
-  runGeneratedToolCalculation,
   useToolSchema,
 } from "@/lib/features/generated-tools/use-tool-schema";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
-import { absoluteLocalizedUrl } from "@/lib/features/semantic/site-url";
-import { savePrintData } from "@/lib/features/reports/generated-tool-print-data";
-import { PremiumResultSummary } from "@/components/reports/PremiumResultSummary";
-import { resolvePrimaryPrintValue } from "@/lib/features/reports/resolve-print-values";
-import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
+import type { GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
 export type GeneratedToolFormViewProps = {
   readonly slug: string;
@@ -32,14 +22,8 @@ export type GeneratedToolFormViewProps = {
 export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool");
-  const { loading, error, calculator, zodSchema, trustStatus } = useToolSchema(slug, schema);
-  const [result, setResult] = useState<GeneratedToolResult | null>(null);
-  const [lastInputs, setLastInputs] = useState<Record<string, unknown>>({});
+  const { loading, error, trustStatus } = useToolSchema(slug, schema);
 
-  const title = resolveGeneratedToolTitle(slug, schema, locale);
-  const primaryOutputKey = resolvePrimaryOutputKey(schema);
-  const isPremium = schema.premiumRequired === true;
-  const pageUrl = absoluteLocalizedUrl(locale, `/tools/generated/${slug}`);
   const aboutContent = useMemo(
     () => resolveGeneratedToolAboutContent(slug, schema, locale),
     [locale, schema, slug],
@@ -63,15 +47,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     });
   }, [schema]);
 
-  const handlePrintPremiumReport = useCallback(() => {
-    savePrintData({
-      slug,
-      inputs: lastInputs,
-      result: result as unknown as Record<string, unknown>,
-      schema: JSON.parse(JSON.stringify(schema)),
-    });
-    window.open(`/${locale}/tools/generated/${slug}/print`, "_blank");
-  }, [result, lastInputs, slug, locale, schema]);
+  const isPremium = schema.premiumRequired === true;
 
   if (loading) {
     return (
@@ -81,7 +57,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     );
   }
 
-  if (error || !calculator || !zodSchema) {
+  if (error) {
     return (
       <div className="container mx-auto max-w-6xl px-4 py-6">
         <p className="text-sm text-red-800">{error ?? t("loadError")}</p>
@@ -91,29 +67,8 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
 
   const isQuarantine = trustStatus === "QUARANTINE";
 
-  const handleCalculate = (values: Record<string, unknown>) => {
-    setLastInputs(values);
-    setResult(runGeneratedToolCalculation(calculator, values));
-  };
-
-  const primaryRaw = result ? resolvePrimaryPrintValue(result, primaryOutputKey) : null;
-  const primaryUnit = resolvePrimaryOutputUnit(schema);
-  const formattedPrimary =
-    primaryRaw !== null
-      ? formatGeneratedNumericValue(
-          primaryRaw,
-          primaryOutputKey,
-          locale,
-          primaryUnit !== "—" ? primaryUnit : undefined,
-        )
-      : null;
-
   return (
     <div className="container mx-auto max-w-6xl px-4 py-6">
-      {result && formattedPrimary ? (
-        <ClaimReviewJsonLd claimReviewed={`${title}: ${formattedPrimary}`} pageUrl={pageUrl} />
-      ) : null}
-
       {isQuarantine ? (
         <div className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           <strong className="font-semibold">{t("quarantineWarning")}</strong>
@@ -134,40 +89,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
         </div>
       ) : null}
 
-      <UniversalDynamicToolForm
-        slug={slug}
-        schema={schema}
-        zodSchema={zodSchema}
-        toolTitle={title}
-        primaryOutputKey={primaryOutputKey}
-        result={result}
-        onSubmit={handleCalculate}
-        breakdown={result?.breakdown ?? null}
-        breakdownInputs={lastInputs}
-        breakdownLabelMap={schema.outputs.breakdown}
-      />
-
-      {result ? (
-        <VerificationQueueButton
-          toolSlug={slug}
-          locale={locale}
-          tier={isPremium ? "premium" : "free"}
-          pageUrl={pageUrl}
-          inputSnapshot={lastInputs ? (lastInputs as Record<string, string | number | boolean>) : undefined}
-          resultSnapshot={result ? (Object.fromEntries(
-            Object.entries(result).filter(([k]) => typeof result[k] === "number" || typeof result[k] === "string" || typeof result[k] === "boolean")
-          ) as Record<string, string | number | boolean>) : undefined}
-        />
-      ) : null}
-
-      {isPremium && result ? (
-        <PremiumResultSummary
-          slug={slug}
-          schema={schema}
-          result={result}
-          onOpenFullReport={handlePrintPremiumReport}
-        />
-      ) : null}
+      <DynamicToolFormWrapper schema={schema} slug={slug} showMasthead={false} />
 
       <ToolDescription content={aboutContent} isPremium={isPremium} />
 
