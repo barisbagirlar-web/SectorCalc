@@ -52,16 +52,18 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
 
   if (loading) {
     return (
-      <div className="container mx-auto max-w-6xl px-4 py-6">
-        <p className="text-sm text-body-charcoal">{t("loading")}</p>
+      <div className="card" style={{ margin: 20, textAlign: "center", color: "var(--ink-50)", fontFamily: "var(--mono)", fontSize: 12, letterSpacing: ".08em" }}>
+        <span className="led signal pulse" style={{ display: "inline-block", marginRight: 10, verticalAlign: "middle" }} />
+        {t("loading")}
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="container mx-auto max-w-6xl px-4 py-6">
-        <p className="text-sm text-red-800">{error ?? t("loadError")}</p>
+      <div className="decision review" style={{ margin: 20 }}>
+        <div className="d-label">SYSTEM ERROR</div>
+        <div className="d-text" style={{ fontSize: 14, textTransform: "none" }}>{error ?? t("loadError")}</div>
       </div>
     );
   }
