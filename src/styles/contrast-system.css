@@ -37,7 +37,7 @@
 }
 
 /* bg-bg-primary is matte white — never inherit “dark CTA” white copy */
-.bg-bg-primary:not(:is(.bg-deep-navy, .bg-black, .bg-premium, .bg-premium-velvet)) {
+.bg-bg-primary:not(:is(.bg-deep-navy, .bg-black, .bg-premium, .bg-premium-velvet, .bg-accent-teal, .bg-professional-blue)) {
   color: var(--text-premium-velvet);
 }
 
@@ -74,6 +74,8 @@
       .bg-black,
       .bg-premium,
       .bg-premium-velvet,
+      .bg-accent-teal,
+      .bg-professional-blue,
       .ind-terminal,
       .ind-terminal--inverse,
       .surface-dark,
@@ -86,6 +88,8 @@
       .bg-black,
       .bg-premium,
       .bg-premium-velvet,
+      .bg-accent-teal,
+      .bg-professional-blue,
       .ind-terminal,
       .ind-terminal--inverse,
       .surface-dark,
@@ -114,6 +118,8 @@
     .bg-black,
     .bg-premium,
     .bg-premium-velvet,
+    .bg-accent-teal,
+    .bg-professional-blue,
     .ind-terminal,
     .ind-terminal--inverse,
     .surface-dark,
@@ -140,6 +146,8 @@
     .bg-black,
     .bg-premium,
     .bg-premium-velvet,
+    .bg-accent-teal,
+    .bg-professional-blue,
     .ind-terminal,
     .ind-terminal--inverse,
     .surface-dark,
@@ -166,6 +174,8 @@
     .bg-black,
     .bg-premium,
     .bg-premium-velvet,
+    .bg-accent-teal,
+    .bg-professional-blue,
     .ind-terminal,
     .ind-terminal--inverse,
     .surface-dark,
@@ -182,6 +192,8 @@
   .bg-black,
   .bg-premium,
   .bg-premium-velvet,
+  .bg-accent-teal,
+  .bg-professional-blue,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -196,6 +208,8 @@
   .bg-black,
   .bg-premium,
   .bg-premium-velvet,
+  .bg-accent-teal,
+  .bg-professional-blue,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -227,6 +241,8 @@
   .bg-black,
   .bg-premium,
   .bg-premium-velvet,
+  .bg-accent-teal,
+  .bg-professional-blue,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -254,6 +270,8 @@
   .bg-black,
   .bg-premium,
   .bg-premium-velvet,
+  .bg-accent-teal,
+  .bg-professional-blue,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -269,6 +287,8 @@
   .bg-black,
   .bg-premium,
   .bg-premium-velvet,
+  .bg-accent-teal,
+  .bg-professional-blue,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -284,6 +304,8 @@
   .bg-black,
   .bg-premium,
   .bg-premium-velvet,
+  .bg-accent-teal,
+  .bg-professional-blue,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -294,22 +316,22 @@
 }
 
 /* Light panels nested inside dark sections */
-:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .bg-premium-velvet, .ind-terminal) .ind-os-panel {
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .bg-premium-velvet, .bg-accent-teal, .bg-professional-blue, .ind-terminal) .ind-os-panel {
   color: var(--text-premium-velvet);
   background: #ffffff;
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel :is(h1, h2, h3, h4, h5, h6, p, span, label, button, a) {
+:is(.bg-black, .bg-premium, .ind-terminal, .bg-accent-teal, .bg-professional-blue) .ind-os-panel :is(h1, h2, h3, h4, h5, h6, p, span, label, button, a) {
   color: var(--text-premium-velvet);
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel :is(.label-badge, .text-body-charcoal) {
+:is(.bg-black, .bg-premium, .ind-terminal, .bg-accent-teal, .bg-professional-blue) .ind-os-panel :is(.label-badge, .text-body-charcoal) {
   color: var(--text-body-charcoal) !important;
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel input,
-:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel textarea,
-:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel select {
+:is(.bg-black, .bg-premium, .ind-terminal, .bg-accent-teal, .bg-professional-blue) .ind-os-panel input,
+:is(.bg-black, .bg-premium, .ind-terminal, .bg-accent-teal, .bg-professional-blue) .ind-os-panel textarea,
+:is(.bg-black, .bg-premium, .ind-terminal, .bg-accent-teal, .bg-professional-blue) .ind-os-panel select {
   color: var(--text-premium-velvet) !important;
   background-color: #ffffff !important;
 }
@@ -328,8 +350,10 @@
 .sc-btn-primary,
 .ind-os-btn-action,
 .ind-btn-primary,
-:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .bg-premium-velvet, .sc-inverse-surface),
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .bg-premium-velvet, .bg-accent-teal, .bg-professional-blue, .sc-inverse-surface),
 [class*="bg-deep-navy"],
+[class*="bg-accent-teal"],
+[class*="bg-professional-blue"],
 [class*="bg-action-orange"] {
   color: var(--sc-inverse-text) !important;
 }
