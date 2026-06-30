@@ -87,7 +87,7 @@ export function SiteHeader({
     return ()=>{ document.removeEventListener('mousedown',onClick); document.removeEventListener('keydown',onKey); };
   },[]);
 
-  const accountHref = isAuthenticated ? '/account' : '/signin';
+  const accountHref = isAuthenticated ? '/account' : '/login';
 
   return (
     <>

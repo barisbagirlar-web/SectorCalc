@@ -1,0 +1,43 @@
+[debug] [2026-06-30T11:51:36.912Z] ----------------------------------------------------------------------
+[debug] [2026-06-30T11:51:36.919Z] Command:       /Users/macair1/.nvm/versions/node/v22.22.2/bin/node /tmp/npm-cache/_npx/ba4f1959e38407b5/node_modules/.bin/firebase deploy --only hosting
+[debug] [2026-06-30T11:51:36.919Z] CLI Version:   15.22.3
+[debug] [2026-06-30T11:51:36.920Z] Platform:      darwin
+[debug] [2026-06-30T11:51:36.920Z] Node Version:  v22.22.2
+[debug] [2026-06-30T11:51:36.920Z] Detected Agent: antigravity
+[debug] [2026-06-30T11:51:36.920Z] Time:          Tue Jun 30 2026 14:51:36 GMT+0300 (Türkiye Standard Time)
+[debug] [2026-06-30T11:51:36.921Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-06-30T11:51:39.698Z] Object "/hosting" in "firebase.json" has unknown property: {"additionalProperty":"build"}
+[debug] [2026-06-30T11:51:39.699Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2026-06-30T11:51:39.699Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-06-30T11:51:39.711Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-30T11:51:39.712Z] > authorizing via signed-in user (barisbagirlar@gmail.com)
+[debug] [2026-06-30T11:51:39.712Z] [iam] checking project sectorcalc-bf412 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-06-30T11:51:39.713Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:39.714Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:39.728Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions [none]
+[debug] [2026-06-30T11:51:39.728Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions  x-goog-user-project=sectorcalc-bf412
+[debug] [2026-06-30T11:51:39.728Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T11:51:40.912Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions 200
+[debug] [2026-06-30T11:51:40.913Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T11:51:40.914Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:40.914Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:40.914Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 [none]
+[debug] [2026-06-30T11:51:41.927Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 200
+[debug] [2026-06-30T11:51:41.928Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 {"projectId":"sectorcalc-bf412","projectNumber":"1036979054000","displayName":"SectorCalc","name":"projects/sectorcalc-bf412","resources":{"hostingSite":"sectorcalc-bf412"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_62f6c7ef-e6ed-4545-9f45-ad82cd3f185f"}
+[debug] [2026-06-30T11:51:48.041Z] defaultcredentials: writing to file /Users/macair1/.config/firebase/barisbagirlar_gmail_com_application_default_credentials.json
+[debug] [2026-06-30T11:51:48.046Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:48.047Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:48.047Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites pageToken=&pageSize=10
+[debug] [2026-06-30T11:51:49.511Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 200
+[debug] [2026-06-30T11:51:49.511Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites {"sites":[{"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-30T11:51:49.511Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:49.512Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:49.512Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 
+[debug] [2026-06-30T11:51:50.698Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 200
+[debug] [2026-06-30T11:51:50.698Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites {"sites":[{"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-30T11:51:50.698Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:50.698Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:51:50.699Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config [none]
+[debug] [2026-06-30T11:51:51.659Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config 200
+[debug] [2026-06-30T11:51:51.659Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config {"projectId":"sectorcalc-bf412","appId":"1:1036979054000:web:a317123fd6ff1c9336a275","storageBucket":"sectorcalc-bf412.firebasestorage.app","apiKey":"AIzaSyCYQPcUivyeIio80gxEm8DbFhWV6XEXs78","authDomain":"sectorcalc-bf412.firebaseapp.com","messagingSenderId":"1036979054000","projectNumber":"1036979054000","version":"2"}

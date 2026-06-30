@@ -3,6 +3,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithRedirect,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   type AuthError,
 } from "firebase/auth";
 import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
@@ -37,6 +39,11 @@ export type CustomerSignInErrorCode =
   | "popup-blocked"
   | "network"
   | "not-configured"
+  | "invalid-email"
+  | "user-not-found"
+  | "wrong-password"
+  | "email-already-in-use"
+  | "weak-password"
   | "generic";
 
 export function getCustomerSignInErrorCode(error: unknown): CustomerSignInErrorCode {
@@ -60,6 +67,21 @@ export function getCustomerSignInErrorCode(error: unknown): CustomerSignInErrorC
   if (error.code === "auth/network-request-failed") {
     return "network";
   }
+  if (error.code === "auth/invalid-email") {
+    return "invalid-email";
+  }
+  if (error.code === "auth/user-not-found") {
+    return "user-not-found";
+  }
+  if (error.code === "auth/wrong-password" || error.code === "auth/invalid-credential") {
+    return "wrong-password";
+  }
+  if (error.code === "auth/email-already-in-use") {
+    return "email-already-in-use";
+  }
+  if (error.code === "auth/weak-password") {
+    return "weak-password";
+  }
 
   return "generic";
 }
@@ -82,6 +104,24 @@ export async function signInCustomerWithGoogle(): Promise<{ readonly redirected:
     }
     throw error;
   }
+}
+
+export async function signInCustomerWithEmail(email: string, password: string): Promise<void> {
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    throw new Error("Firebase Auth is not configured.");
+  }
+
+  await signInWithEmailAndPassword(auth, email, password);
+}
+
+export async function signUpCustomerWithEmail(email: string, password: string): Promise<void> {
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    throw new Error("Firebase Auth is not configured.");
+  }
+
+  await createUserWithEmailAndPassword(auth, email, password);
 }
 
 /**
