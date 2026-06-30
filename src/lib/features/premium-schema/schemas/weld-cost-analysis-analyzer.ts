@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WELD_COST_ANALYSIS_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-cost-analysis-analyzer", legacyPaidSlug: "weld-cost-analysis-analyzer",
-  name: "Kaynak Maliyeti Detay Analizi", name_i18n: {"en":"Kaynak Maliyeti Detay Analizi","tr":"Kaynak Maliyeti Detay Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Weld Cost Detail Analyzer", name_i18n: {"en":"Weld Cost Detail Analyzer","tr":"Weld Cost Detail Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Kaynak maliyetinin metraj bazlı analizi yapılmazsa, birim fiyat ve proses verimliliği izlenemez.", painStatement_i18n: {"en":"Kaynak maliyetinin metraj bazlı analizi yapılmazsa, birim fiyat ve proses verimliliği izlenemez.","tr":"Kaynak maliyetinin metraj bazlı analizi yapılmazsa, birim fiyat ve proses verimliliği izlenemez."},
   inputs: [
     { id: "weldLength", label: "Toplam Kaynak Metresi", label_i18n: {"en":"Toplam Kaynak Metresi","tr":"Toplam Kaynak Metresi"}, type: "number", unit: "m", required: true, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Total weld meters", expertMeaning_i18n: {"en":"Total weld meters","tr":"Total weld meters"} },

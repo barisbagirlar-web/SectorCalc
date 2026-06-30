@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const VOLUMETRIC_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
   id: "volumetric-weight-chargeable-analyzer", legacyPaidSlug: "volumetric-weight-chargeable-analyzer",
-  name: "Hacimsel Ağırlık & Taşıma Maliyet Analizi", name_i18n: {"en":"Hacimsel Agirlik & Tasima Maliyet Analizi","tr":"Hacimsel Ağırlık & Taşıma Maliyet Analizi"}, sectorSlug: "logistics-transport", category: "measurement",
+  name: "Hacimsel Ağırlık & Taşıma Maliyet Analizi", name_i18n: {"en":"Volumetric Weight & Transport Cost Analyzer","tr":"Hacimsel Ağırlık & Taşıma Maliyet Analizi"}, sectorSlug: "logistics-transport", category: "measurement",
   painStatement: "Hacimsel ağırlık doğru hesaplanmazsa taşıma maliyeti beklenenden yüksek çıkar ve navlun optimizasyonu yapılamaz.", painStatement_i18n: {"en":"Hacimsel ağırlık doğru hesaplanmazsa taşıma maliyeti beklenenden yüksek çıkar ve navlun optimizasyonu yapılamaz.","tr":"Hacimsel ağırlık doğru hesaplanmazsa taşıma maliyeti beklenenden yüksek çıkar ve navlun optimizasyonu yapılamaz."},
   inputs: [
     { id: "length", label: "Uzunluk", label_i18n: {"en":"Uzunluk","tr":"Uzunluk"}, type: "number", unit: "cm", required: true, smartDefault: 60, validation: { min: 0.1 }, helper: "", expertMeaning: "Package length", expertMeaning_i18n: {"en":"Package length","tr":"Package length"} },

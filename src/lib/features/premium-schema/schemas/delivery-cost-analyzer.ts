@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DELIVERY_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "delivery-cost-analyzer", legacyPaidSlug: "delivery-cost-analyzer",
-  name: "Teslimat Maliyet Analizi", name_i18n: {"en":"Teslimat Maliyet Analizi","tr":"Teslimat Maliyet Analizi"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "Delivery Cost Analyzer", name_i18n: {"en":"Delivery Cost Analyzer","tr":"Delivery Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "Teslimat maliyetleri başarılı ve başarısız sevkiyatlara göre ayrıştırılmazsa lojistik verimlilik ölçülemez.", painStatement_i18n: {"en":"Teslimat maliyetleri başarılı ve başarısız sevkiyatlara göre ayrıştırılmazsa lojistik verimlilik ölçülemez.","tr":"Teslimat maliyetleri başarılı ve başarısız sevkiyatlara göre ayrıştırılmazsa lojistik verimlilik ölçülemez."},
   inputs: [
     { id: "totalDeliveries", label: "Toplam Teslimat Sayısı", label_i18n: {"en":"Total monthly deliveries","tr":"Toplam Teslimat Sayısı"}, type: "number", unit: "adet/ay", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Total monthly deliveries", expertMeaning_i18n: {"en":"Total monthly deliveries","tr":"toplam teslimat sayısı"} },

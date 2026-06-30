@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ENVIRONMENTAL_WASTE_SCHEMA: PremiumCalculatorSchema = {
   id: "environmental-waste-cost-analyzer", legacyPaidSlug: "environmental-waste-cost-analyzer",
-  name: "Çevre Atık Maliyet & Döngüsellik Analizi", name_i18n: {"en":"cevre Atik Maliyet & Dongusellik Analizi","tr":"Çevre Atık Maliyet & Döngüsellik Analizi"}, sectorSlug: "legal-tax", category: "cost",
+  name: "Çevre Atık Maliyet & Döngüsellik Analizi", name_i18n: {"en":"Environmental Waste Cost & Circularity Analyzer","tr":"Çevre Atık Maliyet & Döngüsellik Analizi"}, sectorSlug: "legal-tax", category: "cost",
   painStatement: "Atık bertaraf, tehlikeli atık ve emisyon maliyetleri ayrıştırılmazsa çevre cezaları ve sürdürülebilirlik raporlaması hatalı olur.", painStatement_i18n: {"en":"Atık bertaraf, tehlikeli atık ve emisyon maliyetleri ayrıştırılmazsa çevre cezaları ve sürdürülebilirlik raporlaması hatalı olur.","tr":"Atık bertaraf, tehlikeli atık ve emisyon maliyetleri ayrıştırılmazsa çevre cezaları ve sürdürülebilirlik raporlaması hatalı olur."},
   inputs: [
     { id: "nonHazWaste", label: "Tehlikesiz Atık Miktarı", label_i18n: {"en":"Non-hazardous waste","tr":"Tehlikesiz Atık Miktarı"}, type: "number", unit: "ton", required: true, smartDefault: 50, validation: { min: 0 }, helper: "", expertMeaning: "Non-hazardous waste", expertMeaning_i18n: {"en":"Non-hazardous waste","tr":"tehlikesiz atık miktarı"} },

@@ -5,7 +5,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CLOUD_API_OVERRUN_SCHEMA: PremiumCalculatorSchema = {
   id: "cloud-api-overrun-analyzer", legacyPaidSlug: "cloud-api-overrun-analyzer",
-  name: "Cloud API Overrun Maliyet Analizi", name_i18n: {"en":"Cloud API Overrun Maliyet Analizi","tr":"Cloud API Overrun Maliyet Analizi"}, sectorSlug: "it-cloud", category: "cost",
+  name: "Cloud API Overrun Cost Analyzer", name_i18n: {"en":"Cloud API Overrun Cost Analyzer","tr":"Cloud API Overrun Cost Analyzer"}, sectorSlug: "it-cloud", category: "cost",
   painStatement: "API aşım, throttling ve data egress maliyetleri faturalarda sürpriz kalemlerdir. SLA ihlalleri ek cezalar getirir. Bu araç toplam overrun maliyetini hesaplar.", painStatement_i18n: {"en":"API aşım, throttling ve data egress maliyetleri faturalarda sürpriz kalemlerdir. SLA ihlalleri ek cezalar getirir. Bu araç toplam overrun maliyetini hesaplar.","tr":"API aşım, throttling ve data egress maliyetleri faturalarda sürpriz kalemlerdir. SLA ihlalleri ek cezalar getirir. Bu araç toplam overrun maliyetini hesaplar."},
   inputs: [
     { id: "monthlyTotalRequests", label: "Aylık Toplam İstek", label_i18n: {"en":"Total monthly API requests","tr":"Aylık Toplam İstek"}, type: "number", unit: "adet", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Total monthly API requests", expertMeaning_i18n: {"en":"Total monthly API requests","tr":"aylık toplam i̇stek"} },

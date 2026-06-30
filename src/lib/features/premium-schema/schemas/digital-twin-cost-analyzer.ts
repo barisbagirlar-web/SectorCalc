@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DIGITAL_TWIN_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "digital-twin-cost-analyzer", legacyPaidSlug: "digital-twin-cost-analyzer",
-  name: "Digital Twin Maliyet & ROI Analizi", name_i18n: {"en":"Digital Twin Maliyet & ROI Analizi","tr":"Digital Twin Maliyet & ROI Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Digital Twin Cost & ROI Analyzer", name_i18n: {"en":"Digital Twin Cost & ROI Analyzer","tr":"Digital Twin Cost & ROI Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Digital twin yatırımının geleneksel yönteme göre maliyet avantajını ROI olarak hesaplamadan karar vermek risklidir.", painStatement_i18n: {"en":"Digital twin yatırımının geleneksel yönteme göre maliyet avantajını ROI olarak hesaplamadan karar vermek risklidir.","tr":"Digital twin yatırımının geleneksel yönteme göre maliyet avantajını ROI olarak hesaplamadan karar vermek risklidir."},
   inputs: [
     { id: "traditionalCost", label: "Geleneksel Yöntem Maliyeti", label_i18n: {"en":"Prototyping+FieldTest+Downtime+Travel","tr":"Geleneksel Yöntem Maliyeti"}, type: "number", unit: "USD", required: true, smartDefault: 200000, validation: { min: 0 }, helper: "", expertMeaning: "Prototyping+FieldTest+Downtime+Travel", expertMeaning_i18n: {"en":"Prototyping+FieldTest+Downtime+Travel","tr":"geleneksel yöntem maliyeti"} },

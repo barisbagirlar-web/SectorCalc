@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FACTORY_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
   id: "factory-layout-distance-analyzer", legacyPaidSlug: "factory-layout-distance-analyzer",
-  name: "Fabrika Yerleşim Mesafe & Akış Analizi", name_i18n: {"en":"Fabrika Yerlesim Mesafe & Akis Analizi","tr":"Fabrika Yerleşim Mesafe & Akış Analizi"}, sectorSlug: "sheet-metal", category: "measurement",
+  name: "Fabrika Yerleşim Mesafe & Akış Analizi", name_i18n: {"en":"Factory Layout Distance & Flow Analyzer","tr":"Fabrika Yerleşim Mesafe & Akış Analizi"}, sectorSlug: "sheet-metal", category: "measurement",
   painStatement: "Fabrika içi malzeme akış mesafeleri optimize edilmezse taşıma maliyeti artar ve verimlilik düşer.", painStatement_i18n: {"en":"Fabrika içi malzeme akış mesafeleri optimize edilmezse taşıma maliyeti artar ve verimlilik düşer.","tr":"Fabrika içi malzeme akış mesafeleri optimize edilmezse taşıma maliyeti artar ve verimlilik düşer."},
   inputs: [
     { id: "flowMatrix", label: "Akış Matrisi (2D dizi)", label_i18n: {"en":"Material flow between departments","tr":"Akış Matrisi (2D dizi)"}, type: "number", unit: "", matrix: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Material flow between departments", expertMeaning_i18n: {"en":"Material flow between departments","tr":"akış matrisi (2d dizi)"} },

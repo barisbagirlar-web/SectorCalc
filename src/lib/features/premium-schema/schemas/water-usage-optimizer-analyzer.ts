@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
   id: "water-usage-optimizer-analyzer", legacyPaidSlug: "water-usage-optimizer-analyzer",
-  name: "Su Kullanımı Optimizasyon Analizi", name_i18n: {"en":"Su Kullanimi Optimizasyon Analizi","tr":"Su Kullanımı Optimizasyon Analizi"}, sectorSlug: "energy-carbon", category: "measurement",
+  name: "Su Kullanımı Optimizasyon Analizi", name_i18n: {"en":"Water Usage Optimization Analyzer","tr":"Su Kullanımı Optimizasyon Analizi"}, sectorSlug: "energy-carbon", category: "measurement",
   painStatement: "Endüstriyel su tüketimi izlenmezse su yoğunluğu artar, atık su maliyeti yükselir ve verimlilik düşer.", painStatement_i18n: {"en":"Endüstriyel su tüketimi izlenmezse su yoğunluğu artar, atık su maliyeti yükselir ve verimlilik düşer.","tr":"Endüstriyel su tüketimi izlenmezse su yoğunluğu artar, atık su maliyeti yükselir ve verimlilik düşer."},
   inputs: [
     { id: "totalWaterUse", label: "Toplam Su Kullanımı", label_i18n: {"en":"Annual total water use","tr":"Toplam Su Kullanımı"}, type: "number", unit: "m³/yıl", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Annual total water use", expertMeaning_i18n: {"en":"Annual total water use","tr":"toplam su kullanımı"} },

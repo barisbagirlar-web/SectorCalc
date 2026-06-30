@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
   id: "fertilizer-dosage-analyzer", legacyPaidSlug: "fertilizer-dosage-analyzer",
-  name: "Gübre Dozaj & Verim Optimizasyonu", name_i18n: {"en":"Gubre Dozaj & Verim Optimizasyonu","tr":"Gübre Dozaj & Verim Optimizasyonu"}, sectorSlug: "food", category: "measurement",
+  name: "Gübre Dozaj & Verim Optimizasyonu", name_i18n: {"en":"Fertilizer Dosage & Yield Optimization","tr":"Gübre Dozaj & Verim Optimizasyonu"}, sectorSlug: "food", category: "measurement",
   painStatement: "Gübre dozajı toprak analizine göre hesaplanmazsa ya eksik gübreleme verimi düşürür ya da fazla gübre çevre kirliliği yaratır.", painStatement_i18n: {"en":"Gübre dozajı toprak analizine göre hesaplanmazsa ya eksik gübreleme verimi düşürür ya da fazla gübre çevre kirliliği yaratır.","tr":"Gübre dozajı toprak analizine göre hesaplanmazsa ya eksik gübreleme verimi düşürür ya da fazla gübre çevre kirliliği yaratır."},
   inputs: [
     { id: "yieldTarget", label: "Hedef Verim", label_i18n: {"en":"Hedef Verim","tr":"Hedef Verim"}, type: "number", unit: "ton/ha", required: true, smartDefault: 8, validation: { min: 0.1 }, helper: "", expertMeaning: "Target yield per hectare", expertMeaning_i18n: {"en":"Target yield per hectare","tr":"Target yield per hectare"} },

@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FILAMENT_RECYCLING_SCHEMA: PremiumCalculatorSchema = {
   id: "filament-recycling-analyzer", legacyPaidSlug: "filament-recycling-analyzer",
-  name: "Filament Geri Dönüşüm Ekonomisi Analizi", name_i18n: {"en":"Filament Geri Donusum Ekonomisi Analizi","tr":"Filament Geri Dönüşüm Ekonomisi Analizi"}, sectorSlug: "sheet-metal", category: "cost",
+  name: "Filament Geri Dönüşüm Ekonomisi Analizi", name_i18n: {"en":"Filament Recycling Economy Analyzer","tr":"Filament Geri Dönüşüm Ekonomisi Analizi"}, sectorSlug: "sheet-metal", category: "cost",
   painStatement: "3D baskı filamentinde geri dönüşüm ekonomisi hesaplanmazsa hammadde maliyeti ve sürdürülebilirlik hedefleri arasında denge kurulamaz.", painStatement_i18n: {"en":"3D baskı filamentinde geri dönüşüm ekonomisi hesaplanmazsa hammadde maliyeti ve sürdürülebilirlik hedefleri arasında denge kurulamaz.","tr":"3D baskı filamentinde geri dönüşüm ekonomisi hesaplanmazsa hammadde maliyeti ve sürdürülebilirlik hedefleri arasında denge kurulamaz."},
   inputs: [
     { id: "virginPrice", label: "Saf Filament Fiyatı", label_i18n: {"en":"Virgin filament price","tr":"Saf Filament Fiyatı"}, type: "number", unit: "USD/kg", required: true, smartDefault: 25, validation: { min: 0 }, helper: "", expertMeaning: "Virgin filament price", expertMeaning_i18n: {"en":"Virgin filament price","tr":"saf filament fiyatı"} },

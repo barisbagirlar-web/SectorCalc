@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WAREHOUSE_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
   id: "warehouse-layout-analyzer", legacyPaidSlug: "warehouse-layout-analyzer",
-  name: "Depo Yerleşimi & Verimlilik Analizi", name_i18n: {"en":"Depo Yerlesimi & Verimlilik Analizi","tr":"Depo Yerleşimi & Verimlilik Analizi"}, sectorSlug: "logistics-transport", category: "measurement",
+  name: "Depo Yerleşimi & Verimlilik Analizi", name_i18n: {"en":"Warehouse Layout & Efficiency Analyzer","tr":"Depo Yerleşimi & Verimlilik Analizi"}, sectorSlug: "logistics-transport", category: "measurement",
   painStatement: "Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar.", painStatement_i18n: {"en":"Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar.","tr":"Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar."},
   inputs: [
     { id: "warehouseFootprint", label: "Depo Taban Alanı", label_i18n: {"en":"Warehouse footprint","tr":"Depo Taban Alanı"}, type: "number", unit: "m²", required: true, smartDefault: 2000, validation: { min: 1 }, helper: "", expertMeaning: "Warehouse footprint", expertMeaning_i18n: {"en":"Warehouse footprint","tr":"depo taban alanı"} },

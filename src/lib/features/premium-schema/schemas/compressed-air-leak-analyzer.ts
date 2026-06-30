@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const COMPRESSED_AIR_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "compressed-air-leak-analyzer", legacyPaidSlug: "compressed-air-leak-analyzer",
-  name: "Kompresör Kaçağı Maliyet", name_i18n: {"en":"Kompresor Kacagi Maliyet","tr":"Kompresör Kaçağı Maliyet"}, sectorSlug: "cnc-manufacturing", category: "energy",
+  name: "Kompresör Kaçağı Maliyet", name_i18n: {"en":"Compressor Leak Cost Analyzer","tr":"Kompresör Kaçağı Maliyet"}, sectorSlug: "cnc-manufacturing", category: "energy",
   painStatement: "Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir.", painStatement_i18n: {"en":"Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir.","tr":"Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir."},
   inputs: [
     { id: "leakDiameter", label: "Kaçak Çapı", label_i18n: {"en":"Orifice diameter","tr":"Kaçak Çapı"}, type: "number", unit: "mm", required: true, smartDefault: 2, validation: { min: 0.1 }, helper: "", expertMeaning: "Orifice diameter", expertMeaning_i18n: {"en":"Orifice diameter","tr":"kaçak çapı"} },

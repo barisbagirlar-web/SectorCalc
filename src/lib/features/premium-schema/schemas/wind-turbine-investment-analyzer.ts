@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WIND_TURBINE_INVESTMENT_ANALYZER: PremiumCalculatorSchema = {
   id: "wind-turbine-investment-analyzer", legacyPaidSlug: "wind-turbine-investment-analyzer",
-  name: "Rüzgar Türbini Yatırım Analizi", name_i18n: {"en":"Ruzgar Turbini Yatirim Analizi","tr":"Rüzgar Türbini Yatırım Analizi"}, sectorSlug: "energy-carbon", category: "cost",
+  name: "Rüzgar Türbini Yatırım Analizi", name_i18n: {"en":"Wind Turbine Investment Analyzer","tr":"Rüzgar Türbini Yatırım Analizi"}, sectorSlug: "energy-carbon", category: "cost",
   painStatement: "Rüzgar türbini yatırımında AEP, gelir ve NPV hesaplanmazsa yatırımın geri dönüşü ve fizibilitesi belirsiz kalır.", painStatement_i18n: {"en":"Rüzgar türbini yatırımında AEP, gelir ve NPV hesaplanmazsa yatırımın geri dönüşü ve fizibilitesi belirsiz kalır.","tr":"Rüzgar türbini yatırımında AEP, gelir ve NPV hesaplanmazsa yatırımın geri dönüşü ve fizibilitesi belirsiz kalır."},
   inputs: [
     { id: "rotorDiameter", label: "Rotor Çapı", label_i18n: {"en":"Rotor diameter in meters","tr":"Rotor Çapı"}, type: "number", unit: "m", required: true, smartDefault: 82, validation: { min: 1 }, helper: "", expertMeaning: "Rotor diameter in meters", expertMeaning_i18n: {"en":"Rotor diameter in meters","tr":"rotor çapı"} },

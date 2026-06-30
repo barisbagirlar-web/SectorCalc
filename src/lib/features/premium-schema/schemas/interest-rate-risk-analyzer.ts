@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "interest-rate-risk-analyzer", legacyPaidSlug: "interest-rate-risk-analyzer",
-  name: "Faiz Oranı Riski & Hedge Analizi", name_i18n: {"en":"Faiz Orani Riski & Hedge Analizi","tr":"Faiz Oranı Riski & Hedge Analizi"}, sectorSlug: "financial-planning", category: "cost",
+  name: "Faiz Oranı Riski & Hedge Analizi", name_i18n: {"en":"Interest Rate Risk & Hedge Analyzer","tr":"Faiz Oranı Riski & Hedge Analizi"}, sectorSlug: "financial-planning", category: "cost",
   painStatement: "Faiz oranı riski (duration gap, VaR, NIM) doğru hesaplanmazsa bilanço korunmasız kalır ve beklenmedik kayıplar oluşur.", painStatement_i18n: {"en":"Faiz oranı riski (duration gap, VaR, NIM) doğru hesaplanmazsa bilanço korunmasız kalır ve beklenmedik kayıplar oluşur.","tr":"Faiz oranı riski (duration gap, VaR, NIM) doğru hesaplanmazsa bilanço korunmasız kalır ve beklenmedik kayıplar oluşur."},
   inputs: [
     { id: "floatingDebt", label: "Değişken Faizli Borç", label_i18n: {"en":"Floating rate debt","tr":"Değişken Faizli Borç"}, type: "number", unit: "USD", required: true, smartDefault: 5000000, validation: { min: 0 }, helper: "", expertMeaning: "Floating rate debt", expertMeaning_i18n: {"en":"Floating rate debt","tr":"değişken faizli borç"} },

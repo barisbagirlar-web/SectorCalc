@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TEXTILE_WASTE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "textile-waste-risk-analyzer", legacyPaidSlug: "textile-waste-risk-analyzer",
-  name: "Tekstil Atığı Risk Analizi", name_i18n: {"en":"Tekstil Atigi Risk Analizi","tr":"Tekstil Atığı Risk Analizi"}, sectorSlug: "textile", category: "cost",
+  name: "Tekstil Atığı Risk Analizi", name_i18n: {"en":"Textile Waste Risk Analyzer","tr":"Tekstil Atığı Risk Analizi"}, sectorSlug: "textile", category: "cost",
   painStatement: "Tekstil üretiminde kumaş atığı ve fire oranı kontrol edilmezse hammadde maliyeti ve çevresel kayıp artar.", painStatement_i18n: {"en":"Tekstil üretiminde kumaş atığı ve fire oranı kontrol edilmezse hammadde maliyeti ve çevresel kayıp artar.","tr":"Tekstil üretiminde kumaş atığı ve fire oranı kontrol edilmezse hammadde maliyeti ve çevresel kayıp artar."},
   inputs: [
     { id: "fabricUsed", label: "Kullanılan Kumaş", label_i18n: {"en":"Total fabric used per batch","tr":"Kullanılan Kumaş"}, type: "number", unit: "m²/parti", required: true, smartDefault: 5000, validation: { min: 1 }, helper: "", expertMeaning: "Total fabric used per batch", expertMeaning_i18n: {"en":"Total fabric used per batch","tr":"kullanılan kumaş"} },

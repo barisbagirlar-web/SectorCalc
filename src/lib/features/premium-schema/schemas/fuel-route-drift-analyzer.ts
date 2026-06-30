@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
   id: "fuel-route-drift-analyzer", legacyPaidSlug: "fuel-route-drift-analyzer",
-  name: "Yakıt Rota Sapma Maliyeti", name_i18n: {"en":"Yakit Rota Sapma Maliyeti","tr":"Yakıt Rota Sapma Maliyeti"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "Yakıt Rota Sapma Maliyeti", name_i18n: {"en":"Fuel Route Drift Cost Analyzer","tr":"Yakıt Rota Sapma Maliyeti"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "Araçlar planlanan rotadan sapınca yakıt tüketimi artar, teslimat süresi uzar ve karbon emisyonu yükselir. Rota sapma maliyeti ölçülmezse filo verimliliği düşer.", painStatement_i18n: {"en":"Araçlar planlanan rotadan sapınca yakıt tüketimi artar, teslimat süresi uzar ve karbon emisyonu yükselir. Rota sapma maliyeti ölçülmezse filo verimliliği düşer.","tr":"Araçlar planlanan rotadan sapınca yakıt tüketimi artar, teslimat süresi uzar ve karbon emisyonu yükselir. Rota sapma maliyeti ölçülmezse filo verimliliği düşer."},
   inputs: [
     { id: "plannedDistance", label: "Planlanan Rota Mesafesi", label_i18n: {"en":"Planlanan Rota Mesafesi","tr":"Planlanan Rota Mesafesi"}, type: "number", unit: "km", required: true, smartDefault: 200, validation: { min: 1 }, helper: "", expertMeaning: "Planned route distance", expertMeaning_i18n: {"en":"Planned route distance","tr":"Planned route distance"} },

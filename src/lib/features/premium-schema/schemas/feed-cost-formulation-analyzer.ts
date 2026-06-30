@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "feed-cost-formulation-analyzer", legacyPaidSlug: "feed-cost-formulation-analyzer",
-  name: "İlerleme Yem Maliyeti & FCR Analizi", name_i18n: {"en":"ilerleme Yem Maliyeti & FCR Analizi","tr":"İlerleme Yem Maliyeti & FCR Analizi"}, sectorSlug: "food", category: "cost",
+  name: "İlerleme Yem Maliyeti & FCR Analizi", name_i18n: {"en":"Feed Cost Formulation & FCR Analyzer","tr":"İlerleme Yem Maliyeti & FCR Analizi"}, sectorSlug: "food", category: "cost",
   painStatement: "Yem formülasyonunda hammadde maliyeti, işleme ve FCR analiz edilmezse kg başına canlı ağırlık maliyeti kontrol edilemez.", painStatement_i18n: {"en":"Yem formülasyonunda hammadde maliyeti, işleme ve FCR analiz edilmezse kg başına canlı ağırlık maliyeti kontrol edilemez.","tr":"Yem formülasyonunda hammadde maliyeti, işleme ve FCR analiz edilmezse kg başına canlı ağırlık maliyeti kontrol edilemez."},
   inputs: [
     { id: "inclusionRates", label: "Kullanım Oranları (%, virgülle)", label_i18n: {"en":"Ingredient inclusion rates","tr":"Kullanım Oranları (%, virgülle)"}, type: "number", unit: "%", array: true, required: true, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Ingredient inclusion rates", expertMeaning_i18n: {"en":"Ingredient inclusion rates","tr":"kullanım oranları (%, virgülle)"} },

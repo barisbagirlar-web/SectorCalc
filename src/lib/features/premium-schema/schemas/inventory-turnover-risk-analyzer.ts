@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
   id: "inventory-turnover-risk-analyzer", legacyPaidSlug: "inventory-turnover-risk-analyzer",
-  name: "Stok Devir Hızı ve Risk Analizi", name_i18n: {"en":"Stok Devir Hizi ve Risk Analizi","tr":"Stok Devir Hızı ve Risk Analizi"}, sectorSlug: "logistics-transport", category: "measurement",
+  name: "Stok Devir Hızı ve Risk Analizi", name_i18n: {"en":"Inventory Turnover Risk Analyzer","tr":"Stok Devir Hızı ve Risk Analizi"}, sectorSlug: "logistics-transport", category: "measurement",
   painStatement: "Stok devir hızı izlenmezse fazla stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise hurda veya iskonto ile satılmak zorunda kalır.", painStatement_i18n: {"en":"Stok devir hızı izlenmezse fazla stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise hurda veya iskonto ile satılmak zorunda kalır.","tr":"Stok devir hızı izlenmezse fazla stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise hurda veya iskonto ile satılmak zorunda kalır."},
   inputs: [
     { id: "annualCogs", label: "Yıllık SMM (Satılan Mal Maliyeti)", label_i18n: {"en":"Annual cost of goods sold","tr":"Yıllık SMM (Satılan Mal Maliyeti)"}, type: "number", unit: "USD", required: true, smartDefault: 1200000, validation: { min: 1 }, helper: "", expertMeaning: "Annual cost of goods sold", expertMeaning_i18n: {"en":"Annual cost of goods sold","tr":"yıllık smm (satılan mal maliyeti)"} },

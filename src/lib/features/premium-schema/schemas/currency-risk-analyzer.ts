@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "currency-risk-analyzer", legacyPaidSlug: "currency-risk-analyzer",
-  name: "Kur Riski Analizi", name_i18n: {"en":"Kur Riski Analizi","tr":"Kur Riski Analizi"}, sectorSlug: "financial-planning", category: "cost",
+  name: "Currency Risk Analyzer", name_i18n: {"en":"Currency Risk Analyzer","tr":"Currency Risk Analyzer"}, sectorSlug: "financial-planning", category: "cost",
   painStatement: "Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.", painStatement_i18n: {"en":"Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.","tr":"Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar."},
   inputs: [
     { id: "fxRevenue", label: "Döviz Gelir", label_i18n: {"en":"FX revenue","tr":"Döviz Gelir"}, type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 0 }, helper: "", expertMeaning: "FX revenue", expertMeaning_i18n: {"en":"FX revenue","tr":"döviz gelir"} },

@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "transport-mode-risk-analyzer", legacyPaidSlug: "transport-mode-risk-analyzer",
-  name: "Taşıma Modu Risk ve Maliyet Analizi", name_i18n: {"en":"Tasima Modu Risk ve Maliyet Analizi","tr":"Taşıma Modu Risk ve Maliyet Analizi"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "Taşıma Modu Risk ve Maliyet Analizi", name_i18n: {"en":"Transport Mode Risk and Cost Analyzer","tr":"Taşıma Modu Risk ve Maliyet Analizi"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "Hava, deniz ve kara taşıma modları arasında seçim yaparken risk ve transit süre maliyeti göz ardı edilir.", painStatement_i18n: {"en":"Hava, deniz ve kara taşıma modları arasında seçim yaparken risk ve transit süre maliyeti göz ardı edilir.","tr":"Hava, deniz ve kara taşıma modları arasında seçim yaparken risk ve transit süre maliyeti göz ardı edilir."},
   inputs: [
     { id: "airFreightCost", label: "Hava Kargo Maliyeti", label_i18n: {"en":"Hava Kargo Maliyeti","tr":"Hava Kargo Maliyeti"}, type: "number", unit: "USD", required: true, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Total air freight cost", expertMeaning_i18n: {"en":"Total air freight cost","tr":"Total air freight cost"} },

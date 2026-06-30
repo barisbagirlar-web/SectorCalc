@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
   id: "fire-hydrant-flow-analyzer", legacyPaidSlug: "fire-hydrant-flow-analyzer",
-  name: "Yangın Hidrantı Akış Analizi", name_i18n: {"en":"Yangin Hidranti Akis Analizi","tr":"Yangın Hidrantı Akış Analizi"}, sectorSlug: "quality", category: "measurement",
+  name: "Yangın Hidrantı Akış Analizi", name_i18n: {"en":"Fire Hydrant Flow Analyzer","tr":"Yangın Hidrantı Akış Analizi"}, sectorSlug: "quality", category: "measurement",
   painStatement: "Yangın hidrantlarının debisi ve mevcut akış kapasitesi düzenli ölçülmezse yangın anında yetersiz su basıncı felakete yol açabilir. Uyumsuzluk durumunda cezai yaptırım ve sigorta sorunları oluşur.", painStatement_i18n: {"en":"Yangın hidrantlarının debisi ve mevcut akış kapasitesi düzenli ölçülmezse yangın anında yetersiz su basıncı felakete yol açabilir. Uyumsuzluk durumunda cezai yaptırım ve sigorta sorunları oluşur.","tr":"Yangın hidrantlarının debisi ve mevcut akış kapasitesi düzenli ölçülmezse yangın anında yetersiz su basıncı felakete yol açabilir. Uyumsuzluk durumunda cezai yaptırım ve sigorta sorunları oluşur."},
   inputs: [
     { id: "hydrantDiameter", label: "Hidrant Çapı", label_i18n: {"en":"Hydrant outlet diameter","tr":"Hidrant Çapı"}, type: "number", unit: "mm", required: true, smartDefault: 100, validation: { min: 25 }, helper: "", expertMeaning: "Hydrant outlet diameter", expertMeaning_i18n: {"en":"Hydrant outlet diameter","tr":"hidrant çapı"} },

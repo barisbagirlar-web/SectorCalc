@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "material-replacement-cost-analyzer", legacyPaidSlug: "material-replacement-cost-analyzer",
-  name: "Malzeme Replacement Maliyet Analizi", name_i18n: {"en":"Malzeme Replacement Maliyet Analizi","tr":"Malzeme Replacement Maliyet Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Material Replacement Cost Analyzer", name_i18n: {"en":"Material Replacement Cost Analyzer","tr":"Material Replacement Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Alternatif malzeme geçişlerinde TCO, ağırlık tasarrufu ve net fayda hesaplanmazsa yanlış karar maliyet artırır.", painStatement_i18n: {"en":"Alternatif malzeme geçişlerinde TCO, ağırlık tasarrufu ve net fayda hesaplanmazsa yanlış karar maliyet artırır.","tr":"Alternatif malzeme geçişlerinde TCO, ağırlık tasarrufu ve net fayda hesaplanmazsa yanlış karar maliyet artırır."},
   inputs: [
     { id: "currentMaterialCost", label: "Mevcut Malzeme Birim Maliyeti", label_i18n: {"en":"Mevcut Malzeme Birim Maliyeti","tr":"Mevcut Malzeme Birim Maliyeti"}, type: "number", unit: "USD/kg", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current material cost per kg", expertMeaning_i18n: {"en":"Current material cost per kg","tr":"Current material cost per kg"} },

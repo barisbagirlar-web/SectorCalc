@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TOTAL_EMPLOYEE_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "total-employee-cost-analyzer", legacyPaidSlug: "total-employee-cost-analyzer",
-  name: "Toplam Çalışan Maliyeti Analizi", name_i18n: {"en":"Toplam calisan Maliyeti Analizi","tr":"Toplam Çalışan Maliyeti Analizi"}, sectorSlug: "financial-planning", category: "cost",
+  name: "Toplam Çalışan Maliyeti Analizi", name_i18n: {"en":"Total Employee Cost Analyzer","tr":"Toplam Çalışan Maliyeti Analizi"}, sectorSlug: "financial-planning", category: "cost",
   painStatement: "Çalışan başına brüt maaş, yan haklar ve işveren payı toplamı hesaplanmazsa gerçek işgücü maliyeti gizli kalır.", painStatement_i18n: {"en":"Çalışan başına brüt maaş, yan haklar ve işveren payı toplamı hesaplanmazsa gerçek işgücü maliyeti gizli kalır.","tr":"Çalışan başına brüt maaş, yan haklar ve işveren payı toplamı hesaplanmazsa gerçek işgücü maliyeti gizli kalır."},
   inputs: [
     { id: "numEmployees", label: "Çalışan Sayısı", label_i18n: {"en":"Number of employees","tr":"Çalışan Sayısı"}, type: "number", unit: "kişi", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Number of employees", expertMeaning_i18n: {"en":"Number of employees","tr":"çalışan sayısı"} },

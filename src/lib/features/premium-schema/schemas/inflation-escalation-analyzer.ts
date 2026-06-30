@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const INFLATION_ESCALATION_SCHEMA: PremiumCalculatorSchema = {
   id: "inflation-escalation-analyzer", legacyPaidSlug: "inflation-escalation-analyzer",
-  name: "Enflasyon Eskalasyon & NPV Analizi", name_i18n: {"en":"Enflasyon Eskalasyon & NPV Analizi","tr":"Enflasyon Eskalasyon & NPV Analizi"}, sectorSlug: "construction", category: "cost",
+  name: "Inflation Escalation & NPV Analyzer", name_i18n: {"en":"Inflation Escalation & NPV Analyzer","tr":"Inflation Escalation & NPV Analyzer"}, sectorSlug: "construction", category: "cost",
   painStatement: "Uzun vadeli projelerde enflasyon eskalasyonu doğru hesaplanmazsa bütçe sapmaları ve nakit akışı sorunları kaçınılmazdır.", painStatement_i18n: {"en":"Uzun vadeli projelerde enflasyon eskalasyonu doğru hesaplanmazsa bütçe sapmaları ve nakit akışı sorunları kaçınılmazdır.","tr":"Uzun vadeli projelerde enflasyon eskalasyonu doğru hesaplanmazsa bütçe sapmaları ve nakit akışı sorunları kaçınılmazdır."},
   inputs: [
     { id: "baseMaterial", label: "Baz Malzeme Maliyeti", label_i18n: {"en":"Baz Malzeme Maliyeti","tr":"Baz Malzeme Maliyeti"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Base material cost", expertMeaning_i18n: {"en":"Base material cost","tr":"Base material cost"} },

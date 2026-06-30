@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "dye-recipe-cost-analyzer", legacyPaidSlug: "dye-recipe-cost-analyzer",
-  name: "Dye Reçete Maliyet Analizi", name_i18n: {"en":"Dye Recete Maliyet Analizi","tr":"Dye Reçete Maliyet Analizi"}, sectorSlug: "textile", category: "cost",
+  name: "Dye Reçete Maliyet Analizi", name_i18n: {"en":"Dye Recipe Cost Analyzer","tr":"Dye Reçete Maliyet Analizi"}, sectorSlug: "textile", category: "cost",
   painStatement: "Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar.", painStatement_i18n: {"en":"Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar.","tr":"Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar."},
   inputs: [
     { id: "bathRatio", label: "Flotte Oranı", label_i18n: {"en":"Liquor ratio (liquid:goods)","tr":"Flotte Oranı"}, type: "number", unit: "", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Liquor ratio (liquid:goods)", expertMeaning_i18n: {"en":"Liquor ratio (liquid:goods)","tr":"flotte oranı"} },

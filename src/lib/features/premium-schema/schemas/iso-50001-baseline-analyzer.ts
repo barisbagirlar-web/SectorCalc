@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ISO50001_BASELINE_SCHEMA: PremiumCalculatorSchema = {
   id: "iso-50001-baseline-analyzer", legacyPaidSlug: "iso-50001-baseline-analyzer",
-  name: "ISO 50001 Enerji Baz Çizgisi & CUSUM Analizi", name_i18n: {"en":"ISO 50001 Enerji Baz cizgisi & CUSUM Analizi","tr":"ISO 50001 Enerji Baz Çizgisi & CUSUM Analizi"}, sectorSlug: "sheet-metal", category: "energy",
+  name: "ISO 50001 Enerji Baz Çizgisi & CUSUM Analizi", name_i18n: {"en":"ISO 50001 Energy Baseline & CUSUM Analyzer","tr":"ISO 50001 Enerji Baz Çizgisi & CUSUM Analizi"}, sectorSlug: "sheet-metal", category: "energy",
   painStatement: "ISO 50001 kapsamında EnPI ve CUSUM analizi yapılmadan enerji performansı izlenemez ve iyileştirme kanıtlanamaz.", painStatement_i18n: {"en":"ISO 50001 kapsamında EnPI ve CUSUM analizi yapılmadan enerji performansı izlenemez ve iyileştirme kanıtlanamaz.","tr":"ISO 50001 kapsamında EnPI ve CUSUM analizi yapılmadan enerji performansı izlenemez ve iyileştirme kanıtlanamaz."},
   inputs: [
     { id: "totalEnergy", label: "Toplam Enerji Tüketimi", label_i18n: {"en":"Total energy consumption","tr":"Toplam Enerji Tüketimi"}, type: "number", unit: "kWh", required: true, smartDefault: 5000000, validation: { min: 0 }, helper: "", expertMeaning: "Total energy consumption", expertMeaning_i18n: {"en":"Total energy consumption","tr":"toplam enerji tüketimi"} },

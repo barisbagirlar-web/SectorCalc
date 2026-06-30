@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "office-supplies-cost-analyzer", legacyPaidSlug: "office-supplies-cost-analyzer",
-  name: "Ofis Malzemeleri Maliyet Analizi", name_i18n: {"en":"Ofis Malzemeleri Maliyet Analizi","tr":"Ofis Malzemeleri Maliyet Analizi"}, sectorSlug: "financial-planning", category: "cost",
+  name: "Office Supplies Cost Analyzer", name_i18n: {"en":"Office Supplies Cost Analyzer","tr":"Office Supplies Cost Analyzer"}, sectorSlug: "financial-planning", category: "cost",
   painStatement: "Ofis malzemelerinde EOQ, taşıma maliyeti ve stok tükenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama oluşur.", painStatement_i18n: {"en":"Ofis malzemelerinde EOQ, taşıma maliyeti ve stok tükenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama oluşur.","tr":"Ofis malzemelerinde EOQ, taşıma maliyeti ve stok tükenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama oluşur."},
   inputs: [
     { id: "monthlyConsumption", label: "Aylık Tüketim Miktarı", label_i18n: {"en":"Monthly consumption quantity","tr":"Aylık Tüketim Miktarı"}, type: "number", unit: "adet/ay", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Monthly consumption quantity", expertMeaning_i18n: {"en":"Monthly consumption quantity","tr":"aylık tüketim miktarı"} },

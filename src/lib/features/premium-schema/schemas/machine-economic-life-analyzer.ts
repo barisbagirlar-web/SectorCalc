@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
   id: "machine-economic-life-analyzer", legacyPaidSlug: "machine-economic-life-analyzer",
-  name: "Makine Ekonomik Ömrü Analizi", name_i18n: {"en":"Makine Ekonomik omru Analizi","tr":"Makine Ekonomik Ömrü Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Makine Ekonomik Ömrü Analizi", name_i18n: {"en":"Machine Economic Life Analyzer","tr":"Makine Ekonomik Ömrü Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Makinenin gerçek ekonomik ömrü bilinmezse ya erken yenileme ya da bakım maliyeti yüksek eski makineyle üretim kaybı oluşur.", painStatement_i18n: {"en":"Makinenin gerçek ekonomik ömrü bilinmezse ya erken yenileme ya da bakım maliyeti yüksek eski makineyle üretim kaybı oluşur.","tr":"Makinenin gerçek ekonomik ömrü bilinmezse ya erken yenileme ya da bakım maliyeti yüksek eski makineyle üretim kaybı oluşur."},
   inputs: [
     { id: "purchaseCost", label: "Satın Alma Maliyeti", label_i18n: {"en":"Initial purchase cost","tr":"Satın Alma Maliyeti"}, type: "number", unit: "USD", required: true, smartDefault: 150000, validation: { min: 1 }, helper: "", expertMeaning: "Initial purchase cost", expertMeaning_i18n: {"en":"Initial purchase cost","tr":"satın alma maliyeti"} },

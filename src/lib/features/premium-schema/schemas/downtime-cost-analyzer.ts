@@ -5,7 +5,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DOWNTIME_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   id: "downtime-cost-analyzer", legacyPaidSlug: "downtime-cost-analyzer",
-  name: "Arıza Süresi Maliyet Analizi", name_i18n: {"en":"Ariza Suresi Maliyet Analizi","tr":"Arıza Süresi Maliyet Analizi"}, sectorSlug: "sheet-metal", category: "cost",
+  name: "Arıza Süresi Maliyet Analizi", name_i18n: {"en":"Downtime Cost Analyzer","tr":"Arıza Süresi Maliyet Analizi"}, sectorSlug: "sheet-metal", category: "cost",
   painStatement: "Plansız duruşların gerçek maliyeti sadece kayıp üretim değil; işçilik, enerji, kalite ve müşteri cezalarını da içerir. Bu araç 6 bileşenli toplam duruş maliyetini hesaplar.", painStatement_i18n: {"en":"Plansız duruşların gerçek maliyeti sadece kayıp üretim değil; işçilik, enerji, kalite ve müşteri cezalarını da içerir. Bu araç 6 bileşenli toplam duruş maliyetini hesaplar.","tr":"Plansız duruşların gerçek maliyeti sadece kayıp üretim değil; işçilik, enerji, kalite ve müşteri cezalarını da içerir. Bu araç 6 bileşenli toplam duruş maliyetini hesaplar."},
   inputs: [
     { id: "downtimeHours", label: "Arıza Süresi", label_i18n: {"en":"Total downtime hours","tr":"Arıza Süresi"}, type: "number", unit: "saat", required: true, smartDefault: 4, validation: { min: 0 }, helper: "", expertMeaning: "Total downtime hours", expertMeaning_i18n: {"en":"Total downtime hours","tr":"arıza süresi"} },

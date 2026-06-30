@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
   id: "irrigation-cost-check-analyzer", legacyPaidSlug: "irrigation-cost-check-analyzer",
-  name: "Sulama Maliyet Kontrolü", name_i18n: {"en":"Sulama Maliyet Kontrolu","tr":"Sulama Maliyet Kontrolü"}, sectorSlug: "food", category: "cost",
+  name: "Sulama Maliyet Kontrolü", name_i18n: {"en":"Irrigation Cost Check Analyzer","tr":"Sulama Maliyet Kontrolü"}, sectorSlug: "food", category: "cost",
   painStatement: "Sulama maliyetleri su, enerji ve işçilik kalemlerinde doğru hesaplanmazsa çiftçi veya işletme ürün maliyetini gerçekçi göremez.", painStatement_i18n: {"en":"Sulama maliyetleri su, enerji ve işçilik kalemlerinde doğru hesaplanmazsa çiftçi veya işletme ürün maliyetini gerçekçi göremez.","tr":"Sulama maliyetleri su, enerji ve işçilik kalemlerinde doğru hesaplanmazsa çiftçi veya işletme ürün maliyetini gerçekçi göremez."},
   inputs: [
     { id: "areaHectares", label: "Alan Büyüklüğü", label_i18n: {"en":"Irrigated area in hectares","tr":"Alan Büyüklüğü"}, type: "number", unit: "ha", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "", expertMeaning: "Irrigated area in hectares", expertMeaning_i18n: {"en":"Irrigated area in hectares","tr":"alan büyüklüğü"} },

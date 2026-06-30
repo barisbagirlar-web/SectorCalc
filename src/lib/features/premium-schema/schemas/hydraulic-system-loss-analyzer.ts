@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const HYDRAULIC_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "hydraulic-system-loss-analyzer", legacyPaidSlug: "hydraulic-system-loss-analyzer",
-  name: "Hidrolik Sistem Kayıp & Verim Analizi", name_i18n: {"en":"Hidrolik Sistem Kayip & Verim Analizi","tr":"Hidrolik Sistem Kayıp & Verim Analizi"}, sectorSlug: "sheet-metal", category: "energy",
+  name: "Hidrolik Sistem Kayıp & Verim Analizi", name_i18n: {"en":"Hydraulic System Loss & Efficiency Analyzer","tr":"Hidrolik Sistem Kayıp & Verim Analizi"}, sectorSlug: "sheet-metal", category: "energy",
   painStatement: "Hidrolik sistemlerde kaçak, sürtünme ve vana kayıpları enerji verimini düşürür ve işletme maliyetini artırır.", painStatement_i18n: {"en":"Hidrolik sistemlerde kaçak, sürtünme ve vana kayıpları enerji verimini düşürür ve işletme maliyetini artırır.","tr":"Hidrolik sistemlerde kaçak, sürtünme ve vana kayıpları enerji verimini düşürür ve işletme maliyetini artırır."},
   inputs: [
     { id: "qLeak", label: "Kaçak Debisi", label_i18n: {"en":"Leakage flow rate","tr":"Kaçak Debisi"}, type: "number", unit: "L/dak", required: true, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Leakage flow rate", expertMeaning_i18n: {"en":"Leakage flow rate","tr":"kaçak debisi"} },

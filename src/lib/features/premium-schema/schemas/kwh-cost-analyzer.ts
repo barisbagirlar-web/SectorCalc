@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "kwh-cost-analyzer", legacyPaidSlug: "kwh-cost-analyzer",
-  name: "KWh Maliyet Analizi", name_i18n: {"en":"KWh Maliyet Analizi","tr":"KWh Maliyet Analizi"}, sectorSlug: "energy-consumption", category: "cost",
+  name: "KWh Cost Analyzer", name_i18n: {"en":"KWh Cost Analyzer","tr":"KWh Cost Analyzer"}, sectorSlug: "energy-consumption", category: "cost",
   painStatement: "Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz.", painStatement_i18n: {"en":"Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz.","tr":"Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz."},
   inputs: [
     { id: "activeEnergy", label: "Aktif Tüketim", label_i18n: {"en":"Active energy consumption","tr":"Aktif Tüketim"}, type: "number", unit: "kWh", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption","tr":"aktif tüketim"} },

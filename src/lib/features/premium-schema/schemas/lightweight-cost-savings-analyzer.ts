@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const LIGHTWEIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "lightweight-cost-savings-analyzer", legacyPaidSlug: "lightweight-cost-savings-analyzer",
-  name: "Hafifletme Maliyet Tasarrufu Analizi", name_i18n: {"en":"Hafifletme Maliyet Tasarrufu Analizi","tr":"Hafifletme Maliyet Tasarrufu Analizi"}, sectorSlug: "sheet-metal", category: "cost",
+  name: "Lightweight Cost Savings Analyzer", name_i18n: {"en":"Lightweight Cost Savings Analyzer","tr":"Lightweight Cost Savings Analyzer"}, sectorSlug: "sheet-metal", category: "cost",
   painStatement: "Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir.", painStatement_i18n: {"en":"Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir.","tr":"Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir."},
   inputs: [
     { id: "originalMass", label: "Orijinal Ağırlık", label_i18n: {"en":"Original part mass","tr":"Orijinal Ağırlık"}, type: "number", unit: "kg", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "", expertMeaning: "Original part mass", expertMeaning_i18n: {"en":"Original part mass","tr":"orijinal ağırlık"} },

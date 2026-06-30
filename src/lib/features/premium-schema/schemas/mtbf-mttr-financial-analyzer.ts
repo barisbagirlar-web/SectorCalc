@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
   id: "mtbf-mttr-financial-analyzer", legacyPaidSlug: "mtbf-mttr-financial-analyzer",
-  name: "MTBF/MTTR Finansal Etki Analizi", name_i18n: {"en":"MTBF/MTTR Finansal Etki Analizi","tr":"MTBF/MTTR Finansal Etki Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "MTBF/MTTR Financial Impact Analyzer", name_i18n: {"en":"MTBF/MTTR Financial Impact Analyzer","tr":"MTBF/MTTR Financial Impact Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "MTBF ve MTTR verileri finansal risk olarak hesaplanmazsa bakım yatırımları önceliklendirilemez.", painStatement_i18n: {"en":"MTBF ve MTTR verileri finansal risk olarak hesaplanmazsa bakım yatırımları önceliklendirilemez.","tr":"MTBF ve MTTR verileri finansal risk olarak hesaplanmazsa bakım yatırımları önceliklendirilemez."},
   inputs: [
     { id: "mtbfHours", label: "MTBF (Arıza Arası Ortalama Süre)", label_i18n: {"en":"Mean time between failures","tr":"MTBF (Arıza Arası Ortalama Süre)"}, type: "number", unit: "saat", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Mean time between failures", expertMeaning_i18n: {"en":"Mean time between failures","tr":"mtbf (arıza arası ortalama süre)"} },

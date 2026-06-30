@@ -5,7 +5,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const COMPRESSED_AIR_SCHEMA: PremiumCalculatorSchema = {
   id: "compressed-air-energy-cost-analyzer", legacyPaidSlug: "compressed-air-energy-cost-analyzer",
-  name: "Basınçlı Hava Sistemi Enerji Maliyet Analizi", name_i18n: {"en":"Basincli Hava Sistemi Enerji Maliyet Analizi","tr":"Basınçlı Hava Sistemi Enerji Maliyet Analizi"}, sectorSlug: "energy-consumption", category: "energy",
+  name: "Basınçlı Hava Sistemi Enerji Maliyet Analizi", name_i18n: {"en":"Compressed Air System Energy Cost Analyzer","tr":"Basınçlı Hava Sistemi Enerji Maliyet Analizi"}, sectorSlug: "energy-consumption", category: "energy",
   painStatement: "Basınçlı hava sistemleri fabrika elektrik faturasının %30'una kadar çıkabilir. Kaçaklar ve düşük verim gizli maliyet oluşturur. Bu araç sistem enerji maliyetini ve ısı geri kazanım tasarrufunu hesaplar.", painStatement_i18n: {"en":"Basınçlı hava sistemleri fabrika elektrik faturasının %30'una kadar çıkabilir. Kaçaklar ve düşük verim gizli maliyet oluşturur. Bu araç sistem enerji maliyetini ve ısı geri kazanım tasarrufunu hesaplar.","tr":"Basınçlı hava sistemleri fabrika elektrik faturasının %30'una kadar çıkabilir. Kaçaklar ve düşük verim gizli maliyet oluşturur. Bu araç sistem enerji maliyetini ve ısı geri kazanım tasarrufunu hesaplar."},
   inputs: [
     { id: "compressorPowerKw", label: "Kompresör Gücü", label_i18n: {"en":"Compressor motor power","tr":"Kompresör Gücü"}, type: "number", unit: "kW", required: true, smartDefault: 75, validation: { min: 0 }, helper: "", expertMeaning: "Compressor motor power", expertMeaning_i18n: {"en":"Compressor motor power","tr":"kompresör gücü"} },

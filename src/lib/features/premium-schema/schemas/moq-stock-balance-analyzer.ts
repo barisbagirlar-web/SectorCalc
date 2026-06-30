@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const MOQ_STOCK_BALANCE_SCHEMA: PremiumCalculatorSchema = {
   id: "moq-stock-balance-analyzer", legacyPaidSlug: "moq-stock-balance-analyzer",
-  name: "MOQ Stok Denge Analizi", name_i18n: {"en":"MOQ Stok Denge Analizi","tr":"MOQ Stok Denge Analizi"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "MOQ Stock Balance Analyzer", name_i18n: {"en":"MOQ Stock Balance Analyzer","tr":"MOQ Stock Balance Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "MOQ ile gerçek talep arasındaki fark hesaplanmazsa ya stok fazlası cezası ya da fırsat maliyeti oluşur.", painStatement_i18n: {"en":"MOQ ile gerçek talep arasındaki fark hesaplanmazsa ya stok fazlası cezası ya da fırsat maliyeti oluşur.","tr":"MOQ ile gerçek talep arasındaki fark hesaplanmazsa ya stok fazlası cezası ya da fırsat maliyeti oluşur."},
   inputs: [
     { id: "moqQty", label: "Minimum Sipariş Miktarı (MOQ)", label_i18n: {"en":"Minimum order quantity","tr":"Minimum Sipariş Miktarı (MOQ)"}, type: "number", unit: "adet", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Minimum order quantity", expertMeaning_i18n: {"en":"Minimum order quantity","tr":"minimum sipariş miktarı (moq)"} },

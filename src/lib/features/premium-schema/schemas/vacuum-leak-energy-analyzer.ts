@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const VACUUM_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "vacuum-leak-energy-analyzer", legacyPaidSlug: "vacuum-leak-energy-analyzer",
-  name: "Vakum Kaçağı Enerji Maliyeti", name_i18n: {"en":"Vakum Kacagi Enerji Maliyeti","tr":"Vakum Kaçağı Enerji Maliyeti"}, sectorSlug: "energy-carbon", category: "cost",
+  name: "Vakum Kaçağı Enerji Maliyeti", name_i18n: {"en":"Vacuum Leak Energy Cost Analyzer","tr":"Vakum Kaçağı Enerji Maliyeti"}, sectorSlug: "energy-carbon", category: "cost",
   painStatement: "Vakum sistemlerindeki kaçaklar fark edilmeden yüksek enerji tüketimine ve üretim kaybına yol açar. Kaçak debisi ölçülmezse gereksiz kompresör kapasitesi kullanılır.", painStatement_i18n: {"en":"Vakum sistemlerindeki kaçaklar fark edilmeden yüksek enerji tüketimine ve üretim kaybına yol açar. Kaçak debisi ölçülmezse gereksiz kompresör kapasitesi kullanılır.","tr":"Vakum sistemlerindeki kaçaklar fark edilmeden yüksek enerji tüketimine ve üretim kaybına yol açar. Kaçak debisi ölçülmezse gereksiz kompresör kapasitesi kullanılır."},
   inputs: [
     { id: "leakRate", label: "Kaçak Debisi", label_i18n: {"en":"Vacuum leak rate","tr":"Kaçak Debisi"}, type: "number", unit: "L/dk", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "", expertMeaning: "Vacuum leak rate", expertMeaning_i18n: {"en":"Vacuum leak rate","tr":"kaçak debisi"} },

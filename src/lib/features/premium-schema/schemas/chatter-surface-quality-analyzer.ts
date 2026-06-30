@@ -5,7 +5,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CHATTER_SCHEMA: PremiumCalculatorSchema = {
   id: "chatter-surface-quality-analyzer", legacyPaidSlug: "chatter-surface-quality-analyzer",
-  name: "Chatter Yüzey Kalite Kaybı Analizi", name_i18n: {"en":"Chatter Yuzey Kalite Kaybi Analizi","tr":"Chatter Yüzey Kalite Kaybı Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  name: "Chatter Yüzey Kalite Kaybı Analizi", name_i18n: {"en":"Chatter Surface Quality Loss Analyzer","tr":"Chatter Yüzey Kalite Kaybı Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
   painStatement: "CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerans dışı parça ve hurda oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar.", painStatement_i18n: {"en":"CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerans dışı parça ve hurda oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar.","tr":"CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerans dışı parça ve hurda oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar."},
   inputs: [
     { id: "cuttingSpeed", label: "Kesme Hızı (V_c)", label_i18n: {"en":"Cutting speed","tr":"Kesme Hızı (V_c)"}, type: "number", unit: "m/dak", required: true, smartDefault: 150, validation: { min: 1 }, helper: "", expertMeaning: "Cutting speed", expertMeaning_i18n: {"en":"Cutting speed","tr":"kesme hızı (v_c)"} },

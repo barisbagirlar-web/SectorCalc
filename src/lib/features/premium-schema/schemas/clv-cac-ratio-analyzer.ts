@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
   id: "clv-cac-ratio-analyzer", legacyPaidSlug: "clv-cac-ratio-analyzer",
-  name: "CLV / CAC Oranı Analizi", name_i18n: {"en":"CLV / CAC Orani Analizi","tr":"CLV / CAC Oranı Analizi"}, sectorSlug: "ecommerce", category: "cost",
+  name: "CLV / CAC Oranı Analizi", name_i18n: {"en":"CLV to CAC Ratio Analyzer","tr":"CLV / CAC Oranı Analizi"}, sectorSlug: "ecommerce", category: "cost",
   painStatement: "Müşteri kazanma maliyeti (CAC) ile yaşam boyu değer (CLV) arasındaki dengesizlik, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar.", painStatement_i18n: {"en":"Müşteri kazanma maliyeti (CAC) ile yaşam boyu değer (CLV) arasındaki dengesizlik, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar.","tr":"Müşteri kazanma maliyeti (CAC) ile yaşam boyu değer (CLV) arasındaki dengesizlik, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar."},
   inputs: [
     { id: "avgOrderValue", label: "Ortalama Sipariş Değeri", label_i18n: {"en":"Average order value (AOV)","tr":"Ortalama Sipariş Değeri"}, type: "number", unit: "USD", required: true, smartDefault: 50, validation: { min: 0.01 }, helper: "", expertMeaning: "Average order value (AOV)", expertMeaning_i18n: {"en":"Average order value (AOV)","tr":"ortalama sipariş değeri"} },

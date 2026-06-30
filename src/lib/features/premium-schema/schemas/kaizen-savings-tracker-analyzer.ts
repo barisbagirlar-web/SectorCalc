@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const KAIZEN_SAVINGS_SCHEMA: PremiumCalculatorSchema = {
   id: "kaizen-savings-tracker-analyzer", legacyPaidSlug: "kaizen-savings-tracker-analyzer",
-  name: "Kaizen Tasarruf Takipçisi & ROI Analizi", name_i18n: {"en":"Kaizen Tasarruf Takipcisi & ROI Analizi","tr":"Kaizen Tasarruf Takipçisi & ROI Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Kaizen Tasarruf Takipçisi & ROI Analizi", name_i18n: {"en":"Kaizen Savings Tracker & ROI Analyzer","tr":"Kaizen Tasarruf Takipçisi & ROI Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik oranı takip edilmezse iyileştirme çabalarının etkisi ölçülemez.", painStatement_i18n: {"en":"Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik oranı takip edilmezse iyileştirme çabalarının etkisi ölçülemez.","tr":"Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik oranı takip edilmezse iyileştirme çabalarının etkisi ölçülemez."},
   inputs: [
     { id: "baselineCost", label: "Baz Maliyet (Önce)", label_i18n: {"en":"Baseline cost per unit","tr":"Baz Maliyet (Önce)"}, type: "number", unit: "USD", required: true, smartDefault: 5.00, validation: { min: 0 }, helper: "", expertMeaning: "Baseline cost per unit", expertMeaning_i18n: {"en":"Baseline cost per unit","tr":"baz maliyet (önce)"} },

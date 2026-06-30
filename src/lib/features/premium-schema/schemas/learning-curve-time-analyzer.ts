@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const LEARNING_CURVE_TIME_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   id: "learning-curve-time-analyzer", legacyPaidSlug: "learning-curve-time-analyzer",
-  name: "Öğrenme Eğrisi ile Süre Analizi", name_i18n: {"en":"ogrenme Egrisi ile Sure Analizi","tr":"Öğrenme Eğrisi ile Süre Analizi"}, sectorSlug: "cnc-manufacturing", category: "time",
+  name: "Öğrenme Eğrisi ile Süre Analizi", name_i18n: {"en":"Learning Curve Time Analyzer","tr":"Öğrenme Eğrisi ile Süre Analizi"}, sectorSlug: "cnc-manufacturing", category: "time",
   painStatement: "Tekrarlı üretimde öğrenme etkisi hesaplanmazsa işçilik süreleri ve maliyetler olduğundan yüksek tahmin edilir.", painStatement_i18n: {"en":"Tekrarlı üretimde öğrenme etkisi hesaplanmazsa işçilik süreleri ve maliyetler olduğundan yüksek tahmin edilir.","tr":"Tekrarlı üretimde öğrenme etkisi hesaplanmazsa işçilik süreleri ve maliyetler olduğundan yüksek tahmin edilir."},
   inputs: [
     { id: "firstUnitTime", label: "İlk Birim Süresi", label_i18n: {"en":"Time for first unit in hours","tr":"İlk Birim Süresi"}, type: "number", unit: "saat", required: true, smartDefault: 100, validation: { min: 0.1 }, helper: "", expertMeaning: "Time for first unit in hours", expertMeaning_i18n: {"en":"Time for first unit in hours","tr":"i̇lk birim süresi"} },

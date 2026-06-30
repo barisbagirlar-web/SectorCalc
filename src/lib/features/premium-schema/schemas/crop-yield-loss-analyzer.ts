@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CROP_YIELD_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "crop-yield-loss-analyzer", legacyPaidSlug: "crop-yield-loss-analyzer",
-  name: "Mahsul Verim Kaybı Analizörü", name_i18n: {"en":"Mahsul Verim Kaybi Analizoru","tr":"Mahsul Verim Kaybı Analizörü"}, sectorSlug: "food", category: "measurement",
+  name: "Mahsul Verim Kaybı Analizörü", name_i18n: {"en":"Crop Yield Loss Analyzer","tr":"Mahsul Verim Kaybı Analizörü"}, sectorSlug: "food", category: "measurement",
   painStatement: "Verim kaybı ve finansal etkisi hesaplanmazsa, tarımsal müdahale kararları gecikir ve kayıp büyür.", painStatement_i18n: {"en":"Verim kaybı ve finansal etkisi hesaplanmazsa, tarımsal müdahale kararları gecikir ve kayıp büyür.","tr":"Verim kaybı ve finansal etkisi hesaplanmazsa, tarımsal müdahale kararları gecikir ve kayıp büyür."},
   inputs: [
     { id: "geneticPotential", label: "Genetik Potansiyel", label_i18n: {"en":"Genetik Potansiyel","tr":"Genetik Potansiyel"}, type: "number", unit: "kg/da", required: true, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Genetic yield potential", expertMeaning_i18n: {"en":"Genetic yield potential","tr":"Genetic yield potential"} },

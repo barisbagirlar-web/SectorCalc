@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FOOD_WASTE_MARGIN_SCHEMA: PremiumCalculatorSchema = {
   id: "food-waste-margin-analyzer", legacyPaidSlug: "food-waste-margin-analyzer",
-  name: "Gıda Fire Marj & Verim Analizi", name_i18n: {"en":"Gida Fire Marj & Verim Analizi","tr":"Gıda Fire Marj & Verim Analizi"}, sectorSlug: "food", category: "cost",
+  name: "Gıda Fire Marj & Verim Analizi", name_i18n: {"en":"Food Waste Margin & Yield Analyzer","tr":"Gıda Fire Marj & Verim Analizi"}, sectorSlug: "food", category: "cost",
   painStatement: "Gıda üretiminde fire, bozulma ve aşırı üretim maliyetleri ayrıştırılmazsa marj kaybının kaynağı tespit edilemez.", painStatement_i18n: {"en":"Gıda üretiminde fire, bozulma ve aşırı üretim maliyetleri ayrıştırılmazsa marj kaybının kaynağı tespit edilemez.","tr":"Gıda üretiminde fire, bozulma ve aşırı üretim maliyetleri ayrıştırılmazsa marj kaybının kaynağı tespit edilemez."},
   inputs: [
     { id: "rawWeight", label: "Giren Ürün Ağırlığı", label_i18n: {"en":"Raw material input weight","tr":"Giren Ürün Ağırlığı"}, type: "number", unit: "kg", required: true, smartDefault: 1000, validation: { min: 0.1 }, helper: "", expertMeaning: "Raw material input weight", expertMeaning_i18n: {"en":"Raw material input weight","tr":"giren ürün ağırlığı"} },

@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
   id: "heat-exchanger-fouling-analyzer", legacyPaidSlug: "heat-exchanger-fouling-analyzer",
-  name: "Isı Değiştirici Fouling & Enerji Kaybı Analizi", name_i18n: {"en":"Isi Degistirici Fouling & Enerji Kaybi Analizi","tr":"Isı Değiştirici Fouling & Enerji Kaybı Analizi"}, sectorSlug: "sheet-metal", category: "energy",
+  name: "Isı Değiştirici Fouling & Enerji Kaybı Analizi", name_i18n: {"en":"Heat Exchanger Fouling & Energy Loss Analyzer","tr":"Isı Değiştirici Fouling & Enerji Kaybı Analizi"}, sectorSlug: "sheet-metal", category: "energy",
   painStatement: "Isı değiştiricide kirlenme (fouling) nedeniyle ısı transfer verimi düşer ve enerji maliyeti artar. Temizlik ROI'si hesaplanmalıdır.", painStatement_i18n: {"en":"Isı değiştiricide kirlenme (fouling) nedeniyle ısı transfer verimi düşer ve enerji maliyeti artar. Temizlik ROI'si hesaplanmalıdır.","tr":"Isı değiştiricide kirlenme (fouling) nedeniyle ısı transfer verimi düşer ve enerji maliyeti artar. Temizlik ROI'si hesaplanmalıdır."},
   inputs: [
     { id: "uClean", label: "U_clean (Temiz)", label_i18n: {"en":"U_clean (Temiz)","tr":"U_clean (Temiz)"}, type: "number", unit: "W/m²K", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Clean overall heat transfer coeff", expertMeaning_i18n: {"en":"Clean overall heat transfer coeff","tr":"Clean overall heat transfer coeff"} },

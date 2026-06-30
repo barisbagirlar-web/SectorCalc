@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "noise-vibration-cost-analyzer", legacyPaidSlug: "noise-vibration-cost-analyzer",
-  name: "Noise & Vibration Maliyet Analizi", name_i18n: {"en":"Noise & Vibration Maliyet Analizi","tr":"Noise & Vibration Maliyet Analizi"}, sectorSlug: "quality", category: "cost",
+  name: "Noise & Vibration Cost Analyzer", name_i18n: {"en":"Noise & Vibration Cost Analyzer","tr":"Noise & Vibration Cost Analyzer"}, sectorSlug: "quality", category: "cost",
   painStatement: "Gürültü ve titreşim maruziyetinin sağlık, verimlilik ve kalite maliyeti hesaplanmazsa iyileştirme yatırımı için fizibilite kurulamaz.", painStatement_i18n: {"en":"Gürültü ve titreşim maruziyetinin sağlık, verimlilik ve kalite maliyeti hesaplanmazsa iyileştirme yatırımı için fizibilite kurulamaz.","tr":"Gürültü ve titreşim maruziyetinin sağlık, verimlilik ve kalite maliyeti hesaplanmazsa iyileştirme yatırımı için fizibilite kurulamaz."},
   inputs: [
     { id: "noiseLevelDb", label: "Gürültü Seviyesi", label_i18n: {"en":"Noise exposure level","tr":"Gürültü Seviyesi"}, type: "number", unit: "dB(A)", required: true, smartDefault: 88, validation: { min: 30, max: 130 }, helper: "", expertMeaning: "Noise exposure level", expertMeaning_i18n: {"en":"Noise exposure level","tr":"gürültü seviyesi"} },

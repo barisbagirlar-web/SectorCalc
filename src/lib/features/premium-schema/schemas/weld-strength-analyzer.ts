@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WELD_STRENGTH_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-strength-analyzer", legacyPaidSlug: "weld-strength-analyzer",
-  name: "Kaynak Mukavemeti Analizi", name_i18n: {"en":"Kaynak Mukavemeti Analizi","tr":"Kaynak Mukavemeti Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  name: "Weld Strength Analyzer", name_i18n: {"en":"Weld Strength Analyzer","tr":"Weld Strength Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
   painStatement: "Kaynak mukavemeti ve güvenlik faktörü hesaplanmazsa, yapısal bütünlük risk altındadır.", painStatement_i18n: {"en":"Kaynak mukavemeti ve güvenlik faktörü hesaplanmazsa, yapısal bütünlük risk altındadır.","tr":"Kaynak mukavemeti ve güvenlik faktörü hesaplanmazsa, yapısal bütünlük risk altındadır."},
   inputs: [
     { id: "leg", label: "Kaynak Ağız Boyu (Leg)", label_i18n: {"en":"Fillet weld leg","tr":"Kaynak Ağız Boyu (Leg)"}, type: "number", unit: "mm", required: true, smartDefault: 6, validation: { min: 1 }, helper: "", expertMeaning: "Fillet weld leg", expertMeaning_i18n: {"en":"Fillet weld leg","tr":"kaynak ağız boyu (leg)"} },

@@ -12,7 +12,7 @@ const CONCRETE_GRADE_OPTIONS = [
 
 export const CONCRETE_VOLUME_SCHEMA: PremiumCalculatorSchema = {
   id: "concrete-volume-cost-analyzer", legacyPaidSlug: "concrete-volume-cost-analyzer",
-  name: "Beton Hacmi & Maliyet Analizi", name_i18n: {"en":"Beton Hacmi & Maliyet Analizi","tr":"Beton Hacmi & Maliyet Analizi"}, sectorSlug: "construction", category: "measurement",
+  name: "Concrete Volume & Cost Analyzer", name_i18n: {"en":"Concrete Volume & Cost Analyzer","tr":"Concrete Volume & Cost Analyzer"}, sectorSlug: "construction", category: "measurement",
   painStatement: "Şantiyelerde beton hacmi elle hesaplanırken fire, pompa ve tesviye maliyetleri sıklıkla gözden kaçar. Bu araç geometrik hacim + waste + maliyeti tek adımda hesaplar.", painStatement_i18n: {"en":"Şantiyelerde beton hacmi elle hesaplanırken fire, pompa ve tesviye maliyetleri sıklıkla gözden kaçar. Bu araç geometrik hacim + waste + maliyeti tek adımda hesaplar.","tr":"Şantiyelerde beton hacmi elle hesaplanırken fire, pompa ve tesviye maliyetleri sıklıkla gözden kaçar. Bu araç geometrik hacim + waste + maliyeti tek adımda hesaplar."},
   inputs: [
     { id: "slabLength", label: "Döşeme Uzunluğu", label_i18n: {"en":"Slab length","tr":"Döşeme Uzunluğu"}, type: "number", unit: "m", required: false, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Slab length", expertMeaning_i18n: {"en":"Slab length","tr":"döşeme uzunluğu"} },

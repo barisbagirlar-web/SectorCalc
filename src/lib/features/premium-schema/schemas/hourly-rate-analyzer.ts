@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const HOURLY_RATE_ANALYZER: PremiumCalculatorSchema = {
   id: "hourly-rate-analyzer", legacyPaidSlug: "hourly-rate-analyzer",
-  name: "Saatlik Ücret Analizi", name_i18n: {"en":"Saatlik ucret Analizi","tr":"Saatlik Ücret Analizi"}, sectorSlug: "financial-planning", category: "cost",
+  name: "Saatlik Ücret Analizi", name_i18n: {"en":"Hourly Rate Analyzer","tr":"Saatlik Ücret Analizi"}, sectorSlug: "financial-planning", category: "cost",
   painStatement: "Çalışanın gerçek saatlik maliyeti brüt maaşın çok üzerindedir; yan haklar, vergiler ve dolaylı giderler hesaba katılmazsa fiyatlama zarar eder.", painStatement_i18n: {"en":"Çalışanın gerçek saatlik maliyeti brüt maaşın çok üzerindedir; yan haklar, vergiler ve dolaylı giderler hesaba katılmazsa fiyatlama zarar eder.","tr":"Çalışanın gerçek saatlik maliyeti brüt maaşın çok üzerindedir; yan haklar, vergiler ve dolaylı giderler hesaba katılmazsa fiyatlama zarar eder."},
   inputs: [
     { id: "grossSalary", label: "Brüt Aylık Maaş", label_i18n: {"en":"Gross monthly salary","tr":"Brüt Aylık Maaş"}, type: "number", unit: "USD", required: true, smartDefault: 4000, validation: { min: 1 }, helper: "", expertMeaning: "Gross monthly salary", expertMeaning_i18n: {"en":"Gross monthly salary","tr":"brüt aylık maaş"} },

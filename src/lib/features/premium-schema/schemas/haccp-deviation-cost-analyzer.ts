@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const HACCP_DEVIATION_SCHEMA: PremiumCalculatorSchema = {
   id: "haccp-deviation-cost-analyzer", legacyPaidSlug: "haccp-deviation-cost-analyzer",
-  name: "HACCP Sapma Maliyet & RPN Analizi", name_i18n: {"en":"HACCP Sapma Maliyet & RPN Analizi","tr":"HACCP Sapma Maliyet & RPN Analizi"}, sectorSlug: "food", category: "cost",
+  name: "HACCP Deviation Cost & RPN Analyzer", name_i18n: {"en":"HACCP Deviation Cost & RPN Analyzer","tr":"HACCP Deviation Cost & RPN Analyzer"}, sectorSlug: "food", category: "cost",
   painStatement: "HACCP sapmalarının maliyeti (bekletme, test, rework, geri çağırma) hesaplanmazsa gıda güvenliği yatırım öncelikleri yanlış belirlenir.", painStatement_i18n: {"en":"HACCP sapmalarının maliyeti (bekletme, test, rework, geri çağırma) hesaplanmazsa gıda güvenliği yatırım öncelikleri yanlış belirlenir.","tr":"HACCP sapmalarının maliyeti (bekletme, test, rework, geri çağırma) hesaplanmazsa gıda güvenliği yatırım öncelikleri yanlış belirlenir."},
   inputs: [
     { id: "quarantineVolume", label: "Karantina Hacmi", label_i18n: {"en":"Karantina Hacmi","tr":"Karantina Hacmi"}, type: "number", unit: "kg", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Quarantined product volume", expertMeaning_i18n: {"en":"Quarantined product volume","tr":"Quarantined product volume"} },

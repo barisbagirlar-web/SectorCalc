@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
   id: "energy-consumption-report-analyzer", legacyPaidSlug: "energy-consumption-report-analyzer",
-  name: "Enerji Tüketim Raporu & PF Analizi", name_i18n: {"en":"Enerji Tuketim Raporu & PF Analizi","tr":"Enerji Tüketim Raporu & PF Analizi"}, sectorSlug: "sheet-metal", category: "energy",
+  name: "Enerji Tüketim Raporu & PF Analizi", name_i18n: {"en":"Energy Consumption Report & PF Analyzer","tr":"Enerji Tüketim Raporu & PF Analizi"}, sectorSlug: "sheet-metal", category: "energy",
   painStatement: "Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar.", painStatement_i18n: {"en":"Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar.","tr":"Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar."},
   inputs: [
     { id: "activeKwh", label: "Aktif Tüketim (kWh)", label_i18n: {"en":"Active energy consumption","tr":"Aktif Tüketim (kWh)"}, type: "number", unit: "kWh", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption","tr":"aktif tüketim (kwh)"} },

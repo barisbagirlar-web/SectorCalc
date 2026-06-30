@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DEMAND_FORECAST_STOCK_SCHEMA: PremiumCalculatorSchema = {
   id: "demand-forecast-stock-analyzer", legacyPaidSlug: "demand-forecast-stock-analyzer",
-  name: "Talep Tahmini Stok Maliyeti", name_i18n: {"en":"Talep Tahmini Stok Maliyeti","tr":"Talep Tahmini Stok Maliyeti"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "Demand Forecast Stock Cost Analyzer", name_i18n: {"en":"Demand Forecast Stock Cost Analyzer","tr":"Demand Forecast Stock Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "Talep tahmini sapmaları ya stok fazlası taşıma maliyetine ya da stok dışı satış kaybına neden olur.", painStatement_i18n: {"en":"Talep tahmini sapmaları ya stok fazlası taşıma maliyetine ya da stok dışı satış kaybına neden olur.","tr":"Talep tahmini sapmaları ya stok fazlası taşıma maliyetine ya da stok dışı satış kaybına neden olur."},
   inputs: [
     { id: "actualDemand", label: "Gerçekleşen Talep", label_i18n: {"en":"Actual realized demand","tr":"Gerçekleşen Talep"}, type: "number", unit: "adet/dönem", required: true, smartDefault: 1000, validation: { min: 1 }, helper: "", expertMeaning: "Actual realized demand", expertMeaning_i18n: {"en":"Actual realized demand","tr":"gerçekleşen talep"} },

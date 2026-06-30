@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "freight-cost-analyzer", legacyPaidSlug: "freight-cost-analyzer",
-  name: "Navlun Maliyeti Analizi", name_i18n: {"en":"Navlun Maliyeti Analizi","tr":"Navlun Maliyeti Analizi"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "Freight Cost Analyzer", name_i18n: {"en":"Freight Cost Analyzer","tr":"Freight Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "Navlun maliyetinde ağırlık, bunker, terminal ve gümrük kalemleri ayrı hesaplanmazsa gerçek lojistik maliyeti gizli kalır.", painStatement_i18n: {"en":"Navlun maliyetinde ağırlık, bunker, terminal ve gümrük kalemleri ayrı hesaplanmazsa gerçek lojistik maliyeti gizli kalır.","tr":"Navlun maliyetinde ağırlık, bunker, terminal ve gümrük kalemleri ayrı hesaplanmazsa gerçek lojistik maliyeti gizli kalır."},
   inputs: [
     { id: "grossWeight", label: "Brüt Ağırlık", label_i18n: {"en":"Gross weight in kg","tr":"Brüt Ağırlık"}, type: "number", unit: "kg", required: true, smartDefault: 1500, validation: { min: 0.1 }, helper: "", expertMeaning: "Gross weight in kg", expertMeaning_i18n: {"en":"Gross weight in kg","tr":"brüt ağırlık"} },

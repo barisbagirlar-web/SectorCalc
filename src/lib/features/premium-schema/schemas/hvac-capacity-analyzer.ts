@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const HVAC_CAPACITY_SCHEMA: PremiumCalculatorSchema = {
   id: "hvac-capacity-analyzer", legacyPaidSlug: "hvac-capacity-analyzer",
-  name: "HVAC Kapasite & Enerji Maliyet Analizi", name_i18n: {"en":"HVAC Kapasite & Enerji Maliyet Analizi","tr":"HVAC Kapasite & Enerji Maliyet Analizi"}, sectorSlug: "construction", category: "measurement",
+  name: "HVAC Capacity & Energy Cost Analyzer", name_i18n: {"en":"HVAC Capacity & Energy Cost Analyzer","tr":"HVAC Capacity & Energy Cost Analyzer"}, sectorSlug: "construction", category: "measurement",
   painStatement: "HVAC kapasite hesabı (duyulur/gizli ısı, tonaj, EER) yapılmadan doğru klima sistemi seçimi ve enerji maliyeti tahmini mümkün değildir.", painStatement_i18n: {"en":"HVAC kapasite hesabı (duyulur/gizli ısı, tonaj, EER) yapılmadan doğru klima sistemi seçimi ve enerji maliyeti tahmini mümkün değildir.","tr":"HVAC kapasite hesabı (duyulur/gizli ısı, tonaj, EER) yapılmadan doğru klima sistemi seçimi ve enerji maliyeti tahmini mümkün değildir."},
   inputs: [
     { id: "cfm", label: "Hava Debisi (CFM)", label_i18n: {"en":"Hava Debisi (CFM)","tr":"Hava Debisi (CFM)"}, type: "number", unit: "cfm", required: true, smartDefault: 2000, validation: { min: 1 }, helper: "", expertMeaning: "Air flow in CFM", expertMeaning_i18n: {"en":"Air flow in CFM","tr":"Air flow in CFM"} },

@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
   id: "renewable-energy-irr-analyzer", legacyPaidSlug: "renewable-energy-irr-analyzer",
-  name: "Yenilenebilir Enerji IRR Analizi", name_i18n: {"en":"Yenilenebilir Enerji IRR Analizi","tr":"Yenilenebilir Enerji IRR Analizi"}, sectorSlug: "energy-carbon", category: "cost",
+  name: "Renewable Energy IRR Analyzer", name_i18n: {"en":"Renewable Energy IRR Analyzer","tr":"Renewable Energy IRR Analyzer"}, sectorSlug: "energy-carbon", category: "cost",
   painStatement: "Yenilenebilir enerji yatırımlarında IRR, NPV ve LCOE hesaplanmazsa yatırımın gerçek getirisi ve fizibilitesi bilinemez. Yanlış kararlar büyük sermaye kaybına yol açar.", painStatement_i18n: {"en":"Without calculating IRR, NPV, and LCOE for renewable energy investments, the true return and feasibility remain unknown. Wrong decisions lead to significant capital loss.","tr":"Yenilenebilir enerji yatırımlarında IRR, NPV ve LCOE hesaplanmazsa yatırımın gerçek getirisi ve fizibilitesi bilinemez. Yanlış kararlar büyük sermaye kaybına yol açar."},
   inputs: [
     { id: "installationCost", label: "Kurulum Maliyeti", label_i18n: {"en":"Installation Cost","tr":"Kurulum Maliyeti"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1000 }, helper: "", expertMeaning: "Total installation cost", expertMeaning_i18n: {"en":"Total installation cost","tr":"Toplam kurulum maliyeti"} },

@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const GAGE_RNR_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "gage-rnr-cost-analyzer", legacyPaidSlug: "gage-rnr-cost-analyzer",
-  name: "Gage R&R & Ölçüm Hata Maliyet Analizi", name_i18n: {"en":"Gage R&R & olcum Hata Maliyet Analizi","tr":"Gage R&R & Ölçüm Hata Maliyet Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  name: "Gage R&R & Ölçüm Hata Maliyet Analizi", name_i18n: {"en":"Gage R&R & Measurement Error Cost Analyzer","tr":"Gage R&R & Ölçüm Hata Maliyet Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
   painStatement: "Ölçüm sistemi R&R değeri yüksekse yanlış kabul/red kararları ciddi maliyet kayıplarına yol açar.", painStatement_i18n: {"en":"Ölçüm sistemi R&R değeri yüksekse yanlış kabul/red kararları ciddi maliyet kayıplarına yol açar.","tr":"Ölçüm sistemi R&R değeri yüksekse yanlış kabul/red kararları ciddi maliyet kayıplarına yol açar."},
   inputs: [
     { id: "ev", label: "EV (Ekipman Varyansı)", label_i18n: {"en":"Equipment variation","tr":"EV (Ekipman Varyansı)"}, type: "number", unit: "", required: true, smartDefault: 0.005, validation: { min: 0 }, helper: "", expertMeaning: "Equipment variation", expertMeaning_i18n: {"en":"Equipment variation","tr":"ev (ekipman varyansı)"} },

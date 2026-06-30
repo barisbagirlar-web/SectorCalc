@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
   id: "wps-preheat-temperature-analyzer", legacyPaidSlug: "wps-preheat-temperature-analyzer",
-  name: "WPS Ön Isıtma Sıcaklık Analizi", name_i18n: {"en":"WPS on Isitma Sicaklik Analizi","tr":"WPS Ön Isıtma Sıcaklık Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  name: "WPS Ön Isıtma Sıcaklık Analizi", name_i18n: {"en":"WPS Preheat Temperature Analyzer","tr":"WPS Ön Isıtma Sıcaklık Analizi"}, sectorSlug: "cnc-manufacturing", category: "measurement",
   painStatement: "Kaynak öncesi ön ısıtma sıcaklığı doğru hesaplanmazsa çatlama riski artar ve enerji maliyeti yükselir. Karbon eşdeğeri ve malzeme kalınlığına göre optimum sıcaklık belirlenmelidir.", painStatement_i18n: {"en":"Kaynak öncesi ön ısıtma sıcaklığı doğru hesaplanmazsa çatlama riski artar ve enerji maliyeti yükselir. Karbon eşdeğeri ve malzeme kalınlığına göre optimum sıcaklık belirlenmelidir.","tr":"Kaynak öncesi ön ısıtma sıcaklığı doğru hesaplanmazsa çatlama riski artar ve enerji maliyeti yükselir. Karbon eşdeğeri ve malzeme kalınlığına göre optimum sıcaklık belirlenmelidir."},
   inputs: [
     { id: "carbonContent", label: "Karbon Oranı", label_i18n: {"en":"Carbon percentage in material","tr":"Karbon Oranı"}, type: "number", unit: "%", required: true, smartDefault: 0.2, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Carbon percentage in material", expertMeaning_i18n: {"en":"Carbon percentage in material","tr":"karbon oranı"} },

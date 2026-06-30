@@ -18,7 +18,7 @@ const TAX_COUNTRY_OPTIONS = [
 
 export const VEHICLE_DEPRECIATION_SCHEMA: PremiumCalculatorSchema = {
   id: "vehicle-depreciation-tco-analyzer", legacyPaidSlug: "vehicle-depreciation-tco-analyzer",
-  name: "Araç Amortismanı & TCO Analizi", name_i18n: {"en":"Arac Amortismani & TCO Analizi","tr":"Araç Amortismanı & TCO Analizi"}, sectorSlug: "logistics-transport", category: "cost",
+  name: "Araç Amortismanı & TCO Analizi", name_i18n: {"en":"Vehicle Depreciation & TCO Analyzer","tr":"Araç Amortismanı & TCO Analizi"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "Filo yatırımlarında amortisman yöntemi seçimi ve TCO hesabı yapılmazsa vergi avantajı kaçırılır, nakit akışı yanlış modellenir.", painStatement_i18n: {"en":"Filo yatırımlarında amortisman yöntemi seçimi ve TCO hesabı yapılmazsa vergi avantajı kaçırılır, nakit akışı yanlış modellenir.","tr":"Filo yatırımlarında amortisman yöntemi seçimi ve TCO hesabı yapılmazsa vergi avantajı kaçırılır, nakit akışı yanlış modellenir."},
   inputs: [
     { id: "acquisitionCost", label: "Edinme Bedeli", label_i18n: {"en":"Edinme Bedeli","tr":"Edinme Bedeli"}, type: "number", unit: "USD", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Purchase price incl. taxes", expertMeaning_i18n: {"en":"Purchase price incl. taxes","tr":"Purchase price incl. taxes"} },

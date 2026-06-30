@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CPM_DELAY_SCHEMA: PremiumCalculatorSchema = {
   id: "cpm-delay-penalty-analyzer", legacyPaidSlug: "cpm-delay-penalty-analyzer",
-  name: "CPM Gecikme Cezası & EOT Talep Analizi", name_i18n: {"en":"CPM Gecikme Cezasi & EOT Talep Analizi","tr":"CPM Gecikme Cezası & EOT Talep Analizi"}, sectorSlug: "construction", category: "cost",
+  name: "CPM Gecikme Cezası & EOT Talep Analizi", name_i18n: {"en":"CPM Delay Penalty & EOT Claim Analyzer","tr":"CPM Gecikme Cezası & EOT Talep Analizi"}, sectorSlug: "construction", category: "cost",
   painStatement: "İnşaat projelerinde gecikme cezaları ve EOT talepleri doğru hesaplanmazsa taşeron ve ana yüklenici arasında uyuşmazlık kaçınılmazdır.", painStatement_i18n: {"en":"İnşaat projelerinde gecikme cezaları ve EOT talepleri doğru hesaplanmazsa taşeron ve ana yüklenici arasında uyuşmazlık kaçınılmazdır.","tr":"İnşaat projelerinde gecikme cezaları ve EOT talepleri doğru hesaplanmazsa taşeron ve ana yüklenici arasında uyuşmazlık kaçınılmazdır."},
   inputs: [
     { id: "plannedDuration", label: "Planlanan Süre", label_i18n: {"en":"Planned project duration","tr":"Planlanan Süre"}, type: "number", unit: "gün", required: true, smartDefault: 200, validation: { min: 1 }, helper: "", expertMeaning: "Planned project duration", expertMeaning_i18n: {"en":"Planned project duration","tr":"planlanan süre"} },

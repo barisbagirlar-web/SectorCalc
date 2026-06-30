@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-volume-cost-analyzer", legacyPaidSlug: "weld-volume-cost-analyzer",
-  name: "Kaynak Hacmi ve Maliyeti", name_i18n: {"en":"Kaynak Hacmi ve Maliyeti","tr":"Kaynak Hacmi ve Maliyeti"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Weld Volume & Cost Analyzer", name_i18n: {"en":"Weld Volume & Cost Analyzer","tr":"Weld Volume & Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur.", painStatement_i18n: {"en":"Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur.","tr":"Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur."},
   inputs: [
     { id: "leg", label: "Kaynak Ağız Boyu (Leg)", label_i18n: {"en":"Fillet weld leg size","tr":"Kaynak Ağız Boyu (Leg)"}, type: "number", unit: "mm", required: true, smartDefault: 6, validation: { min: 1 }, helper: "", expertMeaning: "Fillet weld leg size", expertMeaning_i18n: {"en":"Fillet weld leg size","tr":"kaynak ağız boyu (leg)"} },

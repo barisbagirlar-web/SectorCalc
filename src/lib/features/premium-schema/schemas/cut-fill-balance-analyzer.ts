@@ -1,7 +1,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CUT_FILL_BALANCE_SCHEMA: PremiumCalculatorSchema = {
   id: "cut-fill-balance-analyzer", legacyPaidSlug: "cut-fill-balance-analyzer",
-  name: "Kesme-Dolgu Denge Analizi", name_i18n: {"en":"Kesme-Dolgu Denge Analizi","tr":"Kesme-Dolgu Denge Analizi"}, sectorSlug: "construction", category: "measurement",
+  name: "Cut and Fill Balance Analyzer", name_i18n: {"en":"Cut and Fill Balance Analyzer","tr":"Cut and Fill Balance Analyzer"}, sectorSlug: "construction", category: "measurement",
   painStatement: "Kazı-dolgu dengesi hesaplanmazsa, fazla hafriyat veya ödünç malzeme maliyeti kontrol edilemez.", painStatement_i18n: {"en":"Kazı-dolgu dengesi hesaplanmazsa, fazla hafriyat veya ödünç malzeme maliyeti kontrol edilemez.","tr":"Kazı-dolgu dengesi hesaplanmazsa, fazla hafriyat veya ödünç malzeme maliyeti kontrol edilemez."},
   inputs: [
     { id: "cutVolume", label: "Kazı Hacmi", label_i18n: {"en":"Total cut volume","tr":"Kazı Hacmi"}, type: "number", unit: "m³", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Total cut volume", expertMeaning_i18n: {"en":"Total cut volume","tr":"kazı hacmi"} },
