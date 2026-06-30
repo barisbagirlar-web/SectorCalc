@@ -652,8 +652,9 @@ export function FmeaRpnPageContent() {
           {/* PREMIUM SCHEMA CALCULATOR INJECTED EXTERNALLY */}
           <SectionTitle>Calculate FMEA Risk Priority Number</SectionTitle>
           <SectionSubtitle>
-            Use your organization&apos;s approved FMEA rating tables when available. If no internal table
+            Use your organization&apos;s approved FMEA rating tables when available. If no internal table exists, use the standard 1-10 scales for severity, occurrence, and detection.
           </SectionSubtitle>
+          
           <div className="mt-4 border-l-2 border-border-subtle pl-3">
             <p className="text-xs font-semibold uppercase tracking-wider text-body-charcoal">
               RPN = S × O × D
