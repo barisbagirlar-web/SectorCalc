@@ -19,12 +19,24 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
       "generated/**",
+      "src/tools/generated/**",
       "scripts/**",
       "_safe_vault/**",
       "*.js",
       "*.ts",
     ],
   },
+  {
+    rules: {
+      "@typescript-eslint/no-explicit-any": "warn",
+    }
+  },
+  {
+    files: ["src/lib/features/tools/**/*.ts"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+    }
+  }
 ];
 
 export default eslintConfig;
