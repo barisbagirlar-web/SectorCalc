@@ -9,18 +9,18 @@ import {
   resolveCaseStudySavingsEur,
   type CaseStudyDatabaseFilters,
   type CaseStudySavingsBand,
-} from "@/lib/case-studies/academic-database";
+} from "@/lib/features/case-studies/academic-database";
 import {
   buildCaseStudyIndexJsonLd,
   buildCaseStudyIndexSummaryLine,
-} from "@/lib/case-studies/case-study-seo";
-import { listMergedPublishedCaseStudies } from "@/lib/case-studies/firestore-case-studies";
+} from "@/lib/features/case-studies/case-study-seo";
+import { listMergedPublishedCaseStudies } from "@/lib/features/case-studies/firestore-case-studies";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
-import type { SupportedLocale } from "@/lib/i18n/locale-config";
-import { addLocaleToPath } from "@/lib/i18n/locale-routing";
-import { getLocalizedDuration } from "@/lib/case-studies/academic-format";
+import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
+import { addLocaleToPath } from "@/lib/infrastructure/i18n/locale-routing";
+import { getLocalizedDuration } from "@/lib/features/case-studies/academic-format";
 import "@/styles/academic-case-studies-database.css";
 
 export const revalidate = 86400;

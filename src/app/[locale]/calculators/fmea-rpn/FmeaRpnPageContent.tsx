@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";

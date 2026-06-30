@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
-import type { ResolvedReferenceGraphic } from "@/lib/guidance/reference-graphic-types";
+import type { ResolvedReferenceGraphic } from "@/lib/content/guidance/reference-graphic-types";
 
 type GuidanceContextValue = {
   readonly activeFieldKey: string | null;

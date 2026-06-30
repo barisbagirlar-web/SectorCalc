@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import type { VerifyReportPublicResult } from "@/lib/trust-trace/types";
+import type { VerifyReportPublicResult } from "@/lib/features/trust-trace/types";
 
 type VerifyReportApiResponse =
   | VerifyReportPublicResult

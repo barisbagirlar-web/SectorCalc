@@ -5,8 +5,8 @@ import {
  buildLeadEmailMessage,
  buildLeadInternalNote,
  buildLeadWhatsappMessage,
-} from "@/lib/leads/lead-copy-actions";
-import type { LeadIntent } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-copy-actions";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 type CopyTarget = "whatsapp" | "email" | "internal";
 

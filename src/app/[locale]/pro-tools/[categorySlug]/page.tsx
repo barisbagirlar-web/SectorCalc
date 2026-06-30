@@ -8,14 +8,14 @@ import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
   getPremiumCatalogCategoryDetail,
   listPremiumCatalogCategorySlugs,
-} from "@/lib/premium/premium-category-resolver";
+} from "@/lib/features/premium/premium-category-resolver";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {

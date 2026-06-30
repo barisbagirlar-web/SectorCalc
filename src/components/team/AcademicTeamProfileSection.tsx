@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import type { AcademicReference } from "@/lib/seo/academic-references";
+import type { AcademicReference } from "@/lib/infrastructure/seo/academic-references";
 
 export type AcademicTeamProfileSectionProps = {
   readonly profile: AcademicReference;

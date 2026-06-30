@@ -4,15 +4,15 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import { TrustBadgeStrip } from "@/components/billing/TrustBadgeStrip";
-import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
+import { startCheckoutRedirect } from "@/lib/features/billing/start-checkout";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
+} from "@/lib/infrastructure/analytics/revenue-events";
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
+} from "@/lib/infrastructure/analytics/events";
 import { SINGLE_VERDICT_CTA } from "@/lib/pricing/plan-catalog";
 
 interface SingleVerdictCheckoutButtonProps {

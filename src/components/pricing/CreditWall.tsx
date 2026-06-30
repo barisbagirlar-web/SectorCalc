@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { usePaddle } from '@/lib/paddle-provider'
-import { PLANS } from '@/lib/plans'
+import { usePaddle } from '@/lib/ui-shared/paddle-provider'
+import { PLANS } from '@/lib/features/plans'
 
 interface Props {
   toolName: string

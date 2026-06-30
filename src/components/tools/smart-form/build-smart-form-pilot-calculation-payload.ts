@@ -22,8 +22,8 @@ import {
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
   WELDING_COST_PILOT_GOVERNANCE_SLUG,
   getPilotMappedSubmitKeys,
-} from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
-import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import type { SmartFormUiBridgeManifest } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 
 export type BuildSmartFormPilotCalculationPayloadParams = {
   readonly slug: string;

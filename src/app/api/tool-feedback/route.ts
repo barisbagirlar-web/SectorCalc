@@ -8,7 +8,7 @@ import {
   getToolFeedbackMailEnv,
   sendToolFeedbackMail,
   type ToolFeedbackTier,
-} from "@/lib/notifications/tool-feedback-mail";
+} from "@/lib/ui-shared/notifications/tool-feedback-mail";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

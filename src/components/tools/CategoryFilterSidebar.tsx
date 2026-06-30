@@ -3,8 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
-import { cn } from "@/lib/cn";
-import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
+import { cn } from "@/lib/core/cn";
+import { scrollToToolsList } from "@/lib/ui-shared/navigation/scroll-to-tools-list";
 
 export type CategoryFilterItem = {
   readonly slug: string;

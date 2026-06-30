@@ -5,7 +5,7 @@
  */
 "use client";
 
-import type { ToolSchemaFormula, ToolSchemaValidationRule } from "@/lib/tool-schemas/types";
+import type { ToolSchemaFormula, ToolSchemaValidationRule } from "@/lib/features/tool-schemas/types";
 
 interface UniversalProToolFormulasProps {
   tool: any;

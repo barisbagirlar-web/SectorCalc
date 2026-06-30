@@ -1,13 +1,13 @@
-import { getFormulaSourceAuditStatus } from "@/lib/formula-governance/formula-source-audit-registry";
+import { getFormulaSourceAuditStatus } from "@/lib/features/formula-governance/formula-source-audit-registry";
 import {
   canShowFormulaGateApproved,
   evaluateRuntimeTrust,
-} from "@/lib/tools/runtime-trust-engine";
+} from "@/lib/features/tools/runtime-trust-engine";
 import { CheckCircle2 } from "lucide-react";
 import {
   getFormulaGateVerifiedLabel,
   getFormulaGateVerifiedTitle,
-} from "@/lib/formula-governance/formula-gate-copy";
+} from "@/lib/features/formula-governance/formula-gate-copy";
 
 type Props = {
   slug: string;

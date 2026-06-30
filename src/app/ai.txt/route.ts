@@ -1,5 +1,5 @@
-import { buildAiToolIndexDocument } from "@/lib/ai/build-ai-index-export";
-import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
+import { buildAiToolIndexDocument } from "@/lib/features/ai/build-ai-index-export";
+import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";

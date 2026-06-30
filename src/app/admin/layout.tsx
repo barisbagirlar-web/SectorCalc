@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { AdminLocaleProvider } from "@/lib/admin/admin-locale-context";
-import { LOCALE_COOKIE, isSupportedLocale, ROOT_LOCALE, type SupportedLocale } from "@/lib/i18n/locale-config";
+import { AdminLocaleProvider } from "@/lib/features/admin/admin-locale-context";
+import { LOCALE_COOKIE, isSupportedLocale, ROOT_LOCALE, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import "../site-styles";
 import "../globals.css";
 

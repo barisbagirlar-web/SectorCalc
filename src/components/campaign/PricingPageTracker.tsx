@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 
 export function PricingPageTracker() {
   const locale = useLocale();

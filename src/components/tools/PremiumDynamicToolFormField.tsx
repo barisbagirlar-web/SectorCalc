@@ -3,14 +3,14 @@
 import type { Control, FieldErrors } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import {
   getGeneratedInputUnitOptions,
   shouldShowGeneratedUnitSelector,
-} from "@/lib/generated-tools/unit-conversion";
-import type { GeneratedToolInput } from "@/lib/generated-tools/types";
-import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
-import { translateZodErrorMessage } from "@/lib/i18n/zod-error-translate";
+} from "@/lib/features/generated-tools/unit-conversion";
+import type { GeneratedToolInput } from "@/lib/features/generated-tools/types";
+import { resolveLocalizedGeneratedSelectOptions } from "@/lib/features/generated-tools/select-options";
+import { translateZodErrorMessage } from "@/lib/infrastructure/i18n/zod-error-translate";
 import { useLocale, useTranslations } from "next-intl";
 import { FitText } from "@/components/ui/FitText";
 

@@ -8,7 +8,7 @@ import {
  isValidToolTier,
 } from "@/data/tool-definitions";
 import type { ToolSlug } from "@/data/tools";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 interface ToolPageParams {
  tier: string;

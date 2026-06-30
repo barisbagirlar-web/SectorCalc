@@ -1,6 +1,6 @@
 import { ResultCard } from "@/components/tools/ResultCard";
 import type { ToolResult } from "@/data/tool-schema";
-import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import { MARGINCORE_TERMS } from "@/lib/content/terminology/margincore-identity";
 
 interface ToolResultPanelProps {
  results: ToolResult[];

@@ -5,7 +5,7 @@ import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { HubLink } from "@/components/layout/HubLink";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { SemanticSummary } from "@/components/seo/SemanticSummary";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import {
   listSectorRegistryKeys,
   MANUFACTURING_OS_I18N_NS,

@@ -1,6 +1,6 @@
-import Link from "@/lib/navigation/next-link";
-import { revenueTools } from "@/lib/tools/revenue-tools";
-import { getFreeToolHref } from "@/lib/tools/tool-links";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import { revenueTools } from "@/lib/features/tools/revenue-tools";
+import { getFreeToolHref } from "@/lib/features/tools/tool-links";
 
 export function FreeToolsQuickLinks() {
  return (

@@ -4,20 +4,20 @@ import {
   type GlobalToolCategorySlug,
 } from "@/lib/catalog/global-tool-category-taxonomy";
 import { resolveToolCategory, MANUAL_CATEGORY_OVERRIDES, type ToolCategoryResolutionInput } from "@/lib/catalog/resolve-tool-category";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
-import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
+import type { FreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
+import { getFormulaContractBySlug } from "@/lib/features/formula-governance/contracts";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
-import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
+import { resolveFreeToolLocalizedCopy } from "@/lib/infrastructure/i18n/free-tool-i18n";
 import {
   CANONICAL_FREE_SLUGS,
   CANONICAL_PREMIUM_SLUGS,
   CANONICAL_TRAFFIC_FREE_SLUGS,
   humanizeCanonicalSlug,
-} from "@/lib/tools/canonical-tool-slugs";
+} from "@/lib/features/tools/canonical-tool-slugs";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
-import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
-import { getPremium152Tools } from "@/lib/premium/premium-152-seed-reader";
-import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
+import { getRevenueToolByFreeSlug } from "@/lib/features/tools/revenue-tools";
+import { getPremium152Tools } from "@/lib/features/premium/premium-152-seed-reader";
+import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 
 /** Premium 152 batch 1 — schema-backed routes with verified trust chain. */
 const PREMIUM_152_ACTIVE_BATCH_SLUGS: ReadonlySet<string> = new Set([

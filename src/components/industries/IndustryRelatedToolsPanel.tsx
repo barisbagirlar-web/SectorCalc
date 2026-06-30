@@ -3,8 +3,8 @@ import { Link } from "@/i18n/routing";
 import { IndustryCalculatorCardList } from "@/components/industries/IndustryCalculatorCardList";
 import { EmptyIndustryToolsState } from "@/components/industries/EmptyIndustryToolsState";
 import { Container } from "@/components/ui/Container";
-import { resolveIndustryTools } from "@/lib/industries/resolve-industry-tools";
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import { resolveIndustryTools } from "@/lib/features/industries/resolve-industry-tools";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 
 type IndustryRelatedToolsPanelProps = {
   readonly industrySlug: IndustrySlug;

@@ -7,16 +7,16 @@ import { AcademicRepresentativeCaseStudyRecord } from "@/components/case-studies
 import {
   getCaseStudyBySlug,
   listAllCaseStudySlugs,
-} from "@/lib/case-studies/case-study-registry";
-import { resolveCaseStudyPageDescription } from "@/lib/case-studies/case-study-seo";
+} from "@/lib/features/case-studies/case-study-registry";
+import { resolveCaseStudyPageDescription } from "@/lib/features/case-studies/case-study-seo";
 import {
   getPublishedCaseStudyBySlug,
   isPublishedCaseStudySlug,
-} from "@/lib/case-studies/published-case-study-locale";
-import { resolvePublishedCaseStudyBySlug } from "@/lib/case-studies/firestore-case-studies";
-import { createPageMetadata } from "@/lib/metadata";
+} from "@/lib/features/case-studies/published-case-study-locale";
+import { resolvePublishedCaseStudyBySlug } from "@/lib/features/case-studies/firestore-case-studies";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { locales, type AppLocale } from "@/i18n/routing";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import "@/styles/academic-case-studies-database.css";
 
 export const revalidate = 60;

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ToolInput } from "@/data/tool-schema";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 
 export type ToolInputVariant = "underline" | "boxed";
 

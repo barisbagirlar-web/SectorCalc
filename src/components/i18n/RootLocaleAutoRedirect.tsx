@@ -7,14 +7,14 @@ import {
   readLocaleCookie,
   readManualLocaleCookie,
   setLocaleCookie,
-} from "@/lib/i18n/locale-client";
+} from "@/lib/infrastructure/i18n/locale-client";
 import {
   GEO_BOOTSTRAP_SESSION_KEY,
   resolveBootstrapTargetLocale,
   buildPrefixedLocalePath,
   isPrefixedLocalePathname,
-} from "@/lib/i18n/geo-locale-bootstrap";
-import { ROOT_LOCALE, type SupportedLocale } from "@/lib/i18n/locale-routing";
+} from "@/lib/infrastructure/i18n/geo-locale-bootstrap";
+import { ROOT_LOCALE, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-routing";
 
 /**
  * Secondary fallback when head bootstrap did not run (SPA navigation, storage blocked).

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { isAuthRequiredBrowserPath } from "@/lib/auth/auth-required-path";
-import { warmUserSubscriptionStore } from "@/lib/billing/use-user-subscription";
+import { isAuthRequiredBrowserPath } from "@/lib/features/auth/auth-required-path";
+import { warmUserSubscriptionStore } from "@/lib/features/billing/use-user-subscription";
 
 function scheduleIdleWarm(task: () => void, delayMs: number): () => void {
   if (typeof window.requestIdleCallback === "function") {

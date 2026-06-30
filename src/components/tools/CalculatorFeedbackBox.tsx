@@ -9,8 +9,8 @@ import {
   type CalculatorFeedbackInput,
   type CalculatorFeedbackSnapshotValue,
   type CalculatorFeedbackTier,
-} from "@/lib/feedback/calculator-feedback-types";
-import { submitCalculatorFeedback } from "@/lib/feedback/submit-calculator-feedback";
+} from "@/lib/features/feedback/calculator-feedback-types";
+import { submitCalculatorFeedback } from "@/lib/features/feedback/submit-calculator-feedback";
 
 const inputClass =
   "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";

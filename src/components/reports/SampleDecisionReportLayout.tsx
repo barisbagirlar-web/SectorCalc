@@ -1,9 +1,9 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { ScIcon } from "@/components/icons/ScIcon";
 import {
  STATUS_ICON,
  TOOL_CATEGORY_ICON,
-} from "@/lib/icons/icon-registry";
+} from "@/lib/ui-shared/icons/icon-registry";
 import { SingleVerdictUpsellButton } from "@/components/pricing/PlanCheckoutAction";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -20,8 +20,8 @@ import {
  SAMPLE_REPORT_VERDICT,
  SAMPLE_REPORT_MAIN_LEAK,
 } from "@/data/sample-report-content";
-import { getFreeToolsHref, getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
-import { revenueLegalDisclaimer } from "@/lib/tools/revenue-tools";
+import { getFreeToolsHref, getPremiumToolsHref, getPricingHref } from "@/lib/features/tools/tool-links";
+import { revenueLegalDisclaimer } from "@/lib/features/tools/revenue-tools";
 
 const toneClasses = {
  danger: "border-amber/30 bg-amber/[0.06] text-amber",

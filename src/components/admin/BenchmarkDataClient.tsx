@@ -6,12 +6,12 @@ import type {
   BetaPartner,
   BenchmarkSubmission,
   ReportFeedback,
-} from "@/lib/benchmarks/benchmark-types";
-import { getClaimReadiness } from "@/lib/benchmarks/claim-readiness";
-import { listBenchmarkAdminData } from "@/lib/benchmarks/benchmark-firestore-read";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { formatLocalDateTime } from "@/lib/format/datetime";
-import { isFirebaseConfigured } from "@/lib/firebase/client";
+} from "@/lib/features/benchmarks/benchmark-types";
+import { getClaimReadiness } from "@/lib/features/benchmarks/claim-readiness";
+import { listBenchmarkAdminData } from "@/lib/features/benchmarks/benchmark-firestore-read";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { formatLocalDateTime } from "@/lib/core/format/datetime";
+import { isFirebaseConfigured } from "@/lib/infrastructure/firebase/client";
 
 type AdminTab = "partners" | "benchmarks" | "feedback";
 

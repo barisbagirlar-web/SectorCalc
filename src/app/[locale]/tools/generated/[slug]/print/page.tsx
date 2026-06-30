@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { PremiumGeneratedToolPrintContent } from "@/components/reports/PremiumGeneratedToolPrintContent";
 import type { AppLocale } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
-import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
-import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
+import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";
 
 interface PrintRouteParams {
   slug: string;

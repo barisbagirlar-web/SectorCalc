@@ -9,7 +9,7 @@ import { GuideAuthorByline } from "@/components/guides/GuideAuthorByline";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import {
   getAuthorityGuideBySlug,
   listAuthorityGuideSlugs,
@@ -20,20 +20,20 @@ import {
   getIndustryPathForGuide,
   getSeoHubSlugForGuide,
 } from "@/lib/content/authority-links";
-import { getFreeTrafficToolBySlugLocalized } from "@/lib/tools/free-traffic-catalog";
-import { getPremiumSchemaBySlug } from "@/lib/premium-schema/schemas/index";
+import { getFreeTrafficToolBySlugLocalized } from "@/lib/features/tools/free-traffic-catalog";
+import { getPremiumSchemaBySlug } from "@/lib/features/premium-schema/schemas/index";
 import {
   buildBreadcrumbJsonLd,
   buildFAQJsonLd,
   buildItemListJsonLd,
   sanitizeJsonLd,
   type JsonLdRecord,
-} from "@/lib/seo/schema-mesh";
+} from "@/lib/infrastructure/seo/schema-mesh";
 import { GUIDE_REFERENCE_AUTHOR, guideReferenceAuthorJsonLdId } from "@/config/guide-reference-author";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+import { buildLocalizedUrl } from "@/lib/infrastructure/seo/sitemap-manifest";
 import { siteUrl } from "@/config/site";
-import { getToolHref } from "@/lib/tools/paths";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { getToolHref } from "@/lib/features/tools/paths";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 interface GuidePageParams {
   slug: string;

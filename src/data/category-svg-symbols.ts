@@ -9,7 +9,7 @@
  * New symbols are designed for the remaining 13 categories.
  */
 
-import type { FreeToolCategorySlug } from "@/lib/free-tools/free-tool-categories";
+import type { FreeToolCategorySlug } from "@/lib/features/free-tools/free-tool-categories";
 
 const SYMBOL_BASE =
   'viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';

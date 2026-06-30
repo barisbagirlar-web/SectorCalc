@@ -28,8 +28,8 @@ import {
   Waves,
   Wrench,
 } from "lucide-react";
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
-import { industryRegistry } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 
 /**
  * One unique Lucide icon per industry / profession slug — no reuse within this map,

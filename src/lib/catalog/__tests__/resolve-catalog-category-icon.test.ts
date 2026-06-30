@@ -3,12 +3,12 @@ import { describe, expect, it, vi } from "vitest";
 import { resolveCatalogCategoryIcon } from "@/lib/catalog/resolve-catalog-category-icon";
 import { listGlobalCategorySlugs } from "@/lib/catalog/global-tool-category-taxonomy";
 import { listIndustrySlugIconSlugs } from "@/lib/catalog/industry-slug-icon-map";
-import { HOMEPAGE_COVERAGE_IDS } from "@/lib/home/homepage-positioning-data";
+import { HOMEPAGE_COVERAGE_IDS } from "@/lib/ui-shared/home/homepage-positioning-data";
 import { LEGACY_CATALOG_ICON_ALIASES } from "@/lib/catalog/legacy-catalog-icon-aliases";
 
 vi.mock("server-only", () => ({}));
 
-import { getAllTools } from "@/lib/tools/all-tools-data";
+import { getAllTools } from "@/lib/features/tools/all-tools-data";
 
 describe("resolveCatalogCategoryIcon", () => {
   it("resolves all global category slugs", () => {

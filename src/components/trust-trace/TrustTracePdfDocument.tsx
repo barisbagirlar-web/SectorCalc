@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
-import type { ApprovedReportPayload } from "@/lib/trust-trace/types";
+import type { ApprovedReportPayload } from "@/lib/features/trust-trace/types";
 
 const NAVY = "#1E3A5F";
 const SLATE = "#64748B";

@@ -1,4 +1,4 @@
-import { COMMERCIAL_TIERS } from "@/lib/commercial/commercial-model";
+import { COMMERCIAL_TIERS } from "@/lib/features/commercial/commercial-model";
 import { Container } from "@/components/ui/Container";
 
 export function CommercialTiersOverview() {

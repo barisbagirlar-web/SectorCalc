@@ -1,6 +1,6 @@
-import type { PremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
-import { getTechnicalSimulationNotice } from "@/lib/premium-schema/premium-report-export";
-import { formatLocalizedDate, normalizeLocale } from "@/lib/format/localization";
+import type { PremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
+import { getTechnicalSimulationNotice } from "@/lib/features/premium-schema/premium-report-export";
+import { formatLocalizedDate, normalizeLocale } from "@/lib/core/format/localization";
 
 export interface PremiumPrintableReportProps {
   payload: PremiumReportExportPayload;

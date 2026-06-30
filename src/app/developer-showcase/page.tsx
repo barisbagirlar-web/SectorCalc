@@ -6,12 +6,12 @@ import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
-import { buildDeveloperShowcaseSchema } from "@/lib/semantic/build-developer-showcase-schema";
-import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
-import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
-import { listSemanticToolContracts } from "@/lib/semantic/semantic-tool-reader";
-import { absoluteUrl } from "@/lib/semantic/site-url";
-import { createPageMetadata } from "@/lib/metadata";
+import { buildDeveloperShowcaseSchema } from "@/lib/features/semantic/build-developer-showcase-schema";
+import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
+import { pickLocaleText } from "@/lib/features/semantic/semantic-locale-utils";
+import { listSemanticToolContracts } from "@/lib/features/semantic/semantic-tool-reader";
+import { absoluteUrl } from "@/lib/features/semantic/site-url";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 type PageProps = {
   params: Promise<{ locale: string }>;

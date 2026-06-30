@@ -49,7 +49,7 @@ import {
   Wheat,
   Zap,
 } from "lucide-react";
-import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS } from "@/lib/tools/taxonomy";
+import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS } from "@/lib/features/tools/taxonomy";
 
 /**
  * One unique Lucide line icon per taxonomy sector — purposeful, non-repeating.

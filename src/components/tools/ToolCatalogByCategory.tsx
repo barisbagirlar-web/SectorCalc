@@ -1,6 +1,6 @@
 import type { Tool } from "@/data/tools";
 import { ToolDiscoveryGrid } from "@/components/tools/ToolDiscoveryGrid";
-import { groupToolsByCategory } from "@/lib/tools/tool-catalog";
+import { groupToolsByCategory } from "@/lib/features/tools/tool-catalog";
 
 type ToolCatalogByCategoryProps = {
  tools: Tool[];

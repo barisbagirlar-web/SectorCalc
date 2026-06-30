@@ -2,7 +2,7 @@
 
 import { useCredits } from "@/hooks/useCredits";
 import { useTranslations } from "next-intl";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 
 export function CreditsBalance() {
   const t = useTranslations("credits");

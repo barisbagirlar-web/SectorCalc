@@ -1,6 +1,6 @@
 import { Calendar, Clock, Briefcase } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import type { CaseStudy } from "@/lib/case-studies/types";
+import type { CaseStudy } from "@/lib/features/case-studies/types";
 
 type Props = {
   readonly study: CaseStudy;

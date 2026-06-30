@@ -3,11 +3,11 @@
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
-import { CheckoutStartError, startCheckoutRedirect } from "@/lib/billing/start-checkout";
-import { buildPremiumPricingHref } from "@/lib/entitlements/premium-entitlements";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
+import { CheckoutStartError, startCheckoutRedirect } from "@/lib/features/billing/start-checkout";
+import { buildPremiumPricingHref } from "@/lib/features/entitlements/premium-entitlements";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
+import { buildTrackedCtaHref } from "@/lib/features/campaigns/campaign-links";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { useState } from "react";
 

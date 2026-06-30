@@ -20,10 +20,10 @@ import {
   HVAC_TONNAGE_PILOT_FREE_ROUTE_SLUG,
   HVAC_TONNAGE_PILOT_GOVERNANCE_SLUG,
   resolvePilotGovernanceSlugFromRoute,
-} from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
-import { buildPilotUiBridgeManifestForSlug } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";
-import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
-import { shouldUseSmartFormPilot } from "@/lib/feature-flags/smart-form-pilot";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { buildPilotUiBridgeManifestForSlug } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";
+import { resolveSmartFormPilotManifestForRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
+import { shouldUseSmartFormPilot } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 
 describe("smart form rollout batch H — Phase 5H-H", () => {
   afterEach(() => {

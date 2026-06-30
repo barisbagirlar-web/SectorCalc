@@ -22,29 +22,29 @@ import {
  getDefaultInputValues,
  runCalculator,
  validateCalculatorInput,
-} from "@/lib/calculators/registry";
-import { formatCurrency } from "@/lib/format/currency";
+} from "@/lib/features/calculators/registry";
+import { formatCurrency } from "@/lib/core/format/currency";
 import { industrySlugToLeadValue } from "@/data/lead-options";
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
+} from "@/lib/infrastructure/analytics/events";
 import {
  filterFreeResults,
  getRevenueToolByFreeSlug,
  getVisibleInputs,
  stripPaidOnlyResults,
-} from "@/lib/tools/revenue-tools";
-import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
+} from "@/lib/features/tools/revenue-tools";
+import { useProSubscription } from "@/lib/features/subscription/use-pro-subscription";
 import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
-import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import { MARGINCORE_TERMS } from "@/lib/content/terminology/margincore-identity";
 import { useLocale } from "next-intl";
-import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import { RuleEngineAlerts } from "@/components/tools/RuleEngineAlerts";
 import { AssumptionLedger } from "@/components/tools/AssumptionLedger";
 import { TornadoChart } from "@/components/tools/TornadoChart";
 import { FinancialImpactAnalysis } from "@/components/tools/FinancialImpactAnalysis";
-import { evaluateCuttingParameters } from "@/lib/engine/rule-engine";
+import { evaluateCuttingParameters } from "@/lib/features/engine/rule-engine";
 interface ToolCalculatorEngineProps {
  definition: ToolDefinition;
 }

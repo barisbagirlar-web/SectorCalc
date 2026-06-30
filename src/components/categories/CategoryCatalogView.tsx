@@ -14,13 +14,13 @@ import { useMemo, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/core/cn";
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";
-import { resolveCanonicalCategorySlug } from "@/lib/free-tools/free-tool-categories";
+import { resolveCanonicalCategorySlug } from "@/lib/features/free-tools/free-tool-categories";
 import { CatalogHubToolsClientPanel } from "@/components/tools/CatalogHubToolsClientPanel";
-import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
-import type { FreeToolCategoryEntry } from "@/lib/free-tools/free-tool-categories";
-import type { ToolData } from "@/lib/tools/all-tools-data";
+import type { CategoryCard } from "@/lib/features/tools/build-taxonomy-category-cards";
+import type { FreeToolCategoryEntry } from "@/lib/features/free-tools/free-tool-categories";
+import type { ToolData } from "@/lib/features/tools/all-tools-data";
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 export type CategoryCatalogViewProps = {

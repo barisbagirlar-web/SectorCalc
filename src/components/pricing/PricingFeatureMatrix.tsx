@@ -3,11 +3,11 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
-import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
+import { useClientSearchParams } from "@/lib/ui-shared/navigation/use-client-search-params";
 import { PlanCheckoutAction } from "@/components/pricing/PlanCheckoutAction";
 import { PRICING_MATRIX_PLANS, PRICING_MATRIX_ROWS } from "@/data/pricing-matrix";
 import { buildPricingPlans } from "@/data/pricing-plans";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
 
 function CellValue({ value }: { value: boolean | "partial" }) {
   if (value === true) {

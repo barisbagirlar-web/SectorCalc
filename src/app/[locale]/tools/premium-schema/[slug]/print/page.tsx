@@ -4,13 +4,13 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PremiumPrintReportShell } from "@/components/reports/PremiumPrintReportShell";
 import type { AppLocale } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
-import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { buildPremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
 import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
-} from "@/lib/premium-schema/premium-schema-engine";
-import { getPremiumSchemaBySlug } from "@/lib/premium-schema/schemas/index";
+} from "@/lib/features/premium-schema/premium-schema-engine";
+import { getPremiumSchemaBySlug } from "@/lib/features/premium-schema/schemas/index";
 
 interface PrintRouteParams {
   slug: string;

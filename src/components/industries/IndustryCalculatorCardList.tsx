@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
-import type { ResolvedIndustryTool } from "@/lib/industries/resolve-industry-tools";
+import type { ResolvedIndustryTool } from "@/lib/features/industries/resolve-industry-tools";
 
 type IndustryCalculatorCardListProps = {
   readonly tools: readonly ResolvedIndustryTool[];

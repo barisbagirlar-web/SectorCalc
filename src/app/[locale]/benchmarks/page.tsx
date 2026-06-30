@@ -6,7 +6,7 @@ import { HubLink } from "@/components/layout/HubLink";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { SemanticSummary } from "@/components/seo/SemanticSummary";
 import { DEFAULT_INDUSTRY_BENCHMARK } from "@/lib/os/core/intel-engine";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import {
   listSectorRegistryKeys,
   MANUFACTURING_OS_I18N_NS,

@@ -1,7 +1,7 @@
 "use client";
 
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildClaimReviewJsonLd } from "@/lib/semantic/build-claim-review-jsonld";
+import { buildClaimReviewJsonLd } from "@/lib/features/semantic/build-claim-review-jsonld";
 
 type ClaimReviewJsonLdProps = {
   readonly claimReviewed: string;

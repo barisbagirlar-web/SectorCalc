@@ -1,5 +1,5 @@
-import { formatCurrency } from "@/lib/format/currency";
-import { remapUserFacingLabel } from "@/lib/terminology/margincore-identity";
+import { formatCurrency } from "@/lib/core/format/currency";
+import { remapUserFacingLabel } from "@/lib/content/terminology/margincore-identity";
 import type { ToolResult } from "@/data/tool-schema";
 
 const toneClasses = {

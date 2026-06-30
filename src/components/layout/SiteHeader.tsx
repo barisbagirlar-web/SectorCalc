@@ -23,7 +23,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { getFreeToolCount, getPremiumToolCount } from "@/lib/tools/tool-counts";
+import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
 
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
@@ -270,7 +270,7 @@ export function SiteHeader({
           </div>
         </div>
 
-        <div className={`sc-drawer${mobileOpen?' open':''}`} dir={dir}>
+        <div className={`sc-drawer${mobileOpen?' open':''}`} dir="ltr">
           <div className="sc-draw-sec">
             <button className={`sc-draw-head${mobileSection==='products'?' open':''}`} onClick={()=>setMobileSection(mobileSection==='products'?null:'products')}>
               {t.products} <span className="dchev">▼</span>

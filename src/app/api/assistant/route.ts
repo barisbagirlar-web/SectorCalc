@@ -8,8 +8,8 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { checkAssistantRateLimit } from "@/lib/assistant/assistant-rate-limit";
-import { routeAssistantSlug } from "@/lib/assistant/slug-router";
+import { checkAssistantRateLimit } from "@/lib/features/assistant/assistant-rate-limit";
+import { routeAssistantSlug } from "@/lib/features/assistant/slug-router";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

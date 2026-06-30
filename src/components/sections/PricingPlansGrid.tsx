@@ -10,25 +10,25 @@ import {
   PlanCheckoutAction,
 } from "@/components/pricing/PlanCheckoutAction";
 import { IconListItem } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+} from "@/lib/infrastructure/analytics/revenue-events";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
+import { PRICING_CHECKOUT_LEGAL } from "@/lib/features/billing/subscription";
 import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
-import { getSampleReportHref } from "@/lib/tools/tool-links";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
+import { getSampleReportHref } from "@/lib/features/tools/tool-links";
 import { Container } from "@/components/ui/Container";
 import {
   buildPricingPlans,
   type PricingPlan,
 } from "@/data/pricing-plans";
-import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
+import { useClientSearchParams } from "@/lib/ui-shared/navigation/use-client-search-params";
 
 interface PricingPlansGridProps {
   showHeader?: boolean;

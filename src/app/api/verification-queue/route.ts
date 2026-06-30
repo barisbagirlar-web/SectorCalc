@@ -6,14 +6,14 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import {
   createVerificationQueueItem,
-} from "@/lib/feedback/create-verification-item";
+} from "@/lib/features/feedback/create-verification-item";
 import type {
   VerificationIssueType,
   VerificationQueueSubmitInput,
   VerificationQueueTier,
-} from "@/lib/feedback/feedback-types";
-import { VERIFICATION_ISSUE_TYPES } from "@/lib/feedback/feedback-types";
-import { sanitizeVerificationSnapshot } from "@/lib/feedback/create-verification-item";
+} from "@/lib/features/feedback/feedback-types";
+import { VERIFICATION_ISSUE_TYPES } from "@/lib/features/feedback/feedback-types";
+import { sanitizeVerificationSnapshot } from "@/lib/features/feedback/create-verification-item";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

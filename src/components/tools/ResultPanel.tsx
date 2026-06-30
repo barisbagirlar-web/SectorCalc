@@ -6,18 +6,18 @@ import {
   calculateCBAM,
   resolveCarbonEmissionsKg,
   schemaCbamEnabled,
-} from "@/lib/cbam/compliance";
-import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
-import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
-import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+} from "@/lib/features/cbam/compliance";
+import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
+import { resolveGeneratedBreakdownLabel } from "@/lib/features/generated-tools/resolve-generated-display-text";
+import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import {
   resolveBreakdownOutputUnit,
   resolvePrimaryOutputUnit,
-} from "@/lib/generated-tools/resolve-output-unit";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+} from "@/lib/features/generated-tools/resolve-output-unit";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
+import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
 import { useRouter } from "@/i18n/routing";
-import { savePrintData } from "@/lib/reports/generated-tool-print-data";
+import { savePrintData } from "@/lib/features/reports/generated-tool-print-data";
 
 export type ResultPanelProps = {
   readonly result: GeneratedToolResult | null;

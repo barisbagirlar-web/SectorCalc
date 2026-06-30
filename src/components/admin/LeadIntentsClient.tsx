@@ -31,36 +31,36 @@ import {
 import { LeadPriorityBadge } from "@/components/admin/LeadPriorityBadge";
 import { LeadStatusBadge } from "@/components/admin/LeadStatusBadge";
 import { LEAD_INDUSTRY_OPTIONS } from "@/data/lead-options";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
-import { isFirebaseConfigured } from "@/lib/firebase/client";
-import { formatLocalDateTime } from "@/lib/format/datetime";
-import { computeLeadDashboardStats } from "@/lib/leads/admin-dashboard";
-import { computeLeadConversionMetrics } from "@/lib/leads/conversion-metrics";
-import { computeFollowUpSlaSummary, resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
+} from "@/lib/infrastructure/analytics/events";
+import { isFirebaseConfigured } from "@/lib/infrastructure/firebase/client";
+import { formatLocalDateTime } from "@/lib/core/format/datetime";
+import { computeLeadDashboardStats } from "@/lib/features/leads/admin-dashboard";
+import { computeLeadConversionMetrics } from "@/lib/features/leads/conversion-metrics";
+import { computeFollowUpSlaSummary, resolveLeadFollowUpSla } from "@/lib/features/leads/follow-up-sla";
 import {
  computeLeadQualityScore,
  computeLeadQualitySummary,
-} from "@/lib/leads/lead-quality-score";
-import { resolveLeadActionRecommendation } from "@/lib/leads/lead-action-center";
-import { computeLeadSourceRoi } from "@/lib/leads/source-roi";
+} from "@/lib/features/leads/lead-quality-score";
+import { resolveLeadActionRecommendation } from "@/lib/features/leads/lead-action-center";
+import { computeLeadSourceRoi } from "@/lib/features/leads/source-roi";
 import {
  computeLeadCleanupSummary,
  detectTestLead,
  filterLeadsForMetrics,
-} from "@/lib/leads/lead-cleanup";
+} from "@/lib/features/leads/lead-cleanup";
 import {
  formatLeadIntentSummary,
  matchesPipelineStatusFilter,
  PIPELINE_STATUS_TABS,
  resolveLeadStatus,
  type PipelineStatusFilter,
-} from "@/lib/leads/lead-pipeline";
-import { listLeadIntents } from "@/lib/leads/list-lead-intents";
-import type { LeadIntent, LeadPlan, LeadSource } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-pipeline";
+import { listLeadIntents } from "@/lib/features/leads/list-lead-intents";
+import type { LeadIntent, LeadPlan, LeadSource } from "@/lib/features/leads/types";
 
 const ALL_FILTER = "";
 

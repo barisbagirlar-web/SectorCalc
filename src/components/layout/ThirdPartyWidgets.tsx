@@ -7,7 +7,7 @@ import {
   buildRecaptchaScriptUrl,
   resolveChatWidgetLang,
   resolveStripeCheckoutLocale,
-} from "@/lib/i18n/third-party-locale";
+} from "@/lib/infrastructure/i18n/third-party-locale";
 
 /**
  * Centralizes locale parameters for third-party embeds (Stripe, reCAPTCHA, chat).

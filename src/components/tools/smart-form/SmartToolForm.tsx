@@ -10,7 +10,7 @@ import {
   buildSmartFormFieldSpecsFromContract,
   type SmartFormContractFieldSpec,
   type SmartFormRawValues,
-} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
+} from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 export type SmartToolFormProps = {
   readonly slug: string;

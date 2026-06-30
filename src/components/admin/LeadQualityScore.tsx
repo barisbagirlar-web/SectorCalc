@@ -5,7 +5,7 @@ import {
  type LeadQualityLevel,
  type LeadQualityScore as LeadQualityScoreData,
  type LeadQualitySummary,
-} from "@/lib/leads/lead-quality-score";
+} from "@/lib/features/leads/lead-quality-score";
 
 const levelClasses: Record<LeadQualityLevel, string> = {
  high: "border-border-subtle bg-bg-subtle text-deep-navy",

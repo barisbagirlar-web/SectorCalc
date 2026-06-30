@@ -4,7 +4,7 @@ import {
   assertUniqueIndustrySlugIcons,
   listIndustrySlugIconSlugs,
 } from "@/lib/catalog/industry-slug-icon-map";
-import { industryRegistry } from "@/lib/tools/industry-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 
 describe("industry-slug-icon-map", () => {
   it("covers every industry registry slug exactly once", () => {

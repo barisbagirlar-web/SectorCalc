@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { RuntimeTrustTraceView } from "@/lib/formula-governance/runtime-validation/full-loop-bridge-shared";
+import type { RuntimeTrustTraceView } from "@/lib/features/formula-governance/runtime-validation/full-loop-bridge-shared";
 
 type RuntimeTrustTracePanelProps = {
   readonly trustTrace: RuntimeTrustTraceView;

@@ -3,10 +3,10 @@
 import { useCallback, useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
 import { AdminSubNav } from "@/components/admin/AdminSubNav";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { FORMULA_FAMILIES, FORMULA_FAMILY_LABELS } from "@/lib/premium-schema/formula-families";
-import { FORMULA_REGISTRY_META, getFormulaRegistryMeta } from "@/lib/premium-schema/formula-registry";
-import type { ExportFormat, PremiumOutputFormat } from "@/lib/premium-schema/premium-calculator-schema";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { FORMULA_FAMILIES, FORMULA_FAMILY_LABELS } from "@/lib/features/premium-schema/formula-families";
+import { FORMULA_REGISTRY_META, getFormulaRegistryMeta } from "@/lib/features/premium-schema/formula-registry";
+import type { ExportFormat, PremiumOutputFormat } from "@/lib/features/premium-schema/premium-calculator-schema";
 import {
   createDraftFormulaStep,
   createDraftInput,
@@ -22,8 +22,8 @@ import {
   type DraftOutput,
   type DraftThreshold,
   type PremiumSchemaDraft,
-} from "@/lib/premium-schema/schema-draft";
-import { lintPremiumCalculatorSchema } from "@/lib/premium-schema/schema-linter";
+} from "@/lib/features/premium-schema/schema-draft";
+import { lintPremiumCalculatorSchema } from "@/lib/features/premium-schema/schema-linter";
 
 const FIELD =
   "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";

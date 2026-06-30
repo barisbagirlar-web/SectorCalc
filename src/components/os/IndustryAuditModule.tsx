@@ -1,6 +1,6 @@
 "use client";
 
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 import { PremiumAuditInput } from "@/components/os/PremiumAuditInput";
 import { industrySlugToSectorKey } from "@/lib/os/registry/sectors";
 

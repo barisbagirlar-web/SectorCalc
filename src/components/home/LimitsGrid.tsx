@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
-import { HOMEPAGE_EXCEL_ICON_MAP } from "@/lib/home/homepage-icon-map";
-import { HOMEPAGE_EXCEL_IDS } from "@/lib/home/homepage-positioning-data";
+import { HOMEPAGE_EXCEL_ICON_MAP } from "@/lib/ui-shared/home/homepage-icon-map";
+import { HOMEPAGE_EXCEL_IDS } from "@/lib/ui-shared/home/homepage-positioning-data";
 
 export async function LimitsGrid() {
   const t = await getTranslations("homepageHybrid");

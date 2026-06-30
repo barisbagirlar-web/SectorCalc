@@ -1,8 +1,8 @@
 "use client";
 
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
-import type { SmartFormContractFieldSpec } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
+import type { SmartFormContractFieldSpec } from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 type SmartFormFieldProps = {
   readonly field: SmartFormContractFieldSpec;

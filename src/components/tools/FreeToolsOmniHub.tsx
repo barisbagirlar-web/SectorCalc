@@ -7,13 +7,13 @@ import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,
   FREE_TRAFFIC_CATEGORY_META,
   countToolsInCategory,
-} from "@/lib/tools/free-traffic-categories";
+} from "@/lib/features/tools/free-traffic-categories";
 import {
   FEATURED_TRAFFIC_SLUGS,
   type FreeTrafficCategory,
   type FreeTrafficTool,
-} from "@/lib/tools/free-traffic-catalog";
-import { getToolHref } from "@/lib/tools/paths";
+} from "@/lib/features/tools/free-traffic-catalog";
+import { getToolHref } from "@/lib/features/tools/paths";
 
 export type FreeToolsOmniHubProps = {
   tools: readonly FreeTrafficTool[];

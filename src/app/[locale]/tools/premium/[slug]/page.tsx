@@ -6,21 +6,21 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
   getGeneratedToolSchema,
   listGeneratedToolSchemaSlugs,
-} from "@/lib/generated-tools/schema-loader";
-import { resolveGeneratedToolRouteSlug } from "@/lib/generated-tools/resolve-generated-route-slug";
+} from "@/lib/features/generated-tools/schema-loader";
+import { resolveGeneratedToolRouteSlug } from "@/lib/features/generated-tools/resolve-generated-route-slug";
 import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
-} from "@/lib/generated-tools/resolve-tool-display";
-import { resolveGeneratedToolAboutContent } from "@/lib/generated-tools/resolve-tool-about";
-import { listMigrationMapLegacySlugs } from "@/lib/premium-schema/premium-migration-map";
-import { createPageMetadata } from "@/lib/metadata";
-import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
-import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
+} from "@/lib/features/generated-tools/resolve-tool-display";
+import { resolveGeneratedToolAboutContent } from "@/lib/features/generated-tools/resolve-tool-about";
+import { listMigrationMapLegacySlugs } from "@/lib/features/premium-schema/premium-migration-map";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { buildFAQJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 
 interface PremiumToolRouteParams {
   slug: string;

@@ -2,7 +2,7 @@
  * GET /api/trace/health
  */
 import { NextResponse } from "next/server";
-import type { TraceHealthResponse } from "@/lib/trace/types";
+import type { TraceHealthResponse } from "@/lib/infrastructure/trace/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

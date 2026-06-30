@@ -5,10 +5,10 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { GUIDE_REFERENCE_AUTHOR, guideReferenceAuthorJsonLdId } from "@/config/guide-reference-author";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
-import { SITE_URL } from "@/lib/semantic/site-url";
-import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { SITE_URL } from "@/lib/features/semantic/site-url";
+import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
 
 
 type PageProps = { params: Promise<{ locale: string }> };

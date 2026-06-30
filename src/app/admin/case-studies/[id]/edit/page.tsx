@@ -4,7 +4,7 @@ import { CaseStudyAdminForm } from "@/components/admin/CaseStudyAdminForm";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 type PageProps = {
   params: Promise<{ id: string }>;

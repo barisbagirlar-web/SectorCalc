@@ -4,10 +4,10 @@ import {
   deleteFirestoreCaseStudy,
   getFirestoreCaseStudyById,
   updateFirestoreCaseStudy,
-} from "@/lib/case-studies/firestore-case-studies";
-import { buildCaseStudyPublishBundle } from "@/lib/case-studies/case-study-publish";
-import { type CaseStudyFormValues } from "@/lib/case-studies/case-study-drafts";
-import { requireAdminFromRequest } from "@/lib/firebase/verify-admin-user";
+} from "@/lib/features/case-studies/firestore-case-studies";
+import { buildCaseStudyPublishBundle } from "@/lib/features/case-studies/case-study-publish";
+import { type CaseStudyFormValues } from "@/lib/features/case-studies/case-study-drafts";
+import { requireAdminFromRequest } from "@/lib/infrastructure/firebase/verify-admin-user";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

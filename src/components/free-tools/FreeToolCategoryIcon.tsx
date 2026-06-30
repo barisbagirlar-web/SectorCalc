@@ -8,7 +8,7 @@
  * matching the premium-categories.ts design language (copper/navy tones).
  */
 
-import { resolveFreeToolCategorySymbolSvg } from "@/lib/free-tools/free-tool-categories";
+import { resolveFreeToolCategorySymbolSvg } from "@/lib/features/free-tools/free-tool-categories";
 
 type FreeToolCategoryIconProps = {
   readonly iconKey: string;

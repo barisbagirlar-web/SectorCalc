@@ -2,9 +2,9 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import type { PremiumAccessMode } from "@/lib/billing/premium-access-mode";
-import { getPricingHref, getSingleVerdictPricingHref } from "@/lib/tools/tool-links";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import type { PremiumAccessMode } from "@/lib/features/billing/premium-access-mode";
+import { getPricingHref, getSingleVerdictPricingHref } from "@/lib/features/tools/tool-links";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
 
 type PremiumAccessBannerProps = {
   readonly mode: PremiumAccessMode;

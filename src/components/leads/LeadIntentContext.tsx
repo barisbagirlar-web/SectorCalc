@@ -9,7 +9,7 @@ import {
  type ReactNode,
 } from "react";
 import { usePathname } from "next/navigation";
-import type { LeadModalOpenContext } from "@/lib/leads/types";
+import type { LeadModalOpenContext } from "@/lib/features/leads/types";
 
 interface LeadIntentContextValue {
  isOpen: boolean;

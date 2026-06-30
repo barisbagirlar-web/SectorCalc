@@ -1,14 +1,14 @@
 import { Link } from "@/i18n/routing";
-import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
+import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 import {
   getAuthorityGuideForPremiumSchema,
   getAuthorityGuideRoutePath,
   getIndustryPathForGuide,
   getSeoHubSlugForGuide,
 } from "@/lib/content/authority-links";
-import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
-import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
-import { getToolHref } from "@/lib/tools/paths";
+import { resolveFreeToolDisplayTitle } from "@/lib/infrastructure/i18n/free-tool-form-i18n";
+import { getFreeTrafficToolBySlug } from "@/lib/features/tools/free-traffic-catalog";
+import { getToolHref } from "@/lib/features/tools/paths";
 
 export interface PremiumAnalyzerAuthorityBlockProps {
   readonly schema: PremiumCalculatorSchema;

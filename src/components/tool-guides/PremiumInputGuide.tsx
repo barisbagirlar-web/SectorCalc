@@ -2,10 +2,10 @@
 
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { evaluateInputGuideDecision } from "@/lib/tool-guides/input-guide-policy";
-import { evaluateToolGuidePolicy } from "@/lib/tools/guide/tool-guide-policy";
-import { PremiumInputGuideDiagram } from "@/lib/tool-guides/premium-input-guide-diagrams";
-import { resolveToolFormInputKeys } from "@/lib/tool-guides/resolve-tool-form-input-keys";
+import { evaluateInputGuideDecision } from "@/lib/features/tool-guides/input-guide-policy";
+import { evaluateToolGuidePolicy } from "@/lib/features/tools/guide/tool-guide-policy";
+import { PremiumInputGuideDiagram } from "@/lib/features/tool-guides/premium-input-guide-diagrams";
+import { resolveToolFormInputKeys } from "@/lib/features/tool-guides/resolve-tool-form-input-keys";
 
 type Props = {
   readonly slug: string;

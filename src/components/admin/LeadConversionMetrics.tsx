@@ -4,7 +4,7 @@ import { AdminMetricCard } from "@/components/admin/AdminMetricCard";
 import {
  formatConversionPercent,
  type LeadConversionMetrics as LeadConversionMetricsData,
-} from "@/lib/leads/conversion-metrics";
+} from "@/lib/features/leads/conversion-metrics";
 
 interface LeadConversionMetricsProps {
  metrics: LeadConversionMetricsData;

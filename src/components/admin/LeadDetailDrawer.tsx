@@ -14,21 +14,21 @@ import { LeadFollowUpSlaBadge } from "@/components/admin/LeadFollowUpSla";
 import { LeadQualityDetail } from "@/components/admin/LeadQualityScore";
 import { LeadDataQualityDetail } from "@/components/admin/LeadCleanupControls";
 import type { TestLeadClassificationPatch } from "@/components/admin/LeadTestClassificationControls";
-import { formatLocalDateTime } from "@/lib/format/datetime";
-import { formatLeadPlan, formatLeadSource } from "@/lib/leads/admin-metrics";
+import { formatLocalDateTime } from "@/lib/core/format/datetime";
+import { formatLeadPlan, formatLeadSource } from "@/lib/features/leads/admin-metrics";
 import {
  formatLeadIntentSummary,
  getLeadPriorityLabel,
  resolveLeadPriority,
  resolveLeadStatus,
  resolveNextAction,
-} from "@/lib/leads/lead-pipeline";
-import { resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
-import { computeLeadQualityScore } from "@/lib/leads/lead-quality-score";
-import { resolveLeadActionRecommendation } from "@/lib/leads/lead-action-center";
-import { resolveLeadAttribution } from "@/lib/leads/source-attribution";
-import { detectTestLead } from "@/lib/leads/lead-cleanup";
-import type { LeadIntent } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-pipeline";
+import { resolveLeadFollowUpSla } from "@/lib/features/leads/follow-up-sla";
+import { computeLeadQualityScore } from "@/lib/features/leads/lead-quality-score";
+import { resolveLeadActionRecommendation } from "@/lib/features/leads/lead-action-center";
+import { resolveLeadAttribution } from "@/lib/features/leads/source-attribution";
+import { detectTestLead } from "@/lib/features/leads/lead-cleanup";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 interface LeadDetailDrawerProps {
  lead: LeadIntent | null;

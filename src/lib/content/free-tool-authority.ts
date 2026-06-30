@@ -1,4 +1,4 @@
-import type { FreeTrafficCategory, FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+import type { FreeTrafficCategory, FreeTrafficTool } from "@/lib/features/tools/free-traffic-catalog";
 
 export interface FreeToolAuthorityCopy {
   readonly description: string;

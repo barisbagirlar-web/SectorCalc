@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "@/lib/navigation/next-link";
-import type { CaseStudyEntry } from "@/lib/case-studies/case-study-types";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import type { CaseStudyEntry } from "@/lib/features/case-studies/case-study-types";
 
 // Scoped localized UI keys
 const TRANSLATIONS = {

@@ -3,8 +3,8 @@
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { resolveNavIcon } from "@/lib/icons/icon-registry";
-import { isNavLinkActive } from "@/lib/navigation/nav-active";
+import { resolveNavIcon } from "@/lib/ui-shared/icons/icon-registry";
+import { isNavLinkActive } from "@/lib/ui-shared/navigation/nav-active";
 import { stripLocalePrefix } from "@/i18n/routing";
 
 type ActiveNavLinkProps = {

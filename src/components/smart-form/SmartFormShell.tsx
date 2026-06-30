@@ -4,8 +4,8 @@ import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
-import type { CalculatorExperienceContract, CalculatorExperienceMode } from "@/lib/calculator-experience/calculator-experience-types";
-import type { SmartFormTier, SmartFormViewMode } from "@/lib/smart-form/types";
+import type { CalculatorExperienceContract, CalculatorExperienceMode } from "@/lib/ui-shared/calculator-experience/calculator-experience-types";
+import type { SmartFormTier, SmartFormViewMode } from "@/lib/features/smart-form/types";
 
 export type SmartFormShellLayout = "split" | "workspace";
 

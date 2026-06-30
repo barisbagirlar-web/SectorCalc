@@ -5,7 +5,7 @@
  */
 "use client";
 
-import type { ToolSchemaOutput } from "@/lib/tool-schemas/types";
+import type { ToolSchemaOutput } from "@/lib/features/tool-schemas/types";
 
 function fmt(value: any, decimals = 3): string {
   if (value === null || value === undefined || isNaN(value)) return "—";

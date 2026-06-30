@@ -4,9 +4,9 @@
  */
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getApprovedReportForVerify } from "@/lib/trust-trace/approved-report-service";
-import { verifyCalculationHash } from "@/lib/trust-trace/hash";
-import { buildPublicReportSummary } from "@/lib/trust-trace/public-summary";
+import { getApprovedReportForVerify } from "@/lib/features/trust-trace/approved-report-service";
+import { verifyCalculationHash } from "@/lib/features/trust-trace/hash";
+import { buildPublicReportSummary } from "@/lib/features/trust-trace/public-summary";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

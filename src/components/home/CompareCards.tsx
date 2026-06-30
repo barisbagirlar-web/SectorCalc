@@ -3,8 +3,8 @@ import { Play, Sparkles } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
-import { readHomepageMessageList } from "@/lib/home/homepage-component-utils";
-import { getHomepageCatalogToolCounts } from "@/lib/home/homepage-stats";
+import { readHomepageMessageList } from "@/lib/ui-shared/home/homepage-component-utils";
+import { getHomepageCatalogToolCounts } from "@/lib/ui-shared/home/homepage-stats";
 
 export async function CompareCards() {
   const t = await getTranslations("homepageHybrid");

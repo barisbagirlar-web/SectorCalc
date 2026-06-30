@@ -4,8 +4,8 @@ import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import { CATALOG_GRID_VARIANT_STYLES } from "@/lib/catalog/catalog-grid-variant-styles";
-import { cn } from "@/lib/cn";
-import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards";
+import { cn } from "@/lib/core/cn";
+import type { TaxonomySectorCard } from "@/lib/features/tools/build-taxonomy-sector-cards";
 
 export type SectorTaxonomyGridVariant = "industry" | "free" | "premium";
 

@@ -1,9 +1,9 @@
 'use client'
 
-import { Plan } from '@/lib/plans'
-import { usePaddle } from '@/lib/paddle-provider'
+import { Plan } from '@/lib/features/plans'
+import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { IconListItem } from "@/components/icons/ScIcon"
-import { UI_ICON } from "@/lib/icons/icon-registry"
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry"
 import { useTranslations } from 'next-intl'
 
 interface Props {

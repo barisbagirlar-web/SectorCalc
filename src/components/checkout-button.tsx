@@ -1,5 +1,5 @@
 "use client";
-import { usePaddle } from "@/lib/paddle-provider";
+import { usePaddle } from "@/lib/ui-shared/paddle-provider";
 
 interface CheckoutButtonProps {
   priceId: string;

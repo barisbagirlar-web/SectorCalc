@@ -6,18 +6,18 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/seo/schema-mesh";
-import { buildEntityGraph } from "@/lib/seo/entity-graph";
+import { buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { buildEntityGraph } from "@/lib/infrastructure/seo/entity-graph";
 import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import type { AppLocale } from "@/i18n/routing";
-import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
-import { getServerRegion } from "@/lib/compliance/server-region";
-import { RegionProvider } from "@/lib/compliance/region-context";
+import { getLocaleTextDirection } from "@/lib/infrastructure/i18n/locale-config";
+import { getServerRegion } from "@/lib/features/compliance/server-region";
+import { RegionProvider } from "@/lib/features/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { GeoLocaleBootstrapScript } from "@/components/i18n/GeoLocaleBootstrapScript";
 import { THEME_COLOR } from "@/config/organization-trust";
-import { notoSansArabic } from "@/lib/fonts/noto-sans-arabic";
+import { notoSansArabic } from "@/lib/ui-shared/fonts/noto-sans-arabic";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],

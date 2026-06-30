@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { usePathname } from "next/navigation";
-import { AdminLocaleSwitcher } from "@/lib/admin/admin-locale-context";
+import { AdminLocaleSwitcher } from "@/lib/features/admin/admin-locale-context";
 
 const NAV_ITEMS = [
   { href: "/admin/case-studies", label: "Case Studies" },

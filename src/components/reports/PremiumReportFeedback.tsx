@@ -11,8 +11,8 @@ import type {
   ReportFeedbackFieldErrors,
   ReportFeedbackInput,
   ReportFeedbackRating,
-} from "@/lib/benchmarks/benchmark-types";
-import { createReportFeedback } from "@/lib/benchmarks/create-report-feedback";
+} from "@/lib/features/benchmarks/benchmark-types";
+import { createReportFeedback } from "@/lib/features/benchmarks/create-report-feedback";
 
 const inputClass =
   "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";

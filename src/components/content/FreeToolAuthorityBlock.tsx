@@ -1,14 +1,14 @@
 import { Link } from "@/i18n/routing";
 import { getFreeToolAuthorityCopy } from "@/lib/content/free-tool-authority";
-import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import {
   getAuthorityGuideForFreeTool,
   getAuthorityGuideRoutePath,
   getIndustryPathForGuide,
   getSeoHubSlugForGuide,
 } from "@/lib/content/authority-links";
-import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
-import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+import { resolvePremiumAnalyzerHref } from "@/lib/features/premium-schema/premium-schema-catalog";
+import type { FreeTrafficTool } from "@/lib/features/tools/free-traffic-catalog";
 
 export interface FreeToolAuthorityBlockProps {
   readonly tool: FreeTrafficTool;

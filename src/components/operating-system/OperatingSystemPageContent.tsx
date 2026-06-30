@@ -1,12 +1,12 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import {
   AUTOMATION_BOUNDARY,
   NEXT_BUSINESS_STEPS,
   OPERATING_SYSTEM_GATES,
   OPERATING_SYSTEM_PIPELINE_STAGES,
 } from "@/data/operating-system-content";
-import { buildDebtRegister } from "@/lib/formula-governance/roadmap-debt-register/debt-register-builder";
-import { compressRoadmapToNext3Batches } from "@/lib/formula-governance/roadmap-debt-register/roadmap-compressor";
+import { buildDebtRegister } from "@/lib/features/formula-governance/roadmap-debt-register/debt-register-builder";
+import { compressRoadmapToNext3Batches } from "@/lib/features/formula-governance/roadmap-debt-register/roadmap-compressor";
 import { PublicDemoCrossLinks } from "@/components/commercial/PublicDemoCrossLinks";
 import { Container } from "@/components/ui/Container";
 

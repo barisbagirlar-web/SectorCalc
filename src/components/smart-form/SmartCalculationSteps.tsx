@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { SmartFormCalculationStep } from "@/lib/smart-form/types";
+import type { SmartFormCalculationStep } from "@/lib/features/smart-form/types";
 
 export type SmartCalculationStepsProps = {
   readonly steps: readonly SmartFormCalculationStep[];

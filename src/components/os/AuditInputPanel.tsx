@@ -18,8 +18,8 @@ import {
   resolveSectorTitle,
   type SectorRegistryKey,
 } from "@/lib/os/registry/sectors";
-import { SC_NUMERIC_INPUT_CLASS } from "@/lib/input/numeric-input";
-import { sanitizeNumericInput } from "@/lib/input/numeric-input";
+import { SC_NUMERIC_INPUT_CLASS } from "@/lib/features/input/numeric-input";
+import { sanitizeNumericInput } from "@/lib/features/input/numeric-input";
 
 export interface AuditInputPanelProps {
   sectorId: SectorRegistryKey;

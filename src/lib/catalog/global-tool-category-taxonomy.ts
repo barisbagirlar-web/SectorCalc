@@ -18,7 +18,7 @@ import {
   getPremium152Categories,
   getPremium152CategoryBySlug,
   type Premium152SeedCategory,
-} from "@/lib/premium/premium-152-seed-reader";
+} from "@/lib/features/premium/premium-152-seed-reader";
 
 // ── Types ─────────────────────────────────────────────────────────
 

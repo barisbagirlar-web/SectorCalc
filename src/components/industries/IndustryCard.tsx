@@ -1,19 +1,19 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import type { Industry } from "@/data/industries";
 import { getIndustryBySlug } from "@/data/industries";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { SectorIcon } from "@/components/icons/SectorIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
 import {
   INDUSTRY_CATEGORY_LABELS,
   type IndustryCategory,
   type IndustryIcon,
   type IndustrySlug,
-} from "@/lib/tools/industry-registry";
-import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";
-import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
-import { getToolHref } from "@/lib/tools/paths";
-import { resolvePremiumToolHref } from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/industry-registry";
+import { getPremiumArchitectureProfile } from "@/lib/features/premium/sector-loss-registry";
+import { getRevenueToolBySector } from "@/lib/features/tools/revenue-tools";
+import { getToolHref } from "@/lib/features/tools/paths";
+import { resolvePremiumToolHref } from "@/lib/features/tools/tool-links";
 
 export type IndustryTool = {
   slug: string;

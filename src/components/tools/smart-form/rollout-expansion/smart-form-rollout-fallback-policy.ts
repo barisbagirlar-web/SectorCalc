@@ -2,7 +2,7 @@
  * Smart form rollout expansion fallback policy — Phase 5I-H flag + route gating.
  */
 
-import { isSmartFormPilotEnabled } from "@/lib/feature-flags/smart-form-pilot";
+import { isSmartFormPilotEnabled } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 import { resolveGovernanceSlugFromRoute } from "@/components/tools/smart-form/rollout-expansion/smart-form-rollout-route-map";
 import { resolveRolloutCategory } from "@/components/tools/smart-form/rollout-expansion/smart-form-rollout-eligibility";
 

@@ -3,15 +3,15 @@
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { normalizeWasteTypeKey } from "@/lib/chart-helpers";
+import { normalizeWasteTypeKey } from "@/lib/ui-shared/chart-helpers";
 import {
   buildBreakdownChartGroups,
   type BreakdownChartItem,
-} from "@/lib/chart-helpers/breakdown-chart-data";
-import type { BreakdownChartDimension } from "@/lib/chart-helpers/breakdown-chart-dimensions";
-import { resolveBreakdownTimeUnitSuffix } from "@/lib/chart-helpers/breakdown-chart-dimensions";
-import { resolveGeneratedBreakdownLabel } from "@/lib/generated-tools/resolve-generated-display-text";
-import type { GeneratedToolBreakdown } from "@/lib/generated-tools/types";
+} from "@/lib/ui-shared/chart-helpers/breakdown-chart-data";
+import type { BreakdownChartDimension } from "@/lib/ui-shared/chart-helpers/breakdown-chart-dimensions";
+import { resolveBreakdownTimeUnitSuffix } from "@/lib/ui-shared/chart-helpers/breakdown-chart-dimensions";
+import { resolveGeneratedBreakdownLabel } from "@/lib/features/generated-tools/resolve-generated-display-text";
+import type { GeneratedToolBreakdown } from "@/lib/features/generated-tools/types";
 import { BreakdownChartGroupPanel } from "@/components/tools/BreakdownChartGroupPanel";
 
 type ChartType = "bar" | "pie";

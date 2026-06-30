@@ -2,15 +2,15 @@
 
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 import {
   resolvePrimaryOutputKey,
   resolveGeneratedToolTitle,
-} from "@/lib/generated-tools/resolve-tool-display";
-import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
-import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
-import { normalizeLocale } from "@/lib/format/localization";
-import { resolvePrimaryPrintValue, resolveBreakdownLabel } from "@/lib/reports/resolve-print-values";
+} from "@/lib/features/generated-tools/resolve-tool-display";
+import { resolvePrimaryOutputUnit } from "@/lib/features/generated-tools/resolve-output-unit";
+import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
+import { normalizeLocale } from "@/lib/core/format/localization";
+import { resolvePrimaryPrintValue, resolveBreakdownLabel } from "@/lib/features/reports/resolve-print-values";
 
 /* ─── Badge ───────────────────────────────────────────────────────── */
 function Badge({ label, variant }: { label: string; variant: "gold" | "amber" | "green" | "blue" | "red" }) {

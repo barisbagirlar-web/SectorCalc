@@ -1,8 +1,8 @@
-import { formatCurrency } from "@/lib/format/currency";
+import { formatCurrency } from "@/lib/core/format/currency";
 import type {
  PremiumScenarioRow,
  ScenarioTableLabels,
-} from "@/lib/calculators/premium-types";
+} from "@/lib/features/calculators/premium-types";
 
 interface ScenarioAnalysisPanelProps {
  scenarios: PremiumScenarioRow[];

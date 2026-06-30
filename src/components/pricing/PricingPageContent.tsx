@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from 'react'
 import { useTranslations, useFormatter } from 'next-intl'
-import { PLANS, Plan } from '@/lib/plans'
-import { usePaddle } from '@/lib/paddle-provider'
+import { PLANS, Plan } from '@/lib/features/plans'
+import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { PricingCard } from '@/components/pricing/PricingCard'
 import { EmailCaptureModal } from '@/components/pricing/EmailCaptureModal'
 import { Container } from "@/components/ui/Container"

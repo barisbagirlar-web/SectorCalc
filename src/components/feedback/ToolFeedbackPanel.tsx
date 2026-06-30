@@ -10,14 +10,14 @@ import {
 import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
-} from "@/lib/feedback/feedback-service";
+} from "@/lib/features/feedback/feedback-service";
 import type {
   FeedbackSnapshotValue,
   FeedbackSource,
   FeedbackToolType,
   ToolFeedbackFieldErrors,
-} from "@/lib/feedback/types";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+} from "@/lib/features/feedback/types";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 
 export interface ToolFeedbackPanelProps {
   readonly toolSlug: string;

@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { SmartCalculationSteps } from "@/components/smart-form/SmartCalculationSteps";
-import type { SmartFormCalculationStep, SmartFormResult } from "@/lib/smart-form/types";
+import type { SmartFormCalculationStep, SmartFormResult } from "@/lib/features/smart-form/types";
 
 export type SmartResultPanelProps = {
   readonly result?: SmartFormResult | null;

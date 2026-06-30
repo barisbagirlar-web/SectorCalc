@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
-import { detectRegionFromRequest } from "@/lib/compliance/detect-region";
+import { detectRegionFromRequest } from "@/lib/features/compliance/detect-region";
 
 /**
  * NOTE: Does NOT read `request.cookies` — reading cookies would cause

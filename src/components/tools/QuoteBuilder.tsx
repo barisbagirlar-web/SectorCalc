@@ -5,13 +5,13 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useLocale, useTranslations } from "next-intl";
 import { QuotePdfDocument } from "@/components/tools/QuotePdfDocument";
 import { BRAND_ASSETS } from "@/config/brand";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import { resolveGeneratedI18nText } from "@/lib/features/generated-tools/resolve-i18n-text";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 import {
   applyFireRateToQuoteTotal,
   resolveQuoteBaseTotal,
-} from "@/lib/quote/resolve-quote-total";
-import { buildQuoteCsvRows, downloadQuoteCsv } from "@/lib/quote/quote-csv-export";
+} from "@/lib/features/quote/resolve-quote-total";
+import { buildQuoteCsvRows, downloadQuoteCsv } from "@/lib/features/quote/quote-csv-export";
 
 export type QuoteBuilderProps = {
   readonly slug: string;

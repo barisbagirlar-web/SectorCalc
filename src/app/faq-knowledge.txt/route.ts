@@ -1,6 +1,6 @@
-import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-config";
-import { buildAiToolIndexDocument } from "@/lib/ai/build-ai-index-export";
-import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
+import { buildAiToolIndexDocument } from "@/lib/features/ai/build-ai-index-export";
+import { FREE_TRAFFIC_TOOLS } from "@/lib/features/tools/free-traffic-catalog";
 import { INDUSTRIES } from "@/data/industries";
 
 export const dynamic = "force-dynamic";

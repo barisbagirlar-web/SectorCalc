@@ -2,16 +2,16 @@
 
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useLocale, useTranslations } from "next-intl";
-import { IndustrialPdfDocument } from "@/lib/pdf/industrial-pdf/IndustrialPdfDocument";
-import { buildIndustrialPdfFileName } from "@/lib/pdf/industrial-pdf/render";
-import type { IndustrialPdfData } from "@/lib/pdf/industrial-pdf/types";
+import { IndustrialPdfDocument } from "@/lib/content/pdf/industrial-pdf/IndustrialPdfDocument";
+import { buildIndustrialPdfFileName } from "@/lib/content/pdf/industrial-pdf/render";
+import type { IndustrialPdfData } from "@/lib/content/pdf/industrial-pdf/types";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
-import type { VerdictReportData } from "@/lib/reports/verdict-report";
-import type { SupportedLocale } from "@/lib/i18n/locale-config";
-import type { PremiumSeverity } from "@/lib/tools/premium-tool-results";
+} from "@/lib/infrastructure/analytics/revenue-events";
+import type { VerdictReportData } from "@/lib/features/reports/verdict-report";
+import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
+import type { PremiumSeverity } from "@/lib/features/tools/premium-tool-results";
 
 function verdictReportToIndustrialPdfData(
   data: VerdictReportData,

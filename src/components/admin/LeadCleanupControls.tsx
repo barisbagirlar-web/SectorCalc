@@ -4,12 +4,12 @@ import {
  formatTestLeadConfidence,
  type LeadCleanupSummary,
  type TestLeadDetection,
-} from "@/lib/leads/lead-cleanup";
+} from "@/lib/features/leads/lead-cleanup";
 import {
  LeadTestClassificationControls,
  type TestLeadClassificationPatch,
 } from "@/components/admin/LeadTestClassificationControls";
-import type { LeadIntent } from "@/lib/leads/types";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 interface LeadCleanupControlsProps {
  summary: LeadCleanupSummary;

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { getSavedDrafts } from "@/lib/field-mode/saved-drafts";
+import { getSavedDrafts } from "@/lib/features/field-mode/saved-drafts";
 
 export function SavedDraftNotice() {
   const t = useTranslations("fieldMode");

@@ -5,14 +5,14 @@ import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import {
   countToolsForHomepageCoverage,
   HOMEPAGE_COVERAGE_FILTER_SLUG,
-} from "@/lib/home/homepage-coverage-tool-map";
-import { readHomepageStringArray, resolveHomepageMessage } from "@/lib/home/homepage-component-utils";
+} from "@/lib/ui-shared/home/homepage-coverage-tool-map";
+import { readHomepageStringArray, resolveHomepageMessage } from "@/lib/ui-shared/home/homepage-component-utils";
 import {
   HOMEPAGE_COVERAGE_IDS,
   type HomepageCoverageId,
-} from "@/lib/home/homepage-positioning-data";
-import { getAllTools } from "@/lib/tools/all-tools-data";
-import { cn } from "@/lib/cn";
+} from "@/lib/ui-shared/home/homepage-positioning-data";
+import { getAllTools } from "@/lib/features/tools/all-tools-data";
+import { cn } from "@/lib/core/cn";
 
 type CategoryGridProps = {
   readonly locale: string;

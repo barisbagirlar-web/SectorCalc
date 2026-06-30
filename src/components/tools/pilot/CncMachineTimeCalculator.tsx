@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -9,21 +9,21 @@ import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { ProBadge } from "@/components/os/ProBadge";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
 import { CncStochasticPhaseSlot } from "@/components/tools/pilot/CncStochasticPhaseSlot";
-import { calculatePremiumVerdict } from "@/lib/actions/calculate-premium";
-import { getCurrentUserIdToken } from "@/lib/firebase/auth";
-import { handleNumericInputChange, SC_NUMERIC_INPUT_CLASS } from "@/lib/input/numeric-input";
+import { calculatePremiumVerdict } from "@/lib/infrastructure/actions/calculate-premium";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
+import { handleNumericInputChange, SC_NUMERIC_INPUT_CLASS } from "@/lib/features/input/numeric-input";
 import {
   parsePremiumVerdictTxt,
   verdictSeverity,
   type ParsedPremiumVerdict,
-} from "@/lib/premium/parse-premium-verdict-txt";
+} from "@/lib/features/premium/parse-premium-verdict-txt";
 import {
   buildCncMarginCoreInputs,
   calculateCncNaiveCost,
   type CncMachineTimeInputs,
-} from "@/lib/tools/cnc-logic";
-import type { RevenueTool } from "@/lib/tools/revenue-tools";
-import { getPremiumToolHref } from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/cnc-logic";
+import type { RevenueTool } from "@/lib/features/tools/revenue-tools";
+import { getPremiumToolHref } from "@/lib/features/tools/tool-links";
 
 const VERDICT_TONE = {
   safe: "text-safe-green",

@@ -3,8 +3,8 @@ import {
  buildIndustrySeoDescription,
  buildIndustrySeoTitle,
  getIndustryRegistryEntry,
-} from "@/lib/tools/industry-registry";
-import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/industry-registry";
+import { getRevenueToolBySector } from "@/lib/features/tools/revenue-tools";
 
 export interface IndustryHubContent {
  hubTitle: string;

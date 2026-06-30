@@ -15,7 +15,7 @@ import {
   getCachedIndustryCatalogGroups,
   getCachedPremiumSchemaCatalogGroups,
 } from "@/lib/catalog/cached-catalog-groups";
-import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
+import type { FreeTrafficCategoryMeta } from "@/lib/features/tools/free-traffic-categories";
 import {
   HOMEPAGE_AUDIENCE_IDS,
   HOMEPAGE_COVERAGE_IDS,
@@ -25,7 +25,7 @@ import {
   HOMEPAGE_LOSS_IDS,
   isHomepageCriticalToolLive,
   resolveHomepageCriticalToolHref,
-} from "@/lib/home/homepage-positioning-data";
+} from "@/lib/ui-shared/home/homepage-positioning-data";
 
 const FREE_ITEM_IDS = ["basic", "fast", "category", "noSignup"] as const;
 const PREMIUM_ITEM_IDS = ["inputs", "scenario", "summary", "export"] as const;

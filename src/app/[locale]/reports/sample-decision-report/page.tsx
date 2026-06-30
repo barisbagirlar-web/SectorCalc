@@ -1,14 +1,14 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { SampleDecisionReportLayout } from "@/components/reports/SampleDecisionReportLayout";
 import { CTASection } from "@/components/sections/CTASection";
 import { SAMPLE_REPORT_INCLUDES } from "@/data/sample-report-content";
-import { createPageMetadata } from "@/lib/metadata";
-import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { getFreeToolsHref, getPricingHref } from "@/lib/features/tools/tool-links";
 import { SINGLE_VERDICT_CTA } from "@/lib/pricing/plan-catalog";
 import type { AppLocale } from "@/i18n/locales";
 

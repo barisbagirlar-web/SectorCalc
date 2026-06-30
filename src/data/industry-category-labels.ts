@@ -1,4 +1,4 @@
-import type { IndustryCategory } from "@/lib/tools/industry-registry";
+import type { IndustryCategory } from "@/lib/features/tools/industry-registry";
 
 /** Category labels for homepage / industries showcase */
 export const INDUSTRY_CATEGORY_DISPLAY: Record<

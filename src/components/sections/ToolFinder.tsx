@@ -42,7 +42,7 @@ export function ToolFinder() {
  const handleSearchFocus = () => {
  if (!formStartedRef.current) {
  formStartedRef.current = true;
- import("@/lib/analytics/events").then(({ trackEvent, ANALYTICS_EVENTS }) => {
+ import("@/lib/infrastructure/analytics/events").then(({ trackEvent, ANALYTICS_EVENTS }) => {
  trackEvent(ANALYTICS_EVENTS.form_started, { surface: "tool_finder" });
  });
  }

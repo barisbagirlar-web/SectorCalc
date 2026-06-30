@@ -1,5 +1,5 @@
-import { buildAiToolIndexDocument } from "@/lib/ai/build-ai-index-export";
-import { buildLlmsTxt } from "@/lib/ai/build-llms-txt";
+import { buildAiToolIndexDocument } from "@/lib/features/ai/build-ai-index-export";
+import { buildLlmsTxt } from "@/lib/features/ai/build-llms-txt";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";

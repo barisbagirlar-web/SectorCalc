@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
-import { getAccountHref } from "@/lib/tools/tool-links";
+import { useClientSearchParam } from "@/lib/ui-shared/navigation/use-client-search-params";
+import { getAccountHref } from "@/lib/features/tools/tool-links";
 import {
   completeCustomerGoogleRedirect,
   getCustomerSignInErrorCode,
   signInCustomerWithGoogle,
-} from "@/lib/firebase/customer-auth";
+} from "@/lib/infrastructure/firebase/customer-auth";
 
 const buttonClass =
  "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";

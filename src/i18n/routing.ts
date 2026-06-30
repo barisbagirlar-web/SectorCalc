@@ -1,7 +1,7 @@
 export const Link = require("next/link").default;
 export const useRouter = require("next/navigation").useRouter;
 export const usePathname = require("next/navigation").usePathname;
-export const routing = { defaultLocale: "en", locales: ["en"] };
+export const routing = { defaultLocale: "en" as AppLocale, locales: ["en"] as const };
 export const locales = ["en"];
 export const redirect = require("next/navigation").redirect;
 export type AppLocale = "en";

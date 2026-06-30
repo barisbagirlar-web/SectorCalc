@@ -8,8 +8,8 @@ import {
   FREE_TRAFFIC_CATEGORY_TO_GLOBAL,
   resolveToolCategory,
 } from "@/lib/catalog/resolve-tool-category";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
-import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+import type { FreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
+import { inferFreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
 import { FREE_TOOLS_LEGACY_CATEGORY_ALIASES } from "@/lib/catalog/free-tools-category-filter";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");

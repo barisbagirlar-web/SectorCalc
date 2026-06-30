@@ -9,14 +9,14 @@ import { RelatedTools } from "@/components/tools/RelatedTools";
 import { CTASection } from "@/components/sections/CTASection";
 import type { ToolDefinition } from "@/data/tool-schema";
 import { getIndustryBySlug } from "@/data/industries";
-import { applyRevenueToolDisplay } from "@/lib/tools/revenue-tools";
-import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import { applyRevenueToolDisplay } from "@/lib/features/tools/revenue-tools";
+import { MARGINCORE_TERMS } from "@/lib/content/terminology/margincore-identity";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import {
   CALC_TOOL_PAGE_CHROME_CLASS,
   CALC_TOOL_PAGE_CLASS,
   CALC_TOOL_PAGE_FORM_ZONE_CLASS,
-} from "@/lib/layout/calculation-tool-mobile-layout";
+} from "@/lib/ui-shared/layout/calculation-tool-mobile-layout";
 
 interface ToolPageShellProps {
   definition: ToolDefinition;

@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { resolveDecisionEngineContext } from "@/lib/decision-engine/decision-engine-resolver";
-import { resolveDisclaimer } from "@/lib/disclaimer/disclaimer-resolver";
+import { resolveDecisionEngineContext } from "@/lib/features/decision-engine/decision-engine-resolver";
+import { resolveDisclaimer } from "@/lib/content/disclaimer/disclaimer-resolver";
 
 type UsageAgreementNoticeProps = {
   readonly toolSlug: string;

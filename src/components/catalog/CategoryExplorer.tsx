@@ -8,7 +8,7 @@ import type {
   CategoryExplorerVariant,
 } from "@/lib/catalog/catalog-types";
 import { resolveDefaultGroupId } from "@/lib/catalog/build-catalog-groups";
-import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
+import { useClientSearchParams } from "@/lib/ui-shared/navigation/use-client-search-params";
 
 export type CategoryExplorerProps = {
   groups: readonly CatalogGroup[];

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { getLowBandwidth, setLowBandwidth } from "@/lib/field-mode/low-bandwidth";
+import { getLowBandwidth, setLowBandwidth } from "@/lib/features/field-mode/low-bandwidth";
 
 export function LowBandwidthToggle() {
   const t = useTranslations("fieldMode");

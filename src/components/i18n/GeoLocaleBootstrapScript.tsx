@@ -1,4 +1,4 @@
-import { buildGeoLocaleBootstrapScript } from "@/lib/i18n/geo-locale-bootstrap";
+import { buildGeoLocaleBootstrapScript } from "@/lib/infrastructure/i18n/geo-locale-bootstrap";
 
 /**
  * Synchronous head redirect — Apple-style geo locale routing before first paint.

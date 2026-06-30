@@ -1,5 +1,5 @@
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+import type { FreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
 
 /** Maps free-traffic catalog categories to industry hub sector slugs. */
 export const CATALOG_CATEGORY_TO_SECTOR_SLUG: Readonly<Record<FreeTrafficCategory, string>> = {

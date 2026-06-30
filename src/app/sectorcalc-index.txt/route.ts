@@ -1,10 +1,10 @@
 import { siteUrl } from "@/config/site";
 import { INDUSTRIES } from "@/data/industries";
-import { buildAiToolIndexDocument } from "@/lib/ai/build-ai-index-export";
-import { addLocaleToPath } from "@/lib/i18n/locale-routing";
-import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
-import { PROGRAMMATIC_SEO_PAGES } from "@/lib/seo/programmatic-seo-pages";
-import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+import { buildAiToolIndexDocument } from "@/lib/features/ai/build-ai-index-export";
+import { addLocaleToPath } from "@/lib/infrastructure/i18n/locale-routing";
+import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
+import { PROGRAMMATIC_SEO_PAGES } from "@/lib/infrastructure/seo/programmatic-seo-pages";
+import { FREE_TRAFFIC_TOOLS } from "@/lib/features/tools/free-traffic-catalog";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";

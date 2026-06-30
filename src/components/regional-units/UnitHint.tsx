@@ -1,4 +1,4 @@
-import { getUnitDefinition } from "@/lib/units/regional-unit-engine";
+import { getUnitDefinition } from "@/lib/core/units/regional-unit-engine";
 
 type UnitHintProps = {
   readonly unitId: string;

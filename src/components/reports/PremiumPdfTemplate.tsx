@@ -9,7 +9,7 @@ import {
  formatPremiumPdfGeneratedLabel,
  formatPremiumPdfUsd,
  type PremiumPdfData,
-} from "@/lib/reports/premium-pdf-data";
+} from "@/lib/features/reports/premium-pdf-data";
 
 const NAVY = "#1E40AF";
 const AMBER = "#D97706";

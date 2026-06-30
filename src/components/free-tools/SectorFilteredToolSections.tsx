@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ToolAlphaList } from "@/components/tools/ToolAlphaList";
-import type { ToolListItem } from "@/lib/tools/getToolsByCategory";
+import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 
 export type CategorySectorData = {
   readonly slug: string;

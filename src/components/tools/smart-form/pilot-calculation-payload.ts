@@ -2,8 +2,8 @@
  * Smart form pilot calculation payload — Phase 5H-G-E/G (pure mapper; no calculator imports).
  */
 
-import type { FreeToolInputValues } from "@/lib/tools/free-tool-results";
-import type { SmartFormFieldComponentProps } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
+import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";
+import type { SmartFormFieldComponentProps } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { canIncludeOptionalPilotField } from "@/components/tools/smart-form/optional-field-expansion-gate";
 import {
   THREE_D_PRINT_PILOT_SUBMIT_KEYS,

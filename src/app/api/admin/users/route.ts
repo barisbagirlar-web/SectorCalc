@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { getAuth } from "firebase-admin/auth";
-import { getFirebaseAdminApp, getAdminFirestore } from "@/lib/firebase/admin";
+import { getFirebaseAdminApp, getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

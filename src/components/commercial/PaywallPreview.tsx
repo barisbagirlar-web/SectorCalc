@@ -1,4 +1,4 @@
-import { PAYWALL_LOCKED_FEATURES } from "@/lib/commercial/commercial-model";
+import { PAYWALL_LOCKED_FEATURES } from "@/lib/features/commercial/commercial-model";
 import { Container } from "@/components/ui/Container";
 
 export function PaywallPreview() {

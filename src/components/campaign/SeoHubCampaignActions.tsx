@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 
 export type SeoHubCampaignLink = {
   readonly href: string;

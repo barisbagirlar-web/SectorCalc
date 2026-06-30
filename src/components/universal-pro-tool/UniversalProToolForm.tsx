@@ -6,7 +6,7 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
-import type { ToolSchemaInput } from "@/lib/tool-schemas/types";
+import type { ToolSchemaInput } from "@/lib/features/tool-schemas/types";
 
 function confidenceClass(label?: string): string {
   if (!label) return "";

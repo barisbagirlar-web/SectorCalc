@@ -1,19 +1,19 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import {
   useClientSearchParam,
-} from "@/lib/navigation/use-client-search-params";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+} from "@/lib/ui-shared/navigation/use-client-search-params";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
+} from "@/lib/infrastructure/analytics/revenue-events";
 import { SINGLE_VERDICT_PRICE } from "@/lib/pricing/plan-catalog";
-import { getAccountHref, getPremiumToolHref } from "@/lib/tools/tool-links";
-import { getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tools";
+import { getAccountHref, getPremiumToolHref } from "@/lib/features/tools/tool-links";
+import { getRevenueToolByPaidSlug, revenueTools } from "@/lib/features/tools/revenue-tools";
 
 export function PricingSubscribedBanner() {
  const router = useRouter();

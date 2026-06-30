@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { BenchmarkBand } from "@/lib/regional-benchmarks/types";
+import type { BenchmarkBand } from "@/lib/features/regional-benchmarks/types";
 
 type BenchmarkCardProps = {
   readonly band: BenchmarkBand;

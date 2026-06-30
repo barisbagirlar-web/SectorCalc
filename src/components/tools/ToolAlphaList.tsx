@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { ToolAlphaListExpandButton } from "@/components/tools/ToolAlphaListExpandButton";
-import type { ToolListItem } from "@/lib/tools/getToolsByCategory";
+import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 

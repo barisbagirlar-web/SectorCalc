@@ -6,30 +6,30 @@ import { Link } from "@/i18n/routing";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 import type { AppLocale } from "@/i18n/routing";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
   getGeneratedToolSchema,
   listGeneratedToolSchemaSlugs,
-} from "@/lib/generated-tools/schema-loader";
+} from "@/lib/features/generated-tools/schema-loader";
 import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
-} from "@/lib/generated-tools/resolve-tool-display";
-import { resolveGeneratedToolAboutContent } from "@/lib/generated-tools/resolve-tool-about";
-import { createPageMetadata } from "@/lib/metadata";
+} from "@/lib/features/generated-tools/resolve-tool-display";
+import { resolveGeneratedToolAboutContent } from "@/lib/features/generated-tools/resolve-tool-about";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildFAQJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { buildFAQJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
 import { AnswerBlock } from "@/components/tools/AnswerBlock";
-import { buildGeneratedToolFeaturedCopy } from "@/lib/semantic/build-generated-tool-featured-copy";
-import { buildGeneratedToolCalculateActionJsonLd } from "@/lib/semantic/build-generated-tool-calculate-action-jsonld";
-import { buildGeneratedToolHowToJsonLd } from "@/lib/semantic/build-generated-tool-howto-jsonld";
-import { buildGeneratedToolProductJsonLd } from "@/lib/semantic/build-generated-tool-product-jsonld";
-import { buildGeneratedToolWebPageJsonLd } from "@/lib/semantic/build-generated-tool-webpage-jsonld";
-import { inferFreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+import { buildGeneratedToolFeaturedCopy } from "@/lib/features/semantic/build-generated-tool-featured-copy";
+import { buildGeneratedToolCalculateActionJsonLd } from "@/lib/features/semantic/build-generated-tool-calculate-action-jsonld";
+import { buildGeneratedToolHowToJsonLd } from "@/lib/features/semantic/build-generated-tool-howto-jsonld";
+import { buildGeneratedToolProductJsonLd } from "@/lib/features/semantic/build-generated-tool-product-jsonld";
+import { buildGeneratedToolWebPageJsonLd } from "@/lib/features/semantic/build-generated-tool-webpage-jsonld";
+import { inferFreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
 import {
   buildIndustrialFreeToolSchema,
   isIndustrialFreeToolSlug,
-} from "@/lib/tools/industrial-free-schema-factory";
+} from "@/lib/features/tools/industrial-free-schema-factory";
 
 interface GeneratedToolRouteParams {
   slug: string;

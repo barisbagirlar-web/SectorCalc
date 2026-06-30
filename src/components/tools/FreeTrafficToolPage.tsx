@@ -8,32 +8,32 @@ import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
-import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
+import { getPremiumCatalogCategoryDetail } from "@/lib/features/premium/premium-category-resolver";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
-import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics/events";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
+import { ANALYTICS_EVENTS, trackEvent } from "@/lib/infrastructure/analytics/events";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
+import { buildTrackedCtaHref } from "@/lib/features/campaigns/campaign-links";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
-import { getToolHref } from "@/lib/tools/paths";
+import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/infrastructure/analytics/revenue-events";
+import { getToolHref } from "@/lib/features/tools/paths";
 import {
   calculateFreeTrafficTool,
   type FreeTrafficInputValues,
   type FreeTrafficResult,
-} from "@/lib/tools/free-traffic-calculators";
+} from "@/lib/features/tools/free-traffic-calculators";
 import {
   listRelatedTrafficTools,
   type FreeTrafficTool,
-} from "@/lib/tools/free-traffic-catalog";
-import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
+} from "@/lib/features/tools/free-traffic-catalog";
+import { resolvePremiumAnalyzerHref } from "@/lib/features/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
-import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
-import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
+import { resolveFreeToolDisplayTitle } from "@/lib/infrastructure/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
@@ -46,12 +46,12 @@ import {
   CalculatorCurrencyPrefix,
   CalculatorUnitSelect,
 } from "@/components/tools/CalculatorUnitCurrencyControls";
-import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
-import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/features/formula-governance/runtime-validation/free-full-loop-bridge";
+import { isFreeFullLoopRuntimeSlug } from "@/lib/features/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
   buildSmartFormInitialValues,
   validateSmartFormFieldValues,
-} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
+} from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};

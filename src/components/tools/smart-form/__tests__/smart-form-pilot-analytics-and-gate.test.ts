@@ -23,12 +23,12 @@ import {
 import {
   getNextSmartFormPilotCandidate,
   NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG,
-} from "@/lib/formula-governance/smart-form-ui-bridge/next-smart-form-pilot-candidate";
-import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
-import { shouldUseSmartFormPilot } from "@/lib/feature-flags/smart-form-pilot";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/next-smart-form-pilot-candidate";
+import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/infrastructure/analytics/revenue-events";
+import { shouldUseSmartFormPilot } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 
-vi.mock("@/lib/analytics/revenue-events", async (importOriginal) => {
-  const original = await importOriginal<typeof import("@/lib/analytics/revenue-events")>();
+vi.mock("@/lib/infrastructure/analytics/revenue-events", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@/lib/infrastructure/analytics/revenue-events")>();
   return {
     ...original,
     trackRevenueEvent: vi.fn(original.trackRevenueEvent),

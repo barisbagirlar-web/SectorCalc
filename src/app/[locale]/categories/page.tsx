@@ -7,8 +7,8 @@ import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplore
 import { Container } from "@/components/ui/Container";
 import { getCachedCategoryPageCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { createPageMetadata } from "@/lib/metadata";
-import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {

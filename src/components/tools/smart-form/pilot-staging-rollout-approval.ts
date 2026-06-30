@@ -4,7 +4,7 @@
 
 import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
-import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export const SMART_FORM_PILOT_STAGING_FLAG_NAME = "NEXT_PUBLIC_SMART_FORM_PILOT" as const;
 

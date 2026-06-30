@@ -1,9 +1,9 @@
 import { useTranslations } from "next-intl";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import type { Tool } from "@/data/tools";
 import { getIndustryBySlug, type IndustrySlug } from "@/data/industries";
-import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { getPremiumArchitectureProfile } from "@/lib/features/premium/sector-loss-registry";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
 
 type ToolDiscoveryCardProps = {
   tool: Tool;

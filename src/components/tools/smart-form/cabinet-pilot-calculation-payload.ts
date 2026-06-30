@@ -2,8 +2,8 @@
  * Cabinet smart form pilot calculation payload — Phase 5H-G-H (free production shape only).
  */
 
-import type { FreeToolInputValues } from "@/lib/tools/free-tool-results";
-import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
+import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";
+import type { SmartFormUiBridgeManifest } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import {
   CABINET_PILOT_SUBMIT_KEYS,
   type CabinetPilotSubmitKey,

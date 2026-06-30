@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { FEEDBACK_KINDS, type FeedbackKind } from "@/lib/feedback/types";
+import { FEEDBACK_KINDS, type FeedbackKind } from "@/lib/features/feedback/types";
 
 const inputClass =
   "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";

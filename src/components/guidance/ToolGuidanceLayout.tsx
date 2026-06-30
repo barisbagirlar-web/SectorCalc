@@ -5,11 +5,11 @@ import { useLocale } from "next-intl";
 import { GuidanceProvider } from "@/components/guidance/GuidanceContext";
 import { PremiumInputGuide } from "@/components/tool-guides/PremiumInputGuide";
 import type { AppLocale } from "@/i18n/routing";
-import { shouldRenderPremiumGuide } from "@/lib/tools/guide/tool-guide-policy";
+import { shouldRenderPremiumGuide } from "@/lib/features/tools/guide/tool-guide-policy";
 import type {
   GuidanceTier,
   ReferenceGraphicField,
-} from "@/lib/guidance/reference-graphic-types";
+} from "@/lib/content/guidance/reference-graphic-types";
 
 export type ToolGuidanceLayoutProps = {
   readonly toolSlug: string;

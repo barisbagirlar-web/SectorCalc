@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { LEAD_CAPTURE_CONTRACTS } from "@/lib/commercial/commercial-model";
+import { LEAD_CAPTURE_CONTRACTS } from "@/lib/features/commercial/commercial-model";
 import { Container } from "@/components/ui/Container";
 
 export function LeadCaptureCta() {

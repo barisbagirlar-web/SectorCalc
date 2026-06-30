@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { callDeepSeekJson } from "@/lib/ai/deepseek/deepseek-client";
+import { callDeepSeekJson } from "@/lib/features/ai/deepseek/deepseek-client";
 import {
   buildCaseStudyParsePrompt,
   validateParsedCaseStudyFromText,
-} from "@/lib/case-studies/parse-case-study-from-text";
-import { isSupportedLocale } from "@/lib/i18n/locale-config";
-import { requireAdminFromRequest } from "@/lib/firebase/verify-admin-user";
+} from "@/lib/features/case-studies/parse-case-study-from-text";
+import { isSupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
+import { requireAdminFromRequest } from "@/lib/infrastructure/firebase/verify-admin-user";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

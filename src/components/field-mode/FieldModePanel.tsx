@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { clearRecentTools } from "@/lib/field-mode/recent-tools";
-import { clearSavedDrafts } from "@/lib/field-mode/saved-drafts";
+import { clearRecentTools } from "@/lib/features/field-mode/recent-tools";
+import { clearSavedDrafts } from "@/lib/features/field-mode/saved-drafts";
 import { RecentTools } from "@/components/field-mode/RecentTools";
 import { SavedDraftNotice } from "@/components/field-mode/SavedDraftNotice";
 import { LowBandwidthToggle } from "@/components/field-mode/LowBandwidthToggle";

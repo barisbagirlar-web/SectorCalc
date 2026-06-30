@@ -1,5 +1,5 @@
 import { AlertCircle, AlertTriangle, CheckCircle } from 'lucide-react';
-import type { RuleAlert } from '@/lib/engine/rule-engine';
+import type { RuleAlert } from '@/lib/features/engine/rule-engine';
 
 export function RuleEngineAlerts({ alerts }: { alerts: RuleAlert[] }) {
   if (!alerts || alerts.length === 0) return null;

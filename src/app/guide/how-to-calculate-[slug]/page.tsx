@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import { getAllTools } from "@/lib/tools/all-tools-data";
+import { getAllTools } from "@/lib/features/tools/all-tools-data";
 import { siteUrl } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildOrganizationJsonLd } from "@/lib/seo/schema-mesh";
+import { buildOrganizationJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 
 export const dynamicParams = true;
 
@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: PageProps) {
   if (!tool) return notFound();
 
   return {
-    title: `How to calculate ${tool.title.toLowerCase()} | Guide`,
-    description: `A comprehensive guide on how to calculate ${tool.title.toLowerCase()}, including formulas, methodology, and step-by-step examples.`,
+    title: `How to calculate ${tool.name.toLowerCase()} | Guide`,
+    description: `A comprehensive guide on how to calculate ${tool.name.toLowerCase()}, including formulas, methodology, and step-by-step examples.`,
     alternates: {
       canonical: `${siteUrl}/guide/how-to-calculate-${tool.slug}`,
     },
@@ -38,13 +38,13 @@ export default async function HowToCalculatePage({ params }: PageProps) {
   const tool = getAllTools("en").find((t) => t.slug === slug);
   if (!tool) return notFound();
 
-  const titleText = `How to calculate ${tool.title.toLowerCase()}?`;
+  const titleText = `How to calculate ${tool.name.toLowerCase()}?`;
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: titleText,
-    description: `A comprehensive guide on how to calculate ${tool.title.toLowerCase()}, including formulas, methodology, and step-by-step examples.`,
+    description: `A comprehensive guide on how to calculate ${tool.name.toLowerCase()}, including formulas, methodology, and step-by-step examples.`,
     author: {
       "@type": "Organization",
       name: "SectorCalc",
@@ -64,13 +64,13 @@ export default async function HowToCalculatePage({ params }: PageProps) {
           {titleText}
         </h1>
         <p className="mt-4 text-lg text-body-charcoal/80">
-          Understanding the methodology behind <strong>{tool.title}</strong> is essential for precise industrial and engineering operations. This guide breaks down the core concepts, the standard formula used in practice, and a step-by-step calculation example.
+          Understanding the methodology behind <strong>{tool.name}</strong> is essential for precise industrial and engineering operations. This guide breaks down the core concepts, the standard formula used in practice, and a step-by-step calculation example.
         </p>
         
         <div className="mt-8 rounded-lg border border-border-subtle bg-surface-cream p-6">
           <h2 className="mt-0 text-xl font-semibold text-body-charcoal">Overview</h2>
           <p className="mt-2 text-sm text-body-charcoal/80">
-            {tool.longDescription || tool.description}
+            {tool.description}
           </p>
         </div>
 
@@ -106,10 +106,10 @@ export default async function HowToCalculatePage({ params }: PageProps) {
         </p>
         <div className="mt-6">
           <a
-            href={tool.premiumRequired ? `/tools/premium/${tool.slug}` : `/tools/free/${tool.slug}`}
-            className="inline-flex items-center gap-2 rounded-md bg-accent-terracotta px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-accent-terracotta/90"
+            href={`/en/${tool.slug}`}
+            className="rounded-full bg-accent-terracotta px-8 py-4 font-semibold text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-accent-terracotta-dark hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-accent-terracotta/50"
           >
-            Go to {tool.title} Calculator
+            Calculate {tool.name} Now
           </a>
         </div>
       </article>

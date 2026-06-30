@@ -3,13 +3,13 @@
  * Trace Pro — Firebase auth + premium gate; deep reasoning via customer AI gateway.
  */
 import { NextResponse } from "next/server";
-import { checkAssistantRateLimit } from "@/lib/assistant/assistant-rate-limit";
-import { handleProTraceRequest } from "@/lib/trace/pro-handler";
-import type { TraceConversationMessage } from "@/lib/trace/types";
+import { checkAssistantRateLimit } from "@/lib/features/assistant/assistant-rate-limit";
+import { handleProTraceRequest } from "@/lib/infrastructure/trace/pro-handler";
+import type { TraceConversationMessage } from "@/lib/infrastructure/trace/types";
 import {
   parseBearerToken,
   verifySignedInUser,
-} from "@/lib/firebase/verify-signed-in-user";
+} from "@/lib/infrastructure/firebase/verify-signed-in-user";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

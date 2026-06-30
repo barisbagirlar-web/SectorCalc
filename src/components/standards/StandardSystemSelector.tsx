@@ -6,8 +6,8 @@ import {
   inferStandardFamily,
   listStandardOptions,
   resolveDefaultStandardSystem,
-} from "@/lib/standards/standard-system-resolver";
-import type { StandardSystem } from "@/lib/standards/engineering-standards-types";
+} from "@/lib/features/standards/standard-system-resolver";
+import type { StandardSystem } from "@/lib/features/standards/engineering-standards-types";
 
 type StandardSystemSelectorProps = {
   readonly toolSlug: string;

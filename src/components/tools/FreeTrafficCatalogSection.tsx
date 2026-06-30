@@ -1,8 +1,8 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
-import { getToolHref } from "@/lib/tools/paths";
-import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
+import { getToolHref } from "@/lib/features/tools/paths";
+import { getRevenueToolByFreeSlug } from "@/lib/features/tools/revenue-tools";
 import {
   FEATURED_TRAFFIC_SLUGS,
   FREE_TRAFFIC_CATEGORIES,
@@ -10,7 +10,7 @@ import {
   getFreeTrafficCategoryLabelKey,
   listFreeTrafficToolsByCategory,
   type FreeTrafficCategory,
-} from "@/lib/tools/free-traffic-catalog";
+} from "@/lib/features/tools/free-traffic-catalog";
 
 function resolveToolHref(slug: string): string {
   if (getRevenueToolByFreeSlug(slug)) {

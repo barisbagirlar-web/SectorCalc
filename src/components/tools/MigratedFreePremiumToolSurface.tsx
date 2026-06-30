@@ -4,19 +4,19 @@ import { FreeToolPage } from "@/components/tools/FreeToolPage";
 import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
-import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
-import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
-import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
-import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
-import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
-import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
+import { buildFAQJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { assertSemanticToolContract } from "@/lib/features/semantic/semantic-tool-reader";
+import { buildToolJsonLd } from "@/lib/features/semantic/build-tool-jsonld";
+import { resolveSmartFormPilotManifestForRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
+import { getFreeTrafficToolBySlug } from "@/lib/features/tools/free-traffic-catalog";
+import { getRevenueToolByFreeSlug } from "@/lib/features/tools/revenue-tools";
 import {
   resolveFreeToolLocalizedCopy,
-} from "@/lib/i18n/free-tool-i18n";
+} from "@/lib/infrastructure/i18n/free-tool-i18n";
 import {
   localizeFreeTrafficToolInputs,
   localizeRevenueToolInputs,
-} from "@/lib/i18n/free-tool-form-i18n";
+} from "@/lib/infrastructure/i18n/free-tool-form-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 
 function buildFeaturedAnswer(description: string): string {

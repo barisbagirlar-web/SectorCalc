@@ -1,8 +1,8 @@
-import { industryRegistry } from "@/lib/tools/industry-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 import { ALL_TOOLS } from "@/data/tools";
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 import { INDUSTRIES } from "@/data/industries";
-import type { LeadPlan } from "@/lib/leads/types";
+import type { LeadPlan } from "@/lib/features/leads/types";
 
 export interface SelectOption {
  value: string;

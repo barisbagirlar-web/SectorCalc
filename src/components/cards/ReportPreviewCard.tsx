@@ -1,4 +1,4 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { REPORT_EXPORT_FORMATS } from "@/data/reports";
 
 const PREVIEW_KPIS = [

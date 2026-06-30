@@ -3,30 +3,30 @@
 import { useCallback, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
-import { getCurrentUserIdToken } from "@/lib/firebase/auth";
-import { calculatePremiumVerdict } from "@/lib/actions/calculate-premium";
-import { generatePremiumPdfFromAnalysis } from "@/lib/actions/generate-pdf";
-import { downloadPdfFromBase64 } from "@/lib/reports/download-pdf-client";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
+import { calculatePremiumVerdict } from "@/lib/infrastructure/actions/calculate-premium";
+import { generatePremiumPdfFromAnalysis } from "@/lib/infrastructure/actions/generate-pdf";
+import { downloadPdfFromBase64 } from "@/lib/features/reports/download-pdf-client";
 import {
  parsePremiumVerdictTxt,
  type ParsedPremiumVerdict,
-} from "@/lib/premium/parse-premium-verdict-txt";
+} from "@/lib/features/premium/parse-premium-verdict-txt";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
+} from "@/lib/infrastructure/analytics/revenue-events";
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
-import type { PremiumDecisionReport } from "@/lib/calculators/premium-types";
+} from "@/lib/infrastructure/analytics/events";
+import type { PremiumDecisionReport } from "@/lib/features/calculators/premium-types";
 import type { ResultTone } from "@/data/tool-schema";
 import type { ReactNode } from "react";
-import type { SupportedLocale } from "@/lib/i18n/locale-config";
+import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import { Badge } from "@/components/ui/Badge";
 import { REPORT_EXPORT_FORMATS } from "@/data/reports";
 import { EXPORT_MOCK_MESSAGE } from "@/config/export-messages";
-import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import { MARGINCORE_TERMS } from "@/lib/content/terminology/margincore-identity";
 
 // ---------------------------------------------------------------------------
 // Props

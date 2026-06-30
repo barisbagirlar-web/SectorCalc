@@ -9,7 +9,7 @@ import { runSmartFormPilotStagingSmokeTestAudit } from "@/components/tools/smart
 import {
   SMART_FORM_PILOT_STAGING_FLAG_NAME,
 } from "@/components/tools/smart-form/pilot-staging-rollout-approval";
-import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export type SmartFormPilotProductionDeployApprovalStatus =
   | "pending_approval"

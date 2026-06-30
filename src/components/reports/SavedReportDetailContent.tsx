@@ -1,20 +1,20 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AccountLoginPrompt } from "@/components/reports/ReportsHistoryList";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
+import { formatVerdictReportDate } from "@/lib/features/reports/verdict-report";
 import {
  getUserVerdictReport,
  savedReportToVerdictReportData,
  type SavedVerdictReport,
-} from "@/lib/reports/report-storage";
-import type { PremiumSeverity } from "@/lib/tools/premium-tool-results";
+} from "@/lib/features/reports/report-storage";
+import type { PremiumSeverity } from "@/lib/features/tools/premium-tool-results";
 
 const DownloadVerdictPdfButton = dynamic(
  () =>

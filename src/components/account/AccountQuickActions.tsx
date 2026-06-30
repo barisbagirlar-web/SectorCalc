@@ -1,10 +1,10 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import {
   getFreeToolsHref,
   getPremiumToolsHref,
   getPricingHref,
   getReportsHref,
-} from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/tool-links";
 
 type AccountQuickActionsProps = {
   isActive: boolean;

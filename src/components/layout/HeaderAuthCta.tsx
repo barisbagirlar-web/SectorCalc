@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { useUserSubscription, warmUserSubscriptionStore } from "@/lib/billing/use-user-subscription";
+import { useUserSubscription, warmUserSubscriptionStore } from "@/lib/features/billing/use-user-subscription";
 
 interface HeaderAuthCtaProps {
   onNavigate?: () => void;

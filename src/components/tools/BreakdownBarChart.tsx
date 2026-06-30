@@ -1,7 +1,7 @@
 "use client";
 
 import { EnhancedBreakdownChart } from "@/components/tools/EnhancedBreakdownChart";
-import type { GeneratedToolBreakdown } from "@/lib/generated-tools/types";
+import type { GeneratedToolBreakdown } from "@/lib/features/generated-tools/types";
 
 type BreakdownBarChartProps = {
   readonly breakdown: GeneratedToolBreakdown;

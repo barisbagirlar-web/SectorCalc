@@ -12,8 +12,8 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import { getTaxonomySectorIcon } from "@/lib/catalog/taxonomy-sector-icon-map";
-import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards";
-import type { ToolListItem } from "@/lib/tools/getToolsByCategory";
+import type { TaxonomySectorCard } from "@/lib/features/tools/build-taxonomy-sector-cards";
+import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 
 // ─── Props ──────────────────────────────────────────────────────────────────
 

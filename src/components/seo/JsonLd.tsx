@@ -1,4 +1,4 @@
-import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
 
 export type JsonLdProps = {
   readonly data: JsonLdRecord | readonly JsonLdRecord[];

@@ -8,9 +8,9 @@ import { SchemaMesh } from "@/components/seo/SchemaMesh";
 import { SectorHubCrossLinks } from "@/components/seo/SectorHubCrossLinks";
 import { SemanticSummary } from "@/components/seo/SemanticSummary";
 import { getSectorEntry, isSectorRegistryKey } from "@/lib/os/registry/sectors";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 type PageProps = {
   params: Promise<{ locale: string; sectorKey: string }>;

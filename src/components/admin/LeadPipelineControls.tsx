@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { isAdminLeadWriteEnabled } from "@/lib/admin/lead-write-config";
-import { updateLeadPipelineClient } from "@/lib/leads/update-lead-pipeline-client";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { isAdminLeadWriteEnabled } from "@/lib/features/admin/lead-write-config";
+import { updateLeadPipelineClient } from "@/lib/features/leads/update-lead-pipeline-client";
 import { LeadPriorityBadge } from "@/components/admin/LeadPriorityBadge";
 import { LeadStatusBadge } from "@/components/admin/LeadStatusBadge";
 import {
@@ -11,8 +11,8 @@ import {
  hasCallablePhone,
  PIPELINE_STATUS_OPTIONS,
  resolveLeadStatus,
-} from "@/lib/leads/lead-pipeline";
-import type { LeadIntent, LeadStatus } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-pipeline";
+import type { LeadIntent, LeadStatus } from "@/lib/features/leads/types";
 
 const WRITE_DISABLED_MESSAGE =
  "Admin write infrastructure is being prepared. Only viewing is active for now.";

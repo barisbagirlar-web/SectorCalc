@@ -1,17 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
 import {
   listToolFeedbackForAdmin,
   updateToolFeedbackStatus,
   type ToolFeedbackListFilters,
-} from "@/lib/feedback/feedback-service";
+} from "@/lib/features/feedback/feedback-service";
 import {
   FEEDBACK_KINDS,
   FEEDBACK_SEVERITIES,
@@ -20,10 +20,10 @@ import {
   type FeedbackSeverity,
   type FeedbackStatus,
   type ToolFeedbackDocument,
-} from "@/lib/feedback/types";
-import { formatLocalDateTime } from "@/lib/format/datetime";
-import { isFirebaseConfigured } from "@/lib/firebase/client";
-import { getLoginHref } from "@/lib/tools/tool-links";
+} from "@/lib/features/feedback/types";
+import { formatLocalDateTime } from "@/lib/core/format/datetime";
+import { isFirebaseConfigured } from "@/lib/infrastructure/firebase/client";
+import { getLoginHref } from "@/lib/features/tools/tool-links";
 
 const selectClass =
   "min-h-[44px] w-full rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20 sm:w-auto";

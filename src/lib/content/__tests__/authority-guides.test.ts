@@ -5,9 +5,9 @@ import {
   getAuthorityGuideBySlug,
   listAuthorityGuideSlugs,
 } from "@/lib/content/authority-guides";
-import { buildSitemapEntries, countAuthorityGuideSitemapEntries } from "@/lib/seo/build-sitemap";
-import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
-import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
+import { buildSitemapEntries, countAuthorityGuideSitemapEntries } from "@/lib/infrastructure/seo/build-sitemap";
+import { FREE_TRAFFIC_TOOLS } from "@/lib/features/tools/free-traffic-catalog";
+import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 
 const FREE_SLUGS = new Set(FREE_TRAFFIC_TOOLS.map((tool) => tool.slug));
 const PREMIUM_SLUGS = new Set(listPremiumSchemaSlugs());

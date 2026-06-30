@@ -1,7 +1,7 @@
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import type { CatalogSearchEntry } from "@/lib/catalog/catalog-search";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
-import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
+import { listPremiumCatalogCategories } from "@/lib/features/premium/premium-category-resolver";
 
 export function normalizeToolSearchText(value: string): string {
   return value

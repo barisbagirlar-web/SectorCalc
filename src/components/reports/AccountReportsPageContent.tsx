@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useEffect, useState } from "react";
 import {
   useClientSearchParam,
-} from "@/lib/navigation/use-client-search-params";
+} from "@/lib/ui-shared/navigation/use-client-search-params";
 import {
  AccountLoginPrompt,
  ReportsHistoryList,
@@ -16,13 +16,13 @@ import {
 import { ProUpsellBanner } from "@/components/billing/ProUpsellBanner";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { useUserPurchases } from "@/lib/billing/use-user-purchases";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { useUserPurchases } from "@/lib/features/billing/use-user-purchases";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import {
  listUserVerdictReports,
  type SavedVerdictReport,
-} from "@/lib/reports/report-storage";
-import { getAccountHref, getReportsHref } from "@/lib/tools/tool-links";
+} from "@/lib/features/reports/report-storage";
+import { getAccountHref, getReportsHref } from "@/lib/features/tools/tool-links";
 
 export function AccountReportsPageContent() {
  const purchased = useClientSearchParam("purchased");

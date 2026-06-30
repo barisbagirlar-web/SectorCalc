@@ -1,6 +1,6 @@
 "use client";
 
-import type { AssistantSuggestion } from "@/lib/assistant/types";
+import type { AssistantSuggestion } from "@/lib/features/assistant/types";
 
 export type TraceChatMessage = {
   readonly id: number;

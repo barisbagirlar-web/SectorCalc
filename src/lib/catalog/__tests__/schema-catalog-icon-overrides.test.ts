@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import { isTaxonomySectorIconSlug } from "@/lib/catalog/taxonomy-sector-icon-map";
 import { resolveCatalogCategoryIcon } from "@/lib/catalog/resolve-catalog-category-icon";
-import { listTaxonomyCategorySlugs } from "@/lib/tools/category-taxonomy";
+import { listTaxonomyCategorySlugs } from "@/lib/features/tools/category-taxonomy";
 import { SCHEMA_CATALOG_ICON_OVERRIDES } from "@/lib/catalog/schema-catalog-icon-overrides";
 
 describe("schema catalog icon overrides", () => {

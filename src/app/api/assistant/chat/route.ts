@@ -10,13 +10,13 @@ import { NextResponse } from "next/server";
 import {
   buildAssistantChatSystemPrompt,
   type AssistantChatRole,
-} from "@/lib/assistant/chat-system-prompts";
-import { checkAssistantRateLimit } from "@/lib/assistant/assistant-rate-limit";
+} from "@/lib/features/assistant/chat-system-prompts";
+import { checkAssistantRateLimit } from "@/lib/features/assistant/assistant-rate-limit";
 import {
   parseBearerToken,
   verifySignedInUser,
-} from "@/lib/firebase/verify-signed-in-user";
-import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-config";
+} from "@/lib/infrastructure/firebase/verify-signed-in-user";
+import { isSupportedLocale, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

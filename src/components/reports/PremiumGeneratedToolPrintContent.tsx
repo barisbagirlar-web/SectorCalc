@@ -2,25 +2,25 @@
 
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { getPrintData, type PrintData } from "@/lib/reports/generated-tool-print-data";
+import { getPrintData, type PrintData } from "@/lib/features/reports/generated-tool-print-data";
 import type {
   GeneratedToolResult,
   GeneratedToolSchema,
   GeneratedToolInput,
-} from "@/lib/generated-tools/types";
-import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
-import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
-import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
-import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
-import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
-import { normalizeLocale } from "@/lib/format/localization";
+} from "@/lib/features/generated-tools/types";
+import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";
+import { resolvePrimaryOutputKey } from "@/lib/features/generated-tools/resolve-tool-display";
+import { resolveGeneratedI18nText } from "@/lib/features/generated-tools/resolve-i18n-text";
+import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
+import { resolvePrimaryOutputUnit } from "@/lib/features/generated-tools/resolve-output-unit";
+import { normalizeLocale } from "@/lib/core/format/localization";
 import {
   resolvePrimaryPrintValue,
   buildMethodologyDescription,
   findReferenceStandards,
   resolveBreakdownLabel,
-} from "@/lib/reports/resolve-print-values";
-import { getToolMethodology } from "@/lib/reports/tool-methodology";
+} from "@/lib/features/reports/resolve-print-values";
+import { getToolMethodology } from "@/lib/features/reports/tool-methodology";
 
 export function PremiumGeneratedToolPrintContent({ slug }: { slug: string }) {
   const locale = useLocale();

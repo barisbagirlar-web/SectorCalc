@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 import { useLocale } from "next-intl";
-import type { GeneratedToolInput } from "@/lib/generated-tools/types";
-import { resolveGeneratedFieldDisplay } from "@/lib/i18n/generated-field-display";
+import type { GeneratedToolInput } from "@/lib/features/generated-tools/types";
+import { resolveGeneratedFieldDisplay } from "@/lib/infrastructure/i18n/generated-field-display";
 
 export type GeneratedToolFieldDisplay = {
   readonly label: string;

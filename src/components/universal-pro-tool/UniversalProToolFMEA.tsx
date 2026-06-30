@@ -5,7 +5,7 @@
  */
 "use client";
 
-import type { ToolSchemaFMEAItem } from "@/lib/tool-schemas/types";
+import type { ToolSchemaFMEAItem } from "@/lib/features/tool-schemas/types";
 
 interface UniversalProToolFMEAProps {
   tool: any;

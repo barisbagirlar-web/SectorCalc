@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import { ACTIVITY_PLACEHOLDER_ROWS } from "@/lib/home/margincore-dashboard-data";
+import { ACTIVITY_PLACEHOLDER_ROWS } from "@/lib/ui-shared/home/margincore-dashboard-data";
 
 function formatActivityTimestamp(iso: string, locale: string): string {
   if (!iso) {

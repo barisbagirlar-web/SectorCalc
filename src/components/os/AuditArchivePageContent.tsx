@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { AuditHistoryPanel } from "@/components/os/AuditHistoryPanel";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useAuditArchive } from "@/lib/os/hooks/use-audit-archive";
-import { getAccountHref, getArchiveHref, getLoginHref } from "@/lib/tools/tool-links";
+import { getAccountHref, getArchiveHref, getLoginHref } from "@/lib/features/tools/tool-links";
 
 export function AuditArchivePageContent() {
   const t = useTranslations("auditArchive");

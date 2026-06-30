@@ -8,8 +8,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { useEffect, useMemo, useState, type FormEvent } from "react";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import {
   BigNumberSummary,
   ExecutiveVerdictBlock,
@@ -23,43 +23,43 @@ import type {
   PremiumCalculatorSchema,
   PremiumInputSchema,
   SchemaInputValues,
-} from "@/lib/premium-schema/premium-calculator-schema";
+} from "@/lib/features/premium-schema/premium-calculator-schema";
 import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
-} from "@/lib/premium-schema/premium-schema-engine";
-import { getOutputMeaning } from "@/lib/premium-schema/format-premium-result";
+} from "@/lib/features/premium-schema/premium-schema-engine";
+import { getOutputMeaning } from "@/lib/features/premium-schema/format-premium-result";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
-import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
-import { usePremiumSchemaEntitlement } from "@/lib/entitlements/use-premium-schema-entitlement";
-import { limitPreviewThresholdCount } from "@/lib/entitlements/premium-entitlements";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
+import type { BenchmarkSnapshotValue } from "@/lib/features/benchmarks/benchmark-types";
+import { usePremiumSchemaEntitlement } from "@/lib/features/entitlements/use-premium-schema-entitlement";
+import { limitPreviewThresholdCount } from "@/lib/features/entitlements/premium-entitlements";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
 import { PremiumCalculatorShell } from "@/components/tools/PremiumCalculatorShell";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
-import { resolveCalculatorInputDisplay } from "@/lib/i18n/free-tool-form-i18n";
+import { resolveCalculatorInputDisplay } from "@/lib/infrastructure/i18n/free-tool-form-i18n";
 import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
-} from "@/lib/i18n/premium-schema-display-i18n";
-import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
-import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
-import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
-import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+} from "@/lib/infrastructure/i18n/premium-schema-display-i18n";
+import { formatPremiumValue } from "@/lib/features/premium-schema/format-premium-result";
+import type { SevenMudaEngineeringResult } from "@/lib/features/premium-schema/calculators/seven-muda-waste-cost";
+import { resolveSevenMudaRev5Labels } from "@/lib/infrastructure/i18n/seven-muda-rev5-labels";
+import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 import {
   resolveToolCalculationAllowed,
   resolveToolFormPresence,
 } from "@/components/tools/resolve-tool-form-presence";
 import { EngineeringInterpretationPanel } from "@/components/interpretation/EngineeringInterpretationPanel";
-import type { InterpretPremiumResultRequest } from "@/lib/ai/engineering-interpretation/types";
+import type { InterpretPremiumResultRequest } from "@/lib/features/ai/engineering-interpretation/types";
 import {
   inferInputUnitGroup,
-} from "@/lib/generated-tools/unit-conversion";
-import { getAvailableUnitsForGroup } from "@/lib/regional/unit-defaults";
+} from "@/lib/features/generated-tools/unit-conversion";
+import { getAvailableUnitsForGroup } from "@/lib/features/regional/unit-defaults";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";

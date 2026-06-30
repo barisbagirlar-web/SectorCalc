@@ -11,7 +11,7 @@ import {
   resolveSectorTitle,
   type SectorRegistryKey,
 } from "@/lib/os/registry/sectors";
-import { sanitizeNumericInput } from "@/lib/input/numeric-input";
+import { sanitizeNumericInput } from "@/lib/features/input/numeric-input";
 
 export interface PremiumAuditInputProps {
   sectorId: SectorRegistryKey;

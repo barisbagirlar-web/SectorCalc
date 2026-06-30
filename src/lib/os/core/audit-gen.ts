@@ -2,7 +2,7 @@
  * Audit generator — premium report generator (global).
  */
 
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 import type { IndustryDiagnosticConfig, PremiumRuleSeverity } from "@/lib/os/config/industry-config";
 import { UEngine, type AuditMetrics, type UEngineAnalysisResult } from "@/lib/os/core/u-engine";
 import {

@@ -4,18 +4,18 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { createPageMetadata } from "@/lib/metadata";
-import { getPremiumTools } from "@/lib/tools/all-tools-data";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { getPremiumTools } from "@/lib/features/tools/all-tools-data";
 import {
   buildTaxonomySectorCards,
   withTaxonomyCountLabels,
-} from "@/lib/tools/build-taxonomy-sector-cards";
+} from "@/lib/features/tools/build-taxonomy-sector-cards";
 import {
   getAllToolsGroupedByCategory,
   getOrderedCategorySlugsWithTools,
-} from "@/lib/tools/getToolsByCategory";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
-import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+} from "@/lib/features/tools/getToolsByCategory";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
+import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {

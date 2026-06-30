@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import type { EngineeringInterpretation, InterpretationRecommendation, InterpretationRisk, OutputInterpretation, InterpretPremiumResultRequest } from "@/lib/ai/engineering-interpretation/types";
+import type { EngineeringInterpretation, InterpretationRecommendation, InterpretationRisk, OutputInterpretation, InterpretPremiumResultRequest } from "@/lib/features/ai/engineering-interpretation/types";
 
 type PanelState =
   | { status: "idle" }

@@ -15,7 +15,7 @@ import {
   filterCatalogSearchEntries,
 } from "@/lib/catalog/catalog-search";
 import { useToolsPageSearch } from "@/components/tools/tools-page-search-context";
-import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
+import { scrollToToolsList } from "@/lib/ui-shared/navigation/scroll-to-tools-list";
 
 export type SearchablePremiumTool = {
   readonly slug: string;

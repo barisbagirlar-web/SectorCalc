@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
-import type { GeneratedToolResult } from "@/lib/generated-tools/types";
+import type { GeneratedToolResult } from "@/lib/features/generated-tools/types";
 
 const NAVY = "#1E3A5F";
 const SLATE = "#64748B";

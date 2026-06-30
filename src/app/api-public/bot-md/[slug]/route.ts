@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
-import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
-import { resolveApiPublicLocale } from "@/lib/validation/api-public-messages";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
+import { getLocaleTextDirection } from "@/lib/infrastructure/i18n/locale-config";
+import { resolveApiPublicLocale } from "@/lib/core/validation/api-public-messages";
 import {
   buildBotMdDocument,
   buildBotMdNotFound,
-} from "@/lib/validation/build-bot-md-document";
+} from "@/lib/core/validation/build-bot-md-document";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

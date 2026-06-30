@@ -1,5 +1,5 @@
 import type { AppLocale } from "@/i18n/routing";
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 
 /**
  * Locale-aware overrides for industry hub content.

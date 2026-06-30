@@ -5,7 +5,7 @@ import {
   academicRoleTranslationKey,
   getAcademicAdvisoryBoardMembers,
   resolveAcademicTeamProfilePath,
-} from "@/lib/seo/academic-team-pages";
+} from "@/lib/infrastructure/seo/academic-team-pages";
 
 export async function AcademicAdvisoryBoardSection() {
   const t = await getTranslations("seoAuthority");

@@ -1,7 +1,7 @@
 import { ScIcon } from "@/components/icons/ScIcon";
-import { resolveSectorIcon } from "@/lib/icons/icon-registry";
-import type { IndustryIcon } from "@/lib/tools/industry-registry";
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import { resolveSectorIcon } from "@/lib/ui-shared/icons/icon-registry";
+import type { IndustryIcon } from "@/lib/features/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 
 type SectorIconProps = {
  slug: IndustrySlug | string;

@@ -1,9 +1,9 @@
 import {
   evaluateRuntimeReadiness,
   type RuntimeReadinessFinding,
-} from "@/lib/tools/runtime-readiness";
-import { isToolBackingActivationEligible, P8_SAFETY_BLOCKED_SLUGS } from "@/lib/tools/tool-backing-detector";
-import { ERT_PROBLEM_SLUG } from "@/lib/tools/runtime-trust-engine";
+} from "@/lib/features/tools/runtime-readiness";
+import { isToolBackingActivationEligible, P8_SAFETY_BLOCKED_SLUGS } from "@/lib/features/tools/tool-backing-detector";
+import { ERT_PROBLEM_SLUG } from "@/lib/features/tools/runtime-trust-engine";
 
 const FORM_BLOCKING_FINDINGS: ReadonlySet<RuntimeReadinessFinding> = new Set([
   "missing_active_route",

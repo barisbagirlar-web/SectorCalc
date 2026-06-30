@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import type { Tool } from "@/data/tools";
-import type { FreeToolCategorySlug } from "@/lib/free-tools/free-tool-categories";
+import type { FreeToolCategorySlug } from "@/lib/features/free-tools/free-tool-categories";
 import {
   resolveFreeToolCategoryIcon,
   resolveFreeToolCategoryTagline,
@@ -10,7 +10,7 @@ import {
   resolveFreeToolCategoryField,
   resolveFreeToolCategoryDomain,
   resolveFreeToolCategorySocialPurpose,
-} from "@/lib/free-tools/free-tool-categories";
+} from "@/lib/features/free-tools/free-tool-categories";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { FreeToolCategoryIcon } from "./FreeToolCategoryIcon";
 

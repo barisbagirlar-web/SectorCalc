@@ -1,11 +1,11 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import type { SectorLandingPageConfig } from "@/data/sector-landing-pages";
 import { SINGLE_VERDICT_CTA } from "@/lib/pricing/plan-catalog";
-import { getSingleVerdictPricingHref } from "@/lib/tools/tool-links";
-import { FREE_TOOL_PRIVACY_NOTE } from "@/lib/tools/revenue-tools";
+import { getSingleVerdictPricingHref } from "@/lib/features/tools/tool-links";
+import { FREE_TOOL_PRIVACY_NOTE } from "@/lib/features/tools/revenue-tools";
 
 const SAMPLE_REPORT_HREF = "/reports/sample-decision-report";
 

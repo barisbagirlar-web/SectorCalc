@@ -4,7 +4,7 @@ import { AcademicDatabaseChrome } from "@/components/case-studies/academic/Acade
 import {
   getCaseStudyToolHref,
   type CaseStudyEntry,
-} from "@/lib/case-studies/case-study-types";
+} from "@/lib/features/case-studies/case-study-types";
 
 type Props = {
   readonly entry: CaseStudyEntry;
@@ -90,7 +90,7 @@ export async function AcademicRepresentativeCaseStudyRecord({ entry, locale }: P
           <h2>{tCase("methodologyNote")}</h2>
           <p>{entry.methodologyNote}</p>
           <ul className="record-tools">
-            {entry.assumptions.map((item) => (
+            {entry.assumptions?.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

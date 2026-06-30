@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { getRecentTools } from "@/lib/field-mode/recent-tools";
-import type { RecentToolEntry } from "@/lib/field-mode/types";
+import { getRecentTools } from "@/lib/features/field-mode/recent-tools";
+import type { RecentToolEntry } from "@/lib/features/field-mode/types";
 
 export function RecentTools() {
   const t = useTranslations("fieldMode");

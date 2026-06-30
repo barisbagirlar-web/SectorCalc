@@ -2,7 +2,7 @@
 
 import { SmartFormSection } from "@/components/smart-form/SmartFormSection";
 import { SmartInput } from "@/components/smart-form/SmartInput";
-import type { SmartFormSectionConfig } from "@/lib/smart-form/types";
+import type { SmartFormSectionConfig } from "@/lib/features/smart-form/types";
 
 export type SmartFormFieldsRendererProps = {
   readonly sections: readonly SmartFormSectionConfig[];

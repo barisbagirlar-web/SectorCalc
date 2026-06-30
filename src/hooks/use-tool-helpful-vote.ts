@@ -9,7 +9,7 @@ import {
   resolveToolHelpfulCount,
   type ToolHelpfulCountTier,
   type ToolHelpfulVote,
-} from "@/lib/tools/tool-helpful-count";
+} from "@/lib/features/tools/tool-helpful-count";
 
 type ToolHelpfulVoteState = {
   readonly vote: ToolHelpfulVote;

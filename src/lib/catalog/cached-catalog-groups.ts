@@ -5,18 +5,18 @@ import {
   buildSectorToolCatalogGroups,
   DEFAULT_FREE_TRAFFIC_CATEGORY,
 } from "@/lib/catalog/build-catalog-groups";
-import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
 import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
-} from "@/lib/generated-tools/resolve-tool-display";
-import { listPublicFreeTrafficTools } from "@/lib/tools/free-traffic-catalog";
+} from "@/lib/features/generated-tools/resolve-tool-display";
+import { listPublicFreeTrafficTools } from "@/lib/features/tools/free-traffic-catalog";
 import { getLocalizedFreeTools } from "@/data/tools";
-import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
+import type { FreeTrafficCategoryMeta } from "@/lib/features/tools/free-traffic-categories";
 import {
   buildCategoryPageCatalogGroups,
   buildPremiumSchemaCatalogGroups,
-} from "@/lib/premium-schema/premium-schema-catalog";
+} from "@/lib/features/premium-schema/premium-schema-catalog";
 
 const industryCache = new Map<string, readonly CatalogGroup[]>();
 const premiumCache = new Map<string, readonly CatalogGroup[]>();

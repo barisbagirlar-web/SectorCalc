@@ -1,4 +1,4 @@
-import { RULE_ENGINE_DB } from '@/lib/engine/mock-db';
+import { RULE_ENGINE_DB } from '@/lib/features/engine/mock-db';
 
 export function AssumptionLedger() {
   return (

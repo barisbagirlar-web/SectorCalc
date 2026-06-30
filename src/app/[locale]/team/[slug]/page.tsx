@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AcademicTeamProfileSection } from "@/components/team/AcademicTeamProfileSection";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
 import { locales } from "@/i18n/routing";
 import {
@@ -12,8 +12,8 @@ import {
   DYNAMIC_ACADEMIC_TEAM_SLUGS,
   getAcademicReferenceForTeamSlug,
   isDynamicAcademicTeamSlug,
-} from "@/lib/seo/academic-team-pages";
-import { buildAcademicTeamProfileJsonLd } from "@/lib/semantic/build-academic-team-profile-jsonld";
+} from "@/lib/infrastructure/seo/academic-team-pages";
+import { buildAcademicTeamProfileJsonLd } from "@/lib/features/semantic/build-academic-team-profile-jsonld";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 

@@ -4,7 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
 import fs from "node:fs";
-import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/i18n/locale-rewrite-exclude";
+import { LOCALE_REWRITE_EXCLUDE } from "./src/lib/infrastructure/i18n/locale-rewrite-exclude";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 

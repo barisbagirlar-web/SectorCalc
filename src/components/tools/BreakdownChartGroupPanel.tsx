@@ -19,8 +19,8 @@ import {
   resolveChartPanelHeight,
   type BreakdownChartGroup,
   type BreakdownChartItem,
-} from "@/lib/chart-helpers/breakdown-chart-data";
-import type { BreakdownChartDimension } from "@/lib/chart-helpers/breakdown-chart-dimensions";
+} from "@/lib/ui-shared/chart-helpers/breakdown-chart-data";
+import type { BreakdownChartDimension } from "@/lib/ui-shared/chart-helpers/breakdown-chart-dimensions";
 
 type ChartType = "bar" | "pie";
 

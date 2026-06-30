@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useTranslations } from "next-intl";
-import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
-import type { SavedVerdictReport } from "@/lib/reports/report-storage";
+import { formatVerdictReportDate } from "@/lib/features/reports/verdict-report";
+import type { SavedVerdictReport } from "@/lib/features/reports/report-storage";
 import { EmptyReports } from "@/components/empty-states/EmptyReports";
-import { getLoginHref } from "@/lib/tools/tool-links";
+import { getLoginHref } from "@/lib/features/tools/tool-links";
 
 interface ReportsHistoryListProps {
  reports: SavedVerdictReport[];

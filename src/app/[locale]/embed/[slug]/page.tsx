@@ -5,9 +5,9 @@ import { setRequestLocale } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 import {
   getGeneratedToolSchema,
-} from "@/lib/generated-tools/schema-loader";
-import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
-import { createPageMetadata } from "@/lib/metadata";
+} from "@/lib/features/generated-tools/schema-loader";
+import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 
 type EmbedRouteParams = {

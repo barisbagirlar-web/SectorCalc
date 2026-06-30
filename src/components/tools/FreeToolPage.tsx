@@ -5,13 +5,13 @@
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n";
+import { formatSmartFormFieldError } from "@/lib/infrastructure/i18n/smart-form-validation-i18n";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
-import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
+import { getPremiumCatalogCategoryDetail } from "@/lib/features/premium/premium-category-resolver";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
@@ -24,7 +24,7 @@ import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
 import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import {
   CalculatorCurrencyPrefix,
   CalculatorUnitSelect,
@@ -33,32 +33,32 @@ import {
   trackSmartFormPilotCompleted,
   trackSmartFormPilotStarted,
 } from "@/components/tools/smart-form/smart-form-pilot-analytics";
-import { riskLevelToStatus, STATUS_TEXT_CLASS } from "@/lib/ui/status-colors";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { riskLevelToStatus, STATUS_TEXT_CLASS } from "@/lib/ui-shared/ui/status-colors";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
+} from "@/lib/infrastructure/analytics/revenue-events";
 import {
  areFreeToolInputsValid,
  calculateFreeToolResult,
  type FreeToolInputValues,
  type FreeToolResult,
-} from "@/lib/tools/free-tool-results";
-import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
-import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/free-tool-results";
+import type { SmartFormUiBridgeManifest } from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
+import { type RevenueTool, type RevenueToolInput } from "@/lib/features/tools/revenue-tools";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
-import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
-import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/features/formula-governance/runtime-validation/free-full-loop-bridge";
+import { isFreeFullLoopRuntimeSlug } from "@/lib/features/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
   buildSmartFormInitialValues,
   validateSmartFormFieldValues,
-} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
-import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+} from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
+import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 

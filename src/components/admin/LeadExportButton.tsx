@@ -3,8 +3,8 @@
 import {
  buildLeadsCsv,
  getLeadsCsvFilename,
-} from "@/lib/leads/export-leads-csv";
-import type { LeadIntent } from "@/lib/leads/types";
+} from "@/lib/features/leads/export-leads-csv";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 interface LeadExportButtonProps {
  leads: LeadIntent[];

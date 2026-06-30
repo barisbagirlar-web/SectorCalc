@@ -1,8 +1,8 @@
 import {
   DEFAULT_TOOL_CREATOR_MR_ID,
   getAcademicReferenceByMRId,
-} from "@/lib/seo/academic-references";
-import { SITE_URL } from "@/lib/semantic/site-url";
+} from "@/lib/infrastructure/seo/academic-references";
+import { SITE_URL } from "@/lib/features/semantic/site-url";
 
 const defaultRef = getAcademicReferenceByMRId(DEFAULT_TOOL_CREATOR_MR_ID);
 

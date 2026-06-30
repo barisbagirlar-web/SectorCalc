@@ -1,4 +1,4 @@
-import type { StandardReferenceEntry } from "@/lib/methodology/standard-reference-types";
+import type { StandardReferenceEntry } from "@/lib/content/methodology/standard-reference-types";
 
 type MethodologyReferenceBlockProps = {
   readonly references: readonly StandardReferenceEntry[];

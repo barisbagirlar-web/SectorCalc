@@ -4,20 +4,20 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { createPageMetadata } from "@/lib/metadata";
-import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
-import { getAllTools } from "@/lib/tools/all-tools-data";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
+import { getAllTools } from "@/lib/features/tools/all-tools-data";
 import {
   buildTaxonomySectorCards,
   withTaxonomyCountLabels,
-} from "@/lib/tools/build-taxonomy-sector-cards";
-import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/tools/filter-catalog-hub-tools";
+} from "@/lib/features/tools/build-taxonomy-sector-cards";
+import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/features/tools/filter-catalog-hub-tools";
 import type { AppLocale } from "@/i18n/routing";
 import {
   getAllToolsGroupedByCategory,
   getOrderedCategorySlugsWithTools,
-} from "@/lib/tools/getToolsByCategory";
+} from "@/lib/features/tools/getToolsByCategory";
 
 type PageProps = {
   params: Promise<{ locale: string }>;

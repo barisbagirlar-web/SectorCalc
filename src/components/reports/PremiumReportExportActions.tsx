@@ -4,21 +4,21 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import { IndustrialPdfDocument, bridgePayloadToIndustrialPdf, buildIndustrialPdfFileName } from "@/lib/pdf/industrial-pdf";
-import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { IndustrialPdfDocument, bridgePayloadToIndustrialPdf, buildIndustrialPdfFileName } from "@/lib/content/pdf/industrial-pdf";
+import { startCheckoutRedirect } from "@/lib/features/billing/start-checkout";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import { stripLocalePrefix } from "@/i18n/locales";
-import type { PremiumEntitlement } from "@/lib/entitlements/premium-entitlements";
+import type { PremiumEntitlement } from "@/lib/features/entitlements/premium-entitlements";
 import {
   buildPremiumReportSummaryText,
   serializePremiumReportCsv,
   type PremiumReportExportPayload,
-} from "@/lib/premium-schema/premium-report-export";
+} from "@/lib/features/premium-schema/premium-report-export";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
+} from "@/lib/infrastructure/analytics/revenue-events";
 
 export interface PremiumReportExportActionsProps {
   payload: PremiumReportExportPayload;

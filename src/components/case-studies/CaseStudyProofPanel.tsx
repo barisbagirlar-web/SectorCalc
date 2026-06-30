@@ -5,7 +5,7 @@ import { Link } from "@/i18n/routing";
 import {
   getCaseStudyToolHref,
   type CaseStudyEntry,
-} from "@/lib/case-studies/case-study-types";
+} from "@/lib/features/case-studies/case-study-types";
 
 type CaseStudyProofPanelProps = {
   readonly entry: CaseStudyEntry;

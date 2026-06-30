@@ -1,12 +1,12 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { IntelligenceSubscriptionGate } from "@/components/os/IntelligenceSubscriptionGate";
-import { isProBypassEmail } from "@/lib/billing/subscription";
-import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
-import { getFreeToolHref } from "@/lib/tools/tool-links";
-import type { RevenueTool } from "@/lib/tools/revenue-tools";
+import { isProBypassEmail } from "@/lib/features/billing/subscription";
+import { useProSubscription } from "@/lib/features/subscription/use-pro-subscription";
+import { getFreeToolHref } from "@/lib/features/tools/tool-links";
+import type { RevenueTool } from "@/lib/features/tools/revenue-tools";
 
 interface PremiumPaywallProps {
   tool?: RevenueTool;

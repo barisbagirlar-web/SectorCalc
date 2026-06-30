@@ -3,15 +3,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
 import { AdminMetricCard } from "@/components/admin/AdminMetricCard";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { getLiveKpiDecision } from "@/lib/analytics/live-kpi-decision";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { getLiveKpiDecision } from "@/lib/infrastructure/analytics/live-kpi-decision";
 import {
   buildLiveKpiSnapshot,
   createEmptyLiveKpiSnapshot,
   isSnapshotEmpty,
   type LiveKpiSnapshot,
-} from "@/lib/analytics/live-kpi-model";
-import { loadLiveKpiEvents } from "@/lib/analytics/load-live-kpi-events";
+} from "@/lib/infrastructure/analytics/live-kpi-model";
+import { loadLiveKpiEvents } from "@/lib/infrastructure/analytics/load-live-kpi-events";
 
 const VERDICT_LABELS: Record<string, string> = {
   needs_traffic: "Needs traffic",

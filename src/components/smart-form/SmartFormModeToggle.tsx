@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { SmartFormMode } from "@/lib/smart-form/dynamic-form-types";
+import type { SmartFormMode } from "@/lib/features/smart-form/dynamic-form-types";
 
 type SmartFormModeToggleProps = {
   readonly mode: SmartFormMode;

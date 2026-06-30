@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { handleCustomerAiRequest } from "@/lib/ai-gateway/customer-ai-router";
-import { checkCustomerAiRateLimit } from "@/lib/ai-gateway/customer-ai-rate-limit";
-import type { CustomerAiConversationMessage } from "@/lib/ai-gateway/customer-ai-types";
+import { handleCustomerAiRequest } from "@/lib/features/ai-gateway/customer-ai-router";
+import { checkCustomerAiRateLimit } from "@/lib/features/ai-gateway/customer-ai-rate-limit";
+import type { CustomerAiConversationMessage } from "@/lib/features/ai-gateway/customer-ai-types";
 import {
   parseBearerToken,
   verifySignedInUser,
-} from "@/lib/firebase/verify-signed-in-user";
+} from "@/lib/infrastructure/firebase/verify-signed-in-user";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

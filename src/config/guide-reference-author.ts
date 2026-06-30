@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/semantic/site-url";
+import { SITE_URL } from "@/lib/features/semantic/site-url";
 
 /** Primary E-E-A-T author for authority guides and editorial content. */
 export const GUIDE_REFERENCE_AUTHOR = {

@@ -4,9 +4,9 @@ import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { useUser } from "@/hooks/useUser";
-import { getCurrentUserIdToken } from "@/lib/firebase/auth";
-import type { AssistantSuggestion } from "@/lib/assistant/types";
-import type { CustomerAiSafeResponse } from "@/lib/ai-gateway/customer-ai-types";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
+import type { AssistantSuggestion } from "@/lib/features/assistant/types";
+import type { CustomerAiSafeResponse } from "@/lib/features/ai-gateway/customer-ai-types";
 
 type ChatMessage = {
   readonly id: number;

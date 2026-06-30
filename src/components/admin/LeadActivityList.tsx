@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { formatLocalDateTime } from "@/lib/format/datetime";
+import { formatLocalDateTime } from "@/lib/core/format/datetime";
 import {
  entryShowsAdminNote,
  formatActivitySummary,
@@ -10,8 +10,8 @@ import {
  getEntryAdminNote,
  listLeadActivity,
  type LeadActivityEntry,
-} from "@/lib/leads/lead-activity";
-import type { LeadIntent } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-activity";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 interface LeadActivityListProps {
  lead: LeadIntent;

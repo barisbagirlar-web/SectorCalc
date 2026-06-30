@@ -14,12 +14,12 @@
 
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/core/cn";
 import {
   CATALOG_GRID_VARIANT_STYLES,
   type CatalogGridVariant,
 } from "@/lib/catalog/catalog-grid-variant-styles";
-import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
+import type { CategoryCard } from "@/lib/features/tools/build-taxonomy-category-cards";
 
 interface CategoriesHubGridProps {
   readonly basePath: "/industries" | "/free-tools" | "/pro-tools";

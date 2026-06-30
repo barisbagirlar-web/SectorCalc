@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { CalculatorCurrencyPrefix } from "@/components/tools/CalculatorUnitCurrencyControls";
 import { SmartHelpTooltip } from "@/components/smart-form/SmartHelpTooltip";
 import { SmartUnitSelect } from "@/components/smart-form/SmartUnitSelect";
-import { localizedUnitAriaLabel } from "@/lib/regional/unit-defaults";
+import { localizedUnitAriaLabel } from "@/lib/features/regional/unit-defaults";
 import { useLocale } from "next-intl";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
-import type { SmartFormInput, SmartFormValidationTone } from "@/lib/smart-form/types";
+import type { SmartFormInput, SmartFormValidationTone } from "@/lib/features/smart-form/types";
 
 export type SmartInputProps = {
   readonly input: SmartFormInput;

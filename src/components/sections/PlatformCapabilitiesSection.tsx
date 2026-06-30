@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import Link from "@/lib/navigation/next-link";
-import { industryRegistry } from "@/lib/tools/industry-registry";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 
 type FeatureItem = {
  label: string;

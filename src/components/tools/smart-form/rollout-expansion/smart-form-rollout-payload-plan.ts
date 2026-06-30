@@ -3,7 +3,7 @@
  */
 
 import { getRolloutBatchHSubmitKeys } from "@/components/tools/smart-form/rollout-batch-h-catalog";
-import { getPilotMappedSubmitKeys } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { getPilotMappedSubmitKeys } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 import type { SmartFormRolloutPayloadPlan } from "@/components/tools/smart-form/rollout-expansion/smart-form-rollout-types";
 
 const DERIVED_KEY_PATTERNS = ["derived", "computed", "calculated"] as const;

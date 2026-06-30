@@ -1,5 +1,5 @@
 import { AdminMetricCard } from "@/components/admin/AdminMetricCard";
-import type { LeadDashboardStats } from "@/lib/leads/admin-dashboard";
+import type { LeadDashboardStats } from "@/lib/features/leads/admin-dashboard";
 
 interface LeadDashboardSummaryProps {
  stats: LeadDashboardStats;

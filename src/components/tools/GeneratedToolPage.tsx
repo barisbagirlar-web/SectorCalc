@@ -8,27 +8,27 @@ import { EOQOptimizer } from "@/components/tools/EOQOptimizer";
 import { GeneratedToolExportActions } from "@/components/tools/GeneratedToolExportActions";
 import { QuoteBuilder } from "@/components/tools/QuoteBuilder";
 import { useSubscription } from "@/hooks/useSubscription";
-import { mapInventoryToolInputsToEOQ } from "@/lib/inventory/eoq-optimizer";
+import { mapInventoryToolInputsToEOQ } from "@/lib/features/inventory/eoq-optimizer";
 import {
   isCarbonFootprintReportTool,
   mapCarbonToolInputsToReport,
-} from "@/lib/carbon/carbon-footprint-report";
+} from "@/lib/features/carbon/carbon-footprint-report";
 import {
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
-} from "@/lib/generated-tools/resolve-tool-display";
-import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
+} from "@/lib/features/generated-tools/resolve-tool-display";
+import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
 import {
   resolveGeneratedPrimaryOutputCaption,
-} from "@/lib/generated-tools/resolve-generated-display-text";
-import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
-import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+} from "@/lib/features/generated-tools/resolve-generated-display-text";
+import { resolvePrimaryOutputUnit } from "@/lib/features/generated-tools/resolve-output-unit";
+import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import {
   runGeneratedToolCalculation,
   useToolSchema,
-} from "@/lib/generated-tools/use-tool-schema";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
-import { evaluateSchemaTrust } from "@/lib/generated-tools/trust-gate";
+} from "@/lib/features/generated-tools/use-tool-schema";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
+import { evaluateSchemaTrust } from "@/lib/features/generated-tools/trust-gate";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 export type GeneratedToolPageProps = {

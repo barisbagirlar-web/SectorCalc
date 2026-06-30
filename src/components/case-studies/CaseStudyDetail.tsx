@@ -1,9 +1,9 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import {
   getCaseStudyToolHref,
   type CaseStudyEntry,
-} from "@/lib/case-studies/case-study-types";
+} from "@/lib/features/case-studies/case-study-types";
 
 type CaseStudyDetailProps = {
   readonly entry: CaseStudyEntry;

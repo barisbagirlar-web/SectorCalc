@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
-import { getPrimaryCampaignCtas } from "@/lib/campaigns/campaign-links";
+import { getPrimaryCampaignCtas } from "@/lib/features/campaigns/campaign-links";
 
 export function HomepageCampaignStrip() {
   const t = useTranslations("campaign");

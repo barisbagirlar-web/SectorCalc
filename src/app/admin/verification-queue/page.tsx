@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { getAdminFirestore } from "@/lib/firebase/admin";
-import { VERIFICATION_QUEUE_COLLECTION } from "@/lib/feedback/feedback-types";
+import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { VERIFICATION_QUEUE_COLLECTION } from "@/lib/features/feedback/feedback-types";
 
 type QueueRow = {
   id: string;

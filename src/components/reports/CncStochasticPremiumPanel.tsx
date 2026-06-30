@@ -2,13 +2,13 @@
 
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/Button";
-import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
-import { getCurrentUserIdToken } from "@/lib/firebase/auth";
+import { useProSubscription } from "@/lib/features/subscription/use-pro-subscription";
+import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 import {
  calculatePremium,
  type PremiumCalcResponse,
-} from "@/lib/actions/calculate-premium";
-import type { MarginCoreEngineOutput } from "@/lib/math/stochastic-engine";
+} from "@/lib/infrastructure/actions/calculate-premium";
+import type { MarginCoreEngineOutput } from "@/lib/core/math/stochastic-engine";
 
 // ---------------------------------------------------------------------------
 // Types

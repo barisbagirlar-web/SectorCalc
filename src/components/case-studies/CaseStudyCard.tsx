@@ -1,5 +1,5 @@
-import Link from "@/lib/navigation/next-link";
-import type { CaseStudyEntry } from "@/lib/case-studies/case-study-types";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import type { CaseStudyEntry } from "@/lib/features/case-studies/case-study-types";
 
 type CaseStudyCardProps = {
   readonly entry: CaseStudyEntry;

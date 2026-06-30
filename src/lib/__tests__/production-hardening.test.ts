@@ -1,39 +1,39 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, test } from "vitest";
-import { SITE_BASE_URL, SUPPORTED_LOCALES } from "@/lib/seo/global-seo-config";
+import { SITE_BASE_URL, SUPPORTED_LOCALES } from "@/lib/infrastructure/seo/global-seo-config";
 import {
   buildSitemapEntries,
   countExpectedSitemapMinimum,
   getPremiumSchemaRoutePath,
-} from "@/lib/seo/build-sitemap";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+} from "@/lib/infrastructure/seo/build-sitemap";
+import { buildLocalizedUrl } from "@/lib/infrastructure/seo/sitemap-manifest";
 import {
   assertPublicCatalogCopySafe,
   containsForbiddenPublicCatalogTerm,
   getPremiumSchemaCatalogItems,
-} from "@/lib/premium-schema/premium-schema-catalog";
-import { PRICING_COPY_ASSERTIONS } from "@/lib/premium-schema/premium-claim-copy";
+} from "@/lib/features/premium-schema/premium-schema-catalog";
+import { PRICING_COPY_ASSERTIONS } from "@/lib/features/premium-schema/premium-claim-copy";
 import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
   schemaHasFiniteResults,
-} from "@/lib/premium-schema/premium-schema-engine";
-import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
+} from "@/lib/features/premium-schema/premium-schema-engine";
+import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 import {
   calculateFreeTrafficTool,
   containsPremiumLeakText,
-} from "@/lib/tools/free-traffic-calculators";
+} from "@/lib/features/tools/free-traffic-calculators";
 import {
   FREE_TRAFFIC_TOOLS,
   listFreeTrafficSlugs,
-} from "@/lib/tools/free-traffic-catalog";
-import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
-import { CANONICAL_FREE_SLUGS } from "@/lib/tools/canonical-tool-slugs";
-import { PREVIEW_ENTITLEMENT } from "@/lib/entitlements/premium-entitlements";
-import { gatePremiumReportExportPayload } from "@/lib/premium-schema/premium-report-gate";
-import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
-import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
+} from "@/lib/features/tools/free-traffic-catalog";
+import { listAllFreeToolSlugs } from "@/lib/features/tools/free-traffic-routes";
+import { CANONICAL_FREE_SLUGS } from "@/lib/features/tools/canonical-tool-slugs";
+import { PREVIEW_ENTITLEMENT } from "@/lib/features/entitlements/premium-entitlements";
+import { gatePremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-gate";
+import { buildPremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
+import { getPremiumCalculatorSchema } from "@/lib/features/premium-schema/schema-registry";
 
 const PREMIUM_LEAK_TERMS = [
   "DO NOT ACCEPT UNDER",

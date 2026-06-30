@@ -1,14 +1,14 @@
 import { getTranslations } from "next-intl/server";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
-import type { ToolData } from "@/lib/tools/all-tools-data";
+import type { ToolData } from "@/lib/features/tools/all-tools-data";
 import {
   CATALOG_HUB_MAX_TILES,
   filterCatalogHubTools,
   limitCatalogHubTiles,
   resolveCatalogHubSearchQuery,
   resolveCatalogHubSectorFilter,
-} from "@/lib/tools/filter-catalog-hub-tools";
-import { toCatalogHubToolTile } from "@/lib/tools/catalog-hub-tool-tile";
+} from "@/lib/features/tools/filter-catalog-hub-tools";
+import { toCatalogHubToolTile } from "@/lib/features/tools/catalog-hub-tool-tile";
 
 type CatalogHubToolsSectionProps = {
   readonly locale: string;

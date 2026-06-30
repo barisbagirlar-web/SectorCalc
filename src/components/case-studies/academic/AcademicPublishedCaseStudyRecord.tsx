@@ -4,15 +4,15 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import {
   formatEuroAmount,
   resolveCaseStudySavingsEur,
-} from "@/lib/case-studies/academic-database";
+} from "@/lib/features/case-studies/academic-database";
 import {
   formatAcademicDate,
   getLocalizedDuration,
   renderCaseStudyBodyContent,
-} from "@/lib/case-studies/academic-format";
-import { buildCaseStudyJsonLd } from "@/lib/case-studies/case-study-seo";
-import type { CaseStudy } from "@/lib/case-studies/types";
-import { resolveGeneratedToolPath } from "@/lib/tools/paths";
+} from "@/lib/features/case-studies/academic-format";
+import { buildCaseStudyJsonLd } from "@/lib/features/case-studies/case-study-seo";
+import type { CaseStudy } from "@/lib/features/case-studies/types";
+import { resolveGeneratedToolPath } from "@/lib/features/tools/paths";
 import { AcademicDatabaseChrome } from "@/components/case-studies/academic/AcademicDatabaseChrome";
 
 type Props = {

@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { useTranslations } from "next-intl";
 import { ShopRateCalculatorModal } from "@/components/tools/ShopRateCalculatorModal";
-import type { MachineRecord, MachineRecordField } from "@/lib/machine-rate/types";
-import { DEMO_MACHINE_RECORDS } from "@/lib/machine-rate/types";
+import type { MachineRecord, MachineRecordField } from "@/lib/features/machine-rate/types";
+import { DEMO_MACHINE_RECORDS } from "@/lib/features/machine-rate/types";
 import {
   mapMachineToFormValues,
   mapShopRateRatesToFormValues,
-} from "@/lib/machine-rate/input-mapping";
-import type { ShopRateSavedRates } from "@/lib/shop-rate/types";
-import { getFirestoreDb } from "@/lib/firebase/client";
+} from "@/lib/features/machine-rate/input-mapping";
+import type { ShopRateSavedRates } from "@/lib/features/shop-rate/types";
+import { getFirestoreDb } from "@/lib/infrastructure/firebase/client";
 
 export type MachineRateSelectorProps = {
   readonly onSelect: (values: Record<string, number>) => void;

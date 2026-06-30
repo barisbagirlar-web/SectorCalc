@@ -1,15 +1,15 @@
 "use client";
 
 import { Suspense } from "react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useTranslations } from "next-intl";
 import { CreditsPackages } from "@/components/billing/CreditsPackages";
 import { CreditsBalance } from "@/components/credits/CreditsBalance";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { getLoginHref } from "@/lib/tools/tool-links";
+import { useClientSearchParam } from "@/lib/ui-shared/navigation/use-client-search-params";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
+import { getLoginHref } from "@/lib/features/tools/tool-links";
 
 function CreditsStatusBanner() {
   const t = useTranslations("credits");

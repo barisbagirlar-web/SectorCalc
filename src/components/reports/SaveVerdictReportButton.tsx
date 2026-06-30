@@ -5,13 +5,13 @@ import { useTranslations } from "next-intl";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
-import { saveVerdictReport } from "@/lib/reports/report-storage";
+} from "@/lib/infrastructure/analytics/revenue-events";
+import { saveVerdictReport } from "@/lib/features/reports/report-storage";
 import type {
  PremiumToolInputValues,
  PremiumToolResult,
-} from "@/lib/tools/premium-tool-results";
-import type { RevenueTool } from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/premium-tool-results";
+import type { RevenueTool } from "@/lib/features/tools/revenue-tools";
 
 const buttonClass =
  "inline-flex min-h-[44px] items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-60";

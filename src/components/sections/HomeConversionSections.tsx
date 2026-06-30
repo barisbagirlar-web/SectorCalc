@@ -6,9 +6,9 @@ import {
  STATUS_ICON,
  TOOL_CATEGORY_ICON,
  UI_ICON,
-} from "@/lib/icons/icon-registry";
+} from "@/lib/ui-shared/icons/icon-registry";
 import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { industryRegistry } from "@/lib/tools/industry-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 
 const SECTOR_COUNT = industryRegistry.length;
 

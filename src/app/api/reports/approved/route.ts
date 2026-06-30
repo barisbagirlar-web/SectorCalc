@@ -4,8 +4,8 @@
  */
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { createApprovedReport } from "@/lib/trust-trace/approved-report-service";
-import type { CreateApprovedReportInput } from "@/lib/trust-trace/types";
+import { createApprovedReport } from "@/lib/features/trust-trace/approved-report-service";
+import type { CreateApprovedReportInput } from "@/lib/features/trust-trace/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

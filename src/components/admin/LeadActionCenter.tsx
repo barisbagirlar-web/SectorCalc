@@ -5,15 +5,15 @@ import {
  buildLeadEmailMessage,
  buildLeadInternalNote,
  buildLeadWhatsappMessage,
-} from "@/lib/leads/lead-copy-actions";
+} from "@/lib/features/leads/lead-copy-actions";
 import {
  getRecommendedStatusLabel,
  resolveLeadActionRecommendation,
  type ActionPriorityLevel,
  type LeadActionRecommendation,
  type SuggestedMessageType,
-} from "@/lib/leads/lead-action-center";
-import type { LeadIntent } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-action-center";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 type CopyTarget = "whatsapp" | "email" | "internal";
 

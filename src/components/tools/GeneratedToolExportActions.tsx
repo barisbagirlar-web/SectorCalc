@@ -7,10 +7,10 @@ import { useSubscription } from "@/hooks/useSubscription";
 import {
   downloadGeneratedToolCsv,
   serializeGeneratedToolCsv,
-} from "@/lib/generated-tools/generated-tool-export";
-import { savePrintData } from "@/lib/reports/generated-tool-print-data";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
-import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+} from "@/lib/features/generated-tools/generated-tool-export";
+import { savePrintData } from "@/lib/features/reports/generated-tool-print-data";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
+import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 
 type GeneratedToolExportActionsProps = {
   readonly slug: string;

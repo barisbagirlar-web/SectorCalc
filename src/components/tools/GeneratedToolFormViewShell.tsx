@@ -1,5 +1,5 @@
 import { GeneratedToolFormView } from "@/components/tools/GeneratedToolFormView";
-import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
+import type { GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
 export type GeneratedToolFormViewShellProps = {
   readonly slug: string;

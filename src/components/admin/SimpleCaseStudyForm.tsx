@@ -1,30 +1,30 @@
 "use client";
 
 import { ArrowLeft, Plus, Send, Sparkles, Trash2 } from "lucide-react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
-import { useAdminLocale } from "@/lib/admin/admin-locale-context";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { nextPublishedCaseStudyId } from "@/lib/case-studies/admin-case-studies";
+import { useAdminLocale } from "@/lib/features/admin/admin-locale-context";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { nextPublishedCaseStudyId } from "@/lib/features/case-studies/admin-case-studies";
 import {
   emptyCaseStudyFormValues,
   formValuesToDraft,
   saveCaseStudyDraft,
   type CaseStudyFormValues,
-} from "@/lib/case-studies/case-study-drafts";
+} from "@/lib/features/case-studies/case-study-drafts";
 import {
   isAdminCaseStudyApiErrorCode,
   listAdminCaseStudyEditorLocales,
   type AdminCaseStudyEditorMessages,
-} from "@/lib/i18n/admin-case-study-editor-messages";
-import { getLocaleDefinition, isSupportedLocale } from "@/lib/i18n/locale-config";
+} from "@/lib/infrastructure/i18n/admin-case-study-editor-messages";
+import { getLocaleDefinition, isSupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import {
   mergeParsedCaseStudyIntoFormValues,
   type ParsedCaseStudyFromText,
-} from "@/lib/case-studies/parse-case-study-from-text";
-import type { CaseStudyResult } from "@/lib/case-studies/types";
+} from "@/lib/features/case-studies/parse-case-study-from-text";
+import type { CaseStudyResult } from "@/lib/features/case-studies/types";
 
 const fieldClass =
   "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 py-2 text-sm text-deep-navy focus:border-sc-copper focus:outline-none focus:ring-2 focus:ring-sc-copper/20";

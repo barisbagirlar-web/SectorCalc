@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { FREE_TOOL_PRIVACY_NOTE } from "@/lib/tools/revenue-tools";
+import { FREE_TOOL_PRIVACY_NOTE } from "@/lib/features/tools/revenue-tools";
 
 interface FreeToolPrivacyNoteProps {
   locale: string;

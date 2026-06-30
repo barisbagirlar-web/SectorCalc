@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { useLocale } from "next-intl";
 import { TerminalPanel } from "@/components/os/TerminalPanel";
-import { useRegion } from "@/lib/compliance/region-context";
+import { useRegion } from "@/lib/features/compliance/region-context";
 import {
   buildExpertFieldSpecs,
   runExpertCalculation,

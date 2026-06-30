@@ -1,7 +1,7 @@
 "use client";
 
 import { IndustrialFieldPanel } from "@/components/tools/IndustrialFieldPanel";
-import type { PremiumDecisionReport } from "@/lib/tools/premium-tool-contract";
+import type { PremiumDecisionReport } from "@/lib/features/tools/premium-tool-contract";
 
 export interface PremiumAnalyzerReportPanelProps {
   report: PremiumDecisionReport;

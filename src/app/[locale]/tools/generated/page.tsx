@@ -11,12 +11,12 @@ import { Container } from "@/components/ui/Container";
 import { Suspense } from "react";
 import { GeneratedToolsHub } from "@/components/tools/GeneratedToolsHub";
 import { ToolsCategoryHub } from "@/components/tools/ToolsCategoryHub";
-import { buildGeneratedToolCatalog } from "@/lib/generated-tools/build-generated-catalog";
+import { buildGeneratedCatalogIndex as buildGeneratedToolCatalog } from "@/lib/features/generated-tools/build-generated-catalog";
 import type { AppLocale } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
+import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

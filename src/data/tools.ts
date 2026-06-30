@@ -1,5 +1,5 @@
-import { getToolHref } from "@/lib/tools/paths";
-import { revenueToolRegistry } from "@/lib/tools/revenue-tools";
+import { getToolHref } from "@/lib/features/tools/paths";
+import { revenueToolRegistry } from "@/lib/features/tools/revenue-tools";
 import { getLocalizedRevenueToolTitle, getLocalizedRevenueToolDescription } from "@/data/revenue-tools-i18n";
 
 export type ToolTier = "free" | "premium" | "generated";

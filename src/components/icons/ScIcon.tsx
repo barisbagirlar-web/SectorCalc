@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import { ICON_SIZE_CLASS, ICON_STROKE, type ScIconSize } from "@/lib/icons/constants";
+import { ICON_SIZE_CLASS, ICON_STROKE, type ScIconSize } from "@/lib/ui-shared/icons/constants";
 import {
  STATUS_COLOR_CLASS,
  STATUS_ICON,
  type HeroIcon,
-} from "@/lib/icons/icon-registry";
+} from "@/lib/ui-shared/icons/icon-registry";
 
 type ScIconProps = {
  icon: HeroIcon;

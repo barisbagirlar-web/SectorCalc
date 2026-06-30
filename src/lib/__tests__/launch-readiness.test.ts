@@ -15,39 +15,39 @@ const en = JSON.parse(
     singleReportNote: string;
   };
 };
-import { SITE_BASE_URL, SUPPORTED_LOCALES } from "@/lib/seo/global-seo-config";
+import { SITE_BASE_URL, SUPPORTED_LOCALES } from "@/lib/infrastructure/seo/global-seo-config";
 import {
   buildSitemapEntries,
   countExpectedSitemapMinimum,
   getPremiumSchemaRoutePath,
-} from "@/lib/seo/build-sitemap";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+} from "@/lib/infrastructure/seo/build-sitemap";
+import { buildLocalizedUrl } from "@/lib/infrastructure/seo/sitemap-manifest";
 import {
   assertPublicCatalogCopySafe,
   containsForbiddenPublicCatalogTerm,
   getPremiumSchemaCatalogItems,
-} from "@/lib/premium-schema/premium-schema-catalog";
+} from "@/lib/features/premium-schema/premium-schema-catalog";
 import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
   schemaHasFiniteResults,
-} from "@/lib/premium-schema/premium-schema-engine";
-import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
+} from "@/lib/features/premium-schema/premium-schema-engine";
+import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
 import {
   calculateFreeTrafficTool,
   containsPremiumLeakText,
-} from "@/lib/tools/free-traffic-calculators";
+} from "@/lib/features/tools/free-traffic-calculators";
 import {
   FREE_TRAFFIC_TOOLS,
   listFreeTrafficSlugs,
-} from "@/lib/tools/free-traffic-catalog";
-import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+} from "@/lib/features/tools/free-traffic-catalog";
+import { listAllFreeToolSlugs } from "@/lib/features/tools/free-traffic-routes";
 import {
   CANONICAL_FREE_SLUGS,
   CANONICAL_PREMIUM_SLUGS,
   CANONICAL_TRAFFIC_FREE_SLUGS,
-} from "@/lib/tools/canonical-tool-slugs";
-import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
+} from "@/lib/features/tools/canonical-tool-slugs";
+import { getPremiumCalculatorSchema } from "@/lib/features/premium-schema/schema-registry";
 
 const PREMIUM_PRINT_ROUTE = /\/premium-schema\/[^/]+\/print(?:\?|$|\/)/;
 

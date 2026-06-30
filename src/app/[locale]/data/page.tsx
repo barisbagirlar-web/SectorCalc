@@ -4,9 +4,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
-import { buildCncBenchmarkDatasetJsonLd } from "@/lib/semantic/build-dataset-jsonld";
+import { buildCncBenchmarkDatasetJsonLd } from "@/lib/features/semantic/build-dataset-jsonld";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

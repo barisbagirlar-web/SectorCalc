@@ -12,7 +12,7 @@ import type {
   SmartFormFieldComponentProps,
   SmartFormSectionComponentProps,
   SmartFormUiBridgeManifest,
-} from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 
 export const SMART_FORM_PILOT_CONNECTED_LABEL =
   "Smart form pilot — connected to existing calculation path.";

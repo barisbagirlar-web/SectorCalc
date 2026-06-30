@@ -2,7 +2,7 @@
 
 import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/core/cn";
 
 export interface SectorCardProps {
   title: string;

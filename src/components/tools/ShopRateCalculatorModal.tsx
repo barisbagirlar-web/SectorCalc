@@ -3,11 +3,11 @@
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
-import { extractShopRateSavedRates } from "@/lib/shop-rate/extract-rates";
-import { runGeneratedToolCalculation } from "@/lib/generated-tools/use-tool-schema";
-import type { ShopRateSavedRates } from "@/lib/shop-rate/types";
-import { SHOP_RATE_MODAL_SLUG } from "@/lib/shop-rate/types";
-import { useShopRateModalTool } from "@/lib/shop-rate/use-shop-rate-modal-tool";
+import { extractShopRateSavedRates } from "@/lib/features/shop-rate/extract-rates";
+import { runGeneratedToolCalculation } from "@/lib/features/generated-tools/use-tool-schema";
+import type { ShopRateSavedRates } from "@/lib/features/shop-rate/types";
+import { SHOP_RATE_MODAL_SLUG } from "@/lib/features/shop-rate/types";
+import { useShopRateModalTool } from "@/lib/features/shop-rate/use-shop-rate-modal-tool";
 
 export type ShopRateCalculatorModalProps = {
   readonly isOpen: boolean;

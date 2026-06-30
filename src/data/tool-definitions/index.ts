@@ -11,7 +11,7 @@ import { officeCleaningBidOptimizerDefinition } from "@/data/tool-definitions/of
 import { menuProfitLeakDetectorDefinition } from "@/data/tool-definitions/menu-profit-leak-detector";
 import { returnRateProfitErosionToolDefinition } from "@/data/tool-definitions/return-rate-profit-erosion-tool";
 
-import { getRevenueToolByFreeSlug, getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tools";
+import { getRevenueToolByFreeSlug, getRevenueToolByPaidSlug, revenueTools } from "@/lib/features/tools/revenue-tools";
 import type { ToolInput, ToolInputType } from "@/data/tool-schema";
 
 const TOOL_DEFINITIONS: ToolDefinition[] = [

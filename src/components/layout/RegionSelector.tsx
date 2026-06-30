@@ -3,8 +3,8 @@
 import { useEffect, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { type RegionCode } from "@/config/regions";
-import { readManualRegionCookie, setManualRegion } from "@/lib/compliance/region-client";
-import { useRegion } from "@/lib/compliance/region-context";
+import { readManualRegionCookie, setManualRegion } from "@/lib/features/compliance/region-client";
+import { useRegion } from "@/lib/features/compliance/region-context";
 
 function HeaderGlobeIcon() {
   return (

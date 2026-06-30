@@ -2,8 +2,8 @@
 
 import { useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
-import type { VerificationIssueType } from "@/lib/feedback/feedback-types";
-import { VERIFICATION_ISSUE_TYPES } from "@/lib/feedback/feedback-types";
+import type { VerificationIssueType } from "@/lib/features/feedback/feedback-types";
+import { VERIFICATION_ISSUE_TYPES } from "@/lib/features/feedback/feedback-types";
 
 type Props = {
   readonly toolSlug: string;

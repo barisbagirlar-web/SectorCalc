@@ -6,7 +6,7 @@ import { describe, expect, test } from "vitest";
 import {
   buildSmartFormFieldSpecsFromContract,
   getSmartToolFormFieldCount,
-} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
+} from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 describe("SmartToolForm", () => {
   test("field count helper matches contract adapter", () => {

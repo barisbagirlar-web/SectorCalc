@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
@@ -12,24 +12,24 @@ import {
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
+} from "@/lib/infrastructure/analytics/events";
 import {
  buildVerdictUnlockLeadInput,
  createLeadIntent,
  validateLeadIntentInput,
  validateVerdictUnlockEmail,
-} from "@/lib/leads/create-lead-intent";
+} from "@/lib/features/leads/create-lead-intent";
 import {
  buildCheckoutLoginUrl,
  startCheckoutSession,
-} from "@/lib/billing/create-checkout-session";
+} from "@/lib/features/billing/create-checkout-session";
 import type {
  LeadIntentErrors,
  LeadIntentInput,
  LeadModalOpenContext,
  LeadPlan,
-} from "@/lib/leads/types";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+} from "@/lib/features/leads/types";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
 import { useLeadIntent } from "@/components/leads/LeadIntentContext";
 
 const inputClass =

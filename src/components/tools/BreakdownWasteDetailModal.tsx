@@ -1,8 +1,8 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import type { BreakdownChartItem } from "@/lib/chart-helpers/breakdown-chart-data";
-import type { RelatedBreakdownInput } from "@/lib/chart-helpers/resolve-waste-related-inputs";
+import type { BreakdownChartItem } from "@/lib/ui-shared/chart-helpers/breakdown-chart-data";
+import type { RelatedBreakdownInput } from "@/lib/ui-shared/chart-helpers/resolve-waste-related-inputs";
 
 type BreakdownWasteDetailModalProps = {
   readonly item: BreakdownChartItem;

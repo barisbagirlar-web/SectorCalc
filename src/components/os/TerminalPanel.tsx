@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import type { ExpertCalcResult, ExpertCalcTier, ExpertFieldSpec } from "@/lib/os/core/formulas/expert-calc";
-import type { VerdictSeverity } from "@/lib/types/margincore-engine";
+import type { VerdictSeverity } from "@/lib/core/types/margincore-engine";
 
 function CalcIcon() {
   return (

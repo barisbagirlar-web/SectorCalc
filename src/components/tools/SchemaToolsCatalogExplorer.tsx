@@ -6,11 +6,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { CategoryCardGrid, resolveCategoryCardGridVariant } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
-import type { ToolData } from "@/lib/tools/all-tools-data";
+import type { ToolData } from "@/lib/features/tools/all-tools-data";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { useToolsPageSearch } from "@/components/tools/tools-page-search-context";
 import type { Tool } from "@/data/tools";
-import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
+import { scrollToToolsList } from "@/lib/ui-shared/navigation/scroll-to-tools-list";
 
 type CatalogFilterMode = "category" | "sector";
 

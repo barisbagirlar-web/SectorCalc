@@ -6,9 +6,9 @@ import { CategoryExplorer } from "@/components/catalog/CategoryExplorer";
 import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,
   FREE_TRAFFIC_CATEGORY_META,
-} from "@/lib/tools/free-traffic-categories";
-import { getToolHref } from "@/lib/tools/paths";
-import type { FreeTrafficCategory, FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+} from "@/lib/features/tools/free-traffic-categories";
+import { getToolHref } from "@/lib/features/tools/paths";
+import type { FreeTrafficCategory, FreeTrafficTool } from "@/lib/features/tools/free-traffic-catalog";
 
 export interface FreeToolsCategoryExplorerProps {
   tools: readonly FreeTrafficTool[];

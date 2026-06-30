@@ -2,8 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { SmartHelpTooltip } from "@/components/smart-form/SmartHelpTooltip";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
-import type { SmartInputRequirement } from "@/lib/smart-form/dynamic-form-types";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
+import type { SmartInputRequirement } from "@/lib/features/smart-form/dynamic-form-types";
 
 type SmartInputFieldProps = {
   readonly input: SmartInputRequirement;

@@ -5,7 +5,7 @@ import {
  type FollowUpSlaLevel,
  type FollowUpSlaSummary,
  type LeadFollowUpSla,
-} from "@/lib/leads/follow-up-sla";
+} from "@/lib/features/leads/follow-up-sla";
 
 const slaLevelClasses: Record<FollowUpSlaLevel, string> = {
  ok: "border-slate/20 bg-off-white/80 text-text-secondary",

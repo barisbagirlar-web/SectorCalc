@@ -1,7 +1,7 @@
 "use client";
 
-import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { useClientSearchParam } from "@/lib/ui-shared/navigation/use-client-search-params";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
 
 const PRICING_UNLOCK_SUBTITLES: Partial<Record<string, string>> = {
  "cnc-quote-risk-analyzer":

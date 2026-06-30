@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
-import type { UserSubscription } from "@/lib/billing/subscription";
-import { getPremiumToolsNavHref, getPricingHref } from "@/lib/tools/tool-links";
-import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import type { UserSubscription } from "@/lib/features/billing/subscription";
+import { getPremiumToolsNavHref, getPricingHref } from "@/lib/features/tools/tool-links";
+import { sectorCalcProPricing } from "@/lib/features/tools/revenue-tools";
 
 function formatPeriodEnd(value: string | undefined): string | null {
   if (!value) {

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
 import type {
   CaseStudyEntry,
   CaseStudySector,
   CaseStudyLossType,
   CaseStudyToolRoute,
-} from "@/lib/case-studies/case-study-types";
+} from "@/lib/features/case-studies/case-study-types";
 
 // Sector list
 const SECTOR_OPTIONS: { value: CaseStudySector; label: string }[] = [

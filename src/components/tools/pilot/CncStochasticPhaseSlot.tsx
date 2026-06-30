@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import type { ParsedPremiumVerdict } from "@/lib/premium/parse-premium-verdict-txt";
+import type { ParsedPremiumVerdict } from "@/lib/features/premium/parse-premium-verdict-txt";
 
 /**
  * Phase 2 integration slot — Stochastic Risk Engine (MarginCore P90).

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useMemo, useCallback, type FormEvent } from "react";
-import { usePremiumToolAccess } from "@/lib/billing/use-premium-tool-access";
-import { calculateRCBeamShearFlexure } from "@/lib/calculators/rc-beam-shear-flexure";
+import { usePremiumToolAccess } from "@/lib/features/billing/use-premium-tool-access";
+import { calculateRCBeamShearFlexure } from "@/lib/features/calculators/rc-beam-shear-flexure";
 import Link from "next/link";
 
 // ─── PROPS ────────────────────────────────────────────────────────────────

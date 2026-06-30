@@ -6,7 +6,7 @@ import { EXPORT_MOCK_MESSAGE } from "@/config/export-messages";
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
+} from "@/lib/infrastructure/analytics/events";
 
 const EXPORT_ACTIONS = ["PDF", "Excel", "Word", "Save"] as const;
 

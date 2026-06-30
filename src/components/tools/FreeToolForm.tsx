@@ -11,28 +11,28 @@ import { ResultPanel } from "@/components/tools/ResultPanel";
 import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
-import { translateZodErrorMessage } from "@/lib/i18n/zod-error-translate";
+import { translateZodErrorMessage } from "@/lib/infrastructure/i18n/zod-error-translate";
 import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
-} from "@/lib/feedback/feedback-service";
-import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
-import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
-import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
+} from "@/lib/features/feedback/feedback-service";
+import { resolveToolDisplayChrome } from "@/lib/features/tools/resolve-tool-display-chrome";
+import { resolveLocalizedGeneratedSelectOptions } from "@/lib/features/generated-tools/select-options";
+import { buildGeneratedInputGroups } from "@/lib/features/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
   convertGeneratedFormValues,
   getGeneratedInputUnitOptions,
   shouldShowGeneratedUnitSelector,
-} from "@/lib/generated-tools/unit-conversion";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+} from "@/lib/features/generated-tools/unit-conversion";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import type {
   GeneratedToolInput,
   GeneratedToolResult,
   GeneratedToolSchema,
-} from "@/lib/generated-tools/types";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+} from "@/lib/features/generated-tools/types";
+import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
 
 export type FreeToolFormProps = {
   readonly slug: string;

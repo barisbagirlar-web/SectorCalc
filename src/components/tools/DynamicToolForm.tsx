@@ -12,9 +12,9 @@ import { PremiumDynamicToolFormLayout } from "@/components/tools/PremiumDynamicT
 import {
   getOrCreateFeedbackSessionId,
   submitToolFeedback,
-} from "@/lib/feedback/feedback-service";
-import { resolveGeneratedFieldDisplay } from "@/lib/i18n/generated-field-display";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+} from "@/lib/features/feedback/feedback-service";
+import { resolveGeneratedFieldDisplay } from "@/lib/infrastructure/i18n/generated-field-display";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import { BreakdownWasteDetailModal } from "@/components/tools/BreakdownWasteDetailModal";
 import { EnhancedBreakdownChart } from "@/components/tools/EnhancedBreakdownChart";
 import { ScenarioComparison } from "@/components/tools/ScenarioComparison";
@@ -22,28 +22,28 @@ import { MachineRateSelector } from "@/components/tools/MachineRateSelector";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useCredits } from "@/hooks/useCredits";
 import { useSubscription } from "@/hooks/useSubscription";
-import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
-import { firstSelectOptionValue } from "@/lib/generated-tools/select-options";
-import { withCalculationStandard } from "@/lib/generated-tools/standard-input";
-import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
+import { buildGeneratedInputGroups } from "@/lib/features/generated-tools/input-groups";
+import { firstSelectOptionValue } from "@/lib/features/generated-tools/select-options";
+import { withCalculationStandard } from "@/lib/features/generated-tools/standard-input";
+import { resolvePrimaryOutputKey } from "@/lib/features/generated-tools/resolve-tool-display";
 import {
   buildInitialSelectedUnits,
   convertGeneratedFormValues,
-} from "@/lib/generated-tools/unit-conversion";
+} from "@/lib/features/generated-tools/unit-conversion";
 import {
   buildMachineInputMapping,
   hasMachineRateMappableInputs,
-} from "@/lib/machine-rate/input-mapping";
-import type { BreakdownChartItem } from "@/lib/chart-helpers/breakdown-chart-data";
-import { resolveRelatedInputsForBreakdownKey } from "@/lib/chart-helpers/resolve-waste-related-inputs";
+} from "@/lib/features/machine-rate/input-mapping";
+import type { BreakdownChartItem } from "@/lib/ui-shared/chart-helpers/breakdown-chart-data";
+import { resolveRelatedInputsForBreakdownKey } from "@/lib/ui-shared/chart-helpers/resolve-waste-related-inputs";
 import type {
   GeneratedToolBreakdown,
   GeneratedToolInput,
   GeneratedToolResult,
   GeneratedToolSchema,
-} from "@/lib/generated-tools/types";
-import { evaluateSchemaTrust } from "@/lib/generated-tools/trust-gate";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+} from "@/lib/features/generated-tools/types";
+import { evaluateSchemaTrust } from "@/lib/features/generated-tools/trust-gate";
+import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
 
 export type DynamicToolScenarioComparisonConfig = {
   readonly calculateFn: (values: Record<string, unknown>) => GeneratedToolResult;

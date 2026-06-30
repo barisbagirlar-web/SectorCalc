@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { FEATURED_PREMIUM_SLUGS } from "@/lib/catalog/build-catalog-groups";
-import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
-import { revenueTools } from "@/lib/tools/revenue-tools";
+import { getIndustryDisplayName } from "@/lib/features/tools/industry-registry";
+import { revenueTools } from "@/lib/features/tools/revenue-tools";
 import {
   getFreeToolHref,
   getFreeToolsHref,
   getPremiumToolHref,
   getPremiumToolsHref,
   getPricingHref,
-} from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/tool-links";
 
 const FEATURED_FREE_COUNT = 4;
 

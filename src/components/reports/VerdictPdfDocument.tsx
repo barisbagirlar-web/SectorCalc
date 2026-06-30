@@ -9,8 +9,8 @@ import {
  PREMIUM_DECISION_SUMMARY_TITLE,
  formatVerdictReportDate,
  type VerdictReportData,
-} from "@/lib/reports/verdict-report";
-import type { PremiumSeverity } from "@/lib/tools/premium-tool-results";
+} from "@/lib/features/reports/verdict-report";
+import type { PremiumSeverity } from "@/lib/features/tools/premium-tool-results";
 
 const NAVY = "#1E3A5F";
 const SLATE = "#64748B";

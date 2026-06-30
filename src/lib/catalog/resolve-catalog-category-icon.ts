@@ -8,12 +8,12 @@ import { SCHEMA_CATALOG_ICON_OVERRIDES } from "@/lib/catalog/schema-catalog-icon
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
 import { listGlobalCategorySlugs } from "@/lib/catalog/global-tool-category-taxonomy";
 import { FREE_TRAFFIC_CATEGORY_TO_GLOBAL } from "@/lib/catalog/resolve-tool-category";
-import { getTaxonomyEntryBySlug } from "@/lib/tools/category-taxonomy";
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
-import { industryRegistry } from "@/lib/tools/industry-registry";
-import type { HomepageCoverageId } from "@/lib/home/homepage-positioning-data";
-import { HOMEPAGE_COVERAGE_ICON_MAP } from "@/lib/home/homepage-icon-map";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-infer";
+import { getTaxonomyEntryBySlug } from "@/lib/features/tools/category-taxonomy";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
+import type { HomepageCoverageId } from "@/lib/ui-shared/home/homepage-positioning-data";
+import { HOMEPAGE_COVERAGE_ICON_MAP } from "@/lib/ui-shared/home/homepage-icon-map";
+import type { FreeTrafficCategory } from "@/lib/features/tools/free-traffic-infer";
 
 const GLOBAL_SLUGS = new Set<string>(listGlobalCategorySlugs());
 const INDUSTRY_SLUGS = new Set<string>(industryRegistry.map((entry) => entry.slug));

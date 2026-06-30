@@ -16,7 +16,7 @@ import {
 } from "recharts";
 import { useLocale, useTranslations } from "next-intl";
 import { useSubscription } from "@/hooks/useSubscription";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import {
   buildCbamChartData,
   buildScopeChartData,
@@ -26,9 +26,9 @@ import {
   type CarbonEmissionResults,
   type CarbonReportCalculationOptions,
   type CarbonReportSeedInputs,
-} from "@/lib/carbon/carbon-footprint-report";
-import { useEmissionFactors } from "@/lib/emission-factors/use-emission-factors";
-import { fetchSupplierCarbonData, type SupplierCarbonData } from "@/lib/supplier-api";
+} from "@/lib/features/carbon/carbon-footprint-report";
+import { useEmissionFactors } from "@/lib/features/emission-factors/use-emission-factors";
+import { fetchSupplierCarbonData, type SupplierCarbonData } from "@/lib/infrastructure/supplier-api";
 
 const SCOPE_COLORS = ["#b45309", "#bd5d3a", "#1e3a5f"] as const;
 const CBAM_COLORS = ["#166534", "#94a3b8"] as const;

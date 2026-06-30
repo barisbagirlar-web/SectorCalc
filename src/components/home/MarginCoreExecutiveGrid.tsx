@@ -4,8 +4,8 @@ import {
   buildExecutiveSectorRows,
   DASHBOARD_SECTOR_GROUPS,
   type DashboardSectorGroupId,
-} from "@/lib/home/margincore-dashboard-data";
-import { industryRegistry } from "@/lib/tools/industry-registry";
+} from "@/lib/ui-shared/home/margincore-dashboard-data";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 
 function sectorDisplayName(slug: (typeof DASHBOARD_SECTOR_GROUPS)[number]["slugs"][number]): string {
   return industryRegistry.find((entry) => entry.slug === slug)?.name ?? slug;

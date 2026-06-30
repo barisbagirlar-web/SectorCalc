@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
-import type { RevenueTool } from "@/lib/tools/revenue-tools";
-import { getToolHref } from "@/lib/tools/paths";
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
+import type { RevenueTool } from "@/lib/features/tools/revenue-tools";
+import { getToolHref } from "@/lib/features/tools/paths";
 
 interface FreeToolUpgradePanelProps {
   revenue: RevenueTool;

@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, test } from "vitest";
-import { CAMPAIGN_CLUSTERS } from "@/lib/campaigns/campaign-clusters";
-import { SECTORCALC_EVENTS } from "@/lib/analytics/event-taxonomy";
-import { getSitemapManifest } from "@/lib/seo/sitemap-manifest";
+import { CAMPAIGN_CLUSTERS } from "@/lib/features/campaigns/campaign-clusters";
+import { SECTORCALC_EVENTS } from "@/lib/infrastructure/analytics/event-taxonomy";
+import { getSitemapManifest } from "@/lib/infrastructure/seo/sitemap-manifest";
 
 const DOCS_ROOT = join(process.cwd(), "docs");
 

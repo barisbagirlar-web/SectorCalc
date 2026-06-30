@@ -6,9 +6,9 @@ import {
   REVENUE_EVENTS,
   trackRevenueEvent,
   type RevenueEventPayload,
-} from "@/lib/analytics/revenue-events";
+} from "@/lib/infrastructure/analytics/revenue-events";
 import { THREE_D_PRINT_PILOT_SLUG } from "@/components/tools/smart-form/pilot-calculation-payload";
-import { getPilotCalculationBridgeMappedInputCount } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { getPilotCalculationBridgeMappedInputCount } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export type SmartFormPilotAnalyticsPayload = RevenueEventPayload & {
   readonly slug: string;

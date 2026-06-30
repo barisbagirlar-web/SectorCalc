@@ -12,7 +12,7 @@ import {
   type SupportedRegion,
   type UnitDimension,
   type ConversionTraceEntry,
-} from "@/lib/units/regional-unit-engine";
+} from "@/lib/core/units/regional-unit-engine";
 import { UnitSystemSelector } from "@/components/regional-units/UnitSystemSelector";
 import { ConversionTrace } from "@/components/regional-units/ConversionTrace";
 

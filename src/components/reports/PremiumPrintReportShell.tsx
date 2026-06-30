@@ -4,9 +4,9 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { PremiumPrintableReport } from "@/components/reports/PremiumPrintableReport";
 import { PremiumPrintToolbar } from "@/components/reports/PremiumReportExportActions";
-import { usePremiumSchemaEntitlementBySlug } from "@/lib/entitlements/use-premium-schema-entitlement";
-import { gatePremiumReportExportPayload } from "@/lib/premium-schema/premium-report-gate";
-import type { PremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
+import { usePremiumSchemaEntitlementBySlug } from "@/lib/features/entitlements/use-premium-schema-entitlement";
+import { gatePremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-gate";
+import type { PremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
 
 export interface PremiumPrintReportShellProps {
   payload: PremiumReportExportPayload;

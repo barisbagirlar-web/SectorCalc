@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
-import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
-import type { SavedVerdictReport } from "@/lib/reports/report-storage";
-import { getPremiumToolHref, getPremiumToolsHref, getReportsHref } from "@/lib/tools/tool-links";
-import { revenueTools } from "@/lib/tools/revenue-tools";
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
+import { formatVerdictReportDate } from "@/lib/features/reports/verdict-report";
+import type { SavedVerdictReport } from "@/lib/features/reports/report-storage";
+import { getPremiumToolHref, getPremiumToolsHref, getReportsHref } from "@/lib/features/tools/tool-links";
+import { revenueTools } from "@/lib/features/tools/revenue-tools";
 
 const defaultPremiumHref = revenueTools[0]
   ? getPremiumToolHref(revenueTools[0])

@@ -8,7 +8,7 @@
 "use client";
 
 import { useState, useCallback, useMemo, useRef, type FormEvent } from "react";
-import type { ToolSchemaInput } from "@/lib/tool-schemas/types";
+import type { ToolSchemaInput } from "@/lib/features/tool-schemas/types";
 
 // ─── PROPS ────────────────────────────────────────────────────────────────
 

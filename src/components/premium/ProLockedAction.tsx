@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { ProFeatureNotice } from "@/components/premium/ProFeatureNotice";
-import { getPricingHref } from "@/lib/tools/tool-links";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { getPricingHref } from "@/lib/features/tools/tool-links";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
 
 type ProLockedActionProps = {
   readonly paidSlug: string;

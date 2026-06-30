@@ -10,4 +10,4 @@ export type {
   SmartFormValidationState,
   SmartFormValidationTone,
   SmartFormViewMode,
-} from "@/lib/smart-form/types";
+} from "@/lib/features/smart-form/types";

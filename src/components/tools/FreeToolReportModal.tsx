@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import {
   VERIFICATION_MESSAGE_MIN_LENGTH,
   type VerificationIssueType,
-} from "@/lib/feedback/feedback-types";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+} from "@/lib/features/feedback/feedback-types";
+import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
 
 export type FreeReportCategory = "formul" | "eksik_veri" | "birim" | "ui" | "diger";
 

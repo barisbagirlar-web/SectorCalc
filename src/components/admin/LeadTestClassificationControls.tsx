@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { isAdminLeadWriteEnabled } from "@/lib/admin/lead-write-config";
-import { type TestLeadDetection } from "@/lib/leads/lead-cleanup";
-import { updateTestLeadClassificationClient } from "@/lib/leads/update-test-lead-classification-client";
-import type { LeadIntent } from "@/lib/leads/types";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { isAdminLeadWriteEnabled } from "@/lib/features/admin/lead-write-config";
+import { type TestLeadDetection } from "@/lib/features/leads/lead-cleanup";
+import { updateTestLeadClassificationClient } from "@/lib/features/leads/update-test-lead-classification-client";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 const MAX_REASON_LENGTH = 300;
 

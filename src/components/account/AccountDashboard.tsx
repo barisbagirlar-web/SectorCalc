@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { Suspense } from "react";
-import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
+import { useClientSearchParam } from "@/lib/ui-shared/navigation/use-client-search-params";
 import { AccountFeaturedAccess } from "@/components/account/AccountFeaturedAccess";
 import { AccountQuickActions } from "@/components/account/AccountQuickActions";
 import { RecentReportsPanel } from "@/components/account/RecentReportsPanel";
 import { SubscriptionStatusCard } from "@/components/account/SubscriptionStatusCard";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { useUserReports } from "@/lib/reports/use-user-reports";
-import { getLoginHref } from "@/lib/tools/tool-links";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
+import { useUserReports } from "@/lib/features/reports/use-user-reports";
+import { getLoginHref } from "@/lib/features/tools/tool-links";
 
 function AccountSubscribedBanner() {
   const subscribed = useClientSearchParam("subscribed") === "true";

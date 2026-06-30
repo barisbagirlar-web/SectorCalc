@@ -10,7 +10,7 @@ import {
   shouldIncludeFieldInPilotPayload,
   THREE_D_PRINT_PILOT_SUBMIT_KEYS,
 } from "@/components/tools/smart-form/pilot-calculation-payload";
-import { shouldUseSmartFormPilot } from "@/lib/feature-flags/smart-form-pilot";
+import { shouldUseSmartFormPilot } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 
 describe("pilot calculation payload", () => {
   afterEach(() => {

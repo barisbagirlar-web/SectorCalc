@@ -1,8 +1,8 @@
 import type { GlobalAuditStatus } from "@/lib/os/core/audit-engine";
 import type { AuditRecord } from "@/lib/os/data/audit-archive-data";
-import { formatPremiumPdfUsd } from "@/lib/reports/premium-pdf-data";
-import type { SavedVerdictReport } from "@/lib/reports/report-storage";
-import type { PremiumSeverity } from "@/lib/tools/premium-tool-results";
+import { formatPremiumPdfUsd } from "@/lib/features/reports/premium-pdf-data";
+import type { SavedVerdictReport } from "@/lib/features/reports/report-storage";
+import type { PremiumSeverity } from "@/lib/features/tools/premium-tool-results";
 
 function severityToAuditStatus(severity: PremiumSeverity): GlobalAuditStatus {
   return severity === "danger" || severity === "watch" ? "CRITICAL" : "OPTIMAL";

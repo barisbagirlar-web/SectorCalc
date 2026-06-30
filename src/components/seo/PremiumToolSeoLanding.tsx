@@ -4,9 +4,9 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
-import { buildBreadcrumbJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
-import { fillPremiumSeoTemplate } from "@/lib/seo/premium-tool-seo-context";
-import type { PremiumToolSeoLanding } from "@/lib/seo/premium-tool-seo-landings";
+import { buildBreadcrumbJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
+import { fillPremiumSeoTemplate } from "@/lib/infrastructure/seo/premium-tool-seo-context";
+import type { PremiumToolSeoLanding } from "@/lib/infrastructure/seo/premium-tool-seo-landings";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 

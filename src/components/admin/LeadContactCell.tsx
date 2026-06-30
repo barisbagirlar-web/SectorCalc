@@ -1,4 +1,4 @@
-import type { LeadIntent } from "@/lib/leads/types";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 interface LeadContactCellProps {
  lead: LeadIntent;

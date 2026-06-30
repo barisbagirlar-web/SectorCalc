@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { listPublishedCaseStudies } from "@/lib/case-studies/published-case-study-locale";
+import { listPublishedCaseStudies } from "@/lib/features/case-studies/published-case-study-locale";
 
 export type AcademicBreadcrumbItem = {
   readonly label: string;

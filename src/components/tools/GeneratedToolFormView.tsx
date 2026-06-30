@@ -7,22 +7,22 @@ import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
-import { formatGeneratedNumericValue } from "@/lib/generated-tools/format-generated-numeric";
+import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
 import {
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
-} from "@/lib/generated-tools/resolve-tool-display";
-import { resolveGeneratedToolAboutContent } from "@/lib/generated-tools/resolve-tool-about";
-import { resolvePrimaryOutputUnit } from "@/lib/generated-tools/resolve-output-unit";
+} from "@/lib/features/generated-tools/resolve-tool-display";
+import { resolveGeneratedToolAboutContent } from "@/lib/features/generated-tools/resolve-tool-about";
+import { resolvePrimaryOutputUnit } from "@/lib/features/generated-tools/resolve-output-unit";
 import {
   runGeneratedToolCalculation,
   useToolSchema,
-} from "@/lib/generated-tools/use-tool-schema";
-import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
-import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
-import { savePrintData } from "@/lib/reports/generated-tool-print-data";
+} from "@/lib/features/generated-tools/use-tool-schema";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
+import { absoluteLocalizedUrl } from "@/lib/features/semantic/site-url";
+import { savePrintData } from "@/lib/features/reports/generated-tool-print-data";
 import { PremiumResultSummary } from "@/components/reports/PremiumResultSummary";
-import { resolvePrimaryPrintValue } from "@/lib/reports/resolve-print-values";
+import { resolvePrimaryPrintValue } from "@/lib/features/reports/resolve-print-values";
 import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
 
 export type GeneratedToolFormViewProps = {

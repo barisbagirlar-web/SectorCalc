@@ -1,13 +1,13 @@
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 import {
  getRevenueToolBySector,
  type RevenueTool,
-} from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/revenue-tools";
 import {
  getFreeToolHref,
  getPremiumToolHref,
  getPricingHref,
-} from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/tool-links";
 
 export interface SectorLandingFaq {
  question: string;

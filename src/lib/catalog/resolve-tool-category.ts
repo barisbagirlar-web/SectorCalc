@@ -1,6 +1,6 @@
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
-import type { FreeTrafficCategory } from "@/lib/tools/free-traffic-catalog";
-import type { IndustryCategory, IndustrySlug } from "@/lib/tools/industry-registry";
+import type { FreeTrafficCategory } from "@/lib/features/tools/free-traffic-catalog";
+import type { IndustryCategory, IndustrySlug } from "@/lib/features/tools/industry-registry";
 
 export type ToolCategoryResolutionInput = {
   readonly slug: string;

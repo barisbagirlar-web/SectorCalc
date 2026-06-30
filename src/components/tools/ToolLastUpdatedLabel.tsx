@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { formatToolLastUpdatedDate } from "@/lib/generated-tools/format-tool-last-updated-date";
+import { formatToolLastUpdatedDate } from "@/lib/features/generated-tools/format-tool-last-updated-date";
 
 export type ToolLastUpdatedLabelProps = {
   readonly isoDate: string;

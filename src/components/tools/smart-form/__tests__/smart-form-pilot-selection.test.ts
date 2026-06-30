@@ -4,7 +4,7 @@
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { getPilotSmartFormManifest } from "@/components/tools/smart-form/getPilotSmartFormManifest";
-import { shouldUseSmartFormPilot } from "@/lib/feature-flags/smart-form-pilot";
+import { shouldUseSmartFormPilot } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 
 describe("smart form pilot selection", () => {
   afterEach(() => {

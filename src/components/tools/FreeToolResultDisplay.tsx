@@ -4,9 +4,9 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { RiskGauge } from "@/components/tools/RiskGauge";
 import { useLeadIntent } from "@/components/leads/LeadIntentContext";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import { getIndustryNameBySlug } from "@/data/lead-options";
-import type { RevenueSector } from "@/lib/tools/revenue-tools";
+import type { RevenueSector } from "@/lib/features/tools/revenue-tools";
 
 interface FreeToolResultDisplayProps {
  riskScore: number;

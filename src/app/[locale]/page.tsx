@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { NewLandingContent } from "@/components/landing/NewLandingContent";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
-import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
-import { createPageMetadata } from "@/lib/metadata";
-import { getFreeToolCount } from "@/lib/tools/tool-counts";
+import { buildHomeJsonLd } from "@/lib/features/semantic/build-home-jsonld";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { getFreeToolCount } from "@/lib/features/tools/tool-counts";
 
 export const revalidate = 3600;
 

@@ -10,20 +10,20 @@ import { ToolsIconTileGrid } from "@/components/tools/ToolsIconTileGrid";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import type { AppLocale } from "@/i18n/routing";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
-import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
+import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import {
   getFreeTrafficCategoryLanding,
   listFreeTrafficCategorySlugs,
-} from "@/lib/seo/free-traffic-category-landing";
+} from "@/lib/infrastructure/seo/free-traffic-category-landing";
 import {
   getTaxonomyCategoryLanding,
   listTaxonomyCategorySlugs,
   resolveTaxonomyCategoryTitle,
-} from "@/lib/seo/taxonomy-category-landing";
+} from "@/lib/infrastructure/seo/taxonomy-category-landing";
 
 type PageProps = {
   params: Promise<{ locale: string; category: string }>;

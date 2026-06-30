@@ -2,10 +2,10 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/feedback/types";
-import type { VerificationIssueType } from "@/lib/feedback/feedback-types";
-import { VERIFICATION_ISSUE_TYPES, VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/feedback/feedback-types";
-import type { ToolFeedbackTier } from "@/lib/notifications/tool-feedback-mail";
+import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/features/feedback/types";
+import type { VerificationIssueType } from "@/lib/features/feedback/feedback-types";
+import { VERIFICATION_ISSUE_TYPES, VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/features/feedback/feedback-types";
+import type { ToolFeedbackTier } from "@/lib/ui-shared/notifications/tool-feedback-mail";
 
 type CalculationFeedbackModalProps = {
   readonly toolSlug: string;

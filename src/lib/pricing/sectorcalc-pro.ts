@@ -7,12 +7,12 @@ export {
  revenueLegalDisclaimer as REVENUE_LEGAL_DISCLAIMER,
  sectorCalcProPricing,
  sectorCalcProPricing as SECTORCALC_PRO,
-} from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/revenue-tools";
 
 import {
  revenueLegalDisclaimer,
  sectorCalcProPricing,
-} from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/revenue-tools";
 
 export const REVENUE_LEGAL_DISCLAIMER_PAID =
  `${revenueLegalDisclaimer} Digital product. No refunds.`;

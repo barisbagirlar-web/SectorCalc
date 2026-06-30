@@ -7,14 +7,14 @@ import {
   type RoadmapStatus,
   type StrategicPremiumCalculator,
 } from "@/data/strategic-premium-calculators";
-import { CANONICAL_FREE_SLUGS, CANONICAL_PREMIUM_SLUGS } from "@/lib/tools/canonical-tool-slugs";
+import { CANONICAL_FREE_SLUGS, CANONICAL_PREMIUM_SLUGS } from "@/lib/features/tools/canonical-tool-slugs";
 import { PREMIUM_SCHEMA_LOCALIZED_SLUGS } from "@/data/premium-schema-i18n";
-import { listPremiumSchemaIds } from "@/lib/premium-schema/schema-registry";
-import { revenueTools } from "@/lib/tools/revenue-tools";
+import { listPremiumSchemaIds } from "@/lib/features/premium-schema/schema-registry";
+import { revenueTools } from "@/lib/features/tools/revenue-tools";
 import {
   getPremiumSchemaToolHref,
   resolvePremiumToolHref,
-} from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/tool-links";
 
 const FREE_TRAFFIC_SLUGS = new Set(CANONICAL_FREE_SLUGS);
 const REVENUE_FREE_SLUGS = new Set(CANONICAL_PREMIUM_SLUGS);

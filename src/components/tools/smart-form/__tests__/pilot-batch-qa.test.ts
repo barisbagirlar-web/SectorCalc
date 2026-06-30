@@ -31,7 +31,7 @@ import {
   AUTO_SHOP_PILOT_GOVERNANCE_SLUG,
   CABINET_PILOT_GOVERNANCE_SLUG,
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
-} from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 describe("smart form pilot batch QA — Phase 5H-G-I", () => {
   afterEach(() => {

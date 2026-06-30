@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import type { GeneratedToolResult } from "@/lib/generated-tools/types";
+import type { GeneratedToolResult } from "@/lib/features/generated-tools/types";
 
 type ScenarioState = {
   readonly name: string;

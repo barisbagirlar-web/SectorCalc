@@ -3,18 +3,18 @@ import type { NextRequest } from "next/server";
 import { isAppLocale, type AppLocale } from "@/i18n/routing";
 import {
   getCalculationReportCopy,
-} from "@/lib/email/calculation-report-email-copy";
-import { sendCalculationReportEmail } from "@/lib/email/send-calculation-report-email";
+} from "@/lib/infrastructure/email/calculation-report-email-copy";
+import { sendCalculationReportEmail } from "@/lib/infrastructure/email/send-calculation-report-email";
 import {
   buildPdfExportLeadInput,
   isValidPdfExportEmail,
   savePdfExportLeadServer,
-} from "@/lib/leads/save-pdf-export-lead-server";
+} from "@/lib/features/leads/save-pdf-export-lead-server";
 import {
   buildCalculationReportFileName,
   type CalculationReportRow,
-} from "@/lib/pdf/calculation-report-types";
-import { renderCalculationReportPdf } from "@/lib/pdf/render-calculation-report";
+} from "@/lib/content/pdf/calculation-report-types";
+import { renderCalculationReportPdf } from "@/lib/content/pdf/render-calculation-report";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

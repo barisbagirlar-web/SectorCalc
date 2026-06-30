@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { generateEngineeringInterpretation } from "@/lib/ai/engineering-interpretation/client";
-import type { InterpretPremiumResultRequest } from "@/lib/ai/engineering-interpretation/types";
+import { generateEngineeringInterpretation } from "@/lib/features/ai/engineering-interpretation/client";
+import type { InterpretPremiumResultRequest } from "@/lib/features/ai/engineering-interpretation/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

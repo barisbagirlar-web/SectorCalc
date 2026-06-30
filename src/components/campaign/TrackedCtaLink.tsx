@@ -3,10 +3,10 @@
 import type { ReactNode } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import { trackConversionEvent, mapEventToStage } from "@/lib/analytics/conversion-funnel";
-import type { SectorCalcEventName } from "@/lib/analytics/event-taxonomy";
-import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
+import { trackConversionEvent, mapEventToStage } from "@/lib/infrastructure/analytics/conversion-funnel";
+import type { SectorCalcEventName } from "@/lib/infrastructure/analytics/event-taxonomy";
+import { buildTrackedCtaHref } from "@/lib/features/campaigns/campaign-links";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/routing";
 

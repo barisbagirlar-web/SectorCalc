@@ -10,26 +10,26 @@ import { SeoHubCampaignActions } from "@/components/campaign/SeoHubCampaignActio
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
-import { buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { buildSeoHubCrawlGroups } from "@/lib/infrastructure/seo/crawl-index";
 import {
   buildSeoHubJsonLd,
   buildBreadcrumbJsonLd,
-} from "@/lib/seo/schema-mesh";
+} from "@/lib/infrastructure/seo/schema-mesh";
 import {
   getProgrammaticSeoPageBySlug,
   listProgrammaticSeoSlugs,
-} from "@/lib/seo/programmatic-seo-pages";
+} from "@/lib/infrastructure/seo/programmatic-seo-pages";
 import {
   getPremiumToolSeoLandingBySlug,
   listPremiumToolSeoLandingSlugs,
-} from "@/lib/seo/premium-tool-seo-landings";
+} from "@/lib/infrastructure/seo/premium-tool-seo-landings";
 import { PremiumToolSeoLandingView } from "@/components/seo/PremiumToolSeoLanding";
-import { fillPremiumSeoTemplate } from "@/lib/seo/premium-tool-seo-context";
+import { fillPremiumSeoTemplate } from "@/lib/infrastructure/seo/premium-tool-seo-context";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 import { getTranslations } from "next-intl/server";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 export const dynamicParams = true;
 export const revalidate = 3600;

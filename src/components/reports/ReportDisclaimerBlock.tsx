@@ -1,4 +1,4 @@
-import { REPORT_DISCLAIMER } from "@/lib/legal/report-disclaimer";
+import { REPORT_DISCLAIMER } from "@/lib/content/legal/report-disclaimer";
 
 type ReportDisclaimerBlockProps = {
   readonly compact?: boolean;

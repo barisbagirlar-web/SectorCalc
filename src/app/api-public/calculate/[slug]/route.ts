@@ -1,24 +1,24 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { loadGeneratedCalculator } from "@/lib/generated-tools/calculator-registry";
-import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
-import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
-import { validateCalculatorRuntimeResult } from "@/lib/generated-tools/runtime-validate-calculator";
-import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
+import { loadGeneratedCalculator } from "@/lib/features/generated-tools/calculator-registry";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
+import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";
+import { validateCalculatorRuntimeResult } from "@/lib/features/generated-tools/runtime-validate-calculator";
+import { getLocaleTextDirection } from "@/lib/infrastructure/i18n/locale-config";
 import {
   formatApiPublicMessage,
   resolveApiPublicLocale,
   tApiPublic,
-} from "@/lib/validation/api-public-messages";
+} from "@/lib/core/validation/api-public-messages";
 import {
   describeExpectedInputFormat,
   findUnknownInputKeys,
   formatZodValidationErrors,
   getApiValidatorForTool,
   getToolValidationSchema,
-} from "@/lib/validation/calculator-validator";
-import { checkPublicCalculateRateLimit } from "@/lib/validation/public-calculate-rate-limit";
+} from "@/lib/core/validation/calculator-validator";
+import { checkPublicCalculateRateLimit } from "@/lib/core/validation/public-calculate-rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

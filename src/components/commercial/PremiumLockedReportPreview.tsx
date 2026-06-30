@@ -1,6 +1,6 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { Container } from "@/components/ui/Container";
-import { getSampleReportHref } from "@/lib/tools/tool-links";
+import { getSampleReportHref } from "@/lib/features/tools/tool-links";
 
 const LOCKED_SECTIONS = [
   "Minimum safe price floor",

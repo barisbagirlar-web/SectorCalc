@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
-import { getFirestoreDb } from "@/lib/firebase/client";
-import { getUserCredits } from "@/lib/credits/credits-manager";
-import { spendCreditsViaFunction } from "@/lib/credits/spend-credits";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { getFirestoreDb } from "@/lib/infrastructure/firebase/client";
+import { getUserCredits } from "@/lib/features/credits/credits-manager";
+import { spendCreditsViaFunction } from "@/lib/features/credits/spend-credits";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 
 const CREDITS_COLLECTION = "credits";
 const BALANCE_DOC = "balance";

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { getFirebaseAuth } from "@/lib/firebase/auth";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import { AdminAuthBar } from "./AdminAuthPanel";
 
 interface AdminUserRecord {

@@ -4,14 +4,14 @@ import { useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link as I18nLink } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
 import type { CatalogGroup } from "@/lib/catalog/catalog-types";
 import {
   FEATURED_INDUSTRY_SLUGS,
   getAllIndustryCategories,
   INDUSTRY_CATEGORY_LABELS,
   type IndustryCategory,
-} from "@/lib/tools/industry-registry";
+} from "@/lib/features/tools/industry-registry";
 import { INDUSTRY_CATEGORY_DESCRIPTIONS } from "@/lib/catalog/build-catalog-groups";
 import { getIndustryBySlug, type IndustrySlug } from "@/data/industries";
 

@@ -2,7 +2,7 @@
  * Generic mapped smart form pilot calculation payload — Phase 5H-H.
  */
 
-import type { FreeToolInputValues } from "@/lib/tools/free-tool-results";
+import type { FreeToolInputValues } from "@/lib/features/tools/free-tool-results";
 import {
   parsePilotNumericField,
   type PilotCalculationPayloadResult,

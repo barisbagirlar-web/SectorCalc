@@ -5,34 +5,34 @@ import {
   getIndustriesByCategory,
   INDUSTRY_CATEGORY_LABELS,
   type IndustryCategory,
-} from "@/lib/tools/industry-registry";
+} from "@/lib/features/tools/industry-registry";
 import {
   PREMIUM_REPORT_FAMILY_LABELS,
   type PremiumReportFamily,
-} from "@/lib/premium/premium-architecture";
-import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";
-import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
-import { getToolHref } from "@/lib/tools/paths";
+} from "@/lib/features/premium/premium-architecture";
+import { getPremiumArchitectureProfile } from "@/lib/features/premium/sector-loss-registry";
+import { getRevenueToolBySector } from "@/lib/features/tools/revenue-tools";
+import { getToolHref } from "@/lib/features/tools/paths";
 import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,
   getOrderedFreeTrafficCategories,
   type FreeTrafficCategoryMeta,
-} from "@/lib/tools/free-traffic-categories";
-import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
-import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
+} from "@/lib/features/tools/free-traffic-categories";
+import type { FreeTrafficTool } from "@/lib/features/tools/free-traffic-catalog";
+import { resolveFreeToolLocalizedCopy } from "@/lib/infrastructure/i18n/free-tool-i18n";
 import type { CatalogGroup, CatalogItem } from "@/lib/catalog/catalog-types";
 import {
   getIndustryRelatedPremiumItems,
   getPremiumSchemasForIndustrySlug,
-} from "@/lib/premium-schema/premium-schema-catalog";
+} from "@/lib/features/premium-schema/premium-schema-catalog";
 import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import {
   resolveCatalogCtaLabels,
   resolveIndustryCategoryDescription,
   resolveIndustryCategoryLabel,
-} from "@/lib/i18n/catalog-labels-i18n";
-import { hasCanonicalToolCatalog } from "@/lib/tools/canonical-tool-slugs";
+} from "@/lib/infrastructure/i18n/catalog-labels-i18n";
+import { hasCanonicalToolCatalog } from "@/lib/features/tools/canonical-tool-slugs";
 
 export const INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
   "heavy-industry":

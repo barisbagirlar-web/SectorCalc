@@ -12,8 +12,8 @@ import {
   localizedUnitAriaLabel,
   resolveRegionalCodeForUnitDefaults,
   type UnitGroup,
-} from "@/lib/regional/unit-defaults";
-import { resolveRegionalCodeFromLocale } from "@/lib/regional/regions";
+} from "@/lib/features/regional/unit-defaults";
+import { resolveRegionalCodeFromLocale } from "@/lib/features/regional/regions";
 
 export function useCalculatorFieldUnitState(fieldKey: string, explicitUnit?: string, isCurrency = false) {
   const locale = useLocale();

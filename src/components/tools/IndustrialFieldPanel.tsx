@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { PremiumFieldPanel, ToleranceStatus } from "@/lib/premium/premium-architecture";
-import type { PremiumSeverity } from "@/lib/tools/premium-tool-contract";
+import type { PremiumFieldPanel, ToleranceStatus } from "@/lib/features/premium/premium-architecture";
+import type { PremiumSeverity } from "@/lib/features/tools/premium-tool-contract";
 
 const verdictStripClass: Record<PremiumSeverity, string> = {
   accept: "sc-risk-strip sc-risk-strip--safe",

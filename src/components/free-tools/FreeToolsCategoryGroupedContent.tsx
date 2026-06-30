@@ -5,20 +5,20 @@ import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { FreeToolCategorySection, FreeToolsCategoryGroup } from "./FreeToolCategorySection";
-import type { ToolData } from "@/lib/tools/all-tools-data";
-import type { FreeToolCategorySlug } from "@/lib/free-tools/free-tool-categories";
+import type { ToolData } from "@/lib/features/tools/all-tools-data";
+import type { FreeToolCategorySlug } from "@/lib/features/free-tools/free-tool-categories";
 import {
   getOrderedFreeToolCategories,
   resolveCanonicalCategorySlug,
-} from "@/lib/free-tools/free-tool-categories";
-import { toCatalogHubToolTile } from "@/lib/tools/catalog-hub-tool-tile";
+} from "@/lib/features/free-tools/free-tool-categories";
+import { toCatalogHubToolTile } from "@/lib/features/tools/catalog-hub-tool-tile";
 import {
   CATALOG_HUB_MAX_TILES,
   filterCatalogHubTools,
   limitCatalogHubTiles,
   resolveCatalogHubSearchQuery,
   resolveCatalogHubSectorFilter,
-} from "@/lib/tools/filter-catalog-hub-tools";
+} from "@/lib/features/tools/filter-catalog-hub-tools";
 
 type FreeToolsCategoryGroupedContentProps = {
   readonly locale: string;

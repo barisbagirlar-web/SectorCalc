@@ -3,8 +3,8 @@
  */
 
 import { afterEach, describe, expect, test, vi } from "vitest";
-import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
-import { shouldUseSmartFormPilot } from "@/lib/feature-flags/smart-form-pilot";
+import { resolveSmartFormPilotManifestForRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
+import { shouldUseSmartFormPilot } from "@/lib/infrastructure/feature-flags/smart-form-pilot";
 
 describe("free tool pilot wiring", () => {
   afterEach(() => {

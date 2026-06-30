@@ -2,9 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import type { VerificationIssueType } from "@/lib/feedback/feedback-types";
-import { VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/feedback/feedback-types";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
+import type { VerificationIssueType } from "@/lib/features/feedback/feedback-types";
+import { VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/features/feedback/feedback-types";
+import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
 
 export type PremiumReportCategory = "formul" | "eksik_veri" | "birim" | "ui" | "diger";
 

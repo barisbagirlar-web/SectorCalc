@@ -3,22 +3,22 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
-import { startCheckoutSession, type CheckoutPlan } from "@/lib/billing/create-checkout-session";
+import { startCheckoutSession, type CheckoutPlan } from "@/lib/features/billing/create-checkout-session";
 import {
   mapCheckoutPlanToBillingPlanId,
-} from "@/lib/billing/billing-config";
-import { CheckoutStartError, startCheckoutRedirect } from "@/lib/billing/start-checkout";
+} from "@/lib/features/billing/billing-config";
+import { CheckoutStartError, startCheckoutRedirect } from "@/lib/features/billing/start-checkout";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
-import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
+} from "@/lib/infrastructure/analytics/revenue-events";
+import { useProSubscription } from "@/lib/features/subscription/use-pro-subscription";
 import {
  ANALYTICS_EVENTS,
  trackEvent,
-} from "@/lib/analytics/events";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+} from "@/lib/infrastructure/analytics/events";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import { stripLocalePrefix } from "@/i18n/locales";
 
 interface StripePlanCheckoutButtonProps {

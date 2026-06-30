@@ -18,7 +18,7 @@ import {
   type SmartFormPilotBatchRegistryEntry,
 } from "@/components/tools/smart-form/pilot-batch-qa-registry";
 import { getPilotSmartFormManifest } from "@/components/tools/smart-form/getPilotSmartFormManifest";
-import { resolvePilotGovernanceSlugFromRoute } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { resolvePilotGovernanceSlugFromRoute } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export type SmartFormPilotQaAuditPilotResult = {
   readonly routeSlug: string;

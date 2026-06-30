@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { startCreditCheckoutSession } from "@/lib/billing/create-credit-checkout-session";
-import { CREDIT_PACKAGE_OPTIONS } from "@/lib/credits/credit-packages";
+import { startCreditCheckoutSession } from "@/lib/features/billing/create-credit-checkout-session";
+import { CREDIT_PACKAGE_OPTIONS } from "@/lib/features/credits/credit-packages";
 
 export function BuyCreditsButton() {
   const t = useTranslations("credits");

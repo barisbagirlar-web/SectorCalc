@@ -1,7 +1,7 @@
 import {
   canShowFormulaGateApproved,
   evaluateRuntimeTrust,
-} from "@/lib/tools/runtime-trust-engine";
+} from "@/lib/features/tools/runtime-trust-engine";
 import { FormulaGateReviewStatus } from "@/components/formula/FormulaGateReviewStatus";
 import { FormulaSourceAuditBadge } from "@/components/formula/FormulaSourceAuditBadge";
 

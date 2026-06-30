@@ -2,12 +2,12 @@
  * Smart form pilot batch QA registry — Phase 5H-G-I / 5H-H batch rollout.
  */
 
-import { REVENUE_EVENTS } from "@/lib/analytics/revenue-events";
-import { getControlledInputDesignPatch } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
+import { REVENUE_EVENTS } from "@/lib/infrastructure/analytics/revenue-events";
+import { getControlledInputDesignPatch } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 import {
   getPilotMappedSubmitKeys,
   isPilotCalculationBridgeEnabled,
-} from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 import { getRolloutBatchHEligibleToolDefinitions } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 
 export type SmartFormPilotExpectedAnalyticsEvent = {

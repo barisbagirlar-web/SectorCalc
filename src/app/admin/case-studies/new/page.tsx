@@ -4,7 +4,7 @@ import { SimpleCaseStudyForm } from "@/components/admin/SimpleCaseStudyForm";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 export const metadata: Metadata = {
   ...createPageMetadata({

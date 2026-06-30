@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { formatUnit, getUnitDefinition, type ConversionTraceEntry } from "@/lib/units/regional-unit-engine";
+import { formatUnit, getUnitDefinition, type ConversionTraceEntry } from "@/lib/core/units/regional-unit-engine";
 
 type ConversionTraceProps = {
   readonly entries: readonly ConversionTraceEntry[];

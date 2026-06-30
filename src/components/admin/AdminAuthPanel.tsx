@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import {
@@ -11,8 +11,8 @@ import {
  signOutAdmin,
  verifyUserAdminClaim,
  type User,
-} from "@/lib/firebase/auth";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
+} from "@/lib/infrastructure/firebase/auth";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
 
 const fieldClass =
  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";

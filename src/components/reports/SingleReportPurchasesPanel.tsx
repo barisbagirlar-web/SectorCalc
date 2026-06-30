@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
-import type { SingleReportPurchase } from "@/lib/billing/purchase-types";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";
+import type { SingleReportPurchase } from "@/lib/features/billing/purchase-types";
 import { EmptyPurchases } from "@/components/empty-states/EmptyPurchases";
-import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
+import { formatVerdictReportDate } from "@/lib/features/reports/verdict-report";
 import { SINGLE_VERDICT_PRICE } from "@/lib/pricing/plan-catalog";
 
 interface SingleReportPurchasesPanelProps {

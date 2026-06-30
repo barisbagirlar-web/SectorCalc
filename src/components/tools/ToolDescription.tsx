@@ -5,7 +5,7 @@ import type {
   ResolvedToolAboutContent,
   ResolvedToolAboutExample,
   ResolvedToolAboutFaq,
-} from "@/lib/generated-tools/resolve-tool-about";
+} from "@/lib/features/generated-tools/resolve-tool-about";
 
 export type ToolDescriptionProps = {
   readonly content: ResolvedToolAboutContent;

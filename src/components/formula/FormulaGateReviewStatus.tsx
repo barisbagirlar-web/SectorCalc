@@ -2,7 +2,7 @@ import { Clock3 } from "lucide-react";
 import {
   getFormulaGateReviewLabel,
   getFormulaGateReviewTitle,
-} from "@/lib/formula-governance/formula-gate-copy";
+} from "@/lib/features/formula-governance/formula-gate-copy";
 
 type Props = {
   slug: string;

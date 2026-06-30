@@ -5,8 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import { CATALOG_GRID_VARIANT_STYLES } from "@/lib/catalog/catalog-grid-variant-styles";
 import type { CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
-import { cn } from "@/lib/cn";
-import { scrollToToolsList } from "@/lib/navigation/scroll-to-tools-list";
+import { cn } from "@/lib/core/cn";
+import { scrollToToolsList } from "@/lib/ui-shared/navigation/scroll-to-tools-list";
 
 export type CategoryCardItem = {
   readonly slug: string;

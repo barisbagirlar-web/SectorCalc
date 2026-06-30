@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustrialHome } from "@/components/os/IndustrialHome";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

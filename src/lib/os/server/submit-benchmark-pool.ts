@@ -1,6 +1,6 @@
 "use server";
 
-import { getAdminFirestore } from "@/lib/firebase/admin";
+import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
 import {
   DEFAULT_INDUSTRY_BENCHMARK,
   mergeBenchmarkPool,

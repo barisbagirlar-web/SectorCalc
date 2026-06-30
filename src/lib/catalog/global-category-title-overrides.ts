@@ -1,4 +1,4 @@
-import type { SupportedLocale } from "@/lib/i18n/locale-config";
+import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
 
 /** Per-locale overrides for premium-152 global category titles (de, fr, es, ar). */

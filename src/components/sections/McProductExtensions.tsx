@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { ReportPreviewCard } from "@/components/cards/ReportPreviewCard";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Tool } from "@/data/tools";

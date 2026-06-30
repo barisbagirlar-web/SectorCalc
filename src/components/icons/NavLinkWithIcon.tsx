@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { resolveNavIcon } from "@/lib/icons/icon-registry";
+import { resolveNavIcon } from "@/lib/ui-shared/icons/icon-registry";
 import { stripLocalePrefix } from "@/i18n/routing";
 
 type NavLinkWithIconProps = {

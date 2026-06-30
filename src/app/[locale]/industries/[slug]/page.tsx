@@ -6,10 +6,10 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustryPageContent } from "@/components/pages/IndustryPageContent";
 import { getIndustryBySlug } from "@/data/industries";
 import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
-import { industryRegistry, type IndustrySlug } from "@/lib/tools/industry-registry";
-import { createPageMetadata } from "@/lib/metadata";
+import { industryRegistry, type IndustrySlug } from "@/lib/features/tools/industry-registry";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 interface IndustryPageParams {
  locale: string;

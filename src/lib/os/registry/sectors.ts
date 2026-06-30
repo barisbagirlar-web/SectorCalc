@@ -3,7 +3,7 @@
  * UI: t("sector.cnc.title") or entry.name fallback
  */
 
-import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 import {
   IndustrialRegistry,
   isIndustrialRegistryKey,

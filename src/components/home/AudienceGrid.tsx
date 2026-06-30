@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
-import { HOMEPAGE_AUDIENCE_ICON_MAP } from "@/lib/home/homepage-icon-map";
-import { resolveHomepageMessage } from "@/lib/home/homepage-component-utils";
-import { HOMEPAGE_AUDIENCE_IDS } from "@/lib/home/homepage-positioning-data";
+import { HOMEPAGE_AUDIENCE_ICON_MAP } from "@/lib/ui-shared/home/homepage-icon-map";
+import { resolveHomepageMessage } from "@/lib/ui-shared/home/homepage-component-utils";
+import { HOMEPAGE_AUDIENCE_IDS } from "@/lib/ui-shared/home/homepage-positioning-data";
 
 export async function AudienceGrid() {
   const t = await getTranslations("homepageHybrid");

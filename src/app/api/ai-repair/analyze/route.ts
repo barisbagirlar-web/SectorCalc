@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { analyzeRepairRequest } from "@/lib/ai-repair/repair-router";
+import { analyzeRepairRequest } from "@/lib/features/ai-repair/repair-router";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

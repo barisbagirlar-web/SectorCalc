@@ -2,11 +2,11 @@
  * Smart form rollout expansion eligibility — Phase 5I-H category resolver.
  */
 
-import { ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
+import { ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/features/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 import {
   isPilotCalculationBridgeEnabled,
   PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS,
-} from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+} from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 import {
   ROLLOUT_BATCH_H_LIVE_GOVERNANCE_SLUGS,
   ROLLOUT_BATCH_H_TOOL_DEFINITIONS,

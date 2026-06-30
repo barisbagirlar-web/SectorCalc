@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { TraceIntro } from "@/components/trace/TraceIntro";
-import { getHomepageCatalogToolCounts } from "@/lib/home/homepage-stats";
+import { getHomepageCatalogToolCounts } from "@/lib/ui-shared/home/homepage-stats";
 
 export async function TraceIntroSection() {
   const t = await getTranslations("trace");

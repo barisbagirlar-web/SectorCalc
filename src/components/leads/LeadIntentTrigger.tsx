@@ -2,7 +2,7 @@
 
 import type { ReactNode, ButtonHTMLAttributes } from "react";
 import { useLeadIntent } from "@/components/leads/LeadIntentContext";
-import type { LeadModalOpenContext, LeadPlan, LeadSource } from "@/lib/leads/types";
+import type { LeadModalOpenContext, LeadPlan, LeadSource } from "@/lib/features/leads/types";
 
 interface LeadIntentTriggerProps
  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick" | "type"> {

@@ -6,7 +6,7 @@ import {
  type LeadSourceRoiResult,
  type SourceRoiEfficiencyLevel,
  type SourceRoiRow,
-} from "@/lib/leads/source-roi";
+} from "@/lib/features/leads/source-roi";
 
 interface LeadSourceRoiProps {
  roi: LeadSourceRoiResult;

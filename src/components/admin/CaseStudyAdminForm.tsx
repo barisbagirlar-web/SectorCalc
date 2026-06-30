@@ -12,19 +12,19 @@ import {
   Trash2,
   Users,
 } from "lucide-react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
-import { useAdminLocale } from "@/lib/admin/admin-locale-context";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { listAdminCaseStudyEditorLocales } from "@/lib/i18n/admin-case-study-editor-messages";
-import { getLocaleDefinition, isSupportedLocale } from "@/lib/i18n/locale-config";
+import { useAdminLocale } from "@/lib/features/admin/admin-locale-context";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { listAdminCaseStudyEditorLocales } from "@/lib/infrastructure/i18n/admin-case-study-editor-messages";
+import { getLocaleDefinition, isSupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import {
   getPublishedCaseStudyByAdminId,
   nextPublishedCaseStudyId,
-} from "@/lib/case-studies/admin-case-studies";
-import { isLikelyFirestoreDocumentId } from "@/lib/case-studies/case-study-id-utils";
+} from "@/lib/features/case-studies/admin-case-studies";
+import { isLikelyFirestoreDocumentId } from "@/lib/features/case-studies/case-study-id-utils";
 import {
   caseStudyToFormValues,
   downloadCaseStudyDraftExport,
@@ -33,8 +33,8 @@ import {
   getCaseStudyDraftById,
   saveCaseStudyDraft,
   type CaseStudyFormValues,
-} from "@/lib/case-studies/case-study-drafts";
-import type { CaseStudy, CaseStudyResult } from "@/lib/case-studies/types";
+} from "@/lib/features/case-studies/case-study-drafts";
+import type { CaseStudy, CaseStudyResult } from "@/lib/features/case-studies/types";
 
 const fieldClass =
   "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 py-2 text-sm text-deep-navy focus:border-sc-copper focus:outline-none focus:ring-2 focus:ring-sc-copper/20";

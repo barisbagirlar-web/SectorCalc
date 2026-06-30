@@ -3,11 +3,11 @@
 import { useState, useMemo, useEffect } from "react";
 
 import Link  from "next/link";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import { getToolHref } from "@/lib/tools/paths";
-import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/infrastructure/analytics/revenue-events";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
+import { getToolHref } from "@/lib/features/tools/paths";
+import type { FreeTrafficTool } from "@/lib/features/tools/free-traffic-catalog";
 
 interface OeeWizardCalculatorProps {
   tool: FreeTrafficTool;

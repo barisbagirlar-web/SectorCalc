@@ -1,5 +1,5 @@
-import { getLeadStatusLabel } from "@/lib/leads/lead-pipeline";
-import type { LeadStatus } from "@/lib/leads/types";
+import { getLeadStatusLabel } from "@/lib/features/leads/lead-pipeline";
+import type { LeadStatus } from "@/lib/features/leads/types";
 
 const statusClasses: Record<LeadStatus, string> = {
  new: "bg-cyan/10 text-cyan",

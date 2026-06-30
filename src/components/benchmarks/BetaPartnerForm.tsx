@@ -11,12 +11,12 @@ import {
 import {
   buildDefaultBetaPartnerInput,
   createBetaPartnerLead,
-} from "@/lib/benchmarks/create-beta-partner";
-import type { BetaPartnerFieldErrors, BetaPartnerInput } from "@/lib/benchmarks/benchmark-types";
+} from "@/lib/features/benchmarks/create-beta-partner";
+import type { BetaPartnerFieldErrors, BetaPartnerInput } from "@/lib/features/benchmarks/benchmark-types";
 import { stripLocalePrefix } from "@/i18n/routing";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import { appendAttributionToNotes } from "@/lib/campaigns/campaign-links";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
+import { appendAttributionToNotes } from "@/lib/features/campaigns/campaign-links";
 
 const inputClass =
   "w-full min-h-[48px] rounded-lg border bg-white px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20";

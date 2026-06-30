@@ -1,4 +1,4 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 
 export interface BreadcrumbItem {
  label: string;

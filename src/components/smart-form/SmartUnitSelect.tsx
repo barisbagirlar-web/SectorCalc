@@ -1,6 +1,6 @@
 "use client";
 
-import type { SmartFormUnitOption } from "@/lib/smart-form/types";
+import type { SmartFormUnitOption } from "@/lib/features/smart-form/types";
 
 export type SmartUnitSelectProps = {
   readonly inputId: string;

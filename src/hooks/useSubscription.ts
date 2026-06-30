@@ -3,9 +3,9 @@
 import {
  isDevelopmentProBypass,
  isProBypassEmail,
-} from "@/lib/billing/subscription";
-import { canAccessPremiumRoute } from "@/lib/auth/premium-route-access";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+} from "@/lib/features/billing/subscription";
+import { canAccessPremiumRoute } from "@/lib/features/auth/premium-route-access";
+import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 
 export type UseSubscriptionState = {
  user: ReturnType<typeof useUserSubscription>["user"];

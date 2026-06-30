@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import type { SmartFormValidationTone } from "@/lib/smart-form/types";
+import type { SmartFormValidationTone } from "@/lib/features/smart-form/types";
 
 export type SmartFormSectionProps = {
   readonly title: string;

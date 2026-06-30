@@ -18,7 +18,7 @@ import {
   type EOQOptimizerInputs,
   type EOQOptimizerOutput,
   type EOQSeedInputs,
-} from "@/lib/inventory/eoq-optimizer";
+} from "@/lib/features/inventory/eoq-optimizer";
 
 export type EOQOptimizerProps = {
   readonly initialInputs?: EOQSeedInputs;

@@ -8,8 +8,8 @@ import {
   type CatalogGridVariant,
 } from "@/lib/catalog/catalog-grid-variant-styles";
 import { getTaxonomySectorIcon } from "@/lib/catalog/taxonomy-sector-icon-map";
-import { cn } from "@/lib/cn";
-import type { TaxonomySectorCard } from "@/lib/tools/build-taxonomy-sector-cards";
+import { cn } from "@/lib/core/cn";
+import type { TaxonomySectorCard } from "@/lib/features/tools/build-taxonomy-sector-cards";
 
 export type { TaxonomySectorCard };
 

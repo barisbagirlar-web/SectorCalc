@@ -7,7 +7,7 @@
  */
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { generateQrSvg } from "@/lib/trust-trace/qr-server";
+import { generateQrSvg } from "@/lib/features/trust-trace/qr-server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

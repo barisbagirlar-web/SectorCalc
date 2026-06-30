@@ -1,8 +1,8 @@
 import {
  getLeadPriorityLabel,
  resolveLeadPriority,
-} from "@/lib/leads/lead-pipeline";
-import type { LeadIntent } from "@/lib/leads/types";
+} from "@/lib/features/leads/lead-pipeline";
+import type { LeadIntent } from "@/lib/features/leads/types";
 
 const priorityClasses = {
  hot: "bg-amber/10 text-amber",

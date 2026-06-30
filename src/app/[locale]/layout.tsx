@@ -5,7 +5,7 @@ import "../site-styles";
 import "../globals.css";
 import { LocaleDocumentLayout } from "@/components/layout/LocaleDocumentLayout";
 import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
 
 export const metadata: Metadata = createPageMetadata();

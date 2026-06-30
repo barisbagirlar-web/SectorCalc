@@ -10,7 +10,7 @@ import {
   applyRegionalFinancialLoss,
   formatRegionalCurrency,
   getRegionalCarbonPriceEur,
-} from "@/lib/compliance/compliance-engine";
+} from "@/lib/features/compliance/compliance-engine";
 import { getRegionProfile } from "@/config/regions";
 import {
   calculateHiddenLoss,
@@ -23,7 +23,7 @@ import {
   type SectorRegistryKey,
 } from "@/lib/os/registry/sectors";
 import { hasSmartModule, SmartModuleIds, type SmartModuleId } from "@/lib/os/registry/smart-modules";
-import type { VerdictSeverity } from "@/lib/types/margincore-engine";
+import type { VerdictSeverity } from "@/lib/core/types/margincore-engine";
 
 export type ExpertCalcTier = "free" | "premium";
 

@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { ExternalLink, Pencil, Plus, Trash2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
-import { useAdminAuth } from "@/lib/admin/use-admin-auth";
-import { listPublishedAdminCaseStudies } from "@/lib/case-studies/admin-case-studies";
+import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
+import { listPublishedAdminCaseStudies } from "@/lib/features/case-studies/admin-case-studies";
 import {
   deleteCaseStudyDraft,
   listCaseStudyDrafts,
   type CaseStudyDraftRecord,
-} from "@/lib/case-studies/case-study-drafts";
-import type { AdminCaseStudyListItem } from "@/lib/case-studies/admin-case-studies";
+} from "@/lib/features/case-studies/case-study-drafts";
+import type { AdminCaseStudyListItem } from "@/lib/features/case-studies/admin-case-studies";
 
 const buttonPrimaryClass =
   "inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black";

@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -9,7 +9,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { ConsultantAccessCta } from "@/components/leads/ConsultantAccessCta";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { getLocalizedAllTools } from "@/data/tools";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
 

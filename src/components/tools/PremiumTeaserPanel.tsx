@@ -1,13 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import type { ToolPremiumTeaser } from "@/data/tool-schema";
 import { Badge } from "@/components/ui/Badge";
 import {
   ANALYTICS_EVENTS,
   trackEvent,
-} from "@/lib/analytics/events";
+} from "@/lib/infrastructure/analytics/events";
 
 interface PremiumTeaserPanelProps {
   teaser: ToolPremiumTeaser;

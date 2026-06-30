@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { formatCurrency } from "@/lib/format/currency";
-import type { PremiumCalculatorSchema, PremiumSchemaEngineResult } from "@/lib/premium-schema/premium-calculator-schema";
-import type { PremiumToolResult } from "@/lib/tools/premium-tool-results";
+import { formatCurrency } from "@/lib/core/format/currency";
+import type { PremiumCalculatorSchema, PremiumSchemaEngineResult } from "@/lib/features/premium-schema/premium-calculator-schema";
+import type { PremiumToolResult } from "@/lib/features/tools/premium-tool-results";
 
 interface ProDecisionPanelProps {
   schema?: PremiumCalculatorSchema;

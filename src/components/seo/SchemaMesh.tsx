@@ -1,5 +1,5 @@
 import { SITE } from "@/config/site";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+import { buildLocalizedUrl } from "@/lib/infrastructure/seo/sitemap-manifest";
 import { resolveSmartModuleLabel } from "@/lib/os/registry/smart-modules";
 import type { SectorEntry } from "@/lib/os/registry/sectors";
 

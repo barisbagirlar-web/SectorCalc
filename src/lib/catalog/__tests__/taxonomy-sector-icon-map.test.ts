@@ -5,7 +5,7 @@ import {
   getTaxonomySectorIcon,
   listTaxonomySectorIconSlugs,
 } from "@/lib/catalog/taxonomy-sector-icon-map";
-import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS } from "@/lib/tools/taxonomy";
+import { ALL_TOOLS_SECTOR, OTHER_SECTOR, SECTORS } from "@/lib/features/tools/taxonomy";
 
 describe("taxonomy-sector-icon-map", () => {
   it("covers every taxonomy sector id plus all and diger", () => {

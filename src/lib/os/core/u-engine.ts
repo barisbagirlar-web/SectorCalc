@@ -5,7 +5,7 @@
  */
 
 import type { RegionCode } from "@/config/regions";
-import { applyRegionalFinancialLoss } from "@/lib/compliance/compliance-engine";
+import { applyRegionalFinancialLoss } from "@/lib/features/compliance/compliance-engine";
 import {
   formulaRepository,
   type FormulaInputs,

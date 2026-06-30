@@ -9,17 +9,17 @@ import { ToolBadge } from "@/components/tools/ToolBadge";
 import { ToolReferenceCreatorAttribution } from "@/components/tools/ToolReferenceCreatorAttribution";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { useToolHelpfulVote } from "@/hooks/use-tool-helpful-vote";
-import { buildToolPageCreatorJsonLd } from "@/lib/semantic/build-tool-creator-jsonld";
+import { buildToolPageCreatorJsonLd } from "@/lib/features/semantic/build-tool-creator-jsonld";
 import {
   formatHelpfulCountDisplay,
   type ToolHelpfulCountTier,
-} from "@/lib/tools/tool-helpful-count";
+} from "@/lib/features/tools/tool-helpful-count";
 import {
   resolveGeneratedToolPath,
   resolvePremiumToolPath,
-} from "@/lib/tools/paths";
-import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
-import { shouldOfferToolEmbed, buildEmbedUrl } from "@/lib/tools/embed-policy";
+} from "@/lib/features/tools/paths";
+import { absoluteLocalizedUrl } from "@/lib/features/semantic/site-url";
+import { shouldOfferToolEmbed, buildEmbedUrl } from "@/lib/features/tools/embed-policy";
 
 export type ToolOmniMetaSectionProps = {
   readonly toolName: string;

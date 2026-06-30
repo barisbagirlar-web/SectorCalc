@@ -14,11 +14,11 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
-import type { ToolSchema } from "@/lib/tool-schemas/types";
-import { calculateRCBeamShearFlexure } from "@/lib/engines/calculateRCBeamShearFlexure";
-import { calculateCNCCutting } from "@/lib/engines/calculateCNCCutting";
-import { calculateWPSPreheat } from "@/lib/engines/calculateWPSPreheat";
-import { calculateOEE } from "@/lib/engines/calculateOEE";
+import type { ToolSchema } from "@/lib/features/tool-schemas/types";
+import { calculateRCBeamShearFlexure } from "@/lib/features/engines/calculateRCBeamShearFlexure";
+import { calculateCNCCutting } from "@/lib/features/engines/calculateCNCCutting";
+import { calculateWPSPreheat } from "@/lib/features/engines/calculateWPSPreheat";
+import { calculateOEE } from "@/lib/features/engines/calculateOEE";
 import UniversalProToolForm from "./UniversalProToolForm";
 import UniversalProToolResults from "./UniversalProToolResults";
 import UniversalProToolFormulas from "./UniversalProToolFormulas";

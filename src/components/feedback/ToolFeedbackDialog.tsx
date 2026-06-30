@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import type { FeedbackKind } from "@/lib/feedback/types";
-import type { ToolFeedbackFieldErrors } from "@/lib/feedback/types";
+import type { FeedbackKind } from "@/lib/features/feedback/types";
+import type { ToolFeedbackFieldErrors } from "@/lib/features/feedback/types";
 import { FeedbackKindSelect } from "@/components/feedback/FeedbackKindSelect";
 import { FormulaObjectionFields } from "@/components/feedback/FormulaObjectionFields";
 

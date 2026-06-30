@@ -1,4 +1,4 @@
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import {
   INVESTOR_DEMO_FLOW_STEPS,
   INVESTOR_DUAL_CORE,
@@ -7,10 +7,10 @@ import {
   INVESTOR_NINETY_DAY_PLAN,
   INVESTOR_PROBLEM_STATEMENT,
 } from "@/data/investor-demo-content";
-import type { InvestorPageMetrics } from "@/lib/commercial/investor-metrics-bridge";
+import type { InvestorPageMetrics } from "@/lib/features/commercial/investor-metrics-bridge";
 import { PublicDemoCrossLinks } from "@/components/commercial/PublicDemoCrossLinks";
 import { Container } from "@/components/ui/Container";
-import { buildDebtRegister } from "@/lib/formula-governance/roadmap-debt-register/debt-register-builder";
+import { buildDebtRegister } from "@/lib/features/formula-governance/roadmap-debt-register/debt-register-builder";
 
 type InvestorDemoPageContentProps = {
   readonly metrics: InvestorPageMetrics;

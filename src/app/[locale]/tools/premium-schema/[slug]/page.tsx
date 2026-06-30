@@ -11,20 +11,20 @@ import { Container } from "@/components/ui/Container";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import type { AppLocale } from "@/i18n/routing";
-import { createPageMetadata } from "@/lib/metadata";
-import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
-import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
-import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
-import { getTierOnePremiumMetadata } from "@/lib/seo/seo-refresh-priority";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { buildFAQJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
+import { assertSemanticToolContract } from "@/lib/features/semantic/semantic-tool-reader";
+import { buildToolJsonLd } from "@/lib/features/semantic/build-tool-jsonld";
+import { getTierOnePremiumMetadata } from "@/lib/infrastructure/seo/seo-refresh-priority";
 import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
-} from "@/lib/i18n/premium-schema-display-i18n";
+} from "@/lib/infrastructure/i18n/premium-schema-display-i18n";
 import {
   getPremiumSchemaBySlug,
   listPremiumSchemaSlugs,
-} from "@/lib/premium-schema/schemas/index";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+} from "@/lib/features/premium-schema/schemas/index";
+import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 interface PremiumSchemaPageParams {
   slug: string;

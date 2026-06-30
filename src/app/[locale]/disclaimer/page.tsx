@@ -1,12 +1,12 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
 import { CONTACT_EMAILS } from "@/config/contact";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{ locale: string }> };

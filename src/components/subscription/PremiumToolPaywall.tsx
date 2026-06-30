@@ -1,11 +1,11 @@
 "use client";
 
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
-import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
+import { useProSubscription } from "@/lib/features/subscription/use-pro-subscription";
 import {
  getRevenueToolByPremiumSlug,
  SECTORCALC_PRO_PRICE_LABEL,
-} from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/revenue-tools";
 
 interface PremiumToolPaywallProps {
  toolTitle: string;

@@ -2,19 +2,19 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import {
   getFreeToolsHref,
   getPremiumToolsHref,
   getPricingHref,
   getSampleReportHref,
-} from "@/lib/tools/tool-links";
-import { revenueLegalDisclaimer } from "@/lib/tools/revenue-tools";
+} from "@/lib/features/tools/tool-links";
+import { revenueLegalDisclaimer } from "@/lib/features/tools/revenue-tools";
 import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
 
 type PageProps = {

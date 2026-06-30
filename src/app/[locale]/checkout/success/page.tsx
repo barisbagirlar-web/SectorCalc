@@ -4,8 +4,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { createPageMetadata } from "@/lib/metadata";
-import { resolveSafeReturnPath } from "@/lib/billing/billing-config";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
+import { resolveSafeReturnPath } from "@/lib/features/billing/billing-config";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {

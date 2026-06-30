@@ -2,13 +2,13 @@
 
 import { Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "@/lib/navigation/next-link";
-import { revenueTools } from "@/lib/tools/revenue-tools";
-import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
+import Link from "@/lib/ui-shared/navigation/next-link";
+import { revenueTools } from "@/lib/features/tools/revenue-tools";
+import { getIndustryDisplayName } from "@/lib/features/tools/industry-registry";
 import {
   getPremiumToolHref,
   getPricingHref,
-} from "@/lib/tools/tool-links";
+} from "@/lib/features/tools/tool-links";
 
 interface PremiumToolsGridProps {
   isActive: boolean;

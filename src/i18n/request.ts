@@ -4,9 +4,9 @@ import {
   collectMissingTranslationKeys,
   formatMissingTranslationReport,
   mergeLocaleMessages,
-} from "@/lib/i18n/merge-locale-messages";
-import { collectLocaleKeyParityGaps } from "@/lib/locale-center/locale-dictionary";
-import { getOTATranslations } from "@/lib/i18n/ota";
+} from "@/lib/infrastructure/i18n/merge-locale-messages";
+import { collectLocaleKeyParityGaps } from "@/lib/content/locale-center/locale-dictionary";
+import { getOTATranslations } from "@/lib/infrastructure/i18n/ota";
 
 async function loadManufacturingOsMessages(locale: string) {
   try {

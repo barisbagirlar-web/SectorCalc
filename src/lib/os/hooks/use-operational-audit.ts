@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { useRegion } from "@/lib/compliance/region-context";
+import { useRegion } from "@/lib/features/compliance/region-context";
 import { runIndustrialAudit } from "@/lib/os/core/master-os";
 import type { GlobalAuditResult } from "@/lib/os/core/audit-engine";
 import type { SectorIntelligenceResult } from "@/lib/os/core/intelligence-layer";

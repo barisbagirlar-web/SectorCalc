@@ -9,7 +9,7 @@ import {
   applyRegionalFinancialLoss,
   enrichRecommendationForRegion,
   formatRegionalCurrency,
-} from "@/lib/compliance/compliance-engine";
+} from "@/lib/features/compliance/compliance-engine";
 import { UEngine } from "@/lib/os/core/u-engine";
 import { buildBenchmarkFromAudit } from "@/lib/os/core/intel-engine";
 import {

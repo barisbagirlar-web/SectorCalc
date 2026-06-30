@@ -1,13 +1,13 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { LOCALE_DEFINITION_LIST, getLocaleDefinition } from "@/lib/i18n/locale-config";
+import { LOCALE_DEFINITION_LIST, getLocaleDefinition } from "@/lib/infrastructure/i18n/locale-config";
 import {
   addLocaleToPath,
   stripLocaleFromPath,
   type SupportedLocale,
-} from "@/lib/i18n/locale-routing";
-import { setLocaleCookie } from "@/lib/i18n/locale-client";
+} from "@/lib/infrastructure/i18n/locale-routing";
+import { setLocaleCookie } from "@/lib/infrastructure/i18n/locale-client";
 
 export function LocaleSwitcher({
   className = "",

@@ -2,15 +2,15 @@
 
 import { useMemo, useRef, useState } from "react";
 import { Lock } from "lucide-react";
-import Link from "@/lib/navigation/next-link";
+import Link from "@/lib/ui-shared/navigation/next-link";
 import { Link as I18nLink } from "@/i18n/routing";
 import type { CatalogGroup } from "@/lib/catalog/catalog-types";
 import {
   DEFAULT_PREMIUM_REPORT_FAMILY,
   FEATURED_PREMIUM_SLUGS,
 } from "@/lib/catalog/build-catalog-groups";
-import { getSampleReportHref } from "@/lib/tools/tool-links";
-import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";
+import { getSampleReportHref } from "@/lib/features/tools/tool-links";
+import { sectorCalcProPricing } from "@/lib/features/tools/revenue-tools";
 
 export type PremiumToolsOmniHubProps = {
   groups: readonly CatalogGroup[];

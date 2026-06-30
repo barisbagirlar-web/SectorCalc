@@ -2,7 +2,7 @@
  * Smart form rollout batch H eligibility audit — Phase 5H-H.
  */
 
-import { buildPilotUiBridgeManifestForSlug } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";
+import { buildPilotUiBridgeManifestForSlug } from "@/lib/features/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";
 import {
   getRolloutBatchHActiveRouteMappings,
   getRolloutBatchHEligibleToolDefinitions,

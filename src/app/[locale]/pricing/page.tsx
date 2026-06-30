@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PricingPageContent } from "@/components/pricing/PricingPageContent";
 import { PricingPageTracker } from "@/components/campaign/PricingPageTracker";
-import { createPageMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
 export const revalidate = 3600;

@@ -5,16 +5,16 @@ import { useTranslations } from "next-intl";
 import { SmartFormModeToggle } from "@/components/smart-form/SmartFormModeToggle";
 import { SmartFormRequirementNotice } from "@/components/smart-form/SmartFormRequirementNotice";
 import { SmartInputField } from "@/components/smart-form/SmartInputField";
-import type { SmartFormMode } from "@/lib/smart-form/dynamic-form-types";
+import type { SmartFormMode } from "@/lib/features/smart-form/dynamic-form-types";
 import {
   getDefaultScenarioId,
   getPremiumSmartFormDefinition,
   hasPremiumSmartFormDefinition,
-} from "@/lib/smart-form/premium-smart-form-definitions";
-import { getRequiredInputs, getVisibleInputs } from "@/lib/smart-form/requirements";
-import { validateSmartFormRuntimeCompatibility } from "@/lib/smart-form/runtime-compatibility";
-import { validateSmartForm } from "@/lib/smart-form/validation";
-import type { SmartFormRawValues } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
+} from "@/lib/features/smart-form/premium-smart-form-definitions";
+import { getRequiredInputs, getVisibleInputs } from "@/lib/features/smart-form/requirements";
+import { validateSmartFormRuntimeCompatibility } from "@/lib/features/smart-form/runtime-compatibility";
+import { validateSmartForm } from "@/lib/features/smart-form/validation";
+import type { SmartFormRawValues } from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 export type DynamicSmartFormPilotProps = {
   readonly slug: string;

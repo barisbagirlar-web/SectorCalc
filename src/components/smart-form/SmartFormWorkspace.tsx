@@ -12,12 +12,12 @@ import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
 import {
   buildSmartFormForTool,
   type SmartFormExistingInputConfig,
-} from "@/lib/smart-form/smart-form-adapter";
+} from "@/lib/features/smart-form/smart-form-adapter";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
-import { buildGuidanceFieldsFromInputConfig } from "@/lib/guidance/build-guidance-fields";
+import { buildGuidanceFieldsFromInputConfig } from "@/lib/content/guidance/build-guidance-fields";
 import { UsageAgreementNotice } from "@/components/disclaimer/UsageAgreementNotice";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
-import type { SmartFormResult, SmartFormTier } from "@/lib/smart-form/types";
+import type { SmartFormResult, SmartFormTier } from "@/lib/features/smart-form/types";
 
 export type SmartFormWorkspaceProps = {
   readonly toolSlug: string;

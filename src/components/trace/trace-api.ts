@@ -5,7 +5,7 @@ import {
   buildConversationPayload,
   extractToolSlug,
 } from "@/components/trace/trace-chat-shared";
-import type { AssistantSuggestion } from "@/lib/assistant/types";
+import type { AssistantSuggestion } from "@/lib/features/assistant/types";
 
 type FreeTraceApiResponse = {
   readonly ok?: boolean;

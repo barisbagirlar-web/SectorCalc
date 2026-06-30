@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import type { AppLocale } from "@/i18n/routing";
-import type { ResolvedReferenceGraphic } from "@/lib/guidance/reference-graphic-types";
+import type { ResolvedReferenceGraphic } from "@/lib/content/guidance/reference-graphic-types";
 import { AngleGraphic } from "@/components/guidance/templates/AngleGraphic";
 import { AreaGraphic } from "@/components/guidance/templates/AreaGraphic";
 import { BendRadiusGraphic } from "@/components/guidance/templates/BendRadiusGraphic";

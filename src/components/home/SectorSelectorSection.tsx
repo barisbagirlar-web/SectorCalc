@@ -5,7 +5,7 @@ import {
   FEATURED_INDUSTRY_SLUGS,
   industryRegistry,
   type IndustryCategory,
-} from "@/lib/tools/industry-registry";
+} from "@/lib/features/tools/industry-registry";
 import { INDUSTRY_CATEGORY_DISPLAY } from "@/data/industry-category-labels";
 import { getIndustryBySlug } from "@/data/industries";
 

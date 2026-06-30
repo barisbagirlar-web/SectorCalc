@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { CalculationFeedbackModal } from "@/components/feedback/CalculationFeedbackModal";
-import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/feedback/types";
+import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/features/feedback/types";
 
 export type CalculationFeedbackButtonProps = {
   readonly toolSlug: string;

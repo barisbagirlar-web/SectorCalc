@@ -3,7 +3,7 @@
 import { Flame, ShieldAlert, Sparkles } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { regionalFormatLocale, getRegionProfile } from "@/config/regions";
-import { useRegion } from "@/lib/compliance/region-context";
+import { useRegion } from "@/lib/features/compliance/region-context";
 import {
   MANUFACTURING_OS_I18N_NS,
   smartModulesToExpertFeatures,

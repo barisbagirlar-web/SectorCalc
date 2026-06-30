@@ -9,18 +9,18 @@ import { useTranslations } from "next-intl";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { PremiumReportExportActions } from "@/components/reports/PremiumReportExportActions";
 import { PremiumReportLockedState } from "@/components/reports/PremiumReportLockedState";
-import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
+import { buildPremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
 import {
   PREVIEW_ENTITLEMENT,
   buildPremiumCheckoutHref,
   limitPreviewThresholdCount,
   type PremiumEntitlement,
-} from "@/lib/entitlements/premium-entitlements";
+} from "@/lib/features/entitlements/premium-entitlements";
 import type {
   PremiumCalculatorSchema,
   PremiumSchemaEngineResult,
   ThresholdSeverity,
-} from "@/lib/premium-schema/premium-calculator-schema";
+} from "@/lib/features/premium-schema/premium-calculator-schema";
 import {
   getAssumptionLines,
   getBigNumberMeaning,
@@ -31,12 +31,12 @@ import {
   getVerdictFromThresholds,
   type ExecutiveVerdict,
   type ThresholdSummaryItem,
-} from "@/lib/premium-schema/format-premium-result";
-import { getPremiumClaimCopy } from "@/lib/premium-schema/premium-claim-copy";
-import { worstThresholdSeverity } from "@/lib/premium-schema/premium-schema-engine";
-import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
-import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
-import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
+} from "@/lib/features/premium-schema/format-premium-result";
+import { getPremiumClaimCopy } from "@/lib/features/premium-schema/premium-claim-copy";
+import { worstThresholdSeverity } from "@/lib/features/premium-schema/premium-schema-engine";
+import type { SevenMudaEngineeringResult } from "@/lib/features/premium-schema/calculators/seven-muda-waste-cost";
+import { formatPremiumValue } from "@/lib/features/premium-schema/format-premium-result";
+import { resolveSevenMudaRev5Labels } from "@/lib/infrastructure/i18n/seven-muda-rev5-labels";
 
 export type PremiumDecisionReportPreviewProps = {
   schema: PremiumCalculatorSchema;

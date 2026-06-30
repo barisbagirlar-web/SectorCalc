@@ -8,7 +8,7 @@ import { MobileHeaderNav } from "@/components/layout/HeaderNav";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { RegionSelector } from "@/components/layout/RegionSelector";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
+import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
 
 const DEFAULT_PANEL_TOP_PX = 58;
 

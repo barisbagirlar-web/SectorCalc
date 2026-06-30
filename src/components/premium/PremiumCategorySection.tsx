@@ -17,7 +17,7 @@ import { Suspense } from "react";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { getPremiumCategoryBySlug, PREMIUM_CATEGORIES } from "@/data/premium-categories";
 import type { PremiumCategorySlug } from "@/data/premium-categories";
-import type { ToolData } from "@/lib/tools/all-tools-data";
+import type { ToolData } from "@/lib/features/tools/all-tools-data";
 import type { Tool } from "@/data/tools";
 
 /* ──────────────────────────────────────────────

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { buildSitemapEntries } from "@/lib/seo/build-sitemap";
+import { buildSitemapEntries } from "@/lib/infrastructure/seo/build-sitemap";
 
 /**
  * Dynamic sitemap — regenerated at every build.

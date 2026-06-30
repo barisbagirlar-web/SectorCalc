@@ -17,20 +17,20 @@
  * - Sensitivity matrix generation
  */
 
-import { getServerRegion } from "@/lib/compliance/server-region";
+import { getServerRegion } from "@/lib/features/compliance/server-region";
 import type { RegionCode } from "@/config/regions";
 import type {
   MarginCoreInputValues,
   PremiumVerdictReport,
-} from "@/lib/types/margincore-engine";
+} from "@/lib/core/types/margincore-engine";
 
-import { runMarginCoreEngine } from "@/lib/tools/risk-engine";
-import { getSectorRiskProfile } from "@/lib/tools/sectors/risk-profiles";
+import { runMarginCoreEngine } from "@/lib/features/tools/risk-engine";
+import { getSectorRiskProfile } from "@/lib/features/tools/sectors/risk-profiles";
 import {
  getNaiveCostCalculator,
  getMarginLeakDetector,
  getVerdictLabels,
-} from "@/lib/tools/sectors/sector-calculators";
+} from "@/lib/features/tools/sectors/sector-calculators";
 
 // ---------------------------------------------------------------------------
 // Legal disclaimer (injected into every report)

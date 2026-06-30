@@ -5,9 +5,9 @@ import { useLocale } from "next-intl";
 import { UsageAgreementNotice } from "@/components/disclaimer/UsageAgreementNotice";
 import { StandardSystemSelector } from "@/components/standards/StandardSystemSelector";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
-import { resolveDecisionEngineContext } from "@/lib/decision-engine/decision-engine-resolver";
-import { toolUsesEngineeringStandards } from "@/lib/standards/standard-system-resolver";
-import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/feedback/types";
+import { resolveDecisionEngineContext } from "@/lib/features/decision-engine/decision-engine-resolver";
+import { toolUsesEngineeringStandards } from "@/lib/features/standards/standard-system-resolver";
+import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/features/feedback/types";
 
 type ToolDecisionGovernanceProps = {
   readonly toolSlug: string;

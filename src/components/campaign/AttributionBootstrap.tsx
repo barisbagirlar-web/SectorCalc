@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { captureAttributionFromLocation } from "@/lib/analytics/attribution-storage";
+import { captureAttributionFromLocation } from "@/lib/infrastructure/analytics/attribution-storage";
 import { stripLocalePrefix } from "@/i18n/routing";
 
 /**

@@ -13,9 +13,9 @@ import type {
   GeneratedToolInput,
   GeneratedToolResult,
   GeneratedToolSchema,
-} from "@/lib/generated-tools/types";
-import type { FeedbackSnapshotValue } from "@/lib/feedback/types";
-import { resolveToolDisplayChrome } from "@/lib/tools/resolve-tool-display-chrome";
+} from "@/lib/features/generated-tools/types";
+import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
+import { resolveToolDisplayChrome } from "@/lib/features/tools/resolve-tool-display-chrome";
 
 type PremiumDynamicToolFormLayoutProps = {
   readonly slug: string;

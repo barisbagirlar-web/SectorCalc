@@ -9,7 +9,7 @@ import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";
-import { getPremiumCatalogCategoryDetail } from "@/lib/premium/premium-category-resolver";
+import { getPremiumCatalogCategoryDetail } from "@/lib/features/premium/premium-category-resolver";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PremiumAccessBanner } from "@/components/premium/PremiumAccessBanner";
@@ -19,20 +19,20 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
-import { handleNumericInputChange } from "@/lib/input/numeric-input";
-import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
-import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
+import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
-} from "@/lib/analytics/revenue-events";
-import { isDevelopmentProBypass } from "@/lib/billing/subscription";
+} from "@/lib/infrastructure/analytics/revenue-events";
+import { isDevelopmentProBypass } from "@/lib/features/billing/subscription";
 import {
   canAccessPremiumFullFeatures,
   resolvePremiumAccessMode,
-} from "@/lib/billing/premium-access-mode";
-import { usePremiumToolAccess } from "@/lib/billing/use-premium-tool-access";
-import { buildVerdictReportData } from "@/lib/reports/verdict-report";
+} from "@/lib/features/billing/premium-access-mode";
+import { usePremiumToolAccess } from "@/lib/features/billing/use-premium-tool-access";
+import { buildVerdictReportData } from "@/lib/features/reports/verdict-report";
 import {
  PremiumDecisionReportPanel,
  toStochasticInputs,
@@ -43,7 +43,7 @@ import {
 import { ProDecisionPanel } from "@/components/tools/ProDecisionPanel";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
-import { buildGuidanceFieldsFromKeys } from "@/lib/guidance/build-guidance-fields";
+import { buildGuidanceFieldsFromKeys } from "@/lib/content/guidance/build-guidance-fields";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
@@ -51,11 +51,11 @@ import {
   buildPremiumSchemaExperienceFields,
   filterVisibleCalculatorFields,
   resolveCalculatorExperience,
-} from "@/lib/calculator-experience/resolve-calculator-experience";
-import type { CalculatorExperienceMode } from "@/lib/calculator-experience/calculator-experience-types";
+} from "@/lib/ui-shared/calculator-experience/resolve-calculator-experience";
+import type { CalculatorExperienceMode } from "@/lib/ui-shared/calculator-experience/calculator-experience-types";
 import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormPilot";
-import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
-import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
+import { buildSmartFormForTool } from "@/lib/features/smart-form/smart-form-adapter";
+import { hasPremiumSmartFormDefinition } from "@/lib/features/smart-form/premium-smart-form-definitions";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -65,25 +65,25 @@ import {
  isPremiumFullLoopRuntimeSlug,
  runPremiumFullLoopCalculation,
  type PremiumFullLoopResult,
-} from "@/lib/formula-governance/runtime-validation/premium-full-loop-bridge";
+} from "@/lib/features/formula-governance/runtime-validation/premium-full-loop-bridge";
 import {
   buildSmartFormInitialValues,
   validateSmartFormFieldValues,
-} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
-import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
+} from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
+import { getPremiumSchemaForPaidSlug } from "@/lib/features/premium-schema/schema-registry";
 import {
   arePremiumToolInputsValid,
   calculatePremiumToolResult,
   type PremiumToolInputValues,
   type PremiumToolResult,
-} from "@/lib/tools/premium-tool-results";
-import { calculatePremiumDecisionReport } from "@/lib/tools/premium-decision-engine";
+} from "@/lib/features/tools/premium-tool-results";
+import { calculatePremiumDecisionReport } from "@/lib/features/tools/premium-decision-engine";
 import {
  type RevenueTool,
  type RevenueToolInput,
  revenueLegalDisclaimer,
-} from "@/lib/tools/revenue-tools";
-import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+} from "@/lib/features/tools/revenue-tools";
+import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 const DownloadVerdictPdfButton = dynamic(
