@@ -95,6 +95,11 @@ export function PaddleProvider({ children }: { children: ReactNode }) {
   }, [])
 
   function initPaddle() {
+    if (isPaddleInitialized) {
+      paddleRef.current = (window as any).Paddle as PaddleInstance
+      setReady(true)
+      return
+    }
     try {
       const Paddle = (window as any).Paddle as PaddleInstance
       if (!Paddle) {
