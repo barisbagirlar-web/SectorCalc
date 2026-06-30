@@ -1217,6 +1217,48 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "severityS") * num(inputs, "occurrenceO") * num(inputs, "detectionD"))); },
   },
   {
+    id: "industrial.fmea_max",
+    family: "measurement",
+    label: "FMEA — Max Possible RPN",
+    fn: () => { return 1000; },
+  },
+  {
+    id: "industrial.fmea_priority",
+    family: "measurement",
+    label: "FMEA — Priority Order",
+    fn: (inputs) => { 
+      const rpn = nonNegative(assertFinite(num(inputs, "severityS") * num(inputs, "occurrenceO") * num(inputs, "detectionD")));
+      if (rpn >= 200) return 1; 
+      if (rpn >= 100) return 2; 
+      if (rpn >= 50) return 3; 
+      return 4; 
+    },
+  },
+  {
+    id: "industrial.fmea_failure_cost",
+    family: "measurement",
+    label: "FMEA — Failure Cost Exposure",
+    fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_failure", 0) * num(inputs, "prosesAdimiSayisi", 1) * (num(inputs, "occurrenceO") / 10))); },
+  },
+  {
+    id: "industrial.fmea_prevention_cost",
+    family: "measurement",
+    label: "FMEA — Total Prevention Cost",
+    fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_onlem", 0) * num(inputs, "prosesAdimiSayisi", 1))); },
+  },
+  {
+    id: "industrial.fmea_recommendation",
+    family: "measurement",
+    label: "FMEA — Resolution Recommendation",
+    fn: (inputs) => { 
+      const rpn = nonNegative(assertFinite(num(inputs, "severityS") * num(inputs, "occurrenceO") * num(inputs, "detectionD")));
+      if (rpn >= 200) return 4; 
+      if (rpn >= 100) return 3; 
+      if (rpn >= 50) return 2; 
+      return 1; 
+    },
+  },
+  {
     id: "industrial.doe_factorial",
     family: "measurement",
     label: "DOE — Factorial Design Total Runs",

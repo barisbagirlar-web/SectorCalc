@@ -1727,7 +1727,16 @@ const FMEA_RPN_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [
     { fieldId: "RPN_ortalama", warning: 100, critical: 200, direction: "higher_is_bad", warningMessage: "RPN above 100 \u2014 moderate risk, consider corrective action.", warningMessage_i18n: {"en":"RPN above 100 \u2014 moderate risk, consider corrective action.","tr":"RPN above 100 \u2014 moderate risk, consider corrective action."}, criticalMessage: "RPN above 200 \u2014 critical risk, immediate action required.", criticalMessage_i18n: {"en":"RPN above 200 \u2014 critical risk, immediate action required.","tr":"RPN above 200 \u2014 critical risk, immediate action required."} },
   ],
-  formulaPipeline: [{ formulaId: "industrial.fmea_risk", inputMap: { severityS: "ortalamaSiddet_S", occurrenceO: "ortalamaOlusma_O", detectionD: "ortalamaSaptama_D", acceptThreshold: "kabulEdilebilirRPN" }, outputId: "RPN_ortalama" }],
+  formulaPipeline: [
+    { formulaId: "industrial.fmea_risk", inputMap: { severityS: "ortalamaSiddet_S", occurrenceO: "ortalamaOlusma_O", detectionD: "ortalamaSaptama_D" }, outputId: "RPN_ortalama" },
+    { formulaId: "industrial.fmea_max", inputMap: {}, outputId: "RPN_max" },
+    { formulaId: "industrial.fmea_recommendation", inputMap: { severityS: "ortalamaSiddet_S", occurrenceO: "ortalamaOlusma_O", detectionD: "ortalamaSaptama_D" }, outputId: "riskDuzeyi" },
+    { formulaId: "industrial.fmea_priority", inputMap: { severityS: "ortalamaSiddet_S", occurrenceO: "ortalamaOlusma_O", detectionD: "ortalamaSaptama_D" }, outputId: "oncelikSirasi" },
+    { formulaId: "industrial.fmea_failure_cost", inputMap: { maliyet_failure: "maliyet_failure", prosesAdimiSayisi: "prosesAdimiSayisi", occurrenceO: "ortalamaOlusma_O" }, outputId: "failureMaliyet_toplam" },
+    { formulaId: "industrial.fmea_prevention_cost", inputMap: { maliyet_onlem: "maliyet_onlem", prosesAdimiSayisi: "prosesAdimiSayisi" }, outputId: "onlemMaliyet_toplam" },
+    { formulaId: "industrial.fmea_2", inputMap: { maliyet_failure: "maliyet_failure", maliyet_onlem: "maliyet_onlem" }, outputId: "faydaMaliyetOrani" },
+    { formulaId: "industrial.fmea_recommendation", inputMap: { severityS: "ortalamaSiddet_S", occurrenceO: "ortalamaOlusma_O", detectionD: "ortalamaSaptama_D" }, outputId: "cozumOncelikleri" },
+  ],
   reportTemplate: { title: "FMEA RPN Analysis Report", title_i18n: {"en":"FMEA RPN Analysis Report","tr":"FMEA RPN Analysis Report"}, sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["RPN = Severity \u00d7 Occurrence \u00d7 Detection (S\u00d7O\u00d7D).", "Risk levels: RPN\u2265200 Critical, 100\u2264RPN<200 Major, 50\u2264RPN<100 Moderate, RPN<50 Minor.", "AIAG & VDA FMEA Handbook reference standards."] },
 };
