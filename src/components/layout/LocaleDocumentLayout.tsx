@@ -40,6 +40,10 @@ type LocaleDocumentLayoutProps = Readonly<{
 export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentLayoutProps) {
   setRequestLocale(locale);
   const messages = await getMessages();
+  
+  // Strip server-only free tool inputs dictionary to prevent 46MB client payload injection
+  const { freeToolInputs, ...clientMessages } = messages as any;
+  
   const { region, source } = await getServerRegion(locale);
   const direction = getLocaleTextDirection(locale);
 
@@ -108,7 +112,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
             buildSoftwareApplicationJsonLd(locale),
           ]}
         />
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={clientMessages}>
           <RegionProvider region={region} source={source}>
             <AttributionBootstrap />
             <ServiceWorkerRegister />

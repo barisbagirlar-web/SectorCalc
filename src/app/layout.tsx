@@ -28,11 +28,15 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  
+  // Strip server-only free tool inputs dictionary to prevent massive client payload injection
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { freeToolInputs, ...clientMessages } = messages as any;
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
       </body>
