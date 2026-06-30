@@ -11,12 +11,28 @@ import type { ToolData, ToolInputField, ToolOutput, InputGroup, ValidationRule, 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyToolSchema = Record<string, any>;
 
-const CONFIDENCE_LABELS = ["KESİN", "GÜÇLÜ", "ORTA", "EKSİK VERİ"];
+const TR_CONFIDENCE_LABELS = ["KESİN", "GÜÇLÜ", "ORTA", "EKSİK VERİ"];
 
-function inferConfidence(input: { confidence?: string; uncertainty?: unknown }): string {
-  if (input.confidence && CONFIDENCE_LABELS.includes(input.confidence.toUpperCase())) {
-    return input.confidence.toUpperCase();
-  }
+// English → Turkish confidence label mapping
+const CONF_MAP: Record<string, string> = {
+  EXACT: "KESİN",
+  CERTAIN: "KESİN",
+  HIGH: "GÜÇLÜ",
+  STRONG: "GÜÇLÜ",
+  MEDIUM: "ORTA",
+  DEFAULT: "ORTA",
+  COMPUTED: "ORTA",
+  APPROXIMATE: "EKSİK VERİ",
+  ASSUMPTION: "EKSİK VERİ",
+  LOW: "EKSİK VERİ",
+};
+
+function inferConfidence(input: { confidence?: string; confidence_label?: string; uncertainty?: unknown }): string {
+  const raw = (input.confidence || input.confidence_label || "").toUpperCase();
+  // Direct Turkish match
+  if (TR_CONFIDENCE_LABELS.includes(raw)) return raw;
+  // English → Turkish map
+  if (CONF_MAP[raw]) return CONF_MAP[raw];
   // Infer from uncertainty presence
   if (input.uncertainty != null) return "GÜÇLÜ";
   return "KESİN";

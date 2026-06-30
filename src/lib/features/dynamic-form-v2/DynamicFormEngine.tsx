@@ -152,6 +152,10 @@ const FORM_CSS = `
 .dfe .mbar{display:none}
 @media(max-width:1000px){.dfe .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:var(--surface);align-items:center;justify-content:space-between;padding:11px 18px;gap:14px;border-top:2px solid var(--accent)}.dfe .mbar .ml{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}.dfe .mbar .mv{font-family:var(--mono);font-size:17px}.dfe .mbar .md{font-family:var(--serif);font-size:13px;text-align:right;max-width:46%}}
 .dfe *:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dfe .info{position:relative;cursor:help;border-bottom:1px dotted var(--ink-38);color:var(--ink-70)}
+.dfe .info:hover .tip,.dfe .info:focus .tip{opacity:1;transform:translateY(0);pointer-events:auto}
+.dfe .tip{position:absolute;left:0;bottom:130%;width:248px;background:var(--ink);color:var(--surface);font-family:var(--sans);font-size:11.5px;line-height:1.4;padding:9px 11px;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;pointer-events:none;z-index:20}
+.dfe .tip:after{content:'';position:absolute;left:14px;top:100%;border:5px solid transparent;border-top-color:var(--ink)}
 @media print{.dfe .rail{position:static}.dfe .btn,.dfe .mbar,.dfe .info,.dfe .ubtn .car,.dfe .choice .car{display:none}.dfe body{background:#fff;padding:0}}
 `;
 
@@ -533,6 +537,12 @@ export function DynamicFormEngine({ tool, showMasthead = true, onCompute }: Dyna
                       // Reference strip
                       const refParts: React.ReactNode[] = [];
                       if (cl.c !== "enum" && cl.c !== "bool") {
+                        // Build unit string for display (handles both UNIT_MAP units and arbitrary labels)
+                        const unitStr = (() => {
+                          if (cl.c === "num" && cl.fam) return " " + (dispUnit[inp.id] || cl.declared || "");
+                          if (inp.unit && inp.unit !== "ratio" && inp.unit !== "enum") return " " + inp.unit;
+                          return "";
+                        })();
                         if (cl.c === "ratio") {
                           refParts.push(<span className="seg" key="range">range <b>{(inp.absolute_min ?? 0) * 100}–{(inp.absolute_max ?? 1) * 100}%</b></span>);
                           if (inp.default != null) {
@@ -541,28 +551,30 @@ export function DynamicFormEngine({ tool, showMasthead = true, onCompute }: Dyna
                         } else if (inp.absolute_min != null || inp.absolute_max != null) {
                           let mn = inp.absolute_min;
                           let mx = inp.absolute_max;
-                          let un = "";
                           let refVal = inp.default as number;
                           if (cl.c === "num" && cl.fam) {
-                            const fam = cl.fam;
                             const dec = cl.declared!;
-                            un = " " + (dispUnit[inp.id] || dec);
-                            if (mn != null) mn = unitConvert(fam, dec, dispUnit[inp.id], mn);
-                            if (mx != null) mx = unitConvert(fam, dec, dispUnit[inp.id], mx);
-                            if (refVal != null) refVal = unitConvert(fam, dec, dispUnit[inp.id], refVal);
+                            if (mn != null) mn = unitConvert(cl.fam, dec, dispUnit[inp.id] || dec, mn);
+                            if (mx != null) mx = unitConvert(cl.fam, dec, dispUnit[inp.id] || dec, mx);
+                            if (refVal != null && isFinite(refVal)) refVal = unitConvert(cl.fam, dec, dispUnit[inp.id] || dec, refVal);
                           }
                           if (mn != null && mx != null) {
                             refParts.push(
-                              <span className="seg" key="range">range <b>{fmt(Math.abs(mn) < 1 && mn !== 0 ? mn : mn, 0)}–{mx >= 1e7 ? "∞" : fmt(mx, 0)}{un}</b></span>,
+                              <span className="seg" key="range">range <b>{fmt(Math.abs(mn) < 1 && mn !== 0 ? mn : mn, 0)}–{mx >= 1e7 ? "∞" : fmt(mx, 0)}{unitStr}</b></span>,
                             );
                           }
+                          // Show reference value from available data
                           if (inp.reference) {
                             refParts.push(<span className="seg" key="ref">ref <b>{inp.reference}</b></span>);
-                          } else if (inp.default != null && typeof inp.default === "number") {
+                          } else if (inp.default != null && typeof inp.default === "number" && isFinite(inp.default)) {
+                            const displayRef = Math.abs(refVal) < 1 ? refVal : Number(refVal.toFixed(0));
                             refParts.push(
-                              <span className="seg" key="ref">ref <b>{fmt(Math.abs(refVal) < 1 ? refVal : Number(refVal.toFixed(0)), 0)}{un}</b></span>,
+                              <span className="seg" key="ref">ref <b>{fmt(displayRef, 0)}{unitStr}</b></span>,
                             );
                           }
+                        } else if (inp.default != null && typeof inp.default === "number" && isFinite(inp.default)) {
+                          // No range defined but has a default — show it as reference
+                          refParts.push(<span className="seg" key="ref">ref <b>{fmt(inp.default as number, 2)}{unitStr}</b></span>);
                         }
                       }
 
@@ -652,10 +664,9 @@ export function DynamicFormEngine({ tool, showMasthead = true, onCompute }: Dyna
                             <span
                               className="info"
                               tabIndex={0}
-                              style={{ cursor: "help", borderBottom: "1px dotted var(--ink-38)", color: "var(--ink-70)", position: "relative" }}
-                              title={inp.note || ""}
                             >
                               i
+                              <span className="tip">{inp.note || inp.name}</span>
                             </span>
                             {cl.c === "ratio" && state[inp.id] != null ? (
                               <span className="pct">= {(state[inp.id] as number * 100).toFixed(2)}%</span>
