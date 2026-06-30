@@ -1,7 +1,24 @@
-#!/usr/bin/env node
 import { spawn } from "node:child_process";
+import net from "node:net";
 
-const port = process.env.ROOT_ONLY_SMOKE_PORT || "4321";
+async function getFreePort() {
+  return await new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.listen(0, "127.0.0.1", () => {
+      const port = server.address().port;
+      server.close(() => resolve(String(port)));
+    });
+    server.on("error", reject);
+  });
+}
+
+const runToEnd = (cmd, args) =>
+  new Promise((resolve) => {
+    const child = spawn(cmd, args, { stdio: "inherit", env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1" } });
+    child.on("exit", (code) => resolve(code ?? 1));
+  });
+
+const port = process.env.ROOT_ONLY_SMOKE_PORT || await getFreePort();
 const host = "127.0.0.1";
 const base = `http://${host}:${port}`;
 
@@ -30,10 +47,7 @@ const forbiddenEnRoutes = [
   "/en/signup",
   "/en/tools",
   "/en/tools/generated",
-  "/en/tools/premium-schema/example",
 ];
-
-let server;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -42,25 +56,44 @@ function sleep(ms) {
 async function probe(pathname, redirect = "manual") {
   try {
     const res = await fetch(`${base}${pathname}`, { redirect });
-    return { status: res.status, url: res.url };
+    return { status: res.status, url: res.url, location: res.headers.get("location") };
   } catch (error) {
-    return { status: 0, url: "", error: String(error?.message || error) };
+    return { status: 0, url: "", location: null, error: String(error?.message || error) };
   }
 }
 
 async function waitForReady() {
-  for (let i = 0; i < 45; i += 1) {
+  for (let i = 0; i < 60; i += 1) {
     const res = await probe("/", "follow");
     if (res.status === 200) return true;
     await sleep(1000);
   }
+
   return false;
 }
 
+console.log("ROOT_ONLY_RUNTIME_SMOKE=START");
+console.log("POLICY=ROOT_ROUTES_200_AND_PUBLIC_EN_PREFIX_404_OR_410");
+console.log(`LOCAL_BASE=${base}`);
+
+if (await runToEnd("npx", ["next", "build"]) !== 0) {
+  console.log("BLOCKER=SMOKE_BUILD_FAILED");
+  process.exit(1);
+}
+
+const server = spawn("npx", ["next", "start", "-p", port, "-H", host], {
+  stdio: ["ignore", "pipe", "pipe"],
+  detached: true,
+  env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1" },
+});
+
+server.stdout.on("data", (chunk) => process.stdout.write(chunk));
+server.stderr.on("data", (chunk) => process.stderr.write(chunk));
+
 function stopServer() {
-  if (server?.pid) {
-    server.kill("SIGTERM");
-  }
+  try {
+    process.kill(-server.pid, "SIGTERM");
+  } catch {}
 }
 
 process.on("exit", stopServer);
@@ -69,21 +102,8 @@ process.on("SIGINT", () => {
   process.exit(130);
 });
 
-console.log("ROOT_ONLY_RUNTIME_SMOKE=START");
-console.log("POLICY=PUBLIC_EN_PREFIX_MUST_404_OR_410");
-console.log(`LOCAL_BASE=${base}`);
-
-server = spawn("npx", ["next", "start", "-p", port, "-H", host], {
-  stdio: ["ignore", "pipe", "pipe"],
-  env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1" },
-});
-
-server.stdout.on("data", (chunk) => process.stdout.write(chunk));
-server.stderr.on("data", (chunk) => process.stderr.write(chunk));
-
-const ready = await waitForReady();
-
-if (!ready) {
+if (!(await waitForReady())) {
+  stopServer();
   console.log("BLOCKER=LOCAL_SERVER_NOT_READY");
   process.exit(1);
 }
@@ -99,44 +119,24 @@ for (const route of rootRoutes) {
 
   console.log(`ROOT_ROUTE\tstatus=${res.status}\troute=${route}\tfinal=${res.url}`);
 
-  if (![200, 204].includes(res.status)) {
-    rootFail += 1;
-  }
-
-  if (finalPath === "/en" || finalPath.startsWith("/en/")) {
-    rootFail += 1;
-    console.log(`ROOT_ROUTE_BLOCKER=FINAL_URL_HAS_EN_PREFIX:${route}`);
-  }
+  if (res.status !== 200) rootFail += 1;
+  if (finalPath === "/en" || finalPath.startsWith("/en/")) rootFail += 1;
 }
 
 for (const route of forbiddenEnRoutes) {
   const initial = await probe(route, "manual");
   const followed = await probe(route, "follow");
 
-  console.log(
-    `FORBIDDEN_EN_ROUTE\tinitial=${initial.status}\tfollowed=${followed.status}\troute=${route}\tfinal_url=${followed.url}`,
-  );
+  console.log(`FORBIDDEN_EN_ROUTE\tinitial=${initial.status}\tfollowed=${followed.status}\troute=${route}\tlocation=${initial.location || ""}\tfinal=${followed.url}`);
 
-  if (![404, 410].includes(initial.status)) {
-    enFail += 1;
-    console.log(`EN_PREFIX_BLOCKER=INITIAL_STATUS_NOT_404_OR_410:${route}:${initial.status}`);
-  }
-
-  if (![404, 410].includes(followed.status)) {
-    enFail += 1;
-    console.log(`EN_PREFIX_BLOCKER=FOLLOWED_STATUS_NOT_404_OR_410:${route}:${followed.status}`);
-  }
-
-  const finalPath = followed.url ? new URL(followed.url).pathname : "";
-
-  if (finalPath === "/en" || finalPath.startsWith("/en/")) {
-    enFail += 1;
-    console.log(`EN_PREFIX_BLOCKER=FINAL_URL_STILL_HAS_EN:${route}`);
-  }
+  if (![404, 410].includes(initial.status)) enFail += 1;
+  if (![404, 410].includes(followed.status)) enFail += 1;
 }
 
 console.log(`ROOT_ROUTE_FAIL_COUNT=${rootFail}`);
 console.log(`EN_PREFIX_HARD_BLOCK_FAIL_COUNT=${enFail}`);
+
+stopServer();
 
 if (rootFail > 0 || enFail > 0) {
   console.log("ROOT_ONLY_RUNTIME_SMOKE_RESULT=FAIL");

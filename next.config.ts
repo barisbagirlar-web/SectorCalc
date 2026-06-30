@@ -38,6 +38,71 @@ class EnsureManifestStubsPlugin {
 }
 
 const nextConfig: NextConfig = {
+  // SECTORCALC_ROOT_ONLY_REWRITE_POLICY
+  // Public URLs stay root-domain English. The internal /en route group remains private.
+  skipTrailingSlashRedirect: true,  // SECTORCALC_ROOT_ONLY_REWRITE_POLICY
+  async rewrites() {
+    const indexNowKey = process.env.INDEXNOW_KEY?.trim();
+    const indexNowVerification = indexNowKey
+      ? [
+          { source: `/${indexNowKey}.txt`, destination: "/api/indexnow-verification" },
+          { source: "/.well-known/indexnow-key.txt", destination: "/api/indexnow-verification" },
+        ]
+      : [];
+
+    return {
+      beforeFiles: [
+        ...indexNowVerification,
+        { source: "/about", destination: "/en/about" },
+        { source: "/about-us", destination: "/en/about-us" },
+        { source: "/account", destination: "/en/account" },
+        { source: "/account/:path*", destination: "/en/account/:path*" },
+        { source: "/audit", destination: "/en/audit" },
+        { source: "/audit/:path*", destination: "/en/audit/:path*" },
+        { source: "/benchmarks", destination: "/en/benchmarks" },
+        { source: "/calculator-library", destination: "/en/calculator-library" },
+        { source: "/calculators/:path*", destination: "/en/calculators/:path*" },
+        { source: "/case-studies", destination: "/en/case-studies" },
+        { source: "/case-studies/:path*", destination: "/en/case-studies/:path*" },
+        { source: "/categories", destination: "/en/categories" },
+        { source: "/checkout/:path*", destination: "/en/checkout/:path*" },
+        { source: "/cleaning-contract-margin", destination: "/en/cleaning-contract-margin" },
+        { source: "/cnc-quote-risk", destination: "/en/cnc-quote-risk" },
+        { source: "/construction-bid-margin", destination: "/en/construction-bid-margin" },
+        { source: "/data", destination: "/en/data" },
+        { source: "/disclaimer", destination: "/en/disclaimer" },
+        { source: "/embed/:path*", destination: "/en/embed/:path*" },
+        { source: "/for-consultants", destination: "/en/for-consultants" },
+        { source: "/free-tools", destination: "/en/free-tools" },
+        { source: "/guides/:path*", destination: "/en/guides/:path*" },
+        { source: "/how-it-works", destination: "/en/how-it-works" },
+        { source: "/industries", destination: "/en/industries" },
+        { source: "/industries/:path*", destination: "/en/industries/:path*" },
+        { source: "/investor-demo", destination: "/en/investor-demo" },
+        { source: "/login", destination: "/en/login" },
+        { source: "/manifesto", destination: "/en/manifesto" },
+        { source: "/methodology", destination: "/en/methodology" },
+        { source: "/operating-system", destination: "/en/operating-system" },
+        { source: "/pricing", destination: "/en/pricing" },
+        { source: "/privacy", destination: "/en/privacy" },
+        { source: "/pro-tools", destination: "/en/pro-tools" },
+        { source: "/pro-tools/:path*", destination: "/en/pro-tools/:path*" },
+        { source: "/refund-policy", destination: "/en/refund-policy" },
+        { source: "/reports/:path*", destination: "/en/reports/:path*" },
+        { source: "/seo/:path*", destination: "/en/seo/:path*" },
+        { source: "/signup", destination: "/en/signup" },
+        { source: "/sustainability", destination: "/en/sustainability" },
+        { source: "/team/:path*", destination: "/en/team/:path*" },
+        { source: "/terms", destination: "/en/terms" },
+        { source: "/tools", destination: "/en/tools" },
+        { source: "/tools/:path*", destination: "/en/tools/:path*" },
+        { source: "/trust", destination: "/en/trust" },
+        { source: "/verify", destination: "/en/verify" },
+        { source: "/verify/:path*", destination: "/en/verify/:path*" },
+      ],
+    };
+  },
+
   reactStrictMode: true,
   output: "standalone",
   serverExternalPackages: ["@react-pdf/renderer"],
@@ -170,23 +235,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
     ];
-  },
-  async rewrites() {
-    const indexNowKey = process.env.INDEXNOW_KEY?.trim();
-    const indexNowVerification = indexNowKey
-      ? [
-          { source: `/${indexNowKey}.txt`, destination: "/api/indexnow-verification" },
-          { source: "/.well-known/indexnow-key.txt", destination: "/api/indexnow-verification" },
-        ]
-      : [];
-
-    return {
-      beforeFiles: [
-        ...indexNowVerification,
-        // Root / handled by middleware rewrite
-        // All other paths handled by middleware rewrite
-      ],
-    };
   },
 };
 
