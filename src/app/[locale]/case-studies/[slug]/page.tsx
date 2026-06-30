@@ -1,3 +1,5 @@
+import { PageLayout } from "@/components/layout/PageLayout";
+
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -70,7 +72,11 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
   const published = await resolvePublishedCaseStudyBySlug(slug, locale);
   if (published) {
-    return <AcademicPublishedCaseStudyRecord study={published} locale={locale} />;
+    return (
+      <PageLayout>
+        <AcademicPublishedCaseStudyRecord study={published} locale={locale} />
+      </PageLayout>
+    );
   }
 
   if (isPublishedCaseStudySlug(slug)) {
@@ -82,5 +88,9 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  return <AcademicRepresentativeCaseStudyRecord entry={entry} locale={locale} />;
+  return (
+    <PageLayout>
+      <AcademicRepresentativeCaseStudyRecord entry={entry} locale={locale} />
+    </PageLayout>
+  );
 }

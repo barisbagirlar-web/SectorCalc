@@ -1,3 +1,5 @@
+import { PageLayout } from "@/components/layout/PageLayout";
+
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -54,10 +56,12 @@ export default async function GeneratedToolPrintPage({
   }
 
   return (
-    <div className="sc-print-full-page">
-      <PremiumGeneratedToolPrintContent slug={slug} />
-      <style>{PRINT_PAGE_GLOBAL_OVERRIDES}</style>
-    </div>
+    <PageLayout>
+      <div className="sc-print-full-page">
+        <PremiumGeneratedToolPrintContent slug={slug} />
+        <style>{PRINT_PAGE_GLOBAL_OVERRIDES}</style>
+      </div>
+    </PageLayout>
   );
 }
 
