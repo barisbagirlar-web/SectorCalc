@@ -32,7 +32,7 @@ import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import type { BenchmarkSnapshotValue } from "@/lib/features/benchmarks/benchmark-types";
 import { usePremiumSchemaEntitlement } from "@/lib/features/entitlements/use-premium-schema-entitlement";
 import { limitPreviewThresholdCount } from "@/lib/features/entitlements/premium-entitlements";
-import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
+import { resolveCalculatorInputDisplay } from "@/lib/infrastructure/i18n/free-tool-form-i18n";
 import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
