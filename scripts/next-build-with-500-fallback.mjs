@@ -186,7 +186,7 @@ function runNextBuild() {
       // and other CDNs).
       NODE_OPTIONS:
         process.env.NODE_OPTIONS ??
-        "--max-old-space-size=8192 --dns-result-order=ipv4first",
+        "--max-old-space-size=3072 --dns-result-order=ipv4first",
       FORCE_COLOR: "0",
     },
     stdio: ["inherit", logFd, logFd],

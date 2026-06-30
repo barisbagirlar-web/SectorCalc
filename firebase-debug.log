@@ -41,3 +41,109 @@
 [debug] [2026-06-30T11:51:50.699Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config [none]
 [debug] [2026-06-30T11:51:51.659Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config 200
 [debug] [2026-06-30T11:51:51.659Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config {"projectId":"sectorcalc-bf412","appId":"1:1036979054000:web:a317123fd6ff1c9336a275","storageBucket":"sectorcalc-bf412.firebasestorage.app","apiKey":"AIzaSyCYQPcUivyeIio80gxEm8DbFhWV6XEXs78","authDomain":"sectorcalc-bf412.firebaseapp.com","messagingSenderId":"1036979054000","projectNumber":"1036979054000","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-06-30T11:52:05.659Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:05.662Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:05.662Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 [none]
+[debug] [2026-06-30T11:52:06.855Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 200
+[debug] [2026-06-30T11:52:06.856Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 {"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.5.19
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 1
+     · staleTimes
+     · optimizePackageImports
+     · staticGenerationRetryCount: 5
+     · staticGenerationMaxConcurrency: 1
+     · staticGenerationMinPagesPerWorker: 50
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[debug] [2026-06-30T11:52:26.193Z] ----------------------------------------------------------------------
+[debug] [2026-06-30T11:52:26.327Z] Command:       /Users/macair1/.nvm/versions/node/v22.22.2/bin/node /Users/macair1/.nvm/versions/node/v22.22.2/bin/firebase deploy --only hosting
+[debug] [2026-06-30T11:52:26.328Z] CLI Version:   15.18.0
+[debug] [2026-06-30T11:52:26.328Z] Platform:      darwin
+[debug] [2026-06-30T11:52:26.328Z] Node Version:  v22.22.2
+[debug] [2026-06-30T11:52:26.329Z] Time:          Tue Jun 30 2026 14:52:26 GMT+0300 (Türkiye Standard Time)
+[debug] [2026-06-30T11:52:26.329Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-06-30T11:52:33.418Z] Object "/hosting" in "firebase.json" has unknown property: {"additionalProperty":"build"}
+[debug] [2026-06-30T11:52:33.419Z] Field "/hosting" in "firebase.json" is possibly invalid: must be array
+[debug] [2026-06-30T11:52:33.419Z] Field "/hosting" in "firebase.json" is possibly invalid: must match a schema in anyOf
+[debug] [2026-06-30T11:52:33.434Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-30T11:52:33.434Z] > authorizing via signed-in user (barisbagirlar@gmail.com)
+[debug] [2026-06-30T11:52:33.434Z] [iam] checking project sectorcalc-bf412 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-06-30T11:52:33.436Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:33.437Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:33.441Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions [none]
+[debug] [2026-06-30T11:52:33.442Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions  x-goog-user-project=sectorcalc-bf412
+[debug] [2026-06-30T11:52:33.442Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T11:52:34.492Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions 200
+[debug] [2026-06-30T11:52:34.493Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sectorcalc-bf412:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-30T11:52:34.493Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:34.493Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:34.494Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 [none]
+[debug] [2026-06-30T11:52:34.909Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 200
+[debug] [2026-06-30T11:52:34.909Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412 {"projectId":"sectorcalc-bf412","projectNumber":"1036979054000","displayName":"SectorCalc","name":"projects/sectorcalc-bf412","resources":{"hostingSite":"sectorcalc-bf412"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_62f6c7ef-e6ed-4545-9f45-ad82cd3f185f"}
+[debug] [2026-06-30T11:52:45.242Z] defaultcredentials: writing to file /Users/macair1/.config/firebase/barisbagirlar_gmail_com_application_default_credentials.json
+[debug] [2026-06-30T11:52:45.247Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:45.248Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:45.248Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites pageToken=&pageSize=10
+[debug] [2026-06-30T11:52:46.831Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 200
+[debug] [2026-06-30T11:52:46.831Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites {"sites":[{"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-30T11:52:46.833Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:46.833Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:46.833Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 
+[debug] [2026-06-30T11:52:48.065Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites 200
+[debug] [2026-06-30T11:52:48.066Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites {"sites":[{"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-30T11:52:48.066Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:48.066Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:52:48.067Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config [none]
+[debug] [2026-06-30T11:52:49.061Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config 200
+[debug] [2026-06-30T11:52:49.061Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sectorcalc-bf412/webApps/-/config {"projectId":"sectorcalc-bf412","appId":"1:1036979054000:web:a317123fd6ff1c9336a275","storageBucket":"sectorcalc-bf412.firebasestorage.app","apiKey":"AIzaSyCYQPcUivyeIio80gxEm8DbFhWV6XEXs78","authDomain":"sectorcalc-bf412.firebaseapp.com","messagingSenderId":"1036979054000","projectNumber":"1036979054000","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-06-30T11:53:10.424Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:53:10.424Z] Checked if tokens are valid: true, expires at: 1782822082008
+[debug] [2026-06-30T11:53:10.425Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 [none]
+[debug] [2026-06-30T11:53:11.867Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 200
+[debug] [2026-06-30T11:53:11.868Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/sectorcalc-bf412/sites/sectorcalc-bf412 {"name":"projects/sectorcalc-bf412/sites/sectorcalc-bf412","defaultUrl":"https://sectorcalc-bf412.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 15.5.19
+
+[info]    - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 1
+     · staleTimes
+     · optimizePackageImports
+     · staticGenerationRetryCount: 5
+     · staticGenerationMaxConcurrency: 1
+     · staticGenerationMinPagesPerWorker: 50
+
+
+[info]    Creating an optimized production build ...
+
+[debug] [2026-06-30T11:53:30.847Z] Error: ENOENT: no such file or directory, open '/Users/macair1/projects/SectorCalc-p5a/.next/server/middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-06-30T11:53:30.853Z] Error: ENOENT: no such file or directory, open '/Users/macair1/projects/SectorCalc-p5a/.next/server/middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
