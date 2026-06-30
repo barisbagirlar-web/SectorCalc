@@ -1,6 +1,7 @@
 /* ===== SECTORCALC PRO · PREMIUM INDUSTRIAL HMI CSS (v2) ===== */
 export const HMI_CSS = `
 :root{--bg:#080B10;--bg-grid:rgba(255,184,0,0.028);--panel:#11151C;--panel-2:#161B24;--bezel:#1C212B;--bezel-hi:#2A303C;--bezel-lo:#0B0E14;--ink:#E6EAF1;--ink-70:rgba(230,234,241,.7);--ink-50:rgba(230,234,241,.5);--ink-30:rgba(230,234,241,.3);--line:#232833;--line-hi:#313846;--accent:#FFB800;--accent-dim:rgba(255,184,0,.14);--accent-24:rgba(255,184,0,.24);--signal:#00D4FF;--signal-dim:rgba(0,212,255,.16);--ok:#00FF88;--warn:#FFB800;--danger:#FF3B30;--lcd:#00FFCC;--mono:'JetBrains Mono',ui-monospace,'SF Mono',Consolas,monospace;--sans:'Inter',-apple-system,system-ui,sans-serif;}
+html{background:#080B10}.sc-app-main,.sc-pro-page,.sc-ledger-page,.ind-os-page{background:transparent!important}.sc-craft-container{background:transparent!important}section.sc-craft-section{background:transparent!important;padding:0}
 .wrap{max-width:1280px;margin:0 auto;padding:20px 28px}
 
 /* STATUS STRIP */
