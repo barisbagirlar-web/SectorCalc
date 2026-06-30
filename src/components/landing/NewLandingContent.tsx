@@ -36,30 +36,23 @@ export function NewLandingContent({
 }) {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
-
   const [calculators, setCalculators] = useState<ApiTool[]>([]);
-  const [sectorCount, setSectorCount] = useState(sectors.length);
   const [expanded, setExpanded] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    async function loadCalculators() {
-      try {
-        const res = await fetch('/api/calculators.json');
-        const data = await res.json();
-        if (data.calculators) {
-          setCalculators(data.calculators);
-        }
-        if (data.sectorCount) {
-          setSectorCount(data.sectorCount);
-        }
-      } catch (err) {
-        console.error("Failed to load calculators", err);
-      }
+    if (tools && tools.length > 0) {
+      const mappedTools = tools.map((t) => ({
+        id: t.slug,
+        title: t.name,
+        sector: t.sec,
+        slug: t.slug,
+        tags: [t.eq].filter(Boolean),
+      }));
+      setCalculators(mappedTools);
     }
-    loadCalculators();
-  }, []);
+  }, [tools]);
 
   const fuzzyMatch = (q: string, text: string) => {
     const qLower = q.toLowerCase().trim();
@@ -83,28 +76,6 @@ export function NewLandingContent({
     const regex = new RegExp(`(${words.join('|')})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
   };
-
-  // Keep old grid filtering so that the page still updates
-  const filteredSectors = useMemo(() => {
-    if (!query.trim()) return sectors;
-    const q = query.toLowerCase();
-    return sectors.filter(
-      (s) =>
-        s.name.toLowerCase().includes(q) ||
-        s.k.toLowerCase().includes(q)
-    );
-  }, [query, sectors]);
-
-  const filteredTools = useMemo(() => {
-    if (!query.trim()) return tools.slice(0, 12);
-    const q = query.toLowerCase();
-    return tools.filter(
-      (t) =>
-        t.name.toLowerCase().includes(q) ||
-        t.sec.toLowerCase().includes(q) ||
-        t.eq.toLowerCase().includes(q)
-    );
-  }, [query, tools]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -132,30 +103,35 @@ export function NewLandingContent({
     return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
-  const totalShown = Math.max(filteredSectors.length, filteredTools.length);
-  const isSearchActive = query.trim().length > 0;
-
   return (
     <div className="claude-landing">
       <main>
         {/* HERO */}
-        <section className="hero">
+        <section className="hero corp-hero">
           <div className="wrap">
-            <p className="eyebrow">Trusted by engineers in 40+ countries</p>
-            <h1>
-              Engineering Calculators for Mechanical, Civil &amp; Electrical Teams
-            </h1>
-            <p className="lede">
-              {freeCount}+ calculators built to international standards. ISO, ASME, VDI, DIN, IEC, EN references.
-              Free to use, auditable, exportable.
+            <h1>Engineering, Manufacturing & Business Calculators for Real Decisions</h1>
+            <p className="lede subtitle">
+              SectorCalc turns cost, scrap, energy, OEE, finance, logistics, and engineering inputs into formula-backed results you can review, compare, and act on.
             </p>
 
-            <div className="search-wrapper" id="searchWrapper" ref={wrapperRef}>
+            <div className="cta-row main-actions">
+              <Link href="/free-tools" className="btn-primary">
+                Start Free Calculations
+              </Link>
+              <Link href="/pro-tools" className="btn-secondary">
+                Explore Pro Calculators
+              </Link>
+            </div>
+
+            <p className="trust-line">Formula logic, tolerance guidance, assumptions, and professional review notes are shown where available.</p>
+            <p className="micro-trust">No sign-up required for free tools. Your calculation inputs are not stored.</p>
+
+            <div className="search-wrapper hero-search" id="searchWrapper" ref={wrapperRef}>
               <input
                 ref={inputRef}
                 type="text"
                 id="searchInput"
-                placeholder={`Search ${freeCount}+ engineering calculators...`}
+                placeholder="Search calculators by industry, formula, cost, material, energy, finance, or operation..."
                 autoComplete="off"
                 aria-label="Search calculators"
                 value={query}
@@ -200,132 +176,224 @@ export function NewLandingContent({
                 </div>
               )}
             </div>
-
-            <div className="cta-row">
-              <Link href="#sectors" className="btn-primary">
-                Browse All Calculators
-              </Link>
-              <Link href="/pricing" className="btn-secondary">
-                Upgrade to Pro
-              </Link>
-            </div>
-
-            <div className="standards-strip">
-              <span>Verified against:</span>
-              <span>ISO 9001</span>
-              <span>ASME BPVC</span>
-              <span>VDI 2230</span>
-              <span>DIN EN 1990</span>
-              <span>IEC 60071</span>
-              <span>EN 1090</span>
-            </div>
           </div>
         </section>
 
-        {/* SECTORS */}
-        <section id="sectors" className="sec-section">
+        {/* TRUST STRIP */}
+        <section className="corp-trust-strip">
           <div className="wrap">
-            <div className="sec-head">
-              <h2>Browse by sector</h2>
-              <div className="meta">{sectorCount} industrial sectors</div>
+            <h3 className="trust-title">Built for Practical Calculation Workflows</h3>
+            <div className="trust-items">
+              <span>Manufacturing & Workshops</span>
+              <span>Engineering & Construction</span>
+              <span>Energy & Operations</span>
+              <span>Logistics & Service</span>
+              <span>Finance & Business</span>
             </div>
-            
-            <div className="grid sectors" id="sectorGrid">
-              {filteredSectors.map((s) => (
-                <Link
-                  key={s.k}
-                  href={`/tools/category/${s.name.toLowerCase()}`}
-                  className="tile"
-                >
-                  <span className="tile-name">
-                    <b>{s.k}</b>
-                    {s.name}
-                  </span>
-                  <span className="tile-count">{s.n}</span>
-                </Link>
-              ))}
-            </div>
-
-            {isSearchActive && filteredSectors.length === 0 && (
-              <div className="empty show" id="sectorEmpty">
-                No sector matches “<span className="qref">{query}</span>”. Try a tool name instead.
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* POPULAR TOOLS */}
-        <section id="popular" className="sec-section">
-          <div className="wrap">
-            <div className="sec-head">
-              <h2>{isSearchActive ? "Search Results" : "Most used calculators"}</h2>
-              <div className="meta">updated weekly</div>
-            </div>
-            
-            <div className="grid tools" id="toolGrid">
-              {filteredTools.map((t) => (
-                <Link
-                  key={t.slug}
-                  href={`/tools/generated/${t.slug}`}
-                  className="tool"
-                >
-                  <span className="tool-sec">{t.sec}</span>
-                  <span className="tool-name">{t.name}</span>
-                  <span className="tool-eq">{t.eq}</span>
-                </Link>
-              ))}
-            </div>
-
-            {isSearchActive && filteredTools.length === 0 && (
-              <div className="empty show" id="toolEmpty">
-                No tool matches “<span className="qref">{query}</span>”.
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* TRUST / STANDARDS */}
-        <section className="trust sec-section">
-          <div className="wrap">
-            <div className="label">Every calculation is standards-backed</div>
-            <div className="badges">
-              <div className="badge">
-                ISO<small>Int’l Standards</small>
-              </div>
-              <div className="badge">
-                ASME<small>Mech. Engineers</small>
-              </div>
-              <div className="badge">
-                VDI<small>German Eng.</small>
-              </div>
-              <div className="badge">
-                DIN<small>German Inst.</small>
-              </div>
-              <div className="badge">
-                IEC<small>Electrotech.</small>
-              </div>
-              <div className="badge">
-                EN<small>European Norm</small>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="cta sec-section">
-          <div className="wrap">
-            <h2>From a quick check to a full audit trail.</h2>
-            <p>
-              Run any calculation free. Unlock FMEA, uncertainty quantification, and exportable reports with Pro.
+            <p className="trust-support">
+              Use SectorCalc to screen decisions, compare scenarios, and identify hidden cost, risk, waste, and performance gaps.
             </p>
-            <div>
-              <Link className="btn" href="#sectors">
-                Explore tools
-              </Link>
-              <Link className="btn ghost" href="/pricing">
-                See Pro
-              </Link>
+          </div>
+        </section>
+
+        {/* CATEGORY SECTION */}
+        <section className="sec-section corp-categories">
+          <div className="wrap">
+            <div className="sec-head">
+              <h2>Find the Right Calculator by Sector</h2>
+              <div className="meta">Choose a sector and start with the calculation that matches your workflow.</div>
             </div>
+            
+            <div className="grid cat-grid">
+              <div className="cat-card">
+                <h4>Manufacturing</h4>
+                <p>Machine hour rate, OEE, scrap, setup time, throughput, and production cost calculators.</p>
+                <Link href="/tools/category/manufacturing" className="btn-link">Browse Manufacturing Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Workshops</h4>
+                <p>Quote pricing, labor rate, job costing, material use, and margin calculators for shop-floor decisions.</p>
+                <Link href="/tools/category/workshops" className="btn-link">Browse Workshop Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Engineering</h4>
+                <p>Torque, tolerance, load, sizing, conversion, and technical calculation tools for engineering checks.</p>
+                <Link href="/tools/category/engineering" className="btn-link">Browse Engineering Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Construction</h4>
+                <p>Concrete, volume, quantity, material, roof, labor, and project estimation calculators.</p>
+                <Link href="/tools/category/construction" className="btn-link">Browse Construction Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Energy</h4>
+                <p>kWh, compressor leak, carbon, peak load, efficiency, and consumption calculators.</p>
+                <Link href="/tools/category/energy" className="btn-link">Browse Energy Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Logistics</h4>
+                <p>Freight, route, fuel, dimensional weight, delivery cost, and service efficiency calculators.</p>
+                <Link href="/tools/category/logistics" className="btn-link">Browse Logistics Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Finance</h4>
+                <p>VAT, payroll, depreciation, loan, margin, break-even, and cash impact calculators.</p>
+                <Link href="/tools/category/finance" className="btn-link">Browse Finance Calculators &rarr;</Link>
+              </div>
+              <div className="cat-card">
+                <h4>Retail & Business</h4>
+                <p>Stock, waste, discount, margin, pricing, and operational cost calculators.</p>
+                <Link href="/tools/category/business" className="btn-link">Browse Business Calculators &rarr;</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHY SECTORCALC */}
+        <section className="sec-section why-section">
+          <div className="wrap">
+            <div className="sec-head">
+              <h2>More Than a Number</h2>
+              <div className="meta">A calculator is useful only when the result is explainable. SectorCalc is designed to show the calculation logic behind the output.</div>
+            </div>
+            <div className="grid feature-grid">
+              <div className="feature-card">
+                <h4>Formula Logic</h4>
+                <p>Understand what the formula measures, how the inputs affect the result, and where input errors can distort the output.</p>
+              </div>
+              <div className="feature-card">
+                <h4>Tolerance Guidance</h4>
+                <p>Classify results into practical decision zones such as optimal, acceptable, watch, warning, and professional review recommended.</p>
+              </div>
+              <div className="feature-card">
+                <h4>Assumptions & Limitations</h4>
+                <p>See the declared assumptions and limitations before relying on a result for technical, financial, operational, or commercial decisions.</p>
+              </div>
+              <div className="feature-card">
+                <h4>Professional Review Notes</h4>
+                <p>Know when the result should be escalated to a qualified professional, project review, or site-specific assessment.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FREE VS PRO */}
+        <section className="sec-section pricing-split">
+          <div className="wrap">
+            <h2>Start Free. Go Deeper When the Decision Matters.</h2>
+            <div className="split-grid">
+              <div className="split-col free-col">
+                <h3>Free Calculators</h3>
+                <p>Use fast calculators for common cost, production, energy, finance, logistics, and business questions.</p>
+                <ul>
+                  <li>Fast formula-based results</li>
+                  <li>No sign-up required</li>
+                  <li>Basic interpretation</li>
+                  <li>Calculation transparency where available</li>
+                  <li>Practical starting point for everyday decisions</li>
+                </ul>
+                <Link href="/free-tools" className="btn-primary">Start Free Calculations</Link>
+              </div>
+              <div className="split-col pro-col">
+                <h3>Pro Calculators</h3>
+                <p>Use pro calculators when the decision needs deeper inputs, scenario comparison, tolerance guidance, audit-ready explanation, or report-level evidence.</p>
+                <ul>
+                  <li>Advanced formula logic</li>
+                  <li>Deeper result interpretation</li>
+                  <li>Tolerance and risk zones</li>
+                  <li>Engineering authority where available</li>
+                  <li>Decision summary and report-ready output where supported</li>
+                </ul>
+                <Link href="/pro-tools" className="btn-secondary">Explore Pro Calculators</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FORMULA TRANSPARENCY */}
+        <section className="sec-section transparency-section">
+          <div className="wrap">
+            <h2>Formula-Backed Results You Can Explain</h2>
+            <p className="section-desc">SectorCalc is being structured so calculator outputs can show formula logic, input meaning, tolerance guidance, result interpretation, assumptions, limitations, and professional review triggers.</p>
+            <div className="flex-cards">
+              <div className="card">What was calculated</div>
+              <div className="card">Why each input matters</div>
+              <div className="card">How the result should be interpreted</div>
+              <div className="card">When the result needs review</div>
+            </div>
+            <div className="cta-center">
+              <Link href="/calculator-library" className="btn-primary">Search Calculators</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* PROFESSIONAL USE CASES */}
+        <section className="sec-section usecases-section">
+          <div className="wrap">
+            <h2>Built for Workflows Where Small Errors Become Real Costs</h2>
+            <div className="uc-grid">
+              <div className="uc-card">
+                <h4>Production</h4>
+                <p><strong>Problem:</strong> Scrap, downtime, setup delays, and weak quotes reduce margin.</p>
+                <p><strong>SectorCalc helps:</strong> Convert operational inputs into measurable cost, time, and performance signals.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Workshops</h4>
+                <p><strong>Problem:</strong> Jobs are priced from experience instead of measured cost.</p>
+                <p><strong>SectorCalc helps:</strong> Compare material, labor, setup, overhead, and margin before quoting.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Engineering</h4>
+                <p><strong>Problem:</strong> Technical checks need transparent formula logic and documented assumptions.</p>
+                <p><strong>SectorCalc helps:</strong> Turn declared inputs into reviewable calculation outputs.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Finance</h4>
+                <p><strong>Problem:</strong> Margins, taxes, payroll, loans, and cash impact are often checked too late.</p>
+                <p><strong>SectorCalc helps:</strong> Screen financial effects before the decision is locked.</p>
+              </div>
+              <div className="uc-card">
+                <h4>Energy</h4>
+                <p><strong>Problem:</strong> Leaks, inefficient equipment, and peak demand create invisible loss.</p>
+                <p><strong>SectorCalc helps:</strong> Translate consumption and efficiency gaps into measurable cost signals.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SOCIAL PROOF */}
+        <section className="sec-section community-section">
+          <div className="wrap">
+            <h2>Community Feedback & Practical Use Cases</h2>
+            <p className="section-desc">SectorCalc feedback is manually reviewed before publication. The platform does not publish fake reviews, paid testimonials, or unsupported claims.</p>
+            
+            <div className="empty-feedback">
+              <p>No published feedback yet for this calculator category. Share how you used SectorCalc in a real calculation workflow.</p>
+            </div>
+
+            <div className="cta-center">
+              <Link href="/feedback" className="btn-secondary">Share Feedback</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="sec-section final-cta">
+          <div className="wrap text-center">
+            <h2>Start With the Calculation That Matches Your Decision</h2>
+            <p className="meta-subtitle">Use free calculators for fast checks. Use pro calculators when the result needs deeper explanation, tolerance guidance, or report-ready evidence.</p>
+            
+            <div className="cta-row main-actions center">
+              <Link href="/free-tools" className="btn-primary">Start Free Calculations</Link>
+              <Link href="/pro-tools" className="btn-secondary">Explore Pro Calculators</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO BLOCK */}
+        <section className="seo-block">
+          <div className="wrap">
+            <p>SectorCalc provides professional calculators for manufacturing, engineering, workshops, construction, logistics, energy, finance, retail, and business operations. Use the platform to estimate costs, compare scenarios, identify waste, check formula-based results, and support practical decisions with transparent calculation logic.</p>
           </div>
         </section>
       </main>
