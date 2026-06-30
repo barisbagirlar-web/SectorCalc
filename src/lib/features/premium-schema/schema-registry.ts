@@ -437,9 +437,10 @@ export function getPremiumCalculatorSchema(slug: string): PremiumCalculatorSchem
 }
 
 export function getPremiumSchemaForPaidSlug(paidSlug: string): PremiumCalculatorSchema | null {
-  const schemaId = PREMIUM_SCHEMA_SLUG_MAP[paidSlug.trim()];
-  if (!schemaId) {
-    return null;
+  const trimmed = paidSlug.trim();
+  const schemaId = PREMIUM_SCHEMA_SLUG_MAP[trimmed];
+  if (schemaId) {
+    return getPremiumCalculatorSchema(schemaId);
   }
-  return getPremiumCalculatorSchema(schemaId);
+  return getPremiumCalculatorSchema(trimmed);
 }

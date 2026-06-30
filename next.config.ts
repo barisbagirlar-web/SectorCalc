@@ -69,6 +69,9 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+  outputFileTracingIncludes: {
+    "/*": ["generated/schemas/**/*.json"],
+  },
   experimental: {
     staleTimes: {
       dynamic: 30,
