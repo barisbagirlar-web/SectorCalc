@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
 import { LeadIntentProvider } from "@/components/leads/LeadIntentContext";
 import { LeadIntentModal } from "@/components/leads/LeadIntentModal";
+import { PaddleProvider } from "@/lib/ui-shared/paddle-provider";
 
 const AssistantGate = dynamic(
   () => import("@/components/assistant/AssistantGate").then((mod) => mod.AssistantGate),
@@ -12,10 +13,12 @@ const AssistantGate = dynamic(
 
 export function AppProviders({ children }: { children: ReactNode }) {
   return (
-    <LeadIntentProvider>
-      {children}
-      <LeadIntentModal />
-      <AssistantGate />
-    </LeadIntentProvider>
+    <PaddleProvider>
+      <LeadIntentProvider>
+        {children}
+        <LeadIntentModal />
+        <AssistantGate />
+      </LeadIntentProvider>
+    </PaddleProvider>
   );
 }
