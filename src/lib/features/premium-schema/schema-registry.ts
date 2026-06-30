@@ -435,56 +435,50 @@ export function listPremiumSchemaIds(): readonly string[] {
  */
 function normalizeSchemaToEnglish(schema: PremiumCalculatorSchema): PremiumCalculatorSchema {
   // Cloned output — we mutate a working copy to bypass readonly
-  const out = JSON.parse(JSON.stringify(schema)) as PremiumCalculatorSchema;
+  const out = JSON.parse(JSON.stringify(schema)) as any;
 
   if (out.name_i18n?.en) out.name = out.name_i18n.en;
   if (out.painStatement_i18n?.en) out.painStatement = out.painStatement_i18n.en;
 
   if (out.inputs) {
-    out.inputs = out.inputs.map((inp) => {
-      const i = inp as Record<string, unknown>;
-      if (i.label_i18n && (i.label_i18n as Record<string, string>).en) i.label = (i.label_i18n as Record<string, string>).en;
-      if (i.helper_i18n && (i.helper_i18n as Record<string, string>).en) i.helper = (i.helper_i18n as Record<string, string>).en;
-      if (i.expertMeaning_i18n && (i.expertMeaning_i18n as Record<string, string>).en) i.expertMeaning = (i.expertMeaning_i18n as Record<string, string>).en;
-      // handle placeholder_i18n if present
-      if (i.placeholder_i18n && (i.placeholder_i18n as Record<string, string>).en) i.placeholder = (i.placeholder_i18n as Record<string, string>).en;
-      return i as typeof inp;
+    out.inputs = out.inputs.map((inp: any) => {
+      if (inp.label_i18n?.en) inp.label = inp.label_i18n.en;
+      if (inp.helper_i18n?.en) inp.helper = inp.helper_i18n.en;
+      if (inp.expertMeaning_i18n?.en) inp.expertMeaning = inp.expertMeaning_i18n.en;
+      if (inp.placeholder_i18n?.en) inp.placeholder = inp.placeholder_i18n.en;
+      return inp;
     });
   }
 
   if (out.outputs) {
-    out.outputs = out.outputs.map((o) => {
-      const oo = o as Record<string, unknown>;
-      if (oo.label_i18n && (oo.label_i18n as Record<string, string>).en) oo.label = (oo.label_i18n as Record<string, string>).en;
-      return oo as typeof o;
+    out.outputs = out.outputs.map((o: any) => {
+      if (o.label_i18n?.en) o.label = o.label_i18n.en;
+      return o;
     });
   }
 
   if (out.thresholds) {
-    out.thresholds = out.thresholds.map((t) => {
-      const tt = t as Record<string, unknown>;
-      if (tt.warningMessage_i18n && (tt.warningMessage_i18n as Record<string, string>).en)
-        tt.warningMessage = (tt.warningMessage_i18n as Record<string, string>).en;
-      if (tt.criticalMessage_i18n && (tt.criticalMessage_i18n as Record<string, string>).en)
-        tt.criticalMessage = (tt.criticalMessage_i18n as Record<string, string>).en;
-      return tt as typeof t;
+    out.thresholds = out.thresholds.map((t: any) => {
+      if (t.warningMessage_i18n?.en) t.warningMessage = t.warningMessage_i18n.en;
+      if (t.criticalMessage_i18n?.en) t.criticalMessage = t.criticalMessage_i18n.en;
+      return t;
     });
   }
 
   if (out.reportTemplate) {
-    const rt = out.reportTemplate as Record<string, unknown>;
-    if (rt.title_i18n && (rt.title_i18n as Record<string, string>).en)
-      rt.title = (rt.title_i18n as Record<string, string>).en;
+    if (out.reportTemplate.title_i18n?.en) {
+      out.reportTemplate.title = out.reportTemplate.title_i18n.en;
+    }
   }
 
   if (out.assumptions?.assumptionNotes && out.assumptions?.assumptionNotes_i18n) {
     out.assumptions.assumptionNotes = out.assumptions.assumptionNotes.map(
-      (note, idx) =>
-        (out.assumptions!.assumptionNotes_i18n![idx] as Record<string, string> | undefined)?.["en"] ?? note,
+      (note: string, idx: number) =>
+        out.assumptions.assumptionNotes_i18n[idx]?.en ?? note,
     );
   }
 
-  return out;
+  return out as PremiumCalculatorSchema;
 }
 
 export function getPremiumCalculatorSchema(slug: string): PremiumCalculatorSchema | null {

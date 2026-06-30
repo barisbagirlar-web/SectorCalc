@@ -76,7 +76,7 @@ console.log("build-and-deploy: building (with retry)...");
 run("node", ["scripts/next-build-with-500-fallback.mjs"], {
   env: {
     ...process.env,
-    NODE_OPTIONS: "--max-old-space-size=3072 --dns-result-order=ipv4first",
+    NODE_OPTIONS: "--max-old-space-size=8192 --dns-result-order=ipv4first",
     SECTORCALC_FAST_PREVIEW_STATIC: "1",
   },
 });

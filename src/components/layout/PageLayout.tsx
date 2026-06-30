@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { EnterpriseFooter } from "@/components/layout/EnterpriseFooter";
 import { MainLandmark } from "@/components/layout/MainLandmark";
 import { AppProviders } from "@/components/providers/AppProviders";
-import { TraceFloatingButton } from "@/components/trace/TraceFloatingButton";
+import { TraceAI } from "@/components/trace/TraceAI";
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
 
 interface PageLayoutProps {
@@ -19,7 +19,7 @@ export function PageLayout({ children }: PageLayoutProps) {
       <SiteHeader freeToolsCount={freeToolsCount} proToolsCount={proToolsCount} />
       <MainLandmark>{children}</MainLandmark>
       <EnterpriseFooter />
-      <TraceFloatingButton />
+      <TraceAI demoMode defaultOpen={false} title="Trace AI" />
     </AppProviders>
   );
 }

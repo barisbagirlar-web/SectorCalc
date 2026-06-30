@@ -60,6 +60,7 @@ import {
 } from "@/lib/features/generated-tools/unit-conversion";
 import { getAvailableUnitsForGroup } from "@/lib/features/regional/unit-defaults";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
+import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
 
@@ -528,6 +529,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   }
 
   return (
+    <>
+      <style>{HMI_CSS}</style>
     <ToolGuidanceLayout
       toolSlug={schema.id}
       tier="premium-schema"
@@ -653,5 +656,6 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         </div>
       ) : null}
     </ToolGuidanceLayout>
+    </>
   );
 }
