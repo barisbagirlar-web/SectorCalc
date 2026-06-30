@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { useTranslations, useFormatter } from 'next-intl'
+import { useFormatter } from 'next-intl'
 import { PLANS, Plan } from '@/lib/features/plans'
 import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { PricingCard } from '@/components/pricing/PricingCard'
@@ -10,19 +10,17 @@ import { Container } from "@/components/ui/Container"
 import { Link } from "@/i18n/routing"
 
 function TrustRow() {
-  const t = useTranslations('pricing_v2.trust')
   return (
     <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-4 mb-12 text-xs text-slate-500 font-medium">
-      {[t('paddle'), t('markets'), t('pdf'), t('guarantee'), t('noAutoRenew'), t('cards')].map((t) => <span key={t}>{t}</span>)}
+      {['Secure payments by Paddle', 'Global market coverage', 'PDF exports included', '7-Day Guarantee', 'No auto-renewal', 'All major cards accepted'].map((t) => <span key={t}>{t}</span>)}
     </div>
   )
 }
 
 function StatsBar() {
-  const t = useTranslations('pricing_v2.stats')
   return (
     <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10 text-center">
-      {[{num:'4,200+',label:t('engineersActive')},{num:'18',label:t('sectors')},{num:'161',label:t('premiumAnalyzers')},{num:'40+',label:t('countries')}].map((s) => (
+      {[{num:'4,200+',label:'Active Engineers'},{num:'18',label:'Sectors'},{num:'161',label:'Premium Analyzers'},{num:'40+',label:'Countries'}].map((s) => (
         <div key={s.label}>
           <p className="text-xl font-semibold text-premium-velvet">{s.num}</p>
           <p className="text-xs text-body-charcoal">{s.label}</p>
@@ -33,31 +31,28 @@ function StatsBar() {
 }
 
 function Guarantee() {
-  const t = useTranslations('pricing_v2.guarantee')
   return (
     <div className="mt-8 mb-10 sc-pro-pricing-card sc-pro-letterpress sc-pro-pricing-card--support p-5 text-center max-w-xl mx-auto border-emerald-900 bg-emerald-950/40">
-      <p className="text-sm font-semibold text-emerald-400 mb-1">{t('title')}</p>
+      <p className="text-sm font-semibold text-emerald-400 mb-1">7-Day No-Nonsense Guarantee</p>
       <p className="text-xs text-emerald-500 leading-relaxed">
-        {t('desc')}
+        If your first calculation doesn't yield a usable result, email us within 7 days. We'll restore your credit so you can use it on a tool that works for you.
       </p>
     </div>
   )
 }
 
 function Testimonial() {
-  const t = useTranslations('pricing_v2.testimonial')
   return (
     <blockquote className="mx-auto max-w-xl text-center mb-10">
       <p className="text-sm text-premium-velvet italic leading-relaxed">
-        {t('quote')}
+        "SectorCalc turned a 4-hour spreadsheet battle into a 3-minute web form. The PDF export alone paid for the credits on the first day."
       </p>
-      <cite className="mt-2 block text-xs text-body-charcoal not-italic">{t('author')}</cite>
+      <cite className="mt-2 block text-xs text-body-charcoal not-italic">— Manufacturing Engineer, Tier 1 Automotive</cite>
     </blockquote>
   )
 }
 
 function UseCaseGrid() {
-  const t = useTranslations('pricing_v2.useCases')
   const cases = [
     {tool:'OEE Calculator',output:'Availability, performance, quality breakdown with monthly loss estimate',sector:'Manufacturing'},
     {tool:'Machine Hourly Rate',output:'Depreciation + energy + labor cost basis — ready for quoting',sector:'Costing'},
@@ -68,7 +63,7 @@ function UseCaseGrid() {
   ]
   return (
     <section className="mt-12 mb-10">
-      <p className="text-center text-xs font-semibold uppercase tracking-widest text-body-charcoal mb-5">{t('title')}</p>
+      <p className="text-center text-xs font-semibold uppercase tracking-widest text-body-charcoal mb-5">COMMON USE CASES</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {cases.map((c) => (
           <div key={c.tool} className="sc-pro-pricing-card p-4 border border-technical-gray bg-industrial-matte">
@@ -83,7 +78,6 @@ function UseCaseGrid() {
 }
 
 function FAQ() {
-  const t = useTranslations('pricing_v2.faq')
   const [open, setOpen] = useState<number | null>(null)
   const faqs = [
     {q:'Do credits expire?',a:'Credits are valid for 12 months from purchase. They never auto-renew.'},
@@ -95,7 +89,7 @@ function FAQ() {
   ]
   return (
     <section className="mt-12 mb-10 max-w-2xl mx-auto">
-      <p className="text-center text-xs font-semibold uppercase tracking-widest text-body-charcoal mb-6">{t('title')}</p>
+      <p className="text-center text-xs font-semibold uppercase tracking-widest text-body-charcoal mb-6">Frequently Asked Questions</p>
       <div className="divide-y divide-technical-gray">
         {faqs.map((f, i) => (
           <div key={i}>
@@ -114,8 +108,6 @@ function FAQ() {
 }
 
 export function PricingPageContent() {
-  const t = useTranslations('pricing_v2')
-  const format = useFormatter()
   const { openCheckout } = usePaddle()
   const [email, setEmail] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
@@ -164,12 +156,12 @@ export function PricingPageContent() {
       <EmailCaptureModal open={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleEmailSubmit} onSkip={() => handleEmailSubmit('')} email={email} setEmail={setEmail} />
       <Container className="sc-pro-container pb-10">
         <header className="text-center mb-12 flex flex-col items-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">{t('badgePlatform')}</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">INDUSTRIAL INTELLIGENCE PLATFORM</p>
           <h1 className="text-center mx-auto max-w-3xl font-bold text-3xl sm:text-4xl leading-snug mb-5 text-slate-900 tracking-tight">
-            <span dangerouslySetInnerHTML={{ __html: t('titleBr').replace('<br/>', '<br class="hidden sm:block"/>') }} />
+            <span dangerouslySetInnerHTML={{ __html: 'Pay only for what you calculate.<br class="hidden sm:block"/> No subscriptions.' }} />
           </h1>
           <p className="text-center text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-            {t('subtitle')}
+            Professional-grade calculation models and PDF exports. Buy credits once, use them whenever you need.
           </p>
         </header>
         <StatsBar />
@@ -180,18 +172,18 @@ export function PricingPageContent() {
           ))}
         </div>
         <p className="text-center text-[11px] text-body-charcoal mb-2">
-          {t.rich('footer.pricingDisclaimer', { currency: 'USD' })}
+          All prices are in USD. Local taxes may apply based on your billing address. Payments securely processed by Paddle.
         </p>
         <Guarantee />
         <Testimonial />
         <UseCaseGrid />
         <FAQ />
         <footer className="text-center text-[11px] text-body-charcoal leading-7 border-t border-technical-gray pt-8 mt-4">
-          {t('footer.companyInfo')}<br/>
+          © 2024 SectorCalc. All rights reserved.<br/>
           <a href="mailto:info@sectorcalc.com" className="hover:text-sc-navy">info@sectorcalc.com</a>
-          {' · '}<Link href="/terms" className="hover:text-sc-navy">{t('footer.terms')}</Link>
-          {' · '}<Link href="/privacy" className="hover:text-sc-navy">{t('footer.privacy')}</Link>
-          {' · '}<Link href="/refund-policy" className="hover:text-sc-navy">{t('footer.refund')}</Link>
+          {' · '}<Link href="/terms" className="hover:text-sc-navy">Terms of Service</Link>
+          {' · '}<Link href="/privacy" className="hover:text-sc-navy">Privacy Policy</Link>
+          {' · '}<Link href="/refund-policy" className="hover:text-sc-navy">Refund Policy</Link>
         </footer>
       </Container>
     </div>

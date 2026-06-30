@@ -11,7 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { Suspense } from "react";
 import { GeneratedToolsHub } from "@/components/tools/GeneratedToolsHub";
 import { ToolsCategoryHub } from "@/components/tools/ToolsCategoryHub";
-import { buildGeneratedCatalogIndex as buildGeneratedToolCatalog } from "@/lib/features/generated-tools/build-generated-catalog";
+import { buildGeneratedToolCatalog } from "@/lib/features/generated-tools/build-generated-catalog";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
