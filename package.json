@@ -7,7 +7,11 @@
     "build": "NODE_OPTIONS=--max-old-space-size=6144 next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit"
+    "typecheck": "NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit",
+    "guard:repo": "node scripts/sectorcalc-repo-guard.mjs",
+    "lint:errors": "eslint --quiet",
+    "verify:gate": "npm run guard:repo && npm run typecheck && npm run lint:errors && npm run build",
+    "verify:gate:test": "npm run test --if-present && npm run verify:gate"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

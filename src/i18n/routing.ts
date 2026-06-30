@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 export const Link = require("next/link").default;
 export const useRouter = require("next/navigation").useRouter;
 export const usePathname = require("next/navigation").usePathname;

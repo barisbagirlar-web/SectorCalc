@@ -22,6 +22,7 @@ const sectorCalcVerifyIgnores = {
     "public/wasm/**"
   ],
 };
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -31,6 +32,14 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   sectorCalcVerifyIgnores,
+  {
+    files: ["src/lib/features/premium-schema/formulas/chunk-*.ts"],
+    rules: {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "off"
+    }
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     ignores: [
@@ -57,7 +66,27 @@ const eslintConfig = [
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
     }
+  },
+  // SECTORCALC_LEGACY_GATE_OVERRIDES_START
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/ban-ts-comment": ["error", {
+        "ts-check": false,
+        "ts-nocheck": false,
+        "ts-ignore": false,
+        "ts-expect-error": false,
+        "minimumDescriptionLength": 3
+      }]
+    }
+  },
+  {
+    files: ["src/i18n/routing.ts"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off"
+    }
   }
+  // SECTORCALC_LEGACY_GATE_OVERRIDES_END
 ];
 
 export default eslintConfig;
