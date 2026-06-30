@@ -51,8 +51,13 @@ export default function middleware(request: NextRequest) {
     return applyRegionHeaders(NextResponse.redirect(url, 308), request);
   }
 
-  // Removed `/en` rewrite logic as there is no [locale] route group anymore
-
+  // Rewrite non-prefixed paths to /en/* so [locale] route group works.
+  // Root / is NOT rewritten — src/app/page.tsx serves English directly.
+  if (pathname !== "/" && !pathname.startsWith("/en")) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/en${pathname}`;
+    return applyRegionHeaders(NextResponse.rewrite(url), request);
+  }
 
   return applyRegionHeaders(NextResponse.next(), request);
 }

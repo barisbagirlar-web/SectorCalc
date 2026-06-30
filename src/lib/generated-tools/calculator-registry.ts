@@ -28,7 +28,7 @@ function createLoader(slug: string, trustStatus: string): CalculatorLoader {
   return async () => {
     const mod = (await import(
       /* webpackInclude: /\.ts$/ */
-      `@generated/${slug}`
+      `../../../generated/${slug}`
     )) as RawGeneratedModule;
     return wrapGeneratedModule(mod, slug, trustStatus);
   };

@@ -1,27 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { buildSoftwareApplicationJsonLd, buildWebsiteJsonLd, buildEntityGraph } from "@/lib/seo/schema-mesh";
-import { THEME_COLOR } from "@/config/organization-trust";
 import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+import { THEME_COLOR } from "@/config/organization-trust";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "SectorCalc",
-  description: "Industrial calculation platform",
   robots: {
     index: false,
     follow: false,
@@ -38,34 +21,21 @@ export const viewport: Viewport = {
   themeColor: THEME_COLOR,
 };
 
-export default function RootLayout({
- children,
+export default async function RootLayout({
+  children,
 }: Readonly<{
- children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
- return (
-   <html
-     lang="en"
-     dir="ltr"
-     className={`${inter.variable} ${jetbrainsMono.variable}`.trim()}
-   >
-     <head>
-       {/* DNS Preconnects */}
-       <link rel="preconnect" href="https://firestore.googleapis.com" crossOrigin="anonymous" />
-       <link rel="preconnect" href="https://identitytoolkit.googleapis.com" crossOrigin="anonymous" />
-     </head>
-     <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
-       <JsonLd
-         data={[
-           buildEntityGraph(),
-           buildWebsiteJsonLd(),
-           buildSoftwareApplicationJsonLd(),
-         ]}
-       />
-       <NextIntlClientProvider locale="en" messages={{}}>
-         {children}
-       </NextIntlClientProvider>
-     </body>
-   </html>
- );
+  const locale = await getLocale();
+  const messages = await getMessages();
+
+  return (
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }
