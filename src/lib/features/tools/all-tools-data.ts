@@ -31,7 +31,22 @@ import {
   SECTORS,
 } from "@/lib/features/tools/taxonomy";
 
-const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
+/** Resolve generated schemas directory — tries multiple deployment paths. */
+function resolveSchemasDir(): string {
+  const candidates = [
+    // Local dev / standard
+    path.join(process.cwd(), "generated", "schemas"),
+    // Firebase framework-managed function
+    path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return candidates[0];
+}
+const SCHEMAS_DIR = resolveSchemasDir();
 const DEFAULT_LABEL = "Other";
 
 /** Module-level cache keyed by locale: tools are built at cold start and stable for the lifetime of the server.
@@ -249,7 +264,7 @@ function isPremiumTool(
   return tier === "premium" || tier === "premium-schema";
 }
 
-export function getAllTools(locale = "tr"): ToolData[] {
+export function getAllTools(locale = "en"): ToolData[] {
   const cached = toolsCache.get(locale);
   if (cached) {
     return cached;
@@ -312,7 +327,7 @@ export function getAllTools(locale = "tr"): ToolData[] {
   return tools;
 }
 
-export function getFreeTools(locale = "tr"): ToolData[] {
+export function getFreeTools(locale = "en"): ToolData[] {
   return getAllTools(locale).filter((tool) => !tool.premiumRequired);
 }
 
@@ -412,7 +427,7 @@ function categorizedToToolData(
   };
 }
 
-export function getPremiumTools(locale = "tr"): ToolData[] {
+export function getPremiumTools(locale = "en"): ToolData[] {
   const bySlug = new Map<string, ToolData>();
 
   // 1. Premium schemas from schema-registry — these are the user's premium
@@ -435,10 +450,10 @@ export function getPremiumTools(locale = "tr"): ToolData[] {
   return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, locale));
 }
 
-export function getToolsByCategory(categoryKey: string, locale = "tr"): ToolData[] {
+export function getToolsByCategory(categoryKey: string, locale = "en"): ToolData[] {
   return getAllTools(locale).filter((tool) => tool.categoryKey === categoryKey);
 }
 
-export function getToolsBySector(sectorKey: string, locale = "tr"): ToolData[] {
+export function getToolsBySector(sectorKey: string, locale = "en"): ToolData[] {
   return getAllTools(locale).filter((tool) => tool.sectorKey === sectorKey);
 }
