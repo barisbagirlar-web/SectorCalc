@@ -127,7 +127,7 @@
 
 .sc-premium-dtf-input-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  grid-template-columns: 1fr;
   background: var(--sc-dtf-surface-muted);
   border: 1px solid var(--sc-dtf-border-strong);
   border-radius: var(--sc-dtf-radius-sm);
@@ -144,7 +144,8 @@
 
 .sc-premium-dtf-input-label {
   padding: 0.85rem 1rem;
-  border-right: 1px solid var(--sc-dtf-border-strong);
+  border-bottom: 1px solid var(--sc-dtf-border-strong);
+  border-right: none;
   background: var(--sc-dtf-surface);
   min-width: 0;
 }
@@ -251,6 +252,11 @@
   text-align: center;
   min-height: 44px;
   min-width: 4.5rem;
+  max-width: 8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-shrink: 0;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.5rem center;

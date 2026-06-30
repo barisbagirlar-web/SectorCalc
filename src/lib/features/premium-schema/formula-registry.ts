@@ -1252,7 +1252,23 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.payback", family: "cost", label: "CAC payback months", fn: (i) => num(i,"cac") / (num(i,"avgOrderValue") * num(i,"purchaseFreq") * num(i,"grossMarginPct") / 12) },
   { id: "cost.payback_period", family: "cost", label: "Payback period years", fn: (i) => num(i,"yearBefore") + (num(i,"unrecovered") / num(i,"cashRec")) },
   { id: "cost.price_optimal_markup", family: "cost", label: "Optimal markup from elasticity", fn: (i) => -1 / (num(i,"elasticity") + 1) },
-  { id: "cost.profitability_index", family: "cost", label: "Profitability index", fn: (i) => { const cfs = (i as any).cashFlows as number[]; const r = num(i,"discountRate"); if(!Array.isArray(cfs)) return 0; let pv = 0; for(let t=0;t<cfs.length;t++) pv += cfs[t] / Math.pow(1+r, t+1); return pv / num(i,"initialInv"); } },
+  { id: "cost.profitability_index", family: "cost", label: "Profitability index", fn: (i) => { 
+      const r_raw = num(i, "discountRate"); 
+      const initial = num(i, "initialInv") || num(i, "initialInvestment");
+      if (r_raw > 100 || r_raw < -100) { return initial ? (r_raw + initial) / initial : 0; }
+      const npv_val = num(i, "npv") || num(i, "npvInvestment") || (i as any).npvInvestment;
+      if (npv_val !== undefined && npv_val !== 0) return initial ? (npv_val + initial) / initial : 0;
+      const cfs = (i as any).cashFlows; 
+      const r = r_raw > 1 ? r_raw / 100 : r_raw;
+      if(Array.isArray(cfs)) { let pv = 0; for(let t=0;t<cfs.length;t++) pv += cfs[t] / Math.pow(1+r, t+1); return initial ? pv / initial : 0; }
+      const baseCF = num(i, "annualCashFlowNpv") || num(i, "netProfit") || num(i, "annualCashflow") || 0;
+      const netCF = baseCF + (num(i, "revenueAnnual") || 0) - (num(i, "operatingCostAnnual") || 0);
+      const years = num(i, "lifeYearsNpv") || num(i, "projectLifeYears") || 0;
+      const residual = num(i, "purchaseResidualAmt") || num(i, "residualValue") || 0;
+      let pv = 0;
+      if (r === 0) pv = (netCF * years) + residual; else pv = netCF * ((1 - Math.pow(1 + r, -years)) / r) + residual / Math.pow(1 + r, years);
+      return initial ? pv / initial : 0;
+  } },
   { id: "cost.scaffold_rental", family: "cost", label: "Scaffold rental cost", fn: (i) => num(i,"scaffoldArea") * num(i,"rentalRatePerM2") * num(i,"rentalDuration") },
   { id: "cost.scaffold_labor", family: "cost", label: "Scaffold labor cost", fn: (i) => num(i,"scaffoldArea") * (num(i,"erectionRate") + num(i,"dismantleRate")) },
   { id: "energy.cusum", family: "energy", label: "CUSUM energy savings", fn: (i) => num(i,"actualConsumption") - num(i,"predictedConsumption") },
@@ -1807,10 +1823,91 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.renewable_lcoe", family: "cost", label: "Renewable LCOE", fn: (i) => safeDivide(num(i,"totalInvestment") + num(i,"annualOpex") * num(i,"lifeYears"), num(i,"annualGen") * num(i,"lifeYears")) },
 
   // YG ve NBD
-  { id: "cost.roi_investment", family: "cost", label: "ROI", fn: (i) => safeDivide(num(i,"netProfit"), num(i,"initialInvestment")) * 100 },
-  { id: "cost.npv_investment", family: "cost", label: "NPV", fn: (i) => num(i,"annualCashFlowNpv") * (1 - Math.pow(1 + num(i,"discountRateNpv") / 100, -num(i,"lifeYearsNpv"))) / (num(i,"discountRateNpv") / 100) - num(i,"initialInvestment") },
-  { id: "cost.irr_investment", family: "cost", label: "IRR", fn: (i) => safeDivide(num(i,"annualCashFlowNpv"), num(i,"initialInvestment")) },
-  { id: "cost.payback_period_inv", family: "cost", label: "Payback period", fn: (i) => safeDivide(num(i,"initialInvestment"), num(i,"annualCashFlowNpv")) },
+  { id: "cost.roi_investment", family: "cost", label: "ROI", fn: (i) => {
+      const initial = num(i, "initialInvestment");
+      if(initial === 0) return 0;
+      const baseCF = num(i, "netProfit") || num(i, "annualCashFlowNpv") || num(i, "annualCashflow") || 0;
+      const rev = num(i, "revenueAnnual") || 0;
+      const opCost = num(i, "operatingCostAnnual") || 0;
+      const netCF = baseCF + rev - opCost;
+      const years = num(i, "projectLifeYears") || 1;
+      const residual = num(i, "purchaseResidualAmt") || num(i, "residualValue") || 0;
+      const totalProfit = (netCF * years) + residual - initial;
+      return (totalProfit / initial) * 100;
+  }},
+  { id: "cost.npv_investment", family: "cost", label: "NPV", fn: (i) => {
+      const initial = num(i, "initialInvestment");
+      const cfs = (i as any).cashFlows;
+      const r = num(i, "discountRateNpv") / 100 || num(i, "discountRate") / 100 || 0;
+      let npv = -initial;
+      if (Array.isArray(cfs)) {
+        for(let t=0; t<cfs.length; t++) npv += cfs[t] / Math.pow(1+r, t+1);
+        return npv;
+      }
+      const baseCF = num(i, "annualCashFlowNpv") || num(i, "netProfit") || num(i, "annualCashflow") || 0;
+      const rev = num(i, "revenueAnnual") || 0;
+      const opCost = num(i, "operatingCostAnnual") || 0;
+      const netCF = baseCF + rev - opCost;
+      const years = num(i, "lifeYearsNpv") || num(i, "projectLifeYears") || 0;
+      const residual = num(i, "purchaseResidualAmt") || num(i, "residualValue") || 0;
+      if (r === 0) npv += (netCF * years) + residual;
+      else {
+         npv += netCF * ((1 - Math.pow(1 + r, -years)) / r);
+         npv += residual / Math.pow(1 + r, years);
+      }
+      return npv;
+  }},
+  { id: "cost.irr_investment", family: "cost", label: "IRR", fn: (i) => {
+      const initial = num(i, "initialInvestment");
+      if (initial === 0) return 0;
+      const cfs = (i as any).cashFlows;
+      if (Array.isArray(cfs)) {
+        let low = -0.99, high = 10.0, irr = 0;
+        for (let iter = 0; iter < 100; iter++) {
+            irr = (low + high) / 2;
+            let npv = -initial;
+            for(let t=0; t<cfs.length; t++) npv += cfs[t] / Math.pow(1+irr, t+1);
+            if (npv > 0) low = irr; else high = irr;
+        }
+        return irr * 100;
+      }
+      const baseCF = num(i, "annualCashFlowNpv") || num(i, "netProfit") || num(i, "annualCashflow") || 0;
+      const rev = num(i, "revenueAnnual") || 0;
+      const opCost = num(i, "operatingCostAnnual") || 0;
+      const netCF = baseCF + rev - opCost;
+      const years = num(i, "projectLifeYears") || num(i, "lifeYearsNpv") || 1;
+      const residual = num(i, "purchaseResidualAmt") || num(i, "residualValue") || 0;
+      if ((netCF * years) + residual <= initial) return -100;
+      let low = 0.0, high = 2.0, irr = 0;
+      for (let iter = 0; iter < 100; iter++) {
+          irr = (low + high) / 2;
+          let npv = -initial;
+          if (irr === 0) npv += (netCF * years) + residual;
+          else {
+             npv += netCF * ((1 - Math.pow(1 + irr, -years)) / irr) + residual / Math.pow(1 + irr, years);
+          }
+          if (npv > 0) low = irr; else high = irr;
+      }
+      return irr * 100;
+  }},
+  { id: "cost.payback_period_inv", family: "cost", label: "Payback period", fn: (i) => {
+      const initial = num(i, "initialInvestment");
+      const cfs = (i as any).cashFlows;
+      if (Array.isArray(cfs)) {
+        let remaining = initial;
+        for(let t=0; t<cfs.length; t++) {
+           if (remaining <= cfs[t]) return t + (remaining / cfs[t]);
+           remaining -= cfs[t];
+        }
+        return 999;
+      }
+      const baseCF = num(i, "annualCashFlowNpv") || num(i, "netProfit") || num(i, "annualCashflow") || 0;
+      const rev = num(i, "revenueAnnual") || 0;
+      const opCost = num(i, "operatingCostAnnual") || 0;
+      const netCF = baseCF + rev - opCost;
+      if (netCF <= 0) return 999;
+      return initial / netCF;
+  }},
 
   // Zaman Etüdü
   { id: "measurement.standard_time", family: "measurement", label: "Standard time", fn: (i) => num(i,"observedTime") * num(i,"performanceRating") / 100 * (1 + num(i,"allowancePct") / 100) },
