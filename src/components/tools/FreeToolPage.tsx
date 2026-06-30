@@ -57,6 +57,7 @@ import {
 } from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
+import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
@@ -90,153 +91,6 @@ function validationMessage(
   return formatSmartFormFieldError(locale, "invalidNumber", { label: input.label });
 }
 
-interface FreeToolInputFieldProps {
- input: RevenueToolInput;
- value: number | string;
- error?: string;
- onChange: (key: string, value: number | string) => void;
-}
-
-const getPlaceholderForRevenueInput = (input: RevenueToolInput) => {
-  if (input.type === "currency") return "1,000";
-  if (input.type === "percent") return "15";
-  const k = input.key.toLowerCase();
-  if (k.includes("year") || k.includes("month") || k.includes("day") || k.includes("period")) return "12";
-  return "100";
-};
-
-function FreeToolInputField({
- input,
- value,
- error,
- onChange,
-}: FreeToolInputFieldProps) {
- const { onFocus, onBlur } = useGuidanceFieldFocus(input.key);
- const inputId = `free-tool-${input.key}`;
- const errorId = `${inputId}-error`;
- const isCurrency = input.type === "currency";
- const showUnit = Boolean(input.unit) && !isCurrency;
-
- if (input.type === "select" && input.options) {
- return (
- <div className="sc-industrial-field sc-form-field">
- <div className="sc-industrial-field__label-row">
- <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
- {input.label}
- {input.required ? <span aria-hidden> *</span> : null}
- </label>
- </div>
- <select
- id={inputId}
- value={String(value)}
- onChange={(event) => onChange(input.key, event.target.value)}
- onFocus={onFocus}
- onBlur={onBlur}
- aria-invalid={Boolean(error)}
- aria-describedby={error ? errorId : undefined}
- className={error ? "sc-industrial-input--error" : undefined}
- >
- {input.options.map((option) => (
- <option key={option.value} value={option.value}>
- {option.label}
- </option>
- ))}
- </select>
- {error ? (
- <p id={errorId} className="sc-industrial-field__error" role="alert">
- {error}
- </p>
- ) : null}
- </div>
- );
- }
-
- return (
- <div className="sc-industrial-field sc-form-field">
- <div className="sc-industrial-field__label-row">
- <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
- {input.label}
- {input.required ? <span aria-hidden> *</span> : null}
- </label>
- {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
- </div>
- <div className="flex min-w-0 items-stretch gap-2">
- <div className="relative min-w-0 flex-1">
- {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
- <input
- id={inputId}
- type="text"
- inputMode="decimal"
- autoComplete="off"
- placeholder={getPlaceholderForRevenueInput(input)}
- value={String(value)}
- onFocus={onFocus}
- onBlur={onBlur}
- onChange={(event) => {
- const { numeric } = handleNumericInputChange(event.target.value);
- onChange(input.key, numeric);
- }}
- aria-invalid={Boolean(error)}
- aria-describedby={error ? errorId : undefined}
- className={`sc-ledger-input-underline w-full${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
- />
- </div>
- <CalculatorUnitSelect
-   inputId={inputId}
-   fieldKey={input.key}
-   explicitUnit={input.unit}
-   isCurrency={isCurrency}
- />
- </div>
- {error ? (
- <p id={errorId} className="sc-industrial-field__error" role="alert">
- {error}
- </p>
- ) : null}
- </div>
- );
-}
-
-function FreeToolResultCard({ result }: { result: FreeToolResult }) {
-  const status = riskLevelToStatus(result.riskLevel);
-  const primaryClass =
-   status === "safe"
-    ? "sc-result-primary sc-result-primary--safe"
-    : status === "warning"
-      ? "sc-result-primary sc-result-primary--warn"
-      : status === "critical"
-        ? "sc-result-primary sc-result-primary--danger"
-        : "sc-result-primary";
-
- return (
- <div className="sc-ledger-result sc-result-panel sc-ledger-letterpress" aria-live="polite">
- <p className="sc-ledger-eyebrow">Quick tally</p>
- <p className={`mt-2 text-base font-semibold leading-snug ${STATUS_TEXT_CLASS[status]}`} data-status={status}>
- {result.headline}
- </p>
- <LedgerNumberTick value={result.summary} className={`mt-3 ${primaryClass}`} />
- </div>
- );
-}
-
-function mapRevenueInputsToPremium(inputs: readonly RevenueToolInput[]): PremiumInputDef[] {
-  return inputs.map((inp) => {
-    const isCurrency = inp.type === "currency";
-    const isPercent = inp.type === "percent";
-    return {
-      key: inp.key,
-      label: inp.label,
-      unit: isPercent ? "%" : isCurrency ? "" : inp.unit || "",
-      type: inp.type === "select" ? "select" : "number",
-      required: inp.required ?? true,
-      confidence_label: "EXACT",
-      options: inp.options?.map((o) => ({ label: o.label, value: o.value })),
-      min: inp.type === "number" ? 0 : undefined,
-      hint: inp.helperText || "",
-    } as PremiumInputDef;
-  });
-}
-
 interface FreeToolPageProps {
  tool: RevenueTool;
  featuredAnswer?: ReactNode;
@@ -261,7 +115,7 @@ export function FreeToolPage({
    slug: tool.freeSlug,
    title: tool.freeTitle,
    description: tool.painStatement,
-   category: "finance-business" as any, // default fallback
+   category: "finance-business" as any,
    inputs: tool.freeInputs.map(input => ({
      key: input.key,
      label: input.label,
@@ -291,6 +145,7 @@ export function FreeToolPage({
  const [fullLoopResult, setFullLoopResult] = useState<FreeFullLoopResult | null>(null);
  const [pilotErrors, setPilotErrors] = useState<Record<string, string>>({});
  const [pilotValues, setPilotValues] = useState<FreeToolInputValues | null>(null);
+ const [utcTime, setUtcTime] = useState("");
  const startedTracked = useRef(false);
  const formRef = useRef<HTMLFormElement>(null);
  const runtimeTrust = useMemo(
@@ -304,6 +159,14 @@ export function FreeToolPage({
   [tool.freeSlug, locale, surfaceTier],
  );
  const showCalculationSurface = runtimeTrust.calculationEligible;
+
+ // UTC clock
+ useEffect(() => {
+   const tick = () => setUtcTime("UTC · " + new Date().toISOString().replace("T", " ").slice(0, 19));
+   tick();
+   const id = setInterval(tick, 1000);
+   return () => clearInterval(id);
+ }, []);
 
  useEffect(() => {
   trackConversionEvent({
@@ -532,206 +395,249 @@ export function FreeToolPage({
  }, 400);
  };
 
+ const statusBadge = result
+   ? result.riskLevel === "LOW" ? "ok"
+   : result.riskLevel === "MEDIUM" ? "warn"
+   : "danger"
+   : null;
+
+ const decisionLabel = result?.headline?.toUpperCase() || "AWAITING INPUTS";
+ const decisionVal = result?.summary != null ? String(result.summary) : "\u2014";
+
  return (
  <PageLayout>
- <section className="sc-craft-section">
- <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-  {surfaceTier === "premium" && (
-    <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
-      <Link href="/pricing" prefetch={false} className="hover:underline">
-        {locale === "tr" ? "Premium Tools" : "Premium"}
-      </Link>
-      <span className="mx-1.5">/</span>
-      <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
-        {categoryTitle}
-      </Link>
-      <span className="mx-1.5">/</span>
-      <span className="text-premium-velvet font-medium">{tool.freeTitle}</span>
-    </nav>
-  )}
- <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
- <OsModuleHeader title={tool.freeTitle} tier="utility" slug={tool.freeSlug} locale={locale} surface={surfaceTier} />
+  <style>{HMI_CSS}</style>
+  <section className="sc-craft-section">
+  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+   {surfaceTier === "premium" && (
+     <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
+       <Link href="/pricing" prefetch={false} className="hover:underline">
+         {locale === "tr" ? "Premium Tools" : "Premium"}
+       </Link>
+       <span className="mx-1.5">/</span>
+       <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
+         {categoryTitle}
+       </Link>
+       <span className="mx-1.5">/</span>
+       <span className="text-premium-velvet font-medium">{tool.freeTitle}</span>
+     </nav>
+   )}
+  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
+  <OsModuleHeader title={tool.freeTitle} tier="utility" slug={tool.freeSlug} locale={locale} surface={surfaceTier} />
 
- {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
+  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
-{!showCalculationSurface ? (
- <ToolSafeReviewState slug={tool.freeSlug} locale={locale} findings={runtimeTrust.findings} />
-) : useSmartFormPilot || useFullLoopRuntime ? (
-<div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked mt-4">
- <SmartFormWorkspace
-  toolSlug={tool.freeSlug}
-  tier="free"
-  title={tool.freeTitle}
-  description={tool.painStatement}
-  toolSector={tool.sector}
-  inputConfig={{ kind: "revenue", inputs: tool.freeInputs }}
-  values={values}
-  errors={errors}
-  onChange={handleChange}
-  onSubmit={handleSubmit}
-  calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
-  isCalculating={isCalculating}
-  forceFallback={true}
-  nativeContractForm={false}
-  formFallback={
-   useSmartFormPilot && smartFormPilotManifest ? (
-    <SmartFormBridgeRenderer
-     manifest={smartFormPilotManifest}
-     calculationConnected
-     isCalculating={isCalculating}
-     fieldErrors={pilotErrors}
-     onPilotCalculate={handlePilotCalculate}
-     onPilotStarted={handlePilotStarted}
-    />
-   ) : (
-    <SmartToolForm
-     slug={tool.freeSlug}
-     values={values}
-     errors={errors}
-     onChange={handleChange}
-     onSubmit={handleSubmit}
-     calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
-     blocked={fullLoopResult?.status === "blocked"}
-     blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
-     isCalculating={isCalculating}
-    />
-   )
-  }
-  resultPanel={
-   <>
-    {fullLoopResult?.status === "blocked" ? (
-     <SmartFormValidationSummary
-      title={tUi("analysisBlockedTitle")}
-      blockers={fullLoopResult.blockers}
-     />
-    ) : null}
-    {isCalculating ? (
-     <p className="text-sm text-body-charcoal">{tUi("calculating")}</p>
-    ) : null}
-    {!isCalculating && result ? (
-     <>
-      <FreeToolResultCard result={result} />
-     </>
-    ) : null}
-    {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
-     <p className="text-sm text-body-charcoal">
-      {useSmartFormPilot ? tUi("pilotAwaiting") : tCalc("awaiting")}
-     </p>
-    ) : null}
-   </>
-  }
-  hasCalculated={submitted && !isCalculating && result !== null}
-  resultSummary={result ? {
-   primaryValue: result.summary,
-   status: result.riskLevel === "LOW" ? "safe" : result.riskLevel === "MEDIUM" ? "watch" : "danger",
-   actionRecommendation: result.headline,
-  } : null}
-  trustTraceSlot={undefined}
- />
-  <CalculationFeedbackButton
-   toolSlug={tool.freeSlug}
-   toolType={surfaceTier === "premium" ? "premium" : "free"}
-   locale={locale}
-   routePath={pagePath}
-   inputSnapshot={feedbackInputSnapshot}
-   resultSnapshot={feedbackResultSnapshot}
-  />
-  {surfaceTier === "premium" && (
-    <div className="mt-8 border-t border-technical-gray/20 pt-6">
-      <FreeToolAuthorityBlock
-        tool={mockTrafficTool as any}
-        locale={locale}
-        localizedTitle={tool.freeTitle}
-        localizedDescription={tool.painStatement}
-        labels={{
-          howItWorksTitle: tAuthority("howItWorksTitle"),
-          descriptionTitle: tAuthority("descriptionTitle"),
-          formulaTitle: tAuthority("formulaTitle"),
-          inputsTitle: tAuthority("inputsTitle"),
-          includesTitle: tAuthority("includesTitle"),
-          includes1: tAuthority("includes1"),
-          includes2: tAuthority("includes2"),
-          includes3: tAuthority("includes3"),
-          estimateMissesTitle: tAuthority("estimateMissesTitle"),
-          estimateMissesBody: tAuthority("estimateMissesBody"),
-          faqTitle: tPremiumAuthority("faqTitle"),
-          faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
-          faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
-          faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
-          faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
-          faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
-          faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
-          relatedGuideTitle: tAuthority("relatedGuideTitle"),
-          relatedHubTitle: tAuthority("relatedHubTitle"),
-          relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
-          relatedPremiumCta: tAuthority("relatedPremiumCta"),
-        }}
-      />
-    </div>
-  )}
-</div>
-) : (
-<div>
- <FreeToolPremiumCalculator
-   title={tool.freeTitle}
-   category={tool.sector}
-   toolId={`PRO_${tool.freeSlug.toUpperCase()}`}
-   standards={tool.sector ? [tool.sector] : []}
-   inputs={mapRevenueInputsToPremium(tool.freeInputs)}
-   values={values}
-   errors={errors}
-   onChange={handleChange}
-   onSubmit={(e) => { e.preventDefault(); handleSubmit(e as unknown as FormEvent<HTMLFormElement>); }}
-   isCalculating={isCalculating}
-   calculateLabel={tCalc("calculate")}
-   onReset={() => { setValues(buildInitialValues(tool)); setErrors({}); }}
-  />
-  <CalculationFeedbackButton
-   toolSlug={tool.freeSlug}
-   toolType={surfaceTier === "premium" ? "premium" : "free"}
-   locale={locale}
-   routePath={pagePath}
-   inputSnapshot={feedbackInputSnapshot}
-   resultSnapshot={undefined}
-  />
-  {surfaceTier === "premium" && (
-    <div className="mt-8 border-t border-technical-gray/20 pt-6">
-      <FreeToolAuthorityBlock
-        tool={mockTrafficTool as any}
-        locale={locale}
-        localizedTitle={tool.freeTitle}
-        localizedDescription={tool.painStatement}
-        labels={{
-          howItWorksTitle: tAuthority("howItWorksTitle"),
-          descriptionTitle: tAuthority("descriptionTitle"),
-          formulaTitle: tAuthority("formulaTitle"),
-          inputsTitle: tAuthority("inputsTitle"),
-          includesTitle: tAuthority("includesTitle"),
-          includes1: tAuthority("includes1"),
-          includes2: tAuthority("includes2"),
-          includes3: tAuthority("includes3"),
-          estimateMissesTitle: tAuthority("estimateMissesTitle"),
-          estimateMissesBody: tAuthority("estimateMissesBody"),
-          faqTitle: tPremiumAuthority("faqTitle"),
-          faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
-          faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
-          faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
-          faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
-          faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
-          faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
-          relatedGuideTitle: tAuthority("relatedGuideTitle"),
-          relatedHubTitle: tAuthority("relatedHubTitle"),
-          relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
-          relatedPremiumCta: tAuthority("relatedPremiumCta"),
-        }}
-      />
-    </div>
-  )}
-</div>
-)}
+ {!showCalculationSurface ? (
+  <ToolSafeReviewState slug={tool.freeSlug} locale={locale} findings={runtimeTrust.findings} />
+ ) : (
+  <div className="wrap" style={{ padding: "20px 0" }}>
+   {/* STATUS STRIP */}
+   <div className="status-strip">
+     <div className="brand">
+       <span className="led ok pulse" />
+       <div>
+         <div className="brand-mark">SECTORCALC FREE</div>
+         <div className="brand-sub">Industrial Free Tool Engine · {(tool.sector || "").toUpperCase()}</div>
+       </div>
+     </div>
+     <div className="indicators">
+       <div className="ind"><span className="led ok" /><b>RUN</b></div>
+       <div className="ind"><span className="led off" /><b>ALM</b></div>
+       <div className="ind"><span className="led off" /><b>PENDING</b></div>
+       <div className="ind"><span className="led signal pulse" /><b>COM</b></div>
+       <div className="timestamp">{utcTime || "\u2014"}</div>
+     </div>
+   </div>
+
+   {/* DISPLAY HEADER */}
+   <div className="display-header">
+     <div>
+       <div className="module-id">MODULE · {tool.freeSlug} · FREE</div>
+       <h1>{tool.freeTitle}</h1>
+       <div className="sub-cap">{tool.painStatement}</div>
+     </div>
+     <div className="meta">
+       <div className="pill-row">
+         <span className="pill">{surfaceTier === "premium" ? "PREMIUM" : "FREE"}</span>
+         <span className="pill">RISK · {result ? decisionLabel : "\u2014"}</span>
+       </div>
+     </div>
+   </div>
+
+   <div className="grid">
+     <main>
+       <form ref={formRef} onSubmit={handleSubmit} noValidate data-calculation-form="true">
+         {tool.freeInputs.map((input, idx) => {
+           const value = values[input.key] ?? (input.type === "select" ? "" : 0);
+           const showUnit = Boolean(input.unit) && input.type !== "currency";
+
+           let ctrl: React.ReactNode = null;
+           if (input.type === "select" && input.options) {
+             ctrl = (
+               <button type="button" className="choice" onClick={() => {}}>
+                 <span className="cv">{String(value)}</span>
+                 <span className="car">\u25be</span>
+               </button>
+             );
+           } else {
+             ctrl = (
+               <div className="ctrl">
+                 <input
+                   type="text"
+                   inputMode="decimal"
+                   autoComplete="off"
+                   value={String(value)}
+                   onChange={(event) => {
+                     const { numeric } = handleNumericInputChange(event.target.value);
+                     handleChange(input.key, numeric);
+                   }}
+                   aria-label={input.label}
+                 />
+                 {showUnit ? <span className="ubtn static">{input.unit}</span> : null}
+               </div>
+             );
+           }
+
+           return (
+             <div key={input.key} className="group">
+               <div className="group-head">
+                 <span className="led ok group-led" />
+                 <span className="group-letter">INP · {String.fromCharCode(65 + idx)}.01</span>
+                 <span className="group-title">{input.label}</span>
+                 <span className="group-count">1 CH</span>
+               </div>
+               <div className="fields">
+                 <div className="field">
+                   {ctrl}
+                   {input.helperText ? (
+                     <div className="ref">
+                       <span className="info" tabIndex={0}>i<span className="tip">{input.helperText}</span></span>
+                     </div>
+                   ) : null}
+                 </div>
+               </div>
+             </div>
+           );
+         })}
+
+         {/* EXECUTE PANEL */}
+         <div className="exec-panel">
+           <div className="exec-status">
+             <span className={`led ${result ? "ok" : "off"}`} />
+             <div>
+               <div><b>{result ? "COMMITTED" : "READY"}</b></div>
+               <div className="tx">{(isCalculating || result) ? `Last · ${tool.freeSlug}` : "Enter inputs below"}</div>
+             </div>
+           </div>
+           <button type="submit" className="btn-exec" disabled={isCalculating}>
+             <span>{isCalculating ? "CALCULATING..." : "\u25b6 EXECUTE"}</span>
+             <span className="kbd">F9</span>
+           </button>
+         </div>
+       </form>
+     </main>
+
+     <aside className="rail">
+       {/* Decision */}
+       <div className={`decision ${statusBadge === "danger" ? "review" : statusBadge === "ok" ? "ok" : ""}`}>
+         <div className="d-label">PRIMARY READOUT · STATUS</div>
+         {result ? (
+           <>
+             <div className="d-text">{decisionVal}</div>
+             <div className="d-sub">{decisionLabel}</div>
+           </>
+         ) : (
+           <div className="d-text" style={{ fontSize: "14px", color: "var(--ink-50)" }}>{\u2014}</div>
+         )}
+       </div>
+
+       {/* Full-loop blockers */}
+       {fullLoopResult?.status === "blocked" ? (
+         <div className="card readout">
+           <h3>VALIDATION SUMMARY</h3>
+           <div className="readout">
+             <SmartFormValidationSummary
+               title={tUi("analysisBlockedTitle")}
+               blockers={fullLoopResult.blockers}
+             />
+           </div>
+         </div>
+       ) : null}
+
+       {/* Result KPIs */}
+       {result ? (
+         <div className="card readout">
+           <h3>PRIMARY READOUTS</h3>
+           <div className="kpis">
+             <div className="kpi">
+               <div className="k-label">Summary Value</div>
+               <div className="k-val">{result.summary} <span className="k-unit">{tool.sector ? tool.sector.toUpperCase() : ""}</span></div>
+             </div>
+             <div className="kpi">
+               <div className="k-label">Risk Level</div>
+               <div className="k-val">{result.riskLevel}</div>
+             </div>
+           </div>
+         </div>
+       ) : null}
+
+       {/* No result state */}
+       {!result && fullLoopResult?.status !== "blocked" ? (
+         <div className="card readout">
+           <h3>ENGINEERING DIAGNOSTICS</h3>
+           <div className="readout" style={{ color: "var(--ink-50)", fontSize: "11px", fontFamily: "var(--mono)", letterSpacing: ".08em", textTransform: "uppercase" }}>
+             {isCalculating ? "Calculating..." : "Enter inputs and execute."}
+           </div>
+         </div>
+       ) : null}
+
+       {/* Authority block (in HMI style) */}
+       {surfaceTier === "premium" && (
+         <div className="card readout">
+           <h3>INDUSTRY REFERENCE</h3>
+           <div className="readout">
+             <FreeToolAuthorityBlock
+               tool={mockTrafficTool as any}
+               locale={locale}
+               localizedTitle={tool.freeTitle}
+               localizedDescription={tool.painStatement}
+               labels={{
+                 howItWorksTitle: tAuthority("howItWorksTitle"),
+                 descriptionTitle: tAuthority("descriptionTitle"),
+                 formulaTitle: tAuthority("formulaTitle"),
+                 inputsTitle: tAuthority("inputsTitle"),
+                 includesTitle: tAuthority("includesTitle"),
+                 includes1: tAuthority("includes1"),
+                 includes2: tAuthority("includes2"),
+                 includes3: tAuthority("includes3"),
+                 estimateMissesTitle: tAuthority("estimateMissesTitle"),
+                 estimateMissesBody: tAuthority("estimateMissesBody"),
+                 faqTitle: tPremiumAuthority("faqTitle"),
+                 faqUseTitle: tPremiumAuthority("faqMeasureTitle"),
+                 faqFreeTitle: tPremiumAuthority("faqIsFreeTitle"),
+                 faqPremiumTitle: tPremiumAuthority("faqPremiumTitle"),
+                 faqUseAnswer: tPremiumAuthority("faqMeasureAnswer", { name: tool.freeTitle }),
+                 faqFreeAnswer: tPremiumAuthority("faqIsFreeAnswer"),
+                 faqPremiumAnswer: tPremiumAuthority("faqPremiumAnswer"),
+                 relatedGuideTitle: tAuthority("relatedGuideTitle"),
+                 relatedHubTitle: tAuthority("relatedHubTitle"),
+                 relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
+                 relatedPremiumCta: tAuthority("relatedPremiumCta"),
+               }}
+             />
+           </div>
+         </div>
+       )}
+
+       {/* Export */}
+       <button className="btn-export" onClick={() => window.print()}>⏎ EXPORT REPORT</button>
+     </aside>
+   </div>
+  </div>
+ )}
  <ExpertAuthoritySection toolName={tool.freeTitle} />
  </Container>
  </section>
- </PageLayout>
+</PageLayout>
  );
 }

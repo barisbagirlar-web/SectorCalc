@@ -429,11 +429,76 @@ export function listPremiumSchemaIds(): readonly string[] {
   return PREMIUM_CALCULATOR_SCHEMAS.map((schema) => schema.id);
 }
 
+/**
+ * Deep-normalize a premium schema: replace all Turkish base fields
+ * with their _i18n.en equivalents so the UI always renders English.
+ */
+function normalizeSchemaToEnglish(schema: PremiumCalculatorSchema): PremiumCalculatorSchema {
+  // Cloned output — we mutate a working copy to bypass readonly
+  const out = JSON.parse(JSON.stringify(schema)) as PremiumCalculatorSchema;
+
+  if (out.name_i18n?.en) out.name = out.name_i18n.en;
+  if (out.painStatement_i18n?.en) out.painStatement = out.painStatement_i18n.en;
+
+  if (out.inputs) {
+    out.inputs = out.inputs.map((inp) => {
+      const i = inp as Record<string, unknown>;
+      if (i.label_i18n && (i.label_i18n as Record<string, string>).en) i.label = (i.label_i18n as Record<string, string>).en;
+      if (i.helper_i18n && (i.helper_i18n as Record<string, string>).en) i.helper = (i.helper_i18n as Record<string, string>).en;
+      if (i.expertMeaning_i18n && (i.expertMeaning_i18n as Record<string, string>).en) i.expertMeaning = (i.expertMeaning_i18n as Record<string, string>).en;
+      // handle placeholder_i18n if present
+      if (i.placeholder_i18n && (i.placeholder_i18n as Record<string, string>).en) i.placeholder = (i.placeholder_i18n as Record<string, string>).en;
+      return i as typeof inp;
+    });
+  }
+
+  if (out.outputs) {
+    out.outputs = out.outputs.map((o) => {
+      const oo = o as Record<string, unknown>;
+      if (oo.label_i18n && (oo.label_i18n as Record<string, string>).en) oo.label = (oo.label_i18n as Record<string, string>).en;
+      return oo as typeof o;
+    });
+  }
+
+  if (out.thresholds) {
+    out.thresholds = out.thresholds.map((t) => {
+      const tt = t as Record<string, unknown>;
+      if (tt.warningMessage_i18n && (tt.warningMessage_i18n as Record<string, string>).en)
+        tt.warningMessage = (tt.warningMessage_i18n as Record<string, string>).en;
+      if (tt.criticalMessage_i18n && (tt.criticalMessage_i18n as Record<string, string>).en)
+        tt.criticalMessage = (tt.criticalMessage_i18n as Record<string, string>).en;
+      return tt as typeof t;
+    });
+  }
+
+  if (out.reportTemplate) {
+    const rt = out.reportTemplate as Record<string, unknown>;
+    if (rt.title_i18n && (rt.title_i18n as Record<string, string>).en)
+      rt.title = (rt.title_i18n as Record<string, string>).en;
+  }
+
+  if (out.assumptions?.assumptionNotes && out.assumptions?.assumptionNotes_i18n) {
+    out.assumptions.assumptionNotes = out.assumptions.assumptionNotes.map(
+      (note, idx) =>
+        (out.assumptions!.assumptionNotes_i18n![idx] as Record<string, string> | undefined)?.["en"] ?? note,
+    );
+  }
+
+  return out;
+}
+
 export function getPremiumCalculatorSchema(slug: string): PremiumCalculatorSchema | null {
   const normalized = slug.trim();
-  return PREMIUM_CALCULATOR_SCHEMAS.find(
+  const raw = PREMIUM_CALCULATOR_SCHEMAS.find(
     (schema) => schema.id === normalized || schema.legacyPaidSlug === normalized,
   ) ?? null;
+  if (!raw) return null;
+  // Always return English-normalized schema — no Turkish content in UI
+  return normalizeSchemaToEnglish(raw);
+}
+
+export function getAllPremiumSchemas(): PremiumCalculatorSchema[] {
+  return PREMIUM_CALCULATOR_SCHEMAS.map(normalizeSchemaToEnglish);
 }
 
 export function getPremiumSchemaForPaidSlug(paidSlug: string): PremiumCalculatorSchema | null {

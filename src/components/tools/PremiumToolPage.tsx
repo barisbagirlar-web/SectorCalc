@@ -85,6 +85,7 @@ import {
 } from "@/lib/features/tools/revenue-tools";
 import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
+import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 
 const DownloadVerdictPdfButton = dynamic(
  () =>
@@ -95,7 +96,7 @@ const DownloadVerdictPdfButton = dynamic(
  ssr: false,
  loading: () => (
  <span className="inline-flex min-h-[44px] items-center text-sm text-text-secondary">
- Preparing PDF…
+ Preparing PDF\u2026
  </span>
  ),
  }
@@ -110,7 +111,7 @@ const SaveVerdictReportButton = dynamic(
  ssr: false,
  loading: () => (
  <span className="inline-flex min-h-[44px] items-center text-sm text-text-secondary">
- Loading save…
+ Loading save\u2026
  </span>
  ),
  }
@@ -152,89 +153,61 @@ function PremiumToolInputField({
  const showUnit = Boolean(input.unit) && input.type !== "currency";
 
  if (input.type === "select" && input.options) {
- return (
- <div className="sc-industrial-field">
- <div className="sc-industrial-field__label-row">
- <label htmlFor={inputId} className="sc-industrial-field__label">
- {input.label}
- {input.required ? <span aria-hidden> *</span> : null}
- </label>
- </div>
- <select
- id={inputId}
- value={String(value)}
- onChange={(event) => onChange(input.key, event.target.value)}
- onFocus={onFocus}
- onBlur={onBlur}
- aria-invalid={Boolean(error)}
- aria-describedby={error ? errorId : helperId}
- className={error ? "sc-industrial-input--error" : undefined}
- >
- {input.options.map((option) => (
- <option key={option.value} value={option.value}>
- {option.label}
- </option>
- ))}
- </select>
- {input.helperText ? (
- <p id={helperId} className="sc-industrial-field__helper">{input.helperText}</p>
- ) : null}
- {error ? (
- <p id={errorId} className="sc-industrial-field__error" role="alert">
- {error}
- </p>
- ) : null}
- </div>
- );
+   return (
+     <div className="field span">
+       <label htmlFor={inputId}>
+         <span className="f-name">{input.label}{input.required ? " *" : null}</span>
+       </label>
+       <button type="button" className="choice" onClick={() => {}}>
+         <span className="cv">{String(value)}</span>
+         <span className="car">\u25be</span>
+       </button>
+       {input.helperText ? (
+         <div className="ref">
+           <span className="info" tabIndex={0}>i<span className="tip">{input.helperText}</span></span>
+         </div>
+       ) : null}
+       {error ? <span className="err" style={{ display: "block" }} aria-live="assertive">{error}</span> : null}
+     </div>
+   );
  }
 
  const isCurrency = input.type === "currency";
 
  return (
- <div className="sc-industrial-field">
- <div className="sc-industrial-field__label-row">
- <label htmlFor={inputId} className="sc-industrial-field__label">
- {input.label}
- {input.required ? <span aria-hidden> *</span> : null}
- </label>
- {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
- </div>
- <div className="sc-industrial-input-wrap">
- {isCurrency ? (
- <span className="sc-industrial-input-wrap__prefix" aria-hidden>$</span>
- ) : null}
- <input
- id={inputId}
- type="text"
- inputMode="decimal"
- autoComplete="off"
- value={String(value)}
- onFocus={onFocus}
- onBlur={onBlur}
- onChange={(event) => {
- const { numeric } = handleNumericInputChange(event.target.value);
- onChange(input.key, numeric);
- }}
- aria-invalid={Boolean(error)}
- aria-describedby={error ? errorId : helperId}
- className={`sc-ledger-input-boxed sc-industrial-input${isCurrency ? " sc-industrial-input--currency" : ""}${showUnit ? " sc-industrial-input--unit" : ""}${error ? " sc-industrial-input--error" : ""}`}
- />
- </div>
- {input.helperText ? (
- <p id={helperId} className="sc-industrial-field__helper">{input.helperText}</p>
- ) : null}
- {error ? (
- <p id={errorId} className="sc-industrial-field__error" role="alert">
- {error}
- </p>
- ) : null}
- </div>
+   <div className={`field${isCurrency ? "" : ""} ${!showUnit ? "span" : ""}`}>
+     <label htmlFor={inputId}>
+       <span className="f-name">{input.label}{input.required ? " *" : null}</span>
+     </label>
+     <div className="ctrl">
+       <input
+         id={inputId}
+         type="text"
+         inputMode="decimal"
+         autoComplete="off"
+         value={String(value)}
+         onChange={(event) => {
+           const { numeric } = handleNumericInputChange(event.target.value);
+           onChange(input.key, numeric);
+         }}
+         aria-invalid={Boolean(error)}
+         aria-describedby={error ? errorId : helperId}
+       />
+       {isCurrency ? <span className="ubtn static">$</span> : showUnit ? <span className="ubtn static">{input.unit}</span> : null}
+     </div>
+     {input.helperText ? (
+       <div className="ref">
+         <span className="info" tabIndex={0}>i<span className="tip">{input.helperText}</span></span>
+       </div>
+     ) : null}
+     {error ? <span className="err" style={{ display: "block" }} aria-live="assertive">{error}</span> : null}
+   </div>
  );
 }
 
 interface PremiumToolPageProps {
  tool: RevenueTool;
- /** URL slug — funnel alias routes use governance runtime slug, not paidSlug. */
+ /** URL slug \u2014 funnel alias routes use governance runtime slug, not paidSlug. */
  routeSlug?: string;
 }
 
@@ -300,6 +273,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const [isCalculating, setIsCalculating] = useState(false);
  const [errors, setErrors] = useState<Record<string, string>>({});
  const [mode, setMode] = useState<CalculatorExperienceMode>("quick");
+ const [utcTime, setUtcTime] = useState("");
 
  const usePremiumSmartForm = hasPremiumSmartFormDefinition(runtimeSlug);
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
@@ -329,40 +303,6 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  }, [runtimeSlug, tool.paidInputs, tool.sector, smartFormAdapter]);
 
  const visiblePaidInputs = tool.paidInputs;
-
- const premiumGuidanceFields = useMemo(() => {
-  if (smartFormAdapter.ok) {
-   return [
-    ...smartFormAdapter.simpleSections.flatMap((section) => section.inputs),
-    ...smartFormAdapter.expertSections.flatMap((section) => section.inputs),
-   ].map((input) => ({
-    key: input.key,
-    label: input.label,
-    type: input.type,
-    unitGroup: input.unit,
-   }));
-  }
-  return buildGuidanceFieldsFromKeys(
-   tool.paidInputs.map((input) => ({
-    key: input.key,
-    label: input.label,
-    unit: input.unit,
-    type: input.type,
-   })),
-  );
- }, [smartFormAdapter, tool.paidInputs]);
-
- const wrapPremiumGuidance = (node: ReactNode) => (
-  <ToolGuidanceLayout
-   toolSlug={runtimeSlug}
-   tier="premium"
-   fields={premiumGuidanceFields}
-   toolTitle={tool.paidTitle}
-   toolSector={tool.sector}
-  >
-   {node}
-  </ToolGuidanceLayout>
- );
 
  const devPro = isDevelopmentProBypass();
  const accessMode = resolvePremiumAccessMode({
@@ -406,7 +346,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   const submitDisabled = isCalculating || needsCreditLoad;
   const submitText = needsCreditLoad
     ? "Load credits to calculate"
-    : (isCalculating ? "Calculating…" : "Run calculation");
+    : (isCalculating ? "Calculating\u2026" : "Run calculation");
 
   const hasCalculated = submitted && Boolean(result) && !isCalculating;
 
@@ -436,6 +376,14 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  }, [result]);
 
  const resultTracked = useRef(false);
+
+ // UTC clock
+ useEffect(() => {
+   const tick = () => setUtcTime("UTC \u00b7 " + new Date().toISOString().replace("T", " ").slice(0, 19));
+   tick();
+   const id = setInterval(tick, 1000);
+   return () => clearInterval(id);
+ }, []);
 
  useEffect(() => {
  trackRevenueEvent(REVENUE_EVENTS.premium_analyzer_viewed, {
@@ -490,85 +438,6 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  resultTracked.current = false;
  }
  }, [result, canAccessAnalyzer, tool.paidSlug]);
-
- const renderAnalysisOutput = (variant: "legacy" | "primary") => {
- if (isCalculating) {
- return variant === "primary" ? (
- <p className="text-sm text-body-charcoal">Calculating…</p>
- ) : null;
- }
-
- if (useFullLoopRuntime && submitted && fullLoopResult?.status === "blocked") {
- return (
- <>
- <SmartFormValidationSummary
-  title="Calculation blocked"
-  blockers={fullLoopResult.blockers}
- />
- {hasFullPremiumFeatures ? (
-  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
- ) : (
-  <ProFeatureNotice messageKey="lockedTrustTrace" />
- )}
- </>
- );
- }
-
- if (decisionReport && result) {
- return (
- <>
- <PremiumAnalyzerReportPanel report={decisionReport} />
- {hasFullPremiumFeatures && verdictReportData ? (
-  <>
-   <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-    <DownloadVerdictPdfButton
-     data={verdictReportData}
-     slug={tool.paidSlug}
-     severity={result.severity}
-    />
-    {user ? (
-     <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
-    ) : null}
-   </div>
-   {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
-    <>
-     <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-    </>
-   ) : null}
-  </>
- ) : (
-  <ProLockedAction paidSlug={tool.paidSlug} messageKey="lockedExport">
-   {verdictReportData ? (
-    <DownloadVerdictPdfButton
-     data={verdictReportData}
-     slug={tool.paidSlug}
-     severity={result.severity}
-    />
-   ) : null}
-  </ProLockedAction>
- )}
- {isCncStochastic ? (
- <PremiumDecisionReportPanel
- variant="stochastic"
- sector={tool.sector}
- inputs={toStochasticInputs(values)}
- inputsReady={arePremiumToolInputsValid(tool, values)}
- toolSlug={tool.paidSlug}
- toolTitle={tool.paidTitle}
- />
- ) : null}
- </>
- );
- }
-
- if (!submitted) {
- return (
- <p className="text-sm text-body-charcoal">Enter job inputs and run the calculation.</p>
- );
- }
-
- return null;
- };
 
  const handleChange = (key: string, value: number | string) => {
  resetCreditRunSession(tool.paidSlug);
@@ -689,292 +558,553 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  })();
  };
 
+ const isOK = result?.severity === "LOW" || result?.verdict === "ACCEPTABLE";
+ const isDanger = result?.severity === "HIGH" || result?.verdict === "REJECT";
+
  return (
  <PageLayout>
- <section className="sc-craft-section">
- <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
- {loading ? (
- <p className="text-sm text-body-charcoal">Loading access…</p>
- ) : (
- <>
-  <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
-      <Link href="/pricing" prefetch={false} className="hover:underline">
-        {locale === "tr" ? "Premium" : "Premium"}
-      </Link>
-      <span className="mx-1.5">/</span>
-      <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
-        {categoryTitle}
-      </Link>
-    <span className="mx-1.5">/</span>
-    <span className="text-premium-velvet font-medium">{tool.paidTitle}</span>
-  </nav>
- <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
- <OsModuleHeader title={tool.paidTitle} tier="intelligence" slug={runtimeSlug} locale={locale} surface="premium" />
-  <div className="my-5">
-    <FeaturedAnswerBlock
-      question={featuredQuestion}
-      answer={featuredAnswer}
-      bullets={[
-        locale === "tr" ? "Precise input parameters and tolerance checks" : "Precise input parameters and tolerance checks",
-        locale === "tr" ? "Cost, time or quality loss analysis" : "Cost, time or quality loss analysis",
-        locale === "tr" ? "Professional reporting and data integration" : "Professional reporting and data integration"
-      ]}
-    />
-  </div>
- {!hasFullPremiumFeatures ? (
-  <PremiumAccessBanner mode={accessMode} paidSlug={tool.paidSlug} />
- ) : null}
- {user && !hasFullPremiumFeatures && !isSuperUser ? (
-  <Suspense fallback={null}>
-   <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
-  </Suspense>
- ) : null}
- {user && requiresCreditConsume && showCalculationSurface ? (
-  <p className="mt-2 text-sm text-body-charcoal">
-   Credits: {creditBalance}
-   {hasCredits ? " — 1 credit per premium run." : null}
-  </p>
- ) : null}
- {needsCreditLoad && showCalculationSurface ? (
-  <div className="mt-4 rounded-sm border border-amber/30 bg-premium-surface p-4 sm:p-5">
-   <p className="text-xs font-semibold uppercase tracking-wider text-amber">Credits required</p>
-   <h2 className="mt-2 text-lg font-bold text-premium-velvet">Load credits to run this analyzer</h2>
-   <p className="mt-2 text-sm leading-relaxed text-body-charcoal">
-    Each full premium calculation uses 1 credit. SectorCalc Pro subscribers run without credits.
+  <style>{HMI_CSS}</style>
+  <section className="sc-craft-section">
+  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+  {loading ? (
+   <p className="text-sm text-body-charcoal">Loading access\u2026</p>
+  ) : (
+  <>
+   <nav aria-label="Breadcrumb" className="mb-4 text-xs text-body-charcoal">
+       <Link href="/pricing" prefetch={false} className="hover:underline">
+         {locale === "tr" ? "Premium" : "Premium"}
+       </Link>
+       <span className="mx-1.5">/</span>
+       <Link href={`/pricing?tool=${categorySlug}`} prefetch={false} className="hover:underline">
+         {categoryTitle}
+       </Link>
+     <span className="mx-1.5">/</span>
+     <span className="text-premium-velvet font-medium">{tool.paidTitle}</span>
+   </nav>
+  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
+  <OsModuleHeader title={tool.paidTitle} tier="intelligence" slug={runtimeSlug} locale={locale} surface="premium" />
+   <div className="my-5">
+     <FeaturedAnswerBlock
+       question={featuredQuestion}
+       answer={featuredAnswer}
+       bullets={[
+         "Precise input parameters and tolerance checks",
+         "Cost, time or quality loss analysis",
+         "Professional reporting and data integration"
+       ]}
+     />
+   </div>
+  {!hasFullPremiumFeatures ? (
+   <PremiumAccessBanner mode={accessMode} paidSlug={tool.paidSlug} />
+  ) : null}
+  {user && !hasFullPremiumFeatures && !isSuperUser ? (
+   <Suspense fallback={null}>
+    <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
+   </Suspense>
+  ) : null}
+  {user && requiresCreditConsume && showCalculationSurface ? (
+   <p className="mt-2 text-sm text-body-charcoal">
+    Credits: {creditBalance}
+    {hasCredits ? " \u2014 1 credit per premium run." : null}
    </p>
-   <button
-    type="button"
-    disabled={creditPending}
-    onClick={() =>
-     void startCreditPackCheckout({
-      toolSlug: tool.paidSlug,
-      returnPath: `/tools/premium/${tool.paidSlug}`,
-      locale,
-      creditPackSize: 5,
-     }).catch(() => undefined)
-    }
-    className="sc-cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-4 disabled:opacity-60"
-   >
-    Load 5 credits — $4.99
-   </button>
-  </div>
- ) : null}
- {error ? (
-  <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
-   {error}
-  </p>
- ) : null}
- {!showCalculationSurface ? (
-  <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
- ) : showSchemaPilot ? (
- <>
- <DynamicPremiumCalculator schema={schemaPilot!} />
- {tool.paidInputs.length > 0 && (
- <details className="mt-4 sc-industrial-panel p-4">
- <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wider text-body-charcoal">
- Legacy contract engine (PDF-compatible)
- </summary>
- <div className="sc-tool-workspace mt-4">
- <form
- onSubmit={handleSubmit}
- className="sc-form-shell sc-form-grid sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
- noValidate
- data-calculation-form="true"
- >
- {tool.paidInputs.map((input) => (
- <PremiumToolInputField
- key={input.key}
- input={input}
- value={values[input.key] ?? (input.type === "select" ? "" : 0)}
- error={errors[input.key]}
- onChange={handleChange}
- />
- ))}
-  <div className="sc-industrial-form-actions">
-  <button type="submit" disabled={submitDisabled || creditPending} className="sc-cta-primary min-h-[48px] disabled:opacity-60">
-  {submitText}
-  </button>
-  </div>
- </form>
- <div className="sc-tool-workspace__result min-w-0 space-y-4">
- {renderAnalysisOutput("legacy")}
- </div>
- </div>
- </details>
- )}
- </>
- ) : (
- <>
- <SmartFormShell
-  title={tool.paidTitle}
-  description={tool.paidValue}
-  tier="premium"
-  experience={experience}
-  mode={mode}
-  onModeChange={setMode}
-  hasCalculated={hasCalculated}
-  fallback={useFullLoopRuntime || !smartFormAdapter.ok}
-  formContent={wrapPremiumGuidance(
-   (useFullLoopRuntime && smartFormAdapter.ok) ? (
-    usePremiumSmartForm ? (
-     <DynamicSmartFormPilot
-      slug={runtimeSlug}
-      values={values}
-      errors={errors}
-      onChange={handleChange}
-      onSubmit={handleSubmit}
-      calculateLabel={submitText}
-      isCalculating={isCalculating}
-      disabled={submitDisabled}
-     />
-    ) : (
-     <SmartToolForm
-      slug={runtimeSlug}
-      values={values}
-      errors={errors}
-      onChange={handleChange}
-      onSubmit={handleSubmit}
-      calculateLabel={submitText}
-      blocked={submitted && fullLoopResult?.status === "blocked"}
-      blockers={
-       submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
-      }
-      isCalculating={isCalculating}
-      disabled={submitDisabled}
-     />
-    )
-   ) : (
-    <form
-     onSubmit={handleSubmit}
-     className="sc-form-shell sc-form-grid sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
-     noValidate
-     data-calculation-form="true"
+  ) : null}
+  {needsCreditLoad && showCalculationSurface ? (
+   <div className="mt-4 rounded-sm border border-amber/30 bg-premium-surface p-4 sm:p-5">
+    <p className="text-xs font-semibold uppercase tracking-wider text-amber">Credits required</p>
+    <h2 className="mt-2 text-lg font-bold text-premium-velvet">Load credits to run this analyzer</h2>
+    <p className="mt-2 text-sm leading-relaxed text-body-charcoal">
+     Each full premium calculation uses 1 credit. SectorCalc Pro subscribers run without credits.
+    </p>
+    <button
+     type="button"
+     disabled={creditPending}
+     onClick={() =>
+      void startCreditPackCheckout({
+       toolSlug: tool.paidSlug,
+       returnPath: `/tools/premium/${tool.paidSlug}`,
+       locale,
+       creditPackSize: 5,
+      }).catch(() => undefined)
+     }
+     className="sc-cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-4 disabled:opacity-60"
     >
-     {visiblePaidInputs.map((input) => (
-      <PremiumToolInputField
-       key={input.key}
-       input={input}
-       value={values[input.key] ?? (input.type === "select" ? "" : 0)}
-       error={errors[input.key]}
-       onChange={handleChange}
-      />
-     ))}
-     <div className="sc-industrial-form-actions">
-      <button
-       type="submit"
-       disabled={submitDisabled || creditPending}
-       className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
-      >
-       {submitText}
-      </button>
+     Load 5 credits \u2014 $4.99
+    </button>
+   </div>
+  ) : null}
+  {error ? (
+   <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
+    {error}
+   </p>
+  ) : null}
+  {!showCalculationSurface ? (
+   <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
+  ) : showSchemaPilot ? (
+  <>
+  <DynamicPremiumCalculator schema={schemaPilot!} />
+  {tool.paidInputs.length > 0 && (
+  <div className="wrap" style={{ padding: "20px 0" }}>
+   {/* STATUS STRIP */}
+   <div className="status-strip">
+     <div className="brand">
+       <span className="led ok pulse" />
+       <div>
+         <div className="brand-mark">SECTORCALC PRO</div>
+         <div className="brand-sub">Legacy Contract Engine \u00b7 {(tool.sector || "").toUpperCase()}</div>
+       </div>
      </div>
-    </form>
-   )
-  )}
-  resultContent={
-   hasCalculated ? (
-      <ResultLayerTabs
-       quickContent={
-        <SmartResultPanel
-         calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
-         trustTraceSlot={
-          useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-           <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-          ) : undefined
-         }
-        >
-         <div className="min-w-0 space-y-4">{renderAnalysisOutput("primary")}</div>
-        </SmartResultPanel>
-       }
-       deepContent={
-         <div className="space-y-4">
-          {useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-           <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-          ) : undefined}
+     <div className="indicators">
+       <div className="ind"><span className="led ok" /><b>RUN</b></div>
+       <div className="ind"><span className="led off" /><b>ALM</b></div>
+       <div className="ind"><span className="led off" /><b>PENDING</b></div>
+       <div className="ind"><span className="led signal pulse" /><b>COM</b></div>
+       <div className="timestamp">{utcTime || "\u2014"}</div>
+     </div>
+   </div>
+   <div className="display-header">
+     <div>
+       <div className="module-id">MODULE \u00b7 {tool.paidSlug} \u00b7 PREMIUM</div>
+       <h1>{tool.paidTitle}</h1>
+       <div className="sub-cap">Legacy engine (PDF-compatible)</div>
+     </div>
+     <div className="meta">
+       <div className="pill-row">
+         <span className="pill pro">PREMIUM</span>
+         <span className="pill">{result ? result.verdict : "\u2014"}</span>
+       </div>
+     </div>
+   </div>
+   <div className="grid">
+     <main>
+       <form onSubmit={handleSubmit} noValidate data-calculation-form="true">
+         {tool.paidInputs.map((input, idx) => {
+           const value = values[input.key] ?? (input.type === "select" ? "" : 0);
+           return (
+             <div key={input.key} className="group">
+               <div className="group-head">
+                 <span className="led ok group-led" />
+                 <span className="group-letter">INP \u00b7 {String.fromCharCode(65 + idx)}.01</span>
+                 <span className="group-title">{input.label}</span>
+                 <span className="group-count">1 CH</span>
+               </div>
+               <div className="fields">
+                 <PremiumToolInputField
+                   input={input}
+                   value={value}
+                   error={errors[input.key]}
+                   onChange={handleChange}
+                 />
+               </div>
+             </div>
+           );
+         })}
+         <div className="exec-panel">
+           <div className="exec-status">
+             <span className={`led ${result ? "ok" : "off"}`} />
+             <div>
+               <div><b>{result ? "COMMITTED" : "READY"}</b></div>
+               <div className="tx">{(hasCalculated) ? `Last \u00b7 ${tool.paidSlug}` : "Enter inputs below"}</div>
+             </div>
+           </div>
+           <button type="submit" disabled={submitDisabled || creditPending} className="btn-exec">
+             <span>{submitText}</span>
+             <span className="kbd">F9</span>
+           </button>
          </div>
-        }
-      />
-   ) : undefined
-  }
- />
- {hasCalculated && decisionReport && result ? (
-  <div className="mt-12">
-    <ProDecisionPanel
-      values={values}
-      result={result}
-      locale={locale}
-      toolSlug={tool.paidSlug}
-      toolTitle={tool.paidTitle}
-    />
+       </form>
+     </main>
+     <aside className="rail">
+       {/* Decision */}
+       <div className={`decision ${isDanger ? "review" : isOK ? "ok" : ""}`}>
+         <div className="d-label">PRIMARY READOUT \u00b7 STATUS</div>
+         {result ? (
+           <>
+             <div className="d-text">{result.primaryMetricValue}</div>
+             <div className="d-sub">{result.verdict} \u00b7 {result.headline}</div>
+           </>
+         ) : (
+           <div className="d-text" style={{ fontSize: "14px", color: "var(--ink-50)" }}>{"\u2014"}</div>
+         )}
+       </div>
+
+       {/* Full-loop blockers */}
+       {useFullLoopRuntime && submitted && fullLoopResult?.status === "blocked" ? (
+         <div className="card readout">
+           <h3>VALIDATION</h3>
+           <div className="readout">
+             <SmartFormValidationSummary
+               title="Calculation blocked"
+               blockers={fullLoopResult.blockers}
+             />
+           </div>
+           {hasFullPremiumFeatures && fullLoopResult ? (
+             <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+           ) : null}
+         </div>
+       ) : null}
+
+       {/* Analysis output */}
+       {decisionReport && result ? (
+         <>
+           <div className="card readout">
+             <h3>PRIMARY READOUTS</h3>
+             <div className="readout">
+               <PremiumAnalyzerReportPanel report={decisionReport} />
+             </div>
+           </div>
+           <div className="card readout">
+             <h3>ACTIONS & EXPORT</h3>
+             <div className="readout">
+               {hasFullPremiumFeatures && verdictReportData ? (
+                 <div className="blk">
+                   <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                     <DownloadVerdictPdfButton
+                       data={verdictReportData}
+                       slug={tool.paidSlug}
+                       severity={result.severity}
+                     />
+                     {user ? (
+                       <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
+                     ) : null}
+                   </div>
+                 </div>
+               ) : (
+                 <ProLockedAction paidSlug={tool.paidSlug} messageKey="lockedExport">
+                   {verdictReportData ? (
+                     <DownloadVerdictPdfButton
+                       data={verdictReportData}
+                       slug={tool.paidSlug}
+                       severity={result.severity}
+                     />
+                   ) : null}
+                 </ProLockedAction>
+               )}
+               {isCncStochastic ? (
+                 <div className="blk">
+                   <PremiumDecisionReportPanel
+                     variant="stochastic"
+                     sector={tool.sector}
+                     inputs={toStochasticInputs(values)}
+                     inputsReady={arePremiumToolInputsValid(tool, values)}
+                     toolSlug={tool.paidSlug}
+                     toolTitle={tool.paidTitle}
+                   />
+                 </div>
+               ) : null}
+             </div>
+           </div>
+         </>
+       ) : null}
+
+       {/* No result state */}
+       {!submitted && !result ? (
+         <div className="card readout">
+           <h3>ENGINEERING DIAGNOSTICS</h3>
+           <div className="readout" style={{ color: "var(--ink-50)", fontSize: "11px", fontFamily: "var(--mono)", letterSpacing: ".08em", textTransform: "uppercase" }}>
+             Enter job inputs and run the calculation.
+           </div>
+         </div>
+       ) : null}
+
+       {/* Export */}
+       <button className="btn-export" onClick={() => window.print()}>{"\u2398"} EXPORT REPORT</button>
+     </aside>
+   </div>
   </div>
- ) : null}
- </>
- )}
- </>
- )}
- </Container>
- </section>
- <section className="border-t border-technical-gray/20 bg-white py-6">
- <Container>
- <CalculationFeedbackButton
-  toolSlug={runtimeSlug}
-  toolType="premium"
-  locale={locale}
-  routePath={pagePath}
-  inputSnapshot={feedbackInputSnapshot}
-  resultSnapshot={feedbackResultSnapshot}
- />
- </Container>
- </section>
- <section className="border-t border-technical-gray/20 bg-white pb-10">
-   <Container className="max-w-4xl">
-     <PremiumAnalyzerAuthorityBlock
-       schema={authoritySchema as any}
-       locale={locale}
-       displayName={tool.paidTitle}
-       displayPain={tool.paidValue}
-       labels={{
-         whenToUseTitle: tAuthority("whenToUseTitle"),
-         whenToUseBody: tAuthority("whenToUseBody"),
-         measuresTitle: tAuthority("measuresTitle"),
-         promiseTitle: tAuthority("promiseTitle"),
-         promiseBody: tAuthority("promiseBody"),
-         decidesTitle: tAuthority("decidesTitle"),
-         decidesBody: tAuthority("decidesBody"),
-         reportTitle: tAuthority("reportTitle"),
-         reportBullet1: tAuthority("reportBullet1"),
-         reportBullet2: tAuthority("reportBullet2"),
-         reportBullet3: tAuthority("reportBullet3"),
-         reportBullet4: tAuthority("reportBullet4"),
-         previewExcludesTitle: tAuthority("previewExcludesTitle"),
-         previewExcludesBody: tAuthority("previewExcludesBody"),
-         assumptionsTitle: tAuthority("assumptionsTitle"),
-         faqTitle: tAuthority("faqTitle"),
-         faqMeasureTitle: tAuthority("faqMeasureTitle"),
-         faqReportTitle: tAuthority("faqReportTitle"),
-         faqErpTitle: tAuthority("faqErpTitle"),
-         faqMeasureAnswer: tAuthority("faqMeasureAnswer", { name: tool.paidTitle }),
-         faqReportAnswer: tAuthority("faqReportAnswer"),
-         faqErpAnswer: tAuthority("faqErpAnswer"),
-         relatedGuideTitle: tAuthority("relatedGuideTitle"),
-         relatedFreeTitle: tAuthority("relatedFreeTitle"),
-         relatedHubTitle: tAuthority("relatedHubTitle"),
-         relatedIndustryTitle: tAuthority("relatedIndustryTitle"),
-         pricingCta: tAuthority("pricingCta"),
-       }}
-    />
+  )}
+  </>
+  ) : (
+  <>
+   {/* HMI form for premium */}
+   <div className="wrap" style={{ padding: "20px 0" }}>
+     <div className="status-strip">
+       <div className="brand">
+         <span className="led ok pulse" />
+         <div>
+           <div className="brand-mark">SECTORCALC PRO</div>
+           <div className="brand-sub">Premium Analysis Engine \u00b7 {(tool.sector || "").toUpperCase()}</div>
+         </div>
+       </div>
+       <div className="indicators">
+         <div className="ind"><span className="led ok" /><b>RUN</b></div>
+         <div className="ind"><span className="led off" /><b>ALM</b></div>
+         <div className="ind"><span className="led off" /><b>PENDING</b></div>
+         <div className="ind"><span className="led signal pulse" /><b>COM</b></div>
+         <div className="timestamp">{utcTime || "\u2014"}</div>
+       </div>
+     </div>
+     <div className="display-header">
+       <div>
+         <div className="module-id">MODULE \u00b7 {tool.paidSlug} \u00b7 PREMIUM</div>
+         <h1>{tool.paidTitle}</h1>
+         <div className="sub-cap">{tool.paidValue}</div>
+       </div>
+       <div className="meta">
+         <div className="pill-row">
+           <span className="pill pro">PREMIUM</span>
+           <span className="pill">RISK \u00b7 {result ? result.verdict : "\u2014"}</span>
+         </div>
+         <div className="stds">
+           <span className="std">Sector: {tool.sector}</span>
+         </div>
+       </div>
+     </div>
+     <div className="grid">
+       <main>
+         <form
+           onSubmit={handleSubmit}
+           noValidate
+           data-calculation-form="true"
+         >
+           {(useFullLoopRuntime && smartFormAdapter.ok && !usePremiumSmartForm) ? (
+             <>
+               {tool.paidInputs.map((input, idx) => {
+                 const value = values[input.key] ?? (input.type === "select" ? "" : 0);
+                 return (
+                   <div key={input.key} className="group">
+                     <div className="group-head">
+                       <span className="led ok group-led" />
+                       <span className="group-letter">INP \u00b7 {String.fromCharCode(65 + idx)}.01</span>
+                       <span className="group-title">{input.label}</span>
+                       <span className="group-count">1 CH</span>
+                     </div>
+                     <div className="fields">
+                       <PremiumToolInputField
+                         input={input}
+                         value={value}
+                         error={errors[input.key]}
+                         onChange={handleChange}
+                       />
+                     </div>
+                   </div>
+                 );
+               })}
+             </>
+           ) : usePremiumSmartForm ? (
+             <div className="group">
+               <div className="group-head">
+                 <span className="led ok group-led" />
+                 <span className="group-letter">SMART</span>
+                 <span className="group-title">Smart Form Inputs</span>
+                 <span className="group-count">AUTO</span>
+               </div>
+               <div className="fields">
+                 <div className="field span">
+                   <DynamicSmartFormPilot
+                     slug={runtimeSlug}
+                     values={values}
+                     errors={errors}
+                     onChange={handleChange}
+                     onSubmit={handleSubmit}
+                     calculateLabel={submitText}
+                     isCalculating={isCalculating}
+                     disabled={submitDisabled}
+                   />
+                 </div>
+               </div>
+             </div>
+           ) : (
+             <>
+               {visiblePaidInputs.map((input, idx) => {
+                 const value = values[input.key] ?? (input.type === "select" ? "" : 0);
+                 return (
+                   <div key={input.key} className="group">
+                     <div className="group-head">
+                       <span className="led ok group-led" />
+                       <span className="group-letter">INP \u00b7 {String.fromCharCode(65 + idx)}.01</span>
+                       <span className="group-title">{input.label}</span>
+                       <span className="group-count">1 CH</span>
+                     </div>
+                     <div className="fields">
+                       <PremiumToolInputField
+                         input={input}
+                         value={value}
+                         error={errors[input.key]}
+                         onChange={handleChange}
+                       />
+                     </div>
+                   </div>
+                 );
+               })}
+             </>
+           )}
+           <div className="exec-panel">
+             <div className="exec-status">
+               <span className={`led ${result ? "ok" : "off"}`} />
+               <div>
+                 <div><b>{result ? "COMMITTED" : "READY"}</b></div>
+                 <div className="tx">{hasCalculated ? `Last \u00b7 ${tool.paidSlug}` : "Enter inputs below"}</div>
+               </div>
+             </div>
+             <button type="submit" disabled={submitDisabled || creditPending} className="btn-exec">
+               <span>{submitText}</span>
+               <span className="kbd">F9</span>
+             </button>
+           </div>
+         </form>
+       </main>
+       <aside className="rail">
+         {/* Decision */}
+         <div className={`decision ${isDanger ? "review" : isOK ? "ok" : ""}`}>
+           <div className="d-label">PRIMARY READOUT \u00b7 STATUS</div>
+           {result ? (
+             <>
+               <div className="d-text">{result.primaryMetricValue}</div>
+               <div className="d-sub">{result.verdict} \u00b7 {result.headline}</div>
+             </>
+           ) : (
+             <div className="d-text" style={{ fontSize: "14px", color: "var(--ink-50)" }}>{"\u2014"}</div>
+           )}
+         </div>
+
+         {/* Analysis output */}
+         {decisionReport && result ? (
+           <>
+             <div className="card readout">
+               <h3>PRIMARY READOUTS</h3>
+               <div className="readout">
+                 <PremiumAnalyzerReportPanel report={decisionReport} />
+               </div>
+             </div>
+             <div className="card readout">
+               <h3>ACTIONS & EXPORT</h3>
+               <div className="readout">
+                 {hasFullPremiumFeatures && verdictReportData ? (
+                   <div className="blk">
+                     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                       <DownloadVerdictPdfButton
+                         data={verdictReportData}
+                         slug={tool.paidSlug}
+                         severity={result.severity}
+                       />
+                       {user ? (
+                         <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
+                       ) : null}
+                     </div>
+                   </div>
+                 ) : (
+                   <ProLockedAction paidSlug={tool.paidSlug} messageKey="lockedExport">
+                     {verdictReportData ? (
+                       <DownloadVerdictPdfButton
+                         data={verdictReportData}
+                         slug={tool.paidSlug}
+                         severity={result.severity}
+                       />
+                     ) : null}
+                   </ProLockedAction>
+                 )}
+                 {isCncStochastic ? (
+                   <div className="blk">
+                     <PremiumDecisionReportPanel
+                       variant="stochastic"
+                       sector={tool.sector}
+                       inputs={toStochasticInputs(values)}
+                       inputsReady={arePremiumToolInputsValid(tool, values)}
+                       toolSlug={tool.paidSlug}
+                       toolTitle={tool.paidTitle}
+                     />
+                   </div>
+                 ) : null}
+               </div>
+             </div>
+             {/* Pro decision panel */}
+             <div className="card readout">
+               <h3>DECISION ANALYSIS</h3>
+               <div className="readout">
+                 <ProDecisionPanel
+                   values={values}
+                   result={result}
+                   locale={locale}
+                   toolSlug={tool.paidSlug}
+                   toolTitle={tool.paidTitle}
+                 />
+               </div>
+             </div>
+           </>
+         ) : null}
+
+         {/* No result state */}
+         {!submitted && !result ? (
+           <div className="card readout">
+             <h3>ENGINEERING DIAGNOSTICS</h3>
+             <div className="readout" style={{ color: "var(--ink-50)", fontSize: "11px", fontFamily: "var(--mono)", letterSpacing: ".08em", textTransform: "uppercase" }}>
+               Enter job inputs and run the calculation.
+             </div>
+           </div>
+         ) : null}
+
+         {/* Export */}
+         <button className="btn-export" onClick={() => window.print()}>{"\u2398"} EXPORT REPORT</button>
+       </aside>
+     </div>
+   </div>
+  </>
+  )}
+  </>
+  )}
   </Container>
-</section>
-<section className="border-t border-technical-gray/40 bg-off-white">
+  </section>
+  <section className="border-t border-technical-gray/20 bg-white py-6">
   <Container>
-    <ExpertAuthoritySection toolName={tool.paidTitle} />
+  <CalculationFeedbackButton
+   toolSlug={runtimeSlug}
+   toolType="premium"
+   locale={locale}
+   routePath={pagePath}
+   inputSnapshot={feedbackInputSnapshot}
+   resultSnapshot={feedbackResultSnapshot}
+  />
   </Container>
-</section>
-<section className="border-t border-technical-gray/40 bg-off-white py-6">
-<Container>
-<p className="text-xs leading-relaxed text-body-charcoal">{tool.legalDisclaimer || revenueLegalDisclaimer}</p>
-</Container>
-</section>
+  </section>
+  <section className="border-t border-technical-gray/20 bg-white pb-10">
+    <Container className="max-w-4xl">
+      <PremiumAnalyzerAuthorityBlock
+        schema={authoritySchema as any}
+        locale={locale}
+        displayName={tool.paidTitle}
+        displayPain={tool.paidValue}
+        labels={{
+          whenToUseTitle: tAuthority("whenToUseTitle"),
+          whenToUseBody: tAuthority("whenToUseBody"),
+          measuresTitle: tAuthority("measuresTitle"),
+          promiseTitle: tAuthority("promiseTitle"),
+          promiseBody: tAuthority("promiseBody"),
+          decidesTitle: tAuthority("decidesTitle"),
+          decidesBody: tAuthority("decidesBody"),
+          reportTitle: tAuthority("reportTitle"),
+          reportBullet1: tAuthority("reportBullet1"),
+          reportBullet2: tAuthority("reportBullet2"),
+          reportBullet3: tAuthority("reportBullet3"),
+          reportBullet4: tAuthority("reportBullet4"),
+          previewExcludesTitle: tAuthority("previewExcludesTitle"),
+          previewExcludesBody: tAuthority("previewExcludesBody"),
+          assumptionsTitle: tAuthority("assumptionsTitle"),
+          faqTitle: tAuthority("faqTitle"),
+          faqMeasureTitle: tAuthority("faqMeasureTitle"),
+          faqReportTitle: tAuthority("faqReportTitle"),
+          faqErpTitle: tAuthority("faqErpTitle"),
+          faqMeasureAnswer: tAuthority("faqMeasureAnswer", { name: tool.paidTitle }),
+          faqReportAnswer: tAuthority("faqReportAnswer"),
+          faqErpAnswer: tAuthority("faqErpAnswer"),
+          relatedGuideTitle: tAuthority("relatedGuideTitle"),
+          relatedFreeTitle: tAuthority("relatedFreeTitle"),
+          relatedHubTitle: tAuthority("relatedHubTitle"),
+          relatedIndustryTitle: tAuthority("relatedIndustryTitle"),
+          pricingCta: tAuthority("pricingCta"),
+        }}
+     />
+   </Container>
+  </section>
+  <section className="border-t border-technical-gray/40 bg-off-white">
+    <Container>
+      <ExpertAuthoritySection toolName={tool.paidTitle} />
+    </Container>
+  </section>
+  <section className="border-t border-technical-gray/40 bg-off-white py-6">
+  <Container>
+  <p className="text-xs leading-relaxed text-body-charcoal">{tool.legalDisclaimer || revenueLegalDisclaimer}</p>
+  </Container>
+  </section>
 </PageLayout>
  );
 }
