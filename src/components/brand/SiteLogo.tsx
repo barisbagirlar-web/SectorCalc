@@ -18,7 +18,7 @@ export function SiteLogo({
   priority = false,
   className = "",
 }: SiteLogoProps) {
-  const t = useTranslations("a11y");
+
   const wordmark =
     variant === "on-dark" ? BRAND_ASSETS.logo.onDark : BRAND_ASSETS.logo.default;
 
@@ -30,29 +30,13 @@ export function SiteLogo({
       aria-label="SectorCalc home"
     >
       <Image
-        src={BRAND_ASSETS.favicon.master}
-        alt=""
-        width={24}
-        height={24}
-        priority={priority}
-        unoptimized
-        className="sc-site-logo__mark"
-        aria-hidden
-      />
-      <span className="sc-site-logo__combo">
-        <span className="sc-site-logo__text">
-          <span className="sc-site-logo__text-sector">Sector</span>
-          <span className="sc-site-logo__text-calc">Calc</span>
-        </span>
-      </span>
-      <Image
         src={wordmark}
         alt="SectorCalc"
         width={160}
         height={42}
         priority={priority}
         unoptimized
-        className="site-logo__img sc-site-logo__wordmark sr-only"
+        className="site-logo__img sc-site-logo__wordmark"
       />
     </Link>
   );
