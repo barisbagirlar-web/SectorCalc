@@ -92,6 +92,7 @@ export function adaptToolSchema(
       confidence_label: conf,
       note: resolveEnglishNote(inp),
       reference: inp.reference || inp.ref || undefined,
+      unit_family: inp.unit_family || undefined,
     };
   });
 

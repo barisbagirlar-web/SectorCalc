@@ -11,6 +11,8 @@ export type ToolInputField = {
   confidence_label: string;
   note: string;
   reference?: string;
+  /** Unit family key matching FAM in unit-conversion (e.g. "length", "mass", "currency"). Enables unit switching popover. */
+  unit_family?: string;
 };
 
 export type ToolFormula = {

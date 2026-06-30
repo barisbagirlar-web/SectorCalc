@@ -52,6 +52,9 @@ export type GeneratedToolInput = {
   readonly label_i18n?: GeneratedToolI18nText;
   readonly type: GeneratedToolInputType;
   readonly unit: string;
+  readonly symbol?: string;
+  readonly confidence_label?: string;
+  readonly reference?: string;
   readonly default?: number | string | boolean;
   readonly min?: number | null;
   readonly max?: number | null;
@@ -60,6 +63,8 @@ export type GeneratedToolInput = {
   readonly businessContext: string;
   readonly businessContext_i18n?: GeneratedToolI18nText;
   readonly group?: string;
+  /** Unit family key matching FAM in unit-conversion (e.g. "length", "mass", "currency"). When set, enables unit switching via popover. */
+  readonly unit_family?: string;
 };
 
 export type GeneratedToolSchema = {

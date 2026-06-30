@@ -23,7 +23,10 @@ export function classify(inp: ToolInputField): InputCls {
   if (inp.unit === "boolean") return { c: "bool" };
   if (u === "ratio") return { c: "ratio" };
   if (u.indexOf("currency") === 0) return { c: "ccy", suffix: inp.unit.slice(8) };
+  if (inp.unit_family === "currency") return { c: "ccy", suffix: "" };
   if (u === "unit" || u === "package") return { c: "int", label: inp.unit };
+  // Check explicit unit_family first (resolved from schema unit_families map)
+  if (inp.unit_family && FAM[inp.unit_family]) return { c: "num", fam: inp.unit_family, declared: inp.unit };
   if (UNIT_MAP[u]) return { c: "num", fam: UNIT_MAP[u][0], declared: UNIT_MAP[u][1] };
   return { c: "num", label: inp.unit || undefined };
 }
