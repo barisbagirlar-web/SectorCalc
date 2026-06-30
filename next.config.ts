@@ -23,10 +23,15 @@ class EnsureManifestStubsPlugin {
       const nextDir = path.join(process.cwd(), ".next");
       const serverDir = path.join(nextDir, "server");
       const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
+      const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
       // Only create if missing — Next.js may have generated it for hybrid apps.
       if (!fs.existsSync(pagesManifestPath)) {
         fs.mkdirSync(serverDir, { recursive: true });
         fs.writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
+      }
+      if (!fs.existsSync(appPathsManifestPath)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+        fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
       }
     });
   }
