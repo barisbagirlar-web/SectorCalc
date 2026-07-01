@@ -211,13 +211,13 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     const vFails: string[] = [];
     (tool.engine_rules?.validation?.rules || []).forEach((r) => {
       const ok = safeEval(compiled.v[r.id], scope);
-      if (ok !== true) vFails.push(r.message);
+      if (ok === false) vFails.push(r.message);
     });
     if (vFails.length > 0) {
       // Find first failing field and flash it
       for (const rule of tool.engine_rules?.validation?.rules || []) {
         const ok = safeEval(compiled.v[rule.id], scope);
-        if (ok !== true) {
+        if (ok === false) {
           for (const inp of tool.inputs || []) {
             if (rule.condition.includes(inp.id)) {
               const el = document.getElementById("field_" + inp.id);
@@ -268,7 +268,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     let hasBlocking = false;
     (tool.engine_rules?.validation?.rules || []).forEach((rule) => {
       const ok = safeEval(compiled.v[rule.id], scope);
-      if (ok !== true) {
+      if (ok === false) {
         hasBlocking = true;
         (tool.inputs || []).forEach((inp) => {
           if (!valErrors[inp.id] && rule.condition.includes(inp.id)) valErrors[inp.id] = rule.message;
@@ -306,7 +306,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     (tool.inputs || []).forEach((inp) => { scope[inp.id] = draft[inp.id]; });
     (tool.engine_rules?.validation?.rules || []).forEach((rule) => {
       const ok = safeEval(compiled.v[rule.id], scope);
-      if (ok !== true) {
+      if (ok === false) {
         (tool.inputs || []).forEach((inp) => {
           if (!errs[inp.id] && rule.condition.includes(inp.id)) errs[inp.id] = rule.message;
         });
