@@ -120,11 +120,8 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/free-tools", "hub", 0.9, "weekly"),
     createItem("/premium-tools", "hub", 0.9, "weekly"),
     createItem("/calculator-library", "hub", 0.85, "monthly"),
-    createItem("/developer-showcase", "hub", 0.85, "monthly"),
     createItem("/industries", "hub", 0.9, "monthly"),
-    createItem("/beta-partner", "hub", 0.75, "monthly"),
     createItem("/how-it-works", "hub", 0.7, "monthly"),
-    createItem("/investor-demo", "hub", 0.65, "monthly"),
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
     ...listGlobalCategories().map((category) =>

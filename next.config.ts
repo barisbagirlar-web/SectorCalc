@@ -222,11 +222,15 @@ const nextConfig: NextConfig = {
       },
       // Sitemap cache headers
       {
-        source: "/sitemap/:path*",
+        source: "/(sitemap\\.xml|sitemap-.*\\.xml)",
         headers: [
           {
+            key: "Content-Type",
+            value: "application/xml",
+          },
+          {
             key: "Cache-Control",
-            value: "public, max-age=3600, stale-while-revalidate=86400",
+            value: "public, max-age=3600",
           },
         ],
       },

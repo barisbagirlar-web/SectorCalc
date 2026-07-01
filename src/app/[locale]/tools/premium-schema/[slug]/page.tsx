@@ -26,6 +26,7 @@ import {
   getPremiumSchemaBySlug,
   listPremiumSchemaSlugs,
 } from "@/lib/features/premium-schema/schemas/index";
+import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 interface PremiumSchemaPageParams {
@@ -74,10 +75,14 @@ export async function generateMetadata({
       ? (tierOneMeta?.metaTitle ?? `${displayName} | SectorCalc`)
       : `${displayName} | SectorCalc`;
 
+  const canonicalPath = getGeneratedToolSchema(schema.id)
+    ? `/tools/generated/${schema.id}`
+    : `/tools/premium-schema/${schema.id}`;
+
   return createPageMetadata({
     title: metaTitle,
     description: tierOneMeta?.metaDescription ?? displayPain,
-    path: `/tools/premium-schema/${schema.id}`,
+    path: canonicalPath,
     locale: locale as AppLocale,
   });
 }

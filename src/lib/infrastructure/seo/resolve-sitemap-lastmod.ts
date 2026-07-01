@@ -15,9 +15,9 @@ const SEO_LANDING_PATH = /^\/seo\/([^/]+)$/;
 
 const CONTENT_SOURCE_FILES = {
   guides: path.join(process.cwd(), "src/lib/content/authority-guides.ts"),
-  seoLandings: path.join(process.cwd(), "src/lib/seo/programmatic-seo-pages.ts"),
-  premiumRegistry: path.join(process.cwd(), "src/lib/premium-schema/schema-registry.ts"),
-  manifest: path.join(process.cwd(), "src/lib/seo/sitemap-manifest.ts"),
+  seoLandings: path.join(process.cwd(), "src/lib/infrastructure/seo/programmatic-seo-pages.ts"),
+  premiumRegistry: path.join(process.cwd(), "src/lib/features/premium-schema/schema-registry.ts"),
+  manifest: path.join(process.cwd(), "src/lib/infrastructure/seo/sitemap-manifest.ts"),
 } as const;
 
 const staticPagePathSet = new Set(getStaticPages().map((page) => page.path));
@@ -56,7 +56,7 @@ function resolveGeneratedOrPremiumToolLastMod(slug: string, fallback: Date): Dat
 
   const premiumSchemaPath = path.join(
     process.cwd(),
-    "src/lib/premium-schema/schemas",
+    "src/lib/features/premium-schema/schemas",
     `${slug}.ts`,
   );
   const premiumMtime = readFileMtime(premiumSchemaPath);

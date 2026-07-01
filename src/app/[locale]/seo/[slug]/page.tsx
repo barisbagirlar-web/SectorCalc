@@ -74,7 +74,7 @@ export async function generateMetadata({
     return createPageMetadata({
       title: fill("metaTitle"),
       description: fill("metaDescription"),
-      path: premiumLanding.seoHref,
+      path: premiumLanding.premiumHref,
       locale: locale as AppLocale,
     });
   }

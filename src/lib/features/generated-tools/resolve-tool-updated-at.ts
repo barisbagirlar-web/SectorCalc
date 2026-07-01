@@ -8,7 +8,7 @@ const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const GENERATED_DIR = path.join(process.cwd(), "generated");
 const STANDARD_OVERRIDES_PATH = path.join(
   process.cwd(),
-  "src/lib/generated-tools/standard-calculator-overrides.ts",
+  "src/lib/features/generated-tools/standard-calculator-overrides.ts",
 );
 
 function readLatestMtimeIso(paths: readonly string[]): string | null {
