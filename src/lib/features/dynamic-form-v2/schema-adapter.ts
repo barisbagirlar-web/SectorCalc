@@ -7,6 +7,7 @@
  */
 
 import type { ToolData, ToolInputField, ToolOutput, InputGroup, ValidationRule, SmartWarning } from "./types";
+import { validateInputFieldReference } from "@/schemas/tool-input-schema";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyToolSchema = Record<string, any>;
@@ -96,6 +97,20 @@ export function adaptToolSchema(
       benchmarks: inp.benchmarks || undefined,
     };
   });
+
+  // ---- REFERENCE VALIDATION (development only) ----
+  if (process.env.NODE_ENV !== "production") {
+    for (const inp of rawInputs) {
+      const refWarnings = validateInputFieldReference({
+        id: inp.id,
+        reference: inp.reference || inp.ref,
+        unit: inp.unit || "unit",
+      });
+      for (const w of refWarnings) {
+        console.warn("[schema-adapter] " + w);
+      }
+    }
+  }
 
   // ---- OUTPUTS ----
   const rawOutputs = schema.outputs || {};
