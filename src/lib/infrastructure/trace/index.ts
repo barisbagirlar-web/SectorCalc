@@ -6,3 +6,11 @@ export {
   TRACE_FREE_SYSTEM_PROMPT,
   TRACE_PRO_SYSTEM_PROMPT,
 } from "@/lib/infrastructure/trace/prompts";
+export {
+  sanitizeHistory,
+  stripAllToolBlocks,
+} from "@/lib/infrastructure/trace/trace-sanitizer";
+export type {
+  SanitizableMessage,
+  ContentBlock,
+} from "@/lib/infrastructure/trace/trace-sanitizer";

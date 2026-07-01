@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  sanitizeHistory,
+  stripAllToolBlocks,
+  type SanitizableMessage,
+} from "@/lib/infrastructure/trace/trace-sanitizer";
 
 /**
  * Trace AI — audit-grounded analysis copilot for the SectorCalc credit engine.
@@ -20,8 +25,14 @@ import { useEffect, useMemo, useRef, useState } from "react";
  *   <TraceAI
  *     context={{ toolId: "PRO_CREDIT_ASSESSMENT_ENGINE", decision, score,
  *                recommendedMaxFacility, bindingConstraint, currency }}
- *     onAsk={(q, ctx) => streamFromYourLLM(q, ctx)}
+ *     onAsk={(q, ctx, history) => streamFromYourLLM(q, ctx, history)}
  *   />
+ *
+ * History sanitizer:
+ *   The conversation history passed to `onAsk` is auto-sanitized — orphaned
+ *   `tool_use` messages and all `tool_use` blocks are stripped (trace never
+ *   calls tools). If the upstream API returns `invalid_request_error`, a
+ *   retry with fully cleaned history is attempted once.
  */
 
 /* ----------------------------- Types ----------------------------- */
@@ -40,8 +51,15 @@ export type AskResult = string | AsyncIterable<string>;
 export interface TraceAIProps {
   /** Live assessment context shown in the panel and passed to `onAsk`. */
   context?: TraceContext;
-  /** Backend hook. Return a string, or an AsyncIterable<string> to stream. */
-  onAsk?: (question: string, context: TraceContext) => Promise<AskResult> | AskResult;
+  /**
+   * Backend hook. Return a string, or an AsyncIterable<string> to stream.
+   * `history` is the auto-sanitized conversation (tool_use blocks stripped).
+   */
+  onAsk?: (
+    question: string,
+    context: TraceContext,
+    history: SanitizableMessage[],
+  ) => Promise<AskResult> | AskResult;
   /** Suggested prompts (chips). Defaults are credit-engine specific. */
   suggestions?: string[];
   /** Canned answers when no `onAsk` is provided. */
@@ -51,6 +69,8 @@ export interface TraceAIProps {
   /** Heading shown on the panel. */
   title?: string;
 }
+
+export type TraceMessage = SanitizableMessage;
 
 interface Message {
   role: "user" | "assistant";
@@ -210,7 +230,8 @@ export function TraceAI({
   async function ask(question: string) {
     const q = question.trim();
     if (!q || busy) return;
-    setMessages((m) => [...m, { role: "user", content: q }]);
+    const updatedMessages: Message[] = [...messages, { role: "user", content: q }];
+    setMessages(updatedMessages);
     setInput("");
     if (inputRef.current) inputRef.current.style.height = "auto";
     setBusy(true);
@@ -219,7 +240,8 @@ export function TraceAI({
         await new Promise((r) => setTimeout(r, 500));
         setMessages((m) => [...m, { role: "assistant", content: demoAnswer(q) }]);
       } else {
-        const result = await onAsk(q, context);
+        const safeHistory = stripAllToolBlocks(updatedMessages);
+        const result = await onAsk(q, context, safeHistory);
         if (isAsyncIterable(result)) {
           setMessages((m) => [...m, { role: "assistant", content: "" }]);
           for await (const token of result) {
@@ -236,10 +258,39 @@ export function TraceAI({
           setMessages((m) => [...m, { role: "assistant", content: String(result) }]);
         }
       }
-    } catch {
+    } catch (e: unknown) {
+      const err = e as { error?: { type?: string }; message?: string };
+      if (err?.error?.type === "invalid_request_error" && onAsk && !demoMode) {
+        // Retry once with fully sanitized history
+        try {
+          const safer = sanitizeHistory(stripAllToolBlocks(updatedMessages));
+          const retry = await onAsk(q, context, safer);
+          if (isAsyncIterable(retry)) {
+            setMessages((m) => [...m, { role: "assistant", content: "" }]);
+            for await (const token of retry) {
+              setMessages((m) => {
+                const copy = m.slice();
+                copy[copy.length - 1] = {
+                  role: "assistant",
+                  content: copy[copy.length - 1].content + token,
+                };
+                return copy;
+              });
+            }
+          } else {
+            setMessages((m) => [...m, { role: "assistant", content: String(retry) }]);
+          }
+          return;
+        } catch {
+          // retry failed — fall through to generic error
+        }
+      }
       setMessages((m) => [
         ...m,
-        { role: "assistant", content: "Couldn't reach the analysis service. Try again." },
+        {
+          role: "assistant",
+          content: "Couldn't reach the analysis service. Try again.",
+        },
       ]);
     } finally {
       setBusy(false);

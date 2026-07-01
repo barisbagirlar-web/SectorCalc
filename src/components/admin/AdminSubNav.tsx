@@ -6,6 +6,7 @@ import { AdminLocaleSwitcher } from "@/lib/features/admin/admin-locale-context";
 
 const NAV_ITEMS = [
   { href: "/admin/case-studies", label: "Case Studies" },
+  { href: "/admin/tickets", label: "Support Tickets" },
   { href: "/admin/leads", label: "Lead Intents" },
   { href: "/admin/kpi", label: "Live KPI Review" },
   { href: "/admin/benchmarks", label: "Benchmark Data" },
@@ -33,7 +34,7 @@ export function AdminSubNav() {
           <Link
             key={item.href}
             href={item.href}
-            className={linkClass(pathname === item.href)}
+            className={linkClass(pathname !== null && (pathname === item.href || pathname.startsWith(item.href + "/")))}
           >
             {item.label}
           </Link>
