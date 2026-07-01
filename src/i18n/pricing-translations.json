@@ -70,11 +70,31 @@
       "trust_worldwide": "Used in 45+ countries",
       "trust_refund": "Refund policy",
       "price_usd": "All prices in USD",
-      "tier_use_1": ["Verify a critical load calculation", "Check a single design parameter", "Spot-check a supplier quote"],
-      "tier_use_5": ["Complete a project cost breakdown", "Audit one production line", "Validate a capital equipment decision"],
-      "tier_use_15": ["Full monthly engineering toolkit", "OEE + scrap + downtime in one cycle", "Shift report with 3 analysed machines"],
-      "tier_use_30": ["Quarterly operational audit", "Multi-line OEE benchmarking", "Full lean waste (7 muda) mapping"],
-      "tier_use_100": ["Annual department access", "Continuous improvement programme", "Cross-site production benchmarking"]
+      "tier_use_1": [
+        "Verify a critical load calculation",
+        "Check a single design parameter",
+        "Spot-check a supplier quote"
+      ],
+      "tier_use_5": [
+        "Complete a project cost breakdown",
+        "Audit one production line",
+        "Validate a capital equipment decision"
+      ],
+      "tier_use_15": [
+        "Full monthly engineering toolkit",
+        "OEE + scrap + downtime in one cycle",
+        "Shift report with 3 analysed machines"
+      ],
+      "tier_use_30": [
+        "Quarterly operational audit",
+        "Multi-line OEE benchmarking",
+        "Full lean waste (7 muda) mapping"
+      ],
+      "tier_use_100": [
+        "Annual department access",
+        "Continuous improvement programme",
+        "Cross-site production benchmarking"
+      ]
     },
     "free_tools": {
       "hero_title": "Free industrial calculators",
@@ -110,119 +130,6 @@
       "feature_4_body": "Pro tools don't just calculate — they show the financial impact of the result on your operation.",
       "credits_cta": "Get credits →",
       "one_credit": "1 credit per calculation"
-    }
-  },
-  "tr": {
-    "dir": "ltr",
-    "pricing": {
-      "eyebrow": "SectorCalc Pro",
-      "hero_title": "161 pro hesap makinesi.\nSadece kullandığın kadar öde.",
-      "hero_sub": "Abonelik yok. Otomatik yenileme yok. Krediler satın alma tarihinden itibaren 12 ay geçerli.",
-      "social_calcs": "hesaplama tamamlandı",
-      "social_tools": "pro araç",
-      "social_countries": "ülke",
-      "value_anchor": "Tek bir hesaplama, dört saatlik manuel çalışmanın kaçırdığını ortaya çıkarır.",
-      "value_sub": "Tek bir OEE analizi, genellikle 40.000–120.000 $ arasında gizli üretim kaybı tespit eder. Hurda maliyet denetimi, ilk sonuçta kendini amorti eder.",
-      "credit_what": "Kredi nedir?",
-      "credit_what_body": "Bir kredi, bir pro hesaplamayı açar. Gerçek fabrika verilerinizi girin, doğru endüstriyel formüle dayalı yapılandırılmış bir sonuç alın — PDF export dahil. Krediler 12 ay süresince geçerlidir.",
-      "tier_trial_name": "Deneme",
-      "tier_trial_desc": "Tek kritik değeri doğrula",
-      "tier_starter_name": "Başlangıç",
-      "tier_starter_desc": "Tek proje analizi",
-      "tier_standard_name": "Standart",
-      "tier_standard_desc": "Aylık mühendislik araç seti",
-      "tier_pro_name": "Profesyonel",
-      "tier_pro_desc": "Tam operasyonel denetim döngüsü",
-      "tier_enterprise_name": "Kurumsal",
-      "tier_enterprise_desc": "Departman genelinde yıllık erişim",
-      "popular_badge": "En iyi değer",
-      "per_credit": "kredi başına",
-      "save": "İndirim",
-      "buy_cta": "Kredi satın al",
-      "credits_label": "kredi",
-      "what_unlocks_title": "Bir kredi ne açar",
-      "what_unlocks_sub": "Pro araçlar formülün ötesine geçer — gerçek operasyonel parametrelerinizi modellerler.",
-      "how_title": "Nasıl çalışır",
-      "step1_title": "Kredi satın al",
-      "step1_body": "Paket seç. Hesabına anında yüklenir.",
-      "step2_title": "Herhangi bir pro aracı aç",
-      "step2_body": "Gerçek makine, malzeme veya proses verilerini gir.",
-      "step3_title": "Sonucunu al",
-      "step3_body": "PDF export ile yapılandırılmış çıktı. Doğru endüstriyel standarda göre.",
-      "why_not_sub_title": "Abonelik değil mühendislik kararı için tasarlandı",
-      "why_not_sub_body": "Abonelik, bu ay denetim yapsan da yapmasan da aylık ödeme zorlar. Krediler, tam hat incelemesi yaptığında bir günde 15 hesaplama yapmanı, durgun bir ayda hiçbir şey ödememen anlamına gelir.",
-      "faq_title": "Sık sorulan sorular",
-      "faq": [
-        {
-          "q": "Kredileri farklı sektörlerde kullanabilir miyim?",
-          "a": "Evet. Bir kredi herhangi bir sektördeki herhangi bir pro araç için çalışır — üretimde OEE, inşaatta CPM, enerjide ESG. Krediler sektöre kilitli değildir."
-        },
-        {
-          "q": "Kredilerin süresi doluyor mu?",
-          "a": "Krediler satın alma tarihinden itibaren 12 ay geçerlidir. Bu, tam bir yıllık planlama döngüsü boyunca baskısız kullanım sağlar."
-        },
-        {
-          "q": "Birden fazla ekip üyesi aynı hesabı kullanabilir mi?",
-          "a": "Şu anda krediler hesaba bağlıdır. Paylaşımlı ekip erişimi için ortak bir hesapta kredi satın alın."
-        },
-        {
-          "q": "Ücretsiz deneme var mı?",
-          "a": "Tüm ücretsiz araçlar giriş yapmadan kullanılabilir. Pro araçlar için kredi gereklidir. 1 kredili Deneme paketi en düşük girişi sunar."
-        },
-        {
-          "q": "PDF export ne içeriyor?",
-          "a": "PDF; girdi parametrelerinizi, sonucu, kullanılan formülü, geçerli standardı ve yorum rehberliğini içerir. İç onay ve müşteri raporlaması için uygundur."
-        },
-        {
-          "q": "Hangi ödeme yöntemleri kabul ediliyor?",
-          "a": "Visa, Mastercard, American Express ve Stripe üzerinden dijital ödeme yöntemleri. Tüm işlemler USD cinsindendir."
-        }
-      ],
-      "trust_secure": "Stripe ile güvenli ödeme",
-      "trust_valid": "12 ay geçerli krediler",
-      "trust_worldwide": "45+ ülkede kullanılıyor",
-      "trust_refund": "İade politikası",
-      "price_usd": "Tüm fiyatlar USD cinsindendir",
-      "tier_use_1": ["Kritik yük hesabını doğrula", "Tek tasarım parametresini kontrol et", "Tedarikçi teklifini spot-check et"],
-      "tier_use_5": ["Proje maliyet dökümünü tamamla", "Bir üretim hattını denetle", "Sermaye ekipman kararını doğrula"],
-      "tier_use_15": ["Tam aylık mühendislik araç seti", "Tek döngüde OEE + hurda + duruş", "3 analiz edilmiş makine ile vardiya raporu"],
-      "tier_use_30": ["Çeyreklik operasyonel denetim", "Çok hatlı OEE kıyaslama", "Tam yalın israf (7 muda) haritalama"],
-      "tier_use_100": ["Yıllık departman erişimi", "Sürekli iyileştirme programı", "Çok tesisli üretim kıyaslama"]
-    },
-    "free_tools": {
-      "hero_title": "Ücretsiz endüstriyel hesap makineleri",
-      "hero_sub": "Mühendislik kalitesinde araçlar. Giriş gerekmez. Anında sonuç.",
-      "search_placeholder": "Hesap makinesi ara...",
-      "sector_all": "Tüm sektörler",
-      "pro_upsell_title": "Tam resme ihtiyacın var mı?",
-      "pro_upsell_body": "Pro araçlar gerçek parametre girişleri, PDF export ve endüstriyel standartlar içerir. $1.99'dan başlar.",
-      "pro_upsell_cta": "Pro araçları gör →",
-      "badge_free": "Ücretsiz",
-      "badge_pro": "Pro",
-      "tools_count": "araç"
-    },
-    "industries": {
-      "hero_title": "Sektörünüz için hesap makineleri bulun",
-      "hero_sub": "18 sektör. 300+ hesap makinesi. Ücretsiz ve pro.",
-      "free_label": "ücretsiz",
-      "pro_label": "pro",
-      "explore_cta": "Araçları keşfet →"
-    },
-    "pro_tools": {
-      "hero_eyebrow": "Pro hesap makinesi kütüphanesi",
-      "hero_title": "Gerçek mühendislik kararları için 161 hesap makinesi.",
-      "hero_sub": "Pro araçlar gerçek operasyonel verilerinizi kabul eder. Sonuçlar PDF export ve geçerli endüstriyel standartları içerir. Her araç bir kredi kullanır.",
-      "what_pro_title": "Pro araçları özel kılan nedir",
-      "feature_1_title": "Gerçek parametre girişleri",
-      "feature_1_body": "Gerçek makine hızınızı, malzeme maliyetinizi veya proses sıcaklığınızı girin.",
-      "feature_2_title": "PDF hazır çıktı",
-      "feature_2_body": "Her sonuç yapılandırılmış PDF'e dönüştürülür. İç raporlama ve müşteri dokümantasyonu için uygundur.",
-      "feature_3_title": "Endüstriyel standart referansları",
-      "feature_3_body": "Sonuçlar geçerli normu alıntılar: ISO, ASME, Yalın Altı Sigma, HACCP ve daha fazlası.",
-      "feature_4_title": "Maliyet etkisi modellemesi",
-      "feature_4_body": "Pro araçlar sadece hesaplamaz — sonucun operasyonunuza finansal etkisini gösterir.",
-      "credits_cta": "Kredi al →",
-      "one_credit": "Hesaplama başına 1 kredi"
     }
   },
   "de": {
@@ -266,23 +173,61 @@
       "why_not_sub_body": "Ein Abonnement erzwingt monatliche Zahlung, egal ob Sie diesen Monat eine Prüfung durchführen oder nicht. Credits ermöglichen 15 Berechnungen an einem einzigen Tag und nichts in einem ruhigen Monat.",
       "faq_title": "Häufige Fragen",
       "faq": [
-        { "q": "Kann ich Credits sektorübergreifend nutzen?", "a": "Ja. Ein Credit gilt für jedes Pro-Tool in jedem Sektor — OEE in der Fertigung, CPM im Bauwesen, ESG in der Energie. Credits sind nicht sektorgebunden." },
-        { "q": "Verfallen Credits?", "a": "Credits sind 12 Monate ab Kaufdatum gültig." },
-        { "q": "Können mehrere Teammitglieder dasselbe Konto nutzen?", "a": "Credits sind kontogebunden. Für gemeinsamen Teamzugang kaufen Sie Credits auf einem gemeinsamen Konto." },
-        { "q": "Gibt es eine kostenlose Testversion?", "a": "Alle kostenlosen Tools sind ohne Anmeldung verfügbar. Pro-Tools benötigen einen Credit. Das 1-Credit-Testpaket ermöglicht den günstigsten Einstieg." },
-        { "q": "Was enthält der PDF-Export?", "a": "Die PDF enthält Ihre Eingabeparameter, das Ergebnis, die angewandte Formel, die geltende Norm und Interpretationshinweise." },
-        { "q": "Welche Zahlungsmethoden werden akzeptiert?", "a": "Visa, Mastercard, American Express und gängige digitale Zahlungsmethoden über Stripe. Alle Transaktionen in USD." }
+        {
+          "q": "Kann ich Credits sektorübergreifend nutzen?",
+          "a": "Ja. Ein Credit gilt für jedes Pro-Tool in jedem Sektor — OEE in der Fertigung, CPM im Bauwesen, ESG in der Energie. Credits sind nicht sektorgebunden."
+        },
+        {
+          "q": "Verfallen Credits?",
+          "a": "Credits sind 12 Monate ab Kaufdatum gültig."
+        },
+        {
+          "q": "Können mehrere Teammitglieder dasselbe Konto nutzen?",
+          "a": "Credits sind kontogebunden. Für gemeinsamen Teamzugang kaufen Sie Credits auf einem gemeinsamen Konto."
+        },
+        {
+          "q": "Gibt es eine kostenlose Testversion?",
+          "a": "Alle kostenlosen Tools sind ohne Anmeldung verfügbar. Pro-Tools benötigen einen Credit. Das 1-Credit-Testpaket ermöglicht den günstigsten Einstieg."
+        },
+        {
+          "q": "Was enthält der PDF-Export?",
+          "a": "Die PDF enthält Ihre Eingabeparameter, das Ergebnis, die angewandte Formel, die geltende Norm und Interpretationshinweise."
+        },
+        {
+          "q": "Welche Zahlungsmethoden werden akzeptiert?",
+          "a": "Visa, Mastercard, American Express und gängige digitale Zahlungsmethoden über Stripe. Alle Transaktionen in USD."
+        }
       ],
       "trust_secure": "Sicher bezahlen via Stripe",
       "trust_valid": "Credits 12 Monate gültig",
       "trust_worldwide": "In 45+ Ländern genutzt",
       "trust_refund": "Rückgaberichtlinie",
       "price_usd": "Alle Preise in USD",
-      "tier_use_1": ["Kritische Lastberechnung prüfen", "Einzelnen Designparameter kontrollieren", "Lieferangebot stichprobenartig prüfen"],
-      "tier_use_5": ["Projektkostenaufstellung erstellen", "Eine Produktionslinie auditieren", "Investitionsentscheidung validieren"],
-      "tier_use_15": ["Monatliches Engineering-Toolkit", "OEE + Ausschuss + Ausfallzeit in einem Zyklus", "Schichtbericht mit 3 analysierten Maschinen"],
-      "tier_use_30": ["Quartals-Betriebsprüfung", "Mehrzeilige OEE-Benchmarking", "Vollständige Lean-Verschwendungsanalyse (7 Muda)"],
-      "tier_use_100": ["Jahres-Abteilungszugang", "Programm zur kontinuierlichen Verbesserung", "Standortübergreifendes Produktions-Benchmarking"]
+      "tier_use_1": [
+        "Kritische Lastberechnung prüfen",
+        "Einzelnen Designparameter kontrollieren",
+        "Lieferangebot stichprobenartig prüfen"
+      ],
+      "tier_use_5": [
+        "Projektkostenaufstellung erstellen",
+        "Eine Produktionslinie auditieren",
+        "Investitionsentscheidung validieren"
+      ],
+      "tier_use_15": [
+        "Monatliches Engineering-Toolkit",
+        "OEE + Ausschuss + Ausfallzeit in einem Zyklus",
+        "Schichtbericht mit 3 analysierten Maschinen"
+      ],
+      "tier_use_30": [
+        "Quartals-Betriebsprüfung",
+        "Mehrzeilige OEE-Benchmarking",
+        "Vollständige Lean-Verschwendungsanalyse (7 Muda)"
+      ],
+      "tier_use_100": [
+        "Jahres-Abteilungszugang",
+        "Programm zur kontinuierlichen Verbesserung",
+        "Standortübergreifendes Produktions-Benchmarking"
+      ]
     },
     "free_tools": {
       "hero_title": "Kostenlose Industrierechner",
@@ -361,23 +306,61 @@
       "why_not_sub_body": "Un abonnement force un paiement mensuel que vous fassiez un audit ce mois-ci ou non. Les crédits vous permettent de faire 15 calculs en une seule journée et rien un mois calme.",
       "faq_title": "Questions fréquentes",
       "faq": [
-        { "q": "Puis-je utiliser des crédits dans différents secteurs ?", "a": "Oui. Un crédit fonctionne pour n'importe quel outil pro dans n'importe quel secteur. Les crédits ne sont pas verrouillés par secteur." },
-        { "q": "Les crédits expirent-ils ?", "a": "Les crédits sont valables 12 mois à partir de la date d'achat." },
-        { "q": "Plusieurs membres de l'équipe peuvent-ils utiliser le même compte ?", "a": "Les crédits sont liés au compte. Pour un accès partagé, achetez des crédits sur un compte commun." },
-        { "q": "Y a-t-il un essai gratuit ?", "a": "Tous les outils gratuits sont disponibles sans connexion. Les outils pro nécessitent un crédit. Le pack Essai 1 crédit offre le point d'entrée le plus bas." },
-        { "q": "Que contient l'export PDF ?", "a": "Le PDF inclut vos paramètres d'entrée, le résultat, la formule appliquée, la norme applicable et des conseils d'interprétation." },
-        { "q": "Quels modes de paiement sont acceptés ?", "a": "Visa, Mastercard, American Express et les principaux moyens de paiement numériques via Stripe. Toutes les transactions sont en USD." }
+        {
+          "q": "Puis-je utiliser des crédits dans différents secteurs ?",
+          "a": "Oui. Un crédit fonctionne pour n'importe quel outil pro dans n'importe quel secteur. Les crédits ne sont pas verrouillés par secteur."
+        },
+        {
+          "q": "Les crédits expirent-ils ?",
+          "a": "Les crédits sont valables 12 mois à partir de la date d'achat."
+        },
+        {
+          "q": "Plusieurs membres de l'équipe peuvent-ils utiliser le même compte ?",
+          "a": "Les crédits sont liés au compte. Pour un accès partagé, achetez des crédits sur un compte commun."
+        },
+        {
+          "q": "Y a-t-il un essai gratuit ?",
+          "a": "Tous les outils gratuits sont disponibles sans connexion. Les outils pro nécessitent un crédit. Le pack Essai 1 crédit offre le point d'entrée le plus bas."
+        },
+        {
+          "q": "Que contient l'export PDF ?",
+          "a": "Le PDF inclut vos paramètres d'entrée, le résultat, la formule appliquée, la norme applicable et des conseils d'interprétation."
+        },
+        {
+          "q": "Quels modes de paiement sont acceptés ?",
+          "a": "Visa, Mastercard, American Express et les principaux moyens de paiement numériques via Stripe. Toutes les transactions sont en USD."
+        }
       ],
       "trust_secure": "Paiement sécurisé via Stripe",
       "trust_valid": "Crédits valables 12 mois",
       "trust_worldwide": "Utilisé dans 45+ pays",
       "trust_refund": "Politique de remboursement",
       "price_usd": "Tous les prix en USD",
-      "tier_use_1": ["Vérifier un calcul de charge critique", "Contrôler un seul paramètre de conception", "Vérifier ponctuellement une offre fournisseur"],
-      "tier_use_5": ["Compléter une décomposition des coûts de projet", "Auditer une ligne de production", "Valider une décision d'équipement capital"],
-      "tier_use_15": ["Boîte à outils mensuelle complète", "OEE + rebuts + arrêts en un cycle", "Rapport de quart avec 3 machines analysées"],
-      "tier_use_30": ["Audit opérationnel trimestriel", "Benchmarking OEE multi-lignes", "Cartographie complète des gaspillages lean (7 mudas)"],
-      "tier_use_100": ["Accès annuel au département", "Programme d'amélioration continue", "Benchmarking de production multi-sites"]
+      "tier_use_1": [
+        "Vérifier un calcul de charge critique",
+        "Contrôler un seul paramètre de conception",
+        "Vérifier ponctuellement une offre fournisseur"
+      ],
+      "tier_use_5": [
+        "Compléter une décomposition des coûts de projet",
+        "Auditer une ligne de production",
+        "Valider une décision d'équipement capital"
+      ],
+      "tier_use_15": [
+        "Boîte à outils mensuelle complète",
+        "OEE + rebuts + arrêts en un cycle",
+        "Rapport de quart avec 3 machines analysées"
+      ],
+      "tier_use_30": [
+        "Audit opérationnel trimestriel",
+        "Benchmarking OEE multi-lignes",
+        "Cartographie complète des gaspillages lean (7 mudas)"
+      ],
+      "tier_use_100": [
+        "Accès annuel au département",
+        "Programme d'amélioration continue",
+        "Benchmarking de production multi-sites"
+      ]
     },
     "free_tools": {
       "hero_title": "Calculateurs industriels gratuits",
@@ -456,23 +439,61 @@
       "why_not_sub_body": "Una suscripción fuerza un pago mensual tanto si haces una auditoría ese mes como si no. Los créditos te permiten hacer 15 cálculos en un solo día cuando revisas una línea completa, y nada en un mes tranquilo.",
       "faq_title": "Preguntas frecuentes",
       "faq": [
-        { "q": "¿Puedo usar créditos en diferentes sectores industriales?", "a": "Sí. Un crédito funciona para cualquier herramienta pro en cualquier sector. Los créditos no están vinculados a sectores." },
-        { "q": "¿Caducan los créditos?", "a": "Los créditos son válidos por 12 meses a partir de la fecha de compra." },
-        { "q": "¿Pueden varios miembros del equipo usar la misma cuenta?", "a": "Los créditos están vinculados a la cuenta. Para acceso compartido del equipo, compra créditos en una cuenta compartida." },
-        { "q": "¿Hay una prueba gratuita?", "a": "Todas las herramientas gratuitas están disponibles sin iniciar sesión. Las herramientas pro requieren un crédito." },
-        { "q": "¿Qué incluye la exportación PDF?", "a": "El PDF incluye tus parámetros de entrada, el resultado, la fórmula aplicada, la norma aplicable y guía de interpretación." },
-        { "q": "¿Qué métodos de pago se aceptan?", "a": "Visa, Mastercard, American Express y principales métodos de pago digital via Stripe. Todas las transacciones en USD." }
+        {
+          "q": "¿Puedo usar créditos en diferentes sectores industriales?",
+          "a": "Sí. Un crédito funciona para cualquier herramienta pro en cualquier sector. Los créditos no están vinculados a sectores."
+        },
+        {
+          "q": "¿Caducan los créditos?",
+          "a": "Los créditos son válidos por 12 meses a partir de la fecha de compra."
+        },
+        {
+          "q": "¿Pueden varios miembros del equipo usar la misma cuenta?",
+          "a": "Los créditos están vinculados a la cuenta. Para acceso compartido del equipo, compra créditos en una cuenta compartida."
+        },
+        {
+          "q": "¿Hay una prueba gratuita?",
+          "a": "Todas las herramientas gratuitas están disponibles sin iniciar sesión. Las herramientas pro requieren un crédito."
+        },
+        {
+          "q": "¿Qué incluye la exportación PDF?",
+          "a": "El PDF incluye tus parámetros de entrada, el resultado, la fórmula aplicada, la norma aplicable y guía de interpretación."
+        },
+        {
+          "q": "¿Qué métodos de pago se aceptan?",
+          "a": "Visa, Mastercard, American Express y principales métodos de pago digital via Stripe. Todas las transacciones en USD."
+        }
       ],
       "trust_secure": "Pago seguro via Stripe",
       "trust_valid": "Créditos válidos 12 meses",
       "trust_worldwide": "Usado en 45+ países",
       "trust_refund": "Política de reembolso",
       "price_usd": "Todos los precios en USD",
-      "tier_use_1": ["Verificar un cálculo de carga crítico", "Comprobar un solo parámetro de diseño", "Verificar puntualmente una oferta de proveedor"],
-      "tier_use_5": ["Completar un desglose de costos de proyecto", "Auditar una línea de producción", "Validar una decisión de equipo de capital"],
-      "tier_use_15": ["Kit de herramientas de ingeniería mensual completo", "OEE + desperdicio + tiempo de inactividad en un ciclo", "Informe de turno con 3 máquinas analizadas"],
-      "tier_use_30": ["Auditoría operacional trimestral", "Benchmarking OEE multi-línea", "Mapeo completo de desperdicios lean (7 mudas)"],
-      "tier_use_100": ["Acceso anual departamental", "Programa de mejora continua", "Benchmarking de producción multi-sitio"]
+      "tier_use_1": [
+        "Verificar un cálculo de carga crítico",
+        "Comprobar un solo parámetro de diseño",
+        "Verificar puntualmente una oferta de proveedor"
+      ],
+      "tier_use_5": [
+        "Completar un desglose de costos de proyecto",
+        "Auditar una línea de producción",
+        "Validar una decisión de equipo de capital"
+      ],
+      "tier_use_15": [
+        "Kit de herramientas de ingeniería mensual completo",
+        "OEE + desperdicio + tiempo de inactividad en un ciclo",
+        "Informe de turno con 3 máquinas analizadas"
+      ],
+      "tier_use_30": [
+        "Auditoría operacional trimestral",
+        "Benchmarking OEE multi-línea",
+        "Mapeo completo de desperdicios lean (7 mudas)"
+      ],
+      "tier_use_100": [
+        "Acceso anual departamental",
+        "Programa de mejora continua",
+        "Benchmarking de producción multi-sitio"
+      ]
     },
     "free_tools": {
       "hero_title": "Calculadoras industriales gratuitas",
@@ -551,23 +572,61 @@
       "why_not_sub_body": "يُجبرك الاشتراك على الدفع الشهري سواء أجريت تدقيقاً أم لا. تتيح لك الأرصدة إجراء 15 حساباً في يوم واحد خلال مراجعة خط كاملة، ولا شيء في شهر هادئ.",
       "faq_title": "أسئلة شائعة",
       "faq": [
-        { "q": "هل يمكنني استخدام الأرصدة عبر قطاعات مختلفة؟", "a": "نعم. رصيد واحد يعمل لأي أداة احترافية في أي قطاع. الأرصدة ليست مقيدة بقطاع." },
-        { "q": "هل تنتهي صلاحية الأرصدة؟", "a": "الأرصدة صالحة لمدة 12 شهراً من تاريخ الشراء." },
-        { "q": "هل يمكن لعدة أعضاء في الفريق استخدام نفس الحساب؟", "a": "الأرصدة مرتبطة بالحساب. للوصول المشترك، اشترِ أرصدة على حساب مشترك." },
-        { "q": "هل هناك تجربة مجانية؟", "a": "جميع الأدوات المجانية متاحة دون تسجيل دخول. تتطلب أدوات Pro رصيداً. تتيح حزمة التجربة 1 رصيد أدنى نقطة دخول." },
-        { "q": "ماذا يتضمن تصدير PDF؟", "a": "يتضمن PDF معلمات الإدخال والنتيجة والصيغة المطبقة والمعيار المعمول به وإرشادات التفسير." },
-        { "q": "ما طرق الدفع المقبولة؟", "a": "Visa وMastercard وAmerican Express وطرق الدفع الرقمية الرئيسية عبر Stripe. جميع المعاملات بالدولار الأمريكي." }
+        {
+          "q": "هل يمكنني استخدام الأرصدة عبر قطاعات مختلفة؟",
+          "a": "نعم. رصيد واحد يعمل لأي أداة احترافية في أي قطاع. الأرصدة ليست مقيدة بقطاع."
+        },
+        {
+          "q": "هل تنتهي صلاحية الأرصدة؟",
+          "a": "الأرصدة صالحة لمدة 12 شهراً من تاريخ الشراء."
+        },
+        {
+          "q": "هل يمكن لعدة أعضاء في الفريق استخدام نفس الحساب؟",
+          "a": "الأرصدة مرتبطة بالحساب. للوصول المشترك، اشترِ أرصدة على حساب مشترك."
+        },
+        {
+          "q": "هل هناك تجربة مجانية؟",
+          "a": "جميع الأدوات المجانية متاحة دون تسجيل دخول. تتطلب أدوات Pro رصيداً. تتيح حزمة التجربة 1 رصيد أدنى نقطة دخول."
+        },
+        {
+          "q": "ماذا يتضمن تصدير PDF؟",
+          "a": "يتضمن PDF معلمات الإدخال والنتيجة والصيغة المطبقة والمعيار المعمول به وإرشادات التفسير."
+        },
+        {
+          "q": "ما طرق الدفع المقبولة؟",
+          "a": "Visa وMastercard وAmerican Express وطرق الدفع الرقمية الرئيسية عبر Stripe. جميع المعاملات بالدولار الأمريكي."
+        }
       ],
       "trust_secure": "دفع آمن عبر Stripe",
       "trust_valid": "أرصدة صالحة 12 شهراً",
       "trust_worldwide": "مُستخدَم في أكثر من 45 دولة",
       "trust_refund": "سياسة الاسترداد",
       "price_usd": "جميع الأسعار بالدولار الأمريكي",
-      "tier_use_1": ["التحقق من حساب حمولة حرج", "فحص معلمة تصميم واحدة", "مراجعة عرض أسعار مورّد"],
-      "tier_use_5": ["إكمال تفصيل تكاليف مشروع", "تدقيق خط إنتاج واحد", "التحقق من صحة قرار المعدات الرأسمالية"],
-      "tier_use_15": ["مجموعة أدوات هندسية شهرية كاملة", "OEE + خردة + توقف في دورة واحدة", "تقرير وردية مع 3 ماكينات محللة"],
-      "tier_use_30": ["تدقيق تشغيلي ربع سنوي", "قياس أداء OEE متعدد الخطوط", "رسم خرائط هدر Lean الكامل (7 Mudas)"],
-      "tier_use_100": ["وصول سنوي على مستوى القسم", "برنامج تحسين مستمر", "قياس أداء الإنتاج متعدد المواقع"]
+      "tier_use_1": [
+        "التحقق من حساب حمولة حرج",
+        "فحص معلمة تصميم واحدة",
+        "مراجعة عرض أسعار مورّد"
+      ],
+      "tier_use_5": [
+        "إكمال تفصيل تكاليف مشروع",
+        "تدقيق خط إنتاج واحد",
+        "التحقق من صحة قرار المعدات الرأسمالية"
+      ],
+      "tier_use_15": [
+        "مجموعة أدوات هندسية شهرية كاملة",
+        "OEE + خردة + توقف في دورة واحدة",
+        "تقرير وردية مع 3 ماكينات محللة"
+      ],
+      "tier_use_30": [
+        "تدقيق تشغيلي ربع سنوي",
+        "قياس أداء OEE متعدد الخطوط",
+        "رسم خرائط هدر Lean الكامل (7 Mudas)"
+      ],
+      "tier_use_100": [
+        "وصول سنوي على مستوى القسم",
+        "برنامج تحسين مستمر",
+        "قياس أداء الإنتاج متعدد المواقع"
+      ]
     },
     "free_tools": {
       "hero_title": "حاسبات صناعية مجانية",
