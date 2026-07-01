@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Total Downtime per Shift (Unplanned Stops)
+# Standard: ISO 22400-2:2014 (Automation systems — Key Performance Indicators)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "totalDowntime"
+standard: "ISO 22400-2:2014"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Typical Unplanned Stop Loss"
+    value: 60
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Average unplanned downtime per shift for batch manufacturing"
+  - label: "High-Performance Line Target"
+    value: 15
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "World-class downtime target per shift (JIPM benchmark)"
+  - label: "Moderate Process Loss"
+    value: 45
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Moderate downtime level for semi-automated lines"
+  - label: "Critical Stop Condition"
+    value: 120
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "High downtime indicating urgent maintenance intervention"

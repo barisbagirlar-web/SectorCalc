@@ -37,6 +37,11 @@ const UNIT_WHITELIST = [
   "m",
   "ft",
   "Pa·s",
+  "h",
+  "min",
+  "pcs",
+  "USD",
+  "%",
 ] as const;
 
 const ALLOWED_PROJECT_UNIT_SYSTEMS = [

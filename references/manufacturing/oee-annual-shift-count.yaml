@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Annual Shift Count
+# Standard: ISO 22400-2:2014 (Automation systems — Key Performance Indicators)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "annualShiftCount"
+standard: "ISO 22400-2:2014"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "3-Shift Operation (240 days × 3)"
+    value: 720
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Continuous 24/7 operation with three 8-hour shifts"
+  - label: "2-Shift Operation (240 days × 2)"
+    value: 480
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Double-shift operation covering 16 hours per day"
+  - label: "Single Shift (240 days × 1)"
+    value: 240
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Single-shift day operation"
+  - label: "5-Day Single Shift (250 days)"
+    value: 250
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Single-shift operation on weekdays only"

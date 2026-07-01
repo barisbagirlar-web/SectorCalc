@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Good (Defect-Free) Parts Count
+# Standard: ISO 22400-2:2014 (Automation systems — Key Performance Indicators)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "goodPartsCount"
+standard: "ISO 22400-2:2014"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "95% First Pass Yield Benchmark"
+    value: 760
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Good parts at 95% yield from 800 total (Six Sigma entry level)"
+  - label: "99% World-Class Yield"
+    value: 792
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "World-class quality performance at 99% first-pass yield"
+  - label: "85% Typical Batch Yield"
+    value: 680
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Typical batch manufacturing yield at 85% quality rate"
+  - label: "99.9% Six Sigma Excellence"
+    value: 799
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Six Sigma quality performance at 99.9% yield"

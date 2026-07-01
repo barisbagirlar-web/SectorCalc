@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Ideal Cycle Time per Unit
+# Standard: ISO 22400-2:2014 (Automation systems — Key Performance Indicators)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "idealCycleTime"
+standard: "ISO 22400-2:2014"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "High-Speed Assembly Benchmark"
+    value: 0.5
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Ideal cycle time for high-speed automated assembly (30s per unit)"
+  - label: "CNC Machining Cycle (Typical)"
+    value: 3.0
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Ideal CNC machining cycle time for medium-complexity parts"
+  - label: "Manual Assembly Operation"
+    value: 10.0
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Ideal cycle time for manual assembly stations"
+  - label: "Packaging Line Standard"
+    value: 0.2
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Ideal packaging cycle time for automated packaging (12s per unit)"

@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Planned Production Time per Shift
+# Standard: ISO 22400-2:2014 (Automation systems — Key Performance Indicators)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "plannedProductionTime"
+standard: "ISO 22400-2:2014"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Standard 8h Shift (480 min)"
+    value: 480
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Planned production time for a standard 8-hour shift"
+  - label: "7h Effective Shift (Breaks Excluded)"
+    value: 420
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Effective planned time after break exclusions"
+  - label: "10h Extended Shift (Overtime)"
+    value: 600
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Extended shift planned production time"
+  - label: "12h Double Shift Block"
+    value: 720
+    unit: "min"
+    source: "ISO 22400-2:2014"
+    description: "Planned production time for two consecutive shifts"

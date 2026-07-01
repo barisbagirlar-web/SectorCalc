@@ -1,0 +1,24 @@
+# =============================================================================
+# Reference: Total Parts Produced per Shift
+# Standard: ISO 22400-2:2014 (Automation systems — Key Performance Indicators)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "totalPartsProduced"
+standard: "ISO 22400-2:2014"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Nominal Output Target (Single Shift)"
+    value: 800
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Target production output for a standard 8-hour shift"
+  - label: "High-Volume Line (Single Shift)"
+    value: 2000
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "High-volume automated line output per shift"
+  - label: "Low-Volume Job Shop (Single Shift)"
+    value: 100
+    unit: "pcs"
+    source: "ISO 22400-2:2014"
+    description: "Job shop production output for complex/custom parts"

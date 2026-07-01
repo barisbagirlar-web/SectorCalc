@@ -519,6 +519,260 @@ export const registry: ReferenceRegistry = {
       ],
     },
   },
+  "oee-calculator": {
+    "annualShiftCount": {
+      toolId: "oee-calculator",
+      inputKey: "annualShiftCount",
+      standard: "ISO 22400-2:2014",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "3-Shift Operation (240 days × 3)",
+          "value": 720,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Continuous 24/7 operation with three 8-hour shifts"
+        },
+        {
+          "label": "2-Shift Operation (240 days × 2)",
+          "value": 480,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Double-shift operation covering 16 hours per day"
+        },
+        {
+          "label": "Single Shift (240 days × 1)",
+          "value": 240,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Single-shift day operation"
+        },
+        {
+          "label": "5-Day Single Shift (250 days)",
+          "value": 250,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Single-shift operation on weekdays only"
+        }
+      ],
+    },
+    "goodPartsCount": {
+      toolId: "oee-calculator",
+      inputKey: "goodPartsCount",
+      standard: "ISO 22400-2:2014",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "95% First Pass Yield Benchmark",
+          "value": 760,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Good parts at 95% yield from 800 total (Six Sigma entry level)"
+        },
+        {
+          "label": "99% World-Class Yield",
+          "value": 792,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "World-class quality performance at 99% first-pass yield"
+        },
+        {
+          "label": "85% Typical Batch Yield",
+          "value": 680,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Typical batch manufacturing yield at 85% quality rate"
+        },
+        {
+          "label": "99.9% Six Sigma Excellence",
+          "value": 799,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Six Sigma quality performance at 99.9% yield"
+        }
+      ],
+    },
+    "idealCycleTime": {
+      toolId: "oee-calculator",
+      inputKey: "idealCycleTime",
+      standard: "ISO 22400-2:2014",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "High-Speed Assembly Benchmark",
+          "value": 0.5,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Ideal cycle time for high-speed automated assembly (30s per unit)"
+        },
+        {
+          "label": "CNC Machining Cycle (Typical)",
+          "value": 3,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Ideal CNC machining cycle time for medium-complexity parts"
+        },
+        {
+          "label": "Manual Assembly Operation",
+          "value": 10,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Ideal cycle time for manual assembly stations"
+        },
+        {
+          "label": "Packaging Line Standard",
+          "value": 0.2,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Ideal packaging cycle time for automated packaging (12s per unit)"
+        }
+      ],
+    },
+    "machineHourlyCost": {
+      toolId: "oee-calculator",
+      inputKey: "machineHourlyCost",
+      standard: "ISO 14224:2016",
+      projectUnitSystem: "IMPERIAL_ONLY",
+      references: [
+        {
+          "label": "CNC Machining Center Average",
+          "value": 120,
+          "unit": "USD",
+          "source": "ISO 14224:2016",
+          "description": "Average hourly cost for 3-axis CNC machining center"
+        },
+        {
+          "label": "CNC 5-Axis Advanced Center",
+          "value": 180,
+          "unit": "USD",
+          "source": "ISO 14224:2016",
+          "description": "Hourly cost for 5-axis CNC machining center with automation"
+        },
+        {
+          "label": "Injection Molding Machine",
+          "value": 85,
+          "unit": "USD",
+          "source": "ISO 14224:2016",
+          "description": "Hourly cost for standard injection molding machine"
+        },
+        {
+          "label": "Assembly Line (per station)",
+          "value": 45,
+          "unit": "USD",
+          "source": "ISO 14224:2016",
+          "description": "Hourly cost per assembly station in manual line"
+        },
+        {
+          "label": "Packaging Line Automated",
+          "value": 65,
+          "unit": "USD",
+          "source": "ISO 14224:2016",
+          "description": "Hourly cost for automated packaging line"
+        }
+      ],
+    },
+    "plannedProductionTime": {
+      toolId: "oee-calculator",
+      inputKey: "plannedProductionTime",
+      standard: "ISO 22400-2:2014",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Standard 8h Shift (480 min)",
+          "value": 480,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Planned production time for a standard 8-hour shift"
+        },
+        {
+          "label": "7h Effective Shift (Breaks Excluded)",
+          "value": 420,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Effective planned time after break exclusions"
+        },
+        {
+          "label": "10h Extended Shift (Overtime)",
+          "value": 600,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Extended shift planned production time"
+        },
+        {
+          "label": "12h Double Shift Block",
+          "value": 720,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Planned production time for two consecutive shifts"
+        }
+      ],
+    },
+    "totalDowntime": {
+      toolId: "oee-calculator",
+      inputKey: "totalDowntime",
+      standard: "ISO 22400-2:2014",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Typical Unplanned Stop Loss",
+          "value": 60,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Average unplanned downtime per shift for batch manufacturing"
+        },
+        {
+          "label": "High-Performance Line Target",
+          "value": 15,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "World-class downtime target per shift (JIPM benchmark)"
+        },
+        {
+          "label": "Moderate Process Loss",
+          "value": 45,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "Moderate downtime level for semi-automated lines"
+        },
+        {
+          "label": "Critical Stop Condition",
+          "value": 120,
+          "unit": "min",
+          "source": "ISO 22400-2:2014",
+          "description": "High downtime indicating urgent maintenance intervention"
+        }
+      ],
+    },
+    "totalPartsProduced": {
+      toolId: "oee-calculator",
+      inputKey: "totalPartsProduced",
+      standard: "ISO 22400-2:2014",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Nominal Output Target (Single Shift)",
+          "value": 800,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Target production output for a standard 8-hour shift"
+        },
+        {
+          "label": "High-Volume Line (Single Shift)",
+          "value": 2000,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "High-volume automated line output per shift"
+        },
+        {
+          "label": "Low-Volume Job Shop (Single Shift)",
+          "value": 100,
+          "unit": "pcs",
+          "source": "ISO 22400-2:2014",
+          "description": "Job shop production output for complex/custom parts"
+        }
+      ],
+    },
+  },
   "pro-tool-machining": {
     "material_group": {
       toolId: "pro-tool-machining",

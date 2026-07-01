@@ -1,0 +1,34 @@
+# =============================================================================
+# Reference: Machine Hourly Cost Rate
+# Standard: ISO 14224:2016 (Collection and exchange of reliability data)
+# =============================================================================
+toolId: "oee-calculator"
+inputKey: "machineHourlyCost"
+standard: "ISO 14224:2016"
+projectUnitSystem: "IMPERIAL_ONLY"
+references:
+  - label: "CNC Machining Center Average"
+    value: 120
+    unit: "USD"
+    source: "ISO 14224:2016"
+    description: "Average hourly cost for 3-axis CNC machining center"
+  - label: "CNC 5-Axis Advanced Center"
+    value: 180
+    unit: "USD"
+    source: "ISO 14224:2016"
+    description: "Hourly cost for 5-axis CNC machining center with automation"
+  - label: "Injection Molding Machine"
+    value: 85
+    unit: "USD"
+    source: "ISO 14224:2016"
+    description: "Hourly cost for standard injection molding machine"
+  - label: "Assembly Line (per station)"
+    value: 45
+    unit: "USD"
+    source: "ISO 14224:2016"
+    description: "Hourly cost per assembly station in manual line"
+  - label: "Packaging Line Automated"
+    value: 65
+    unit: "USD"
+    source: "ISO 14224:2016"
+    description: "Hourly cost for automated packaging line"

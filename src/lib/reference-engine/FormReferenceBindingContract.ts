@@ -25,6 +25,11 @@ export const UNIT_WHITELIST = [
   "m",
   "ft",
   "Pa·s",
+  "h",
+  "min",
+  "pcs",
+  "USD",
+  "%",
 ] as const;
 
 export type UnitWhitelist = (typeof UNIT_WHITELIST)[number];
