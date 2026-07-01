@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { AdminLoginForm } from "@/components/admin/AdminAuthPanel";
 import { CustomerSignInFromNextParam } from "@/components/billing/CustomerSignInPanel";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
@@ -41,7 +40,6 @@ export default async function LoginPage({ params }: PageProps) {
       />
       <section className="py-12">
         <Container size="narrow">
-          <AdminLoginForm />
           <Suspense fallback={null}>
             <CustomerSignInFromNextParam />
           </Suspense>

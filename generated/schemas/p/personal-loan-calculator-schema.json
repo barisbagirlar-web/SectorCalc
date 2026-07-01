@@ -20,14 +20,15 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
+      "reference": "50000",
       "businessContext": "Çekilen kredi anaparası.",
       "businessContext_i18n": {
-        "en": "Loan principal.",
+        "en": "Loan principal amount borrowed.",
         "tr": "Çekilen kredi anaparası.",
-        "de": "Erste Barzahlung, die den Darlehensbetrag reduziert.",
-        "fr": "Paiement initial en espèces réduisant le principal du prêt.",
-        "es": "Pago inicial en efectivo que reduce el capital del préstamo.",
-        "ar": "دفعة نقدية أولية تقلل من أصل القرض."
+        "de": "Der geliehene Darlehensbetrag.",
+        "fr": "Le montant principal emprunté.",
+        "es": "El monto principal del préstamo.",
+        "ar": "مبلغ القرض الرئيسي المقترض."
       }
     },
     {
@@ -45,6 +46,7 @@
       "unit": "%",
       "default": 24,
       "min": 0,
+      "reference": "24%",
       "businessContext": "Kredinin yıllık faiz oranı.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
@@ -70,14 +72,15 @@
       "unit": "months",
       "default": 36,
       "min": 1,
+      "reference": "36",
       "businessContext": "Kredi vadesi.",
       "businessContext_i18n": {
-        "en": "Loan term.",
+        "en": "Loan term in months.",
         "tr": "Kredi vadesi.",
-        "de": "Kreditlaufzeit.",
-        "fr": "Durée du prêt.",
-        "es": "Plazo del préstamo.",
-        "ar": "مدة القرض."
+        "de": "Kreditlaufzeit in Monaten.",
+        "fr": "Durée du prêt en mois.",
+        "es": "Plazo del préstamo en meses.",
+        "ar": "مدة القرض بالأشهر."
       }
     },
     {
@@ -86,15 +89,16 @@
       "label_i18n": {
         "en": "Fees (USD)",
         "tr": "Masraflar (₺)",
-        "de": "Fahrzeugpreis (MSRP + Gebühren)",
-        "fr": "Prix du véhicule (PDSF + frais)",
-        "es": "Precio del vehículo (MSRP + tarifas)",
-        "ar": "سعر المركبة (سعر التجزئة المقترح + الرسوم)"
+        "de": "Bearbeitungsgebühren",
+        "fr": "Frais de dossier",
+        "es": "Comisiones",
+        "ar": "الرسوم"
       },
       "type": "number",
       "unit": "USD",
       "default": 500,
       "min": 0,
+      "reference": "500",
       "businessContext": "Dosya masrafı ve diğer ücretler.",
       "businessContext_i18n": {
         "en": "Origination and processing fees.",
@@ -120,12 +124,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "taksit": "Aylık Taksit",
-      "sonuc": "Toplam Maliyet"
+      "taksit": "Monthly Payment",
+      "sonuc": "Total Cost"
     },
     "breakdown_i18n": {
       "taksit": {
-        "en": "Aylık Taksit",
+        "en": "Monthly Payment",
         "tr": "Aylık Taksit",
         "de": "Monatliche Rate",
         "fr": "Paiement mensuel",
@@ -133,7 +137,7 @@
         "ar": "القسط الشهري"
       },
       "sonuc": {
-        "en": "Toplam Maliyet",
+        "en": "Total Cost",
         "tr": "Toplam Maliyet",
         "de": "Gesamtkosten",
         "fr": "Coût total",
@@ -156,28 +160,29 @@
   "premiumFeatures": [],
   "about": {
     "description": {
-      "short": "Calculate monthly payment and total interest for a personal loan.",
-      "long": "Calculate monthly payment and total interest for a personal loan.",
+      "short": "Calculate monthly payment and total cost for a personal loan.",
+      "long": "Calculate monthly payment and total cost including interest and fees for a personal loan.",
       "short_i18n": {
-        "en": "Calculate monthly payment and total interest for a personal loan.",
-        "tr": "İhtiyaç kredisinin aylık ödemesini ve toplam faiz yükünü hesaplar.",
-        "de": "Berechnen Sie die monatliche Zahlung und die Gesamtzinsen für einen Privatkredit.",
-        "fr": "Calculer le paiement mensuel et l'intérêt total pour un prêt personnel.",
-        "es": "Calcular el pago mensual y el interés total de un préstamo personal.",
-        "ar": "حساب الدفعة الشهرية وإجمالي الفائدة لقرض شخصي."
+        "en": "Calculate monthly payment and total cost for a personal loan.",
+        "tr": "İhtiyaç kredisinin aylık ödemesini ve toplam maliyetini hesaplar.",
+        "de": "Berechnen Sie die monatliche Zahlung und die Gesamtkosten für einen Privatkredit.",
+        "fr": "Calculez le paiement mensuel et le coût total d'un prêt personnel.",
+        "es": "Calcule el pago mensual y el costo total de un préstamo personal.",
+        "ar": "احسب الدفعة الشهرية والتكلفة الإجمالية لقرض شخصي."
       },
       "long_i18n": {
-        "en": "Calculate monthly payment and total interest for a personal loan.",
-        "tr": "İhtiyaç kredisinin aylık ödemesini ve toplam faiz yükünü hesaplar.",
-        "de": "Berechnen Sie die monatliche Zahlung und die Gesamtzinsen für einen Privatkredit.",
-        "fr": "Calculer le paiement mensuel et l'intérêt total pour un prêt personnel.",
-        "es": "Calcular el pago mensual y el interés total de un préstamo personal.",
-        "ar": "حساب الدفعة الشهرية وإجمالي الفائدة لقرض شخصي."
+        "en": "Calculate monthly payment and total cost including interest and fees for a personal loan.",
+        "tr": "İhtiyaç kredisinin aylık ödemesini ve toplam maliyetini hesaplar.",
+        "de": "Berechnen Sie die monatliche Zahlung und die Gesamtkosten inklusive Zinsen und Gebühren für einen Privatkredit.",
+        "fr": "Calculez le paiement mensuel et le coût total incluant les intérêts et les frais d'un prêt personnel.",
+        "es": "Calcule el pago mensual y el costo total incluyendo intereses y comisiones de un préstamo personal.",
+        "ar": "احسب الدفعة الشهرية والتكلفة الإجمالية بما في ذلك الفوائد والرسوم لقرض شخصي."
       }
     }
   },
   "title_i18n": {
-    "en": "personal-loan-calculator",
+    "en": "Personal Loan Calculator",
+    "tr": "İhtiyaç Kredisi Hesaplama",
     "de": "Privatkredit Rechner",
     "fr": "Calculateur de Prêt Personnel",
     "es": "Calculadora de Préstamo Personal",

@@ -295,6 +295,22 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     onCompute?.(results, unc);
   }, [tool, state, compiled, onCompute]);
 
+  // Auto-execute: debounced commit on draft changes (no validation errors)
+  const autoCommitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (Object.keys(liveErrors).length > 0) return;
+    if (!hasDirty) return;
+    if (autoCommitTimerRef.current) clearTimeout(autoCommitTimerRef.current);
+    autoCommitTimerRef.current = setTimeout(() => {
+      if (Object.keys(liveErrors).length === 0) {
+        setState({ ...draft });
+      }
+    }, 400);
+    return () => {
+      if (autoCommitTimerRef.current) clearTimeout(autoCommitTimerRef.current);
+    };
+  }, [draft, hasDirty, liveErrors]);
+
   // Recompute on state change
   useEffect(() => { recompute(); }, [recompute]);
 
@@ -449,9 +465,22 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
   const decisionOutput = tool.ui_contract.decision_output;
   const decisionVal = decisionOutput ? (computed[decisionOutput] as string) : null;
   const decisionMeta = decisionOutput ? outMeta(decisionOutput) : undefined;
+  // Fallback: when no decision output is defined, show primary result value
   const decisionLabel = decisionVal && decisionMeta?.enum_labels
     ? decisionMeta.enum_labels[decisionVal] || decisionVal
-    : decisionVal || "AWAITING INPUTS";
+    : decisionVal != null
+      ? decisionVal
+      : decisionOutput
+        ? "AWAITING INPUTS"
+        : (() => {
+            const pk = tool.ui_contract.primary;
+            const pkVal = computed[pk];
+            if (pkVal != null && (typeof pkVal === "number" && isFinite(pkVal))) {
+              const [pv, pu] = valFmt(outMeta(pk), pkVal, ccy);
+              return `${pv} ${pu}`;
+            }
+            return "AWAITING INPUTS";
+          })();
   const isCritical = decisionVal ? /REVIEW|REQUIRED|FAIL|RISK|REJECT/.test(decisionVal) : false;
   const isOK = decisionVal ? /ACCEPTABLE|OK|PASS/.test(decisionVal) : false;
 
