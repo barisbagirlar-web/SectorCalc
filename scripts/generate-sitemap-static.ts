@@ -17,7 +17,7 @@ import {
   getCaseStudySitemapRoutes,
 } from "@/lib/infrastructure/seo/sitemap-manifest";
 import {
-  buildSitemapXmlResponse,
+  buildSitemapXmlString,
   getLatestLastMod,
 } from "@/lib/infrastructure/seo/sitemap-generator-helpers";
 import type { SitemapManifestItem } from "@/lib/infrastructure/seo/sitemap-manifest";
@@ -42,7 +42,7 @@ async function main(): Promise<void> {
   };
   const pagesItems = [...core, ...hubs, caseStudiesHub];
   const pagesLastMod = await getLatestLastMod(pagesItems);
-  const pagesXml = await (await buildSitemapXmlResponse(pagesItems)).text();
+  const pagesXml = await buildSitemapXmlString(pagesItems);
   writeFileSync(join(outDir, "sitemap-pages.xml"), pagesXml, "utf8");
   totalUrls += pagesItems.length;
   console.log(`  sitemap-pages.xml — ${pagesItems.length} URLs`);
@@ -64,7 +64,7 @@ async function main(): Promise<void> {
     }
   }
   const toolsLastMod = await getLatestLastMod(toolsItems);
-  const toolsXml = await (await buildSitemapXmlResponse(toolsItems)).text();
+  const toolsXml = await buildSitemapXmlString(toolsItems);
   writeFileSync(join(outDir, "sitemap-tools.xml"), toolsXml, "utf8");
   totalUrls += toolsItems.length;
   console.log(`  sitemap-tools.xml — ${toolsItems.length} URLs`);
@@ -72,7 +72,7 @@ async function main(): Promise<void> {
   // 3. Guides Shard
   const guidesItems = getAuthorityGuideSitemapRoutes();
   const guidesLastMod = await getLatestLastMod(guidesItems);
-  const guidesXml = await (await buildSitemapXmlResponse(guidesItems)).text();
+  const guidesXml = await buildSitemapXmlString(guidesItems);
   writeFileSync(join(outDir, "sitemap-guides.xml"), guidesXml, "utf8");
   totalUrls += guidesItems.length;
   console.log(`  sitemap-guides.xml — ${guidesItems.length} URLs`);
@@ -80,7 +80,7 @@ async function main(): Promise<void> {
   // 4. Case Studies Shard
   const caseStudiesItems = getCaseStudySitemapRoutes().filter((item) => item.path.startsWith("/case-studies/"));
   const caseStudiesLastMod = await getLatestLastMod(caseStudiesItems);
-  const caseStudiesXml = await (await buildSitemapXmlResponse(caseStudiesItems)).text();
+  const caseStudiesXml = await buildSitemapXmlString(caseStudiesItems);
   writeFileSync(join(outDir, "sitemap-case-studies.xml"), caseStudiesXml, "utf8");
   totalUrls += caseStudiesItems.length;
   console.log(`  sitemap-case-studies.xml — ${caseStudiesItems.length} URLs`);
@@ -88,33 +88,31 @@ async function main(): Promise<void> {
   // 5. Categories Shard
   const categoriesItems = getHubSitemapRoutes().filter((item) => item.path.startsWith("/premium-tools/"));
   const categoriesLastMod = await getLatestLastMod(categoriesItems);
-  const categoriesXml = await (await buildSitemapXmlResponse(categoriesItems)).text();
+  const categoriesXml = await buildSitemapXmlString(categoriesItems);
   writeFileSync(join(outDir, "sitemap-categories.xml"), categoriesXml, "utf8");
   totalUrls += categoriesItems.length;
   console.log(`  sitemap-categories.xml — ${categoriesItems.length} URLs`);
+
+  // Helper for optional lastmod in index
+  const lmTag = (d: string) => (d ? `\n    <lastmod>${d}</lastmod>` : "");
 
   // 6. Index Sitemap
   const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>${SITE_BASE_URL}/sitemap-pages.xml</loc>
-    <lastmod>${pagesLastMod}</lastmod>
+    <loc>${SITE_BASE_URL}/sitemap-pages.xml</loc>${lmTag(pagesLastMod)}
   </sitemap>
   <sitemap>
-    <loc>${SITE_BASE_URL}/sitemap-tools.xml</loc>
-    <lastmod>${toolsLastMod}</lastmod>
+    <loc>${SITE_BASE_URL}/sitemap-tools.xml</loc>${lmTag(toolsLastMod)}
   </sitemap>
   <sitemap>
-    <loc>${SITE_BASE_URL}/sitemap-guides.xml</loc>
-    <lastmod>${guidesLastMod}</lastmod>
+    <loc>${SITE_BASE_URL}/sitemap-guides.xml</loc>${lmTag(guidesLastMod)}
   </sitemap>
   <sitemap>
-    <loc>${SITE_BASE_URL}/sitemap-case-studies.xml</loc>
-    <lastmod>${caseStudiesLastMod}</lastmod>
+    <loc>${SITE_BASE_URL}/sitemap-case-studies.xml</loc>${lmTag(caseStudiesLastMod)}
   </sitemap>
   <sitemap>
-    <loc>${SITE_BASE_URL}/sitemap-categories.xml</loc>
-    <lastmod>${categoriesLastMod}</lastmod>
+    <loc>${SITE_BASE_URL}/sitemap-categories.xml</loc>${lmTag(categoriesLastMod)}
   </sitemap>
 </sitemapindex>`;
   writeFileSync(join(outDir, "sitemap.xml"), indexXml, "utf8");
