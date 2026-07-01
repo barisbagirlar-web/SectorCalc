@@ -136,7 +136,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Palet Rafı Optimize Edici (7 formulas) ──,
+  // ── Pallet Rack Optimizer (7 formulas) ──,
   {
     id: "user.pallet_rack_optimizer_0",
     family: "cost",
@@ -151,7 +151,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_1",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — FloorUtilization",
+    label: "Pallet Rack Optimizer — FloorUtilization",
     fn: (inputs) => {
     const rackFootprint = num(inputs, "rackFootprint");
     const totalFloorArea = num(inputs, "totalFloorArea");
@@ -161,7 +161,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_2",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — Throughput",
+    label: "Pallet Rack Optimizer — Throughput",
     fn: (inputs) => {
     const aisles = num(inputs, "aisles");
     const forkliftSpeed = num(inputs, "forkliftSpeed");
@@ -172,7 +172,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_3",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — Deflection",
+    label: "Pallet Rack Optimizer — Deflection",
     fn: (inputs) => {
     const load = num(inputs, "load");
     const beamLength = num(inputs, "beamLength");
@@ -184,7 +184,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_4",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — SafetyFactor",
+    label: "Pallet Rack Optimizer — SafetyFactor",
     fn: (inputs) => {
     const maxLoadCapacity = num(inputs, "maxLoadCapacity");
     const actualLoad = num(inputs, "actualLoad");
@@ -194,7 +194,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_5",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — CostPerPosition",
+    label: "Pallet Rack Optimizer — CostPerPosition",
     fn: (inputs) => {
     const totalRackCost = num(inputs, "totalRackCost");
     const rackCapacity = num(inputs, "rackCapacity");
@@ -204,7 +204,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_6",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — RetrievalTime",
+    label: "Pallet Rack Optimizer — RetrievalTime",
     fn: (inputs) => {
     const travelTime = num(inputs, "travelTime");
     const Horizontal = num(inputs, "Horizontal");
