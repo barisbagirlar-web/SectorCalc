@@ -30,20 +30,25 @@ export type SemanticJsonLdAuditResult = {
   };
 };
 
+function isP24Active(slug: string): boolean {
+  const verdict = getP24VerdictForSlug(slug);
+  return verdict !== "QUARANTINE" && verdict !== "FAIL";
+}
+
 function collectPublicRouteSlugs(): Array<{ slug: string; tier: "free" | "premium" | "premium-schema" }> {
   const premiumSchemas = new Set(listPremiumSchemaSlugs());
   return [
     ...listAllFreeToolSlugs()
-      .filter((slug) => !isFreeToolMigratedToPremium(slug) && !premiumSchemas.has(slug) && getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .filter((slug) => !isFreeToolMigratedToPremium(slug) && !premiumSchemas.has(slug) && isP24Active(slug))
       .map((slug) => ({ slug, tier: "free" as const })),
     ...getPremiumRevenueRouteSlugs()
-      .filter((slug) => getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .filter((slug) => isP24Active(slug))
       .map((slug) => ({ slug, tier: "premium" as const })),
     ...listMigratedPremiumRouteSlugs()
-      .filter((slug) => getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .filter((slug) => isP24Active(slug))
       .map((slug) => ({ slug, tier: "premium" as const })),
     ...listPremiumSchemaSlugs()
-      .filter((slug) => getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .filter((slug) => isP24Active(slug))
       .map((slug) => ({ slug, tier: "premium-schema" as const })),
   ];
 }
