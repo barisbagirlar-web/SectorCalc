@@ -139,13 +139,27 @@ export function adaptToolSchema(
   // ---- VALIDATION RULES ----
   const rawValidation = schema.validation || schema.engine_rules?.validation || {};
   const rawRules = rawValidation.rules || [];
-  const validationRules: ValidationRule[] = rawRules.map((r: AnyToolSchema, idx: number) => ({
-    id: r.id || `V${idx + 1}`,
-    condition: typeof r === "string" ? r : (r.condition || ""),
-    message: typeof r === "string"
-      ? `Validation rule ${idx + 1} failed.`
-      : (r.message || `Rule ${idx + 1} failed.`),
-  }));
+
+  /** Check if a validation condition string is a real executable expression (not plain text) */
+  function isValidConditionExpr(cond: string): boolean {
+    return (
+      cond.includes(">") || cond.includes("<") || cond.includes("=") ||
+      cond.includes("!") || cond.includes("&&") || cond.includes("||")
+    ) && /[a-zA-Z]/.test(cond);
+  }
+
+  const validationRules: ValidationRule[] = rawRules
+    .filter((r: AnyToolSchema) => {
+      const cond = typeof r === "string" ? r : (r.condition || "");
+      return isValidConditionExpr(cond);
+    })
+    .map((r: AnyToolSchema, idx: number) => ({
+      id: r.id || `V${idx + 1}`,
+      condition: typeof r === "string" ? r : (r.condition || ""),
+      message: typeof r === "string"
+        ? `Validation rule ${idx + 1} failed.`
+        : (r.message || `Rule ${idx + 1} failed.`),
+    }));
 
   // Auto-generate basic validation rules from input constraints
   rawInputs.forEach((inp: AnyToolSchema, i: number) => {
