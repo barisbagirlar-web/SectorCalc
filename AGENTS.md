@@ -236,3 +236,9 @@ When a new tool is added or the sitemap is updated, the following steps must be 
 1. First, all code and schema changes must be `git commit`ted.
 2. Then, `npm run build` and `deploy` steps must be run (preferably with `DEPLOY_FORCE_REBUILD=1 node scripts/deploy-production.mjs`).
 Reason: Firebase frameworks Next.js integration executes a process that cleans the repo to HEAD state (git reset) during deploy. Uncommitted schemas won't find a match in date resolver (`tool-git-dates.json`) lookups and fall back to the build fallback date. For this reason, the workflow must always be "Commit First, Build Second".
+
+## 16. SEO Policy for Removed Tools
+When a Pro Tool or any other public route is permanently removed from the system, it is intentionally allowed to return a standard `404 Not Found` response. 
+- A `410 Gone` HTTP status is technically preferred for permanently deleted indexed URLs.
+- However, to reduce middleware complexity and maintenance overhead, we explicitly accept the standard `404 Not Found` behavior for removed tools. 
+- They must be completely purged from the codebase, the sitemap, and all registries.
