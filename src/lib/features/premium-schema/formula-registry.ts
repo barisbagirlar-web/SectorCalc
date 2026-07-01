@@ -16,7 +16,7 @@ import {
 import type { PremiumOutputFormat } from "@/lib/features/premium-schema/premium-calculator-schema";
 import { USER_FORMULA_DEFINITIONS, USER_FORMULA_META_DETAILS } from "@/lib/features/premium-schema/user-premium-formulas";
 
-export type FormulaInputs = Readonly<Record<string, number>>;
+export type FormulaInputs = Readonly<Record<string, number | number[]>>;
 
 export type FormulaFn = (inputs: FormulaInputs) => number;
 
@@ -89,6 +89,19 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     family: "measurement",
     label: "Multiply a × b",
     fn: (inputs) => assertFinite(num(inputs, "a") * num(inputs, "b")),
+  },
+  {
+    id: "math.dot_product",
+    family: "measurement",
+    label: "Dot product of two arrays (Σ a_i * b_i)",
+    fn: (inputs) => {
+      const a = inputs["a"];
+      const b = inputs["b"];
+      if (Array.isArray(a) && Array.isArray(b)) {
+        return assertFinite(a.reduce((sum, val, i) => sum + val * (b[i] || 0), 0));
+      }
+      return 0;
+    },
   },
   // ── OEE sub-formulas (ratio intermediates) ──
   {
@@ -1126,6 +1139,17 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.sewing_smoothness", family: "measurement", label: "Smoothness index", fn: (i) => 0 }, // requires array data
 
   // Dye recete maliyeti
+  { id: "cost.dye_material_cost", family: "cost", label: "Dye material cost from concentration and prices", fn: (i) => {
+      const conc = i["concentrations"];
+      const prices = i["prices"];
+      const bathRatio = num(i, "bathRatio");
+      const weight = num(i, "fabricWeight");
+      if (Array.isArray(conc) && Array.isArray(prices)) {
+        const dot = conc.reduce((sum, val, idx) => sum + val * (prices[idx] || 0), 0);
+        return assertFinite((dot * bathRatio * weight) / 1000);
+      }
+      return 0;
+  } },
   { id: "cost.dye_batch", family: "cost", label: "Dye batch total cost", fn: (i) => num(i,"dyeCost") + num(i,"chemCost") + num(i,"waterCost") + num(i,"energyCost") + num(i,"wasteCost") },
   { id: "cost.dye_rft_savings", family: "cost", label: "RFT rework savings", fn: (i) => num(i,"rework") * (1 - num(i,"rft")) },
   { id: "cost.dye_cost_per_kg", family: "cost", label: "Cost per kg fabric", fn: (i) => (num(i,"totalBatch") + num(i,"rftSavings")) / num(i,"fabricWeight") },
@@ -3555,6 +3579,8 @@ const FORMULA_META_DETAILS: Record<
   "measurement.sewing_line_eff": { description: "Sewing line efficiency percentage.", requiredInputs: ["cycleTotal","actOperators","taktTime"], outputHint: "percentage" },
   "measurement.sewing_balance_delay": { description: "Balance delay percentage.", requiredInputs: ["lineEff"], outputHint: "percentage" },
   "measurement.sewing_smoothness": { description: "Smoothness index for line balance.", requiredInputs: [], outputHint: "score" },
+  "math.dot_product": { description: "Dot product of two arrays.", requiredInputs: ["a","b"], outputHint: "number" },
+  "cost.dye_material_cost": { description: "Dye material cost from concentration and prices.", requiredInputs: ["concentrations","prices","bathRatio","fabricWeight"], outputHint: "currency" },
   "cost.dye_batch": { description: "Total dye batch cost including dye, chem, water, energy, waste.", requiredInputs: ["dyeCost","chemCost","waterCost","energyCost","wasteCost"], outputHint: "currency" },
   "cost.dye_rft_savings": { description: "RFT rework savings.", requiredInputs: ["rework","rft"], outputHint: "currency" },
   "cost.dye_cost_per_kg": { description: "Cost per kg of dyed fabric.", requiredInputs: ["totalBatch","rftSavings","fabricWeight"], outputHint: "currency" },

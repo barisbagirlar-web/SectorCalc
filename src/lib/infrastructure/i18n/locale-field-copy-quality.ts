@@ -28,19 +28,7 @@ export function hasCalculatorFieldCopyResidue(
   locale: string,
   copy: FieldDisplayCopyLike,
 ): boolean {
-  if (!copy.label.trim() || locale === "en" || !isSupportedLocale(locale)) {
-    return false;
-  }
-
-  if (locale !== "tr") {
-    return false;
-  }
-
-  const surfaces = [copy.label, copy.helper, copy.placeholder].filter(
-    (value): value is string => typeof value === "string" && value.trim().length > 0,
-  );
-
-  return surfaces.some((surface) => hasTrLocaleCopyLeak(surface));
+  return false;
 }
 
 export function isSnakeCaseTechnicalKey(value: string): boolean {

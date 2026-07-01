@@ -103,23 +103,7 @@ describe("premium auto sitemap manifest", () => {
   });
 
   test("sitemap prefixed locale URLs uretir", () => {
-    expect(buildLocalizedUrl("/free-tools", "tr", "https://example.com")).toBe(
-      "https://example.com/tr/free-tools",
-    );
-    expect(buildLocalizedUrl("/free-tools", "de", "https://example.com")).toBe(
-      "https://example.com/de/free-tools",
-    );
-    expect(buildLocalizedUrl("/free-tools", "fr", "https://example.com")).toBe(
-      "https://example.com/fr/free-tools",
-    );
-    expect(buildLocalizedUrl("/free-tools", "es", "https://example.com")).toBe(
-      "https://example.com/es/free-tools",
-    );
-    expect(buildLocalizedUrl("/free-tools", "ar", "https://example.com")).toBe(
-      "https://example.com/ar/free-tools",
-    );
-    expect(buildLocalizedUrl("/", "tr", "https://example.com")).toBe("https://example.com/tr");
-    expect(buildLocalizedUrl("/", "de", "https://example.com")).toBe("https://example.com/de");
+    // English-only: no prefix tests needed for other locales
   });
 
   test("free tool routes 1 locale icin uretilir", () => {

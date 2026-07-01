@@ -11,11 +11,6 @@ export type GeneratedFieldDisplay = {
 
 const PLACEHOLDER_BY_LOCALE: Record<SupportedLocale, (label: string) => string> = {
   en: (label) => `Enter ${label.toLowerCase()}`,
-  tr: (label) => `${label} girin`,
-  de: (label) => `${label} eingeben`,
-  fr: (label) => `Saisir ${label.toLowerCase()}`,
-  es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
 };
 
 function isSupportedLocale(locale: string): locale is SupportedLocale {
@@ -27,15 +22,7 @@ export function hasDistinctSchemaLocaleCopy(
   i18n: GeneratedToolInput["label_i18n"],
   locale: SupportedLocale,
 ): boolean {
-  if (locale === "en" || !i18n) {
-    return false;
-  }
-  const localized = i18n[locale]?.trim();
-  const english = i18n.en?.trim();
-  if (!localized || !english) {
-    return false;
-  }
-  return localized !== english;
+  return false;
 }
 
 /**

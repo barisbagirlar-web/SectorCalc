@@ -530,11 +530,6 @@ const AR_SURFACE_RESIDUE: Record<string, string> = {
 };
 
 const RESIDUE_BY_LOCALE: Partial<Record<SupportedLocale, Record<string, string>>> = {
-  tr: TR_SURFACE_RESIDUE,
-  de: DE_SURFACE_RESIDUE,
-  fr: FR_SURFACE_RESIDUE,
-  es: ES_SURFACE_RESIDUE,
-  ar: AR_SURFACE_RESIDUE,
 };
 
 function sortedResidueEntries(locale: SupportedLocale): readonly (readonly [string, string])[] {

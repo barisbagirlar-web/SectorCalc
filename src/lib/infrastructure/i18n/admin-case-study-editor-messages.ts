@@ -350,11 +350,6 @@ export const ADMIN_CASE_STUDY_EDITOR_MESSAGES: Record<
   AdminCaseStudyEditorMessages
 > = {
   en: EN,
-  tr: TR,
-  de: DE,
-  fr: FR,
-  es: ES,
-  ar: AR,
 };
 
 export function getAdminCaseStudyEditorMessages(locale: string): AdminCaseStudyEditorMessages {

@@ -133,7 +133,7 @@ export interface PremiumCalculatorSchema {
   readonly legacyPaidSlug?: string;
 }
 
-export type SchemaInputValues = Record<string, number | string | boolean>;
+export type SchemaInputValues = Record<string, number | string | boolean | number[]>;
 
 export type ThresholdSeverity = "ok" | "warning" | "critical";
 

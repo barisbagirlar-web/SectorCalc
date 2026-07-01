@@ -4,11 +4,6 @@ import type { GeneratedToolI18nText } from "@/lib/features/generated-tools/types
 
 export const GENERATED_TOOL_I18N_LOCALES = [
   "en",
-  "tr",
-  "de",
-  "fr",
-  "es",
-  "ar",
 ] as const satisfies readonly SupportedLocale[];
 
 /** Words beyond this length WILL produce garbage with translateCalculatorPhrase. */

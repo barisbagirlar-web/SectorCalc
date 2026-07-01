@@ -1,0 +1,560 @@
+{
+  "arrayIssues": [
+    {
+      "file": "container-load-analyzer.ts",
+      "arrays": [
+        "itemVolumes",
+        "itemWeights"
+      ]
+    },
+    {
+      "file": "dye-recipe-cost-analyzer.ts",
+      "arrays": [
+        "dyeConcentrations",
+        "dyePrices",
+        "dosages",
+        "chemPrices"
+      ]
+    },
+    {
+      "file": "fabric-cutting-optimizer-analyzer.ts",
+      "arrays": [
+        "patternAreas"
+      ]
+    },
+    {
+      "file": "feed-cost-formulation-analyzer.ts",
+      "arrays": [
+        "inclusionRates",
+        "prices"
+      ]
+    },
+    {
+      "file": "irr-investment-analyzer.ts",
+      "arrays": [
+        "cashFlows"
+      ]
+    },
+    {
+      "file": "sewing-line-balance-analyzer-pro.ts",
+      "arrays": [
+        "smvTimes"
+      ]
+    },
+    {
+      "file": "spc-limit-control-analyzer.ts",
+      "arrays": [
+        "subgroupMeans",
+        "subgroupRanges"
+      ]
+    }
+  ],
+  "unusedIssues": [
+    {
+      "file": "absenteeism-cost-analyzer.ts",
+      "unmapped": [
+        "regularRate",
+        "otRate",
+        "tempRate",
+        "tempMarkup",
+        "hrTime",
+        "hrRate"
+      ]
+    },
+    {
+      "file": "aql-sampling-risk-analyzer.ts",
+      "unmapped": [
+        "inspectionLevel",
+        "aqlPercent",
+        "ltpdPercent",
+        "unitInspectionCost"
+      ]
+    },
+    {
+      "file": "asme-pressure-vessel-analyzer.ts",
+      "unmapped": [
+        "headType",
+        "material",
+        "crownRadiusMm",
+        "knuckleRadiusMm"
+      ]
+    },
+    {
+      "file": "auto-repair-comeback-analyzer.ts",
+      "unmapped": [
+        "totalCompletedOrders"
+      ]
+    },
+    {
+      "file": "auto-repair-quote-consistency-analyzer.ts",
+      "unmapped": [
+        "standardLaborHours",
+        "shopHourlyRate"
+      ]
+    },
+    {
+      "file": "auto-shop-margin-leak-analyzer.ts",
+      "unmapped": [
+        "partsCogs",
+        "laborCost",
+        "inventoryShrinkage",
+        "totalAvailableHours",
+        "totalOpEx",
+        "monthlyDiscounts"
+      ]
+    },
+    {
+      "file": "beam-weight-analyzer.ts",
+      "unmapped": [
+        "profileType",
+        "modulusE",
+        "uniformLoad"
+      ]
+    },
+    {
+      "file": "bolt-torque-preload-analyzer.ts",
+      "unmapped": [
+        "grade",
+        "targetPreloadPercent",
+        "calibrationError"
+      ]
+    },
+    {
+      "file": "bottleneck-investment-analyzer.ts",
+      "unmapped": [
+        "defectRate"
+      ]
+    },
+    {
+      "file": "break-even-margin-of-safety-analyzer.ts",
+      "unmapped": [
+        "actualRevenue"
+      ]
+    },
+    {
+      "file": "calibration-drift-risk-analyzer.ts",
+      "unmapped": [
+        "timeSinceLastCalibration",
+        "standardCalibrationInterval",
+        "impactPerUnitError"
+      ]
+    },
+    {
+      "file": "cbam-compliance-verdict-analyzer.ts",
+      "unmapped": [
+        "originCountry",
+        "scope1Emissions",
+        "scope2Emissions",
+        "marginThreshold"
+      ]
+    },
+    {
+      "file": "cbam-exposure-analyzer.ts",
+      "unmapped": [
+        "productionVolumeTons",
+        "naturalGasM3",
+        "coalTons",
+        "electricityMwh",
+        "processEmissions",
+        "renewableRatio",
+        "carbonLeakageFactor"
+      ]
+    },
+    {
+      "file": "chatter-surface-quality-analyzer.ts",
+      "unmapped": [
+        "maxToleranceRa",
+        "batchSize"
+      ]
+    },
+    {
+      "file": "cleaning-bid-optimizer-analyzer.ts",
+      "unmapped": [
+        "totalSquareMeters",
+        "competitorBid"
+      ]
+    },
+    {
+      "file": "cloud-api-overrun-analyzer.ts",
+      "unmapped": [
+        "dataEgressGb",
+        "egressRatePerGb",
+        "slaUptimeCommitment",
+        "actualUptime",
+        "monthlyFee"
+      ]
+    },
+    {
+      "file": "cloud-waste-elimination-analyzer.ts",
+      "unmapped": [
+        "unattachedVolumes",
+        "volumeRatePerMonth",
+        "orphanSnapshotGb",
+        "snapshotStorageRate",
+        "currentInstanceCost",
+        "rightSizedInstanceCost",
+        "spotUsageRatio",
+        "targetSpotRatio",
+        "onDemandCost",
+        "reservedCost",
+        "nonBizHoursInstances",
+        "nonBizHoursPerMonth",
+        "instanceHourlyRate"
+      ]
+    },
+    {
+      "file": "cnc-cycle-time-analyzer.ts",
+      "unmapped": [
+        "totalParts"
+      ]
+    },
+    {
+      "file": "compressed-air-energy-cost-analyzer.ts",
+      "unmapped": [
+        "compressorPowerKw",
+        "operatingHoursPerYear",
+        "loadFactor",
+        "efficiencyIsothermal",
+        "efficiencyMotor",
+        "efficiencyDrive",
+        "electricityRate",
+        "heatRecoveryEfficiency",
+        "alternativeEnergyCost",
+        "gridEmissionFactor"
+      ]
+    },
+    {
+      "file": "compressor-tank-sizing-analyzer.ts",
+      "unmapped": [
+        "currentTankVol"
+      ]
+    },
+    {
+      "file": "concrete-volume-cost-analyzer.ts",
+      "unmapped": [
+        "concreteGrade",
+        "concreteDensity",
+        "unitPrice",
+        "pumpCost"
+      ]
+    },
+    {
+      "file": "container-load-analyzer.ts",
+      "unmapped": [
+        "containerType",
+        "grossWeight",
+        "containerHeight",
+        "palletHeight"
+      ]
+    },
+    {
+      "file": "cpk-ppm-converter-analyzer.ts",
+      "unmapped": [
+        "targetCpk",
+        "dailyVolume"
+      ]
+    },
+    {
+      "file": "currency-risk-analyzer.ts",
+      "unmapped": [
+        "fxPair"
+      ]
+    },
+    {
+      "file": "cut-fill-balance-analyzer.ts",
+      "unmapped": [
+        "swellFactor"
+      ]
+    },
+    {
+      "file": "cutting-tool-life-analyzer.ts",
+      "unmapped": [
+        "depth",
+        "taylorK",
+        "edges",
+        "toolChangeTime",
+        "machineRate"
+      ]
+    },
+    {
+      "file": "dairy-profit-detector-analyzer.ts",
+      "unmapped": [
+        "sccCount"
+      ]
+    },
+    {
+      "file": "downtime-cost-analyzer.ts",
+      "unmapped": [
+        "mtbfHours"
+      ]
+    },
+    {
+      "file": "dye-recipe-cost-analyzer.ts",
+      "unmapped": [
+        "bathRatio",
+        "dyePrices",
+        "chemPrices"
+      ]
+    },
+    {
+      "file": "employee-turnover-cost-analyzer.ts",
+      "unmapped": [
+        "exitsCount",
+        "severancePay",
+        "timeToFillDays",
+        "dailyRevenuePerEmployee",
+        "advertisingAndAgencyFees",
+        "interviewHours",
+        "interviewerRate",
+        "trainingHours",
+        "trainerRate",
+        "onboardingHours",
+        "newHireRate",
+        "timeToFullProductivityDays",
+        "avgDailyOutput",
+        "unitMargin"
+      ]
+    },
+    {
+      "file": "evm-cost-forecast-analyzer.ts",
+      "unmapped": [
+        "varianceReason",
+        "remainingRisk",
+        "managementReserve"
+      ]
+    },
+    {
+      "file": "feed-cost-formulation-analyzer.ts",
+      "unmapped": [
+        "pelletCost"
+      ]
+    },
+    {
+      "file": "fertilizer-dosage-analyzer.ts",
+      "unmapped": [
+        "soilTestN",
+        "convFactor",
+        "cropUptake",
+        "leachingFactor"
+      ]
+    },
+    {
+      "file": "fire-hydrant-flow-analyzer.ts",
+      "unmapped": [
+        "flowTestDuration"
+      ]
+    },
+    {
+      "file": "flexible-manufacturing-roi-analyzer.ts",
+      "unmapped": [
+        "ttmReduction",
+        "totalTime",
+        "revenueGain",
+        "customerPremium",
+        "productionVolume",
+        "unitPrice",
+        "wipDedicated",
+        "wipFlexible",
+        "carryCostPct",
+        "scrapReduction"
+      ]
+    },
+    {
+      "file": "food-waste-margin-analyzer.ts",
+      "unmapped": [
+        "spoiled",
+        "excess",
+        "salvage",
+        "actualUsage",
+        "theoreticalUsage"
+      ]
+    },
+    {
+      "file": "freight-cost-analyzer.ts",
+      "unmapped": [
+        "terminalFee"
+      ]
+    },
+    {
+      "file": "heat-exchanger-fouling-analyzer.ts",
+      "unmapped": [
+        "area",
+        "lmtd",
+        "operatingHours",
+        "boilerEff",
+        "flowM3h",
+        "pumpEff"
+      ]
+    },
+    {
+      "file": "hydraulic-system-loss-analyzer.ts",
+      "unmapped": [
+        "systemPressure",
+        "flowRate"
+      ]
+    },
+    {
+      "file": "industrial-formulas-schemas.ts",
+      "unmapped": [
+        "currency"
+      ]
+    },
+    {
+      "file": "inflation-escalation-analyzer.ts",
+      "unmapped": [
+        "riskLevel"
+      ]
+    },
+    {
+      "file": "interest-rate-risk-analyzer.ts",
+      "unmapped": [
+        "notionalAmount",
+        "swapSpread"
+      ]
+    },
+    {
+      "file": "iso-50001-baseline-analyzer.ts",
+      "unmapped": [
+        "intercept",
+        "slopeProd",
+        "slopeDegreeDay",
+        "degreeDays",
+        "targetReduction"
+      ]
+    },
+    {
+      "file": "price-elasticity-analyzer.ts",
+      "unmapped": [
+        "currentPrice",
+        "currentDemand",
+        "varCost",
+        "fixedCost",
+        "cannibRate",
+        "marginOther"
+      ]
+    },
+    {
+      "file": "recurring-cost-analyzer.ts",
+      "unmapped": [
+        "annualGrowthRecurring"
+      ]
+    },
+    {
+      "file": "roi-npv-analyzer.ts",
+      "unmapped": [
+        "revenueAnnual"
+      ]
+    },
+    {
+      "file": "roof-area-load-analyzer.ts",
+      "unmapped": [
+        "overhangWidth",
+        "wasteFactor",
+        "materialWeight",
+        "groundSnow",
+        "exposureFactor",
+        "thermalFactor",
+        "slopeFactor"
+      ]
+    },
+    {
+      "file": "saas-shelfware-analyzer.ts",
+      "unmapped": [
+        "lowUsageThreshold",
+        "annualBudget"
+      ]
+    },
+    {
+      "file": "scrap-rate-optimize-analyzer.ts",
+      "unmapped": [
+        "scrapQty",
+        "totalInput",
+        "labRate",
+        "benchmarkRate",
+        "impFactor"
+      ]
+    },
+    {
+      "file": "seed-rate-analyzer.ts",
+      "unmapped": [
+        "desiredStandCount"
+      ]
+    },
+    {
+      "file": "sewing-line-balance-analyzer-pro.ts",
+      "unmapped": [
+        "smvTimes",
+        "downtime",
+        "targetEfficiency",
+        "defectRate"
+      ]
+    },
+    {
+      "file": "shop-hourly-rate-analyzer.ts",
+      "unmapped": [
+        "targetMargin"
+      ]
+    },
+    {
+      "file": "six-sigma-project-prioritizer.ts",
+      "unmapped": [
+        "currentZBench",
+        "safetyImpact",
+        "recoveryProbability"
+      ]
+    },
+    {
+      "file": "smed-changeover-matrix-analyzer.ts",
+      "unmapped": [
+        "conversionRate"
+      ]
+    },
+    {
+      "file": "taguchi-quality-loss-analyzer.ts",
+      "unmapped": [
+        "specLower",
+        "specUpper"
+      ]
+    },
+    {
+      "file": "transfer-pricing-optimizer-analyzer.ts",
+      "unmapped": [
+        "entityALocation",
+        "entityBLocation"
+      ]
+    },
+    {
+      "file": "vacuum-leak-energy-analyzer.ts",
+      "unmapped": [
+        "systemPressure"
+      ]
+    },
+    {
+      "file": "vehicle-depreciation-tco-analyzer.ts",
+      "unmapped": [
+        "annualKm",
+        "totalExpectedKm",
+        "depreciationMethod"
+      ]
+    },
+    {
+      "file": "volumetric-weight-chargeable-analyzer.ts",
+      "unmapped": [
+        "transportMode"
+      ]
+    },
+    {
+      "file": "weld-strength-analyzer.ts",
+      "unmapped": [
+        "appliedMoment",
+        "yieldStrength"
+      ]
+    },
+    {
+      "file": "wind-turbine-investment-analyzer.ts",
+      "unmapped": [
+        "hubHeight"
+      ]
+    }
+  ]
+}

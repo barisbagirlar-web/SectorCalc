@@ -36,11 +36,6 @@ if (typeof window === "undefined") {
 
 const PLACEHOLDER_BY_LOCALE: Record<SupportedLocale, (label: string) => string> = {
   en: (label) => `Enter ${label.toLowerCase()}`,
-  tr: (label) => `${label} girin`,
-  de: (label) => `${label} eingeben`,
-  fr: (label) => `Saisir ${label.toLowerCase()}`,
-  es: (label) => `Introduzca ${label.toLowerCase()}`,
-  ar: (label) => `أدخل ${label}`,
 };
 
 function readString(source: MessageRecord | undefined, key: string): string | undefined {

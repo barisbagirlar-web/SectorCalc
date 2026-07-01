@@ -25,7 +25,9 @@ export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "costPerKg", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Maliyet > $3/kg — optimizasyon potansiyeli var.", warningMessage_i18n: {"en":"Cost > $3/kg — optimization potansiyeli var."}, criticalMessage: "Maliyet > $5/kg — acil recete optimizasyonu.", criticalMessage_i18n: {"en":"Cost > $5/kg — urgent recipe optimizasyonu."} }],
   formulaPipeline: [
-    { formulaId: "cost.dye_batch", inputMap: { dyeCost: "dyeConcentrations", chemCost: "dosages", waterCost: "waterTariff", energyCost: "heatingCost", wasteCost: "wasteTreatmentCost" }, outputId: "totalBatchCost" },
+    { formulaId: "cost.dye_material_cost", inputMap: { concentrations: "dyeConcentrations", prices: "dyePrices", bathRatio: "bathRatio", fabricWeight: "fabricWeight" }, outputId: "dyeCost" },
+    { formulaId: "cost.dye_material_cost", inputMap: { concentrations: "dosages", prices: "chemPrices", bathRatio: "bathRatio", fabricWeight: "fabricWeight" }, outputId: "chemCost" },
+    { formulaId: "cost.dye_batch", inputMap: { dyeCost: "dyeCost", chemCost: "chemCost", waterCost: "waterTariff", energyCost: "heatingCost", wasteCost: "wasteTreatmentCost" }, outputId: "totalBatchCost" },
     { formulaId: "cost.dye_rft_savings", inputMap: {
         rework: "reworkCost",
         rft: "rftPct"

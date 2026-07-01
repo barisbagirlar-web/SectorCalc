@@ -2,11 +2,6 @@ import "server-only";
 
 import enMessages from "../../../../messages/en.json";
 
-const trMessages = enMessages;
-const deMessages = enMessages;
-const frMessages = enMessages;
-const esMessages = enMessages;
-const arMessages = enMessages;
 import { resolveTraceLocale } from "@/lib/infrastructure/trace/locale-hints";
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 
@@ -23,11 +18,6 @@ const ENGLISH_ERRORS: TraceErrors = {
 
 const TRACE_ERRORS: Record<SupportedLocale, TraceErrors> = {
   en: (enMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
-  tr: (trMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
-  de: (deMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
-  fr: (frMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
-  es: (esMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
-  ar: (arMessages as any)?.trace?.errors ?? ENGLISH_ERRORS,
 };
 
 export function resolveTraceErrorMessage(locale: string, key: TraceErrorKey): string {

@@ -20,8 +20,6 @@ import type { AiToolIndexRecord, AiLocalizedKeywords, AiRouteStatus, AiToolTier 
 
 const mockKeywords: AiLocalizedKeywords = {
   en: ["cnc", "milling", "turning", "machine", "tool", "spindle"],
-  tr: ["cnc", "freze", "torna", "makina", "takim"],
-  de: ["cnc", "frasen", "drehen", "maschine", "werkzeug"],
 };
 
 function makeTool(overrides: Partial<AiToolIndexRecord>): AiToolIndexRecord {
@@ -49,14 +47,11 @@ const MOCK_TOOLS: readonly AiToolIndexRecord[] = [
     title: { en: "CNC Cost Analyzer", tr: "CNC Maliyet Analizoru", de: "CNC-Kostenanalysator" },
     description: {
       en: "Analyze CNC machining cost, cycle time and tool wear.",
-      tr: "CNC isleme maliyeti, cevrim suresi ve takim asinmasi analizi.",
-      de: "Analysieren Sie CNC-Bearbeitungskosten, Zykluszeit und Werkzeugverschleiß.",
     },
     intent: ["cnc", "machining", "cost-analysis", "manufacturing"],
     industries: ["precision-manufacturing", "metalworking"],
     keywords: {
       en: ["cnc", "cost", "machining", "cycle-time", "tool-wear"],
-      tr: ["cnc", "maliyet", "isleme", "cevrim", "takim-asinmasi"],
     },
   }),
   makeTool({
@@ -64,15 +59,11 @@ const MOCK_TOOLS: readonly AiToolIndexRecord[] = [
     title: { en: "Energy Efficiency Report", tr: "Enerji Verimlilik Raporu", de: "Energieeffizienzbericht" },
     description: {
       en: "Peak load, carbon exposure and utility cost analysis.",
-      tr: "Pik talep, karbon maruziyeti ve enerji maliyet analizi.",
-      de: "Spitzenlast, CO₂-Belastung und Energiekostenanalyse.",
     },
     intent: ["energy", "efficiency", "carbon", "sustainability"],
     industries: ["energy", "manufacturing", "facilities"],
     keywords: {
       en: ["energy", "efficiency", "carbon", "peak-load", "utility"],
-      tr: ["enerji", "verimlilik", "karbon", "pik-talep"],
-      de: ["energie", "effizienz", "co2", "spitzenlast"],
     },
   }),
   makeTool({
@@ -80,14 +71,11 @@ const MOCK_TOOLS: readonly AiToolIndexRecord[] = [
     title: { en: "OEE Calculator", tr: "OEE Hesaplayici", de: "OEE-Rechner" },
     description: {
       en: "Overall Equipment Effectiveness — availability, performance, quality.",
-      tr: "Toplam Ekipman Etkinligi — kullanilabilirlik, performans, kalite.",
-      de: "Gesamtanlageneffektivität — Verfugbarkeit, Leistung, Qualität.",
     },
     intent: ["oee", "availability", "performance", "quality", "lean"],
     industries: ["manufacturing", "production"],
     keywords: {
       en: ["oee", "availability", "performance", "quality", "lean"],
-      tr: ["oee", "kullanilabilirlik", "performans", "kalite", "yalin"],
     },
   }),
   makeTool({
@@ -95,14 +83,11 @@ const MOCK_TOOLS: readonly AiToolIndexRecord[] = [
     title: { en: "Financial Health Score", tr: "Finansal Saglik Puani", de: "Finanzielle Gesundheitsbewertung" },
     description: {
       en: "Benchmark your financial health against industry standards.",
-      tr: "Finansal sagliginizi sektor standartlariyla karsilastirin.",
-      de: "Vergleichen Sie Ihre finanzielle Gesundheit mit Branchenstandards.",
     },
     intent: ["financial", "health", "benchmark", "rating"],
     industries: ["finance", "all"],
     keywords: {
       en: ["financial", "health", "score", "benchmark", "rating"],
-      tr: ["finansal", "saglik", "puan", "karsilastirma"],
     },
   }),
 ];

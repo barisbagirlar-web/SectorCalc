@@ -65,6 +65,18 @@ export function normalizeSchemaInputs(
   const normalized: SchemaInputValues = {};
   for (const input of schema.inputs) {
     const rawValue = raw[input.id];
+    
+    if (input.array) {
+      if (Array.isArray(rawValue)) {
+        normalized[input.id] = rawValue.map(v => toNumber(v, 0));
+      } else if (typeof rawValue === "string") {
+        normalized[input.id] = rawValue.split(',').map(s => toNumber(s.trim(), 0));
+      } else {
+        normalized[input.id] = [];
+      }
+      continue;
+    }
+
     if (input.type === "boolean") {
       normalized[input.id] =
         typeof rawValue === "boolean"
@@ -94,20 +106,22 @@ export function normalizeSchemaInputs(
 function resolveMappedValue(
   sourceKey: string,
   userInputs: SchemaInputValues,
-  computed: Record<string, number>
-): number {
+  computed: Record<string, number | number[]>
+): number | number[] {
   if (sourceKey in computed) {
     return computed[sourceKey] ?? 0;
   }
-  return toNumber(userInputs[sourceKey], 0);
+  const val = userInputs[sourceKey];
+  if (Array.isArray(val)) return val;
+  return toNumber(val, 0);
 }
 
 function buildFormulaInputs(
   inputMap: Readonly<Record<string, string>>,
   userInputs: SchemaInputValues,
-  computed: Record<string, number>
-): Record<string, number> {
-  const mapped: Record<string, number> = {};
+  computed: Record<string, number | number[]>
+): Record<string, number | number[]> {
+  const mapped: Record<string, number | number[]> = {};
   for (const [param, sourceKey] of Object.entries(inputMap)) {
     mapped[param] = resolveMappedValue(sourceKey, userInputs, computed);
   }
@@ -255,7 +269,7 @@ function runPremiumSchemaEngineCore(
   userInputs: SchemaInputValues,
   formatLocale: SupportedLocale,
 ): PremiumSchemaEngineResult {
-  const computed: Record<string, number> = {
+  const computed: Record<string, number | number[]> = {
     hiddenMultiplierConst: schema.assumptions.hiddenLossMultiplier,
   };
 
@@ -279,7 +293,8 @@ function runPremiumSchemaEngineCore(
   }
 
   const outputs: SchemaPipelineOutput[] = schema.outputs.map((spec) => {
-    const raw = computed[spec.id] ?? 0;
+    const rawVal = computed[spec.id] ?? 0;
+    const raw = typeof rawVal === 'number' ? rawVal : 0;
     return {
       id: spec.id,
       label: spec.label,
@@ -305,19 +320,21 @@ function runPremiumSchemaEngineCore(
 
   const thresholdAlerts: ThresholdAlert[] = [];
   for (const rule of schema.thresholds) {
-    const value = computed[rule.fieldId] ?? toNumber(userInputs[rule.fieldId], 0);
+    const computedVal = computed[rule.fieldId];
+    const value = typeof computedVal === 'number' ? computedVal : toNumber(userInputs[rule.fieldId], 0);
     const alert = evaluateThreshold(rule, value);
     if (alert) {
       thresholdAlerts.push(alert);
     }
   }
 
-  const baseExposure =
+  const baseExposureVal =
     computed.totalExposure ??
     computed.totalEnergyCost ??
     computed.totalFreightCost ??
     computed.combinedOperatingCost ??
     bigNumber.raw;
+  const baseExposure = typeof baseExposureVal === 'number' ? baseExposureVal : 0;
 
   const hiddenMultiplier = schema.assumptions.hiddenLossMultiplier;
   const adjustedCost = baseExposure * hiddenMultiplier;
