@@ -528,7 +528,7 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 };
 
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
-  const normalized = slug.trim();
+  const normalized = slug.trim().replace(/-premium$/, "");
   let targetSlug = normalized;
   if (normalized === "cnc-quote-risk-analyzer") {
     targetSlug = "cnc-minimum-safe-quote-analyzer";

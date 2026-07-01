@@ -1101,7 +1101,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.env_fire_penalty_risk", family: "cost", label: "Penalty risk", fn: (i) => num(i,"probViolation") * num(i,"fine") },
   { id: "cost.env_fire_total", family: "cost", label: "Total environmental waste cost", fn: (i) => num(i,"disposalCost") + num(i,"hazCost") + num(i,"recycleCost") + num(i,"emisCost") + num(i,"penaltyRisk") },
 
-  // EOQ envanter
+  // EOQ Inventory
   { id: "cost.eoq", family: "cost", label: "Economic order quantity", fn: (i) => Math.sqrt((2 * num(i,"annualDemand") * num(i,"orderCost")) / num(i,"holdingCost")) },
   { id: "measurement.eoq_rop", family: "measurement", label: "Reorder point", fn: (i) => (num(i,"leadTime") * num(i,"dailyDemand")) + num(i,"safetyStock") },
   { id: "measurement.eoq_safety_stock", family: "measurement", label: "Safety stock", fn: (i) => num(i,"zScore") * num(i,"stdDev") * Math.sqrt(num(i,"leadTime")) },
@@ -1678,7 +1678,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   // Supplier TCO
   { id: "cost.supplier_tco", family: "cost", label: "Supplier TCO", fn: (i) => num(i,"unitPrice") + num(i,"defectRate") + num(i,"freightCostPerUnit") + num(i,"leadTimeDays") + num(i,"holdingCostPct") + num(i,"inspectionCostPerUnit") },
 
-  // Süt Kâr
+  // Dairy Profit
   { id: "measurement.fcm_milk", family: "measurement", label: "Fat corrected milk", fn: (i) => 0.4 * num(i,"milkYield") + 15 * num(i,"fatYield") },
   { id: "cost.dairy_income_over_feed", family: "cost", label: "Income over feed cost", fn: (i) => num(i,"milkPrice") * num(i,"milkYield") - num(i,"totalFeedCost") },
 
@@ -1753,7 +1753,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.net_waste_cost", family: "cost", label: "Net waste cost", fn: (i) => num(i,"preConsumerWaste") + num(i,"recycleRevenue") - num(i,"recycleRevenue") },
   { id: "measurement.waste_risk_score", family: "measurement", label: "Waste risk score", fn: (i) => safeDivide(num(i,"textileWasteRate"), num(i,"netWasteCost")) },
 
-  // Temizlik Teklif
+  // Cleaning Bid
   { id: "cost.cleaning_labor_cost", family: "cost", label: "Cleaning labor cost", fn: (i) => num(i,"cleaningHours") * num(i,"cleaningRate") },
   { id: "cost.cleaning_bid_price", family: "cost", label: "Cleaning bid price", fn: (i) => num(i,"cleaningLaborCost") + num(i,"cleaningMaterialCost") + num(i,"cleaningOverhead") + num(i,"cleaningMargin") },
 
