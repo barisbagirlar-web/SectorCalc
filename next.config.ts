@@ -87,7 +87,6 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         ...indexNowVerification,
-        { source: "/data/:path*.csv", destination: "/data/:path*.csv" },
         { source: "/about", destination: "/en/about" },
         { source: "/about-us", destination: "/en/about-us" },
         { source: "/account", destination: "/en/account" },

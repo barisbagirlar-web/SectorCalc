@@ -183,6 +183,13 @@ const FAQS = [
 const EMBED_CODE = `<iframe src="https://sectorcalc.com/embed/fmea-rpn" width="100%" height="500" frameborder="0" title="FMEA RPN Calculator"></iframe>`;
 
 const VERSION_HISTORY = [{
+  version: "1.2", date: "2026-07-02",
+  notes: [
+    "Added Which RPN Values Are Impossible? section",
+    "Added RPN Reachability Rule, 750 analysis, and prime-number score analysis",
+    "Added interactive RPN Reachability Checker",
+  ],
+}, {
   version: "1.1", date: "2026-07-01",
   notes: [
     "Added Why This Reference Is Citable section",
@@ -358,6 +365,56 @@ function FaqAccordion({ items }: { items: readonly { q: string; a: string }[] })
           {openIndex === i && <div id={`faq-answer-${i}`} className="pb-4 text-sm leading-relaxed text-body-charcoal">{faq.a}</div>}
         </div>
       ))}
+    </div>
+  );
+}
+
+function ReachabilityChecker() {
+  const [testValue, setTestValue] = useState("");
+  const [result, setResult] = useState<{ isReachable: boolean, factors?: [number, number, number][] } | null>(null);
+
+  const checkReachability = useCallback(() => {
+    const val = parseInt(testValue, 10);
+    if (isNaN(val) || val < 1 || val > 1000) {
+      setResult(null);
+      return;
+    }
+    const factors: [number, number, number][] = [];
+    for (let s = 1; s <= 10; s++) {
+      for (let o = 1; o <= 10; o++) {
+        for (let d = 1; d <= 10; d++) {
+          if (s * o * d === val) {
+            factors.push([s, o, d]);
+          }
+        }
+      }
+    }
+    setResult({ isReachable: factors.length > 0, factors });
+  }, [testValue]);
+
+  return (
+    <div className="mt-4 border border-border-subtle bg-bg-card p-4 sm:p-6">
+      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">RPN Reachability Checker</h3>
+      <p className="mb-4 text-sm text-body-charcoal">Enter a value between 1 and 1000 to see if it can be reached using a 1-10 S/O/D scoring system.</p>
+      <div className="mb-4 flex gap-2">
+        <input type="number" min="1" max="1000" placeholder="Enter RPN (1-1000)" value={testValue} onChange={(e) => setTestValue(e.target.value)} className="w-full border border-border-subtle bg-bg-subtle px-3 py-2 text-sm text-premium-velvet focus:outline-none focus:ring-1 focus:ring-premium-velvet sm:w-64" />
+        <Button onClick={checkReachability} size="cta">Check</Button>
+      </div>
+      {result && (
+        <div className="mt-4 border-t border-border-subtle pt-4 text-sm text-body-charcoal">
+          {result.isReachable ? (
+            <div>
+              <p className="mb-2 font-semibold text-green-600">Reachable!</p>
+              <p>This RPN can be formed by {result.factors?.length} combination(s).</p>
+            </div>
+          ) : (
+            <div>
+              <p className="mb-2 font-semibold text-amber">Not Reachable</p>
+              <p>There is no valid integer combination of S, O, D (1-10) that multiplies to {testValue}.</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -630,6 +687,25 @@ export function FmeaRpnPageContent() {
             </table>
           </div>
           <p className="text-xs italic text-body-charcoal">This score-space behavior is generated directly from all integer triples where S, O and D range from 1 to 10.</p>
+        </Section>
+
+        {/* -- Section 9B: Which RPN Values Are Impossible? (NEW) -- */}
+        <Section id="impossible-rpn">
+          <SectionTitle>Which RPN Values Are Impossible?</SectionTitle>
+          <p className="mb-4 sc-body-muted">Between 1 and 1000, 880 values are mathematically impossible to reach using a 1-10 Severity, Occurrence and Detection scoring system.</p>
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">RPN Reachability Rule</h4>
+          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">For an RPN to be valid (reachable):</p>
+          <ol className="mb-4 list-inside list-decimal space-y-1 text-sm text-body-charcoal">
+            <li>It must be an integer between 1 and 1000.</li>
+            <li>Its prime factorization cannot contain any prime number strictly greater than 7 (i.e., no 11, 13, 17, 19, etc.).</li>
+            <li>It must be factorable into exactly three integers, each &le; 10.</li>
+          </ol>
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Are Prime-Number RPN Scores Possible?</h4>
+          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">Yes, but only 2, 3, 5, and 7. Any larger prime (such as 11, 13, 17, 19) requires a factor greater than 10, which violates the 1-10 rating scale.</p>
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Is RPN 750 Possible?</h4>
+          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">No. Even though 750 does not have prime factors greater than 7, it cannot be formed by three factors &le; 10. (750 = 5 &times; 5 &times; 30, and you cannot break 30 into two numbers &le; 10). The closest reachable values are 720 and 800.</p>
+          
+          <ReachabilityChecker />
         </Section>
 
         {/* -- Section 10: Highest-Collision RPN Values (NEW) -- */}
