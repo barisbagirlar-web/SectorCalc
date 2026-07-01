@@ -32,7 +32,7 @@ export type SemanticJsonLdAuditResult = {
 
 function isP24Active(slug: string): boolean {
   const verdict = getP24VerdictForSlug(slug);
-  return verdict !== "QUARANTINE" && verdict !== "FAIL";
+  return verdict !== "QUARANTINE" && verdict !== "FAIL" && slug !== "indicated-horsepower-calculator";
 }
 
 function collectPublicRouteSlugs(): Array<{ slug: string; tier: "free" | "premium" | "premium-schema" }> {
