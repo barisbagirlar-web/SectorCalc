@@ -9,7 +9,9 @@ function resolveSchemasDir(): string {
   const candidates = [
     // Local dev / standard
     path.join(process.cwd(), "generated", "schemas"),
-    // Firebase framework-managed function
+    // Firebase SSR function (.next/server is deployed alongside)
+    path.join(process.cwd(), ".next", "server", "generated", "schemas"),
+    // Firebase framework-managed function (standalone)
     path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
   ];
   for (const candidate of candidates) {

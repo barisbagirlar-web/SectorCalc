@@ -28,7 +28,21 @@ export type ToolValidationSchema = {
   readonly inputs: readonly SchemaInputField[];
 };
 
-const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
+function resolveSchemasDir(): string {
+  const candidates = [
+    path.join(process.cwd(), "generated", "schemas"),
+    path.join(process.cwd(), ".next", "server", "generated", "schemas"),
+    path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return candidates[0];
+}
+
+const SCHEMAS_DIR = resolveSchemasDir();
 const validatorCache = new Map<string, z.ZodObject<Record<string, z.ZodTypeAny>>>();
 
 const API_VALIDATOR_OPTIONS: BuildZodSchemaOptions = {

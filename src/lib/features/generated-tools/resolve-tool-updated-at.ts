@@ -4,7 +4,21 @@ import { parseToolIsoDateOnly } from "@/lib/features/generated-tools/format-tool
 import { STANDARD_CALCULATOR_OVERRIDES } from "@/lib/features/generated-tools/standard-calculator-overrides";
 import type { GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
-const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
+function resolveSchemasDir(): string {
+  const candidates = [
+    path.join(process.cwd(), "generated", "schemas"),
+    path.join(process.cwd(), ".next", "server", "generated", "schemas"),
+    path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return candidates[0];
+}
+
+const SCHEMAS_DIR = resolveSchemasDir();
 const GENERATED_DIR = path.join(process.cwd(), "generated");
 const STANDARD_OVERRIDES_PATH = path.join(
   process.cwd(),

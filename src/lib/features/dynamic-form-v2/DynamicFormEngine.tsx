@@ -394,6 +394,58 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     [tool],
   );
 
+  // Tornado sensitivity analysis
+  const tornadoDeltas = useMemo(() => {
+    const t = tool.ui_contract.tornado;
+    if (!t) return [];
+    const primary = t.primary;
+    const base = computed[primary] as number;
+    if (base === null || base === undefined || !isFinite(base) || base === 0) return [];
+    const v = t.variation_pct || 0.1;
+    type Delta = { input: string; name: string; swing: number; swing_pct: number; plus: number; minus: number; baseVal: number };
+    const deltas: Delta[] = [];
+    const scopeBase: Record<string, unknown> = { Math, Number, isFinite };
+    (tool.inputs || []).forEach((inp) => { scopeBase[inp.id] = computed[inp.id]; });
+    (t.inputs || []).forEach((inputId) => {
+      const inp = (tool.inputs || []).find((i) => i.id === inputId);
+      if (!inp) return;
+      const baseVal = computed[inputId] as number;
+      if (baseVal === null || baseVal === undefined || !isFinite(baseVal) || baseVal === 0) return;
+      const computeWith = (newVals: Record<string, unknown>) => {
+        const s: Record<string, unknown> = { Math, Number, isFinite, ...scopeBase, ...newVals };
+        (tool.formulas || []).forEach((fm) => {
+          const cv = safeEval(compiled.f[fm.id], s);
+          if (cv !== undefined) s[fm.output] = cv;
+        });
+        return s[primary] as number;
+      };
+      const valPlus = computeWith({ [inputId]: baseVal * (1 + v) });
+      const valMinus = computeWith({ [inputId]: baseVal * (1 - v) });
+      if (!isFinite(valPlus) || !isFinite(valMinus)) return;
+      const swing = Math.abs(valPlus - valMinus);
+      deltas.push({ input: inputId, name: inp.name, swing, swing_pct: swing / Math.abs(base), plus: valPlus, minus: valMinus, baseVal });
+    });
+    return deltas.sort((a, b) => b.swing - a.swing).slice(0, t.top_n || 5);
+  }, [tool, computed, compiled.f]);
+
+  // Interpretation engine
+  const interpretations = useMemo(() => {
+    const rules = tool.ui_contract.interpretations;
+    if (!rules) return [];
+    const scope: Record<string, unknown> = { Math, Number, isFinite };
+    (tool.inputs || []).forEach((inp) => { scope[inp.id] = computed[inp.id]; });
+    (tool.formulas || []).forEach((fm) => { if (computed[fm.output] !== undefined) scope[fm.output] = computed[fm.output]; });
+    const sevOrder: Record<string, number> = { CRITICAL: 0, WARNING: 1, INFO: 2 };
+    return rules
+      .filter((r) => { try { const fn = compile(r.condition); return safeEval(fn, scope) === true; } catch { return false; } })
+      .map((r) => ({
+        ...r,
+        message_rendered: interp(r.message, scope, ccy, outMeta),
+        recommendation_rendered: interp(r.recommendation, scope, ccy, outMeta),
+      }))
+      .sort((a, b) => (sevOrder[a.severity] ?? 9) - (sevOrder[b.severity] ?? 9));
+  }, [tool, computed, ccy, outMeta]);
+
   const decisionOutput = tool.ui_contract.decision_output;
   const decisionVal = decisionOutput ? (computed[decisionOutput] as string) : null;
   const decisionMeta = decisionOutput ? outMeta(decisionOutput) : undefined;
@@ -544,6 +596,31 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
                         } else if (inp.default != null && typeof inp.default === "number" && isFinite(inp.default)) {
                           refParts.push(<span className="seg" key="rf">REF <b>{fmt(inp.default as number, 2)}{unitStr}</b></span>);
                         }
+                        // Benchmarks
+                        if (inp.benchmarks && inp.benchmarks.length > 0) {
+                          const nFam = cl.c === "num" ? cl.fam : undefined;
+                          const nDecl = cl.c === "num" ? cl.declared : undefined;
+                          inp.benchmarks.forEach((bm, bmi) => {
+                            let bVal = bm.value;
+                            let bUnit = "";
+                            if (bm.type === "ratio") {
+                              bUnit = "%";
+                              bVal = bVal * 100;
+                            } else if (nFam && nDecl) {
+                              bUnit = " " + (dispUnit[inp.id] || nDecl);
+                              if (typeof bVal === "number") {
+                                bVal = unitConvert(nFam, nDecl, dispUnit[inp.id] || nDecl, bVal);
+                              }
+                            } else if (bm.unit) {
+                              bUnit = " " + bm.unit;
+                            }
+                            refParts.push(
+                              <span className="seg" key={`bm${bmi}`}>
+                                BENCH <b>{bm.label}: {fmt(bVal, bm.type === "ratio" ? 1 : 2)}{bUnit}</b>
+                              </span>
+                            );
+                          });
+                        }
                       }
 
                       const displayVal = (() => {
@@ -691,6 +768,49 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
                   })}
                   {tool.ui_contract.resolver.note ? <div className="note">{interp(tool.ui_contract.resolver.note, computed, ccy, outMeta)}</div> : null}
                 </div>
+              </div>
+            ) : null}
+
+            {/* Tornado Sensitivity */}
+            {tornadoDeltas.length > 0 ? (
+              <div className="card tornado-card">
+                <h3>LEVERAGE ANALYSIS · TORNADO</h3>
+                <div className="resolver">
+                  {tornadoDeltas.map((t, i) => {
+                    const pct = (t.swing_pct * 100).toFixed(1);
+                    const maxSwing = tornadoDeltas[0].swing_pct;
+                    const width = Math.min(100, (t.swing_pct / maxSwing) * 100);
+                    return (
+                      <div key={t.input} className={`bar-row ${i === 0 ? "bind" : ""}`}>
+                        <span className="bl">{t.name}</span>
+                        <span className="track"><span className="fill" style={{ width: `${width}%` }} /></span>
+                        <span className="bv">&plusmn;{pct}% impact</span>
+                      </div>
+                    );
+                  })}
+                  <div className="note">
+                    <b>TORNADO SENSITIVITY:</b> &plusmn;10% variation on each input, ranked by impact on {outMeta(tool.ui_contract.tornado!.primary).name || tool.ui_contract.tornado!.primary}. Top lever is <b>{tornadoDeltas[0].name}</b>.
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            {/* Interpretation Engine */}
+            {tool.ui_contract.interpretations ? (
+              <div className={`card interp-card ${interpretations.length > 0 && interpretations[0].severity === "CRITICAL" ? "critical" : interpretations.length > 0 && interpretations[0].severity === "WARNING" ? "warning" : "info"}`}>
+                <h3>INTERPRETATION ENGINE</h3>
+                {interpretations.length > 0 ? interpretations.map((i) => (
+                  <div key={i.id} className={`interp-item ${i.severity}`}>
+                    <div className="ih">
+                      <span className="is">{i.severity}</span>
+                      <span className="it">{i.title}</span>
+                    </div>
+                    <div className="im">{i.message_rendered}</div>
+                    <div className="ir"><b>Action: </b>{i.recommendation_rendered}</div>
+                  </div>
+                )) : (
+                  <div className="no-warn" style={{ padding: "8px 0" }}>● NO DEEP INTERPRETATIONS TRIGGERED — INPUTS WITHIN NORMAL OPERATING RANGE</div>
+                )}
               </div>
             ) : null}
 

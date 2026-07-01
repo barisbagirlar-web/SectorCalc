@@ -24,6 +24,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
+import { BRAND_ASSETS } from "@/config/brand";
 
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
@@ -106,10 +107,8 @@ export function SiteHeader({
           @keyframes scFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
         }
         .sc-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:15px 24px;}
-        .sc-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
-        .sc-logo-mark{width:30px;height:30px;flex-shrink:0;}
-        .sc-logo-text{font-size:21px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
-        .sc-logo-text .a{color:var(--accent);}
+        .sc-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+        .sc-logo-img{height:34px;width:auto;}
         .sc-nav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center;}
         .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;}
         .sc-navbtn:hover,.sc-navbtn.open{background:rgba(15,23,42,0.04);color:var(--accent);}
@@ -175,13 +174,7 @@ export function SiteHeader({
         <div className="sc-inner">
 
           <Link href="/" className="sc-logo" aria-label="SectorCalc home">
-            <svg className="sc-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect x="2"  y="2"  width="13" height="13" rx="3" fill="#0F172A"/>
-              <rect x="17" y="2"  width="13" height="13" rx="3" fill="#2563EB"/>
-              <rect x="2"  y="17" width="13" height="13" rx="3" fill="#10B981"/>
-              <rect x="17" y="17" width="13" height="13" rx="3" fill="#F59E0B"/>
-            </svg>
-            <span className="sc-logo-text">Sector<span className="a">Calc</span></span>
+            <img src={BRAND_ASSETS.logo.headerDefault} alt="SectorCalc Logo" className="sc-logo-img" />
           </Link>
 
           <nav className="sc-nav" ref={navRef}>

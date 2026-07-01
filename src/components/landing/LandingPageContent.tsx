@@ -427,6 +427,11 @@ export function LandingPageContent({
                 <p><strong>Challenge:</strong> Leaks, inefficient equipment, and peak demands create invisible financial losses.</p>
                 <p><strong>Solution:</strong> Translate consumption variables and efficiency gaps into direct cost signals.</p>
               </div>
+              <div className="uc-card">
+                <h4>Supply Chain & Inventory</h4>
+                <p><strong>Challenge:</strong> Demand forecast errors, lead time variability, multi-tier visibility gaps, and working capital inefficiencies cascade across global networks.</p>
+                <p><strong>Solution:</strong> Transform inventory parameters, supplier constraints, and demand signals into optimized stock levels and cash-flow impacts.</p>
+              </div>
             </div>
           </div>
         </section>

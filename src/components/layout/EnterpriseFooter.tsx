@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
+import { BRAND_ASSETS } from "@/config/brand";
 
 export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
   return (
@@ -28,7 +29,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           {/* Top Section: 4-Column Grid */}
           <div className="footer-grid">
             <div className="footer-col brand-col">
-              <div className="footer-logo">SectorCalc</div>
+              <Link href="/" aria-label="SectorCalc home" className="footer-logo">
+                <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" />
+              </Link>
               <p className="footer-tagline">
                 Audit-proof engineering calculations built on VDI, ISO, and DIN
                 standards. Digitize operational losses before they compound.
@@ -179,7 +182,8 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             border-bottom: 1px solid var(--border-light);
           }
 
-          .footer-logo { font-family: var(--font-serif); font-size: 22px; margin-bottom: 16px; letter-spacing: -0.02em; }
+          .footer-logo { display: block; margin-bottom: 16px; }
+          .footer-logo-img { height: 32px; width: auto; }
           .footer-tagline { font-size: 14px; line-height: 1.6; opacity: 0.7; max-width: 280px; margin-bottom: 24px; }
           .trust-badges { display: flex; flex-wrap: wrap; gap: 8px; }
           .badge { font-size: 11px; font-family: var(--font-mono); padding: 4px 8px; background: var(--bg-ground); border: 1px solid var(--border-light); border-radius: 4px; opacity: 0.8; white-space: nowrap; }

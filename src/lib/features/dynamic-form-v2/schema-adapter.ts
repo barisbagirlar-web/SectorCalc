@@ -93,6 +93,7 @@ export function adaptToolSchema(
       note: resolveEnglishNote(inp),
       reference: inp.reference || inp.ref || undefined,
       unit_family: inp.unit_family || undefined,
+      benchmarks: inp.benchmarks || undefined,
     };
   });
 

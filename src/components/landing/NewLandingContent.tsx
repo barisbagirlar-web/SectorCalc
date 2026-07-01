@@ -428,6 +428,11 @@ export function NewLandingContent({
                 <p><strong>Problem:</strong> Leaks, inefficient equipment, and peak demand create invisible loss.</p>
                 <p><strong>SectorCalc helps:</strong> Translate consumption and efficiency gaps into measurable cost signals.</p>
               </div>
+              <div className="uc-card">
+                <h4>Supply Chain & Inventory</h4>
+                <p><strong>Problem:</strong> Demand forecast errors, lead time variability, multi-tier visibility gaps, and working capital inefficiencies cascade across global networks.</p>
+                <p><strong>SectorCalc helps:</strong> Transform inventory parameters, supplier constraints, and demand signals into optimized stock levels and cash-flow impacts.</p>
+              </div>
             </div>
           </div>
         </section>

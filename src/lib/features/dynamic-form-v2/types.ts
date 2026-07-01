@@ -1,3 +1,10 @@
+export type ToolInputBenchmark = {
+  label: string;
+  value: number;
+  unit?: string;
+  type?: "ratio";
+};
+
 export type ToolInputField = {
   id: string;
   name: string;
@@ -13,6 +20,8 @@ export type ToolInputField = {
   reference?: string;
   /** Unit family key matching FAM in unit-conversion (e.g. "length", "mass", "currency"). Enables unit switching popover. */
   unit_family?: string;
+  /** Industry benchmarks displayed in ref strip (e.g. [{label:"Air IATA",value:6000}]) */
+  benchmarks?: ToolInputBenchmark[];
 };
 
 export type ToolFormula = {
@@ -75,6 +84,22 @@ export type InsightBlock = {
   levers?: string[];
 };
 
+export type TornadoConfig = {
+  primary: string;
+  inputs: string[];
+  variation_pct: number;
+  top_n: number;
+};
+
+export type InterpretationRule = {
+  id: string;
+  condition: string;
+  severity: "CRITICAL" | "WARNING" | "INFO";
+  title: string;
+  message: string;
+  recommendation: string;
+};
+
 export type UIContract = {
   input_groups: InputGroup[];
   result_cards: string[];
@@ -86,6 +111,10 @@ export type UIContract = {
   breakdown?: BreakdownConfig;
   insights?: InsightBlock[];
   primary_uncertainty?: string;
+  /** Tornado sensitivity analysis config */
+  tornado?: TornadoConfig;
+  /** Rule-based interpretation engine rules */
+  interpretations?: InterpretationRule[];
 };
 
 export type ToolData = {

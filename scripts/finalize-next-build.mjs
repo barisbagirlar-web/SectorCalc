@@ -2,7 +2,7 @@
 /**
  * Post-build artifacts required by Firebase Hosting (web frameworks) + static 500 fallback.
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync, cpSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
@@ -130,6 +130,15 @@ function main() {
 
   // Stub any .js files missing .nft.json traces in server/ (stubs, edge, API routes)
   stubMissingNftTraces(join(NEXT, "server"));
+
+  // Copy generated schemas into .next/server so all deployment targets (Firebase SSR, local serve, ISR)
+  // can read them at runtime without relying on files outside .next/
+  const ROOT = process.cwd();
+  const srcSchemas = join(ROOT, "generated", "schemas");
+  const dstSchemas = join(NEXT, "server", "generated", "schemas");
+  if (existsSync(srcSchemas)) {
+    cpSync(srcSchemas, dstSchemas, { recursive: true, force: true });
+  }
 
   const buildId = readFileSync(join(NEXT, "BUILD_ID"), "utf8").trim();
   console.log(`finalize-next-build: ready (BUILD_ID=${buildId})`);
