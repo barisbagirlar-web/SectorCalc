@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useClientSearchParam } from "@/lib/ui-shared/navigation/use-client-search-params";
 import { getAccountHref } from "@/lib/features/tools/tool-links";
+import { syncSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
+import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import {
   completeCustomerGoogleRedirect,
   getCustomerSignInErrorCode,
@@ -36,8 +38,12 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     let active = true;
 
     completeCustomerGoogleRedirect()
-      .then((completed) => {
+      .then(async (completed) => {
         if (active && completed) {
+          const auth = getFirebaseAuth();
+          if (auth?.currentUser) {
+            await syncSessionCookie(auth.currentUser);
+          }
           router.replace(nextPath);
         }
       })
@@ -59,6 +65,10 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     try {
       const result = await signInCustomerWithGoogle();
       if (!result.redirected) {
+        const auth = getFirebaseAuth();
+        if (auth?.currentUser) {
+          await syncSessionCookie(auth.currentUser);
+        }
         router.replace(nextPath);
         return;
       }
@@ -82,6 +92,10 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         await signUpCustomerWithEmail(normalizedEmail, password);
       } else {
         await signInCustomerWithEmail(normalizedEmail, password);
+      }
+      const auth = getFirebaseAuth();
+      if (auth?.currentUser) {
+        await syncSessionCookie(auth.currentUser);
       }
       router.replace(nextPath);
     } catch (caught) {
