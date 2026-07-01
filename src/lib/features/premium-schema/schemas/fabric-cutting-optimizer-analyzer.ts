@@ -1,8 +1,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FABRIC_CUTTING_SCHEMA: PremiumCalculatorSchema = {
   id: "fabric-cutting-optimizer-analyzer", legacyPaidSlug: "fabric-cutting-optimizer-analyzer",
-  name: "Kumas Kesim Optimize Edici", name_i18n: {"en":"Fabric Kesim Optimize Edici"}, sectorSlug: "textile", category: "cost",
-  painStatement: "Kumaş kesim verimi hesaplanmazsa, fire oranı ve kumaş maliyeti kontrol edilemez.", painStatement_i18n: {"en":"Fabric kesim Efficiency if not calculated, waste rate ve Fabric Cost control edilemez."},
+  name: "Fabric Cutting Optimizer", name_i18n: {"en":"Fabric Cutting Optimizer"}, sectorSlug: "textile", category: "cost",
+  painStatement: "Fabric cutting efficiency if not calculated, waste rate and fabric cost cannot be controlled.", painStatement_i18n: {"en":"Fabric cutting efficiency if not calculated, waste rate and fabric cost cannot be controlled."},
   inputs: [
     { id: "fabricWidth", label: "Fabric width", label_i18n: {"en":"Fabric width"}, type: "number", unit: "m", required: true, smartDefault: 1.5, validation: { min: 0.1 }, helper: "", expertMeaning: "Fabric width", expertMeaning_i18n: {"en":"Fabric width"} },
     { id: "markerLength", label: "Pastal Boyu", label_i18n: {"en":"Pastal Boyu"}, type: "number", unit: "m", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "", expertMeaning: "Marker length", expertMeaning_i18n: {"en":"Marker length"} },
@@ -50,6 +50,6 @@ export const FABRIC_CUTTING_SCHEMA: PremiumCalculatorSchema = {
         splices: "splices"
       }, outputId: "totalYardage" },
   ],
-  reportTemplate: { title: "Kumaş Kesim Raporu", title_i18n: {"en":"Fabric Kesim Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  reportTemplate: { title: "Fabric Cutting Optimization Report", title_i18n: {"en":"Fabric Cutting Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Verim = Toplam Parça Alanı / (Pastal × En).", "Gerekli kumaş = Alan / Verim × (1+Fire).", "İyileştirme = (Yeni - Eski) × Kumaş × Fiyat."],assumptionNotes_i18n:[{"en":"Verim = Toplam Parça Alanı / (Pastal × En)."},{"en":"Gerekli kumaş = Alan / Verim × (1+Fire)."},{"en":"İyileştirme = (Yeni - Eski) × Kumaş × Fiyat."}] },
 };

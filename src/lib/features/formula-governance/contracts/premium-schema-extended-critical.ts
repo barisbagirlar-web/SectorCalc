@@ -268,7 +268,7 @@ const AiTokenCostAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const SixSigmaProjectPrioritizerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.six-sigma-project-prioritizer",
-  toolName: "Altı Sigma Proje Önceliklendirici",
+  toolName: "Alti Sigma Proje onceliklendirici",
   slug: "six-sigma-project-prioritizer",
   purpose: "Six Sigma projelerini finansal etki, sigma açığı ve stratejik uyuma göre önceliklendirmeden kaynak israfı oluşur. Bu araç DPMO, Sigma Level ve COPQ temelinde objektif proje sıralaması sağlar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -368,7 +368,7 @@ const AqlSamplingRiskAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const VehicleDepreciationTcoAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.vehicle-depreciation-tco-analyzer",
-  toolName: "Araç Amortismanı & TCO Analizi",
+  toolName: "Vehicle Depreciation & TCO Analyzer",
   slug: "vehicle-depreciation-tco-analyzer",
   purpose: "Filo yatırımlarında amortisman yöntemi seçimi ve TCO hesabı yapılmazsa vergi avantajı kaçırılır, nakit akışı yanlış modellenir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -418,7 +418,7 @@ const VehicleDepreciationTcoAnalyzerContract: FormulaContract = buildAssuredCrit
 
 const DowntimeCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.downtime-cost-analyzer",
-  toolName: "Arıza Süresi Maliyet Analizi",
+  toolName: "Downtime Cost Analyzer",
   slug: "downtime-cost-analyzer",
   purpose: "Plansız duruşların gerçek maliyeti sadece kayıp üretim değil; işçilik, enerji, kalite ve müşteri cezalarını da içerir. Bu araç 6 bileşenli toplam duruş maliyetini hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -518,7 +518,7 @@ const AutoRepairComebackAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const AutoRepairQuoteConsistencyAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.auto-repair-quote-consistency-analyzer",
-  toolName: "Auto Repair Quote Tutarlılık Analizi",
+  toolName: "Auto Repair Quote Consistency Analysis",
   slug: "auto-repair-quote-consistency-analyzer",
   purpose: "Aynı iş için verilen farklı teklifler hem müşteri güvenini sarsar hem de marj kaçağına yol açar. Bu araç teklif tutarlılığını ve marj riskini ölçer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -568,7 +568,7 @@ const AutoRepairQuoteConsistencyAnalyzerContract: FormulaContract = buildAssured
 
 const AutoShopMarginLeakAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.auto-shop-margin-leak-analyzer",
-  toolName: "Auto Shop Marj Kaçak Analizi",
+  toolName: "Auto Shop Margin Leak Analysis",
   slug: "auto-shop-margin-leak-analyzer",
   purpose: "Oto servislerde parça ve işçilik marjındaki küçük sapmalar yıllık yüz binlerce dolarlık kaçağa dönüşür. Bu araç marj yapısını analiz eder ve yıllık kaçağı hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -618,7 +618,7 @@ const AutoShopMarginLeakAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const AsmePressureVesselAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.asme-pressure-vessel-analyzer",
-  toolName: "Basınç Vessel Kalınlık Analizi (ASME BPVC)",
+  toolName: "Pressure Vessel Thickness Analysis (ASME BPVC)",
   slug: "asme-pressure-vessel-analyzer",
   purpose: "ASME BPVC Section VIII Div.1'e göre basınçlı kap tasarımında duvar kalınlığı, MAWP ve ağırlık hesabı yapılmadan imalat risklidir. Bu araç ASME formülleriyle gerekli kalınlığı ve MAWP'yi hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -668,7 +668,7 @@ const AsmePressureVesselAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const CompressedAirEnergyCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.compressed-air-energy-cost-analyzer",
-  toolName: "Basınçlı Hava Sistemi Enerji Maliyet Analizi",
+  toolName: "Compressed Air System Energy Cost Analyzer",
   slug: "compressed-air-energy-cost-analyzer",
   purpose: "Basınçlı hava sistemleri fabrika elektrik faturasının %30'una kadar çıkabilir. Kaçaklar ve düşük verim gizli maliyet oluşturur. Bu araç sistem enerji maliyetini ve ısı geri kazanım tasarrufunu hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -718,7 +718,7 @@ const CompressedAirEnergyCostAnalyzerContract: FormulaContract = buildAssuredCri
 
 const BreakEvenMarginOfSafetyAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.break-even-margin-of-safety-analyzer",
-  toolName: "Başabaş Noktası & Güvenlik Marjı Analizi",
+  toolName: "Break-Even & Margin of Safety Analysis",
   slug: "break-even-margin-of-safety-analyzer",
   purpose: "Başabaş noktası bilinmeden yapılan fiyatlama ya marj baskısı ya da satış kaybına yol açar. Bu araç CVP analizi ile başabaş noktası, güvenlik marjı ve faaliyet kaldıracını hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -768,7 +768,7 @@ const BreakEvenMarginOfSafetyAnalyzerContract: FormulaContract = buildAssuredCri
 
 const ConcreteVolumeCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.concrete-volume-cost-analyzer",
-  toolName: "Beton Hacmi & Maliyet Analizi",
+  toolName: "Concrete Volume & Cost Analyzer",
   slug: "concrete-volume-cost-analyzer",
   purpose: "Şantiyelerde beton hacmi elle hesaplanırken fire, pompa ve tesviye maliyetleri sıklıkla gözden kaçar. Bu araç geometrik hacim + waste + maliyeti tek adımda hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -968,7 +968,7 @@ const CbamComplianceVerdictAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const ChatterSurfaceQualityAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.chatter-surface-quality-analyzer",
-  toolName: "Chatter Yüzey Kalite Kaybı Analizi",
+  toolName: "Chatter Surface Quality Loss Analyzer",
   slug: "chatter-surface-quality-analyzer",
   purpose: "CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerans dışı parça ve hurda oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1018,7 +1018,7 @@ const ChatterSurfaceQualityAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const BoltTorquePreloadAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.bolt-torque-preload-analyzer",
-  toolName: "Cıvata Tork & Öngerilme Analizi",
+  toolName: "Bolt Torque & Preload Analysis",
   slug: "bolt-torque-preload-analyzer",
   purpose: "Cıvata bağlantılarında yanlış tork değeri ya yetersiz sıkma (gevşeme) ya da aşırı sıkma (kopma) riski doğurur. Bu araç ISO 898 standartlarına göre tork, öngerilme ve akma kontrolü yapar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1068,7 +1068,7 @@ const BoltTorquePreloadAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const EmployeeTurnoverCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.employee-turnover-cost-analyzer",
-  toolName: "Çalışan Ciro (Turnover) Maliyet Analizi",
+  toolName: "Employee Turnover Cost Analyzer",
   slug: "employee-turnover-cost-analyzer",
   purpose: "Personel ayrılma maliyeti sadece tazminat değil; işe alım, eğitim ve verimlilik kaybını da içerir. Bu araç ayrılan çalışan başına gerçek maliyeti hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1118,7 +1118,7 @@ const EmployeeTurnoverCostAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const CloudApiOverrunAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cloud-api-overrun-analyzer",
-  toolName: "Cloud API Overrun Maliyet Analizi",
+  toolName: "Cloud API Overrun Cost Analyzer",
   slug: "cloud-api-overrun-analyzer",
   purpose: "API aşım, throttling ve data egress maliyetleri faturalarda sürpriz kalemlerdir. SLA ihlalleri ek cezalar getirir. Bu araç toplam overrun maliyetini hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1168,7 +1168,7 @@ const CloudApiOverrunAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const CloudWasteEliminationAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cloud-waste-elimination-analyzer",
-  toolName: "Cloud İsraf Temizliği (Waste Elimination) Analizi",
+  toolName: "Cloud Waste Elimination Analyzer",
   slug: "cloud-waste-elimination-analyzer",
   purpose: "Bulut harcamalarının %30-45'i gereksiz kaynaklardan oluşur: zombie kaynaklar, aşırı boyutlandırma ve boşta çalışan instance'lar. Bu araç toplam israfı hesaplar ve tasarruf potansiyelini gösterir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1218,7 +1218,7 @@ const CloudWasteEliminationAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const ClvCacRatioAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.clv-cac-ratio-analyzer",
-  toolName: "CLV / CAC Oranı Analizi",
+  toolName: "CLV to CAC Ratio Analyzer",
   slug: "clv-cac-ratio-analyzer",
   purpose: "Müşteri kazanma maliyeti (CAC) ile yaşam boyu değer (CLV) arasındaki dengesizlik, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1268,7 +1268,7 @@ const ClvCacRatioAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const CncCycleTimeAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cnc-cycle-time-analyzer",
-  toolName: "CNC Çevrim Süresi & OEE Analizi",
+  toolName: "CNC Cycle Time & OEE Analysis",
   slug: "cnc-cycle-time-analyzer",
   purpose: "CNC çevrim süresini doğru hesaplamadan yapılan maliyetlendirme ve kapasite planlaması hatalı olur. OEE kaybı görünmez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1318,7 +1318,7 @@ const CncCycleTimeAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const CncMachiningCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cnc-machining-cost-analyzer",
-  toolName: "CNC İşleme Birim Maliyet Analizi",
+  toolName: "CNC Machining Unit Cost Analysis",
   slug: "cnc-machining-cost-analyzer",
   purpose: "CNC parça maliyetini malzeme, işleme, takım, enerji ve genel gider olarak ayrıştırmadan yapılan fiyatlama marj kaybına yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1368,7 +1368,7 @@ const CncMachiningCostAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const CpkPpmConverterAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cpk-ppm-converter-analyzer",
-  toolName: "CPK → PPM & Sigma Seviye Dönüştürücü",
+  toolName: "CPK → PPM & Sigma Seviye Donusturucu",
   slug: "cpk-ppm-converter-analyzer",
   purpose: "Cpk değerini PPM ve Sigma seviyesine dönüştüremeden proses performansını yönetmek imkansızdır. Bu araç Cpk, PPM, Yield ve Sigma seviyesini tek adımda hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1418,7 +1418,7 @@ const CpkPpmConverterAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const CpmDelayPenaltyAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cpm-delay-penalty-analyzer",
-  toolName: "CPM Gecikme Cezası & EOT Talep Analizi",
+  toolName: "CPM Delay Penalty & EOT Claim Analyzer",
   slug: "cpm-delay-penalty-analyzer",
   purpose: "İnşaat projelerinde gecikme cezaları ve EOT talepleri doğru hesaplanmazsa taşeron ve ana yüklenici arasında uyuşmazlık kaçınılmazdır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1468,7 +1468,7 @@ const CpmDelayPenaltyAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const RoofAreaLoadAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.roof-area-load-analyzer",
-  toolName: "Çatı Alanı & Yük Analizi",
+  toolName: "Roof Area & Load Analysis",
   slug: "roof-area-load-analyzer",
   purpose: "Çatı alanı ve yük hesabı yapılmadan malzeme siparişi ve statik analiz hatalı olur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1518,7 +1518,7 @@ const RoofAreaLoadAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const BottleneckInvestmentAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.bottleneck-investment-analyzer",
-  toolName: "Darboğaz Yatırım ROI Analizi",
+  toolName: "Bottleneck Investment ROI Analysis",
   slug: "bottleneck-investment-analyzer",
   purpose: "Darboğazı tespit etmeden yapılan kapasite yatırımları beklenen getiriyi sağlamaz. Bu araç kısıt teorisi (TOC) ile yatırım ROI'sini hesaplar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1568,7 +1568,7 @@ const BottleneckInvestmentAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const SmedChangeoverMatrixAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.smed-changeover-matrix-analyzer",
-  toolName: "SMED Değişim Matrisi & EBQ Analizi",
+  toolName: "SMED Changeover Matrix & EBQ Analyzer",
   slug: "smed-changeover-matrix-analyzer",
   purpose: "Kalıp değişim süreleri SMED prensipleriyle optimize edilmezse kapasite kaybı yıllık büyük rakamlara ulaşır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1618,7 +1618,7 @@ const SmedChangeoverMatrixAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const WarehouseLayoutAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.warehouse-layout-analyzer",
-  toolName: "Depo Yerleşimi & Verimlilik Analizi",
+  toolName: "Warehouse Layout & Efficiency Analyzer",
   slug: "warehouse-layout-analyzer",
   purpose: "Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1668,7 +1668,7 @@ const WarehouseLayoutAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const AbsenteeismCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.absenteeism-cost-analyzer",
-  toolName: "Devamsızlık Maliyet Analizi",
+  toolName: "Absenteeism Cost Analysis",
   slug: "absenteeism-cost-analyzer",
   purpose: "Devamsızlığın gerçek maliyeti direkt işçiliğin çok ötesindedir; fazla mesai, geçici işçi, üretim kaybı ve idari yük eklenir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1718,7 +1718,7 @@ const AbsenteeismCostAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const DigitalTwinCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.digital-twin-cost-analyzer",
-  toolName: "Digital Twin Maliyet & ROI Analizi",
+  toolName: "Digital Twin Cost & ROI Analyzer",
   slug: "digital-twin-cost-analyzer",
   purpose: "Digital twin yatırımının geleneksel yönteme göre maliyet avantajını ROI olarak hesaplamadan karar vermek risklidir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1768,7 +1768,7 @@ const DigitalTwinCostAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const SewingLineBalanceAnalyzerProContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.sewing-line-balance-analyzer-pro",
-  toolName: "Dikiş Hattı Dengeleyici (Pro)",
+  toolName: "Sewing Line Balancer (Pro)",
   slug: "sewing-line-balance-analyzer-pro",
   purpose: "Dikiş hattında SMV dağılımı dengelenmezse hat verimliliği düşer, WIP birikir ve teslimat gecikir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1818,7 +1818,7 @@ const SewingLineBalanceAnalyzerProContract: FormulaContract = buildAssuredCritic
 
 const DyeRecipeCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.dye-recipe-cost-analyzer",
-  toolName: "Dye Reçete Maliyet Analizi",
+  toolName: "Dye Recipe Cost Analyzer",
   slug: "dye-recipe-cost-analyzer",
   purpose: "Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1868,7 +1868,7 @@ const DyeRecipeCostAnalyzerContract: FormulaContract = buildAssuredCriticalContr
 
 const EnergyConsumptionReportAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.energy-consumption-report-analyzer",
-  toolName: "Enerji Tüketim Raporu & PF Analizi",
+  toolName: "Energy Consumption Report & PF Analyzer",
   slug: "energy-consumption-report-analyzer",
   purpose: "Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1918,7 +1918,7 @@ const EnergyConsumptionReportAnalyzerContract: FormulaContract = buildAssuredCri
 
 const InflationEscalationAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.inflation-escalation-analyzer",
-  toolName: "Enflasyon Eskalasyon & NPV Analizi",
+  toolName: "Inflation Escalation & NPV Analyzer",
   slug: "inflation-escalation-analyzer",
   purpose: "Uzun vadeli projelerde enflasyon eskalasyonu doğru hesaplanmazsa bütçe sapmaları ve nakit akışı sorunları kaçınılmazdır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -1968,7 +1968,7 @@ const InflationEscalationAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const EnvironmentalWasteCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.environmental-waste-cost-analyzer",
-  toolName: "Çevre Atık Maliyet & Döngüsellik Analizi",
+  toolName: "Environmental Waste Cost & Circularity Analyzer",
   slug: "environmental-waste-cost-analyzer",
   purpose: "Atık bertaraf, tehlikeli atık ve emisyon maliyetleri ayrıştırılmazsa çevre cezaları ve sürdürülebilirlik raporlaması hatalı olur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2018,7 +2018,7 @@ const EnvironmentalWasteCostAnalyzerContract: FormulaContract = buildAssuredCrit
 
 const EoqInventoryOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.eoq-inventory-optimizer-analyzer",
-  toolName: "EOQ Envanter Optimizasyonu",
+  toolName: "EOQ Inventory Optimizer",
   slug: "eoq-inventory-optimizer-analyzer",
   purpose: "Envanter yönetiminde EOQ, ROP ve güvenlik stoğu hesaplanmazsa ya stok fazlası ya da stoksuz kalma maliyeti oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2118,7 +2118,7 @@ const EvmCostForecastAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const FactoryLayoutDistanceAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.factory-layout-distance-analyzer",
-  toolName: "Fabrika Yerleşim Mesafe & Akış Analizi",
+  toolName: "Factory Layout Distance & Flow Analyzer",
   slug: "factory-layout-distance-analyzer",
   purpose: "Fabrika içi malzeme akış mesafeleri optimize edilmezse taşıma maliyeti artar ve verimlilik düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2168,7 +2168,7 @@ const FactoryLayoutDistanceAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const InterestRateRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.interest-rate-risk-analyzer",
-  toolName: "Faiz Oranı Riski & Hedge Analizi",
+  toolName: "Interest Rate Risk & Hedge Analyzer",
   slug: "interest-rate-risk-analyzer",
   purpose: "Faiz oranı riski (duration gap, VaR, NIM) doğru hesaplanmazsa bilanço korunmasız kalır ve beklenmedik kayıplar oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2218,7 +2218,7 @@ const InterestRateRiskAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const FilamentRecyclingAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.filament-recycling-analyzer",
-  toolName: "Filament Geri Dönüşüm Ekonomisi Analizi",
+  toolName: "Filament Recycling Economy Analyzer",
   slug: "filament-recycling-analyzer",
   purpose: "3D baskı filamentinde geri dönüşüm ekonomisi hesaplanmazsa hammadde maliyeti ve sürdürülebilirlik hedefleri arasında denge kurulamaz.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2268,7 +2268,7 @@ const FilamentRecyclingAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const PriceElasticityAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.price-elasticity-analyzer",
-  toolName: "Fiyat Esnekliği & Optimal Fiyat Analizi",
+  toolName: "Price Elasticity & Optimal Price Analysis",
   slug: "price-elasticity-analyzer",
   purpose: "Fiyat esnekliği hesaplanmadan yapılan fiyat değişiklikleri talebi ve kârlılığı olumsuz etkileyebilir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2318,7 +2318,7 @@ const PriceElasticityAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const FlexibleManufacturingRoiAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.flexible-manufacturing-roi-analyzer",
-  toolName: "Esnek İmalat (FMS) ROI Analizi",
+  toolName: "Flexible Manufacturing (FMS) ROI Analyzer",
   slug: "flexible-manufacturing-roi-analyzer",
   purpose: "Esnek imalat sistemine (FMS) yatırım kararı, dedicated sistemle karşılaştırmalı ROI analizi yapılmadan verilmemelidir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2368,7 +2368,7 @@ const FlexibleManufacturingRoiAnalyzerContract: FormulaContract = buildAssuredCr
 
 const GageRnrCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.gage-rnr-cost-analyzer",
-  toolName: "Gage R&R & Ölçüm Hata Maliyet Analizi",
+  toolName: "Gage R&R & Measurement Error Cost Analyzer",
   slug: "gage-rnr-cost-analyzer",
   purpose: "Ölçüm sistemi R&R değeri yüksekse yanlış kabul/red kararları ciddi maliyet kayıplarına yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2418,7 +2418,7 @@ const GageRnrCostAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const FoodWasteMarginAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.food-waste-margin-analyzer",
-  toolName: "Gıda Fire Marj & Verim Analizi",
+  toolName: "Food Waste Margin & Yield Analyzer",
   slug: "food-waste-margin-analyzer",
   purpose: "Gıda üretiminde fire, bozulma ve aşırı üretim maliyetleri ayrıştırılmazsa marj kaybının kaynağı tespit edilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2468,7 +2468,7 @@ const FoodWasteMarginAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const FertilizerDosageAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.fertilizer-dosage-analyzer",
-  toolName: "Gübre Dozaj & Verim Optimizasyonu",
+  toolName: "Fertilizer Dosage & Yield Optimization",
   slug: "fertilizer-dosage-analyzer",
   purpose: "Gübre dozajı toprak analizine göre hesaplanmazsa ya eksik gübreleme verimi düşürür ya da fazla gübre çevre kirliliği yaratır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2518,7 +2518,7 @@ const FertilizerDosageAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const HaccpDeviationCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.haccp-deviation-cost-analyzer",
-  toolName: "HACCP Sapma Maliyet & RPN Analizi",
+  toolName: "HACCP Deviation Cost & RPN Analyzer",
   slug: "haccp-deviation-cost-analyzer",
   purpose: "HACCP sapmalarının maliyeti (bekletme, test, rework, geri çağırma) hesaplanmazsa gıda güvenliği yatırım öncelikleri yanlış belirlenir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2568,7 +2568,7 @@ const HaccpDeviationCostAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const VolumetricWeightChargeableAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.volumetric-weight-chargeable-analyzer",
-  toolName: "Hacimsel Ağırlık & Taşıma Maliyet Analizi",
+  toolName: "Volumetric Weight & Transport Cost Analyzer",
   slug: "volumetric-weight-chargeable-analyzer",
   purpose: "Hacimsel ağırlık doğru hesaplanmazsa taşıma maliyeti beklenenden yüksek çıkar ve navlun optimizasyonu yapılamaz.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2618,7 +2618,7 @@ const VolumetricWeightChargeableAnalyzerContract: FormulaContract = buildAssured
 
 const LightweightCostSavingsAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.lightweight-cost-savings-analyzer",
-  toolName: "Hafifletme Maliyet Tasarrufu Analizi",
+  toolName: "Lightweight Cost Savings Analyzer",
   slug: "lightweight-cost-savings-analyzer",
   purpose: "Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2668,7 +2668,7 @@ const LightweightCostSavingsAnalyzerContract: FormulaContract = buildAssuredCrit
 
 const ScrapRateOptimizeAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.scrap-rate-optimize-analyzer",
-  toolName: "Hurda Oranı Optimizasyon & Pareto Analizi",
+  toolName: "Scrap Rate Optimization & Pareto Analysis",
   slug: "scrap-rate-optimize-analyzer",
   purpose: "Hurda maliyeti sadece malzeme kaybı değildir; işçilik, makine ve fırsat maliyetini de içerir. Kaynak bazlı Pareto analizi gerekir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2718,7 +2718,7 @@ const ScrapRateOptimizeAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const HvacCapacityAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.hvac-capacity-analyzer",
-  toolName: "HVAC Kapasite & Enerji Maliyet Analizi",
+  toolName: "HVAC Capacity & Energy Cost Analyzer",
   slug: "hvac-capacity-analyzer",
   purpose: "HVAC kapasite hesabı (duyulur/gizli ısı, tonaj, EER) yapılmadan doğru klima sistemi seçimi ve enerji maliyeti tahmini mümkün değildir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2768,7 +2768,7 @@ const HvacCapacityAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const HydraulicSystemLossAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.hydraulic-system-loss-analyzer",
-  toolName: "Hidrolik Sistem Kayıp & Verim Analizi",
+  toolName: "Hydraulic System Loss & Efficiency Analyzer",
   slug: "hydraulic-system-loss-analyzer",
   purpose: "Hidrolik sistemlerde kaçak, sürtünme ve vana kayıpları enerji verimini düşürür ve işletme maliyetini artırır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2818,7 +2818,7 @@ const HydraulicSystemLossAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const HeatExchangerFoulingAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.heat-exchanger-fouling-analyzer",
-  toolName: "Isı Değiştirici Fouling & Enerji Kaybı Analizi",
+  toolName: "Heat Exchanger Fouling & Energy Loss Analyzer",
   slug: "heat-exchanger-fouling-analyzer",
   purpose: "Isı değiştiricide kirlenme (fouling) nedeniyle ısı transfer verimi düşer ve enerji maliyeti artar. Temizlik ROI'si hesaplanmalıdır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2868,7 +2868,7 @@ const HeatExchangerFoulingAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const Iso50001BaselineAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.iso-50001-baseline-analyzer",
-  toolName: "ISO 50001 Enerji Baz Çizgisi & CUSUM Analizi",
+  toolName: "ISO 50001 Energy Baseline & CUSUM Analyzer",
   slug: "iso-50001-baseline-analyzer",
   purpose: "ISO 50001 kapsamında EnPI ve CUSUM analizi yapılmadan enerji performansı izlenemez ve iyileştirme kanıtlanamaz.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2918,7 +2918,7 @@ const Iso50001BaselineAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const IrrNpvInvestmentAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.irr-npv-investment-analyzer",
-  toolName: "İç Verim Oranı (IRR) & Yatırım Analizi",
+  toolName: "ic Verim Orani (IRR) & Yatirim Analizi",
   slug: "irr-npv-investment-analyzer",
   purpose: "Yatırım projelerinde NPV, IRR, geri ödeme süresi ve PI hesaplanmadan doğru fizibilite kararı verilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -2968,7 +2968,7 @@ const IrrNpvInvestmentAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const FeedCostFormulationAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.feed-cost-formulation-analyzer",
-  toolName: "İlerleme Yem Maliyeti & FCR Analizi",
+  toolName: "Feed Cost Formulation & FCR Analyzer",
   slug: "feed-cost-formulation-analyzer",
   purpose: "Yem formülasyonunda hammadde maliyeti, işleme ve FCR analiz edilmezse kg başına canlı ağırlık maliyeti kontrol edilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3018,7 +3018,7 @@ const FeedCostFormulationAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const ScaffoldRentalCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.scaffold-rental-cost-analyzer",
-  toolName: "İskele Kiralama & Süre Optimizasyonu",
+  toolName: "Scaffold Rental & Duration Optimization",
   slug: "scaffold-rental-cost-analyzer",
   purpose: "İskele kiralama süresi ve alanı optimize edilmezse gereksiz kira, işçilik ve nakliye maliyeti oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3068,7 +3068,7 @@ const ScaffoldRentalCostAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const SpcLimitControlAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.spc-limit-control-analyzer",
-  toolName: "İstatistiksel Proses Kontrol (SPC) Limit Analizi",
+  toolName: "Statistical Process Control (SPC) Limit Analysis",
   slug: "spc-limit-control-analyzer",
   purpose: "SPC kontrol limitleri (X̿, R̄, UCL, LCL) ve Cp hesaplanmadan proses kontrolü ve kapasite analizi yapılamaz.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3118,7 +3118,7 @@ const SpcLimitControlAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const MachiningStrategyAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.machining-strategy-analyzer",
-  toolName: "İşleme Stratejisi & Takım Ömrü Optimizasyonu",
+  toolName: "Machining Strategy & Tool Life Optimization",
   slug: "machining-strategy-analyzer",
   purpose: "Kesme parametreleri (Vc, f, ap) ve Taylor takım ömrü modeli kullanılmadan yapılan işleme stratejisi ne optimum ne de güvenlidir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3168,7 +3168,7 @@ const MachiningStrategyAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const KaizenSavingsTrackerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.kaizen-savings-tracker-analyzer",
-  toolName: "Kaizen Tasarruf Takipçisi & ROI Analizi",
+  toolName: "Kaizen Savings Tracker & ROI Analyzer",
   slug: "kaizen-savings-tracker-analyzer",
   purpose: "Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik oranı takip edilmezse iyileştirme çabalarının etkisi ölçülemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3218,7 +3218,7 @@ const KaizenSavingsTrackerAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const ProductComplexityHiddenCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.product-complexity-hidden-cost-analyzer",
-  toolName: "Ürün Karmaşıklığı Gizli Maliyet",
+  toolName: "Product Complexity Hidden Cost",
   slug: "product-complexity-hidden-cost-analyzer",
   purpose: "Yüksek ürün çeşitliliği ve karmaşık tasarımlar, operasyonel gizli maliyetleri artırır. Her bir SKU'nun gerçek kârlılığı bilinmezse kaynak israfı kaçınılmazdır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3268,7 +3268,7 @@ const ProductComplexityHiddenCostAnalyzerContract: FormulaContract = buildAssure
 
 const VacuumLeakEnergyAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.vacuum-leak-energy-analyzer",
-  toolName: "Vakum Kaçağı Enerji Maliyeti",
+  toolName: "Vacuum Leak Energy Cost Analyzer",
   slug: "vacuum-leak-energy-analyzer",
   purpose: "Vakum sistemlerindeki kaçaklar fark edilmeden yüksek enerji tüketimine ve üretim kaybına yol açar. Kaçak debisi ölçülmezse gereksiz kompresör kapasitesi kullanılır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3368,7 +3368,7 @@ const ShiftCostEfficiencyAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const VsmFinancialConverterAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.vsm-financial-converter-analyzer",
-  toolName: "VSM Finansal Dönüştürücü",
+  toolName: "VSM Financial Converter",
   slug: "vsm-financial-converter-analyzer",
   purpose: "Value Stream Mapping (VSM) çalışmaları operasyonel süreçleri gösterir ancak finansal etkiyi ölçmez. Katma değersiz adımların parasal karşılığı bilinmezse iyileştirme önceliklendirilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3418,7 +3418,7 @@ const VsmFinancialConverterAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const WpsPreheatTemperatureAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.wps-preheat-temperature-analyzer",
-  toolName: "WPS Ön Isıtma Sıcaklık Analizi",
+  toolName: "WPS Preheat Temperature Analyzer",
   slug: "wps-preheat-temperature-analyzer",
   purpose: "Kaynak öncesi ön ısıtma sıcaklığı doğru hesaplanmazsa çatlama riski artar ve enerji maliyeti yükselir. Karbon eşdeğeri ve malzeme kalınlığına göre optimum sıcaklık belirlenmelidir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3468,7 +3468,7 @@ const WpsPreheatTemperatureAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const FuelRouteDriftAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.fuel-route-drift-analyzer",
-  toolName: "Yakıt Rota Sapma Maliyeti",
+  toolName: "Fuel Route Drift Cost Analyzer",
   slug: "fuel-route-drift-analyzer",
   purpose: "Araçlar planlanan rotadan sapınca yakıt tüketimi artar, teslimat süresi uzar ve karbon emisyonu yükselir. Rota sapma maliyeti ölçülmezse filo verimliliği düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3518,7 +3518,7 @@ const FuelRouteDriftAnalyzerContract: FormulaContract = buildAssuredCriticalCont
 
 const FireHydrantFlowAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.fire-hydrant-flow-analyzer",
-  toolName: "Yangın Hidrantı Akış Analizi",
+  toolName: "Fire Hydrant Flow Analyzer",
   slug: "fire-hydrant-flow-analyzer",
   purpose: "Yangın hidrantlarının debisi ve mevcut akış kapasitesi düzenli ölçülmezse yangın anında yetersiz su basıncı felakete yol açabilir. Uyumsuzluk durumunda cezai yaptırım ve sigorta sorunları oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3568,7 +3568,7 @@ const FireHydrantFlowAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const RenovationBudgetOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.renovation-budget-optimizer-analyzer",
-  toolName: "Yenileme Bütçe Optimizasyonu",
+  toolName: "Renovation Budget Optimization",
   slug: "renovation-budget-optimizer-analyzer",
   purpose: "Yenileme projelerinde bütçe planlaması yapılmazsa beklenmeyen maliyet aşımları ve düşük yatırım getirisi oluşur. Her kalemin optimize edilmesi gerekir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3618,7 +3618,7 @@ const RenovationBudgetOptimizerAnalyzerContract: FormulaContract = buildAssuredC
 
 const RenewableEnergyIrrAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.renewable-energy-irr-analyzer",
-  toolName: "Yenilenebilir Enerji IRR Analizi",
+  toolName: "Renewable Energy IRR Analyzer",
   slug: "renewable-energy-irr-analyzer",
   purpose: "Yenilenebilir enerji yatırımlarında IRR, NPV ve LCOE hesaplanmazsa yatırımın gerçek getirisi ve fizibilitesi bilinemez. Yanlış kararlar büyük sermaye kaybına yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3718,7 +3718,7 @@ const RoiNpvAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
 
 const BeamWeightAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.beam-weight-analyzer",
-  toolName: "Kiriş Ağırlığı Hesaplama",
+  toolName: "Beam Weight Calculation",
   slug: "beam-weight-analyzer",
   purpose: "Çelik kiriş ağırlığı ve maliyeti hesaplanmazsa, yapısal tasarım ve bütçe sapmaları oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3818,7 +3818,7 @@ const BidRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
 
 const CarbonFootprintCheckAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.carbon-footprint-check-analyzer",
-  toolName: "Karbon Ayak İzi Check",
+  toolName: "Carbon Footprint Check",
   slug: "carbon-footprint-check-analyzer",
   purpose: "Karbon ayak izi hesaplanmazsa ihracatçı firmalar CBAM ve karbon vergisi karşısında finansal risk altındadır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3868,7 +3868,7 @@ const CarbonFootprintCheckAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const CashFlowGapAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cash-flow-gap-analyzer",
-  toolName: "Nakit Akışı Açığı Analizi",
+  toolName: "Cash Flow Gap Analysis",
   slug: "cash-flow-gap-analyzer",
   purpose: "Nakit akışı açığı, DSO/DPO/DIO dengesi ve nakit döngüsü hesaplanmazsa likidite krizi önceden tespit edilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3918,7 +3918,7 @@ const CashFlowGapAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const CleaningBidOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cleaning-bid-optimizer-analyzer",
-  toolName: "Temizlik Teklif Optimizasyonu",
+  toolName: "Cleaning Bid Optimizer",
   slug: "cleaning-bid-optimizer-analyzer",
   purpose: "Temizlik hizmeti tekliflerinde işçilik, malzeme ve kar marjı net ayrıştırılmazsa fiyatlama hatalı olur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -3968,7 +3968,7 @@ const CleaningBidOptimizerAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const CompressedAirLeakAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.compressed-air-leak-analyzer",
-  toolName: "Kompresör Kaçağı Maliyet",
+  toolName: "Compressor Leak Cost Analyzer",
   slug: "compressed-air-leak-analyzer",
   purpose: "Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4018,7 +4018,7 @@ const CompressedAirLeakAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const CompressorTankSizingAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.compressor-tank-sizing-analyzer",
-  toolName: "Kompresör Tankı Boyutlandırma",
+  toolName: "Compressor Tank Sizing Analyzer",
   slug: "compressor-tank-sizing-analyzer",
   purpose: "Basınçlı hava tankı yanlış boyutlandırılırsa motor sık devreye girer, ömrü kısalır ve enerji verimi düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4068,7 +4068,7 @@ const CompressorTankSizingAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const ContainerLoadAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.container-load-analyzer",
-  toolName: "Konteyner Yük Optimizasyonu",
+  toolName: "Container Load Optimizer",
   slug: "container-load-analyzer",
   purpose: "Konteyner doluluk oranı hesaplanmazsa, taşıma maliyeti optimize edilemez ve boş alan israfı oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4118,7 +4118,7 @@ const ContainerLoadAnalyzerContract: FormulaContract = buildAssuredCriticalContr
 
 const ContractIncentiveAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.contract-incentive-analyzer",
-  toolName: "Sözleşme Teşvik Analizi",
+  toolName: "Contract Incentive Analysis",
   slug: "contract-incentive-analyzer",
   purpose: "İnşaat sözleşmelerinde teşvik mekanizmaları doğru yapılandırılmazsa yüklenici ve işveren arasında maliyet sapmaları ve anlaşmazlıklar kaçınılmaz olur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4168,7 +4168,7 @@ const ContractIncentiveAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const CurrencyRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.currency-risk-analyzer",
-  toolName: "Kur Riski Analizi",
+  toolName: "Currency Risk Analyzer",
   slug: "currency-risk-analyzer",
   purpose: "Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4218,7 +4218,7 @@ const CurrencyRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const CutFillBalanceAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cut-fill-balance-analyzer",
-  toolName: "Kesme-Dolgu Denge Analizi",
+  toolName: "Cut and Fill Balance Analyzer",
   slug: "cut-fill-balance-analyzer",
   purpose: "Kazı-dolgu dengesi hesaplanmazsa, fazla hafriyat veya ödünç malzeme maliyeti kontrol edilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4268,7 +4268,7 @@ const CutFillBalanceAnalyzerContract: FormulaContract = buildAssuredCriticalCont
 
 const CuttingToolLifeAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.cutting-tool-life-analyzer",
-  toolName: "Kesim Parametreleri ve Takım Ömrü",
+  toolName: "Cutting Parameters & Tool Life",
   slug: "cutting-tool-life-analyzer",
   purpose: "Taylor takım ömrü ve optimum kesme hızı hesaplanmazsa, takım maliyeti ve duruş süreleri kontrol edilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4318,7 +4318,7 @@ const CuttingToolLifeAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const DairyProfitDetectorAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.dairy-profit-detector-analyzer",
-  toolName: "Süt Kâr Dedektörü",
+  toolName: "Dairy Profit Detector",
   slug: "dairy-profit-detector-analyzer",
   purpose: "Süt çiftliklerinde yem maliyeti ile süt geliri arasındaki fark izlenmezse kârlılık fark edilmeden erir ve işletme zarar eder.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4368,7 +4368,7 @@ const DairyProfitDetectorAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const DeliveryCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.delivery-cost-analyzer",
-  toolName: "Teslimat Maliyet Analizi",
+  toolName: "Delivery Cost Analyzer",
   slug: "delivery-cost-analyzer",
   purpose: "Teslimat maliyetleri başarılı ve başarısız sevkiyatlara göre ayrıştırılmazsa lojistik verimlilik ölçülemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4418,7 +4418,7 @@ const DeliveryCostAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const DemandForecastStockAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.demand-forecast-stock-analyzer",
-  toolName: "Talep Tahmini Stok Maliyeti",
+  toolName: "Demand Forecast Stock Cost Analyzer",
   slug: "demand-forecast-stock-analyzer",
   purpose: "Talep tahmini sapmaları ya stok fazlası taşıma maliyetine ya da stok dışı satış kaybına neden olur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4468,7 +4468,7 @@ const DemandForecastStockAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const FabricCuttingOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.fabric-cutting-optimizer-analyzer",
-  toolName: "Kumaş Kesim Optimize Edici",
+  toolName: "Fabric Cutting Optimizer",
   slug: "fabric-cutting-optimizer-analyzer",
   purpose: "Kumaş kesim verimi hesaplanmazsa, fire oranı ve kumaş maliyeti kontrol edilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4518,7 +4518,7 @@ const FabricCuttingOptimizerAnalyzerContract: FormulaContract = buildAssuredCrit
 
 const FreightCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.freight-cost-analyzer",
-  toolName: "Navlun Maliyeti Analizi",
+  toolName: "Freight Cost Analyzer",
   slug: "freight-cost-analyzer",
   purpose: "Navlun maliyetinde ağırlık, bunker, terminal ve gümrük kalemleri ayrı hesaplanmazsa gerçek lojistik maliyeti gizli kalır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4568,7 +4568,7 @@ const FreightCostAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const HourlyRateAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.hourly-rate-analyzer",
-  toolName: "Saatlik Ücret Analizi",
+  toolName: "Hourly Rate Analyzer",
   slug: "hourly-rate-analyzer",
   purpose: "Çalışanın gerçek saatlik maliyeti brüt maaşın çok üzerindedir; yan haklar, vergiler ve dolaylı giderler hesaba katılmazsa fiyatlama zarar eder.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4618,7 +4618,7 @@ const HourlyRateAnalyzerContract: FormulaContract = buildAssuredCriticalContract
 
 const InventoryTurnoverRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.inventory-turnover-risk-analyzer",
-  toolName: "Stok Devir Hızı ve Risk Analizi",
+  toolName: "Inventory Turnover Risk Analyzer",
   slug: "inventory-turnover-risk-analyzer",
   purpose: "Stok devir hızı izlenmezse fazla stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise hurda veya iskonto ile satılmak zorunda kalır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4668,7 +4668,7 @@ const InventoryTurnoverRiskAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const IrrigationCostCheckAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.irrigation-cost-check-analyzer",
-  toolName: "Sulama Maliyet Kontrolü",
+  toolName: "Irrigation Cost Check Analyzer",
   slug: "irrigation-cost-check-analyzer",
   purpose: "Sulama maliyetleri su, enerji ve işçilik kalemlerinde doğru hesaplanmazsa çiftçi veya işletme ürün maliyetini gerçekçi göremez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4718,7 +4718,7 @@ const IrrigationCostCheckAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const KwhCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.kwh-cost-analyzer",
-  toolName: "KWh Maliyet Analizi",
+  toolName: "KWh Cost Analyzer",
   slug: "kwh-cost-analyzer",
   purpose: "Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4768,7 +4768,7 @@ const KwhCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
 
 const LearningCurveTimeAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.learning-curve-time-analyzer",
-  toolName: "Öğrenme Eğrisi ile Süre Analizi",
+  toolName: "Learning Curve Time Analyzer",
   slug: "learning-curve-time-analyzer",
   purpose: "Tekrarlı üretimde öğrenme etkisi hesaplanmazsa işçilik süreleri ve maliyetler olduğundan yüksek tahmin edilir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4818,7 +4818,7 @@ const LearningCurveTimeAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const LogisticsRouteLossAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.logistics-route-loss-analyzer",
-  toolName: "Lojistik Rota Kaybı",
+  toolName: "Lojistik Rota Kaybi",
   slug: "logistics-route-loss-analyzer",
   purpose: "Rota sapmaları ve yakıt israfı hesaplanmazsa, filo maliyeti gizlice artar ve verim düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4868,7 +4868,7 @@ const LogisticsRouteLossAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const MachineEconomicLifeAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.machine-economic-life-analyzer",
-  toolName: "Makine Ekonomik Ömrü Analizi",
+  toolName: "Machine Economic Life Analyzer",
   slug: "machine-economic-life-analyzer",
   purpose: "Makinenin gerçek ekonomik ömrü bilinmezse ya erken yenileme ya da bakım maliyeti yüksek eski makineyle üretim kaybı oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4918,7 +4918,7 @@ const MachineEconomicLifeAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const MaterialReplacementCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.material-replacement-cost-analyzer",
-  toolName: "Malzeme Replacement Maliyet Analizi",
+  toolName: "Material Replacement Cost Analyzer",
   slug: "material-replacement-cost-analyzer",
   purpose: "Alternatif malzeme geçişlerinde TCO, ağırlık tasarrufu ve net fayda hesaplanmazsa yanlış karar maliyet artırır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -4968,7 +4968,7 @@ const MaterialReplacementCostAnalyzerContract: FormulaContract = buildAssuredCri
 
 const MoqStockBalanceAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.moq-stock-balance-analyzer",
-  toolName: "MOQ Stok Denge Analizi",
+  toolName: "MOQ Stock Balance Analyzer",
   slug: "moq-stock-balance-analyzer",
   purpose: "MOQ ile gerçek talep arasındaki fark hesaplanmazsa ya stok fazlası cezası ya da fırsat maliyeti oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5018,7 +5018,7 @@ const MoqStockBalanceAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const MtbfMttrFinancialAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.mtbf-mttr-financial-analyzer",
-  toolName: "MTBF/MTTR Finansal Etki Analizi",
+  toolName: "MTBF/MTTR Financial Impact Analyzer",
   slug: "mtbf-mttr-financial-analyzer",
   purpose: "MTBF ve MTTR verileri finansal risk olarak hesaplanmazsa bakım yatırımları önceliklendirilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5068,7 +5068,7 @@ const MtbfMttrFinancialAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const MudaWasteCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.muda-waste-cost-analyzer",
-  toolName: "Muda Atık Maliyet Analizi",
+  toolName: "Muda Waste Cost Analysis",
   slug: "muda-waste-cost-analyzer",
   purpose: "7 muda kaynağının her biri ayrı hesaplanmazsa toplam israf maliyeti gizli kalır ve iyileştirme önceliklendirilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5118,7 +5118,7 @@ const MudaWasteCostAnalyzerContract: FormulaContract = buildAssuredCriticalContr
 
 const NoiseVibrationCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.noise-vibration-cost-analyzer",
-  toolName: "Noise & Vibration Maliyet Analizi",
+  toolName: "Noise & Vibration Cost Analyzer",
   slug: "noise-vibration-cost-analyzer",
   purpose: "Gürültü ve titreşim maruziyetinin sağlık, verimlilik ve kalite maliyeti hesaplanmazsa iyileştirme yatırımı için fizibilite kurulamaz.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5168,7 +5168,7 @@ const NoiseVibrationCostAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const OeeDowntimeAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.oee-downtime-analyzer",
-  toolName: "OEE ve Durma Süresi Analizi",
+  toolName: "OEE & Downtime Analysis",
   slug: "oee-downtime-analyzer",
   purpose: "OEE alt bileşenleri ve toplam ekipman verimliliği hesaplanmazsa durma süresinin gerçek maliyeti görünmez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5218,7 +5218,7 @@ const OeeDowntimeAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const OfficeSuppliesCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.office-supplies-cost-analyzer",
-  toolName: "Ofis Malzemeleri Maliyet Analizi",
+  toolName: "Office Supplies Cost Analyzer",
   slug: "office-supplies-cost-analyzer",
   purpose: "Ofis malzemelerinde EOQ, taşıma maliyeti ve stok tükenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5268,7 +5268,7 @@ const OfficeSuppliesCostAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const OvertimeHiringBreakevenAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.overtime-hiring-breakeven-analyzer",
-  toolName: "Fazla Mesai vs İşe Alma Başabaş",
+  toolName: "Overtime vs Hiring Breakeven",
   slug: "overtime-hiring-breakeven-analyzer",
   purpose: "Fazla mesai mi yoksa yeni işçi mi daha avantajlı? Yanlış karar üretim maliyetini şişirir ve kârlılığı düşürür.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5318,7 +5318,7 @@ const OvertimeHiringBreakevenAnalyzerContract: FormulaContract = buildAssuredCri
 
 const PalletRackOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.pallet-rack-optimizer-analyzer",
-  toolName: "Palet Rafı Kapasite Optimizasyonu",
+  toolName: "Palet Rafi Kapasite Optimizasyonu",
   slug: "pallet-rack-optimizer-analyzer",
   purpose: "Palet rafı düzeni ve kapasitesi optimize edilmezse depo alanı verimsiz kullanılır ve operasyonel maliyet artar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5368,7 +5368,7 @@ const PalletRackOptimizerAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const PaymentTermsOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.payment-terms-optimizer-analyzer",
-  toolName: "Ödeme Vadesi Optimizasyonu",
+  toolName: "Payment Terms Optimizer",
   slug: "payment-terms-optimizer-analyzer",
   purpose: "Uzun vade müşteri memnuniyetini artırır ama nakit akışını boğar; kısa vade tahsilatı hızlandırır ama satış kaybı yaratır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5418,7 +5418,7 @@ const PaymentTermsOptimizerAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const PokaYokeRoiAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.poka-yoke-roi-analyzer",
-  toolName: "Poka-Yoke Yatırım Getirisi",
+  toolName: "Poka-Yoke Yatirim Getirisi",
   slug: "poka-yoke-roi-analyzer",
   purpose: "Hata önleme (Poka-Yoke) yatırımının geri dönüşü hesaplanmazsa kalite iyileştirme bütçesi verimsiz kullanılabilir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5568,7 +5568,7 @@ const ProjectCostEstimateAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const ProjectOverrunAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.project-overrun-analyzer",
-  toolName: "Proje Aşım Riski ve Kazanılmış Değer",
+  toolName: "Project Overrun Risk & Earned Value",
   slug: "project-overrun-analyzer",
   purpose: "Proje aşımları erken tespit edilmezse bütçe şişer, teslimat gecikir ve taahhüt cezaları devreye girer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5668,7 +5668,7 @@ const QualityCostPafAnalyzerContract: FormulaContract = buildAssuredCriticalCont
 
 const RecipeCostCheckAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.recipe-cost-check-analyzer",
-  toolName: "Reçete Maliyet Kontrol",
+  toolName: "Recipe Cost Check",
   slug: "recipe-cost-check-analyzer",
   purpose: "Reçete maliyeti teorik ile gerçek arasındaki fark izlenmezse fire, buharlaşma ve hammadde kaybı fark edilmeden kârı eritir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5718,7 +5718,7 @@ const RecipeCostCheckAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const RecurringCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.recurring-cost-analyzer",
-  toolName: "Tekrarlayan Maliyet Kök Neden Analizi",
+  toolName: "Recurring Cost Root Cause Analysis",
   slug: "recurring-cost-analyzer",
   purpose: "Tekrarlayan hatalar ve maliyetler kök neden analizi yapılmadan devam ederse toplam kayıp katlanarak büyür.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5768,7 +5768,7 @@ const RecurringCostAnalyzerContract: FormulaContract = buildAssuredCriticalContr
 
 const RepairShopQuoteAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.repair-shop-quote-analyzer",
-  toolName: "Tamirhane Parça Teklif Analizi",
+  toolName: "Repair Shop Parts Quote Analysis",
   slug: "repair-shop-quote-analyzer",
   purpose: "Tamirhane tekliflerinde işçilik, parça ve kar marjı şeffaf olmadığında maliyet kontrolü kaybolur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -5818,7 +5818,7 @@ const RepairShopQuoteAnalyzerContract: FormulaContract = buildAssuredCriticalCon
 
 const RestaurantMenuMarginLeakAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.restaurant-menu-margin-leak-analyzer",
-  toolName: "Restoran Menü Marj Kaçağı Analizi",
+  toolName: "Restaurant Menu Margin Leak Analysis",
   slug: "restaurant-menu-margin-leak-analyzer",
   purpose: "Teorik marj ile gerçek marj arasındaki fark izlenmezse fire, hırsızlık ve yanlış porsiyonlama kârı sessizce yok eder.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6018,7 +6018,7 @@ const SaasShelfwareAnalyzerContract: FormulaContract = buildAssuredCriticalContr
 
 const SampleSizeIndustrialAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.sample-size-industrial-analyzer",
-  toolName: "Örneklem Büyüklüğü Hesaplama",
+  toolName: "Sample Size Calculation",
   slug: "sample-size-industrial-analyzer",
   purpose: "Yanlış örneklem büyüklüğü ya gereksiz maliyet yaratır ya da istatistiksel anlamlılığı kaybettirir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6068,7 +6068,7 @@ const SampleSizeIndustrialAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const SeedRateAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.seed-rate-analyzer",
-  toolName: "Tohum Oranı ve Maliyet Analizi",
+  toolName: "Seed Rate and Cost Analysis",
   slug: "seed-rate-analyzer",
   purpose: "Tohum oranı ve çimlenme kaybı hesaplanmazsa ekim maliyeti gereksiz artar ve verim düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6118,7 +6118,7 @@ const SeedRateAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
 
 const ShopHourlyRateAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.shop-hourly-rate-analyzer",
-  toolName: "Mağaza Saatlik Ücret",
+  toolName: "Shop Hourly Rate",
   slug: "shop-hourly-rate-analyzer",
   purpose: "Atölye saatlik ücreti doğru hesaplanmazsa, faturalama zararı ve marj kaybı oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6168,7 +6168,7 @@ const ShopHourlyRateAnalyzerContract: FormulaContract = buildAssuredCriticalCont
 
 const SmedChangeoverOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.smed-changeover-optimizer-analyzer",
-  toolName: "SMED Değişim Süresi Optimizasyonu",
+  toolName: "SMED Changeover Duration Optimizer",
   slug: "smed-changeover-optimizer-analyzer",
   purpose: "Uzun kalıp değişim süreleri makine duruşlarını artırır, kapasite kaybına yol açar ve SMED uygulanmazsa kayıplar görünmez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6268,7 +6268,7 @@ const SpcSignalDelayAnalyzerContract: FormulaContract = buildAssuredCriticalCont
 
 const SteamTrapEnergyLossAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.steam-trap-energy-loss-analyzer",
-  toolName: "Steam Trap Enerji Kaybı Analizi",
+  toolName: "Steam Trap Energy Loss Analysis",
   slug: "steam-trap-energy-loss-analyzer",
   purpose: "Arızalı buhar kapanları (steam trap) fark edilmeden yüksek enerji kaybına yol açar ve bu kayıplar ölçülmezse enerji verimliliği düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6318,7 +6318,7 @@ const SteamTrapEnergyLossAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const SubcontractorMarginLeakAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.subcontractor-margin-leak-analyzer",
-  toolName: "Taşeron Marj Kaçağı Analizi",
+  toolName: "Subcontractor Margin Leak Analysis",
   slug: "subcontractor-margin-leak-analyzer",
   purpose: "Taşeron teklif marjı ile gerçekleşen marj arasındaki fark kontrol edilmezse proje kârlılığı sessizce erir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6368,7 +6368,7 @@ const SubcontractorMarginLeakAnalyzerContract: FormulaContract = buildAssuredCri
 
 const SupplierCurrencyRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.supplier-currency-risk-analyzer",
-  toolName: "Tedarikçi Döviz Riski Analizi",
+  toolName: "Supplier Currency Risk Analysis",
   slug: "supplier-currency-risk-analyzer",
   purpose: "Yabancı para tedarikçilerinde kur dalgalanması maliyeti hesaplanmazsa beklenmedik zararlar oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6418,7 +6418,7 @@ const SupplierCurrencyRiskAnalyzerContract: FormulaContract = buildAssuredCritic
 
 const SupplierPerformanceTcoAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.supplier-performance-tco-analyzer",
-  toolName: "Tedarikçi TCO Performans Analizi",
+  toolName: "Supplier TCO Performance Analysis",
   slug: "supplier-performance-tco-analyzer",
   purpose: "Tedarikçi seçiminde sadece birim fiyata bakılır; kalite, lojistik, stok ve hurda maliyetleri hesaba katılmazsa gerçek toplam sahip olma maliyeti gizli kalır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6518,7 +6518,7 @@ const SupplyChainDisruptionAnalyzerContract: FormulaContract = buildAssuredCriti
 
 const TaguchiQualityLossAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.taguchi-quality-loss-analyzer",
-  toolName: "Taguchi Kalite Kaybı Analizi",
+  toolName: "Taguchi Quality Loss Analysis",
   slug: "taguchi-quality-loss-analyzer",
   purpose: "Ürün toleranslarından sapmaların maliyeti Taguchi kayıp fonksiyonu ile ölçülmezse gizli kalite kayıpları fark edilmez ve iyileştirme önceliklendirilemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6568,7 +6568,7 @@ const TaguchiQualityLossAnalyzerContract: FormulaContract = buildAssuredCritical
 
 const TaktTimeFlexibilityAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.takt-time-flexibility-analyzer",
-  toolName: "Takt Süre Esneklik Analizi",
+  toolName: "Takt Time Flexibility Analysis",
   slug: "takt-time-flexibility-analyzer",
   purpose: "Takt süresi ile çevrim süresi arasındaki uyumsuzluk gizli kapasite kaybına ve işçilik fazlasına yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6618,7 +6618,7 @@ const TaktTimeFlexibilityAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const TextileWasteRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.textile-waste-risk-analyzer",
-  toolName: "Tekstil Atığı Risk Analizi",
+  toolName: "Textile Waste Risk Analyzer",
   slug: "textile-waste-risk-analyzer",
   purpose: "Tekstil üretiminde kumaş atığı ve fire oranı kontrol edilmezse hammadde maliyeti ve çevresel kayıp artar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6668,7 +6668,7 @@ const TextileWasteRiskAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const ToolWearCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.tool-wear-cost-analyzer",
-  toolName: "Takım Aşınma Maliyet Analizi",
+  toolName: "Tool Wear Cost Analysis",
   slug: "tool-wear-cost-analyzer",
   purpose: "Kesici takım aşınması takip edilmezse parça başı takım maliyeti artar, erken kırılmalar plansız duruşlara ve yüksek hurda oranına yol açar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6718,7 +6718,7 @@ const ToolWearCostAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const TotalEmployeeCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.total-employee-cost-analyzer",
-  toolName: "Toplam Çalışan Maliyeti Analizi",
+  toolName: "Total Employee Cost Analyzer",
   slug: "total-employee-cost-analyzer",
   purpose: "Çalışan başına brüt maaş, yan haklar ve işveren payı toplamı hesaplanmazsa gerçek işgücü maliyeti gizli kalır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6768,7 +6768,7 @@ const TotalEmployeeCostAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const TransferPricingOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.transfer-pricing-optimizer-analyzer",
-  toolName: "Transfer Fiyatlandırması Optimizasyonu",
+  toolName: "Transfer Pricing Optimizer",
   slug: "transfer-pricing-optimizer-analyzer",
   purpose: "Şirketler arası transfer fiyatlandırmasında vergi etkisi ve global kâr hesaplanmazsa optimizasyon fırsatı kaçar.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6818,7 +6818,7 @@ const TransferPricingOptimizerAnalyzerContract: FormulaContract = buildAssuredCr
 
 const TransportModeRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.transport-mode-risk-analyzer",
-  toolName: "Taşıma Modu Risk ve Maliyet Analizi",
+  toolName: "Transport Mode Risk and Cost Analyzer",
   slug: "transport-mode-risk-analyzer",
   purpose: "Hava, deniz ve kara taşıma modları arasında seçim yaparken risk ve transit süre maliyeti göz ardı edilir.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6868,7 +6868,7 @@ const TransportModeRiskAnalyzerContract: FormulaContract = buildAssuredCriticalC
 
 const WaterUsageOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.water-usage-optimizer-analyzer",
-  toolName: "Su Kullanımı Optimizasyon Analizi",
+  toolName: "Water Usage Optimization Analyzer",
   slug: "water-usage-optimizer-analyzer",
   purpose: "Endüstriyel su tüketimi izlenmezse su yoğunluğu artar, atık su maliyeti yükselir ve verimlilik düşer.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6918,7 +6918,7 @@ const WaterUsageOptimizerAnalyzerContract: FormulaContract = buildAssuredCritica
 
 const WeldCostAnalysisAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.weld-cost-analysis-analyzer",
-  toolName: "Kaynak Maliyeti Detay Analizi",
+  toolName: "Weld Cost Detail Analyzer",
   slug: "weld-cost-analysis-analyzer",
   purpose: "Kaynak maliyetinin metraj bazlı analizi yapılmazsa, birim fiyat ve proses verimliliği izlenemez.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -6968,7 +6968,7 @@ const WeldCostAnalysisAnalyzerContract: FormulaContract = buildAssuredCriticalCo
 
 const WeldStrengthAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.weld-strength-analyzer",
-  toolName: "Kaynak Mukavemeti Analizi",
+  toolName: "Weld Strength Analyzer",
   slug: "weld-strength-analyzer",
   purpose: "Kaynak mukavemeti ve güvenlik faktörü hesaplanmazsa, yapısal bütünlük risk altındadır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -7018,7 +7018,7 @@ const WeldStrengthAnalyzerContract: FormulaContract = buildAssuredCriticalContra
 
 const WeldVolumeCostAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.weld-volume-cost-analyzer",
-  toolName: "Kaynak Hacmi ve Maliyeti",
+  toolName: "Weld Volume & Cost Analyzer",
   slug: "weld-volume-cost-analyzer",
   purpose: "Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
@@ -7068,7 +7068,7 @@ const WeldVolumeCostAnalyzerContract: FormulaContract = buildAssuredCriticalCont
 
 const WindTurbineInvestmentAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.wind-turbine-investment-analyzer",
-  toolName: "Rüzgar Türbini Yatırım Analizi",
+  toolName: "Wind Turbine Investment Analyzer",
   slug: "wind-turbine-investment-analyzer",
   purpose: "Rüzgar türbini yatırımında AEP, gelir ve NPV hesaplanmazsa yatırımın geri dönüşü ve fizibilitesi belirsiz kalır.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",

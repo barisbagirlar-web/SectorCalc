@@ -4,8 +4,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "cleaning-bid-optimizer-analyzer", legacyPaidSlug: "cleaning-bid-optimizer-analyzer",
-  name: "Temizlik Teklif Optimizasyonu", name_i18n: {"en":"Temizlik quote Optimizasyonu"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Temizlik hizmeti tekliflerinde işçilik, malzeme ve kar marjı net ayrıştırılmazsa fiyatlama hatalı olur.", painStatement_i18n: {"en":"Temizlik hizmeti tekliflerinde işçilik, material ve profit marjı Net ayrıştırılmazsa fiyatlama hatalı olur."},
+  name: "Cleaning Bid Optimizer", name_i18n: {"en":"Cleaning Bid Optimizer"}, sectorSlug: "financial-planning", category: "cost",
+  painStatement: "If labor, materials, and profit margin are not clearly separated in cleaning service quotes, pricing becomes inaccurate.", painStatement_i18n: {"en":"If labor, materials, and profit margin are not clearly separated in cleaning service quotes, pricing becomes inaccurate."},
   inputs: [
     { id: "totalSquareMeters", label: "Toplam Metrekare", label_i18n: {"en":"Total Metrekare"}, type: "number", unit: "m²", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Total cleaning area in sqm", expertMeaning_i18n: {"en":"Total cleaning area in sqm"} },
     { id: "cleaningFrequency", label: "Cleaning frequency", label_i18n: {"en":"Cleaning frequency"}, type: "select", unit: "", required: true, smartDefault: "weekly", validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Cleaning frequency", expertMeaning_i18n: {"en":"Cleaning frequency"}, enumValues: ["daily", "weekly", "biweekly", "monthly"] },

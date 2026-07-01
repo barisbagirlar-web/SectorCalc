@@ -1,8 +1,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CONTAINER_LOAD_SCHEMA: PremiumCalculatorSchema = {
   id: "container-load-analyzer", legacyPaidSlug: "container-load-analyzer",
-  name: "Konteyner Yük Optimizasyonu", name_i18n: {"en":"Konteyner Load Optimizasyonu"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Konteyner doluluk oranı hesaplanmazsa, taşıma maliyeti optimize edilemez ve boş alan israfı oluşur.", painStatement_i18n: {"en":"Konteyner doluluk rate if not calculated, Carrying Cost optimize edilemez ve Void alan israfı oluşur."},
+  name: "Container Load Optimizer", name_i18n: {"en":"Container Load Optimizer"}, sectorSlug: "logistics-transport", category: "measurement",
+  painStatement: "If container fill rate is not calculated, transportation cost cannot be optimized and void space is wasted.", painStatement_i18n: {"en":"If container fill rate is not calculated, transportation cost cannot be optimized and void space is wasted."},
   inputs: [
     { id: "containerType", label: "Konteyner Tipi", label_i18n: {"en":"Konteyner Tipi"}, type: "select", unit: "", enumValues: ["20DC", "40DC", "40HC", "20RF", "40RF"], required: true, smartDefault: "40DC", helper: "", expertMeaning: "Container type", expertMeaning_i18n: {"en":"Container type"} },
     { id: "containerVol", label: "Internal volume", label_i18n: {"en":"Internal volume"}, type: "number", unit: "m³", required: true, smartDefault: 67.3, validation: { min: 1 }, helper: "", expertMeaning: "Internal volume", expertMeaning_i18n: {"en":"Internal volume"} },
@@ -36,6 +36,6 @@ export const CONTAINER_LOAD_SCHEMA: PremiumCalculatorSchema = {
         containerCost: "freightCost"
       }, outputId: "wastedSpaceCost" },
   ],
-  reportTemplate: { title: "Konteyner Yük Raporu", title_i18n: {"en":"Konteyner Load Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  reportTemplate: { title: "Container Load Optimization Report", title_i18n: {"en":"Container Load Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Doluluk = min(Hacim%, Ağırlık%).", "Boş alan maliyeti = (1 - Verim) × Navlun."],assumptionNotes_i18n:[{"en":"Doluluk = min(Hacim%, Ağırlık%)."},{"en":"Boş alan maliyeti = (1 - Verim) × Navlun."}] },
 };

@@ -4,8 +4,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
   id: "flexible-manufacturing-roi-analyzer", legacyPaidSlug: "flexible-manufacturing-roi-analyzer",
-  name: "Esnek imalat (FMS) ROI Analizi", name_i18n: {"en":"Esnek manufacturing (FMS) ROI Analizi"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Esnek imalat sistemine (FMS) yatırım kararı, dedicated sistemle karşılaştırmalı ROI analizi yapılmadan verilmemelidir.", painStatement_i18n: {"en":"Esnek manufacturing sistemine (FMS) Investment kararı, dedicated sistemle comparative ROI analizi without verilmemelidir."},
+  name: "Flexible Manufacturing (FMS) ROI Analyzer", name_i18n: {"en":"Flexible Manufacturing (FMS) ROI Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  painStatement: "Investment decision for a Flexible Manufacturing System (FMS) should not be made without a comparative ROI analysis against a dedicated system.", painStatement_i18n: {"en":"Investment decision for a Flexible Manufacturing System (FMS) should not be made without a comparative ROI analysis against a dedicated system."},
   inputs: [
     { id: "costDedicated", label: "Dedicated Sistem Maliyeti", label_i18n: {"en":"Dedicated System Cost"}, type: "number", unit: "USD", required: true, smartDefault: 300000, validation: { min: 0 }, helper: "", expertMeaning: "Dedicated system cost", expertMeaning_i18n: {"en":"Dedicated system cost"} },
     { id: "costFlex", label: "FMS Sistem Maliyeti", label_i18n: {"en":"FMS System Cost"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Flexible system cost", expertMeaning_i18n: {"en":"Flexible system cost"} },

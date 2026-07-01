@@ -1,12 +1,12 @@
 /**
- * Tool #20 — Cloud Fire Elimination (Bulut İsraf Temizliği)
+ * Tool #20 — Cloud Waste Elimination Analyzer
  * ZombieResource + OversizingSavings + SpotSavings + ReservedSavings + IdleHoursCost
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CLOUD_WASTE_ELIMINATION_SCHEMA: PremiumCalculatorSchema = {
   id: "cloud-waste-elimination-analyzer", legacyPaidSlug: "cloud-waste-elimination-analyzer",
-  name: "Cloud israf Temizligi (Waste Elimination) Analizi", name_i18n: {"en":"Cloud Waste Temizligi (Waste Elimination) Analizi"}, sectorSlug: "it-cloud", category: "cost",
-  painStatement: "Bulut harcamalarının %30-45'i gereksiz kaynaklardan oluşur: zombie kaynaklar, aşırı boyutlandırma ve boşta çalışan instance'lar. Bu araç toplam israfı hesaplar ve tasarruf potansiyelini gösterir.", painStatement_i18n: {"en":"Bulut harcamalarının %30-45'i gereksiz kaynaklardan oluşur: zombie kaynaklar, excessive boyutlandırma ve boşta Employee instance'lar. Bu araç Total israfı hesaplar ve tasarruf potansiyelini gösterir."},
+  name: "Cloud Waste Elimination Analyzer", name_i18n: {"en":"Cloud Waste Elimination Analyzer"}, sectorSlug: "it-cloud", category: "cost",
+  painStatement: "30-45% of cloud spending consists of unnecessary resources: zombie resources, over-provisioning, and idle instances. This tool calculates total waste and shows savings potential.", painStatement_i18n: {"en":"30-45% of cloud spending consists of unnecessary resources: zombie resources, over-provisioning, and idle instances. This tool calculates total waste and shows savings potential."},
   inputs: [
     { id: "unattachedVolumes", label: "Unattached EBS volumes", label_i18n: {"en":"Unattached EBS volumes"}, type: "number", unit: "adet", required: true, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Unattached EBS volumes", expertMeaning_i18n: {"en":"Unattached EBS volumes"} },
     { id: "volumeRatePerMonth", label: "Disk Birim Fiyat", label_i18n: {"en":"Disk Unit Fiyat"}, type: "number", unit: "USD/ay", required: true, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Monthly cost per unattached volume", expertMeaning_i18n: {"en":"Monthly cost per unattached volume"} },

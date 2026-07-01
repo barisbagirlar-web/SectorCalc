@@ -1,11 +1,11 @@
 /**
- * Tool #37 — EOQ Envanter
+ * Tool #37 — EOQ Inventory
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const EOQ_INVENTORY_SCHEMA: PremiumCalculatorSchema = {
   id: "eoq-inventory-optimizer-analyzer", legacyPaidSlug: "eoq-inventory-optimizer-analyzer",
-  name: "EOQ Envanter Optimizasyonu", name_i18n: {"en":"EOQ Envanter Optimizasyonu"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Envanter yönetiminde EOQ, ROP ve güvenlik stoğu hesaplanmazsa ya stok fazlası ya da stoksuz kalma maliyeti oluşur.", painStatement_i18n: {"en":"Envanter yönetiminde EOQ, ROP ve güvenlik Inventory if not calculated ya Inventory fazlası ya da stoksuz kalma Cost oluşur."},
+  name: "EOQ Inventory Optimizer", name_i18n: {"en":"EOQ Inventory Optimizer"}, sectorSlug: "logistics-transport", category: "cost",
+  painStatement: "Without calculating EOQ, ROP, and safety stock in inventory management, either excess inventory or stockout costs arise.", painStatement_i18n: {"en":"Without calculating EOQ, ROP, and safety stock in inventory management, either excess inventory or stockout costs arise."},
   inputs: [
     { id: "annualDemand", label: "Annual demand", label_i18n: {"en":"Annual demand"}, type: "number", unit: "adet", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "", expertMeaning: "Annual demand", expertMeaning_i18n: {"en":"Annual demand"} },
     { id: "orderCost", label: "Cost per order", label_i18n: {"en":"Cost per order"}, type: "number", unit: "USD/sipariş", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Cost per order", expertMeaning_i18n: {"en":"Cost per order"} },

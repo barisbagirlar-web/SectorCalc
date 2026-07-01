@@ -1,11 +1,11 @@
 /**
- * Tool — Süt Kâr Dedektörü
+ * Tool — Dairy Profit Detector
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DAIRY_PROFIT_DETECTOR_ANALYZER: PremiumCalculatorSchema = {
   id: "dairy-profit-detector-analyzer", legacyPaidSlug: "dairy-profit-detector-analyzer",
-  name: "Süt Kâr Dedektörü", name_i18n: {"en":"Milk profit Dedektoru"}, sectorSlug: "food", category: "cost",
-  painStatement: "Süt çiftliklerinde yem maliyeti ile süt geliri arasındaki fark izlenmezse kârlılık fark edilmeden erir ve işletme zarar eder.", painStatement_i18n: {"en":"Milk çiftliklerinde Feed Cost ile Milk geliri arasındaki difference if not tracked kârlılık difference edilmeden erodes ve operation Loss eder."},
+  name: "Dairy Profit Detector", name_i18n: {"en":"Dairy Profit Detector"}, sectorSlug: "food", category: "cost",
+  painStatement: "If the gap between feed cost and milk income is not tracked on dairy farms, profitability silently erodes and the operation incurs losses.", painStatement_i18n: {"en":"If the gap between feed cost and milk income is not tracked on dairy farms, profitability silently erodes and the operation incurs losses."},
   inputs: [
     { id: "milkYieldPerCow", label: "Daily milk yield per cow", label_i18n: {"en":"Daily milk yield per cow"}, type: "number", unit: "kg/gün", required: true, smartDefault: 30, validation: { min: 1 }, helper: "", expertMeaning: "Daily milk yield per cow", expertMeaning_i18n: {"en":"Daily milk yield per cow"} },
     { id: "milkFatPct", label: "Milk fat percentage", label_i18n: {"en":"Milk fat percentage"}, type: "number", unit: "%", required: true, smartDefault: 3.8, validation: { min: 2, max: 7 }, helper: "", expertMeaning: "Milk fat percentage", expertMeaning_i18n: {"en":"Milk fat percentage"} },

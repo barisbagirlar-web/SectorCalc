@@ -5,8 +5,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TURNOVER_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "employee-turnover-cost-analyzer", legacyPaidSlug: "employee-turnover-cost-analyzer",
-  name: "calisan Ciro (Turnover) Maliyet Analizi", name_i18n: {"en":"calisan Ciro (Turnover) Cost Analizi"}, sectorSlug: "legal-tax", category: "cost",
-  painStatement: "Personel ayrılma maliyeti sadece tazminat değil; işe alım, eğitim ve verimlilik kaybını da içerir. Bu araç ayrılan çalışan başına gerçek maliyeti hesaplar.", painStatement_i18n: {"en":"Personel ayrılma Cost sadece compensation değil; işe alım, training ve productivity kaybını da içerir. Bu araç ayrılan Employee Per Actual Cost hesaplar."},
+  name: "Employee Turnover Cost Analyzer", name_i18n: {"en":"Employee Turnover Cost Analyzer"}, sectorSlug: "legal-tax", category: "cost",
+  painStatement: "Employee turnover cost includes not just severance but also recruitment, training, and productivity loss. This tool calculates the actual cost per departing employee.", painStatement_i18n: {"en":"Employee turnover cost includes not just severance but also recruitment, training, and productivity loss. This tool calculates the actual cost per departing employee."},
   inputs: [
     { id: "exitsCount", label: "Number of employee exits", label_i18n: {"en":"Number of employee exits"}, type: "number", unit: "kişi", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Number of employee exits", expertMeaning_i18n: {"en":"Number of employee exits"} },
     { id: "severancePay", label: "Total severance compensation", label_i18n: {"en":"Total severance compensation"}, type: "number", unit: "USD", required: true, smartDefault: 25000, validation: { min: 0 }, helper: "", expertMeaning: "Total severance compensation", expertMeaning_i18n: {"en":"Total severance compensation"} },

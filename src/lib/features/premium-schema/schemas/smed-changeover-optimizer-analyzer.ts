@@ -1,11 +1,11 @@
 /**
- * Tool — SMED Değişim
+ * Tool — SMED Changeover Duration Optimizer
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
   id: "smed-changeover-optimizer-analyzer", legacyPaidSlug: "smed-changeover-optimizer-analyzer",
-  name: "SMED Degisim Suresi Optimizasyonu", name_i18n: {"en":"SMED change Duration Optimizasyonu"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Uzun kalıp değişim süreleri makine duruşlarını artırır, kapasite kaybına yol açar ve SMED uygulanmazsa kayıplar görünmez.", painStatement_i18n: {"en":"Uzun kalıp change süreleri makine duruşlarını artırır, capacity kaybına yol açar ve SMED uygulanmazsa kayıplar görünmez."},
+  name: "SMED Changeover Duration Optimizer", name_i18n: {"en":"SMED Changeover Duration Optimizer"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  painStatement: "Long mold changeover times increase machine downtime, cause capacity loss, and remain invisible if SMED is not applied.", painStatement_i18n: {"en":"Long mold changeover times increase machine downtime, cause capacity loss, and remain invisible if SMED is not applied."},
   inputs: [
     { id: "currentChangeoverTime", label: "Current changeover time in minutes", label_i18n: {"en":"Current changeover time in minutes"}, type: "number", unit: "dakika", required: true, smartDefault: 45, validation: { min: 1 }, helper: "", expertMeaning: "Current changeover time in minutes", expertMeaning_i18n: {"en":"Current changeover time in minutes"} },
     { id: "changeoversPerMonth", label: "Changeovers per month", label_i18n: {"en":"Changeovers per month"}, type: "number", unit: "adet", required: true, smartDefault: 30, validation: { min: 1 }, helper: "", expertMeaning: "Changeovers per month", expertMeaning_i18n: {"en":"Changeovers per month"} },
@@ -34,6 +34,6 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       ,
         smedInvestment: "smedInvestment"}, outputId: "roi" },
   ],
-  reportTemplate: { title: "SMED Değişim Optimizasyon Raporu", title_i18n: {"en":"SMED change optimization Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  reportTemplate: { title: "SMED Changeover Optimization Report", title_i18n: {"en":"SMED Changeover Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kazanılan kapasite = (mevcut − hedef) × değişim sayısı × 12 / 60 saat.", "Finansal kazanç = kapasite × (makine + operatör) saatlik maliyet.", "ROI = (kazanç − uygulama) / uygulama × 100.", "SMED iç ve dış ayırma prensibine dayanır."],assumptionNotes_i18n:[{"en":"Kazanılan kapasite = (mevcut − hedef) × değişim sayısı × 12 / 60 saat."},{"en":"Finansal kazanç = kapasite × (makine + operatör) saatlik maliyet."},{"en":"ROI = (kazanç − uygulama) / uygulama × 100."},{"en":"SMED iç ve dış ayırma prensibine dayanır."}] },
 };

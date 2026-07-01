@@ -1,8 +1,8 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const COMPRESSOR_TANK_SCHEMA: PremiumCalculatorSchema = {
   id: "compressor-tank-sizing-analyzer", legacyPaidSlug: "compressor-tank-sizing-analyzer",
-  name: "Kompresor Tanki Boyutlandirma", name_i18n: {"en":"Kompresor Tanki Boyutlandirma"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Basınçlı hava tankı yanlış boyutlandırılırsa motor sık devreye girer, ömrü kısalır ve enerji verimi düşer.", painStatement_i18n: {"en":"Basınçlı Air tankı incorrect boyutlandırılırsa Motor frequent devreye girer, ömrü shortens ve energy Efficiency düşer."},
+  name: "Compressor Tank Sizing Analyzer", name_i18n: {"en":"Compressor Tank Sizing Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  painStatement: "If the compressed air tank is incorrectly sized, the motor short-cycles frequently, its lifespan shortens, and energy efficiency drops.", painStatement_i18n: {"en":"If the compressed air tank is incorrectly sized, the motor short-cycles frequently, its lifespan shortens, and energy efficiency drops."},
   inputs: [
     { id: "airFlow", label: "Kompresör Debisi Q", label_i18n: {"en":"Free air delivery"}, type: "number", unit: "m³/dk", required: true, smartDefault: 2, validation: { min: 0.01 }, helper: "", expertMeaning: "Free air delivery", expertMeaning_i18n: {"en":"Free air delivery"} },
     { id: "maxPressure", label: "Cut-out pressure", label_i18n: {"en":"Cut-out pressure"}, type: "number", unit: "bar", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Cut-out pressure", expertMeaning_i18n: {"en":"Cut-out pressure"} },

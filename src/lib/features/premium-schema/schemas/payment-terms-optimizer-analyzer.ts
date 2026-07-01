@@ -1,11 +1,11 @@
 /**
- * Tool #30 — Ödeme Vadesi Optimizasyonu
+ * Tool #30 — Payment Terms Optimizer
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const PAYMENT_TERMS_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "payment-terms-optimizer-analyzer", legacyPaidSlug: "payment-terms-optimizer-analyzer",
-  name: "Ödeme Vadesi Optimizasyonu", name_i18n: {"en":"Payment Vadesi Optimizasyonu"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Uzun vade müşteri memnuniyetini artırır ama nakit akışını boğar; kısa vade tahsilatı hızlandırır ama satış kaybı yaratır.", painStatement_i18n: {"en":"Uzun vade customer memnuniyetini artırır ama cash akışını boğar; kısa vade tahsilatı hızlandırır ama satış Loss yaratır."},
+  name: "Payment Terms Optimizer", name_i18n: {"en":"Payment Terms Optimizer"}, sectorSlug: "financial-planning", category: "cost",
+  painStatement: "Long payment terms boost customer satisfaction but strain cash flow; short terms accelerate collection but may reduce sales.", painStatement_i18n: {"en":"Long payment terms boost customer satisfaction but strain cash flow; short terms accelerate collection but may reduce sales."},
   inputs: [
     { id: "avgReceivables", label: "Ortalama Alacak Bakiyesi", label_i18n: {"en":"Average Receivable Bakiyesi"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1 }, helper: "", expertMeaning: "Average accounts receivable balance", expertMeaning_i18n: {"en":"Average accounts receivable balance"} },
     { id: "annualRevenue", label: "Annual revenue", label_i18n: {"en":"Annual revenue"}, type: "number", unit: "USD", required: true, smartDefault: 5000000, validation: { min: 1 }, helper: "", expertMeaning: "Annual revenue", expertMeaning_i18n: {"en":"Annual revenue"} },

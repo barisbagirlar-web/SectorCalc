@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
   id: "takt-time-flexibility-analyzer", legacyPaidSlug: "takt-time-flexibility-analyzer",
-  name: "Takt Süre Esneklik Analizi", name_i18n: {"en":"Takt Time Flexibility Analysis"}, sectorSlug: "cnc-manufacturing", category: "cost",
+  name: "Takt Time Flexibility Analysis", name_i18n: {"en":"Takt Time Flexibility Analysis"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Mismatch between takt time and cycle time causes hidden capacity loss and excess labor.", painStatement_i18n: {"en":"Mismatch between Takt time and cycle time causes hidden capacity loss and excess labor."},
   inputs: [
     { id: "availableTime", label: "Available Time (Daily)", label_i18n: {"en":"Available Time (Daily)"}, type: "number", unit: "dk/gün", required: true, smartDefault: 480, validation: { min: 1 }, helper: "", expertMeaning: "Daily available production time", expertMeaning_i18n: {"en":"Daily available production time"} },

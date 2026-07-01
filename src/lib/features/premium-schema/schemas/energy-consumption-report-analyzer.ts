@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
   id: "energy-consumption-report-analyzer", legacyPaidSlug: "energy-consumption-report-analyzer",
-  name: "Enerji Tüketim Raporu & PF Analizi", name_i18n: {"en":"Energy Consumption Report & PF Analyzer"}, sectorSlug: "sheet-metal", category: "energy",
+  name: "Energy Consumption Report & PF Analyzer", name_i18n: {"en":"Energy Consumption Report & PF Analyzer"}, sectorSlug: "sheet-metal", category: "energy",
   painStatement: "Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar.", painStatement_i18n: {"en":"energy faturasında reaktif penalty, demand bedeli ve Carbon Cost analiz edilmezse operation gereksiz Payment yapar."},
   inputs: [
     { id: "activeKwh", label: "Aktif Tüketim (kWh)", label_i18n: {"en":"Active energy consumption"}, type: "number", unit: "kWh", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption"} },

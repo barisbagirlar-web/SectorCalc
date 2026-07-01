@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const OEE_DOWNTIME_SCHEMA: PremiumCalculatorSchema = {
   id: "oee-downtime-analyzer", legacyPaidSlug: "oee-downtime-analyzer",
-  name: "OEE ve Durma Süresi Analizi", name_i18n: {"en":"OEE & Downtime Analysis"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  name: "OEE & Downtime Analysis", name_i18n: {"en":"OEE & Downtime Analysis"}, sectorSlug: "cnc-manufacturing", category: "measurement",
   painStatement: "Without calculating OEE subcomponents and overall equipment effectiveness, the true cost of downtime remains hidden.", painStatement_i18n: {"en":"Without calculating OEE subcomponents and overall equipment effectiveness, the true cost of downtime remains hidden."},
   inputs: [
     { id: "plannedProdTime", label: "Planned Production Time", label_i18n: {"en":"Planned Production Time"}, type: "number", unit: "saat/vardiya", required: true, smartDefault: 480, validation: { min: 1 }, helper: "", expertMeaning: "Planned production time per shift", expertMeaning_i18n: {"en":"Planned production time per shift"} },

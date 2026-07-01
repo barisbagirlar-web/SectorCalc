@@ -1,11 +1,11 @@
 /**
- * Tool #30 — Transfer Fiyatlandırması
+ * Tool #30 — Transfer Pricing Optimizer
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TRANSFER_PRICING_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "transfer-pricing-optimizer-analyzer", legacyPaidSlug: "transfer-pricing-optimizer-analyzer",
-  name: "Transfer Fiyatlandirmasi Optimizasyonu", name_i18n: {"en":"Transfer Fiyatlandirmasi Optimizasyonu"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Şirketler arası transfer fiyatlandırmasında vergi etkisi ve global kâr hesaplanmazsa optimizasyon fırsatı kaçar.", painStatement_i18n: {"en":"Şirketler arası transfer fiyatlandırmasında tax etkisi ve global kâr if not calculated optimization fırsatı kaçar."},
+  name: "Transfer Pricing Optimizer", name_i18n: {"en":"Transfer Pricing Optimizer"}, sectorSlug: "financial-planning", category: "cost",
+  painStatement: "If tax impact and global profit are not calculated in intercompany transfer pricing, optimization opportunities are missed.", painStatement_i18n: {"en":"If tax impact and global profit are not calculated in intercompany transfer pricing, optimization opportunities are missed."},
   inputs: [
     { id: "entityALocation", label: "Entity A country", label_i18n: {"en":"Entity A country"}, type: "select", unit: "", required: true, smartDefault: "TR", validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Entity A country", expertMeaning_i18n: {"en":"Entity A country"}, enumValues: ["TR", "DE", "US", "UK", "CN", "AE", "NL", "SG"] },
     { id: "entityBLocation", label: "Entity B country", label_i18n: {"en":"Entity B country"}, type: "select", unit: "", required: true, smartDefault: "DE", validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Entity B country", expertMeaning_i18n: {"en":"Entity B country"}, enumValues: ["TR", "DE", "US", "UK", "CN", "AE", "NL", "SG"] },

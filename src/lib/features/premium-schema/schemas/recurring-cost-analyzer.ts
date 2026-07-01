@@ -4,7 +4,7 @@
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RECURRING_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "recurring-cost-analyzer", legacyPaidSlug: "recurring-cost-analyzer",
-  name: "Tekrarlayan Maliyet Kök Neden Analizi", name_i18n: {"en":"Recurring Cost Root Cause Analysis"}, sectorSlug: "quality", category: "cost",
+  name: "Recurring Cost Root Cause Analysis", name_i18n: {"en":"Recurring Cost Root Cause Analysis"}, sectorSlug: "quality", category: "cost",
   painStatement: "If recurring errors and costs continue without root cause analysis, total loss grows exponentially.", painStatement_i18n: {"en":"If recurring errors and costs continue without root cause analysis, total loss grows exponentially."},
   inputs: [
     { id: "monthlyRecurringCost", label: "Monthly Recurring Cost", label_i18n: {"en":"Monthly Recurring Cost"}, type: "number", unit: "USD/ay", required: true, smartDefault: 5000, validation: { min: 1 }, helper: "", expertMeaning: "Monthly recurring defect cost", expertMeaning_i18n: {"en":"Monthly recurring defect cost"} },
