@@ -139,6 +139,10 @@ function buildConversationMessages(
 }
 
 export async function runDeepSeekCustomerAssistant(request: CustomerAiRequest) {
+  if (request.isPremium) {
+    console.log("// TRACE: AUTHORITY MODE");
+  }
+
   const routing = selectCustomerModel(request);
 
   const client = new OpenAI({

@@ -14,6 +14,7 @@ import {
   TRACE_FREE_SYSTEM_PROMPT,
 } from "@/lib/infrastructure/trace/prompts";
 import { buildToolCatalogForPrompt } from "@/lib/infrastructure/trace/tool-catalog-prompt";
+import { buildRolePrompt } from "@/lib/ai/role-prompt";
 import { findBestTools } from "@/lib/infrastructure/trace/tool-recommendation";
 import { routeAssistantSlug } from "@/lib/features/assistant/slug-router";
 import type { TraceFreeRequest, TraceFreeResponse } from "@/lib/infrastructure/trace/types";
@@ -69,6 +70,7 @@ async function generateFlashReply(
   const modelName = resolveFlashModel();
 
   const system = [
+    buildRolePrompt({ plan: 'free' }, context.message),
     TRACE_FREE_SYSTEM_PROMPT,
     buildTraceFreeLocaleHint(context.locale),
     "=== FULL TOOL CATALOG (use this to route EVERY question) ===",
@@ -166,7 +168,7 @@ export async function handleFreeTraceRequest(
   if (flashReply) {
     return {
       ok: true,
-      reply: flashReply,
+      reply: flashReply + "\n\n💡 Tip: Upgrade to Pro for full validation & export",
       suggestions: routed.suggestion ? dedupePrimary(routed.suggestion, suggestions) : suggestions,
       modelTier: "flash",
       blocked: false,
@@ -177,7 +179,7 @@ export async function handleFreeTraceRequest(
 
   return {
     ok: true,
-    reply: fallback.reply,
+    reply: fallback.reply + "\n\n💡 Tip: Upgrade to Pro for full validation & export",
     suggestions: routed.suggestion ? dedupePrimary(routed.suggestion, suggestions) : suggestions,
     modelTier: "router",
     blocked: routed.blocked,

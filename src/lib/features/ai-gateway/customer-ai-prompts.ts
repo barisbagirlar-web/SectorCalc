@@ -1,5 +1,6 @@
 import { TRACE_BRAND } from "@/config/trace";
 import { buildTraceLocaleHint } from "@/lib/infrastructure/trace/locale-hints";
+import { buildRolePrompt } from "@/lib/ai/role-prompt";
 import type { CustomerAiRequest } from "./customer-ai-types";
 
 export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
@@ -20,7 +21,10 @@ export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
         "Keep answers short, clear, and helpful.",
       ].join("\n");
 
+  const rolePrompt = buildRolePrompt({ plan: request.isPremium ? 'pro' : 'free' }, request.message);
+
   return [
+    rolePrompt,
     `You are ${TRACE_BRAND.name}, SectorCalc's customer assistant.`,
     tierGuidance,
     "You help users find calculators, understand required inputs, fix invalid inputs and interpret already-calculated results.",

@@ -5,6 +5,7 @@ import { Route, Send, Sparkles, X } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { TraceLivingAvatar } from "@/components/trace/TraceLivingAvatar";
 import { SectorCalcLogo } from "@/components/ui/SectorCalcLogo";
+import { useUser } from "@/hooks/useUser";
 import type { TraceChatMessage } from "@/components/trace/trace-chat-shared";
 
 type TraceChatPanelProps = {
@@ -54,6 +55,7 @@ export function TraceChatPanel({
   labels,
   showUpsell,
 }: TraceChatPanelProps) {
+  const { isPro } = useUser();
   const inputRef = useRef<HTMLInputElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
   const hasUserMessages = messages.some((entry) => entry.role === "user");
@@ -125,8 +127,13 @@ export function TraceChatPanel({
           ) : (
             <TraceLivingAvatar size="sm" className="sc-trace__header-avatar" />
           )}
-          <div className="sc-trace__header-copy">
+          <div className="sc-trace__header-copy" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <span className="sc-trace__header-title">{labels.title}</span>
+            {isPro ? (
+              <span className="badge pro" style={{ fontSize: "0.65rem", padding: "2px 6px", background: "var(--sc-copper, #BD5D3A)", color: "white", borderRadius: "4px", fontWeight: "bold" }}>
+                PRO
+              </span>
+            ) : null}
           </div>
         </div>
         {onClose ? (
