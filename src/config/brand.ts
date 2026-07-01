@@ -30,12 +30,12 @@ export const BRAND_ASSETS = {
  },
 favicon: {
     /** Master PNG favicon (Sector Mavisi logo). */
-    master: "/img/brand/sectorcalc-favicon.png",
+    master: "/img/brand/sectorcalc-mark.png",
     /** 32×32 PNG for standard browser tabs. */
-    size32: "/img/brand/sectorcalc-favicon-32.png",
+    size32: "/img/brand/sectorcalc-mark.png",
     /** Apple touch icon 180×180 PNG. */
-    appleTouch: "/img/brand/sectorcalc-favicon-180.png",
-    svg: "/img/brand/sectorcalc-favicon.svg",
+    appleTouch: "/img/brand/sectorcalc-mark.png",
+    svg: "/img/brand/sectorcalc-mark.svg",
     width: 512,
     height: 512,
   },

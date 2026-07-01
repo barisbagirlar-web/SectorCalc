@@ -89,7 +89,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         {/* === MOBILE & APP METADATA === */}
         <link
           rel="apple-touch-icon"
-          href="/img/brand/sectorcalc-favicon-180.png"
+          href="/img/brand/sectorcalc-mark.png"
           sizes="180x180"
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
