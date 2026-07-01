@@ -19,7 +19,8 @@
       "type": "number",
       "unit": "USD",
       "default": 50000,
-      "min": 0,
+      "min": 1,
+      "max": 10000000,
       "reference": "50000",
       "businessContext": "Çekilen kredi anaparası.",
       "businessContext_i18n": {
@@ -46,6 +47,7 @@
       "unit": "%",
       "default": 24,
       "min": 0,
+      "max": 100,
       "reference": "24%",
       "businessContext": "Kredinin yıllık faiz oranı.",
       "businessContext_i18n": {
@@ -72,6 +74,7 @@
       "unit": "months",
       "default": 36,
       "min": 1,
+      "max": 120,
       "reference": "36",
       "businessContext": "Kredi vadesi.",
       "businessContext_i18n": {
@@ -98,6 +101,7 @@
       "unit": "USD",
       "default": 500,
       "min": 0,
+      "max": 100000,
       "reference": "500",
       "businessContext": "Dosya masrafı ve diğer ücretler.",
       "businessContext_i18n": {
