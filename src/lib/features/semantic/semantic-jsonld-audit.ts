@@ -42,10 +42,16 @@ function collectPublicRouteSlugs(): Array<{ slug: string; tier: "free" | "premiu
       .filter((slug) => !isFreeToolMigratedToPremium(slug) && !premiumSchemas.has(slug) && isP24Active(slug))
       .map((slug) => ({ slug, tier: "free" as const })),
     ...getPremiumRevenueRouteSlugs()
-      .filter((slug) => isP24Active(slug))
+      .filter((slug) => {
+        const base = slug.replace(/-premium$/, "");
+        return !premiumSchemas.has(base) && isP24Active(slug);
+      })
       .map((slug) => ({ slug, tier: "premium" as const })),
     ...listMigratedPremiumRouteSlugs()
-      .filter((slug) => isP24Active(slug))
+      .filter((slug) => {
+        const base = slug.replace(/-premium$/, "");
+        return !premiumSchemas.has(base) && isP24Active(slug);
+      })
       .map((slug) => ({ slug, tier: "premium" as const })),
     ...listPremiumSchemaSlugs()
       .filter((slug) => isP24Active(slug))

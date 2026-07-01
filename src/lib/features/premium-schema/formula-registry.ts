@@ -65,6 +65,54 @@ function normStd(x: number): number {
 // ---------------------------------------------------------------------------
 
 const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
+  // ── Generic math helpers (pipeline intermediates) ──
+  {
+    id: "math.subtract",
+    family: "measurement",
+    label: "Subtract b from a: a - b",
+    fn: (inputs) => assertFinite(num(inputs, "a") - num(inputs, "b")),
+  },
+  {
+    id: "math.add",
+    family: "measurement",
+    label: "Add a and b: a + b",
+    fn: (inputs) => assertFinite(num(inputs, "a") + num(inputs, "b")),
+  },
+  {
+    id: "math.ratio",
+    family: "measurement",
+    label: "Ratio a / b (safe divide)",
+    fn: (inputs) => safeDivide(num(inputs, "numerator"), num(inputs, "denominator")),
+  },
+  {
+    id: "math.multiply",
+    family: "measurement",
+    label: "Multiply a × b",
+    fn: (inputs) => assertFinite(num(inputs, "a") * num(inputs, "b")),
+  },
+  // ── OEE sub-formulas (ratio intermediates) ──
+  {
+    id: "measurement.oee_availability",
+    family: "oee",
+    label: "OEE Availability = operatingTime / plannedProdTime",
+    fn: (inputs) => safeDivide(num(inputs, "operatingTime"), num(inputs, "plannedProdTime")),
+  },
+  {
+    id: "measurement.oee_performance",
+    family: "oee",
+    label: "OEE Performance = (idealCycleTime × totalParts) / (operatingTime × 60)",
+    fn: (inputs) => {
+      const opHrs = num(inputs, "operatingTime");
+      if (opHrs <= 0) return 0;
+      return assertFinite((num(inputs, "idealCycleTime") * num(inputs, "totalParts")) / (opHrs * 60));
+    },
+  },
+  {
+    id: "measurement.oee_quality",
+    family: "oee",
+    label: "OEE Quality = goodParts / totalParts",
+    fn: (inputs) => safeDivide(num(inputs, "goodParts"), num(inputs, "totalParts")),
+  },
   {
     id: "measurement.variance_percent",
     family: "measurement",
@@ -618,7 +666,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     label: "Annual margin leakage from target gap",
     fn: (inputs) => {
       const rev = num(inputs, "totalRevenue"); const target = num(inputs, "targetMargin") / 100; const actual = num(inputs, "actualMargin") / 100;
-      return nonNegative(rev * (target - actual));
+      return nonNegative(rev * (target - actual) * 12);
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
@@ -1704,21 +1752,20 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.total_forecast_cost", family: "cost", label: "Total forecast cost", fn: (i) => num(i,"carryingCost") + num(i,"stockoutCost") },
 
   // Tamirhane
-  { id: "cost.quote_total", family: "cost", label: "Quote total", fn: (i) => num(i,"partsCost") + num(i,"laborHours") * num(i,"hourlyRate") + num(i,"hourlyRate") },
-  { id: "cost.effective_labor_rate", family: "cost", label: "Effective labor rate", fn: (i) => safeDivide(num(i,"totalLaborCost"), num(i,"billableHours")) },
+  { id: "cost.quote_total", family: "cost", label: "Quote total", fn: (i) => num(i,"partsCost") + num(i,"laborHours") * num(i,"hourlyRate") },
   { id: "cost.gross_profit_pct", family: "cost", label: "Gross profit %", fn: (i) => safeDivide(num(i,"quoteTotal"), num(i,"quoteTotalOut")) * 100 },
 
   // Taşeron
   { id: "measurement.quoted_margin", family: "measurement", label: "Quoted margin", fn: (i) => safeDivide(num(i,"quotedAmount") - num(i,"actualCost"), num(i,"quotedAmount")) },
   { id: "measurement.actual_margin", family: "measurement", label: "Actual margin", fn: (i) => safeDivide(num(i,"contractMargin") - num(i,"actualCost"), num(i,"contractMargin")) },
   { id: "cost.margin_leak_sub", family: "cost", label: "Subcontractor margin leak", fn: (i) => num(i,"quotedMargin") - num(i,"actualMargin") },
-  { id: "cost.leakage_pct", family: "cost", label: "Margin leakage %", fn: (i) => safeDivide(num(i,"quotedMargin"), num(i,"quotedMargin")) * 100 },
+  { id: "cost.leakage_pct", family: "cost", label: "Margin leakage %", fn: (i) => safeDivide(num(i,"marginLeakSub"), num(i,"quotedMargin")) * 100 },
 
   // Taşıma Mode
-  { id: "cost.transport_air", family: "cost", label: "Air freight cost", fn: (i) => num(i,"airFreightCost") * num(i,"airFreightCost") },
-  { id: "cost.transport_sea", family: "cost", label: "Sea freight cost", fn: (i) => num(i,"seaFreightCost") * num(i,"seaFreightCost") },
-  { id: "cost.transport_road", family: "cost", label: "Road freight cost", fn: (i) => num(i,"roadFreightCost") * num(i,"roadFreightCost") },
-  { id: "cost.transit_time_cost", family: "cost", label: "Transit time cost", fn: (i) => num(i,"airTransitDays") * num(i,"dailyCostOfDelay") / 365 * num(i,"dailyCostOfDelay") },
+  { id: "cost.transport_air", family: "cost", label: "Air freight cost", fn: (i) => num(i,"airFreightKg") * num(i,"airRatePerKg") },
+  { id: "cost.transport_sea", family: "cost", label: "Sea freight cost", fn: (i) => num(i,"seaFreightCbm") * num(i,"seaRatePerCbm") },
+  { id: "cost.transport_road", family: "cost", label: "Road freight cost", fn: (i) => num(i,"roadFreightKm") * num(i,"roadRatePerKm") },
+  { id: "cost.transit_time_cost", family: "cost", label: "Transit time cost", fn: (i) => num(i,"transitDays") * num(i,"cargoValue") * num(i,"costOfCapital") / 365 },
   { id: "cost.risk_cost_transport", family: "cost", label: "Transport risk cost", fn: (i) => num(i,"cargoValue") * num(i,"riskPct") / 100 },
   { id: "cost.total_mode_cost", family: "cost", label: "Total transport cost", fn: (i) => num(i,"transportAir") + num(i,"transportSea") + num(i,"transportRoad") + num(i,"transitTimeCost") + num(i,"riskCostTransport") },
 
@@ -3258,6 +3305,43 @@ const FORMULA_META_DETAILS: Record<
   string,
   Omit<FormulaRegistryMeta, "formulaId" | "family" | "label">
 > = {
+  // ── Generic math helpers ──
+  "math.subtract": {
+    description: "Subtract b from a: a - b.",
+    requiredInputs: ["a", "b"],
+    outputHint: "number",
+  },
+  "math.add": {
+    description: "Add a and b: a + b.",
+    requiredInputs: ["a", "b"],
+    outputHint: "number",
+  },
+  "math.ratio": {
+    description: "Safe ratio numerator / denominator.",
+    requiredInputs: ["numerator", "denominator"],
+    outputHint: "number",
+  },
+  "math.multiply": {
+    description: "Multiply a and b: a × b.",
+    requiredInputs: ["a", "b"],
+    outputHint: "number",
+  },
+  // ── OEE sub-formulas ──
+  "measurement.oee_availability": {
+    description: "OEE Availability ratio = operatingTime / plannedProdTime.",
+    requiredInputs: ["operatingTime", "plannedProdTime"],
+    outputHint: "number",
+  },
+  "measurement.oee_performance": {
+    description: "OEE Performance ratio = (idealCycleTime × totalParts) / (operatingTime × 60).",
+    requiredInputs: ["idealCycleTime", "totalParts", "operatingTime"],
+    outputHint: "number",
+  },
+  "measurement.oee_quality": {
+    description: "OEE Quality ratio = goodParts / totalParts.",
+    requiredInputs: ["goodParts", "totalParts"],
+    outputHint: "number",
+  },
   "measurement.variance_percent": {
     description: "Percent deviation of actual versus target measurement.",
     requiredInputs: ["actual", "target"],
@@ -4466,7 +4550,7 @@ const FORMULA_META_DETAILS: Record<
   "cost.margin_leak_quote": { description: "Margin leak = (market - quoted) × quantity.", requiredInputs: ["marketPrice", "quotedPrice", "quantity"], outputHint: "currency" },
   // ── TOOL 8: Auto Shop Margin Leak ──
   "cost.effective_labor_rate": { description: "Effective labor rate = laborRevenue / flagHours.", requiredInputs: ["laborRevenue", "flagHours"], outputHint: "currency" },
-  "cost.annual_margin_leakage": { description: "Annual leakage = revenue × (target - net).", requiredInputs: ["totalRevenue", "targetMargin", "netMargin"], outputHint: "currency" },
+  "cost.annual_margin_leakage": { description: "Annual leakage = monthlyRevenue × (target - actual) × 12.", requiredInputs: ["totalRevenue", "targetMargin", "actualMargin"], outputHint: "currency" },
   // ── TOOL 9: ASME Pressure Vessel ──
   "measurement.vessel_shell_thickness": { description: "Shell thickness = P×R / (S×E - 0.6×P) + CA.", requiredInputs: ["pressure", "radius", "stressAllowable", "jointEfficiency", "corrosionAllowance"], outputHint: "number" },
   "measurement.vessel_sphere_thickness": { description: "Sphere thickness = P×R / (2×S×E - 0.2×P) + CA.", requiredInputs: ["pressure", "radius", "stressAllowable", "jointEfficiency", "corrosionAllowance"], outputHint: "number" },
