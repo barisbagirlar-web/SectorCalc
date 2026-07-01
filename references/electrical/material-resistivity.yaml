@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: Electrical Resistivity of Conductor Materials
+# Standards: IEC 60028, IEEE 738, ASTM B193
+# =============================================================================
+toolId: "tool-electrical-conductor-sizing"
+inputKey: "resistivity"
+standard: "IEC 60028"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Annealed Copper (IEC 60028, 20°C)"
+    value: 1.724
+    unit: "mm"
+    source: "IEC 60028"
+    description: "Standard annealed copper resistivity at 20°C"
+  - label: "Hard-drawn Copper (IEC 60028, 20°C)"
+    value: 1.777
+    unit: "mm"
+    source: "IEC 60028"
+    description: "Hard-drawn copper resistivity at 20°C"
+  - label: "Aluminium 1350 (IEC 60028, 20°C)"
+    value: 2.826
+    unit: "mm"
+    source: "IEC 60028"
+    description: "EC grade aluminium resistivity at 20°C"
+  - label: "Aluminium Alloy 6201 (IEEE 738)"
+    value: 3.253
+    unit: "mm"
+    source: "IEEE 738"
+    description: "Aluminium alloy 6201 resistivity at 20°C"
+  - label: "Silver (ASTM B193)"
+    value: 1.586
+    unit: "mm"
+    source: "ASTM B193"
+    description: "Silver resistivity at 20°C"
+  - label: "Gold (ASTM B193)"
+    value: 2.214
+    unit: "mm"
+    source: "ASTM B193"
+    description: "Gold resistivity at 20°C"

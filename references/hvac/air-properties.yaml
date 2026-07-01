@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Air / HVAC Properties
+# Standards: ASHRAE Handbook, ISO 80000-4, EN 16798-1
+# =============================================================================
+toolId: "tool-hvac-capacity"
+inputKey: "airDensity"
+standard: "ISO 80000-4"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Dry air at 20°C, 1 atm (ISO 80000-4)"
+    value: 1.204
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of dry air at 20°C and standard atmospheric pressure"
+  - label: "Dry air at 0°C, 1 atm (ISO 80000-4)"
+    value: 1.293
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of dry air at 0°C and standard atmospheric pressure"
+  - label: "Standard air (ASHRAE)"
+    value: 1.2
+    unit: "kg/m3"
+    source: "ASHRAE Handbook"
+    description: "Standard air density per ASHRAE Fundamentals"
+  - label: "Hot air at 40°C (ASHRAE)"
+    value: 1.127
+    unit: "kg/m3"
+    source: "ASHRAE Handbook"
+    description: "Density of air at 40°C for summer design conditions"

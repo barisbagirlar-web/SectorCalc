@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Water / Fluid Properties
+# Standards: ISO 80000-4, ASME PTC 19.5
+# =============================================================================
+toolId: "tool-hydraulic-system-loss"
+inputKey: "fluidDensity"
+standard: "ISO 80000-4"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Fresh water at 4°C (ISO 80000-4)"
+    value: 1000
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of fresh water at maximum density"
+  - label: "Seawater at 20°C"
+    value: 1025
+    unit: "kg/m3"
+    source: "ASME PTC 19.5"
+    description: "Density of standard seawater at 20°C"
+  - label: "Hydraulic oil ISO VG 46 (ISO 80000-4)"
+    value: 870
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of ISO VG 46 hydraulic oil at 40°C"
+  - label: "Hydraulic oil ISO VG 32 (ISO 80000-4)"
+    value: 860
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of ISO VG 32 hydraulic oil at 40°C"

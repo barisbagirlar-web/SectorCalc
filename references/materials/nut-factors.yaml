@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: Nut Factor (Torque Coefficient) Values
+# Standards: ISO 16047, ASTM F3125
+# =============================================================================
+toolId: "bolt-torque-preload-analyzer"
+inputKey: "torqueCoefficient"
+standard: "ISO 16047"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "As-received plain steel (ISO 16047)"
+    value: 0.2
+    unit: "mm"
+    source: "ISO 16047"
+    description: "Typical nut factor for as-received plain steel fasteners"
+  - label: "Cadmium-plated (ISO 16047)"
+    value: 0.15
+    unit: "mm"
+    source: "ISO 16047"
+    description: "Nut factor for cadmium-plated fasteners"
+  - label: "Zinc-plated (ISO 16047)"
+    value: 0.22
+    unit: "mm"
+    source: "ISO 16047"
+    description: "Nut factor for zinc-plated fasteners"
+  - label: "Hot-dip galvanized (ISO 16047)"
+    value: 0.25
+    unit: "mm"
+    source: "ISO 16047"
+    description: "Nut factor for hot-dip galvanized fasteners"
+  - label: "Molybdenum disulfide lubricated"
+    value: 0.12
+    unit: "mm"
+    source: "ISO 16047"
+    description: "Nut factor for MoS2 lubricated fasteners"
+  - label: "Wax-coated (ASTM F3125)"
+    value: 0.1
+    unit: "mm"
+    source: "ASTM F3125"
+    description: "Nut factor for wax-coated structural bolts"

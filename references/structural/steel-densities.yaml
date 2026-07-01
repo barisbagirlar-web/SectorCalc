@@ -1,0 +1,34 @@
+# =============================================================================
+# Reference: Steel Density Values
+# Standards: EN 10025-2, EN 10088-1, ISO 898-1, ASTM A36
+# =============================================================================
+toolId: "beam-weight-analyzer"
+inputKey: "steelDensity"
+standard: "EN 10025-2"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Structural Steel (EN 10025-2)"
+    value: 7850
+    unit: "kg/m3"
+    source: "EN 10025-2"
+    description: "Standard density for carbon structural steel"
+  - label: "Structural Steel (ASTM A36)"
+    value: 7860
+    unit: "kg/m3"
+    source: "ASTM A36"
+    description: "Standard density for ASTM A36 carbon steel"
+  - label: "Stainless Steel 304 (EN 10088-1)"
+    value: 7930
+    unit: "kg/m3"
+    source: "EN 10088-1"
+    description: "Austenitic stainless steel 304 density"
+  - label: "Stainless Steel 316 (EN 10088-1)"
+    value: 7980
+    unit: "kg/m3"
+    source: "EN 10088-1"
+    description: "Austenitic stainless steel 316 density"
+  - label: "High-Strength Steel (ISO 898-1)"
+    value: 7850
+    unit: "kg/m3"
+    source: "ISO 898-1"
+    description: "Standard density for quenched and tempered steel"

@@ -1,0 +1,44 @@
+# =============================================================================
+# Reference: Bolt Grade / Yield Strength Values
+# Standards: ISO 898-1, ASTM F3125, EN 20898-1
+# =============================================================================
+toolId: "bolt-torque-preload-analyzer"
+inputKey: "yieldStrength"
+standard: "ISO 898-1"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Grade 8.8 — Medium Carbon Steel (ISO 898-1)"
+    value: 660
+    unit: "MPa"
+    source: "ISO 898-1"
+    description: "Yield strength for property class 8.8 bolts"
+  - label: "Grade 10.9 — Alloy Steel (ISO 898-1)"
+    value: 940
+    unit: "MPa"
+    source: "ISO 898-1"
+    description: "Yield strength for property class 10.9 bolts"
+  - label: "Grade 12.9 — Alloy Steel (ISO 898-1)"
+    value: 1100
+    unit: "MPa"
+    source: "ISO 898-1"
+    description: "Yield strength for property class 12.9 bolts"
+  - label: "Grade A2-70 — Stainless 304 (ISO 3506-1)"
+    value: 450
+    unit: "MPa"
+    source: "ISO 3506-1"
+    description: "Yield strength for A2-70 stainless steel bolts"
+  - label: "Grade A4-80 — Stainless 316 (ISO 3506-1)"
+    value: 600
+    unit: "MPa"
+    source: "ISO 3506-1"
+    description: "Yield strength for A4-80 stainless steel bolts"
+  - label: "Grade ASTM A325 — Structural Bolt"
+    value: 635
+    unit: "MPa"
+    source: "ASTM F3125"
+    description: "Yield strength for ASTM A325 structural bolts"
+  - label: "Grade ASTM A490 — High-Strength Structural Bolt"
+    value: 895
+    unit: "MPa"
+    source: "ASTM F3125"
+    description: "Yield strength for ASTM A490 high-strength structural bolts"

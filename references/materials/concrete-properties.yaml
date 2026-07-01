@@ -1,0 +1,34 @@
+# =============================================================================
+# Reference: Concrete Material Properties
+# Standards: ACI 318, EN 1992-1-1 (Eurocode 2)
+# =============================================================================
+toolId: "tool-concrete-volume-cost"
+inputKey: "concreteDensity"
+standard: "ACI 318"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Normal-weight concrete (ACI 318)"
+    value: 2400
+    unit: "kg/m3"
+    source: "ACI 318-19"
+    description: "Standard density for normal-weight concrete per ACI 318"
+  - label: "Lightweight concrete (ACI 318)"
+    value: 1760
+    unit: "kg/m3"
+    source: "ACI 318-19"
+    description: "Density for lightweight structural concrete"
+  - label: "Heavyweight concrete (ACI 318)"
+    value: 3200
+    unit: "kg/m3"
+    source: "ACI 318-19"
+    description: "Density for heavyweight radiation-shielding concrete"
+  - label: "Normal-weight concrete (EN 1992-1-1)"
+    value: 2400
+    unit: "kg/m3"
+    source: "EN 1992-1-1"
+    description: "Standard density per Eurocode 2"
+  - label: "Reinforced concrete (EN 1992-1-1)"
+    value: 2500
+    unit: "kg/m3"
+    source: "EN 1992-1-1"
+    description: "Density for reinforced concrete per Eurocode 2"
