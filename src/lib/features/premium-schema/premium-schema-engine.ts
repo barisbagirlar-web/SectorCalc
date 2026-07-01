@@ -44,12 +44,15 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
 
-function toNumber(value: number | string | boolean | undefined, fallback = 0): number {
+function toNumber(value: number | string | boolean | number[] | undefined, fallback = 0): number {
   if (typeof value === "number") {
     return Number.isFinite(value) ? value : fallback;
   }
   if (typeof value === "boolean") {
     return value ? 1 : 0;
+  }
+  if (Array.isArray(value)) {
+    return value.length > 0 && Number.isFinite(Number(value[0])) ? Number(value[0]) : fallback;
   }
   if (typeof value === "string") {
     const parsed = Number(value.trim());

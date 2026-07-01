@@ -2,36 +2,16 @@ import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 
 const durationMap: Record<string, Record<SupportedLocale, string>> = {
   "3 months": {
-    tr: "3 ay",
     en: "3 months",
-    de: "3 Monate",
-    fr: "3 mois",
-    es: "3 meses",
-    ar: "٣ أشهر",
   },
   "4 months": {
-    tr: "4 ay",
     en: "4 months",
-    de: "4 Monate",
-    fr: "4 mois",
-    es: "4 meses",
-    ar: "٤ أشهر",
   },
   "5 months": {
-    tr: "5 ay",
     en: "5 months",
-    de: "5 Monate",
-    fr: "5 mois",
-    es: "5 meses",
-    ar: "٥ أشهر",
   },
   "6 months": {
-    tr: "6 ay",
     en: "6 months",
-    de: "6 Monate",
-    fr: "6 mois",
-    es: "6 meses",
-    ar: "٦ أشهر",
   },
 };
 

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DynamicFormEngine } from "@/lib/features/dynamic-form-v2/DynamicFormEngine";
 import { adaptPremiumSchema } from "@/lib/features/dynamic-form-v2/premium-schema-adapter";
-import type { PremiumCalculatorSchema, PremiumSchemaEngineResult } from "@/lib/features/premium-schema/premium-calculator-schema";
+import type { PremiumCalculatorSchema, PremiumSchemaEngineResult, SchemaInputValues } from "@/lib/features/premium-schema/premium-calculator-schema";
 import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
@@ -44,12 +44,12 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
     setRunning(true);
     setError(null);
     try {
-      const raw: Record<string, number | string | boolean> = buildDefaultSchemaInputs(schema);
+      const raw: SchemaInputValues = buildDefaultSchemaInputs(schema);
       // Override with latest user inputs
       for (const key of Object.keys(latestInputs.current)) {
         const val = latestInputs.current[key];
-        if (key in raw && (typeof val === "number" || typeof val === "string" || typeof val === "boolean")) {
-          raw[key] = val;
+        if (key in raw && (typeof val === "number" || typeof val === "string" || typeof val === "boolean" || Array.isArray(val))) {
+          raw[key] = val as any;
         }
       }
       const result = runPremiumSchemaEngine(schema, raw);

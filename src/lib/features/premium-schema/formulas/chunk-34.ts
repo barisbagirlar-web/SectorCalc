@@ -6,9 +6,8 @@ import type {
 // Helper functions (mirrored from user-premium-formulas.ts)
 function num(inputs: FormulaInputs, key: string, fallback = 0): number {
   const value = inputs[key];
-  return Number.isFinite(typeof value === "number" ? value : Number(value))
-    ? value
-    : fallback;
+  const parsed = typeof value === "number" ? value : Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
 }
 
 function assertFinite(value: number, fallback = 0): number {

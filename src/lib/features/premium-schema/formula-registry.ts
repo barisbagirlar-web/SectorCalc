@@ -33,6 +33,9 @@ function assertFinite(value: number, fallback = 0): number {
 
 function num(inputs: FormulaInputs, key: string, fallback = 0): number {
   const value = inputs[key];
+  if (Array.isArray(value)) {
+    return assertFinite(value.reduce((sum, val) => sum + (typeof val === "number" ? val : Number(val)), 0), fallback);
+  }
   return assertFinite(typeof value === "number" ? value : Number(value), fallback);
 }
 
@@ -1208,6 +1211,47 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.price_elast_new_rev", family: "cost", label: "New revenue after price change", fn: (i) => num(i,"newPrice") * num(i,"newDem") },
   { id: "cost.price_elast_new_margin", family: "cost", label: "New margin after price change", fn: (i) => (num(i,"newPrice") - num(i,"varCost")) * num(i,"newDem") - num(i,"fixed") },
 
+  // Investment metrics
+  { id: "cost.npv", family: "cost", label: "Net present value", fn: (i) => { const cfs = i["cashFlows"]; const r = num(i,"discountRate")/100; if(!Array.isArray(cfs)) return 0; let npv = 0; for(let t=0;t<cfs.length;t++) npv += cfs[t] / Math.pow(1+r, t+1); return npv - num(i,"initialInv"); } },
+  { id: "cost.irr_simple", family: "cost", label: "Internal rate of return", fn: (i) => {
+      const cfs = i["cashFlows"];
+      const inv = num(i,"initialInv");
+      if(!Array.isArray(cfs)) return 0;
+      let r = 0.10;
+      for (let iter = 0; iter < 100; iter++) {
+        let npv = -inv;
+        let dnpv = 0;
+        for (let t = 0; t < cfs.length; t++) {
+          npv += cfs[t] / Math.pow(1 + r, t + 1);
+          dnpv -= (t + 1) * cfs[t] / Math.pow(1 + r, t + 2);
+        }
+        if (Math.abs(npv) < 1e-8) break;
+        r = r - npv / dnpv;
+      }
+      return assertFinite(r * 100);
+  } },
+  { id: "cost.payback_period", family: "cost", label: "Payback period", fn: (i) => {
+      const cfs = i["cashFlows"];
+      let unrecovered = num(i,"initialInv");
+      if(!Array.isArray(cfs)) return 0;
+      for (let t = 0; t < cfs.length; t++) {
+        if (unrecovered <= cfs[t]) {
+           return t + (unrecovered / cfs[t]);
+        }
+        unrecovered -= cfs[t];
+      }
+      return cfs.length;
+  } },
+  { id: "cost.profitability_index", family: "cost", label: "Profitability Index", fn: (i) => {
+      const cfs = i["cashFlows"];
+      const r = num(i,"discountRate")/100;
+      const inv = num(i,"initialInv");
+      if(!Array.isArray(cfs) || inv === 0) return 0;
+      let pv = 0;
+      for(let t=0;t<cfs.length;t++) pv += cfs[t] / Math.pow(1+r, t+1);
+      return safeDivide(pv, inv);
+  } },
+
   // Flexible manufacturing ROI
   { id: "cost.flex_mfg_cost_ded", family: "cost", label: "Dedicated line cost", fn: (i) => num(i,"machDed") + num(i,"setupDed") * num(i,"changeovers") + num(i,"invHigh") },
   { id: "cost.flex_mfg_cost_fms", family: "cost", label: "FMS line cost", fn: (i) => num(i,"machFms") + num(i,"toolFms") + num(i,"prog") + num(i,"maint") },
@@ -1307,7 +1351,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.eoq_total_cost", family: "cost", label: "Total EOQ inventory cost", fn: (i) => (num(i,"annualDemand") / num(i,"eoq")) * num(i,"orderCost") + (num(i,"eoq") / 2 + num(i,"safetyStock")) * num(i,"holdingCost") },
   { id: "cost.escalation_contingency", family: "cost", label: "Escalation contingency", fn: (i) => num(i,"baseAdjusted") * num(i,"confidenceFactor") },
   { id: "cost.escalation_real_discount", family: "cost", label: "Real discount rate", fn: (i) => ((1 + num(i,"nominalRate")) / (1 + num(i,"generalInflation"))) - 1 },
-  { id: "cost.feed_cost_per_kg", family: "cost", label: "Feed cost per kg live weight", fn: (i) => (num(i,"baseCost") + num(i,"procCost") + num(i,"addCost") + num(i,"baseCost") * num(i,"shrinkRate")) * num(i,"fcr") },
+  { id: "cost.feed_cost_per_kg", family: "cost", label: "Feed cost per kg live weight", fn: (i) => (num(i,"baseCost") + num(i,"procCost") + num(i,"addCost") + num(i,"pelletCost") + num(i,"baseCost") * num(i,"shrinkRate")/100) * num(i,"fcr") / 1000 },
   { id: "cost.filament_recycled", family: "cost", label: "Recycled filament cost per unit", fn: (i) => (num(i,"collect") + num(i,"sort") + num(i,"pellet")) / num(i,"yield") },
   { id: "cost.grr_cost_error", family: "cost", label: "Gage error cost impact", fn: (i) => num(i,"falseAcc") * num(i,"escapeCost") + num(i,"falseRej") * num(i,"scrapCost") },
   { id: "cost.haccp_disposal", family: "cost", label: "HACCP disposal cost", fn: (i) => num(i,"condVol") * num(i,"dispCost") + num(i,"lostMat") },
@@ -1451,8 +1495,15 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.container_waste_cost", family: "cost", label: "Container waste cost", fn: (i) => (1 - num(i,"volUtil")) * num(i,"containerCost") },
 
   // Fabric utilization
-  { id: "measurement.fabric_marker_eff", family: "measurement", label: "Marker efficiency", fn: (i) => safeDivide(num(i,"netArea"), num(i,"grossArea")) },
-  { id: "measurement.fabric_required", family: "measurement", label: "Fabric required", fn: (i) => safeDivide(num(i,"netArea"), num(i,"markerEff")) },
+  { id: "measurement.fabric_marker_eff", family: "measurement", label: "Marker efficiency", fn: (i) => {
+      const net = num(i, "netArea");
+      let gross = num(i, "grossArea");
+      if ("fabricWidth" in i) {
+        gross = gross * num(i, "fabricWidth"); // length * width
+      }
+      return safeDivide(net, gross);
+  } },
+  { id: "measurement.fabric_required", family: "measurement", label: "Fabric required", fn: (i) => safeDivide(num(i,"netArea"), num(i,"markerEff")) * (1 + num(i, "endLoss")/100) },
   { id: "cost.fabric_cost", family: "cost", label: "Fabric cost", fn: (i) => num(i,"fabricRequired") * num(i,"pricePerUnit") },
   { id: "cost.fabric_util_gain", family: "cost", label: "Utilization gain savings", fn: (i) => (num(i,"oldWaste") - num(i,"newWaste")) * num(i,"pricePerUnit") * num(i,"totalYards") },
   { id: "measurement.fabric_total_yardage", family: "measurement", label: "Total yardage", fn: (i) => num(i,"pieces") * num(i,"fabricRequired") },
