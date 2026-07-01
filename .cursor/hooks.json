@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "npm run prebuild",
+        "matcher": "(src/.*\\.ts$|src/.*\\.tsx$|references/.*\\.ya?ml$|src/generated/reference-registry\\.ts)",
+        "timeout": 30,
+        "failClosed": true
+      }
+    ]
+  }
+}

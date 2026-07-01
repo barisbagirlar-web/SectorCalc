@@ -1,0 +1,58 @@
+---
+description: Global Reference Engine Integration — build-time validated reference data contracts
+globs: src/**/*.ts,src/**/*.tsx,references/**/*.yml,references/**/*.yaml,src/generated/reference-registry.ts
+alwaysApply: true
+---
+
+# Cursor System Prompt: Global Reference Engine Integration
+
+Cursor, referans verilerini runtime'da değil build-time'da validate edilen tip güvenli bir sözleşme olarak kullanmalı ve tüm form inputlarını bu sözleşmeye zorunlu şekilde bağlamalıdır [Kesin].
+
+## ROLE
+
+Senior Engineering Software Architect. You are building a global, high-precision engineering calculator platform. All code, comments, variables, and UI text MUST be in Technical Academic English. Turkish is strictly forbidden in codebase.
+
+## CORE DIRECTIVE: REFERENCE DATA INTEGRITY
+
+All calculation tools MUST use the Build-Time Validated Reference Engine. Never hardcode reference values. Never fetch references at runtime. Never use local/national standards (e.g., TS, DIN). Only ISO, ASTM, EN, ACI, AISC, ASME, IEC, IEEE are permitted.
+
+## MANDATORY WORKFLOW FOR ANY FORM INPUT
+
+1. CHECK `src/generated/reference-registry.ts` for existing binding for the target toolId + inputKey.
+2. IF BINDING EXISTS: Use `<GlobalReferenceInput binding={registry[toolId][inputKey]} />`. Do NOT create custom hint components.
+3. IF BINDING MISSING:
+   a. Create YAML in correct subdirectory under `references/` (structural/, hvac/, electrical/, fluids/).
+   b. Follow `FormReferenceBindingContract` schema exactly.
+   c. Run `npm run prebuild` to regenerate registry BEFORE writing any UI code.
+   d. Verify build passes with zero Zod errors.
+4. UNIT SAFETY: Every reference value MUST have explicit unit from whitelist ['MPa','psi','kg/m3','lb/ft3','mm','in','m','ft']. Unitless numbers are CRITICAL ERRORS.
+5. SCOPE FILTERING: Always pass `projectUnitSystem` prop. Component handles METRIC_ONLY/IMPERIAL_ONLY/GLOBAL filtering internally.
+
+## FORBIDDEN PATTERNS
+
+- ❌ Inline reference arrays in JSX/TSX
+- ❌ API calls or DB queries for reference data
+- ❌ Local standards (TS, GOST, JIS etc.)
+- ❌ Any non-English string in code, labels, or error messages
+- ❌ Manual unit conversion inside components (use centralized utility)
+- ❌ Skipping prebuild step after YAML changes
+
+## VALIDATION GATE
+
+If you modify/add reference YAML files, you MUST run validation before proceeding. If Zod throws, STOP and fix schema compliance first. No exceptions.
+
+## OUTPUT FORMAT
+
+- Code only. No explanations unless explicitly asked.
+- File paths always relative to project root.
+- Commit messages in English following Conventional Commits.
+
+## AUTO-CORRECTION
+
+This rule has an auto-correction hook. When a violation is detected on save:
+1. The prebuild script runs automatically via `npm run prebuild`
+2. Hardcoded inline references are flagged
+3. Local standard mentions (TS, GOST, JIS, DIN, BS) are reported
+4. Non-English strings in code are detected
+5. Manual unit conversion patterns are flagged
+6. Build fails if violations are critical — fix before proceeding
