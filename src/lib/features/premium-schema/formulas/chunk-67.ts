@@ -947,6 +947,54 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
     label: "FMEA — fayda/maliyet oranı",
     fn: (inputs) => { const onlem = num(inputs, "maliyet_onlem"); if (onlem <= 0) return 0; return nonNegative(assertFinite(num(inputs, "maliyet_failure") / onlem)); },
   },
+  {
+    id: "industrial.fmea_3",
+    family: "industrial",
+    label: "FMEA — max RPN (10×10×10)",
+    fn: () => 1000,
+  },
+  {
+    id: "industrial.fmea_4",
+    family: "industrial",
+    label: "FMEA — öncelik sırası (kritiklik)",
+    fn: (inputs) => { const rpn = num(inputs, "RPN_ortalama"); const s = num(inputs, "ortalamaSiddet_S"); const o = num(inputs, "ortalamaOlusma_O"); const d = num(inputs, "ortalamaSaptama_D"); if (rpn >= 200) return 1; if (rpn >= 100) return 2; if (s >= 9 && o >= 7) return 1; if (rpn >= 50) return 3; return 4; },
+  },
+  {
+    id: "industrial.fmea_5",
+    family: "industrial",
+    label: "FMEA — toplam hata maliyeti",
+    fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_failure") * num(inputs, "prosesAdimiSayisi", 10) * (num(inputs, "ortalamaOlusma_O", 5) / 10))); },
+  },
+  {
+    id: "industrial.fmea_6",
+    family: "industrial",
+    label: "FMEA — toplam önlem maliyeti",
+    fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_onlem") * num(inputs, "prosesAdimiSayisi", 10))); },
+  },
+  {
+    id: "industrial.fmea_3",
+    family: "industrial",
+    label: "FMEA — max RPN (10×10×10)",
+    fn: () => 1000,
+  },
+  {
+    id: "industrial.fmea_4",
+    family: "industrial",
+    label: "FMEA — priority order (criticality)",
+    fn: (inputs) => { const rpn = num(inputs, "RPN_ortalama"); const s = num(inputs, "ortalamaSiddet_S"); const o = num(inputs, "ortalamaOlusma_O"); const d = num(inputs, "ortalamaSaptama_D"); if (rpn >= 200) return 1; if (rpn >= 100) return 2; if (s >= 9 && o >= 7) return 1; if (rpn >= 50) return 3; return 4; },
+  },
+  {
+    id: "industrial.fmea_5",
+    family: "industrial",
+    label: "FMEA — total failure cost",
+    fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_failure") * num(inputs, "prosesAdimiSayisi", 10) * (num(inputs, "ortalamaOlusma_O", 5) / 10))); },
+  },
+  {
+    id: "industrial.fmea_6",
+    family: "industrial",
+    label: "FMEA — total prevention cost",
+    fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_onlem", 0) * num(inputs, "prosesAdimiSayisi", 1))); },
+  },
   // ── #184 DOE ──
   {
     id: "industrial.doe_0",

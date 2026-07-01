@@ -1529,6 +1529,10 @@ export const USER_FORMULA_META_DETAILS: Record<
   "industrial.fmea_0": { description: "FMEA: RPN = S * O * D", requiredInputs: [], outputHint: "number" },
   "industrial.fmea_1": { description: "FMEA: risk düzeyi = f(RPN)", requiredInputs: [], outputHint: "number" },
   "industrial.fmea_2": { description: "FMEA: fayda/maliyet oranı = failureCost / önlemMaliyeti", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_3": { description: "FMEA: max possible RPN = 1000", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_4": { description: "FMEA: öncelik sırası (kritiklik seviyesi)", requiredInputs: [], outputHint: "number" },
+  "industrial.fmea_5": { description: "FMEA: toplam hata maliyeti", requiredInputs: [], outputHint: "currency" },
+  "industrial.fmea_6": { description: "FMEA: toplam önlem maliyeti", requiredInputs: [], outputHint: "currency" },
   // ── #184 DOE ──
   "industrial.doe_0": { description: "DOE: toplam deney sayısı = base^k * r + merkez + blok", requiredInputs: [], outputHint: "number" },
   // ── #185 RELIABILITY BLOCK ──
