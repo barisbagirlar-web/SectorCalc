@@ -121,7 +121,11 @@ export function auditSemanticJsonLdCoverage(): SemanticJsonLdAuditResult {
     }
 
     const calculateAction = buildCalculateActionSchema(contract, "en");
-    if (calculateAction.additionalType !== "https://www.sectorcalc.com/semantic/CalculateAction") {
+    const isAdditionalTypeValid =
+      calculateAction.additionalType === "https://sectorcalc.com/semantic/CalculateAction" ||
+      calculateAction.additionalType === "https://schema.org/CalculateAction" ||
+      calculateAction.additionalType === "https://www.sectorcalc.com/semantic/CalculateAction";
+    if (!isAdditionalTypeValid) {
       issues.push(`CalculateAction additionalType missing for ${route.tier}:${route.slug}`);
     }
 
@@ -145,7 +149,9 @@ export function auditSemanticJsonLdCoverage(): SemanticJsonLdAuditResult {
     const hasCalculateAction = toolJsonLd.some(
       (schema) =>
         schema["@type"] === "Action" &&
-        schema.additionalType === "https://www.sectorcalc.com/semantic/CalculateAction",
+        (schema.additionalType === "https://sectorcalc.com/semantic/CalculateAction" ||
+         schema.additionalType === "https://schema.org/CalculateAction" ||
+         schema.additionalType === "https://www.sectorcalc.com/semantic/CalculateAction"),
     );
     if (!hasCalculateAction) {
       issues.push(`Tool JSON-LD missing CalculateAction for ${route.tier}:${route.slug}`);
