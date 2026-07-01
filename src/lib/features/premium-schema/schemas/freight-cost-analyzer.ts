@@ -13,6 +13,9 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "bunkerPct", label: "Bunker Ek Yüzdesi", label_i18n: {"en":"Bunker surcharge percentage"}, type: "number", unit: "%", required: true, smartDefault: 15, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Bunker surcharge percentage", expertMeaning_i18n: {"en":"Bunker surcharge percentage"} },
     { id: "terminalFee", label: "Terminal handling fee", label_i18n: {"en":"Terminal handling fee"}, type: "number", unit: "USD", required: true, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Terminal handling fee", expertMeaning_i18n: {"en":"Terminal handling fee"} },
     { id: "customsFee", label: "Gümrük Ücreti", label_i18n: {"en":"Customs clearance fee"}, type: "number", unit: "USD", required: true, smartDefault: 150, validation: { min: 0 }, helper: "", expertMeaning: "Customs clearance fee", expertMeaning_i18n: {"en":"Customs clearance fee"} },
+    { id: "handlingRate", label: "Terminal handling rate", label_i18n: {"en":"Terminal handling rate"}, type: "number", unit: "USD/kg", required: true, smartDefault: 0.15, validation: { min: 0 }, helper: "Rate per kg for terminal handling", expertMeaning: "Terminal handling rate per kg", expertMeaning_i18n: {"en":"Terminal handling rate per kg"} },
+    { id: "customsRate", label: "Customs duty rate", label_i18n: {"en":"Customs duty rate"}, type: "number", unit: "%", required: true, smartDefault: 5, validation: { min: 0, max: 100 }, helper: "Customs duty percentage", expertMeaning: "Customs duty percentage of declared value", expertMeaning_i18n: {"en":"Customs duty percentage of declared value"} },
+    { id: "insurance", label: "Insurance cost", label_i18n: {"en":"Insurance cost"}, type: "number", unit: "USD", required: true, smartDefault: 75, validation: { min: 0 }, helper: "Cargo insurance amount", expertMeaning: "Cargo insurance cost", expertMeaning_i18n: {"en":"Cargo insurance cost"} },
   ],
   outputs: [
     { id: "chargeableWeight", label: "Tasnabilir Agrlk", label_i18n: {"en":"Tasnabilir Weight"}, unit: "kg", format: "number" },
@@ -25,24 +28,13 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalFreightCost", warning: 3000, critical: 8000, direction: "higher_is_bad", warningMessage: "Toplam navlun > $3K — alternatif taşımacılık modları değerlendirilmeli.", warningMessage_i18n: {"en":"Total freight > $3K — alternative transport modes should be evaluated."}, criticalMessage: "Toplam navlun > $8K — lojistik ihalesi yenilenmeli.", criticalMessage_i18n: {"en":"Total freight > $8K — logistics ihalesi yenilenmeli."} }],
   formulaPipeline: [
-    { formulaId: "measurement.chargeable_weight", inputMap: {
-        actualWeight: "grossWeight",
-        volumetricWeight: "volumeM3"
-      }, outputId: "chargeableWeight" },
-    { formulaId: "cost.base_freight", inputMap: {
-        chargeableWeight: "chargeableWeight",
-        ratePerKg: "baseRate"
-      }, outputId: "baseFreight" },
+    { formulaId: "measurement.chargeable_weight", inputMap: { actualWeight: "grossWeight", volumetricWeight: "volumeM3" }, outputId: "chargeableWeight" },
+    { formulaId: "cost.base_freight", inputMap: { chargeableWeight: "chargeableWeight", ratePerKg: "baseRate" }, outputId: "baseFreight" },
     { formulaId: "cost.bunker_surcharge", inputMap: { baseFreight: "baseFreight", bunkerPct: "bunkerPct" }, outputId: "bunkerSurcharge" },
-    // Direct passthrough: terminalFee is flat fee, not rate*weight
+    { formulaId: "cost.terminal_handling", inputMap: { chargeableWeight: "chargeableWeight", handlingRate: "handlingRate" }, outputId: "terminalCost" },
     { formulaId: "cost.customs_clearance", inputMap: { declaredValue: "customsFee", customsRate: "customsRate" }, outputId: "customsCost" },
-    // Direct passthrough: combine flat terminal + customs fees with freight base + bunker
-    // Using customSum formula: baseFreight + bunkerSurcharge + terminalFee + customsFee
-    { formulaId: "custom.freight_total_sum", inputMap: { v1: "baseFreight", v2: "bunkerSurcharge", v3: "terminalFee", v4: "customsFee", v5: "customsFee" }, outputId: "totalFreightCost" },
-    { formulaId: "measurement.freight_cost_per_unit", inputMap: {
-        totalFreightCost: "totalFreightCost",
-        unitCount: "chargeableWeight"
-      }, outputId: "costPerUnit" },
+    { formulaId: "cost.total_freight_cost", inputMap: { baseFreight: "baseFreight", bunkerSurcharge: "bunkerSurcharge", terminalHandling: "terminalCost", customsClearance: "customsCost", insurance: "insurance" }, outputId: "totalFreightCost" },
+    { formulaId: "measurement.freight_cost_per_unit", inputMap: { totalFreightCost: "totalFreightCost", unitCount: "chargeableWeight" }, outputId: "costPerUnit" },
   ],
   reportTemplate: { title: "Freight Cost Analysis Report", title_i18n: {"en":"Freight Cost Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167).", "Bunker = baz navlun × bunker yüzdesi.", "Toplam = baz + bunker + terminal + gümrük."],assumptionNotes_i18n:[{"en":"Chargeable weight = max(gross weight, volume × 167)."},{"en":"Bunker = base freight × bunker percentage."},{"en":"Total = base + bunker + terminal + customs."}] },
