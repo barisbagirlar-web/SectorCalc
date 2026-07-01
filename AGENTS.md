@@ -231,3 +231,10 @@ DeepSeek Priority Lock (Madde 1) kuralı, **formül analizi, formül yaratma, in
 ## 14. Deployment ve Hosting
 Vercel ile ÇALIŞMIYORUZ. Sadece Firebase Host (Firebase Hosting / App Hosting) ile çalışıyoruz. Deployment süreçleri ve yapılandırmaları Vercel'e göre değil, Firebase'e göre hazırlanmalıdır.
 
+## 15. Yeni Araç Ekleme ve Deployment Workflow (Commit-First)
+Yeni bir araç eklendiğinde ya da sitemap güncellendiğinde sırasıyla şu adımlar izlenmelidir:
+1. Önce tüm kod ve şema değişiklikleri `git commit` edilmelidir.
+2. Ardından `npm run build` ve `deploy` adımları çalıştırılmalıdır (tercihen `DEPLOY_FORCE_REBUILD=1 node scripts/deploy-production.mjs` ile).
+Gerekçe: Firebase frameworks Next.js entegrasyonu deploy esnasında repoyu HEAD durumuna temizleyen (git reset) bir süreç işletir. Commit edilmemiş şemalar date resolver (`tool-git-dates.json`) lookup'larında eşleşme bulamaz ve build fallback tarihine düşer. Bu sebeple workflow her zaman "Commit First, Build Second" şeklinde olmalıdır.
+
+
