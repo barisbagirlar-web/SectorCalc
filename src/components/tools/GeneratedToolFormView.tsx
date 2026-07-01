@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { DynamicToolFormWrapper } from "@/lib/features/dynamic-form-v2";
+import { UniversalDynamicToolForm } from "@/components/tools/UniversalDynamicToolForm";
 import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
 import { ToolAcademicReferences } from "@/components/tools/ToolAcademicReferences";
 import { ToolDescription } from "@/components/tools/ToolDescription";
@@ -116,7 +116,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           </div>
         ) : null}
 
-        <DynamicToolFormWrapper schema={schema} slug={slug} showMasthead={false} />
+        <UniversalDynamicToolForm schema={schema} slug={slug} showMasthead={false} />
 
         <div className="card" style={{ marginTop: 22 }}>
           <ToolDescription content={aboutContent} isPremium={isPremium} />

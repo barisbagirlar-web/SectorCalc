@@ -1,11 +1,11 @@
 /**
- * Tool #33 — Palet Rafı Optimizasyonu
+ * Tool #33 — Pallet Rack Capacity Optimizer
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "pallet-rack-optimizer-analyzer", legacyPaidSlug: "pallet-rack-optimizer-analyzer",
-  name: "Palet Rafi Kapasite Optimizasyonu", name_i18n: {"en":"Palet Rafi Capacity Optimizasyonu"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Palet rafı düzeni ve kapasitesi optimize edilmezse depo alanı verimsiz kullanılır ve operasyonel maliyet artar.", painStatement_i18n: {"en":"If pallet rack layout and capacity are not optimized, warehouse space is used inefficiently and operational cost increases."},
+  name: "Pallet Rack Capacity Optimizer", name_i18n: {"en":"Pallet Rack Capacity Optimizer"}, sectorSlug: "logistics-transport", category: "measurement",
+  painStatement: "If pallet rack layout and capacity are not optimized, warehouse space is used inefficiently and operational cost increases.", painStatement_i18n: {"en":"If pallet rack layout and capacity are not optimized, warehouse space is used inefficiently and operational cost increases."},
   inputs: [
     { id: "rackWidth", label: "Rack width in mm", label_i18n: {"en":"Rack width in mm"}, type: "number", unit: "mm", required: true, smartDefault: 2700, validation: { min: 100 }, helper: "", expertMeaning: "Rack width in mm", expertMeaning_i18n: {"en":"Rack width in mm"} },
     { id: "rackDepth", label: "Rack depth in mm", label_i18n: {"en":"Rack depth in mm"}, type: "number", unit: "mm", required: true, smartDefault: 1100, validation: { min: 100 }, helper: "", expertMeaning: "Rack depth in mm", expertMeaning_i18n: {"en":"Rack depth in mm"} },

@@ -268,9 +268,9 @@ const AiTokenCostAnalyzerContract: FormulaContract = buildAssuredCriticalContrac
 
 const SixSigmaProjectPrioritizerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.six-sigma-project-prioritizer",
-  toolName: "Alti Sigma Proje onceliklendirici",
+  toolName: "Six Sigma Project Prioritizer",
   slug: "six-sigma-project-prioritizer",
-  purpose: "Six Sigma projelerini finansal etki, sigma açığı ve stratejik uyuma göre önceliklendirmeden kaynak israfı oluşur. Bu araç DPMO, Sigma Level ve COPQ temelinde objektif proje sıralaması sağlar.",
+  purpose: "Without prioritizing Six Sigma projects by financial impact, sigma gap, and strategic alignment, resource waste occurs. This tool provides objective project ranking based on DPMO, Sigma Level, and COPQ.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
   decisionImpact: "pricing",
   requiredInputs: ["productionVolume", "defectiveUnits", "opportunitiesPerUnit", "internalFailureCost", "externalFailureCost", "appraisalCost", "preventionCost", "currentZBench", "targetSigmaLevel", "safetyImpact", "customerImpact", "recoveryProbability", "implementationEase"],
@@ -5318,9 +5318,9 @@ const OvertimeHiringBreakevenAnalyzerContract: FormulaContract = buildAssuredCri
 
 const PalletRackOptimizerAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "premium-schema.pallet-rack-optimizer-analyzer",
-  toolName: "Palet Rafi Kapasite Optimizasyonu",
+  toolName: "Pallet Rack Capacity Optimizer",
   slug: "pallet-rack-optimizer-analyzer",
-  purpose: "Palet rafı düzeni ve kapasitesi optimize edilmezse depo alanı verimsiz kullanılır ve operasyonel maliyet artar.",
+  purpose: "If pallet rack layout and capacity are not optimized, warehouse space is used inefficiently and operational cost increases.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
   decisionImpact: "pricing",
   requiredInputs: ["rackWidth", "rackDepth", "rackHeight", "loadCapacity", "numberOfLevels", "warehouseWidth", "warehouseLength", "costPerPosition"],

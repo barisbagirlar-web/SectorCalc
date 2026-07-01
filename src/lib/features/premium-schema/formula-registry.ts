@@ -418,7 +418,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #2 — Altı Sigma Proje Önceliklendirici (6 formulas)
+  // TOOL #2 — Six Sigma Project Prioritizer (6 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "stats.dpmo",

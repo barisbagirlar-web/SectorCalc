@@ -7342,11 +7342,11 @@
   },
   },
 
-  // ── Palet Rafı Optimize Edici (7 formulas) ──
+  // ── Pallet Rack Optimizer (7 formulas) ──
   {
     id: "user.pallet_rack_optimizer_0",
     family: "general",
-    label: "Palet Rafı Optimize Edici — RackCapacity",
+    label: "Pallet Rack Optimizer — RackCapacity",
     fn: (inputs) => {
     const bays = num(inputs, "bays");
     const levels = num(inputs, "levels");
@@ -7357,7 +7357,7 @@
   {
     id: "user.pallet_rack_optimizer_1",
     family: "general",
-    label: "Palet Rafı Optimize Edici — FloorUtilization",
+    label: "Pallet Rack Optimizer — FloorUtilization",
     fn: (inputs) => {
     const rackFootprint = num(inputs, "rackFootprint");
     const totalFloorArea = num(inputs, "totalFloorArea");
@@ -7367,7 +7367,7 @@
   {
     id: "user.pallet_rack_optimizer_2",
     family: "general",
-    label: "Palet Rafı Optimize Edici — Throughput",
+    label: "Pallet Rack Optimizer — Throughput",
     fn: (inputs) => {
     const aisles = num(inputs, "aisles");
     const forkliftSpeed = num(inputs, "forkliftSpeed");
@@ -7378,7 +7378,7 @@
   {
     id: "user.pallet_rack_optimizer_3",
     family: "general",
-    label: "Palet Rafı Optimize Edici — Deflection",
+    label: "Pallet Rack Optimizer — Deflection",
     fn: (inputs) => {
     const load = num(inputs, "load");
     const beamLength = num(inputs, "beamLength");
@@ -7390,7 +7390,7 @@
   {
     id: "user.pallet_rack_optimizer_4",
     family: "general",
-    label: "Palet Rafı Optimize Edici — SafetyFactor",
+    label: "Pallet Rack Optimizer — SafetyFactor",
     fn: (inputs) => {
     const maxLoadCapacity = num(inputs, "maxLoadCapacity");
     const actualLoad = num(inputs, "actualLoad");
@@ -7400,7 +7400,7 @@
   {
     id: "user.pallet_rack_optimizer_5",
     family: "general",
-    label: "Palet Rafı Optimize Edici — CostPerPosition",
+    label: "Pallet Rack Optimizer — CostPerPosition",
     fn: (inputs) => {
     const totalRackCost = num(inputs, "totalRackCost");
     const rackCapacity = num(inputs, "rackCapacity");
@@ -7410,7 +7410,7 @@
   {
     id: "user.pallet_rack_optimizer_6",
     family: "general",
-    label: "Palet Rafı Optimize Edici — RetrievalTime",
+    label: "Pallet Rack Optimizer — RetrievalTime",
     fn: (inputs) => {
     const travelTime = num(inputs, "travelTime");
     const Horizontal = num(inputs, "Horizontal");
@@ -11904,14 +11904,14 @@
   "user.learning_curve_time_5": { description: "Öğrenme Eğrisi Süre Tahmincisi: Cost_N = Time_N * LaborRate", requiredInputs: [], outputHint: "number" },
   "user.learning_curve_time_6": { description: "Öğrenme Eğrisi Süre Tahmincisi: BreakevenUnit = N where StandardTime is reached", requiredInputs: [], outputHint: "number" },
   "user.learning_curve_time_7": { description: "Öğrenme Eğrisi Süre Tahmincisi: TotalLaborCost = CumulativeTime_N * LaborRate", requiredInputs: [], outputHint: "number" },
-  // ── Palet Rafı Optimize Edici ──
-  "user.pallet_rack_optimizer_0": { description: "Palet Rafı Optimize Edici: RackCapacity = Bays * Levels * PalletsPerBay", requiredInputs: [], outputHint: "number" },
-  "user.pallet_rack_optimizer_1": { description: "Palet Rafı Optimize Edici: FloorUtilization = RackFootprint / TotalFloorArea", requiredInputs: [], outputHint: "number" },
-  "user.pallet_rack_optimizer_2": { description: "Palet Rafı Optimize Edici: Throughput = Aisles * ForkliftSpeed * TravelDistance^-1", requiredInputs: [], outputHint: "number" },
-  "user.pallet_rack_optimizer_3": { description: "Palet Rafı Optimize Edici: Deflection = (5 * Load * BeamLength^3) / (384 * E * I)", requiredInputs: [], outputHint: "number" },
-  "user.pallet_rack_optimizer_4": { description: "Palet Rafı Optimize Edici: SafetyFactor = MaxLoadCapacity / ActualLoad", requiredInputs: [], outputHint: "number" },
-  "user.pallet_rack_optimizer_5": { description: "Palet Rafı Optimize Edici: CostPerPosition = TotalRackCost / RackCapacity", requiredInputs: [], outputHint: "number" },
-  "user.pallet_rack_optimizer_6": { description: "Palet Rafı Optimize Edici: RetrievalTime = TravelTime_Horizontal + TravelTime_Vertical + PickTime", requiredInputs: [], outputHint: "number" },
+  // ── Pallet Rack Optimizer ──
+  "user.pallet_rack_optimizer_0": { description: "Pallet Rack Optimizer: RackCapacity = Bays * Levels * PalletsPerBay", requiredInputs: [], outputHint: "number" },
+  "user.pallet_rack_optimizer_1": { description: "Pallet Rack Optimizer: FloorUtilization = RackFootprint / TotalFloorArea", requiredInputs: [], outputHint: "number" },
+  "user.pallet_rack_optimizer_2": { description: "Pallet Rack Optimizer: Throughput = Aisles * ForkliftSpeed * TravelDistance^-1", requiredInputs: [], outputHint: "number" },
+  "user.pallet_rack_optimizer_3": { description: "Pallet Rack Optimizer: Deflection = (5 * Load * BeamLength^3) / (384 * E * I)", requiredInputs: [], outputHint: "number" },
+  "user.pallet_rack_optimizer_4": { description: "Pallet Rack Optimizer: SafetyFactor = MaxLoadCapacity / ActualLoad", requiredInputs: [], outputHint: "number" },
+  "user.pallet_rack_optimizer_5": { description: "Pallet Rack Optimizer: CostPerPosition = TotalRackCost / RackCapacity", requiredInputs: [], outputHint: "number" },
+  "user.pallet_rack_optimizer_6": { description: "Pallet Rack Optimizer: RetrievalTime = TravelTime_Horizontal + TravelTime_Vertical + PickTime", requiredInputs: [], outputHint: "number" },
   // ── Poka-Yoke ROI ──
   "user.poka_yoke_roi_0": { description: "Poka-Yoke ROI: CurrentDefectRate = Defects / TotalUnits", requiredInputs: [], outputHint: "number" },
   "user.poka_yoke_roi_1": { description: "Poka-Yoke ROI: DefectCost_Annual = CurrentDefectRate * TotalUnits * CostPerDefect", requiredInputs: [], outputHint: "number" },

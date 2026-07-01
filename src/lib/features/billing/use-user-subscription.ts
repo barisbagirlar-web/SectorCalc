@@ -5,7 +5,6 @@ import { doc, onSnapshot, type FirestoreError } from "firebase/firestore";
 import { onAuthStateChanged, type User } from "@/lib/infrastructure/firebase/auth";
 import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import { getFirestoreDb } from "@/lib/infrastructure/firebase/client";
-import { isAuthRequiredBrowserPath } from "@/lib/features/auth/auth-required-path";
 import {
   hasProAccess,
   normalizeUserSubscription,
@@ -39,6 +38,12 @@ const storeListeners = new Set<StoreListener>();
 let authBootstrapped = false;
 let unsubscribeAuth: (() => void) | null = null;
 let unsubscribeUserDoc: (() => void) | null = null;
+/**
+ * Tracks whether we ever saw a non-null user from onAuthStateChanged.
+ * Prevents clearSessionCookie() from firing on the initial null that
+ * Firebase emits before restoring the persisted auth state from IndexedDB.
+ */
+let hadAuthUser = false;
 
 function emitStore() {
   storeListeners.forEach((listener) => listener());
@@ -51,9 +56,9 @@ function setStoreState(next: UseUserSubscriptionState) {
 
 function subscribeStore(listener: StoreListener): () => void {
   storeListeners.add(listener);
-  if (isAuthRequiredBrowserPath()) {
-    bootstrapAuthStore();
-  }
+  // Always warm the auth store — AuthStatusIndicator in the header needs
+  // the user state on every page, not just protected routes.
+  bootstrapAuthStore();
   return () => {
     storeListeners.delete(listener);
   };
@@ -124,8 +129,15 @@ function bootstrapAuthStore() {
       }
 
       if (!user) {
-        // Clear server-side session cookie on sign-out
-        clearSessionCookie();
+        // Clear server-side session cookie ONLY when we transition from
+        // authenticated → unauthenticated (deliberate sign-out).
+        // On initial page load Firebase emits null before restoring the
+        // persisted auth state from IndexedDB — clearing the cookie then
+        // would destroy the session on every navigation.
+        if (hadAuthUser) {
+          clearSessionCookie();
+          hadAuthUser = false;
+        }
         setStoreState({
           user: null,
           subscription: null,
@@ -136,6 +148,7 @@ function bootstrapAuthStore() {
         return;
       }
 
+      hadAuthUser = true;
       // Sync server-side session cookie on every auth detection
       syncSessionCookie(user);
 

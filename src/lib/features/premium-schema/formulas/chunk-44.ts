@@ -140,7 +140,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.pallet_rack_optimizer_0",
     family: "cost",
-    label: "Palet Rafı Optimize Edici — RackCapacity",
+    label: "Pallet Rack Optimizer — RackCapacity",
     fn: (inputs) => {
     const bays = num(inputs, "bays");
     const levels = num(inputs, "levels");
