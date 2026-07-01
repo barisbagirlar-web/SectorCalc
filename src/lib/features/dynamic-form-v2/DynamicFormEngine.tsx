@@ -137,6 +137,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
   const [lastExecTime, setLastExecTime] = useState<number | null>(null);
   const [executionCounter, setExecutionCounter] = useState(0);
   const [isExecuting, setIsExecuting] = useState(false);
+  const [computationStatus, setComputationStatus] = useState<'IDLE' | 'COMPUTING' | 'DONE' | 'ERROR'>('IDLE');
   const formRef = useRef<HTMLDivElement>(null);
   const dirtyFieldsRef = useRef<Set<string>>(new Set());
 
@@ -235,6 +236,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     }
     // Commit
     setIsExecuting(true);
+    setComputationStatus('COMPUTING');
     setTimeout(() => {
       setState({ ...draft });
       setExecutionCounter((c) => c + 1);
@@ -278,6 +280,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     if (hasBlocking) {
       setComputed({});
       setUncertainties({});
+      setComputationStatus('ERROR');
       return;
     }
 
@@ -292,8 +295,25 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     });
     setComputed(results);
     setUncertainties(unc);
+    setComputationStatus('DONE');
     onCompute?.(results, unc);
   }, [tool, state, compiled, onCompute]);
+
+  // Live validation on draft
+  const liveErrors = useMemo(() => {
+    const errs: Record<string, string> = {};
+    const scope: Record<string, unknown> = { Math, Number, isFinite };
+    (tool.inputs || []).forEach((inp) => { scope[inp.id] = draft[inp.id]; });
+    (tool.engine_rules?.validation?.rules || []).forEach((rule) => {
+      const ok = safeEval(compiled.v[rule.id], scope);
+      if (ok !== true) {
+        (tool.inputs || []).forEach((inp) => {
+          if (!errs[inp.id] && rule.condition.includes(inp.id)) errs[inp.id] = rule.message;
+        });
+      }
+    });
+    return errs;
+  }, [draft, tool, compiled.v]);
 
   // Auto-execute: debounced commit on draft changes (no validation errors)
   const autoCommitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -472,33 +492,23 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
       ? decisionVal
       : decisionOutput
         ? "AWAITING INPUTS"
-        : (() => {
-            const pk = tool.ui_contract.primary;
-            const pkVal = computed[pk];
-            if (pkVal != null && (typeof pkVal === "number" && isFinite(pkVal))) {
-              const [pv, pu] = valFmt(outMeta(pk), pkVal, ccy);
-              return `${pv} ${pu}`;
-            }
-            return "AWAITING INPUTS";
-          })();
+        : computationStatus === 'IDLE'
+          ? "AWAITING INPUTS"
+          : computationStatus === 'COMPUTING'
+            ? "COMPUTING…"
+            : computationStatus === 'ERROR'
+              ? "VALIDATION ERROR"
+              : (() => {
+                  const pk = tool.ui_contract.primary;
+                  const pkVal = computed[pk];
+                  if (pkVal != null && (typeof pkVal === "number" && isFinite(pkVal))) {
+                    const [pv, pu] = valFmt(outMeta(pk), pkVal, ccy);
+                    return `${pv} ${pu}`;
+                  }
+                  return "AWAITING INPUTS";
+                })();
   const isCritical = decisionVal ? /REVIEW|REQUIRED|FAIL|RISK|REJECT/.test(decisionVal) : false;
   const isOK = decisionVal ? /ACCEPTABLE|OK|PASS/.test(decisionVal) : false;
-
-  // Live validation on draft
-  const liveErrors = useMemo(() => {
-    const errs: Record<string, string> = {};
-    const scope: Record<string, unknown> = { Math, Number, isFinite };
-    (tool.inputs || []).forEach((inp) => { scope[inp.id] = draft[inp.id]; });
-    (tool.engine_rules?.validation?.rules || []).forEach((rule) => {
-      const ok = safeEval(compiled.v[rule.id], scope);
-      if (ok !== true) {
-        (tool.inputs || []).forEach((inp) => {
-          if (!errs[inp.id] && rule.condition.includes(inp.id)) errs[inp.id] = rule.message;
-        });
-      }
-    });
-    return errs;
-  }, [draft, tool, compiled.v]);
 
   return (
     <div className="" ref={formRef}>
@@ -967,7 +977,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
         <div>
           <div className="ml">RESULT</div>
           <div className="mv">
-            {(() => { const pk = tool.ui_contract.primary; const [pv, pu] = valFmt(outMeta(pk), computed[pk], ccy); return pv + " " + pu; })()}
+            {(() => { const pk = tool.ui_contract.primary; const pkVal = computed[pk]; if (pkVal != null && typeof pkVal === "number" && isFinite(pkVal)) { const [pv, pu] = valFmt(outMeta(pk), pkVal, ccy); return pv + " " + pu; } return "—"; })()}
           </div>
         </div>
         <div className="md">{decisionLabel}</div>
