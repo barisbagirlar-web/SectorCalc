@@ -77,9 +77,15 @@ function buildDefaultValues(
   schema: GeneratedToolSchema,
   zodSchema: z.ZodTypeAny,
 ): FieldValues {
-  const parsed = zodSchema.safeParse({});
-  if (parsed.success) {
-    return parsed.data as Record<string, unknown>;
+  if (zodSchema && typeof zodSchema.safeParse === "function") {
+    try {
+      const parsed = zodSchema.safeParse({});
+      if (parsed.success) {
+        return parsed.data as Record<string, unknown>;
+      }
+    } catch (e) {
+      console.warn("[DynamicToolForm] zodSchema.safeParse failed:", e);
+    }
   }
 
   const fallback: FieldValues = {};

@@ -63,14 +63,14 @@ function applyRuleFixes(schema: Record<string, unknown>, slug: string): string[]
   const fixes: string[] = [];
 
   // Fix missing category
-  if (!schema.category || schema.category === "Diğer") {
+  if (!schema.category || schema.category === "Other") {
     const detected = detectCategory(slug, schema);
     schema.category = detected;
     fixes.push(`category → ${detected}`);
   }
 
   // Fix missing sector
-  if (!schema.sector || schema.sector === "Diğer") {
+  if (!schema.sector || schema.sector === "Other") {
     const detected = detectSector(slug, schema);
     schema.sector = detected;
     fixes.push(`sector → ${detected}`);

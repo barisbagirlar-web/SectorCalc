@@ -17,16 +17,16 @@ function pathsForLocale(locale: "en" | "tr" | "de" | "fr" | "es" | "ar"): string
 }
 
 describe("indexable URL manifest", () => {
-  test("manifest boş değil", () => {
+  test("manifest is not empty", () => {
     expect(getIndexableUrlManifest().length).toBeGreaterThan(0);
   });
 
-  test("duplicate path yok", () => {
+  test("no duplicate paths", () => {
     const paths = getIndexableUrlManifest().map((item) => item.path);
     expect(new Set(paths).size).toBe(paths.length);
   });
 
-  test("admin path yok", () => {
+  test("no admin path", () => {
     const paths = getIndexableUrlManifest().map((item) => item.path);
     expect(paths.some((path) => path.includes("/admin"))).toBe(false);
   });

@@ -9,7 +9,7 @@ const AUDIT_FILE = path.join(process.cwd(), "p24-audit-report.json");
 
 function main(): void {
   if (!fs.existsSync(AUDIT_FILE)) {
-    console.error("❌ Önce scripts/p24-audit-engine.ts çalıştır.");
+    console.error("❌ Run scripts/p24-audit-engine.ts first.");
     process.exit(1);
   }
 
@@ -35,13 +35,13 @@ function main(): void {
       fs.writeFileSync(filePath, `${JSON.stringify(schema, null, 2)}\n`);
       const after = evaluateSchemaTrust(schema, item.slug);
       fixed += 1;
-      console.log(`✅ Düzeltildi: ${item.slug} (${item.status} → ${after.status})`);
+      console.log(`✅ Fixed: ${item.slug} (${item.status} → ${after.status})`);
     }
   }
 
-  console.log(`\n🎉 Toplam ${fixed} şema düzeltildi.`);
+  console.log(`\n🎉 Total ${fixed} schemas fixed.`);
   if (skipped > 0) {
-    console.log(`   Atlanan (dosya yok): ${skipped}`);
+    console.log(`   Skipped (missing file): ${skipped}`);
   }
 }
 

@@ -2,8 +2,8 @@ function parseFormula(formulaStr) {
   let js = formulaStr
     .replace(/Math\.max\(([^,]+),\s*0\)/g, '((($1) > 0) ? ($1) : 0)') // Some AI max calls fail
     .replace('IF(daily_penalty > acceleration_cost, MIN(NonExcusable_Delay, max_crash_days), 0)', '((daily_penalty > acceleration_cost) ? Math.min(NonExcusable_Delay, max_crash_days) : 0)')
-    .replace('IF(meas_x > nom_x + tol_upper_x OR meas_x < nom_x - tol_lower_x, "Hatalı", "Uygun")', '((meas_x > nom_x + tol_upper_x || meas_x < nom_x - tol_lower_x) ? "Hatalı" : "Uygun")')
-    .replace('IF(meas_y > nom_y + tol_upper_y OR meas_y < nom_y - tol_lower_y, "Hatalı", "Uygun")', '((meas_y > nom_y + tol_upper_y || meas_y < nom_y - tol_lower_y) ? "Hatalı" : "Uygun")')
+    .replace('IF(meas_x > nom_x + tol_upper_x OR meas_x < nom_x - tol_lower_x, "Defective", "Pass")', '((meas_x > nom_x + tol_upper_x || meas_x < nom_x - tol_lower_x) ? "Defective" : "Pass")')
+    .replace('IF(meas_y > nom_y + tol_upper_y OR meas_y < nom_y - tol_lower_y, "Defective", "Pass")', '((meas_y > nom_y + tol_upper_y || meas_y < nom_y - tol_lower_y) ? "Defective" : "Pass")')
     .replace('MAX(stages_count * 0.9,0)', 'Math.max(stages_count * 0.9, 0)')
     .replace(/\bPI\b/g, 'Math.PI')
     .replace(/EXP\(/gi, 'Math.exp(')
@@ -28,4 +28,4 @@ function parseFormula(formulaStr) {
     
   return js;
 }
-console.log(parseFormula("IF(head = 'Silindirik', t_shell, IF(head = 'Küresel', t_sphere, t_ellip))"));
+console.log(parseFormula("IF(head = 'Cylindrical', t_shell, IF(head = 'Spherical', t_sphere, t_ellip))"));

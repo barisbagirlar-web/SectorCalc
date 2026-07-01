@@ -105,8 +105,8 @@ async function auditSchemaFile(file: string): Promise<AuditResult> {
     reason: issues[0] ?? trust.reason,
     issues,
     fixable: trust.fixable,
-    category: typeof schema.category === "string" ? schema.category : "Diğer",
-    sector: typeof schema.sector === "string" ? schema.sector : "Diğer",
+    category: typeof schema.category === "string" ? schema.category : "Other",
+    sector: typeof schema.sector === "string" ? schema.sector : "Other",
     hasFormulas: Object.keys(formulas).length > 0,
     hasOutputs: Boolean(
       schema.outputs &&
@@ -141,7 +141,7 @@ async function main(): Promise<void> {
   const runtimeFail = results.filter((result) => result.status === "RUNTIME_FAIL").length;
   const quarantine = results.filter((result) => result.status === "QUARANTINE").length;
 
-  console.log(`\n📊 Audit tamamlandı: ${results.length} şema`);
+  console.log(`\n📊 Audit completed: ${results.length} schemas`);
   console.log(`   ✅ PASS: ${pass}`);
   console.log(`   ⚠️ WARN: ${warn}`);
   console.log(`   ❌ FAIL: ${fail}`);

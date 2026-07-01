@@ -58,8 +58,7 @@ const LOCAL_STANDARD_RE =
 
 // Turkish/Non-English character detection in string literals
 // Matches Turkish specific chars in quoted strings
-const TR_CHARS_IN_STR_RE =
-  /["'`][^"'`]*(?:[şŞıİğĞüÜöÖçÇ])[^"'`]*["'`]/;
+const TR_CHARS_IN_STR_RE = new RegExp('["\'`][^"\'`]*(?:[\\u015F\\u015E\\u0131\\u0130\\u011F\\u011E\\u00FC\\u00DC\\u00F6\\u00D6\\u00E7\\u00C7])[^"\'`]*["\'`]');
 
 // Inline reference array detection in TSX/JSX — finds const data = [...] patterns
 const INLINE_REF_ARRAY_RE =
@@ -123,16 +122,16 @@ function scanFile(filePath: string): Violation[] {
       });
     }
 
-    // Check for Turkish characters in string literals (WARN only — i18n/locale values are legitimate)
+    // Check for Turkish characters in string literals (ERROR — English only policy)
     const trMatch = line.match(TR_CHARS_IN_STR_RE);
-    if (trMatch) {
+    if (trMatch && !relativePath.includes("prebuild-reference-engine-guard")) {
       const col = (trMatch.index ?? 0) + 1;
       violations.push({
         file: relativePath,
         line: lineNum,
         column: col,
-        message: `Non-English (Turkish) characters in string: "${trMatch[0].slice(0, 60)}". Use Technical Academic English for code strings.`,
-        severity: "warn",
+        message: `Non-English characters in string: "${trMatch[0].slice(0, 60)}". English only policy.`,
+        severity: "error",
         autoFixable: false,
       });
     }
