@@ -17,6 +17,7 @@ import {
 } from "@/lib/features/freemium/resolve-free-to-premium-migration";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
+import { getP24VerdictForSlug } from "@/lib/features/tools/runtime-readiness-p24-verdicts";
 
 const FORBIDDEN_TOKENS = ["example.com", "localhost", "127.0.0.1", "vercel.app", "your-domain", "TODO"];
 
@@ -33,11 +34,17 @@ function collectPublicRouteSlugs(): Array<{ slug: string; tier: "free" | "premiu
   const premiumSchemas = new Set(listPremiumSchemaSlugs());
   return [
     ...listAllFreeToolSlugs()
-      .filter((slug) => !isFreeToolMigratedToPremium(slug) && !premiumSchemas.has(slug))
+      .filter((slug) => !isFreeToolMigratedToPremium(slug) && !premiumSchemas.has(slug) && getP24VerdictForSlug(slug) !== "QUARANTINE")
       .map((slug) => ({ slug, tier: "free" as const })),
-    ...getPremiumRevenueRouteSlugs().map((slug) => ({ slug, tier: "premium" as const })),
-    ...listMigratedPremiumRouteSlugs().map((slug) => ({ slug, tier: "premium" as const })),
-    ...listPremiumSchemaSlugs().map((slug) => ({ slug, tier: "premium-schema" as const })),
+    ...getPremiumRevenueRouteSlugs()
+      .filter((slug) => getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .map((slug) => ({ slug, tier: "premium" as const })),
+    ...listMigratedPremiumRouteSlugs()
+      .filter((slug) => getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .map((slug) => ({ slug, tier: "premium" as const })),
+    ...listPremiumSchemaSlugs()
+      .filter((slug) => getP24VerdictForSlug(slug) !== "QUARANTINE")
+      .map((slug) => ({ slug, tier: "premium-schema" as const })),
   ];
 }
 

@@ -64,6 +64,8 @@ export function generateRobotsTxt(): string {
     "Allow: /",
     "Disallow: /api/",
     "Disallow: /admin/",
+    "Disallow: /verification-queue/",
+    "Disallow: /verification-queue",
     "Disallow: /*?*sort=",
     "",
     `Sitemap: ${SITE_URL}/sitemap.xml`,
