@@ -19,9 +19,9 @@ type RpnResult = {
 const ratingOptions = Array.from({ length: 10 }, (_, i) => i + 1);
 
 const CITATIONS = {
-  apa: 'SectorCalc. (2026). FMEA RPN calculator: Severity, occurrence and detection risk priority number tool. SectorCalc.',
-  mla: 'SectorCalc. "FMEA RPN Calculator: Severity, Occurrence and Detection Risk Priority Number Tool." SectorCalc, 2026.',
-  chicago: 'SectorCalc. 2026. "FMEA RPN Calculator: Severity, Occurrence and Detection Risk Priority Number Tool." SectorCalc.',
+  apa: 'SectorCalc. (2026). FMEA RPN calculator: Severity, occurrence and detection risk priority number tool. SectorCalc. https://sectorcalc.com/calculators/fmea-rpn',
+  mla: 'SectorCalc. "FMEA RPN Calculator: Severity, Occurrence and Detection Risk Priority Number Tool." SectorCalc, 2026, https://sectorcalc.com/calculators/fmea-rpn.',
+  chicago: 'SectorCalc. 2026. "FMEA RPN Calculator: Severity, Occurrence and Detection Risk Priority Number Tool." SectorCalc. https://sectorcalc.com/calculators/fmea-rpn.',
   bibtex: `@misc{sectorcalc_fmea_rpn_2026,
   title = {FMEA RPN Calculator: Severity, Occurrence and Detection Risk Priority Number Tool},
   author = {{SectorCalc}},
@@ -78,7 +78,7 @@ const FAQS = [
   { q: "Should Severity be reduced after corrective action?", a: "Severity should only be reduced if the design or process change truly reduces the effect of the failure. Many corrective actions reduce Occurrence or improve Detection while Severity remains unchanged." },
   { q: "Is RPN still used in FMEA?", a: "RPN is still useful as a quick prioritization score in traditional FMEA workflows. Modern FMEA practice also considers Action Priority and the individual pattern of Severity, Occurrence and Detection." },
   { q: "What is the difference between RPN and Action Priority?", a: "RPN is a numeric score. Action Priority is a decision support concept that considers the pattern of Severity, Occurrence and Detection instead of relying only on a multiplied number." },
-  { q: "Can this calculator replace an official FMEA procedure?", a: "No. This calculator is an educational and practical calculation aid. It should be used with your organization\u2019s approved FMEA procedure, rating tables and customer-specific requirements." },
+  { q: "Can this calculator replace a standards-body FMEA procedure?", a: "No. This calculator is an educational and practical calculation aid. It should be used with your organization\u2019s approved FMEA procedure, rating tables and customer-specific requirements." },
   { q: "How should I cite this calculator in academic material?", a: "Use the citation formats provided in the \u201cCite This Calculator\u201d section. Recommended APA citation: SectorCalc. (2026). FMEA RPN calculator: Severity, occurrence and detection risk priority number tool. SectorCalc." },
 ];
 
@@ -328,7 +328,7 @@ export function FmeaRpnPageContent() {
           <p className="mb-4 text-sm leading-relaxed text-body-charcoal">using integer ratings from 1 to 10.</p>
           <p className="mb-4 text-sm leading-relaxed text-body-charcoal">The page includes input definitions, calculation assumptions, validation test cases, an illustrative PFMEA dataset, RPN collision analysis, limitations of RPN-based prioritization, downloadable FMEA templates and academic citation formats.</p>
           <p className="mb-4 text-sm leading-relaxed text-body-charcoal">The tool is intended for engineering education, quality management training, industrial engineering coursework, internal FMEA workshops and practical failure-mode documentation.</p>
-          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page is not an official standards tool. It does not replace AIAG-VDA, IEC, ISO, customer-specific, regulatory or organization-specific FMEA procedures.</div>
+          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page is an educational engineering reference and not a standards-body publication. It does not replace AIAG-VDA, IEC, ISO, customer-specific, regulatory or organization-specific FMEA procedures.</div>
         </Section>
 
         <Section>
@@ -393,7 +393,7 @@ export function FmeaRpnPageContent() {
             <li>Use of downloadable FMEA templates in teaching or internal training</li>
             <li>Comparison between traditional RPN and modern Action Priority thinking</li>
           </ul>
-          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This calculator should not be cited as an official standard, certified FMEA method, regulatory approval tool or substitute for AIAG-VDA, IEC, ISO, customer-specific or organization-specific FMEA procedures.</div>
+          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This calculator should not be cited as a standards-body method, regulatory approval tool or substitute for AIAG-VDA, IEC, ISO, customer-specific or organization-specific FMEA procedures.</div>
         </Section>
 
         <Section id="methodology">
@@ -514,7 +514,7 @@ export function FmeaRpnPageContent() {
           <SectionTitle>RPN vs Action Priority</SectionTitle>
           <p className="mb-4 sc-body-muted">Traditional RPN is a numeric product of Severity, Occurrence and Detection. It is simple, fast and useful for comparing failure modes inside the same FMEA worksheet.</p>
           <p className="mb-4 sc-body-muted">Action Priority is a decision support concept used in modern automotive FMEA practice. It gives stronger attention to the pattern of Severity, Occurrence and Detection instead of relying only on a single multiplied number.</p>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page provides an educational explanation only. It does not reproduce proprietary handbook tables and does not replace official standards or customer-specific FMEA requirements.</div>
+          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page provides an educational explanation only. It does not reproduce proprietary handbook tables and does not replace standards-body publications or customer-specific FMEA requirements.</div>
         </Section>
 
         <Section id="cite">
@@ -535,7 +535,15 @@ export function FmeaRpnPageContent() {
         <Section>
           <SectionTitle>References and Standards Context</SectionTitle>
           <p className="mb-4 sc-body-muted">FMEA methods are widely used in quality engineering, reliability engineering, automotive product development, process design and manufacturing risk analysis.</p>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page is an educational engineering reference. It does not reproduce proprietary standard tables. It does not replace official standards, customer-specific requirements, regulatory requirements or your organization\u2019s approved FMEA procedure.</div>
+          <p className="mb-4 sc-body-muted">This page provides an educational calculator for the traditional RPN formula and contextual notes related to modern FMEA practice.</p>
+          <p className="mb-2 text-sm font-semibold text-premium-velvet">Reference context:</p>
+          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
+            <li>AIAG &amp; VDA. <em>Failure Mode and Effects Analysis FMEA Handbook</em>.</li>
+            <li>IEC 60812. <em>Failure modes and effects analysis FMEA and FMECA</em>.</li>
+            <li>ISO 12100. <em>Safety of machinery \u2014 General principles for design \u2014 Risk assessment and risk reduction</em>.</li>
+            <li>ASQ. <em>Failure Mode and Effects Analysis educational resources</em>.</li>
+          </ul>
+          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page is an educational engineering reference. It does not reproduce proprietary standard tables and does not replace standards-body publications, customer-specific requirements, regulatory requirements or your organization\u2019s approved FMEA procedure.</div>
         </Section>
 
         <Section id="faq">
@@ -554,9 +562,6 @@ export function FmeaRpnPageContent() {
           <SectionTitle>Related Engineering Calculators</SectionTitle>
           <p className="mb-4 sc-body-muted">FMEA identifies and prioritizes failure risks. The tools below help evaluate process capability, equipment performance, setup losses and manufacturing cost after risk areas are identified.</p>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/tools/generated/process-capability-cpk-calculator" className="block border p-3 text-sm hover:border-premium-velvet"><span className="font-semibold">Cp / Cpk Calculator</span><span className="mt-1 block">Evaluate process capability after a high-risk dimensional failure mode is identified.</span></Link>
-            <Link href="/tools/generated/oee-calculator" className="block border p-3 text-sm hover:border-premium-velvet"><span className="font-semibold">OEE Calculator</span><span className="mt-1 block">Quantify availability, performance and quality losses in production systems.</span></Link>
-            <Link href="/tools/generated/risk-matrix-calculator" className="block border p-3 text-sm hover:border-premium-velvet"><span className="font-semibold">Risk Matrix Calculator</span><span className="mt-1 block">Compare qualitative severity and likelihood patterns outside a full FMEA worksheet.</span></Link>
             <Link href="/pro-tools" className="block border p-3 text-sm hover:border-premium-velvet"><span className="font-semibold">SectorCalc Pro Tools</span><span className="mt-1 block">Engineering calculator library for deeper process, production, risk and cost analysis.</span></Link>
           </div>
         </Section>
