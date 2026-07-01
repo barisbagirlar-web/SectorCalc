@@ -34,21 +34,11 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
         ratePerKg: "baseRate"
       }, outputId: "baseFreight" },
     { formulaId: "cost.bunker_surcharge", inputMap: { baseFreight: "baseFreight", bunkerPct: "bunkerPct" }, outputId: "bunkerSurcharge" },
-    { formulaId: "cost.terminal_handling", inputMap: {
-        chargeableWeight: "terminalFee"
-      ,
-        handlingRate: "handlingRate"}, outputId: "terminalCost" },
-    { formulaId: "cost.customs_clearance", inputMap: {
-        declaredValue: "customsFee"
-      ,
-        customsRate: "customsRate"}, outputId: "customsCost" },
-    { formulaId: "cost.total_freight_cost", inputMap: {
-        baseFreight: "baseFreight",
-        bunkerSurcharge: "bunkerSurcharge",
-        terminalHandling: "terminalCost",
-        customsClearance: "customsCost"
-      ,
-        insurance: "insurance"}, outputId: "totalFreightCost" },
+    // Direct passthrough: terminalFee is flat fee, not rate*weight
+    { formulaId: "cost.customs_clearance", inputMap: { declaredValue: "customsFee", customsRate: "customsRate" }, outputId: "customsCost" },
+    // Direct passthrough: combine flat terminal + customs fees with freight base + bunker
+    // Using customSum formula: baseFreight + bunkerSurcharge + terminalFee + customsFee
+    { formulaId: "custom.freight_total_sum", inputMap: { v1: "baseFreight", v2: "bunkerSurcharge", v3: "terminalFee", v4: "customsFee", v5: "customsFee" }, outputId: "totalFreightCost" },
     { formulaId: "measurement.freight_cost_per_unit", inputMap: {
         totalFreightCost: "totalFreightCost",
         unitCount: "chargeableWeight"
