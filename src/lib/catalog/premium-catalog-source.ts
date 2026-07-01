@@ -32,18 +32,6 @@ type PremiumCatalogToolOverride = {
   readonly keywords?: readonly string[];
 };
 
-const SEVEN_MUDA_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
-
-const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogToolOverride>> = {
-  [SEVEN_MUDA_SLUG]: {
-    categoryId: "lean-production",
-    titles: {
-      en: "7 Muda Waste Cost Calculator",
-      de: "7 Verschwendungsarten (Muda) – monetärer Impact-Rechner",
-      fr: "Calculateur d'impact monétaire des 7 gaspillages (Muda)",
-      es: "Calculadora de impacto monetario de los 7 desperdicios (Muda)",
-      ar: "حاسبة الأثر المالي لسبعة أنواع الهدر (مودا)",
-    },
     descriptions: {
       en: "Calculates the monetary cost of the seven Muda waste types.",
       de: "Uberproduktion, Warten, Transport, Bestand, Bewegung, Fehler und Uberbearbeitung bleiben ohne Periodenkosten unsichtbar.",
@@ -62,16 +50,6 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
     aliases: ["7 wastes", "seven muda wastes", "lean muda"],
     keywords: ["lean", "waste", "muda"],
   },
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
-    categoryId: "lean-production",
-    titles: {
-      tr: "5S Audit Score - Efficiency Loss Maliyet Converter",
-      en: "5S Audit Score Efficiency Loss Cost Converter",
-      de: "5S-Audit-Score – Effizienzverlust-Kostenrechner",
-      fr: "Score audit 5S – convertisseur coût de perte d'efficacité",
-      es: "Puntuación auditoría 5S – conversor de costo de pérdida de eficiencia",
-      ar: "درجة تدقيق 5S – محول تكلفة فقدان الكفاءة",
-    },
     descriptions: {
       tr: "5S puaninin parasal karsiligi bilinmez; iyilestirme onceligi verilemez ve kayip gorunmez kalir.",
       en: "5S audit scores are tracked, but the monetary impact of disorganization and search time stays invisible.",
