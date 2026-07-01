@@ -3,6 +3,8 @@
 import { useState, useMemo, useEffect } from "react";
 
 import Link  from "next/link";
+import { registry } from "@/generated/reference-registry";
+import { GlobalReferenceInput } from "@/lib/reference-engine/GlobalReferenceInput";
 import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
 import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/infrastructure/analytics/revenue-events";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
@@ -13,7 +15,14 @@ interface OeeWizardCalculatorProps {
   tool: FreeTrafficTool;
 }
 
+const OEE_TOOL_ID = "oee-calculator";
+
 export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
+  console.log(
+    "[OEE] Registry keys:",
+    Object.keys(registry[OEE_TOOL_ID] || {}),
+  );
+
   /*
    * STATIC ANALYSIS TRACE:
    * Inputs: plannedTime = 480, downtime = 52, idealCycleTime = 0.6, totalCount = 620, defectCount = 28
@@ -256,28 +265,20 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
 
           <div className="space-y-5">
             <div className="sc-industrial-field">
-              <label htmlFor="plannedTime" className="sc-industrial-field__label block font-semibold text-xs text-text-secondary mb-2">
-                {`plannedtime.label`}
-                <span className="font-normal block mt-1 text-[11px] text-text-secondary/70">
-                  {`plannedtime.helper`}
-                </span>
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  id="plannedTime"
-                  type="text"
-                  inputMode="decimal"
-                  value={plannedTime}
-                  onChange={(e) => {
-                    setPlannedTime(e.target.value);
-                    setErrors((prev) => ({ ...prev, plannedTime: "" }));
-                  }}
-                  className={`sc-ledger-input-underline w-full font-mono text-2xl p-4 pr-12 bg-bg-industrial-matte border-b ${
-                    errors.plannedTime ? "border-red-500 bg-red-50" : "border-technical-gray"
-                  }`}
-                />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">min</span>
-              </div>
+              <GlobalReferenceInput
+                binding={registry[OEE_TOOL_ID]?.plannedProductionTime}
+                value={plannedTime === "" ? undefined : parseFloat(plannedTime.replace(/,/g, ".")) || 0}
+                onChange={(v) => {
+                  setPlannedTime(String(v));
+                  setErrors((prev) => ({ ...prev, plannedTime: "" }));
+                }}
+                label="Planned Production Time"
+                symbol="T_p"
+                required
+                hint="Per shift — 8h = 480 min"
+                confidenceLabel="CERTAIN"
+                unit="min"
+              />
               {errors.plannedTime && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
                   {errors.plannedTime}
@@ -286,28 +287,20 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
             </div>
 
             <div className="sc-industrial-field">
-              <label htmlFor="downtime" className="sc-industrial-field__label block font-semibold text-xs text-text-secondary mb-2">
-                {`downtime.label`}
-                <span className="font-normal block mt-1 text-[11px] text-text-secondary/70">
-                  {`downtime.helper`}
-                </span>
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  id="downtime"
-                  type="text"
-                  inputMode="decimal"
-                  value={downtime}
-                  onChange={(e) => {
-                    setDowntime(e.target.value);
-                    setErrors((prev) => ({ ...prev, downtime: "" }));
-                  }}
-                  className={`sc-ledger-input-underline w-full font-mono text-2xl p-4 pr-12 bg-bg-industrial-matte border-b ${
-                    errors.downtime ? "border-red-500 bg-red-50" : "border-technical-gray"
-                  }`}
-                />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">min</span>
-              </div>
+              <GlobalReferenceInput
+                binding={registry[OEE_TOOL_ID]?.totalDowntime}
+                value={downtime === "" ? undefined : parseFloat(downtime.replace(/,/g, ".")) || 0}
+                onChange={(v) => {
+                  setDowntime(String(v));
+                  setErrors((prev) => ({ ...prev, downtime: "" }));
+                }}
+                label="Total Downtime (Unplanned Stops)"
+                symbol="T_d"
+                required
+                hint="Failures + breakdowns per shift"
+                confidenceLabel="STRONG"
+                unit="min"
+              />
               {errors.downtime && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
                   {errors.downtime}
@@ -329,28 +322,20 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
 
           <div className="space-y-5">
             <div className="sc-industrial-field">
-              <label htmlFor="idealCycleTime" className="sc-industrial-field__label block font-semibold text-xs text-text-secondary mb-2">
-                {`idealcycletime.label`}
-                <span className="font-normal block mt-1 text-[11px] text-text-secondary/70">
-                  {`idealcycletime.helper`}
-                </span>
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  id="idealCycleTime"
-                  type="text"
-                  inputMode="decimal"
-                  value={idealCycleTime}
-                  onChange={(e) => {
-                    setIdealCycleTime(e.target.value);
-                    setErrors((prev) => ({ ...prev, idealCycleTime: "" }));
-                  }}
-                  className={`sc-ledger-input-underline w-full font-mono text-2xl p-4 pr-24 bg-bg-industrial-matte border-b ${
-                    errors.idealCycleTime ? "border-red-500 bg-red-50" : "border-technical-gray"
-                  }`}
-                />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">min/pcs</span>
-              </div>
+              <GlobalReferenceInput
+                binding={registry[OEE_TOOL_ID]?.idealCycleTime}
+                value={idealCycleTime === "" ? undefined : parseFloat(idealCycleTime.replace(/,/g, ".")) || 0}
+                onChange={(v) => {
+                  setIdealCycleTime(String(v));
+                  setErrors((prev) => ({ ...prev, idealCycleTime: "" }));
+                }}
+                label="Ideal Cycle Time"
+                symbol="CT_0"
+                required
+                hint="OEM design value — NOT measured time"
+                confidenceLabel="CERTAIN"
+                unit="min"
+              />
               {errors.idealCycleTime && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
                   {errors.idealCycleTime}
@@ -359,28 +344,20 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
             </div>
 
             <div className="sc-industrial-field">
-              <label htmlFor="totalCount" className="sc-industrial-field__label block font-semibold text-xs text-text-secondary mb-2">
-                {`totalcount.label`}
-                <span className="font-normal block mt-1 text-[11px] text-text-secondary/70">
-                  {`totalcount.helper`}
-                </span>
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  id="totalCount"
-                  type="text"
-                  inputMode="decimal"
-                  value={totalCount}
-                  onChange={(e) => {
-                    setTotalCount(e.target.value);
-                    setErrors((prev) => ({ ...prev, totalCount: "" }));
-                  }}
-                  className={`sc-ledger-input-underline w-full font-mono text-2xl p-4 pr-16 bg-bg-industrial-matte border-b ${
-                    errors.totalCount ? "border-red-500 bg-red-50" : "border-technical-gray"
-                  }`}
-                />
-                <span className="absolute right-4 font-mono text-xs text-text-secondary/70">pcs</span>
-              </div>
+              <GlobalReferenceInput
+                binding={registry[OEE_TOOL_ID]?.totalPartsProduced}
+                value={totalCount === "" ? undefined : parseFloat(totalCount.replace(/,/g, ".")) || 0}
+                onChange={(v) => {
+                  setTotalCount(String(v));
+                  setErrors((prev) => ({ ...prev, totalCount: "" }));
+                }}
+                label="Total Parts Produced"
+                symbol="N_tot"
+                required
+                hint="All parts including defects"
+                confidenceLabel="CERTAIN"
+                unit="pcs"
+              />
               {errors.totalCount && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
                   {errors.totalCount}
@@ -403,9 +380,9 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
           <div className="space-y-5">
             <div className="sc-industrial-field">
               <label htmlFor="defectCount" className="sc-industrial-field__label block font-semibold text-xs text-text-secondary mb-2">
-                {`defectcount.label`}
+                Defect Count (First-Pass Failures)
                 <span className="font-normal block mt-1 text-[11px] text-text-secondary/70">
-                  {`defectcount.helper`}
+                  Units that failed first-pass quality inspection
                 </span>
               </label>
               <div className="relative flex items-center">
@@ -424,6 +401,9 @@ export function OeeWizardCalculator({ tool }: OeeWizardCalculatorProps) {
                 />
                 <span className="absolute right-4 font-mono text-xs text-text-secondary/70">pcs</span>
               </div>
+              <p className="font-mono text-[10px] text-text-secondary/50 mt-1">
+                Good parts = Total − Defects. Reference presets for yield % available in PRO.
+              </p>
               {errors.defectCount && (
                 <p className="text-red-500 font-mono text-[11px] mt-1.5" role="alert">
                   {errors.defectCount}
