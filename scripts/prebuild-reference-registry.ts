@@ -27,13 +27,16 @@ const OUTPUT_FILE = path.join(ROOT, "src/generated/reference-registry.ts");
 
 const UNIT_WHITELIST = [
   "MPa",
+  "GPa",
   "psi",
   "kg/m3",
   "lb/ft3",
+  "g/cm3",
   "mm",
   "in",
   "m",
   "ft",
+  "Pa·s",
 ] as const;
 
 const ALLOWED_PROJECT_UNIT_SYSTEMS = [

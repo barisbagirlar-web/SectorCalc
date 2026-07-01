@@ -1,0 +1,44 @@
+# =============================================================================
+# Reference: CNC Machining Material Density
+# Standards: EN 10025, EN 10088-1, EN 1999-1-1
+# =============================================================================
+toolId: "cnc-machining-cost-analyzer"
+inputKey: "density"
+standard: "EN 10025-2"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Steel (EN 10025-2)"
+    value: 7.85
+    unit: "g/cm3"
+    source: "EN 10025-2"
+    description: "Steel density (7.85 g/cm³ = 7850 kg/m³)"
+  - label: "Stainless Steel 304 (EN 10088-1)"
+    value: 7.93
+    unit: "g/cm3"
+    source: "EN 10088-1"
+    description: "Stainless steel 304 density (7.93 g/cm³ = 7930 kg/m³)"
+  - label: "Stainless Steel 316 (EN 10088-1)"
+    value: 7.98
+    unit: "g/cm3"
+    source: "EN 10088-1"
+    description: "Stainless steel 316 density (7.98 g/cm³ = 7980 kg/m³)"
+  - label: "Aluminum Alloy (EN 1999-1-1)"
+    value: 2.7
+    unit: "g/cm3"
+    source: "EN 1999-1-1"
+    description: "Aluminum alloy density (2.70 g/cm³ = 2700 kg/m³)"
+  - label: "Titanium Ti6Al4V (ASTM B265)"
+    value: 4.43
+    unit: "g/cm3"
+    source: "ASTM B265"
+    description: "Titanium Ti6Al4V density (4.43 g/cm³ = 4430 kg/m³)"
+  - label: "Brass (EN 1652)"
+    value: 8.5
+    unit: "g/cm3"
+    source: "EN 1652"
+    description: "Brass density (8.50 g/cm³ = 8500 kg/m³)"
+  - label: "Copper (EN 1652)"
+    value: 8.96
+    unit: "g/cm3"
+    source: "EN 1652"
+    description: "Copper density (8.96 g/cm³ = 8960 kg/m³)"

@@ -1,0 +1,65 @@
+# =============================================================================
+# Reference: ISO 513 Cutting Tool Material Groups (Sandvik C-2920 Database)
+# Standards: ISO 513:2012, Sandvik Coromant C-2920
+# =============================================================================
+# Used by ProToolForm.tsx and ProToolPremiumRenderer.tsx for MAT_DB
+toolId: "pro-tool-machining"
+inputKey: "material_group"
+standard: "ISO 513:2012"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "P — Steel (≤250 HB)"
+    value: 1900
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "P group — Steel, kc1=1900 N/mm², mc=0.26, Vc=180-400 m/min"
+  - label: "P — Steel (250-350 HB)"
+    value: 2200
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "P group — Hard steel, kc1=2200 N/mm², mc=0.28, Vc=100-280 m/min"
+  - label: "M — Austenitic Stainless Steel"
+    value: 2400
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "M group — Austenitic stainless, kc1=2400 N/mm², mc=0.22, Vc=80-240 m/min"
+  - label: "M — Duplex Stainless Steel"
+    value: 2700
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "M group — Duplex stainless, kc1=2700 N/mm², mc=0.24, Vc=60-180 m/min"
+  - label: "K — Cast Iron (GG)"
+    value: 1350
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "K group — Cast iron, kc1=1350 N/mm², mc=0.20, Vc=100-350 m/min"
+  - label: "K — Nodular Iron (GGG)"
+    value: 1600
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "K group — Nodular iron, kc1=1600 N/mm², mc=0.22, Vc=80-280 m/min"
+  - label: "N — Aluminum Alloy"
+    value: 750
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "N group — Aluminum, kc1=750 N/mm², mc=0.14, Vc=400-1500 m/min"
+  - label: "N — Copper/Brass"
+    value: 900
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "N group — Copper/brass, kc1=900 N/mm², mc=0.16, Vc=200-800 m/min"
+  - label: "S — Titanium (Ti6Al4V)"
+    value: 2800
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "S group — Titanium, kc1=2800 N/mm², mc=0.30, Vc=30-100 m/min"
+  - label: "S — Inconel 718 / Ni Alloy"
+    value: 3000
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "S group — Nickel alloy, kc1=3000 N/mm², mc=0.32, Vc=20-80 m/min"
+  - label: "H — Hardened Steel (>55 HRC)"
+    value: 3200
+    unit: "MPa"
+    source: "ISO 513:2012"
+    description: "H group — Hardened steel, kc1=3200 N/mm², mc=0.35, Vc=50-200 m/min"

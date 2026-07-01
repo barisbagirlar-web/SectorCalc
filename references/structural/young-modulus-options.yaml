@@ -1,0 +1,24 @@
+# =============================================================================
+# Reference: Young's Modulus Options (Select values for Euler buckling)
+# Standards: EN 1993-1-1, EN 10088-1, EN 1999-1-1
+# =============================================================================
+toolId: "hydraulic-cylinder-calculator"
+inputKey: "youngModulus"
+standard: "EN 1993-1-1"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Steel (E=210 GPa) — EN 1993-1-1"
+    value: 210
+    unit: "GPa"
+    source: "EN 1993-1-1"
+    description: "Young's modulus for structural steel"
+  - label: "Stainless Steel (E=193 GPa) — EN 10088-1"
+    value: 193
+    unit: "GPa"
+    source: "EN 10088-1"
+    description: "Young's modulus for stainless steel"
+  - label: "Aluminum (E=69 GPa) — EN 1999-1-1"
+    value: 69
+    unit: "GPa"
+    source: "EN 1999-1-1"
+    description: "Young's modulus for aluminum alloys"

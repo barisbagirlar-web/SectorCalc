@@ -1,0 +1,24 @@
+# =============================================================================
+# Reference: ASME Pressure Vessel Material Density (shared reference)
+# Standards: EN 10025, ASTM A36
+# =============================================================================
+toolId: "asme-pressure-vessel-analyzer"
+inputKey: "materialDensity"
+standard: "EN 10025-2"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Carbon Steel (EN 10025-2 / ASTM A36)"
+    value: 7850
+    unit: "kg/m3"
+    source: "EN 10025-2"
+    description: "Standard density for carbon steel pressure vessel materials"
+  - label: "Austenitic Stainless Steel 304 (EN 10088-1)"
+    value: 7930
+    unit: "kg/m3"
+    source: "EN 10088-1"
+    description: "Density for SA-240 304 stainless steel"
+  - label: "Austenitic Stainless Steel 316 (EN 10088-1)"
+    value: 7980
+    unit: "kg/m3"
+    source: "EN 10088-1"
+    description: "Density for SA-240 316 stainless steel"

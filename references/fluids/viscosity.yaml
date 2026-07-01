@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: Fluid Viscosity Values
+# Standards: ISO 3104, ISO 80000-4, ASME PTC 19.5
+# =============================================================================
+toolId: "darcy-weisbach-pipe-flow-calculator"
+inputKey: "fluidViscosity"
+standard: "ISO 3104"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Water at 20°C (ISO 3104)"
+    value: 0.001
+    unit: "Pa·s"
+    source: "ISO 3104"
+    description: "Dynamic viscosity of water at 20°C"
+  - label: "Water at 40°C (ISO 3104)"
+    value: 0.000653
+    unit: "Pa·s"
+    source: "ISO 3104"
+    description: "Dynamic viscosity of water at 40°C"
+  - label: "Water at 60°C (ISO 3104)"
+    value: 0.000467
+    unit: "Pa·s"
+    source: "ISO 3104"
+    description: "Dynamic viscosity of water at 60°C"
+  - label: "Hydraulic Oil ISO VG 46 at 40°C (ISO 3104)"
+    value: 0.046
+    unit: "Pa·s"
+    source: "ISO 3104"
+    description: "Dynamic viscosity of ISO VG 46 hydraulic oil at 40°C"
+  - label: "Hydraulic Oil ISO VG 32 at 40°C (ISO 3104)"
+    value: 0.032
+    unit: "Pa·s"
+    source: "ISO 3104"
+    description: "Dynamic viscosity of ISO VG 32 hydraulic oil at 40°C"
+  - label: "Air at 20°C, 1 atm (ISO 80000-4)"
+    value: 0.0000185
+    unit: "Pa·s"
+    source: "ISO 80000-4"
+    description: "Dynamic viscosity of air at 20°C"

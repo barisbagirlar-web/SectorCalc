@@ -1,0 +1,29 @@
+# =============================================================================
+# Reference: Air Density at Various Conditions
+# Standards: ISO 2533 (Standard Atmosphere), ASHRAE Handbook
+# =============================================================================
+toolId: "wind-turbine-investment-analyzer"
+inputKey: "airDensity"
+standard: "ISO 2533"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "ISA Sea Level (ISO 2533)"
+    value: 1.225
+    unit: "kg/m3"
+    source: "ISO 2533"
+    description: "International Standard Atmosphere sea level density at 15°C"
+  - label: "ISA 1000m altitude (ISO 2533)"
+    value: 1.112
+    unit: "kg/m3"
+    source: "ISO 2533"
+    description: "ISA density at 1000m altitude"
+  - label: "ISA 2000m altitude (ISO 2533)"
+    value: 1.007
+    unit: "kg/m3"
+    source: "ISO 2533"
+    description: "ISA density at 2000m altitude"
+  - label: "Hot day 40°C sea level (ASHRAE)"
+    value: 1.127
+    unit: "kg/m3"
+    source: "ASHRAE Handbook"
+    description: "Density on hot day at sea level"

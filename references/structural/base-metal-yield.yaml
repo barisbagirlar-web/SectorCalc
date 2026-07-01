@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: Base Metal Yield Strength for Weld Design
+# Standards: EN 10025, ASTM A36
+# =============================================================================
+toolId: "weld-strength-analyzer"
+inputKey: "yieldStrength"
+standard: "EN 10025-2"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "S235 (EN 10025-2) — Structural steel"
+    value: 235
+    unit: "MPa"
+    source: "EN 10025-2"
+    description: "Yield strength S235, t≤16mm"
+  - label: "S275 (EN 10025-2) — Structural steel"
+    value: 275
+    unit: "MPa"
+    source: "EN 10025-2"
+    description: "Yield strength S275, t≤16mm"
+  - label: "S355 (EN 10025-2) — Structural steel"
+    value: 355
+    unit: "MPa"
+    source: "EN 10025-2"
+    description: "Yield strength S355, t≤16mm"
+  - label: "S460 (EN 10025-2) — High-strength steel"
+    value: 460
+    unit: "MPa"
+    source: "EN 10025-2"
+    description: "Yield strength S460, t≤16mm"
+  - label: "ASTM A36 — Carbon steel"
+    value: 250
+    unit: "MPa"
+    source: "ASTM A36"
+    description: "Yield strength ASTM A36"
+  - label: "ASTM A992 — Structural steel"
+    value: 345
+    unit: "MPa"
+    source: "ASTM A992"
+    description: "Yield strength ASTM A992"

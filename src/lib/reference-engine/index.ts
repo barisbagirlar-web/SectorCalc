@@ -8,6 +8,16 @@
 
 export { GlobalReferenceInput } from "./GlobalReferenceInput";
 export {
+  getBinding,
+  getReferenceOptions,
+  getReferenceValue,
+  getReferenceStandard,
+  hasBinding,
+  getMaterialDatabase,
+  getTaylorConstants,
+  TAYLOR_CONSTANTS,
+} from "./reference-bridge";
+export {
   FormReferenceBindingContract,
   ProjectUnitSystem,
   ReferenceItem,

@@ -1,0 +1,34 @@
+# =============================================================================
+# Reference: Concrete Strength Grades (EN 206 / ACI 318)
+# Standards: EN 206:2013, ACI 318-19
+# =============================================================================
+toolId: "concrete-volume-cost-analyzer"
+inputKey: "concreteGrade"
+standard: "EN 206:2013"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "C20 — Normal strength (EN 206)"
+    value: 20
+    unit: "MPa"
+    source: "EN 206:2013"
+    description: "Concrete grade C20, cylinder strength 20 MPa"
+  - label: "C25 — Normal strength (EN 206)"
+    value: 25
+    unit: "MPa"
+    source: "EN 206:2013"
+    description: "Concrete grade C25, cylinder strength 25 MPa"
+  - label: "C30 — Medium strength (EN 206)"
+    value: 30
+    unit: "MPa"
+    source: "EN 206:2013"
+    description: "Concrete grade C30, cylinder strength 30 MPa"
+  - label: "C35 — Medium strength (EN 206)"
+    value: 35
+    unit: "MPa"
+    source: "EN 206:2013"
+    description: "Concrete grade C35, cylinder strength 35 MPa"
+  - label: "C40 — High strength (EN 206)"
+    value: 40
+    unit: "MPa"
+    source: "EN 206:2013"
+    description: "Concrete grade C40, cylinder strength 40 MPa"

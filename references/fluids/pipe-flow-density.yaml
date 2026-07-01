@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: Fluid Density for Pipe Flow Calculations
+# Standards: ISO 80000-4, ASME PTC 19.5
+# =============================================================================
+toolId: "darcy-weisbach-pipe-flow-calculator"
+inputKey: "fluidDensity"
+standard: "ISO 80000-4"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Fresh water at 4°C (ISO 80000-4)"
+    value: 1000
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of fresh water at maximum density"
+  - label: "Fresh water at 20°C (ISO 80000-4)"
+    value: 998
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of fresh water at 20°C"
+  - label: "Fresh water at 60°C (ISO 80000-4)"
+    value: 983
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of fresh water at 60°C"
+  - label: "Seawater at 20°C (ASME PTC 19.5)"
+    value: 1025
+    unit: "kg/m3"
+    source: "ASME PTC 19.5"
+    description: "Density of standard seawater at 20°C"
+  - label: "Hydraulic oil ISO VG 46 at 40°C"
+    value: 870
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of ISO VG 46 hydraulic oil at 40°C"
+  - label: "Air at 20°C, 1 atm (ISO 80000-4)"
+    value: 1.204
+    unit: "kg/m3"
+    source: "ISO 80000-4"
+    description: "Density of dry air at 20°C and standard atmospheric pressure"

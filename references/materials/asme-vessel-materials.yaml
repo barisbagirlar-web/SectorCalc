@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: ASME Pressure Vessel Material Properties
+# Standards: ASME BPVC Section VIII Div.1, ASME II-D
+# =============================================================================
+toolId: "asme-pressure-vessel-analyzer"
+inputKey: "stressAllowable"
+standard: "ASME BPVC Sec VIII Div.1"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "SA-516 Gr.70 (Carbon Steel, ≤50mm, ≤150°C)"
+    value: 138
+    unit: "MPa"
+    source: "ASME II-D"
+    description: "Maximum allowable stress for SA-516 Gr.70 at ≤150°C"
+  - label: "SA-516 Gr.70 (Carbon Steel, ≤50mm, ≤260°C)"
+    value: 138
+    unit: "MPa"
+    source: "ASME II-D"
+    description: "Maximum allowable stress for SA-516 Gr.70 at ≤260°C"
+  - label: "SA-516 Gr.70 (Carbon Steel, ≤50mm, ≤370°C)"
+    value: 131
+    unit: "MPa"
+    source: "ASME II-D"
+    description: "Maximum allowable stress for SA-516 Gr.70 at ≤370°C"
+  - label: "SA-240 304 (Stainless, ≤50mm, ≤150°C)"
+    value: 115
+    unit: "MPa"
+    source: "ASME II-D"
+    description: "Maximum allowable stress for SA-240 304 stainless at ≤150°C"
+  - label: "SA-240 316 (Stainless, ≤50mm, ≤150°C)"
+    value: 115
+    unit: "MPa"
+    source: "ASME II-D"
+    description: "Maximum allowable stress for SA-240 316 stainless at ≤150°C"
+  - label: "SA-516 Gr.70 — Internal Pressure default"
+    value: 1.5
+    unit: "MPa"
+    source: "ASME BPVC Sec VIII Div.1"
+    description: "Typical design internal pressure for initial calculation"

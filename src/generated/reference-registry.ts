@@ -4,6 +4,87 @@
 import type { ReferenceRegistry } from "@/lib/reference-engine/FormReferenceBindingContract";
 
 export const registry: ReferenceRegistry = {
+  "asme-pressure-vessel-analyzer": {
+    "materialDensity": {
+      toolId: "asme-pressure-vessel-analyzer",
+      inputKey: "materialDensity",
+      standard: "EN 10025-2",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Carbon Steel (EN 10025-2 / ASTM A36)",
+          "value": 7850,
+          "unit": "kg/m3",
+          "source": "EN 10025-2",
+          "description": "Standard density for carbon steel pressure vessel materials"
+        },
+        {
+          "label": "Austenitic Stainless Steel 304 (EN 10088-1)",
+          "value": 7930,
+          "unit": "kg/m3",
+          "source": "EN 10088-1",
+          "description": "Density for SA-240 304 stainless steel"
+        },
+        {
+          "label": "Austenitic Stainless Steel 316 (EN 10088-1)",
+          "value": 7980,
+          "unit": "kg/m3",
+          "source": "EN 10088-1",
+          "description": "Density for SA-240 316 stainless steel"
+        }
+      ],
+    },
+    "stressAllowable": {
+      toolId: "asme-pressure-vessel-analyzer",
+      inputKey: "stressAllowable",
+      standard: "ASME BPVC Sec VIII Div.1",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "SA-516 Gr.70 (Carbon Steel, ≤50mm, ≤150°C)",
+          "value": 138,
+          "unit": "MPa",
+          "source": "ASME II-D",
+          "description": "Maximum allowable stress for SA-516 Gr.70 at ≤150°C"
+        },
+        {
+          "label": "SA-516 Gr.70 (Carbon Steel, ≤50mm, ≤260°C)",
+          "value": 138,
+          "unit": "MPa",
+          "source": "ASME II-D",
+          "description": "Maximum allowable stress for SA-516 Gr.70 at ≤260°C"
+        },
+        {
+          "label": "SA-516 Gr.70 (Carbon Steel, ≤50mm, ≤370°C)",
+          "value": 131,
+          "unit": "MPa",
+          "source": "ASME II-D",
+          "description": "Maximum allowable stress for SA-516 Gr.70 at ≤370°C"
+        },
+        {
+          "label": "SA-240 304 (Stainless, ≤50mm, ≤150°C)",
+          "value": 115,
+          "unit": "MPa",
+          "source": "ASME II-D",
+          "description": "Maximum allowable stress for SA-240 304 stainless at ≤150°C"
+        },
+        {
+          "label": "SA-240 316 (Stainless, ≤50mm, ≤150°C)",
+          "value": 115,
+          "unit": "MPa",
+          "source": "ASME II-D",
+          "description": "Maximum allowable stress for SA-240 316 stainless at ≤150°C"
+        },
+        {
+          "label": "SA-516 Gr.70 — Internal Pressure default",
+          "value": 1.5,
+          "unit": "MPa",
+          "source": "ASME BPVC Sec VIII Div.1",
+          "description": "Typical design internal pressure for initial calculation"
+        }
+      ],
+    },
+  },
   "beam-weight-analyzer": {
     "modulusE": {
       toolId: "beam-weight-analyzer",
@@ -14,35 +95,35 @@ export const registry: ReferenceRegistry = {
         {
           "label": "Structural Steel (EN 1993-1-1)",
           "value": 210,
-          "unit": "MPa",
+          "unit": "GPa",
           "source": "EN 1993-1-1",
           "description": "Young's modulus for structural steel per Eurocode 3"
         },
         {
           "label": "Aluminium Alloy (EN 1999-1-1)",
           "value": 70,
-          "unit": "MPa",
+          "unit": "GPa",
           "source": "EN 1999-1-1",
           "description": "Young's modulus for aluminium alloys"
         },
         {
           "label": "Copper Alloy",
           "value": 110,
-          "unit": "MPa",
+          "unit": "GPa",
           "source": "ASTM E111",
           "description": "Young's modulus for copper alloys"
         },
         {
           "label": "Titanium Alloy Ti6Al4V",
           "value": 114,
-          "unit": "MPa",
+          "unit": "GPa",
           "source": "ASTM E111",
           "description": "Young's modulus for Ti6Al4V titanium alloy"
         },
         {
           "label": "Stainless Steel (EN 10088-1)",
           "value": 200,
-          "unit": "MPa",
+          "unit": "GPa",
           "source": "EN 10088-1",
           "description": "Young's modulus for austenitic stainless steel"
         }
@@ -197,6 +278,330 @@ export const registry: ReferenceRegistry = {
           "unit": "MPa",
           "source": "ASTM F3125",
           "description": "Yield strength for ASTM A490 high-strength structural bolts"
+        }
+      ],
+    },
+  },
+  "cnc-machining-cost-analyzer": {
+    "density": {
+      toolId: "cnc-machining-cost-analyzer",
+      inputKey: "density",
+      standard: "EN 10025-2",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Steel (EN 10025-2)",
+          "value": 7.85,
+          "unit": "g/cm3",
+          "source": "EN 10025-2",
+          "description": "Steel density (7.85 g/cm³ = 7850 kg/m³)"
+        },
+        {
+          "label": "Stainless Steel 304 (EN 10088-1)",
+          "value": 7.93,
+          "unit": "g/cm3",
+          "source": "EN 10088-1",
+          "description": "Stainless steel 304 density (7.93 g/cm³ = 7930 kg/m³)"
+        },
+        {
+          "label": "Stainless Steel 316 (EN 10088-1)",
+          "value": 7.98,
+          "unit": "g/cm3",
+          "source": "EN 10088-1",
+          "description": "Stainless steel 316 density (7.98 g/cm³ = 7980 kg/m³)"
+        },
+        {
+          "label": "Aluminum Alloy (EN 1999-1-1)",
+          "value": 2.7,
+          "unit": "g/cm3",
+          "source": "EN 1999-1-1",
+          "description": "Aluminum alloy density (2.70 g/cm³ = 2700 kg/m³)"
+        },
+        {
+          "label": "Titanium Ti6Al4V (ASTM B265)",
+          "value": 4.43,
+          "unit": "g/cm3",
+          "source": "ASTM B265",
+          "description": "Titanium Ti6Al4V density (4.43 g/cm³ = 4430 kg/m³)"
+        },
+        {
+          "label": "Brass (EN 1652)",
+          "value": 8.5,
+          "unit": "g/cm3",
+          "source": "EN 1652",
+          "description": "Brass density (8.50 g/cm³ = 8500 kg/m³)"
+        },
+        {
+          "label": "Copper (EN 1652)",
+          "value": 8.96,
+          "unit": "g/cm3",
+          "source": "EN 1652",
+          "description": "Copper density (8.96 g/cm³ = 8960 kg/m³)"
+        }
+      ],
+    },
+  },
+  "concrete-volume-cost-analyzer": {
+    "concreteGrade": {
+      toolId: "concrete-volume-cost-analyzer",
+      inputKey: "concreteGrade",
+      standard: "EN 206:2013",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "C20 — Normal strength (EN 206)",
+          "value": 20,
+          "unit": "MPa",
+          "source": "EN 206:2013",
+          "description": "Concrete grade C20, cylinder strength 20 MPa"
+        },
+        {
+          "label": "C25 — Normal strength (EN 206)",
+          "value": 25,
+          "unit": "MPa",
+          "source": "EN 206:2013",
+          "description": "Concrete grade C25, cylinder strength 25 MPa"
+        },
+        {
+          "label": "C30 — Medium strength (EN 206)",
+          "value": 30,
+          "unit": "MPa",
+          "source": "EN 206:2013",
+          "description": "Concrete grade C30, cylinder strength 30 MPa"
+        },
+        {
+          "label": "C35 — Medium strength (EN 206)",
+          "value": 35,
+          "unit": "MPa",
+          "source": "EN 206:2013",
+          "description": "Concrete grade C35, cylinder strength 35 MPa"
+        },
+        {
+          "label": "C40 — High strength (EN 206)",
+          "value": 40,
+          "unit": "MPa",
+          "source": "EN 206:2013",
+          "description": "Concrete grade C40, cylinder strength 40 MPa"
+        }
+      ],
+    },
+  },
+  "darcy-weisbach-pipe-flow-calculator": {
+    "fluidDensity": {
+      toolId: "darcy-weisbach-pipe-flow-calculator",
+      inputKey: "fluidDensity",
+      standard: "ISO 80000-4",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Fresh water at 4°C (ISO 80000-4)",
+          "value": 1000,
+          "unit": "kg/m3",
+          "source": "ISO 80000-4",
+          "description": "Density of fresh water at maximum density"
+        },
+        {
+          "label": "Fresh water at 20°C (ISO 80000-4)",
+          "value": 998,
+          "unit": "kg/m3",
+          "source": "ISO 80000-4",
+          "description": "Density of fresh water at 20°C"
+        },
+        {
+          "label": "Fresh water at 60°C (ISO 80000-4)",
+          "value": 983,
+          "unit": "kg/m3",
+          "source": "ISO 80000-4",
+          "description": "Density of fresh water at 60°C"
+        },
+        {
+          "label": "Seawater at 20°C (ASME PTC 19.5)",
+          "value": 1025,
+          "unit": "kg/m3",
+          "source": "ASME PTC 19.5",
+          "description": "Density of standard seawater at 20°C"
+        },
+        {
+          "label": "Hydraulic oil ISO VG 46 at 40°C",
+          "value": 870,
+          "unit": "kg/m3",
+          "source": "ISO 80000-4",
+          "description": "Density of ISO VG 46 hydraulic oil at 40°C"
+        },
+        {
+          "label": "Air at 20°C, 1 atm (ISO 80000-4)",
+          "value": 1.204,
+          "unit": "kg/m3",
+          "source": "ISO 80000-4",
+          "description": "Density of dry air at 20°C and standard atmospheric pressure"
+        }
+      ],
+    },
+    "fluidViscosity": {
+      toolId: "darcy-weisbach-pipe-flow-calculator",
+      inputKey: "fluidViscosity",
+      standard: "ISO 3104",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Water at 20°C (ISO 3104)",
+          "value": 0.001,
+          "unit": "Pa·s",
+          "source": "ISO 3104",
+          "description": "Dynamic viscosity of water at 20°C"
+        },
+        {
+          "label": "Water at 40°C (ISO 3104)",
+          "value": 0.000653,
+          "unit": "Pa·s",
+          "source": "ISO 3104",
+          "description": "Dynamic viscosity of water at 40°C"
+        },
+        {
+          "label": "Water at 60°C (ISO 3104)",
+          "value": 0.000467,
+          "unit": "Pa·s",
+          "source": "ISO 3104",
+          "description": "Dynamic viscosity of water at 60°C"
+        },
+        {
+          "label": "Hydraulic Oil ISO VG 46 at 40°C (ISO 3104)",
+          "value": 0.046,
+          "unit": "Pa·s",
+          "source": "ISO 3104",
+          "description": "Dynamic viscosity of ISO VG 46 hydraulic oil at 40°C"
+        },
+        {
+          "label": "Hydraulic Oil ISO VG 32 at 40°C (ISO 3104)",
+          "value": 0.032,
+          "unit": "Pa·s",
+          "source": "ISO 3104",
+          "description": "Dynamic viscosity of ISO VG 32 hydraulic oil at 40°C"
+        },
+        {
+          "label": "Air at 20°C, 1 atm (ISO 80000-4)",
+          "value": 0.0000185,
+          "unit": "Pa·s",
+          "source": "ISO 80000-4",
+          "description": "Dynamic viscosity of air at 20°C"
+        }
+      ],
+    },
+  },
+  "hydraulic-cylinder-calculator": {
+    "youngModulus": {
+      toolId: "hydraulic-cylinder-calculator",
+      inputKey: "youngModulus",
+      standard: "EN 1993-1-1",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Steel (E=210 GPa) — EN 1993-1-1",
+          "value": 210,
+          "unit": "GPa",
+          "source": "EN 1993-1-1",
+          "description": "Young's modulus for structural steel"
+        },
+        {
+          "label": "Stainless Steel (E=193 GPa) — EN 10088-1",
+          "value": 193,
+          "unit": "GPa",
+          "source": "EN 10088-1",
+          "description": "Young's modulus for stainless steel"
+        },
+        {
+          "label": "Aluminum (E=69 GPa) — EN 1999-1-1",
+          "value": 69,
+          "unit": "GPa",
+          "source": "EN 1999-1-1",
+          "description": "Young's modulus for aluminum alloys"
+        }
+      ],
+    },
+  },
+  "pro-tool-machining": {
+    "material_group": {
+      toolId: "pro-tool-machining",
+      inputKey: "material_group",
+      standard: "ISO 513:2012",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "P — Steel (≤250 HB)",
+          "value": 1900,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "P group — Steel, kc1=1900 N/mm², mc=0.26, Vc=180-400 m/min"
+        },
+        {
+          "label": "P — Steel (250-350 HB)",
+          "value": 2200,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "P group — Hard steel, kc1=2200 N/mm², mc=0.28, Vc=100-280 m/min"
+        },
+        {
+          "label": "M — Austenitic Stainless Steel",
+          "value": 2400,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "M group — Austenitic stainless, kc1=2400 N/mm², mc=0.22, Vc=80-240 m/min"
+        },
+        {
+          "label": "M — Duplex Stainless Steel",
+          "value": 2700,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "M group — Duplex stainless, kc1=2700 N/mm², mc=0.24, Vc=60-180 m/min"
+        },
+        {
+          "label": "K — Cast Iron (GG)",
+          "value": 1350,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "K group — Cast iron, kc1=1350 N/mm², mc=0.20, Vc=100-350 m/min"
+        },
+        {
+          "label": "K — Nodular Iron (GGG)",
+          "value": 1600,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "K group — Nodular iron, kc1=1600 N/mm², mc=0.22, Vc=80-280 m/min"
+        },
+        {
+          "label": "N — Aluminum Alloy",
+          "value": 750,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "N group — Aluminum, kc1=750 N/mm², mc=0.14, Vc=400-1500 m/min"
+        },
+        {
+          "label": "N — Copper/Brass",
+          "value": 900,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "N group — Copper/brass, kc1=900 N/mm², mc=0.16, Vc=200-800 m/min"
+        },
+        {
+          "label": "S — Titanium (Ti6Al4V)",
+          "value": 2800,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "S group — Titanium, kc1=2800 N/mm², mc=0.30, Vc=30-100 m/min"
+        },
+        {
+          "label": "S — Inconel 718 / Ni Alloy",
+          "value": 3000,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "S group — Nickel alloy, kc1=3000 N/mm², mc=0.32, Vc=20-80 m/min"
+        },
+        {
+          "label": "H — Hardened Steel (>55 HRC)",
+          "value": 3200,
+          "unit": "MPa",
+          "source": "ISO 513:2012",
+          "description": "H group — Hardened steel, kc1=3200 N/mm², mc=0.35, Vc=50-200 m/min"
         }
       ],
     },
@@ -370,6 +775,177 @@ export const registry: ReferenceRegistry = {
           "unit": "kg/m3",
           "source": "ISO 80000-4",
           "description": "Density of ISO VG 32 hydraulic oil at 40°C"
+        }
+      ],
+    },
+  },
+  "weld-strength-analyzer": {
+    "tensileStrength": {
+      toolId: "weld-strength-analyzer",
+      inputKey: "tensileStrength",
+      standard: "AWS A5.1",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "E6010 Electrode (AWS A5.1)",
+          "value": 420,
+          "unit": "MPa",
+          "source": "AWS A5.1",
+          "description": "Cellulosic electrode min tensile strength 420 MPa"
+        },
+        {
+          "label": "E6013 Electrode (AWS A5.1)",
+          "value": 430,
+          "unit": "MPa",
+          "source": "AWS A5.1",
+          "description": "Rutile electrode min tensile strength 430 MPa"
+        },
+        {
+          "label": "E7018 Electrode (AWS A5.1)",
+          "value": 480,
+          "unit": "MPa",
+          "source": "AWS A5.1",
+          "description": "Low-hydrogen electrode min tensile strength 480 MPa"
+        },
+        {
+          "label": "E7024 Electrode (AWS A5.1)",
+          "value": 490,
+          "unit": "MPa",
+          "source": "AWS A5.1",
+          "description": "Iron powder electrode min tensile strength 490 MPa"
+        },
+        {
+          "label": "ISO 2560-A — 38 3B (AWS E6013 equivalent)",
+          "value": 430,
+          "unit": "MPa",
+          "source": "ISO 2560",
+          "description": "ISO rutile electrode min tensile strength 430 MPa"
+        },
+        {
+          "label": "ISO 2560-A — 42 4B (AWS E7018 equivalent)",
+          "value": 480,
+          "unit": "MPa",
+          "source": "ISO 2560",
+          "description": "ISO low-hydrogen electrode min tensile strength 480 MPa"
+        }
+      ],
+    },
+    "yieldStrength": {
+      toolId: "weld-strength-analyzer",
+      inputKey: "yieldStrength",
+      standard: "EN 10025-2",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "S235 (EN 10025-2) — Structural steel",
+          "value": 235,
+          "unit": "MPa",
+          "source": "EN 10025-2",
+          "description": "Yield strength S235, t≤16mm"
+        },
+        {
+          "label": "S275 (EN 10025-2) — Structural steel",
+          "value": 275,
+          "unit": "MPa",
+          "source": "EN 10025-2",
+          "description": "Yield strength S275, t≤16mm"
+        },
+        {
+          "label": "S355 (EN 10025-2) — Structural steel",
+          "value": 355,
+          "unit": "MPa",
+          "source": "EN 10025-2",
+          "description": "Yield strength S355, t≤16mm"
+        },
+        {
+          "label": "S460 (EN 10025-2) — High-strength steel",
+          "value": 460,
+          "unit": "MPa",
+          "source": "EN 10025-2",
+          "description": "Yield strength S460, t≤16mm"
+        },
+        {
+          "label": "ASTM A36 — Carbon steel",
+          "value": 250,
+          "unit": "MPa",
+          "source": "ASTM A36",
+          "description": "Yield strength ASTM A36"
+        },
+        {
+          "label": "ASTM A992 — Structural steel",
+          "value": 345,
+          "unit": "MPa",
+          "source": "ASTM A992",
+          "description": "Yield strength ASTM A992"
+        }
+      ],
+    },
+  },
+  "weld-volume-cost-analyzer": {
+    "density": {
+      toolId: "weld-volume-cost-analyzer",
+      inputKey: "density",
+      standard: "AWS A5.1",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "Steel filler metal (AWS A5.1)",
+          "value": 7850,
+          "unit": "kg/m3",
+          "source": "AWS A5.1",
+          "description": "Standard density for steel weld filler metal"
+        },
+        {
+          "label": "Stainless steel filler (AWS A5.4)",
+          "value": 7930,
+          "unit": "kg/m3",
+          "source": "AWS A5.4",
+          "description": "Density for stainless steel weld filler metal"
+        },
+        {
+          "label": "Aluminum filler (AWS A5.3)",
+          "value": 2700,
+          "unit": "kg/m3",
+          "source": "AWS A5.3",
+          "description": "Density for aluminum weld filler metal"
+        }
+      ],
+    },
+  },
+  "wind-turbine-investment-analyzer": {
+    "airDensity": {
+      toolId: "wind-turbine-investment-analyzer",
+      inputKey: "airDensity",
+      standard: "ISO 2533",
+      projectUnitSystem: "GLOBAL",
+      references: [
+        {
+          "label": "ISA Sea Level (ISO 2533)",
+          "value": 1.225,
+          "unit": "kg/m3",
+          "source": "ISO 2533",
+          "description": "International Standard Atmosphere sea level density at 15°C"
+        },
+        {
+          "label": "ISA 1000m altitude (ISO 2533)",
+          "value": 1.112,
+          "unit": "kg/m3",
+          "source": "ISO 2533",
+          "description": "ISA density at 1000m altitude"
+        },
+        {
+          "label": "ISA 2000m altitude (ISO 2533)",
+          "value": 1.007,
+          "unit": "kg/m3",
+          "source": "ISO 2533",
+          "description": "ISA density at 2000m altitude"
+        },
+        {
+          "label": "Hot day 40°C sea level (ASHRAE)",
+          "value": 1.127,
+          "unit": "kg/m3",
+          "source": "ASHRAE Handbook",
+          "description": "Density on hot day at sea level"
         }
       ],
     },

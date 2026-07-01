@@ -15,13 +15,16 @@ import { z } from "zod";
 // Every reference value MUST have an explicit unit from this list.
 export const UNIT_WHITELIST = [
   "MPa",
+  "GPa",
   "psi",
   "kg/m3",
   "lb/ft3",
+  "g/cm3",
   "mm",
   "in",
   "m",
   "ft",
+  "Pa·s",
 ] as const;
 
 export type UnitWhitelist = (typeof UNIT_WHITELIST)[number];

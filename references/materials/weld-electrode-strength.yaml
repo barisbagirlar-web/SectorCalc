@@ -1,0 +1,39 @@
+# =============================================================================
+# Reference: Weld Metal Density and Electrode Strength Properties
+# Standards: AWS A5.1, ISO 2560, EN 10025, AWS D1.1
+# =============================================================================
+toolId: "weld-strength-analyzer"
+inputKey: "tensileStrength"
+standard: "AWS A5.1"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "E6010 Electrode (AWS A5.1)"
+    value: 420
+    unit: "MPa"
+    source: "AWS A5.1"
+    description: "Cellulosic electrode min tensile strength 420 MPa"
+  - label: "E6013 Electrode (AWS A5.1)"
+    value: 430
+    unit: "MPa"
+    source: "AWS A5.1"
+    description: "Rutile electrode min tensile strength 430 MPa"
+  - label: "E7018 Electrode (AWS A5.1)"
+    value: 480
+    unit: "MPa"
+    source: "AWS A5.1"
+    description: "Low-hydrogen electrode min tensile strength 480 MPa"
+  - label: "E7024 Electrode (AWS A5.1)"
+    value: 490
+    unit: "MPa"
+    source: "AWS A5.1"
+    description: "Iron powder electrode min tensile strength 490 MPa"
+  - label: "ISO 2560-A — 38 3B (AWS E6013 equivalent)"
+    value: 430
+    unit: "MPa"
+    source: "ISO 2560"
+    description: "ISO rutile electrode min tensile strength 430 MPa"
+  - label: "ISO 2560-A — 42 4B (AWS E7018 equivalent)"
+    value: 480
+    unit: "MPa"
+    source: "ISO 2560"
+    description: "ISO low-hydrogen electrode min tensile strength 480 MPa"

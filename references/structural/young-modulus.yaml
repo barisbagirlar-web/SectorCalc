@@ -9,26 +9,26 @@ projectUnitSystem: "GLOBAL"
 references:
   - label: "Structural Steel (EN 1993-1-1)"
     value: 210
-    unit: "MPa"
+    unit: "GPa"
     source: "EN 1993-1-1"
     description: "Young's modulus for structural steel per Eurocode 3"
   - label: "Aluminium Alloy (EN 1999-1-1)"
     value: 70
-    unit: "MPa"
+    unit: "GPa"
     source: "EN 1999-1-1"
     description: "Young's modulus for aluminium alloys"
   - label: "Copper Alloy"
     value: 110
-    unit: "MPa"
+    unit: "GPa"
     source: "ASTM E111"
     description: "Young's modulus for copper alloys"
   - label: "Titanium Alloy Ti6Al4V"
     value: 114
-    unit: "MPa"
+    unit: "GPa"
     source: "ASTM E111"
     description: "Young's modulus for Ti6Al4V titanium alloy"
   - label: "Stainless Steel (EN 10088-1)"
     value: 200
-    unit: "MPa"
+    unit: "GPa"
     source: "EN 10088-1"
     description: "Young's modulus for austenitic stainless steel"

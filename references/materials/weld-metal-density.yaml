@@ -1,0 +1,24 @@
+# =============================================================================
+# Reference: Weld Metal Density
+# Standards: AWS A5.1, EN 10025-2
+# =============================================================================
+toolId: "weld-volume-cost-analyzer"
+inputKey: "density"
+standard: "AWS A5.1"
+projectUnitSystem: "GLOBAL"
+references:
+  - label: "Steel filler metal (AWS A5.1)"
+    value: 7850
+    unit: "kg/m3"
+    source: "AWS A5.1"
+    description: "Standard density for steel weld filler metal"
+  - label: "Stainless steel filler (AWS A5.4)"
+    value: 7930
+    unit: "kg/m3"
+    source: "AWS A5.4"
+    description: "Density for stainless steel weld filler metal"
+  - label: "Aluminum filler (AWS A5.3)"
+    value: 2700
+    unit: "kg/m3"
+    source: "AWS A5.3"
+    description: "Density for aluminum weld filler metal"
