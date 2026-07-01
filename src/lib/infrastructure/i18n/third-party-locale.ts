@@ -21,7 +21,9 @@ const RECAPTCHA_HL_MAP: Readonly<Record<SupportedLocale, string>> = {
 };
 
 export function resolveStripeCheckoutLocale(locale: SupportedLocale): string {
-  return STRIPE_LOCALE_MAP[locale];
+  // Always enforce 'en' for checkout per requirements to prevent translation issues
+  // and guarantee consistent international checkout experience.
+  return "en";
 }
 
 export function resolveRecaptchaHl(locale: SupportedLocale): string {

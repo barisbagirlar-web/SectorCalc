@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DynamicFormEngine } from "@/lib/features/dynamic-form-v2/DynamicFormEngine";
 import { adaptPremiumSchema } from "@/lib/features/dynamic-form-v2/premium-schema-adapter";
 import type { PremiumCalculatorSchema, PremiumSchemaEngineResult } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -27,11 +27,14 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
 
   // Track latest input values from DynamicFormEngine's onCompute
   const latestInputs = useRef<Record<string, unknown>>({});
+  const [inputVersion, setInputVersion] = useState(0);
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // DynamicFormEngine fires onCompute after every computation
   const handleDynamicCompute = useCallback(
     (scope: Record<string, unknown>, _uncertainties: Record<string, number>) => {
       latestInputs.current = { ...scope };
+      setInputVersion((v) => v + 1);
     },
     [],
   );
@@ -57,6 +60,18 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
       setRunning(false);
     }
   }, [schema]);
+
+  // Reactive auto-compute on input changes (debounced 400ms)
+  useEffect(() => {
+    if (inputVersion === 0) return;
+    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    debounceTimer.current = setTimeout(() => {
+      handleRunPremium();
+    }, 400);
+    return () => {
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    };
+  }, [inputVersion, handleRunPremium]);
 
   const legalNote = getSchemaLegalNote(locale);
 

@@ -119,13 +119,9 @@ function resolveAppLocale(body: CheckoutRequestBody): string {
 }
 
 function resolveStripeCheckoutLocale(locale: string): Stripe.Checkout.SessionCreateParams.Locale {
-  const map: Record<string, Stripe.Checkout.SessionCreateParams.Locale> = {
-    en: "en",
-    tr: "tr",
-    es: "es",
-    de: "de",
-  };
-  return map[locale] ?? "auto";
+  // Always enforce 'en' for checkout per requirements to prevent translation issues
+  // and guarantee consistent international checkout experience.
+  return "en";
 }
 
 function localizedSitePath(siteUrl: string, locale: string, path: string): string {

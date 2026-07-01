@@ -1,4 +1,5 @@
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { Link } from "@/i18n/routing";
 
 type CreditData = {
   available: number;
@@ -51,9 +52,9 @@ export async function CreditSummary({ userId }: Props) {
         </div>
       </div>
       <div className="mt-6">
-        <a href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+        <Link href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
           Manage Subscription & Credits →
-        </a>
+        </Link>
       </div>
     </section>
   );

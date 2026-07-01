@@ -6,23 +6,6 @@ import { BRAND_ASSETS } from "@/config/brand";
 export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
   return (
     <>
-      {!hideCta && (
-        <section className="footer-cta">
-          <div className="container">
-            <p className="subtitle">
-              Reduce waste, optimize costs, maximize efficiency.
-            </p>
-            <div className="cta-buttons">
-              <Link href="/calculator-library" className="btn btn-primary">
-                Explore Calculators
-              </Link>
-              <Link href="/investor-demo" className="btn btn-secondary">
-                Request Demo
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       <footer className="site-footer">
         <div className="footer-container">

@@ -1,4 +1,5 @@
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { Link } from "@/i18n/routing";
 import { normalizeUserSubscription, hasActiveSubscription, type UserSubscription } from "@/lib/features/billing/subscription";
 
 function formatPeriodEnd(value: string | undefined): string | null {
@@ -59,9 +60,9 @@ export async function SubscriptionCard({ userId }: Props) {
         <p className="text-sm text-gray-500 mb-4">
           Update billing to restore premium calculator access.
         </p>
-        <a href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+        <Link href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
           Update billing →
-        </a>
+        </Link>
       </section>
     );
   }
@@ -83,9 +84,9 @@ export async function SubscriptionCard({ userId }: Props) {
             Active
           </span>
         </div>
-        <a href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+        <Link href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
           Manage plan →
-        </a>
+        </Link>
       </section>
     );
   }
@@ -102,9 +103,9 @@ export async function SubscriptionCard({ userId }: Props) {
           Free
         </span>
       </div>
-      <a href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+      <Link href="/pricing" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
         Upgrade to Pro →
-      </a>
+      </Link>
     </section>
   );
 }

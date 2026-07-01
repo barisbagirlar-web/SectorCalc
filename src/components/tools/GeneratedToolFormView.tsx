@@ -116,7 +116,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           </div>
         ) : null}
 
-        <UniversalDynamicToolForm schema={schema} slug={slug} />
+        <UniversalDynamicToolForm schema={schema} slug={slug} zodSchema={{} as any} onSubmit={() => {}} />
 
         <div className="card" style={{ marginTop: 22 }}>
           <ToolDescription content={aboutContent} isPremium={isPremium} />
