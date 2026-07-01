@@ -25,6 +25,7 @@ export const SMED_CHANGEOVER_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "annualSavings", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Tasarruf > $10K — SMED projesi baslatilmali.", warningMessage_i18n: {"en":"Savings > $10K — SMED project should be initiated."}, criticalMessage: "Tasarruf > $50K — acil SMED uygulamasi gerekiyor.", criticalMessage_i18n: {"en":"Savings > $50K — urgent SMED implementation required."} }],
   formulaPipeline: [
+    { formulaId: "measurement.smed_target_time", inputMap: { internalSetup: "internalSetup", conversionRate: "conversionRate", externalSetup: "externalSetup" }, outputId: "measurement_smed_target_time_out" },
     { formulaId: "measurement.smed_setup_total", inputMap: { internalSetup: "internalSetup", externalSetup: "externalSetup" }, outputId: "totalSetup" },
     { formulaId: "measurement.smed_ebq", inputMap: { annualDemand: "annualDemand", setupCost: "setupCost", holdingCost: "holdingCost" ,
         demand: "demand"}, outputId: "ebq" },

@@ -28,6 +28,7 @@ export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatirim alternatifleri degerlendirilmeli.", warningMessage_i18n: {"en":"ROI < 50% — Investment alternatives should be evaluated."}, criticalMessage: "ROI < %20 — yatirim fizibilitesi zayif.", criticalMessage_i18n: {"en":"ROI < 20% — Investment feasibility is weak."} }],
   formulaPipeline: [
+    { formulaId: "measurement.bottleneck_throughput", inputMap: { demand: "demand", defectRate: "defectRate" }, outputId: "measurement_bottleneck_throughput_out" },
     { formulaId: "measurement.bottleneck_util", inputMap: { actualOutput: "actualOutput", designCapacity: "designCapacity" }, outputId: "utilization" },
     { formulaId: "measurement.bottleneck_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },
     { formulaId: "cost.bottleneck_cost", inputMap: {

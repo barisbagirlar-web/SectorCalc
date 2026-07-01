@@ -30,6 +30,8 @@ export const ABSENTEEISM_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "totalAbsenteeismCost", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Maliyet > $25K — devamsizlik yonetimi programi baslatilmali.", warningMessage_i18n: {"en":"Cost > $25K — absenteeism management program must be initiated."}, criticalMessage: "Maliyet > $75K — acil mudahale gerekiyor.", criticalMessage_i18n: {"en":"Cost > $75K — urgent intervention gerekiyor."} }],
   formulaPipeline: [
+    { formulaId: "cost.absenteeism_temp", inputMap: { tempHours: "tempHours", tempRate: "tempRate", markup: "tempMarkup" }, outputId: "cost_absenteeism_temp_out" },
+    { formulaId: "cost.absenteeism_admin", inputMap: { events: "absentEvents", hrTime: "hrTime", hrRate: "hrRate" }, outputId: "cost_absenteeism_admin_out" },
     { formulaId: "cost.absenteeism_direct", inputMap: {
         absentHours: "absentHours",
         hourlyRate: "hourlyRate",

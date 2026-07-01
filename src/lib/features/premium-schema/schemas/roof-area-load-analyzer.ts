@@ -27,6 +27,7 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
   ],
   thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yuk > 5 kN/m² — tasiyici sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Load > 5 kN/m² — load-bearing system must be checked."}, criticalMessage: "Yuk > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent statik analiz gerekiyor."} }],
   formulaPipeline: [
+    { formulaId: "measurement.roof_material_area", inputMap: { gableArea: "gableArea", wasteFactor: "wasteFactor" }, outputId: "measurement_roof_material_area_out" },
     { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" ,
         buildingLength: "buildingLength",
         buildingWidth: "buildingWidth"}, outputId: "footprint" },
