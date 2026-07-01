@@ -34,6 +34,28 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const ADMIN_EMAIL = "barisbagirlar@gmail.com";
+  const ADMIN_REDIRECT = "/admin/case-studies";
+
+  async function resolveRedirect(fallbackPath: string): Promise<string> {
+    const auth = getFirebaseAuth();
+    const user = auth?.currentUser;
+    if (!user) return fallbackPath;
+
+    if (user.email?.toLowerCase() !== ADMIN_EMAIL) return fallbackPath;
+
+    try {
+      await user.getIdToken(true);
+      const tokenResult = await user.getIdTokenResult();
+      if (tokenResult.claims.admin === true) {
+        return ADMIN_REDIRECT;
+      }
+    } catch {
+      // fallback
+    }
+    return fallbackPath;
+  }
+
   useEffect(() => {
     let active = true;
 
@@ -44,7 +66,8 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
           if (auth?.currentUser) {
             await syncSessionCookie(auth.currentUser);
           }
-          router.replace(nextPath);
+          const target = await resolveRedirect(nextPath);
+          router.replace(target);
         }
       })
       .catch((caught) => {
@@ -69,7 +92,8 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         if (auth?.currentUser) {
           await syncSessionCookie(auth.currentUser);
         }
-        router.replace(nextPath);
+        const target = await resolveRedirect(nextPath);
+        router.replace(target);
         return;
       }
       setPending(true);
@@ -97,7 +121,8 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
       if (auth?.currentUser) {
         await syncSessionCookie(auth.currentUser);
       }
-      router.replace(nextPath);
+      const target = await resolveRedirect(nextPath);
+      router.replace(target);
     } catch (caught) {
       const code = getCustomerSignInErrorCode(caught);
       setError(t(`signInErrors.${code}`) || "Authentication failed. Please check your credentials.");
