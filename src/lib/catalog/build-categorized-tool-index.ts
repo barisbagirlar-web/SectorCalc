@@ -21,8 +21,6 @@ import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 
 /** Premium 152 batch 1 — schema-backed routes with verified trust chain. */
 const PREMIUM_152_ACTIVE_BATCH_SLUGS: ReadonlySet<string> = new Set([
-  "7-israf-muda-avcisi-parasal-karsilik-calculator",
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
   "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
   "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
   "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
