@@ -108,7 +108,7 @@ export function SiteHeader({
         }
         .sc-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:15px 24px;}
         .sc-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
-        .sc-logo-img{height:24px;width:auto;}
+        .sc-logo-img{height:30px;width:auto;}
         .sc-nav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center;}
         .sc-navbtn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text);background:none;border:none;cursor:pointer;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .12s,color .12s;white-space:nowrap;}
         .sc-navbtn:hover,.sc-navbtn.open{background:rgba(15,23,42,0.04);color:var(--accent);}
