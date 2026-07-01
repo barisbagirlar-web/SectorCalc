@@ -51,7 +51,7 @@ export function SectorTaxonomyGrid({
             scroll={false}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "group flex min-h-[148px] flex-col items-center justify-center rounded-xl border bg-white px-3 py-5 text-center transition",
+              "group flex min-h-[110px] flex-col items-center justify-center rounded-xl border bg-white px-3 py-4 text-center transition",
               "shadow-sm hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
               tone.hoverBorder,
               tone.focusRing,
@@ -60,7 +60,7 @@ export function SectorTaxonomyGrid({
           >
             <Icon
               className={cn(
-                "mb-3 h-12 w-12 stroke-[1.5] transition [stroke:currentColor]",
+                "mb-2 h-8 w-8 stroke-[1.5] transition [stroke:currentColor]",
                 tone.icon,
                 tone.iconHover,
                 variant === "premium" && "sc-premium-sector-icon",
