@@ -31,7 +31,8 @@ type PremiumCatalogToolOverride = {
   readonly aliases?: readonly string[];
   readonly keywords?: readonly string[];
 };
-
+const PREMIUM_CATALOG_TOOL_OVERRIDES: Record<string, PremiumCatalogToolOverride> = {
+  "7-muda-waste-cost-analyzer": {
     descriptions: {
       en: "Calculates the monetary cost of the seven Muda waste types.",
       de: "Uberproduktion, Warten, Transport, Bestand, Bewegung, Fehler und Uberbearbeitung bleiben ohne Periodenkosten unsichtbar.",
@@ -50,6 +51,7 @@ type PremiumCatalogToolOverride = {
     aliases: ["7 wastes", "seven muda wastes", "lean muda"],
     keywords: ["lean", "waste", "muda"],
   },
+  "5s-audit-cost-analyzer": {
     descriptions: {
       tr: "5S puaninin parasal karsiligi bilinmez; iyilestirme onceligi verilemez ve kayip gorunmez kalir.",
       en: "5S audit scores are tracked, but the monetary impact of disorganization and search time stays invisible.",

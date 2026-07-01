@@ -36,7 +36,7 @@ export function UniversalDynamicToolForm({
     tier === "auto" ? (schema.premiumRequired === true ? "premium" : "free") : tier;
 
   const resolvedLayout: DynamicToolFormLayout =
-    layout === "standard" ? "standard" : resolvedTier === "free" ? "standard" : "premium";
+    layout === "standard" ? "standard" : resolvedTier === "free" ? "auto" : "premium";
 
   const derivedZodSchema = useMemo(
     () => buildZodSchema(schema.inputs as never, { strict: false, useDefaults: true }),
