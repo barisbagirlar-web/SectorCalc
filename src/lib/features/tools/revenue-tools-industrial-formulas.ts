@@ -75,44 +75,7 @@ function build(config: {
 
 export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
 
-  // ─── 1. IRR (Internal Rate of Return) ──────────────────────────────────
-  build({
-    sector: "cnc-manufacturing",
-    freeSlug: "irr-quick-check",
-    paidSlug: "irr-investment-analyzer",
-    freeTitle: "IRR Quick Check",
-    paidTitle: "IRR Investment Analyzer",
-    painStatement: "Equipment investments can destroy cash flow if the true return rate is not modeled with sign changes.",
-    freeValue: "Estimate preliminary IRR from initial outlay and annual returns.",
-    paidValue: "Full hybrid Newton-Bisection IRR with NPV sensitivity, scenario analysis and investment verdict.",
-    freeInputs: [
-      numberInput("initialInvestment", "Initial investment (negative)", "USD", -10000),
-      numberInput("annualReturn1", "Year 1 return", "USD", 3000),
-      numberInput("annualReturn2", "Year 2 return", "USD", 4000),
-      numberInput("annualReturn3", "Year 3 return", "USD", 5000),
-    ],
-    paidInputs: [
-      numberInput("initialInvestment", "Initial investment (negative)", "USD"),
-      currency("cashFlowYear1", "Cash flow year 1"),
-      currency("cashFlowYear2", "Cash flow year 2"),
-      currency("cashFlowYear3", "Cash flow year 3"),
-      currency("cashFlowYear4", "Cash flow year 4"),
-      currency("cashFlowYear5", "Cash flow year 5"),
-      currency("cashFlowYear6", "Cash flow year 6"),
-      currency("cashFlowYear7", "Cash flow year 7"),
-      currency("cashFlowYear8", "Cash flow year 8"),
-      currency("cashFlowYear9", "Cash flow year 9"),
-      currency("cashFlowYear10", "Cash flow year 10"),
-    ],
-    freeResultPromise: "Shows preliminary IRR estimate. May be unreliable if cash flows have multiple sign changes.",
-    paidResultPromise: "Returns hybrid Newton-Bisection IRR, NPV profile, sensitivity analysis and investment verdict.",
-    verdictLabels: ["REJECT (IRR < WACC)", "NEUTRAL (IRR ≈ WACC)", "ACCEPT (IRR > WACC)"],
-    seoKeywords: ["irr calculator", "internal rate of return", "investment return", "equipment investment"],
-    freeMissingFactors: ["Multiple sign change detection", "Newton-Raphson refinement", "NPV sensitivity profile", "WACC comparison", "Investment verdict"],
-    premiumCtaLabel: "Unlock Full IRR Analyzer",
-    premiumTeaserTitle: "Evaluating a capital investment?",
-    premiumTeaserText: "Unlock the IRR Investment Analyzer for hybrid Newton-Bisection IRR with NPV sensitivity and accept/reject verdict.",
-  }),
+  
 
   // ─── 2. NPV (Net Present Value) ─────────────────────────────────────────
   build({
@@ -832,61 +795,7 @@ export const industrialFormulaTools: readonly AdditionalRevenueTool[] = [
     premiumTeaserText: "Unlock the Belt-Pulley & Gear Ratio Analyzer for slip-corrected speed, power transmission and multi-stage efficiency.",
   }),
 
-  // ─── 18. Hydraulic Cylinder Force ────────────────────────────────────────
-  build({
-    sector: "painting",
-    freeSlug: "hydraulic-cylinder-quick",
-    paidSlug: "hydraulic-cylinder-force-analyzer",
-    freeTitle: "Hydraulic Cylinder Quick Check",
-    paidTitle: "Hydraulic Cylinder Force & Buckling Analyzer",
-    painStatement: "Hydraulic cylinder rod buckling can cause catastrophic failure; Euler buckling with SF≥3.5 is mandatory for long-stroke designs.",
-    freeValue: "Calculate push/pull force from pressure, piston diameter and rod diameter.",
-    paidValue: "Full hydraulic cylinder analysis with push/pull force, speed/flow, hydraulic power, Euler buckling check and safety factor.",
-    freeInputs: [
-      numberInput("systemPressure", "System pressure P", "bar", 200),
-      numberInput("pistonDiameter", "Piston diameter D", "mm", 63),
-      numberInput("rodDiameter", "Rod diameter d", "mm", 36),
-    ],
-    paidInputs: [
-      numberInput("systemPressure", "System pressure P", "bar"),
-      numberInput("pistonDiameter", "Piston diameter D", "mm"),
-      numberInput("rodDiameter", "Rod diameter d", "mm"),
-      numberInput("pumpFlowRate", "Pump flow rate Q", "L/min"),
-      numberInput("cylinderStroke", "Cylinder stroke L", "mm"),
-      {
-        key: "endCondition",
-        label: "End condition",
-        type: "select",
-        required: true,
-        defaultValue: "hinged",
-        options: [
-          { value: "fixed_fixed", label: "Both ends fixed (K=0.5)" },
-          { value: "hinged", label: "Both ends hinged (K=1.0)" },
-          { value: "fixed_free", label: "One fixed, one free (K=2.0)" },
-        ],
-      },
-      {
-        key: "youngModulus",
-        label: "Young's modulus",
-        type: "select",
-        required: true,
-        defaultValue: "steel",
-        options: [
-          { value: "steel", label: "Steel (E=210 GPa)" },
-          { value: "stainless", label: "Stainless (E=193 GPa)" },
-          { value: "aluminum", label: "Aluminum (E=69 GPa)" },
-        ],
-      },
-    ],
-    freeResultPromise: "Shows basic push (extension) and pull (retraction) force estimates.",
-    paidResultPromise: "Returns push force F_push, pull force F_pull, push/pull ratio, extension/retraction speeds, hydraulic power, Euler critical buckling load and safety factor SF.",
-    verdictLabels: ["BUCKLING FAILURE (SF < 3.5)", "MARGINAL (SF 3.5-5.0)", "SAFE DESIGN (SF ≥ 5.0)"],
-    seoKeywords: ["hydraulic cylinder calculator", "cylinder force", "euler buckling", "hydraulic system", "piston force"],
-    freeMissingFactors: ["Pull (rod-side) force", "Flow rate and speed", "Hydraulic power", "Euler buckling check", "Safety factor SF"],
-    premiumCtaLabel: "Unlock Cylinder Analyzer",
-    premiumTeaserTitle: "Designing a hydraulic system?",
-    premiumTeaserText: "Unlock the Hydraulic Cylinder Force & Buckling Analyzer for Euler buckling, speed/power and safety factor SF.",
-  }),
+  
 ];
 
 export default industrialFormulaTools;

@@ -263,7 +263,6 @@ export const PREMIUM_SCHEMA_SLUG_MAP: Readonly<Record<string, string>> = {
   "anova-analyzer": "anova-analyzer",
   "roi-analyzer": "roi-analyzer",
   "belt-pulley-gear-calculator": "belt-pulley-gear-calculator",
-  "hydraulic-cylinder-calculator": "hydraulic-cylinder-calculator",
   // ── Batch 4 (Tools 101-140) ──
   "beam-weight-analyzer": "beam-weight-analyzer",
   "bid-risk-analyzer": "bid-risk-analyzer",
