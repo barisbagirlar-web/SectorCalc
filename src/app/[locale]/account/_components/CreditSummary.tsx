@@ -1,10 +1,37 @@
-import { getUserCredits } from "@/lib/features/credits/credits-manager";
+import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+
+type CreditData = {
+  available: number;
+  totalPurchased: number;
+  usedThisMonth: number;
+};
+
+async function fetchCreditData(userId: string): Promise<CreditData> {
+  const db = getAdminFirestore();
+  if (!db) {
+    return { available: 0, totalPurchased: 0, usedThisMonth: 0 };
+  }
+  try {
+    const creditRef = db.collection("users").doc(userId).collection("credits").doc("balance");
+    const snap = await creditRef.get();
+    if (!snap.exists) {
+      return { available: 0, totalPurchased: 0, usedThisMonth: 0 };
+    }
+    const data = snap.data() ?? {};
+    return {
+      available: typeof data.amount === "number" && Number.isFinite(data.amount) ? Math.floor(data.amount) : 0,
+      totalPurchased: typeof data.totalPurchased === "number" ? Math.floor(data.totalPurchased) : 0,
+      usedThisMonth: typeof data.usedThisMonth === "number" ? Math.floor(data.usedThisMonth) : 0,
+    };
+  } catch {
+    return { available: 0, totalPurchased: 0, usedThisMonth: 0 };
+  }
+}
 
 interface Props { userId: string; }
 
 export async function CreditSummary({ userId }: Props) {
-  const available = await getUserCredits(userId);
-  const credits = { available, totalPurchased: 0, usedThisMonth: 0 }; 
+  const credits = await fetchCreditData(userId);
 
   return (
     <section className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">

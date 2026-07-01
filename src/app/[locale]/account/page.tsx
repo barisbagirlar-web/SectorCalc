@@ -11,8 +11,27 @@ import { getFirebaseAdminApp } from "@/lib/infrastructure/firebase/admin";
 import { CreditSummary } from './_components/CreditSummary';
 import { SubscriptionCard } from './_components/SubscriptionCard';
 import { SupportTicketModal } from './_components/SupportTicketModal';
+import { RecentActivity } from './_components/RecentActivity';
 import { LogoutButton } from './_components/LogoutButton';
 import { OpenSupportButton } from './_components/OpenSupportButton';
+import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { normalizeUserSubscription, hasActiveSubscription } from "@/lib/features/billing/subscription";
+
+async function getAccountType(userId: string): Promise<string> {
+  const db = getAdminFirestore();
+  if (!db) return "Standard User";
+  try {
+    const snap = await db.collection("users").doc(userId).get();
+    if (!snap.exists) return "Standard User";
+    const sub = normalizeUserSubscription((snap.data() ?? {}).subscription);
+    const plan = sub?.plan;
+    if (plan === "pro" || plan === "pro_annual") return "Pro User";
+    if (plan === "team") return "Team User";
+    return "Free User";
+  } catch {
+    return "Standard User";
+  }
+}
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -53,7 +72,13 @@ async function getServerSession() {
 
 export default async function AccountPage({ params }: PageProps) {
   const session = await getServerSession();
-  if (!session) redirect({ href: "/login", locale: "en" });
+  if (!session) {
+    redirect({ href: "/login", locale: "en" });
+    return null;
+  }
+  const s = session;
+
+  const accountType = await getAccountType(s.user.id);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -76,29 +101,24 @@ export default async function AccountPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* LEFT COLUMN: FINANCIALS & ACTIVITY */}
           <div className="lg:col-span-2 space-y-8">
-            <CreditSummary userId={session.user.id} />
-            
-            {/* Placeholder for Recent Activity / Saved Reports */}
-            <section className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h2>
-              <div className="text-sm text-gray-500 italic">No recent calculations found.</div>
-            </section>
+            <CreditSummary userId={s.user.id} />
+            <RecentActivity userId={s.user.id} />
           </div>
 
           {/* RIGHT COLUMN: SUBSCRIPTION & PROFILE */}
           <aside className="space-y-8">
-            <SubscriptionCard userId={session.user.id} />
+            <SubscriptionCard userId={s.user.id} />
             
             <section className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Profile Details</h2>
               <dl className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Email</dt>
-                  <dd className="font-medium text-gray-900">{session.user.email}</dd>
+                  <dd className="font-medium text-gray-900">{s.user.email}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Account Type</dt>
-                  <dd className="font-medium text-gray-900">Standard User</dd>
+                  <dd className="font-medium text-gray-900">{accountType}</dd>
                 </div>
               </dl>
             </section>
@@ -107,7 +127,7 @@ export default async function AccountPage({ params }: PageProps) {
       </div>
 
       {/* SUPPORT MODAL (Hidden by default) */}
-      <SupportTicketModal userId={session.user.id} email={session.user.email} />
+      <SupportTicketModal userId={s.user.id} email={s.user.email} />
     </div>
   );
 }
