@@ -36,7 +36,9 @@ function resolveSchemasDir(): string {
   const candidates = [
     // Local dev / standard
     path.join(process.cwd(), "generated", "schemas"),
-    // Firebase framework-managed function
+    // Firebase SSR function (.next/server is deployed alongside)
+    path.join(process.cwd(), ".next", "server", "generated", "schemas"),
+    // Firebase framework-managed function (standalone)
     path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
   ];
   for (const candidate of candidates) {
@@ -276,9 +278,33 @@ export function getAllTools(_locale = "en"): ToolData[] {
     buildCategorizedToolIndex().map((item) => [item.slug, item] as const),
   );
 
+  // When schema files are not on the filesystem (e.g. Firebase Cloud Function
+  // where generated/schemas/ may not be bundled), build ToolData from the
+  // compile-time categorized index. This always works because free-slugs.json
+  // + premium-slugs.json are imported at build time, not read at runtime.
   if (!fs.existsSync(SCHEMAS_DIR)) {
-    toolsCache.set(locale, []);
-    return [];
+    const fallback: ToolData[] = [...categorized.values()]
+      .map((item) => {
+        const title = item.title?.en ?? humanizeSlug(item.slug);
+        const desc = item.description?.en ?? "";
+        const sectorKey = resolveSchemaCatalogSectorLabel(item.categorySlug, locale);
+        return {
+          slug: item.slug,
+          name: title,
+          category: resolveSchemaCatalogCategoryLabel(item.categorySlug, locale),
+          categoryKey: item.categorySlug,
+          sector: sectorKey,
+          sectorKey,
+          description: desc,
+          premiumRequired: item.tier !== "free",
+          premiumCategorySlug: getPremiumCategorySlugForTool(item.slug),
+          premiumCategory: resolvePremiumCategoryTitle(getPremiumCategorySlugForTool(item.slug), locale),
+          href: item.routePath ?? resolveGeneratedToolPath(item.slug),
+        };
+      })
+      .sort((left, right) => left.name.localeCompare(right.name, "en"));
+    toolsCache.set(locale, fallback);
+    return fallback;
   }
 
   const tools = (fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[])
