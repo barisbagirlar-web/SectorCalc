@@ -133,7 +133,7 @@ export const IRR_INVESTMENT_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "iterations", label: "Solver iterations", unit: "", format: "number" },
   ],
   thresholds: [],
-  formulaPipeline: [{ formulaId: "finance.irr_estimate", inputMap: { initialInvestment: "initialInvestment", cashFlowYear1: "cashFlowYear1" }, outputId: "irr" }],
+  formulaPipeline: [{ formulaId: "finance.irr_estimate", inputMap: { initialInvestment: "initialInvestment", cf1: "cashFlowYear1", cf2: "cashFlowYear2", cf3: "cashFlowYear3", cf4: "cashFlowYear4", cf5: "cashFlowYear5", cf6: "cashFlowYear6", cf7: "cashFlowYear7", cf8: "cashFlowYear8", cf9: "cashFlowYear9", cf10: "cashFlowYear10" }, outputId: "irr" }],
   reportTemplate: { title: "IRR Investment Analysis Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { ...DEFAULT_ASSUMPTIONS, hiddenLossMultiplier: 1, volatilityPercent: 15, targetMarginPercent: 10, assumptionNotes: ["IRR assumes reinvestment at the computed rate (IRR limitation).", "Multiple IRRs may exist if cash flows change sign more than once."] },
 };
@@ -170,7 +170,7 @@ const NPV_RISK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "npvVerdict", label: "Verdict", unit: "", format: "number" },
   ],
   thresholds: [],
-  formulaPipeline: [{ formulaId: "finance.simple_npv", inputMap: { initialInvestment: "initialCost", annualCashFlow: "cashFlowYears1to5", discountRatePercent: "discountRate", horizonYears: "projectLifeYears" }, outputId: "npvBase", formulaFamily: "finance" }],
+  formulaPipeline: [{ formulaId: "finance.simple_npv", inputMap: { initialCost: "initialCost", cashFlowYears1to5: "cashFlowYears1to5", discountRate: "discountRate", projectLifeYears: "projectLifeYears" }, outputId: "npvBase", formulaFamily: "finance" }],
   reportTemplate: { title: "NPV Risk Analysis Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 15, targetMarginPercent: 10, assumptionNotes: ["Three scenario probabilities must sum to ≤100% (remainder = pessimistic).", "Terminal value assumes perpetual growth; ≤0% when r ≤ g."] },
 };
@@ -314,7 +314,11 @@ const LMTD_HEAT_EXCHANGER_SCHEMA: PremiumCalculatorSchema = {
     { id: "exchangerVerdict", label: "Design verdict", unit: "", format: "number" },
   ],
   thresholds: [],
-  formulaPipeline: [{ formulaId: "fluid.heat_exchanger_lmtd", inputMap: { deltaT1: "hotInletTemp", deltaT2: "hotOutletTemp" }, outputId: "lmtdValue" }],
+  formulaPipeline: [
+    { formulaId: "math.subtract", inputMap: { a: "hotInletTemp", b: "coldOutletTemp" }, outputId: "lmtdDeltaT1" },
+    { formulaId: "math.subtract", inputMap: { a: "hotOutletTemp", b: "coldInletTemp" }, outputId: "lmtdDeltaT2" },
+    { formulaId: "fluid.heat_exchanger_lmtd", inputMap: { deltaT1: "lmtdDeltaT1", deltaT2: "lmtdDeltaT2" }, outputId: "lmtdValue" }
+  ],
   reportTemplate: { title: "Heat Exchanger Design Report", sections: ["executive_summary", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Fouling factors are assumed values; use measured values for final design.", "Wall thermal resistance assumes metallic tube wall (k=50 W/mK typical)."] },
 };
@@ -351,7 +355,13 @@ const OEE_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [
     { fieldId: "oeeScore", warning: 60, critical: 85, direction: "higher_is_bad", warningMessage: "OEE below 60% — urgent improvement needed.", criticalMessage: "OEE below 85% World Class target." },
   ],
-  formulaPipeline: [{ formulaId: "oee.oee_score", inputMap: { availability: "plannedProductionTime", performance: "idealCycleTime", quality: "goodUnitsProduced" }, outputId: "oeeScore" }],
+  formulaPipeline: [
+    { formulaId: "math.subtract", inputMap: { a: "plannedProductionTime", b: "downtimeHours" }, outputId: "operatingTime" },
+    { formulaId: "measurement.oee_availability", inputMap: { operatingTime: "operatingTime", plannedProdTime: "plannedProductionTime" }, outputId: "availability" },
+    { formulaId: "measurement.oee_performance", inputMap: { idealCycleTime: "idealCycleTime", totalParts: "totalUnitsProduced", operatingTime: "operatingTime" }, outputId: "performance" },
+    { formulaId: "measurement.oee_quality", inputMap: { goodParts: "goodUnitsProduced", totalParts: "totalUnitsProduced" }, outputId: "quality" },
+    { formulaId: "oee.oee_score", inputMap: { availability: "availability", performance: "performance", quality: "quality" }, outputId: "oeeScore" }
+  ],
   reportTemplate: { title: "OEE & Lean Loss Analysis Report", sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { ...DEFAULT_ASSUMPTIONS, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["OEE = Availability × Performance × Quality.", "World Class OEE = 85% (industry benchmark).", "Six Big Loss categories follow JIPM standard."] },
 };

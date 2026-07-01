@@ -527,10 +527,18 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "yamazumi-workload-balancing-lost-calculator": "QUARANTINE",
 };
 
+const TURKISH_TO_ENGLISH_VERDICT_SLUG: Readonly<Record<string, string>> = {
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": "7-waste-muda-hunter-monetary-provision-calculator",
+  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": "5s-audit-score-loss-productivity-cost-converter-calculator",
+  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": "3d-printing-support-structure-and-post-process-cost-calculator",
+  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": "3d-printing-batch-optimization-and-nesting-calculator",
+  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": "3d-printing-etc-machining-break-even-point-calculator",
+};
+
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
   const normalized = slug.trim().replace(/-premium$/, "");
-  let targetSlug = normalized;
-  if (normalized === "cnc-quote-risk-analyzer") {
+  let targetSlug = TURKISH_TO_ENGLISH_VERDICT_SLUG[normalized] ?? normalized;
+  if (targetSlug === "cnc-quote-risk-analyzer") {
     targetSlug = "cnc-minimum-safe-quote-analyzer";
   }
   return P24_NON_PASS_VERDICTS[targetSlug] ?? "PASS";
