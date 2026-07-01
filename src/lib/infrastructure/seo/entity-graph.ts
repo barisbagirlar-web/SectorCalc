@@ -250,7 +250,7 @@ function buildSearchActionWithSpeakable(): JsonLdRecord {
  *
  * Graph RAG topology enables:
  * - Entity linking ("SectorCalc's CNC calculator is USED_IN Manufacturing Industry")
- * - Relationship traversal ("Who CREATED SectorCalc? Barış Bağırlar")
+ * - Relationship traversal ("Who CREATED SectorCalc? Baris Bagirlar")
  * - Subgraph retrieval ("What calculations does SectorCalc support?")
  */
 export function buildEntityGraph(locale: AppLocale = "en"): JsonLdRecord {

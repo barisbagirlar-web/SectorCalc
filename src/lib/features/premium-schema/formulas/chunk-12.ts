@@ -73,7 +73,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roof_area_load_5",
     family: "cost",
-    label: "ÇATI ALANI — Load_Dead",
+    label: "ROOF AREA — Load_Dead",
     fn: (inputs) => {
     const materialWeight = num(inputs, "materialWeight");
     const totalArea = num(inputs, "totalArea");
@@ -83,7 +83,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roof_area_load_6",
     family: "cost",
-    label: "ÇATI ALANI — Load_Snow",
+    label: "ROOF AREA — Load_Snow",
     fn: (inputs) => {
     const groundSnow = num(inputs, "groundSnow");
     const exposure = num(inputs, "exposure");
@@ -93,11 +93,11 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── DARBOĞAZ YATIRIM (7 formulas) ──,
+  // ── BOTTLENECK INVESTMENT (7 formulas) ──,
   {
     id: "user.bottleneck_investment_0",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — Utilization",
+    label: "BOTTLENECK INVESTMENT — Utilization",
     fn: (inputs) => {
     const actualOutput = num(inputs, "actualOutput");
     const designCapacity = num(inputs, "designCapacity");
@@ -107,7 +107,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bottleneck_investment_1",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — Throughput",
+    label: "BOTTLENECK INVESTMENT — Throughput",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const defectRate = num(inputs, "defectRate");
@@ -117,7 +117,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bottleneck_investment_2",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — TaktTime",
+    label: "BOTTLENECK INVESTMENT — TaktTime",
     fn: (inputs) => {
     const availableTime = num(inputs, "availableTime");
     const demand = num(inputs, "demand");
@@ -127,7 +127,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bottleneck_investment_3",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — CycleTime_Gap",
+    label: "BOTTLENECK INVESTMENT — CycleTime_Gap",
     fn: (inputs) => {
     const bottleneckCycle = num(inputs, "bottleneckCycle");
     const taktTime = num(inputs, "taktTime");
@@ -137,7 +137,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bottleneck_investment_4",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — CostOfConstraint",
+    label: "BOTTLENECK INVESTMENT — CostOfConstraint",
     fn: (inputs) => {
     const cycleTime = num(inputs, "cycleTime");
     const Gap = num(inputs, "Gap");
@@ -150,7 +150,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bottleneck_investment_5",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — ROI",
+    label: "BOTTLENECK INVESTMENT — ROI",
     fn: (inputs) => {
     const throughputIncrease = num(inputs, "throughputIncrease");
     const margin = num(inputs, "margin");
@@ -162,7 +162,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bottleneck_investment_6",
     family: "cost",
-    label: "DARBOĞAZ YATIRIM — Payback",
+    label: "BOTTLENECK INVESTMENT — Payback",
     fn: (inputs) => {
     const upgradeCost = num(inputs, "upgradeCost");
     const monthlyGain = num(inputs, "monthlyGain");
@@ -170,11 +170,11 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── DEĞİŞİM MATRİSİ SMED (8 formulas) ──,
+  // ── CHANGEOVER MATRIX SMED (8 formulas) ──,
   {
     id: "user.smed_changeover_matrix_0",
     family: "cost",
-    label: "DEĞİŞİM MATRİSİ SMED — T_internal",
+    label: "CHANGEOVER MATRIX SMED — T_internal",
     fn: (inputs) => {
     const setupStopped = num(inputs, "setupStopped");
     return nonNegative(assertFinite(setupStopped));
@@ -183,7 +183,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_1",
     family: "cost",
-    label: "DEĞİŞİM MATRİSİ SMED — T_external",
+    label: "CHANGEOVER MATRIX SMED — T_external",
     fn: (inputs) => {
     const setupRunning = num(inputs, "setupRunning");
     return nonNegative(assertFinite(setupRunning));
@@ -192,7 +192,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_2",
     family: "cost",
-    label: "DEĞİŞİM MATRİSİ SMED — T_total",
+    label: "CHANGEOVER MATRIX SMED — T_total",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const internal = num(inputs, "internal");
@@ -205,7 +205,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_3",
     family: "cost",
-    label: "DEĞİŞİM MATRİSİ SMED — T_target",
+    label: "CHANGEOVER MATRIX SMED — T_target",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const internal = num(inputs, "internal");
@@ -219,7 +219,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_4",
     family: "cost",
-    label: "DEĞİŞİM MATRİSİ SMED — EBQ",
+    label: "CHANGEOVER MATRIX SMED — EBQ",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const setupCost = num(inputs, "setupCost");
@@ -231,7 +231,7 @@ export const CHUNK_12_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_matrix_5",
     family: "cost",
-    label: "DEĞİŞİM MATRİSİ SMED — SetupCost",
+    label: "CHANGEOVER MATRIX SMED — SetupCost",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");

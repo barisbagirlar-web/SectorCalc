@@ -73,7 +73,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_2",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — Time_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi — Time_N",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const n = num(inputs, "n");
@@ -85,7 +85,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_3",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — CumulativeTime_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi — CumulativeTime_N",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const n = num(inputs, "n");
@@ -97,7 +97,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_4",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — AverageTime_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi — AverageTime_N",
     fn: (inputs) => {
     const cumulativeTime = num(inputs, "cumulativeTime");
     const n = num(inputs, "n");
@@ -108,7 +108,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_5",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — Cost_N",
+    label: "Ogrenme Egrisi Sure Tahmincisi — Cost_N",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const laborRate = num(inputs, "laborRate");
@@ -119,7 +119,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_6",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — BreakevenUnit",
+    label: "Ogrenme Egrisi Sure Tahmincisi — BreakevenUnit",
     fn: (inputs) => {
     return 0; // BreakevenUnit = N where StandardTime is reached — requires iteration
   },
@@ -127,7 +127,7 @@ export const CHUNK_44_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_7",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — TotalLaborCost",
+    label: "Ogrenme Egrisi Sure Tahmincisi — TotalLaborCost",
     fn: (inputs) => {
     const cumulativeTime = num(inputs, "cumulativeTime");
     const laborRate = num(inputs, "laborRate");

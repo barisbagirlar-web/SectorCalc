@@ -115,11 +115,11 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Kiriş Ağırlığı (8 formulas) ──,
+  // ── Kiris Agirligi (8 formulas) ──,
   {
     id: "user.beam_weight_0",
     family: "cost",
-    label: "Kiriş Ağırlığı — Area_Cross",
+    label: "Kiris Agirligi — Area_Cross",
     fn: (inputs) => {
     const lookupArea = num(inputs, "lookupArea");
     const profileType = num(inputs, "profileType");
@@ -130,7 +130,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_1",
     family: "cost",
-    label: "Kiriş Ağırlığı — Weight_PerMeter",
+    label: "Kiris Agirligi — Weight_PerMeter",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Cross = num(inputs, "Cross");
@@ -144,7 +144,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_2",
     family: "cost",
-    label: "Kiriş Ağırlığı — TotalWeight",
+    label: "Kiris Agirligi — TotalWeight",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const PerMeter = num(inputs, "PerMeter");
@@ -157,7 +157,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_3",
     family: "cost",
-    label: "Kiriş Ağırlığı — Cost_Material",
+    label: "Kiris Agirligi — Cost_Material",
     fn: (inputs) => {
     const totalWeight = num(inputs, "totalWeight");
     const pricePerTon = num(inputs, "pricePerTon");
@@ -167,7 +167,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_4",
     family: "cost",
-    label: "Kiriş Ağırlığı — PaintArea",
+    label: "Kiris Agirligi — PaintArea",
     fn: (inputs) => {
     const perimeter = num(inputs, "perimeter");
     const length = num(inputs, "length");
@@ -177,7 +177,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_5",
     family: "cost",
-    label: "Kiriş Ağırlığı — FireproofingArea",
+    label: "Kiris Agirligi — FireproofingArea",
     fn: (inputs) => {
     const paintArea = num(inputs, "paintArea");
     return nonNegative(assertFinite(paintArea));
@@ -186,7 +186,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_6",
     family: "cost",
-    label: "Kiriş Ağırlığı — Deflection_Max",
+    label: "Kiris Agirligi — Deflection_Max",
     fn: (inputs) => {
     const w = num(inputs, "w");
     const l = num(inputs, "l");
@@ -198,7 +198,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.beam_weight_7",
     family: "cost",
-    label: "Kiriş Ağırlığı — Moment_Max",
+    label: "Kiris Agirligi — Moment_Max",
     fn: (inputs) => {
     const w = num(inputs, "w");
     const l = num(inputs, "l");
@@ -206,11 +206,11 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Kompresör Kaçağı Maliyet (7 formulas) ──,
+  // ── Kompresor Kacagi Maliyet (7 formulas) ──,
   {
     id: "user.compressed_air_leak_0",
     family: "cost",
-    label: "Kompresör Kaçağı Maliyet — LeakFlow_CFM",
+    label: "Kompresor Kacagi Maliyet — LeakFlow_CFM",
     fn: (inputs) => {
     const d = num(inputs, "d");
     const p = num(inputs, "p");
@@ -226,7 +226,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_1",
     family: "cost",
-    label: "Kompresör Kaçağı Maliyet — Power_Loss_kW",
+    label: "Kompresor Kacagi Maliyet — Power_Loss_kW",
     fn: (inputs) => {
     const leakFlow = num(inputs, "leakFlow");
     const p = num(inputs, "p");
@@ -242,7 +242,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_2",
     family: "cost",
-    label: "Kompresör Kaçağı Maliyet — AnnualEnergyLoss",
+    label: "Kompresor Kacagi Maliyet — AnnualEnergyLoss",
     fn: (inputs) => {
     const power = num(inputs, "power");
     const Loss = num(inputs, "Loss");
@@ -255,7 +255,7 @@ export const CHUNK_33_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_leak_3",
     family: "cost",
-    label: "Kompresör Kaçağı Maliyet — Cost_Leak",
+    label: "Kompresor Kacagi Maliyet — Cost_Leak",
     fn: (inputs) => {
     const annualEnergyLoss = num(inputs, "annualEnergyLoss");
     const electricityRate = num(inputs, "electricityRate");

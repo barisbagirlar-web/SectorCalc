@@ -36,7 +36,7 @@ const validSchema = {
     t_design: "t_min + 3",
   },
   outputs: { primary: "t_design", breakdown: { t_min: "t min", t_design: "t design" } },
-  category: "Üretim & İmalat",
+  category: "Uretim & Imalat",
   sector: "Makine & Metal",
 };
 

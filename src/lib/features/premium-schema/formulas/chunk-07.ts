@@ -105,11 +105,11 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── CHATTER YÜZEY KALİTE (6 formulas) ──,
+  // ── CHATTER SURFACE QUALITY (6 formulas) ──,
   {
     id: "user.chatter_surface_quality_0",
     family: "cost",
-    label: "CHATTER YÜZEY KALİTE — V_c",
+    label: "CHATTER SURFACE QUALITY — V_c",
     fn: (inputs) => {
     const d = num(inputs, "d");
     const n = num(inputs, "n");
@@ -119,7 +119,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_1",
     family: "cost",
-    label: "CHATTER YÜZEY KALİTE — f_z",
+    label: "CHATTER SURFACE QUALITY — f_z",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const f = num(inputs, "f");
@@ -132,7 +132,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_2",
     family: "cost",
-    label: "CHATTER YÜZEY KALİTE — SurfaceRoughness_Theo",
+    label: "CHATTER SURFACE QUALITY — SurfaceRoughness_Theo",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const z = num(inputs, "z");
@@ -146,7 +146,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_3",
     family: "cost",
-    label: "CHATTER YÜZEY KALİTE — SurfaceRoughness_Actual",
+    label: "CHATTER SURFACE QUALITY — SurfaceRoughness_Actual",
     fn: (inputs) => {
     const theo = num(inputs, "theo");
     const chatterAmplification = num(inputs, "chatterAmplification");
@@ -156,7 +156,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_4",
     family: "cost",
-    label: "CHATTER YÜZEY KALİTE — QualityLossCost",
+    label: "CHATTER SURFACE QUALITY — QualityLossCost",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const toleranceLimit = num(inputs, "toleranceLimit");
@@ -167,7 +167,7 @@ export const CHUNK_07_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.chatter_surface_quality_5",
     family: "cost",
-    label: "CHATTER YÜZEY KALİTE — ScrapRate",
+    label: "CHATTER SURFACE QUALITY — ScrapRate",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const maxTolerance = num(inputs, "maxTolerance");

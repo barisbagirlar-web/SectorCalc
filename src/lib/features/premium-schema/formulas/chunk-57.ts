@@ -73,7 +73,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_1",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — PartMargin",
+    label: "Tamirhane Parca ve Iscilik Teklif — PartMargin",
     fn: (inputs) => {
     const partCost = num(inputs, "partCost");
     const partMarkupPct = num(inputs, "partMarkupPct");
@@ -83,7 +83,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_2",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — LaborCost",
+    label: "Tamirhane Parca ve Iscilik Teklif — LaborCost",
     fn: (inputs) => {
     const flatRateHours = num(inputs, "flatRateHours");
     const shopHourlyRate = num(inputs, "shopHourlyRate");
@@ -93,7 +93,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_3",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — SubletCost",
+    label: "Tamirhane Parca ve Iscilik Teklif — SubletCost",
     fn: (inputs) => {
     const subletInvoices = num(inputs, "subletInvoices");
     return nonNegative(assertFinite(SUM(subletInvoices)));
@@ -102,7 +102,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_4",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — TotalQuote",
+    label: "Tamirhane Parca ve Iscilik Teklif — TotalQuote",
     fn: (inputs) => {
     const partCost = num(inputs, "partCost");
     const partMargin = num(inputs, "partMargin");
@@ -116,7 +116,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_5",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — EffectiveLaborRate",
+    label: "Tamirhane Parca ve Iscilik Teklif — EffectiveLaborRate",
     fn: (inputs) => {
     const laborCost = num(inputs, "laborCost");
     const partMargin = num(inputs, "partMargin");
@@ -127,7 +127,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.repair_shop_quote_6",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — GrossProfitPct",
+    label: "Tamirhane Parca ve Iscilik Teklif — GrossProfitPct",
     fn: (inputs) => {
     const totalQuote = num(inputs, "totalQuote");
     const partCost = num(inputs, "partCost");
@@ -136,11 +136,11 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Taşeron Marj Sızıntı Dedektörü (6 formulas) ──,
+  // ── Taseron Marj Sizinti Dedektoru (6 formulas) ──,
   {
     id: "user.subcontractor_margin_leak_0",
     family: "cost",
-    label: "Taşeron Marj Sızıntı Dedektörü — QuotedMargin",
+    label: "Taseron Marj Sizinti Dedektoru — QuotedMargin",
     fn: (inputs) => {
     const contractValue = num(inputs, "contractValue");
     const estimatedSubcontractorCost = num(inputs, "estimatedSubcontractorCost");
@@ -150,7 +150,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.subcontractor_margin_leak_1",
     family: "cost",
-    label: "Taşeron Marj Sızıntı Dedektörü — ActualMargin",
+    label: "Taseron Marj Sizinti Dedektoru — ActualMargin",
     fn: (inputs) => {
     const contractValue = num(inputs, "contractValue");
     const actualSubcontractorCost = num(inputs, "actualSubcontractorCost");
@@ -162,7 +162,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.subcontractor_margin_leak_2",
     family: "cost",
-    label: "Taşeron Marj Sızıntı Dedektörü — MarginLeak",
+    label: "Taseron Marj Sizinti Dedektoru — MarginLeak",
     fn: (inputs) => {
     const quotedMargin = num(inputs, "quotedMargin");
     const actualMargin = num(inputs, "actualMargin");
@@ -172,7 +172,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.subcontractor_margin_leak_3",
     family: "cost",
-    label: "Taşeron Marj Sızıntı Dedektörü — ChangeOrderCost",
+    label: "Taseron Marj Sizinti Dedektoru — ChangeOrderCost",
     fn: (inputs) => {
     const changeOrderAmount = num(inputs, "changeOrderAmount");
     const i = num(inputs, "i");
@@ -183,7 +183,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.subcontractor_margin_leak_4",
     family: "cost",
-    label: "Taşeron Marj Sızıntı Dedektörü — UnbilledWork",
+    label: "Taseron Marj Sizinti Dedektoru — UnbilledWork",
     fn: (inputs) => {
     const actualWorkCompleted = num(inputs, "actualWorkCompleted");
     const billedAmount = num(inputs, "billedAmount");
@@ -193,7 +193,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.subcontractor_margin_leak_5",
     family: "cost",
-    label: "Taşeron Marj Sızıntı Dedektörü — LeakagePct",
+    label: "Taseron Marj Sizinti Dedektoru — LeakagePct",
     fn: (inputs) => {
     const marginLeak = num(inputs, "marginLeak");
     const quotedMargin = num(inputs, "quotedMargin");
@@ -201,11 +201,11 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Taşıma Mode Maliyet risk (7 formulas) ──,
+  // ── Tasima Mode Maliyet risk (7 formulas) ──,
   {
     id: "user.transport_mode_risk_0",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — Cost_Air",
+    label: "Tasima Mode Maliyet risk — Cost_Air",
     fn: (inputs) => {
     const weight = num(inputs, "weight");
     const airRate = num(inputs, "airRate");
@@ -216,7 +216,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transport_mode_risk_1",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — Cost_Sea",
+    label: "Tasima Mode Maliyet risk — Cost_Sea",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const seaRate = num(inputs, "seaRate");
@@ -228,7 +228,7 @@ export const CHUNK_57_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transport_mode_risk_2",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — Cost_Road",
+    label: "Tasima Mode Maliyet risk — Cost_Road",
     fn: (inputs) => {
     const distance = num(inputs, "distance");
     const roadRate = num(inputs, "roadRate");

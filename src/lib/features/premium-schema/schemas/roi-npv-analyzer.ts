@@ -8,18 +8,18 @@ export const ROI_NPV_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "When investment decisions don't jointly evaluate ROI, NPV, IRR, and payback period, incomplete analysis leads to wrong decisions. Each metric reveals a different risk dimension.", painStatement_i18n: {"en":"When investment decisions don't jointly evaluate ROI, NPV, IRR, and payback period, incomplete analysis leads to wrong decisions. Each metric reveals a different risk dimension."},
   inputs: [
     { id: "initialInvestment", label: "Initial Investment", label_i18n: {"en":"Initial Investment"}, type: "number", unit: "USD", required: true, smartDefault: 100000, validation: { min: 1 }, helper: "", expertMeaning: "Initial capital investment", expertMeaning_i18n: {"en":"Initial capital investment"} },
-    { id: "annualCashflow", label: "Annual Cash Flow", label_i18n: {"en":"Annual Cash Flow"}, type: "number", unit: "USD/yıl", required: true, smartDefault: 30000, validation: { min: 1 }, helper: "", expertMeaning: "Annual net cash flow", expertMeaning_i18n: {"en":"Annual Net cash flow"} },
-    { id: "projectLifeYears", label: "Proje Ömrü", label_i18n: {"en":"Project Life"}, type: "number", unit: "yıl", required: true, smartDefault: 5, validation: { min: 1, max: 50 }, helper: "", expertMeaning: "Project life in years", expertMeaning_i18n: {"en":"Project life in years"} },
+    { id: "annualCashflow", label: "Annual Cash Flow", label_i18n: {"en":"Annual Cash Flow"}, type: "number", unit: "USD/yil", required: true, smartDefault: 30000, validation: { min: 1 }, helper: "", expertMeaning: "Annual net cash flow", expertMeaning_i18n: {"en":"Annual Net cash flow"} },
+    { id: "projectLifeYears", label: "Proje Omru", label_i18n: {"en":"Project Life"}, type: "number", unit: "yil", required: true, smartDefault: 5, validation: { min: 1, max: 50 }, helper: "", expertMeaning: "Project life in years", expertMeaning_i18n: {"en":"Project life in years"} },
     { id: "discountRate", label: "Discount Rate", label_i18n: {"en":"Discount Rate"}, type: "number", unit: "%", required: true, smartDefault: 10, validation: { min: 0.1, max: 50 }, helper: "", expertMeaning: "Discount rate for NPV", expertMeaning_i18n: {"en":"Discount rate for NPV"} },
-    { id: "operatingCostAnnual", label: "Annual Operating Cost", label_i18n: {"en":"Annual Operating Cost"}, type: "number", unit: "USD/yıl", required: false, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Annual operating costs", expertMeaning_i18n: {"en":"Annual operating costs"} },
+    { id: "operatingCostAnnual", label: "Annual Operating Cost", label_i18n: {"en":"Annual Operating Cost"}, type: "number", unit: "USD/yil", required: false, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Annual operating costs", expertMeaning_i18n: {"en":"Annual operating costs"} },
     { id: "residualValue", label: "Salvage / Residual Value", label_i18n: {"en":"Salvage / Residual Value"}, type: "number", unit: "USD", required: false, smartDefault: 10000, validation: { min: 0 }, helper: "", expertMeaning: "Salvage value at end of life", expertMeaning_i18n: {"en":"Salvage value at end of life"} },
-    { id: "revenueAnnual", label: "Annual Revenue", label_i18n: {"en":"Annual Revenue"}, type: "number", unit: "USD/yıl", required: false, smartDefault: 45000, validation: { min: 0 }, helper: "", expertMeaning: "Annual revenue from investment", expertMeaning_i18n: {"en":"Annual revenue from investment"} },
+    { id: "revenueAnnual", label: "Annual Revenue", label_i18n: {"en":"Annual Revenue"}, type: "number", unit: "USD/yil", required: false, smartDefault: 45000, validation: { min: 0 }, helper: "", expertMeaning: "Annual revenue from investment", expertMeaning_i18n: {"en":"Annual revenue from investment"} },
   ],
   outputs: [
     { id: "roiInvestment", label: "Return on Investment (ROI)", label_i18n: {"en":"Return pre Investment (ROI)"}, unit: "%", format: "percentage" },
     { id: "npvInvestment", label: "Net Present Value (NPV)", label_i18n: {"en":"Net Present Value (NPV)"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "irrInvestment", label: "Internal Rate of Return (IRR)", label_i18n: {"en":"Internal Rate of Return (IRR)"}, unit: "%", format: "percentage" },
-    { id: "paybackPeriodInv", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "yıl", format: "number" },
+    { id: "paybackPeriodInv", label: "Geri Odeme Suresi", label_i18n: {"en":"Payback Period"}, unit: "yil", format: "number" },
     { id: "profitabilityIndex", label: "Profitability Index (PI)", label_i18n: {"en":"Profitability Index (PI)"}, unit: "puan", format: "number" },
   ],
   thresholds: [

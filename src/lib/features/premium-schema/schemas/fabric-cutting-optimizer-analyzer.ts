@@ -21,7 +21,7 @@ export const FABRIC_CUTTING_SCHEMA: PremiumCalculatorSchema = {
     { id: "utilGain", label: "Verim Iyilestirme Kazanc", label_i18n: {"en":"Efficiency improvement Gain"}, unit: "USD", format: "currency" },
     { id: "totalYardage", label: "Toplam Pastal Boyu", label_i18n: {"en":"Total Pastal Boyu"}, unit: "m", format: "number" },
   ],
-  thresholds: [{ fieldId: "cutEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — pastal optimizasyonu önerilir.", warningMessage_i18n: {"en":"Efficiency < 80% — marker optimization recommended."}, criticalMessage: "Verim < %70 — acil iyileştirme gerekli.", criticalMessage_i18n: {"en":"Efficiency < %70 — urgent improvement gerekli."} }],
+  thresholds: [{ fieldId: "cutEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — pastal optimizasyonu onerilir.", warningMessage_i18n: {"en":"Efficiency < 80% — marker optimization recommended."}, criticalMessage: "Verim < %70 — acil iyilestirme gerekli.", criticalMessage_i18n: {"en":"Efficiency < %70 — urgent improvement gerekli."} }],
   formulaPipeline: [
     { formulaId: "measurement.fabric_marker_eff", inputMap: {
         netArea: "patternAreas",
@@ -51,5 +51,5 @@ export const FABRIC_CUTTING_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "totalYardage" },
   ],
   reportTemplate: { title: "Fabric Cutting Optimization Report", title_i18n: {"en":"Fabric Cutting Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Verim = Toplam Parça Alanı / (Pastal × En).", "Gerekli kumaş = Alan / Verim × (1+Fire).", "İyileştirme = (Yeni - Eski) × Kumaş × Fiyat."],assumptionNotes_i18n:[{"en":"Yield = Total Part Area / (Marker × Width)."},{"en":"Required Fabric = Area / Yield × (1+Waste)."},{"en":"Improvement = (New - Old) × Fabric × Price."}] },
+  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Verim = Toplam Parca Alani / (Pastal × En).", "Gerekli kumas = Alan / Verim × (1+Fire).", "Iyilestirme = (Yeni - Eski) × Kumas × Fiyat."],assumptionNotes_i18n:[{"en":"Yield = Total Part Area / (Marker × Width)."},{"en":"Required Fabric = Area / Yield × (1+Waste)."},{"en":"Improvement = (New - Old) × Fabric × Price."}] },
 };

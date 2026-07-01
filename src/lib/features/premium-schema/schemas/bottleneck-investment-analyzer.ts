@@ -1,32 +1,32 @@
 /**
- * Tool #27 — Darboğaz Yatırım ROI
+ * Tool #27 — Darbogaz Yatirim ROI
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
   id: "bottleneck-investment-analyzer", legacyPaidSlug: "bottleneck-investment-analyzer",
   name: "Bottleneck Investment ROI Analysis", name_i18n: {"en":"Bottleneck Investment ROI Analysis"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Darboğazı tespit etmeden yapılan kapasite yatırımları beklenen getiriyi sağlamaz. Bu araç kısıt teorisi (TOC) ile yatırım ROI'sini hesaplar.", painStatement_i18n: {"en":"Capacity investments made without detecting the bottleneck do not deliver Expected return. This tool calculates Investment ROI using Constraint theory (TOC)."},
+  painStatement: "Darbogazi tespit etmeden yapilan kapasite yatirimlari beklenen getiriyi saglamaz. Bu arac kisit teorisi (TOC) ile yatirim ROI'sini hesaplar.", painStatement_i18n: {"en":"Capacity investments made without detecting the bottleneck do not deliver Expected return. This tool calculates Investment ROI using Constraint theory (TOC)."},
   inputs: [
-    { id: "designCapacity", label: "Design Capacity", label_i18n: {"en":"Design Capacity"}, type: "number", unit: "birim/gün", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Design capacity", expertMeaning_i18n: {"en":"Design capacity"} },
-    { id: "actualOutput", label: "Actual Output", label_i18n: {"en":"Actual Output"}, type: "number", unit: "birim/gün", required: true, smartDefault: 350, validation: { min: 0 }, helper: "", expertMeaning: "Actual daily output", expertMeaning_i18n: {"en":"Actual daily output"} },
-    { id: "demand", label: "Günlük Talep", label_i18n: {"en":"Daily Demand"}, type: "number", unit: "birim/gün", required: true, smartDefault: 450, validation: { min: 1 }, helper: "", expertMeaning: "Daily customer demand", expertMeaning_i18n: {"en":"Daily customer demand"} },
+    { id: "designCapacity", label: "Design Capacity", label_i18n: {"en":"Design Capacity"}, type: "number", unit: "birim/gun", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Design capacity", expertMeaning_i18n: {"en":"Design capacity"} },
+    { id: "actualOutput", label: "Actual Output", label_i18n: {"en":"Actual Output"}, type: "number", unit: "birim/gun", required: true, smartDefault: 350, validation: { min: 0 }, helper: "", expertMeaning: "Actual daily output", expertMeaning_i18n: {"en":"Actual daily output"} },
+    { id: "demand", label: "Gunluk Talep", label_i18n: {"en":"Daily Demand"}, type: "number", unit: "birim/gun", required: true, smartDefault: 450, validation: { min: 1 }, helper: "", expertMeaning: "Daily customer demand", expertMeaning_i18n: {"en":"Daily customer demand"} },
     { id: "defectRate", label: "Defect Rate", label_i18n: {"en":"Defect Rate"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Defect rate", expertMeaning_i18n: {"en":"Defect rate"} },
-    { id: "availableTime", label: "Mevcut Süre", label_i18n: {"en":"Available Time"}, type: "number", unit: "sn/gün", required: true, smartDefault: 28800, validation: { min: 1 }, helper: "", expertMeaning: "Available seconds per day", expertMeaning_i18n: {"en":"Available seconds per day"} },
+    { id: "availableTime", label: "Mevcut Sure", label_i18n: {"en":"Available Time"}, type: "number", unit: "sn/gun", required: true, smartDefault: 28800, validation: { min: 1 }, helper: "", expertMeaning: "Available seconds per day", expertMeaning_i18n: {"en":"Available seconds per day"} },
     { id: "cycleTimeGap", label: "Bottleneck Time Gap", label_i18n: {"en":"Bottleneck Time Gap"}, type: "number", unit: "sn", required: true, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Bottleneck cycle - takt time", expertMeaning_i18n: {"en":"Bottleneck cycle - Takt time"} },
     { id: "unitMargin", label: "Unit Profit Margin", label_i18n: {"en":"Unit Profit Margin"}, type: "number", unit: "USD", required: true, smartDefault: 3, validation: { min: 0 }, helper: "", expertMeaning: "Contribution margin per unit", expertMeaning_i18n: {"en":"Contribution margin per unit"} },
-    { id: "throughputIncrease", label: "Expected Throughput Increase", label_i18n: {"en":"Expected Throughput Increase"}, type: "number", unit: "birim/gün", required: false, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Expected throughput increase", expertMeaning_i18n: {"en":"Expected throughput increase"} },
+    { id: "throughputIncrease", label: "Expected Throughput Increase", label_i18n: {"en":"Expected Throughput Increase"}, type: "number", unit: "birim/gun", required: false, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Expected throughput increase", expertMeaning_i18n: {"en":"Expected throughput increase"} },
     { id: "upgradeCost", label: "Investment Cost (Capex)", label_i18n: {"en":"Investment Cost (Capex)"}, type: "number", unit: "USD", required: true, smartDefault: 150000, validation: { min: 1 }, helper: "", expertMeaning: "Upgrade investment", expertMeaning_i18n: {"en":"Upgrade investment"} },
-    { id: "operatingDays", label: "Annual Operating Days", label_i18n: {"en":"Annual Operating Days"}, type: "number", unit: "gün", required: false, smartDefault: 250, validation: { min: 1 }, helper: "", expertMeaning: "Annual operating days", expertMeaning_i18n: {"en":"Annual operating days"} },
+    { id: "operatingDays", label: "Annual Operating Days", label_i18n: {"en":"Annual Operating Days"}, type: "number", unit: "gun", required: false, smartDefault: 250, validation: { min: 1 }, helper: "", expertMeaning: "Annual operating days", expertMeaning_i18n: {"en":"Annual operating days"} },
     { id: "monthlyGain", label: "Monthly Profit Increase", label_i18n: {"en":"Monthly Profit Increase"}, type: "number", unit: "USD", required: false, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Expected monthly profit increase", expertMeaning_i18n: {"en":"Expected monthly profit increase"} },
   ],
   outputs: [
     { id: "utilization", label: "Capacity Utilization", label_i18n: {"en":"Capacity Utilization"}, unit: "%", format: "percentage" },
-    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Time"}, unit: "sn", format: "number" },
-    { id: "constraintCost", label: "Constraint Cost (Daily)", label_i18n: {"en":"Constraint Cost (Daily)"}, unit: "USD/gün", format: "currency" },
+    { id: "taktTime", label: "Takt Suresi", label_i18n: {"en":"Takt Time"}, unit: "sn", format: "number" },
+    { id: "constraintCost", label: "Constraint Cost (Daily)", label_i18n: {"en":"Constraint Cost (Daily)"}, unit: "USD/gun", format: "currency" },
     { id: "roi", label: "Yatrm ROI", label_i18n: {"en":"Yatrm ROI"}, unit: "%", format: "percentage" },
-    { id: "paybackMonths", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "ay", format: "number", isBigNumber: true },
+    { id: "paybackMonths", label: "Geri Odeme Suresi", label_i18n: {"en":"Payback Period"}, unit: "ay", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım alternatifleri değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < 50% — Investment alternatives should be evaluated."}, criticalMessage: "ROI < %20 — yatırım fizibilitesi zayıf.", criticalMessage_i18n: {"en":"ROI < 20% — Investment feasibility is weak."} }],
+  thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatirim alternatifleri degerlendirilmeli.", warningMessage_i18n: {"en":"ROI < 50% — Investment alternatives should be evaluated."}, criticalMessage: "ROI < %20 — yatirim fizibilitesi zayif.", criticalMessage_i18n: {"en":"ROI < 20% — Investment feasibility is weak."} }],
   formulaPipeline: [
     { formulaId: "measurement.bottleneck_util", inputMap: { actualOutput: "actualOutput", designCapacity: "designCapacity" }, outputId: "utilization" },
     { formulaId: "measurement.bottleneck_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },

@@ -6,7 +6,7 @@ import { getPremiumTools } from "@/lib/features/tools/all-tools-data";
 import { buildTaxonomySectorCards } from "@/lib/features/tools/build-taxonomy-sector-cards";
 
 describe("premium-tools sector taxonomy", () => {
-  it("loads premium catalog tools with a bounded Diğer bucket", () => {
+  it("loads premium catalog tools with a bounded Diger bucket", () => {
     const tools = getPremiumTools("tr");
     const cards = buildTaxonomySectorCards(tools, "tr").filter((card) => card.count > 0);
     const otherCount = cards.find((card) => card.sector.id === "diger")?.count ?? 0;

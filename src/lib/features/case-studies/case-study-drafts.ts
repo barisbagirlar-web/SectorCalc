@@ -199,7 +199,7 @@ export function formValuesToDraft(values: CaseStudyFormValues): CaseStudyDraftRe
     readTime: Number.parseInt(values.readTime, 10) || 4,
     updatedAt: new Date().toISOString(),
     author: {
-      name: "Barış Bağırlar",
+      name: "Baris Bagirlar",
       linkedin: "https://www.linkedin.com/in/barisbagirlar/",
     },
     technicalReview: {

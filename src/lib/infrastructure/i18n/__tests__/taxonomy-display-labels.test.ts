@@ -40,10 +40,10 @@ describe("taxonomy-display-labels", () => {
   });
 
   it("localizes known professions", () => {
-    expect(resolveTaxonomyProfessionDisplayLabel("Üretim Mühendisi", "de")).toBe(
+    expect(resolveTaxonomyProfessionDisplayLabel("Uretim Muhendisi", "de")).toBe(
       "Produktionsingenieur",
     );
-    expect(resolveTaxonomyProfessionDisplayLabel("Üretim Mühendisi", "ar")).toContain("مهندس");
+    expect(resolveTaxonomyProfessionDisplayLabel("Uretim Muhendisi", "ar")).toContain("مهندس");
   });
 });
 
@@ -52,7 +52,7 @@ describe("buildTaxonomySectorCards locale labels", () => {
     const cards = buildTaxonomySectorCards([{ sectorKey: "makine" }], "de");
     const makine = cards.find((card) => card.sector.id === "makine");
     expect(makine?.label).toBe(resolveTaxonomySectorLabel("de", "makine", "", ""));
-    expect(makine?.label).not.toBe("Makine & Üretim");
+    expect(makine?.label).not.toBe("Makine & Uretim");
   });
 
   it("includes localized profession labels", () => {

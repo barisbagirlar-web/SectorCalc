@@ -152,11 +152,11 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Saatlik Ücret (7 formulas) ──,
+  // ── Saatlik Ucret (7 formulas) ──,
   {
     id: "user.hourly_rate_0",
     family: "cost",
-    label: "Saatlik Ücret — GrossAnnualSalary",
+    label: "Saatlik Ucret — GrossAnnualSalary",
     fn: (inputs) => {
     const baseSalary = num(inputs, "baseSalary");
     const bonuses = num(inputs, "bonuses");
@@ -166,7 +166,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_1",
     family: "cost",
-    label: "Saatlik Ücret — EmployerTaxes",
+    label: "Saatlik Ucret — EmployerTaxes",
     fn: (inputs) => {
     const grossAnnualSalary = num(inputs, "grossAnnualSalary");
     const taxRate = num(inputs, "taxRate");
@@ -176,7 +176,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_2",
     family: "cost",
-    label: "Saatlik Ücret — Benefits",
+    label: "Saatlik Ucret — Benefits",
     fn: (inputs) => {
     const healthInsurance = num(inputs, "healthInsurance");
     const retirementMatch = num(inputs, "retirementMatch");
@@ -187,7 +187,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_3",
     family: "cost",
-    label: "Saatlik Ücret — TotalLaborCost",
+    label: "Saatlik Ucret — TotalLaborCost",
     fn: (inputs) => {
     const grossAnnualSalary = num(inputs, "grossAnnualSalary");
     const employerTaxes = num(inputs, "employerTaxes");
@@ -198,7 +198,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_4",
     family: "cost",
-    label: "Saatlik Ücret — ProductiveHours",
+    label: "Saatlik Ucret — ProductiveHours",
     fn: (inputs) => {
     const weeksPerYear = num(inputs, "weeksPerYear");
     const vacationWeeks = num(inputs, "vacationWeeks");
@@ -210,7 +210,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_5",
     family: "cost",
-    label: "Saatlik Ücret — FullyBurdenedHourlyRate",
+    label: "Saatlik Ucret — FullyBurdenedHourlyRate",
     fn: (inputs) => {
     const totalLaborCost = num(inputs, "totalLaborCost");
     const productiveHours = num(inputs, "productiveHours");
@@ -220,7 +220,7 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hourly_rate_6",
     family: "cost",
-    label: "Saatlik Ücret — MarginRate",
+    label: "Saatlik Ucret — MarginRate",
     fn: (inputs) => {
     const fullyBurdenedHourlyRate = num(inputs, "fullyBurdenedHourlyRate");
     const targetMargin = num(inputs, "targetMargin");
@@ -228,5 +228,5 @@ export const CHUNK_50_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── SMED Değişim Optimize Edici (7 formulas) ──
+  // ── SMED Degisim Optimize Edici (7 formulas) ──
 ];

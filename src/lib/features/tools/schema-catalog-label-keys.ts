@@ -4,9 +4,9 @@ const LEGACY_SCHEMA_CATEGORY_KEYS: Readonly<Record<string, string>> = {
   "Finans & Kredi": "finans-kredi",
   "Malzeme, Fire & OEE": "malzeme-fire-oee",
   "Measurement & Conversion": "olcum-donusum",
-  "Teknik & Mühendislik": "teknik-muhendislik",
+  "Teknik & Engineerlik": "teknik-muhendislik",
   "Maliyet & Marj": "maliyet-marj",
-  Diğer: "diger",
+  Diger: "diger",
   "Enerji & Karbon": "enerji-karbon",
   "Construction & Field": "insaat-saha",
   "Retail & Food": "perakende-gida",
@@ -27,16 +27,16 @@ const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
   // Legacy multi-word classifications
   "Finance & HR": "finans-ik",
   "Manufacturing & Production": "uretim-imalat",
-  "Teknik & Mühendislik": "teknik-muhendislik",
-  Diğer: "diger",
+  "Teknik & Engineerlik": "teknik-muhendislik",
+  Diger: "diger",
   "Retail & Food": "perakende-gida",
   "Enerji & Karbon": "enerji-karbon",
   "Construction & Field": "insaat-saha",
   "Lojistik & Sevkiyat": "lojistik-sevkiyat",
-  "Atölye & Tamir": "atolye-tamir",
+  "Atolye & Tamir": "atolye-tamir",
   "Finans & Kredi": "finans-kredi",
   "OHS & Risk": "isg-risk",
-  Sürdürülebilirlik: "surdurulebilirlik",
+  Surdurulebilirlik: "surdurulebilirlik",
   "Quality, SPC & Six Sigma": "kalite-spc-alti-sigma",
 
   // Schema raw.sector values → taxonomy sector IDs
@@ -47,7 +47,7 @@ const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
   Gayrimenkul: "emlak",
   "Construction & Building": "insaat",
   "Advanced Physics & Quantum": "fizik",
-  "Kredi ve Borç": "finans",
+  "Kredi ve Borc": "finans",
   "Spor, Mimari, Robotik ve Hukuk": "fizik",
   "Sigorta ve Emeklilik": "finans",
   "Fire, Electrical & Electronics": "enerji",
@@ -57,7 +57,7 @@ const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
   "Advanced Physics, Quantum & Energy": "fizik",
   "Fizik, Kimya ve Malzeme": "fizik",
   "Textile, Food & Plastics": "tekstil",
-  "Çevre ve Sürdürülebilirlik": "cevre",
+  "Cevre ve Surdurulebilirlik": "cevre",
   "Mechanical, Automotive & Aerospace": "makine",
   "E-Ticaret": "perakende",
   "Industrial Engineering": "makine",
@@ -66,18 +66,18 @@ const SCHEMA_SECTOR_KEYS: Readonly<Record<string, string>> = {
 
 function slugifyLabel(label: string): string {
   return label
-    .replace(/ı/g, "i")
-    .replace(/İ/g, "i")
-    .replace(/ş/g, "s")
-    .replace(/Ş/g, "s")
-    .replace(/ğ/g, "g")
-    .replace(/Ğ/g, "g")
-    .replace(/ü/g, "u")
-    .replace(/Ü/g, "u")
-    .replace(/ö/g, "o")
-    .replace(/Ö/g, "o")
-    .replace(/ç/g, "c")
-    .replace(/Ç/g, "c")
+    .replace(/i/g, "i")
+    .replace(/I/g, "i")
+    .replace(/s/g, "s")
+    .replace(/S/g, "s")
+    .replace(/g/g, "g")
+    .replace(/G/g, "g")
+    .replace(/u/g, "u")
+    .replace(/U/g, "u")
+    .replace(/o/g, "o")
+    .replace(/O/g, "o")
+    .replace(/c/g, "c")
+    .replace(/C/g, "c")
     .toLocaleLowerCase("tr")
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")

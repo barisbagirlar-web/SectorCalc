@@ -9,7 +9,7 @@ const CURRENCY_CODE_OPTIONS = [
   { value: "USD", label: "USD — US Dollar", label_i18n: {"en":"USD — US Dollar"} },
   { value: "EUR", label: "EUR — Euro", label_i18n: {"en":"EUR — Euro"} },
   { value: "GBP", label: "GBP — British Pound", label_i18n: {"en":"GBP — British Pound"} },
-  { value: "TRY", label: "TRY — Turkish Lira", label_i18n: {"en":"TRY — Turkish Lira"} },
+  { value: "TRY", label: "TRY — TRY", label_i18n: {"en":"TRY — TRY"} },
   { value: "CHF", label: "CHF — Swiss Franc", label_i18n: {"en":"CHF — Swiss Franc"} },
   { value: "JPY", label: "JPY — Japanese Yen", label_i18n: {"en":"JPY — Japanese Yen"} },
   { value: "CAD", label: "CAD — Canadian Dollar", label_i18n: {"en":"CAD — Canadian Dollar"} },

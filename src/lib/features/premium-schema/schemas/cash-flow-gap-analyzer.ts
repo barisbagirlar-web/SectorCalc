@@ -1,11 +1,11 @@
 /**
- * Tool #22 — Nakit Akışı Açığı
+ * Tool #22 — Nakit Akisi Acigi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
   id: "cash-flow-gap-analyzer", legacyPaidSlug: "cash-flow-gap-analyzer",
   name: "Cash Flow Gap Analysis", name_i18n: {"en":"Cash Flow Gap Analysis"}, sectorSlug: "financial-planning", category: "measurement",
-  painStatement: "Nakit akışı açığı, DSO/DPO/DIO dengesi ve nakit döngüsü hesaplanmazsa likidite krizi önceden tespit edilemez.", painStatement_i18n: {"en":"Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand."},
+  painStatement: "Nakit akisi acigi, DSO/DPO/DIO dengesi ve nakit dongusu hesaplanmazsa likidite krizi onceden tespit edilemez.", painStatement_i18n: {"en":"Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand."},
   inputs: [
     { id: "monthlyRevenue", label: "Monthly Revenue", label_i18n: {"en":"Monthly Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly revenue", expertMeaning_i18n: {"en":"Monthly revenue"} },
     { id: "monthlyExpenses", label: "Monthly Expenses", label_i18n: {"en":"Monthly Expenses"}, type: "number", unit: "USD", required: true, smartDefault: 85000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly expenses", expertMeaning_i18n: {"en":"Monthly expenses"} },
@@ -19,12 +19,12 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
     { id: "cashInflow", label: "Aylk Nakit Girisi", label_i18n: {"en":"Aylk cash Girisi"}, unit: "USD", format: "currency" },
     { id: "cashOutflow", label: "Aylk Nakit Cks", label_i18n: {"en":"Aylk cash Cks"}, unit: "USD", format: "currency" },
     { id: "netCashFlow", label: "Net Nakit Aks", label_i18n: {"en":"Net cash Aks"}, unit: "USD/ay", format: "currency" },
-    { id: "cumulativeCash", label: "Kümülatif Nakit", label_i18n: {"en":"Kumulatif cash"}, unit: "USD", format: "currency" },
+    { id: "cumulativeCash", label: "Kumulatif Nakit", label_i18n: {"en":"Kumulatif cash"}, unit: "USD", format: "currency" },
     { id: "cashGap", label: "Nakit Acg", label_i18n: {"en":"cash Acg"}, unit: "USD", format: "currency" },
-    { id: "dso", label: "DSO (Alacak Gün Süresi)", label_i18n: {"en":"DSO (Receivable Gun Duration)"}, unit: "gün", format: "number" },
-    { id: "dpo", label: "DPO (Borc Gun Suresi)", label_i18n: {"en":"DPO (Borc Gun Duration)"}, unit: "gün", format: "number" },
-    { id: "dio", label: "DIO (Stok Gün Süresi)", label_i18n: {"en":"DIO (Inventory Gun Duration)"}, unit: "gün", format: "number" },
-    { id: "cashConversionCycle", label: "Nakit Donusum Dongusu", label_i18n: {"en":"cash Donusum Dongusu"}, unit: "gün", format: "number" },
+    { id: "dso", label: "DSO (Alacak Gun Suresi)", label_i18n: {"en":"DSO (Receivable Gun Duration)"}, unit: "gun", format: "number" },
+    { id: "dpo", label: "DPO (Borc Gun Suresi)", label_i18n: {"en":"DPO (Borc Gun Duration)"}, unit: "gun", format: "number" },
+    { id: "dio", label: "DIO (Stok Gun Suresi)", label_i18n: {"en":"DIO (Inventory Gun Duration)"}, unit: "gun", format: "number" },
+    { id: "cashConversionCycle", label: "Nakit Donusum Dongusu", label_i18n: {"en":"cash Donusum Dongusu"}, unit: "gun", format: "number" },
   ],
   thresholds: [{ fieldId: "cashGap", warning: 20000, critical: 50000, direction: "higher_is_bad", warningMessage: "Cash gap > $20K — evaluate credit line or factoring.", warningMessage_i18n: {"en":"Cash gap > $20K — evaluate credit line or factoring."}, criticalMessage: "Cash gap > $50K — urgent cash management action needed.", criticalMessage_i18n: {"en":"Cash gap > $50K — urgent cash management action needed."} }],
   formulaPipeline: [
@@ -55,5 +55,5 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.cash_conversion_cycle", inputMap: { dso: "dso", dpo: "dpo", dio: "dio" }, outputId: "cashConversionCycle" },
   ],
   reportTemplate: { title: "Cash Flow Gap Report", title_i18n: {"en":"Cash Flow Gap Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["DSO = (Alacak/Gelir)×30 gün.", "CCC = DSO + DIO − DPO.", "Negatif kümülatif nakit = nakit açığı."],assumptionNotes_i18n:[{"en":"DSO = (Receivables/Revenue)×30 days."},{"en":"CCC = DSO + DIO − DPO."},{"en":"Negative cumulative cash = cash deficit."}]},
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["DSO = (Alacak/Gelir)×30 gun.", "CCC = DSO + DIO − DPO.", "Negatif kumulatif nakit = nakit acigi."],assumptionNotes_i18n:[{"en":"DSO = (Receivables/Revenue)×30 days."},{"en":"CCC = DSO + DIO − DPO."},{"en":"Negative cumulative cash = cash deficit."}]},
 };

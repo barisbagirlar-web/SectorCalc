@@ -73,7 +73,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_3",
     family: "cost",
-    label: "Takım Aşınma Maliyeti — WearRate",
+    label: "Takim Asinma Maliyeti — WearRate",
     fn: (inputs) => {
     const flankWear = num(inputs, "flankWear");
     const machiningTime = num(inputs, "machiningTime");
@@ -83,7 +83,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_4",
     family: "cost",
-    label: "Takım Aşınma Maliyeti — OptimalToolLife",
+    label: "Takim Asinma Maliyeti — OptimalToolLife",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const toolChangeTime = num(inputs, "toolChangeTime");
@@ -96,7 +96,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.tool_wear_cost_5",
     family: "cost",
-    label: "Takım Aşınma Maliyeti — CostOfPrematureFailure",
+    label: "Takim Asinma Maliyeti — CostOfPrematureFailure",
     fn: (inputs) => {
     const expectedLife = num(inputs, "expectedLife");
     const actualLife = num(inputs, "actualLife");
@@ -105,11 +105,11 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Takt Süre Flexibility Maliyet (6 formulas) ──,
+  // ── Takt Sure Flexibility Maliyet (6 formulas) ──,
   {
     id: "user.takt_time_flexibility_0",
     family: "cost",
-    label: "Takt Süre Flexibility Maliyet — TaktTime",
+    label: "Takt Sure Flexibility Maliyet — TaktTime",
     fn: (inputs) => {
     const availableTime = num(inputs, "availableTime");
     const customerDemand = num(inputs, "customerDemand");
@@ -119,7 +119,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_1",
     family: "cost",
-    label: "Takt Süre Flexibility Maliyet — CycleTimeFlexibility",
+    label: "Takt Sure Flexibility Maliyet — CycleTimeFlexibility",
     fn: (inputs) => {
     const cycleTime = num(inputs, "cycleTime");
     const i = num(inputs, "i");
@@ -132,7 +132,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_2",
     family: "cost",
-    label: "Takt Süre Flexibility Maliyet — BalanceLoss",
+    label: "Takt Sure Flexibility Maliyet — BalanceLoss",
     fn: (inputs) => {
     const taktTime = num(inputs, "taktTime");
     const cycleTime = num(inputs, "cycleTime");
@@ -145,7 +145,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_3",
     family: "cost",
-    label: "Takt Süre Flexibility Maliyet — CrossTrainingCost",
+    label: "Takt Sure Flexibility Maliyet — CrossTrainingCost",
     fn: (inputs) => {
     const operators = num(inputs, "operators");
     const trainingHours = num(inputs, "trainingHours");
@@ -156,7 +156,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_4",
     family: "cost",
-    label: "Takt Süre Flexibility Maliyet — FlexibilityPremium",
+    label: "Takt Sure Flexibility Maliyet — FlexibilityPremium",
     fn: (inputs) => {
     const crossTrainingCost = num(inputs, "crossTrainingCost");
     const annualProduction = num(inputs, "annualProduction");
@@ -166,7 +166,7 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.takt_time_flexibility_5",
     family: "cost",
-    label: "Takt Süre Flexibility Maliyet — VolumeVariationCost",
+    label: "Takt Sure Flexibility Maliyet — VolumeVariationCost",
     fn: (inputs) => {
     const demand = num(inputs, "demand");
     const capacity = num(inputs, "capacity");
@@ -241,11 +241,11 @@ export const CHUNK_56_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Tamirhane Parça ve İşçilik Teklif (7 formulas) ──,
+  // ── Tamirhane Parca ve Iscilik Teklif (7 formulas) ──,
   {
     id: "user.repair_shop_quote_0",
     family: "cost",
-    label: "Tamirhane Parça ve İşçilik Teklif — PartCost",
+    label: "Tamirhane Parca ve Iscilik Teklif — PartCost",
     fn: (inputs) => {
     const quantity = num(inputs, "quantity");
     const i = num(inputs, "i");

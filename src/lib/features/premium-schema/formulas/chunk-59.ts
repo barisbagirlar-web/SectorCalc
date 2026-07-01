@@ -73,7 +73,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_currency_risk_5",
     family: "cost",
-    label: "Tedarikçi Döviz Kuru Riski — CurrencyClauseSavings",
+    label: "Tedarikci Doviz Kuru Riski — CurrencyClauseSavings",
     fn: (inputs) => {
     const contractHasAdjustment = num(inputs, "contractHasAdjustment");
     const exposure = num(inputs, "exposure");
@@ -82,11 +82,11 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Teklif Risk Analizörü (6 formulas) ──,
+  // ── Teklif Risk Analizoru (6 formulas) ──,
   {
     id: "user.bid_risk_0",
     family: "cost",
-    label: "Teklif Risk Analizörü — BaseEstimate",
+    label: "Teklif Risk Analizoru — BaseEstimate",
     fn: (inputs) => {
     const directCosts = num(inputs, "directCosts");
     const overhead = num(inputs, "overhead");
@@ -96,7 +96,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_1",
     family: "cost",
-    label: "Teklif Risk Analizörü — Contingency",
+    label: "Teklif Risk Analizoru — Contingency",
     fn: (inputs) => {
     const baseEstimate = num(inputs, "baseEstimate");
     const riskFactor = num(inputs, "riskFactor");
@@ -106,7 +106,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_2",
     family: "cost",
-    label: "Teklif Risk Analizörü — ExpectedMargin",
+    label: "Teklif Risk Analizoru — ExpectedMargin",
     fn: (inputs) => {
     const bidPrice = num(inputs, "bidPrice");
     const baseEstimate = num(inputs, "baseEstimate");
@@ -117,7 +117,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_3",
     family: "cost",
-    label: "Teklif Risk Analizörü — WinProbability",
+    label: "Teklif Risk Analizoru — WinProbability",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const bidPrice = num(inputs, "bidPrice");
@@ -129,7 +129,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_4",
     family: "cost",
-    label: "Teklif Risk Analizörü — ExpectedValue",
+    label: "Teklif Risk Analizoru — ExpectedValue",
     fn: (inputs) => {
     const winProbability = num(inputs, "winProbability");
     const expectedMargin = num(inputs, "expectedMargin");
@@ -140,7 +140,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.bid_risk_5",
     family: "cost",
-    label: "Teklif Risk Analizörü — RiskAdjustedBid",
+    label: "Teklif Risk Analizoru — RiskAdjustedBid",
     fn: (inputs) => {
     const baseEstimate = num(inputs, "baseEstimate");
     const targetMargin = num(inputs, "targetMargin");
@@ -218,11 +218,11 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Tekstil Atığı Risk Değerlendirmesi (7 formulas) ──,
+  // ── Tekstil Atigi Risk Assessmentsi (7 formulas) ──,
   {
     id: "user.textile_waste_risk_0",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — WasteRate",
+    label: "Tekstil Atigi Risk Assessmentsi — WasteRate",
     fn: (inputs) => {
     const inputFabric = num(inputs, "inputFabric");
     const outputGarments = num(inputs, "outputGarments");
@@ -232,7 +232,7 @@ export const CHUNK_59_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_1",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — PreConsumerWaste",
+    label: "Tekstil Atigi Risk Assessmentsi — PreConsumerWaste",
     fn: (inputs) => {
     const cuttingScrap = num(inputs, "cuttingScrap");
     const sewingDefects = num(inputs, "sewingDefects");

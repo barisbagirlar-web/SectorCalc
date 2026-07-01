@@ -1,5 +1,5 @@
 /**
- * Tool #38 — Yenileme Bütçe
+ * Tool #38 — Yenileme Butce
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {

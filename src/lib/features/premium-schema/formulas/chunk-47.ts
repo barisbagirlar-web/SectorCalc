@@ -73,7 +73,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_1",
     family: "cost",
-    label: "reçete Maliyet Check — ActualCost",
+    label: "recete Maliyet Check — ActualCost",
     fn: (inputs) => {
     const totalMaterialConsumed = num(inputs, "totalMaterialConsumed");
     const avgPrice = num(inputs, "avgPrice");
@@ -84,7 +84,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_2",
     family: "cost",
-    label: "reçete Maliyet Check — Variance",
+    label: "recete Maliyet Check — Variance",
     fn: (inputs) => {
     const actualCost = num(inputs, "actualCost");
     const theoreticalCost = num(inputs, "theoreticalCost");
@@ -94,7 +94,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_3",
     family: "cost",
-    label: "reçete Maliyet Check — YieldLossCost",
+    label: "recete Maliyet Check — YieldLossCost",
     fn: (inputs) => {
     const actualYield = num(inputs, "actualYield");
     const theoreticalCost = num(inputs, "theoreticalCost");
@@ -104,7 +104,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_4",
     family: "cost",
-    label: "reçete Maliyet Check — EvaporationLoss",
+    label: "recete Maliyet Check — EvaporationLoss",
     fn: (inputs) => {
     const inputWeight = num(inputs, "inputWeight");
     const outputWeight = num(inputs, "outputWeight");
@@ -115,7 +115,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_5",
     family: "cost",
-    label: "reçete Maliyet Check — Efficiency",
+    label: "recete Maliyet Check — Efficiency",
     fn: (inputs) => {
     const actualOutput = num(inputs, "actualOutput");
     const theoreticalOutput = num(inputs, "theoreticalOutput");
@@ -125,7 +125,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.recipe_cost_check_6",
     family: "cost",
-    label: "reçete Maliyet Check — CostPerKg",
+    label: "recete Maliyet Check — CostPerKg",
     fn: (inputs) => {
     const actualCost = num(inputs, "actualCost");
     const outputWeight = num(inputs, "outputWeight");
@@ -133,11 +133,11 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Restaurant Menü Marj Kaçak (8 formulas) ──,
+  // ── Restaurant Menu Marj Kacak (8 formulas) ──,
   {
     id: "user.restaurant_menu_margin_leak_0",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — TheoreticalFoodCost",
+    label: "Restaurant Menu Marj Kacak — TheoreticalFoodCost",
     fn: (inputs) => {
     const itemsSold = num(inputs, "itemsSold");
     const i = num(inputs, "i");
@@ -150,7 +150,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_1",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — ActualFoodCost",
+    label: "Restaurant Menu Marj Kacak — ActualFoodCost",
     fn: (inputs) => {
     const beginningInventory = num(inputs, "beginningInventory");
     const purchases = num(inputs, "purchases");
@@ -161,7 +161,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_2",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — Variance",
+    label: "Restaurant Menu Marj Kacak — Variance",
     fn: (inputs) => {
     const actualFoodCost = num(inputs, "actualFoodCost");
     const theoreticalFoodCost = num(inputs, "theoreticalFoodCost");
@@ -171,7 +171,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_3",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — VariancePct",
+    label: "Restaurant Menu Marj Kacak — VariancePct",
     fn: (inputs) => {
     const variance = num(inputs, "variance");
     const totalFoodSales = num(inputs, "totalFoodSales");
@@ -181,7 +181,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_4",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — WasteCost",
+    label: "Restaurant Menu Marj Kacak — WasteCost",
     fn: (inputs) => {
     const recordedWaste = num(inputs, "recordedWaste");
     const avgPortionCost = num(inputs, "avgPortionCost");
@@ -191,7 +191,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_5",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — TheftLoss",
+    label: "Restaurant Menu Marj Kacak — TheftLoss",
     fn: (inputs) => {
     const variance = num(inputs, "variance");
     const wasteCost = num(inputs, "wasteCost");
@@ -202,7 +202,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_6",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — IdealMargin",
+    label: "Restaurant Menu Marj Kacak — IdealMargin",
     fn: (inputs) => {
     const theoreticalFoodCost = num(inputs, "theoreticalFoodCost");
     const totalFoodSales = num(inputs, "totalFoodSales");
@@ -212,7 +212,7 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.restaurant_menu_margin_leak_7",
     family: "cost",
-    label: "Restaurant Menü Marj Kaçak — ActualMargin",
+    label: "Restaurant Menu Marj Kacak — ActualMargin",
     fn: (inputs) => {
     const actualFoodCost = num(inputs, "actualFoodCost");
     const totalFoodSales = num(inputs, "totalFoodSales");
@@ -220,11 +220,11 @@ export const CHUNK_47_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Robot Kol vs. Manuel İşçi (8 formulas) ──,
+  // ── Robot Kol vs. Manuel Isci (8 formulas) ──,
   {
     id: "user.robot_vs_manual_0",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — ManualCost_Annual",
+    label: "Robot Kol vs. Manuel Isci — ManualCost_Annual",
     fn: (inputs) => {
     const operators = num(inputs, "operators");
     const hourlyRate = num(inputs, "hourlyRate");

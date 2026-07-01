@@ -73,7 +73,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_5",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — LaborCostPerUnit",
+    label: "Zaman Etudu Analizoru — LaborCostPerUnit",
     fn: (inputs) => {
     const standardTime = num(inputs, "standardTime");
     const hourlyRate = num(inputs, "hourlyRate");
@@ -83,7 +83,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_6",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — EfficiencyVariance",
+    label: "Zaman Etudu Analizoru — EfficiencyVariance",
     fn: (inputs) => {
     const standardTime = num(inputs, "standardTime");
     const actualTime = num(inputs, "actualTime");
@@ -96,56 +96,56 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.compressor_power_0",
     family: "industrial",
-    label: "Compressor — izentropik güç",
+    label: "Compressor — izentropik guc",
     fn: (inputs) => { const P1 = num(inputs, "girisBasinci_P1"); const T1 = num(inputs, "girisSicakligi_T1") + 273.15; const Q = num(inputs, "havaDebisi_Q"); const P2 = P1 + num(inputs, "calismaBasinci_P") * 0.9869; const n = num(inputs, "politropikUs_n", 1.3); const η_is = num(inputs, "izentropikVerim_η_is", 75) / 100; const z = num(inputs, "kademeSayisi_z", 1); const power = (n/(n-1)) * Q/60 * P1 * Math.pow(10,5) * (Math.pow(P2/P1, (n-1)/(n*z))-1) / (η_is * 1000); return nonNegative(assertFinite(power)); },
   },
   {
     id: "industrial.compressor_power_1",
     family: "industrial",
-    label: "Compressor — şaft gücü",
+    label: "Compressor — saft gucu",
     fn: (inputs) => { const izWork = num(inputs, "motorPower_kW"); const η_m = num(inputs, "mekanikVerim_η_m", 95) / 100; return nonNegative(assertFinite(izWork / η_m)); },
   },
   {
     id: "industrial.compressor_power_2",
     family: "industrial",
-    label: "Compressor — motor gücü",
+    label: "Compressor — motor gucu",
     fn: (inputs) => { const shaftPower = num(inputs, "motorPower_HP"); const η_el = num(inputs, "motorVerimi_η_el", 94) / 100; return nonNegative(assertFinite(shaftPower / η_el)); },
   },
   {
     id: "industrial.compressor_power_3",
     family: "industrial",
-    label: "Compressor — özgül güç",
+    label: "Compressor — ozgul guc",
     fn: (inputs) => { const totalPower = num(inputs, "motorPower_kW"); const Q = num(inputs, "havaDebisi_Q"); if (Q === 0) return 0; return nonNegative(assertFinite(totalPower / Q)); },
   },
   {
     id: "industrial.compressor_power_4",
     family: "industrial",
-    label: "Compressor — çıkış sıcaklığı",
+    label: "Compressor — cikis sicakligi",
     fn: (inputs) => { const T1 = num(inputs, "girisSicakligi_T1"); const P1 = num(inputs, "girisBasinci_P1"); const P2 = P1 + num(inputs, "calismaBasinci_P") * 0.9869; const n = num(inputs, "politropikUs_n", 1.3); const η_is = num(inputs, "izentropikVerim_η_is", 75) / 100; const z = num(inputs, "kademeSayisi_z", 1); const T2 = ((T1+273.15) * Math.pow(P2/P1, (n-1)/(n*z))) - 273.15; const actualT2 = T1 + (T2 - T1) / η_is; return nonNegative(assertFinite(actualT2)); },
   },
   {
     id: "industrial.compressor_power_5",
     family: "industrial",
-    label: "Compressor — yıllık enerji",
+    label: "Compressor — yillik enerji",
     fn: (inputs) => { const P = num(inputs, "motorPower_kW"); const h = num(inputs, "yillikCalismaSaati", 8000); return nonNegative(assertFinite(P * h)); },
   },
   {
     id: "industrial.compressor_power_6",
     family: "industrial",
-    label: "Compressor — yıllık maliyet",
+    label: "Compressor — yillik maliyet",
     fn: (inputs) => { const kWh = num(inputs, "yillikEnerji_kWh"); const rate = num(inputs, "elektrikTarifesi", 0.1); return nonNegative(assertFinite(kWh * rate)); },
   },
   // ── #164 CUTTING PARAMETERS ──
   {
     id: "industrial.cutting_power_0",
     family: "industrial",
-    label: "Cutting — devir hızı n",
+    label: "Cutting — devir hizi n",
     fn: (inputs) => { const Vc = num(inputs, "kesmeHizi_Vc"); const Dc = num(inputs, "takimCapi_Dc"); if (Dc === 0) return 0; return nonNegative(assertFinite((1000 * Vc) / (Math.PI * Dc))); },
   },
   {
     id: "industrial.cutting_power_1",
     family: "industrial",
-    label: "Cutting — ilerleme hızı Vf",
+    label: "Cutting — ilerleme hizi Vf",
     fn: (inputs) => { const fz = num(inputs, "disBasiIlerleme_fz"); const z = num(inputs, "disSayisi_z", 4); const n = num(inputs, "devir_n_rpm"); return nonNegative(assertFinite(fz * z * n)); },
   },
   {
@@ -163,13 +163,13 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.cutting_power_4",
     family: "industrial",
-    label: "Cutting — kesme gücü Pc",
+    label: "Cutting — kesme gucu Pc",
     fn: (inputs) => { const Fc = num(inputs, "kesmeKuvveti_Fc"); const Vc = num(inputs, "kesmeHizi_Vc"); return nonNegative(assertFinite(Fc * Vc / 60000)); },
   },
   {
     id: "industrial.cutting_power_5",
     family: "industrial",
-    label: "Cutting — motor gücü",
+    label: "Cutting — motor gucu",
     fn: (inputs) => { const Pc = num(inputs, "kesmeGucu_Pc"); const η = num(inputs, "makineVerimi_η", 85) / 100; if (η === 0) return 0; return nonNegative(assertFinite(Pc / η)); },
   },
   {
@@ -181,7 +181,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.cutting_power_7",
     family: "industrial",
-    label: "Cutting — Ra yüzey pürüzlülüğü",
+    label: "Cutting — Ra yuzey puruzlulugu",
     fn: (inputs) => { const fz = num(inputs, "disBasiIlerleme_fz"); const re = 0.8; return nonNegative(assertFinite(fz * fz / (8 * re) * 1000)); },
   },
   // ── #165 EVAPORATIVE COOLING ──
@@ -200,7 +200,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.evap_cooling_2",
     family: "industrial",
-    label: "Evaporative — çıkış sıcaklığı",
+    label: "Evaporative — cikis sicakligi",
     fn: (inputs) => { const Tk = num(inputs, "disSicaklikKuru"); const Ty = num(inputs, "disSicaklikYas"); const η = num(inputs, "padVerimi_η_pad", 85) / 100; return nonNegative(assertFinite(Tk - η * (Tk - Ty))); },
   },
   {
@@ -212,25 +212,25 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.evap_cooling_4",
     family: "industrial",
-    label: "Evaporative — cihaz sayısı",
+    label: "Evaporative — cihaz sayisi",
     fn: (inputs) => { const debi = num(inputs, "toplamDebi"); const tekDebi = num(inputs, "cihazDebisi_tek", 30000); if (tekDebi === 0) return 0; return Math.ceil(debi / tekDebi); },
   },
   {
     id: "industrial.evap_cooling_5",
     family: "industrial",
-    label: "Evaporative — toplam güç FES",
+    label: "Evaporative — toplam guc FES",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "cihazSayisi") * num(inputs, "cihazGucu_tek", 0.75))); },
   },
   {
     id: "industrial.evap_cooling_6",
     family: "industrial",
-    label: "Evaporative — yıllık enerji FES",
+    label: "Evaporative — yillik enerji FES",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "toplamGuc_FES") * num(inputs, "gunlukCalismaSaati", 10) * num(inputs, "yillikCalismaGunu", 260))); },
   },
   {
     id: "industrial.evap_cooling_7",
     family: "industrial",
-    label: "Evaporative — yıllık enerji konv.",
+    label: "Evaporative — yillik enerji konv.",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "konvansiyonelGuc", 50) * num(inputs, "gunlukCalismaSaati", 10) * num(inputs, "yillikCalismaGunu", 260))); },
   },
   {
@@ -248,13 +248,13 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.evap_cooling_10",
     family: "industrial",
-    label: "Evaporative — yıllık elk maliyeti FES",
+    label: "Evaporative — yillik elk maliyeti FES",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "yillikEnerji_FES") * num(inputs, "elektrikTarifesi", 0.1))); },
   },
   {
     id: "industrial.evap_cooling_11",
     family: "industrial",
-    label: "Evaporative — yıllık su maliyeti",
+    label: "Evaporative — yillik su maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "cihazSayisi") * num(inputs, "suTuketimi_tek", 6) * num(inputs, "gunlukCalismaSaati", 10) * num(inputs, "yillikCalismaGunu", 260) * num(inputs, "suTarifesi", 0.005))); },
   },
   {
@@ -273,7 +273,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.condenser_precool_1",
     family: "industrial",
-    label: "Condenser — kondenser yeni sıcaklık",
+    label: "Condenser — kondenser yeni sicaklik",
     fn: (inputs) => { const η = num(inputs, "onSogutmaVerimi_η", 80) / 100; return nonNegative(assertFinite(num(inputs, "kondenserGirisHavaSicakligi") - η * (num(inputs, "kondenserGirisHavaSicakligi") - num(inputs, "yasTermometre")))); },
   },
   {
@@ -285,31 +285,31 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.condenser_precool_3",
     family: "industrial",
-    label: "Condenser — güç mevcut",
+    label: "Condenser — guc mevcut",
     fn: (inputs) => { const kap = num(inputs, "kapasite_kW"); const cop = num(inputs, "mevcutCOP", 3); if (cop === 0) return 0; return nonNegative(assertFinite(kap / cop)); },
   },
   {
     id: "industrial.condenser_precool_4",
     family: "industrial",
-    label: "Condenser — güç yeni",
+    label: "Condenser — guc yeni",
     fn: (inputs) => { const kap = num(inputs, "kapasite_kW"); const cop = num(inputs, "COP_yeni"); if (cop === 0) return 0; return nonNegative(assertFinite(kap / cop)); },
   },
   {
     id: "industrial.condenser_precool_5",
     family: "industrial",
-    label: "Condenser — güç tasarrufu",
+    label: "Condenser — guc tasarrufu",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "gucMevcut") - num(inputs, "gucYeni"))); },
   },
   {
     id: "industrial.condenser_precool_6",
     family: "industrial",
-    label: "Condenser — yıllık tasarruf kWh",
+    label: "Condenser — yillik tasarruf kWh",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "gucTasarrufu") * num(inputs, "calismaSaati_yil", 4000))); },
   },
   {
     id: "industrial.condenser_precool_7",
     family: "industrial",
-    label: "Condenser — yıllık tasarruf USD",
+    label: "Condenser — yillik tasarruf USD",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "yillikTasarruf_kWh") * num(inputs, "elektrikTarifesi", 0.1))); },
   },
   {
@@ -321,7 +321,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.condenser_precool_9",
     family: "industrial",
-    label: "Condenser — geri ödeme (ay)",
+    label: "Condenser — geri odeme (ay)",
     fn: (inputs) => { const net = num(inputs, "netTasarruf"); if (net <= 0) return 999; return nonNegative(assertFinite(num(inputs, "onSogutmaSistemMaliyeti") / net * 12)); },
   },
   {
@@ -341,12 +341,12 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "industrial.pad_media_0",
     family: "industrial",
     label: "Pad Media — verim η_sat",
-    fn: (inputs) => { const t = num(inputs, "padKalınligi_t", 100); const V = num(inputs, "havaHizi_V", 2); const baseEff = t >= 200 ? 90 : t >= 150 ? 85 : t >= 100 ? 80 : 70; const velocityEff = Math.min(baseEff, baseEff - (V - 1.5) * 5); return nonNegative(assertFinite(Math.max(50, velocityEff))); },
+    fn: (inputs) => { const t = num(inputs, "padKalinligi_t", 100); const V = num(inputs, "havaHizi_V", 2); const baseEff = t >= 200 ? 90 : t >= 150 ? 85 : t >= 100 ? 80 : 70; const velocityEff = Math.min(baseEff, baseEff - (V - 1.5) * 5); return nonNegative(assertFinite(Math.max(50, velocityEff))); },
   },
   {
     id: "industrial.pad_media_1",
     family: "industrial",
-    label: "Pad Media — çıkış kuru sıcaklık",
+    label: "Pad Media — cikis kuru sicaklik",
     fn: (inputs) => { const Tk = num(inputs, "girisKuruTermometre"); const Ty = num(inputs, "girisYasTermometre"); const η = num(inputs, "verim_η_sat", 85) / 100; return nonNegative(assertFinite(Tk - η * (Tk - Ty))); },
   },
   {
@@ -358,7 +358,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.pad_media_3",
     family: "industrial",
-    label: "Pad Media — çıkış bağıl nem",
+    label: "Pad Media — cikis bagil nem",
     fn: (inputs) => { return Math.min(100, num(inputs, "girisBagilNem", 40) + (100 - num(inputs, "girisBagilNem", 40)) * num(inputs, "verim_η_sat", 85) / 100 * 0.8); },
   },
   {
@@ -370,20 +370,20 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.pad_media_5",
     family: "industrial",
-    label: "Pad Media — soğutma kapasitesi kW",
+    label: "Pad Media — sogutma kapasitesi kW",
     fn: (inputs) => { const debi = num(inputs, "havaDebisi_m3h"); const deltaT = num(inputs, "deltaT"); return nonNegative(assertFinite(debi * 1.2 * deltaT / 3600)); },
   },
   {
     id: "industrial.pad_media_6",
     family: "industrial",
-    label: "Pad Media — su tüketimi L/h",
+    label: "Pad Media — su tuketimi L/h",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "sogutmaKapasitesi_kW") * 1.5)); },
   },
   {
     id: "industrial.pad_media_7",
     family: "industrial",
-    label: "Pad Media — basınç düşüşü Pa",
-    fn: (inputs) => { const V = num(inputs, "havaHizi_V", 2); const t = num(inputs, "padKalınligi_t", 100); return nonNegative(assertFinite(15 * t/100 * Math.pow(V/2, 1.5))); },
+    label: "Pad Media — basinc dususu Pa",
+    fn: (inputs) => { const V = num(inputs, "havaHizi_V", 2); const t = num(inputs, "padKalinligi_t", 100); return nonNegative(assertFinite(15 * t/100 * Math.pow(V/2, 1.5))); },
   },
   // ── #168 F-GAS ──
   {
@@ -407,31 +407,31 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.fgas_3",
     family: "industrial",
-    label: "F-Gas — sızıntı testi yükümlülüğü",
+    label: "F-Gas — sizinti testi yukumlulugu",
     fn: (inputs) => { const sarj = num(inputs, "gazMiktari_sarj"); if (sarj >= 50) return 3; if (sarj >= 5) return 12; if (sarj >= 3) return 0; return 0; },
   },
   {
     id: "industrial.fgas_4",
     family: "industrial",
-    label: "F-Gas — yıllık test maliyeti",
+    label: "F-Gas — yillik test maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "sizintiTestiFrequency") * num(inputs, "cihazSayisi") / 12 * num(inputs, "testBirimUcreti", 200))); },
   },
   {
     id: "industrial.fgas_5",
     family: "industrial",
-    label: "F-Gas — yıllık kaçak kg",
+    label: "F-Gas — yillik kacak kg",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "toplamSarj_kg") * num(inputs, "yillikKacakOrani", 5) / 100)); },
   },
   {
     id: "industrial.fgas_6",
     family: "industrial",
-    label: "F-Gas — kaçak maliyeti",
+    label: "F-Gas — kacak maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "yillikKacak_kg") * num(inputs, "gazBirimFiyati", 50))); },
   },
   {
     id: "industrial.fgas_7",
     family: "industrial",
-    label: "F-Gas — kaçak emisyon tCO2e",
+    label: "F-Gas — kacak emisyon tCO2e",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "yillikKacak_kg") * num(inputs, "GWP_degeri", 2000) / 1000)); },
   },
   {
@@ -456,62 +456,62 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.water_footprint_2",
     family: "industrial",
-    label: "Water — mavi oranı",
+    label: "Water — mavi orani",
     fn: (inputs) => { const toplam = num(inputs, "toplamSuAyakIzi"); if (toplam === 0) return 0; return nonNegative(assertFinite(num(inputs, "dogrudanSuTuketimi_mavi") / toplam * 100)); },
   },
   {
     id: "industrial.water_footprint_3",
     family: "industrial",
-    label: "Water — yeşil oranı",
+    label: "Water — yesil orani",
     fn: (inputs) => { const toplam = num(inputs, "toplamSuAyakIzi"); if (toplam === 0) return 0; return nonNegative(assertFinite(num(inputs, "yagmurSuyuKullanimi_yesil") / toplam * 100)); },
   },
   {
     id: "industrial.water_footprint_4",
     family: "industrial",
-    label: "Water — gri oranı",
+    label: "Water — gri orani",
     fn: (inputs) => { const toplam = num(inputs, "toplamSuAyakIzi"); if (toplam === 0) return 0; return nonNegative(assertFinite(num(inputs, "atikSuUretimi_gri") / toplam * 100)); },
   },
   {
     id: "industrial.water_footprint_5",
     family: "industrial",
-    label: "Water — benchmark farkı",
+    label: "Water — benchmark farki",
     fn: (inputs) => { const uretim = num(inputs, "uretimHacmi", 1); const bench = num(inputs, "sektorBenchmark_m3_birim"); if (uretim === 0) return 0; return nonNegative(assertFinite((num(inputs, "toplamSuAyakIzi") / uretim) - bench)); },
   },
   {
     id: "industrial.water_footprint_6",
     family: "industrial",
-    label: "Water — iyileştirme potansiyeli",
+    label: "Water — iyilestirme potansiyeli",
     fn: (inputs) => { const fark = num(inputs, "benchmarkFarki"); if (fark <= 0) return 0; return nonNegative(assertFinite(fark * num(inputs, "uretimHacmi", 1))); },
   },
   // ── #170 SMOKE EXHAUST ──
   {
     id: "industrial.smoke_exhaust_0",
     family: "industrial",
-    label: "Smoke — yangın çevresi",
+    label: "Smoke — yangin cevresi",
     fn: (inputs) => { return nonNegative(assertFinite(Math.sqrt(num(inputs, "yanginAlani_A_fire", 25)) * 4)); },
   },
   {
     id: "industrial.smoke_exhaust_1",
     family: "industrial",
-    label: "Smoke — duman kütle debisi",
+    label: "Smoke — duman kutle debisi",
     fn: (inputs) => { const P = num(inputs, "yanginCevresi"); const d = num(inputs, "dumanTabakasiYuksekligi_d", 2.5); return nonNegative(assertFinite(0.076 * Math.pow(P, 1.5) * Math.pow(d, 0.5))); },
   },
   {
     id: "industrial.smoke_exhaust_2",
     family: "industrial",
-    label: "Smoke — gerekli havalandırma alanı",
+    label: "Smoke — gerekli havalandirma alani",
     fn: (inputs) => { const m = num(inputs, "dumanKutleDebisi"); const Cd = num(inputs, "Cv_kapakAkisKatsayisi", 0.65); const ρ = 1.2; if (Cd === 0) return 0; return nonNegative(assertFinite(m / (Cd * Math.sqrt(2 * ρ * 9.81 * num(inputs, "dumanTabakasiYuksekligi_d", 2.5))) * 10000)); },
   },
   {
     id: "industrial.smoke_exhaust_3",
     family: "industrial",
-    label: "Smoke — etkin alan oranı",
+    label: "Smoke — etkin alan orani",
     fn: (inputs) => { const A = num(inputs, "gerekliHavalandirmaAlani"); const A_tavan = num(inputs, "tavanAlani_A_tavan", 500); if (A_tavan === 0) return 0; return nonNegative(assertFinite(A / A_tavan * 100)); },
   },
   {
     id: "industrial.smoke_exhaust_4",
     family: "industrial",
-    label: "Smoke — kapak sayısı",
+    label: "Smoke — kapak sayisi",
     fn: (inputs) => { const A = num(inputs, "gerekliHavalandirmaAlani"); const kapakBoy = 1; return Math.ceil(A / (kapakBoy * kapakBoy)); },
   },
   // ── #171 NATURAL VENTILATION ──
@@ -536,32 +536,32 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.nat_vent_3",
     family: "industrial",
-    label: "Nat Vent — gerekli menfez alanı",
+    label: "Nat Vent — gerekli menfez alani",
     fn: (inputs) => { const Q = num(inputs, "gerekliDebi_m3s"); const Cd = num(inputs, "menfezAkisKatsayisi_Cd", 0.65); const dH = num(inputs, "catiTepeYuksekligi_deltaH", 3); const dT = num(inputs, "deltaT"); const Ti = num(inputs, "icSicaklik_Ti", 25) + 273.15; if (Cd <= 0 || dH * dT <= 0) return 0; return nonNegative(assertFinite(Q / (Cd * Math.sqrt(2 * 9.81 * dH * Math.abs(dT) / Ti)))); },
   },
   {
     id: "industrial.nat_vent_4",
     family: "industrial",
-    label: "Nat Vent — alt menfez alanı",
+    label: "Nat Vent — alt menfez alani",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "gerekliMenfezAlani") * 0.5)); },
   },
   {
     id: "industrial.nat_vent_5",
     family: "industrial",
-    label: "Nat Vent — üst menfez alanı",
+    label: "Nat Vent — ust menfez alani",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "gerekliMenfezAlani") * 0.5)); },
   },
   {
     id: "industrial.nat_vent_6",
     family: "industrial",
-    label: "Nat Vent — havalandırma debisi m³/h",
+    label: "Nat Vent — havalandirma debisi m³/h",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "gerekliDebi_m3s") * 3600)); },
   },
   // ── #172 COMPOUND INTEREST ──
   {
     id: "industrial.compound_interest_0",
     family: "industrial",
-    label: "Compound — dönem sayısı",
+    label: "Compound — donem sayisi",
     fn: (inputs) => { const m = num(inputs, "birlestirmeSikligi_m", 12); return nonNegative(assertFinite(m * num(inputs, "sure_n", 10))); },
   },
   {
@@ -573,7 +573,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.compound_interest_2",
     family: "industrial",
-    label: "Compound — FV katkı",
+    label: "Compound — FV katki",
     fn: (inputs) => { const PMT = num(inputs, "aylikKatki_PMT"); const r = num(inputs, "yillikFaizOrani_r", 10) / 100; const n = num(inputs, "donemSayisi"); const m = num(inputs, "birlestirmeSikligi_m", 12); if (m === 0) return 0; const i = r / m; if (i === 0) return nonNegative(assertFinite(PMT * n)); return nonNegative(assertFinite(PMT * (Math.pow(1 + i, n) - 1) / i)); },
   },
   {
@@ -585,7 +585,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.compound_interest_4",
     family: "industrial",
-    label: "Compound — toplam yatırım",
+    label: "Compound — toplam yatirim",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "baslangicSermayesi_PV") + num(inputs, "aylikKatki_PMT") * num(inputs, "sure_n", 10) * 12)); },
   },
   {
@@ -597,13 +597,13 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.compound_interest_6",
     family: "industrial",
-    label: "Compound — vergi sonrası faiz",
+    label: "Compound — vergi post faiz",
     fn: (inputs) => { const t = num(inputs, "vergiOrani_t", 0) / 100; return nonNegative(assertFinite(num(inputs, "toplamFaiz") * (1 - t))); },
   },
   {
     id: "industrial.compound_interest_7",
     family: "industrial",
-    label: "Compound — vergi sonrası toplam",
+    label: "Compound — vergi post toplam",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "toplamYatirim") + num(inputs, "vergiSonrasiFaiz"))); },
   },
   {
@@ -615,32 +615,32 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.compound_interest_9",
     family: "industrial",
-    label: "Compound — satın alma gücü",
+    label: "Compound — satin alma gucu",
     fn: (inputs) => { const i = num(inputs, "enflasyonOrani_i", 0) / 100; const n_years = num(inputs, "sure_n", 10); return nonNegative(assertFinite(num(inputs, "FV_toplam") / Math.pow(1 + i, n_years))); },
   },
   {
     id: "industrial.compound_interest_10",
     family: "industrial",
-    label: "Compound — ikiye katlanma yıl",
+    label: "Compound — ikiye katlanma yil",
     fn: (inputs) => { const r = num(inputs, "yillikFaizOrani_r", 10); if (r <= 0) return 999; return nonNegative(assertFinite(72 / r)); },
   },
   // ── #173 LIVING WAGE ──
   {
     id: "industrial.living_wage_0",
     family: "industrial",
-    label: "Living wage — brüt yıllık",
+    label: "Living wage — brut yillik",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "brUcret_Aylik") * 12)); },
   },
   {
     id: "industrial.living_wage_1",
     family: "industrial",
-    label: "Living wage — SGK işveren",
+    label: "Living wage — SGK isveren",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "brUcret_Aylik") * num(inputs, "SGK_isverenOrani", 15.5) / 100 * 12)); },
   },
   {
     id: "industrial.living_wage_2",
     family: "industrial",
-    label: "Living wage — işsizlik fonu",
+    label: "Living wage — issizlik fonu",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "brUcret_Aylik") * num(inputs, "issizlikFonuOrani", 2) / 100 * 12)); },
   },
   {
@@ -652,37 +652,37 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.living_wage_4",
     family: "industrial",
-    label: "Living wage — gelir vergisi yıllık",
+    label: "Living wage — revenue vergisi yillik",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "brUcret_Yillik") * num(inputs, "gelirVergiDilimi", 15) / 100)); },
   },
   {
     id: "industrial.living_wage_5",
     family: "industrial",
-    label: "Living wage — kesinti toplamı",
+    label: "Living wage — kesinti toplami",
     fn: (inputs) => { const fm = num(inputs, "fazlaMesaiSaat_Aylik", 0); const fk = num(inputs, "fazlaMesaiKatsayisi", 1.5); const fmUcret = fm * fk * num(inputs, "brUcret_Aylik") / 225; return nonNegative(assertFinite(num(inputs, "SGK_toplam_isveren") + num(inputs, "issizlik_toplam") + num(inputs, "damgaVergisi") + num(inputs, "gelirVergisi_yillik") + fmUcret * 12)); },
   },
   {
     id: "industrial.living_wage_6",
     family: "industrial",
-    label: "Living wage — net aylık",
+    label: "Living wage — net aylik",
     fn: (inputs) => { const brAylik = num(inputs, "brUcret_Aylik"); const yemek = num(inputs, "yemekYardimi_Gunluk", 0) * num(inputs, "calismaGunu_Ay", 22); const yol = num(inputs, "yolYardimi_Gunluk", 0) * num(inputs, "calismaGunu_Ay", 22); const fm = num(inputs, "fazlaMesaiSaat_Aylik", 0); const fk = num(inputs, "fazlaMesaiKatsayisi", 1.5); const fmUcretAylik = fm * fk * brAylik / 225; const sgkCalisan = brAylik * 0.14; const isCalisan = brAylik * 0.01; return nonNegative(assertFinite(brAylik + fmUcretAylik - sgkCalisan - isCalisan + yemek + yol)); },
   },
   {
     id: "industrial.living_wage_7",
     family: "industrial",
-    label: "Living wage — net yıllık",
+    label: "Living wage — net yillik",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "netUcret_Aylik") * 12)); },
   },
   {
     id: "industrial.living_wage_8",
     family: "industrial",
-    label: "Living wage — işveren toplam maliyet",
+    label: "Living wage — isveren toplam maliyet",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "brUcret_Yillik") + num(inputs, "SGK_toplam_isveren") + num(inputs, "issizlik_toplam"))); },
   },
   {
     id: "industrial.living_wage_9",
     family: "industrial",
-    label: "Living wage — çalışana fayda %",
+    label: "Living wage — calisana fayda %",
     fn: (inputs) => { const iv = num(inputs, "isvereneToplamMaliyet"); if (iv <= 0) return 0; return nonNegative(assertFinite(num(inputs, "netUcret_Yillik") / iv * 100)); },
   },
   // ── #174 PANEL RADIATOR ──
@@ -695,44 +695,44 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.panel_radiator_1",
     family: "industrial",
-    label: "Panel rad — ısı ihtiyacı W",
+    label: "Panel rad — isi ihtiyaci W",
     fn: (inputs) => { const V = num(inputs, "odaHacmi_m3"); const dT = num(inputs, "hedefSicaklik_Ti") - num(inputs, "disSicaklik_To"); const izo = num(inputs, "izolasyonSeviyesi", 0); const uVal = izo === 0 ? 0.6 : izo === 1 ? 0.8 : 1.2; const camTip = num(inputs, "camTipi", 0); const camAdj = camTip === 0 ? 1 : camTip === 1 ? 1.2 : 0.8; const camOrani = num(inputs, "camAlani_Orani", 20) / 100 * 1.5; const kisi = num(inputs, "kisiSayisi", 0) * 80; const aydinlatma = num(inputs, "aydinlatmaW_m2", 10) * V / num(inputs, "odaYuksekligi", 3); return nonNegative(assertFinite(V * dT * uVal * camAdj + kisi + aydinlatma + V * dT * camOrani)); },
   },
   {
     id: "industrial.panel_radiator_2",
     family: "industrial",
-    label: "Panel rad — ısı ihtiyacı kcal/h",
+    label: "Panel rad — isi ihtiyaci kcal/h",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "isiIhtiyaci_W") * 0.86)); },
   },
   {
     id: "industrial.panel_radiator_3",
     family: "industrial",
-    label: "Panel rad — panel gücü (75/65)",
+    label: "Panel rad — panel gucu (75/65)",
     fn: (inputs) => { const isiIht = num(inputs, "isiIhtiyaci_W"); const tip = num(inputs, "panelTipi", 2); const factor = [0.6, 0.8, 1.0, 1.5][tip] || 1; return nonNegative(assertFinite(isiIht * factor)); },
   },
   // ── #175 UNDERFLOOR HEATING ──
   {
     id: "industrial.underfloor_0",
     family: "industrial",
-    label: "Underfloor — ısıtma alanı",
+    label: "Underfloor — isitma alani",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "alanUzunlugu") * num(inputs, "alanGenisligi"))); },
   },
   {
     id: "industrial.underfloor_1",
     family: "industrial",
-    label: "Underfloor — ortalama zemin sıcaklığı",
+    label: "Underfloor — ortalama zemin sicakligi",
     fn: (inputs) => { const gidis = num(inputs, "isletimSicakligi_gidis", 45); const donus = num(inputs, "donusSicakligi", 35); return nonNegative(assertFinite((gidis + donus) / 2)); },
   },
   {
     id: "industrial.underfloor_2",
     family: "industrial",
-    label: "Underfloor — ısı akısı W/m²",
+    label: "Underfloor — isi akisi W/m²",
     fn: (inputs) => { const Tm = num(inputs, "ortalamaZeminSicakligi"); const Ti = num(inputs, "odaSicakligi_Ti", 20); const zemin = num(inputs, "zeminTipi", 0); const R = [0.02, 0.1, 0.015, 0.15][zemin] || 0.05; if (R <= 0) return 0; return nonNegative(assertFinite((Tm - Ti) / R)); },
   },
   {
     id: "industrial.underfloor_3",
     family: "industrial",
-    label: "Underfloor — toplam ısı gücü",
+    label: "Underfloor — toplam isi gucu",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "isiAkisi_Wm2") * num(inputs, "isitmaAlani_m2"))); },
   },
   {
@@ -745,20 +745,20 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.solar_tube_0",
     family: "industrial",
-    label: "Solar — günlük sıcak su ihtiyacı",
+    label: "Solar — gunluk sicak su ihtiyaci",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "kullaniciSayisi", 4) * num(inputs, "gunlukKullanim_su_L_kisi", 50))); },
   },
   {
     id: "industrial.solar_tube_1",
     family: "industrial",
-    label: "Solar — günlük toplam enerji kWh",
+    label: "Solar — gunluk toplam enerji kWh",
     fn: (inputs) => { const m = num(inputs, "gunlukSicakSuIhtiyaci_L"); const cp = 4.186 / 3600; const dT = num(inputs, "sicakSuHedef_Tg", 60) - num(inputs, "sogukSuSicakligi_Tc", 15); return nonNegative(assertFinite(m * cp * dT)); },
   },
   {
     id: "industrial.solar_tube_2",
     family: "industrial",
-    label: "Solar — kolektör alanı m²",
-    fn: (inputs) => { const Q = num(inputs, "gunlukToplamEnerji_kWh"); const I = num(inputs, "gunesIsinimiGünlük_Wm2", 500); const η = num(inputs, "kolektorVerimi_η_kol", 70) / 100; const t = num(inputs, "guneslenmeSuresi_saat", 6); if (I * η * t <= 0) return 0; return nonNegative(assertFinite(Q * 1000 / (I * η * t))); },
+    label: "Solar — kolektor alani m²",
+    fn: (inputs) => { const Q = num(inputs, "gunlukToplamEnerji_kWh"); const I = num(inputs, "gunesIsinimiGunluk_Wm2", 500); const η = num(inputs, "kolektorVerimi_η_kol", 70) / 100; const t = num(inputs, "guneslenmeSuresi_saat", 6); if (I * η * t <= 0) return 0; return nonNegative(assertFinite(Q * 1000 / (I * η * t))); },
   },
   {
     id: "industrial.solar_tube_3",
@@ -769,7 +769,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.solar_tube_4",
     family: "industrial",
-    label: "Solar — yardımcı kaynak enerjisi",
+    label: "Solar — yardimci kaynak enerjisi",
     fn: (inputs) => { const ykTip = num(inputs, "yardimciKaynak", 0); const ykVerim = num(inputs, "yardimciKaynakVerimi_η_yd", 90) / 100; if (ykVerim <= 0) return 0; return nonNegative(assertFinite(num(inputs, "gunlukToplamEnerji_kWh") * 365 * (1 - 0.7) / ykVerim)); },
   },
   // ── #177 EPQ ──
@@ -782,7 +782,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.epq_1",
     family: "industrial",
-    label: "EPQ — envanter döngüsü gün",
+    label: "EPQ — envanter dongusu gun",
     fn: (inputs) => { const epq = num(inputs, "EPQ_miktar"); const d = num(inputs, "gunlukTalepHizi_d"); if (d <= 0) return 0; return nonNegative(assertFinite(epq / d)); },
   },
   {
@@ -794,33 +794,33 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.epq_3",
     family: "industrial",
-    label: "EPQ — yıllık hazırlık maliyeti",
+    label: "EPQ — yillik hazirlik maliyeti",
     fn: (inputs) => { const D = num(inputs, "yillikTalep_D"); const S = num(inputs, "hazirlikMaliyeti_S"); const epq = num(inputs, "EPQ_miktar"); if (epq <= 0) return 0; return nonNegative(assertFinite(D / epq * S)); },
   },
   {
     id: "industrial.epq_4",
     family: "industrial",
-    label: "EPQ — yıllık stok maliyeti",
+    label: "EPQ — yillik stok maliyeti",
     fn: (inputs) => { const H = num(inputs, "birimStokTutmaMaliyeti_H"); const Imax = num(inputs, "maksimumStok"); return nonNegative(assertFinite(H * Imax / 2)); },
   },
   // ── #178 KANBAN ──
   {
     id: "industrial.kanban_0",
     family: "industrial",
-    label: "Kanban — kart sayısı",
+    label: "Kanban — kart sayisi",
     fn: (inputs) => { const d = num(inputs, "gunlukTalep_d"); const LT = num(inputs, "tedarikSuresi_LT"); const k = num(inputs, "guvenlikStoguFaktoru_k", 0.1); const q = num(inputs, "kutuKapasitesi_q"); if (q <= 0) return 0; return Math.ceil(d * LT * (1 + k) / q) + 1; },
   },
   {
     id: "industrial.kanban_1",
     family: "industrial",
-    label: "Kanban — emniyet stoğu",
+    label: "Kanban — emniyet stogu",
     fn: (inputs) => { const d = num(inputs, "gunlukTalep_d"); const LT = num(inputs, "tedarikSuresi_LT"); const k = num(inputs, "guvenlikStoguFaktoru_k", 0.1); return nonNegative(assertFinite(d * LT * k)); },
   },
   // ── #179 LITTLE'S LAW ──
   {
     id: "industrial.littles_law_0",
     family: "industrial",
-    label: "Little — cevrim süresi",
+    label: "Little — cevrim suresi",
     fn: (inputs) => { const WIP = num(inputs, "wip_miktar"); const TH = num(inputs, "cikisHizi"); if (TH <= 0) return 0; return nonNegative(assertFinite(WIP / TH)); },
   },
   {
@@ -832,7 +832,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.littles_law_2",
     family: "industrial",
-    label: "Little — çıkış hesaplanan",
+    label: "Little — cikis hesaplanan",
     fn: (inputs) => { const WIP = num(inputs, "wip_miktar"); const CT = num(inputs, "cevrimSuresi_CT"); if (CT <= 0) return 0; return nonNegative(assertFinite(WIP / CT)); },
   },
   {
@@ -851,19 +851,19 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.milk_run_1",
     family: "industrial",
-    label: "Milk run — toplam süre",
+    label: "Milk run — toplam sure",
     fn: (inputs) => { const mesafe = num(inputs, "toplamMesafe"); const hiz = num(inputs, "ortalamaHiz_kmh", 50); const yukBosalt = num(inputs, "yuklemeBosaltmaDk", 15) * num(inputs, "tedarikciSayisi"); const bekleme = num(inputs, "beklemeSuresiDk", 5) * num(inputs, "tedarikciSayisi"); if (hiz <= 0) return 0; return nonNegative(assertFinite(mesafe / hiz * 60 + yukBosalt + bekleme)); },
   },
   {
     id: "industrial.milk_run_2",
     family: "industrial",
-    label: "Milk run — sürücü maliyeti",
+    label: "Milk run — surucu maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "toplamSure") / 60 * num(inputs, "surucuSaatUcreti", 15))); },
   },
   {
     id: "industrial.milk_run_3",
     family: "industrial",
-    label: "Milk run — akaryakıt maliyeti",
+    label: "Milk run — akaryakit maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "toplamMesafe") * num(inputs, "arabaMaliyeti_km", 0.5))); },
   },
   // ── #181 CPM/PERT ──
@@ -882,7 +882,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.cpm_pert_2",
     family: "industrial",
-    label: "CPM — kritik yol süresi",
+    label: "CPM — kritik yol suresi",
     fn: (inputs) => { const aktivite = num(inputs, "aktiviteler_toplam"); return nonNegative(assertFinite(num(inputs, "beklenenSure") * aktivite)); },
   },
   {
@@ -901,19 +901,19 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.queuing_0",
     family: "industrial",
-    label: "Queuing — varış oranı λ",
+    label: "Queuing — varis orani λ",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "musteriSayisi_gunluk") / num(inputs, "calismaSaati_gunluk", 8))); },
   },
   {
     id: "industrial.queuing_1",
     family: "industrial",
-    label: "Queuing — servis oranı μ",
+    label: "Queuing — servis orani μ",
     fn: (inputs) => { const servisDk = num(inputs, "ortalamaServisSuresi_dk", 10); if (servisDk <= 0) return 0; return nonNegative(assertFinite(60 / servisDk)); },
   },
   {
     id: "industrial.queuing_2",
     family: "industrial",
-    label: "Queuing — kullanım oranı ρ (M/M/1)",
+    label: "Queuing — kullanim orani ρ (M/M/1)",
     fn: (inputs) => { const λ = num(inputs, "varisOrani_lambda"); const μ = num(inputs, "servisOrani_mu"); if (μ <= 0) return 0; return nonNegative(assertFinite(λ / μ)); },
   },
   {
@@ -938,13 +938,13 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.fmea_1",
     family: "industrial",
-    label: "FMEA — risk düzeyi",
+    label: "FMEA — risk duzeyi",
     fn: (inputs) => { const rpn = num(inputs, "RPN_ortalama"); if (rpn >= 200) return 4; if (rpn >= 100) return 3; if (rpn >= 50) return 2; return 1; },
   },
   {
     id: "industrial.fmea_2",
     family: "industrial",
-    label: "FMEA — fayda/maliyet oranı",
+    label: "FMEA — fayda/maliyet orani",
     fn: (inputs) => { const onlem = num(inputs, "maliyet_onlem"); if (onlem <= 0) return 0; return nonNegative(assertFinite(num(inputs, "maliyet_failure") / onlem)); },
   },
   {
@@ -956,7 +956,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.fmea_4",
     family: "industrial",
-    label: "FMEA — öncelik sırası (kritiklik)",
+    label: "FMEA — oncelik sirasi (kritiklik)",
     fn: (inputs) => { const rpn = num(inputs, "RPN_ortalama"); const s = num(inputs, "ortalamaSiddet_S"); const o = num(inputs, "ortalamaOlusma_O"); const d = num(inputs, "ortalamaSaptama_D"); if (rpn >= 200) return 1; if (rpn >= 100) return 2; if (s >= 9 && o >= 7) return 1; if (rpn >= 50) return 3; return 4; },
   },
   {
@@ -968,7 +968,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.fmea_6",
     family: "industrial",
-    label: "FMEA — toplam önlem maliyeti",
+    label: "FMEA — toplam onlem maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "maliyet_onlem") * num(inputs, "prosesAdimiSayisi", 10))); },
   },
   {
@@ -999,7 +999,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.doe_0",
     family: "industrial",
-    label: "DOE — toplam deney sayısı",
+    label: "DOE — toplam deney sayisi",
     fn: (inputs) => { const k = num(inputs, "faktorSayisi_k", 2); const seviye = num(inputs, "faktorSeviyesi", 0); const base = seviye === 0 ? 2 : 3; const r = num(inputs, "replikasyonSayisi", 1); const merkez = num(inputs, "merkezNoktaSayisi", 3); const blok = num(inputs, "blokSayisi", 1); return nonNegative(assertFinite(Math.pow(base, k) * r + merkez + blok)); },
   },
   // ── #185 RELIABILITY BLOCK ──
@@ -1012,7 +1012,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.reliability_1",
     family: "industrial",
-    label: "Reliability — kullanılabilirlik A",
+    label: "Reliability — kullanilabilirlik A",
     fn: (inputs) => { const mtbf = num(inputs, "sistemMTBF"); const mttr = num(inputs, "bilesinMTTR_ortalama", 4); if (mtbf + mttr <= 0) return 0; return nonNegative(assertFinite(mtbf / (mtbf + mttr) * 100)); },
   },
   {
@@ -1074,7 +1074,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.reba_1",
     family: "industrial",
-    label: "REBA — Grup A yük puanı",
+    label: "REBA — Grup A yuk puani",
     fn: (inputs) => { const yuk = num(inputs, "yuk_kg"); if (yuk > 10) return 2; if (yuk > 5) return 1; return 0; },
   },
   {
@@ -1086,7 +1086,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.reba_3",
     family: "industrial",
-    label: "REBA — Grup B kavrama puanı",
+    label: "REBA — Grup B kavrama puani",
     fn: (inputs) => { const tip = num(inputs, "yukTutmaTipi", 0); return tip === 0 ? 2 : tip === 1 ? 1 : 3; },
   },
   {
@@ -1099,32 +1099,32 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.rcm_0",
     family: "industrial",
-    label: "RCM — plansız duruş sıklığı",
+    label: "RCM — plansiz durus sikligi",
     fn: (inputs) => { return nonNegative(assertFinite(365 / num(inputs, "MTBF_gun", 90))); },
   },
   {
     id: "industrial.rcm_1",
     family: "industrial",
-    label: "RCM — plansız duruş maliyeti/yıl",
+    label: "RCM — plansiz durus maliyeti/yil",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "plansizDurusSikligi") * num(inputs, "plansizDurusMaliyeti", 5000))); },
   },
   {
     id: "industrial.rcm_2",
     family: "industrial",
-    label: "RCM — koruyucu bakım maliyeti/yıl",
+    label: "RCM — koruyucu bakim maliyeti/yil",
     fn: (inputs) => { const siklik = num(inputs, "koruyucuBakimSikligi", 30); if (siklik <= 0) return 0; return nonNegative(assertFinite(365 / siklik * num(inputs, "koruyucuBakimMaliyeti", 1000))); },
   },
   {
     id: "industrial.rcm_3",
     family: "industrial",
-    label: "RCM — durumsal bakım maliyeti/yıl",
+    label: "RCM — durumsal bakim maliyeti/yil",
     fn: (inputs) => { const siklik = num(inputs, "durumsalBakimSikligi", 15); if (siklik <= 0) return 0; return nonNegative(assertFinite(365 / siklik * num(inputs, "durumsalBakimMaliyeti", 800))); },
   },
   // ── #189 PARETO / RCA ──
   {
     id: "industrial.pareto_0",
     family: "industrial",
-    label: "Pareto — kategori sayısı",
+    label: "Pareto — category sayisi",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "kategoriSayisi"))); },
   },
   {
@@ -1168,13 +1168,13 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.kaizen_1",
     family: "industrial",
-    label: "Kaizen — döngü süresi iyileşme %",
+    label: "Kaizen — dongu suresi iyilesme %",
     fn: (inputs) => { const mevcut = num(inputs, "mevcutDonguSuresi"); if (mevcut <= 0) return 0; return nonNegative(assertFinite((mevcut - num(inputs, "yeniDonguSuresi")) / mevcut * 100)); },
   },
   {
     id: "industrial.kaizen_2",
     family: "industrial",
-    label: "Kaizen — toplam yıllık tasarruf",
+    label: "Kaizen — toplam yillik tasarruf",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "iscilikTasarrufu_yil") + num(inputs, "malzemeTasarrufu_yil") + num(inputs, "enerjiTasarrufu_yil"))); },
   },
   {
@@ -1206,31 +1206,31 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.fives_audit_0",
     family: "industrial",
-    label: "5S — sort yüzde",
+    label: "5S — sort yuzde",
     fn: (inputs) => { const max = num(inputs, "sort_max", 25); if (max <= 0) return 0; return nonNegative(assertFinite(num(inputs, "sort_puan") / max * 100)); },
   },
   {
     id: "industrial.fives_audit_1",
     family: "industrial",
-    label: "5S — setInOrder yüzde",
+    label: "5S — setInOrder yuzde",
     fn: (inputs) => { const max = num(inputs, "setInOrder_max", 25); if (max <= 0) return 0; return nonNegative(assertFinite(num(inputs, "setInOrder_puan") / max * 100)); },
   },
   {
     id: "industrial.fives_audit_2",
     family: "industrial",
-    label: "5S — shine yüzde",
+    label: "5S — shine yuzde",
     fn: (inputs) => { const max = num(inputs, "shine_max", 25); if (max <= 0) return 0; return nonNegative(assertFinite(num(inputs, "shine_puan") / max * 100)); },
   },
   {
     id: "industrial.fives_audit_3",
     family: "industrial",
-    label: "5S — standardize yüzde",
+    label: "5S — standardize yuzde",
     fn: (inputs) => { const max = num(inputs, "standardize_max", 25); if (max <= 0) return 0; return nonNegative(assertFinite(num(inputs, "standardize_puan") / max * 100)); },
   },
   {
     id: "industrial.fives_audit_4",
     family: "industrial",
-    label: "5S — sustain yüzde",
+    label: "5S — sustain yuzde",
     fn: (inputs) => { const max = num(inputs, "sustain_max", 25); if (max <= 0) return 0; return nonNegative(assertFinite(num(inputs, "sustain_puan") / max * 100)); },
   },
   {
@@ -1254,7 +1254,7 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.fives_audit_8",
     family: "industrial",
-    label: "5S — eğitim maliyeti",
+    label: "5S — egitim maliyeti",
     fn: (inputs) => { return nonNegative(assertFinite(num(inputs, "toplamCalisanSayisi") * num(inputs, "egitimSaati_calisan") * num(inputs, "egitimMaliyeti_saat"))); },
   },
   // ── TOOLS #183-#193: INDUSTRIAL FORMULAS (FMEA through 5S) ──
@@ -1432,25 +1432,25 @@ export const CHUNK_67_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "industrial.living_wage",
     family: "cost",
-    label: "Living Wage — Net Ücret",
-    fn: (inputs) => { const brüt = num(inputs, "brUcret_Aylik", 30000); const mesaiSaat = num(inputs, "fazlaMesaiSaat_Aylik", 0); const mesaiKat = num(inputs, "fazlaMesaiKatsayisi", 1.5); const sgk = num(inputs, "SGK_isverenOrani", 20.5) / 100; const issizlik = num(inputs, "issizlikFonuOrani", 2) / 100; const damga = num(inputs, "damgaVergiOrani", 0.759) / 100; const gelirDilim = num(inputs, "gelirVergiDilimi", 15) / 100; const agi = num(inputs, "AGI_tutari", 0); const yemek = num(inputs, "yemekYardimi_Gunluk", 0); const yol = num(inputs, "yolYardimi_Gunluk", 0); const gun = num(inputs, "calismaGunu_Ay", 22); const mesaiUcret = (brüt / 225) * mesaiSaat * mesaiKat; const toplamBrüt = brüt + mesaiUcret; const sgkIsci = toplamBrüt * 0.14; const issizlikIsci = toplamBrüt * 0.01; const gelirMatrah = toplamBrüt - sgkIsci - issizlikIsci; const gelirVergi = gelirMatrah * gelirDilim; const damgaVergi = toplamBrüt * damga; const kesinti = sgkIsci + issizlikIsci + gelirVergi + damgaVergi; const net = toplamBrüt - kesinti + agi + (yemek + yol) * gun; return nonNegative(assertFinite(net)); },
+    label: "Living Wage — Net Ucret",
+    fn: (inputs) => { const brut = num(inputs, "brUcret_Aylik", 30000); const mesaiSaat = num(inputs, "fazlaMesaiSaat_Aylik", 0); const mesaiKat = num(inputs, "fazlaMesaiKatsayisi", 1.5); const sgk = num(inputs, "SGK_isverenOrani", 20.5) / 100; const issizlik = num(inputs, "issizlikFonuOrani", 2) / 100; const damga = num(inputs, "damgaVergiOrani", 0.759) / 100; const gelirDilim = num(inputs, "gelirVergiDilimi", 15) / 100; const agi = num(inputs, "AGI_tutari", 0); const yemek = num(inputs, "yemekYardimi_Gunluk", 0); const yol = num(inputs, "yolYardimi_Gunluk", 0); const gun = num(inputs, "calismaGunu_Ay", 22); const mesaiUcret = (brut / 225) * mesaiSaat * mesaiKat; const toplamBrut = brut + mesaiUcret; const sgkIsci = toplamBrut * 0.14; const issizlikIsci = toplamBrut * 0.01; const gelirMatrah = toplamBrut - sgkIsci - issizlikIsci; const gelirVergi = gelirMatrah * gelirDilim; const damgaVergi = toplamBrut * damga; const kesinti = sgkIsci + issizlikIsci + gelirVergi + damgaVergi; const net = toplamBrut - kesinti + agi + (yemek + yol) * gun; return nonNegative(assertFinite(net)); },
   },
   {
     id: "industrial.panel_radiator",
     family: "measurement",
-    label: "Panel Radiator — Isı İhtiyacı",
+    label: "Panel Radiator — Isi Ihtiyaci",
     fn: (inputs) => { const U = num(inputs, "odaUzunlugu", 5); const G = num(inputs, "odaGenisligi", 4); const H = num(inputs, "odaYuksekligi", 2.7); const Ti = num(inputs, "hedefSicaklik_Ti", 22); const To = num(inputs, "disSicaklik_To", -3); const izo = num(inputs, "izolasyonSeviyesi", 1); const cam = num(inputs, "camTipi", 1); const camOran = num(inputs, "camAlani_Orani", 20) / 100; const kisi = num(inputs, "kisiSayisi", 2); const ayd = num(inputs, "aydinlatmaW_m2", 10); const dT = Ti - To; const duvarAlani = (U + G) * 2 * H; const camAlani = duvarAlani * camOran; const duvarU = izo === 1 ? 0.6 : izo === 2 ? 0.8 : 1.2; const camU = cam === 1 ? 1.4 : cam === 2 ? 2.7 : 3.5; const iletim = duvarU * (duvarAlani - camAlani) * dT + camU * camAlani * dT; const infiltrasyon = 0.34 * (U * G * H) * 0.5 * dT; const kisiKazanc = kisi * 80; const aydKazanc = ayd * (U * G); const netIsi = iletim + infiltrasyon - kisiKazanc - aydKazanc; return nonNegative(assertFinite(Math.max(netIsi, 0))); },
   },
   {
     id: "industrial.underfloor_heating",
     family: "measurement",
-    label: "Underfloor Heating — Isı Gücü",
+    label: "Underfloor Heating — Isi Gucu",
     fn: (inputs) => { const U = num(inputs, "alanUzunlugu", 8); const G = num(inputs, "alanGenisligi", 6); const Ti = num(inputs, "odaSicakligi_Ti", 22); const aralik = num(inputs, "serpantinAraligi_cm", 15); const zemin = num(inputs, "zeminTipi", 1); const Tg = num(inputs, "isletimSicakligi_gidis", 45); const Td = num(inputs, "donusSicakligi", 35); const cap = num(inputs, "boruDisCap_mm", 16); const alan = U * G; const Tm = (Tg + Td) / 2; const q = zemin === 1 ? 8.3 * (Tm - Ti) * 1.1 : 7.5 * (Tm - Ti); const guc = alan * q / 1000; return nonNegative(assertFinite(guc)); },
   },
   {
     id: "industrial.solar_collector",
     family: "measurement",
-    label: "Solar Collector — Kolektör Alanı",
+    label: "Solar Collector — Kolektor Alani",
     fn: (inputs) => { const kisi = num(inputs, "kullaniciSayisi", 4); const gunlukSu = num(inputs, "gunlukKullanim_su_L_kisi", 50); const Tc = num(inputs, "sogukSuSicakligi_Tc", 10); const Tg = num(inputs, "sicakSuHedef_Tg", 60); const eta = num(inputs, "kolektorVerimi_η_kol", 70) / 100; const gunes = num(inputs, "guneslenmeSuresi_saat", 5); const I = num(inputs, "gunesIsinimiGunluk_Wm2", 600); const energy_kWh = kisi * gunlukSu * 4.186 * (Tg - Tc) / 3600; const alan = energy_kWh * 1000 / (eta * I * gunes / 1000); return nonNegative(assertFinite(alan)); },
   },
   {

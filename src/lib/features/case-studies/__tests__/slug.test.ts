@@ -7,8 +7,8 @@ describe("slugifyCaseStudyTitle", () => {
   });
 
   it("preserves Turkish characters", () => {
-    expect(slugifyCaseStudyTitle("Kaynak Teknik Başarı Hikayesi")).toBe(
-      "kaynak-teknik-basarı-hikayesi",
+    expect(slugifyCaseStudyTitle("Kaynak Teknik Basari Hikayesi")).toBe(
+      "kaynak-teknik-basari-hikayesi",
     );
   });
 });

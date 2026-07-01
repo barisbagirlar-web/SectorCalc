@@ -11,7 +11,7 @@ const ACCENT_MAP: Readonly<Record<string, string>> = {
   U: "Ú",
 };
 
-const PSEUDO_SUFFIX = " [ÇĞİŴ]";
+const PSEUDO_SUFFIX = " [CGIŴ]";
 
 function pseudoLocalizeString(text: string): string {
   const transformed = text

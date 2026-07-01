@@ -73,7 +73,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_5",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — T_total",
+    label: "CNC CYCLE TIME — T_total",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const cut = num(inputs, "cut");
@@ -93,7 +93,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_6",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — OEE_Availability",
+    label: "CNC CYCLE TIME — OEE_Availability",
     fn: (inputs) => {
     const planned = num(inputs, "planned");
     const downtime = num(inputs, "downtime");
@@ -101,11 +101,11 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── CNC İŞLEME MALİYETİ (6 formulas) ──,
+  // ── CNC MACHINING COST (6 formulas) ──,
   {
     id: "user.cnc_machining_cost_0",
     family: "cost",
-    label: "CNC İŞLEME MALİYETİ — Cost_Material",
+    label: "CNC MACHINING COST — Cost_Material",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const raw = num(inputs, "raw");
@@ -119,7 +119,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_1",
     family: "cost",
-    label: "CNC İŞLEME MALİYETİ — Cost_Machining",
+    label: "CNC MACHINING COST — Cost_Machining",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");
@@ -131,7 +131,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_2",
     family: "cost",
-    label: "CNC İŞLEME MALİYETİ — Cost_Tooling",
+    label: "CNC MACHINING COST — Cost_Tooling",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const cut = num(inputs, "cut");
@@ -144,7 +144,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_3",
     family: "cost",
-    label: "CNC İŞLEME MALİYETİ — Cost_Energy",
+    label: "CNC MACHINING COST — Cost_Energy",
     fn: (inputs) => {
     const power = num(inputs, "power");
     const t = num(inputs, "t");
@@ -157,7 +157,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_4",
     family: "cost",
-    label: "CNC İŞLEME MALİYETİ — Cost_Overhead",
+    label: "CNC MACHINING COST — Cost_Overhead",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const total = num(inputs, "total");
@@ -169,7 +169,7 @@ export const CHUNK_10_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_machining_cost_5",
     family: "cost",
-    label: "CNC İŞLEME MALİYETİ — TotalUnitCost",
+    label: "CNC MACHINING COST — TotalUnitCost",
     fn: (inputs) => {
     const material = num(inputs, "material");
     const machining = num(inputs, "machining");

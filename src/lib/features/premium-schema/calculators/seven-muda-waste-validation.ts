@@ -259,7 +259,7 @@ export function validateSevenMudaEngineeringInputs(
     analysisPeriodDays > annualWorkingDays
   ) {
     warnings.push(
-      "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
+      "Analiz donemi yillik calisma gununden buyuk. Yilliklandirilmis sonuc ters olceklenebilir.",
     );
   }
 
@@ -297,7 +297,7 @@ export function validateSevenMudaEngineeringInputs(
     const manualRate = validateProvidedNumber("manualHourlyOpportunityCost", raw.manualHourlyOpportunityCost, errors);
     if (manualRate === null || manualRate <= 0) {
       warnings.push(
-        "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
+        "Manuel firsat maliyeti modu secildi ancak saatlik firsat maliyeti sifir. Bekleme maliyeti sifir kabul edilir.",
       );
     }
   }

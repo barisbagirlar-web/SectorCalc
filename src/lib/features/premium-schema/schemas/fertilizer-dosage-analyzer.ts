@@ -1,11 +1,11 @@
 /**
- * Tool #46 — Gübre Dozaj
+ * Tool #46 — Gubre Dozaj
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
   id: "fertilizer-dosage-analyzer", legacyPaidSlug: "fertilizer-dosage-analyzer",
   name: "Fertilizer Dosage & Yield Optimization", name_i18n: {"en":"Fertilizer Dosage & Yield Optimization"}, sectorSlug: "food", category: "measurement",
-  painStatement: "Gübre dozajı toprak analizine göre hesaplanmazsa ya eksik gübreleme verimi düşürür ya da fazla gübre çevre kirliliği yaratır.", painStatement_i18n: {"en":"If fertilizer dosage is not calculated per soil analysis, either insufficient fertilization reduces efficiency or excess fertilizer creates environmental pollution."},
+  painStatement: "Gubre dozaji toprak analizine gore hesaplanmazsa ya eksik gubreleme verimi dusurur ya da fazla gubre cevre kirliligi yaratir.", painStatement_i18n: {"en":"If fertilizer dosage is not calculated per soil analysis, either insufficient fertilization reduces efficiency or excess fertilizer creates environmental pollution."},
   inputs: [
     { id: "yieldTarget", label: "Hedef Verim", label_i18n: {"en":"Hedef Efficiency"}, type: "number", unit: "ton/ha", required: true, smartDefault: 8, validation: { min: 0.1 }, helper: "", expertMeaning: "Target yield per hectare", expertMeaning_i18n: {"en":"Target yield per hectare"} },
     { id: "removalRate", label: "Nutrient removal rate per ton yield", label_i18n: {"en":"Nutrient removal rate per ton yield"}, type: "number", unit: "kg/ton", required: true, smartDefault: 24, validation: { min: 0 }, helper: "", expertMeaning: "Nutrient removal rate per ton yield", expertMeaning_i18n: {"en":"Nutrient removal rate per ton yield"} },
@@ -21,9 +21,9 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "fertNeed", label: "Gubre Ihtiyac (Saf N)", label_i18n: {"en":"Gubre Ihtiyac (Saf N)"}, unit: "kg/ha", format: "number" },
     { id: "appRate", label: "Uygulama Miktar", label_i18n: {"en":"application Miktar"}, unit: "kg/ha", format: "number" },
-    { id: "totalCost", label: "Toplam Gübre Maliyeti", label_i18n: {"en":"Total Gubre Cost"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "totalCost", label: "Toplam Gubre Maliyeti", label_i18n: {"en":"Total Gubre Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalCost", warning: 5000, critical: 10000, direction: "higher_is_bad", warningMessage: "Gübre maliyeti > $5000 — alternatif gübreleme değerlendirilmeli.", warningMessage_i18n: {"en":"Fertilizer Cost > $5000 — alternative fertilization should be evaluated."}, criticalMessage: "Maliyet > $10000 — maliyet optimizasyonu acil.", criticalMessage_i18n: {"en":"Cost > $10000 — Cost optimizasyonu acil."} }],
+  thresholds: [{ fieldId: "totalCost", warning: 5000, critical: 10000, direction: "higher_is_bad", warningMessage: "Gubre maliyeti > $5000 — alternatif gubreleme degerlendirilmeli.", warningMessage_i18n: {"en":"Fertilizer Cost > $5000 — alternative fertilization should be evaluated."}, criticalMessage: "Maliyet > $10000 — maliyet optimizasyonu acil.", criticalMessage_i18n: {"en":"Cost > $10000 — Cost optimizasyonu acil."} }],
   formulaPipeline: [
     { formulaId: "measurement.fertilizer_need", inputMap: {
         nutReq: "yieldTarget",

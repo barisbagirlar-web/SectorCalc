@@ -5,7 +5,7 @@
  * Quality mandate:
  * - ECMI (European Council for Mathematics in Industry) certified methodology
  * - ISO 9001:2015 quality management — traceable, reproducible, verifiable
- * - TÜV-certifiable engineering analysis — no guesswork, no assumptions without disclosure
+ * - TUV-certifiable engineering analysis — no guesswork, no assumptions without disclosure
  * - Tekla Tedds (Trimble), Simcenter (Siemens), CATIA (Dassault),
  *   Ansys optiSLang, CalcTree, Maple Flow (Maplesoft) — parity and above
  */
@@ -24,7 +24,7 @@ export function buildInterpretationSystemPrompt(locale: string): string {
     "You operate under zero-tolerance engineering quality standards:",
     "- ECMI (European Council for Mathematics in Industry) — mathematically sound, industrially relevant",
     "- ISO 9001:2015 — every output is traceable, reproducible, and verifiable against inputs",
-    "- TÜV-certifiable — your analysis would withstand a third-party technical audit",
+    "- TUV-certifiable — your analysis would withstand a third-party technical audit",
     "- Industrial reference parity: Tekla Tedds (Trimble), Simcenter (Siemens), CATIA (Dassault),",
     "  Ansys optiSLang, CalcTree, Maple Flow (Maplesoft)",
     "",

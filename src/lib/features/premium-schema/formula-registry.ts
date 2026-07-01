@@ -503,7 +503,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "acceptanceProbLTPD")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #4 — Araç Amortismanı (4 formulas)
+  // TOOL #4 — Arac Amortismani (4 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "depreciation.sl_annual",
@@ -543,7 +543,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "annualDepreciation") * (num(inputs, "taxRate") / 100)),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #5 — Arıza Süresi Maliyeti (sub-components + total: 7 formulas)
+  // TOOL #5 — Ariza Suresi Maliyeti (sub-components + total: 7 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.downtime_labor",
@@ -648,7 +648,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "marketPrice") - num(inputs, "quotedPrice")) * num(inputs, "quantity"),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #8 — Auto Shop Marj Kaçak (2 formulas)
+  // TOOL #8 — Auto Shop Marj Kacak (2 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.effective_labor_rate",
@@ -670,7 +670,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #9 — Basınç Vessel Kalınlık (ASME) (4 formulas)
+  // TOOL #9 — Basinc Vessel Kalinlik (ASME) (4 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.vessel_shell_thickness",
@@ -715,7 +715,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #10 — Basınçlı Hava Enerji Maliyeti (2 formulas)
+  // TOOL #10 — Basincli Hava Enerji Maliyeti (2 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "energy.compressed_air_power",
@@ -735,7 +735,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => nonNegative(num(inputs, "annualEnergyCost") + num(inputs, "leakageCost") + num(inputs, "pressureDropCost") - num(inputs, "heatRecoverySavings")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #11 — Başabaş Noktası (5 formulas)
+  // TOOL #11 — Basabas Noktasi (5 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "cost.bep_units",
@@ -870,7 +870,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "dataCompleteness") * 0.3 + num(inputs, "verificationStatus") * 0.3 + num(inputs, "reductionProgress") * 0.4),
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #15 — CBAM Uyumluluk Kararı (3 formulas)
+  // TOOL #15 — CBAM Uyumluluk Profitari (3 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "carbon.specific_embedded",
@@ -902,7 +902,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #16 — Chatter Yüzey Kalite Kaybı (5 formulas)
+  // TOOL #16 — Chatter Yuzey Kalite Loss (5 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.cutting_speed",
@@ -947,7 +947,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   // ═══════════════════════════════════════════════════════════════════════════
-  // TOOL #17 — Cıvata Tork (5 formulas)
+  // TOOL #17 — Civata Torque (5 formulas)
   // ═══════════════════════════════════════════════════════════════════════════
   {
     id: "measurement.bolt_d2",
@@ -1037,7 +1037,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.cac_payback", family: "cost", label: "CAC payback period", fn: (i) => num(i,"cac") / (num(i,"avgOrderValue") * num(i,"purchaseFreq") * num(i,"grossMarginPct") / 12) },
   { id: "cost.ltv_cac_ratio", family: "cost", label: "LTV / CAC ratio", fn: (i) => num(i,"discountedClv") / num(i,"cac") },
 
-  // CNC çevrim süresi
+  // CNC cevrim suresi
   { id: "measurement.cnc_rpm", family: "measurement", label: "CNC spindle RPM", fn: (i) => (1000 * num(i,"cuttingSpeed")) / (Math.PI * num(i,"toolDiameter")) },
   { id: "measurement.cnc_feed_speed", family: "measurement", label: "CNC feed speed", fn: (i) => num(i,"feedPerTooth") * num(i,"teeth") * num(i,"rpm") },
   { id: "measurement.cnc_cut_time", family: "measurement", label: "CNC cut time", fn: (i) => (num(i,"length") * num(i,"depth")) / (num(i,"feedSpeed") * num(i,"axialDepth")) },
@@ -1045,7 +1045,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.cnc_toolchange_time", family: "measurement", label: "CNC tool change time", fn: (i) => num(i,"changeCount") * num(i,"timePerChange") },
   { id: "measurement.cnc_total_time", family: "measurement", label: "CNC total cycle time", fn: (i) => num(i,"cutTime") + num(i,"rapidTime") + num(i,"toolChangeTime") + num(i,"nonCuttingTime") + num(i,"loadUnloadTime") },
 
-  // CNC işleme maliyeti
+  // CNC isleme maliyeti
   { id: "cost.cnc_material", family: "cost", label: "CNC raw material cost per unit", fn: (i) => num(i,"rawVolume") * num(i,"density") * num(i,"pricePerKg") * (1 + num(i,"scrapRate")) },
   { id: "cost.cnc_machining", family: "cost", label: "CNC machining cost per unit", fn: (i) => num(i,"totalCycleTime") * num(i,"machineRate") },
   { id: "cost.cnc_tooling", family: "cost", label: "CNC tooling cost per unit", fn: (i) => (num(i,"cutTime") / num(i,"toolLife")) * num(i,"toolCost") },
@@ -1064,7 +1064,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.cpk_yield", family: "measurement", label: "Process yield", fn: (i) => 1 - num(i,"pTotal") },
   { id: "measurement.cpk_sigma_st", family: "measurement", label: "Short-term sigma level", fn: (i) => (num(i,"cpk") * 3) + 1.5 },
 
-  // CPM gecikme cezası
+  // CPM gecikme cezasi
   { id: "measurement.cpm_total_float", family: "measurement", label: "Total float", fn: (i) => num(i,"lateStart") - num(i,"earlyStart") },
   { id: "measurement.cpm_critical_delay", family: "measurement", label: "Critical path delay", fn: (i) => Math.max(0, num(i,"actualDuration") - num(i,"plannedDuration") - num(i,"totalFloat")) },
   { id: "measurement.cpm_non_excusable", family: "measurement", label: "Non-excusable delay days", fn: (i) => Math.max(0, num(i,"criticalDelay") - num(i,"excusableDelay")) },
@@ -1073,14 +1073,14 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.cpm_net_penalty", family: "cost", label: "Net penalty after acceleration", fn: (i) => num(i,"liquidatedDamages") - num(i,"accelerationCost") },
   { id: "cost.cpm_eot_claim", family: "cost", label: "EOT claim days", fn: (i) => num(i,"excusableDelay") * (1 - num(i,"effFactor")) },
 
-  // Çatı alanı
+  // Cati alani
   { id: "measurement.roof_footprint", family: "measurement", label: "Roof footprint area", fn: (i) => num(i,"roofLength") * num(i,"roofWidth") },
   { id: "measurement.roof_gable_area", family: "measurement", label: "Roof gable area", fn: (i) => num(i,"footprint") / Math.cos(num(i,"pitchAngle") * Math.PI / 180) },
   { id: "measurement.roof_overhang_area", family: "measurement", label: "Roof overhang area", fn: (i) => (2 * (num(i,"buildingLength") + num(i,"buildingWidth"))) * num(i,"overhangWidth") },
   { id: "measurement.roof_material_area", family: "measurement", label: "Total material area needed", fn: (i) => num(i,"gableArea") * (1 + num(i,"wasteFactor")) },
   { id: "measurement.roof_ridge_length", family: "measurement", label: "Ridge length", fn: (i) => num(i,"buildingLength") - num(i,"buildingWidth") + (num(i,"buildingWidth") * Math.SQRT2) },
 
-  // Darboğaz yatırım
+  // Darbogaz yatirim
   { id: "measurement.bottleneck_util", family: "measurement", label: "Bottleneck utilization", fn: (i) => num(i,"actualOutput") / num(i,"designCapacity") },
   { id: "measurement.bottleneck_throughput", family: "measurement", label: "Effective throughput", fn: (i) => num(i,"demand") * (1 - num(i,"defectRate")) },
   { id: "measurement.bottleneck_takt_time", family: "measurement", label: "Takt time", fn: (i) => num(i,"availableTime") / num(i,"demand") },
@@ -1089,21 +1089,21 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.bottleneck_roi", family: "cost", label: "Bottleneck upgrade ROI", fn: (i) => (num(i,"throughputIncrease") * num(i,"margin") * num(i,"days")) / num(i,"upgradeCost") },
   { id: "cost.bottleneck_payback", family: "cost", label: "Bottleneck upgrade payback (months)", fn: (i) => num(i,"upgradeCost") / num(i,"monthlyGain") },
 
-  // SMED değişim matrisi
+  // SMED degisim matrisi
   { id: "measurement.smed_setup_total", family: "measurement", label: "Total setup time", fn: (i) => num(i,"internalSetup") + num(i,"externalSetup") },
   { id: "measurement.smed_target_time", family: "measurement", label: "Target setup time after SMED", fn: (i) => num(i,"internalSetup") * (1 - num(i,"conversionRate")) + num(i,"externalSetup") },
   { id: "measurement.smed_ebq", family: "measurement", label: "Economic batch quantity", fn: (i) => Math.sqrt((2 * num(i,"annualDemand") * num(i,"setupCost")) / num(i,"holdingCost")) },
   { id: "cost.smed_setup_cost", family: "cost", label: "Setup cost", fn: (i) => num(i,"totalSetup") * num(i,"machineRate") + num(i,"labor") },
   { id: "cost.smed_annual_savings", family: "cost", label: "Annual savings from SMED", fn: (i) => (num(i,"totalSetup") - num(i,"targetSetup")) * num(i,"changeoverFreq") * num(i,"machineRate") },
 
-  // Depo yerleşimi
+  // Depo yerlesimi
   { id: "measurement.warehouse_storage_area", family: "measurement", label: "Available storage area", fn: (i) => num(i,"footprint") * num(i,"utilRate") },
   { id: "measurement.warehouse_pallet_positions", family: "measurement", label: "Pallet positions", fn: (i) => num(i,"warehouseFootprint") / (num(i,"palletFootprint") * num(i,"aisleFactor")) },
   { id: "measurement.warehouse_vertical_cap", family: "measurement", label: "Vertical storage capacity", fn: (i) => num(i,"palletPositions") * num(i,"rackLevels") },
   { id: "measurement.warehouse_door_throughput", family: "measurement", label: "Door throughput capacity", fn: (i) => num(i,"doors") / (num(i,"turnaroundLoad") + num(i,"turnaroundUnload")) },
   { id: "cost.warehouse_cost_per_pos", family: "cost", label: "Cost per pallet position", fn: (i) => num(i,"facilityCost") / num(i,"palletPositions") },
 
-  // Devamsızlık maliyeti
+  // Devamsizlik maliyeti
   { id: "cost.absenteeism_direct", family: "cost", label: "Direct absenteeism cost", fn: (i) => num(i,"absentHours") * num(i,"hourlyRate") * (1 + num(i,"burden")) },
   { id: "cost.absenteeism_ot", family: "cost", label: "Overtime premium cost", fn: (i) => num(i,"replaceOT") * (num(i,"otRate") - num(i,"regRate")) },
   { id: "cost.absenteeism_temp", family: "cost", label: "Temporary worker cost", fn: (i) => num(i,"tempHours") * num(i,"tempRate") * (1 + num(i,"markup")) },
@@ -1118,19 +1118,19 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.digital_twin_time_gain", family: "cost", label: "Time gain from digital twin", fn: (i) => (num(i,"physCycle") - num(i,"digCycle")) * num(i,"iterations") },
   { id: "cost.digital_twin_roi", family: "cost", label: "Digital twin ROI", fn: (i) => (num(i,"costTrad") - num(i,"costDt") + num(i,"revenueGain") + num(i,"qualitySavings")) / num(i,"costDt") },
 
-  // Dikiş hattı dengeleme
+  // Dikis hatti dengeleme
   { id: "measurement.sewing_takt_time", family: "measurement", label: "Sewing line takt time", fn: (i) => num(i,"availableTime") / num(i,"demand") },
   { id: "measurement.sewing_theo_op", family: "measurement", label: "Theoretical operators needed", fn: (i) => num(i,"cycleTotal") / num(i,"taktTime") },
   { id: "measurement.sewing_line_eff", family: "measurement", label: "Line efficiency", fn: (i) => (num(i,"cycleTotal") / (num(i,"actOperators") * num(i,"taktTime"))) * 100 },
   { id: "measurement.sewing_balance_delay", family: "measurement", label: "Balance delay", fn: (i) => 100 - num(i,"lineEff") },
   { id: "measurement.sewing_smoothness", family: "measurement", label: "Smoothness index", fn: (i) => 0 }, // requires array data
 
-  // Dye reçete maliyeti
+  // Dye recete maliyeti
   { id: "cost.dye_batch", family: "cost", label: "Dye batch total cost", fn: (i) => num(i,"dyeCost") + num(i,"chemCost") + num(i,"waterCost") + num(i,"energyCost") + num(i,"wasteCost") },
   { id: "cost.dye_rft_savings", family: "cost", label: "RFT rework savings", fn: (i) => num(i,"rework") * (1 - num(i,"rft")) },
   { id: "cost.dye_cost_per_kg", family: "cost", label: "Cost per kg fabric", fn: (i) => (num(i,"totalBatch") + num(i,"rftSavings")) / num(i,"fabricWeight") },
 
-  // Enerji tüketim raporu
+  // Enerji tuketim reportu
   { id: "energy.power_factor", family: "energy", label: "Power factor", fn: (i) => num(i,"active") / Math.sqrt(Math.pow(num(i,"active"), 2) + Math.pow(num(i,"reactive"), 2)) },
   { id: "energy.reactive_penalty", family: "energy", label: "Reactive power penalty", fn: (i) => num(i,"pf") < num(i,"pfThresh") ? (num(i,"reactive") - num(i,"active") * Math.tan(Math.acos(num(i,"pfThresh")))) * num(i,"tariff") : 0 },
   { id: "energy.demand_charge", family: "energy", label: "Demand charge", fn: (i) => num(i,"peakKw") * num(i,"demandRate") },
@@ -1164,10 +1164,10 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.evm_eac_cpi_spi", family: "cost", label: "EAC using CPI×SPI", fn: (i) => num(i,"ac") + ((num(i,"bac") - num(i,"ev")) / (num(i,"cpi") * num(i,"spi"))) },
   { id: "cost.evm_vac", family: "cost", label: "Variance at completion", fn: (i) => num(i,"bac") - num(i,"eac") },
 
-  // Fabrika yerleşim
+  // Fabrika yerlesim
   { id: "measurement.layout_flow_cost", family: "measurement", label: "Flow distance cost", fn: (i) => 0 }, // requires matrix data
 
-  // Faiz oranı riski
+  // Faiz orani risk
   { id: "cost.ir_exposure", family: "cost", label: "Interest rate exposure", fn: (i) => num(i,"floatingDebt") * (1 - num(i,"hedgeRatio")) },
   { id: "cost.ir_shock_impact", family: "cost", label: "Shock impact on exposure", fn: (i) => num(i,"exposure") * num(i,"bpsChange") / 10000 },
   { id: "cost.ir_dur_gap", family: "cost", label: "Duration gap", fn: (i) => num(i,"assetDur") - num(i,"liabDur") },
@@ -1179,7 +1179,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.filament_total_r", family: "cost", label: "Total recycled cost after adjustments", fn: (i) => num(i,"costRecyc") + num(i,"qualPenalty") - num(i,"energySav") - num(i,"carbonCred") },
   { id: "cost.filament_roi", family: "cost", label: "Recycling ROI", fn: (i) => (num(i,"costV") - num(i,"totalR")) * num(i,"volume") / num(i,"capex") },
 
-  // Fiyat esnekliği
+  // Fiyat esnekligi
   { id: "measurement.price_elasticity", family: "measurement", label: "Price elasticity of demand", fn: (i) => num(i,"pctDemandChange") / num(i,"pctPriceChange") },
   { id: "cost.price_elast_new_rev", family: "cost", label: "New revenue after price change", fn: (i) => num(i,"newPrice") * num(i,"newDem") },
   { id: "cost.price_elast_new_margin", family: "cost", label: "New margin after price change", fn: (i) => (num(i,"newPrice") - num(i,"varCost")) * num(i,"newDem") - num(i,"fixed") },
@@ -1194,13 +1194,13 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.grr_combined", family: "measurement", label: "GRR combined %", fn: (i) => 0 }, // requires matrix data
   { id: "cost.grr_error_cost", family: "cost", label: "Gage error cost impact", fn: (i) => num(i,"falseAcc") * num(i,"escapeCost") + num(i,"falseRej") * num(i,"scrapCost") },
 
-  // Gıda fire marj
+  // Gida fire marj
   { id: "measurement.food_yield", family: "measurement", label: "Food yield ratio", fn: (i) => num(i,"finished") / num(i,"raw") },
   { id: "cost.food_shrink_cost", family: "cost", label: "Shrinkage cost", fn: (i) => (num(i,"raw") - num(i,"finished")) * num(i,"rawCost") },
   { id: "cost.food_spoil_cost", family: "cost", label: "Spoilage cost", fn: (i) => num(i,"spoiled") * num(i,"prodCost") },
   { id: "cost.food_margin_leak", family: "cost", label: "Total food margin leak", fn: (i) => num(i,"shrinkCost") + num(i,"spoilCost") + num(i,"overCost") },
 
-  // Gübre dozaj
+  // Gubre dozaj
   { id: "measurement.fertilizer_need", family: "measurement", label: "Fertilizer need (kg nutrient)", fn: (i) => (num(i,"nutReq") - num(i,"soilSupp")) / num(i,"eff") },
   { id: "cost.fertilizer_cost", family: "cost", label: "Fertilizer cost per area", fn: (i) => num(i,"appRate") * num(i,"area") * num(i,"price") },
   { id: "cost.fertilizer_roi", family: "cost", label: "Fertilizer ROI", fn: (i) => (num(i,"yieldInc") * num(i,"cropPrice") - num(i,"cost")) / num(i,"cost") },
@@ -1214,7 +1214,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.haccp_fine", family: "cost", label: "Regulatory fine risk", fn: (i) => num(i,"probDet") * num(i,"fineAmt") },
   { id: "cost.haccp_total", family: "cost", label: "Total HACCP deviation cost", fn: (i) => num(i,"holdCost") + num(i,"testCost") + num(i,"reworkCost") + num(i,"dispCost") + num(i,"recallCost") + num(i,"fineRisk") },
 
-  // Hacimsel ağırlık
+  // Hacimsel agirlik
   { id: "measurement.volumetric_weight_air", family: "measurement", label: "Volumetric weight for air", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 6000 },
   { id: "measurement.volumetric_weight_road", family: "measurement", label: "Volumetric weight for road", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 5000 },
   { id: "measurement.volumetric_weight_sea", family: "measurement", label: "Volumetric weight for sea", fn: (i) => (num(i,"length") * num(i,"width") * num(i,"height")) / 1000 },
@@ -1225,7 +1225,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.lightweight_annual_fuel_sav", family: "cost", label: "Annual fuel savings", fn: (i) => num(i,"weightRed") * num(i,"fuelFactor") * num(i,"distance") * num(i,"fuelPrice") },
   { id: "cost.lightweight_net_sav", family: "cost", label: "Net lifecycle savings", fn: (i) => (num(i,"fuelSav") + num(i,"payloadGain")) * num(i,"life") - num(i,"matPrem") - num(i,"toolDelta") },
 
-  // Hurda oranı optimizasyon
+  // Hurda orani optimizasyon
   { id: "cost.scrap_optimize_total", family: "cost", label: "Total scrap cost", fn: (i) => num(i,"scrapMat") + num(i,"scrapLab") + num(i,"scrapOh") + num(i,"oppCost") - num(i,"salvage") },
 
   // HVAC kapasite
@@ -1234,11 +1234,11 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.hvac_total_load", family: "measurement", label: "Total cooling load BTU/h", fn: (i) => num(i,"sensible") + num(i,"latent") },
   { id: "measurement.hvac_tons", family: "measurement", label: "Cooling tons", fn: (i) => num(i,"totalBtu") / 12000 },
 
-  // Hydraulic system kayıp
+  // Hydraulic system kayip
   { id: "energy.hydraulic_heat_loss", family: "energy", label: "Hydraulic heat loss", fn: (i) => num(i,"qLeak") * num(i,"p") + num(i,"deltaPPipe") * num(i,"qFlow") + num(i,"deltaPValve") * num(i,"qFlow") },
   { id: "cost.hydraulic_loss_cost", family: "cost", label: "Hydraulic loss energy cost", fn: (i) => num(i,"heat") * num(i,"hours") * num(i,"elecRate") },
 
-  // Isı exchanger fouling
+  // Isi exchanger fouling
   { id: "energy.fouling_resistance", family: "energy", label: "Fouling resistance", fn: (i) => (1 / num(i,"uDirty")) - (1 / num(i,"uClean")) },
   { id: "energy.heat_exchanger_loss", family: "energy", label: "Heat loss from fouling", fn: (i) => num(i,"area") * num(i,"uClean") * num(i,"lmtd") - num(i,"area") * num(i,"uDirty") * num(i,"lmtd") },
   { id: "cost.fouling_energy_penalty", family: "cost", label: "Energy penalty cost from fouling", fn: (i) => num(i,"heatLoss") * num(i,"hours") / num(i,"boilEff") * num(i,"fuelCost") },
@@ -1256,7 +1256,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.feed_base_cost", family: "cost", label: "Base feed cost per ton", fn: (i) => { const rates = i.inclRates; const prices = i.prices; if(!Array.isArray(rates) || !Array.isArray(prices)) return 0; return rates.reduce((s,r,idx) => s + r * (prices[idx] || 0), 0); } },
   { id: "cost.feed_cost_per_kg_live", family: "cost", label: "Feed cost per kg live weight", fn: (i) => (num(i,"baseCost") + num(i,"procCost") + num(i,"addCost") + num(i,"baseCost") * num(i,"shrinkRate")) * num(i,"fcr") },
 
-  // İskele kiralama
+  // Iskele kiralama
   { id: "measurement.scaffold_area", family: "measurement", label: "Scaffold surface area", fn: (i) => num(i,"buildingPerimeter") * num(i,"buildingHeight") },
   { id: "cost.scaffold_total", family: "cost", label: "Total scaffold cost", fn: (i) => num(i,"rental") * num(i,"rental") * num(i,"rental") + num(i,"area") * num(i,"laborCost") + num(i,"area") * num(i,"laborCost") + num(i,"transportCost") * num(i,"transportCost") },
 
@@ -1264,7 +1264,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.spc_x_bar_avg", family: "measurement", label: "Average of subgroup means", fn: (i) => { const data = i.data; if(!Array.isArray(data) || data.length === 0) return 0; return data.reduce((s,r) => s + r, 0) / data.length; } },
   { id: "measurement.spc_r_bar", family: "measurement", label: "Average range", fn: (i) => { const data = i.data; if(!Array.isArray(data) || data.length === 0) return 0; const max = Math.max(...data), min = Math.min(...data); return max - min; } },
 
-  // İşleme stratejisi
+  // Isleme stratejisi
   { id: "measurement.machining_mrr", family: "measurement", label: "Material removal rate", fn: (i) => num(i,"cuttingSpeed") * num(i,"feedPerRev") * num(i,"depthOfCut") },
   { id: "measurement.machining_power", family: "measurement", label: "Machining power required", fn: (i) => num(i,"mrr") * num(i,"specificEnergy") },
 
@@ -1673,7 +1673,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.route_efficiency_score", family: "measurement", label: "Route efficiency", fn: (i) => safeDivide(num(i,"nearestNeighborDist"), num(i,"clarkeWrightDist")) },
   { id: "cost.route_total_savings", family: "cost", label: "Total routing savings", fn: (i) => num(i,"totalDistance") - num(i,"fuelCostPerKm") },
 
-  // Rüzgar Türbini
+  // Ruzgar Turbini
   { id: "measurement.wind_aep", family: "measurement", label: "AEP", fn: (i) => num(i,"ratedPower") * num(i,"capacityFactor") * 8760 },
   { id: "cost.wind_annual_revenue", family: "cost", label: "Annual revenue", fn: (i) => num(i,"aep") * num(i,"feedInTariff") },
   { id: "cost.wind_ebitda", family: "cost", label: "Wind EBITDA", fn: (i) => Math.max(0, num(i,"annualRevenue") - num(i,"opex")) },
@@ -1684,15 +1684,15 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.saas_shelfware_pct", family: "measurement", label: "Shelfware %", fn: (i) => safeDivide(Math.max(0, num(i,"totalLicenses") - num(i,"activeUsers")), num(i,"totalLicenses")) },
   { id: "cost.saas_shelfware_cost", family: "cost", label: "Shelfware cost", fn: (i) => num(i,"totalLicenses") * num(i,"activeUsers") },
 
-  // Saatlik Ücret
+  // Saatlik Ucret
   { id: "cost.burdened_hourly_rate", family: "cost", label: "Burdened hourly rate", fn: (i) => (num(i,"grossSalary") + num(i,"employerTaxes") + num(i,"benefits")) / Math.max(1, num(i,"productiveHours")) },
 
-  // SMED Değişim
+  // SMED Degisim
   { id: "measurement.smed_capacity_recovered", family: "measurement", label: "SMED capacity recovered", fn: (i) => (num(i,"currentChangeoverTime") - num(i,"targetChangeoverTime")) * num(i,"changeoversPerMonth") },
   { id: "cost.smed_financial_gain", family: "cost", label: "SMED financial gain", fn: (i) => num(i,"capacityRecovered") * num(i,"machineHourlyRate") * num(i,"operatorCount") },
   { id: "cost.smed_roi", family: "cost", label: "SMED ROI", fn: (i) => safeDivide(num(i,"financialGain") - num(i,"smedImplementationCost"), num(i,"smedInvestment")) },
 
-  // Sözleşme Teşvik
+  // Sozlesme Tesvik
   { id: "cost.incentive_target_fee", family: "cost", label: "Target fee", fn: (i) => num(i,"targetCost") * num(i,"targetFeePct") / 100 },
   { id: "cost.incentive_actual_fee", family: "cost", label: "Actual incentive fee", fn: (i) => Math.min(Math.max(num(i,"targetFee") + (num(i,"targetCost") - num(i,"actualCost")) * num(i,"contractorSharePct") / 100, num(i,"minFee")), num(i,"maxFee")) },
 
@@ -1706,13 +1706,13 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.steam_trap_annual_loss", family: "cost", label: "Annual steam loss cost", fn: (i) => num(i,"steamLossRate") * num(i,"operatingHoursPerYear") * num(i,"steamCost") / 1000 },
   { id: "cost.steam_trap_roi", family: "cost", label: "Steam trap repair ROI", fn: (i) => safeDivide(num(i,"annualLoss"), num(i,"replacementCost") + num(i,"replacementCost")) },
 
-  // Stok Devir Hızı
+  // Stok Devir Hizi
   { id: "measurement.inventory_turnover_ratio", family: "measurement", label: "Inventory turnover", fn: (i) => safeDivide(num(i,"annualCogs"), num(i,"avgInventory")) },
   { id: "measurement.dsi_days", family: "measurement", label: "Days sales inventory", fn: (i) => safeDivide(num(i,"daysInPeriod"), num(i,"inventoryTurnoverRatio")) },
   { id: "cost.obsolescence_risk_cost", family: "cost", label: "Obsolescence risk", fn: (i) => num(i,"avgInventory") * num(i,"obsolescenceRate") / 100 },
   { id: "cost.liquidation_loss", family: "cost", label: "Liquidation loss", fn: (i) => num(i,"slowMovingInv") * (1 - num(i,"salvagePct") / 100) },
 
-  // Su Kullanımı
+  // Su Kullanimi
   { id: "measurement.water_intensity", family: "measurement", label: "Water intensity", fn: (i) => safeDivide(num(i,"totalWaterUse"), num(i,"productionOutput")) },
   { id: "cost.water_savings_total", family: "cost", label: "Water savings total", fn: (i) => num(i,"waterIntensity") - num(i,"targetWaterIntensity") },
   { id: "cost.water_cost_savings", family: "cost", label: "Water cost savings", fn: (i) => num(i,"waterSavingsTotal") * (num(i,"waterCostPerM3") + num(i,"wastewaterCostPerM3")) },
@@ -1733,12 +1733,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   // Taguchi
   { id: "cost.taguchi_loss_per_unit", family: "cost", label: "Taguchi loss per unit", fn: (i) => num(i,"toleranceCost") / Math.pow(num(i,"toleranceLimit"), 2) * Math.pow(num(i,"actualValue") - num(i,"targetValue"), 2) },
 
-  // Takım Aşınma
+  // Takim Asinma
   { id: "cost.tooling_cost_per_part", family: "cost", label: "Tooling cost per part", fn: (i) => safeDivide(num(i,"toolingCost"), num(i,"partsProduced")) },
   { id: "cost.tooling_total", family: "cost", label: "Total tooling cost", fn: (i) => num(i,"purchaseCost") + num(i,"regrindCost") + num(i,"inventoryCost") },
   { id: "cost.premature_failure_cost", family: "cost", label: "Premature failure cost", fn: (i) => num(i,"prematureFailures") * num(i,"toolingCost") },
 
-  // Takt Süre
+  // Takt Sure
   { id: "measurement.takt_time", family: "measurement", label: "Takt time", fn: (i) => safeDivide(num(i,"availableTime"), num(i,"customerDemand")) },
   { id: "measurement.cycle_flexibility", family: "measurement", label: "Cycle flexibility", fn: (i) => safeDivide(num(i,"cycleTime"), num(i,"cycleTime")) },
   { id: "cost.balance_loss", family: "cost", label: "Balance loss cost", fn: (i) => num(i,"balanceDelay") * num(i,"laborRate") },
@@ -1755,13 +1755,13 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.quote_total", family: "cost", label: "Quote total", fn: (i) => num(i,"partsCost") + num(i,"laborHours") * num(i,"hourlyRate") },
   { id: "cost.gross_profit_pct", family: "cost", label: "Gross profit %", fn: (i) => safeDivide(num(i,"quoteTotal"), num(i,"quoteTotalOut")) * 100 },
 
-  // Taşeron
+  // Taseron
   { id: "measurement.quoted_margin", family: "measurement", label: "Quoted margin", fn: (i) => safeDivide(num(i,"quotedAmount") - num(i,"actualCost"), num(i,"quotedAmount")) },
   { id: "measurement.actual_margin", family: "measurement", label: "Actual margin", fn: (i) => safeDivide(num(i,"contractMargin") - num(i,"actualCost"), num(i,"contractMargin")) },
   { id: "cost.margin_leak_sub", family: "cost", label: "Subcontractor margin leak", fn: (i) => num(i,"quotedMargin") - num(i,"actualMargin") },
   { id: "cost.leakage_pct", family: "cost", label: "Margin leakage %", fn: (i) => safeDivide(num(i,"marginLeakSub"), num(i,"quotedMargin")) * 100 },
 
-  // Taşıma Mode
+  // Tasima Mode
   { id: "cost.transport_air", family: "cost", label: "Air freight cost", fn: (i) => num(i,"airFreightKg") * num(i,"airRatePerKg") },
   { id: "cost.transport_sea", family: "cost", label: "Sea freight cost", fn: (i) => num(i,"seaFreightCbm") * num(i,"seaRatePerCbm") },
   { id: "cost.transport_road", family: "cost", label: "Road freight cost", fn: (i) => num(i,"roadFreightKm") * num(i,"roadRatePerKm") },
@@ -1775,7 +1775,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.risk_adjusted_cost_sc", family: "cost", label: "Risk adjusted cost", fn: (i) => num(i,"riskExposureSc") + num(i,"revenueLossSc") },
   { id: "measurement.resilience_index", family: "measurement", label: "Resilience index", fn: (i) => safeDivide(num(i,"recoveryCapacity"), num(i,"normalDemand")) },
 
-  // Tedarikçi Döviz
+  // Tedarikci Doviz
   { id: "cost.fx_exposure_supplier", family: "cost", label: "Supplier FX exposure", fn: (i) => num(i,"contractValue") * num(i,"exchangeRate") },
   { id: "cost.fx_expected_loss", family: "cost", label: "FX expected loss", fn: (i) => num(i,"fxExposureSupplier") * num(i,"forexVolatility") / 100 },
   { id: "cost.fx_var_supplier", family: "cost", label: "FX VaR supplier", fn: (i) => num(i,"fxExposureSupplier") * num(i,"confidenceFactor") },
@@ -1794,7 +1794,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.npv_elimination", family: "cost", label: "NPV of elimination", fn: (i) => num(i,"presentValueRecurring") - num(i,"eliminationProjectCost") },
   { id: "cost.root_cause_payback", family: "cost", label: "Root cause payback", fn: (i) => safeDivide(num(i,"eliminationProjectCost"), num(i,"recurringAnnualCost")) },
 
-  // Tekstil Atığı
+  // Tekstil Atigi
   { id: "measurement.textile_waste_rate", family: "measurement", label: "Textile waste rate", fn: (i) => safeDivide(num(i,"fabricWaste"), num(i,"fabricUsed")) * 100 },
   { id: "cost.pre_consumer_waste", family: "cost", label: "Pre-consumer waste cost", fn: (i) => num(i,"fabricWaste") * num(i,"fabricUnitCost") },
   { id: "cost.net_waste_cost", family: "cost", label: "Net waste cost", fn: (i) => num(i,"preConsumerWaste") + num(i,"recycleRevenue") - num(i,"recycleRevenue") },
@@ -1809,12 +1809,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.failed_delivery_cost", family: "cost", label: "Failed delivery cost", fn: (i) => num(i,"failedDeliveries") * num(i,"costPerFailedDelivery") },
   { id: "cost.total_delivery_cost", family: "cost", label: "Total delivery cost", fn: (i) => num(i,"successfulDeliveries") * num(i,"costPerSuccessfulDelivery") + num(i,"failedDeliveryCost") },
 
-  // Tohum Oranı
+  // Tohum Orani
   { id: "measurement.seed_requirement", family: "measurement", label: "Seed requirement", fn: (i) => num(i,"fieldArea") * num(i,"seedPerDecare") },
   { id: "cost.seed_cost_total", family: "cost", label: "Total seed cost", fn: (i) => num(i,"seedRequirement") * num(i,"seedUnitCost") },
   { id: "cost.seed_financial_loss", family: "cost", label: "Seed financial loss", fn: (i) => (num(i,"germinationRate") - num(i,"wasteRateSeeds")) / 100 * num(i,"seedCostTotal") },
 
-  // Toplam Çalışan
+  // Toplam Calisan
   { id: "cost.total_employee_cost", family: "cost", label: "Total employee cost", fn: (i) => num(i,"avgGrossSalary") + num(i,"employerPayrollTax") + num(i,"benefitsCostPerEmployee") + num(i,"trainingCostPerEmployee") + num(i,"benefitsCostPerEmployee") },
   { id: "cost.employee_cost_per_hour", family: "cost", label: "Employee cost per hour", fn: (i) => safeDivide(num(i,"totalEmployeeCost"), num(i,"avgWorkHoursPerMonth")) },
 
@@ -1822,12 +1822,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.transfer_tax_impact", family: "cost", label: "Transfer tax impact", fn: (i) => (num(i,"transferPrice") - num(i,"armLengthPrice")) * num(i,"entityATaxRate") / 100 },
   { id: "cost.transfer_global_profit", family: "cost", label: "Transfer global profit", fn: (i) => num(i,"transferPrice") + num(i,"armLengthPrice") - num(i,"transferTaxImpact") },
 
-  // Ürün Complexity
+  // Urun Complexity
   { id: "measurement.complexity_index", family: "measurement", label: "Complexity index", fn: (i) => safeDivide(num(i,"numSkus"), num(i,"numPartsPerSku")) },
   { id: "cost.hidden_cost_complexity", family: "cost", label: "Hidden complexity cost", fn: (i) => num(i,"complexityIndex") * num(i,"annualOverhead") },
   { id: "cost.profitability_per_sku", family: "cost", label: "Profitability per SKU", fn: (i) => safeDivide(num(i,"skuRevenue") - num(i,"skuCost"), num(i,"skuQty")) },
 
-  // Vakum Kaçağı
+  // Vakum Kacagi
   { id: "measurement.vacuum_leak_rate", family: "measurement", label: "Vacuum leak rate", fn: (i) => num(i,"leakRate") * num(i,"numLeaks") / num(i,"numLeaks") },
   { id: "cost.vacuum_leak_cost", family: "cost", label: "Vacuum leak cost", fn: (i) => num(i,"vacuumLeakRate") * num(i,"energyCostPerUnit") * num(i,"operatingHours") },
   { id: "measurement.vacuum_capacity_waste", family: "measurement", label: "Vacuum capacity waste", fn: (i) => safeDivide(num(i,"capacityWaste"), num(i,"motorPower")) * 100 },
@@ -1848,18 +1848,18 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.preheat_required", family: "measurement", label: "Preheat required", fn: (i) => num(i,"carbonEquivalent") > num(i,"materialThickness") ? 1 : 0 },
   { id: "cost.preheat_energy_cost", family: "cost", label: "Preheat energy cost", fn: (i) => num(i,"preheatRequired") * num(i,"energyCostPerKwh") * num(i,"materialThickness") },
 
-  // Yakıt Rota
+  // Yakit Rota
   { id: "cost.fuel_waste_distance", family: "cost", label: "Fuel waste distance", fn: (i) => (num(i,"actualKm") - num(i,"optimalKm")) * num(i,"fuelCostPerKm") },
   { id: "cost.fuel_waste_efficiency", family: "cost", label: "Fuel waste efficiency", fn: (i) => num(i,"actualFuelUsed") * num(i,"fuelPrice") - num(i,"expectedFuelCost") },
   { id: "cost.idle_fuel_cost", family: "cost", label: "Idle fuel cost", fn: (i) => num(i,"idleHours") * num(i,"fuelCostPerHour") },
   { id: "cost.total_drift_cost", family: "cost", label: "Total drift cost", fn: (i) => num(i,"fuelWasteDistance") + num(i,"fuelWasteEfficiency") + num(i,"idleFuelCost") },
 
-  // Yangın
+  // Yangin
   { id: "measurement.hydrant_flow", family: "measurement", label: "Hydrant flow", fn: (i) => num(i,"hydrantPressure") * num(i,"orificeCoefficient") * Math.sqrt(num(i,"hydrantPressure")) },
   { id: "measurement.available_flow", family: "measurement", label: "Available flow", fn: (i) => num(i,"hydrantFlow") - num(i,"requiredFlow") },
   { id: "cost.hydrant_compliance", family: "cost", label: "Hydrant compliance cost", fn: (i) => num(i,"deficientHydrants") * num(i,"remediationCost") },
 
-  // Yenileme Bütçe
+  // Yenileme Butce
   { id: "cost.renovation_base_cost", family: "cost", label: "Renovation base cost", fn: (i) => num(i,"areaSqm") * num(i,"costPerSqm") },
   { id: "cost.renovation_total_budget", family: "cost", label: "Renovation total budget", fn: (i) => num(i,"renovationBaseCost") + num(i,"contingencyBudget") + num(i,"designFee") },
   { id: "cost.renovation_roi", family: "cost", label: "Renovation ROI", fn: (i) => safeDivide(num(i,"valueAfter") - num(i,"renovationTotalBudget"), num(i,"renovationTotalBudget")) * 100 },
@@ -1956,7 +1956,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       return initial / netCF;
   }},
 
-  // Zaman Etüdü
+  // Zaman Etudu
   { id: "measurement.standard_time", family: "measurement", label: "Standard time", fn: (i) => num(i,"observedTime") * num(i,"performanceRating") / 100 * (1 + num(i,"allowancePct") / 100) },
   { id: "measurement.standard_output", family: "measurement", label: "Standard output", fn: (i) => safeDivide(60, num(i,"standardTime")) },
   { id: "cost.labor_cost_per_unit_zaman", family: "cost", label: "Labor cost per unit", fn: (i) => num(i,"standardTime") / 60 * num(i,"laborRate") },

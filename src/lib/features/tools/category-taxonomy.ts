@@ -16,7 +16,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "makine-tasarim",
     trTitle: "Machinery & Design",
     enTitle: "Mechanical Design",
-    sector: "Teknik & Mühendislik",
+    sector: "Teknik & Engineerlik",
     sectorKey: "teknik-muhendislik",
     globalCategorySlug: "cnc-additive-manufacturing",
     keywords: [
@@ -74,7 +74,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "malzeme-metalurji",
     trTitle: "Malzeme & Metalurji",
     enTitle: "Materials & Metallurgy",
-    sector: "Teknik & Mühendislik",
+    sector: "Teknik & Engineerlik",
     sectorKey: "teknik-muhendislik",
     globalCategorySlug: "metal-plastics-forming",
     keywords: [
@@ -98,7 +98,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "akiskanlar-termodinamik",
     trTitle: "Fluids & Thermodynamics",
     enTitle: "Fluids & Thermodynamics",
-    sector: "Teknik & Mühendislik",
+    sector: "Teknik & Engineerlik",
     sectorKey: "teknik-muhendislik",
     globalCategorySlug: "process-chemical",
     keywords: [
@@ -124,7 +124,7 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
     slug: "elektrik-otomasyon",
     trTitle: "Elektrik & Otomasyon",
     enTitle: "Electrical & Automation",
-    sector: "Teknik & Mühendislik",
+    sector: "Teknik & Engineerlik",
     sectorKey: "teknik-muhendislik",
     globalCategorySlug: "electrical-power-systems",
     keywords: [
@@ -196,9 +196,9 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "value stream",
     ],
   },
-  "Kalite & Süreç Kontrol": {
+  "Kalite & Surec Kontrol": {
     slug: "kalite-surec-kontrol",
-    trTitle: "Kalite & Süreç Kontrol",
+    trTitle: "Kalite & Surec Kontrol",
     enTitle: "Quality & Process Control",
     sector: "Manufacturing & Production",
     sectorKey: "uretim-imalat",
@@ -263,9 +263,9 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "delivery",
     ],
   },
-  "Enerji & Sürdürülebilirlik": {
+  "Enerji & Surdurulebilirlik": {
     slug: "enerji-surdurulebilirlik",
-    trTitle: "Enerji & Sürdürülebilirlik",
+    trTitle: "Enerji & Surdurulebilirlik",
     enTitle: "Energy & Sustainability",
     sector: "Enerji & Karbon",
     sectorKey: "enerji-karbon",
@@ -287,9 +287,9 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "efficiency",
     ],
   },
-  "Maliyet & Bütçeleme": {
+  "Maliyet & Butceleme": {
     slug: "maliyet-butceleme",
-    trTitle: "Maliyet & Bütçeleme",
+    trTitle: "Maliyet & Butceleme",
     enTitle: "Cost & Budgeting",
     sector: "Finance & HR",
     sectorKey: "finans-ik",
@@ -398,11 +398,11 @@ export const CATEGORY_TAXONOMY: Readonly<Record<string, CategoryTaxonomyEntry>> 
       "workplace safety",
     ],
   },
-  "Çevre & Emisyon": {
+  "Cevre & Emisyon": {
     slug: "cevre-emisyon",
-    trTitle: "Çevre & Emisyon",
+    trTitle: "Cevre & Emisyon",
     enTitle: "Environment & Emissions",
-    sector: "Sürdürülebilirlik",
+    sector: "Surdurulebilirlik",
     sectorKey: "surdurulebilirlik",
     globalCategorySlug: "sustainability-resource-esg",
     keywords: [

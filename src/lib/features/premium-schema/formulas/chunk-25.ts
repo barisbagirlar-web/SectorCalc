@@ -73,7 +73,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_8",
     family: "cost",
-    label: "HVAC KAPASİTE — AnnualCost",
+    label: "HVAC CAPACITY — AnnualCost",
     fn: (inputs) => {
     const total = num(inputs, "total");
     const eER = num(inputs, "eER");
@@ -83,11 +83,11 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── HYDRAULIC SİSTEM KAYIP (8 formulas) ──,
+  // ── HYDRAULIC SYSTEM KAYIP (8 formulas) ──,
   {
     id: "user.hydraulic_system_loss_0",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Loss_Leak",
+    label: "HYDRAULIC SYSTEM KAYIP — Loss_Leak",
     fn: (inputs) => {
     const q = num(inputs, "q");
     const Leak = num(inputs, "Leak");
@@ -99,7 +99,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_1",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Loss_Fric",
+    label: "HYDRAULIC SYSTEM KAYIP — Loss_Fric",
     fn: (inputs) => {
     const deltaP = num(inputs, "deltaP");
     const Pipe = num(inputs, "Pipe");
@@ -113,7 +113,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_2",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Loss_Valve",
+    label: "HYDRAULIC SYSTEM KAYIP — Loss_Valve",
     fn: (inputs) => {
     const deltaP = num(inputs, "deltaP");
     const Valve = num(inputs, "Valve");
@@ -127,7 +127,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_3",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Heat",
+    label: "HYDRAULIC SYSTEM KAYIP — Heat",
     fn: (inputs) => {
     const loss = num(inputs, "loss");
     const Leak = num(inputs, "Leak");
@@ -142,7 +142,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_4",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Eff",
+    label: "HYDRAULIC SYSTEM KAYIP — Eff",
     fn: (inputs) => {
     const p = num(inputs, "p");
     const Out = num(inputs, "Out");
@@ -155,7 +155,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_5",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Cost_Loss",
+    label: "HYDRAULIC SYSTEM KAYIP — Cost_Loss",
     fn: (inputs) => {
     const heat = num(inputs, "heat");
     const hours = num(inputs, "hours");
@@ -166,7 +166,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_6",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Degrade",
+    label: "HYDRAULIC SYSTEM KAYIP — Degrade",
     fn: (inputs) => {
     const t = num(inputs, "t");
     const Avg = num(inputs, "Avg");
@@ -179,7 +179,7 @@ export const CHUNK_25_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hydraulic_system_loss_7",
     family: "cost",
-    label: "HYDRAULIC SİSTEM KAYIP — Cool",
+    label: "HYDRAULIC SYSTEM KAYIP — Cool",
     fn: (inputs) => {
     const heat = num(inputs, "heat");
     const cOP = num(inputs, "cOP");

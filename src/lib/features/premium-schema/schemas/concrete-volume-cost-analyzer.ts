@@ -13,7 +13,7 @@ const CONCRETE_GRADE_OPTIONS = [
 export const CONCRETE_VOLUME_SCHEMA: PremiumCalculatorSchema = {
   id: "concrete-volume-cost-analyzer", legacyPaidSlug: "concrete-volume-cost-analyzer",
   name: "Concrete Volume & Cost Analyzer", name_i18n: {"en":"Concrete Volume & Cost Analyzer"}, sectorSlug: "construction", category: "measurement",
-  painStatement: "Şantiyelerde beton hacmi elle hesaplanırken fire, pompa ve tesviye maliyetleri sıklıkla gözden kaçar. Bu araç geometrik hacim + waste + maliyeti tek adımda hesaplar.", painStatement_i18n: {"en":"When calculating Concrete Volume manually on construction sites, waste, Pump and leveling costs are often overlooked. This tool calculates geometric volume + waste + Cost in a single step."},
+  painStatement: "Santiyelerde beton hacmi elle hesaplanirken fire, pompa ve tesviye maliyetleri siklikla gozden kacar. Bu arac geometrik hacim + waste + maliyeti tek adimda hesaplar.", painStatement_i18n: {"en":"When calculating Concrete Volume manually on construction sites, waste, Pump and leveling costs are often overlooked. This tool calculates geometric volume + waste + Cost in a single step."},
   inputs: [
     { id: "slabLength", label: "Slab length", label_i18n: {"en":"Slab length"}, type: "number", unit: "m", required: false, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Slab length", expertMeaning_i18n: {"en":"Slab length"} },
     { id: "slabWidth", label: "Slab width", label_i18n: {"en":"Slab width"}, type: "number", unit: "m", required: false, smartDefault: 8, validation: { min: 0 }, helper: "", expertMeaning: "Slab width", expertMeaning_i18n: {"en":"Slab width"} },
@@ -41,7 +41,7 @@ export const CONCRETE_VOLUME_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalCost", label: "Total Cost", label_i18n: {"en":"Total Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "totalCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Beton maliyeti > $10K — alternatif tedarikçi değerlendir.", warningMessage_i18n: {"en":"Concrete Cost > $10K — evaluate alternative supplier."}, criticalMessage: "Beton maliyeti > $50K — ihale süreci başlatılmalı.", criticalMessage_i18n: {"en":"Concrete Cost > $50K — tendering process should be initiated."} },
+    { fieldId: "totalCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Beton maliyeti > $10K — alternatif tedarikci degerlendir.", warningMessage_i18n: {"en":"Concrete Cost > $10K — evaluate alternative supplier."}, criticalMessage: "Beton maliyeti > $50K — ihale sureci baslatilmali.", criticalMessage_i18n: {"en":"Concrete Cost > $50K — tendering process should be initiated."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.concrete_volume_total", inputMap: { slabLength: "slabLength", slabWidth: "slabWidth", slabThickness: "slabThickness", footingLength: "footingLength", footingWidth: "footingWidth", footingDepth: "footingDepth", footingCount: "footingCount", columnDiameter: "columnDiameter", columnHeight: "columnHeight", columnCount: "columnCount", wallLength: "wallLength", wallHeight: "wallHeight", wallThickness: "wallThickness", wasteFactor: "wasteFactor" }, outputId: "totalVolume" },

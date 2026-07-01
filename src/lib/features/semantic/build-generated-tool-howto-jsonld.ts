@@ -5,7 +5,7 @@ function buildHowToName(toolName: string, locale: string): string {
   const normalized = toolName.toLowerCase();
   switch (locale) {
     case "tr":
-      return `${normalized} nasıl hesaplanır?`;
+      return `${normalized} nasil hesaplanir?`;
     case "de":
       return `Wie berechnet man ${normalized}?`;
     case "fr":

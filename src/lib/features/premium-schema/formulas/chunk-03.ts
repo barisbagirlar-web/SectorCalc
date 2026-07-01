@@ -73,7 +73,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_3",
     family: "cost",
-    label: "ARIZA SÜRESİ MALİYETİ — RecoveryCost",
+    label: "DOWNTIME COSTI — RecoveryCost",
     fn: (inputs) => {
     const overtimeHours = num(inputs, "overtimeHours");
     const overtimeRate = num(inputs, "overtimeRate");
@@ -84,7 +84,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.downtime_cost_4",
     family: "cost",
-    label: "ARIZA SÜRESİ MALİYETİ — TotalDowntimeCost",
+    label: "DOWNTIME COSTI — TotalDowntimeCost",
     fn: (inputs) => {
     const directLaborLoss = num(inputs, "directLaborLoss");
     const productionLoss = num(inputs, "productionLoss");
@@ -218,11 +218,11 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── AUTO SHOP MARJ KAÇAK (7 formulas) ──,
+  // ── AUTO SHOP MARGIN LEAK (7 formulas) ──,
   {
     id: "user.auto_shop_margin_leak_0",
     family: "cost",
-    label: "AUTO SHOP MARJ KAÇAK — GrossMargin_Parts",
+    label: "AUTO SHOP MARGIN LEAK — GrossMargin_Parts",
     fn: (inputs) => {
     const partsRevenue = num(inputs, "partsRevenue");
     const partsCOGS = num(inputs, "partsCOGS");
@@ -232,7 +232,7 @@ export const CHUNK_03_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.auto_shop_margin_leak_1",
     family: "cost",
-    label: "AUTO SHOP MARJ KAÇAK — EffectiveLaborRate",
+    label: "AUTO SHOP MARGIN LEAK — EffectiveLaborRate",
     fn: (inputs) => {
     const totalLaborRevenue = num(inputs, "totalLaborRevenue");
     const totalFlagHours = num(inputs, "totalFlagHours");

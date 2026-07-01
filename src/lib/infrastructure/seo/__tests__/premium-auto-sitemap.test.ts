@@ -16,24 +16,24 @@ describe("premium auto sitemap manifest", () => {
   const manifest = getSitemapManifest();
   const paths = manifest.map((item) => item.path);
 
-  test("getSitemapManifest boş değil", () => {
+  test("getSitemapManifest bos degil", () => {
     expect(manifest.length).toBeGreaterThan(0);
   });
 
-  test(">=100 free tool route içerir", () => {
+  test(">=100 free tool route icerir", () => {
     const freePaths = paths.filter((path) => path.startsWith("/tools/generated/"));
     const freeToolCount = manifest.filter((item) => item.type === "free_tool").length;
     expect(freePaths.length).toBeGreaterThanOrEqual(100);
     expect(freePaths.length).toBeGreaterThanOrEqual(freeToolCount);
   });
 
-  test("premium schema route içerir", () => {
+  test("premium schema route icerir", () => {
     const premiumPaths = paths.filter((path) => path.startsWith("/tools/premium-schema/"));
     expect(premiumPaths.length).toBe(listPremiumSchemaSlugs().length);
     expect(premiumPaths.length).toBeGreaterThanOrEqual(1);
   });
 
-  test("SEO landing route içerir", () => {
+  test("SEO landing route icerir", () => {
     const seoSlugs = listProgrammaticSeoSlugs();
     for (const slug of seoSlugs) {
       expect(paths).toContain(`/seo/${slug}`);
@@ -48,7 +48,7 @@ describe("premium auto sitemap manifest", () => {
     }
   });
 
-  test("authority guide route içerir", () => {
+  test("authority guide route icerir", () => {
     const guideSlugs = listAuthorityGuideSlugs();
     for (const slug of guideSlugs) {
       expect(paths).toContain(`/guides/${slug}`);
@@ -75,7 +75,7 @@ describe("premium auto sitemap manifest", () => {
     expect(paths.some((path) => path.startsWith("/checkout"))).toBe(false);
   });
 
-  test("her route priority 0-1 arası", () => {
+  test("her route priority 0-1 arasi", () => {
     for (const item of manifest) {
       expect(item.priority).toBeGreaterThanOrEqual(0);
       expect(item.priority).toBeLessThanOrEqual(1);
@@ -88,21 +88,21 @@ describe("premium auto sitemap manifest", () => {
     }
   });
 
-  test("buildLocalizedUrl en root URL üretir", () => {
+  test("buildLocalizedUrl en root URL uretir", () => {
     expect(buildLocalizedUrl("/free-tools", "en", "https://example.com")).toBe(
       "https://example.com/free-tools",
     );
     expect(buildLocalizedUrl("/", "en", "https://example.com")).toBe("https://example.com/");
   });
 
-  test("sitemap /en URL üretmez", () => {
+  test("sitemap /en URL uretmez", () => {
     const urls = manifest.flatMap((item) =>
       item.locales.map((locale) => buildLocalizedUrl(item.path, locale, "https://example.com")),
     );
     expect(urls.some((url) => url.includes("/en/") || url.endsWith("/en"))).toBe(false);
   });
 
-  test("sitemap prefixed locale URLs üretir", () => {
+  test("sitemap prefixed locale URLs uretir", () => {
     expect(buildLocalizedUrl("/free-tools", "tr", "https://example.com")).toBe(
       "https://example.com/tr/free-tools",
     );
@@ -122,7 +122,7 @@ describe("premium auto sitemap manifest", () => {
     expect(buildLocalizedUrl("/", "de", "https://example.com")).toBe("https://example.com/de");
   });
 
-  test("free tool routes 1 locale için üretilir", () => {
+  test("free tool routes 1 locale icin uretilir", () => {
     const freeItem = manifest.find((item) => item.type === "free_tool");
     expect(freeItem).toBeDefined();
     expect(freeItem!.locales).toEqual(getActiveSitemapLocales());
@@ -135,7 +135,7 @@ describe("premium auto sitemap manifest", () => {
     }
   });
 
-  test("premium routes 1 locale için üretilir", () => {
+  test("premium routes 1 locale icin uretilir", () => {
     const premiumItem = manifest.find((item) => item.type === "premium_analyzer" && item.path.startsWith("/tools/premium-schema/"));
     if (!premiumItem) {
       return;
@@ -145,7 +145,7 @@ describe("premium auto sitemap manifest", () => {
     expect(localized.length).toBe(1);
   });
 
-  test("alternates en, x-default içerir", () => {
+  test("alternates en, x-default icerir", () => {
     const locales = getActiveSitemapLocales();
     const alternates = buildAlternates("/free-tools", locales, "https://example.com");
     expect(alternates.languages.en).toBe("https://example.com/free-tools");
@@ -153,7 +153,7 @@ describe("premium auto sitemap manifest", () => {
     expect(alternates.languages.tr).toBeUndefined();
   });
 
-  test("SITE_BASE_URL https ile başlar", () => {
+  test("SITE_BASE_URL https ile baslar", () => {
     expect(SITE_BASE_URL.startsWith("https://")).toBe(true);
   });
 

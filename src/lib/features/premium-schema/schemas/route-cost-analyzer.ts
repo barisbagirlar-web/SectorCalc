@@ -9,7 +9,7 @@ export const ROUTE_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   inputs: [
     { id: "distance", label: "Mesafe", label_i18n: {"en":"Distance"}, type: "number", unit: "km", required: true, smartDefault: 350, validation: { min: 0.1 }, helper: "", expertMeaning: "Route distance in km", expertMeaning_i18n: {"en":"Route distance in km"} },
     { id: "fuelCostPerKm", label: "Fuel Cost", label_i18n: {"en":"Fuel Cost"}, type: "number", unit: "USD/km", required: true, smartDefault: 0.35, validation: { min: 0.01 }, helper: "", expertMeaning: "Fuel cost per km", expertMeaning_i18n: {"en":"Fuel cost per km"} },
-    { id: "driverWagePerHour", label: "Sürücü Saat Ücreti", label_i18n: {"en":"Driver Hourly Wage"}, type: "number", unit: "USD/saat", required: true, smartDefault: 18, validation: { min: 1 }, helper: "", expertMeaning: "Driver hourly wage", expertMeaning_i18n: {"en":"Driver hourly wage"} },
+    { id: "driverWagePerHour", label: "Surucu Saat Ucreti", label_i18n: {"en":"Driver Hourly Wage"}, type: "number", unit: "USD/saat", required: true, smartDefault: 18, validation: { min: 1 }, helper: "", expertMeaning: "Driver hourly wage", expertMeaning_i18n: {"en":"Driver hourly wage"} },
     { id: "avgSpeed", label: "Average Speed", label_i18n: {"en":"Average Speed"}, type: "number", unit: "km/saat", required: true, smartDefault: 70, validation: { min: 1 }, helper: "", expertMeaning: "Average travel speed", expertMeaning_i18n: {"en":"Average travel speed"} },
     { id: "numberOfDrops", label: "Number of Deliveries", label_i18n: {"en":"Number of Deliveries"}, type: "number", unit: "durak", required: true, smartDefault: 8, validation: { min: 1 }, helper: "", expertMeaning: "Number of drops per route", expertMeaning_i18n: {"en":"Number of drops per route"} },
     { id: "tollCost", label: "Bridge / Toll Cost", label_i18n: {"en":"Bridge / Toll Cost"}, type: "number", unit: "USD", required: false, smartDefault: 25, validation: { min: 0 }, helper: "", expertMeaning: "Toll and bridge costs", expertMeaning_i18n: {"en":"Toll and bridge costs"} },
@@ -26,7 +26,7 @@ export const ROUTE_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "routeCostPerKm", label: "Cost per Km", label_i18n: {"en":"Cost per Km"}, unit: "USD/km", format: "currency" },
     { id: "routeCostPerDrop", label: "Cost per Delivery", label_i18n: {"en":"Cost per Delivery"}, unit: "USD/durak", format: "currency" },
   ],
-  thresholds: [{ fieldId: "routeCostPerKm", warning: 1.5, critical: 2.0, direction: "higher_is_bad", warningMessage: "Km maliyet > $1.50 — rota optimizasyonu önerilir.", warningMessage_i18n: {"en":"Cost per km > $1.50 — route optimization recommended."}, criticalMessage: "Cost per km > $2.00 — route profitability at risk.", criticalMessage_i18n: {"en":"Cost per km > $2.00 — route profitability at risk."} }],
+  thresholds: [{ fieldId: "routeCostPerKm", warning: 1.5, critical: 2.0, direction: "higher_is_bad", warningMessage: "Km maliyet > $1.50 — rota optimizasyonu onerilir.", warningMessage_i18n: {"en":"Cost per km > $1.50 — route optimization recommended."}, criticalMessage: "Cost per km > $2.00 — route profitability at risk.", criticalMessage_i18n: {"en":"Cost per km > $2.00 — route profitability at risk."} }],
   formulaPipeline: [
     { formulaId: "cost.route_distance_cost", inputMap: { distance: "distance", fuelCostPerKm: "fuelCostPerKm" ,
         distanceKm: "distanceKm",

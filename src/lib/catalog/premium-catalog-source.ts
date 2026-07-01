@@ -46,7 +46,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
     },
     descriptions: {
       en: "Calculates the monetary cost of the seven Muda waste types.",
-      de: "Überproduktion, Warten, Transport, Bestand, Bewegung, Fehler und Überbearbeitung bleiben ohne Periodenkosten unsichtbar.",
+      de: "Uberproduktion, Warten, Transport, Bestand, Bewegung, Fehler und Uberbearbeitung bleiben ohne Periodenkosten unsichtbar.",
       fr: "Surproduction, attente, transport, stock, mouvement, défauts et sur-traitement restent invisibles sans coût périodique.",
       es: "Sobreproducción, espera, transporte, inventario, movimiento, defectos y sobreproceso quedan invisibles sin costo periódico.",
       ar: "الإنتاج الزائد والانتظار والنقل والمخزون والحركة والعيوب والمعالجة الزائدة تبقى غير مرئية دون تكلفة دورية.",
@@ -65,7 +65,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
   "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
     categoryId: "lean-production",
     titles: {
-      tr: "5S Denetim Skoru - Verimlilik Kaybı Maliyet Dönüştürücü",
+      tr: "5S Audit Score - Efficiency Loss Maliyet Converter",
       en: "5S Audit Score Efficiency Loss Cost Converter",
       de: "5S-Audit-Score – Effizienzverlust-Kostenrechner",
       fr: "Score audit 5S – convertisseur coût de perte d'efficacité",
@@ -73,9 +73,9 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
       ar: "درجة تدقيق 5S – محول تكلفة فقدان الكفاءة",
     },
     descriptions: {
-      tr: "5S puanının parasal karşılığı bilinmez; iyileştirme önceliği verilemez ve kayıp görünmez kalır.",
+      tr: "5S puaninin parasal karsiligi bilinmez; iyilestirme onceligi verilemez ve kayip gorunmez kalir.",
       en: "5S audit scores are tracked, but the monetary impact of disorganization and search time stays invisible.",
-      de: "Ohne monetäre 5S-Bewertung fehlt die Priorität für Workplace-Organisation und Suchzeitverluste.",
+      de: "Ohne monetäre 5S-Bewertung fehlt die Priorität fur Workplace-Organisation und Suchzeitverluste.",
       fr: "Sans valorisation monétaire du 5S, les priorités d'amélioration du poste de travail manquent.",
       es: "Sin valoración monetaria del 5S faltan prioridades de mejora en el puesto de trabajo.",
       ar: "بدون تقييم مالي لـ 5S تفتقر أولويات تحسين مكان العمل.",
@@ -86,17 +86,17 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
   "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
     categoryId: "cnc-additive-manufacturing",
     titles: {
-      tr: "3B Baskı Destek Yapısı ve Post-Proses Maliyet Hesaplayıcı",
+      tr: "3B Printing Support Structure ve Post-Process Maliyet Calculator",
       en: "3D Print Support Structure and Post-Process Cost Calculator",
-      de: "3D-Druck Stützstruktur & Nachbearbeitungskosten-Rechner",
+      de: "3D-Druck Stutzstruktur & Nachbearbeitungskosten-Rechner",
       fr: "Calculateur coût supports 3D et post-traitement",
       es: "Calculadora de costo de soportes 3D y postproceso",
       ar: "حاسبة تكلفة هياكل الدعم والمعالجة اللاحقة للطباعة ثلاثية الأبعاد",
     },
     descriptions: {
-      tr: "Destek malzemesi ve temizleme işçiliği maliyete eklenmez; teklif marjı sessizce erir.",
+      tr: "Support malzemesi ve temizleme isciligi maliyete eklenmez; teklif marji sessizce erir.",
       en: "Support material and cleaning labor are often omitted from additive manufacturing quotes.",
-      de: "Stützmaterial und Reinigungsarbeit werden oft nicht in Additive-Angebote eingerechnet.",
+      de: "Stutzmaterial und Reinigungsarbeit werden oft nicht in Additive-Angebote eingerechnet.",
       fr: "Matériau de support et nettoyage sont souvent absents des devis d'impression additive.",
       es: "Material de soporte y limpieza suelen omitirse en cotizaciones de impresión aditiva.",
       ar: "غالبًا ما يُستبعد مادة الدعم والتنظيف من عروض الطباعة الإضافية.",
@@ -107,7 +107,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
   "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
     categoryId: "cnc-additive-manufacturing",
     titles: {
-      tr: "3B Baskı Parti Optimizasyonu ve Yuvalama Hesaplayıcı",
+      tr: "3B Printing Parti Optimizasyonu ve Yuvalama Calculator",
       en: "3D Print Batch Nesting and Bed Utilization Calculator",
       de: "3D-Druck Batch-Nesting & Bett-Auslastungs-Rechner",
       fr: "Calculateur optimisation lot et nesting 3D",
@@ -115,9 +115,9 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
       ar: "حاسبة تحسين الدفعة والتعشيش للطباعة ثلاثية الأبعاد",
     },
     descriptions: {
-      tr: "Tablaya kaç parça sığacağı optimize edilmez; makine kapasitesi boşa harcanır.",
+      tr: "Tablaya kac parca sigacagi optimize edilmez; makine kapasitesi bosa harcanir.",
       en: "Unclear parts-per-bed planning wastes machine hours and inflates unit cost.",
-      de: "Unklare Teilezahl pro Druckbett verschwendet Maschinenstunden und erhöht Stückkosten.",
+      de: "Unklare Teilezahl pro Druckbett verschwendet Maschinenstunden und erhoht Stuckkosten.",
       fr: "Sans pièces par plateau optimisées, les heures machine sont gaspillées.",
       es: "Sin piezas optimizadas por cama se desperdician horas de máquina.",
       ar: "بدون تحسين القطع لكل سرير تُهدر ساعات الماكينة.",
@@ -128,7 +128,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
   "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
     categoryId: "cnc-additive-manufacturing",
     titles: {
-      tr: "3B Baskı vs. Talaşlı İmalat Başabaş Noktası Hesaplayıcı",
+      tr: "3B Printing vs. Talasli Imalat Basabas Noktasi Calculator",
       en: "3D Print vs CNC Machining Break-even Calculator",
       de: "3D-Druck vs Zerspanung Break-even-Rechner",
       fr: "Calculateur seuil de rentabilité 3D vs usinage",
@@ -136,7 +136,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Readonly<Record<string, PremiumCatalogTool
       ar: "حاسبة نقطة التعادل بين الطباعة ثلاثية الأبعاد والتشغيل الآلي",
     },
     descriptions: {
-      tr: "Hangi adette hangi yöntemin ekonomik olduğu bilinmez; yanlış üretim yöntemi seçilir.",
+      tr: "Hangi adette hangi yontemin ekonomik oldugu bilinmez; yanlis uretim yontemi secilir.",
       en: "Without a quantity crossover threshold, teams pick the wrong manufacturing method.",
       de: "Ohne Mengen-Schwellenwert wird die falsche Fertigungsmethode gewählt.",
       fr: "Sans quantité seuil, la mauvaise méthode de fabrication est choisie.",

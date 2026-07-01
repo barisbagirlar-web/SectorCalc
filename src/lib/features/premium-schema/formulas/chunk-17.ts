@@ -182,11 +182,11 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── EVM MALİYET FORECAST (9 formulas) ──,
+  // ── EVM COST FORECAST (9 formulas) ──,
   {
     id: "user.evm_cost_forecast_0",
     family: "cost",
-    label: "EVM MALİYET FORECAST — SV",
+    label: "EVM COST FORECAST — SV",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const pV = num(inputs, "pV");
@@ -196,7 +196,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_1",
     family: "cost",
-    label: "EVM MALİYET FORECAST — CV",
+    label: "EVM COST FORECAST — CV",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const aC = num(inputs, "aC");
@@ -206,7 +206,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_2",
     family: "cost",
-    label: "EVM MALİYET FORECAST — SPI",
+    label: "EVM COST FORECAST — SPI",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const pV = num(inputs, "pV");
@@ -216,7 +216,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_3",
     family: "cost",
-    label: "EVM MALİYET FORECAST — CPI",
+    label: "EVM COST FORECAST — CPI",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const aC = num(inputs, "aC");
@@ -226,7 +226,7 @@ export const CHUNK_17_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_4",
     family: "cost",
-    label: "EVM MALİYET FORECAST — EAC_CPI",
+    label: "EVM COST FORECAST — EAC_CPI",
     fn: (inputs) => {
     const bAC = num(inputs, "bAC");
     const cPI = num(inputs, "cPI");

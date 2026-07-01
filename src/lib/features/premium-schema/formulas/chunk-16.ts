@@ -73,7 +73,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_6",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — Total",
+    label: "ENERGY CONSUMPTION REPORT — Total",
     fn: (inputs) => {
     const base = num(inputs, "base");
     const tOU = num(inputs, "tOU");
@@ -86,7 +86,7 @@ export const CHUNK_16_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_7",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — Carbon",
+    label: "ENERGY CONSUMPTION REPORT — Carbon",
     fn: (inputs) => {
     const active = num(inputs, "active");
     const emisFactor = num(inputs, "emisFactor");

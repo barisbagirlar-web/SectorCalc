@@ -1,11 +1,11 @@
 /**
- * Tool #29 — Depo Yerleşimi
+ * Tool #29 — Depo Yerlesimi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WAREHOUSE_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
   id: "warehouse-layout-analyzer", legacyPaidSlug: "warehouse-layout-analyzer",
   name: "Warehouse Layout & Efficiency Analyzer", name_i18n: {"en":"Warehouse Layout & Efficiency Analyzer"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar.", painStatement_i18n: {"en":"If warehouse layout is not optimized, pallet position, throughput, and picking efficiency drops, operation Cost increases."},
+  painStatement: "Depo yerlesimi optimize edilmezse palet position, throughput ve toplama verimliligi duser, isletme maliyeti artar.", painStatement_i18n: {"en":"If warehouse layout is not optimized, pallet position, throughput, and picking efficiency drops, operation Cost increases."},
   inputs: [
     { id: "warehouseFootprint", label: "Warehouse footprint", label_i18n: {"en":"Warehouse footprint"}, type: "number", unit: "m²", required: true, smartDefault: 2000, validation: { min: 1 }, helper: "", expertMeaning: "Warehouse footprint", expertMeaning_i18n: {"en":"Warehouse footprint"} },
     { id: "utilRate", label: "Storage utilization rate", label_i18n: {"en":"Storage utilization rate"}, type: "number", unit: "%", required: true, smartDefault: 70, validation: { min: 1, max: 100 }, helper: "", expertMeaning: "Storage utilization rate", expertMeaning_i18n: {"en":"Storage utilization rate"} },
@@ -13,20 +13,20 @@ export const WAREHOUSE_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
     { id: "aisleFactor", label: "Aisle space multiplier", label_i18n: {"en":"Aisle space multiplier"}, type: "number", unit: "", required: true, smartDefault: 1.5, validation: { min: 1 }, helper: "", expertMeaning: "Aisle space multiplier", expertMeaning_i18n: {"en":"Aisle space multiplier"} },
     { id: "rackLevels", label: "Number of rack levels", label_i18n: {"en":"Number of rack levels"}, type: "number", unit: "", required: true, smartDefault: 4, validation: { min: 1 }, helper: "", expertMeaning: "Number of rack levels", expertMeaning_i18n: {"en":"Number of rack levels"} },
     { id: "doorCount", label: "Number of loading doors", label_i18n: {"en":"Number of loading doors"}, type: "number", unit: "", required: false, smartDefault: 4, validation: { min: 1 }, helper: "", expertMeaning: "Number of loading doors", expertMeaning_i18n: {"en":"Number of loading doors"} },
-    { id: "turnaroundLoad", label: "Yükleme Süresi", label_i18n: {"en":"Loading turnaround hours"}, type: "number", unit: "saat", required: false, smartDefault: 0.5, validation: { min: 0 }, helper: "", expertMeaning: "Loading turnaround hours", expertMeaning_i18n: {"en":"Loading turnaround hours"} },
+    { id: "turnaroundLoad", label: "Yukleme Suresi", label_i18n: {"en":"Loading turnaround hours"}, type: "number", unit: "saat", required: false, smartDefault: 0.5, validation: { min: 0 }, helper: "", expertMeaning: "Loading turnaround hours", expertMeaning_i18n: {"en":"Loading turnaround hours"} },
     { id: "turnaroundUnload", label: "Unloading turnaround hours", label_i18n: {"en":"Unloading turnaround hours"}, type: "number", unit: "saat", required: false, smartDefault: 0.5, validation: { min: 0 }, helper: "", expertMeaning: "Unloading turnaround hours", expertMeaning_i18n: {"en":"Unloading turnaround hours"} },
-    { id: "pickLines", label: "Daily pick lines", label_i18n: {"en":"Daily pick lines"}, type: "number", unit: "adet/gün", required: false, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Daily pick lines", expertMeaning_i18n: {"en":"Daily pick lines"} },
-    { id: "travelTime", label: "Toplam Seyahat Süresi", label_i18n: {"en":"Daily travel time for picking"}, type: "number", unit: "saat/gün", required: false, smartDefault: 40, validation: { min: 0 }, helper: "", expertMeaning: "Daily travel time for picking", expertMeaning_i18n: {"en":"Daily travel time for picking"} },
-    { id: "facilityCost", label: "Total facility cost", label_i18n: {"en":"Total facility cost"}, type: "number", unit: "USD/yıl", required: false, smartDefault: 120000, validation: { min: 0 }, helper: "", expertMeaning: "Total facility cost", expertMeaning_i18n: {"en":"Total facility cost"} },
+    { id: "pickLines", label: "Daily pick lines", label_i18n: {"en":"Daily pick lines"}, type: "number", unit: "adet/gun", required: false, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Daily pick lines", expertMeaning_i18n: {"en":"Daily pick lines"} },
+    { id: "travelTime", label: "Toplam Seyahat Suresi", label_i18n: {"en":"Daily travel time for picking"}, type: "number", unit: "saat/gun", required: false, smartDefault: 40, validation: { min: 0 }, helper: "", expertMeaning: "Daily travel time for picking", expertMeaning_i18n: {"en":"Daily travel time for picking"} },
+    { id: "facilityCost", label: "Total facility cost", label_i18n: {"en":"Total facility cost"}, type: "number", unit: "USD/yil", required: false, smartDefault: 120000, validation: { min: 0 }, helper: "", expertMeaning: "Total facility cost", expertMeaning_i18n: {"en":"Total facility cost"} },
   ],
   outputs: [
     { id: "palletPositions", label: "Palet Pozisyonu (Tek Kat)", label_i18n: {"en":"Palet Pozisyonu (Tek Kat)"}, unit: "adet", format: "number" },
     { id: "verticalCap", label: "Dikey Kapasite", label_i18n: {"en":"Dikey Capacity"}, unit: "adet", format: "number" },
-    { id: "throughputCap", label: "Throughput Kapasitesi", label_i18n: {"en":"Throughput Capacity"}, unit: "araç/gün", format: "number" },
+    { id: "throughputCap", label: "Throughput Kapasitesi", label_i18n: {"en":"Throughput Capacity"}, unit: "arac/gun", format: "number" },
     { id: "pickEfficiency", label: "Toplama Verimliligi", label_i18n: {"en":"Toplama Verimliligi"}, unit: "kalem/saat", format: "number" },
-    { id: "costPerPosition", label: "Pozisyon Basna Maliyet", label_i18n: {"en":"position Per Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
+    { id: "costPerPosition", label: "Pozisyon Basna Maliyet", label_i18n: {"en":"position Per Cost"}, unit: "USD/yil", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "costPerPosition", warning: 150, critical: 250, direction: "higher_is_bad", warningMessage: "Pozisyon maliyeti > $150 — optimizasyon fırsatı var.", warningMessage_i18n: {"en":"position Cost > $150 — Optimization opportunity exists."}, criticalMessage: "Pozisyon maliyeti > $250 — depo verimliliği düşük.", criticalMessage_i18n: {"en":"position Cost > $250 — Warehouse efficiency is low."} }],
+  thresholds: [{ fieldId: "costPerPosition", warning: 150, critical: 250, direction: "higher_is_bad", warningMessage: "Pozisyon maliyeti > $150 — optimizasyon firsati var.", warningMessage_i18n: {"en":"position Cost > $150 — Optimization opportunity exists."}, criticalMessage: "Pozisyon maliyeti > $250 — depo verimliligi dusuk.", criticalMessage_i18n: {"en":"position Cost > $250 — Warehouse efficiency is low."} }],
   formulaPipeline: [
     { formulaId: "measurement.warehouse_pallet_positions", inputMap: { warehouseFootprint: "warehouseFootprint", utilRate: "utilRate", palletFootprint: "palletFootprint", aisleFactor: "aisleFactor" ,
         storageArea: "storageArea"}, outputId: "palletPositions" },

@@ -73,7 +73,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_2",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — FinancialLoss",
+    label: "Tekstil Atigi Risk Assessmentsi — FinancialLoss",
     fn: (inputs) => {
     const preConsumerWaste = num(inputs, "preConsumerWaste");
     const fabricCostPerKg = num(inputs, "fabricCostPerKg");
@@ -84,7 +84,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_3",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — DisposalCost",
+    label: "Tekstil Atigi Risk Assessmentsi — DisposalCost",
     fn: (inputs) => {
     const wasteWeight = num(inputs, "wasteWeight");
     const landfillFee = num(inputs, "landfillFee");
@@ -94,7 +94,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_4",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — CircularRevenue",
+    label: "Tekstil Atigi Risk Assessmentsi — CircularRevenue",
     fn: (inputs) => {
     const recycledWasteWeight = num(inputs, "recycledWasteWeight");
     const scrapValue = num(inputs, "scrapValue");
@@ -104,7 +104,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_5",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — NetWasteCost",
+    label: "Tekstil Atigi Risk Assessmentsi — NetWasteCost",
     fn: (inputs) => {
     const financialLoss = num(inputs, "financialLoss");
     const disposalCost = num(inputs, "disposalCost");
@@ -115,7 +115,7 @@ export const CHUNK_60_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.textile_waste_risk_6",
     family: "cost",
-    label: "Tekstil Atığı Risk Değerlendirmesi — RiskScore",
+    label: "Tekstil Atigi Risk Assessmentsi — RiskScore",
     fn: (inputs) => {
     const netWasteCost = num(inputs, "netWasteCost");
     const totalRevenue = num(inputs, "totalRevenue");

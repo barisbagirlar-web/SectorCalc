@@ -226,11 +226,11 @@ export const CHUNK_46_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── reçete Maliyet Check (7 formulas) ──,
+  // ── recete Maliyet Check (7 formulas) ──,
   {
     id: "user.recipe_cost_check_0",
     family: "cost",
-    label: "reçete Maliyet Check — TheoreticalCost",
+    label: "recete Maliyet Check — TheoreticalCost",
     fn: (inputs) => {
     const formulationPct = num(inputs, "formulationPct");
     const i = num(inputs, "i");

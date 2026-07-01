@@ -85,11 +85,11 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── CİRO MALİYETİ (6 formulas) ──,
+  // ── TURNOVER COSTI (6 formulas) ──,
   {
     id: "user.employee_turnover_cost_0",
     family: "cost",
-    label: "CİRO MALİYETİ — SeparationCost",
+    label: "CIRO COSTI — SeparationCost",
     fn: (inputs) => {
     const exitInterview = num(inputs, "exitInterview");
     const hRRate = num(inputs, "hRRate");
@@ -101,7 +101,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_1",
     family: "cost",
-    label: "CİRO MALİYETİ — VacancyCost",
+    label: "CIRO COSTI — VacancyCost",
     fn: (inputs) => {
     const timeToFill = num(inputs, "timeToFill");
     const dailyRevenue = num(inputs, "dailyRevenue");
@@ -112,7 +112,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_2",
     family: "cost",
-    label: "CİRO MALİYETİ — ReplacementCost",
+    label: "CIRO COSTI — ReplacementCost",
     fn: (inputs) => {
     const ads = num(inputs, "ads");
     const agency = num(inputs, "agency");
@@ -124,7 +124,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_3",
     family: "cost",
-    label: "CİRO MALİYETİ — TrainingCost",
+    label: "CIRO COSTI — TrainingCost",
     fn: (inputs) => {
     const trainHours = num(inputs, "trainHours");
     const trainerRate = num(inputs, "trainerRate");
@@ -136,7 +136,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_4",
     family: "cost",
-    label: "CİRO MALİYETİ — ProductivityLoss",
+    label: "CIRO COSTI — ProductivityLoss",
     fn: (inputs) => {
     const timeToFull = num(inputs, "timeToFull");
     const avgOutput = num(inputs, "avgOutput");
@@ -148,7 +148,7 @@ export const CHUNK_08_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.employee_turnover_cost_5",
     family: "cost",
-    label: "CİRO MALİYETİ — TotalTurnoverCost",
+    label: "CIRO COSTI — TotalTurnoverCost",
     fn: (inputs) => {
     const separation = num(inputs, "separation");
     const vacancy = num(inputs, "vacancy");

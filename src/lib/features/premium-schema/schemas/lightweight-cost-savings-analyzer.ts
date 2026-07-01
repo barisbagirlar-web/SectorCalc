@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const LIGHTWEIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "lightweight-cost-savings-analyzer", legacyPaidSlug: "lightweight-cost-savings-analyzer",
   name: "Lightweight Cost Savings Analyzer", name_i18n: {"en":"Lightweight Cost Savings Analyzer"}, sectorSlug: "sheet-metal", category: "cost",
-  painStatement: "Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir.", painStatement_i18n: {"en":"A material change made without calculating the fuel, payload, and material premium effects of parts light weighting may not deliver the expected savings."},
+  painStatement: "Parca hafifletmenin yakit, payload ve malzeme primi etkisini calculationdan yapilan malzeme degisikligi beklenen tasarrufu saglamayabilir.", painStatement_i18n: {"en":"A material change made without calculating the fuel, payload, and material premium effects of parts light weighting may not deliver the expected savings."},
   inputs: [
     { id: "originalMass", label: "Original part mass", label_i18n: {"en":"Original part mass"}, type: "number", unit: "kg", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "", expertMeaning: "Original part mass", expertMeaning_i18n: {"en":"Original part mass"} },
     { id: "lightweightMass", label: "Lightweight part mass", label_i18n: {"en":"Lightweight part mass"}, type: "number", unit: "kg", required: true, smartDefault: 35, validation: { min: 0.1 }, helper: "", expertMeaning: "Lightweight part mass", expertMeaning_i18n: {"en":"Lightweight part mass"} },
@@ -14,16 +14,16 @@ export const LIGHTWEIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "fuelPrice", label: "Fuel price per liter", label_i18n: {"en":"Fuel price per liter"}, type: "number", unit: "USD/L", required: false, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "Fuel price per liter", expertMeaning_i18n: {"en":"Fuel price per liter"} },
     { id: "revenuePerKg", label: "Revenue per kg payload", label_i18n: {"en":"Revenue per kg payload"}, type: "number", unit: "USD/kg", required: false, smartDefault: 2, validation: { min: 0 }, helper: "", expertMeaning: "Revenue per kg payload", expertMeaning_i18n: {"en":"Revenue per kg payload"} },
     { id: "materialPremium", label: "Total material premium", label_i18n: {"en":"Total material premium"}, type: "number", unit: "USD", required: false, smartDefault: 3000, validation: { min: 0 }, helper: "", expertMeaning: "Total material premium", expertMeaning_i18n: {"en":"Total material premium"} },
-    { id: "productLife", label: "Ürün Ömrü", label_i18n: {"en":"Product life in years"}, type: "number", unit: "yıl", required: false, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Product life in years", expertMeaning_i18n: {"en":"Product life in years"} },
+    { id: "productLife", label: "Urun Omru", label_i18n: {"en":"Product life in years"}, type: "number", unit: "yil", required: false, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Product life in years", expertMeaning_i18n: {"en":"Product life in years"} },
     { id: "toolDelta", label: "Tooling cost delta", label_i18n: {"en":"Tooling cost delta"}, type: "number", unit: "USD", required: false, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Tooling cost delta", expertMeaning_i18n: {"en":"Tooling cost delta"} },
   ],
   outputs: [
     { id: "weightReduction", label: "Agrlk Azaltma", label_i18n: {"en":"Weight Azaltma"}, unit: "kg", format: "number" },
-    { id: "fuelSavings", label: "Yakt Tasarrufu (Yllk)", label_i18n: {"en":"Fuel Tasarrufu (Annual)"}, unit: "USD/yıl", format: "currency" },
-    { id: "payloadGain", label: "Payload Gelir Arts", label_i18n: {"en":"Payload Income Arts"}, unit: "USD/yıl", format: "currency" },
-    { id: "netSavings", label: "Net Tasarruf (Ömür Boyu)", label_i18n: {"en":"Net Tasarruf (life Boyu)"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "fuelSavings", label: "Yakt Tasarrufu (Yllk)", label_i18n: {"en":"Fuel Tasarrufu (Annual)"}, unit: "USD/yil", format: "currency" },
+    { id: "payloadGain", label: "Payload Gelir Arts", label_i18n: {"en":"Payload Income Arts"}, unit: "USD/yil", format: "currency" },
+    { id: "netSavings", label: "Net Tasarruf (Omur Boyu)", label_i18n: {"en":"Net Tasarruf (life Boyu)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "netSavings", warning: 5000, critical: 0, direction: "lower_is_bad", warningMessage: "Net tasarruf < $5000 — hafifletme yatırımı sorgulanmalı.", warningMessage_i18n: {"en":"Net savings < $5000 — light weighting investment should be questioned."}, criticalMessage: "Net tasarruf ≤ $0 — hafifletme ekonomik değil.", criticalMessage_i18n: {"en":"Net savings ≤ $0 — light weighting is not economical."} }],
+  thresholds: [{ fieldId: "netSavings", warning: 5000, critical: 0, direction: "lower_is_bad", warningMessage: "Net tasarruf < $5000 — hafifletme yatirimi sorgulanmali.", warningMessage_i18n: {"en":"Net savings < $5000 — light weighting investment should be questioned."}, criticalMessage: "Net tasarruf ≤ $0 — hafifletme ekonomik degil.", criticalMessage_i18n: {"en":"Net savings ≤ $0 — light weighting is not economical."} }],
   formulaPipeline: [
     { formulaId: "measurement.lightweight_weight_red", inputMap: { originalMass: "originalMass", lightweightMass: "lightweightMass" ,
         massOrig: "massOrig",

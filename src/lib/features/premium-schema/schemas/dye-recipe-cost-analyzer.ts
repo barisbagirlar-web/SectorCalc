@@ -1,15 +1,15 @@
 /**
- * Tool #33 — Dye Reçete Maliyet
+ * Tool #33 — Dye Recete Maliyet
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "dye-recipe-cost-analyzer", legacyPaidSlug: "dye-recipe-cost-analyzer",
   name: "Dye Recipe Cost Analyzer", name_i18n: {"en":"Dye Recipe Cost Analyzer"}, sectorSlug: "textile", category: "cost",
-  painStatement: "Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar.", painStatement_i18n: {"en":"If waste and chemical cost in the dye recipe are not controlled, cost per kg turns out higher than expected."},
+  painStatement: "Boyarmadde recetesinde fire ve kimyasal maliyeti kontrol edilmezse kg basina maliyet beklenenden yuksek cikar.", painStatement_i18n: {"en":"If waste and chemical cost in the dye recipe are not controlled, cost per kg turns out higher than expected."},
   inputs: [
     { id: "bathRatio", label: "Liquor ratio (liquid:goods)", label_i18n: {"en":"Liquor ratio (liquid:goods)"}, type: "number", unit: "", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Liquor ratio (liquid:goods)", expertMeaning_i18n: {"en":"Liquor ratio (liquid:goods)"} },
     { id: "fabricWeight", label: "Fabric weight per batch", label_i18n: {"en":"Fabric weight per batch"}, type: "number", unit: "kg", required: true, smartDefault: 100, validation: { min: 0.1 }, helper: "", expertMeaning: "Fabric weight per batch", expertMeaning_i18n: {"en":"Fabric weight per batch"} },
-    { id: "dyeConcentrations", label: "Konsantrasyonlar (g/L, virgülle)", label_i18n: {"en":"Dye concentrations"}, type: "number", unit: "g/L", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Dye concentrations", expertMeaning_i18n: {"en":"Dye concentrations"} },
+    { id: "dyeConcentrations", label: "Konsantrasyonlar (g/L, virgulle)", label_i18n: {"en":"Dye concentrations"}, type: "number", unit: "g/L", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Dye concentrations", expertMeaning_i18n: {"en":"Dye concentrations"} },
     { id: "dyePrices", label: "Dye price per kg", label_i18n: {"en":"Dye price per kg"}, type: "number", unit: "USD/kg", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Dye price per kg", expertMeaning_i18n: {"en":"Dye price per kg"} },
     { id: "dosages", label: "Chemical dosages", label_i18n: {"en":"Chemical dosages"}, type: "number", unit: "g/L", array: true, required: false, validation: { min: 0 }, helper: "", expertMeaning: "Chemical dosages", expertMeaning_i18n: {"en":"Chemical dosages"} },
     { id: "chemPrices", label: "Chemical prices", label_i18n: {"en":"Chemical prices"}, type: "number", unit: "USD/kg", array: true, required: false, validation: { min: 0 }, helper: "", expertMeaning: "Chemical prices", expertMeaning_i18n: {"en":"Chemical prices"} },
@@ -23,7 +23,7 @@ export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalBatchCost", label: "Toplam Batch Maliyeti", label_i18n: {"en":"Total Batch Cost"}, unit: "USD/batch", format: "currency" },
     { id: "costPerKg", label: "Kg Basna Maliyet", label_i18n: {"en":"Kg Per Cost"}, unit: "USD/kg", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "costPerKg", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Maliyet > $3/kg — optimizasyon potansiyeli var.", warningMessage_i18n: {"en":"Cost > $3/kg — optimization potansiyeli var."}, criticalMessage: "Maliyet > $5/kg — acil reçete optimizasyonu.", criticalMessage_i18n: {"en":"Cost > $5/kg — urgent recipe optimizasyonu."} }],
+  thresholds: [{ fieldId: "costPerKg", warning: 3, critical: 5, direction: "higher_is_bad", warningMessage: "Maliyet > $3/kg — optimizasyon potansiyeli var.", warningMessage_i18n: {"en":"Cost > $3/kg — optimization potansiyeli var."}, criticalMessage: "Maliyet > $5/kg — acil recete optimizasyonu.", criticalMessage_i18n: {"en":"Cost > $5/kg — urgent recipe optimizasyonu."} }],
   formulaPipeline: [
     { formulaId: "cost.dye_batch", inputMap: { dyeCost: "dyeConcentrations", chemCost: "dosages", waterCost: "waterTariff", energyCost: "heatingCost", wasteCost: "wasteTreatmentCost" }, outputId: "totalBatchCost" },
     { formulaId: "cost.dye_rft_savings", inputMap: {

@@ -394,8 +394,8 @@ export function getPremiumClaimTypeLabel(
 ): string {
   const labels: Record<string, Record<string, string>> = {
     benchmark_model: { en: "Benchmark model", tr: "Benchmark modeli", de: "Benchmark-Modell", fr: "Modèle de référence", es: "Modelo de referencia", ar: "نموذج مرجعي" },
-    potential_exposure: { en: "Hidden-loss diagnostic", tr: "Gizli kayıp teşhisi", de: "Versteckte-Verlust-Diagnose", fr: "Diagnostic de perte cachée", es: "Diagnóstico de pérdida oculta", ar: "تشخيص الخسارة المخفية" },
-    sample_scenario: { en: "Sample scenario", tr: "Örnek senaryo", de: "Beispielszenario", fr: "Scénario exemple", es: "Escenario de ejemplo", ar: "سيناريو عينة" },
+    potential_exposure: { en: "Hidden-loss diagnostic", tr: "Gizli kayip teshisi", de: "Versteckte-Verlust-Diagnose", fr: "Diagnostic de perte cachée", es: "Diagnóstico de pérdida oculta", ar: "تشخيص الخسارة المخفية" },
+    sample_scenario: { en: "Sample scenario", tr: "Ornek senaryo", de: "Beispielszenario", fr: "Scénario exemple", es: "Escenario de ejemplo", ar: "سيناريو عينة" },
   };
   const map = labels[claimType] ?? labels.sample_scenario;
   return map[locale as string] ?? map.en;

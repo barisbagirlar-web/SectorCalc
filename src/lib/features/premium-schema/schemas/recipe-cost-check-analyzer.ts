@@ -1,5 +1,5 @@
 /**
- * Tool #38 — Reçete Maliyet Kontrol
+ * Tool #38 — Recete Maliyet Kontrol
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {

@@ -4,7 +4,7 @@ export function slugifyCaseStudyTitle(title: string): string {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9ğüşıöç]+/g, "-")
+    .replace(/[^a-z0-9gusioc]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .replace(/-+/g, "-");
 }

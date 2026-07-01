@@ -27,8 +27,8 @@ const mockKeywords: AiLocalizedKeywords = {
 function makeTool(overrides: Partial<AiToolIndexRecord>): AiToolIndexRecord {
   return {
     slug: "test-tool",
-    title: { en: "Test Tool", tr: "Test Aracı", de: "Test Werkzeug" },
-    description: { en: "A generic test tool", tr: "Genel test aracı", de: "Ein generisches Testwerkzeug" },
+    title: { en: "Test Tool", tr: "Test Araci", de: "Test Werkzeug" },
+    description: { en: "A generic test tool", tr: "Genel test araci", de: "Ein generisches Testwerkzeug" },
     localeUrls: { en: "/tools/premium/test-tool", tr: "/tr/tools/premium/test-tool" },
     canonicalUrl: "https://sectorcalc.com/tools/premium/test-tool",
     categorySlug: "test-category",
@@ -46,17 +46,17 @@ function makeTool(overrides: Partial<AiToolIndexRecord>): AiToolIndexRecord {
 const MOCK_TOOLS: readonly AiToolIndexRecord[] = [
   makeTool({
     slug: "cnc-cost-analyzer",
-    title: { en: "CNC Cost Analyzer", tr: "CNC Maliyet Analizörü", de: "CNC-Kostenanalysator" },
+    title: { en: "CNC Cost Analyzer", tr: "CNC Maliyet Analizoru", de: "CNC-Kostenanalysator" },
     description: {
       en: "Analyze CNC machining cost, cycle time and tool wear.",
-      tr: "CNC işleme maliyeti, çevrim süresi ve takım aşınması analizi.",
+      tr: "CNC isleme maliyeti, cevrim suresi ve takim asinmasi analizi.",
       de: "Analysieren Sie CNC-Bearbeitungskosten, Zykluszeit und Werkzeugverschleiß.",
     },
     intent: ["cnc", "machining", "cost-analysis", "manufacturing"],
     industries: ["precision-manufacturing", "metalworking"],
     keywords: {
       en: ["cnc", "cost", "machining", "cycle-time", "tool-wear"],
-      tr: ["cnc", "maliyet", "işleme", "çevrim", "takım-aşınması"],
+      tr: ["cnc", "maliyet", "isleme", "cevrim", "takim-asinmasi"],
     },
   }),
   makeTool({
@@ -77,32 +77,32 @@ const MOCK_TOOLS: readonly AiToolIndexRecord[] = [
   }),
   makeTool({
     slug: "oee-calculator",
-    title: { en: "OEE Calculator", tr: "OEE Hesaplayıcı", de: "OEE-Rechner" },
+    title: { en: "OEE Calculator", tr: "OEE Hesaplayici", de: "OEE-Rechner" },
     description: {
       en: "Overall Equipment Effectiveness — availability, performance, quality.",
-      tr: "Toplam Ekipman Etkinliği — kullanılabilirlik, performans, kalite.",
-      de: "Gesamtanlageneffektivität — Verfügbarkeit, Leistung, Qualität.",
+      tr: "Toplam Ekipman Etkinligi — kullanilabilirlik, performans, kalite.",
+      de: "Gesamtanlageneffektivität — Verfugbarkeit, Leistung, Qualität.",
     },
     intent: ["oee", "availability", "performance", "quality", "lean"],
     industries: ["manufacturing", "production"],
     keywords: {
       en: ["oee", "availability", "performance", "quality", "lean"],
-      tr: ["oee", "kullanılabilirlik", "performans", "kalite", "yalin"],
+      tr: ["oee", "kullanilabilirlik", "performans", "kalite", "yalin"],
     },
   }),
   makeTool({
     slug: "financial-health-score",
-    title: { en: "Financial Health Score", tr: "Finansal Sağlık Puanı", de: "Finanzielle Gesundheitsbewertung" },
+    title: { en: "Financial Health Score", tr: "Finansal Saglik Puani", de: "Finanzielle Gesundheitsbewertung" },
     description: {
       en: "Benchmark your financial health against industry standards.",
-      tr: "Finansal sağlığınızı sektör standartlarıyla karşılaştırın.",
+      tr: "Finansal sagliginizi sektor standartlariyla karsilastirin.",
       de: "Vergleichen Sie Ihre finanzielle Gesundheit mit Branchenstandards.",
     },
     intent: ["financial", "health", "benchmark", "rating"],
     industries: ["finance", "all"],
     keywords: {
       en: ["financial", "health", "score", "benchmark", "rating"],
-      tr: ["finansal", "sağlık", "puan", "karşılaştırma"],
+      tr: ["finansal", "saglik", "puan", "karsilastirma"],
     },
   }),
 ];

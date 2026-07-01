@@ -17,8 +17,8 @@ describe("rent-vs-buy-calculator", () => {
   } as unknown as Rent_vs_buy_calculatorInput;
     const result = calculateRent_vs_buy_calculator(input);
     expect(result).toBeDefined();
-    // Stub-tolerant: NaN kabul edilir (stub formüller henüz NaN üretebilir)
-    // Gerçek formül geldiğinde Number.isFinite eklenebilir
+    // Stub-tolerant: NaN kabul edilir (stub formuller henuz NaN uretebilir)
+    // Gercek formul geldiginde Number.isFinite eklenebilir
     expect(typeof result.totalWasteCost).toBe("number");
     expect(result.breakdown).toBeDefined();
     expect(Array.isArray(result.hiddenLossDrivers)).toBe(true);

@@ -184,11 +184,11 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── CNC ÇEVRİM SÜRESİ (7 formulas) ──,
+  // ── CNC CYCLE TIME (7 formulas) ──,
   {
     id: "user.cnc_cycle_time_0",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — T_cut",
+    label: "CNC CYCLE TIME — T_cut",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const d = num(inputs, "d");
@@ -204,7 +204,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_1",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — V_f",
+    label: "CNC CYCLE TIME — V_f",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const z = num(inputs, "z");
@@ -216,7 +216,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_2",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — n",
+    label: "CNC CYCLE TIME — n",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const c = num(inputs, "c");
@@ -230,7 +230,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_3",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — T_rapid",
+    label: "CNC CYCLE TIME — T_rapid",
     fn: (inputs) => {
     const distance = num(inputs, "distance");
     const rapid = num(inputs, "rapid");
@@ -243,7 +243,7 @@ export const CHUNK_09_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cnc_cycle_time_4",
     family: "cost",
-    label: "CNC ÇEVRİM SÜRESİ — T_toolchange",
+    label: "CNC CYCLE TIME — T_toolchange",
     fn: (inputs) => {
     const changes = num(inputs, "changes");
     const timePerChange = num(inputs, "timePerChange");

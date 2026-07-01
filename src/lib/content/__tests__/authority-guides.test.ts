@@ -57,7 +57,7 @@ describe("authority guides", () => {
     });
   });
 
-  test("featuredAnswer 40–80 kelime arası", () => {
+  test("featuredAnswer 40–80 kelime arasi", () => {
     AUTHORITY_GUIDES.forEach((guide) => {
       const count = wordCount(guide.featuredAnswer);
       expect(count).toBeGreaterThanOrEqual(40);
@@ -65,19 +65,19 @@ describe("authority guides", () => {
     });
   });
 
-  test("her guide en az 3 FAQ içerir", () => {
+  test("her guide en az 3 FAQ icerir", () => {
     AUTHORITY_GUIDES.forEach((guide) => {
       expect(guide.faq.length).toBeGreaterThanOrEqual(3);
     });
   });
 
-  test("her guide en az 3 relatedFreeToolSlugs içerir", () => {
+  test("her guide en az 3 relatedFreeToolSlugs icerir", () => {
     AUTHORITY_GUIDES.forEach((guide) => {
       expect(guide.relatedFreeToolSlugs.length).toBeGreaterThanOrEqual(3);
     });
   });
 
-  test("her guide en az 1 relatedPremiumSchemaSlugs içerir", () => {
+  test("her guide en az 1 relatedPremiumSchemaSlugs icerir", () => {
     AUTHORITY_GUIDES.forEach((guide) => {
       expect(guide.relatedPremiumSchemaSlugs.length).toBeGreaterThanOrEqual(1);
     });
@@ -113,7 +113,7 @@ describe("authority guides", () => {
     expect(missingCount).toBeLessThanOrEqual(50); // Allow minor content drift
   });
 
-  test("related premium slug premium catalog içinde var", () => {
+  test("related premium slug premium catalog icinde var", () => {
     let missingCount = 0;
     AUTHORITY_GUIDES.forEach((guide) => {
       (guide.relatedPremiumSchemaSlugs ?? []).forEach((slug) => {
@@ -126,7 +126,7 @@ describe("authority guides", () => {
     expect(missingCount).toBeLessThanOrEqual(50); // Allow minor content drift
   });
 
-  test("guide public text undefined/null içermiyor", () => {
+  test("guide public text undefined/null icermiyor", () => {
     const joined = collectGuideStrings();
     expect(joined).not.toMatch(/\bundefined\b/i);
     expect(joined).not.toMatch(/\bnull\b/i);
@@ -136,7 +136,7 @@ describe("authority guides", () => {
     expect(joined).not.toMatch(/\bpilot\b/i);
   });
 
-  test("sitemap guide route'ları eklenebilir", async () => {
+  test("sitemap guide route'lari eklenebilir", async () => {
     const entries = await buildSitemapEntries(new Date("2026-06-04T00:00:00.000Z"));
     const guideUrls = entries
       .map((entry) => entry.url)

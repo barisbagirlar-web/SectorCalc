@@ -8,10 +8,10 @@ export const EOQ_INVENTORY_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "Without calculating EOQ, ROP, and safety stock in inventory management, either excess inventory or stockout costs arise.", painStatement_i18n: {"en":"Without calculating EOQ, ROP, and safety stock in inventory management, either excess inventory or stockout costs arise."},
   inputs: [
     { id: "annualDemand", label: "Annual demand", label_i18n: {"en":"Annual demand"}, type: "number", unit: "adet", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "", expertMeaning: "Annual demand", expertMeaning_i18n: {"en":"Annual demand"} },
-    { id: "orderCost", label: "Cost per order", label_i18n: {"en":"Cost per order"}, type: "number", unit: "USD/sipariş", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Cost per order", expertMeaning_i18n: {"en":"Cost per order"} },
-    { id: "holdingCost", label: "Holding cost per unit", label_i18n: {"en":"Holding cost per unit"}, type: "number", unit: "USD/adet/yıl", required: true, smartDefault: 2, validation: { min: 0.01 }, helper: "", expertMeaning: "Holding cost per unit", expertMeaning_i18n: {"en":"Holding cost per unit"} },
-    { id: "leadTime", label: "Teslim Süresi", label_i18n: {"en":"Lead time in days"}, type: "number", unit: "gün", required: true, smartDefault: 7, validation: { min: 1 }, helper: "", expertMeaning: "Lead time in days", expertMeaning_i18n: {"en":"Lead time in days"} },
-    { id: "demandStdDev", label: "Talep Std. Sapma", label_i18n: {"en":"demand Std. Deviation"}, type: "number", unit: "adet/gün", required: false, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Daily demand std dev", expertMeaning_i18n: {"en":"Daily demand std dev"} },
+    { id: "orderCost", label: "Cost per order", label_i18n: {"en":"Cost per order"}, type: "number", unit: "USD/siparis", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Cost per order", expertMeaning_i18n: {"en":"Cost per order"} },
+    { id: "holdingCost", label: "Holding cost per unit", label_i18n: {"en":"Holding cost per unit"}, type: "number", unit: "USD/adet/yil", required: true, smartDefault: 2, validation: { min: 0.01 }, helper: "", expertMeaning: "Holding cost per unit", expertMeaning_i18n: {"en":"Holding cost per unit"} },
+    { id: "leadTime", label: "Teslim Suresi", label_i18n: {"en":"Lead time in days"}, type: "number", unit: "gun", required: true, smartDefault: 7, validation: { min: 1 }, helper: "", expertMeaning: "Lead time in days", expertMeaning_i18n: {"en":"Lead time in days"} },
+    { id: "demandStdDev", label: "Talep Std. Sapma", label_i18n: {"en":"demand Std. Deviation"}, type: "number", unit: "adet/gun", required: false, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Daily demand std dev", expertMeaning_i18n: {"en":"Daily demand std dev"} },
     { id: "zScore", label: "Z-Skor (Servis Seviyesi)", label_i18n: {"en":"Z-Skor (Servis level)"}, type: "number", unit: "", required: false, smartDefault: 1.65, validation: { min: 0, max: 4 }, helper: "", expertMeaning: "Z-score for 95% service", expertMeaning_i18n: {"en":"Z-score for 95% service"} },
     { id: "avgInventory", label: "Ortalama Stok Seviyesi", label_i18n: {"en":"Average Inventory level"}, type: "number", unit: "adet", required: false, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Average inventory level", expertMeaning_i18n: {"en":"Average inventory level"} },
   ],
@@ -19,10 +19,10 @@ export const EOQ_INVENTORY_SCHEMA: PremiumCalculatorSchema = {
     { id: "eoq", label: "EOQ (Optimum Siparis)", label_i18n: {"en":"EOQ (Optimum Siparis)"}, unit: "adet", format: "number" },
     { id: "safetyStock", label: "Guvenlik Stogu", label_i18n: {"en":"Guvenlik Inventory"}, unit: "adet", format: "number" },
     { id: "rop", label: "Yeniden Siparis Noktas (ROP)", label_i18n: {"en":"re Siparis Point (ROP)"}, unit: "adet", format: "number" },
-    { id: "totalInvCost", label: "Toplam Envanter Maliyeti", label_i18n: {"en":"Total Envanter Cost"}, unit: "USD/yıl", format: "currency" },
-    { id: "inventoryTurnover", label: "Inventory Turnover Rate", label_i18n: {"en":"Inventory Turnover Rate"}, unit: "tur/yıl", format: "number", isBigNumber: true },
+    { id: "totalInvCost", label: "Toplam Envanter Maliyeti", label_i18n: {"en":"Total Envanter Cost"}, unit: "USD/yil", format: "currency" },
+    { id: "inventoryTurnover", label: "Inventory Turnover Rate", label_i18n: {"en":"Inventory Turnover Rate"}, unit: "tur/yil", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalInvCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Maliyet > $10K — EOQ optimizasyonu önerilir.", warningMessage_i18n: {"en":"Cost > $10K — EOQ optimization recommended."}, criticalMessage: "Maliyet > $25K — envanter politikası yenilenmeli.", criticalMessage_i18n: {"en":"Cost > $25K — envanter policy yenilenmeli."} }],
+  thresholds: [{ fieldId: "totalInvCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Maliyet > $10K — EOQ optimizasyonu onerilir.", warningMessage_i18n: {"en":"Cost > $10K — EOQ optimization recommended."}, criticalMessage: "Maliyet > $25K — envanter politikasi yenilenmeli.", criticalMessage_i18n: {"en":"Cost > $25K — envanter policy yenilenmeli."} }],
   formulaPipeline: [
     { formulaId: "cost.eoq", inputMap: { annualDemand: "annualDemand", orderCost: "orderCost", holdingCost: "holdingCost" }, outputId: "eoq" },
     { formulaId: "measurement.eoq_safety_stock", inputMap: {

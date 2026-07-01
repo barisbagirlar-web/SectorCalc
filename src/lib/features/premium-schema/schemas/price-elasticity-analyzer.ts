@@ -1,5 +1,5 @@
 /**
- * Tool #42 — Fiyat Esnekliği
+ * Tool #42 — Fiyat Esnekligi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const PRICE_ELASTICITY_SCHEMA: PremiumCalculatorSchema = {

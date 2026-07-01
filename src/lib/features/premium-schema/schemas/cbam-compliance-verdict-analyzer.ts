@@ -1,5 +1,5 @@
 /**
- * Tool #15 — CBAM Uyumluluk Kararı
+ * Tool #15 — CBAM Uyumluluk Profitari
  * SpecificEmbedded → ActualVsDefault → FinancialLiability → ComplianceDecision
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
@@ -25,17 +25,17 @@ export const CBAM_COMPLIANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "carbonPricePaidOrigin", label: "Carbon Tax Paid in Origin", label_i18n: {"en":"Carbon Tax Paid in Origin"}, type: "number", unit: "USD/tCO₂e", required: false, smartDefault: 0, validation: { min: 0 }, helper: "", expertMeaning: "Carbon price already paid in origin", expertMeaning_i18n: {"en":"Carbon price already paid in origin"} },
     { id: "euEtsPrice", label: "EU ETS Price", label_i18n: {"en":"EU ETS Price"}, type: "number", unit: "USD/tCO₂e", required: false, smartDefault: 90, validation: { min: 0 }, helper: "", expertMeaning: "Current EU ETS allowance price", expertMeaning_i18n: {"en":"Current EU ETS allowance price"} },
     { id: "marginThreshold", label: "Profit Margin Threshold", label_i18n: {"en":"Profit Margin Threshold"}, type: "number", unit: "USD", required: false, smartDefault: 50000, validation: { min: 0 }, helper: "", expertMeaning: "Profit margin threshold for proceed/reevaluate", expertMeaning_i18n: {"en":"Profit margin threshold for proceed/reevaluate"} },
-    { id: "totalEmbeddedInput", label: "Toplam Gömülü Emisyon", label_i18n: {"en":"Total Embedded Emissions"}, type: "number", unit: "tCO₂e", required: true, smartDefault: 500, validation: { min: 0 }, helper: "İthalatın Scope 1+2 toplam emisyonu.", helper_i18n: {"en":"Total Scope 1+2 emissions of imports."}, expertMeaning: "Total embedded emissions", expertMeaning_i18n: {"en":"Total embedded emissions"} },
+    { id: "totalEmbeddedInput", label: "Toplam Gomulu Emisyon", label_i18n: {"en":"Total Embedded Emissions"}, type: "number", unit: "tCO₂e", required: true, smartDefault: 500, validation: { min: 0 }, helper: "Ithalatin Scope 1+2 toplam emisyonu.", helper_i18n: {"en":"Total Scope 1+2 emissions of imports."}, expertMeaning: "Total embedded emissions", expertMeaning_i18n: {"en":"Total embedded emissions"} },
   ],
   outputs: [
-    { id: "specificEmbedded", label: "Spesifik Gömülü Emisyon", label_i18n: {"en":"Spesifik Gomulu emission"}, unit: "tCO₂e/ton", format: "number" },
+    { id: "specificEmbedded", label: "Spesifik Gomulu Emisyon", label_i18n: {"en":"Spesifik Gomulu emission"}, unit: "tCO₂e/ton", format: "number" },
     { id: "actualVsDefault", label: "Gercek / Varsaylan Oran", label_i18n: {"en":"Actual / Varsaylan Rate"}, unit: "", format: "number" },
-    { id: "financialLiability", label: "Net CBAM Finansal Yükümlülük", label_i18n: {"en":"Net CBAM Finansal obligation"}, unit: "USD", format: "currency" },
+    { id: "financialLiability", label: "Net CBAM Finansal Yukumluluk", label_i18n: {"en":"Net CBAM Finansal obligation"}, unit: "USD", format: "currency" },
     { id: "complianceDecision", label: "Uyum Karar", label_i18n: {"en":"Uyum decision"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "actualVsDefault", warning: 1, critical: 1.2, direction: "higher_is_bad", warningMessage: "Emissions close to EU default — verification required.", warningMessage_i18n: {"en":"Emissions close to EU default — verification required."}, criticalMessage: "Emissions exceed EU default — supply chain at risk.", criticalMessage_i18n: {"en":"Emissions exceed EU default — supply chain at risk."} },
-    { fieldId: "financialLiability", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Yükümlülük > $25K — fiyatlama stratejisi gözden geçirilmeli.", warningMessage_i18n: {"en":"Obligation > $25K — pricing strategy should be reviewed."}, criticalMessage: "Yükümlülük > $75K — alternatif tedarikçi değerlendirilmeli.", criticalMessage_i18n: {"en":"Obligation > $75K — alternative supplier should be evaluated."} },
+    { fieldId: "financialLiability", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Yukumluluk > $25K — fiyatlama stratejisi gozden gecirilmeli.", warningMessage_i18n: {"en":"Obligation > $25K — pricing strategy should be reviewed."}, criticalMessage: "Yukumluluk > $75K — alternatif tedarikci degerlendirilmeli.", criticalMessage_i18n: {"en":"Obligation > $75K — alternative supplier should be evaluated."} },
   ],
   formulaPipeline: [
     { formulaId: "carbon.specific_embedded", inputMap: { totalEmbedded: "totalEmbeddedInput", totalMass: "totalImportMassTons" }, outputId: "specificEmbedded" },

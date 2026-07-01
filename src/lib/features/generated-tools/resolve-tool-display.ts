@@ -47,7 +47,7 @@ export function resolveGeneratedToolTitle(
 
   // Layer 3: Use schema.toolName if it's already human-readable (not kebab-case or slug-only).
   // Otherwise, humanize the slug for a cleaner fallback.
-  // This prevents loss of properly localized titles with special characters (e.g. "Makine Ekonomik Ömrü").
+  // This prevents loss of properly localized titles with special characters (e.g. "Makine Ekonomik Omru").
   const effectiveToolName =
     schema.toolName.includes("-") || schema.toolName === slug.replace(/-/g, " ")
       ? humanizeSlug(slug)

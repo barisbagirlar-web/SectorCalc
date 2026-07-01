@@ -2,10 +2,10 @@
  * SectorCalc — Free Tool Category Registry v2.0
  *
  * 33 premium-grade categories for free calculation tools.
- * Each category maps a field (alan), sector (sektör), and social purpose (sosyal amaç).
+ * Each category maps a field (alan), sector (sektor), and social purpose (sosyal amac).
  * Icons, titles, taglines, field, domain, and socialPurpose in all 6 supported locales.
  *
- * ECMI / ISO 9001:2015 — TÜV-certifiable industrial quality.
+ * ECMI / ISO 9001:2015 — TUV-certifiable industrial quality.
  */
 
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
@@ -58,9 +58,9 @@ export type FreeToolCategoryEntry = {
   readonly tagline: Readonly<Record<SupportedLocale, string>>;
   /** Field domain (alan) — e.g. "Engineering", "Finance", "Health" */
   readonly field: Readonly<Record<SupportedLocale, string>>;
-  /** Industry sector (sektör) — e.g. "Manufacturing", "Construction" */
+  /** Industry sector (sektor) — e.g. "Manufacturing", "Construction" */
   readonly domain: Readonly<Record<SupportedLocale, string>>;
-  /** Social purpose (sosyal amaç) — e.g. "Industrial Efficiency", "Public Health" */
+  /** Social purpose (sosyal amac) — e.g. "Industrial Efficiency", "Public Health" */
   readonly socialPurpose: Readonly<Record<SupportedLocale, string>>;
 };
 
@@ -122,7 +122,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_FINANCE,
     title: {
       en: "Finance, Sales & Working Capital",
-      tr: "Finans, Satış ve İşletme Sermayesi",
+      tr: "Finans, Satis ve Isletme Sermayesi",
       de: "Finanzen, Vertrieb & Working Capital",
       fr: "Finance, ventes et fonds de roulement",
       es: "Finanzas, ventas y capital circulante",
@@ -130,7 +130,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Budgeting, investment, pricing and cash-flow calculators for business finance.",
-      tr: "Bütçeleme, yatırım, fiyatlama ve nakit akışı hesaplamaları.",
+      tr: "Butceleme, yatirim, fiyatlama ve nakit akisi calculationlari.",
       de: "Budgetierung, Investition, Preisgestaltung und Cashflow-Rechner.",
       fr: "Budgétisation, investissement, tarification et flux de trésorerie.",
       es: "Presupuestos, inversiones, precios y flujo de caja.",
@@ -138,7 +138,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Business & Economics",
-      tr: "İşletme & Ekonomi",
+      tr: "Isletme & Ekonomi",
       de: "Wirtschaft & Finanzen",
       fr: "Affaires et économie",
       es: "Negocios y economía",
@@ -154,7 +154,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Economic Empowerment",
-      tr: "Ekonomik Güçlenme",
+      tr: "Ekonomik Guclenme",
       de: "Wirtschaftliche Stärkung",
       fr: "Autonomisation économique",
       es: "Empoderamiento económico",
@@ -170,7 +170,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_QUALITY,
     title: {
       en: "Quality, SPC & Six Sigma",
-      tr: "Kalite, SPC ve Altı Sigma",
+      tr: "Kalite, SPC ve Alti Sigma",
       de: "Qualität, SPC & Six Sigma",
       fr: "Qualité, SPC et Six Sigma",
       es: "Calidad, SPC y Seis Sigma",
@@ -178,7 +178,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Process capability, control charts, defect analysis and quality cost tools.",
-      tr: "Proses yeterliliği, kontrol grafikleri, hata analizi ve kalite maliyeti.",
+      tr: "Process yeterliligi, kontrol grafikleri, hata analizi ve kalite maliyeti.",
       de: "Prozessfähigkeit, Regelkarten, Fehleranalyse und Qualitätskosten.",
       fr: "Capabilité processus, cartes de contrôle, analyse des défauts et coût qualité.",
       es: "Capacidad de proceso, gráficos de control, análisis de defectos y coste de calidad.",
@@ -186,7 +186,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Quality Engineering",
-      tr: "Kalite Mühendisliği",
+      tr: "Kalite Engineerligi",
       de: "Qualitätstechnik",
       fr: "Ingénierie qualité",
       es: "Ingeniería de calidad",
@@ -194,7 +194,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Process Management",
-      tr: "Süreç Yönetimi",
+      tr: "Surec Yonetimi",
       de: "Prozessmanagement",
       fr: "Gestion des processus",
       es: "Gestión de procesos",
@@ -202,7 +202,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Quality Culture & Zero Defects",
-      tr: "Kalite Kültürü & Sıfır Hata",
+      tr: "Kalite Kulturu & Sifir Hata",
       de: "Qualitätskultur & Null Fehler",
       fr: "Culture qualité et zéro défaut",
       es: "Cultura de calidad y cero defectos",
@@ -218,7 +218,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_TECH,
     title: {
       en: "Technology, AI, Cloud & Cyber",
-      tr: "Teknoloji, AI, Bulut ve Siber Güvenlik",
+      tr: "Teknoloji, AI, Bulut ve Siber Guvenlik",
       de: "Technologie, KI, Cloud & Cyber",
       fr: "Technologie, IA, cloud et cyber",
       es: "Tecnología, IA, nube y ciberseguridad",
@@ -226,7 +226,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "IT infrastructure, cloud cost, cybersecurity, software and data tools.",
-      tr: "BT altyapısı, bulut maliyeti, siber güvenlik, yazılım ve veri araçları.",
+      tr: "BT altstructure, bulut maliyeti, siber guvenlik, yazilim ve veri araclari.",
       de: "IT-Infrastruktur, Cloud-Kosten, Cybersicherheit, Software und Daten.",
       fr: "Infrastructure IT, coût cloud, cybersécurité, logiciels et données.",
       es: "Infraestructura TI, coste cloud, ciberseguridad, software y datos.",
@@ -250,7 +250,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Digital Inclusion & Literacy",
-      tr: "Dijital Katılım & Okuryazarlık",
+      tr: "Dijital Katilim & Okuryazarlik",
       de: "Digitale Inklusion & Kompetenz",
       fr: "Inclusion et littératie numériques",
       es: "Inclusión y alfabetización digital",
@@ -266,7 +266,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_ELECTRIC,
     title: {
       en: "Electrical, Panel & Power Systems",
-      tr: "Elektrik, Pano ve Güç Sistemleri",
+      tr: "Elektrik, Pano ve Guc Sistemleri",
       de: "Elektrik, Schaltschrank & Energiesysteme",
       fr: "Électricité, armoires et systèmes d'alimentation",
       es: "Electricidad, cuadros y sistemas de potencia",
@@ -274,7 +274,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Electrical engineering, power distribution, panel design and cable sizing.",
-      tr: "Elektrik mühendisliği, güç dağıtımı, pano tasarımı ve kablo kesiti.",
+      tr: "Elektrik muhendisligi, guc dagitimi, pano tasarimi ve kablo kesiti.",
       de: "Elektrotechnik, Energieverteilung, Schaltschrankauslegung und Kabelbemessung.",
       fr: "Génie électrique, distribution d'énergie, conception d'armoires et section de câbles.",
       es: "Ingeniería eléctrica, distribución de energía, diseño de cuadros y sección de cables.",
@@ -282,7 +282,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Electrical Engineering",
-      tr: "Elektrik Mühendisliği",
+      tr: "Elektrik Engineerligi",
       de: "Elektrotechnik",
       fr: "Génie électrique",
       es: "Ingeniería eléctrica",
@@ -290,7 +290,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Power Systems",
-      tr: "Güç Sistemleri",
+      tr: "Guc Sistemleri",
       de: "Energiesysteme",
       fr: "Systèmes d'alimentation",
       es: "Sistemas de potencia",
@@ -298,7 +298,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Energy Access & Efficiency",
-      tr: "Enerji Erişimi & Verimliliği",
+      tr: "Enerji Erisimi & Verimliligi",
       de: "Energiezugang & Effizienz",
       fr: "Accès à l'énergie et efficacité",
       es: "Acceso a la energía y eficiencia",
@@ -314,7 +314,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_LEAF,
     title: {
       en: "Environment, Resources & ESG",
-      tr: "Çevre, Kaynak ve Sürdürülebilirlik",
+      tr: "Cevre, Kaynak ve Surdurulebilirlik",
       de: "Umwelt, Ressourcen & ESG",
       fr: "Environnement, ressources et ESG",
       es: "Medio ambiente, recursos y ESG",
@@ -322,7 +322,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Carbon footprint, waste, water, energy efficiency and ESG compliance tools.",
-      tr: "Karbon ayak izi, atık, su, enerji verimliliği ve ESG uyum araçları.",
+      tr: "Profitbon ayak izi, atik, su, enerji verimliligi ve ESG uyum araclari.",
       de: "CO₂-Bilanz, Abfall, Wasser, Energieeffizienz und ESG-Compliance.",
       fr: "Empreinte carbone, déchets, eau, efficacité énergétique et conformité ESG.",
       es: "Huella de carbono, residuos, agua, eficiencia energética y cumplimiento ESG.",
@@ -330,7 +330,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Environmental Sciences",
-      tr: "Çevre Bilimleri",
+      tr: "Cevre Bilimleri",
       de: "Umweltwissenschaften",
       fr: "Sciences de l'environnement",
       es: "Ciencias ambientales",
@@ -338,7 +338,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Sustainable Energy & Environment",
-      tr: "Sürdürülebilir Enerji & Çevre",
+      tr: "Surdurulebilir Enerji & Cevre",
       de: "Nachhaltige Energie & Umwelt",
       fr: "Énergie durable et environnement",
       es: "Energía sostenible y medio ambiente",
@@ -346,7 +346,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Climate Action & Sustainability",
-      tr: "İklim Eylemi & Sürdürülebilirlik",
+      tr: "Iklim Eylemi & Surdurulebilirlik",
       de: "Klimaschutz & Nachhaltigkeit",
       fr: "Action climatique et durabilité",
       es: "Acción climática y sostenibilidad",
@@ -362,7 +362,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_CNC,
     title: {
       en: "CNC, 3D Printing & Advanced Manufacturing",
-      tr: "CNC, 3B Baskı ve İleri İmalat",
+      tr: "CNC, 3B Printing ve Ileri Imalat",
       de: "CNC, 3D-Druck & Advanced Manufacturing",
       fr: "CNC, impression 3D et fabrication avancée",
       es: "CNC, impresión 3D y fabricación avanzada",
@@ -370,7 +370,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Machining parameters, tool life, 3D print cost and advanced process calculators.",
-      tr: "İşleme parametreleri, takım ömrü, 3B baskı maliyeti ve ileri proses hesaplamaları.",
+      tr: "Isleme parametreleri, takim omru, 3B printing maliyeti ve ileri process calculationlari.",
       de: "Bearbeitungsparameter, Werkzeugstandzeit, 3D-Druckkosten und fortschrittliche Prozesse.",
       fr: "Paramètres d'usinage, durée d'outil, coût d'impression 3D et procédés avancés.",
       es: "Parámetros de mecanizado, vida útil de la herramienta, coste de impresión 3D y procesos avanzados.",
@@ -378,7 +378,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Manufacturing Engineering",
-      tr: "İmalat Mühendisliği",
+      tr: "Imalat Engineerligi",
       de: "Fertigungstechnik",
       fr: "Génie de fabrication",
       es: "Ingeniería de fabricación",
@@ -386,7 +386,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Advanced Manufacturing",
-      tr: "İleri İmalat",
+      tr: "Ileri Imalat",
       de: "Fortschrittliche Fertigung",
       fr: "Fabrication avancée",
       es: "Fabricación avanzada",
@@ -394,7 +394,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Industrial Innovation & Precision",
-      tr: "Endüstriyel İnovasyon & Hassasiyet",
+      tr: "Endustriyel Inovasyon & Hassasiyet",
       de: "Industrielle Innovation & Präzision",
       fr: "Innovation industrielle et précision",
       es: "Innovación industrial y precisión",
@@ -410,7 +410,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_METAL,
     title: {
       en: "Metals, Plastics & Forming",
-      tr: "Metal, Plastik ve Şekillendirme",
+      tr: "Metal, Plastik ve Sekillendirme",
       de: "Metall, Kunststoff & Umformung",
       fr: "Métaux, plastiques et formage",
       es: "Metales, plásticos y conformado",
@@ -418,7 +418,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Sheet metal, casting, injection molding, forging and material forming tools.",
-      tr: "Sac metal, döküm, enjeksiyon kalıplama, dövme ve malzeme şekillendirme.",
+      tr: "Sac metal, dokum, enjeksiyon kaliplama, dovme ve malzeme sekillendirme.",
       de: "Blech, Guss, Spritzguss, Schmieden und Umformung.",
       fr: "Tôle, fonderie, moulage par injection, forgeage et formage des matériaux.",
       es: "Chapa, fundición, moldeo por inyección, forja y conformado de materiales.",
@@ -426,7 +426,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Materials Science & Engineering",
-      tr: "Malzeme Bilimi & Mühendisliği",
+      tr: "Malzeme Bilimi & Engineerligi",
       de: "Materialwissenschaft & Werkstofftechnik",
       fr: "Science et génie des matériaux",
       es: "Ciencia e ingeniería de materiales",
@@ -434,7 +434,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Metal & Plastics Industry",
-      tr: "Metal & Plastik Endüstrisi",
+      tr: "Metal & Plastik Endustrisi",
       de: "Metall- & Kunststoffindustrie",
       fr: "Industrie métallurgique et plastique",
       es: "Industria del metal y el plástico",
@@ -442,7 +442,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Material Efficiency & Circular Economy",
-      tr: "Malzeme Verimliliği & Döngüsel Ekonomi",
+      tr: "Malzeme Verimliligi & Dongusel Ekonomi",
       de: "Materialeffizienz & Kreislaufwirtschaft",
       fr: "Efficacité des matériaux et économie circulaire",
       es: "Eficiencia de materiales y economía circular",
@@ -458,7 +458,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_PROCESS,
     title: {
       en: "Chemistry, Process & Fluids",
-      tr: "Kimya, Proses ve Akışkanlar",
+      tr: "Kimya, Process ve Akiskanlar",
       de: "Chemie, Prozess & Fluide",
       fr: "Chimie, procédés et fluides",
       es: "Química, proceso y fluidos",
@@ -466,7 +466,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Chemical reactions, fluid dynamics, thermodynamics and process engineering.",
-      tr: "Kimyasal reaksiyonlar, akışkanlar dinamiği, termodinamik ve proses mühendisliği.",
+      tr: "Kimyasal reaksiyonlar, akiskanlar dinamigi, termodinamik ve process muhendisligi.",
       de: "Chemische Reaktionen, Fluiddynamik, Thermodynamik und Verfahrenstechnik.",
       fr: "Réactions chimiques, dynamique des fluides, thermodynamique et génie des procédés.",
       es: "Reacciones químicas, dinámica de fluidos, termodinámica e ingeniería de procesos.",
@@ -482,7 +482,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Chemical & Process Engineering",
-      tr: "Kimya & Proses Mühendisliği",
+      tr: "Kimya & Process Engineerligi",
       de: "Chemie- & Verfahrenstechnik",
       fr: "Génie chimique et des procédés",
       es: "Ingeniería química y de procesos",
@@ -490,8 +490,8 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Chemical Safety & Green Chemistry",
-      tr: "Kimyasal Güvenlik & Yeşil Kimya",
-      de: "Chemikaliensicherheit & Grüne Chemie",
+      tr: "Kimyasal Guvenlik & Yesil Kimya",
+      de: "Chemikaliensicherheit & Grune Chemie",
       fr: "Sécurité chimique et chimie verte",
       es: "Seguridad química y química verde",
       ar: "السلامة الكيميائية والكيمياء الخضراء",
@@ -506,7 +506,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_HSE,
     title: {
       en: "HSE, Ergonomics & Risk",
-      tr: "İSG, Ergonomi ve Risk Yönetimi",
+      tr: "ISG, Ergonomi ve Risk Yonetimi",
       de: "HSE, Ergonomie & Risiko",
       fr: "HSE, ergonomie et risque",
       es: "HSE, ergonomía y riesgo",
@@ -514,7 +514,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Occupational safety, ergonomic risk, noise, vibration and hazard analysis.",
-      tr: "İş sağlığı ve güvenliği, ergonomik risk, gürültü, titreşim ve tehlike analizi.",
+      tr: "Is sagligi ve guvenligi, ergonomik risk, gurultu, titresim ve tehlike analizi.",
       de: "Arbeitssicherheit, ergonomisches Risiko, Lärm, Vibration und Gefahrenanalyse.",
       fr: "Sécurité au travail, risque ergonomique, bruit, vibration et analyse des dangers.",
       es: "Seguridad laboral, riesgo ergonómico, ruido, vibración y análisis de peligros.",
@@ -522,7 +522,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Occupational Health & Safety",
-      tr: "İş Sağlığı & Güvenliği",
+      tr: "Is Sagligi & Guvenligi",
       de: "Arbeitssicherheit & Gesundheitsschutz",
       fr: "Santé et sécurité au travail",
       es: "Salud y seguridad ocupacional",
@@ -530,7 +530,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "HSE Management",
-      tr: "İSG Yönetimi",
+      tr: "EHS Yonetimi",
       de: "HSE-Management",
       fr: "Gestion HSE",
       es: "Gestión HSE",
@@ -538,7 +538,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Workplace Safety & Worker Protection",
-      tr: "İş Yeri Güvenliği & Çalışan Koruma",
+      tr: "Is Yeri Guvenligi & Calisan Koruma",
       de: "Arbeitsplatzsicherheit & Arbeitnehmerschutz",
       fr: "Sécurité au travail et protection des travailleurs",
       es: "Seguridad laboral y protección del trabajador",
@@ -554,7 +554,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_MAINTENANCE,
     title: {
       en: "Maintenance & Reliability",
-      tr: "Bakım, Arıza ve Güvenilirlik",
+      tr: "Bakim, Ariza ve Guvenilirlik",
       de: "Instandhaltung & Zuverlässigkeit",
       fr: "Maintenance et fiabilité",
       es: "Mantenimiento y fiabilidad",
@@ -562,7 +562,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "MTBF/MTTR, preventive maintenance, spare part optimization and RCA tools.",
-      tr: "MTBF/MTTR, koruyucu bakım, yedek parça optimizasyonu ve kök neden analizi.",
+      tr: "MTBF/MTTR, koruyucu bakim, yedek parca optimizasyonu ve kok neden analizi.",
       de: "MTBF/MTTR, vorbeugende Instandhaltung, Ersatzteiloptimierung und Ursachenanalyse.",
       fr: "MTBF/MTTR, maintenance préventive, optimisation des pièces de rechange et analyse des causes.",
       es: "MTBF/MTTR, mantenimiento preventivo, optimización de repuestos y análisis de causa raíz.",
@@ -570,7 +570,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Industrial Engineering",
-      tr: "Endüstri Mühendisliği",
+      tr: "Endustri Engineerligi",
       de: "Industrietechnik",
       fr: "Génie industriel",
       es: "Ingeniería industrial",
@@ -578,7 +578,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Asset Management",
-      tr: "Varlık Yönetimi",
+      tr: "Varlik Yonetimi",
       de: "Anlagenmanagement",
       fr: "Gestion d'actifs",
       es: "Gestión de activos",
@@ -586,7 +586,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Operational Excellence & Reliability",
-      tr: "Operasyonel Mükemmellik & Güvenilirlik",
+      tr: "Operasyonel Mukemmellik & Guvenilirlik",
       de: "Operative Exzellenz & Zuverlässigkeit",
       fr: "Excellence opérationnelle et fiabilité",
       es: "Excelencia operativa y fiabilidad",
@@ -602,7 +602,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_PROJECT,
     title: {
       en: "Construction & Project Management",
-      tr: "İnşaat ve Proje Yönetimi",
+      tr: "Insaat ve Proje Yonetimi",
       de: "Bau & Projektmanagement",
       fr: "Construction et gestion de projet",
       es: "Construcción y gestión de proyectos",
@@ -610,7 +610,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Site management, EVM, CPM, structural analysis and construction cost tools.",
-      tr: "Şantiye yönetimi, EVM, CPM, yapısal analiz ve inşaat maliyeti hesaplamaları.",
+      tr: "Santiye yonetimi, EVM, CPM, yapisal analiz ve insaat maliyeti calculationlari.",
       de: "Baustellenmanagement, EVM, CPM, Tragwerksanalyse und Baukostenrechner.",
       fr: "Gestion de chantier, EVM, CPM, analyse structurelle et coûts de construction.",
       es: "Gestión de obra, EVM, CPM, análisis estructural y costes de construcción.",
@@ -618,7 +618,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Civil & Structural Engineering",
-      tr: "İnşaat & Yapı Mühendisliği",
+      tr: "Insaat & Yapi Engineerligi",
       de: "Bau- & Strukturtechnik",
       fr: "Génie civil et structurel",
       es: "Ingeniería civil y estructural",
@@ -626,7 +626,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Construction Industry",
-      tr: "İnşaat Sektörü",
+      tr: "Insaat Sektoru",
       de: "Bauindustrie",
       fr: "Industrie de la construction",
       es: "Industria de la construcción",
@@ -634,7 +634,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Infrastructure Development & Safety",
-      tr: "Altyapı Geliştirme & Güvenlik",
+      tr: "Altyapi Gelistirme & Guvenlik",
       de: "Infrastrukturentwicklung & Sicherheit",
       fr: "Développement des infrastructures et sécurité",
       es: "Desarrollo de infraestructuras y seguridad",
@@ -650,7 +650,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_WORKFORCE,
     title: {
       en: "Workforce, Shift & HR",
-      tr: "İş Gücü, Vardiya ve İnsan Kaynakları",
+      tr: "Is Gucu, Vardiya ve Insan Kaynaklari",
       de: "Belegschaft, Schicht & Personal",
       fr: "Effectifs, équipes et RH",
       es: "Plantilla, turnos y RR. HH.",
@@ -658,15 +658,15 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Personnel cost, shift planning, overtime, turnover and HR analytics.",
-      tr: "Personel maliyeti, vardiya planlama, fazla mesai, iş gücü devri ve İK analitiği.",
-      de: "Personalkosten, Schichtplanung, Überstunden, Fluktuation und HR-Analytik.",
+      tr: "Personel maliyeti, vardiya planlama, fazla mesai, is gucu devri ve IK analitigi.",
+      de: "Personalkosten, Schichtplanung, Uberstunden, Fluktuation und HR-Analytik.",
       fr: "Coût du personnel, planification des équipes, heures sup, turnover et analytics RH.",
       es: "Coste de personal, planificación de turnos, horas extra, rotación y analítica de RR. HH.",
       ar: "تكلفة الموظفين وتخطيط الورديات والعمل الإضافي ودوران الموظفين وتحليلات الموارد البشرية.",
     },
     field: {
       en: "Human Resources Management",
-      tr: "İnsan Kaynakları Yönetimi",
+      tr: "Insan Kaynaklari Yonetimi",
       de: "Personalmanagement",
       fr: "Gestion des ressources humaines",
       es: "Gestión de recursos humanos",
@@ -674,7 +674,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Workforce & Employment",
-      tr: "İş Gücü & İstihdam",
+      tr: "Is Gucu & Istihdam",
       de: "Belegschaft & Beschäftigung",
       fr: "Effectifs et emploi",
       es: "Plantilla y empleo",
@@ -682,8 +682,8 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Fair Labor & Decent Work",
-      tr: "Adil İşgücü & İnsana Yakışır İş",
-      de: "Faire Arbeit & menschenwürdige Arbeit",
+      tr: "Adil Isgucu & Insana Yakisir Is",
+      de: "Faire Arbeit & menschenwurdige Arbeit",
       fr: "Travail équitable et travail décent",
       es: "Trabajo justo y trabajo decente",
       ar: "العمل العادل والعمل اللائق",
@@ -698,7 +698,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_PROCUREMENT,
     title: {
       en: "Procurement, Supply Chain & Logistics",
-      tr: "Tedarik, Satınalma ve Lojistik",
+      tr: "Tedarik, Satinalma ve Lojistik",
       de: "Beschaffung, Lieferkette & Logistik",
       fr: "Achats, chaîne d'approvisionnement et logistique",
       es: "Compras, cadena de suministro y logística",
@@ -706,7 +706,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Inventory, EOQ, warehouse, transportation, supplier cost and route optimization.",
-      tr: "Envanter, EOQ, depo, nakliye, tedarikçi maliyeti ve rota optimizasyonu.",
+      tr: "Envanter, EOQ, depo, nakliye, tedarikci maliyeti ve rota optimizasyonu.",
       de: "Lagerbestand, EOQ, Lager, Transport, Lieferantenkosten und Routenoptimierung.",
       fr: "Stock, EOQ, entrepôt, transport, coût fournisseur et optimisation d'itinéraire.",
       es: "Inventario, EOQ, almacén, transporte, coste de proveedor y optimización de rutas.",
@@ -714,7 +714,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Supply Chain Management",
-      tr: "Tedarik Zinciri Yönetimi",
+      tr: "Tedarik Zinciri Yonetimi",
       de: "Lieferkettenmanagement",
       fr: "Gestion de la chaîne d'approvisionnement",
       es: "Gestión de la cadena de suministro",
@@ -722,7 +722,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Logistics & Transportation",
-      tr: "Lojistik & Taşımacılık",
+      tr: "Lojistik & Tasimacilik",
       de: "Logistik & Transport",
       fr: "Logistique et transport",
       es: "Logística y transporte",
@@ -746,23 +746,23 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_FOOD,
     title: {
       en: "Food, Cold Chain & Hygiene",
-      tr: "Gıda, Soğuk Zincir ve Hijyen",
-      de: "Lebensmittel, Kühlkette & Hygiene",
+      tr: "Gida, Soguk Zincir ve Hijyen",
+      de: "Lebensmittel, Kuhlkette & Hygiene",
       fr: "Alimentation, chaîne du froid et hygiène",
       es: "Alimentación, cadena de frío e higiene",
       ar: "الغذاء وسلسلة التبريد والنظافة",
     },
     tagline: {
       en: "Recipe cost, shelf life, HACCP, cold chain and food safety calculators.",
-      tr: "Reçete maliyeti, raf ömrü, HACCP, soğuk zincir ve gıda güvenliği hesaplamaları.",
-      de: "Rezeptkosten, Haltbarkeit, HACCP, Kühlkette und Lebensmittelsicherheit.",
+      tr: "Recete maliyeti, raf omru, HACCP, soguk zincir ve gida guvenligi calculationlari.",
+      de: "Rezeptkosten, Haltbarkeit, HACCP, Kuhlkette und Lebensmittelsicherheit.",
       fr: "Coût de recette, durée de conservation, HACCP, chaîne du froid et sécurité alimentaire.",
       es: "Coste de receta, vida útil, HACCP, cadena de frío y seguridad alimentaria.",
       ar: "تكلفة الوصفة ومدة الصلاحية و HACCP وسلسلة التبريد وسلامة الغذاء.",
     },
     field: {
       en: "Food Science & Technology",
-      tr: "Gıda Bilimi & Teknolojisi",
+      tr: "Gida Bilimi & Teknolojisi",
       de: "Lebensmittelwissenschaft & -technologie",
       fr: "Science et technologie alimentaires",
       es: "Ciencia y tecnología de los alimentos",
@@ -770,7 +770,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Food & Beverage Industry",
-      tr: "Gıda & İçecek Sektörü",
+      tr: "Gida & Icecek Sektoru",
       de: "Lebensmittel- & Getränkeindustrie",
       fr: "Industrie agroalimentaire",
       es: "Industria de alimentos y bebidas",
@@ -778,7 +778,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Food Security & Safety",
-      tr: "Gıda Güvenliği & Emniyeti",
+      tr: "Gida Guvenligi & Emniyeti",
       de: "Lebensmittelsicherheit & -schutz",
       fr: "Sécurité et sûreté alimentaires",
       es: "Seguridad alimentaria",
@@ -794,7 +794,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_LEAN,
     title: {
       en: "Efficiency, Lean & OEE",
-      tr: "Verimlilik, Yalın Üretim ve OEE",
+      tr: "Efficiency, Yalin Uretim ve OEE",
       de: "Effizienz, Lean & OEE",
       fr: "Efficacité, lean et OEE",
       es: "Eficiencia, lean y OEE",
@@ -802,7 +802,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "OEE, SMED, Kaizen, Kanban, 5S, VSM and productivity improvement tools.",
-      tr: "OEE, SMED, Kaizen, Kanban, 5S, VSM ve verimlilik iyileştirme araçları.",
+      tr: "OEE, SMED, Kaizen, Kanban, 5S, VSM ve efficiency iyilestirme araclari.",
       de: "OEE, SMED, Kaizen, Kanban, 5S, VSM und Produktivitätswerkzeuge.",
       fr: "OEE, SMED, Kaizen, Kanban, 5S, VSM et outils d'amélioration de la productivité.",
       es: "OEE, SMED, Kaizen, Kanban, 5S, VSM y herramientas de mejora de productividad.",
@@ -810,7 +810,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Industrial Engineering",
-      tr: "Endüstri Mühendisliği",
+      tr: "Endustri Engineerligi",
       de: "Industrietechnik",
       fr: "Génie industriel",
       es: "Ingeniería industrial",
@@ -818,7 +818,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Manufacturing & Production",
-      tr: "İmalat & Üretim",
+      tr: "Imalat & Uretim",
       de: "Fertigung & Produktion",
       fr: "Fabrication et production",
       es: "Fabricación y producción",
@@ -842,7 +842,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_TEXTILE,
     title: {
       en: "Textile, Printing & Laboratory",
-      tr: "Tekstil, Baskı ve Laboratuvar",
+      tr: "Tekstil, Printing ve Laboratuvar",
       de: "Textil, Druck & Labor",
       fr: "Textile, impression et laboratoire",
       es: "Textil, impresión y laboratorio",
@@ -850,7 +850,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Fabric, garment, printing, dyeing and laboratory analysis calculators.",
-      tr: "Kumaş, konfeksiyon, baskı, boya ve laboratuvar analiz hesaplamaları.",
+      tr: "Kumas, konfeksiyon, printing, boya ve laboratuvar analiz calculationlari.",
       de: "Stoff, Bekleidung, Druck, Färben und Laboranalyse-Rechner.",
       fr: "Tissu, vêtement, impression, teinture et analyse de laboratoire.",
       es: "Tejido, prenda, impresión, teñido y análisis de laboratorio.",
@@ -858,7 +858,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Textile Engineering",
-      tr: "Tekstil Mühendisliği",
+      tr: "Tekstil Engineerligi",
       de: "Textiltechnik",
       fr: "Génie textile",
       es: "Ingeniería textil",
@@ -866,7 +866,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Textile & Apparel Industry",
-      tr: "Tekstil & Konfeksiyon Sektörü",
+      tr: "Tekstil & Konfeksiyon Sektoru",
       de: "Textil- & Bekleidungsindustrie",
       fr: "Industrie textile et de l'habillement",
       es: "Industria textil y de la confección",
@@ -874,7 +874,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Sustainable Fashion & Textile Innovation",
-      tr: "Sürdürülebilir Moda & Tekstil İnovasyonu",
+      tr: "Surdurulebilir Moda & Tekstil Inovasyonu",
       de: "Nachhaltige Mode & Textilinnovation",
       fr: "Mode durable et innovation textile",
       es: "Moda sostenible e innovación textil",
@@ -890,7 +890,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_THERMAL,
     title: {
       en: "Mechanical, HVAC & Energy Loss",
-      tr: "Mekanik, HVAC ve Enerji Kayıpları",
+      tr: "Mekanik, HVAC ve Enerji Kayiplari",
       de: "Mechanik, HVAC & Energieverlust",
       fr: "Mécanique, CVC et pertes énergétiques",
       es: "Mecánica, HVAC y pérdida energética",
@@ -898,7 +898,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "HVAC load, insulation, welding, piping, steam and mechanical system losses.",
-      tr: "HVAC yükü, yalıtım, kaynak, boru tesisatı, buhar ve mekanik sistem kayıpları.",
+      tr: "HVAC yuku, yalitim, kaynak, boru tesisati, buhar ve mekanik sistem kayiplari.",
       de: "HVAC-Last, Dämmung, Schweißen, Rohrleitungen, Dampf und mechanische Verluste.",
       fr: "Charge CVC, isolation, soudure, tuyauterie, vapeur et pertes mécaniques.",
       es: "Carga HVAC, aislamiento, soldadura, tuberías, vapor y pérdidas mecánicas.",
@@ -906,7 +906,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Mechanical Engineering",
-      tr: "Makine Mühendisliği",
+      tr: "Makine Engineerligi",
       de: "Maschinenbau",
       fr: "Génie mécanique",
       es: "Ingeniería mecánica",
@@ -922,7 +922,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Energy Efficiency & Thermal Comfort",
-      tr: "Enerji Verimliliği & Termal Konfor",
+      tr: "Enerji Verimliligi & Termal Konfor",
       de: "Energieeffizienz & thermischer Komfort",
       fr: "Efficacité énergétique et confort thermique",
       es: "Eficiencia energética y confort térmico",
@@ -938,7 +938,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_BOX,
     title: {
       en: "Packaging & Local Business Tools",
-      tr: "Ambalaj ve Yerel İşletme Araçları",
+      tr: "Ambalaj ve Yerel Isletme Araclari",
       de: "Verpackung & lokale Geschäftstools",
       fr: "Emballage et outils métier locaux",
       es: "Embalaje y herramientas de negocio local",
@@ -946,7 +946,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Packaging volume, pallet config, material selection and local service pricing.",
-      tr: "Ambalaj hacmi, palet konfigürasyonu, malzeme seçimi ve yerel hizmet fiyatlama.",
+      tr: "Ambalaj hacmi, palet konfigurasyonu, malzeme secimi ve yerel hizmet fiyatlama.",
       de: "Verpackungsvolumen, Palettenkonfiguration, Materialauswahl und lokale Preisgestaltung.",
       fr: "Volume d'emballage, configuration palette, sélection matériaux et tarification locale.",
       es: "Volumen de embalaje, configuración de palé, selección de materiales y precios locales.",
@@ -954,7 +954,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Packaging Engineering",
-      tr: "Ambalaj Mühendisliği",
+      tr: "Ambalaj Engineerligi",
       de: "Verpackungstechnik",
       fr: "Ingénierie de l'emballage",
       es: "Ingeniería del embalaje",
@@ -962,7 +962,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Print & Packaging Industry",
-      tr: "Baskı & Ambalaj Sektörü",
+      tr: "Printing & Ambalaj Sektoru",
       de: "Druck- & Verpackungsindustrie",
       fr: "Industrie de l'impression et de l'emballage",
       es: "Industria de la impresión y el embalaje",
@@ -970,7 +970,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Sustainable Packaging & Waste Reduction",
-      tr: "Sürdürülebilir Ambalaj & Atık Azaltma",
+      tr: "Surdurulebilir Ambalaj & Atik Azaltma",
       de: "Nachhaltige Verpackung & Abfallreduzierung",
       fr: "Emballage durable et réduction des déchets",
       es: "Embalaje sostenible y reducción de residuos",
@@ -986,7 +986,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_GLOBE,
     title: {
       en: "Global Trade, Compliance & Tax",
-      tr: "Küresel Ticaret, Uyum ve Vergi",
+      tr: "Kuresel Ticaret, Uyum ve Vergi",
       de: "Globaler Handel, Compliance & Steuern",
       fr: "Commerce mondial, conformité et fiscalité",
       es: "Comercio global, cumplimiento e impuestos",
@@ -994,15 +994,15 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Customs, incoterms, transfer pricing, IFRS, AML and cross-border trade tools.",
-      tr: "Gümrük, incoterms, transfer fiyatlandırması, IFRS, AML ve sınır ötesi ticaret.",
-      de: "Zoll, Incoterms, Verrechnungspreise, IFRS, AML und grenzüberschreitender Handel.",
+      tr: "Gumruk, incoterms, transfer fiyatlandirmasi, IFRS, AML ve sinir otesi ticaret.",
+      de: "Zoll, Incoterms, Verrechnungspreise, IFRS, AML und grenzuberschreitender Handel.",
       fr: "Douane, incoterms, prix de transfert, IFRS, LBC et commerce transfrontalier.",
       es: "Aduanas, incoterms, precios de transferencia, IFRS, AML y comercio transfronterizo.",
       ar: "الجمارك والشروط التجارية والتسعير التحويلي والمعايير الدولية ومكافحة غسل الأموال والتجارة عبر الحدود.",
     },
     field: {
       en: "International Business & Law",
-      tr: "Uluslararası İşletme & Hukuk",
+      tr: "Uluslararasi Isletme & Hukuk",
       de: "Internationales Geschäft & Recht",
       fr: "Affaires internationales et droit",
       es: "Negocios internacionales y derecho",
@@ -1010,7 +1010,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Global Trade & Compliance",
-      tr: "Küresel Ticaret & Uyum",
+      tr: "Kuresel Ticaret & Uyum",
       de: "Globaler Handel & Compliance",
       fr: "Commerce mondial et conformité",
       es: "Comercio global y cumplimiento",
@@ -1042,7 +1042,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "IoT, robotics, AGV, digital twin, SCADA and industry 4.0 calculators.",
-      tr: "IoT, robotik, AGV, dijital ikiz, SCADA ve endüstri 4.0 hesaplamaları.",
+      tr: "IoT, robotik, AGV, dijital ikiz, SCADA ve endustri 4.0 calculationlari.",
       de: "IoT, Robotik, AGV, digitaler Zwilling, SCADA und Industrie 4.0-Rechner.",
       fr: "IoT, robotique, AGV, jumeau numérique, SCADA et Industrie 4.0.",
       es: "IoT, robótica, AGV, gemelo digital, SCADA e Industria 4.0.",
@@ -1050,7 +1050,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Automation & Control Engineering",
-      tr: "Otomasyon & Kontrol Mühendisliği",
+      tr: "Otomasyon & Kontrol Engineerligi",
       de: "Automatisierungs- & Steuerungstechnik",
       fr: "Génie de l'automatisation et du contrôle",
       es: "Ingeniería de automatización y control",
@@ -1058,7 +1058,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Industrial Automation",
-      tr: "Endüstriyel Otomasyon",
+      tr: "Endustriyel Otomasyon",
       de: "Industrielle Automatisierung",
       fr: "Automatisation industrielle",
       es: "Automatización industrial",
@@ -1066,7 +1066,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Industry 4.0 & Smart Manufacturing",
-      tr: "Endüstri 4.0 & Akıllı Üretim",
+      tr: "Endustri 4.0 & Akilli Uretim",
       de: "Industrie 4.0 & intelligente Fertigung",
       fr: "Industrie 4.0 et fabrication intelligente",
       es: "Industria 4.0 y fabricación inteligente",
@@ -1082,7 +1082,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_MATH,
     title: {
       en: "Mathematics, Statistics & Analytics",
-      tr: "Matematik, İstatistik ve Analiz",
+      tr: "Matematik, Istatistik ve Analiz",
       de: "Mathematik, Statistik & Analytik",
       fr: "Mathématiques, statistiques et analyse",
       es: "Matemáticas, estadística y análisis",
@@ -1090,7 +1090,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
-      tr: "Cebir, kalkülüs, olasılık, regresyon, hipotez testi ve veri analizi.",
+      tr: "Cebir, kalkulus, olasilik, regresyon, hipotez testi ve veri analizi.",
       de: "Algebra, Analysis, Wahrscheinlichkeit, Regression, Hypothesentests und Datenanalyse.",
       fr: "Algèbre, analyse, probabilité, régression, tests d'hypothèse et analyse de données.",
       es: "Álgebra, cálculo, probabilidad, regresión, prueba de hipótesis y análisis de datos.",
@@ -1106,7 +1106,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Education & Research",
-      tr: "Eğitim & Araştırma",
+      tr: "Egitim & Arastirma",
       de: "Bildung & Forschung",
       fr: "Éducation et recherche",
       es: "Educación e investigación",
@@ -1114,7 +1114,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "STEM Education & Data Literacy",
-      tr: "STEM Eğitimi & Veri Okuryazarlığı",
+      tr: "STEM Egitimi & Veri Okuryazarligi",
       de: "MINT-Bildung & Datenkompetenz",
       fr: "Éducation STEM et littératie des données",
       es: "Educación STEM y alfabetización de datos",
@@ -1130,7 +1130,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_HEALTH,
     title: {
       en: "Health, Sports & Daily Life",
-      tr: "Sağlık, Spor ve Günlük Yaşam",
+      tr: "Saglik, Spor ve Gunluk Yasam",
       de: "Gesundheit, Sport & Alltag",
       fr: "Santé, sport et vie quotidienne",
       es: "Salud, deporte y vida diaria",
@@ -1138,7 +1138,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
-      tr: "VKİ, bazal metabolizma, fitness, beslenme, gebelik, yaş, tarih ve günlük hesaplamalar.",
+      tr: "VKI, bazal metabolizma, fitness, beslenme, gebelik, yas, tarih ve gunluk calculationlar.",
       de: "BMI, BMR, Fitness, Ernährung, Schwangerschaft, Alter, Datum und Alltagsrechner.",
       fr: "IMC, BMR, fitness, nutrition, grossesse, âge, date et calculateurs quotidiens.",
       es: "IMC, BMR, fitness, nutrición, embarazo, edad, fecha y calculadoras cotidianas.",
@@ -1146,7 +1146,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Health Sciences & Wellness",
-      tr: "Sağlık Bilimleri & Wellness",
+      tr: "Saglik Bilimleri & Wellness",
       de: "Gesundheitswissenschaften & Wellness",
       fr: "Sciences de la santé et bien-être",
       es: "Ciencias de la salud y bienestar",
@@ -1154,7 +1154,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Healthcare & Consumer Wellness",
-      tr: "Sağlık Hizmetleri & Tüketici Sağlığı",
+      tr: "Saglik Hizmetleri & Tuketici Sagligi",
       de: "Gesundheitswesen & Verbraucherwohl",
       fr: "Soins de santé et bien-être des consommateurs",
       es: "Atención sanitaria y bienestar del consumidor",
@@ -1162,7 +1162,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Health & Well-being",
-      tr: "Sağlık & Refah",
+      tr: "Saglik & Refah",
       de: "Gesundheit & Wohlbefinden",
       fr: "Santé et bien-être",
       es: "Salud y bienestar",
@@ -1178,7 +1178,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_CONVERSION,
     title: {
       en: "Conversion & Measurement",
-      tr: "Dönüşüm ve Ölçüm",
+      tr: "Donusum ve Measurement",
       de: "Umrechnung & Messung",
       fr: "Conversion et mesure",
       es: "Conversión y medición",
@@ -1186,7 +1186,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Unit conversion, measurement systems, scales and dimensional analysis tools.",
-      tr: "Birim dönüşümü, ölçüm sistemleri, ölçekler ve boyutsal analiz araçları.",
+      tr: "Birim donusumu, olcum sistemleri, olcekler ve boyutsal analiz araclari.",
       de: "Einheitenumrechnung, Messsysteme, Skalen und Dimensionsanalyse.",
       fr: "Conversion d'unités, systèmes de mesure, échelles et analyse dimensionnelle.",
       es: "Conversión de unidades, sistemas de medición, escalas y análisis dimensional.",
@@ -1194,7 +1194,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Measurement Science",
-      tr: "Ölçüm Bilimi",
+      tr: "Measurement Bilimi",
       de: "Messwissenschaft",
       fr: "Science de la mesure",
       es: "Ciencia de la medición",
@@ -1210,7 +1210,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Standardization & Interoperability",
-      tr: "Standardizasyon & Birlikte Çalışabilirlik",
+      tr: "Standardizasyon & Birlikte Calisabilirlik",
       de: "Standardisierung & Interoperabilität",
       fr: "Normalisation et interopérabilité",
       es: "Estandarización e interoperabilidad",
@@ -1226,7 +1226,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_AUTOMOTIVE,
     title: {
       en: "Automotive & Transport",
-      tr: "Otomotiv & Taşımacılık",
+      tr: "Otomotiv & Tasimacilik",
       de: "Automobil & Transport",
       fr: "Automobile et transport",
       es: "Automoción y transporte",
@@ -1234,7 +1234,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
-      tr: "Yakıt ekonomisi, motor performansı, araç dinamiği ve filo yönetimi araçları.",
+      tr: "Yakit ekonomisi, motor performansi, arac dinamigi ve filo yonetimi araclari.",
       de: "Kraftstoffverbrauch, Motorleistung, Fahrzeugdynamik und Flottenmanagement.",
       fr: "Économie de carburant, performance moteur, dynamique véhicule et gestion de flotte.",
       es: "Economía de combustible, rendimiento del motor, dinámica del vehículo y gestión de flotas.",
@@ -1242,7 +1242,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Automotive Engineering",
-      tr: "Otomotiv Mühendisliği",
+      tr: "Otomotiv Engineerligi",
       de: "Fahrzeugtechnik",
       fr: "Génie automobile",
       es: "Ingeniería automotriz",
@@ -1250,7 +1250,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Automotive & Transport Industry",
-      tr: "Otomotiv & Taşımacılık Sektörü",
+      tr: "Otomotiv & Tasimacilik Sektoru",
       de: "Automobil- & Transportindustrie",
       fr: "Industrie automobile et du transport",
       es: "Industria automotriz y del transporte",
@@ -1258,7 +1258,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Sustainable Mobility & Road Safety",
-      tr: "Sürdürülebilir Hareketlilik & Trafik Güvenliği",
+      tr: "Surdurulebilir Hareketlilik & Trafik Guvenligi",
       de: "Nachhaltige Mobilität & Verkehrssicherheit",
       fr: "Mobilité durable et sécurité routière",
       es: "Movilidad sostenible y seguridad vial",
@@ -1282,7 +1282,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Ship stability, cargo calculations, port operations and maritime safety tools.",
-      tr: "Gemi stabilitesi, yük hesaplamaları, liman operasyonları ve deniz güvenliği araçları.",
+      tr: "Gemi stabilitesi, yuk calculationlari, liman operasyonlari ve deniz guvenligi araclari.",
       de: "Schiffsstabilität, Frachtberechnungen, Hafenbetrieb und maritime Sicherheit.",
       fr: "Stabilité du navire, calculs de cargaison, opérations portuaires et sécurité maritime.",
       es: "Estabilidad del buque, cálculos de carga, operaciones portuarias y seguridad marítima.",
@@ -1290,7 +1290,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Naval Engineering",
-      tr: "Gemi Mühendisliği",
+      tr: "Gemi Engineerligi",
       de: "Schiffbau",
       fr: "Génie naval",
       es: "Ingeniería naval",
@@ -1298,7 +1298,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Maritime Industry",
-      tr: "Denizcilik Sektörü",
+      tr: "Denizcilik Sektoru",
       de: "Schifffahrtsindustrie",
       fr: "Industrie maritime",
       es: "Industria marítima",
@@ -1306,7 +1306,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Blue Economy & Marine Safety",
-      tr: "Mavi Ekonomi & Deniz Güvenliği",
+      tr: "Mavi Ekonomi & Deniz Guvenligi",
       de: "Blaue Wirtschaft & maritime Sicherheit",
       fr: "Économie bleue et sécurité maritime",
       es: "Economía azul y seguridad marítima",
@@ -1330,7 +1330,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Ore grade, drilling, blasting, mineral processing and geological survey tools.",
-      tr: "Cevher tenörü, sondaj, patlatma, mineral işleme ve jeolojik etüt araçları.",
+      tr: "Cevher tenoru, sondaj, patlatma, mineral isleme ve jeolojik etut araclari.",
       de: "Erzgehalt, Bohren, Sprengen, Mineralaufbereitung und geologische Erkundung.",
       fr: "Teneur en minerai, forage, dynamitage, traitement minéral et étude géologique.",
       es: "Ley de mineral, perforación, voladura, procesamiento de minerales y estudio geológico.",
@@ -1338,7 +1338,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Geological & Mining Engineering",
-      tr: "Jeoloji & Maden Mühendisliği",
+      tr: "Jeoloji & Maden Engineerligi",
       de: "Geologie & Bergbautechnik",
       fr: "Géologie et génie minier",
       es: "Geología e ingeniería de minas",
@@ -1346,7 +1346,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Extractive Industries",
-      tr: "Çıkarma Sanayileri",
+      tr: "Cikarma Sanayileri",
       de: "Extraktive Industrien",
       fr: "Industries extractives",
       es: "Industrias extractivas",
@@ -1354,7 +1354,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Responsible Resource Extraction",
-      tr: "Sorumlu Kaynak Çıkarma",
+      tr: "Sorumlu Kaynak Cikarma",
       de: "Verantwortungsvolle Rohstoffgewinnung",
       fr: "Extraction responsable des ressources",
       es: "Extracción responsable de recursos",
@@ -1370,23 +1370,23 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_FURNITURE,
     title: {
       en: "Furniture & Woodworking",
-      tr: "Mobilya & Ahşap İşleri",
-      de: "Möbel & Holzbearbeitung",
+      tr: "Mobilya & Ahsap Isleri",
+      de: "Mobel & Holzbearbeitung",
       fr: "Ameublement et travail du bois",
       es: "Muebles y carpintería",
       ar: "الأثاث والنجارة",
     },
     tagline: {
       en: "Lumber volume, furniture costing, board foot and workshop material tools.",
-      tr: "Kereste hacmi, mobilya maliyeti, board foot ve atölye malzeme araçları.",
-      de: "Holzvolumen, Möbelkosten, Board-Fuß und Werkstatt-Materialwerkzeuge.",
+      tr: "Kereste hacmi, mobilya maliyeti, board foot ve atolye malzeme araclari.",
+      de: "Holzvolumen, Mobelkosten, Board-Fuß und Werkstatt-Materialwerkzeuge.",
       fr: "Volume de bois, coût d'ameublement, pied-planche et outils de matériel d'atelier.",
       es: "Volumen de madera, coste de muebles, pie tablar y herramientas de taller.",
       ar: "حجم الخشب وتكلفة الأثاث والقدم اللوحي وأدوات مواد الورشة.",
     },
     field: {
       en: "Wood Technology & Design",
-      tr: "Ahşap Teknolojisi & Tasarım",
+      tr: "Ahsap Teknolojisi & Tasarim",
       de: "Holztechnologie & Design",
       fr: "Technologie du bois et design",
       es: "Tecnología de la madera y diseño",
@@ -1394,15 +1394,15 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Furniture Industry",
-      tr: "Mobilya Sektörü",
-      de: "Möbelindustrie",
+      tr: "Mobilya Sektoru",
+      de: "Mobelindustrie",
       fr: "Industrie de l'ameublement",
       es: "Industria del mueble",
       ar: "صناعة الأثاث",
     },
     socialPurpose: {
       en: "Sustainable Forestry & Craftsmanship",
-      tr: "Sürdürülebilir Ormancılık & Zanaatkarlık",
+      tr: "Surdurulebilir Ormancilik & Zanaatkarlik",
       de: "Nachhaltige Forstwirtschaft & Handwerkskunst",
       fr: "Foresterie durable et artisanat",
       es: "Silvicultura sostenible y artesanía",
@@ -1418,7 +1418,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_CLEANING,
     title: {
       en: "Cleaning & Facility Management",
-      tr: "Temizlik & Tesis Yönetimi",
+      tr: "Temizlik & Tesis Yonetimi",
       de: "Reinigung & Facility Management",
       fr: "Nettoyage et gestion des installations",
       es: "Limpieza y gestión de instalaciones",
@@ -1426,15 +1426,15 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Solution dilution, detergent dosage, surface area and labor time calculators.",
-      tr: "Solüsyon seyreltme, deterjan dozajı, yüzey alanı ve işçilik süresi hesaplamaları.",
-      de: "Lösungsverdünnung, Waschmitteldosierung, Oberfläche und Arbeitszeitrechner.",
+      tr: "Solusyon seyreltme, deterjan dozaji, yuzey alani ve iscilik suresi calculationlari.",
+      de: "Losungsverdunnung, Waschmitteldosierung, Oberfläche und Arbeitszeitrechner.",
       fr: "Dilution de solution, dosage détergent, superficie et calculs de temps de main-d'œuvre.",
       es: "Dilución de solución, dosificación de detergente, superficie y cálculos de tiempo de mano de obra.",
       ar: "تخفيف المحلول وجرعات المنظفات ومساحة السطح وحسابات وقت العمل.",
     },
     field: {
       en: "Facility Management",
-      tr: "Tesis Yönetimi",
+      tr: "Tesis Yonetimi",
       de: "Facility Management",
       fr: "Gestion des installations",
       es: "Gestión de instalaciones",
@@ -1450,8 +1450,8 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Public Health & Sanitation",
-      tr: "Halk Sağlığı & Sanitasyon",
-      de: "Öffentliche Gesundheit & Hygiene",
+      tr: "Halk Sagligi & Sanitasyon",
+      de: "Offentliche Gesundheit & Hygiene",
       fr: "Santé publique et assainissement",
       es: "Salud pública y saneamiento",
       ar: "الصحة العامة والصرف الصحي",
@@ -1466,7 +1466,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_WATER,
     title: {
       en: "Water & Wastewater",
-      tr: "Su & Atıksu Yönetimi",
+      tr: "Su & Atiksu Yonetimi",
       de: "Wasser & Abwasser",
       fr: "Eau et eaux usées",
       es: "Agua y aguas residuales",
@@ -1474,7 +1474,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
-      tr: "Debi, boru çapı, arıtma dozajı, havuz kimyası ve sulama araçları.",
+      tr: "Debi, boru capi, aritma dozaji, havuz kimyasi ve sulama araclari.",
       de: "Durchfluss, Rohrbemessung, Aufbereitungsdosierung, Poolchemie und Bewässerung.",
       fr: "Débit, dimensionnement des tuyaux, dosage de traitement, chimie de piscine et irrigation.",
       es: "Caudal, dimensionamiento de tuberías, dosificación de tratamiento, química de piscinas y riego.",
@@ -1482,7 +1482,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Water Resources Engineering",
-      tr: "Su Kaynakları Mühendisliği",
+      tr: "Su Kaynaklari Engineerligi",
       de: "Wasserressourcentechnik",
       fr: "Ingénierie des ressources en eau",
       es: "Ingeniería de recursos hídricos",
@@ -1522,15 +1522,15 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Hotel occupancy, RevPAR, restaurant food cost, menu pricing and travel tools.",
-      tr: "Otel doluluğu, RevPAR, restoran yemek maliyeti, menü fiyatlama ve seyahat araçları.",
-      de: "Hotelauslastung, RevPAR, Restaurant-Speisekosten, Menüpreise und Reiseplanung.",
+      tr: "Otel dolulugu, RevPAR, restoran yemek maliyeti, menu fiyatlama ve seyahat araclari.",
+      de: "Hotelauslastung, RevPAR, Restaurant-Speisekosten, Menupreise und Reiseplanung.",
       fr: "Taux d'occupation, RevPAR, coût alimentaire restaurant, prix de menu et voyage.",
       es: "Ocupación hotelera, RevPAR, costo de alimentos de restaurante, precios de menú y viajes.",
       ar: "إشغال الفنادق ومتوسط الإيرادات لكل غرفة وتكلفة طعام المطعم وأسعار القوائم والسفر.",
     },
     field: {
       en: "Hospitality Management",
-      tr: "Konaklama Yönetimi",
+      tr: "Konaklama Yonetimi",
       de: "Gastgewerbemanagement",
       fr: "Gestion hôtelière",
       es: "Gestión hotelera",
@@ -1538,7 +1538,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Travel & Tourism Industry",
-      tr: "Seyahat & Turizm Sektörü",
+      tr: "Seyahat & Turizm Sektoru",
       de: "Reise- & Tourismusindustrie",
       fr: "Industrie du voyage et du tourisme",
       es: "Industria de viajes y turismo",
@@ -1546,7 +1546,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Cultural Exchange & Economic Growth",
-      tr: "Kültürel Değişim & Ekonomik Büyüme",
+      tr: "Kulturel Degisim & Ekonomik Buyume",
       de: "Kulturaustausch & Wirtschaftswachstum",
       fr: "Échange culturel et croissance économique",
       es: "Intercambio cultural y crecimiento económico",
@@ -1562,7 +1562,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_EDUCATION,
     title: {
       en: "Education & Academic",
-      tr: "Eğitim & Akademik",
+      tr: "Egitim & Akademik",
       de: "Bildung & Akademiker",
       fr: "Éducation et académique",
       es: "Educación y académico",
@@ -1570,15 +1570,15 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "GPA, grade, exam score, college planning and study tools.",
-      tr: "GPA, not, sınav puanı, üniversite planlama ve çalışma araçları.",
-      de: "Notendurchschnitt, Note, Prüfungsergebnis, Studienplanung und Lernwerkzeuge.",
+      tr: "GPA, not, sinav puani, universite planlama ve calisma araclari.",
+      de: "Notendurchschnitt, Note, Prufungsergebnis, Studienplanung und Lernwerkzeuge.",
       fr: "Moyenne, notes, score d'examen, planification universitaire et outils d'étude.",
       es: "Promedio, calificación, puntuación de examen, planificación universitaria y herramientas de estudio.",
       ar: "المعدل التراكمي والدرجات ونتائج الامتحانات والتخطيط للجامعة وأدوات الدراسة.",
     },
     field: {
       en: "Education Sciences",
-      tr: "Eğitim Bilimleri",
+      tr: "Egitim Bilimleri",
       de: "Bildungswissenschaften",
       fr: "Sciences de l'éducation",
       es: "Ciencias de la educación",
@@ -1586,7 +1586,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Academic & Educational Services",
-      tr: "Akademik & Eğitim Hizmetleri",
+      tr: "Akademik & Egitim Hizmetleri",
       de: "Akademische & Bildungsdienste",
       fr: "Services académiques et éducatifs",
       es: "Servicios académicos y educativos",
@@ -1594,7 +1594,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Equal Access to Education",
-      tr: "Eğitime Eşit Erişim",
+      tr: "Egitime Esit Erisim",
       de: "Gleicher Zugang zu Bildung",
       fr: "Accès égal à l'éducation",
       es: "Igualdad de acceso a la educación",
@@ -1611,14 +1611,14 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     title: {
       en: "Real Estate & Property",
       tr: "Emlak & Gayrimenkul",
-      de: "Immobilien & Grundstücke",
+      de: "Immobilien & Grundstucke",
       fr: "Immobilier et propriété",
       es: "Bienes raíces y propiedad",
       ar: "العقارات والممتلكات",
     },
     tagline: {
       en: "Mortgage, property valuation, rental yield and home affordability calculators.",
-      tr: "Mortgage, emlak değerleme, kira getirisi ve ev satın alabilirlik hesaplamaları.",
+      tr: "Mortgage, emlak valueleme, kira getirisi ve ev satin alabilirlik calculationlari.",
       de: "Hypothek, Immobilienbewertung, Mietrendite und Erschwinglichkeitsrechner.",
       fr: "Hypothèque, évaluation immobilière, rendement locatif et calculateurs d'accessibilité.",
       es: "Hipoteca, valoración de propiedades, rendimiento de alquiler y calculadoras de asequibilidad.",
@@ -1627,7 +1627,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     field: {
       en: "Real Estate Economics",
       tr: "Gayrimenkul Ekonomisi",
-      de: "Immobilienökonomie",
+      de: "Immobilienokonomie",
       fr: "Économie immobilière",
       es: "Economía inmobiliaria",
       ar: "اقتصاديات العقارات",
@@ -1642,7 +1642,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Housing & Community Development",
-      tr: "Konut & Toplumsal Kalkınma",
+      tr: "Konut & Toplumsal Kalkinma",
       de: "Wohnungsbau & Gemeindeentwicklung",
       fr: "Logement et développement communautaire",
       es: "Vivienda y desarrollo comunitario",
@@ -1658,7 +1658,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_AERO,
     title: {
       en: "Aerospace & Aviation",
-      tr: "Havacılık & Uzay",
+      tr: "Havacilik & Uzay",
       de: "Luft- & Raumfahrt",
       fr: "Aérospatiale et aviation",
       es: "Aeroespacial y aviación",
@@ -1666,7 +1666,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     tagline: {
       en: "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
-      tr: "Uçuş performansı, aerodinamik, yakıt menzili ve uzay aracı mühendisliği araçları.",
+      tr: "Ucus performansi, aerodinamik, yakit menzili ve uzay araci muhendisligi araclari.",
       de: "Flugleistung, Aerodynamik, Treibstoffreichweite und Raumfahrttechnik.",
       fr: "Performance de vol, aérodynamique, autonomie carburant et génie spatial.",
       es: "Rendimiento de vuelo, aerodinámica, alcance de combustible e ingeniería espacial.",
@@ -1674,7 +1674,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     field: {
       en: "Aerospace Engineering",
-      tr: "Havacılık Mühendisliği",
+      tr: "Havacilik Engineerligi",
       de: "Luft- & Raumfahrttechnik",
       fr: "Génie aérospatial",
       es: "Ingeniería aeroespacial",
@@ -1682,7 +1682,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "Aviation & Space Industry",
-      tr: "Havacılık & Uzay Sektörü",
+      tr: "Havacilik & Uzay Sektoru",
       de: "Luft- & Raumfahrtindustrie",
       fr: "Industrie aéronautique et spatiale",
       es: "Industria aeroespacial y de aviación",
@@ -1690,7 +1690,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Space Exploration & Aviation Safety",
-      tr: "Uzay Keşfi & Havacılık Güvenliği",
+      tr: "Uzay Kesfi & Havacilik Guvenligi",
       de: "Weltraumforschung & Flugsicherheit",
       fr: "Exploration spatiale et sécurité aérienne",
       es: "Exploración espacial y seguridad aérea",
@@ -1706,23 +1706,23 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     symbolSvg: SYM_OTHER,
     title: {
       en: "Other & Cross-Field Tools",
-      tr: "Diğer ve Çapraz Alan Araçları",
-      de: "Sonstige & bereichsübergreifende Tools",
+      tr: "Diger ve Capraz Alan Araclari",
+      de: "Sonstige & bereichsubergreifende Tools",
       fr: "Autres outils et outils transversaux",
       es: "Otras herramientas y herramientas transversales",
       ar: "أدوات أخرى ومتعددة المجالات",
     },
     tagline: {
       en: "General-purpose and cross-domain calculators not fitting a single category.",
-      tr: "Tek bir kategoriye girmeyen genel amaçlı ve çapraz alan hesaplayıcıları.",
-      de: "Allzweck- und bereichsübergreifende Rechner, die keiner einzelnen Kategorie zugeordnet sind.",
+      tr: "Tek bir categoryye girmeyen genel amacli ve capraz alan calculatorlari.",
+      de: "Allzweck- und bereichsubergreifende Rechner, die keiner einzelnen Categorye zugeordnet sind.",
       fr: "Calculatrices polyvalentes et transversales ne relevant pas d'une seule catégorie.",
       es: "Calculadoras de uso general y transversales que no encajan en una sola categoría.",
       ar: "آلات حاسبة عامة ومتعددة التخصصات لا تندرج تحت فئة واحدة.",
     },
     field: {
       en: "Multidisciplinary",
-      tr: "Çok Disiplinli",
+      tr: "Cok Disiplinli",
       de: "Multidisziplinär",
       fr: "Multidisciplinaire",
       es: "Multidisciplinario",
@@ -1730,7 +1730,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     domain: {
       en: "General Purpose",
-      tr: "Genel Amaçlı",
+      tr: "Genel Amacli",
       de: "Allzweck",
       fr: "Usage général",
       es: "Propósito general",
@@ -1738,7 +1738,7 @@ export const FREE_TOOL_CATEGORIES: readonly FreeToolCategoryEntry[] = [
     },
     socialPurpose: {
       en: "Knowledge Accessibility",
-      tr: "Bilgiye Erişilebilirlik",
+      tr: "Bilgiye Erisilebilirlik",
       de: "Wissenszugänglichkeit",
       fr: "Accessibilité des connaissances",
       es: "Accesibilidad al conocimiento",

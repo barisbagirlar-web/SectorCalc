@@ -25,27 +25,27 @@ const labels = {
 const sampleStudy: CaseStudy = {
   id: "CS-2026-099",
   slug: "cnc-oee-improvement",
-  title: "CNC Atölyesi OEE'sini %18'den %61'e Çıkardı",
-  subtitle: "Duruş ve hurda maliyetlerinde ölçülebilir iyileşme",
+  title: "CNC Atolyesi OEE'sini %18'den %61'e Cikardi",
+  subtitle: "Durus ve hurda maliyetlerinde olculebilir iyilesme",
   industry: "Otomotiv Yan Sanayi",
   country: "Turkey",
   city: "Izmir",
   projectDuration: "6 months",
   savingsEur: 85_000,
   tools: ["oee-downtime-calculator"],
-  challenge: "Düşük OEE ve yüksek hurda oranı.",
-  solution: "SectorCalc modülleri ile süreç standardizasyonu. SMED ile setup süreleri kısaltıldı.",
+  challenge: "Dusuk OEE ve yuksek hurda orani.",
+  solution: "SectorCalc modulleri ile surec standardizasyonu. SMED ile setup sureleri kisaltildi.",
   results: [{ metric: "OEE", before: "%18", after: "%61" }],
   testimonial: {
-    quote: "Kararları artık veriye dayalı alıyoruz.",
-    author: "Ayşe Yılmaz",
-    title: "Üretim Müdürü",
-    company: "Demo CNC A.Ş.",
+    quote: "Profitarlari artik veriye dayali aliyoruz.",
+    author: "Ayse Yilmaz",
+    title: "Uretim Muduru",
+    company: "Demo CNC A.S.",
   },
   publishedAt: "2026-06-01",
   readTime: 4,
   author: {
-    name: "Barış Bağırlar",
+    name: "Baris Bagirlar",
     linkedin: "https://www.linkedin.com/in/barisbagirlar/",
   },
   technicalReview: {
@@ -69,13 +69,13 @@ describe("case-study-featured-snippet", () => {
     const snippet = buildCaseStudySnippetCopy(
       {
         ...sampleStudy,
-        subtitle: "Plansız duruşlar nasıl azaltıldı?",
+        subtitle: "Plansiz duruslar nasil azaltildi?",
       },
       "tr",
       labels,
     );
 
-    expect(snippet.question).toBe("Plansız duruşlar nasıl azaltıldı?");
+    expect(snippet.question).toBe("Plansiz duruslar nasil azaltildi?");
   });
 });
 
@@ -88,8 +88,8 @@ describe("case-study-seo", () => {
       savingsEur: "85000",
     });
 
-    expect(preview.slug).toBe("cnc-atolyesi-oee-sini-18-den-61-e-cıkardı");
-    expect(preview.metaTitle).toContain("SectorCalc Başarı Hikayesi");
+    expect(preview.slug).toBe("cnc-atolyesi-oee-sini-18-den-61-e-cikardi");
+    expect(preview.metaTitle).toContain("SectorCalc Basari Hikayesi");
     expect(preview.metaDescription.length).toBeLessThanOrEqual(160);
     expect(preview.canonicalPath).toBe(`/case-studies/${preview.slug}`);
   });
@@ -104,8 +104,8 @@ describe("case-study-seo", () => {
     expect(serialized).toContain("SoftwareApplication");
     expect(serialized).toContain("SpeakableSpecification");
     expect(serialized).toContain("Prof. Dr. Neela Nataraj");
-    expect(serialized).toContain("Demo CNC A.Ş.");
-    expect(serialized).toContain("Barış Bağırlar");
+    expect(serialized).toContain("Demo CNC A.S.");
+    expect(serialized).toContain("Baris Bagirlar");
     expect(serialized).toContain("85000");
   });
 });

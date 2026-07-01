@@ -73,7 +73,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_7",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — WIP",
+    label: "DIKWORK HATTI DENGELEYICI — WIP",
     fn: (inputs) => {
     const bottleneck = num(inputs, "bottleneck");
     const takt = num(inputs, "takt");
@@ -82,11 +82,11 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── DYE REÇETE MALİYET (8 formulas) ──,
+  // ── DYE RECETE COST (8 formulas) ──,
   {
     id: "user.dye_recipe_cost_0",
     family: "cost",
-    label: "DYE REÇETE MALİYET — Cost_Dye",
+    label: "DYE RECETE COST — Cost_Dye",
     fn: (inputs) => {
     const conc = num(inputs, "conc");
     const price = num(inputs, "price");
@@ -97,7 +97,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_1",
     family: "cost",
-    label: "DYE REÇETE MALİYET — Cost_Chem",
+    label: "DYE RECETE COST — Cost_Chem",
     fn: (inputs) => {
     const dosage = num(inputs, "dosage");
     const price = num(inputs, "price");
@@ -107,7 +107,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_2",
     family: "cost",
-    label: "DYE REÇETE MALİYET — Cost_Water",
+    label: "DYE RECETE COST — Cost_Water",
     fn: (inputs) => {
     const liquorRatio = num(inputs, "liquorRatio");
     const weight = num(inputs, "weight");
@@ -118,7 +118,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_3",
     family: "cost",
-    label: "DYE REÇETE MALİYET — Cost_Energy",
+    label: "DYE RECETE COST — Cost_Energy",
     fn: (inputs) => {
     const heating = num(inputs, "heating");
     const holding = num(inputs, "holding");
@@ -129,7 +129,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_4",
     family: "cost",
-    label: "DYE REÇETE MALİYET — Cost_Waste",
+    label: "DYE RECETE COST — Cost_Waste",
     fn: (inputs) => {
     const effluent = num(inputs, "effluent");
     const treatCost = num(inputs, "treatCost");
@@ -140,7 +140,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_5",
     family: "cost",
-    label: "DYE REÇETE MALİYET — TotalBatch",
+    label: "DYE RECETE COST — TotalBatch",
     fn: (inputs) => {
     const dye = num(inputs, "dye");
     const chem = num(inputs, "chem");
@@ -153,7 +153,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_6",
     family: "cost",
-    label: "DYE REÇETE MALİYET — RFT_Savings",
+    label: "DYE RECETE COST — RFT_Savings",
     fn: (inputs) => {
     const rework = num(inputs, "rework");
     const rFT = num(inputs, "rFT");
@@ -163,7 +163,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dye_recipe_cost_7",
     family: "cost",
-    label: "DYE REÇETE MALİYET — CostPerKg",
+    label: "DYE RECETE COST — CostPerKg",
     fn: (inputs) => {
     const totalBatch = num(inputs, "totalBatch");
     const rFT = num(inputs, "rFT");
@@ -174,11 +174,11 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── ENERJİ TÜKETİM RAPORU (8 formulas) ──,
+  // ── ENERGY CONSUMPTION REPORT (8 formulas) ──,
   {
     id: "user.energy_consumption_report_0",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — Active",
+    label: "ENERGY CONSUMPTION REPORT — Active",
     fn: (inputs) => {
     const kWh = num(inputs, "kWh");
     return nonNegative(assertFinite(SUM(kWh)));
@@ -187,7 +187,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_1",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — Reactive",
+    label: "ENERGY CONSUMPTION REPORT — Reactive",
     fn: (inputs) => {
     const kVArh = num(inputs, "kVArh");
     return nonNegative(assertFinite(SUM(kVArh)));
@@ -196,7 +196,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_2",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — PF",
+    label: "ENERGY CONSUMPTION REPORT — PF",
     fn: (inputs) => {
     const active = num(inputs, "active");
     const reactive = num(inputs, "reactive");
@@ -207,7 +207,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_3",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — ReactivePenalty",
+    label: "ENERGY CONSUMPTION REPORT — ReactivePenalty",
     fn: (inputs) => {
     const pF = num(inputs, "pF");
     const thresh = num(inputs, "thresh");
@@ -222,7 +222,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_4",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — DemandCharge",
+    label: "ENERGY CONSUMPTION REPORT — DemandCharge",
     fn: (inputs) => {
     const peak = num(inputs, "peak");
     const kW = num(inputs, "kW");
@@ -234,7 +234,7 @@ export const CHUNK_15_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.energy_consumption_report_5",
     family: "cost",
-    label: "ENERJİ TÜKETİM RAPORU — TOU",
+    label: "ENERGY CONSUMPTION REPORT — TOU",
     fn: (inputs) => {
     const kWh = num(inputs, "kWh");
     const tOU = num(inputs, "tOU");

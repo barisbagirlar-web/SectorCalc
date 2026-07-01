@@ -1,20 +1,20 @@
 const TR_CHAR_MAP: Readonly<Record<string, string>> = {
-  ğ: "g",
-  Ğ: "G",
-  ü: "u",
-  Ü: "U",
-  ş: "s",
-  Ş: "S",
-  ı: "i",
-  İ: "I",
-  ö: "o",
-  Ö: "O",
-  ç: "c",
-  Ç: "C",
+  g: "g",
+  G: "G",
+  u: "u",
+  U: "U",
+  s: "s",
+  S: "S",
+  i: "i",
+  I: "I",
+  o: "o",
+  O: "O",
+  c: "c",
+  C: "C",
 };
 
 export function normalizeAscii(str: string): string {
-  return str.replace(/[ğĞüÜşŞıİöÖçÇ]/g, (char) => TR_CHAR_MAP[char] ?? char);
+  return str.replace(/[gGuUsSiIoOcC]/g, (char) => TR_CHAR_MAP[char] ?? char);
 }
 
 /** Matches DeepSeek code generator — slug/file basename to safe identifier. */

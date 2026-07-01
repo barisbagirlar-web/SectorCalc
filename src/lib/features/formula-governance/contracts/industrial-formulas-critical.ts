@@ -1,7 +1,7 @@
 /**
  * Industrial Formula Tools — 18 FormulaContracts (Phase 5H-c).
  *
- * ECMI / ISO 9001 — TÜV-certifiable engineering quality.
+ * ECMI / ISO 9001 — TUV-certifiable engineering quality.
  * Each contract declares purpose, inputs, outputs, assumptions, validation rules,
  * scenarios, monotonicity, decision language and warning policy.
  */

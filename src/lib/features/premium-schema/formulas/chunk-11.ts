@@ -91,11 +91,11 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── CPM GECİKME CEZASI (8 formulas) ──,
+  // ── CPM DELAY PENALTY (8 formulas) ──,
   {
     id: "user.cpm_delay_penalty_0",
     family: "cost",
-    label: "CPM GECİKME CEZASI — TotalFloat",
+    label: "CPM DELAY PENALTY — TotalFloat",
     fn: (inputs) => {
     const lateStart = num(inputs, "lateStart");
     const earlyStart = num(inputs, "earlyStart");
@@ -105,7 +105,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_1",
     family: "cost",
-    label: "CPM GECİKME CEZASI — CriticalDelay",
+    label: "CPM DELAY PENALTY — CriticalDelay",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const planned = num(inputs, "planned");
@@ -117,7 +117,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_2",
     family: "cost",
-    label: "CPM GECİKME CEZASI — ExcusableDelay",
+    label: "CPM DELAY PENALTY — ExcusableDelay",
     fn: (inputs) => {
     const forceMajeure = num(inputs, "forceMajeure");
     const ownerCaused = num(inputs, "ownerCaused");
@@ -127,7 +127,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_3",
     family: "cost",
-    label: "CPM GECİKME CEZASI — NonExcusable",
+    label: "CPM DELAY PENALTY — NonExcusable",
     fn: (inputs) => {
     const criticalDelay = num(inputs, "criticalDelay");
     const excusable = num(inputs, "excusable");
@@ -137,7 +137,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_4",
     family: "cost",
-    label: "CPM GECİKME CEZASI — LiquidatedDamages",
+    label: "CPM DELAY PENALTY — LiquidatedDamages",
     fn: (inputs) => {
     const nonExcusable = num(inputs, "nonExcusable");
     const dailyPenalty = num(inputs, "dailyPenalty");
@@ -147,7 +147,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_5",
     family: "cost",
-    label: "CPM GECİKME CEZASI — AccelerationCost",
+    label: "CPM DELAY PENALTY — AccelerationCost",
     fn: (inputs) => {
     const crashingCost = num(inputs, "crashingCost");
     const daysAccelerated = num(inputs, "daysAccelerated");
@@ -157,7 +157,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_6",
     family: "cost",
-    label: "CPM GECİKME CEZASI — NetPenalty",
+    label: "CPM DELAY PENALTY — NetPenalty",
     fn: (inputs) => {
     const liquidatedDamages = num(inputs, "liquidatedDamages");
     const accelerationCost = num(inputs, "accelerationCost");
@@ -167,7 +167,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cpm_delay_penalty_7",
     family: "cost",
-    label: "CPM GECİKME CEZASI — EOT_Claim",
+    label: "CPM DELAY PENALTY — EOT_Claim",
     fn: (inputs) => {
     const excusable = num(inputs, "excusable");
     const effFactor = num(inputs, "effFactor");
@@ -175,11 +175,11 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── ÇATI ALANI (7 formulas) ──,
+  // ── ROOF AREA (7 formulas) ──,
   {
     id: "user.roof_area_load_0",
     family: "cost",
-    label: "ÇATI ALANI — Area_Footprint",
+    label: "ROOF AREA — Area_Footprint",
     fn: (inputs) => {
     const length = num(inputs, "length");
     const width = num(inputs, "width");
@@ -189,7 +189,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roof_area_load_1",
     family: "cost",
-    label: "ÇATI ALANI — Area_Gable",
+    label: "ROOF AREA — Area_Gable",
     fn: (inputs) => {
     const footprint = num(inputs, "footprint");
     const pitchAngle = num(inputs, "pitchAngle");
@@ -200,7 +200,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roof_area_load_2",
     family: "cost",
-    label: "ÇATI ALANI — OverhangArea",
+    label: "ROOF AREA — OverhangArea",
     fn: (inputs) => {
     const perimeter = num(inputs, "perimeter");
     const overhangWidth = num(inputs, "overhangWidth");
@@ -210,7 +210,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roof_area_load_3",
     family: "cost",
-    label: "ÇATI ALANI — TotalMaterialArea",
+    label: "ROOF AREA — TotalMaterialArea",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const Roof = num(inputs, "Roof");
@@ -222,7 +222,7 @@ export const CHUNK_11_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.roof_area_load_4",
     family: "cost",
-    label: "ÇATI ALANI — RidgeLength",
+    label: "ROOF AREA — RidgeLength",
     fn: (inputs) => {
     const length = num(inputs, "length");
     const width = num(inputs, "width");

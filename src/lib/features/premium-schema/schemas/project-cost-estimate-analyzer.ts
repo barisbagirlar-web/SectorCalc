@@ -25,7 +25,7 @@ export const PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "projectTotalEstimate", label: "Toplam Tahmini Maliyet", label_i18n: {"en":"Total Estimated Cost"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "projectCostVariance", label: "Maliyet Sapmas", label_i18n: {"en":"Cost Sapmas"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "projectCostVariance", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Variance > $50K — consider budget revision.", warningMessage_i18n: {"en":"Variance > $50K — consider budget revision."}, criticalMessage: "Sapma > $100K — proje maliyet kontrolü acil.", criticalMessage_i18n: {"en":"Variance > $100K — urgent project cost control."} }],
+  thresholds: [{ fieldId: "projectCostVariance", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Variance > $50K — consider budget revision.", warningMessage_i18n: {"en":"Variance > $50K — consider budget revision."}, criticalMessage: "Sapma > $100K — proje maliyet kontrolu acil.", criticalMessage_i18n: {"en":"Variance > $100K — urgent project cost control."} }],
   formulaPipeline: [
     { formulaId: "cost.project_direct_labor", inputMap: { directLabor: "directLabor" ,
         laborHours: "laborHours",

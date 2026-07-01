@@ -32,8 +32,8 @@ const BANNED_PDF_TERMS = [
   "qr",
   "official seal",
   "legal-grade",
-  "onaylı rapor",
-  "mühürlü rapor",
+  "onayli rapor",
+  "muhurlu rapor",
 ] as const;
 
 const LEGACY_PREMIUM_SLUG = "welding-bid-risk-analyzer";

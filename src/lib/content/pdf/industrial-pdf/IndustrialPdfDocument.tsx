@@ -4,7 +4,7 @@
  * Brand DNA colours: Navy (#0F172A / #1E40AF), Amber (#D97706),
  * Slate (#64748B / #94A3B8), Green (#059669), Red (#DC2626).
  *
- * ECMI / ISO 9001 / TÜV-certifiable typography, layout & content policy.
+ * ECMI / ISO 9001 / TUV-certifiable typography, layout & content policy.
  * 100 % locale-native — zero English fragments in non-English output.
  */
 

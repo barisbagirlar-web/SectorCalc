@@ -1,9 +1,9 @@
 // ============================================================
 // src/utils/math/irr.ts
 // SectorCalc — IRR Hesaplama Motoru (Claude Opus)
-// Bisection + Newton-Raphson hibrit algoritması.
-// Tüm aritmetik SafeMath üzerinden geçer.
-// Hata durumunda 0 değil, null döner.
+// Bisection + Newton-Raphson hibrit algoritmasi.
+// Tum aritmetik SafeMath uzerinden gecer.
+// Hata durumunda 0 degil, null doner.
 // ============================================================
 
 import { SafeMath, SafeNumber } from "./safeMath";
@@ -12,10 +12,10 @@ import { SafeMath, SafeNumber } from "./safeMath";
 const TOLERANCE    = 1e-10;
 const MAX_ITER_NR  = 1000;   // Newton-Raphson max iterasyon
 const MAX_ITER_BIS = 300;    // Bisection max iterasyon
-const RATE_MIN     = -0.999; // %−99.9 alt sınır
-const RATE_MAX     = 100.0;  // %10.000 üst sınır
+const RATE_MIN     = -0.999; // %−99.9 alt sinir
+const RATE_MAX     = 100.0;  // %10.000 ust sinir
 
-// ── NPV hesabı (SafeMath ile) ──────────────────────────────
+// ── NPV calc (SafeMath ile) ──────────────────────────────
 function npv(cashFlows: number[], rate: number): number {
   let sum = 0;
   for (let i = 0; i < cashFlows.length; i++) {
@@ -28,7 +28,7 @@ function npv(cashFlows: number[], rate: number): number {
   return sum;
 }
 
-// ── NPV'nin sayısal türevi (central difference) ────────────
+// ── NPV'nin sayisal turevi (central difference) ────────────
 function npvDerivative(cashFlows: number[], rate: number): number {
   const h = 1e-6;
   const f1 = npv(cashFlows, rate + h);
@@ -37,7 +37,7 @@ function npvDerivative(cashFlows: number[], rate: number): number {
   return (f1 - f0) / (2 * h);
 }
 
-// ── Bisection: garantili ama yavaş ────────────────────────
+// ── Bisection: garantili ama yavas ────────────────────────
 function bisection(
   cashFlows: number[],
   low: number,
@@ -57,21 +57,21 @@ function bisection(
     if (fLo * fMid < 0) hi = mid;
     else lo = mid;
 
-    // Aralık yeterince daraldıysa çık
+    // Aralik yeterince daraldiysa cik
     if (Math.abs(hi - lo) < TOLERANCE) return (lo + hi) / 2;
   }
 
   return (lo + hi) / 2;
 }
 
-// ── Geçerli bisection aralığı bul ─────────────────────────
+// ── Gecerli bisection araligi bul ─────────────────────────
 function findBracket(
   cashFlows: number[]
 ): [number, number] | null {
   let lo = RATE_MIN;
-  let hi = 0.5; // %50'den başla
+  let hi = 0.5; // %50'den basla
 
-  // İşaret değişimi ara (lo tarafı negatif, hi tarafı pozitif ya da tersi)
+  // Isaret degisimi ara (lo tarafi negatif, hi tarafi pozitif ya da tersi)
   for (let attempt = 0; attempt < 200; attempt++) {
     const fLo = npv(cashFlows, lo);
     const fHi = npv(cashFlows, hi);
@@ -80,12 +80,12 @@ function findBracket(
       return [lo, hi];
     }
 
-    // Aralığı genişlet
+    // Araligi genislet
     if (hi < RATE_MAX) hi = Math.min(hi * 2 + 0.1, RATE_MAX);
     else break;
   }
 
-  // Sağ taraftan da tara
+  // Sag taraftan da tara
   lo = -0.5;
   hi = RATE_MAX;
   for (let step = 0; step < 500; step++) {
@@ -97,62 +97,62 @@ function findBracket(
     }
   }
 
-  return null; // Bu nakit akışı için IRR yok
+  return null; // Bu nakit akisi icin IRR yok
 }
 
-// ── ANA FONKSİYON ─────────────────────────────────────────
+// ── ANA FONKSIYON ─────────────────────────────────────────
 export function calculateIRR(
   cashFlows: number[],
-  _guess = 0.1  // eski API ile uyum için alınır ama kullanılmaz
+  _guess = 0.1  // eski API ile uyum icin alinir ama kullanilmaz
 ): SafeNumber {
 
-  // 1. Giriş doğrulama
+  // 1. Giris dogrulama
   if (!cashFlows || cashFlows.length < 2) return null;
 
-  // Tüm değerlerin geçerli sayı olduğunu doğrula
+  // Tum valuelerin gecerli sayi oldugunu dogrula
   if (cashFlows.some((cf) => !isFinite(cf) || isNaN(cf))) return null;
 
   const hasPositive = cashFlows.some((cf) => cf > 0);
   const hasNegative = cashFlows.some((cf) => cf < 0);
-  if (!hasPositive || !hasNegative) return null; // IRR matematiksel olarak anlamsız
+  if (!hasPositive || !hasNegative) return null; // IRR matematiksel olarak anlamsiz
 
-  // 2. Aralık bul
+  // 2. Aralik bul
   const bracket = findBracket(cashFlows);
   if (!bracket) return null;
   const [lo, hi] = bracket;
 
-  // 3. Newton-Raphson ile hızlı yakınsama dene
-  let rate = (lo + hi) / 2; // Orta noktadan başla
+  // 3. Newton-Raphson ile hizli yakinsama dene
+  let rate = (lo + hi) / 2; // Orta noktadan basla
 
   for (let i = 0; i < MAX_ITER_NR; i++) {
     const f = npv(cashFlows, rate);
 
     if (Math.abs(f) < TOLERANCE) return rate;
-    if (!isFinite(f)) break; // NR patladı, bisection'a geç
+    if (!isFinite(f)) break; // NR patladi, bisection'a gec
 
     const df = npvDerivative(cashFlows, rate);
-    if (Math.abs(df) < 1e-14) break; // Türev sıfır, NR işe yaramaz
+    if (Math.abs(df) < 1e-14) break; // Turev sifir, NR ise yaramaz
 
     const newRate = rate - f / df;
 
-    // Sınır dışına çıktıysa bisection'a bırak
+    // Sinir disina ciktiysa bisection'a birak
     if (!isFinite(newRate) || newRate < RATE_MIN || newRate > RATE_MAX) break;
 
     rate = newRate;
   }
 
-  // 4. Bisection ile garantili sonuç al
+  // 4. Bisection ile garantili sonuc al
   const result = bisection(cashFlows, lo, hi);
   if (result === null) return null;
 
-  // 5. Son doğrulama: sonuç makul mu?
+  // 5. Son dogrulama: sonuc makul mu?
   const verification = npv(cashFlows, result);
-  if (Math.abs(verification) > 1e-4) return null; // Yakınsayamadı
+  if (Math.abs(verification) > 1e-4) return null; // Yakinsayamadi
 
   return result;
 }
 
-// ── NPV fonksiyonunu da dışa aç (başka hesaplamalarda lazım olur) ──
+// ── NPV fonksiyonunu da disa ac (baska calculationlarda lazim olur) ──
 export function calculateNPV(
   cashFlows: number[],
   rate: number

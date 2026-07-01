@@ -137,11 +137,11 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── CBAM MARUZİYET (6 formulas) ──,
+  // ── CBAM EXPOSURE (6 formulas) ──,
   {
     id: "user.cbam_exposure_0",
     family: "cost",
-    label: "CBAM MARUZİYET — DirectEmissions",
+    label: "CBAM EXPOSURE — DirectEmissions",
     fn: (inputs) => {
     const activityData = num(inputs, "activityData");
     const emissionFactor = num(inputs, "emissionFactor");
@@ -151,7 +151,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_1",
     family: "cost",
-    label: "CBAM MARUZİYET — IndirectEmissions",
+    label: "CBAM EXPOSURE — IndirectEmissions",
     fn: (inputs) => {
     const elecConsumption = num(inputs, "elecConsumption");
     const gridFactor = num(inputs, "gridFactor");
@@ -161,7 +161,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_2",
     family: "cost",
-    label: "CBAM MARUZİYET — CarbonIntensity",
+    label: "CBAM EXPOSURE — CarbonIntensity",
     fn: (inputs) => {
     const directEmissions = num(inputs, "directEmissions");
     const indirectEmissions = num(inputs, "indirectEmissions");
@@ -172,7 +172,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_3",
     family: "cost",
-    label: "CBAM MARUZİYET — CBAMCertificateCost",
+    label: "CBAM EXPOSURE — CBAMCertificateCost",
     fn: (inputs) => {
     const embeddedEmissions = num(inputs, "embeddedEmissions");
     const freeAllowance = num(inputs, "freeAllowance");
@@ -185,7 +185,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_4",
     family: "cost",
-    label: "CBAM MARUZİYET — FreeAllowance",
+    label: "CBAM EXPOSURE — FreeAllowance",
     fn: (inputs) => {
     const benchmark = num(inputs, "benchmark");
     const productionVolume = num(inputs, "productionVolume");
@@ -196,7 +196,7 @@ export const CHUNK_06_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cbam_exposure_5",
     family: "cost",
-    label: "CBAM MARUZİYET — ComplianceScore",
+    label: "CBAM EXPOSURE — ComplianceScore",
     fn: (inputs) => {
     const dataComplete = num(inputs, "dataComplete");
     const verification = num(inputs, "verification");

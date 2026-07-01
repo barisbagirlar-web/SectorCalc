@@ -1,5 +1,5 @@
 /**
- * Tool #28 — Tohum Oranı
+ * Tool #28 — Tohum Orani
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SEED_RATE_SCHEMA: PremiumCalculatorSchema = {

@@ -3,7 +3,7 @@
  *
  * Premium-quality SVG symbols for all 33 free-tool categories.
  * 48×48 viewBox, stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round".
- * ECMI / ISO 9001 — TÜV-certifiable engineering illustration standard.
+ * ECMI / ISO 9001 — TUV-certifiable engineering illustration standard.
  *
  * Symbols from premium-categories.ts are re-exported here for unified access.
  * New symbols are designed for the remaining 13 categories.

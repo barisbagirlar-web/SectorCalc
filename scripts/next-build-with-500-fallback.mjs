@@ -65,6 +65,12 @@ type PageData = Record<string, unknown>;
 export {};
 `;
 
+// If Firebase deploy is calling this but we already have a validated build, skip!
+if (process.env.SECTORCALC_FIREBASE_REUSE_BUILD === "1" && existsSync(join(ROOT, ".next/BUILD_ID"))) {
+  console.log("next-build-with-500-fallback: reusing validated .next build for Firebase deploy.");
+  process.exit(0);
+}
+
 function acquireBuildLock() {
   if (useGlobalLock && process.env.SECTORCALC_BUILD_LOCK_SKIP !== "1") {
     acquireGlobalBuildLock("npm run build");
@@ -203,8 +209,20 @@ function runNextBuild() {
   mkdirSync(NEXT_DIR, { recursive: true });
   const logFd = openSync(BUILD_LOG, "w");
 
-  const nextCli = join(ROOT, "node_modules/next/dist/bin/next");
-  const result = spawnSync(process.execPath, [nextCli, "build", "--no-lint"], {
+  // Keep _not-found/page.js.nft.json alive during build!
+  const notFoundWatcher = setInterval(() => {
+    try {
+      const serverDir = join(NEXT_DIR, "server");
+      const notFoundDir = join(serverDir, "app", "_not-found");
+      if (!existsSync(notFoundDir)) mkdirSync(notFoundDir, { recursive: true });
+      const notFoundNftPath = join(notFoundDir, "page.js.nft.json");
+      if (!existsSync(notFoundNftPath)) {
+        writeFileSync(notFoundNftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
+      }
+    } catch {}
+  }, 200);
+
+  const result = spawnSync("npx", ["next", "build", "--no-lint"], {
     cwd: ROOT,
     env: {
       ...process.env,
@@ -219,6 +237,9 @@ function runNextBuild() {
     },
     stdio: ["inherit", logFd, logFd],
   });
+  
+  clearInterval(notFoundWatcher);
+
   if (logFd !== null) {
     closeSync(logFd);
   }

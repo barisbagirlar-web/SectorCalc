@@ -215,11 +215,11 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Muda Atık Maliyet (8 formulas) ──,
+  // ── Muda Atik Maliyet (8 formulas) ──,
   {
     id: "user.muda_waste_cost_0",
     family: "cost",
-    label: "Muda Atık Maliyet — Overproduction",
+    label: "Muda Atik Maliyet — Overproduction",
     fn: (inputs) => {
     const excessUnits = num(inputs, "excessUnits");
     const unitCost = num(inputs, "unitCost");
@@ -229,7 +229,7 @@ export const CHUNK_39_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.muda_waste_cost_1",
     family: "cost",
-    label: "Muda Atık Maliyet — Waiting",
+    label: "Muda Atik Maliyet — Waiting",
     fn: (inputs) => {
     const waitingHours = num(inputs, "waitingHours");
     const laborRate = num(inputs, "laborRate");

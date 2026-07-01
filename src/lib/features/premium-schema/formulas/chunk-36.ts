@@ -170,11 +170,11 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Lojistik Rota Kaybı (7 formulas) ──,
+  // ── Lojistik Rota Loss (7 formulas) ──,
   {
     id: "user.logistics_route_loss_0",
     family: "cost",
-    label: "Lojistik Rota Kaybı — IdealDistance",
+    label: "Lojistik Rota Loss — IdealDistance",
     fn: (inputs) => {
     const pointToPoint = num(inputs, "pointToPoint");
     const Distance = num(inputs, "Distance");
@@ -185,7 +185,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_1",
     family: "cost",
-    label: "Lojistik Rota Kaybı — ActualDistance",
+    label: "Lojistik Rota Loss — ActualDistance",
     fn: (inputs) => {
     const routeDistance = num(inputs, "routeDistance");
     return nonNegative(assertFinite(routeDistance));
@@ -194,7 +194,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_2",
     family: "cost",
-    label: "Lojistik Rota Kaybı — DriftPct",
+    label: "Lojistik Rota Loss — DriftPct",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const idealDistance = num(inputs, "idealDistance");
@@ -204,7 +204,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_3",
     family: "cost",
-    label: "Lojistik Rota Kaybı — FuelWaste",
+    label: "Lojistik Rota Loss — FuelWaste",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const idealDistance = num(inputs, "idealDistance");
@@ -216,7 +216,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_4",
     family: "cost",
-    label: "Lojistik Rota Kaybı — TimeWaste",
+    label: "Lojistik Rota Loss — TimeWaste",
     fn: (inputs) => {
     const actualDistance = num(inputs, "actualDistance");
     const idealDistance = num(inputs, "idealDistance");
@@ -228,7 +228,7 @@ export const CHUNK_36_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_5",
     family: "cost",
-    label: "Lojistik Rota Kaybı — TotalRouteLoss",
+    label: "Lojistik Rota Loss — TotalRouteLoss",
     fn: (inputs) => {
     const fuelWaste = num(inputs, "fuelWaste");
     const timeWaste = num(inputs, "timeWaste");

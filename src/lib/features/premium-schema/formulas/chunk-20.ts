@@ -73,7 +73,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_4",
     family: "cost",
-    label: "FİYAT ESNEKLİĞİ — MaxPrice",
+    label: "FIYAT ESNEKLIGI — MaxPrice",
     fn: (inputs) => {
     const elast = num(inputs, "elast");
     const varCost = num(inputs, "varCost");
@@ -83,7 +83,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_5",
     family: "cost",
-    label: "FİYAT ESNEKLİĞİ — Markup",
+    label: "FIYAT ESNEKLIGI — Markup",
     fn: (inputs) => {
     const elast = num(inputs, "elast");
     return nonNegative(assertFinite(-1 / (elast + 1)));
@@ -92,7 +92,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_6",
     family: "cost",
-    label: "FİYAT ESNEKLİĞİ — CannibLoss",
+    label: "FIYAT ESNEKLIGI — CannibLoss",
     fn: (inputs) => {
     const newDem = num(inputs, "newDem");
     const cannibRate = num(inputs, "cannibRate");
@@ -105,7 +105,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.price_elasticity_7",
     family: "cost",
-    label: "FİYAT ESNEKLİĞİ — NetImpact",
+    label: "FIYAT ESNEKLIGI — NetImpact",
     fn: (inputs) => {
     const newMargin = num(inputs, "newMargin");
     const currMargin = num(inputs, "currMargin");
@@ -207,11 +207,11 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── GAGE R&R MALİYET (9 formulas) ──,
+  // ── GAGE R&R COST (9 formulas) ──,
   {
     id: "user.gage_rnr_cost_0",
     family: "cost",
-    label: "GAGE R&R MALİYET — EV",
+    label: "GAGE R&R COST — EV",
     fn: (inputs) => {
     const range = num(inputs, "range");
     const Avg = num(inputs, "Avg");
@@ -225,7 +225,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_1",
     family: "cost",
-    label: "GAGE R&R MALİYET — AV",
+    label: "GAGE R&R COST — AV",
     fn: (inputs) => {
     const range = num(inputs, "range");
     const Ops = num(inputs, "Ops");
@@ -243,7 +243,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_2",
     family: "cost",
-    label: "GAGE R&R MALİYET — GRR",
+    label: "GAGE R&R COST — GRR",
     fn: (inputs) => {
     const eV = num(inputs, "eV");
     const aV = num(inputs, "aV");
@@ -254,7 +254,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_3",
     family: "cost",
-    label: "GAGE R&R MALİYET — PV",
+    label: "GAGE R&R COST — PV",
     fn: (inputs) => {
     const range = num(inputs, "range");
     const Parts = num(inputs, "Parts");
@@ -268,7 +268,7 @@ export const CHUNK_20_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_4",
     family: "cost",
-    label: "GAGE R&R MALİYET — TV",
+    label: "GAGE R&R COST — TV",
     fn: (inputs) => {
     const gRR = num(inputs, "gRR");
     const pV = num(inputs, "pV");

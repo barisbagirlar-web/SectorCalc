@@ -73,7 +73,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.logistics_route_loss_6",
     family: "cost",
-    label: "Lojistik Rota Kaybı — Efficiency",
+    label: "Lojistik Rota Loss — Efficiency",
     fn: (inputs) => {
     const idealDistance = num(inputs, "idealDistance");
     const actualDistance = num(inputs, "actualDistance");
@@ -81,11 +81,11 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Mağaza Saatlik Ücret (7 formulas) ──,
+  // ── Magaza Saatlik Ucret (7 formulas) ──,
   {
     id: "user.shop_hourly_rate_0",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — DirectLabor",
+    label: "Magaza Saatlik Ucret — DirectLabor",
     fn: (inputs) => {
     const technicianWages = num(inputs, "technicianWages");
     return nonNegative(assertFinite(SUM(technicianWages)));
@@ -94,7 +94,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shop_hourly_rate_1",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — IndirectLabor",
+    label: "Magaza Saatlik Ucret — IndirectLabor",
     fn: (inputs) => {
     const managerWages = num(inputs, "managerWages");
     const adminWages = num(inputs, "adminWages");
@@ -104,7 +104,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shop_hourly_rate_2",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — Overhead",
+    label: "Magaza Saatlik Ucret — Overhead",
     fn: (inputs) => {
     const rent = num(inputs, "rent");
     const utilities = num(inputs, "utilities");
@@ -117,7 +117,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shop_hourly_rate_3",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — TotalShopCost",
+    label: "Magaza Saatlik Ucret — TotalShopCost",
     fn: (inputs) => {
     const directLabor = num(inputs, "directLabor");
     const indirectLabor = num(inputs, "indirectLabor");
@@ -128,7 +128,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shop_hourly_rate_4",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — BillableHours",
+    label: "Magaza Saatlik Ucret — BillableHours",
     fn: (inputs) => {
     const totalAvailableHours = num(inputs, "totalAvailableHours");
     const utilizationRate = num(inputs, "utilizationRate");
@@ -138,7 +138,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shop_hourly_rate_5",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — ShopHourlyRate",
+    label: "Magaza Saatlik Ucret — ShopHourlyRate",
     fn: (inputs) => {
     const totalShopCost = num(inputs, "totalShopCost");
     const billableHours = num(inputs, "billableHours");
@@ -148,7 +148,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.shop_hourly_rate_6",
     family: "cost",
-    label: "Mağaza Saatlik Ücret — EffectiveMargin",
+    label: "Magaza Saatlik Ucret — EffectiveMargin",
     fn: (inputs) => {
     const actualBillingRate = num(inputs, "actualBillingRate");
     const shopHourlyRate = num(inputs, "shopHourlyRate");
@@ -156,11 +156,11 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Mahsul Verim Kaybı Analizörü (8 formulas) ──,
+  // ── Mahsul Verim Loss Analizoru (8 formulas) ──,
   {
     id: "user.crop_yield_loss_0",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — PotentialYield",
+    label: "Mahsul Verim Loss Analizoru — PotentialYield",
     fn: (inputs) => {
     const geneticPotential = num(inputs, "geneticPotential");
     const environmentFactor = num(inputs, "environmentFactor");
@@ -170,7 +170,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_1",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — ActualYield",
+    label: "Mahsul Verim Loss Analizoru — ActualYield",
     fn: (inputs) => {
     const harvestedWeight = num(inputs, "harvestedWeight");
     const area = num(inputs, "area");
@@ -180,7 +180,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_2",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — YieldGap",
+    label: "Mahsul Verim Loss Analizoru — YieldGap",
     fn: (inputs) => {
     const potentialYield = num(inputs, "potentialYield");
     const actualYield = num(inputs, "actualYield");
@@ -190,7 +190,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_3",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — Loss_Pest",
+    label: "Mahsul Verim Loss Analizoru — Loss_Pest",
     fn: (inputs) => {
     const pestDamagePct = num(inputs, "pestDamagePct");
     const potentialYield = num(inputs, "potentialYield");
@@ -200,7 +200,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_4",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — Loss_Weather",
+    label: "Mahsul Verim Loss Analizoru — Loss_Weather",
     fn: (inputs) => {
     const weatherStressPct = num(inputs, "weatherStressPct");
     const potentialYield = num(inputs, "potentialYield");
@@ -210,7 +210,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_5",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — Loss_Nutrient",
+    label: "Mahsul Verim Loss Analizoru — Loss_Nutrient",
     fn: (inputs) => {
     const nutrientDeficiencyPct = num(inputs, "nutrientDeficiencyPct");
     const potentialYield = num(inputs, "potentialYield");
@@ -220,7 +220,7 @@ export const CHUNK_37_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_6",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — FinancialLoss",
+    label: "Mahsul Verim Loss Analizoru — FinancialLoss",
     fn: (inputs) => {
     const yieldGap = num(inputs, "yieldGap");
     const marketPrice = num(inputs, "marketPrice");

@@ -73,7 +73,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_1",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — RobotCost_Annual",
+    label: "Robot Kol vs. Manuel Isci — RobotCost_Annual",
     fn: (inputs) => {
     const robotCapex = num(inputs, "robotCapex");
     const depreciationLife = num(inputs, "depreciationLife");
@@ -86,7 +86,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_2",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — RobotOutput",
+    label: "Robot Kol vs. Manuel Isci — RobotOutput",
     fn: (inputs) => {
     const cycleTime = num(inputs, "cycleTime");
     const Robot = num(inputs, "Robot");
@@ -98,7 +98,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_3",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — ManualOutput",
+    label: "Robot Kol vs. Manuel Isci — ManualOutput",
     fn: (inputs) => {
     const cycleTime = num(inputs, "cycleTime");
     const Manual = num(inputs, "Manual");
@@ -110,7 +110,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_4",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — CostPerUnit_Manual",
+    label: "Robot Kol vs. Manuel Isci — CostPerUnit_Manual",
     fn: (inputs) => {
     const manualCost = num(inputs, "manualCost");
     const Annual = num(inputs, "Annual");
@@ -122,7 +122,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_5",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — CostPerUnit_Robot",
+    label: "Robot Kol vs. Manuel Isci — CostPerUnit_Robot",
     fn: (inputs) => {
     const robotCost = num(inputs, "robotCost");
     const Annual = num(inputs, "Annual");
@@ -134,7 +134,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_6",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — ROI",
+    label: "Robot Kol vs. Manuel Isci — ROI",
     fn: (inputs) => {
     const manualCost = num(inputs, "manualCost");
     const robotCost = num(inputs, "robotCost");
@@ -145,7 +145,7 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.robot_vs_manual_7",
     family: "cost",
-    label: "Robot Kol vs. Manuel İşçi — Payback",
+    label: "Robot Kol vs. Manuel Isci — Payback",
     fn: (inputs) => {
     const robotCapex = num(inputs, "robotCapex");
     const manualCost = num(inputs, "manualCost");
@@ -246,5 +246,5 @@ export const CHUNK_48_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Rota Optimizasyonu Analizörü (7 formulas) ──
+  // ── Rota Optimizasyonu Analizoru (7 formulas) ──
 ];

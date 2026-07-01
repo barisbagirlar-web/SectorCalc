@@ -1,5 +1,5 @@
 /**
- * Tool #39 — Restoran Menü Marj Kaçağı
+ * Tool #39 — Restoran Menu Marj Kacagi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
@@ -23,7 +23,7 @@ export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "restaurantIdealMargin", label: "Ideal Marj", label_i18n: {"en":"Ideal Margin"}, unit: "%", format: "number" },
     { id: "restaurantActualMargin", label: "Actual Margin", label_i18n: {"en":"Actual Margin"}, unit: "%", format: "number" },
   ],
-  thresholds: [{ fieldId: "restaurantVariancePct", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Sapma > %5 — porsiyon ve fire kontrolü önerilir.", warningMessage_i18n: {"en":"Variance > 5% — increase portion and waste control."}, criticalMessage: "Sapma > %10 — mutfak operasyonu acilen denetlenmeli.", criticalMessage_i18n: {"en":"Variance > 10% — kitchen operations must be urgently audited."} }],
+  thresholds: [{ fieldId: "restaurantVariancePct", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Sapma > %5 — porsiyon ve fire kontrolu onerilir.", warningMessage_i18n: {"en":"Variance > 5% — increase portion and waste control."}, criticalMessage: "Sapma > %10 — mutfak operasyonu acilen denetlenmeli.", criticalMessage_i18n: {"en":"Variance > 10% — kitchen operations must be urgently audited."} }],
   formulaPipeline: [
     { formulaId: "cost.restaurant_theoretical_food", inputMap: { theoreticalFoodCost: "theoreticalFoodCost" ,
         totalSales: "totalSales",

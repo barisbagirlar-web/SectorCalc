@@ -187,11 +187,11 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Zaman Etüdü Analizörü (7 formulas) ──,
+  // ── Zaman Etudu Analizoru (7 formulas) ──,
   {
     id: "user.standard_time_work_study_0",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — ObservedTime",
+    label: "Zaman Etudu Analizoru — ObservedTime",
     fn: (inputs) => {
     const cycleTimes = num(inputs, "cycleTimes");
     const numberOfCycles = num(inputs, "numberOfCycles");
@@ -201,7 +201,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_1",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — NormalTime",
+    label: "Zaman Etudu Analizoru — NormalTime",
     fn: (inputs) => {
     const observedTime = num(inputs, "observedTime");
     const performanceRating = num(inputs, "performanceRating");
@@ -211,7 +211,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_2",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — AllowancePct",
+    label: "Zaman Etudu Analizoru — AllowancePct",
     fn: (inputs) => {
     const personal = num(inputs, "personal");
     const fatigue = num(inputs, "fatigue");
@@ -222,7 +222,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_3",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — StandardTime",
+    label: "Zaman Etudu Analizoru — StandardTime",
     fn: (inputs) => {
     const normalTime = num(inputs, "normalTime");
     const allowancePct = num(inputs, "allowancePct");
@@ -232,7 +232,7 @@ export const CHUNK_66_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.standard_time_work_study_4",
     family: "cost",
-    label: "Zaman Etüdü Analizörü — StandardOutput",
+    label: "Zaman Etudu Analizoru — StandardOutput",
     fn: (inputs) => {
     const shiftDuration = num(inputs, "shiftDuration");
     const standardTime = num(inputs, "standardTime");

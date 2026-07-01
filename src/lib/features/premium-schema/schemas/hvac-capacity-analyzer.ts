@@ -5,22 +5,22 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const HVAC_CAPACITY_SCHEMA: PremiumCalculatorSchema = {
   id: "hvac-capacity-analyzer", legacyPaidSlug: "hvac-capacity-analyzer",
   name: "HVAC Capacity & Energy Cost Analyzer", name_i18n: {"en":"HVAC Capacity & Energy Cost Analyzer"}, sectorSlug: "construction", category: "measurement",
-  painStatement: "HVAC kapasite hesabı (duyulur/gizli ısı, tonaj, EER) yapılmadan doğru klima sistemi seçimi ve enerji maliyeti tahmini mümkün değildir.", painStatement_i18n: {"en":"HVAC capacity calculation (sensible/latent heat, tonnage, EER) is not possible without accurate AC system selection and energy cost estimation."},
+  painStatement: "HVAC kapasite calc (duyulur/gizli isi, tonaj, EER) yapilmadan dogru klima sistemi secimi ve enerji maliyeti tahmini mumkun degildir.", painStatement_i18n: {"en":"HVAC capacity calculation (sensible/latent heat, tonnage, EER) is not possible without accurate AC system selection and energy cost estimation."},
   inputs: [
     { id: "cfm", label: "Hava Debisi (CFM)", label_i18n: {"en":"Air Flow (CFM)"}, type: "number", unit: "cfm", required: true, smartDefault: 2000, validation: { min: 1 }, helper: "", expertMeaning: "Air flow in CFM", expertMeaning_i18n: {"en":"Air flow in CFM"} },
     { id: "deltaTemp", label: "Temperature difference", label_i18n: {"en":"Temperature difference"}, type: "number", unit: "°F", required: true, smartDefault: 20, validation: { min: 0.1 }, helper: "", expertMeaning: "Temperature difference", expertMeaning_i18n: {"en":"Temperature difference"} },
     { id: "deltaHumidity", label: "Humidity ratio difference", label_i18n: {"en":"Humidity ratio difference"}, type: "number", unit: "gr/lb", required: false, smartDefault: 30, validation: { min: 0 }, helper: "", expertMeaning: "Humidity ratio difference", expertMeaning_i18n: {"en":"Humidity ratio difference"} },
     { id: "eer", label: "Energy Efficiency Ratio", label_i18n: {"en":"Energy Efficiency Ratio"}, type: "number", unit: "BTU/W", required: true, smartDefault: 12, validation: { min: 1 }, helper: "", expertMeaning: "Energy Efficiency Ratio", expertMeaning_i18n: {"en":"Energy Efficiency Ratio"} },
-    { id: "operatingHours", label: "Annual operating hours", label_i18n: {"en":"Annual operating hours"}, type: "number", unit: "saat/yıl", required: false, smartDefault: 2000, validation: { min: 0 }, helper: "", expertMeaning: "Annual operating hours", expertMeaning_i18n: {"en":"Annual operating hours"} },
+    { id: "operatingHours", label: "Annual operating hours", label_i18n: {"en":"Annual operating hours"}, type: "number", unit: "saat/yil", required: false, smartDefault: 2000, validation: { min: 0 }, helper: "", expertMeaning: "Annual operating hours", expertMeaning_i18n: {"en":"Annual operating hours"} },
     { id: "elecRate", label: "Elektrik Tarifesi", label_i18n: {"en":"Elektrik Tarifesi"}, type: "number", unit: "USD/kWh", required: false, smartDefault: 0.12, validation: { min: 0 }, helper: "", expertMeaning: "Electricity rate", expertMeaning_i18n: {"en":"Electricity rate"} },
   ],
   outputs: [
     { id: "sensible", label: "Duyulur Is", label_i18n: {"en":"Sensible Heat"}, unit: "BTU/saat", format: "number" },
     { id: "totalBtu", label: "Total Heat Load", label_i18n: {"en":"Total Heat Load"}, unit: "BTU/saat", format: "number" },
     { id: "tons", label: "Capacity (Tons)", label_i18n: {"en":"Capacity (Tons)"}, unit: "ton", format: "number" },
-    { id: "annualCost", label: "Annual Energy Cost", label_i18n: {"en":"Annual Energy Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
+    { id: "annualCost", label: "Annual Energy Cost", label_i18n: {"en":"Annual Energy Cost"}, unit: "USD/yil", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "annualCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Enerji maliyeti > $5000 — EER iyileştirilmeli.", warningMessage_i18n: {"en":"Energy cost > $5000 — EER should be improved."}, criticalMessage: "Maliyet > $15000 — sistem yenileme değerlendirilmeli.", criticalMessage_i18n: {"en":"Cost > $15000 — system replacement should be evaluated."} }],
+  thresholds: [{ fieldId: "annualCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Enerji maliyeti > $5000 — EER iyilestirilmeli.", warningMessage_i18n: {"en":"Energy cost > $5000 — EER should be improved."}, criticalMessage: "Maliyet > $15000 — sistem yenileme degerlendirilmeli.", criticalMessage_i18n: {"en":"Cost > $15000 — system replacement should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.hvac_sensible", inputMap: { cfm: "cfm", deltaTemp: "deltaTemp" ,
         deltaT: "deltaT"}, outputId: "sensible" },

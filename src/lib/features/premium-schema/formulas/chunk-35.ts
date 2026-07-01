@@ -73,7 +73,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_3",
     family: "cost",
-    label: "Konteyner Yükü — LoadEfficiency",
+    label: "Konteyner Yuku — LoadEfficiency",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const Utilization = num(inputs, "Utilization");
@@ -87,7 +87,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_4",
     family: "cost",
-    label: "Konteyner Yükü — WastedSpaceCost",
+    label: "Konteyner Yuku — WastedSpaceCost",
     fn: (inputs) => {
     const loadEfficiency = num(inputs, "loadEfficiency");
     const freightCost = num(inputs, "freightCost");
@@ -97,7 +97,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_5",
     family: "cost",
-    label: "Konteyner Yükü — PalletStacking",
+    label: "Konteyner Yuku — PalletStacking",
     fn: (inputs) => {
     const containerHeight = num(inputs, "containerHeight");
     const palletHeight = num(inputs, "palletHeight");
@@ -108,7 +108,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.container_load_6",
     family: "cost",
-    label: "Konteyner Yükü — MaxPallets",
+    label: "Konteyner Yuku — MaxPallets",
     fn: (inputs) => {
     const palletStacking = num(inputs, "palletStacking");
     const floorArea = num(inputs, "floorArea");
@@ -121,11 +121,11 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Kumaş Kesim Optimize Edici (6 formulas) ──,
+  // ── Kumas Kesim Optimize Edici (6 formulas) ──,
   {
     id: "user.fabric_cutting_optimizer_0",
     family: "cost",
-    label: "Kumaş Kesim Optimize Edici — MarkerEfficiency",
+    label: "Kumas Kesim Optimize Edici — MarkerEfficiency",
     fn: (inputs) => {
     const totalPatternArea = num(inputs, "totalPatternArea");
     const markerLength = num(inputs, "markerLength");
@@ -136,7 +136,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_1",
     family: "cost",
-    label: "Kumaş Kesim Optimize Edici — FabricRequired",
+    label: "Kumas Kesim Optimize Edici — FabricRequired",
     fn: (inputs) => {
     const totalPatternArea = num(inputs, "totalPatternArea");
     const markerEfficiency = num(inputs, "markerEfficiency");
@@ -147,7 +147,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_2",
     family: "cost",
-    label: "Kumaş Kesim Optimize Edici — Cost_Fabric",
+    label: "Kumas Kesim Optimize Edici — Cost_Fabric",
     fn: (inputs) => {
     const fabricRequired = num(inputs, "fabricRequired");
     const pricePerMeter = num(inputs, "pricePerMeter");
@@ -157,7 +157,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_3",
     family: "cost",
-    label: "Kumaş Kesim Optimize Edici — Utilization_Gain",
+    label: "Kumas Kesim Optimize Edici — Utilization_Gain",
     fn: (inputs) => {
     const newEfficiency = num(inputs, "newEfficiency");
     const oldEfficiency = num(inputs, "oldEfficiency");
@@ -169,7 +169,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_4",
     family: "cost",
-    label: "Kumaş Kesim Optimize Edici — SplicingLoss",
+    label: "Kumas Kesim Optimize Edici — SplicingLoss",
     fn: (inputs) => {
     const splices = num(inputs, "splices");
     const overlapLength = num(inputs, "overlapLength");
@@ -180,7 +180,7 @@ export const CHUNK_35_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fabric_cutting_optimizer_5",
     family: "cost",
-    label: "Kumaş Kesim Optimize Edici — TotalYardage",
+    label: "Kumas Kesim Optimize Edici — TotalYardage",
     fn: (inputs) => {
     const markerLength = num(inputs, "markerLength");
     const endLoss = num(inputs, "endLoss");

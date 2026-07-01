@@ -182,11 +182,11 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── İÇ VERİM ORANI IRR (7 formulas) ──,
+  // ── IC VERIM RATIO IRR (7 formulas) ──,
   {
     id: "user.irr_investment_0",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — NPV",
+    label: "IC VERIM RATIO IRR — NPV",
     fn: (inputs) => {
     const cash = num(inputs, "cash");
     const t = num(inputs, "t");
@@ -198,7 +198,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_1",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — IRR",
+    label: "IC VERIM RATIO IRR — IRR",
     fn: (inputs) => {
     const r = num(inputs, "r");
     const where = num(inputs, "where");
@@ -209,7 +209,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_2",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — MIRR",
+    label: "IC VERIM RATIO IRR — MIRR",
     fn: (inputs) => {
     const fV = num(inputs, "fV");
     const Pos = num(inputs, "Pos");
@@ -224,7 +224,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_3",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — Payback",
+    label: "IC VERIM RATIO IRR — Payback",
     fn: (inputs) => {
     const year = num(inputs, "year");
     const Before = num(inputs, "Before");
@@ -239,7 +239,7 @@ export const CHUNK_26_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_4",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — PI",
+    label: "IC VERIM RATIO IRR — PI",
     fn: (inputs) => {
     const pV = num(inputs, "pV");
     const Future = num(inputs, "Future");

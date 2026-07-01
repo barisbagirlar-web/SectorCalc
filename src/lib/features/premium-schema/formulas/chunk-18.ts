@@ -73,7 +73,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_5",
     family: "cost",
-    label: "EVM MALİYET FORECAST — EAC_CPI_SPI",
+    label: "EVM COST FORECAST — EAC_CPI_SPI",
     fn: (inputs) => {
     const aC = num(inputs, "aC");
     const bAC = num(inputs, "bAC");
@@ -86,7 +86,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_6",
     family: "cost",
-    label: "EVM MALİYET FORECAST — ETC",
+    label: "EVM COST FORECAST — ETC",
     fn: (inputs) => {
     const eAC = num(inputs, "eAC");
     const aC = num(inputs, "aC");
@@ -96,7 +96,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_7",
     family: "cost",
-    label: "EVM MALİYET FORECAST — VAC",
+    label: "EVM COST FORECAST — VAC",
     fn: (inputs) => {
     const bAC = num(inputs, "bAC");
     const eAC = num(inputs, "eAC");
@@ -106,7 +106,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.evm_cost_forecast_8",
     family: "cost",
-    label: "EVM MALİYET FORECAST — TCPI",
+    label: "EVM COST FORECAST — TCPI",
     fn: (inputs) => {
     const bAC = num(inputs, "bAC");
     const eV = num(inputs, "eV");
@@ -115,11 +115,11 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── FABRİKA YERLEŞİM MESAFE (7 formulas) ──,
+  // ── FABRIKA YERLESIM MESAFE (7 formulas) ──,
   {
     id: "user.factory_layout_distance_0",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — Dist_ij",
+    label: "FABRIKA YERLESIM MESAFE — Dist_ij",
     fn: (inputs) => {
     const x = num(inputs, "x");
     const i = num(inputs, "i");
@@ -136,7 +136,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.factory_layout_distance_1",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — FlowCost",
+    label: "FABRIKA YERLESIM MESAFE — FlowCost",
     fn: (inputs) => {
     const flow = num(inputs, "flow");
     const ij = num(inputs, "ij");
@@ -150,7 +150,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.factory_layout_distance_2",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — AdjScore",
+    label: "FABRIKA YERLESIM MESAFE — AdjScore",
     fn: (inputs) => {
     const flow = num(inputs, "flow");
     const ij = num(inputs, "ij");
@@ -163,7 +163,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.factory_layout_distance_3",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — SpaceUtil",
+    label: "FABRIKA YERLESIM MESAFE — SpaceUtil",
     fn: (inputs) => {
     const equipArea = num(inputs, "equipArea");
     const facArea = num(inputs, "facArea");
@@ -173,7 +173,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.factory_layout_distance_4",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — MatHandCost",
+    label: "FABRIKA YERLESIM MESAFE — MatHandCost",
     fn: (inputs) => {
     const flowCost = num(inputs, "flowCost");
     const handRate = num(inputs, "handRate");
@@ -183,7 +183,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.factory_layout_distance_5",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — Congestion",
+    label: "FABRIKA YERLESIM MESAFE — Congestion",
     fn: (inputs) => {
     const crossTraffic = num(inputs, "crossTraffic");
     const aisleCap = num(inputs, "aisleCap");
@@ -193,7 +193,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.factory_layout_distance_6",
     family: "cost",
-    label: "FABRİKA YERLEŞİM MESAFE — TotalCost",
+    label: "FABRIKA YERLESIM MESAFE — TotalCost",
     fn: (inputs) => {
     const matHand = num(inputs, "matHand");
     const space = num(inputs, "space");
@@ -202,11 +202,11 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── FAİZ ORANI RİSKİ (8 formulas) ──,
+  // ── INTEREST RATE RISK (8 formulas) ──,
   {
     id: "user.interest_rate_risk_0",
     family: "cost",
-    label: "FAİZ ORANI RİSKİ — Exposure",
+    label: "INTEREST RATE RISK — Exposure",
     fn: (inputs) => {
     const floatingDebt = num(inputs, "floatingDebt");
     const hedgeRatio = num(inputs, "hedgeRatio");
@@ -216,7 +216,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_1",
     family: "cost",
-    label: "FAİZ ORANI RİSKİ — ShockImpact",
+    label: "INTEREST RATE RISK — ShockImpact",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const bpsChange = num(inputs, "bpsChange");
@@ -226,7 +226,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_2",
     family: "cost",
-    label: "FAİZ ORANI RİSKİ — DurGap",
+    label: "INTEREST RATE RISK — DurGap",
     fn: (inputs) => {
     const assetDur = num(inputs, "assetDur");
     const liabDur = num(inputs, "liabDur");
@@ -236,7 +236,7 @@ export const CHUNK_18_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.interest_rate_risk_3",
     family: "cost",
-    label: "FAİZ ORANI RİSKİ — EVE_Change",
+    label: "INTEREST RATE RISK — EVE_Change",
     fn: (inputs) => {
     const durGap = num(inputs, "durGap");
     const assetVal = num(inputs, "assetVal");

@@ -21,7 +21,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
 > = {
   "cnc-manufacturing": {
     en: EN_INDUSTRY_LABELS["cnc-manufacturing"],
-    tr: "CNC / İmalat",
+    tr: "CNC / Imalat",
     de: "CNC / Fertigung",
     fr: "CNC / Fabrication",
     es: "CNC / Fabricación",
@@ -29,7 +29,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   construction: {
     en: EN_INDUSTRY_LABELS.construction,
-    tr: "İnşaat",
+    tr: "Insaat",
     de: "Bauwesen",
     fr: "Construction",
     es: "Construcción",
@@ -77,7 +77,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "electrical-contracting": {
     en: EN_INDUSTRY_LABELS["electrical-contracting"],
-    tr: "Elektrik Taahhüt",
+    tr: "Elektrik Taahhut",
     de: "Elektroinstallation",
     fr: "Électricité",
     es: "Electricidad",
@@ -85,7 +85,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "landscaping-lawn-care": {
     en: EN_INDUSTRY_LABELS["landscaping-lawn-care"],
-    tr: "Peyzaj & Bahçe",
+    tr: "Peyzaj & Bahce",
     de: "Landschaftsbau",
     fr: "Aménagement paysager",
     es: "Paisajismo",
@@ -101,7 +101,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "printing-signage": {
     en: EN_INDUSTRY_LABELS["printing-signage"],
-    tr: "Baskı & Tabela",
+    tr: "Printing & Tabela",
     de: "Druck & Beschilderung",
     fr: "Impression et signalétique",
     es: "Impresión y rotulación",
@@ -125,7 +125,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   roofing: {
     en: EN_INDUSTRY_LABELS.roofing,
-    tr: "Çatı",
+    tr: "Cati",
     de: "Dachdecker",
     fr: "Couverture",
     es: "Cubiertas",
@@ -149,7 +149,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "3d-printing-service": {
     en: EN_INDUSTRY_LABELS["3d-printing-service"],
-    tr: "3B Baskı",
+    tr: "3B Printing",
     de: "3D-Druck",
     fr: "Impression 3D",
     es: "Impresión 3D",
@@ -157,7 +157,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "logistics-transport": {
     en: EN_INDUSTRY_LABELS["logistics-transport"],
-    tr: "Lojistik & Taşıma",
+    tr: "Lojistik & Tasima",
     de: "Logistik & Transport",
     fr: "Logistique et transport",
     es: "Logística y transporte",
@@ -165,7 +165,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "agriculture-crops": {
     en: EN_INDUSTRY_LABELS["agriculture-crops"],
-    tr: "Tarım / Mahsul",
+    tr: "Tarim / Mahsul",
     de: "Landwirtschaft / Ernte",
     fr: "Agriculture / cultures",
     es: "Agricultura / cultivos",
@@ -189,7 +189,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "agriculture-dairy": {
     en: EN_INDUSTRY_LABELS["agriculture-dairy"],
-    tr: "Süt & Süt Ürünleri",
+    tr: "Sut & Sut Urunleri",
     de: "Milchwirtschaft",
     fr: "Produits laitiers",
     es: "Lácteos",
@@ -197,7 +197,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "energy-consumption": {
     en: EN_INDUSTRY_LABELS["energy-consumption"],
-    tr: "Enerji Tüketimi",
+    tr: "Enerji Tuketimi",
     de: "Energieverbrauch",
     fr: "Consommation d'énergie",
     es: "Consumo energético",
@@ -213,7 +213,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "daily-renovation": {
     en: EN_INDUSTRY_LABELS["daily-renovation"],
-    tr: "Günlük / Tadilat",
+    tr: "Gunluk / Tadilat",
     de: "Alltag / Renovierung",
     fr: "Quotidien / rénovation",
     es: "Vida diaria / reformas",
@@ -221,7 +221,7 @@ export const INDUSTRY_SECTOR_DISPLAY_LABELS: Readonly<
   },
   "daily-fuel": {
     en: EN_INDUSTRY_LABELS["daily-fuel"],
-    tr: "Yakıt",
+    tr: "Yakit",
     de: "Kraftstoff",
     fr: "Carburant",
     es: "Combustible",

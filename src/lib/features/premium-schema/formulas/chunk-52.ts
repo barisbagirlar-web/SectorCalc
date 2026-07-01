@@ -73,7 +73,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_8",
     family: "cost",
-    label: "Sözleşme Teşvik — PerformanceBonus",
+    label: "Sozlesme Tesvik — PerformanceBonus",
     fn: (inputs) => {
     const metricWeight = num(inputs, "metricWeight");
     const i = num(inputs, "i");
@@ -167,11 +167,11 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Steam Trap Enerji kayıp (7 formulas) ──,
+  // ── Steam Trap Enerji kayip (7 formulas) ──,
   {
     id: "user.steam_trap_energy_loss_0",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — OrificeFlow",
+    label: "Steam Trap Enerji kayip — OrificeFlow",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const d = num(inputs, "d");
@@ -186,7 +186,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_1",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — SteamLoss_kg_h",
+    label: "Steam Trap Enerji kayip — SteamLoss_kg_h",
     fn: (inputs) => {
     const orificeFlow = num(inputs, "orificeFlow");
     return nonNegative(assertFinite(orificeFlow * 3600));
@@ -195,7 +195,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_2",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — EnergyLoss_kW",
+    label: "Steam Trap Enerji kayip — EnergyLoss_kW",
     fn: (inputs) => {
     const steamLoss = num(inputs, "steamLoss");
     const kg = num(inputs, "kg");
@@ -210,7 +210,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_3",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — AnnualCost",
+    label: "Steam Trap Enerji kayip — AnnualCost",
     fn: (inputs) => {
     const energyLoss = num(inputs, "energyLoss");
     const kW = num(inputs, "kW");
@@ -226,7 +226,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_4",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — TrapFailureRate",
+    label: "Steam Trap Enerji kayip — TrapFailureRate",
     fn: (inputs) => {
     const failedTraps = num(inputs, "failedTraps");
     const totalTraps = num(inputs, "totalTraps");
@@ -236,7 +236,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_5",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — TotalSystemLoss",
+    label: "Steam Trap Enerji kayip — TotalSystemLoss",
     fn: (inputs) => {
     const annualCost = num(inputs, "annualCost");
     const i = num(inputs, "i");
@@ -247,7 +247,7 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.steam_trap_energy_loss_6",
     family: "cost",
-    label: "Steam Trap Enerji kayıp — RepairROI",
+    label: "Steam Trap Enerji kayip — RepairROI",
     fn: (inputs) => {
     const totalSystemLoss = num(inputs, "totalSystemLoss");
     const trapCost = num(inputs, "trapCost");
@@ -256,5 +256,5 @@ export const CHUNK_52_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Stok Devir hızı risk (7 formulas) ──
+  // ── Stok Devir hizi risk (7 formulas) ──
 ];

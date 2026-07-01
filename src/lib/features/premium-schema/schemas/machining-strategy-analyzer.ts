@@ -1,5 +1,5 @@
 /**
- * Tool #59 — İşleme Stratejisi Süre
+ * Tool #59 — Isleme Stratejisi Sure
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const MACHINING_STRATEGY_SCHEMA: PremiumCalculatorSchema = {
@@ -11,9 +11,9 @@ export const MACHINING_STRATEGY_SCHEMA: PremiumCalculatorSchema = {
     { id: "feedPerRev", label: "Feed (f)", label_i18n: {"en":"Feed (f)"}, type: "number", unit: "mm/dev", required: true, smartDefault: 0.15, validation: { min: 0.001 }, helper: "", expertMeaning: "Feed per revolution", expertMeaning_i18n: {"en":"Feed per revolution"} },
     { id: "depthOfCut", label: "Depth of Cut (ap)", label_i18n: {"en":"Depth of Cut (ap)"}, type: "number", unit: "mm", required: true, smartDefault: 2, validation: { min: 0.1 }, helper: "", expertMeaning: "Depth of cut", expertMeaning_i18n: {"en":"Depth of cut"} },
     { id: "taylorC", label: "Taylor C Sabiti", label_i18n: {"en":"Taylor Constant C"}, type: "number", unit: "", required: true, smartDefault: 300, validation: { min: 1 }, helper: "", expertMeaning: "Taylor tool life constant", expertMeaning_i18n: {"en":"Taylor tool life constant"} },
-    { id: "taylorN", label: "Taylor n (Vc üssü)", label_i18n: {"en":"Taylor n (Vc exponent)"}, type: "number", unit: "", required: true, smartDefault: 0.25, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Taylor exponent for speed", expertMeaning_i18n: {"en":"Taylor exponent for speed"} },
-    { id: "taylorM", label: "Taylor m (f üssü)", label_i18n: {"en":"Taylor m (f exponent)"}, type: "number", unit: "", required: false, smartDefault: 0.5, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Taylor exponent for feed", expertMeaning_i18n: {"en":"Taylor exponent for feed"} },
-    { id: "specificEnergy", label: "Özgül Kesme Enerjisi", label_i18n: {"en":"Specific Cutting Energy"}, type: "number", unit: "W-s/mm³", required: false, smartDefault: 2.5, validation: { min: 0.1 }, helper: "", expertMeaning: "Specific cutting energy", expertMeaning_i18n: {"en":"Specific cutting energy"} },
+    { id: "taylorN", label: "Taylor n (Vc ussu)", label_i18n: {"en":"Taylor n (Vc exponent)"}, type: "number", unit: "", required: true, smartDefault: 0.25, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Taylor exponent for speed", expertMeaning_i18n: {"en":"Taylor exponent for speed"} },
+    { id: "taylorM", label: "Taylor m (f ussu)", label_i18n: {"en":"Taylor m (f exponent)"}, type: "number", unit: "", required: false, smartDefault: 0.5, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Taylor exponent for feed", expertMeaning_i18n: {"en":"Taylor exponent for feed"} },
+    { id: "specificEnergy", label: "Ozgul Kesme Enerjisi", label_i18n: {"en":"Specific Cutting Energy"}, type: "number", unit: "W-s/mm³", required: false, smartDefault: 2.5, validation: { min: 0.1 }, helper: "", expertMeaning: "Specific cutting energy", expertMeaning_i18n: {"en":"Specific cutting energy"} },
     { id: "maxPower", label: "Maximum Power", label_i18n: {"en":"Maximum Power"}, type: "number", unit: "kW", required: false, smartDefault: 22, validation: { min: 0.1 }, helper: "", expertMeaning: "Maximum spindle power", expertMeaning_i18n: {"en":"Maximum spindle power"} },
     { id: "noseRadius", label: "Nose Radius (rε)", label_i18n: {"en":"Nose Radius (rε)"}, type: "number", unit: "mm", required: false, smartDefault: 0.8, validation: { min: 0.05 }, helper: "", expertMeaning: "Tool nose radius", expertMeaning_i18n: {"en":"Tool nose radius"} },
     { id: "roughnessTol", label: "Roughness Tolerance (Ra)", label_i18n: {"en":"Roughness Tolerance (Ra)"}, type: "number", unit: "µm", required: false, smartDefault: 3.2, validation: { min: 0.1 }, helper: "", expertMeaning: "Surface roughness limit", expertMeaning_i18n: {"en":"Surface roughness limit"} },

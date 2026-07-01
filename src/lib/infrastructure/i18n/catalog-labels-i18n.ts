@@ -28,66 +28,66 @@ const EN_INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
 };
 
 const TR_INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
-  "heavy-industry": "Ağır Sanayi",
-  "building-trades": "İnşaat ve Yapı İşleri",
+  "heavy-industry": "Agir Sanayi",
+  "building-trades": "Insaat ve Yapi Isleri",
   "field-services": "Saha Hizmetleri",
-  "food-retail": "Gıda ve Perakende",
-  "custom-manufacturing": "Özel İmalat",
-  "logistics-transport": "Lojistik ve Taşıma",
-  "agriculture-livestock": "Tarım ve Hayvancılık",
-  "energy-environment": "Enerji ve Çevre",
-  "daily-life": "Günlük Hayat",
+  "food-retail": "Gida ve Perakende",
+  "custom-manufacturing": "Ozel Imalat",
+  "logistics-transport": "Lojistik ve Tasima",
+  "agriculture-livestock": "Tarim ve Hayvancilik",
+  "energy-environment": "Enerji ve Cevre",
+  "daily-life": "Gunluk Hayat",
 };
 
 const TR_INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
   "heavy-industry":
-    "Makine süresi, fire, tolerans ve üretim hattı marjı.",
+    "Makine suresi, fire, tolerans ve uretim hatti marji.",
   "building-trades":
-    "Teklif riski, işçilik yükü ve malzeme kaybı.",
+    "Quote risk, labor load and material loss.",
   "field-services":
-    "Rota süresi, ekip kullanımı ve saha kârlılığı.",
+    "Rota suresi, ekip kullanimi ve saha kârliligi.",
   "food-retail":
-    "Gıda maliyeti, fire, marj ve servis verimliliği.",
+    "Gida maliyeti, fire, marj ve servis verimliligi.",
   "custom-manufacturing":
-    "Prototip, parti ve özel iş maliyetlendirme.",
+    "Prototip, parti ve ozel is maliyetlendirme.",
   "logistics-transport":
-    "Rota kaybı, yakıt maruziyeti ve teslimat marjı.",
+    "Rota kaybi, yakit maruziyeti ve teslimat marji.",
   "agriculture-livestock":
-    "Mahsul, yem, sulama ve hayvancılık verimliliği.",
+    "Mahsul, yem, sulama ve hayvancilik verimliligi.",
   "energy-environment":
-    "Pik yük, karbon maruziyeti ve enerji maliyeti.",
+    "Pik yuk, karbon maruziyeti ve enerji maliyeti.",
   "daily-life":
-    "Günlük tadilat, yakıt ve ev bütçesi hesapları.",
+    "Gunluk tadilat, yakit ve ev butcesi hesaplari.",
 };
 
 const TR_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
-  measurement_calibration: "Ölçüm ve Kalibrasyon",
-  scrap_waste: "Fire ve Atık",
+  measurement_calibration: "Measurement ve Kalibrasyon",
+  scrap_waste: "Fire ve Atik",
   oee_productivity: "OEE ve Verimlilik",
-  time_delay: "Süre ve Gecikme",
+  time_delay: "Sure ve Gecikme",
   route_logistics: "Rota ve Lojistik",
   cost_margin: "Maliyet ve Marj",
   energy_carbon: "Enerji ve Karbon",
-  benchmark_health: "Kıyaslama ve Sağlık",
+  benchmark_health: "Kiyaslama ve Saglik",
 };
 
 const TR_PREMIUM_GROUP_DESCRIPTIONS: Record<PremiumSchemaCatalogGroupId, string> = {
   measurement_calibration:
-    "Tolerans sapması, kalibrasyon baskısı ve ölçüm doğruluğu.",
-  scrap_waste: "Fire, yeniden iş ve malzeme kaybı.",
-  oee_productivity: "OEE, setup kaybı ve atölye verimliliği.",
-  time_delay: "Gecikme, yeniden iş süresi ve takvim kayması.",
-  route_logistics: "Rota kaybı, yakıt sapması ve nakliye marjı.",
-  cost_margin: "Maliyet yığını, marj baskısı ve fiyat kararları.",
-  energy_carbon: "Pik yük, enerji maliyeti ve karbon uyumu.",
-  benchmark_health: "Kıyaslama sapması, stok baskısı ve sağlık sinyalleri.",
+    "Tolerans sapmasi, kalibrasyon baskisi ve olcum dogrulugu.",
+  scrap_waste: "Fire, yeniden is ve malzeme loss.",
+  oee_productivity: "OEE, setup loss ve atolye verimliligi.",
+  time_delay: "Gecikme, yeniden is suresi ve takvim kaymasi.",
+  route_logistics: "Rota loss, yakit sapmasi ve nakliye marji.",
+  cost_margin: "Maliyet yigini, marj printingsi ve fiyat kararlari.",
+  energy_carbon: "Pik yuk, enerji maliyeti ve karbon uyumu.",
+  benchmark_health: "Kiyaslama sapmasi, stok printingsi ve saglik sinyalleri.",
 };
 
 const DE_PREMIUM_GROUP_LABELS: Record<PremiumSchemaCatalogGroupId, string> = {
   measurement_calibration: "Messung & Kalibrierung",
   scrap_waste: "Ausschuss & Abfall",
   oee_productivity: "OEE & Produktivität",
-  time_delay: "Zeit & Verzögerung",
+  time_delay: "Zeit & Verzogerung",
   route_logistics: "Route & Logistik",
   cost_margin: "Kosten & Marge",
   energy_carbon: "Energie & CO₂",
@@ -146,10 +146,10 @@ export type CatalogCtaLabels = {
 };
 
 const TR_CATALOG_CTA: CatalogCtaLabels = {
-  openIndustry: "Sektörü aç →",
-  viewAnalyzer: "Hesaplayıcıyı aç →",
-  viewCalculator: "Hesaplayıcıyı aç →",
-  openCalculator: "Hesaplayıcıyı aç →",
+  openIndustry: "Sektoru ac →",
+  viewAnalyzer: "Calculatoryi ac →",
+  viewCalculator: "Calculatoryi ac →",
+  openCalculator: "Calculatoryi ac →",
   premiumBadge: "Premium",
 };
 
@@ -162,10 +162,10 @@ const EN_CATALOG_CTA: CatalogCtaLabels = {
 };
 
 const DE_CATALOG_CTA: CatalogCtaLabels = {
-  openIndustry: "Branche öffnen →",
-  viewAnalyzer: "Rechner öffnen →",
-  viewCalculator: "Rechner öffnen →",
-  openCalculator: "Rechner öffnen →",
+  openIndustry: "Branche offnen →",
+  viewAnalyzer: "Rechner offnen →",
+  viewCalculator: "Rechner offnen →",
+  openCalculator: "Rechner offnen →",
   premiumBadge: "Premium",
 };
 

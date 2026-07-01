@@ -1,5 +1,5 @@
 /**
- * Tool #32 — Dikiş Hattı Dengeleyici
+ * Tool #32 — Dikis Hatti Dengeleyici
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SEWING_LINE_BALANCE_SCHEMA: PremiumCalculatorSchema = {
@@ -8,23 +8,23 @@ export const SEWING_LINE_BALANCE_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "If SMV distribution is not balanced on the sewing line, line efficiency drops, WIP accumulates, and delivery is delayed.", painStatement_i18n: {"en":"If SMV distribution is not balanced pre the sewing line, line efficiency drops, WIP accumulates, and delivery is delayed."},
   inputs: [
     { id: "smvTimes", label: "Array of SMV times per operation", label_i18n: {"en":"Array of SMV times per operation"}, type: "number", unit: "dak", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Array of SMV times per operation", expertMeaning_i18n: {"en":"Array of SMV times per operation"} },
-    { id: "availableTime", label: "Vardiya Süresi", label_i18n: {"en":"Shift Duration"}, type: "number", unit: "dak", required: true, smartDefault: 450, validation: { min: 1 }, helper: "", expertMeaning: "Available shift minutes", expertMeaning_i18n: {"en":"Available shift minutes"} },
+    { id: "availableTime", label: "Vardiya Suresi", label_i18n: {"en":"Shift Duration"}, type: "number", unit: "dak", required: true, smartDefault: 450, validation: { min: 1 }, helper: "", expertMeaning: "Available shift minutes", expertMeaning_i18n: {"en":"Available shift minutes"} },
     { id: "downtime", label: "Planned breaks & meetings", label_i18n: {"en":"Planned breaks & meetings"}, type: "number", unit: "dak", required: false, smartDefault: 30, validation: { min: 0 }, helper: "", expertMeaning: "Planned breaks & meetings", expertMeaning_i18n: {"en":"Planned breaks & meetings"} },
-    { id: "demand", label: "Günlük Hedef Adet", label_i18n: {"en":"Daily production target"}, type: "number", unit: "adet/gün", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Daily production target", expertMeaning_i18n: {"en":"Daily production target"} },
+    { id: "demand", label: "Gunluk Hedef Adet", label_i18n: {"en":"Daily production target"}, type: "number", unit: "adet/gun", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Daily production target", expertMeaning_i18n: {"en":"Daily production target"} },
     { id: "operatorCount", label: "Number of Operators", label_i18n: {"en":"Number of Operators"}, type: "number", unit: "", required: false, smartDefault: 5, validation: { min: 1 }, helper: "", expertMeaning: "Number of operators", expertMeaning_i18n: {"en":"Number of operators"} },
     { id: "targetEfficiency", label: "Hedef Verim", label_i18n: {"en":"Target Efficiency"}, type: "number", unit: "%", required: false, smartDefault: 85, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Target line efficiency", expertMeaning_i18n: {"en":"Target line efficiency"} },
     { id: "defectRate", label: "Defect Rate", label_i18n: {"en":"Defect Rate"}, type: "number", unit: "%", required: false, smartDefault: 3, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Defect rate", expertMeaning_i18n: {"en":"Defect rate"} },
-    { id: "cycleTotal", label: "Toplam SMV (Tüm Operasyonlar)", label_i18n: {"en":"Sum of all SMV times"}, type: "number", unit: "dak", required: true, smartDefault: 6.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Sum of all SMV times", expertMeaning_i18n: {"en":"Sum of all SMV times"} },
+    { id: "cycleTotal", label: "Toplam SMV (Tum Operasyonlar)", label_i18n: {"en":"Sum of all SMV times"}, type: "number", unit: "dak", required: true, smartDefault: 6.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Sum of all SMV times", expertMeaning_i18n: {"en":"Sum of all SMV times"} },
   ],
   outputs: [
-    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Time"}, unit: "dak", format: "number" },
+    { id: "taktTime", label: "Takt Suresi", label_i18n: {"en":"Takt Time"}, unit: "dak", format: "number" },
     { id: "cycleTotal", label: "Toplam SMV", label_i18n: {"en":"Total SMV"}, unit: "dak", format: "number" },
-    { id: "theoreticalOps", label: "Teorik Operatör", label_i18n: {"en":"Teorik Operator"}, unit: "kişi", format: "number" },
-    { id: "actualOperators", label: "Gercek Operator", label_i18n: {"en":"Actual Operator"}, unit: "kişi", format: "number" },
+    { id: "theoreticalOps", label: "Teorik Operator", label_i18n: {"en":"Teorik Operator"}, unit: "kisi", format: "number" },
+    { id: "actualOperators", label: "Gercek Operator", label_i18n: {"en":"Actual Operator"}, unit: "kisi", format: "number" },
     { id: "lineEfficiency", label: "Hat Verimliligi", label_i18n: {"en":"Line Verimliligi"}, unit: "%", format: "percentage" },
     { id: "balanceDelay", label: "Balance Loss", label_i18n: {"en":"Balance Loss"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "lineEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — SMV dağılımı iyileştirilmeli.", warningMessage_i18n: {"en":"Efficiency < 80% — SMV distribution should be improved."}, criticalMessage: "Verim < %70 — hat yeniden dengelenmeli.", criticalMessage_i18n: {"en":"Efficiency < %70 — Line re dengelenmeli."} }],
+  thresholds: [{ fieldId: "lineEfficiency", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — SMV dagilimi iyilestirilmeli.", warningMessage_i18n: {"en":"Efficiency < 80% — SMV distribution should be improved."}, criticalMessage: "Verim < %70 — hat yeniden dengelenmeli.", criticalMessage_i18n: {"en":"Efficiency < %70 — Line re dengelenmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.sewing_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },
     { formulaId: "measurement.sewing_line_efficiency", inputMap: { cycleTotal: "cycleTotal", actualOperators: "operatorCount", taktTime: "taktTime" ,

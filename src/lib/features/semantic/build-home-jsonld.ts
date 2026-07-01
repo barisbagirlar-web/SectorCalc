@@ -15,12 +15,12 @@ const CATALOG_NAMES: Record<string, Record<string, string>> = {
     sitemap: "Sitemap",
   },
   tr: {
-    main: "SectorCalc hesap makinesi kataloğu",
-    free: "Ücretsiz hesap makineleri",
-    premium: "Premium analiz araçları",
-    showcase: "Geliştirici vitrini",
+    main: "SectorCalc hesap makinesi katalogu",
+    free: "Ucretsiz hesap makineleri",
+    premium: "Premium analiz araclari",
+    showcase: "Gelistirici vitrini",
     llm: "LLM dizini",
-    sitemap: "Site haritası",
+    sitemap: "Site haritasi",
   },
   de: {
     main: "SectorCalc-Rechner-Katalog",

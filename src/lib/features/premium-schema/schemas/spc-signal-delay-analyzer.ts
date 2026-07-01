@@ -12,12 +12,12 @@ export const SPC_SIGNAL_DELAY_ANALYZER: PremiumCalculatorSchema = {
     { id: "sampleSize", label: "Subgroup Size", label_i18n: {"en":"Subgroup Size"}, type: "number", unit: "adet", required: false, smartDefault: 5, validation: { min: 1 }, helper: "", expertMeaning: "Subgroup sample size", expertMeaning_i18n: {"en":"Subgroup sample size"} },
     { id: "productionRate", label: "Hourly Production Rate", label_i18n: {"en":"Hourly Production Rate"}, type: "number", unit: "adet/saat", required: true, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Units produced per hour", expertMeaning_i18n: {"en":"Units produced per hour"} },
     { id: "costPerDefect", label: "Defective Product Cost", label_i18n: {"en":"Defective Product Cost"}, type: "number", unit: "USD/adet", required: true, smartDefault: 15, validation: { min: 0.01 }, helper: "", expertMeaning: "Cost per defective unit", expertMeaning_i18n: {"en":"Cost per defective unit"} },
-    { id: "operatingHoursPerYear", label: "Annual Operating Hours", label_i18n: {"en":"Annual Operating Hours"}, type: "number", unit: "saat/yıl", required: false, smartDefault: 4000, validation: { min: 1 }, helper: "", expertMeaning: "Operating hours per year", expertMeaning_i18n: {"en":"Operating hours per year"} },
+    { id: "operatingHoursPerYear", label: "Annual Operating Hours", label_i18n: {"en":"Annual Operating Hours"}, type: "number", unit: "saat/yil", required: false, smartDefault: 4000, validation: { min: 1 }, helper: "", expertMeaning: "Operating hours per year", expertMeaning_i18n: {"en":"Operating hours per year"} },
   ],
   outputs: [
-    { id: "arlInControl", label: "ARL In Control", label_i18n: {"en":"ARL In Control"}, unit: "örnek", format: "number" },
-    { id: "arlOutOfControl", label: "ARL Out of Control", label_i18n: {"en":"ARL Out of Control"}, unit: "örnek", format: "number" },
-    { id: "delayCost", label: "Sinyal Gecikme Maliyeti", label_i18n: {"en":"Signal Delay Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
+    { id: "arlInControl", label: "ARL In Control", label_i18n: {"en":"ARL In Control"}, unit: "ornek", format: "number" },
+    { id: "arlOutOfControl", label: "ARL Out of Control", label_i18n: {"en":"ARL Out of Control"}, unit: "ornek", format: "number" },
+    { id: "delayCost", label: "Sinyal Gecikme Maliyeti", label_i18n: {"en":"Signal Delay Cost"}, unit: "USD/yil", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "delayCost", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Delay cost >$50K — increase sampling frequency.", warningMessage_i18n: {"en":"Delay cost >$50K — increase sampling frequency."}, criticalMessage: "Delay cost >$100K — renew control chart parameters.", criticalMessage_i18n: {"en":"Delay cost >$100K — renew control chart parameters."} }],
   formulaPipeline: [

@@ -4,7 +4,7 @@ import { absoluteLocalizedUrl, SITE_URL } from "@/lib/features/semantic/site-url
 /**
  * Build an enhanced Developer Showcase (SoftwareSourceCode) schema.
  *
- * This is the "Geliştirici Vitrini" (Developer Showcase) schema that enables:
+ * This is the "Gelistirici Vitrini" (Developer Showcase) schema that enables:
  * - AI agents to discover SectorCalc as a callable tool/API
  * - Google to understand the software capabilities
  * - Semantic search engines to index the platform's API surface

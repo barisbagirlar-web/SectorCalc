@@ -27,7 +27,11 @@ class EnsureManifestStubsPlugin {
       const nextDir = path.join(process.cwd(), ".next");
       const serverDir = path.join(nextDir, "server");
       
-      // Ensure pages directory and _document / _app exist for Pages Router bugs
+      if (!fs.existsSync(serverDir)) {
+        fs.mkdirSync(serverDir, { recursive: true });
+      }
+
+      // Ensure pages directory and _document / _app exist for Pages Router fallback (Next.js 15 /404 generation bug)
       const pagesDir = path.join(serverDir, "pages");
       if (!fs.existsSync(pagesDir)) {
         fs.mkdirSync(pagesDir, { recursive: true });
@@ -37,40 +41,6 @@ class EnsureManifestStubsPlugin {
         if (!fs.existsSync(p)) {
           fs.writeFileSync(p, "module.exports = {};\n", "utf8");
         }
-      }
-
-      const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
-      const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
-      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
-      
-      if (!fs.existsSync(serverDir)) {
-        fs.mkdirSync(serverDir, { recursive: true });
-      }
-      
-      if (!fs.existsSync(appPathsManifestPath)) {
-        fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
-      }
-      if (!fs.existsSync(middlewareManifestPath)) {
-        fs.writeFileSync(
-          middlewareManifestPath,
-          JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
-          "utf8",
-        );
-      }
-      if (!fs.existsSync(pagesManifestPath)) {
-        fs.writeFileSync(pagesManifestPath, JSON.stringify({
-          "/_document": "pages/_document.js",
-          "/_app": "pages/_app.js"
-        }), "utf8");
-      }
-      
-      const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
-      if (!fs.existsSync(serverRefManifestPath)) {
-        fs.writeFileSync(
-          serverRefManifestPath,
-          JSON.stringify({ serverActions: [], version: 1 }),
-          "utf8",
-        );
       }
 
       const fontManifestPath = path.join(serverDir, "next-font-manifest.json");
@@ -86,12 +56,6 @@ class EnsureManifestStubsPlugin {
       const appBuildManifestPath = path.join(nextDir, "app-build-manifest.json");
       if (!fs.existsSync(appBuildManifestPath)) {
         fs.writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
-      }
-
-      // Next.js 15 requires pages-manifest.json even in App Router only projects.
-      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
-      if (!fs.existsSync(pagesManifestPath)) {
-        fs.writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
       }
 
       // Next.js 15 bug: trace collection crashes on app/_not-found/page.js.nft.json
@@ -123,6 +87,7 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         ...indexNowVerification,
+        { source: "/data/:path*.csv", destination: "/data/:path*.csv" },
         { source: "/about", destination: "/en/about" },
         { source: "/about-us", destination: "/en/about-us" },
         { source: "/account", destination: "/en/account" },
@@ -176,8 +141,9 @@ const nextConfig: NextConfig = {
 
   reactStrictMode: true,
   // Firebase Hosting web frameworks adapter handles server bundling.
-  // output: "standalone" is NOT used — it triggers trace collection ENOENT
-  // errors on Pages Router stubs that break Firebase SSR function deploy.
+  // Firebase Hosting web frameworks adapter handles server bundling.
+  // We have fixed the Next.js 15 ENOENT bugs with EnsureManifestStubsPlugin.
+  output: "standalone",
   serverExternalPackages: ["@react-pdf/renderer"],
   eslint: {
     // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).
@@ -207,9 +173,9 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
-  outputFileTracingIncludes: {
-    "/*": ["generated/schemas/**/*.json"],
-  },
+  // outputFileTracingIncludes disabled: schema JSONs are copied post-build
+  // by finalize-next-build.mjs, and trace collection crashes on stub modules
+  // (ENOENT .nft.json) that are not real server modules.
   experimental: {
     staleTimes: {
       dynamic: 30,

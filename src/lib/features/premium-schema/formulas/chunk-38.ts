@@ -73,7 +73,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.crop_yield_loss_7",
     family: "cost",
-    label: "Mahsul Verim Kaybı Analizörü — ROI_Intervention",
+    label: "Mahsul Verim Loss Analizoru — ROI_Intervention",
     fn: (inputs) => {
     const financialLoss = num(inputs, "financialLoss");
     const Recovered = num(inputs, "Recovered");
@@ -83,11 +83,11 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Makine Ekonomik Ömrü (7 formulas) ──,
+  // ── Makine Ekonomik Omru (7 formulas) ──,
   {
     id: "user.machine_economic_life_0",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — EUAC_Capital",
+    label: "Makine Ekonomik Omru — EUAC_Capital",
     fn: (inputs) => {
     const initialCost = num(inputs, "initialCost");
     const salvageValue = num(inputs, "salvageValue");
@@ -101,7 +101,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_1",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — EUAC_Operating",
+    label: "Makine Ekonomik Omru — EUAC_Operating",
     fn: (inputs) => {
     const opCost = num(inputs, "opCost");
     const t = num(inputs, "t");
@@ -117,7 +117,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_2",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — TotalEUAC",
+    label: "Makine Ekonomik Omru — TotalEUAC",
     fn: (inputs) => {
     const eUAC = num(inputs, "eUAC");
     const Capital = num(inputs, "Capital");
@@ -130,7 +130,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_3",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — EconomicLife",
+    label: "Makine Ekonomik Omru — EconomicLife",
     fn: (inputs) => {
     return 0; // EconomicLife = n where TotalEUAC is MINIMUM — requires solver
   },
@@ -138,7 +138,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_4",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — Defender_EUAC",
+    label: "Makine Ekonomik Omru — Defender_EUAC",
     fn: (inputs) => {
     const currentMarketValue = num(inputs, "currentMarketValue");
     const a = num(inputs, "a");
@@ -154,7 +154,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_5",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — Challenger_EUAC",
+    label: "Makine Ekonomik Omru — Challenger_EUAC",
     fn: (inputs) => {
     const eUAC = num(inputs, "eUAC");
     const NewMachine = num(inputs, "NewMachine");
@@ -165,7 +165,7 @@ export const CHUNK_38_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machine_economic_life_6",
     family: "cost",
-    label: "Makine Ekonomik Ömrü — ReplacementDecision",
+    label: "Makine Ekonomik Omru — ReplacementDecision",
     fn: (inputs) => {
     const defender = num(inputs, "defender");
     const challenger = num(inputs, "challenger");

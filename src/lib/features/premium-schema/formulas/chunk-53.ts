@@ -73,7 +73,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_0",
     family: "cost",
-    label: "Stok Devir hızı risk — InventoryTurnover",
+    label: "Stok Devir hizi risk — InventoryTurnover",
     fn: (inputs) => {
     const cOGS = num(inputs, "cOGS");
     const averageInventory = num(inputs, "averageInventory");
@@ -83,7 +83,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_1",
     family: "cost",
-    label: "Stok Devir hızı risk — DaysSalesInventory",
+    label: "Stok Devir hizi risk — DaysSalesInventory",
     fn: (inputs) => {
     const inventoryTurnover = num(inputs, "inventoryTurnover");
     return nonNegative(assertFinite(365 / inventoryTurnover));
@@ -92,7 +92,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_2",
     family: "cost",
-    label: "Stok Devir hızı risk — ObsolescenceRisk",
+    label: "Stok Devir hizi risk — ObsolescenceRisk",
     fn: (inputs) => {
     const agingBracket = num(inputs, "agingBracket");
     const i = num(inputs, "i");
@@ -107,7 +107,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_3",
     family: "cost",
-    label: "Stok Devir hızı risk — CarryingCost",
+    label: "Stok Devir hizi risk — CarryingCost",
     fn: (inputs) => {
     const averageInventory = num(inputs, "averageInventory");
     const wACC = num(inputs, "wACC");
@@ -120,7 +120,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_4",
     family: "cost",
-    label: "Stok Devir hızı risk — OptimalTurnover",
+    label: "Stok Devir hizi risk — OptimalTurnover",
     fn: (inputs) => {
     const industryBenchmark = num(inputs, "industryBenchmark");
     const adjustmentFactor = num(inputs, "adjustmentFactor");
@@ -130,7 +130,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_5",
     family: "cost",
-    label: "Stok Devir hızı risk — StockoutRisk",
+    label: "Stok Devir hizi risk — StockoutRisk",
     fn: (inputs) => {
     const turnover = num(inputs, "turnover");
     const maxThreshold = num(inputs, "maxThreshold");
@@ -142,7 +142,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.inventory_turnover_risk_6",
     family: "cost",
-    label: "Stok Devir hızı risk — LiquidationLoss",
+    label: "Stok Devir hizi risk — LiquidationLoss",
     fn: (inputs) => {
     const slowMovingInventory = num(inputs, "slowMovingInventory");
     const salvageValuePct = num(inputs, "salvageValuePct");
@@ -150,11 +150,11 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Su Kullanımı Optimize Edici (8 formulas) ──,
+  // ── Su Kullanimi Optimize Edici (8 formulas) ──,
   {
     id: "user.water_usage_optimizer_0",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — WaterIntensity",
+    label: "Su Kullanimi Optimize Edici — WaterIntensity",
     fn: (inputs) => {
     const totalWaterConsumed = num(inputs, "totalWaterConsumed");
     const productionVolume = num(inputs, "productionVolume");
@@ -164,7 +164,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_1",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — BaselineConsumption",
+    label: "Su Kullanimi Optimize Edici — BaselineConsumption",
     fn: (inputs) => {
     const historicalAvg = num(inputs, "historicalAvg");
     const productionVolume = num(inputs, "productionVolume");
@@ -174,7 +174,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_2",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — WaterSavings",
+    label: "Su Kullanimi Optimize Edici — WaterSavings",
     fn: (inputs) => {
     const baselineConsumption = num(inputs, "baselineConsumption");
     const actualConsumption = num(inputs, "actualConsumption");
@@ -184,7 +184,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_3",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — CostSavings",
+    label: "Su Kullanimi Optimize Edici — CostSavings",
     fn: (inputs) => {
     const waterSavings = num(inputs, "waterSavings");
     const waterSupplyRate = num(inputs, "waterSupplyRate");
@@ -195,7 +195,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_4",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — RecycleRate",
+    label: "Su Kullanimi Optimize Edici — RecycleRate",
     fn: (inputs) => {
     const recycledWater = num(inputs, "recycledWater");
     const totalWaterConsumed = num(inputs, "totalWaterConsumed");
@@ -205,7 +205,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_5",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — LeakLoss",
+    label: "Su Kullanimi Optimize Edici — LeakLoss",
     fn: (inputs) => {
     const totalSupplied = num(inputs, "totalSupplied");
     const totalMetered = num(inputs, "totalMetered");
@@ -215,7 +215,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_6",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — ROI_Water",
+    label: "Su Kullanimi Optimize Edici — ROI_Water",
     fn: (inputs) => {
     const costSavings = num(inputs, "costSavings");
     const equipmentCost = num(inputs, "equipmentCost");
@@ -226,7 +226,7 @@ export const CHUNK_53_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.water_usage_optimizer_7",
     family: "cost",
-    label: "Su Kullanımı Optimize Edici — CarbonFootprint_Water",
+    label: "Su Kullanimi Optimize Edici — CarbonFootprint_Water",
     fn: (inputs) => {
     const totalConsumed = num(inputs, "totalConsumed");
     const energyIntensity = num(inputs, "energyIntensity");

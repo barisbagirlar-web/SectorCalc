@@ -51,14 +51,14 @@ describe("locale-field-copy-quality", () => {
   it("flags mixed EN/TR residue", () => {
     expect(
       hasCalculatorFieldCopyResidue("tr", {
-        label: "Replacement Süre",
-        helper: "Süre Gerekli to replace veya index takım.",
+        label: "Replacement Sure",
+        helper: "Sure Gerekli to replace veya index takim.",
       }),
     ).toBe(true);
     expect(
       hasCalculatorFieldCopyResidue("tr", {
-        label: "Birim Başına Takım Maliyeti",
-        helper: "Tek bir kesici takımın veya uç satın alma fiyatı.",
+        label: "Birim Basina Takim Maliyeti",
+        helper: "Tek bir kesici takimin veya uc satin alma fiyati.",
       }),
     ).toBe(false);
   });
@@ -72,7 +72,7 @@ describe("locale-field-copy-quality", () => {
 describe("resolve-tool-display-chrome", () => {
   it("uses localized title and skips technical primary key in summary", () => {
     expect(resolveGeneratedToolTitle("tool-wear-cost-calculator", schema, "tr")).toBe(
-      "Takım Aşınma Maliyeti Hesaplayıcı",
+      "Takim Asinma Maliyeti Hesaplayici",
     );
 
     const chrome = resolveToolDisplayChrome("tool-wear-cost-calculator", schema, "tr");
@@ -82,9 +82,9 @@ describe("resolve-tool-display-chrome", () => {
 
   it("returns Turkish keyword tags from generated bundle", () => {
     const tags = resolveToolKeywordTags("tool-wear-cost-calculator", schema, "tr");
-    expect(tags[0]).toBe("Takım Birim Maliyeti");
-    expect(tags[1]).toBe("Takım Ömrü (Takım Başına Parça)");
-    expect(tags[2]).toBe("Değiştirme Süresi");
+    expect(tags[0]).toBe("Takim Birim Maliyeti");
+    expect(tags[1]).toBe("Takim Omru (Takim Basina Parca)");
+    expect(tags[2]).toBe("Degistirme Suresi");
   });
 
   it("skips camelCase formula keys like totalBoot in summary", () => {
@@ -123,8 +123,8 @@ describe("resolveFreeToolFieldDisplay", () => {
       helper: "Purchase price of a single cutting tool or insert.",
     });
 
-    expect(resolved.label).toBe("Takım Birim Maliyeti");
-    expect(resolved.helper).toContain("kesici takım");
+    expect(resolved.label).toBe("Takim Birim Maliyeti");
+    expect(resolved.helper).toContain("kesici takim");
     expect(hasCalculatorFieldCopyResidue("tr", resolved)).toBe(false);
   });
 });

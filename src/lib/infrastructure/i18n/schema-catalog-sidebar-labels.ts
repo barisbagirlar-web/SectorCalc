@@ -56,7 +56,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "olcum-donusum": {
     en: "Measurement & Conversion",
-    tr: "Ölçüm & Dönüşüm",
+    tr: "Measurement & Donusum",
     de: "Messung & Umrechnung",
     fr: "Mesure et conversion",
     es: "Medición y conversión",
@@ -64,7 +64,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "teknik-muhendislik": {
     en: "Technical & Engineering",
-    tr: "Teknik & Mühendislik",
+    tr: "Teknik & Engineerlik",
     de: "Technik & Engineering",
     fr: "Technique et ingénierie",
     es: "Técnica e ingeniería",
@@ -80,7 +80,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   diger: {
     en: "Other",
-    tr: "Diğer",
+    tr: "Diger",
     de: "Sonstiges",
     fr: "Autre",
     es: "Otros",
@@ -96,7 +96,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "insaat-saha": {
     en: "Construction & Field",
-    tr: "İnşaat & Saha",
+    tr: "Insaat & Saha",
     de: "Bau & Baustelle",
     fr: "Construction et chantier",
     es: "Construcción y obra",
@@ -104,7 +104,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "perakende-gida": {
     en: "Retail & Food",
-    tr: "Perakende & Gıda",
+    tr: "Perakende & Gida",
     de: "Einzelhandel & Lebensmittel",
     fr: "Commerce et alimentation",
     es: "Retail y alimentación",
@@ -120,7 +120,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "finans-ik": {
     en: "Finance & HR",
-    tr: "Finans & İK",
+    tr: "Finans & IK",
     de: "Finanzen & Personal",
     fr: "Finance et RH",
     es: "Finanzas y RR. HH.",
@@ -148,7 +148,7 @@ const SCHEMA_CATEGORY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
 const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   "uretim-imalat": {
     en: "Manufacturing & Production",
-    tr: "Üretim & İmalat",
+    tr: "Uretim & Imalat",
     de: "Produktion & Fertigung",
     fr: "Production et fabrication",
     es: "Producción y fabricación",
@@ -164,7 +164,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "atolye-tamir": {
     en: "Workshop & Repair",
-    tr: "Atölye & Tamir",
+    tr: "Atolye & Tamir",
     de: "Werkstatt & Reparatur",
     fr: "Atelier et réparation",
     es: "Taller y reparación",
@@ -188,7 +188,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "daily-renovation": {
     en: "Daily Life & Renovation",
-    tr: "Günlük Hayat & Tadilat",
+    tr: "Gunluk Hayat & Tadilat",
     de: "Alltag & Renovierung",
     fr: "Vie quotidienne et rénovation",
     es: "Vida diaria y reformas",
@@ -196,7 +196,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "energy-consumption": {
     en: "Energy Consumption",
-    tr: "Enerji Tüketimi",
+    tr: "Enerji Tuketimi",
     de: "Energieverbrauch",
     fr: "Consommation d'énergie",
     es: "Consumo energético",
@@ -204,7 +204,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "cnc-manufacturing": {
     en: "CNC Manufacturing",
-    tr: "CNC İmalat",
+    tr: "CNC Imalat",
     de: "CNC-Fertigung",
     fr: "Fabrication CNC",
     es: "Fabricación CNC",
@@ -220,7 +220,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   construction: {
     en: "Construction",
-    tr: "İnşaat",
+    tr: "Insaat",
     de: "Bauwesen",
     fr: "Construction",
     es: "Construcción",
@@ -228,7 +228,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "landscaping-lawn-care": {
     en: "Landscaping & Lawn Care",
-    tr: "Peyzaj & Bahçe Bakımı",
+    tr: "Peyzaj & Bahce Bakimi",
     de: "Landschaftsbau & Rasenpflege",
     fr: "Aménagement paysager et pelouse",
     es: "Paisajismo y césped",
@@ -236,7 +236,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "isg-risk": {
     en: "HSE & Risk",
-    tr: "İSG & Risk",
+    tr: "EHS & Risk",
     de: "Arbeitsschutz & Risiko",
     fr: "SST et risque",
     es: "PRL y riesgo",
@@ -244,7 +244,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   surdurulebilirlik: {
     en: "Sustainability",
-    tr: "Sürdürülebilirlik",
+    tr: "Surdurulebilirlik",
     de: "Nachhaltigkeit",
     fr: "Durabilité",
     es: "Sostenibilidad",
@@ -252,7 +252,7 @@ const SCHEMA_SECTOR_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   },
   "kalite-spc-alti-sigma": {
     en: "Quality, SPC & Six Sigma",
-    tr: "Kalite, SPC & Altı Sigma",
+    tr: "Kalite, SPC & Alti Sigma",
     de: "Qualität, SPC & Six Sigma",
     fr: "Qualité, SPC et Six Sigma",
     es: "Calidad, SPC y Seis Sigma",

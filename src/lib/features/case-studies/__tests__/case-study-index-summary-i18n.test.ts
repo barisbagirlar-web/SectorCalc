@@ -6,7 +6,7 @@ import { listPublishedCaseStudies } from "@/lib/features/case-studies/published-
 const INDEX_SUMMARY_LABELS = {
   tr: {
     lineSavingsOnly: ({ company, savings }: { company: string; savings: string }) =>
-      `${company}: ${savings} belgelenmiş tasarruf`,
+      `${company}: ${savings} belgelenmis tasarruf`,
     lineWithMetric: ({
       company,
       metric,

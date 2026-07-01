@@ -145,11 +145,11 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Ödeme Vadesi Optimize Edici (7 formulas) ──,
+  // ── Odeme Vadesi Optimize Edici (7 formulas) ──,
   {
     id: "user.payment_terms_optimizer_0",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — DSO",
+    label: "Odeme Vadesi Optimize Edici — DSO",
     fn: (inputs) => {
     const accountsReceivable = num(inputs, "accountsReceivable");
     const revenue = num(inputs, "revenue");
@@ -160,7 +160,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_1",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — CarryingCost_AR",
+    label: "Odeme Vadesi Optimize Edici — CarryingCost_AR",
     fn: (inputs) => {
     const averageAR = num(inputs, "averageAR");
     const wACC = num(inputs, "wACC");
@@ -170,7 +170,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_2",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — BadDebtExpense",
+    label: "Odeme Vadesi Optimize Edici — BadDebtExpense",
     fn: (inputs) => {
     const revenue = num(inputs, "revenue");
     const defaultRate = num(inputs, "defaultRate");
@@ -180,7 +180,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_3",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — DiscountCost",
+    label: "Odeme Vadesi Optimize Edici — DiscountCost",
     fn: (inputs) => {
     const earlyPaymentDiscountPct = num(inputs, "earlyPaymentDiscountPct");
     const discountTakeRate = num(inputs, "discountTakeRate");
@@ -191,7 +191,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_4",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — OptimalTerms",
+    label: "Odeme Vadesi Optimize Edici — OptimalTerms",
     fn: (inputs) => {
     return 0; // OptimalTerms = Terms where (CarryingCost + BadDebt - DiscountCost) is MINIMUM — requires solver
   },
@@ -199,7 +199,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_5",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — CashFlowImpact",
+    label: "Odeme Vadesi Optimize Edici — CashFlowImpact",
     fn: (inputs) => {
     const newDSO = num(inputs, "newDSO");
     const oldDSO = num(inputs, "oldDSO");
@@ -210,7 +210,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.payment_terms_optimizer_6",
     family: "cost",
-    label: "Ödeme Vadesi Optimize Edici — NPV_Terms",
+    label: "Odeme Vadesi Optimize Edici — NPV_Terms",
     fn: (inputs) => {
     const cashInflow = num(inputs, "cashInflow");
     const t = num(inputs, "t");
@@ -220,11 +220,11 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Öğrenme Eğrisi Süre Tahmincisi (8 formulas) ──,
+  // ── Ogrenme Egrisi Sure Tahmincisi (8 formulas) ──,
   {
     id: "user.learning_curve_time_0",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — LearningRate",
+    label: "Ogrenme Egrisi Sure Tahmincisi — LearningRate",
     fn: (inputs) => {
     const time = num(inputs, "time");
     const time_2N = num(inputs, "time_2N") || 0;
@@ -235,7 +235,7 @@ export const CHUNK_43_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.learning_curve_time_1",
     family: "cost",
-    label: "Öğrenme Eğrisi Süre Tahmincisi — Slope_b",
+    label: "Ogrenme Egrisi Sure Tahmincisi — Slope_b",
     fn: (inputs) => {
     const learningRate = num(inputs, "learningRate");
     const log = num(inputs, "log") || 0;

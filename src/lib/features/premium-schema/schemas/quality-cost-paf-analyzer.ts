@@ -24,7 +24,7 @@ export const QUALITY_COST_PAF_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalRevenue", label: "Toplam Gelir", label_i18n: {"en":"Total Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 2000000, validation: { min: 1 }, helper: "", expertMeaning: "Total revenue for COQ ratio", expertMeaning_i18n: {"en":"Total revenue for COQ ratio"} },
   ],
   outputs: [
-    { id: "prevention", label: "Önleme Maliyeti", label_i18n: {"en":"Onleme Cost"}, unit: "USD", format: "currency" },
+    { id: "prevention", label: "Onleme Maliyeti", label_i18n: {"en":"Onleme Cost"}, unit: "USD", format: "currency" },
     { id: "appraisal", label: "Degerlendirme Maliyeti", label_i18n: {"en":"Degerlendirme Cost"}, unit: "USD", format: "currency" },
     { id: "internalFailure", label: "Ic Basarszlk", label_i18n: {"en":"Internal Basarszlk"}, unit: "USD", format: "currency" },
     { id: "externalFailure", label: "Ds Basarszlk", label_i18n: {"en":"Ds Basarszlk"}, unit: "USD", format: "currency" },

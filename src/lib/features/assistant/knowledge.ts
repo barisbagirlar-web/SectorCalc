@@ -22,7 +22,7 @@ const STOP_WORDS = new Set([
   "is", "are", "what", "with", "me", "can", "best", "good",
   "bir", "ve", "bu", "ile", "icin", "ben", "sen", "o", "biz",
   "siz", "onlar", "araci", "hesaplama", "hesaplayici", "analiz",
-  "araç", "veya", "ama", "cok", "daha", "kadar", "gibi", "sonra",
+  "arac", "veya", "ama", "cok", "daha", "kadar", "gibi", "sonra",
   "once", "yani", "ancak", "ise", "mi", "mu", "de", "da",
 ]);
 

@@ -15,8 +15,8 @@ describe("real-return-calculator", () => {
   } as unknown as Real_return_calculatorInput;
     const result = calculateReal_return_calculator(input);
     expect(result).toBeDefined();
-    // Stub-tolerant: NaN kabul edilir (stub formüller henüz NaN üretebilir)
-    // Gerçek formül geldiğinde Number.isFinite eklenebilir
+    // Stub-tolerant: NaN kabul edilir (stub formuller henuz NaN uretebilir)
+    // Gercek formul geldiginde Number.isFinite eklenebilir
     expect(typeof result.totalWasteCost).toBe("number");
     expect(result.breakdown).toBeDefined();
     expect(Array.isArray(result.hiddenLossDrivers)).toBe(true);

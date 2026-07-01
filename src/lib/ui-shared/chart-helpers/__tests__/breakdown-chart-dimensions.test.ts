@@ -29,13 +29,13 @@ const SMED_LOCALIZED_LABELS: Record<
   Record<keyof typeof SMED_LABEL_MAP, string>
 > = {
   tr: {
-    external_operations_percentage: "Harici Operasyon Yüzdesi",
-    theoretical_minimum_changeover: "Theoretical Minimum Changeover Süre",
-    achievable_changeover_time: "Achievable Changeover Süre",
+    external_operations_percentage: "Harici Operasyon Yuzdesi",
+    theoretical_minimum_changeover: "Theoretical Minimum Changeover Sure",
+    achievable_changeover_time: "Achievable Changeover Sure",
     reduction_potential: "Reduction Potential",
-    reduction_percentage: "İyileştirme Yüzdesi",
-    standardization_factor: "Standardization Faktör",
-    waste_motion_factor: "Atık Hareket Faktörü",
+    reduction_percentage: "Iyilestirme Yuzdesi",
+    standardization_factor: "Standardization Faktor",
+    waste_motion_factor: "Atik Hareket Faktoru",
   },
   de: {
     external_operations_percentage: "Anteil externer Vorgänge",

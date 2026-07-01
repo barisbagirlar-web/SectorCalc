@@ -73,7 +73,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.compressed_air_energy_cost_4",
     family: "cost",
-    label: "BASINÇLI HAVA ENERJİ — TotalAnnualCost",
+    label: "COMPRESSED AIR ENERGY — TotalAnnualCost",
     fn: (inputs) => {
     const annualEnergyCost = num(inputs, "annualEnergyCost");
     const leakageCost = num(inputs, "leakageCost");
@@ -84,11 +84,11 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── BAŞABAŞ NOKTASI (6 formulas) ──,
+  // ── BREAK-EVEN POINT (6 formulas) ──,
   {
     id: "user.break_even_margin_of_safety_0",
     family: "cost",
-    label: "BAŞABAŞ NOKTASI — BEP_Units",
+    label: "BREAK-EVEN POINT — BEP_Units",
     fn: (inputs) => {
     const fixedCosts = num(inputs, "fixedCosts");
     const unitPrice = num(inputs, "unitPrice");
@@ -99,7 +99,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.break_even_margin_of_safety_1",
     family: "cost",
-    label: "BAŞABAŞ NOKTASI — BEP_Revenue",
+    label: "BREAK-EVEN POINT — BEP_Revenue",
     fn: (inputs) => {
     const fixedCosts = num(inputs, "fixedCosts");
     const cMR = num(inputs, "cMR");
@@ -109,7 +109,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.break_even_margin_of_safety_2",
     family: "cost",
-    label: "BAŞABAŞ NOKTASI — CMR",
+    label: "BREAK-EVEN POINT — CMR",
     fn: (inputs) => {
     const unitPrice = num(inputs, "unitPrice");
     const unitVariableCost = num(inputs, "unitVariableCost");
@@ -119,7 +119,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.break_even_margin_of_safety_3",
     family: "cost",
-    label: "BAŞABAŞ NOKTASI — MarginOfSafety_Percent",
+    label: "BREAK-EVEN POINT — MarginOfSafety_Percent",
     fn: (inputs) => {
     const actualSales = num(inputs, "actualSales");
     const bEP = num(inputs, "bEP");
@@ -131,7 +131,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.break_even_margin_of_safety_4",
     family: "cost",
-    label: "BAŞABAŞ NOKTASI — OperatingLeverage",
+    label: "BREAK-EVEN POINT — OperatingLeverage",
     fn: (inputs) => {
     const contributionMargin = num(inputs, "contributionMargin");
     const netOperatingIncome = num(inputs, "netOperatingIncome");
@@ -141,7 +141,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.break_even_margin_of_safety_5",
     family: "cost",
-    label: "BAŞABAŞ NOKTASI — TargetProfit_Units",
+    label: "BREAK-EVEN POINT — TargetProfit_Units",
     fn: (inputs) => {
     const fixedCosts = num(inputs, "fixedCosts");
     const targetProfit = num(inputs, "targetProfit");
@@ -150,11 +150,11 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── BETON HACMİ (8 formulas) ──,
+  // ── CONCRETE VOLUME (8 formulas) ──,
   {
     id: "user.concrete_volume_cost_0",
     family: "cost",
-    label: "BETON HACMİ — V_slab",
+    label: "CONCRETE VOLUME — V_slab",
     fn: (inputs) => {
     const length = num(inputs, "length");
     const width = num(inputs, "width");
@@ -165,7 +165,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_1",
     family: "cost",
-    label: "BETON HACMİ — V_footing",
+    label: "CONCRETE VOLUME — V_footing",
     fn: (inputs) => {
     const length = num(inputs, "length");
     const width = num(inputs, "width");
@@ -177,7 +177,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_2",
     family: "cost",
-    label: "BETON HACMİ — V_column",
+    label: "CONCRETE VOLUME — V_column",
     fn: (inputs) => {
     const diameter = num(inputs, "diameter");
     const height = num(inputs, "height");
@@ -188,7 +188,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_3",
     family: "cost",
-    label: "BETON HACMİ — V_wall",
+    label: "CONCRETE VOLUME — V_wall",
     fn: (inputs) => {
     const length = num(inputs, "length");
     const height = num(inputs, "height");
@@ -199,7 +199,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_4",
     family: "cost",
-    label: "BETON HACMİ — V_total",
+    label: "CONCRETE VOLUME — V_total",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const geometric = num(inputs, "geometric");
@@ -211,7 +211,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_5",
     family: "cost",
-    label: "BETON HACMİ — Weight",
+    label: "CONCRETE VOLUME — Weight",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const total = num(inputs, "total");
@@ -223,7 +223,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_6",
     family: "cost",
-    label: "BETON HACMİ — TruckLoads",
+    label: "CONCRETE VOLUME — TruckLoads",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const total = num(inputs, "total");
@@ -236,7 +236,7 @@ export const CHUNK_05_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.concrete_volume_cost_7",
     family: "cost",
-    label: "BETON HACMİ — TotalCost",
+    label: "CONCRETE VOLUME — TotalCost",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const total = num(inputs, "total");

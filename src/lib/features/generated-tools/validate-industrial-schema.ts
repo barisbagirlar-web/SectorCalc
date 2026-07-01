@@ -70,7 +70,7 @@ function isCostOrientedTool(raw: Record<string, unknown>): boolean {
   const title = String(raw.title ?? "").toLowerCase();
   const description = String(raw.description ?? "").toLowerCase();
   const blob = `${title} ${description}`;
-  return /cost|maliyet|price|fiyat|waste|kayıp|loss|roi|margin|karbon|carbon/.test(blob);
+  return /cost|maliyet|price|fiyat|waste|kayip|loss|roi|margin|karbon|carbon/.test(blob);
 }
 
 export type IndustrialValidationResult = {

@@ -63,7 +63,7 @@ describe("runtime trust engine", () => {
 
   test("generic label value fails trust eligibility", () => {
     const result = evaluateRuntimeTrust({
-      slug: "basincli-kap-cidar-kalinligi-hesabi",
+      slug: "basincli-kap-cidar-kalinligi-calc",
       locale: "tr",
       surface: "premium",
     });
@@ -71,7 +71,7 @@ describe("runtime trust engine", () => {
     expect(result.findings.some((f) => f.includes("generic") || f.includes("label"))).toBe(true);
   });
 
-  test("mixed label Aylık fee fails trust eligibility", () => {
+  test("mixed label Aylik fee fails trust eligibility", () => {
     const result = evaluateRuntimeTrust({
       slug: ERT_PROBLEM_SLUG,
       locale: "tr",

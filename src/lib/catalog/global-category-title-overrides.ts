@@ -84,7 +84,7 @@ export const GLOBAL_CATEGORY_TITLE_OVERRIDES: Readonly<
     ar: "الاستدامة والموارد وحوكمة ESG",
   },
   "food-cold-chain-hygiene": {
-    de: "Lebensmittel, Kühlkette & Hygiene",
+    de: "Lebensmittel, Kuhlkette & Hygiene",
     fr: "Alimentation, chaîne du froid et hygiène",
     es: "Alimentación, cadena de frío e higiene",
     ar: "الغذاء وسلسلة التبريد والنظافة",

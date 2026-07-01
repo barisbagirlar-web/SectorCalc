@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-volume-cost-analyzer", legacyPaidSlug: "weld-volume-cost-analyzer",
   name: "Weld Volume & Cost Analyzer", name_i18n: {"en":"Weld Volume & Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur.", painStatement_i18n: {"en":"If resource Volume and Filler Cost are not calculated, material and labor expenses exceed estimates."},
+  painStatement: "Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin uzerinde malzeme ve iscilik expensei olusur.", painStatement_i18n: {"en":"If resource Volume and Filler Cost are not calculated, material and labor expenses exceed estimates."},
   inputs: [
     { id: "leg", label: "Fillet weld leg size", label_i18n: {"en":"Fillet weld leg size"}, type: "number", unit: "mm", required: true, smartDefault: 6, validation: { min: 1 }, helper: "", expertMeaning: "Fillet weld leg size", expertMeaning_i18n: {"en":"Fillet weld leg size"} },
     { id: "weldLength", label: "Total weld length", label_i18n: {"en":"Total weld length"}, type: "number", unit: "m", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "", expertMeaning: "Total weld length", expertMeaning_i18n: {"en":"Total weld length"} },
@@ -10,7 +10,7 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "depEff", label: "Biriktirme Verimi", label_i18n: {"en":"Biriktirme Efficiency"}, type: "number", unit: "", required: false, smartDefault: 0.8, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Deposition efficiency", expertMeaning_i18n: {"en":"Deposition efficiency"} },
     { id: "pricePerKg", label: "Filler wire price", label_i18n: {"en":"Filler wire price"}, type: "number", unit: "USD/kg", required: true, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Filler wire price", expertMeaning_i18n: {"en":"Filler wire price"} },
     { id: "gasFlowRate", label: "Gaz Debisi", label_i18n: {"en":"Gaz Debisi"}, type: "number", unit: "L/dk", required: false, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Shielding gas flow rate", expertMeaning_i18n: {"en":"Shielding gas flow rate"} },
-    { id: "arcTime", label: "Ark Süresi", label_i18n: {"en":"Total arc-on time"}, type: "number", unit: "saat", required: true, smartDefault: 2, validation: { min: 0.1 }, helper: "", expertMeaning: "Total arc-on time", expertMeaning_i18n: {"en":"Total arc-on time"} },
+    { id: "arcTime", label: "Ark Suresi", label_i18n: {"en":"Total arc-on time"}, type: "number", unit: "saat", required: true, smartDefault: 2, validation: { min: 0.1 }, helper: "", expertMeaning: "Total arc-on time", expertMeaning_i18n: {"en":"Total arc-on time"} },
     { id: "gasPrice", label: "Gas price per liter", label_i18n: {"en":"Gas price per liter"}, type: "number", unit: "USD/L", required: false, smartDefault: 0.05, validation: { min: 0 }, helper: "", expertMeaning: "Gas price per liter", expertMeaning_i18n: {"en":"Gas price per liter"} },
     { id: "voltage", label: "Voltaj", label_i18n: {"en":"Voltaj"}, type: "number", unit: "V", required: false, smartDefault: 26, validation: { min: 0 }, helper: "", expertMeaning: "Welding voltage", expertMeaning_i18n: {"en":"Welding voltage"} },
     { id: "current", label: "Welding current", label_i18n: {"en":"Welding current"}, type: "number", unit: "A", required: false, smartDefault: 280, validation: { min: 0 }, helper: "", expertMeaning: "Welding current", expertMeaning_i18n: {"en":"Welding current"} },
@@ -29,7 +29,7 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "powerCost", label: "Energy Cost", label_i18n: {"en":"Energy Cost"}, unit: "USD", format: "currency" },
     { id: "totalWeldCost", label: "Toplam Kaynak Maliyeti", label_i18n: {"en":"Total resource Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalWeldCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Kaynak maliyeti > $5K — proses optimizasyonu değerlendirilmeli.", warningMessage_i18n: {"en":"resource Cost > $5K — Process optimization should be evaluated."}, criticalMessage: "Kaynak maliyeti > $15K — yöntem değişikliği gerekebilir.", criticalMessage_i18n: {"en":"resource Cost > $15K — method change gerekebilir."} }],
+  thresholds: [{ fieldId: "totalWeldCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Kaynak maliyeti > $5K — proses optimizasyonu degerlendirilmeli.", warningMessage_i18n: {"en":"resource Cost > $5K — Process optimization should be evaluated."}, criticalMessage: "Kaynak maliyeti > $15K — yontem degisikligi gerekebilir.", criticalMessage_i18n: {"en":"resource Cost > $15K — method change gerekebilir."} }],
   formulaPipeline: [
     { formulaId: "measurement.weld_area", inputMap: { leg: "leg" }, outputId: "weldArea" },
     { formulaId: "measurement.weld_volume", inputMap: { weldArea: "weldArea", weldLength: "weldLength" }, outputId: "weldVolume" },
@@ -46,5 +46,5 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.weld_total_cost", inputMap: { fillerCost: "fillerCost", gasCost: "gasCost", powerCost: "powerCost", arcTime: "arcTime", depRate: "depRate", laborRate: "laborRate" }, outputId: "totalWeldCost" },
   ],
   reportTemplate: { title: "Kaynak Hacim ve Maliyet Raporu", title_i18n: {"en":"resource Hacim ve Cost Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kesit = Leg²/2. Hacim = Alan × Uzunluk.", "Biriktirme = Hacim × Yoğunluk.", "Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."],assumptionNotes_i18n:[{"en":"Kesit = Leg²/2. Hacim = Alan × Uzunluk."},{"en":"Accumulation = Volume × Density."},{"en":"Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kesit = Leg²/2. Hacim = Alan × Uzunluk.", "Biriktirme = Hacim × Yogunluk.", "Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."],assumptionNotes_i18n:[{"en":"Kesit = Leg²/2. Hacim = Alan × Uzunluk."},{"en":"Accumulation = Volume × Density."},{"en":"Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."}] },
 };

@@ -18,7 +18,7 @@ export type PreviewStaticParamFamily =
   | "generic";
 
 /** Revenue-gate control slug — must remain buildable in preview. */
-export const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-hesabi";
+export const PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-calc";
 
 const DEFAULT_KEEP_LOCALES = SUPPORTED_LOCALES;
 
@@ -61,7 +61,7 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
     "cnc-oee-loss",
     "cloud-api-cost-overrun",
     "7-israf-muda-avcisi-parasal-karsilik-calculator",
-    "abonelik-yazilim-cloud-yillik-maliyet-hesabi",
+    "abonelik-yazilim-cloud-yillik-maliyet-calc",
   ],
   seo: [
     "3d-print-job-margin-tool",

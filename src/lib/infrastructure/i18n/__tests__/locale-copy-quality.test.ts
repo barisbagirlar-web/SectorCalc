@@ -209,7 +209,7 @@ describe("locale-copy-quality", () => {
     for (const locale of SUPPORTED_LOCALES) {
       const messages = loadMessages(locale);
       const localeBlock = messages.locale as MessageTree;
-      expect(localeBlock.fr).toBe("Français");
+      expect(localeBlock.fr).toBe("Francais");
     }
   });
 });

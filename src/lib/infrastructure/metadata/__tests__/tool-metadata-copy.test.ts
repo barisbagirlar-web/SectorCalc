@@ -10,7 +10,7 @@ import {
 describe("tool-metadata-copy", () => {
   test("resolves tier labels for all supported locales", () => {
     expect(resolveToolTierLabel("en", "free")).toBe("Free");
-    expect(resolveToolTierLabel("tr", "free")).toBe("Ücretsiz");
+    expect(resolveToolTierLabel("tr", "free")).toBe("Ucretsiz");
     expect(resolveToolTierLabel("de", "free")).toBe("Kostenlos");
     expect(resolveToolTierLabel("fr", "free")).toBe("Gratuit");
     expect(resolveToolTierLabel("es", "free")).toBe("Gratis");

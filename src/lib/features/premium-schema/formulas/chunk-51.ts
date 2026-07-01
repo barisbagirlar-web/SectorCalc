@@ -73,7 +73,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_0",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — CurrentSetupTime",
+    label: "SMED Degisim Optimize Edici — CurrentSetupTime",
     fn: (inputs) => {
     const internal = num(inputs, "internal");
     const Current = num(inputs, "Current");
@@ -86,7 +86,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_1",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — TargetSetupTime",
+    label: "SMED Degisim Optimize Edici — TargetSetupTime",
     fn: (inputs) => {
     const internal = num(inputs, "internal");
     const Target = num(inputs, "Target");
@@ -99,7 +99,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_2",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — ConversionRate",
+    label: "SMED Degisim Optimize Edici — ConversionRate",
     fn: (inputs) => {
     const internal = num(inputs, "internal");
     const Current = num(inputs, "Current");
@@ -112,7 +112,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_3",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — CapacityRecovered",
+    label: "SMED Degisim Optimize Edici — CapacityRecovered",
     fn: (inputs) => {
     const currentSetupTime = num(inputs, "currentSetupTime");
     const targetSetupTime = num(inputs, "targetSetupTime");
@@ -123,7 +123,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_4",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — FinancialGain",
+    label: "SMED Degisim Optimize Edici — FinancialGain",
     fn: (inputs) => {
     const capacityRecovered = num(inputs, "capacityRecovered");
     const bottleneckThroughput = num(inputs, "bottleneckThroughput");
@@ -134,7 +134,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_5",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — SMED_Investment",
+    label: "SMED Degisim Optimize Edici — SMED_Investment",
     fn: (inputs) => {
     const training = num(inputs, "training");
     const tooling = num(inputs, "tooling");
@@ -145,7 +145,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.smed_changeover_optimizer_6",
     family: "cost",
-    label: "SMED Değişim Optimize Edici — ROI",
+    label: "SMED Degisim Optimize Edici — ROI",
     fn: (inputs) => {
     const financialGain = num(inputs, "financialGain");
     const sMED = num(inputs, "sMED");
@@ -155,11 +155,11 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Sözleşme Teşvik (9 formulas) ──,
+  // ── Sozlesme Tesvik (9 formulas) ──,
   {
     id: "user.contract_incentive_0",
     family: "cost",
-    label: "Sözleşme Teşvik — TargetCost",
+    label: "Sozlesme Tesvik — TargetCost",
     fn: (inputs) => {
     const baselineEstimate = num(inputs, "baselineEstimate");
     return nonNegative(assertFinite(baselineEstimate));
@@ -168,7 +168,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_1",
     family: "cost",
-    label: "Sözleşme Teşvik — TargetFee",
+    label: "Sozlesme Tesvik — TargetFee",
     fn: (inputs) => {
     const targetCost = num(inputs, "targetCost");
     const targetFeePct = num(inputs, "targetFeePct");
@@ -178,7 +178,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_2",
     family: "cost",
-    label: "Sözleşme Teşvik — ShareRatio",
+    label: "Sozlesme Tesvik — ShareRatio",
     fn: (inputs) => {
     const overrunShare = num(inputs, "overrunShare");
     const underrunShare = num(inputs, "underrunShare");
@@ -188,7 +188,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_3",
     family: "cost",
-    label: "Sözleşme Teşvik — ActualFee",
+    label: "Sozlesme Tesvik — ActualFee",
     fn: (inputs) => {
     const targetFee = num(inputs, "targetFee");
     const targetCost = num(inputs, "targetCost");
@@ -200,7 +200,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_4",
     family: "cost",
-    label: "Sözleşme Teşvik — MaxFee",
+    label: "Sozlesme Tesvik — MaxFee",
     fn: (inputs) => {
     const targetFee = num(inputs, "targetFee");
     const maxFeeMultiplier = num(inputs, "maxFeeMultiplier");
@@ -210,7 +210,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_5",
     family: "cost",
-    label: "Sözleşme Teşvik — MinFee",
+    label: "Sozlesme Tesvik — MinFee",
     fn: (inputs) => {
     const targetFee = num(inputs, "targetFee");
     const minFeeMultiplier = num(inputs, "minFeeMultiplier");
@@ -220,7 +220,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_6",
     family: "cost",
-    label: "Sözleşme Teşvik — FinalFee",
+    label: "Sozlesme Tesvik — FinalFee",
     fn: (inputs) => {
     const actualFee = num(inputs, "actualFee");
     const minFee = num(inputs, "minFee");
@@ -233,7 +233,7 @@ export const CHUNK_51_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.contract_incentive_7",
     family: "cost",
-    label: "Sözleşme Teşvik — FinalPrice",
+    label: "Sozlesme Tesvik — FinalPrice",
     fn: (inputs) => {
     const actualCost = num(inputs, "actualCost");
     const finalFee = num(inputs, "finalFee");

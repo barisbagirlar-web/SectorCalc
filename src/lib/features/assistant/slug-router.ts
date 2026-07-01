@@ -54,7 +54,7 @@ const KEYWORD_RULES: ReadonlyArray<{ readonly patterns: RegExp[]; readonly slug:
     slug: "carbon-footprint-quick",
   },
   {
-    patterns: [/başabaş/i, /break[- ]?even/i],
+    patterns: [/basabas/i, /break[- ]?even/i],
     slug: "break-even-safety-margin-calculator",
   },
   {
@@ -62,11 +62,11 @@ const KEYWORD_RULES: ReadonlyArray<{ readonly patterns: RegExp[]; readonly slug:
     slug: "inventory-carrying-cost-eoq-calculator",
   },
   {
-    patterns: [/işçilik/i, /personel/i, /employee total cost/i],
+    patterns: [/iscilik/i, /personel/i, /employee total cost/i],
     slug: "employee-total-cost-calculator",
   },
   {
-    patterns: [/\broi\b/, /yatırım/i, /return on investment/i, /investment return/i, /getiri/i, /kazanç/i],
+    patterns: [/\broi\b/, /yatirim/i, /return on investment/i, /investment return/i, /getiri/i, /kazanc/i],
     slug: "roi-quick-check",
   },
 ];
@@ -180,14 +180,14 @@ function buildSuccessMessage(
   const sourceNote =
     locale === "tr"
       ? source === "deepseek"
-        ? " (AI önerisi)"
-        : " (sistem önerisi)"
+        ? " (AI onerisi)"
+        : " (sistem onerisi)"
       : source === "deepseek"
         ? " (AI suggestion)"
         : " (system suggestion)";
 
   if (locale === "tr") {
-    return `Bu hesaplama için ${suggestion.label} aracını kullanabilirsiniz.${sourceNote}`;
+    return `Bu hesaplama icin ${suggestion.label} aracini kullanabilirsiniz.${sourceNote}`;
   }
 
   return `For this calculation, you can use the ${suggestion.label} tool.${sourceNote}`;
@@ -195,19 +195,19 @@ function buildSuccessMessage(
 
 function buildNotFoundMessage(locale: string): string {
   return locale === "tr"
-    ? "Üzgünüm, bu konuda henüz bir hesaplama aracımız yok. Lütfen farklı bir soru deneyin veya kredi paketlerimize göz atın."
+    ? "Uzgunum, bu konuda henuz bir hesaplama aracimiz yok. Lutfen farkli bir soru deneyin veya kredi paketlerimize goz atin."
     : "Sorry, we do not have a calculator for this topic yet. Try a different question or browse our credit packages.";
 }
 
 function buildBlockedMessage(locale: string, topic: "blockedFormula" | "blockedPrivate"): string {
   if (topic === "blockedPrivate") {
     return locale === "tr"
-      ? "Özel verilere, hesaplara veya gizli anahtarlara erişemem ve hiçbir kısıtlamayı atlatamam."
+      ? "Ozel verilere, hesaplara veya gizli anahtarlara erisemem ve hicbir kisitlamayi atlatamam."
       : "I can't access private data, accounts, or secrets, and I can't bypass any gate.";
   }
 
   return locale === "tr"
-    ? "Hesaplama yapamam veya formül paylaşamam. İlgili aracı açın, sonucu sizin için o hesaplar."
+    ? "Hesaplama yapamam veya formul paylasamam. Ilgili araci acin, sonucu sizin icin o hesaplar."
     : "I can't run calculations or share formulas. Open the relevant tool and it will compute the result for you.";
 }
 

@@ -14,7 +14,7 @@ import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-
 const TIER_LABELS: Record<string, Record<string, string>> = {
   free: {
     en: "Free tools",
-    tr: "Ücretsiz araçlar",
+    tr: "Ucretsiz araclar",
     de: "Kostenlose Tools",
     fr: "Outils gratuits",
     es: "Herramientas gratuitas",
@@ -22,7 +22,7 @@ const TIER_LABELS: Record<string, Record<string, string>> = {
   },
   premium: {
     en: "Premium tools",
-    tr: "Premium araçlar",
+    tr: "Premium araclar",
     de: "Premium-Tools",
     fr: "Outils premium",
     es: "Herramientas premium",

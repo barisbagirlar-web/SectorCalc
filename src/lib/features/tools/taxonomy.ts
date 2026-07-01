@@ -1,6 +1,6 @@
 /**
- * SectorCalc - Sektör, Meslek Dalı ve Kategori Taksonomisi
- * Endüstriyel disiplin + yaşam alanı hibrit sınıflandırma (Tekla / Ansys / Omni tarzı).
+ * SectorCalc - Sektor, Meslek Dali ve Category Taksonomisi
+ * Endustriyel disiplin + yasam alani hibrit siniflandirma (Tekla / Ansys / Omni tarzi).
  */
 
 export interface Sector {
@@ -719,10 +719,10 @@ export const SECTORS: Sector[] = [
   },
   {
     id: "telekom",
-    label: "Telekomünikasyon",
+    label: "Telekomunikasyon",
     labelEn: "Telecommunications",
     icon: "Antenna",
-    professions: ["Ağ Mühendisi", "RF Uzmanı", "Systems Engineer", "Saha Teknisyeni", "Data Specialist"],
+    professions: ["Ag Muhendisi", "RF Uzmani", "Systems Engineer", "Saha Teknisyeni", "Data Specialist"],
     keywords: ["telecom", "telecommunication", "network", "radio", "frequency", "rf", "fiber", "cable", "5g", "4g", "lte", "wireless", "router", "antenna", "signal", "bandwidth", "latency", "throughput", "modem", "voip"],
   },
   {
@@ -730,7 +730,7 @@ export const SECTORS: Sector[] = [
     label: "Yenilenebilir Enerji",
     labelEn: "Renewable Energy",
     icon: "SunMedium",
-    professions: ["Energy Engineer", "Güneş Enerjisi Uzmanı", "Rüzgar Enerjisi Uzmanı", "Sürdürülebilirlik Uzmanı", "Energy Manager"],
+    professions: ["Energy Engineer", "Gunes Enerjisi Uzmani", "Ruzgar Enerjisi Uzmani", "Surdurulebilirlik Uzmani", "Energy Manager"],
     keywords: ["solar", "photovoltaic", "pv", "wind", "renewable", "green", "sustainable", "turbine", "biomass", "geothermal", "hydroelectric", "battery", "inverter", "panel", "array", "carbon", "netzero", "feedin"],
   },
   {
@@ -738,7 +738,7 @@ export const SECTORS: Sector[] = [
     label: "Tesis & Hijyen",
     labelEn: "Facilities & Hygiene",
     icon: "Sparkles",
-    professions: ["Hijyen Uzmanı", "Tesis Yöneticisi", "Quality Specialist", "Saha Sorumlusu", "Temizlik Operatörü"],
+    professions: ["Hijyen Uzmani", "Tesis Yoneticisi", "Quality Specialist", "Saha Sorumlusu", "Temizlik Operatoru"],
     keywords: ["cleaning", "hygiene", "sanitize", "sanitation", "janitor", "facility", "disinfect", "detergent", "custodial", "maintenance"],
   },
   {
@@ -746,7 +746,7 @@ export const SECTORS: Sector[] = [
     label: "Kargo & Nakliye",
     labelEn: "Freight & Haulage",
     icon: "Truck",
-    professions: ["Logistics Specialist", "Filo Yöneticisi", "Rota Planlayıcısı", "Güvenlik Uzmanı", "Operasyon Müdürü"],
+    professions: ["Logistics Specialist", "Filo Yoneticisi", "Rota Planlayicisi", "Guvenlik Uzmani", "Operasyon Muduru"],
     keywords: ["freight", "cargo", "haulage", "courier", "delivery", "dispatch", "trucking", "carrier", "waybill", "consignment", "tonnage", "payload", "deadhead"],
   },
   {
@@ -754,15 +754,15 @@ export const SECTORS: Sector[] = [
     label: "Matematik & Geometri",
     labelEn: "Mathematics & Geometry",
     icon: "Sigma",
-    professions: ["Matematikçi", "Mühendis", "Araştırmacı", "Öğretmen", "Veri Analisti"],
+    professions: ["Matematikci", "Muhendis", "Arastirmaci", "Ogretmen", "Veri Analisti"],
     keywords: ["math", "mathematics", "algebra", "geometry", "trigonometry", "calculus", "equation", "formula", "fraction", "decimal", "matrix", "vector", "integral", "derivative", "polynomial", "logarithm", "exponential", "prime", "factorial", "theorem", "pythagorean", "quadratic", "linear", "solver", "root", "modulo", "gcd", "lcm", "series", "sequence", "fibonacci", "permutation", "combination", "factor", "divisor", "multiple", "ratio", "proportion", "area", "volume", "surface", "angle", "triangle", "circle", "square", "rectangle", "polygon", "coordinate", "graph", "slope", "intercept", "absolute", "complex", "imaginary", "binary", "hexadecimal", "scientific", "notation"],
   },
   {
     id: "istatistik",
-    label: "İstatistik & Olasılık",
+    label: "Istatistik & Olasilik",
     labelEn: "Statistics & Probability",
     icon: "ChartColumn",
-    professions: ["İstatistikçi", "Veri Bilimci", "Quality Engineer", "Araştırmacı", "Actuary"],
+    professions: ["Istatistikci", "Veri Bilimci", "Quality Engineer", "Arastirmaci", "Actuary"],
     keywords: ["statistics", "statistical", "probability", "percentile", "sample", "population", "mean", "median", "mode", "variance", "deviation", "standard", "confidence", "interval", "regression", "correlation", "anova", "hypothesis", "chi", "zscore", "ttest", "distribution", "normal", "binomial", "poisson", "bayes", "likelihood", "odds", "predictor", "forecast", "trend", "rank", "quartile", "outlier"],
   },
   {
@@ -770,15 +770,15 @@ export const SECTORS: Sector[] = [
     label: "Fizik & Mekanik",
     labelEn: "Physics & Mechanics",
     icon: "Magnet",
-    professions: ["Fizik Mühendisi", "Mekanik Mühendisi", "R&D Specialist", "Test Engineer", "Akademisyen"],
+    professions: ["Fizik Muhendisi", "Mekanik Muhendisi", "R&D Specialist", "Test Engineer", "Akademisyen"],
     keywords: ["physics", "mechanics", "force", "momentum", "velocity", "acceleration", "kinematics", "dynamics", "gravity", "friction", "torque", "stress", "strain", "elasticity", "modulus", "beam", "bending", "shear", "torsion", "pressure", "density", "buoyancy", "fluid", "flow", "reynolds", "bernoulli", "thermodynamic", "entropy", "enthalpy", "heat", "thermal", "conduction", "convection", "radiation", "optics", "wavelength", "frequency", "wave", "resonance", "magnetic", "electric", "capacitance", "inductance", "joule", "newton", "pascal", "hertz"],
   },
   {
     id: "birim-donusum",
-    label: "Birim & Dönüşüm",
+    label: "Birim & Donusum",
     labelEn: "Units & Conversion",
     icon: "ArrowLeftRight",
-    professions: ["Mühendis", "Teknisyen", "Lab Technician", "Quality Specialist", "Operatör"],
+    professions: ["Muhendis", "Teknisyen", "Lab Technician", "Quality Specialist", "Operator"],
     keywords: ["converter", "conversion", "convert", "unit", "metric", "imperial", "meters", "metres", "feet", "foot", "inches", "inch", "yards", "yard", "miles", "mile", "kilometer", "kilometre", "centimeter", "millimeter", "micrometer", "nanometer", "liters", "litres", "gallons", "gallon", "quarts", "pints", "cups", "fluid", "ounces", "pounds", "kilograms", "grams", "tons", "tonnes", "celsius", "fahrenheit", "kelvin", "rankine", "acres", "hectares", "hectare", "sqm", "square", "cubic", "psi", "bar", "atm", "pascal", "mph", "kmh", "knot", "degrees", "radians", "arcminute", "arcsecond", "horsepower", "btu", "joule", "calorie", "watt", "ampere", "volt"],
   },
   {
@@ -786,23 +786,23 @@ export const SECTORS: Sector[] = [
     label: "Fitness & Spor",
     labelEn: "Fitness & Sports",
     icon: "Dumbbell",
-    professions: ["Antrenör", "Spor Bilimci", "Fizyoterapist", "Dietitian", "Performans Analisti"],
+    professions: ["Antrenor", "Spor Bilimci", "Fizyoterapist", "Dietitian", "Performans Analisti"],
     keywords: ["fitness", "sport", "sports", "exercise", "workout", "training", "running", "marathon", "5k", "10k", "cycling", "swimming", "pace", "vo2", "cardio", "aerobic", "anaerobic", "muscle", "strength", "hypertrophy", "1rm", "rep", "bench", "squat", "deadlift", "athletic", "endurance", "overtraining", "recovery", "stretch", "flexibility", "agility", "sprint", "triathlon"],
   },
   {
     id: "ev-yasam",
-    label: "Günlük Yaşam & Ev",
+    label: "Gunluk Yasam & Ev",
     labelEn: "Everyday Life & Home",
     icon: "Home",
-    professions: ["Ev Yöneticisi", "İç Mimar", "Tesisatçı", "Bahçıvan", "Tüketici Danışmanı"],
+    professions: ["Ev Yoneticisi", "Ic Mimar", "Tesisatci", "Bahcivan", "Tuketici Danismani"],
     keywords: ["everyday", "daily", "home", "household", "life", "age", "date", "calendar", "birthday", "anniversary", "time", "duration", "day", "week", "month", "year", "clock", "timer", "schedule", "reminder", "pregnancy", "due", "gestation", "renovation", "remodel", "paint", "tile", "flooring", "garden", "lawn", "landscaping", "fuel", "commute", "parking", "tip", "gratuity", "split", "bill"],
   },
   {
     id: "egitim",
-    label: "Eğitim & Akademik",
+    label: "Egitim & Akademik",
     labelEn: "Education & Academic",
     icon: "GraduationCap",
-    professions: ["Öğretmen", "Akademisyen", "Rehber Öğretmen", "Eğitim Koordinatörü", "Araştırmacı"],
+    professions: ["Ogretmen", "Akademisyen", "Rehber Ogretmen", "Egitim Koordinatoru", "Arastirmaci"],
     keywords: ["education", "academic", "school", "student", "grade", "gpa", "exam", "test", "score", "act", "sat", "iq", "college", "university", "degree", "credit", "semester", "tuition", "scholarship", "classroom", "curriculum", "learning", "study"],
   },
   {
@@ -810,7 +810,7 @@ export const SECTORS: Sector[] = [
     label: "Emlak & Gayrimenkul",
     labelEn: "Real Estate & Property",
     icon: "KeyRound",
-    professions: ["Emlak Danışmanı", "Değerleme Uzmanı", "Yatırım Danışmanı", "Proje Geliştirici", "Portföy Yöneticisi"],
+    professions: ["Emlak Danismani", "Degerleme Uzmani", "Yatirim Danismani", "Proje Gelistirici", "Portfoy Yoneticisi"],
     keywords: ["real", "estate", "property", "mortgage", "rent", "rental", "lease", "landlord", "tenant", "housing", "appraisal", "valuation", "downpayment", "closing", "hoa", "caprate", "cashflow", "flip", "refinance"],
   },
   {
@@ -818,15 +818,15 @@ export const SECTORS: Sector[] = [
     label: "Turizm & Konaklama",
     labelEn: "Tourism & Hospitality",
     icon: "Luggage",
-    professions: ["Otel Müdürü", "Rezervasyon Uzmanı", "Seyahat Danışmanı", "Etkinlik Planlayıcısı", "Restoran Müdürü"],
+    professions: ["Otel Muduru", "Rezervasyon Uzmani", "Seyahat Danismani", "Etkinlik Planlayicisi", "Restoran Muduru"],
     keywords: ["tourism", "travel", "hotel", "hospitality", "resort", "booking", "reservation", "flight", "itinerary", "vacation", "tourist", "occupancy", "revpar", "adr", "catering", "banquet", "restaurant", "menu", "foodcost"],
   },
   {
     id: "cevre",
-    label: "Çevre & Sürdürülebilirlik",
+    label: "Cevre & Surdurulebilirlik",
     labelEn: "Environment & Sustainability",
     icon: "Leaf",
-    professions: ["Çevre Mühendisi", "Sürdürülebilirlik Uzmanı", "EHS Uzmanı", "Atık Yöneticisi", "Karbon Denetçisi"],
+    professions: ["Cevre Muhendisi", "Surdurulebilirlik Uzmani", "EHS Uzmani", "Atik Yoneticisi", "Karbon Denetcisi"],
     keywords: ["environment", "environmental", "sustainability", "sustainable", "carbon", "emission", "co2", "greenhouse", "footprint", "recycle", "recycling", "waste", "landfill", "compost", "pollution", "airquality", "waterquality", "biodiversity", "ecology", "lifecycle", "circular"],
   },
   {
@@ -834,23 +834,23 @@ export const SECTORS: Sector[] = [
     label: "Elektronik & Devre",
     labelEn: "Electronics & Circuits",
     icon: "CircuitBoard",
-    professions: ["Elektronik Mühendisi", "PCB Tasarımcısı", "Test Engineer", "Maintenance Technician", "R&D Specialist"],
+    professions: ["Elektronik Muhendisi", "PCB Tasarimcisi", "Test Engineer", "Maintenance Technician", "R&D Specialist"],
     keywords: ["electronic", "electronics", "circuit", "resistor", "capacitor", "inductor", "transistor", "diode", "led", "pcb", "voltage", "current", "ohm", "impedance", "adc", "dac", "amplifier", "filter", "microcontroller", "sensor", "semiconductor", "ic", "opamp"],
   },
   {
     id: "ambalaj-baski",
-    label: "Ambalaj & Baskı",
+    label: "Ambalaj & Printing",
     labelEn: "Packaging & Printing",
     icon: "Printer",
-    professions: ["Ambalaj Mühendisi", "Baskı Operatörü", "Grafik Tasarımcısı", "Quality Specialist", "Üretim Planlayıcısı"],
+    professions: ["Ambalaj Muhendisi", "Baski Operatoru", "Grafik Tasarimcisi", "Quality Specialist", "Uretim Planlayicisi"],
     keywords: ["packaging", "package", "label", "printing", "print", "box", "carton", "pallet", "shrink", "laminate", "flexo", "offset", "diecut", "corrugated", "barcode"],
   },
   {
     id: "mobilya-ahsap",
-    label: "Mobilya & Ahşap",
+    label: "Mobilya & Ahsap",
     labelEn: "Furniture & Woodworking",
     icon: "Armchair",
-    professions: ["Marangoz", "Mobilya Tasarımcısı", "Üretim Ustası", "CNC Operator", "Kalite Kontrolörü"],
+    professions: ["Marangoz", "Mobilya Tasarimcisi", "Uretim Ustasi", "CNC Operator", "Kalite Kontroloru"],
     keywords: ["furniture", "wood", "woodworking", "lumber", "timber", "carpentry", "cabinet", "joinery", "veneer", "plywood", "hardwood", "softwood", "sawmill", "millwork"],
   },
   {
@@ -858,31 +858,31 @@ export const SECTORS: Sector[] = [
     label: "Petrokimya & Rafineri",
     labelEn: "Petrochemical & Refining",
     icon: "Fuel",
-    professions: ["Process Engineer", "Rafineri Operatörü", "R&D Specialist", "Güvenlik Mühendisi", "Quality Specialist"],
+    professions: ["Process Engineer", "Rafineri Operatoru", "R&D Specialist", "Guvenlik Muhendisi", "Quality Specialist"],
     keywords: ["petroleum", "petrochemical", "refinery", "oil", "gas", "crude", "distillation", "pipeline", "lng", "hydrocarbon", "octane", "diesel", "gasoline", "lubricant", "asphalt"],
   },
   {
     id: "hidrolik-pnomatik",
-    label: "Hidrolik & Pnömatik",
+    label: "Hidrolik & Pnomatik",
     labelEn: "Hydraulics & Pneumatics",
     icon: "Gauge",
-    professions: ["Hidrolik Mühendisi", "Maintenance Technician", "Proje Mühendisi", "Sistem Entegratörü", "Satış Mühendisi"],
+    professions: ["Hidrolik Muhendisi", "Maintenance Technician", "Proje Muhendisi", "Sistem Entegratoru", "Satis Muhendisi"],
     keywords: ["hydraulic", "hydraulics", "pneumatic", "pneumatics", "cylinder", "pump", "valve", "actuator", "compressor", "pipe", "piping", "fitting", "hose", "manifold", "flowrate"],
   },
   {
     id: "yapisal-muhendislik",
-    label: "Yapısal Mühendislik",
+    label: "Yapisal Engineerlik",
     labelEn: "Structural Engineering",
     icon: "Columns3",
-    professions: ["Yapısal Mühendis", "Statik Mühendis", "Proje Mühendisi", "Şantiye Mühendisi", "Denetim Mühendisi"],
+    professions: ["Yapisal Muhendis", "Statik Muhendis", "Proje Muhendisi", "Santiye Muhendisi", "Denetim Muhendisi"],
     keywords: ["structural", "static", "load", "deadload", "liveload", "deflection", "buckling", "moment", "shear", "reinforcement", "truss", "frame", "cantilever", "eurocode", "aisc", "concrete", "steel", "timber"],
   },
   {
     id: "su-yonetimi",
-    label: "Su & Atıksu",
+    label: "Su & Atiksu",
     labelEn: "Water & Wastewater",
     icon: "Droplets",
-    professions: ["Su Mühendisi", "Çevre Mühendisi", "Tesis Operatörü", "Hidrolog", "Process Engineer"],
+    professions: ["Su Muhendisi", "Cevre Muhendisi", "Tesis Operatoru", "Hidrolog", "Process Engineer"],
     keywords: ["water", "wastewater", "sewage", "treatment", "filtration", "chlorination", "desalination", "aquifer", "hydrology", "rainfall", "runoff", "drainage", "pump", "reservoir", "pool", "swimming", "aquarium", "irrigation"],
   },
   {
@@ -890,23 +890,23 @@ export const SECTORS: Sector[] = [
     label: "Optik & Akustik",
     labelEn: "Optics & Acoustics",
     icon: "AudioLines",
-    professions: ["Akustik Mühendisi", "Optik Mühendisi", "R&D Specialist", "Test Engineer", "Design Engineer"],
+    professions: ["Akustik Muhendisi", "Optik Muhendisi", "R&D Specialist", "Test Engineer", "Design Engineer"],
     keywords: ["acoustic", "acoustics", "sound", "noise", "decibel", "reverberation", "absorption", "optics", "optical", "lens", "mirror", "refraction", "diffraction", "magnification", "luminance", "illuminance", "photometry"],
   },
   {
     id: "gorsel-medya",
-    label: "Görsel & Medya",
+    label: "Gorsel & Medya",
     labelEn: "Visual & Media",
     icon: "Camera",
-    professions: ["Grafik Tasarımcı", "Fotoğrafçı", "Video Editörü", "UI Tasarımcısı", "Medya Planlayıcısı"],
+    professions: ["Grafik Tasarimci", "Fotografci", "Video Editoru", "UI Tasarimcisi", "Medya Planlayicisi"],
     keywords: ["image", "video", "pixel", "resolution", "dpi", "aspect", "ratio", "color", "colour", "rgb", "cmyk", "hex", "font", "typography", "media", "display", "screen", "bitrate", "compression"],
   },
   {
     id: "demiryolu",
-    label: "Demiryolu & Raylı",
+    label: "Demiryolu & Rayli",
     labelEn: "Rail & Transit",
     icon: "TrainFront",
-    professions: ["Demiryolu Mühendisi", "Sinyalizasyon Uzmanı", "Maintenance Technician", "Operasyon Müdürü", "Proje Mühendisi"],
+    professions: ["Demiryolu Muhendisi", "Sinyalizasyon Uzmani", "Maintenance Technician", "Operasyon Muduru", "Proje Muhendisi"],
     keywords: ["rail", "railway", "railroad", "train", "locomotive", "wagon", "track", "gauge", "metro", "subway", "tram", "transit", "signaling", "siding"],
   },
   {
@@ -948,7 +948,7 @@ export const OTHER_SECTOR: Sector = {
 /** First taxonomy grid tile — shows every tool in the catalog. */
 export const ALL_TOOLS_SECTOR: Sector = {
   id: "all",
-  label: "Tümü",
+  label: "Tumu",
   labelEn: "All",
   icon: "LayoutGrid",
   professions: [],
@@ -956,7 +956,7 @@ export const ALL_TOOLS_SECTOR: Sector = {
 };
 
 // ============================================================
-// 2. KATEGORİLER (Hesaplama Türü)
+// 2. KATEGORILER (Calculation Turu)
 // ============================================================
 
 /** Default calculation-type category when a sector is known but keyword score is zero. */
@@ -1013,7 +1013,7 @@ export const SECTOR_TO_CATEGORY: Readonly<Record<string, string>> = {
 export const CATEGORIES: Category[] = [
   {
     id: "cost",
-    label: "Maliyet & Bütçeleme",
+    label: "Maliyet & Butceleme",
     labelEn: "Cost & Budgeting",
     keywords: [
       "cost",
@@ -1070,7 +1070,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "quality",
-    label: "Kalite & Süreç Kontrol",
+    label: "Kalite & Surec Kontrol",
     labelEn: "Quality & Process Control",
     keywords: [
       "quality",
@@ -1145,7 +1145,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "finance",
-    label: "Finans & Yatırım",
+    label: "Finans & Yatirim",
     labelEn: "Finance & Investment",
     keywords: [
       "npv",
@@ -1228,7 +1228,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "engineering",
-    label: "Teknik & Mühendislik",
+    label: "Teknik & Engineerlik",
     labelEn: "Technical & Engineering",
     keywords: [
       "torque",
@@ -1355,7 +1355,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "sustainability",
-    label: "Sürdürülebilirlik",
+    label: "Surdurulebilirlik",
     labelEn: "Sustainability",
     keywords: [
       "sustainability",
@@ -1385,7 +1385,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "conversion",
-    label: "Dönüşüm & Ölçüm",
+    label: "Donusum & Measurement",
     labelEn: "Conversion & Measurement",
     keywords: [
       "conversion",
@@ -1547,7 +1547,7 @@ export const SLUG_TOKEN_CATEGORY_HINTS: Readonly<Record<string, string>> = {
 };
 
 // ============================================================
-// 3. YARDIMCI FONKSİYONLAR
+// 3. YARDIMCI FONKSIYONLAR
 // ============================================================
 
 export function getSectorById(id: string): Sector | undefined {

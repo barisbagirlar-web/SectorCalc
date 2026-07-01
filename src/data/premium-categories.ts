@@ -4,7 +4,7 @@
  * Single source for all premium tool categories with full i18n (6 languages),
  * Lucide icon assignments, and premium line-art SVG symbols.
  *
- * ECMI / ISO 9001 — TÜV-certifiable engineering quality.
+ * ECMI / ISO 9001 — TUV-certifiable engineering quality.
  * Every category ties to a measurable loss family or business function.
  */
 
@@ -210,7 +210,7 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     },
     description: {
       en: "Nesting scrap, casting yield, injection cycle, press force, springback compensation and die life.",
-      de: "Nesting-Verschnitt, Gießausbeute, Spritzzyklus, Presskraft, Rückfederung und Werkzeuglebensdauer.",
+      de: "Nesting-Verschnitt, Gießausbeute, Spritzzyklus, Presskraft, Ruckfederung und Werkzeuglebensdauer.",
       fr: "Chute de nesting, rendement de fonderie, cycle d'injection, force de presse, retour élastique et durée de vie d'outillage.",
       es: "Desperdicio de anidamiento, rendimiento de fundición, ciclo de inyección, fuerza de prensa, recuperación elástica y vida útil del molde.",
       ar: "هدر التعشيش، إنتاجية الصب، دورة الحقن، قوة الكبس، الارتداد وعمر القالب.",
@@ -230,7 +230,7 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     },
     description: {
       en: "EVM, CPM, resource levelling, contract risk, progress billing, scaffolding optimisation and site costs.",
-      de: "EVM, CPM, Ressourcen-Nivellierung, Vertragsrisiko, Abschlagsrechnung, Gerüstoptimierung und Baustellenkosten.",
+      de: "EVM, CPM, Ressourcen-Nivellierung, Vertragsrisiko, Abschlagsrechnung, Gerustoptimierung und Baustellenkosten.",
       fr: "EVM, CPM, nivellement des ressources, risque contractuel, facturation d'avancement, échafaudage et coûts de chantier.",
       es: "EVM, CPM, nivelación de recursos, riesgo contractual, facturación de avance, andamios y costos de obra.",
       ar: "EVM، CPM، تسوية الموارد، مخاطر العقود، الفوترة حسب التقدم، تحسين السقالات وتكاليف الموقع.",
@@ -250,7 +250,7 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     },
     description: {
       en: "IoT sensor ROI, digital twin, cobot, AGV, energy monitoring and paperless manufacturing tools.",
-      de: "IoT-Sensor-ROI, digitaler Zwilling, Cobot, AGV, Energieüberwachung und papierlose Fertigung.",
+      de: "IoT-Sensor-ROI, digitaler Zwilling, Cobot, AGV, Energieuberwachung und papierlose Fertigung.",
       fr: "ROI des capteurs IoT, jumeau numérique, cobot, AGV, suivi énergétique et production sans papier.",
       es: "ROI de sensores IoT, gemelo digital, cobot, AGV, monitoreo energético y fabricación sin papel.",
       ar: "ROI مستشعرات إنترنت الأشياء، التوأم الرقمي، الكوبوت، AGV، مراقبة الطاقة والتصنيع غير الورقي.",
@@ -330,7 +330,7 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     },
     description: {
       en: "Turnover cost, shift comparison, bonus/commission ROI, training ROI, overtime vs hiring breakeven.",
-      de: "Fluktuationskosten, Schichtvergleich, Bonus-ROI, Schulungs-ROI, Überstunden vs Einstellung.",
+      de: "Fluktuationskosten, Schichtvergleich, Bonus-ROI, Schulungs-ROI, Uberstunden vs Einstellung.",
       fr: "Coût de turnover, comparaison de postes, ROI des primes/commissions, ROI formation, heures sup vs embauche.",
       es: "Costo de rotación, comparación de turnos, ROI de bonos/comisiones, ROI de capacitación, horas extra vs contratación.",
       ar: "تكلفة دوران الموظفين، مقارنة الورديات، ROI الحوافز والعمولات، ROI التدريب، العمل الإضافي مقابل التوظيف.",
@@ -383,14 +383,14 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     priority: 14,
     title: {
       en: "Food, Cold Chain & Hygiene",
-      de: "Lebensmittel, Kühlkette & Hygiene",
+      de: "Lebensmittel, Kuhlkette & Hygiene",
       fr: "Alimentation, Chaîne du Froid et Hygiène",
       es: "Alimentación, Cadena de Frío e Higiene",
       ar: "الأغذية، سلسلة التبريد والنظافة",
     },
     description: {
       en: "Shelf life, recipe cost, HACCP deviation, cold chain break, restaurant plate cost and CIP chemical.",
-      de: "Haltbarkeit, Rezepturkosten, HACCP-Abweichung, Kühlkettenbruch, Tellerkosten und CIP-Chemie.",
+      de: "Haltbarkeit, Rezepturkosten, HACCP-Abweichung, Kuhlkettenbruch, Tellerkosten und CIP-Chemie.",
       fr: "Durée de conservation, coût de recette, écart HACCP, rupture de chaîne du froid, coût assiette et chimie CIP.",
       es: "Vida útil, costo de receta, desviación HACCP, ruptura de cadena de frío, costo de plato y química CIP.",
       ar: "مدة الصلاحية، تكلفة الوصفة، انحراف HACCP، كسر سلسلة التبريد، تكلفة الطبق وكيمياء CIP.",
@@ -450,7 +450,7 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     },
     description: {
       en: "Welding cost, brazing, adhesive, heat load, duct friction, insulation, steam trap, exchanger and vacuum.",
-      de: "Schweißkosten, Löten, Klebstoff, Wärmelast, Kanalreibung, Isolierung, Kondensatableiter, Wärmetauscher und Vakuum.",
+      de: "Schweißkosten, Loten, Klebstoff, Wärmelast, Kanalreibung, Isolierung, Kondensatableiter, Wärmetauscher und Vakuum.",
       fr: "Coût de soudure, brasage, adhésif, charge thermique, friction de conduit, isolation, purgeur, échangeur et vide.",
       es: "Costo de soldadura, soldadura fuerte, adhesivo, carga térmica, fricción de conducto, aislamiento, purgador, intercambiador y vacío.",
       ar: "تكلفة اللحام، اللحام بالنحاس، المادة اللاصقة، الحمل الحراري، احتكاك القناة، العزل، مصيدة البخار، المبادل والتفريغ.",
@@ -470,7 +470,7 @@ export const PREMIUM_CATEGORIES: readonly PremiumCategoryEntry[] = [
     },
     description: {
       en: "Package sizing, material substitution, pallet configuration, volumetric weight and auto shop quoting.",
-      de: "Verpackungsgröße, Materialsubstitution, Palettenkonfiguration, Volumengewicht und Kfz-Reparaturangebote.",
+      de: "Verpackungsgroße, Materialsubstitution, Palettenkonfiguration, Volumengewicht und Kfz-Reparaturangebote.",
       fr: "Dimensionnement d'emballage, substitution de matériau, configuration palette, poids volumétrique et devis auto.",
       es: "Dimensionado de embalaje, sustitución de material, configuración de palet, peso volumétrico y cotización de taller.",
       ar: "تحجيم التغليف، استبدال المواد، تكوين البليت، الوزن الحجمي وعروض ورشة السيارات.",

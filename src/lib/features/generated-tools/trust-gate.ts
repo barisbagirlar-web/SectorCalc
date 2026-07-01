@@ -53,11 +53,11 @@ export function evaluateSchemaTrust(
   if (!hasValidInputs) {
     issues.push("No inputs");
   }
-  if (!category || category === "Diğer") {
-    issues.push('Uncategorized or "Diğer"');
+  if (!category || category === "Diger") {
+    issues.push('Uncategorized or "Diger"');
   }
-  if (!sector || sector === "Diğer") {
-    issues.push('Missing sector or "Diğer"');
+  if (!sector || sector === "Diger") {
+    issues.push('Missing sector or "Diger"');
   }
   if (hasUndefinedFunctions) {
     issues.push("Undefined function in formula (f, g, calc, calculate)");

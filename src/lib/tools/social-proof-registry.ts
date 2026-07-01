@@ -261,8 +261,8 @@ export const socialProofRegistry: SocialProofQuote[] = [
 ];
 
 /**
- * Endüstriyel Tersine Mühendislik (Reverse Engineering) Validasyon Testi
- * Yalnızca tanımlı olan sluglar ile eşleşmeleri sağlar. Eşleşmeyen slug varsa uyarır.
+ * Endustriyel Tersine Engineerlik (Reverse Engineering) Validasyon Testi
+ * Yalnizca tanimli olan sluglar ile eslesmeleri saglar. Eslesmeyen slug varsa uyarir.
  */
 export function validateSocialProofRegistrySlugs(): void {
   const invalidSlugs: string[] = [];

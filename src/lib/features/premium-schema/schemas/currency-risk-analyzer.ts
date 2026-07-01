@@ -2,13 +2,13 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "currency-risk-analyzer", legacyPaidSlug: "currency-risk-analyzer",
   name: "Currency Risk Analyzer", name_i18n: {"en":"Currency Risk Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.", painStatement_i18n: {"en":"If FX risk is not hedged, the forex open position leads to unexpected losses."},
+  painStatement: "Kur risk hedge edilmezse, fx acik position beklenmedik losslara yol acar.", painStatement_i18n: {"en":"If FX risk is not hedged, the forex open position leads to unexpected losses."},
   inputs: [
-    { id: "fxRevenue", label: "Döviz Gelir", label_i18n: {"en":"FX revenue"}, type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 0 }, helper: "", expertMeaning: "FX revenue", expertMeaning_i18n: {"en":"FX revenue"} },
-    { id: "fxCost", label: "Döviz Gider", label_i18n: {"en":"FX cost"}, type: "number", unit: "USD", required: true, smartDefault: 600000, validation: { min: 0 }, helper: "", expertMeaning: "FX cost", expertMeaning_i18n: {"en":"FX cost"} },
+    { id: "fxRevenue", label: "Doviz Gelir", label_i18n: {"en":"FX revenue"}, type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 0 }, helper: "", expertMeaning: "FX revenue", expertMeaning_i18n: {"en":"FX revenue"} },
+    { id: "fxCost", label: "Doviz Gider", label_i18n: {"en":"FX cost"}, type: "number", unit: "USD", required: true, smartDefault: 600000, validation: { min: 0 }, helper: "", expertMeaning: "FX cost", expertMeaning_i18n: {"en":"FX cost"} },
     { id: "fxPair", label: "Currency pair", label_i18n: {"en":"Currency pair"}, type: "select", unit: "", enumValues: ["USD/TRY", "EUR/USD", "EUR/TRY", "GBP/USD", "USD/JPY"], required: true, smartDefault: "USD/TRY", helper: "", expertMeaning: "Currency pair", expertMeaning_i18n: {"en":"Currency pair"} },
     { id: "volatility", label: "Volatilite", label_i18n: {"en":"Volatilite"}, type: "number", unit: "%", required: true, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Annual volatility", expertMeaning_i18n: {"en":"Annual volatility"} },
-    { id: "timeHorizon", label: "Time Horizon", label_i18n: {"en":"Time Horizon"}, type: "number", unit: "gün", required: true, smartDefault: 90, validation: { min: 1 }, helper: "", expertMeaning: "Risk horizon", expertMeaning_i18n: {"en":"Risk horizon"} },
+    { id: "timeHorizon", label: "Time Horizon", label_i18n: {"en":"Time Horizon"}, type: "number", unit: "gun", required: true, smartDefault: 90, validation: { min: 1 }, helper: "", expertMeaning: "Risk horizon", expertMeaning_i18n: {"en":"Risk horizon"} },
     { id: "zScore", label: "Z-Skoru", label_i18n: {"en":"Z-Skoru"}, type: "number", unit: "", required: false, smartDefault: 1.65, validation: { min: 0, max: 4 }, helper: "", expertMeaning: "Confidence level z-score", expertMeaning_i18n: {"en":"Confidence level z-score"} },
     { id: "hedgeRatio", label: "Hedge ratio", label_i18n: {"en":"Hedge ratio"}, type: "number", unit: "", required: false, smartDefault: 0.5, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Hedge ratio", expertMeaning_i18n: {"en":"Hedge ratio"} },
     { id: "forwardPoints", label: "Forward premium/discount", label_i18n: {"en":"Forward premium/discount"}, type: "number", unit: "", required: false, smartDefault: 0.02, validation: { min: 0 }, helper: "", expertMeaning: "Forward premium/discount", expertMeaning_i18n: {"en":"Forward premium/discount"} },
@@ -16,14 +16,14 @@ export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "forwardRate", label: "Forward Kur", label_i18n: {"en":"Forward fx"}, type: "number", unit: "", required: false, smartDefault: 32, validation: { min: 0.01 }, helper: "", expertMeaning: "Forward rate", expertMeaning_i18n: {"en":"Forward rate"} },
   ],
   outputs: [
-    { id: "fxExposure", label: "Net Döviz Pozisyonu", label_i18n: {"en":"Net Doviz Pozisyonu"}, unit: "USD", format: "currency" },
+    { id: "fxExposure", label: "Net Doviz Pozisyonu", label_i18n: {"en":"Net Doviz Pozisyonu"}, unit: "USD", format: "currency" },
     { id: "varHistorical", label: "Tarihsel VaR", label_i18n: {"en":"Tarihsel VaR"}, unit: "USD", format: "currency" },
     { id: "varParametric", label: "Parametrik VaR", label_i18n: {"en":"Parametrik VaR"}, unit: "USD", format: "currency" },
     { id: "unhedgedVaR", label: "Hedge Edilmemis VaR", label_i18n: {"en":"Hedge Edilmemis VaR"}, unit: "USD", format: "currency" },
     { id: "costOfHedge", label: "Hedge Cost", label_i18n: {"en":"Hedge Cost"}, unit: "USD", format: "currency" },
     { id: "netImpact", label: "Net Kur Etkisi", label_i18n: {"en":"Net fx Etkisi"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "unhedgedVaR", warning: 50000, critical: 200000, direction: "higher_is_bad", warningMessage: "Açık VaR > $50K — hedge oranı artırılmalı.", warningMessage_i18n: {"en":"Open VaR > $50K — hedge rate must be increased."}, criticalMessage: "Açık VaR > $200K — acil hedge işlemi gerekli.", criticalMessage_i18n: {"en":"Open VaR > $200K — urgent hedge action required."} }],
+  thresholds: [{ fieldId: "unhedgedVaR", warning: 50000, critical: 200000, direction: "higher_is_bad", warningMessage: "Acik VaR > $50K — hedge orani artirilmali.", warningMessage_i18n: {"en":"Open VaR > $50K — hedge rate must be increased."}, criticalMessage: "Acik VaR > $200K — acil hedge islemi gerekli.", criticalMessage_i18n: {"en":"Open VaR > $200K — urgent hedge action required."} }],
   formulaPipeline: [
     { formulaId: "cost.fx_exposure", inputMap: {
         fxAmount: "fxRevenue",

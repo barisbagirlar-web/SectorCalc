@@ -73,7 +73,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_5",
     family: "cost",
-    label: "İSKELE KİRALAMA — Transp",
+    label: "ISKELE LEASING — Transp",
     fn: (inputs) => {
     const trips = num(inputs, "trips");
     const truckRate = num(inputs, "truckRate");
@@ -83,7 +83,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_6",
     family: "cost",
-    label: "İSKELE KİRALAMA — Total",
+    label: "ISKELE LEASING — Total",
     fn: (inputs) => {
     const rental = num(inputs, "rental");
     const lab = num(inputs, "lab");
@@ -98,7 +98,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_7",
     family: "cost",
-    label: "İSKELE KİRALAMA — OptDur",
+    label: "ISKELE LEASING — OptDur",
     fn: (inputs) => {
     const critPath = num(inputs, "critPath");
     const buffer = num(inputs, "buffer");
@@ -109,7 +109,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_8",
     family: "cost",
-    label: "İSKELE KİRALAMA — Overrun",
+    label: "ISKELE LEASING — Overrun",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const optDur = num(inputs, "optDur");
@@ -119,11 +119,11 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── İSTATİSTİKSEL PROSES KONTROL (9 formulas) ──,
+  // ── STATISTICSSEL PROCESS CONTROL (9 formulas) ──,
   {
     id: "user.spc_limit_control_0",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — X_Bar_Bar",
+    label: "STATISTICSSEL PROCESS CONTROL — X_Bar_Bar",
     fn: (inputs) => {
     const means = num(inputs, "means");
     return nonNegative(assertFinite(means));
@@ -132,7 +132,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_1",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — R_Bar",
+    label: "STATISTICSSEL PROCESS CONTROL — R_Bar",
     fn: (inputs) => {
     const ranges = num(inputs, "ranges");
     return nonNegative(assertFinite(ranges));
@@ -141,7 +141,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_2",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — S_Bar",
+    label: "STATISTICSSEL PROCESS CONTROL — S_Bar",
     fn: (inputs) => {
     const stdDevs = num(inputs, "stdDevs");
     return nonNegative(assertFinite(stdDevs));
@@ -150,7 +150,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_3",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — UCL_X",
+    label: "STATISTICSSEL PROCESS CONTROL — UCL_X",
     fn: (inputs) => {
     const x = num(inputs, "x");
     const Bar = num(inputs, "Bar");
@@ -164,7 +164,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_4",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — LCL_X",
+    label: "STATISTICSSEL PROCESS CONTROL — LCL_X",
     fn: (inputs) => {
     const x = num(inputs, "x");
     const Bar = num(inputs, "Bar");
@@ -178,7 +178,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_5",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — UCL_R",
+    label: "STATISTICSSEL PROCESS CONTROL — UCL_R",
     fn: (inputs) => {
     const d4 = num(inputs, "d4");
     const r = num(inputs, "r");
@@ -190,7 +190,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_6",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — LCL_R",
+    label: "STATISTICSSEL PROCESS CONTROL — LCL_R",
     fn: (inputs) => {
     const d3 = num(inputs, "d3");
     const r = num(inputs, "r");
@@ -202,7 +202,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_7",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — Sigma",
+    label: "STATISTICSSEL PROCESS CONTROL — Sigma",
     fn: (inputs) => {
     const r = num(inputs, "r");
     const Bar = num(inputs, "Bar");
@@ -214,7 +214,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.spc_limit_control_8",
     family: "cost",
-    label: "İSTATİSTİKSEL PROSES KONTROL — Cp",
+    label: "STATISTICSSEL PROCESS CONTROL — Cp",
     fn: (inputs) => {
     const uSL = num(inputs, "uSL");
     const lSL = num(inputs, "lSL");
@@ -223,11 +223,11 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── İŞLEME STRATEJİSİ SÜRE (8 formulas) ──,
+  // ── MACHINING STRATEGY SURE (8 formulas) ──,
   {
     id: "user.machining_strategy_0",
     family: "cost",
-    label: "İŞLEME STRATEJİSİ SÜRE — MRR",
+    label: "MACHINING STRATEGY SURE — MRR",
     fn: (inputs) => {
     const v = num(inputs, "v");
     const c = num(inputs, "c");
@@ -242,7 +242,7 @@ export const CHUNK_28_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.machining_strategy_1",
     family: "cost",
-    label: "İŞLEME STRATEJİSİ SÜRE — Power",
+    label: "MACHINING STRATEGY SURE — Power",
     fn: (inputs) => {
     const mRR = num(inputs, "mRR");
     const specEnergy = num(inputs, "specEnergy");

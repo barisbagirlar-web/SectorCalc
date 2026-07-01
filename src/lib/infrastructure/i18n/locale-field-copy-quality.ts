@@ -4,7 +4,7 @@ import { isSupportedLocale, type SupportedLocale } from "@/lib/infrastructure/i1
 const TR_ENGLISH_LEAK_RE =
   /\b(?:Replacement|Fully|Wear|Percentage|Average|Machine|Tool|Scrap|Rework|burdened|required|including|insert|index|single|before|after|during|expected|due|based|beyond|tracking|operation|overhead|depreciation|material|labor|defective|purchase|produced|allocated|adjustment|dimensionless)\b/i;
 
-const TR_GARBLED_HYBRID_RE = /[a-zğüşöçı]{2}[A-Z][a-zA-Zğüşöçı]{2,}/;
+const TR_GARBLED_HYBRID_RE = /[a-zgusoci]{2}[A-Z][a-zA-Zgusoci]{2,}/;
 
 export type FieldDisplayCopyLike = {
   readonly label: string;

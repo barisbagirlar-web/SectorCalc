@@ -15,22 +15,22 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "logistics-route-loss": {
     title: "Logistik-Routen- und Leerfahrtverlustbericht",
     painStatement:
-      "Leerkilometer, Kraftstoffabweichungen und Verzögerungen untergraben die Frachtmarge, bevor die Ladung angenommen wird.",
+      "Leerkilometer, Kraftstoffabweichungen und Verzogerungen untergraben die Frachtmarge, bevor die Ladung angenommen wird.",
   },
   "energy-peak-cost": {
     title: "Energie-Spitzenlast- und Effizienzverlustbericht",
     painStatement:
-      "Spitzenlast, Mehrverbrauch in kWh und Tarifabweichungen treiben die Rechnung über den sichtbaren Zählerstand hinaus.",
+      "Spitzenlast, Mehrverbrauch in kWh und Tarifabweichungen treiben die Rechnung uber den sichtbaren Zählerstand hinaus.",
   },
   "food-waste-margin-loss": {
     title: "Lebensmittelabfall-Margenverlust-Rechner",
     painStatement:
-      "Lebensmittelbetriebe können Marge durch Abfall, Überportionierung und Verderb verlieren, bevor der Verlust in den Umsatzberichten sichtbar wird.",
+      "Lebensmittelbetriebe konnen Marge durch Abfall, Uberportionierung und Verderb verlieren, bevor der Verlust in den Umsatzberichten sichtbar wird.",
   },
   "construction-project-overrun": {
-    title: "Bauprojekt-Kostenüberschreitungs-Rechner",
+    title: "Bauprojekt-Kostenuberschreitungs-Rechner",
     painStatement:
-      "Bauprojekte verlieren Geld, wenn Arbeitszeitabweichungen, Verzögerungstage und Materialüberschreitungen vor der Ausführung nicht kalkuliert werden.",
+      "Bauprojekte verlieren Geld, wenn Arbeitszeitabweichungen, Verzogerungstage und Materialuberschreitungen vor der Ausfuhrung nicht kalkuliert werden.",
   },
   "sheet-metal-scrap-risk": {
     title: "Blech-Ausschussrisiko-Rechner",
@@ -38,14 +38,14 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Blechaufträge verlieren Marge, wenn Schnittabfall, Biegefehler und Nacharbeit an der Oberfläche vor der Angebotserstellung nicht eingepreist werden.",
   },
   "restaurant-menu-margin-leak": {
-    title: "Restaurant-Menü-Margenleck-Rechner",
+    title: "Restaurant-Menu-Margenleck-Rechner",
     painStatement:
-      "Restaurants verlieren Marge, wenn Wareneinsatz, Plattformgebühren, Abfall und Portionsabweichungen nicht gemeinsam gemessen werden.",
+      "Restaurants verlieren Marge, wenn Wareneinsatz, Plattformgebuhren, Abfall und Portionsabweichungen nicht gemeinsam gemessen werden.",
   },
   "construction-subcontractor-margin-leak": {
     title: "Subunternehmer-Margenleck-Rechner",
     painStatement:
-      "Bauunternehmer verlieren Marge, wenn Subunternehmer-Mehrkosten, Verzögerungsansprüche und Materialabweichungen nicht kontrolliert werden.",
+      "Bauunternehmer verlieren Marge, wenn Subunternehmer-Mehrkosten, Verzogerungsanspruche und Materialabweichungen nicht kontrolliert werden.",
   },
   "logistics-fuel-route-drift": {
     title: "Kraftstoff- und Routenabweichungs-Rechner",
@@ -58,7 +58,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Druckluftlecks verwandeln Strom in unsichtbare Produktionskosten.",
   },
   "cloud-api-cost-overrun": {
-    title: "Cloud-API-Kostenüberschreitungs-Rechner",
+    title: "Cloud-API-Kostenuberschreitungs-Rechner",
     painStatement:
       "Cloud- und API-Produkte verlieren Marge, wenn Aufrufe, Tokens, Speicher und Rechenleistung schneller wachsen als der Umsatz.",
   },
@@ -70,7 +70,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "cnc-tool-wear-cost": {
     title: "CNC-Werkzeugverschleißkosten-Rechner",
     painStatement:
-      "CNC-Aufträge verlieren Marge, wenn Werkzeugverschleiß, Einsätze, Kühlmittel und Werkzeugwechsel-Stillstand nicht pro Teil verrechnet werden.",
+      "CNC-Aufträge verlieren Marge, wenn Werkzeugverschleiß, Einsätze, Kuhlmittel und Werkzeugwechsel-Stillstand nicht pro Teil verrechnet werden.",
   },
   "textile-fabric-waste-risk": {
     title: "Textil-Stoffabfallrisiko-Rechner",
@@ -88,29 +88,29 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Kfz-Werkstätten verlieren Marge, wenn Diagnosezeit, Teilehandling und Wiederholungsaufträge nicht in Pauschalpreise eingerechnet werden.",
   },
   "hvac-callback-margin-risk": {
-    title: "HLK-Rückruf-Margenrisiko-Rechner",
+    title: "HLK-Ruckruf-Margenrisiko-Rechner",
     painStatement:
-      "HLK-Projekte verlieren Marge, wenn Kanalabweichungen, Inbetriebnahmezeit und Rückrufrisiko nicht kalkuliert werden.",
+      "HLK-Projekte verlieren Marge, wenn Kanalabweichungen, Inbetriebnahmezeit und Ruckrufrisiko nicht kalkuliert werden.",
   },
   "electrical-panel-rework-cost": {
     title: "Elektroschaltschrank-Nacharbeitskosten-Rechner",
     painStatement:
-      "Elektroinstallateure verlieren Geld, wenn Schaltschrankverdrahtung, Prüfung, Abnahme und Nacharbeitsstunden nicht eingepreist werden.",
+      "Elektroinstallateure verlieren Geld, wenn Schaltschrankverdrahtung, Prufung, Abnahme und Nacharbeitsstunden nicht eingepreist werden.",
   },
   "plumbing-leak-callback-cost": {
-    title: "Sanitär-Leck-Rückrufkosten-Rechner",
+    title: "Sanitär-Leck-Ruckrufkosten-Rechner",
     painStatement:
-      "Sanitäraufträge verlieren Marge, wenn Leck-Rückrufe, Materialläufe und Garantiebesuche nicht kalkuliert werden.",
+      "Sanitäraufträge verlieren Marge, wenn Leck-Ruckrufe, Materialläufe und Garantiebesuche nicht kalkuliert werden.",
   },
   "roofing-weather-delay-risk": {
-    title: "Dacharbeiten-Wetterverzögerungsrisiko-Rechner",
+    title: "Dacharbeiten-Wetterverzogerungsrisiko-Rechner",
     painStatement:
-      "Dachaufträge verlieren Marge, wenn Wetterverzögerungen, Entsorgungsgebühren und Garantierückstellungen nicht im Vertragspreis enthalten sind.",
+      "Dachaufträge verlieren Marge, wenn Wetterverzogerungen, Entsorgungsgebuhren und Garantieruckstellungen nicht im Vertragspreis enthalten sind.",
   },
   "painting-rework-coverage-risk": {
     title: "Malerarbeiten-Nacharbeit- und Deckungsrisiko-Rechner",
     painStatement:
-      "Maleraufträge verlieren Marge, wenn Vorbereitungszeit, Deckungsabweichungen, Gerüstzeit und Nacharbeit unterschätzt werden.",
+      "Maleraufträge verlieren Marge, wenn Vorbereitungszeit, Deckungsabweichungen, Gerustzeit und Nacharbeit unterschätzt werden.",
   },
   "dairy-feed-efficiency-loss": {
     title: "Milchvieh-Futtereffizienzverlust-Rechner",
@@ -133,19 +133,19 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Messabweichungen erzeugen Ausschuss, Aussortierung und Compliance-Risiko, bevor das Problem in der Produktion sichtbar wird.",
   },
   "legal-interest-fee-calculator-pro": {
-    title: "Rechtliche Zins- und Gebührenexpositions-Rechner",
+    title: "Rechtliche Zins- und Gebuhrenexpositions-Rechner",
     painStatement:
-      "Rechts- und Inkassofälle verlieren Entscheidungsklarheit, wenn Zinsen, Verzögerungen und Gebührenexposition nicht gemeinsam zusammengefasst werden.",
+      "Rechts- und Inkassofälle verlieren Entscheidungsklarheit, wenn Zinsen, Verzogerungen und Gebuhrenexposition nicht gemeinsam zusammengefasst werden.",
   },
   "carbon-footprint-compliance-risk": {
     title: "CO₂-Fußabdruck-Compliance-Risiko-Rechner",
     painStatement:
-      "Exporteure und Hersteller können die CO₂-Exposition unterschätzen, wenn Energie-, Kraftstoff- und CO₂-Preisannahmen nicht verknüpft werden.",
+      "Exporteure und Hersteller konnen die CO₂-Exposition unterschätzen, wenn Energie-, Kraftstoff- und CO₂-Preisannahmen nicht verknupft werden.",
   },
   "quote-price-profit-margin-calculator": {
     title: "Angebotspreis- und Gewinnmargen-Rechner",
     painStatement:
-      "Angebote lassen häufig Ausschuss, Rüstzeit, Zahlungszielkosten und Energielast aus, bevor die Marge festgelegt wird.",
+      "Angebote lassen häufig Ausschuss, Rustzeit, Zahlungszielkosten und Energielast aus, bevor die Marge festgelegt wird.",
   },
   "shop-rate-hourly-cost-calculator": {
     title: "Maschinenstundensatz-Rechner",
@@ -155,7 +155,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "break-even-safety-margin-calculator": {
     title: "Break-even- und Sicherheitsmargen-Rechner",
     painStatement:
-      "Unternehmer erfahren Gewinn oder Verlust oft erst, wenn die Monatsabschlüsse vorliegen.",
+      "Unternehmer erfahren Gewinn oder Verlust oft erst, wenn die Monatsabschlusse vorliegen.",
   },
   "auto-repair-parts-labor-quote-calculator": {
     title: "Kfz-Reparatur-Teile- und Arbeitsangebots-Rechner",
@@ -165,7 +165,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "cbam-unit-product-carbon-footprint-calculator": {
     title: "CBAM-Produkteinheits-CO₂-Fußabdruck-Rechner",
     painStatement:
-      "Exporteure benötigen CO₂-Nachweise auf Produktebene, verfügen aber über wenig erschwingliche Werkzeuge.",
+      "Exporteure benotigen CO₂-Nachweise auf Produktebene, verfugen aber uber wenig erschwingliche Werkzeuge.",
   },
   "oee-equipment-effectiveness-calculator": {
     title: "OEE-Rechner",
@@ -190,7 +190,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "product-customer-profitability-calculator": {
     title: "Produkt- und Kundenprofitabilitäts-Rechner",
     painStatement:
-      "Umsatzstarke Kunden können die Marge durch Retouren, Verzögerungen und Nacharbeit zerstören.",
+      "Umsatzstarke Kunden konnen die Marge durch Retouren, Verzogerungen und Nacharbeit zerstoren.",
   },
   "inventory-carrying-cost-eoq-calculator": {
     title: "Lagerhaltungskosten- und EOQ-Rechner",
@@ -200,12 +200,12 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "welded-bolted-connection-calculator": {
     title: "Geschweißte und geschraubte Verbindungs-Rechner",
     painStatement:
-      "Verbindungsdimensionierung basiert ohne schnelle Strukturprüfung auf Schätzungen.",
+      "Verbindungsdimensionierung basiert ohne schnelle Strukturprufung auf Schätzungen.",
   },
   "tolerance-stack-up-calculator": {
     title: "Toleranzstapel-Rechner",
     painStatement:
-      "Passungsprobleme entstehen oft durch gestapelte Toleranzen ohne dokumentierte Kettenprüfung.",
+      "Passungsprobleme entstehen oft durch gestapelte Toleranzen ohne dokumentierte Kettenprufung.",
   },
   "bolt-tightening-torque-calculator": {
     title: "Schraubenanzugsdrehmoment-Rechner",
@@ -215,22 +215,22 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "fire-system-flow-hydrant-calculator": {
     title: "Brandschutz-Durchfluss- und Hydranten-Rechner",
     painStatement:
-      "Brandschutzangebote übersehen den Durchflussbedarf vor der Hydranten- und Rohrdimensionierung.",
+      "Brandschutzangebote ubersehen den Durchflussbedarf vor der Hydranten- und Rohrdimensionierung.",
   },
   "hydraulic-pneumatic-cylinder-force-calculator": {
     title: "Hydraulik- und Pneumatikzylinder-Kraft-Rechner",
     painStatement:
-      "Zylinderauswahl überspringt häufig Kraftprüfungen vor dem Aktuator-Kauf.",
+      "Zylinderauswahl uberspringt häufig Kraftprufungen vor dem Aktuator-Kauf.",
   },
   "quality-cost-paf-calculator": {
     title: "Qualitätskosten-PAF-Rechner",
     painStatement:
-      "Qualitätsbudgets verbergen Präventions- und Prüfkosten, bis Fehlerkosten stark ansteigen.",
+      "Qualitätsbudgets verbergen Präventions- und Prufkosten, bis Fehlerkosten stark ansteigen.",
   },
   "pressure-vessel-wall-thickness-calculator": {
     title: "Druckbehälter-Wanddicken-Rechner",
     painStatement:
-      "Hersteller benötigen eine schnelle Wanddickenprüfung vor detaillierten ASME-Berechnungen.",
+      "Hersteller benotigen eine schnelle Wanddickenprufung vor detaillierten ASME-Berechnungen.",
   },
   "value-stream-map-vsm-calculator": {
     title: "Wertstromanalyse-VSM-Rechner",
@@ -248,9 +248,9 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Investitionsanträge zeigen oft nur die Amortisation ohne Diskontsatz oder Zeithorizont.",
   },
   "annual-leave-severance-notice-calculator": {
-    title: "Urlaub, Abfindung und Kündigungsfrist-Rechner",
+    title: "Urlaub, Abfindung und Kundigungsfrist-Rechner",
     painStatement:
-      "Austrittskosten werden oft unterschätzt, bis Lohnabrechnung und Rechtsprüfung vorliegen.",
+      "Austrittskosten werden oft unterschätzt, bis Lohnabrechnung und Rechtsprufung vorliegen.",
   },
   "belt-pulley-speed-length-calculator": {
     title: "Riemen-Riemenscheiben-Drehzahl- und Längen-Rechner",
@@ -260,25 +260,25 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": {
     title: "5S-Audit-Score – Effizienzverlust-Kostenrechner",
     painStatement:
-      "Wandelt 5S-Audit-Ergebnisse in tatsächliche Dollerverluste durch Arbeitsplatzdesorganisation, Suchzeiten und ineffiziente Arbeitsabläufe um und macht den finanziellen Nutzen der Arbeitsplatzorganisation für das Management sichtbar.\n\nDie meisten Fabriken erfassen 5S-Ergebnisse, können aber nicht beantworten: \"Wie viel Geld verlieren wir aufgrund eines niedrigen 5S-Werts?\" Dieses Tool modelliert den Effizienzverlustprozentsatz basierend auf der Lücke zwischen aktuellem und Ziel-5S-Wert und multipliziert ihn mit den gesamten Arbeitskapazitätskosten, um die monatliche finanzielle Belastung durch schlechte Arbeitsplatzorganisation aufzuzeigen.\n\nBeispiel: Eine Abteilung mit 50 Mitarbeitern, aktuellem 5S-Wert 38/100, Zielwert 87/100 und Arbeitskosten von 35 €/Stunde entdeckt einen monatlichen Effizienzverlust von 34.496 €. Die Verbesserung auf den Zielwert bringt monatlich 25.168 € zurück — eine jährliche Chance von 302.000 €.\n\nLean-Manager, Produktionsleiter und Teams für kontinuierliche Verbesserung nutzen diesen Konverter, um den ROI von 5S-Initiativen zu belegen, datengestützte Verbesserungsziele zu setzen und den Wert der Arbeitsplatzorganisation in finanziellen Begriffen zu kommunizieren, die die Führungsebene versteht.",
+      "Wandelt 5S-Audit-Ergebnisse in tatsächliche Dollerverluste durch Arbeitsplatzdesorganisation, Suchzeiten und ineffiziente Arbeitsabläufe um und macht den finanziellen Nutzen der Arbeitsplatzorganisation fur das Management sichtbar.\n\nDie meisten Fabriken erfassen 5S-Ergebnisse, konnen aber nicht beantworten: \"Wie viel Geld verlieren wir aufgrund eines niedrigen 5S-Werts?\" Dieses Tool modelliert den Effizienzverlustprozentsatz basierend auf der Lucke zwischen aktuellem und Ziel-5S-Wert und multipliziert ihn mit den gesamten Arbeitskapazitätskosten, um die monatliche finanzielle Belastung durch schlechte Arbeitsplatzorganisation aufzuzeigen.\n\nBeispiel: Eine Abteilung mit 50 Mitarbeitern, aktuellem 5S-Wert 38/100, Zielwert 87/100 und Arbeitskosten von 35 €/Stunde entdeckt einen monatlichen Effizienzverlust von 34.496 €. Die Verbesserung auf den Zielwert bringt monatlich 25.168 € zuruck — eine jährliche Chance von 302.000 €.\n\nLean-Manager, Produktionsleiter und Teams fur kontinuierliche Verbesserung nutzen diesen Konverter, um den ROI von 5S-Initiativen zu belegen, datengestutzte Verbesserungsziele zu setzen und den Wert der Arbeitsplatzorganisation in finanziellen Begriffen zu kommunizieren, die die Fuhrungsebene versteht.",
   },
   "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
-    title: "3D-Druck Stützstruktur & Nachbearbeitungskosten-Rechner",
+    title: "3D-Druck Stutzstruktur & Nachbearbeitungskosten-Rechner",
     painStatement:
-      "Berechnet die Gesamtkosten von Stützstrukturen und Nachbearbeitungsarbeit für 3D-gedruckte Teile und deckt versteckte Kosten auf, die routinemäßig aus Additive-Fertigungskostenvoranschlägen ausgeschlossen werden.\n\nKostenschätzungen für die Additive-Fertigung konzentrieren sich häufig auf Bauzeit und Modellmaterial und ignorieren Stützmaterialverbrauch, Entfernungsarbeit und Oberflächenveredelung. Dieses Tool aggregiert Stützvolumenkosten, Entfernungsarbeit und Chargen-Nachbearbeitungskosten zu einem Gesamtbetrag, der oft 30-60% zu den scheinbaren Teilekosten hinzufügt.\n\nBeispiel: Ein Teil mit 20 cm³ Stützvolumen zu 0,05 €/cm³ und 15 Minuten Reinigungszeit zu 25 €/Stunde verursacht Nachbearbeitungskosten von 12,25 €. Bei einer Charge von 10 Teilen betragen die Nachbearbeitungskosten nur 1,23 € pro Teil. Eine Einzelteil-Charge mit 60 cm³ Stütze und 45 Minuten Reinigung steigt jedoch auf 46,50 € — oft mehr als die Baukosten.\n\nAdditive-Fertigungstechniker, Werkstattbesitzer und Angebotsspezialisten nutzen diesen Rechner, um vollständige Kostenmodelle zu erstellen, die Teileausrichtung für minimale Stützen zu optimieren und sicherzustellen, dass jedes Angebot die vollen Nachbearbeitungskosten abdeckt.",
+      "Berechnet die Gesamtkosten von Stutzstrukturen und Nachbearbeitungsarbeit fur 3D-gedruckte Teile und deckt versteckte Kosten auf, die routinemäßig aus Additive-Fertigungskostenvoranschlägen ausgeschlossen werden.\n\nKostenschätzungen fur die Additive-Fertigung konzentrieren sich häufig auf Bauzeit und Modellmaterial und ignorieren Stutzmaterialverbrauch, Entfernungsarbeit und Oberflächenveredelung. Dieses Tool aggregiert Stutzvolumenkosten, Entfernungsarbeit und Chargen-Nachbearbeitungskosten zu einem Gesamtbetrag, der oft 30-60% zu den scheinbaren Teilekosten hinzufugt.\n\nBeispiel: Ein Teil mit 20 cm³ Stutzvolumen zu 0,05 €/cm³ und 15 Minuten Reinigungszeit zu 25 €/Stunde verursacht Nachbearbeitungskosten von 12,25 €. Bei einer Charge von 10 Teilen betragen die Nachbearbeitungskosten nur 1,23 € pro Teil. Eine Einzelteil-Charge mit 60 cm³ Stutze und 45 Minuten Reinigung steigt jedoch auf 46,50 € — oft mehr als die Baukosten.\n\nAdditive-Fertigungstechniker, Werkstattbesitzer und Angebotsspezialisten nutzen diesen Rechner, um vollständige Kostenmodelle zu erstellen, die Teileausrichtung fur minimale Stutzen zu optimieren und sicherzustellen, dass jedes Angebot die vollen Nachbearbeitungskosten abdeckt.",
   },
   "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
     title: "3D-Druck Batch-Nesting & Bett-Auslastungs-Rechner",
     painStatement:
-      "Optimiert die Bauplattenauslastung von 3D-Druckern durch Berechnung der maximalen Teile pro Charge basierend auf Bounding-Box-Abmessungen, Bettsize und Nesting-Effizienz — und übersetzt Auslastungsprozentsätze in Kosten pro Teil.\n\nDie Bauplattenauslastung ist der größte Hebel für die Rentabilität der Additive-Fertigung, doch die meisten Betreiber schätzen sie nach Augenmaß. Dieses Tool berechnet die exakte rechteckige Nesting-Passung, den Auslastungsgrad und die Maschinenstunden pro Teil und zeigt die wahren Kosten ineffizienten Bettpackens.\n\nBeispiel: Ein 200×200 mm Bett mit 50×50 mm Teilen fasst 12 Teile pro Charge bei 75% Auslastung mit einer 8-Stunden-Druckzeit. Jedes Teil verbraucht 0,67 Maschinenstunden. Schlechtes Nesting, das nur 8 Teile fasst, erhöht die Maschinenstunden auf 1,0 pro Teil — eine Kostensteigerung von 50%, die die Marge direkt schmälert.\n\nAdditive-Fertigungstechniker und Produktionsplaner nutzen diesen Optimierer, um die Chargengröße zu maximieren, die Maschinenkosten pro Teil zu senken und datengestützte Entscheidungen über Bauausrichtung und Mehrteil-Nesting-Strategie zu treffen.",
+      "Optimiert die Bauplattenauslastung von 3D-Druckern durch Berechnung der maximalen Teile pro Charge basierend auf Bounding-Box-Abmessungen, Bettsize und Nesting-Effizienz — und ubersetzt Auslastungsprozentsätze in Kosten pro Teil.\n\nDie Bauplattenauslastung ist der großte Hebel fur die Rentabilität der Additive-Fertigung, doch die meisten Betreiber schätzen sie nach Augenmaß. Dieses Tool berechnet die exakte rechteckige Nesting-Passung, den Auslastungsgrad und die Maschinenstunden pro Teil und zeigt die wahren Kosten ineffizienten Bettpackens.\n\nBeispiel: Ein 200×200 mm Bett mit 50×50 mm Teilen fasst 12 Teile pro Charge bei 75% Auslastung mit einer 8-Stunden-Druckzeit. Jedes Teil verbraucht 0,67 Maschinenstunden. Schlechtes Nesting, das nur 8 Teile fasst, erhoht die Maschinenstunden auf 1,0 pro Teil — eine Kostensteigerung von 50%, die die Marge direkt schmälert.\n\nAdditive-Fertigungstechniker und Produktionsplaner nutzen diesen Optimierer, um die Chargengroße zu maximieren, die Maschinenkosten pro Teil zu senken und datengestutzte Entscheidungen uber Bauausrichtung und Mehrteil-Nesting-Strategie zu treffen.",
   },
   "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
     title: "3D-Druck vs Zerspanung Break-even-Rechner",
     painStatement:
-      "Ermittelt die genaue Produktionsmenge, bei der 3D-Druck wirtschaftlicher wird als CNC-Bearbeitung (oder umgekehrt), mithilfe einer Break-Even-Analyse von Rüstkosten und Stückkosten beider Fertigungsmethoden.\n\nDie Wahl zwischen additiver und subtraktiver Fertigung ist eine der häufigsten Produktionsentscheidungen in der modernen Fertigung. Ohne datengestützten Vergleich entscheiden Teams aus Gewohnheit — sie zahlen bei hohen Volumen für Additive oder bei niedrigen Volumen für Zerspanung zu viel. Dieses Tool berechnet die Crossover-Menge, die Gesamtkostenkurven und die Kostendifferenz bei jedem angegebenen Volumen.\n\nBeispiel: Mit 3D-Druck bei 100 € Rüstkosten und 5 €/Teil und Zerspanung bei 500 € Rüstkosten und 2 €/Teil beträgt die Break-Even-Menge 134 Teile. Unter 134 Einheiten ist Drucken günstiger; darüber gewinnt die Zerspanung. Bei 100 Einheiten kostet Drucken 600 € vs. 700 € für Zerspanung.\n\nFertigungsingenieure, Produktionsplaner und Einkaufsleiter nutzen diesen Break-Even-Analysator, um objektiv das kostengünstigste Fertigungsverfahren für jede Produktionsmenge auszuwählen, Rätselraten zu eliminieren und die Stückkosten zu senken.",
+      "Ermittelt die genaue Produktionsmenge, bei der 3D-Druck wirtschaftlicher wird als CNC-Bearbeitung (oder umgekehrt), mithilfe einer Break-Even-Analyse von Rustkosten und Stuckkosten beider Fertigungsmethoden.\n\nDie Wahl zwischen additiver und subtraktiver Fertigung ist eine der häufigsten Produktionsentscheidungen in der modernen Fertigung. Ohne datengestutzten Vergleich entscheiden Teams aus Gewohnheit — sie zahlen bei hohen Volumen fur Additive oder bei niedrigen Volumen fur Zerspanung zu viel. Dieses Tool berechnet die Crossover-Menge, die Gesamtkostenkurven und die Kostendifferenz bei jedem angegebenen Volumen.\n\nBeispiel: Mit 3D-Druck bei 100 € Rustkosten und 5 €/Teil und Zerspanung bei 500 € Rustkosten und 2 €/Teil beträgt die Break-Even-Menge 134 Teile. Unter 134 Einheiten ist Drucken gunstiger; daruber gewinnt die Zerspanung. Bei 100 Einheiten kostet Drucken 600 € vs. 700 € fur Zerspanung.\n\nFertigungsingenieure, Produktionsplaner und Einkaufsleiter nutzen diesen Break-Even-Analysator, um objektiv das kostengunstigste Fertigungsverfahren fur jede Produktionsmenge auszuwählen, Rätselraten zu eliminieren und die Stuckkosten zu senken.",
   },
   "cbam-exposure-quick-check": {
-    title: "CBAM-Expositions-Schnellprüfung",
+    title: "CBAM-Expositions-Schnellprufung",
     painStatement:
       "Eingebettete Emissionen, Zertifikatspreis und Wechselkurs – ohne kombinierte Betrachtung bleibt die CBAM-Kostenprognose unvollständig.",
   },
@@ -290,17 +290,17 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "7 Verschwendungsarten (Muda) – monetärer Impact-Rechner",
     painStatement:
-      "Quantifiziert die monetären Auswirkungen aller 7 Lean-Verschwendungsarten (Muda) — Überproduktion, Warten, Transport, Bestand, Bewegung, Überbearbeitung und Fehler — und übersetzt operative Ineffizienzen in finanzielle Kennzahlen, auf die das Management reagieren kann.\n\nTraditionelle Verschwendungsverfolgung beschränkt sich auf Fehlerzählung oder Stillstandszeiten. Dieses Tool wandelt jede Verschwendungskategorie in Periodenkosten, annualisierten Verlust, Abfall-Umsatz-Verhältnis und risikoadjustierte Prioritätswerte um. Es zeigt, welche Muda-Kategorie am teuersten ist und wo Kaizen die höchste Rendite erzielt.\n\nBeispiel: Eine Fabrik mit 50 Überproduktionseinheiten, 20 Wartestunden und 15 Fehlereinheiten in 30 Tagen entdeckt, dass Warten und Fehler 62% der gesamten Abfallkosten von 28.500 € ausmachen. Das Tool priorisiert Fehlerreduzierung mit einem risikoadjustierten Wert von 4,2/5 und prognostiziert jährliche Einsparungen von 17.700 €.\n\nProduktionsleiter, Lean-Koordinatoren und Werksdirektoren nutzen diesen Analysator, um Muda in vorstandsgerechte Finanzkennzahlen zu übersetzen, Verbesserungsinvestitionen nach ROI zu priorisieren und die Reduzierung des Abfall-Umsatz-Verhältnisses über aufeinanderfolgende Perioden zu verfolgen.",
+      "Quantifiziert die monetären Auswirkungen aller 7 Lean-Verschwendungsarten (Muda) — Uberproduktion, Warten, Transport, Bestand, Bewegung, Uberbearbeitung und Fehler — und ubersetzt operative Ineffizienzen in finanzielle Kennzahlen, auf die das Management reagieren kann.\n\nTraditionelle Verschwendungsverfolgung beschränkt sich auf Fehlerzählung oder Stillstandszeiten. Dieses Tool wandelt jede Verschwendungskategorie in Periodenkosten, annualisierten Verlust, Abfall-Umsatz-Verhältnis und risikoadjustierte Prioritätswerte um. Es zeigt, welche Muda-Kategorie am teuersten ist und wo Kaizen die hochste Rendite erzielt.\n\nBeispiel: Eine Fabrik mit 50 Uberproduktionseinheiten, 20 Wartestunden und 15 Fehlereinheiten in 30 Tagen entdeckt, dass Warten und Fehler 62% der gesamten Abfallkosten von 28.500 € ausmachen. Das Tool priorisiert Fehlerreduzierung mit einem risikoadjustierten Wert von 4,2/5 und prognostiziert jährliche Einsparungen von 17.700 €.\n\nProduktionsleiter, Lean-Koordinatoren und Werksdirektoren nutzen diesen Analysator, um Muda in vorstandsgerechte Finanzkennzahlen zu ubersetzen, Verbesserungsinvestitionen nach ROI zu priorisieren und die Reduzierung des Abfall-Umsatz-Verhältnisses uber aufeinanderfolgende Perioden zu verfolgen.",
   },
   "hydraulic-cylinder-tonnage-power-calculator": {
     title: "Hydraulikzylinder-Tonnage- und Leistungsrechner",
     painStatement:
-      "Die Dimensionierung von Hydraulikzylindern erfordert gleichzeitige Kraft-, Geschwindigkeits- und Leistungsberechnungen für Tonnage und Motorleistung. Ein falsches Kolbenstangen-Hub-Verhältnis kann katastrophales Knickversagen verursachen.",
+      "Die Dimensionierung von Hydraulikzylindern erfordert gleichzeitige Kraft-, Geschwindigkeits- und Leistungsberechnungen fur Tonnage und Motorleistung. Ein falsches Kolbenstangen-Hub-Verhältnis kann katastrophales Knickversagen verursachen.",
   },
   "compressor-power-air-flow-calculator": {
     title: "Kompressorleistungs- und Luftstromrechner",
     painStatement:
-      "Kompressorleistungsberechnungen ohne korrekten Polytropenexponenten und mehrstufige Korrektur führen zu über- oder unterdimensionierten Motoren.",
+      "Kompressorleistungsberechnungen ohne korrekten Polytropenexponenten und mehrstufige Korrektur fuhren zu uber- oder unterdimensionierten Motoren.",
   },
   "cutting-parameters-power-calculator": {
     title: "Schnittparameter- und Leistungsrechner",
@@ -308,14 +308,14 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Manuelle Schnittparameterwahl lässt die Maschinenauslastung unter 60% fallen und verursacht vermeidbaren Werkzeugverschleiß.",
   },
   "evaporative-cooling-capacity-calculator": {
-    title: "Verdunstungskühlungs-(FES)-Kapazitätsrechner",
+    title: "Verdunstungskuhlungs-(FES)-Kapazitätsrechner",
     painStatement:
-      "Die Dimensionierung von Verdunstungskühlsystemen erfordert psychrometrische Berechnungen und Pad-Wirkungsgrad — das Fehlen führt zu unzureichender Kühlung.",
+      "Die Dimensionierung von Verdunstungskuhlsystemen erfordert psychrometrische Berechnungen und Pad-Wirkungsgrad — das Fehlen fuhrt zu unzureichender Kuhlung.",
   },
   "condenser-precooling-savings-calculator": {
-    title: "Kondensator-Vorkühlung (adiabatische) Energieeinsparung",
+    title: "Kondensator-Vorkuhlung (adiabatische) Energieeinsparung",
     painStatement:
-      "Ohne Kondensator-Vorkühlungsanalyse können Sie die Energieeinsparung durch adiabatische Kühlung nicht quantifizieren.",
+      "Ohne Kondensator-Vorkuhlungsanalyse konnen Sie die Energieeinsparung durch adiabatische Kuhlung nicht quantifizieren.",
   },
   "pad-media-psychrometric-calculator": {
     title: "Pad-Medien-psychrometrische Analyse",
@@ -325,12 +325,12 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "fgas-leak-co2-calculator": {
     title: "F-Gas-Leck- und CO₂-Äquivalentrechner",
     painStatement:
-      "Die F-Gas-Leckquantifizierung erfordert GWP-Berechnung und gesetzliche Compliance-Prüfungen.",
+      "Die F-Gas-Leckquantifizierung erfordert GWP-Berechnung und gesetzliche Compliance-Prufungen.",
   },
   "water-footprint-calculator": {
     title: "Wasserfußabdruckrechner",
     painStatement:
-      "Wasserfußabdruckanalyse ohne Aufteilung in blaues/grünes/graues Wasser verbirgt die tatsächlichen Umweltauswirkungen.",
+      "Wasserfußabdruckanalyse ohne Aufteilung in blaues/grunes/graues Wasser verbirgt die tatsächlichen Umweltauswirkungen.",
   },
   "shev-smoke-exhaust-calculator": {
     title: "SHEV-Rauchabzugs-Dimensionsrechner",
@@ -338,24 +338,24 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
       "Die Rauchabzugsdimensionierung nach EN 12101-5 erfordert Massenstrom- und Flächenberechnungen.",
   },
   "natural-ventilation-ach-calculator": {
-    title: "Natürlicher Lüftungs-(ACH)-Bedarfrechner",
+    title: "Naturlicher Luftungs-(ACH)-Bedarfrechner",
     painStatement:
-      "Die natürliche Lüftungsdimensionierung erfordert auftriebsgetriebene Strömungsberechnungen.",
+      "Die naturliche Luftungsdimensionierung erfordert auftriebsgetriebene Stromungsberechnungen.",
   },
   "compound-interest-calculator": {
     title: "Zinseszinsrechner (detailliert)",
     painStatement:
-      "Zinseszinsberechnungen ohne Anpassung der Zinseszinshäufigkeit führen zu irreführenden Zukunftswertprognosen.",
+      "Zinseszinsberechnungen ohne Anpassung der Zinseszinshäufigkeit fuhren zu irrefuhrenden Zukunftswertprognosen.",
   },
   "living-wage-calculator": {
     title: "Existenzlohnrechner",
     painStatement:
-      "Die Berechnung der tatsächlichen Arbeitgeberkosten pro Mitarbeiter erfordert die Aggregation von Bruttogehalt, Überstunden, Sozialabgaben, Steuern und Zulagen.",
+      "Die Berechnung der tatsächlichen Arbeitgeberkosten pro Mitarbeiter erfordert die Aggregation von Bruttogehalt, Uberstunden, Sozialabgaben, Steuern und Zulagen.",
   },
   "panel-radiator-heating-capacity-calculator": {
-    title: "Plattenheizkörper-Heizleistungsrechner",
+    title: "Plattenheizkorper-Heizleistungsrechner",
     painStatement:
-      "Die Dimensionierung eines Plattenheizkörpers erfordert Raumwärmeverlustberechnung und Heizkörperleistungskorrektur für nicht standardmäßige Temperaturen.",
+      "Die Dimensionierung eines Plattenheizkorpers erfordert Raumwärmeverlustberechnung und Heizkorperleistungskorrektur fur nicht standardmäßige Temperaturen.",
   },
   "underfloor-heating-design-calculator": {
     title: "Fußbodenheizungs-Designrechner",
@@ -370,7 +370,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "epq-production-quantity-calculator": {
     title: "EPQ (Economical Production Quantity) Rechner",
     painStatement:
-      "Die klassische EOQ-Formel ignoriert endliche Produktionsraten und überschätzt dadurch die Losgrößen.",
+      "Die klassische EOQ-Formel ignoriert endliche Produktionsraten und uberschätzt dadurch die Losgroßen.",
   },
   "kanban-bin-card-calculator": {
     title: "Kanban-Behälter-/Kartenanzahlrechner",
@@ -380,7 +380,7 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "littles-law-calculator": {
     title: "Little's Law (Umlaufbestand) Rechner",
     painStatement:
-      "Aus zwei beliebigen Größen von Umlaufbestand/Durchlaufzeit/Durchsatz die dritte berechnen und Umlaufbestand in finanzielle Risiken übersetzen.",
+      "Aus zwei beliebigen Großen von Umlaufbestand/Durchlaufzeit/Durchsatz die dritte berechnen und Umlaufbestand in finanzielle Risiken ubersetzen.",
   },
   "milk-run-route-calculator": {
     title: "Milk-Run-Routenoptimierungsrechner",
@@ -395,12 +395,12 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "queuing-mm1-calculator": {
     title: "Warteschlangentheorie (M/M/1) Rechner",
     painStatement:
-      "Warteschlangenanalyse ohne Ankunfts- und Bedienratenmodellierung führt zu unter- oder überbesetzten Betrieben.",
+      "Warteschlangenanalyse ohne Ankunfts- und Bedienratenmodellierung fuhrt zu unter- oder uberbesetzten Betrieben.",
   },
   "fmea-rpn-calculator": {
     title: "FMEA-RPN (Risikoprioritätszahl) Rechner",
     painStatement:
-      "Manuelle FMEA-RPN-Berechnung verfehlt die funktionsübergreifende Risikopriorisierung.",
+      "Manuelle FMEA-RPN-Berechnung verfehlt die funktionsubergreifende Risikopriorisierung.",
   },
   "doe-factorial-design-calculator": {
     title: "DOE-Faktorieller-Design-Rechner",
@@ -410,10 +410,10 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "reliability-block-calculator": {
     title: "Zuverlässigkeitsblock-(RBD/MTBF)-Rechner",
     painStatement:
-      "Zuverlässigkeitsberechnungen für Serie/Parallel-Systeme erfordern MTBF- und MTTR-Aggregation.",
+      "Zuverlässigkeitsberechnungen fur Serie/Parallel-Systeme erfordern MTBF- und MTTR-Aggregation.",
   },
   "niosh-lifting-calculator": {
-    title: "NIOSH-Hebevorgangs-(überarbeiteter)-Rechner",
+    title: "NIOSH-Hebevorgangs-(uberarbeiteter)-Rechner",
     painStatement:
       "Die NIOSH-Hebegleichung erfordert horizontale/vertikale/Kopplungs-/Frequenzmultiplikatoren.",
   },
@@ -430,12 +430,12 @@ export const DE_SCHEMAS: Record<string, { title?: string; painStatement?: string
   "pareto-root-cause-calculator": {
     title: "Pareto-/Ursachenanalyse-Rechner",
     painStatement:
-      "Pareto-(80/20)-Analyse ohne kumulative Prozentsortierung übersieht die wenigen lebenswichtigen Ursachen.",
+      "Pareto-(80/20)-Analyse ohne kumulative Prozentsortierung ubersieht die wenigen lebenswichtigen Ursachen.",
   },
   "value-added-process-analyzer": {
-    title: "Wertschöpfungsprozess-(VAP)-Verhältnis-Analysator",
+    title: "Wertschopfungsprozess-(VAP)-Verhältnis-Analysator",
     painStatement:
-      "VAP-Verhältnisanalyse trennt wertschöpfende von nicht-wertschöpfender Zeit.",
+      "VAP-Verhältnisanalyse trennt wertschopfende von nicht-wertschopfender Zeit.",
   },
   "kaizen-event-tracker": {
     title: "Kaizen-Ereignis-/Kosteneinsparungs-Tracker",

@@ -1,6 +1,6 @@
 /**
  * Industrial PDF Report — type definitions.
- * ECMI / ISO 9001 / TÜV-certifiable data model.
+ * ECMI / ISO 9001 / TUV-certifiable data model.
  */
 
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";

@@ -15,8 +15,8 @@ describe("economic-order-quantity-calculator", () => {
   } as unknown as Economic_order_quantity_calculatorInput;
     const result = calculateEconomic_order_quantity_calculator(input);
     expect(result).toBeDefined();
-    // Stub-tolerant: NaN kabul edilir (stub formüller henüz NaN üretebilir)
-    // Gerçek formül geldiğinde Number.isFinite eklenebilir
+    // Stub-tolerant: NaN kabul edilir (stub formuller henuz NaN uretebilir)
+    // Gercek formul geldiginde Number.isFinite eklenebilir
     expect(typeof result.totalWasteCost).toBe("number");
     expect(result.breakdown).toBeDefined();
     expect(Array.isArray(result.hiddenLossDrivers)).toBe(true);

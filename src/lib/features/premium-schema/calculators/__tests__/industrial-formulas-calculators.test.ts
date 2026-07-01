@@ -1,7 +1,7 @@
 /**
  * Industrial Formula Calculators — Test Suite
  *
- * ECMI / ISO 9001 — TÜV-certifiable engineering quality.
+ * ECMI / ISO 9001 — TUV-certifiable engineering quality.
  * Tests match the ACTUAL calculator interfaces and outputs.
  * Failing assertions reveal potential formula bugs (R² > 1, inverted ratios).
  */

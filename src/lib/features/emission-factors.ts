@@ -39,7 +39,7 @@ export const DEFAULT_EMISSION_FACTORS: readonly EmissionFactor[] = [
     category: "electricity",
     unit: "kWh",
     factor: 0.45,
-    source: "Türkiye Ortalama",
+    source: "Turkiye Ortalama",
     lastUpdated: new Date("2024-01-01T00:00:00.000Z"),
   },
   {
@@ -102,7 +102,7 @@ export const DEFAULT_EMISSION_FACTORS: readonly EmissionFactor[] = [
     category: "employee_commute",
     unit: "km",
     factor: 0.05,
-    source: "TÜİK",
+    source: "TUIK",
     lastUpdated: new Date("2024-01-01T00:00:00.000Z"),
   },
   {

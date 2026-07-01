@@ -73,7 +73,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_5",
     family: "cost",
-    label: "DEVAMSIZLIK MALİYETİ — BradfordFactor",
+    label: "DEVAMSIZLIK COSTI — BradfordFactor",
     fn: (inputs) => {
     const s = num(inputs, "s");
     const d = num(inputs, "d");
@@ -83,7 +83,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.absenteeism_cost_6",
     family: "cost",
-    label: "DEVAMSIZLIK MALİYETİ — TotalCost",
+    label: "DEVAMSIZLIK COSTI — TotalCost",
     fn: (inputs) => {
     const direct = num(inputs, "direct");
     const oT = num(inputs, "oT");
@@ -94,11 +94,11 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── DIGITAL TWIN MALİYET (6 formulas) ──,
+  // ── DIGITAL TWIN COST (6 formulas) ──,
   {
     id: "user.digital_twin_cost_0",
     family: "cost",
-    label: "DIGITAL TWIN MALİYET — Cost_Trad",
+    label: "DIGITAL TWIN COST — Cost_Trad",
     fn: (inputs) => {
     const prototyping = num(inputs, "prototyping");
     const fieldTest = num(inputs, "fieldTest");
@@ -110,7 +110,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.digital_twin_cost_1",
     family: "cost",
-    label: "DIGITAL TWIN MALİYET — Cost_DT",
+    label: "DIGITAL TWIN COST — Cost_DT",
     fn: (inputs) => {
     const license = num(inputs, "license");
     const compute = num(inputs, "compute");
@@ -122,7 +122,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.digital_twin_cost_2",
     family: "cost",
-    label: "DIGITAL TWIN MALİYET — TimeGain",
+    label: "DIGITAL TWIN COST — TimeGain",
     fn: (inputs) => {
     const physCycle = num(inputs, "physCycle");
     const digCycle = num(inputs, "digCycle");
@@ -133,7 +133,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.digital_twin_cost_3",
     family: "cost",
-    label: "DIGITAL TWIN MALİYET — RevenueGain",
+    label: "DIGITAL TWIN COST — RevenueGain",
     fn: (inputs) => {
     const timeGain = num(inputs, "timeGain");
     const dailyRev = num(inputs, "dailyRev");
@@ -143,7 +143,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.digital_twin_cost_4",
     family: "cost",
-    label: "DIGITAL TWIN MALİYET — QualitySavings",
+    label: "DIGITAL TWIN COST — QualitySavings",
     fn: (inputs) => {
     const defectReduction = num(inputs, "defectReduction");
     const warrantyCost = num(inputs, "warrantyCost");
@@ -154,7 +154,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.digital_twin_cost_5",
     family: "cost",
-    label: "DIGITAL TWIN MALİYET — ROI",
+    label: "DIGITAL TWIN COST — ROI",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Trad = num(inputs, "Trad");
@@ -166,11 +166,11 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── DİKİŞ HATTI DENGELEYİCİ (8 formulas) ──,
+  // ── DIKWORK HATTI DENGELEYICI (8 formulas) ──,
   {
     id: "user.sewing_line_balance_analyzer_pro_0",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — TaktTime",
+    label: "DIKWORK HATTI DENGELEYICI — TaktTime",
     fn: (inputs) => {
     const availableTime = num(inputs, "availableTime");
     const demand = num(inputs, "demand");
@@ -180,7 +180,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_1",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — CycleTotal",
+    label: "DIKWORK HATTI DENGELEYICI — CycleTotal",
     fn: (inputs) => {
     const sMV = num(inputs, "sMV");
     return nonNegative(assertFinite(SUM(sMV)));
@@ -189,7 +189,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_2",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — TheoOperators",
+    label: "DIKWORK HATTI DENGELEYICI — TheoOperators",
     fn: (inputs) => {
     const cycleTotal = num(inputs, "cycleTotal");
     const taktTime = num(inputs, "taktTime");
@@ -199,7 +199,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_3",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — ActOperators",
+    label: "DIKWORK HATTI DENGELEYICI — ActOperators",
     fn: (inputs) => {
     const theoOperators = num(inputs, "theoOperators");
     const ceil = num(inputs, "ceil") || 0;
@@ -209,7 +209,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_4",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — LineEff",
+    label: "DIKWORK HATTI DENGELEYICI — LineEff",
     fn: (inputs) => {
     const cycleTotal = num(inputs, "cycleTotal");
     const actOperators = num(inputs, "actOperators");
@@ -220,7 +220,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_5",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — BalanceDelay",
+    label: "DIKWORK HATTI DENGELEYICI — BalanceDelay",
     fn: (inputs) => {
     const lineEff = num(inputs, "lineEff");
     return nonNegative(assertFinite(100 - lineEff));
@@ -229,7 +229,7 @@ export const CHUNK_14_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.sewing_line_balance_analyzer_pro_6",
     family: "cost",
-    label: "DİKİŞ HATTI DENGELEYİCİ — Smoothness",
+    label: "DIKWORK HATTI DENGELEYICI — Smoothness",
     fn: (inputs) => {
     const maxCycle = num(inputs, "maxCycle");
     const cycle = num(inputs, "cycle");

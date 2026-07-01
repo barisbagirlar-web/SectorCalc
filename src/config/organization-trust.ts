@@ -8,13 +8,13 @@ export const ORGANIZATION_TRUST = {
   displayName: "SectorCalc",
   description: {
     en: "Sector calculators for manufacturing, industry, and business.",
-    de: "Branchenspezifische Rechner für Produktion, Industrie und Unternehmen.",
+    de: "Branchenspezifische Rechner fur Produktion, Industrie und Unternehmen.",
     fr: "Calculateurs sectoriels pour la production, l'industrie et les entreprises.",
     es: "Calculadoras sectoriales para producción, industria y negocios.",
     ar: "حاسبات قطاعية للتصنيع والصناعة والأعمال.",
   },
   founder: {
-    name: "Barış Bağırlar",
+    name: "Baris Bagirlar",
     email: "barisbagirlar@gmail.com",
   },
   logoPath: BRAND_ASSETS.logo.default,
@@ -22,7 +22,7 @@ export const ORGANIZATION_TRUST = {
   phone: LEGAL_ENTITY.phone,
   address: {
     streetAddress: LEGAL_ENTITY.address,
-    addressLocality: "İzmir",
+    addressLocality: "Izmir",
     addressCountry: "Turkey",
   },
   sameAs: buildOrganizationSameAs(),

@@ -1,5 +1,5 @@
 /**
- * Tool #16 — Takt Süre Flexibility
+ * Tool #16 — Takt Sure Flexibility
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
@@ -7,17 +7,17 @@ export const TAKT_TIME_FLEXIBILITY_SCHEMA: PremiumCalculatorSchema = {
   name: "Takt Time Flexibility Analysis", name_i18n: {"en":"Takt Time Flexibility Analysis"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Mismatch between takt time and cycle time causes hidden capacity loss and excess labor.", painStatement_i18n: {"en":"Mismatch between Takt time and cycle time causes hidden capacity loss and excess labor."},
   inputs: [
-    { id: "availableTime", label: "Available Time (Daily)", label_i18n: {"en":"Available Time (Daily)"}, type: "number", unit: "dk/gün", required: true, smartDefault: 480, validation: { min: 1 }, helper: "", expertMeaning: "Daily available production time", expertMeaning_i18n: {"en":"Daily available production time"} },
-    { id: "customerDemand", label: "Customer Demand (Daily)", label_i18n: {"en":"Customer Demand (Daily)"}, type: "number", unit: "adet/gün", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Daily customer demand", expertMeaning_i18n: {"en":"Daily customer demand"} },
+    { id: "availableTime", label: "Available Time (Daily)", label_i18n: {"en":"Available Time (Daily)"}, type: "number", unit: "dk/gun", required: true, smartDefault: 480, validation: { min: 1 }, helper: "", expertMeaning: "Daily available production time", expertMeaning_i18n: {"en":"Daily available production time"} },
+    { id: "customerDemand", label: "Customer Demand (Daily)", label_i18n: {"en":"Customer Demand (Daily)"}, type: "number", unit: "adet/gun", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Daily customer demand", expertMeaning_i18n: {"en":"Daily customer demand"} },
     { id: "cycleTime", label: "Cycle Time", label_i18n: {"en":"Cycle Time"}, type: "number", unit: "dk/adet", required: true, smartDefault: 1.2, validation: { min: 0.01 }, helper: "", expertMeaning: "Current cycle time per unit", expertMeaning_i18n: {"en":"Current cycle time per unit"} },
-    { id: "numOperators", label: "Number of Operators", label_i18n: {"en":"Number of Operators"}, type: "number", unit: "kişi", required: true, smartDefault: 3, validation: { min: 1 }, helper: "", expertMeaning: "Number of operators on line", expertMeaning_i18n: {"en":"Number of operators pre line"} },
+    { id: "numOperators", label: "Number of Operators", label_i18n: {"en":"Number of Operators"}, type: "number", unit: "kisi", required: true, smartDefault: 3, validation: { min: 1 }, helper: "", expertMeaning: "Number of operators on line", expertMeaning_i18n: {"en":"Number of operators pre line"} },
     { id: "targetEfficiency", label: "Hedef Verimlilik", label_i18n: {"en":"Target Efficiency"}, type: "number", unit: "%", required: false, smartDefault: 85, validation: { min: 1, max: 100 }, helper: "", expertMeaning: "Target line efficiency", expertMeaning_i18n: {"en":"Target line efficiency"} },
   ],
   outputs: [
-    { id: "taktTime", label: "Takt Süresi", label_i18n: {"en":"Takt Time"}, unit: "dk/adet", format: "number" },
+    { id: "taktTime", label: "Takt Suresi", label_i18n: {"en":"Takt Time"}, unit: "dk/adet", format: "number" },
     { id: "cycleFlexibility", label: "Cycle Flexibility Rate", label_i18n: {"en":"Cycle Flexibility Rate"}, unit: "%", format: "percentage" },
-    { id: "balanceLoss", label: "Balance Loss", label_i18n: {"en":"Balance Loss"}, unit: "USD/gün", format: "currency" },
-    { id: "flexibilityPremium", label: "Esneklik Primi", label_i18n: {"en":"Flexibility Premium"}, unit: "USD/gün", format: "currency" },
+    { id: "balanceLoss", label: "Balance Loss", label_i18n: {"en":"Balance Loss"}, unit: "USD/gun", format: "currency" },
+    { id: "flexibilityPremium", label: "Esneklik Primi", label_i18n: {"en":"Flexibility Premium"}, unit: "USD/gun", format: "currency" },
   ],
   thresholds: [{ fieldId: "cycleFlexibility", warning: 15, critical: 30, direction: "higher_is_bad", warningMessage: "Flexibility gap > 15% — line balancing recommended.", warningMessage_i18n: {"en":"Flexibility gap > 15% — line balancing recommended."}, criticalMessage: "Flexibility gap > 30% — revise takt time.", criticalMessage_i18n: {"en":"Flexibility gap > 30% — revise Takt time."} }],
   formulaPipeline: [

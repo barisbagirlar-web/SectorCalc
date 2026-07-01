@@ -35,57 +35,57 @@ export function resolveTaxonomyCategoryDisplayLabel(categoryId: string, locale: 
 
 /** Localized profession chips for sector taxonomy tiles (Turkish source keys). */
 const PROFESSION_DISPLAY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
-  "Üretim Mühendisi": {
+  "Uretim Engineer": {
     en: "Production Engineer",
-    tr: "Üretim Mühendisi",
+    tr: "Uretim Engineer",
     de: "Produktionsingenieur",
     fr: "Ingénieur de production",
     es: "Ingeniero de producción",
     ar: "مهندس إنتاج",
   },
-  "Kalite Mühendisi": {
+  "Kalite Engineer": {
     en: "Quality Engineer",
-    tr: "Kalite Mühendisi",
+    tr: "Kalite Engineer",
     de: "Qualitätsingenieur",
     fr: "Ingénieur qualité",
     es: "Ingeniero de calidad",
     ar: "مهندس جودة",
   },
-  "Tasarım Mühendisi": {
+  "Tasarim Engineer": {
     en: "Design Engineer",
-    tr: "Tasarım Mühendisi",
+    tr: "Tasarim Engineer",
     de: "Konstruktionsingenieur",
     fr: "Ingénieur conception",
     es: "Ingeniero de diseño",
     ar: "مهندس تصميم",
   },
-  "Proses Mühendisi": {
+  "Process Engineer": {
     en: "Process Engineer",
-    tr: "Proses Mühendisi",
+    tr: "Process Engineer",
     de: "Verfahrensingenieur",
     fr: "Ingénieur procédés",
     es: "Ingeniero de procesos",
     ar: "مهندس عمليات",
   },
-  "Finans Müdürü": {
+  "Finans Muduru": {
     en: "Finance Manager",
-    tr: "Finans Müdürü",
+    tr: "Finans Muduru",
     de: "Finanzleiter",
     fr: "Directeur financier",
     es: "Director financiero",
     ar: "مدير مالي",
   },
-  "Enerji Mühendisi": {
+  "Enerji Engineer": {
     en: "Energy Engineer",
-    tr: "Enerji Mühendisi",
+    tr: "Enerji Engineer",
     de: "Energieingenieur",
     fr: "Ingénieur énergie",
     es: "Ingeniero energético",
     ar: "مهندس طاقة",
   },
-  "İnşaat Mühendisi": {
+  "Insaat Engineer": {
     en: "Civil Engineer",
-    tr: "İnşaat Mühendisi",
+    tr: "Insaat Engineer",
     de: "Bauingenieur",
     fr: "Ingénieur civil",
     es: "Ingeniero civil",

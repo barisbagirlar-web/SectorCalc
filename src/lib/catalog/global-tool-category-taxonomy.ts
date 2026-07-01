@@ -60,7 +60,7 @@ const FORBIDDEN_CATEGORY_SLUGS = new Set(["uncategorized", "misc", "genel"]);
 const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   {
     slug: "mathematics-statistics",
-    trTitle: "Matematik, İstatistik ve Analiz",
+    trTitle: "Matematik, Istatistik ve Analiz",
     enTitle: "Mathematics, Statistics & Analytics",
     iconKey: "calculator",
     summary: "Algebra, calculus, probability, regression, hypothesis testing and data analysis.",
@@ -68,7 +68,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "health-fitness-daily-life",
-    trTitle: "Sağlık, Spor ve Günlük Yaşam",
+    trTitle: "Saglik, Spor ve Gunluk Yasam",
     enTitle: "Health, Sports & Daily Life",
     iconKey: "heart",
     summary: "BMI, BMR, fitness, nutrition, pregnancy, age, date and everyday calculators.",
@@ -76,7 +76,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "conversion-measurement",
-    trTitle: "Dönüşüm ve Ölçüm",
+    trTitle: "Donusum ve Measurement",
     enTitle: "Conversion & Measurement",
     iconKey: "ruler",
     summary: "Unit conversion, measurement systems, scales and dimensional analysis tools.",
@@ -84,7 +84,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "automotive-transport",
-    trTitle: "Otomotiv & Taşımacılık",
+    trTitle: "Otomotiv & Tasimacilik",
     enTitle: "Automotive & Transport",
     iconKey: "car",
     summary: "Fuel economy, engine performance, vehicle dynamics and fleet management tools.",
@@ -92,7 +92,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "agriculture-food-beverage",
-    trTitle: "Tarım, Gıda & İçecek",
+    trTitle: "Tarim, Gida & Icecek",
     enTitle: "Agriculture, Food & Beverage",
     iconKey: "wheat",
     summary: "Fertilizer, crop yield, soil, irrigation, livestock, food processing, recipe and beverage production tools.",
@@ -116,7 +116,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "furniture-woodworking",
-    trTitle: "Mobilya & Ahşap İşleri",
+    trTitle: "Mobilya & Ahsap Isleri",
     enTitle: "Furniture & Woodworking",
     iconKey: "armchair",
     summary: "Lumber volume, furniture costing, board foot and workshop material tools.",
@@ -124,7 +124,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "cleaning-facility",
-    trTitle: "Temizlik & Tesis Yönetimi",
+    trTitle: "Temizlik & Tesis Yonetimi",
     enTitle: "Cleaning & Facility Management",
     iconKey: "sparkles",
     summary: "Solution dilution, detergent dosage, surface area and labor time calculators.",
@@ -132,7 +132,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "water-wastewater",
-    trTitle: "Su & Atıksu Yönetimi",
+    trTitle: "Su & Atiksu Yonetimi",
     enTitle: "Water & Wastewater",
     iconKey: "droplets",
     summary: "Flow rate, pipe sizing, treatment dosing, pool chemistry and irrigation tools.",
@@ -148,7 +148,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "education-academic",
-    trTitle: "Eğitim & Akademik",
+    trTitle: "Egitim & Akademik",
     enTitle: "Education & Academic",
     iconKey: "graduation-cap",
     summary: "GPA, grade, exam score, college planning and study tools.",
@@ -164,7 +164,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "aerospace-aviation",
-    trTitle: "Havacılık & Uzay",
+    trTitle: "Havacilik & Uzay",
     enTitle: "Aerospace & Aviation",
     iconKey: "plane",
     summary: "Flight performance, aerodynamics, fuel range and spacecraft engineering tools.",
@@ -172,7 +172,7 @@ const FREE_ONLY_CATEGORIES: readonly GlobalToolCategory[] = [
   },
   {
     slug: "other",
-    trTitle: "Diğer ve Çapraz Alan Araçları",
+    trTitle: "Diger ve Capraz Alan Araclari",
     enTitle: "Other & Cross-Field Tools",
     iconKey: "folder-open",
     summary: "General-purpose and cross-domain calculators not fitting a single category.",

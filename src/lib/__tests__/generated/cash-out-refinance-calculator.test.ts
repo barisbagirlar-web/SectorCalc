@@ -17,8 +17,8 @@ describe("cash-out-refinance-calculator", () => {
   } as unknown as Cash_out_refinance_calculatorInput;
     const result = calculateCash_out_refinance_calculator(input);
     expect(result).toBeDefined();
-    // Stub-tolerant: NaN kabul edilir (stub formüller henüz NaN üretebilir)
-    // Gerçek formül geldiğinde Number.isFinite eklenebilir
+    // Stub-tolerant: NaN kabul edilir (stub formuller henuz NaN uretebilir)
+    // Gercek formul geldiginde Number.isFinite eklenebilir
     expect(typeof result.totalWasteCost).toBe("number");
     expect(result.breakdown).toBeDefined();
     expect(Array.isArray(result.hiddenLossDrivers)).toBe(true);

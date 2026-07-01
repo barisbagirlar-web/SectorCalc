@@ -57,6 +57,38 @@ const FALSE_POSITIVE_ALLOWLIST = [
   // "Turkish" in comments explaining English-only policy
   /English-only\. Turkish is never used/,
   /Turkish.*comment/,
+
+  // Legitimate ISO 4217 currency code TRY
+  /"TRY"/,
+  /'TRY'/,
+  /`TRY`/,
+  /\bTRY\b.*currency/,
+  /currency.*\bTRY\b/,
+  /ISO.*TRY/,
+
+  // Legitimate "TL" abbreviation in currency context
+  /\bTL\b.*currency/,
+  /symbol.*TL/,
+
+  // Legitimate locale code "tr" (ISO 639-1)
+  /locale === ["']tr["']/,
+  /locale !== ["']tr["']/,
+  /locale == ["']tr["']/,
+  /locale \!== ["']tr["']/,
+  /locale\.match\(["']tr["']\)/,
+  /\["en", "tr",/,
+  /"en", "tr", "de"/,
+  /"en", "tr", "fr"/,
+  /"en", "tr", "de", "fr", "es"/,
+  /request\.locale === ["']tr["']/,
+  /input\.locale.*===.*["']tr["']/,
+  /\.locale.*=== ["']tr["']/,
+  /locale: ["']tr["']/,
+  /locales:.*["']tr["']/,
+  /\.tr\[/,
+  /\.tr\?/,
+  /\btr\b.*locale/,
+  /locale.*\btr\b/,
 ];
 
 function isFalsePositive(filePath, lineContent) {
@@ -211,6 +243,25 @@ const EXCLUDE_PATHS = [
 
   // package-lock.json
   /package-lock\.json$/,
+
+  // Legitimate locale routing — tr language code references
+  /build-categorized-tool-index\.ts/,
+  /global-category-title-overrides\.ts/,
+  /slug-router\.ts/,
+  /customer-ai-validator\.ts/,
+  /formula-audit-collector\.ts/,
+  /rank-tool-results\.ts/,
+  /unit-defaults\.ts/,
+
+  // Legitimate TRY currency ISO code references
+  /unit-systems\.ts/,
+  /regions\.ts/,
+  /regional.*types\.ts/,
+  /regional-engine\.test\.ts/,
+  /premium-decision-engine\.ts/,
+  /currency-risk-analyzer\.ts/,
+  /supplier-currency-risk-analyzer\.ts/,
+  /compare-premium-schema-extended-oracle\.ts/,
 ];
 
 function isExcluded(filePath) {

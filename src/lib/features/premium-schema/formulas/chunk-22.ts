@@ -73,7 +73,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_2",
     family: "cost",
-    label: "GÜBRE DOZAJ — FertNeed",
+    label: "GUBRE DOZAJ — FertNeed",
     fn: (inputs) => {
     const nutReq = num(inputs, "nutReq");
     const soilSupp = num(inputs, "soilSupp");
@@ -84,7 +84,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_3",
     family: "cost",
-    label: "GÜBRE DOZAJ — AppRate",
+    label: "GUBRE DOZAJ — AppRate",
     fn: (inputs) => {
     const fertNeed = num(inputs, "fertNeed");
     const contentPct = num(inputs, "contentPct");
@@ -94,7 +94,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_4",
     family: "cost",
-    label: "GÜBRE DOZAJ — Cost",
+    label: "GUBRE DOZAJ — Cost",
     fn: (inputs) => {
     const appRate = num(inputs, "appRate");
     const area = num(inputs, "area");
@@ -105,7 +105,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_5",
     family: "cost",
-    label: "GÜBRE DOZAJ — EnvRisk",
+    label: "GUBRE DOZAJ — EnvRisk",
     fn: (inputs) => {
     const appRate = num(inputs, "appRate");
     const uptake = num(inputs, "uptake");
@@ -116,7 +116,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_6",
     family: "cost",
-    label: "GÜBRE DOZAJ — ROI",
+    label: "GUBRE DOZAJ — ROI",
     fn: (inputs) => {
     const yieldInc = num(inputs, "yieldInc");
     const cropPrice = num(inputs, "cropPrice");
@@ -127,7 +127,7 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_7",
     family: "cost",
-    label: "GÜBRE DOZAJ — Precision",
+    label: "GUBRE DOZAJ — Precision",
     fn: (inputs) => {
     const baseRate = num(inputs, "baseRate");
     const zoneFactor = num(inputs, "zoneFactor");
@@ -227,11 +227,11 @@ export const CHUNK_22_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── HACİMSEL AĞIRLIK (8 formulas) ──,
+  // ── HACIMSEL AGIRLIK (8 formulas) ──,
   {
     id: "user.volumetric_weight_chargeable_0",
     family: "cost",
-    label: "HACİMSEL AĞIRLIK — VolWeight_Air",
+    label: "HACIMSEL AGIRLIK — VolWeight_Air",
     fn: (inputs) => {
     const l = num(inputs, "l");
     const w = num(inputs, "w");

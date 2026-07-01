@@ -41,7 +41,7 @@ const STOP_WORDS_BY_LOCALE: Record<string, readonly string[]> = {
   tr: [
     "bir", "ve", "bu", "ile", "icin", "ben", "sen", "o", "biz",
     "siz", "onlar", "araci", "hesaplama", "hesaplayici", "analiz",
-    "araç", "veya", "ama", "cok", "daha", "kadar", "gibi", "sonra",
+    "arac", "veya", "ama", "cok", "daha", "kadar", "gibi", "sonra",
     "once", "yani", "ancak", "ise", "mi", "mu", "de", "da",
   ],
   de: [

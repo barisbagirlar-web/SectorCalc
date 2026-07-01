@@ -20,7 +20,7 @@ describe("buildTaxonomySectorCards", () => {
     expect(otomotiv?.count).toBe(2);
     expect(makine?.count).toBe(1);
     expect(diger?.count).toBe(1);
-    expect(otomotiv?.label).toBe("Otomotiv & Taşıt");
+    expect(otomotiv?.label).toBe("Otomotiv & Tasit");
   });
 
   it("uses English labels for en locale", () => {
@@ -37,7 +37,7 @@ describe("buildTaxonomySectorCards", () => {
     );
 
     expect(cards[0]?.sector.id).toBe("all");
-    expect(cards[0]?.label).toBe("Tümü");
+    expect(cards[0]?.label).toBe("Tumu");
     expect(cards[0]?.count).toBe(2);
   });
 

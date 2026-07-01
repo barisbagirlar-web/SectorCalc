@@ -73,7 +73,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_5",
     family: "cost",
-    label: "GAGE R&R MALİYET — PctGRR",
+    label: "GAGE R&R COST — PctGRR",
     fn: (inputs) => {
     const gRR = num(inputs, "gRR");
     const tV = num(inputs, "tV");
@@ -83,7 +83,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_6",
     family: "cost",
-    label: "GAGE R&R MALİYET — CostError",
+    label: "GAGE R&R COST — CostError",
     fn: (inputs) => {
     const falseAcc = num(inputs, "falseAcc");
     const escapeCost = num(inputs, "escapeCost");
@@ -95,7 +95,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_7",
     family: "cost",
-    label: "GAGE R&R MALİYET — OptTol",
+    label: "GAGE R&R COST — OptTol",
     fn: (inputs) => {
     const gRR = num(inputs, "gRR");
     return nonNegative(assertFinite(gRR * 6));
@@ -104,7 +104,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.gage_rnr_cost_8",
     family: "cost",
-    label: "GAGE R&R MALİYET — FinImpact",
+    label: "GAGE R&R COST — FinImpact",
     fn: (inputs) => {
     const pctGRR = num(inputs, "pctGRR");
     const totalQualCost = num(inputs, "totalQualCost");
@@ -112,11 +112,11 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── GIDA FİRE MARJ (9 formulas) ──,
+  // ── GIDA FIRE MARGIN (9 formulas) ──,
   {
     id: "user.food_waste_margin_0",
     family: "cost",
-    label: "GIDA FİRE MARJ — Yield",
+    label: "GIDA FIRE MARGIN — Yield",
     fn: (inputs) => {
     const finished = num(inputs, "finished");
     const raw = num(inputs, "raw");
@@ -126,7 +126,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_1",
     family: "cost",
-    label: "GIDA FİRE MARJ — Shrinkage",
+    label: "GIDA FIRE MARGIN — Shrinkage",
     fn: (inputs) => {
     const raw = num(inputs, "raw");
     const finished = num(inputs, "finished");
@@ -136,7 +136,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_2",
     family: "cost",
-    label: "GIDA FİRE MARJ — Cost_Shrink",
+    label: "GIDA FIRE MARGIN — Cost_Shrink",
     fn: (inputs) => {
     const shrinkage = num(inputs, "shrinkage");
     const rawCost = num(inputs, "rawCost");
@@ -146,7 +146,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_3",
     family: "cost",
-    label: "GIDA FİRE MARJ — Cost_Spoil",
+    label: "GIDA FIRE MARGIN — Cost_Spoil",
     fn: (inputs) => {
     const spoiled = num(inputs, "spoiled");
     const prodCost = num(inputs, "prodCost");
@@ -156,7 +156,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_4",
     family: "cost",
-    label: "GIDA FİRE MARJ — Cost_Over",
+    label: "GIDA FIRE MARGIN — Cost_Over",
     fn: (inputs) => {
     const excess = num(inputs, "excess");
     const unitCost = num(inputs, "unitCost");
@@ -167,7 +167,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_5",
     family: "cost",
-    label: "GIDA FİRE MARJ — MarginLeak",
+    label: "GIDA FIRE MARGIN — MarginLeak",
     fn: (inputs) => {
     const shrink = num(inputs, "shrink");
     const spoil = num(inputs, "spoil");
@@ -178,7 +178,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_6",
     family: "cost",
-    label: "GIDA FİRE MARJ — OEE_Food",
+    label: "GIDA FIRE MARGIN — OEE_Food",
     fn: (inputs) => {
     const avail = num(inputs, "avail");
     const perf = num(inputs, "perf");
@@ -191,7 +191,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_7",
     family: "cost",
-    label: "GIDA FİRE MARJ — TheoUsage",
+    label: "GIDA FIRE MARGIN — TheoUsage",
     fn: (inputs) => {
     const recipe = num(inputs, "recipe");
     const actualProd = num(inputs, "actualProd");
@@ -201,7 +201,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.food_waste_margin_8",
     family: "cost",
-    label: "GIDA FİRE MARJ — Variance",
+    label: "GIDA FIRE MARGIN — Variance",
     fn: (inputs) => {
     const actual = num(inputs, "actual");
     const theo = num(inputs, "theo");
@@ -209,11 +209,11 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── GÜBRE DOZAJ (8 formulas) ──,
+  // ── GUBRE DOZAJ (8 formulas) ──,
   {
     id: "user.fertilizer_dosage_0",
     family: "cost",
-    label: "GÜBRE DOZAJ — NutReq",
+    label: "GUBRE DOZAJ — NutReq",
     fn: (inputs) => {
     const yieldTarget = num(inputs, "yieldTarget");
     const remRate = num(inputs, "remRate");
@@ -223,7 +223,7 @@ export const CHUNK_21_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.fertilizer_dosage_1",
     family: "cost",
-    label: "GÜBRE DOZAJ — SoilSupp",
+    label: "GUBRE DOZAJ — SoilSupp",
     fn: (inputs) => {
     const soilTest = num(inputs, "soilTest");
     const convFactor = num(inputs, "convFactor");

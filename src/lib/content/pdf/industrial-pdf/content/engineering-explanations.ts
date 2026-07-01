@@ -2,7 +2,7 @@
  * Industrial Engineering Content Database
  *
  * Deep, academic-grade explanations for every formula family.
- * ISO 9001 / ECMI / TÜV-certifiable engineering narrative.
+ * ISO 9001 / ECMI / TUV-certifiable engineering narrative.
  * Each category includes: methodology, applicable standards,
  * formula description, interpretation guide, and industry context.
  */
@@ -51,35 +51,35 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
     },
     tr: {
       methodology:
-        "Maliyet tahmini, toplam harcamayı doğrudan malzeme, doğrudan işçilik, genel gider ve riske göre ayarlanmış contingency bileşenlerine ayıran aşağıdan yukarıya parametrik bir model izler. Her maliyet kalemi, kullanıcı tarafından belirtilen miktarlar ve birim fiyatlardan hesaplanır ve RSMeans, Gardiner & Theobald veya eşdeğer bölgesel otoriteler tarafından yayınlanan sektöre özgü maliyet endeksleriyle çapraz kontrol edilir. Contingency tahsisi, geçmiş maliyet sapma dağılımlarından türetilen Monte Carlo kalibrasyonlu bir P90 güven faktörü uygular.",
+        "Maliyet tahmini, toplam harcamayi dogrudan malzeme, dogrudan iscilik, genel gider ve riske gore ayarlanmis contingency bilesenlerine ayiran asagidan yukariya parametrik bir model izler. Her maliyet kalemi, kullanici tarafindan belirtilen miktarlar ve birim fiyatlardan hesaplanir ve RSMeans, Gardiner & Theobald veya esdeger bolgesel otoriteler tarafindan yayinlanan sektore ozgu maliyet endeksleriyle capraz kontrol edilir. Contingency tahsisi, gecmis maliyet sapma dagilimlarindan turetilen Monte Carlo kalibrasyonlu bir P90 guven faktoru uygular.",
       standards: [
-        "ISO 15686:5:2017 — Binalar ve inşa edilmiş varlıklar — hizmet ömrü planlaması — yaşam döngüsü maliyetlemesi",
-        "AACE International RP 17R-97 — Maliyet tahmin sınıflandırma sistemi",
-        "DIN 276 — Bina maliyetleri — planlama ve yönetim",
-        "PMBOK Kılavuzu 7. Baskı — Proje maliyet yönetimi",
+        "ISO 15686:5:2017 — Binalar ve insa edilmis varliklar — hizmet omru planlamasi — yasam dongusu maliyetlemesi",
+        "AACE International RP 17R-97 — Maliyet tahmin siniflandirma sistemi",
+        "DIN 276 — Bina maliyetleri — planlama ve yonetim",
+        "PMBOK Kilavuzu 7. Baski — Proje maliyet yonetimi",
       ],
       formulaDescription:
-        "Toplam maliyet = Σ (malzeme miktarı × birim fiyat) + Σ (işçilik saati × saatlik ücret) + genel gider dağıtımı + risk contingency. Contingency faktörü, girdi belirsizlik aralığı ve tarihsel sektör oynaklığının bir fonksiyonu olarak hesaplanır. Çok dönemli projeksiyonlar için maliyet artış endeksleri uygulanır.",
+        "Toplam maliyet = Σ (malzeme miktari × birim fiyat) + Σ (iscilik saati × saatlik ucret) + genel gider dagitimi + risk contingency. Contingency faktoru, girdi belirsizlik araligi ve tarihsel sektor oynakliginin bir fonksiyonu olarak hesaplanir. Cok donemli projeksiyonlar icin maliyet artis endeksleri uygulanir.",
       interpretationGuide:
-        "Temel tahmin, deterministik girdi değerlerini yansıtır. P90 ayarlı rakam, karşılaştırılabilir tarihsel projelerin %90'ında maliyet aşımını karşılayacak şekilde kalibre edilmiş bir risk tamponu içerir. Tahsis edilen rezervin %50'sinin altındaki contingency kullanımı yüksek güvenilirlikli tahmini gösterir; %100'ün üzerindeki kullanım, temel tahminin yapısal olarak düşük hesaplandığını belirtir.",
+        "Temel tahmin, deterministik girdi degerlerini yansitir. P90 ayarli rakam, karsilastirilabilir tarihsel projelerin %90'inda maliyet asimini karsilayacak sekilde kalibre edilmis bir risk tamponu icerir. Tahsis edilen rezervin %50'sinin altindaki contingency kullanimi yuksek guvenilirlikli tahmini gosterir; %100'un uzerindeki kullanim, temel tahminin yapisal olarak dusuk hesaplandigini belirtir.",
       industryContext:
-        "Bu maliyet modeli, imalat, inşaat ve endüstriyel mühendislik bağlamlarında fizibilite çalışmaları, bütçe tahsisi ve teklif hazırlığı için uygundur. Kavram taramasından ön tasarım aşamalarına kadar AACE Sınıf 3-5 tahmin sınıflandırmasını izler. Detaylı mühendislik tahminleri (Sınıf 1-2) tedarikçi teklifleri, sahaya özel araştırmalar ve önemli ölçüde daha fazla girdi detayı gerektirir.",
+        "Bu maliyet modeli, imalat, insaat ve endustriyel muhendislik baglamlarinda fizibilite calismalari, butce tahsisi ve teklif hazirligi icin uygundur. Kavram taramasindan on tasarim asamalarina kadar AACE Sinif 3-5 tahmin siniflandirmasini izler. Detayli muhendislik tahminleri (Sinif 1-2) tedarikci teklifleri, sahaya ozel arastirmalar ve onemli olcude daha fazla girdi detayi gerektirir.",
     },
     de: {
       methodology:
-        "Die Kostenschätzung folgt einem Bottom-up-Parametermodell, das die Gesamtausgaben in direkte Material-, direkte Arbeits-, Gemeinkosten- und risikobereinigte Rückstellungskomponenten zerlegt. Jedes Kostenelement wird aus benutzerspezifischen Mengen und Einheitssätzen berechnet und mit branchenspezifischen Kostenindizes von RSMeans, Gardiner & Theobald oder gleichwertigen regionalen Behörden abgeglichen. Die Rückstellungszuweisung verwendet einen Monte-Carlo-kalibrierten P90-Konfidenzfaktor aus historischen Kostenabweichungsverteilungen.",
+        "Die Kostenschätzung folgt einem Bottom-up-Parametermodell, das die Gesamtausgaben in direkte Material-, direkte Arbeits-, Gemeinkosten- und risikobereinigte Ruckstellungskomponenten zerlegt. Jedes Kostenelement wird aus benutzerspezifischen Mengen und Einheitssätzen berechnet und mit branchenspezifischen Kostenindizes von RSMeans, Gardiner & Theobald oder gleichwertigen regionalen Behorden abgeglichen. Die Ruckstellungszuweisung verwendet einen Monte-Carlo-kalibrierten P90-Konfidenzfaktor aus historischen Kostenabweichungsverteilungen.",
       standards: [
-        "ISO 15686:5:2017 — Lebenszykluskosten für Bauwerke",
+        "ISO 15686:5:2017 — Lebenszykluskosten fur Bauwerke",
         "AACE International RP 17R-97 — Kostenklassifizierungssystem",
         "DIN 276 — Baukostenplanung und -management",
         "PMBOK Guide 7. Aufl. — Projektkostenmanagement",
       ],
       formulaDescription:
-        "Gesamtkosten = Σ (Materialmenge × Einheitspreis) + Σ (Arbeitsstunden × Stundensatz) + Gemeinkostenzuschlag + Risikorückstellung. Der Rückstellungsfaktor wird aus der Eingabeunsicherheitsbandbreite und der historischen Branchenvolatilität berechnet.",
+        "Gesamtkosten = Σ (Materialmenge × Einheitspreis) + Σ (Arbeitsstunden × Stundensatz) + Gemeinkostenzuschlag + Risikoruckstellung. Der Ruckstellungsfaktor wird aus der Eingabeunsicherheitsbandbreite und der historischen Branchenvolatilität berechnet.",
       interpretationGuide:
-        "Die Basisschätzung spiegelt deterministische Eingabewerte wider. Die P90-angepasste Zahl enthält eine Risikoreserve, die für 90% vergleichbarer historischer Projekte kalibriert ist.",
+        "Die Basisschätzung spiegelt deterministische Eingabewerte wider. Die P90-angepasste Zahl enthält eine Risikoreserve, die fur 90% vergleichbarer historischer Projekte kalibriert ist.",
       industryContext:
-        "Geeignet für Machbarkeitsstudien, Budgetzuweisung und Angebotsvorbereitung in Fertigung, Bau und Industrie. Folgt der AACE-Klasse 3-5.",
+        "Geeignet fur Machbarkeitsstudien, Budgetzuweisung und Angebotsvorbereitung in Fertigung, Bau und Industrie. Folgt der AACE-Klasse 3-5.",
     },
     fr: {
       methodology:
@@ -149,20 +149,20 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
     },
     tr: {
       methodology:
-        "Ölçüm analizi, ISO 5725 ve Ölçüm Belirsizliğinin İfade Edilmesi Kılavuzu'na (GUM) göre istatistiksel kalite kontrol prensiplerini uygular. Ölçüm sistemi; doğruluk (gerçeklik ve kesinlik), çözünürlük ve tekrarlanabilirlik ile karakterize edilir. Belirsizlik, Tip A (istatistiksel) ve Tip B (sistematik) belirsizlik bileşenlerinin karelerinin toplamının karekökü (RSS) kombinasyonu ile ölçüm zinciri boyunca yayılır. Genişletilmiş belirsizlik %95 güven seviyesinde (k=2 kapsama faktörü) raporlanır.",
+        "Olcum analizi, ISO 5725 ve Olcum Belirsizliginin Ifade Edilmesi Kilavuzu'na (GUM) gore istatistiksel kalite kontrol prensiplerini uygular. Olcum sistemi; dogruluk (gerceklik ve kesinlik), cozunurluk ve tekrarlanabilirlik ile karakterize edilir. Belirsizlik, Tip A (istatistiksel) ve Tip B (sistematik) belirsizlik bilesenlerinin karelerinin toplaminin karekoku (RSS) kombinasyonu ile olcum zinciri boyunca yayilir. Genisletilmis belirsizlik %95 guven seviyesinde (k=2 kapsama faktoru) raporlanir.",
       standards: [
-        "ISO/IEC Guide 98-3:2008 — Ölçüm belirsizliği — GUM",
-        "ISO 5725:1994 — Ölçüm yöntemleri ve sonuçlarının doğruluğu",
-        "ISO 10012:2003 — Ölçüm yönetim sistemleri",
-        "ASME B89.7.2 — Boyutsal ölçüm planlaması",
+        "ISO/IEC Guide 98-3:2008 — Olcum belirsizligi — GUM",
+        "ISO 5725:1994 — Olcum yontemleri ve sonuclarinin dogrulugu",
+        "ISO 10012:2003 — Olcum yonetim sistemleri",
+        "ASME B89.7.2 — Boyutsal olcum planlamasi",
         "EA-4/02 M:2022 — Kalibrasyonda belirsizlik ifadesi",
       ],
       formulaDescription:
-        "Birleşik standart belirsizlik u_c = √(Σ u_i²). Genişletilmiş belirsizlik U = k × u_c (k=2, %95 güven). Ölçüm yetenek indeksi Cg = (Tolerans) / (6 × σ_ölçüm).",
+        "Birlesik standart belirsizlik u_c = √(Σ u_i²). Genisletilmis belirsizlik U = k × u_c (k=2, %95 guven). Olcum yetenek indeksi Cg = (Tolerans) / (6 × σ_olcum).",
       interpretationGuide:
-        "Cg indeksinin 1.33'ün üzerinde olması ölçüm sisteminin tolerans için yeterli olduğunu gösterir. 1.0-1.33 arası marjinal yetenek, süreç iyileştirmesi gerektiğini belirtir. 1.0'ın altı, ölçüm sisteminin tolerans gereksinimine göre kabul edilemez belirsizlik getirdiğini gösterir.",
+        "Cg indeksinin 1.33'un uzerinde olmasi olcum sisteminin tolerans icin yeterli oldugunu gosterir. 1.0-1.33 arasi marjinal yetenek, surec iyilestirmesi gerektigini belirtir. 1.0'in alti, olcum sisteminin tolerans gereksinimine gore kabul edilemez belirsizlik getirdigini gosterir.",
       industryContext:
-        "Bu analiz; imalat, otomotiv, havacılık ve tıbbi cihaz endüstrilerinde boyutsal muayene, kalibrasyon laboratuvarları ve kalite kontrol uygulamaları için geçerlidir.",
+        "Bu analiz; imalat, otomotiv, havacilik ve tibbi cihaz endustrilerinde boyutsal muayene, kalibrasyon laboratuvarlari ve kalite kontrol uygulamalari icin gecerlidir.",
     },
     de: {
       methodology:
@@ -177,7 +177,7 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       interpretationGuide:
         "Cg > 1,33: Messsystem fähig. Cg 1,0-1,33: Grenzwertig. Cg < 1,0: Nicht akzeptabel.",
       industryContext:
-        "Anwendbar für dimensionale Prüfung, Kalibrierung und Qualitätskontrolle in Fertigung, Automobil und Luftfahrt.",
+        "Anwendbar fur dimensionale Prufung, Kalibrierung und Qualitätskontrolle in Fertigung, Automobil und Luftfahrt.",
     },
     fr: {
       methodology:
@@ -447,14 +447,14 @@ export function resolveEngineeringContent(
 export function getDefaultEngineeringExplanation(locale: SupportedLocale): PdfEngineeringExplanation {
   return locale === "en" ? DEFAULT_EXPLANATION_EN : {
     ...DEFAULT_EXPLANATION_EN,
-    methodology: "Bu analiz, kullanıcı tarafından sağlanan girdi parametrelerine ve sektör standart referans verilerine dayalı deterministik bir hesaplama metodolojisi uygular.",
+    methodology: "Bu analiz, kullanici tarafindan saglanan girdi parametrelerine ve sektor standart referans verilerine dayali deterministik bir calculation metodolojisi uygular.",
     standards: [
-      "ISO 9001:2015 — Kalite yönetim sistemleri",
-      "ISO 31000:2018 — Risk yönetimi",
-      "ASME B89.7.2 — Boyutsal ölçüm planlaması",
+      "ISO 9001:2015 — Kalite yonetim sistemleri",
+      "ISO 31000:2018 — Risk yonetimi",
+      "ASME B89.7.2 — Boyutsal olcum planlamasi",
     ],
-    formulaDescription: "Hesaplama motoru, hedef değişkeni, belgelenmiş tolerans sınırlarına karşı doğrulanmış ilkel fonksiyonların bir bileşimi yoluyla değerlendirir.",
-    interpretationGuide: "Birincil çıktı, belirtilen girdi koşulları altında en iyi tahmin sonucunu temsil eder.",
-    industryContext: "Bu analiz, imalat, inşaat, enerji ve proses endüstrilerinde kullanılan genel mühendislik karar destek paradigmasını takip eder.",
+    formulaDescription: "Calculation motoru, hedef degiskeni, belgelenmis tolerans sinirlarina karsi dogrulanmis ilkel fonksiyonlarin bir bilesimi yoluyla valuelendirir.",
+    interpretationGuide: "Birincil cikti, belirtilen girdi kosullari altinda en iyi tahmin sonucunu temsil eder.",
+    industryContext: "Bu analiz, imalat, insaat, enerji ve process endustrilerinde kullanilan genel muhendislik karar support paradigmasini takip eder.",
   };
 }

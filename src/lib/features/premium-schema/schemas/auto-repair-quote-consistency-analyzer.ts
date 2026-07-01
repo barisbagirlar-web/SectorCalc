@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const AUTO_REPAIR_QUOTE_SCHEMA: PremiumCalculatorSchema = {
   id: "auto-repair-quote-consistency-analyzer", legacyPaidSlug: "auto-repair-quote-consistency-analyzer",
   name: "Auto Repair Quote Consistency Analysis", name_i18n: {"en":"Auto Repair Quote Consistency Analysis"}, sectorSlug: "auto-repair", category: "cost",
-  painStatement: "Aynı iş için verilen farklı teklifler hem müşteri güvenini sarsar hem de marj kaçağına yol açar. Bu araç teklif tutarlılığını ve marj riskini ölçer.", painStatement_i18n: {"en":"Different quotes given for the same job both undermine customer trust and cause Margin leakage. This tool measures quote consistency and Margin risk."},
+  painStatement: "Ayni is icin verilen farkli teklifler hem musteri guvenini sarsar hem de marj kacagina yol acar. Bu arac teklif tutarliligini ve marj riskni olcer.", painStatement_i18n: {"en":"Different quotes given for the same job both undermine customer trust and cause Margin leakage. This tool measures quote consistency and Margin risk."},
   inputs: [
     { id: "quote1Total", label: "Teklif 1 Toplam", label_i18n: {"en":"Quote 1 Total"}, type: "number", unit: "USD", required: true, smartDefault: 850, validation: { min: 0 }, helper: "", expertMeaning: "Quote 1 total amount", expertMeaning_i18n: {"en":"Quote 1 total amount"} },
     { id: "quote2Total", label: "Teklif 2 Toplam", label_i18n: {"en":"Quote 2 Total"}, type: "number", unit: "USD", required: true, smartDefault: 950, validation: { min: 0 }, helper: "", expertMeaning: "Quote 2 total amount", expertMeaning_i18n: {"en":"Quote 2 total amount"} },
@@ -25,7 +25,7 @@ export const AUTO_REPAIR_QUOTE_SCHEMA: PremiumCalculatorSchema = {
     { id: "marginLeak", label: "Marj Kacag", label_i18n: {"en":"Margin Kacag"}, unit: "USD", format: "currency" },
   ],
   thresholds: [
-    { fieldId: "consistencyScore", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Tutarlılık < 70 — iyileştirme alanı var.", warningMessage_i18n: {"en":"Consistency < 70 — there is room for improvement."}, criticalMessage: "Tutarlılık < 50 — fiyatlama politikası revize edilmeli.", criticalMessage_i18n: {"en":"consistency < 50 — fiyatlama policy revize edilmeli."} },
+    { fieldId: "consistencyScore", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Tutarlilik < 70 — iyilestirme alani var.", warningMessage_i18n: {"en":"Consistency < 70 — there is room for improvement."}, criticalMessage: "Tutarlilik < 50 — fiyatlama politikasi revize edilmeli.", criticalMessage_i18n: {"en":"consistency < 50 — fiyatlama policy revize edilmeli."} },
   ],
   formulaPipeline: [
     { formulaId: "stats.quote_variance", inputMap: { q1: "quote1Total", q2: "quote2Total", q3: "quote3Total" }, outputId: "quoteVariance" },

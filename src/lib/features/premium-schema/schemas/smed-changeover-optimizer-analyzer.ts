@@ -15,11 +15,11 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
     { id: "smedImplementationCost", label: "SMED Uygulama Maliyeti", label_i18n: {"en":"SMED application Cost"}, type: "number", unit: "USD", required: false, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Cost to implement SMED", expertMeaning_i18n: {"en":"Cost to implement SMED"} },
   ],
   outputs: [
-    { id: "capacityRecovered", label: "Kazanlan Kapasite", label_i18n: {"en":"Kazanlan Capacity"}, unit: "saat/yıl", format: "number", isBigNumber: true },
-    { id: "financialGain", label: "Finansal Kazanc", label_i18n: {"en":"Finansal Gain"}, unit: "USD/yıl", format: "currency" },
+    { id: "capacityRecovered", label: "Kazanlan Kapasite", label_i18n: {"en":"Kazanlan Capacity"}, unit: "saat/yil", format: "number", isBigNumber: true },
+    { id: "financialGain", label: "Finansal Kazanc", label_i18n: {"en":"Finansal Gain"}, unit: "USD/yil", format: "currency" },
     { id: "roi", label: "Yatrm Getirisi (ROI)", label_i18n: {"en":"Yatrm Return (ROI)"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI <%100 — SMED uygulaması sorgulanmalı.", warningMessage_i18n: {"en":"ROI < 100% — SMED implementation should be questioned."}, criticalMessage: "ROI <%50 — SMED projesi yeniden değerlendirilmeli.", criticalMessage_i18n: {"en":"ROI < 50% — SMED project should be re-evaluated."} }],
+  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI <%100 — SMED uygulamasi sorgulanmali.", warningMessage_i18n: {"en":"ROI < 100% — SMED implementation should be questioned."}, criticalMessage: "ROI <%50 — SMED projesi yeniden degerlendirilmeli.", criticalMessage_i18n: {"en":"ROI < 50% — SMED project should be re-evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.smed_capacity_recovered", inputMap: { currentChangeoverTime: "currentChangeoverTime", targetChangeoverTime: "targetChangeoverTime", changeoversPerMonth: "changeoversPerMonth" ,
         currentSetup: "currentSetup",
@@ -35,5 +35,5 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
         smedInvestment: "smedInvestment"}, outputId: "roi" },
   ],
   reportTemplate: { title: "SMED Changeover Optimization Report", title_i18n: {"en":"SMED Changeover Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kazanılan kapasite = (mevcut − hedef) × değişim sayısı × 12 / 60 saat.", "Finansal kazanç = kapasite × (makine + operatör) saatlik maliyet.", "ROI = (kazanç − uygulama) / uygulama × 100.", "SMED iç ve dış ayırma prensibine dayanır."],assumptionNotes_i18n:[{"en":"Gained capacity = (current − target) × number of changeovers × 12 / 60 hours."},{"en":"Financial gain = capacity × (machine + operator) hourly cost."},{"en":"ROI = (gain − implementation) / implementation × 100."},{"en":"SMED is based on the principle of internal and external separation."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kazanilan kapasite = (mevcut − hedef) × degisim sayisi × 12 / 60 saat.", "Finansal kazanc = kapasite × (makine + operator) saatlik maliyet.", "ROI = (kazanc − uygulama) / uygulama × 100.", "SMED ic ve dis ayirma prensibine dayanir."],assumptionNotes_i18n:[{"en":"Gained capacity = (current − target) × number of changeovers × 12 / 60 hours."},{"en":"Financial gain = capacity × (machine + operator) hourly cost."},{"en":"ROI = (gain − implementation) / implementation × 100."},{"en":"SMED is based on the principle of internal and external separation."}] },
 };

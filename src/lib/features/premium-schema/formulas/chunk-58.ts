@@ -73,7 +73,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transport_mode_risk_3",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — TransitTimeCost",
+    label: "Tasima Mode Maliyet risk — TransitTimeCost",
     fn: (inputs) => {
     const transitDays = num(inputs, "transitDays");
     const inventoryCarryingCostPerDay = num(inputs, "inventoryCarryingCostPerDay");
@@ -83,7 +83,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transport_mode_risk_4",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — RiskCost",
+    label: "Tasima Mode Maliyet risk — RiskCost",
     fn: (inputs) => {
     const probabilityOfDamage = num(inputs, "probabilityOfDamage");
     const cargoValue = num(inputs, "cargoValue");
@@ -95,7 +95,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transport_mode_risk_5",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — TotalModeCost",
+    label: "Tasima Mode Maliyet risk — TotalModeCost",
     fn: (inputs) => {
     const transportCost = num(inputs, "transportCost");
     const transitTimeCost = num(inputs, "transitTimeCost");
@@ -106,7 +106,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transport_mode_risk_6",
     family: "cost",
-    label: "Taşıma Mode Maliyet risk — ModeSelection",
+    label: "Tasima Mode Maliyet risk — ModeSelection",
     fn: (inputs) => {
     const totalModeCost = num(inputs, "totalModeCost");
     const Air = num(inputs, "Air");
@@ -120,11 +120,11 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Tedarik Zinciri Kesintisi Risk Değerlendirmesi (6 formulas) ──,
+  // ── Tedarik Zinciri Kesintisi Risk Assessmentsi (6 formulas) ──,
   {
     id: "user.supply_chain_disruption_0",
     family: "cost",
-    label: "Tedarik Zinciri Kesintisi Risk Değerlendirmesi — RiskExposure",
+    label: "Tedarik Zinciri Kesintisi Risk Assessmentsi — RiskExposure",
     fn: (inputs) => {
     const probabilityOfDisruption = num(inputs, "probabilityOfDisruption");
     const financialImpact = num(inputs, "financialImpact");
@@ -134,7 +134,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supply_chain_disruption_1",
     family: "cost",
-    label: "Tedarik Zinciri Kesintisi Risk Değerlendirmesi — TimeToRecover",
+    label: "Tedarik Zinciri Kesintisi Risk Assessmentsi — TimeToRecover",
     fn: (inputs) => {
     const daysToRestoreFullCapacity = num(inputs, "daysToRestoreFullCapacity");
     return nonNegative(assertFinite(daysToRestoreFullCapacity));
@@ -143,7 +143,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supply_chain_disruption_2",
     family: "cost",
-    label: "Tedarik Zinciri Kesintisi Risk Değerlendirmesi — RevenueLoss",
+    label: "Tedarik Zinciri Kesintisi Risk Assessmentsi — RevenueLoss",
     fn: (inputs) => {
     const dailyRevenue = num(inputs, "dailyRevenue");
     const timeToRecover = num(inputs, "timeToRecover");
@@ -154,7 +154,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supply_chain_disruption_3",
     family: "cost",
-    label: "Tedarik Zinciri Kesintisi Risk Değerlendirmesi — MitigationCost",
+    label: "Tedarik Zinciri Kesintisi Risk Assessmentsi — MitigationCost",
     fn: (inputs) => {
     const dualSourcingPremium = num(inputs, "dualSourcingPremium");
     const safetyStockCarryingCost = num(inputs, "safetyStockCarryingCost");
@@ -165,7 +165,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supply_chain_disruption_4",
     family: "cost",
-    label: "Tedarik Zinciri Kesintisi Risk Değerlendirmesi — RiskAdjustedCost",
+    label: "Tedarik Zinciri Kesintisi Risk Assessmentsi — RiskAdjustedCost",
     fn: (inputs) => {
     const expectedAnnualLoss = num(inputs, "expectedAnnualLoss");
     const mitigationCost = num(inputs, "mitigationCost");
@@ -175,7 +175,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supply_chain_disruption_5",
     family: "cost",
-    label: "Tedarik Zinciri Kesintisi Risk Değerlendirmesi — ResilienceIndex",
+    label: "Tedarik Zinciri Kesintisi Risk Assessmentsi — ResilienceIndex",
     fn: (inputs) => {
     const timeToRecover = num(inputs, "timeToRecover");
     const vulnerabilityScore = num(inputs, "vulnerabilityScore");
@@ -183,11 +183,11 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Tedarikçi Döviz Kuru Riski (6 formulas) ──,
+  // ── Tedarikci Doviz Kuru Riski (6 formulas) ──,
   {
     id: "user.supplier_currency_risk_0",
     family: "cost",
-    label: "Tedarikçi Döviz Kuru Riski — Exposure",
+    label: "Tedarikci Doviz Kuru Riski — Exposure",
     fn: (inputs) => {
     const contractValue = num(inputs, "contractValue");
     const unhedgedPct = num(inputs, "unhedgedPct");
@@ -198,7 +198,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_currency_risk_1",
     family: "cost",
-    label: "Tedarikçi Döviz Kuru Riski — ExpectedLoss",
+    label: "Tedarikci Doviz Kuru Riski — ExpectedLoss",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const forwardRate = num(inputs, "forwardRate");
@@ -209,7 +209,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_currency_risk_2",
     family: "cost",
-    label: "Tedarikçi Döviz Kuru Riski — VaR",
+    label: "Tedarikci Doviz Kuru Riski — VaR",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const volatility = num(inputs, "volatility");
@@ -224,7 +224,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_currency_risk_3",
     family: "cost",
-    label: "Tedarikçi Döviz Kuru Riski — HedgingCost",
+    label: "Tedarikci Doviz Kuru Riski — HedgingCost",
     fn: (inputs) => {
     const exposure = num(inputs, "exposure");
     const forwardRate = num(inputs, "forwardRate");
@@ -235,7 +235,7 @@ export const CHUNK_58_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.supplier_currency_risk_4",
     family: "cost",
-    label: "Tedarikçi Döviz Kuru Riski — NetRiskCost",
+    label: "Tedarikci Doviz Kuru Riski — NetRiskCost",
     fn: (inputs) => {
     const expectedLoss = num(inputs, "expectedLoss");
     const hedgingCost = num(inputs, "hedgingCost");

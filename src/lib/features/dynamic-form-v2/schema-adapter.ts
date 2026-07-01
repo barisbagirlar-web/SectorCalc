@@ -26,10 +26,10 @@ const CONF_MAP: Record<string, string> = {
   APPROXIMATE: "LOW",
   ASSUMPTION: "LOW",
   LOW: "LOW",
-  KESİN: "EXACT",
-  GÜÇLÜ: "HIGH",
+  KESIN: "EXACT",
+  GUCLU: "HIGH",
   ORTA: "MEDIUM",
-  "EKSİK VERİ": "LOW",
+  "EKSIK VERI": "LOW",
 };
 
 function inferConfidence(input: { confidence?: string; confidence_label?: string; uncertainty?: unknown }): string {

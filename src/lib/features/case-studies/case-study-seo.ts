@@ -142,7 +142,7 @@ export type CaseStudyBreadcrumbLabels = {
 };
 
 const DEFAULT_AUTHOR = {
-  name: "Barış Bağırlar",
+  name: "Baris Bagirlar",
   linkedin: "https://www.linkedin.com/in/barisbagirlar/",
 } as const;
 
@@ -165,13 +165,13 @@ export function computeCaseStudySeoPreview(values: Pick<
   const savingsLabel =
     savings !== undefined
       ? new Intl.NumberFormat("tr-TR").format(savings)
-      : "önemli";
-  const industry = values.industry.trim() || "endüstriyel";
+      : "onemli";
+  const industry = values.industry.trim() || "endustriyel";
   const metaTitle = values.title.trim()
-    ? `${values.title.trim()} | SectorCalc Başarı Hikayesi`
+    ? `${values.title.trim()} | SectorCalc Basari Hikayesi`
     : "";
   const metaDescription = values.title.trim()
-    ? `SectorCalc ile ${industry} sektöründe ${savingsLabel} € tasarruf. ${values.subtitle.trim()}`.slice(
+    ? `SectorCalc ile ${industry} sektorunde ${savingsLabel} € tasarruf. ${values.subtitle.trim()}`.slice(
         0,
         160,
       )

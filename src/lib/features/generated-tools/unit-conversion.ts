@@ -42,7 +42,7 @@ function isCurrencyLikeUnit(unit: string): boolean {
   return CURRENCY_CODES.has(unit.trim().toUpperCase());
 }
 
-/** Recognise compound currency units like "USD/yıl", "EUR/kg", "TRY/saat" */
+/** Recognise compound currency units like "USD/yil", "EUR/kg", "TRY/saat" */
 function isCompoundCurrencyUnit(unit: string): boolean {
   const upper = unit.trim().toUpperCase();
   return [...CURRENCY_CODES].some(

@@ -813,10 +813,10 @@
 }
 
 /* ═══════════════════════════════════════════
-   ANA ORTALAMA DÜZELTMELERİ / MAIN ALIGNMENT CORRECTIONS
+   ANA ORTALAMA DUZELTMELERI / MAIN ALIGNMENT CORRECTIONS
    ═══════════════════════════════════════════ */
 
-/* Ana container - tam ortalı */
+/* Ana container - tam ortali */
 .claude-landing .hero,
 .claude-landing .container,
 .claude-landing .wrap,
@@ -828,7 +828,7 @@
   text-align: center;
 }
 
-/* Başlık - tam ortalı */
+/* Baslik - tam ortali */
 .claude-landing h1,
 .claude-landing .hero-title,
 .claude-landing .main-heading {
@@ -838,7 +838,7 @@
   max-width: 900px;
 }
 
-/* Alt başlık - tam ortalı */
+/* Alt baslik - tam ortali */
 .claude-landing .hero-subtitle,
 .claude-landing .subhead,
 .claude-landing .subtitle,
@@ -850,7 +850,7 @@
   max-width: 700px;
 }
 
-/* Arama kutusu - tam ortalı */
+/* Arama kutusu - tam ortali */
 .claude-landing .search-container,
 .claude-landing .search-wrapper,
 .claude-landing .search-box {
@@ -873,7 +873,7 @@
   margin-right: auto !important;
 }
 
-/* Butonlar - tam ortalı */
+/* Butonlar - tam ortali */
 .claude-landing .button-group,
 .claude-landing .cta-buttons,
 .claude-landing .action-buttons,
@@ -889,7 +889,7 @@
   flex-wrap: wrap;
 }
 
-/* "Verified Against" / Standards bölümü - tam ortalı */
+/* "Verified Against" / Standards bolumu - tam ortali */
 .claude-landing .verified-section,
 .claude-landing .standards-section,
 .claude-landing .standards-strip {
@@ -904,7 +904,7 @@
   flex-wrap: wrap;
 }
 
-/* Mobil için responsive */
+/* Mobil icin responsive */
 @media (max-width: 768px) {
   .claude-landing .hero,
   .claude-landing .container,
@@ -934,7 +934,7 @@
   }
 }
 
-/* Genel ortalama - Container'lar için global güvenli fallback */
+/* Genel ortalama - Container'lar icin global guvenli fallback */
 .container,
 .wrapper {
   margin-left: auto !important;

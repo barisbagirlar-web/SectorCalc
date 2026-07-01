@@ -73,7 +73,7 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cash_flow_gap_9",
     family: "cost",
-    label: "Nakit Akışı Açığı — FinancingCost",
+    label: "Nakit Akisi Acigi — FinancingCost",
     fn: (inputs) => {
     const cashGap = num(inputs, "cashGap");
     const dailyInterestRate = num(inputs, "dailyInterestRate");
@@ -252,5 +252,5 @@ export const CHUNK_41_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── OEE ve Durma Süresi (8 formulas) ──
+  // ── OEE ve Durma Suresi (8 formulas) ──
 ];

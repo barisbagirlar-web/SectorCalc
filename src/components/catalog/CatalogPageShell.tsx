@@ -156,19 +156,19 @@ export function CatalogPageShell({
         @media(max-width:480px){.cc-grid{grid-template-columns:1fr;}}
 
         .cc-box{
-          background:var(--surface);border:1px solid var(--line);border-radius:14px;
-          padding:26px 22px 22px;cursor:pointer;text-align:center;
+          background:var(--surface);border:1px solid var(--line);border-radius:12px;
+          padding:20px 16px 16px;cursor:pointer;text-align:center;
           display:flex;flex-direction:column;align-items:center;gap:0;
           transition:border-color .15s,background .15s,transform .1s;
-          min-height:184px;
+          min-height:140px;
           -webkit-appearance:none;appearance:none;font-family:inherit;width:100%;
         }
         .cc-box:hover{border-color:var(--accent);background:var(--surface-h);}
         .cc-box.active{border-color:var(--accent);border-width:1.5px;background:#fff;}
-        .cc-box-icon{width:42px;height:42px;color:var(--accent);margin-bottom:16px;}
-        .cc-box-name{font-size:16px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:8px;}
-        .cc-box-count{font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums;margin-bottom:12px;}
-        .cc-box-roles{font-size:12px;color:var(--ink-faint);line-height:1.45;}
+        .cc-box-icon{width:32px;height:32px;color:var(--accent);margin-bottom:12px;}
+        .cc-box-name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:4px;}
+        .cc-box-count{font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums;margin-bottom:8px;}
+        .cc-box-roles{font-size:11px;color:var(--ink-faint);line-height:1.4;}
 
         /* Expanded tool list */
         .cc-results{margin-top:36px;padding-top:28px;border-top:1px solid var(--line);}

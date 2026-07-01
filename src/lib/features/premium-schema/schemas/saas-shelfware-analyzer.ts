@@ -11,11 +11,11 @@ export const SAAS_SHELFWARE_ANALYZER: PremiumCalculatorSchema = {
     { id: "activeUsers", label: "Active User Count", label_i18n: {"en":"Active User Count"}, type: "number", unit: "adet", required: true, smartDefault: 320, validation: { min: 0 }, helper: "", expertMeaning: "Monthly active users", expertMeaning_i18n: {"en":"Monthly active users"} },
     { id: "licenseCostPerSeat", label: "License Cost per Seat", label_i18n: {"en":"License Cost per Seat"}, type: "number", unit: "USD/ay", required: true, smartDefault: 25, validation: { min: 0.01 }, helper: "", expertMeaning: "Monthly cost per license", expertMeaning_i18n: {"en":"Monthly cost per license"} },
     { id: "lowUsageThreshold", label: "Low Usage Threshold", label_i18n: {"en":"Low Usage Threshold"}, type: "number", unit: "saat/ay", required: false, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Hours per month threshold for low usage", expertMeaning_i18n: {"en":"Hours per month threshold for low usage"} },
-    { id: "annualBudget", label: "Annual SaaS Budget", label_i18n: {"en":"Annual SaaS Budget"}, type: "number", unit: "USD/yıl", required: false, smartDefault: 150000, validation: { min: 1 }, helper: "", expertMeaning: "Total annual SaaS spend", expertMeaning_i18n: {"en":"Total annual SaaS spend"} },
+    { id: "annualBudget", label: "Annual SaaS Budget", label_i18n: {"en":"Annual SaaS Budget"}, type: "number", unit: "USD/yil", required: false, smartDefault: 150000, validation: { min: 1 }, helper: "", expertMeaning: "Total annual SaaS spend", expertMeaning_i18n: {"en":"Total annual SaaS spend"} },
   ],
   outputs: [
     { id: "shelfwarePct", label: "Shelfware Rate", label_i18n: {"en":"Shelfware Rate"}, unit: "%", format: "percentage" },
-    { id: "shelfwareCost", label: "Shelfware Maliyeti", label_i18n: {"en":"Shelfware Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
+    { id: "shelfwareCost", label: "Shelfware Maliyeti", label_i18n: {"en":"Shelfware Cost"}, unit: "USD/yil", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "shelfwarePct", warning: 20, critical: 40, direction: "higher_is_bad", warningMessage: "Shelfware rate > 20% — license optimization recommended.", warningMessage_i18n: {"en":"Shelfware rate > 20% — license optimization recommended."}, criticalMessage: "Shelfware rate > 40% — urgent license audit and cancellation needed.", criticalMessage_i18n: {"en":"Shelfware rate > 40% — urgent license audit and cancellation needed."} }],
   formulaPipeline: [

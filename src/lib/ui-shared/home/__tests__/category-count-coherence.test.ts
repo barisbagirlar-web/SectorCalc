@@ -4,7 +4,7 @@
  * Guards against the same regressions as scripts/audit-category-count-coherence.mjs
  * but runs as a vitest test for `npm test` coverage.
  *
- * ECMI / ISO 9001 — TÜV-certifiable engineering quality gate.
+ * ECMI / ISO 9001 — TUV-certifiable engineering quality gate.
  */
 
 import { describe, expect, it } from "vitest";

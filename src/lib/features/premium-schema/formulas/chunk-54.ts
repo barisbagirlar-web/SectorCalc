@@ -222,11 +222,11 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Süt Kâr Dedektörü (7 formulas) ──,
+  // ── Sut Kâr Dedektoru (7 formulas) ──,
   {
     id: "user.dairy_profit_detector_0",
     family: "cost",
-    label: "Süt Kâr Dedektörü — FatCorrectedMilk",
+    label: "Sut Kâr Dedektoru — FatCorrectedMilk",
     fn: (inputs) => {
     const milkYield = num(inputs, "milkYield");
     const fatYield = num(inputs, "fatYield");
@@ -236,7 +236,7 @@ export const CHUNK_54_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.dairy_profit_detector_1",
     family: "cost",
-    label: "Süt Kâr Dedektörü — ProteinCorrectedMilk",
+    label: "Sut Kâr Dedektoru — ProteinCorrectedMilk",
     fn: (inputs) => {
     const milkYield = num(inputs, "milkYield");
     const proteinYield = num(inputs, "proteinYield");

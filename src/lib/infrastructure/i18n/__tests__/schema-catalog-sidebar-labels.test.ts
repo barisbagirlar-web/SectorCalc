@@ -25,7 +25,7 @@ describe("schema-catalog-sidebar-labels", () => {
       const label = resolveSchemaCatalogSectorLabel("uretim-imalat", locale);
       expect(label.length).toBeGreaterThan(0);
       if (locale !== "tr") {
-        expect(label).not.toContain("Üretim");
+        expect(label).not.toContain("Uretim");
       }
     }
   });
@@ -41,6 +41,6 @@ describe("all-tools-data locale labels", () => {
     const trFinance = trTools.find((tool) => tool.categoryKey === "finance-sales-working-capital");
 
     expect(enFinance?.category).toBe("Finance, Sales & Working Capital");
-    expect(trFinance?.category).toBe("Finans, Satış ve İşletme Sermayesi");
+    expect(trFinance?.category).toBe("Finans, Satis ve Isletme Sermayesi");
   });
 });

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const DELIVERY_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "delivery-cost-analyzer", legacyPaidSlug: "delivery-cost-analyzer",
   name: "Delivery Cost Analyzer", name_i18n: {"en":"Delivery Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Teslimat maliyetleri başarılı ve başarısız sevkiyatlara göre ayrıştırılmazsa lojistik verimlilik ölçülemez.", painStatement_i18n: {"en":"If delivery costs are not broken down per successful and failed shipments, logistics productivity cannot be measured."},
+  painStatement: "Teslimat maliyetleri basarili ve basarisiz sevkiyatlara gore ayristirilmazsa lojistik efficiency olculemez.", painStatement_i18n: {"en":"If delivery costs are not broken down per successful and failed shipments, logistics productivity cannot be measured."},
   inputs: [
     { id: "totalDeliveries", label: "Total monthly deliveries", label_i18n: {"en":"Total monthly deliveries"}, type: "number", unit: "adet/ay", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Total monthly deliveries", expertMeaning_i18n: {"en":"Total monthly deliveries"} },
     { id: "successfulDeliveries", label: "Successful deliveries", label_i18n: {"en":"Successful deliveries"}, type: "number", unit: "adet/ay", required: true, smartDefault: 470, validation: { min: 0 }, helper: "", expertMeaning: "Successful deliveries", expertMeaning_i18n: {"en":"Successful deliveries"} },
@@ -18,7 +18,7 @@ export const DELIVERY_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "failedDeliveryCost", label: "Basarsz Teslimat Maliyeti", label_i18n: {"en":"Basarsz Teslimat Cost"}, unit: "USD/ay", format: "currency" },
     { id: "totalDeliveryCost", label: "Toplam Teslimat Maliyeti", label_i18n: {"en":"Total Teslimat Cost"}, unit: "USD/ay", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "deliveryEfficiency", warning: 90, critical: 80, direction: "lower_is_bad", warningMessage: "Teslimat verimliliği < %90 — süreç iyileştirme önerilir.", warningMessage_i18n: {"en":"Delivery efficiency < 90% — process improvement recommended."}, criticalMessage: "Teslimat verimliliği < %80 — acil rota optimizasyonu gerekli.", criticalMessage_i18n: {"en":"Delivery efficiency < 80% — urgent route optimization required."} }],
+  thresholds: [{ fieldId: "deliveryEfficiency", warning: 90, critical: 80, direction: "lower_is_bad", warningMessage: "Teslimat verimliligi < %90 — surec iyilestirme onerilir.", warningMessage_i18n: {"en":"Delivery efficiency < 90% — process improvement recommended."}, criticalMessage: "Teslimat verimliligi < %80 — acil rota optimizasyonu gerekli.", criticalMessage_i18n: {"en":"Delivery efficiency < 80% — urgent route optimization required."} }],
   formulaPipeline: [
     { formulaId: "measurement.delivery_efficiency", inputMap: {
         totalDeliveries: "totalDeliveries",

@@ -73,7 +73,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.total_employee_cost_5",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — TotalEmployeeCost",
+    label: "Toplam Calisan Maliyeti — TotalEmployeeCost",
     fn: (inputs) => {
     const grossSalary = num(inputs, "grossSalary");
     const statutoryCosts = num(inputs, "statutoryCosts");
@@ -86,7 +86,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.total_employee_cost_6",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — CostPerHour",
+    label: "Toplam Calisan Maliyeti — CostPerHour",
     fn: (inputs) => {
     const totalEmployeeCost = num(inputs, "totalEmployeeCost");
     const productiveHours = num(inputs, "productiveHours");
@@ -94,11 +94,11 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Transfer Fiyatlandırması Optimize Edici (6 formulas) ──,
+  // ── Transfer Fiyatlandirmasi Optimize Edici (6 formulas) ──,
   {
     id: "user.transfer_pricing_optimizer_0",
     family: "cost",
-    label: "Transfer Fiyatlandırması Optimize Edici — CostPlusPrice",
+    label: "Transfer Fiyatlandirmasi Optimize Edici — CostPlusPrice",
     fn: (inputs) => {
     const fullCost = num(inputs, "fullCost");
     const markupPct = num(inputs, "markupPct");
@@ -108,7 +108,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transfer_pricing_optimizer_1",
     family: "cost",
-    label: "Transfer Fiyatlandırması Optimize Edici — MarketBasedPrice",
+    label: "Transfer Fiyatlandirmasi Optimize Edici — MarketBasedPrice",
     fn: (inputs) => {
     const comparableUncontrolledPrice = num(inputs, "comparableUncontrolledPrice");
     return nonNegative(assertFinite(comparableUncontrolledPrice));
@@ -117,7 +117,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transfer_pricing_optimizer_2",
     family: "cost",
-    label: "Transfer Fiyatlandırması Optimize Edici — MarginalCost",
+    label: "Transfer Fiyatlandirmasi Optimize Edici — MarginalCost",
     fn: (inputs) => {
     const variableCost = num(inputs, "variableCost");
     const opportunityCost = num(inputs, "opportunityCost");
@@ -127,7 +127,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transfer_pricing_optimizer_3",
     family: "cost",
-    label: "Transfer Fiyatlandırması Optimize Edici — TaxImpact",
+    label: "Transfer Fiyatlandirmasi Optimize Edici — TaxImpact",
     fn: (inputs) => {
     const transferPrice = num(inputs, "transferPrice");
     const armLengthPrice = num(inputs, "armLengthPrice");
@@ -142,7 +142,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transfer_pricing_optimizer_4",
     family: "cost",
-    label: "Transfer Fiyatlandırması Optimize Edici — GlobalProfit",
+    label: "Transfer Fiyatlandirmasi Optimize Edici — GlobalProfit",
     fn: (inputs) => {
     const revenue = num(inputs, "revenue");
     const Final = num(inputs, "Final");
@@ -159,17 +159,17 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.transfer_pricing_optimizer_5",
     family: "cost",
-    label: "Transfer Fiyatlandırması Optimize Edici — OptimalTransferPrice",
+    label: "Transfer Fiyatlandirmasi Optimize Edici — OptimalTransferPrice",
     fn: (inputs) => {
     return 0; // TransferPrice = Price that MAXIMIZES GlobalProfit subject to TaxRegulations — requires solver
   },
   },
 
-  // ── ürün Complexity Hidden Maliyet (6 formulas) ──,
+  // ── urun Complexity Hidden Maliyet (6 formulas) ──,
   {
     id: "user.product_complexity_hidden_cost_0",
     family: "cost",
-    label: "ürün Complexity Hidden Maliyet — ComplexityIndex",
+    label: "urun Complexity Hidden Maliyet — ComplexityIndex",
     fn: (inputs) => {
     const numberOfSKUs = num(inputs, "numberOfSKUs");
     const averageBOMDepth = num(inputs, "averageBOMDepth");
@@ -179,7 +179,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.product_complexity_hidden_cost_1",
     family: "cost",
-    label: "ürün Complexity Hidden Maliyet — SetupCostComplexity",
+    label: "urun Complexity Hidden Maliyet — SetupCostComplexity",
     fn: (inputs) => {
     const changeovers = num(inputs, "changeovers");
     const setupCostPerChange = num(inputs, "setupCostPerChange");
@@ -189,7 +189,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.product_complexity_hidden_cost_2",
     family: "cost",
-    label: "ürün Complexity Hidden Maliyet — InventoryCostComplexity",
+    label: "urun Complexity Hidden Maliyet — InventoryCostComplexity",
     fn: (inputs) => {
     const safetyStock = num(inputs, "safetyStock");
     const AllSKUs = num(inputs, "AllSKUs");
@@ -201,7 +201,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.product_complexity_hidden_cost_3",
     family: "cost",
-    label: "ürün Complexity Hidden Maliyet — OverheadAllocation",
+    label: "urun Complexity Hidden Maliyet — OverheadAllocation",
     fn: (inputs) => {
     const totalIndirectCosts = num(inputs, "totalIndirectCosts");
     const complexityDriverPct = num(inputs, "complexityDriverPct");
@@ -211,7 +211,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.product_complexity_hidden_cost_4",
     family: "cost",
-    label: "ürün Complexity Hidden Maliyet — HiddenCost",
+    label: "urun Complexity Hidden Maliyet — HiddenCost",
     fn: (inputs) => {
     const setupCostComplexity = num(inputs, "setupCostComplexity");
     const inventoryCostComplexity = num(inputs, "inventoryCostComplexity");
@@ -223,7 +223,7 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.product_complexity_hidden_cost_5",
     family: "cost",
-    label: "ürün Complexity Hidden Maliyet — ProfitabilityPerSKU",
+    label: "urun Complexity Hidden Maliyet — ProfitabilityPerSKU",
     fn: (inputs) => {
     const revenue = num(inputs, "revenue");
     const directCost = num(inputs, "directCost");
@@ -235,11 +235,11 @@ export const CHUNK_62_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Vakum Kaçağı Enerji Kaybı (6 formulas) ──,
+  // ── Vakum Kacagi Enerji Loss (6 formulas) ──,
   {
     id: "user.vacuum_leak_energy_0",
     family: "cost",
-    label: "Vakum Kaçağı Enerji Kaybı — LeakRate",
+    label: "Vakum Kacagi Enerji Loss — LeakRate",
     fn: (inputs) => {
     const volume = num(inputs, "volume");
     const deltaP = num(inputs, "deltaP");

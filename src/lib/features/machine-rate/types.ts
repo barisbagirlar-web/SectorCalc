@@ -31,7 +31,7 @@ export const DEMO_MACHINE_RECORDS: readonly MachineRecord[] = [
   },
   {
     id: "worker-1",
-    name: "Usta (8 yıl)",
+    name: "Usta (8 yil)",
     hourlyRate: 30,
     amortization: 0,
     energyCost: 0,

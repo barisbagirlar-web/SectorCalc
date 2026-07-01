@@ -54,9 +54,9 @@ const METHODOLOGY_TEMPLATES: Record<string, (p: MethodologyTemplateParams) => st
   en: (p) =>
     `Model uses ${p.inputCount} input parameter${p.inputCount !== 1 ? "s" : ""} across ${p.formulaCount} formula${p.formulaCount !== 1 ? "s" : ""}. Key inputs: ${p.inputNames}. All formulas are deterministic and unit-consistent. Verify assumptions against your actual operating conditions before making business decisions.`,
   tr: (p) =>
-    `Model, ${p.formulaCount} formül üzerinden ${p.inputCount} giriş parametresi kullanır. Ana girdiler: ${p.inputNames}. Tüm formüller deterministik ve birim tutarlıdır. İş kararları almadan önce varsayımları gerçek çalışma koşullarınıza göre doğrulayın.`,
+    `Model, ${p.formulaCount} formul uzerinden ${p.inputCount} giris parametresi kullanir. Ana girdiler: ${p.inputNames}. Tum formuller deterministik ve birim tutarlidir. Is kararlari almadan once varsayimlari gercek calisma kosullariniza gore dogrulayin.`,
   de: (p) =>
-    `Das Modell verwendet ${p.inputCount} Eingabeparameter über ${p.formulaCount} Formeln. Wichtige Eingaben: ${p.inputNames}. Alle Formeln sind deterministisch und einheitenkonsistent. Überprüfen Sie Annahmen vor Geschäftsentscheidungen anhand Ihrer tatsächlichen Betriebsbedingungen.`,
+    `Das Modell verwendet ${p.inputCount} Eingabeparameter uber ${p.formulaCount} Formeln. Wichtige Eingaben: ${p.inputNames}. Alle Formeln sind deterministisch und einheitenkonsistent. Uberprufen Sie Annahmen vor Geschäftsentscheidungen anhand Ihrer tatsächlichen Betriebsbedingungen.`,
   fr: (p) =>
     `Le modèle utilise ${p.inputCount} paramètre${p.inputCount !== 1 ? "s" : ""} d'entrée sur ${p.formulaCount} formule${p.formulaCount !== 1 ? "s" : ""}. Entrées clés : ${p.inputNames}. Toutes les formules sont déterministes et cohérentes en unités. Vérifiez les hypothèses par rapport à vos conditions d'exploitation réelles avant de prendre des décisions commerciales.`,
   es: (p) =>

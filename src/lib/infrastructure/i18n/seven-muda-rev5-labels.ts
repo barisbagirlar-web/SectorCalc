@@ -84,38 +84,38 @@ const EN_LABELS: SevenMudaRev5LabelCore = {
 };
 
 const TR_LABELS: SevenMudaRev5LabelCore = {
-  quickSummaryTitle: "Karar özeti",
-  executiveSummary: "Yönetici özeti",
+  quickSummaryTitle: "Profitar ozeti",
+  executiveSummary: "Manager ozeti",
   totalWasteCost: "Toplam israf maliyeti",
-  annualizedWasteCost: "Yıllıklandırılmış kayıp",
+  annualizedWasteCost: "Yilliklandirilmis kayip",
   wasteCostPerUnit: "Birim israf maliyeti",
-  periodRevenue: "Dönem cirosu",
-  periodGrossMarginValue: "Dönem brüt marj tutarı",
-  wasteToRevenueRatio: "Ciroya göre israf oranı",
-  wasteToGrossMarginRatio: "Brüt marja göre israf oranı",
-  highestWasteCategory: "En büyük israf alanı",
-  firstActionCategory: "İlk müdahale alanı",
-  confidenceLevel: "Veri güven seviyesi",
-  riskAdjustedPriorityScore: "Risk ayarlı öncelik skoru",
-  doubleCountRisk: "Çift sayım riski",
+  periodRevenue: "Donem cirosu",
+  periodGrossMarginValue: "Donem brut marj tutari",
+  wasteToRevenueRatio: "Ciroya gore israf orani",
+  wasteToGrossMarginRatio: "Brut marja gore israf orani",
+  highestWasteCategory: "En buyuk israf alani",
+  firstActionCategory: "Ilk mudahale alani",
+  confidenceLevel: "Veri guven seviyesi",
+  riskAdjustedPriorityScore: "Risk ayarli oncelik score",
+  doubleCountRisk: "Cift sayim risk",
   doubleCountDetected: "Tespit edildi",
   doubleCountNone: "Tespit edilmedi",
-  decisionVerdict: "Karar özeti",
-  summaryLevel: "Özet seviye",
-  biggestCostCategory: "En büyük maliyet alanı",
-  dataConfidence: "Veri güven seviyesi",
-  wasteBreakdown: "İsraf kırılımı",
+  decisionVerdict: "Profitar ozeti",
+  summaryLevel: "Ozet seviye",
+  biggestCostCategory: "En buyuk maliyet alani",
+  dataConfidence: "Veri guven seviyesi",
+  wasteBreakdown: "Israf kirilimi",
   category: "Kategori",
   cost: "Maliyet",
   share: "Pay",
-  actionPriority: "Aksiyon önceliği",
-  recommendedActionOrder: "Önerilen aksiyon sırası",
-  recoveryScenarios: "Geri kazanım senaryoları",
-  reduction: "Azaltım",
-  periodSavings: "Dönem tasarrufu",
-  annualSavings: "Yıllık tasarruf",
-  warnings: "Uyarılar",
-  noWarnings: "Uyarı yok",
+  actionPriority: "Aksiyon onceligi",
+  recommendedActionOrder: "Onerilen aksiyon sirasi",
+  recoveryScenarios: "Geri kazanim senaryolari",
+  reduction: "Azaltim",
+  periodSavings: "Donem tasarrufu",
+  annualSavings: "Yillik tasarruf",
+  warnings: "Uyarilar",
+  noWarnings: "Uyari yok",
   categoryName: (key) => TR_CATEGORY_NAMES[key],
   summaryLevelText: (level) => TR_SUMMARY_LEVELS[level],
   confidenceText: (level) => TR_CONFIDENCE[level],
@@ -123,8 +123,8 @@ const TR_LABELS: SevenMudaRev5LabelCore = {
 
 
 const DE_LABELS: SevenMudaRev5LabelCore = {
-  quickSummaryTitle: "Entscheidungsübersicht",
-  executiveSummary: "Managementübersicht",
+  quickSummaryTitle: "Entscheidungsubersicht",
+  executiveSummary: "Managementubersicht",
   totalWasteCost: "Gesamtverschwendungskosten",
   annualizedWasteCost: "Jährliche Verschwendungskosten",
   wasteCostPerUnit: "Verschwendungskosten pro Einheit",
@@ -132,7 +132,7 @@ const DE_LABELS: SevenMudaRev5LabelCore = {
   periodGrossMarginValue: "Periodenbruttomarge",
   wasteToRevenueRatio: "Verschwendungs-Umsatz-Verhältnis",
   wasteToGrossMarginRatio: "Verschwendungs-Bruttomarge-Verhältnis",
-  highestWasteCategory: "Größte Verschwendungskategorie",
+  highestWasteCategory: "Großte Verschwendungscategorye",
   firstActionCategory: "Erste Aktionskategorie",
   confidenceLevel: "Datenvertrauensniveau",
   riskAdjustedPriorityScore: "Risikobereinigter Prioritätsscore",
@@ -141,15 +141,15 @@ const DE_LABELS: SevenMudaRev5LabelCore = {
   doubleCountNone: "Keine erkannt",
   decisionVerdict: "Entscheidungsurteil",
   summaryLevel: "Zusammenfassungsstufe",
-  biggestCostCategory: "Größte Kostenkategorie",
+  biggestCostCategory: "Großte Kostencategorye",
   dataConfidence: "Datenvertrauen",
-  wasteBreakdown: "Verschwendungsaufschlüsselung",
+  wasteBreakdown: "Verschwendungsaufschlusselung",
   category: "Kategorie",
   cost: "Kosten",
   share: "Anteil",
   actionPriority: "Aktionspriorität",
   recommendedActionOrder: "Empfohlene Aktionsreihenfolge",
-  recoveryScenarios: "Rückgewinnungsszenarien",
+  recoveryScenarios: "Ruckgewinnungsszenarien",
   reduction: "Reduzierung",
   periodSavings: "Periodeneinsparungen",
   annualSavings: "Jährliche Einsparungen",
@@ -162,12 +162,12 @@ const DE_LABELS: SevenMudaRev5LabelCore = {
 
 const DE_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
   none: "Keine Daten eingegeben",
-  overproduction: "Überproduktion",
+  overproduction: "Uberproduktion",
   waiting: "Warten",
   transport: "Transport",
   inventory: "Bestand",
   motion: "Bewegung",
-  overprocessing: "Überbearbeitung",
+  overprocessing: "Uberbearbeitung",
   defects: "Ausschuss",
 };
 
@@ -399,12 +399,12 @@ const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 
 const TR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
   none: "Veri girilmedi",
-  overproduction: "Aşırı üretim",
+  overproduction: "Asiri uretim",
   waiting: "Bekleme",
-  transport: "Taşıma",
+  transport: "Tasima",
   inventory: "Stok",
   motion: "Gereksiz hareket",
-  overprocessing: "Fazla işlem",
+  overprocessing: "Fazla islem",
   defects: "Hatalar",
 };
 
@@ -423,10 +423,10 @@ const TR_SUMMARY_LEVELS: Record<
   SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
   string
 > = {
-  no_detected_waste: "Hesaplama için israf sürücüsü girilmeli",
-  low: "Düşük maruziyet",
+  no_detected_waste: "Calculation icin israf surucusu girilmeli",
+  low: "Dusuk maruziyet",
   medium: "Orta maruziyet",
-  high: "Yüksek maruziyet",
+  high: "Yuksek maruziyet",
   critical: "Kritik maruziyet",
 };
 
@@ -437,9 +437,9 @@ const EN_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], strin
 };
 
 const TR_CONFIDENCE: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
-  high: "Yüksek",
+  high: "Yuksek",
   medium: "Orta",
-  low: "Düşük",
+  low: "Dusuk",
 };
 
 const SEVEN_MUDA_WARNING_MESSAGES: ReadonlyArray<{
@@ -452,16 +452,16 @@ const SEVEN_MUDA_WARNING_MESSAGES: ReadonlyArray<{
 }> = [
   {
     en: "Analysis period exceeds annual working days. Annualized result may be inversely scaled.",
-    tr: "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
-    de: "Analysezeitraum überschreitet Arbeitstage pro Jahr. Jahresergebnis kann umgekehrt skaliert sein.",
+    tr: "Analiz donemi yillik calisma gununden buyuk. Yilliklandirilmis sonuc ters olceklenebilir.",
+    de: "Analysezeitraum uberschreitet Arbeitstage pro Jahr. Jahresergebnis kann umgekehrt skaliert sein.",
     fr: "La période d'analyse dépasse les jours ouvrables annuels. Le résultat annualisé peut être inversement proportionnel.",
     es: "El período de análisis supera los días laborables anuales. El resultado anualizado puede escalarse inversamente.",
     ar: "فترة التحليل تتجاوز أيام العمل السنوية. قد تكون النتيجة السنوية معكوسة.",
   },
   {
     en: "Manual opportunity cost mode selected but hourly opportunity cost is zero. Waiting cost assumed zero.",
-    tr: "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
-    de: "Manueller Opportunitätskostenmodus gewählt, aber stündliche Opportunitätskosten sind null. Wartekosten werden als null angenommen.",
+    tr: "Manuel firsat maliyeti modu secildi ancak saatlik firsat maliyeti sifir. Bekleme maliyeti sifir kabul edilir.",
+    de: "Manueller Opportunitätskostenmodus gewählt, aber stundliche Opportunitätskosten sind null. Wartekosten werden als null angenommen.",
     fr: "Mode de coût d'opportunité manuel sélectionné mais le coût d'opportunité horaire est nul. Le coût d'attente est considéré comme nul.",
     es: "Modo de costo de oportunidad manual seleccionado pero el costo de oportunidad por hora es cero. El costo de espera se asume como cero.",
     ar: "تم تحديد وضع التكلفة البديلة اليدوية ولكن التكلفة البديلة للساعة صفر. تُفترض تكلفة الانتظار صفر.",

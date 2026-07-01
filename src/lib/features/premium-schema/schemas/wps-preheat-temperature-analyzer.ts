@@ -1,11 +1,11 @@
 /**
- * Tool #35 — WPS Ön Isıtma Sıcaklık
+ * Tool #35 — WPS On Isitma Sicaklik
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
   id: "wps-preheat-temperature-analyzer", legacyPaidSlug: "wps-preheat-temperature-analyzer",
   name: "WPS Preheat Temperature Analyzer", name_i18n: {"en":"WPS Preheat Temperature Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Kaynak öncesi ön ısıtma sıcaklığı doğru hesaplanmazsa çatlama riski artar ve enerji maliyeti yükselir. Karbon eşdeğeri ve malzeme kalınlığına göre optimum sıcaklık belirlenmelidir.", painStatement_i18n: {"en":"If pre-heating temperature before resource is not accurately calculated, cracking risk increases and energy Cost rises. Optimum Temperature must be determined based on carbon equivalent and material thickness."},
+  painStatement: "Kaynak oncesi on isitma sicakligi dogru hesaplanmazsa catlama risk artar ve enerji maliyeti yukselir. Profitbon esvaluei ve malzeme kalinligina gore optimum sicaklik belirlenmelidir.", painStatement_i18n: {"en":"If pre-heating temperature before resource is not accurately calculated, cracking risk increases and energy Cost rises. Optimum Temperature must be determined based on carbon equivalent and material thickness."},
   inputs: [
     { id: "carbonContent", label: "Carbon percentage in material", label_i18n: {"en":"Carbon percentage in material"}, type: "number", unit: "%", required: true, smartDefault: 0.2, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Carbon percentage in material", expertMeaning_i18n: {"en":"Carbon percentage in material"} },
     { id: "manganeseContent", label: "Manganese percentage", label_i18n: {"en":"Manganese percentage"}, type: "number", unit: "%", required: true, smartDefault: 1.2, validation: { min: 0, max: 5 }, helper: "", expertMeaning: "Manganese percentage", expertMeaning_i18n: {"en":"Manganese percentage"} },
@@ -23,8 +23,8 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
     { id: "crackRisk", label: "Catlama Riski", label_i18n: {"en":"Catlama Riski"}, unit: "puan", format: "score" },
   ],
   thresholds: [
-    { fieldId: "carbonEquivalent", warning: 0.4, critical: 0.55, direction: "higher_is_bad", warningMessage: "CEV > 0.4 — ön ısıtma gereklidir, hidrojen kontrolü yapılmalı.", warningMessage_i18n: {"en":"CEV > 0.4 — Pre-heating is required, hydrogen control must be performed."}, criticalMessage: "CEV > 0.55 — yüksek çatlama riski, kaynak prosedürü gözden geçirilmeli.", criticalMessage_i18n: {"en":"CEV > 0.55 — High cracking risk, resource procedure must be reviewed."} },
-    { fieldId: "preheatEnergyCost", warning: 500, critical: 1500, direction: "higher_is_bad", warningMessage: "Ön ısıtma maliyeti > $500 — enerji verimliliği değerlendirilmeli.", warningMessage_i18n: {"en":"Pre-heating Cost > $500 — Energy efficiency should be evaluated."}, criticalMessage: "Ön ısıtma maliyeti > $1,500 — alternatif kaynak yöntemleri araştırılmalı.", criticalMessage_i18n: {"en":"Pre-heating Cost > $1,500 — Alternative resource methods should be investigated."} },
+    { fieldId: "carbonEquivalent", warning: 0.4, critical: 0.55, direction: "higher_is_bad", warningMessage: "CEV > 0.4 — on isitma gereklidir, hidrojen kontrolu yapilmali.", warningMessage_i18n: {"en":"CEV > 0.4 — Pre-heating is required, hydrogen control must be performed."}, criticalMessage: "CEV > 0.55 — yuksek catlama risk, kaynak proseduru gozden gecirilmeli.", criticalMessage_i18n: {"en":"CEV > 0.55 — High cracking risk, resource procedure must be reviewed."} },
+    { fieldId: "preheatEnergyCost", warning: 500, critical: 1500, direction: "higher_is_bad", warningMessage: "On isitma maliyeti > $500 — enerji verimliligi degerlendirilmeli.", warningMessage_i18n: {"en":"Pre-heating Cost > $500 — Energy efficiency should be evaluated."}, criticalMessage: "On isitma maliyeti > $1,500 — alternatif kaynak yontemleri arastirilmali.", criticalMessage_i18n: {"en":"Pre-heating Cost > $1,500 — Alternative resource methods should be investigated."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.carbon_equivalent", inputMap: {
@@ -50,6 +50,6 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.crack_risk_score", inputMap: { carbonEquivalent: "carbonEquivalent", materialThickness: "materialThickness" ,
         thresholdCe: "thresholdCe"}, outputId: "crackRisk" },
   ],
-  reportTemplate: { title: "WPS Ön Isıtma Sıcaklık Analiz Raporu", title_i18n: {"en":"WPS Pre-heating Temperature Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["CEV = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15 formülü ile hesaplanır.", "Ön ısıtma sıcaklığı CEV ve kalınlığa göre IIW standardı baz alınır.", "Enerji maliyeti tahmini olup bölgesel tarifelere göre değişir."],assumptionNotes_i18n:[{"en":"CEV is calculated using the formula: CEV = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15."},{"en":"Pre-heating temperature is based on IIW standard according to CEV and thickness."},{"en":"Energy cost is estimated and varies according to regional tariffs."}] },
+  reportTemplate: { title: "WPS On Isitma Sicaklik Analiz Reportu", title_i18n: {"en":"WPS Pre-heating Temperature Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["CEV = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15 formulu ile hesaplanir.", "On isitma sicakligi CEV ve kalinliga gore IIW standardi baz alinir.", "Enerji maliyeti tahmini olup bolgesel tarifelere gore degisir."],assumptionNotes_i18n:[{"en":"CEV is calculated using the formula: CEV = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15."},{"en":"Pre-heating temperature is based on IIW standard according to CEV and thickness."},{"en":"Energy cost is estimated and varies according to regional tariffs."}] },
 };

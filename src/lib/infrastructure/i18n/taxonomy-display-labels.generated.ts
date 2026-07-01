@@ -6,7 +6,7 @@ export type LocaleLabelMap = Readonly<Record<SupportedLocale, string>>;
 export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   "otomotiv": {
     en: "Automotive & Vehicle",
-    tr: "Otomotiv & Taşıt",
+    tr: "Otomotiv & Tasit",
     de: "Automobil & Fahrzeug",
     fr: "Automobile & véhicule",
     es: "Automoción y vehículos",
@@ -14,7 +14,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "havacilik": {
     en: "Aerospace & Space",
-    tr: "Havacılık & Uzay",
+    tr: "Havacilik & Uzay",
     de: "Luft- & Raumfahrt",
     fr: "Aérospatiale & espace",
     es: "Aeroespacial y espacio",
@@ -22,7 +22,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "makine": {
     en: "Machinery & Manufacturing",
-    tr: "Makine & Üretim",
+    tr: "Makine & Uretim",
     de: "Maschinenbau & Fertigung",
     fr: "Machines & fabrication",
     es: "Maquinaria y fabricación",
@@ -46,7 +46,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "gida": {
     en: "Food & Beverage",
-    tr: "Gıda & İçecek",
+    tr: "Gida & Icecek",
     de: "Lebensmittel & Getränke",
     fr: "Agroalimentaire & boissons",
     es: "Alimentación y bebidas",
@@ -54,7 +54,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "kimya": {
     en: "Chemistry & Pharmaceuticals",
-    tr: "Kimya & İlaç",
+    tr: "Kimya & Ilac",
     de: "Chemie & Pharma",
     fr: "Chimie & pharmaceutique",
     es: "Química y farmacia",
@@ -70,7 +70,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "insaat": {
     en: "Construction & Building",
-    tr: "İnşaat & Yapı",
+    tr: "Insaat & Yapi",
     de: "Bau & Gebäude",
     fr: "Construction & bâtiment",
     es: "Construcción y edificación",
@@ -86,7 +86,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "perakende": {
     en: "Retail & Consumer",
-    tr: "Perakende & Tüketici",
+    tr: "Perakende & Tuketici",
     de: "Einzelhandel & Konsum",
     fr: "Commerce & consommation",
     es: "Retail y consumo",
@@ -102,7 +102,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "bilisim": {
     en: "IT & Software",
-    tr: "Bilişim & Yazılım",
+    tr: "Bilisim & Yazilim",
     de: "IT & Software",
     fr: "Informatique & logiciel",
     es: "TI y software",
@@ -118,7 +118,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "saglik": {
     en: "Health & Medical",
-    tr: "Sağlık & Medikal",
+    tr: "Saglik & Medikal",
     de: "Gesundheit & Medizin",
     fr: "Santé & médical",
     es: "Salud y medicina",
@@ -126,7 +126,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "tarim": {
     en: "Agriculture & Food Production",
-    tr: "Tarım & Gıda Üretimi",
+    tr: "Tarim & Gida Uretimi",
     de: "Landwirtschaft & Ernährung",
     fr: "Agriculture & alimentation",
     es: "Agricultura y alimentos",
@@ -134,7 +134,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "savunma": {
     en: "Defense & Security",
-    tr: "Savunma & Güvenlik",
+    tr: "Savunma & Guvenlik",
     de: "Verteidigung & Sicherheit",
     fr: "Défense & sécurité",
     es: "Defensa y seguridad",
@@ -150,7 +150,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "madencilik": {
     en: "Mining & Natural Resources",
-    tr: "Madencilik & Doğal Kaynaklar",
+    tr: "Madencilik & Dogal Kaynaklar",
     de: "Bergbau & Rohstoffe",
     fr: "Mines & ressources",
     es: "Minería y recursos",
@@ -158,7 +158,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "telekom": {
     en: "Telecommunications",
-    tr: "Telekomünikasyon",
+    tr: "Telekomunikasyon",
     de: "Telekommunikation",
     fr: "Télécommunications",
     es: "Telecomunicaciones",
@@ -182,7 +182,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "kargo": {
     en: "Cargo & Transportation",
-    tr: "Kargo & Taşımacılık",
+    tr: "Profitgo & Tasimacilik",
     de: "Fracht & Transport",
     fr: "Fret & transport",
     es: "Carga y transporte",
@@ -198,7 +198,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "istatistik": {
     en: "Statistics & Probability",
-    tr: "İstatistik & Olasılık",
+    tr: "Istatistik & Olasilik",
     de: "Statistik & Wahrscheinlichkeit",
     fr: "Statistiques & probabilités",
     es: "Estadística y probabilidad",
@@ -214,7 +214,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "birim-donusum": {
     en: "Units & Conversion",
-    tr: "Birim & Dönüşüm",
+    tr: "Birim & Donusum",
     de: "Einheiten & Umrechnung",
     fr: "Unités & conversion",
     es: "Unidades y conversión",
@@ -230,7 +230,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "ev-yasam": {
     en: "Home & Lifestyle",
-    tr: "Ev & Yaşam",
+    tr: "Ev & Yasam",
     de: "Haus & Lifestyle",
     fr: "Maison & vie quotidienne",
     es: "Hogar y estilo de vida",
@@ -238,7 +238,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "egitim": {
     en: "Education & Academia",
-    tr: "Eğitim & Akademi",
+    tr: "Egitim & Akademi",
     de: "Bildung & Wissenschaft",
     fr: "Éducation & académie",
     es: "Educación y academia",
@@ -262,8 +262,8 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "cevre": {
     en: "Environment & Ecology",
-    tr: "Çevre & Ekoloji",
-    de: "Umwelt & Ökologie",
+    tr: "Cevre & Ekoloji",
+    de: "Umwelt & Okologie",
     fr: "Environnement & écologie",
     es: "Medio ambiente y ecología",
     ar: "البيئة والإيكولوجيا",
@@ -278,7 +278,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "ambalaj-baski": {
     en: "Packaging & Printing",
-    tr: "Ambalaj & Baskı",
+    tr: "Ambalaj & Printing",
     de: "Verpackung & Druck",
     fr: "Emballage & impression",
     es: "Embalaje e impresión",
@@ -286,8 +286,8 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "mobilya-ahsap": {
     en: "Furniture & Woodworking",
-    tr: "Mobilya & Ahşap",
-    de: "Möbel & Holzverarbeitung",
+    tr: "Mobilya & Ahsap",
+    de: "Mobel & Holzverarbeitung",
     fr: "Mobilier & bois",
     es: "Muebles y madera",
     ar: "الأثاث والنجارة",
@@ -302,7 +302,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "veteriner": {
     en: "Veterinary & Animal Health",
-    tr: "Veteriner & Hayvan Sağlığı",
+    tr: "Veteriner & Hayvan Sagligi",
     de: "Veterinärmedizin",
     fr: "Vétérinaire & santé animale",
     es: "Veterinaria y salud animal",
@@ -310,7 +310,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "hidrolik-pnomatik": {
     en: "Hydraulics & Pneumatics",
-    tr: "Hidrolik & Pnömatik",
+    tr: "Hidrolik & Pnomatik",
     de: "Hydraulik & Pneumatik",
     fr: "Hydraulique & pneumatique",
     es: "Hidráulica y neumática",
@@ -318,7 +318,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "yapisal-muhendislik": {
     en: "Structural Engineering",
-    tr: "Yapısal Mühendislik",
+    tr: "Yapisal Engineerlik",
     de: "Tragwerksplanung",
     fr: "Ingénierie structurelle",
     es: "Ingeniería estructural",
@@ -326,7 +326,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "su-yonetimi": {
     en: "Water Management",
-    tr: "Su Yönetimi",
+    tr: "Su Yonetimi",
     de: "Wassermanagement",
     fr: "Gestion de l'eau",
     es: "Gestión del agua",
@@ -342,7 +342,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "gorsel-medya": {
     en: "Visual Media & Design",
-    tr: "Görsel Medya & Tasarım",
+    tr: "Gorsel Medya & Tasarim",
     de: "Visuelle Medien & Design",
     fr: "Médias visuels & design",
     es: "Medios visuales y diseño",
@@ -350,7 +350,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "demiryolu": {
     en: "Rail & Rolling Stock",
-    tr: "Demiryolu & Raylı Sistem",
+    tr: "Demiryolu & Rayli Sistem",
     de: "Schienenverkehr",
     fr: "Ferroviaire",
     es: "Ferrocarril",
@@ -366,7 +366,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "isg-risk": {
     en: "HSE & Occupational Safety",
-    tr: "İSG & İş Güvenliği",
+    tr: "EHS & Is Guvenligi",
     de: "Arbeitsschutz & HSE",
     fr: "SST & sécurité au travail",
     es: "PRL y seguridad laboral",
@@ -374,7 +374,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "diger": {
     en: "Other",
-    tr: "Diğer",
+    tr: "Diger",
     de: "Sonstiges",
     fr: "Autre",
     es: "Otros",
@@ -382,7 +382,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
   },
   "all": {
     en: "All",
-    tr: "Tümü",
+    tr: "Tumu",
     de: "Alle",
     fr: "Tous",
     es: "Todos",
@@ -393,7 +393,7 @@ export const TAXONOMY_SECTOR_DISPLAY_LABELS: Readonly<Record<string, LocaleLabel
 export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLabelMap>> = {
   "cost": {
     en: "Cost & Budgeting",
-    tr: "Maliyet & Bütçeleme",
+    tr: "Maliyet & Butceleme",
     de: "Kosten & Budgetierung",
     fr: "Coûts & budget",
     es: "Costes y presupuesto",
@@ -409,7 +409,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "quality": {
     en: "Quality & Process Control",
-    tr: "Kalite & Süreç Kontrol",
+    tr: "Kalite & Surec Kontrol",
     de: "Qualität & Prozesskontrolle",
     fr: "Qualité & maîtrise",
     es: "Calidad y control de proceso",
@@ -433,7 +433,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "finance": {
     en: "Finance & Investment",
-    tr: "Finans & Yatırım",
+    tr: "Finans & Yatirim",
     de: "Finanzen & Investition",
     fr: "Finance & investissement",
     es: "Finanzas e inversión",
@@ -441,7 +441,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "hr": {
     en: "HR & Personnel",
-    tr: "İK & Personel",
+    tr: "IK & Personel",
     de: "Personal & HR",
     fr: "RH & personnel",
     es: "RR. HH. y personal",
@@ -449,7 +449,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "engineering": {
     en: "Technical & Engineering",
-    tr: "Teknik & Mühendislik",
+    tr: "Teknik & Engineerlik",
     de: "Technik & Engineering",
     fr: "Technique & ingénierie",
     es: "Técnica e ingeniería",
@@ -457,7 +457,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "safety": {
     en: "Safety & Risk",
-    tr: "İSG & Risk",
+    tr: "EHS & Risk",
     de: "Sicherheit & Risiko",
     fr: "Sécurité & risque",
     es: "Seguridad y riesgo",
@@ -465,7 +465,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "sustainability": {
     en: "Sustainability",
-    tr: "Sürdürülebilirlik",
+    tr: "Surdurulebilirlik",
     de: "Nachhaltigkeit",
     fr: "Durabilité",
     es: "Sostenibilidad",
@@ -473,7 +473,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "conversion": {
     en: "Conversion & Measurement",
-    tr: "Dönüşüm & Ölçüm",
+    tr: "Donusum & Measurement",
     de: "Umrechnung & Messung",
     fr: "Conversion & mesure",
     es: "Conversión y medición",
@@ -489,7 +489,7 @@ export const TAXONOMY_CATEGORY_DISPLAY_LABELS: Readonly<Record<string, LocaleLab
   },
   "diger": {
     en: "Other",
-    tr: "Diğer",
+    tr: "Diger",
     de: "Sonstiges",
     fr: "Autre",
     es: "Otros",

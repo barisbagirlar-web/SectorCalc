@@ -7,7 +7,7 @@ type ToolTier = "free" | "premium";
 
 const TOOL_TIER_LABEL: Record<AppLocale, Record<ToolTier, string>> = {
   en: { free: "Free", premium: "Premium" },
-  tr: { free: "Ücretsiz", premium: "Premium" },
+  tr: { free: "Ucretsiz", premium: "Premium" },
   de: { free: "Kostenlos", premium: "Premium" },
   fr: { free: "Gratuit", premium: "Premium" },
   es: { free: "Gratis", premium: "Premium" },
@@ -25,9 +25,9 @@ function buildToolDescription(
 
   switch (locale) {
     case "tr":
-      return `${sectorName} için ${tierLabel.toLowerCase()} hesaplama aracı. Maliyetleri hesaplayın, kayıpları tespit edin ve karar raporu alın.`;
+      return `${sectorName} icin ${tierLabel.toLowerCase()} hesaplama araci. Maliyetleri hesaplayin, kayiplari tespit edin ve karar raporu alin.`;
     case "de":
-      return `${tierLabel}-Rechner für ${sectorName}. Kosten berechnen, Verluste erkennen und belastbare Entscheidungsberichte erhalten.`;
+      return `${tierLabel}-Rechner fur ${sectorName}. Kosten berechnen, Verluste erkennen und belastbare Entscheidungsberichte erhalten.`;
     case "fr":
       return `Calculateur ${tierLabel.toLowerCase()} pour ${sectorName}. Calculez les coûts, détectez les pertes et obtenez des rapports de décision.`;
     case "es":

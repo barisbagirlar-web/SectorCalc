@@ -37,19 +37,19 @@ const clvCacI18n: Record<string, ToolMethodology> = {
     trustBoundaryDesc: "Valid under constant revenue model and steady retention rate assumptions. Does not include indirect value (referrals, brand equity).",
   },
   tr: {
-    subtitle: "CLV/CAC Oranı Analizi — Müşteri kârlılığı ve edinme verimliliği",
-    formulaDisplay: "CLV = (AOV × SF) × BM% × Ömür",
-    formulaDesc: "Müşteri Yaşam Boyu Değer Modeli — SectorCalc Motoru",
+    subtitle: "CLV/CAC Orani Analizi — Musteri kârliligi ve edinme verimliligi",
+    formulaDisplay: "CLV = (AOV × SF) × BM% × Omur",
+    formulaDesc: "Musteri Yasam Boyu Value Modeli — SectorCalc Motoru",
     methodologyTitle: "Hesaplama Metodolojisi",
     methodologyBody:
-      "Model, Müşteri Yaşam Boyu Değerini (CLV) şu girdilerle hesaplar: Ortalama Sipariş Değeri (AOV), yıllık satın alma sıklığı, brüt kar marjı yüzdesi ve müşteri ömrü (yıl). CLV/CAC oranı, CLV'nin Müşteri Edinme Maliyetine (CAC) bölünmesiyle elde edilir. Kayıp oranı: %100 − elde tutma oranı. Geri ödeme süresi: CAC / aylık brüt kar. Sağlıklı referans: CLV/CAC > 3:1.",
-    standardRef: "Finansal Muhasebe Standartları",
+      "Model, Musteri Yasam Boyu Degerini (CLV) su girdilerle hesaplar: Ortalama Siparis Degeri (AOV), yillik satin alma sikligi, brut kar marji yuzdesi ve musteri omru (yil). CLV/CAC orani, CLV'nin Musteri Edinme Maliyetine (CAC) bolunmesiyle elde edilir. Kayip orani: %100 − elde tutma orani. Geri odeme suresi: CAC / aylik brut kar. Saglikli referans: CLV/CAC > 3:1.",
+    standardRef: "Finansal Muhasebe Standartlari",
     findings: [
-      { title: "Düşük CLV/CAC Oranı", body: "CLV/CAC oranının 3:1'in altında olması pazarlama harcama verimsizliğine işaret edebilir. CAC'yi düşürmeye veya elde tutmayı artırmaya odaklanın.", severity: "warning" },
-      { title: "CAC Geri Ödeme Süresi İncelemesi", body: "CAC geri ödeme süresi 12 ayı aşarsa nakit akışı zorlanabilir. Elde tutmayı iyileştirin veya edinme maliyetlerini düşürün.", severity: "info" },
+      { title: "Dusuk CLV/CAC Orani", body: "CLV/CAC oraninin 3:1'in altinda olmasi pazarlama harcama verimsizligine isaret edebilir. CAC'yi dusurmeye veya elde tutmayi artirmaya odaklanin.", severity: "warning" },
+      { title: "CAC Geri Odeme Suresi Incelemesi", body: "CAC geri odeme suresi 12 ayi asarsa nakit akisi zorlanabilir. Elde tutmayi iyilestirin veya edinme maliyetlerini dusurun.", severity: "info" },
     ],
-    trustStandardDesc: "CLV ve CLV/CAC oranı hesaplamaları kabul görmüş finansal metrikleri takip eder. Varsayımlar belgelenmiştir.",
-    trustBoundaryDesc: "Sabit gelir modeli ve istikrarlı elde tutma oranı varsayımları altında geçerlidir. Dolaylı değeri (yönlendirmeler, marka değeri) kapsamaz.",
+    trustStandardDesc: "CLV ve CLV/CAC orani calculationlari kabul gormus finansal metrikleri takip eder. Varsayimlar belgelenmistir.",
+    trustBoundaryDesc: "Sabit revenue modeli ve istikrarli elde tutma orani varsayimlari altinda gecerlidir. Dolayli valuei (yonlendirmeler, marka valuei) kapsamaz.",
   },
   de: {
     subtitle: "CLV/CAC-Verhältnisanalyse — Kundenrentabilität und Akquisitionseffizienz",
@@ -60,11 +60,11 @@ const clvCacI18n: Record<string, ToolMethodology> = {
       "Das Modell berechnet den Customer Lifetime Value (CLV) anhand von: Durchschnittlichem Bestellwert (AOV), jährlicher Kaufhäufigkeit, Bruttomarge und Kundenlebensdauer in Jahren. Das CLV/CAC-Verhältnis ist der CLV geteilt durch die Kundenakquisitionskosten (CAC). Die Abwanderungsrate ergibt sich aus: 100 % − Bindungsrate. Amortisationszeit: CAC geteilt durch monatlichen Bruttogewinn. Gesundes Benchmark: CLV/CAC > 3:1.",
     standardRef: "Rechnungslegungsstandards",
     findings: [
-      { title: "Niedriges CLV/CAC-Verhältnis", body: "Ein CLV/CAC-Verhältnis unter 3:1 deutet auf mögliche Ineffizienz der Marketingausgaben hin. Konzentrieren Sie sich auf die Senkung der CAC oder die Verbesserung der Kundenbindung.", severity: "warning" },
-      { title: "CAC-Amortisationszeit Prüfung", body: "Übersteigt die CAC-Amortisationszeit 12 Monate, kann der Cashflow belastet werden. Verbessern Sie die Bindung oder senken Sie die Akquisitionskosten.", severity: "info" },
+      { title: "Niedriges CLV/CAC-Verhältnis", body: "Ein CLV/CAC-Verhältnis unter 3:1 deutet auf mogliche Ineffizienz der Marketingausgaben hin. Konzentrieren Sie sich auf die Senkung der CAC oder die Verbesserung der Kundenbindung.", severity: "warning" },
+      { title: "CAC-Amortisationszeit Prufung", body: "Ubersteigt die CAC-Amortisationszeit 12 Monate, kann der Cashflow belastet werden. Verbessern Sie die Bindung oder senken Sie die Akquisitionskosten.", severity: "info" },
     ],
     trustStandardDesc: "CLV- und CLV/CAC-Verhältnisberechnungen folgen anerkannten Finanzkennzahlen. Annahmen sind dokumentiert.",
-    trustBoundaryDesc: "Gültig unter Annahme konstanter Einnahmen und stabiler Bindungsrate. Beinhaltet keinen indirekten Wert (Empfehlungen, Markenwert).",
+    trustBoundaryDesc: "Gultig unter Annahme konstanter Einnahmen und stabiler Bindungsrate. Beinhaltet keinen indirekten Wert (Empfehlungen, Markenwert).",
   },
   fr: {
     subtitle: "Analyse du Ratio CLV/CAC — Rentabilité client et efficacité d'acquisition",

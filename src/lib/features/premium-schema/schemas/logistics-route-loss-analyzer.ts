@@ -2,14 +2,14 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const LOGISTICS_ROUTE_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "logistics-route-loss-analyzer", legacyPaidSlug: "logistics-route-loss-analyzer",
   name: "Lojistik Rota Kaybi", name_i18n: {"en":"logistics Route Loss"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Rota sapmaları ve yakıt israfı hesaplanmazsa, filo maliyeti gizlice artar ve verim düşer.", painStatement_i18n: {"en":"If route deviations and fuel waste are not calculated, fleet cost silently increases and efficiency drops."},
+  painStatement: "Rota sapmalari ve yakit israfi hesaplanmazsa, filo maliyeti gizlice artar ve verim duser.", painStatement_i18n: {"en":"If route deviations and fuel waste are not calculated, fleet cost silently increases and efficiency drops."},
   inputs: [
     { id: "idealDistance", label: "Point-to-point distance", label_i18n: {"en":"Point-to-point distance"}, type: "number", unit: "km", required: true, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Point-to-point distance", expertMeaning_i18n: {"en":"Point-to-point distance"} },
     { id: "actualDistance", label: "Actual route distance", label_i18n: {"en":"Actual route distance"}, type: "number", unit: "km", required: true, smartDefault: 130, validation: { min: 1 }, helper: "", expertMeaning: "Actual route distance", expertMeaning_i18n: {"en":"Actual route distance"} },
     { id: "avgSpeed", label: "Average speed", label_i18n: {"en":"Average speed"}, type: "number", unit: "km/saat", required: false, smartDefault: 60, validation: { min: 1 }, helper: "", expertMeaning: "Average speed", expertMeaning_i18n: {"en":"Average speed"} },
     { id: "fuelConsumption", label: "Fuel consumption per km", label_i18n: {"en":"Fuel consumption per km"}, type: "number", unit: "L/km", required: true, smartDefault: 0.3, validation: { min: 0.01 }, helper: "", expertMeaning: "Fuel consumption per km", expertMeaning_i18n: {"en":"Fuel consumption per km"} },
     { id: "fuelPrice", label: "Fuel price", label_i18n: {"en":"Fuel price"}, type: "number", unit: "USD/L", required: true, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "Fuel price", expertMeaning_i18n: {"en":"Fuel price"} },
-    { id: "driverRate", label: "Sürücü Saatlik Ücreti", label_i18n: {"en":"Driver hourly wage"}, type: "number", unit: "USD/saat", required: true, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Driver hourly wage", expertMeaning_i18n: {"en":"Driver hourly wage"} },
+    { id: "driverRate", label: "Surucu Saatlik Ucreti", label_i18n: {"en":"Driver hourly wage"}, type: "number", unit: "USD/saat", required: true, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Driver hourly wage", expertMeaning_i18n: {"en":"Driver hourly wage"} },
     { id: "wearCostPerKm", label: "Vehicle wear cost per km", label_i18n: {"en":"Vehicle wear cost per km"}, type: "number", unit: "USD/km", required: false, smartDefault: 0.15, validation: { min: 0 }, helper: "", expertMeaning: "Vehicle wear cost per km", expertMeaning_i18n: {"en":"Vehicle wear cost per km"} },
   ],
   outputs: [
@@ -19,7 +19,7 @@ export const LOGISTICS_ROUTE_LOSS_SCHEMA: PremiumCalculatorSchema = {
     { id: "routeEfficiency", label: "Route Efficiency", label_i18n: {"en":"Route Efficiency"}, unit: "%", format: "percentage" },
     { id: "totalRouteLoss", label: "Total Route Loss", label_i18n: {"en":"Total Route Loss"}, unit: "USD/sefer", format: "currency" },
   ],
-  thresholds: [{ fieldId: "driftPct", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Sapma > %10 — rota optimizasyonu önerilir.", warningMessage_i18n: {"en":"Deviation > 10% — route optimization recommended."}, criticalMessage: "Sapma > %25 — rota planlaması yenilenmeli.", criticalMessage_i18n: {"en":"Deviation > 25% — route planning should be renewed."} }],
+  thresholds: [{ fieldId: "driftPct", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Sapma > %10 — rota optimizasyonu onerilir.", warningMessage_i18n: {"en":"Deviation > 10% — route optimization recommended."}, criticalMessage: "Sapma > %25 — rota planlamasi yenilenmeli.", criticalMessage_i18n: {"en":"Deviation > 25% — route planning should be renewed."} }],
   formulaPipeline: [
     { formulaId: "measurement.route_drift_pct", inputMap: { actualDistance: "actualDistance", idealDistance: "idealDistance" ,
         actualKm: "actualKm",
@@ -39,6 +39,6 @@ export const LOGISTICS_ROUTE_LOSS_SCHEMA: PremiumCalculatorSchema = {
         routeFuelWaste: "routeFuelWaste",
         routeTimeWaste: "routeTimeWaste"}, outputId: "totalRouteLoss" },
   ],
-  reportTemplate: { title: "Rota Kaybı Raporu", title_i18n: {"en":"Route Loss Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Sapma = (Gerçek - İdeal) / İdeal.", "Yakıt israfı = Fark × Tüketim × Fiyat.", "Verim = İdeal / Gerçek."],assumptionNotes_i18n:[{"en":"Deviation = (Actual - Ideal) / Ideal."},{"en":"Fuel waste = Difference × Consumption × Price."},{"en":"Efficiency = Ideal / Actual."}] },
+  reportTemplate: { title: "Rota Loss Reportu", title_i18n: {"en":"Route Loss Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Sapma = (Gercek - Ideal) / Ideal.", "Yakit israfi = Fark × Tuketim × Fiyat.", "Verim = Ideal / Gercek."],assumptionNotes_i18n:[{"en":"Deviation = (Actual - Ideal) / Ideal."},{"en":"Fuel waste = Difference × Consumption × Price."},{"en":"Efficiency = Ideal / Actual."}] },
 };

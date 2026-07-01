@@ -73,7 +73,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_5",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — Annuity",
+    label: "IC VERIM RATIO IRR — Annuity",
     fn: (inputs) => {
     const nPV = num(inputs, "nPV");
     const r = num(inputs, "r");
@@ -84,7 +84,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.irr_investment_6",
     family: "cost",
-    label: "İÇ VERİM ORANI IRR — Sens",
+    label: "IC VERIM RATIO IRR — Sens",
     fn: (inputs) => {
     const delta = num(inputs, "delta");
     const Var = num(inputs, "Var");
@@ -94,11 +94,11 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── İLERLEME YEM MALİYET (8 formulas) ──,
+  // ── ILERLEME YEM COST (8 formulas) ──,
   {
     id: "user.feed_cost_formulation_0",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — Cost_Ing",
+    label: "ILERLEME YEM COST — Cost_Ing",
     fn: (inputs) => {
     const inclRate = num(inputs, "inclRate");
     const price = num(inputs, "price");
@@ -108,7 +108,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_1",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — Cost_Base",
+    label: "ILERLEME YEM COST — Cost_Base",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Ing = num(inputs, "Ing");
@@ -119,7 +119,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_2",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — Cost_Proc",
+    label: "ILERLEME YEM COST — Cost_Proc",
     fn: (inputs) => {
     const grind = num(inputs, "grind");
     const mix = num(inputs, "mix");
@@ -130,7 +130,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_3",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — Cost_Add",
+    label: "ILERLEME YEM COST — Cost_Add",
     fn: (inputs) => {
     const enz = num(inputs, "enz");
     const vit = num(inputs, "vit");
@@ -141,7 +141,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_4",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — Shrink",
+    label: "ILERLEME YEM COST — Shrink",
     fn: (inputs) => {
     const cost = num(inputs, "cost");
     const Base = num(inputs, "Base");
@@ -153,7 +153,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_5",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — FCR",
+    label: "ILERLEME YEM COST — FCR",
     fn: (inputs) => {
     const feedCons = num(inputs, "feedCons");
     const weightGain = num(inputs, "weightGain");
@@ -163,7 +163,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_6",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — CostPerKg",
+    label: "ILERLEME YEM COST — CostPerKg",
     fn: (inputs) => {
     const base = num(inputs, "base");
     const proc = num(inputs, "proc");
@@ -176,7 +176,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.feed_cost_formulation_7",
     family: "cost",
-    label: "İLERLEME YEM MALİYET — Opt",
+    label: "ILERLEME YEM COST — Opt",
     fn: (inputs) => {
     const base = num(inputs, "base");
     const sUBJECT = num(inputs, "sUBJECT");
@@ -186,11 +186,11 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── İSKELE KİRALAMA (9 formulas) ──,
+  // ── ISKELE LEASING (9 formulas) ──,
   {
     id: "user.scaffold_rental_cost_0",
     family: "cost",
-    label: "İSKELE KİRALAMA — Area",
+    label: "ISKELE LEASING — Area",
     fn: (inputs) => {
     const perim = num(inputs, "perim");
     const height = num(inputs, "height");
@@ -200,7 +200,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_1",
     family: "cost",
-    label: "İSKELE KİRALAMA — Vol",
+    label: "ISKELE LEASING — Vol",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const standoff = num(inputs, "standoff");
@@ -210,7 +210,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_2",
     family: "cost",
-    label: "İSKELE KİRALAMA — Rental",
+    label: "ISKELE LEASING — Rental",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const rate = num(inputs, "rate");
@@ -221,7 +221,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_3",
     family: "cost",
-    label: "İSKELE KİRALAMA — Lab_Erect",
+    label: "ISKELE LEASING — Lab_Erect",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const erectRate = num(inputs, "erectRate");
@@ -231,7 +231,7 @@ export const CHUNK_27_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scaffold_rental_cost_4",
     family: "cost",
-    label: "İSKELE KİRALAMA — Lab_Dism",
+    label: "ISKELE LEASING — Lab_Dism",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const dismRate = num(inputs, "dismRate");

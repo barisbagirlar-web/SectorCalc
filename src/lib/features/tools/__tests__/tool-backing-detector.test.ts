@@ -50,13 +50,13 @@ describe("P8 tool backing detector", () => {
   test("problem slug stays hard locked", () => {
     expect(
       resolveToolFormPresence({
-        slug: "abonelik-yazilim-cloud-yillik-maliyet-hesabi",
+        slug: "abonelik-yazilim-cloud-yillik-maliyet-calc",
         locale: "tr",
         surface: "premium",
       }),
     ).toBe(false);
     const trust = evaluateRuntimeTrust({
-      slug: "abonelik-yazilim-cloud-yillik-maliyet-hesabi",
+      slug: "abonelik-yazilim-cloud-yillik-maliyet-calc",
       locale: "tr",
       surface: "premium",
     });

@@ -73,7 +73,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_0",
     family: "cost",
-    label: "OEE ve Durma Süresi — Availability",
+    label: "OEE ve Durma Suresi — Availability",
     fn: (inputs) => {
     const operatingTime = num(inputs, "operatingTime");
     const plannedProductionTime = num(inputs, "plannedProductionTime");
@@ -83,7 +83,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_1",
     family: "cost",
-    label: "OEE ve Durma Süresi — Performance",
+    label: "OEE ve Durma Suresi — Performance",
     fn: (inputs) => {
     const idealCycleTime = num(inputs, "idealCycleTime");
     const totalCount = num(inputs, "totalCount");
@@ -94,7 +94,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_2",
     family: "cost",
-    label: "OEE ve Durma Süresi — Quality",
+    label: "OEE ve Durma Suresi — Quality",
     fn: (inputs) => {
     const goodCount = num(inputs, "goodCount");
     const totalCount = num(inputs, "totalCount");
@@ -104,7 +104,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_3",
     family: "cost",
-    label: "OEE ve Durma Süresi — OEE",
+    label: "OEE ve Durma Suresi — OEE",
     fn: (inputs) => {
     const availability = num(inputs, "availability");
     const performance = num(inputs, "performance");
@@ -115,7 +115,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_4",
     family: "cost",
-    label: "OEE ve Durma Süresi — TEEP",
+    label: "OEE ve Durma Suresi — TEEP",
     fn: (inputs) => {
     const oEE = num(inputs, "oEE");
     const plannedProductionTime = num(inputs, "plannedProductionTime");
@@ -126,7 +126,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_5",
     family: "cost",
-    label: "OEE ve Durma Süresi — DowntimeCost",
+    label: "OEE ve Durma Suresi — DowntimeCost",
     fn: (inputs) => {
     const plannedProductionTime = num(inputs, "plannedProductionTime");
     const operatingTime = num(inputs, "operatingTime");
@@ -137,7 +137,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_6",
     family: "cost",
-    label: "OEE ve Durma Süresi — SpeedLoss",
+    label: "OEE ve Durma Suresi — SpeedLoss",
     fn: (inputs) => {
     const operatingTime = num(inputs, "operatingTime");
     const idealCycleTime = num(inputs, "idealCycleTime");
@@ -149,7 +149,7 @@ export const CHUNK_42_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.oee_downtime_7",
     family: "cost",
-    label: "OEE ve Durma Süresi — QualityLoss",
+    label: "OEE ve Durma Suresi — QualityLoss",
     fn: (inputs) => {
     const totalCount = num(inputs, "totalCount");
     const goodCount = num(inputs, "goodCount");

@@ -13,7 +13,7 @@ type LocaleContentMap = Readonly<
 const CONTENT: LocaleContentMap = {
   "muller-prazision-5s-optimization": {
     en: {
-      title: "Müller Präzision GmbH: 5S audit score 38→87, €1.232M efficiency gain in 5 months",
+      title: "Muller Präzision GmbH: 5S audit score 38→87, €1.232M efficiency gain in 5 months",
       subtitle: "5S productivity breakthrough: €1.2M cash gain in five months without CAPEX",
       industry: "Automotive supply chain (precision CNC parts)",
       challenge:
@@ -32,40 +32,40 @@ const CONTENT: LocaleContentMap = {
           "SectorCalc's cost converter model turned 5S from a cleaning project into a cash-flow line item on the CFO report. €1.2M in five months — in our pocket with process discipline alone, without any CAPEX.",
         author: "Klaus Weber",
         title: "COO / Plant Director",
-        company: "Müller Präzision GmbH",
+        company: "Muller Präzision GmbH",
       },
     },
     tr: {
-      title: "Müller Präzision GmbH: 5S Denetim Skoru 38→87, 5 Ayda 1.232.000€ Verimlilik Kazancı",
-      subtitle: "5S ile verimlilikte devrim: 5 ayda 1.2 milyon euro nakit kazanç",
-      industry: "Otomotiv Yan Sanayi (CNC hassas parça)",
+      title: "Muller Präzision GmbH: 5S Audit Score 38→87, 5 Ayda 1.232.000€ Efficiency Kazanci",
+      subtitle: "5S ile efficiencyte devrim: 5 ayda 1.2 milyon euro nakit kazanc",
+      industry: "Otomotiv Yan Sanayi (CNC hassas parca)",
       challenge:
-        "Stuttgart tesisinde 2025 Q4 iç denetiminde 5S skoru 38/100 olarak ölçüldü; tezgâh başı arama süresi ortalama 14 dk/shift, plansız duruş (downtime) oranı %14.2, hurda/fire maliyeti aylık 187.000€ seviyesindeydi.\n\nVerimsizlik kaynaklı gizli maliyet:\n500 çalışan × 22 gün × 8 saat × %12 zaman kaybı = 10.560 saat/ay\nSaatlik tam yük maliyeti (Almanya otomotiv, IG Metall tarifesi): 35€/saat\nAylık nakit akışı kaybı: 369.600€",
+        "Stuttgart tesisinde 2025 Q4 ic denetiminde 5S skoru 38/100 olarak olculdu; tezgâh basi arama suresi ortalama 14 dk/shift, plansiz durus (downtime) orani %14.2, hurda/fire maliyeti aylik 187.000€ seviyesindeydi.\n\nVerimsizlik kaynakli gizli maliyet:\n500 calisan × 22 gun × 8 saat × %12 zaman kaybi = 10.560 saat/ay\nSaatlik tam yuk maliyeti (Almanya otomotiv, IG Metall tarifesi): 35€/saat\nAylik nakit akisi kaybi: 369.600€",
       solution:
-        "SectorCalc Trust Trace™ 5S Denetim & Verimlilik Kaybı Maliyet Dönüştürücü modülü devreye alındı.\n\nUygulama standartları:\n- DIN EN ISO 9001:2015 Madde 7.1.4 (Proses ortamı)\n- VDI 2067 Madde 3.2 (Ekonomik üretim değerlendirme)\n- JIPM TPM Seiri-Seiton-Seiso-Seiketsu-Shitsuke audit protokolü\n- Sektör: Otomotiv tedarik zinciri, IATF 16949 uyumlu.",
+        "SectorCalc Trust Trace™ 5S Denetim & Verimlilik Kaybi Maliyet Donusturucu modulu devreye alindi.\n\nUygulama standartlari:\n- DIN EN ISO 9001:2015 Madde 7.1.4 (Proses ortami)\n- VDI 2067 Madde 3.2 (Ekonomik uretim degerlendirme)\n- JIPM TPM Seiri-Seiton-Seiso-Seiketsu-Shitsuke audit protokolu\n- Sektor: Otomotiv tedarik zinciri, IATF 16949 uyumlu.",
       results: [
         { metric: "5S Denetim Skoru", before: "38/100", after: "87/100" },
-        { metric: "Hurda / Fire Oranı", before: "%8.2", after: "%3.1" },
-        { metric: "Plansız Downtime", before: "%14.2", after: "%5.8" },
-        { metric: "Tezgâh Başı Arama Süresi", before: "14 dk/shift", after: "3.2 dk/shift" },
-        { metric: "Aylık Verimlilik Kaybı", before: "369.600€", after: "123.200€" },
+        { metric: "Hurda / Fire Orani", before: "%8.2", after: "%3.1" },
+        { metric: "Plansiz Downtime", before: "%14.2", after: "%5.8" },
+        { metric: "Tezgâh Basi Arama Suresi", before: "14 dk/shift", after: "3.2 dk/shift" },
+        { metric: "Aylik Efficiency Loss", before: "369.600€", after: "123.200€" },
       ],
       testimonial: {
         quote:
-          "SectorCalc'ın maliyet dönüştürücü modeli bize 5S'i \"temizlik projesi\" olmaktan çıkarıp CFO raporuna giren bir nakit akışı kalemine dönüştürdü. 5 ayda 1.2 milyon euro, herhangi bir CAPEX yatırımı yapmadan, sadece proses disipliniyle cebimize kaldı.",
+          "SectorCalc'in maliyet donusturucu modeli bize 5S'i \"temizlik projesi\" olmaktan cikarip CFO raporuna giren bir nakit akisi kalemine donusturdu. 5 ayda 1.2 milyon euro, herhangi bir CAPEX yatirimi yapmadan, sadece proses disipliniyle cebimize kaldi.",
         author: "Klaus Weber",
         title: "COO / Plant Director",
-        company: "Müller Präzision GmbH",
+        company: "Muller Präzision GmbH",
       },
     },
     de: {
-      title: "Müller Präzision GmbH: 5S-Audit 38→87, 1,232 Mio. € Effizienzgewinn in 5 Monaten",
-      subtitle: "5S-Produktivitätssprung: 1,2 Mio. € Cash-Gewinn in fünf Monaten ohne CAPEX",
+      title: "Muller Präzision GmbH: 5S-Audit 38→87, 1,232 Mio. € Effizienzgewinn in 5 Monaten",
+      subtitle: "5S-Produktivitätssprung: 1,2 Mio. € Cash-Gewinn in funf Monaten ohne CAPEX",
       industry: "Automobilzulieferer (Präzisions-CNC-Teile)",
       challenge:
         "Im Werk Stuttgart ergab das Q4-2025-Internaudit einen 5S-Score von 38/100; die Suchzeit am Arbeitsplatz lag bei 14 Min./Schicht, ungeplante Stillstände bei 14,2 %, Ausschusskosten bei 187.000 €/Monat.\n\nVersteckte Ineffizienzkosten:\n500 Mitarbeitende × 22 Tage × 8 Stunden × 12 % Zeitverlust = 10.560 Stunden/Monat\nVollkosten pro Stunde (Automotive DE, IG Metall): 35 €/Stunde\nMonatlicher Cashflow-Verlust: 369.600 €",
       solution:
-        "Das SectorCalc Trust Trace™ 5S-Audit- & Effizienzverlust-Kostenkonverter-Modul wurde eingeführt.\n\nUmsetzungsstandards:\n- DIN EN ISO 9001:2015 Abschnitt 7.1.4 (Prozessumgebung)\n- VDI 2067 Blatt 3.2 (Wirtschaftliche Produktionsbewertung)\n- JIPM-TPM-Seiri-Seiton-Seiso-Seiketsu-Shitsuke-Auditprotokoll\n- Branche: Automobil-Lieferkette, IATF 16949 ausgerichtet",
+        "Das SectorCalc Trust Trace™ 5S-Audit- & Effizienzverlust-Kostenkonverter-Modul wurde eingefuhrt.\n\nUmsetzungsstandards:\n- DIN EN ISO 9001:2015 Abschnitt 7.1.4 (Prozessumgebung)\n- VDI 2067 Blatt 3.2 (Wirtschaftliche Produktionsbewertung)\n- JIPM-TPM-Seiri-Seiton-Seiso-Seiketsu-Shitsuke-Auditprotokoll\n- Branche: Automobil-Lieferkette, IATF 16949 ausgerichtet",
       results: [
         { metric: "5S-Audit-Score", before: "38/100", after: "87/100" },
         { metric: "Ausschussquote", before: "8,2 %", after: "3,1 %" },
@@ -75,14 +75,14 @@ const CONTENT: LocaleContentMap = {
       ],
       testimonial: {
         quote:
-          "SectorCalcs Kostenkonverter hat 5S von einem Reinigungsprojekt zu einer Cashflow-Position im CFO-Bericht gemacht. 1,2 Mio. € in fünf Monaten — ohne CAPEX, nur durch Prozessdisziplin.",
+          "SectorCalcs Kostenkonverter hat 5S von einem Reinigungsprojekt zu einer Cashflow-Position im CFO-Bericht gemacht. 1,2 Mio. € in funf Monaten — ohne CAPEX, nur durch Prozessdisziplin.",
         author: "Klaus Weber",
         title: "COO / Werksleiter",
-        company: "Müller Präzision GmbH",
+        company: "Muller Präzision GmbH",
       },
     },
     fr: {
-      title: "Müller Präzision GmbH : score 5S 38→87, 1,232 M€ de gain d'efficacité en 5 mois",
+      title: "Muller Präzision GmbH : score 5S 38→87, 1,232 M€ de gain d'efficacité en 5 mois",
       subtitle: "Percée 5S : 1,2 M€ de trésorerie gagnée en cinq mois sans CAPEX",
       industry: "Équipementier automobile (pièces CNC de précision)",
       challenge:
@@ -101,11 +101,11 @@ const CONTENT: LocaleContentMap = {
           "Le modèle convertisseur de SectorCalc a transformé le 5S en ligne de trésorerie au rapport CFO. 1,2 M€ en cinq mois — sans CAPEX, par discipline de processus seule.",
         author: "Klaus Weber",
         title: "COO / Directeur d'usine",
-        company: "Müller Präzision GmbH",
+        company: "Muller Präzision GmbH",
       },
     },
     es: {
-      title: "Müller Präzision GmbH: puntuación 5S 38→87, 1,232 M€ de ganancia de eficiencia en 5 meses",
+      title: "Muller Präzision GmbH: puntuación 5S 38→87, 1,232 M€ de ganancia de eficiencia en 5 meses",
       subtitle: "Avance 5S: 1,2 M€ en caja en cinco meses sin CAPEX",
       industry: "Proveedor automotriz (piezas CNC de precisión)",
       challenge:
@@ -124,11 +124,11 @@ const CONTENT: LocaleContentMap = {
           "El convertidor de costes de SectorCalc convirtió el 5S de un proyecto de limpieza en una partida de caja en el informe del CFO. 1,2 M€ en cinco meses — sin CAPEX, solo disciplina de proceso.",
         author: "Klaus Weber",
         title: "COO / Director de planta",
-        company: "Müller Präzision GmbH",
+        company: "Muller Präzision GmbH",
       },
     },
     ar: {
-      title: "Müller Präzision GmbH: درجة تدقيق 5S من 38→87، 1.232 مليون € كسب كفاءة في 5 أشهر",
+      title: "Muller Präzision GmbH: درجة تدقيق 5S من 38→87، 1.232 مليون € كسب كفاءة في 5 أشهر",
       subtitle: "قفزة إنتاجية 5S: 1.2 مليون € نقداً في خمسة أشهر دون CAPEX",
       industry: "سلسلة توريد السيارات (قطع CNC دقيقة)",
       challenge:
@@ -147,7 +147,7 @@ const CONTENT: LocaleContentMap = {
           "حوّل محوّل التكلفة من SectorCalc 5S من مشروع تنظيف إلى بند تدفق نقدي في تقرير CFO. 1.2 مليون € في خمسة أشهر — دون CAPEX، بانضباط العملية فقط.",
         author: "Klaus Weber",
         title: "COO / مدير المصنع",
-        company: "Müller Präzision GmbH",
+        company: "Muller Präzision GmbH",
       },
     },
   },
@@ -175,38 +175,38 @@ const CONTENT: LocaleContentMap = {
       },
     },
     tr: {
-      title: "CNC Atölyesi OEE'sini %18'den %61'e Çıkardı",
-      subtitle: "Plansız duruşlar, setup süreleri ve kalite kayıpları nasıl tersine çevrildi?",
-      industry: "Üretim / CNC İşleme",
+      title: "CNC Atolyesi OEE'sini %18'den %61'e Cikardi",
+      subtitle: "Plansiz duruslar, setup sureleri ve kalite kayiplari nasil tersine cevrildi?",
+      industry: "Uretim / CNC Isleme",
       challenge:
-        "İzmir merkezli bir CNC atölyesi, 12 makine ile seri üretim yapıyordu. OEE oranı %18 idi. Plansız duruşlar, setup süreleri ve kalite kayıpları üretimi vuruyordu. Her ay ortalama 40 saat plansız duruş yaşanıyordu.",
+        "Izmir merkezli bir CNC atolyesi, 12 makine ile seri uretim yapiyordu. OEE orani %18 idi. Plansiz duruslar, setup sureleri ve kalite kayiplari uretimi vuruyordu. Her ay ortalama 40 saat plansiz durus yasaniyordu.",
       solution:
-        "SectorCalc OEE Duruş Hesaplayıcı ile duruş analizi yapıldı. SMED Changeover Optimizer ile setup süreleri 45 dakikadan 12 dakikaya indi. Fire oranı %8'den %3'e düştü.",
+        "SectorCalc OEE Durus Hesaplayici ile durus analizi yapildi. SMED Changeover Optimizer ile setup sureleri 45 dakikadan 12 dakikaya indi. Fire orani %8'den %3'e dustu.",
       results: [
         { metric: "OEE", before: "%18", after: "%61" },
-        { metric: "Setup Süresi", before: "45 dk", after: "12 dk" },
-        { metric: "Fire Oranı", before: "%8", after: "%3" },
-        { metric: "Yıllık Tasarruf", before: "₺0", after: "₺850.000" },
+        { metric: "Setup Suresi", before: "45 dk", after: "12 dk" },
+        { metric: "Fire Orani", before: "%8", after: "%3" },
+        { metric: "Yillik Tasarruf", before: "₺0", after: "₺850.000" },
       ],
       testimonial: {
         quote:
-          "SectorCalc sayesinde atölyemizin verimliliğini 3 kat artırdık. Artık hangi makinenin neden durduğunu anında görüyoruz.",
-        author: "Ali Yılmaz",
-        title: "Üretim Müdürü",
-        company: "İzmir CNC Atölyesi",
+          "SectorCalc sayesinde atolyemizin verimliligini 3 kat artirdik. Artik hangi makinenin neden durdugunu aninda goruyoruz.",
+        author: "Ali Yilmaz",
+        title: "Uretim Muduru",
+        company: "Izmir CNC Atolyesi",
       },
     },
     de: {
       title: "CNC-Werkstatt steigerte OEE von 18 % auf 61 %",
-      subtitle: "Wie ungeplante Stillstände, Rüstzeiten und Qualitätsverluste umgekehrt wurden",
+      subtitle: "Wie ungeplante Stillstände, Rustzeiten und Qualitätsverluste umgekehrt wurden",
       industry: "Fertigung / CNC-Bearbeitung",
       challenge:
-        "Eine CNC-Werkstatt mit 12 Maschinen in der Serienfertigung hatte einen OEE von 18 %. Ungeplante Stillstände, lange Rüstzeiten und Qualitätsverluste drückten den Output — rund 40 Stunden ungeplanter Stopps pro Monat.",
+        "Eine CNC-Werkstatt mit 12 Maschinen in der Serienfertigung hatte einen OEE von 18 %. Ungeplante Stillstände, lange Rustzeiten und Qualitätsverluste druckten den Output — rund 40 Stunden ungeplanter Stopps pro Monat.",
       solution:
-        "Der SectorCalc OEE-Stillstandsrechner strukturierte Stopps. Der SMED-Rüstoptimierer reduzierte die Rüstzeit von 45 auf 12 Minuten. Die Ausschussquote sank von 8 % auf 3 %.",
+        "Der SectorCalc OEE-Stillstandsrechner strukturierte Stopps. Der SMED-Rustoptimierer reduzierte die Rustzeit von 45 auf 12 Minuten. Die Ausschussquote sank von 8 % auf 3 %.",
       results: [
         { metric: "OEE", before: "18 %", after: "61 %" },
-        { metric: "Rüstzeit", before: "45 Min.", after: "12 Min." },
+        { metric: "Rustzeit", before: "45 Min.", after: "12 Min." },
         { metric: "Ausschuss", before: "8 %", after: "3 %" },
         { metric: "Jährliche Einsparung", before: "0 €", after: "85.000 €" },
       ],
@@ -308,24 +308,24 @@ const CONTENT: LocaleContentMap = {
       },
     },
     tr: {
-      title: "Enerji Firması SKDM Raporlamasını 4 Saatten 20 Dakikaya İndirdi",
-      subtitle: "Karbon ayak izi hesaplama ve raporlama süreci nasıl otomatize edildi?",
-      industry: "Enerji / Karbon Yönetimi",
+      title: "Enerji Firmasi SKDM Reportlamasini 4 Saatten 20 Dakikaya Indirdi",
+      subtitle: "Profitbon ayak izi calculation ve reportlama sureci nasil otomatize edildi?",
+      industry: "Enerji / Profitbon Yonetimi",
       challenge:
-        "Bir enerji firması, SKDM (Sınırda Karbon Düzenlemesi) raporlamasını manuel Excel dosyalarıyla yapıyordu. Her rapor 4 saat sürüyor, hata oranı yüksekti.",
+        "Bir enerji firmasi, SKDM (Sinirda Karbon Duzenlemesi) raporlamasini manuel Excel dosyalariyla yapiyordu. Her rapor 4 saat suruyor, hata orani yuksekti.",
       solution:
-        "SectorCalc Karbon Hesaplayıcı ile ürün bazında karbon ayak izi otomatik hesaplandı. kWh Maliyet Hesaplayıcı ile enerji tüketim maliyetleri entegre edildi.",
+        "SectorCalc Karbon Hesaplayici ile urun bazinda karbon ayak izi otomatik hesaplandi. kWh Maliyet Hesaplayici ile enerji tuketim maliyetleri entegre edildi.",
       results: [
-        { metric: "Raporlama Süresi", before: "4 saat", after: "20 dakika" },
-        { metric: "Hata Oranı", before: "%12", after: "%0.5" },
-        { metric: "Yıllık Tasarruf", before: "₺0", after: "₺320.000" },
+        { metric: "Reportlama Suresi", before: "4 saat", after: "20 dakika" },
+        { metric: "Hata Orani", before: "%12", after: "%0.5" },
+        { metric: "Yillik Tasarruf", before: "₺0", after: "₺320.000" },
       ],
       testimonial: {
         quote:
-          "SectorCalc ile SKDM raporlamamızı 4 saatten 20 dakikaya indirdik. Artık müşterilerimize güvenilir veriler sunabiliyoruz.",
+          "SectorCalc ile SKDM raporlamamizi 4 saatten 20 dakikaya indirdik. Artik musterilerimize guvenilir veriler sunabiliyoruz.",
         author: "Mehmet Demir",
-        title: "Sürdürülebilirlik Müdürü",
-        company: "Enerji A.Ş.",
+        title: "Surdurulebilirlik Muduru",
+        company: "Enerji A.S.",
       },
     },
     de: {
@@ -335,7 +335,7 @@ const CONTENT: LocaleContentMap = {
       challenge:
         "Ein Energieunternehmen erstellte CBAM-Berichte manuell in Excel. Jeder Bericht dauerte vier Stunden bei hoher Fehlerquote.",
       solution:
-        "Der SectorCalc Carbon Footprint Calculator automatisierte produktbezogene Fußabdrücke. Der kWh-Kostenrechner band Energiekosten ein.",
+        "Der SectorCalc Carbon Footprint Calculator automatisierte produktbezogene Fußabdrucke. Der kWh-Kostenrechner band Energiekosten ein.",
       results: [
         { metric: "Berichtszeit", before: "4 Std.", after: "20 Min." },
         { metric: "Fehlerquote", before: "12 %", after: "0,5 %" },
@@ -435,23 +435,23 @@ const CONTENT: LocaleContentMap = {
       },
     },
     tr: {
-      title: "Kaynak Atölyesi Maliyetlerini %22 Azalttı",
-      subtitle: "Kaynak maliyeti hesaplama ve optimizasyonu ile rekabet avantajı",
+      title: "Kaynak Atolyesi Maliyetlerini %22 Azaltti",
+      subtitle: "Kaynak maliyeti calculation ve optimizasyonu ile rekabet avantaji",
       industry: "Metal / Kaynak",
       challenge:
-        "Bir kaynak atölyesi, her yeni teklifte farklı maliyetler çıkarıyordu. Kaynak maliyetlerini standartlaştıramıyor, tekliflerde marj kaybı yaşıyordu.",
+        "Bir kaynak atolyesi, her yeni teklifte farkli maliyetler cikariyordu. Kaynak maliyetlerini standartlastiramiyor, tekliflerde marj kaybi yasiyordu.",
       solution:
-        "SectorCalc Kaynak Maliyet Hesaplayıcı ile tel tüketimi, gaz maliyeti, işçilik ve enerji maliyetleri tek bir formülde birleştirildi.",
+        "SectorCalc Kaynak Maliyet Hesaplayici ile tel tuketimi, gaz maliyeti, iscilik ve enerji maliyetleri tek bir formulde birlestirildi.",
       results: [
-        { metric: "Teklif Marjı", before: "%18", after: "%32" },
-        { metric: "Maliyet Sapması", before: "%15", after: "%3" },
-        { metric: "Yıllık Tasarruf", before: "₺0", after: "₺450.000" },
+        { metric: "Teklif Marji", before: "%18", after: "%32" },
+        { metric: "Maliyet Sapmasi", before: "%15", after: "%3" },
+        { metric: "Yillik Tasarruf", before: "₺0", after: "₺450.000" },
       ],
       testimonial: {
         quote:
-          "Artık tekliflerimizi güvenle veriyoruz. Kaynak maliyetlerimizdeki sapma %15'ten %3'e düştü.",
+          "Artik tekliflerimizi guvenle veriyoruz. Kaynak maliyetlerimizdeki sapma %15'ten %3'e dustu.",
         author: "Hasan Usta",
-        title: "Atölye Sahibi",
+        title: "Atolye Sahibi",
         company: "Kaynak Teknik",
       },
     },

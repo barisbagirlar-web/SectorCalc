@@ -1,0 +1,11 @@
+rpn,s,o,d,risk_signature,why_it_matters
+60,10,2,3,High Severity / Low Occurrence / Stronger Detection,The effect is severe even though the total score is moderate
+60,3,5,4,Lower Severity / Moderate Occurrence / Moderate Detection,Operational issue not equivalent to high-severity case
+60,2,3,10,Low Severity / Weak Detection,Detection system is weak even though effect is limited
+60,5,6,2,Moderate Severity / Higher Occurrence / Strong Detection,Recurring issue with better detection
+72,9,1,8,High Severity / Rare / Weak Detection,Low occurrence may hide detection weakness
+72,3,3,8,Lower Severity / Moderate Occurrence / Weak Detection,Detection improvement may be primary action
+72,8,9,1,High Severity / Frequent / Strong Detection,Prevention may matter more than detection
+120,10,2,6,High Severity / Low Occurrence / Moderate Detection,Severity review still required
+120,3,5,8,Lower Severity / Moderate Occurrence / Weak Detection,Detection action may dominate
+120,6,4,5,Moderate Severity / Moderate Occurrence / Moderate Detection,Balanced but not equivalent to high-Severity cases

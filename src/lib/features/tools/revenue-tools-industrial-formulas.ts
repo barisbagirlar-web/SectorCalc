@@ -2,7 +2,7 @@
  * Industrial Formula Tools — 18 premium engineering & financial calculators.
  * Tier 1-4 industrial formulas registered as RevenueTool pairs.
  *
- * ECMI / ISO 9001 — TÜV-certifiable engineering quality.
+ * ECMI / ISO 9001 — TUV-certifiable engineering quality.
  * Every formula implements deterministic math from the industrial formula registry.
  */
 

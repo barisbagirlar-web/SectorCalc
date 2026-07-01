@@ -1,6 +1,6 @@
 /**
  * Kredi billing env — key'ler sonra doldurulacak.
- * Boş bırakılırsa Cloud Function URL'leri project id'den türetilir.
+ * Bos birakilirsa Cloud Function URL'leri project id'den turetilir.
  */
 
 export const CREDIT_BILLING_ENV = {
@@ -12,11 +12,11 @@ export const CREDIT_BILLING_ENV = {
   spendCreditsFunctionUrl:
     process.env.NEXT_PUBLIC_SPEND_CREDITS_FUNCTION_URL?.trim() || "",
 
-  /** Firebase project — URL fallback için */
+  /** Firebase project — URL fallback icin */
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID?.trim() || "",
 } as const;
 
-/** Key'ler hazır mı? (sadece UI/dev mesajları için) */
+/** Key'ler hazir mi? (sadece UI/dev mesajlari icin) */
 export function isCreditBillingConfigured(): boolean {
   return CREDIT_BILLING_ENV.projectId.length > 0;
 }

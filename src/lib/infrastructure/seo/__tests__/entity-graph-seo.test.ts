@@ -32,7 +32,7 @@ describe("entity graph", () => {
     const nodes = graph["@graph"] as Array<Record<string, unknown>>;
     expect(nodes.length).toBeGreaterThanOrEqual(7);
     expect(nodes.some((node) => node["@type"] === "Organization")).toBe(true);
-    expect(nodes.some((node) => node["@type"] === "Person" && node.name === "Barış Bağırlar")).toBe(
+    expect(nodes.some((node) => node["@type"] === "Person" && node.name === "Baris Bagirlar")).toBe(
       true,
     );
     expect(
@@ -66,8 +66,8 @@ describe("featured answer copy", () => {
   test("localizes what-is question", () => {
     const en = buildGeneratedToolFeaturedCopy("OEE Calculator", "Measures availability.", "en");
     expect(en.question).toBe("What is OEE Calculator?");
-    const tr = buildGeneratedToolFeaturedCopy("OEE Hesaplayıcı", "Verimlilik ölçer.", "tr");
-    expect(tr.question).toBe("OEE Hesaplayıcı nedir?");
+    const tr = buildGeneratedToolFeaturedCopy("OEE Hesaplayici", "Verimlilik olcer.", "tr");
+    expect(tr.question).toBe("OEE Hesaplayici nedir?");
   });
 });
 

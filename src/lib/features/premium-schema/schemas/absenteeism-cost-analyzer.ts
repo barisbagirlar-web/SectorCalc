@@ -1,5 +1,5 @@
 /**
- * Tool #30 — Devamsızlık Maliyeti
+ * Tool #30 — Devamsizlik Maliyeti
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ABSENTEEISM_COST_SCHEMA: PremiumCalculatorSchema = {
@@ -8,11 +8,11 @@ export const ABSENTEEISM_COST_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "The true cost of absenteeism goes far beyond direct labor; overtime, temporary workers, production loss, and administrative burden add up.", painStatement_i18n: {"en":"The true cost of absenteeism goes far beyond direct labor; overtime, temporary workers, production loss, and administrative burden add up."},
   inputs: [
     { id: "absentHours", label: "Total Lost Hours", label_i18n: {"en":"Total Lost Hours"}, type: "number", unit: "saat", required: true, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Total absentee hours", expertMeaning_i18n: {"en":"Total absentee hours"} },
-    { id: "hourlyRate", label: "Saatlik Ücret", label_i18n: {"en":"Hourly Wage"}, type: "number", unit: "USD", required: true, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Average hourly wage", expertMeaning_i18n: {"en":"Average hourly wage"} },
+    { id: "hourlyRate", label: "Saatlik Ucret", label_i18n: {"en":"Hourly Wage"}, type: "number", unit: "USD", required: true, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Average hourly wage", expertMeaning_i18n: {"en":"Average hourly wage"} },
     { id: "burdenRate", label: "Burden Rate", label_i18n: {"en":"Burden Rate"}, type: "number", unit: "%", required: false, smartDefault: 30, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Burden rate percentage", expertMeaning_i18n: {"en":"Burden rate percentage"} },
     { id: "replaceOtHours", label: "Fazla Mesai Saati", label_i18n: {"en":"Overtime Hours"}, type: "number", unit: "saat", required: false, smartDefault: 150, validation: { min: 0 }, helper: "", expertMeaning: "Overtime replacement hours", expertMeaning_i18n: {"en":"Overtime replacement hours"} },
-    { id: "regularRate", label: "Normal Saatlik Ücret", label_i18n: {"en":"Regular Hourly Rate"}, type: "number", unit: "USD", required: false, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Regular hourly rate", expertMeaning_i18n: {"en":"Regular hourly rate"} },
-    { id: "otRate", label: "Fazla Mesai Ücreti", label_i18n: {"en":"Overtime Rate"}, type: "number", unit: "USD", required: false, smartDefault: 30, validation: { min: 0 }, helper: "", expertMeaning: "Overtime hourly rate", expertMeaning_i18n: {"en":"Overtime hourly rate"} },
+    { id: "regularRate", label: "Normal Saatlik Ucret", label_i18n: {"en":"Regular Hourly Rate"}, type: "number", unit: "USD", required: false, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Regular hourly rate", expertMeaning_i18n: {"en":"Regular hourly rate"} },
+    { id: "otRate", label: "Fazla Mesai Ucreti", label_i18n: {"en":"Overtime Rate"}, type: "number", unit: "USD", required: false, smartDefault: 30, validation: { min: 0 }, helper: "", expertMeaning: "Overtime hourly rate", expertMeaning_i18n: {"en":"Overtime hourly rate"} },
     { id: "tempHours", label: "Temp Worker Hours", label_i18n: {"en":"Temp Worker Hours"}, type: "number", unit: "saat", required: false, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Temporary worker hours", expertMeaning_i18n: {"en":"Temporary worker hours"} },
     { id: "tempRate", label: "Temp Worker Rate", label_i18n: {"en":"Temp Worker Rate"}, type: "number", unit: "USD", required: false, smartDefault: 18, validation: { min: 0 }, helper: "", expertMeaning: "Temp hourly rate", expertMeaning_i18n: {"en":"Temp hourly rate"} },
     { id: "tempMarkup", label: "Temp Agency Markup", label_i18n: {"en":"Temp Agency Markup"}, type: "number", unit: "%", required: false, smartDefault: 20, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Temp agency markup", expertMeaning_i18n: {"en":"Temp agency markup"} },
@@ -28,7 +28,7 @@ export const ABSENTEEISM_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "prodLoss", label: "Production Loss", label_i18n: {"en":"Production Loss"}, unit: "USD", format: "currency" },
     { id: "totalAbsenteeismCost", label: "Total Absenteeism Cost", label_i18n: {"en":"Total Absenteeism Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalAbsenteeismCost", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Maliyet > $25K — devamsızlık yönetimi programı başlatılmalı.", warningMessage_i18n: {"en":"Cost > $25K — absenteeism management program must be initiated."}, criticalMessage: "Maliyet > $75K — acil müdahale gerekiyor.", criticalMessage_i18n: {"en":"Cost > $75K — urgent intervention gerekiyor."} }],
+  thresholds: [{ fieldId: "totalAbsenteeismCost", warning: 25000, critical: 75000, direction: "higher_is_bad", warningMessage: "Maliyet > $25K — devamsizlik yonetimi programi baslatilmali.", warningMessage_i18n: {"en":"Cost > $25K — absenteeism management program must be initiated."}, criticalMessage: "Maliyet > $75K — acil mudahale gerekiyor.", criticalMessage_i18n: {"en":"Cost > $75K — urgent intervention gerekiyor."} }],
   formulaPipeline: [
     { formulaId: "cost.absenteeism_direct", inputMap: {
         absentHours: "absentHours",

@@ -73,7 +73,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_1",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — Cost_Mat",
+    label: "HURDA RATIO OPTIMIZE — Cost_Mat",
     fn: (inputs) => {
     const scrapQty = num(inputs, "scrapQty");
     const matCost = num(inputs, "matCost");
@@ -83,7 +83,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_2",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — Cost_Lab",
+    label: "HURDA RATIO OPTIMIZE — Cost_Lab",
     fn: (inputs) => {
     const scrapQty = num(inputs, "scrapQty");
     const cycle = num(inputs, "cycle");
@@ -94,7 +94,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_3",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — Cost_OH",
+    label: "HURDA RATIO OPTIMIZE — Cost_OH",
     fn: (inputs) => {
     const scrapQty = num(inputs, "scrapQty");
     const cycle = num(inputs, "cycle");
@@ -105,7 +105,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_4",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — OppCost",
+    label: "HURDA RATIO OPTIMIZE — OppCost",
     fn: (inputs) => {
     const scrapQty = num(inputs, "scrapQty");
     const unitMargin = num(inputs, "unitMargin");
@@ -115,7 +115,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_5",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — TotalCost",
+    label: "HURDA RATIO OPTIMIZE — TotalCost",
     fn: (inputs) => {
     const mat = num(inputs, "mat");
     const lab = num(inputs, "lab");
@@ -128,7 +128,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_6",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — Pareto",
+    label: "HURDA RATIO OPTIMIZE — Pareto",
     fn: (inputs) => {
       // COMPLEX: Pareto = SORT(Defects, Freq, DESC)
       // Requires external implementation
@@ -138,7 +138,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.scrap_rate_optimize_7",
     family: "cost",
-    label: "HURDA ORANI OPTİMİZE — Target",
+    label: "HURDA RATIO OPTIMIZE — Target",
     fn: (inputs) => {
     const benchmark = num(inputs, "benchmark");
     const impFactor = num(inputs, "impFactor");
@@ -146,11 +146,11 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── HVAC KAPASİTE (9 formulas) ──,
+  // ── HVAC CAPACITY (9 formulas) ──,
   {
     id: "user.hvac_capacity_0",
     family: "cost",
-    label: "HVAC KAPASİTE — Sensible",
+    label: "HVAC CAPACITY — Sensible",
     fn: (inputs) => {
     const cFM = num(inputs, "cFM");
     const deltaT = num(inputs, "deltaT");
@@ -160,7 +160,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_1",
     family: "cost",
-    label: "HVAC KAPASİTE — Latent",
+    label: "HVAC CAPACITY — Latent",
     fn: (inputs) => {
     const cFM = num(inputs, "cFM");
     const deltaW = num(inputs, "deltaW");
@@ -170,7 +170,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_2",
     family: "cost",
-    label: "HVAC KAPASİTE — Total",
+    label: "HVAC CAPACITY — Total",
     fn: (inputs) => {
     const sensible = num(inputs, "sensible");
     const latent = num(inputs, "latent");
@@ -180,7 +180,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_3",
     family: "cost",
-    label: "HVAC KAPASİTE — Envelope",
+    label: "HVAC CAPACITY — Envelope",
     fn: (inputs) => {
     const u = num(inputs, "u");
     const area = num(inputs, "area");
@@ -191,7 +191,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_4",
     family: "cost",
-    label: "HVAC KAPASİTE — Internal",
+    label: "HVAC CAPACITY — Internal",
     fn: (inputs) => {
     const occ = num(inputs, "occ");
     const sensPer = num(inputs, "sensPer");
@@ -203,7 +203,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_5",
     family: "cost",
-    label: "HVAC KAPASİTE — Vent",
+    label: "HVAC CAPACITY — Vent",
     fn: (inputs) => {
     const cFM = num(inputs, "cFM");
     const Out = num(inputs, "Out");
@@ -218,7 +218,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_6",
     family: "cost",
-    label: "HVAC KAPASİTE — Tons",
+    label: "HVAC CAPACITY — Tons",
     fn: (inputs) => {
     const total = num(inputs, "total");
     return nonNegative(assertFinite(total / 12000));
@@ -227,7 +227,7 @@ export const CHUNK_24_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.hvac_capacity_7",
     family: "cost",
-    label: "HVAC KAPASİTE — EER",
+    label: "HVAC CAPACITY — EER",
     fn: (inputs) => {
     const bTU = num(inputs, "bTU");
     const w = num(inputs, "w");

@@ -12,12 +12,12 @@ export const KNOWLEDGE_GRAPH = {
 } as const;
 
 export const FOUNDER_PROFILE = {
-  name: "Barış Bağırlar",
+  name: "Baris Bagirlar",
   email: "barisbagirlar@gmail.com",
   jobTitle: {
     en: "Founder & CEO, SectorCalc",
     tr: "Kurucu ve CEO, SectorCalc",
-    de: "Gründer & CEO, SectorCalc",
+    de: "Grunder & CEO, SectorCalc",
     fr: "Fondateur et PDG, SectorCalc",
     es: "Fundador y CEO, SectorCalc",
     ar: "المؤسس والرئيس التنفيذي، SectorCalc",

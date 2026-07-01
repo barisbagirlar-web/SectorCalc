@@ -15,10 +15,10 @@ const LOCALIZED_BREAKDOWN: Record<
   Record<keyof typeof BREAKDOWN_LABEL_MAP, string>
 > = {
   tr: {
-    cutting_time: "Kesme Süresi",
-    tool_change_downtime: "Takım Değiştirme Duruşu",
-    spindle_speed: "İş Mili Hızı",
-    tool_change_frequency: "Takım Değiştirme Sıklığı",
+    cutting_time: "Kesme Suresi",
+    tool_change_downtime: "Takim Degistirme Durusu",
+    spindle_speed: "Is Mili Hizi",
+    tool_change_frequency: "Takim Degistirme Sikligi",
   },
   de: {
     cutting_time: "Schnittzeit",
@@ -50,7 +50,7 @@ const SELECT_OPTIONS: Record<
   Exclude<(typeof SUPPORTED_LOCALES)[number], "en">,
   Record<string, string>
 > = {
-  tr: { "CNC Lathe": "CNC Torna", "CNC Mill": "CNC Freze", "Multi-Axis": "Çok Eksenli" },
+  tr: { "CNC Lathe": "CNC Torna", "CNC Mill": "CNC Freze", "Multi-Axis": "Cok Eksenli" },
   de: {
     "CNC Lathe": "CNC-Drehmaschine",
     "CNC Mill": "CNC-Fräsmaschine",
@@ -133,13 +133,13 @@ describe("translateCalculatorPhrase — SMED breakdown labels", () => {
         SMED_LABEL_MAP,
         "tr",
       ),
-    ).toBe("Harici Operasyon Yüzdesi");
+    ).toBe("Harici Operasyon Yuzdesi");
     expect(
       resolveGeneratedBreakdownLabel("waste_motion_factor", SMED_LABEL_MAP, "tr"),
-    ).toBe("Atık Hareket Faktörü");
+    ).toBe("Atik Hareket Faktoru");
     expect(
       resolveGeneratedBreakdownLabel("reduction_percentage", SMED_LABEL_MAP, "tr"),
-    ).toBe("İyileştirme Yüzdesi");
+    ).toBe("Iyilestirme Yuzdesi");
   });
 });
 

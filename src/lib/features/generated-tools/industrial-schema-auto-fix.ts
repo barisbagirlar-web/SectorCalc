@@ -257,13 +257,13 @@ export function applyIndustrialSchemaAutoFix(
     modified = true;
   }
 
-  if (!schema.category || schema.category === "Diğer") {
-    schema.category = "Üretim & İmalat";
+  if (!schema.category || schema.category === "Diger") {
+    schema.category = "Uretim & Imalat";
     modified = true;
   }
 
-  if (!schema.sector || schema.sector === "Diğer") {
-    schema.sector = "Üretim & İmalat";
+  if (!schema.sector || schema.sector === "Diger") {
+    schema.sector = "Uretim & Imalat";
     modified = true;
   }
 

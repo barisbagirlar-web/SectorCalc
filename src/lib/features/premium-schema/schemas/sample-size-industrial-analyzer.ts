@@ -1,5 +1,5 @@
 /**
- * Tool #32 — Örneklem Büyüklüğü Analizi
+ * Tool #32 — Orneklem Buyuklugu Analizi
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SAMPLE_SIZE_INDUSTRIAL_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
@@ -8,21 +8,21 @@ export const SAMPLE_SIZE_INDUSTRIAL_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "Wrong sample size either creates unnecessary cost or loses statistical significance.", painStatement_i18n: {"en":"Wrong sample size either creates unnecessary cost or loses statistical significance."},
   inputs: [
     { id: "populationSize", label: "Population Size", label_i18n: {"en":"Population Size"}, type: "number", unit: "adet", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "", expertMeaning: "Population size", expertMeaning_i18n: {"en":"Population size"} },
-    { id: "confidenceLevel", label: "Güven Düzeyi", label_i18n: {"en":"Confidence Level"}, type: "number", unit: "%", required: true, smartDefault: 95, validation: { min: 50, max: 99.9 }, helper: "", expertMeaning: "Confidence level", expertMeaning_i18n: {"en":"Confidence level"} },
+    { id: "confidenceLevel", label: "Guven Duzeyi", label_i18n: {"en":"Confidence Level"}, type: "number", unit: "%", required: true, smartDefault: 95, validation: { min: 50, max: 99.9 }, helper: "", expertMeaning: "Confidence level", expertMeaning_i18n: {"en":"Confidence level"} },
     { id: "marginError", label: "Margin of Error", label_i18n: {"en":"Margin of Error"}, type: "number", unit: "%", required: true, smartDefault: 5, validation: { min: 0.1, max: 20 }, helper: "", expertMeaning: "Margin of error", expertMeaning_i18n: {"en":"Margin of error"} },
     { id: "estimatedProportion", label: "Tahmini Oran", label_i18n: {"en":"Estimated Proportion"}, type: "number", unit: "%", required: false, smartDefault: 50, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Expected proportion (50% = max variance)", expertMeaning_i18n: {"en":"Expected proportion (50% = max variance)"} },
     { id: "designEffect", label: "Design Effect", label_i18n: {"en":"Design Effect"}, type: "number", unit: "", required: false, smartDefault: 1.0, validation: { min: 0.5, max: 5 }, helper: "", expertMeaning: "Design effect (1.0 = simple random)", expertMeaning_i18n: {"en":"Design effect (1.0 = simple random)"} },
-    { id: "power", label: "Test Gücü", label_i18n: {"en":"Statistical Power"}, type: "number", unit: "%", required: false, smartDefault: 80, validation: { min: 50, max: 99 }, helper: "", expertMeaning: "Statistical power", expertMeaning_i18n: {"en":"Statistical power"} },
-    { id: "samplingCostPerUnit", label: "Birim Örneklem Maliyeti", label_i18n: {"en":"Sampling Cost per Unit"}, type: "number", unit: "USD", required: false, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Cost per sample unit", expertMeaning_i18n: {"en":"Cost per sample unit"} },
+    { id: "power", label: "Test Gucu", label_i18n: {"en":"Statistical Power"}, type: "number", unit: "%", required: false, smartDefault: 80, validation: { min: 50, max: 99 }, helper: "", expertMeaning: "Statistical power", expertMeaning_i18n: {"en":"Statistical power"} },
+    { id: "samplingCostPerUnit", label: "Birim Orneklem Maliyeti", label_i18n: {"en":"Sampling Cost per Unit"}, type: "number", unit: "USD", required: false, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Cost per sample unit", expertMeaning_i18n: {"en":"Cost per sample unit"} },
   ],
   outputs: [
-    { id: "sampleInfinite", label: "Sonsuz Kütle Örneklemi", label_i18n: {"en":"Infinite Population Sample"}, unit: "adet", format: "number" },
-    { id: "sampleFinite", label: "Sonlu Kütle Örneklemi", label_i18n: {"en":"Finite Population Sample"}, unit: "adet", format: "number" },
+    { id: "sampleInfinite", label: "Sonsuz Kutle Orneklemi", label_i18n: {"en":"Infinite Population Sample"}, unit: "adet", format: "number" },
+    { id: "sampleFinite", label: "Sonlu Kutle Orneklemi", label_i18n: {"en":"Finite Population Sample"}, unit: "adet", format: "number" },
     { id: "sampleContinuous", label: "Continuous Variable Sample", label_i18n: {"en":"Continuous Variable Sample"}, unit: "adet", format: "number" },
     { id: "samplePowerAdj", label: "Power Adjusted Sample", label_i18n: {"en":"Power Adjusted Sample"}, unit: "adet", format: "number" },
     { id: "sampleDesignEffect", label: "Design Effect Sample", label_i18n: {"en":"Design Effect Sample"}, unit: "adet", format: "number" },
     { id: "sampleFinalN", label: "Final Sample Size", label_i18n: {"en":"Final Sample Size"}, unit: "adet", format: "number", isBigNumber: true },
-    { id: "samplingTotalCost", label: "Toplam Örneklem Maliyeti", label_i18n: {"en":"Total Sampling Cost"}, unit: "USD", format: "currency" },
+    { id: "samplingTotalCost", label: "Toplam Orneklem Maliyeti", label_i18n: {"en":"Total Sampling Cost"}, unit: "USD", format: "currency" },
   ],
   thresholds: [{ fieldId: "sampleFinalN", warning: 500, critical: 1000, direction: "higher_is_bad", warningMessage: "Sample > 500 — evaluate cost effectiveness.", warningMessage_i18n: {"en":"Sample > 500 — evaluate cost effectiveness."}, criticalMessage: "Sample > 1000 — consider alternative method.", criticalMessage_i18n: {"en":"Sample > 1000 — consider alternative method."} }],
   formulaPipeline: [

@@ -10,7 +10,7 @@ const CURRENCY_CODE_OPTIONS = [
   { value: "USD", label: "USD — US Dollar" },
   { value: "EUR", label: "EUR — Euro" },
   { value: "GBP", label: "GBP — British Pound" },
-  { value: "TRY", label: "TRY — Turkish Lira" },
+  { value: "TRY", label: "TRY — TRY" },
   { value: "CHF", label: "CHF — Swiss Franc" },
   { value: "JPY", label: "JPY — Japanese Yen" },
   { value: "CAD", label: "CAD — Canadian Dollar" },

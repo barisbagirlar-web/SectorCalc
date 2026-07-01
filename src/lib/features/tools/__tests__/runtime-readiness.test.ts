@@ -28,7 +28,7 @@ describe("runtime readiness", () => {
 
   test("generic value unit fails eligibility", () => {
     const result = evaluateRuntimeReadiness({
-      slug: "aku-kapasitesi-calisma-suresi-hesabi",
+      slug: "aku-kapasitesi-calisma-suresi-calc",
       locale: "tr",
       surface: "premium",
       premiumSurfaceUsesFreeCopy: false,
@@ -79,7 +79,7 @@ describe("runtime readiness", () => {
 
   test("problem slug is not payment eligible under P2.4 WARN", () => {
     const result = evaluateRuntimeReadiness({
-      slug: "abonelik-yazilim-cloud-yillik-maliyet-hesabi",
+      slug: "abonelik-yazilim-cloud-yillik-maliyet-calc",
       locale: "tr",
       surface: "premium",
       premiumSurfaceUsesFreeCopy: false,

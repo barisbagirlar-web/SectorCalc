@@ -2,12 +2,12 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WELD_COST_ANALYSIS_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-cost-analysis-analyzer", legacyPaidSlug: "weld-cost-analysis-analyzer",
   name: "Weld Cost Detail Analyzer", name_i18n: {"en":"Weld Cost Detail Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Kaynak maliyetinin metraj bazlı analizi yapılmazsa, birim fiyat ve proses verimliliği izlenemez.", painStatement_i18n: {"en":"If meter-based analysis of resource cost is not performed, Unit price and process efficiency cannot be monitored."},
+  painStatement: "Kaynak maliyetinin metraj bazli analizi yapilmazsa, birim fiyat ve process verimliligi izlenemez.", painStatement_i18n: {"en":"If meter-based analysis of resource cost is not performed, Unit price and process efficiency cannot be monitored."},
   inputs: [
     { id: "weldLength", label: "Total Weld Length", label_i18n: {"en":"Total Weld Length"}, type: "number", unit: "m", required: true, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Total weld meters", expertMeaning_i18n: {"en":"Total weld meters"} },
-    { id: "totalShiftTime", label: "Vardiya Süresi", label_i18n: {"en":"Shift duration"}, type: "number", unit: "saat", required: false, smartDefault: 8, validation: { min: 1 }, helper: "", expertMeaning: "Shift duration", expertMeaning_i18n: {"en":"Shift duration"} },
+    { id: "totalShiftTime", label: "Vardiya Suresi", label_i18n: {"en":"Shift duration"}, type: "number", unit: "saat", required: false, smartDefault: 8, validation: { min: 1 }, helper: "", expertMeaning: "Shift duration", expertMeaning_i18n: {"en":"Shift duration"} },
     { id: "travelSpeed", label: "Travel speed", label_i18n: {"en":"Travel speed"}, type: "number", unit: "cm/dk", required: true, smartDefault: 30, validation: { min: 0.1 }, helper: "", expertMeaning: "Travel speed", expertMeaning_i18n: {"en":"Travel speed"} },
-    { id: "arcTime", label: "Ark Süresi", label_i18n: {"en":"Arc-on time"}, type: "number", unit: "saat", required: true, smartDefault: 6, validation: { min: 0.1 }, helper: "", expertMeaning: "Arc-on time", expertMeaning_i18n: {"en":"Arc-on time"} },
+    { id: "arcTime", label: "Ark Suresi", label_i18n: {"en":"Arc-on time"}, type: "number", unit: "saat", required: true, smartDefault: 6, validation: { min: 0.1 }, helper: "", expertMeaning: "Arc-on time", expertMeaning_i18n: {"en":"Arc-on time"} },
     { id: "laborRate", label: "Labor rate", label_i18n: {"en":"Labor rate"}, type: "number", unit: "USD/saat", required: true, smartDefault: 35, validation: { min: 0 }, helper: "", expertMeaning: "Labor rate", expertMeaning_i18n: {"en":"Labor rate"} },
     { id: "overheadRate", label: "Genel Gider", label_i18n: {"en":"Genel Expense"}, type: "number", unit: "USD/saat", required: false, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Overhead rate", expertMeaning_i18n: {"en":"Overhead rate"} },
     { id: "fillerCost", label: "Filler Cost", label_i18n: {"en":"Filler Cost"}, type: "number", unit: "USD", required: true, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Total filler cost", expertMeaning_i18n: {"en":"Total filler cost"} },
@@ -22,7 +22,7 @@ export const WELD_COST_ANALYSIS_SCHEMA: PremiumCalculatorSchema = {
     { id: "costPerMeter", label: "Cost Per Meter", label_i18n: {"en":"Cost Per Meter"}, unit: "USD/m", format: "currency" },
     { id: "consumablePct", label: "Consumable Ratio", label_i18n: {"en":"Consumable Ratio"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "costPerMeter", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "m² maliyet > $50 — proses verimliliği düşük.", warningMessage_i18n: {"en":"m² Cost > $50 — Process efficiency is low."}, criticalMessage: "m² maliyet > $100 — kaynak yöntemi değişmeli.", criticalMessage_i18n: {"en":"m² Cost > $100 — Resource method must be changed."} }],
+  thresholds: [{ fieldId: "costPerMeter", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "m² maliyet > $50 — proses verimliligi dusuk.", warningMessage_i18n: {"en":"m² Cost > $50 — Process efficiency is low."}, criticalMessage: "m² maliyet > $100 — kaynak yontemi degismeli.", criticalMessage_i18n: {"en":"m² Cost > $100 — Resource method must be changed."} }],
   formulaPipeline: [
     { formulaId: "measurement.weld_op_factor", inputMap: { arcTime: "arcTime", totalShiftTime: "totalShiftTime" }, outputId: "opFactor" },
     { formulaId: "measurement.weld_deposition_rate", inputMap: { depositedWeight: "depositedWeight", arcTime: "arcTime" }, outputId: "depositionRate" },
@@ -31,5 +31,5 @@ export const WELD_COST_ANALYSIS_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.weld_consumable_pct", inputMap: { fillerCost: "fillerCost", jointCost: "jointCost" }, outputId: "consumablePct" },
   ],
   reportTemplate: { title: "Kaynak Maliyet Analizi", title_i18n: {"en":"resource Cost Analizi"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Çalışma faktörü = Ark süresi / Vardiya süresi.", "Toplam maliyet = (Uzunluk/Hız)×(İşçilik+Overhead)/Faktör + Sarf.", "Sarf oranı = Dolgu / Toplam."],assumptionNotes_i18n:[{"en":"Duty factor = Arc time / Shift time."},{"en":"Total cost = (Length/Speed)×(Labor+Overhead)/Factor + Consumable."},{"en":"Consumable ratio = Filler / Total."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Calisma faktoru = Ark suresi / Vardiya suresi.", "Toplam maliyet = (Uzunluk/Hiz)×(Iscilik+Overhead)/Faktor + Sarf.", "Sarf orani = Dolgu / Toplam."],assumptionNotes_i18n:[{"en":"Duty factor = Arc time / Shift time."},{"en":"Total cost = (Length/Speed)×(Labor+Overhead)/Factor + Consumable."},{"en":"Consumable ratio = Filler / Total."}] },
 };

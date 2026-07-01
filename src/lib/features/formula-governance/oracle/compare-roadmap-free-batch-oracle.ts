@@ -73,7 +73,7 @@ const NON_DETERMINISTIC_SLUGS = new Set<RoadmapFreeBatchOracleSlug>([
 ]);
 
 const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly RoadmapFreeBatchComparisonScenario[]>> = {
-  "abonelik-yazilim-cloud-yillik-maliyet-hesabi": [
+  "abonelik-yazilim-cloud-yillik-maliyet-calc": [
     { id: "golden-valid", kind: "normal", values: {"monthlyFee":0.01,"months":12} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"monthlyFee":-1,"months":12}, expectPass: false },
@@ -97,7 +97,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"distanceKm":0.01,"costPerKm":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"distanceKm":0.01,"costPerKm":0.01} },
   ],
-  "aku-kapasitesi-calisma-suresi-hesabi": [
+  "aku-kapasitesi-calisma-suresi-calc": [
     { id: "golden-valid", kind: "normal", values: {"batteryAh":0.01,"loadAmps":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"batteryAh":-1,"loadAmps":0.01}, expectPass: false },
@@ -145,7 +145,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"purchaseCost":0.01,"leaseCost":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"purchaseCost":0.01,"leaseCost":0.01} },
   ],
-  "asma-tavan-malzeme-hesabi": [
+  "asma-tavan-malzeme-calc": [
     { id: "golden-valid", kind: "normal", values: {"ceilingAreaM2":0.01,"materialPerM2":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"ceilingAreaM2":-1,"materialPerM2":0.01}, expectPass: false },
@@ -161,7 +161,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"totalLumensNeeded":0.01,"lumensPerFixture":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"totalLumensNeeded":0.01,"lumensPerFixture":0.01} },
   ],
-  "baca-havalandirma-kanali-cap-hesabi": [
+  "baca-havalandirma-kanali-cap-calc": [
     { id: "golden-valid", kind: "normal", values: {"airflowM3h":0.01,"velocityMps":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"airflowM3h":-1,"velocityMps":0.01}, expectPass: false },
@@ -177,7 +177,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"value":0,"fromUnit":"pa"}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"value":0,"fromUnit":"pa"} },
   ],
-  "basincli-kap-cidar-kalinligi-hesabi": [
+  "basincli-kap-cidar-kalinligi-calc": [
     { id: "golden-valid", kind: "normal", values: {"designPressureBar":0.01,"allowableStressBar":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"designPressureBar":-1,"allowableStressBar":0.01}, expectPass: false },
@@ -209,7 +209,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"flowLpm":0.01,"velocityMps":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"flowLpm":0.01,"velocityMps":0.01} },
   ],
-  "boya-kaplama-sarfiyati-m-basina-hesabi": [
+  "boya-kaplama-sarfiyati-m-basina-calc": [
     { id: "golden-valid", kind: "normal", values: {"areaM2":0.01,"coveragePerLiter":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"areaM2":-1,"coveragePerLiter":0.01}, expectPass: false },
@@ -217,7 +217,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"areaM2":0.01,"coveragePerLiter":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"areaM2":0.01,"coveragePerLiter":0.01} },
   ],
-  "bulonlu-baglanti-kesme-ezilme-hesabi": [
+  "bulonlu-baglanti-kesme-ezilme-calc": [
     { id: "golden-valid", kind: "normal", values: {"boltCount":0.01,"shearCapacityKn":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"boltCount":-1,"shearCapacityKn":0.01}, expectPass: false },
@@ -233,7 +233,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"unitCost":0.01,"dailyUnits":50}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"unitCost":0.01,"dailyUnits":50} },
   ],
-  "cek-senet-vade-kirma-maliyeti-hesabi": [
+  "cek-senet-vade-kirma-maliyeti-calc": [
     { id: "golden-valid", kind: "normal", values: {"faceValue":0.01,"discountRate":3} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"faceValue":-1,"discountRate":3}, expectPass: false },
@@ -265,7 +265,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"wasteTonnes":0.01,"feePerTonne":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"wasteTonnes":0.01,"feePerTonne":0.01} },
   ],
-  "cit-korkuluk-malzeme-hesabi": [
+  "cit-korkuluk-malzeme-calc": [
     { id: "golden-valid", kind: "normal", values: {"length":0.01,"postSpacing":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"length":-1,"postSpacing":0.01}, expectPass: false },
@@ -273,7 +273,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"length":0.01,"postSpacing":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"length":0.01,"postSpacing":0.01} },
   ],
-  "civata-on-germe-kuvveti-hesabi": [
+  "civata-on-germe-kuvveti-calc": [
     { id: "golden-valid", kind: "normal", values: {"boltDiameterMm":0.01,"preloadKn":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"boltDiameterMm":-1,"preloadKn":0.01}, expectPass: false },
@@ -289,7 +289,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"clampForce":0.01,"boltDiameterMm":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"clampForce":0.01,"boltDiameterMm":0.01} },
   ],
-  "cop-atik-konteyner-hacim-hesabi": [
+  "cop-atik-konteyner-hacim-calc": [
     { id: "golden-valid", kind: "normal", values: {"containerLengthM":0.01,"containerWidthM":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"containerLengthM":-1,"containerWidthM":0.01}, expectPass: false },
@@ -337,7 +337,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"consumptionSm3":0.01,"unitPrice":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"consumptionSm3":0.01,"unitPrice":0.01} },
   ],
-  "doviz-pozisyonu-kur-farki-riski-hesabi": [
+  "fx-position-exchange-rate-risk-calc": [
     { id: "golden-valid", kind: "normal", values: {"foreignExposure":0.01,"fxMovePercent":5} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"foreignExposure":-1,"fxMovePercent":5}, expectPass: false },
@@ -361,7 +361,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"baseAmount":0.01,"inflationPercent":8}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"baseAmount":0.01,"inflationPercent":8} },
   ],
-  "enjeksiyon-dokum-cekme-payi-hesabi": [
+  "enjeksiyon-dokum-cekme-payi-calc": [
     { id: "golden-valid", kind: "normal", values: {"partLengthMm":0.01,"shrinkPercent":2} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"partLengthMm":-1,"shrinkPercent":2}, expectPass: false },
@@ -401,7 +401,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"taxableIncome":0.01,"effectiveRate":15}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"taxableIncome":0.01,"effectiveRate":15} },
   ],
-  "geri-donusum-gelir-maliyet-hesabi": [
+  "geri-donusum-gelir-maliyet-calc": [
     { id: "golden-valid", kind: "normal", values: {"recyclingRevenue":0.01,"processingCost":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"recyclingRevenue":-1,"processingCost":0.01}, expectPass: false },
@@ -425,7 +425,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"flowLpm":0.01,"pressureBar":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"flowLpm":0.01,"pressureBar":0.01} },
   ],
-  "hidrolik-silindir-itme-kuvveti-hesabi": [
+  "hidrolik-silindir-itme-kuvveti-calc": [
     { id: "golden-valid", kind: "normal", values: {"pressureBar":0.01,"boreMm":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"pressureBar":-1,"boreMm":0.01}, expectPass: false },
@@ -489,7 +489,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"noticeDays":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"noticeDays":0.01} },
   ],
-  "isi-degistirici-esanjor-kapasite-hesabi": [
+  "isi-degistirici-esanjor-kapasite-calc": [
     { id: "golden-valid", kind: "normal", values: {"flowRateM3h":0.01,"deltaTempC":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"flowRateM3h":-1,"deltaTempC":0.01}, expectPass: false },
@@ -497,7 +497,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"flowRateM3h":0.01,"deltaTempC":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"flowRateM3h":0.01,"deltaTempC":0.01} },
   ],
-  "isitma-sogutma-yuku-kcal-kw-hesabi": [
+  "isitma-sogutma-yuku-kcal-kw-calc": [
     { id: "golden-valid", kind: "normal", values: {"areaM2":0.01,"loadKcal":100} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"areaM2":-1,"loadKcal":100}, expectPass: false },
@@ -505,7 +505,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"areaM2":0.01,"loadKcal":100}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"areaM2":0.01,"loadKcal":100} },
   ],
-  "istatistiksel-proses-kontrol-spc-limit-hesabi": [
+  "istatistiksel-proses-kontrol-spc-limit-calc": [
     { id: "golden-valid", kind: "normal", values: {"processMean":0.01,"controlFactor":3} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"processMean":-1,"controlFactor":3}, expectPass: false },
@@ -513,7 +513,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"processMean":0.01,"controlFactor":3}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"processMean":0.01,"controlFactor":3} },
   ],
-  "istinat-duvari-yaklasik-beton-hesabi": [
+  "istinat-duvari-yaklasik-beton-calc": [
     { id: "golden-valid", kind: "normal", values: {"wallLengthM":0.01,"wallHeightM":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"wallLengthM":-1,"wallHeightM":0.01}, expectPass: false },
@@ -553,7 +553,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"quoteA":0.01,"quoteB":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"quoteA":0.01,"quoteB":0.01} },
   ],
-  "kaynak-dikis-hacmi-maliyeti-hesabi": [
+  "kaynak-dikis-hacmi-maliyeti-calc": [
     { id: "golden-valid", kind: "normal", values: {"throatMm":0.01,"weldLengthM":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"throatMm":-1,"weldLengthM":0.01}, expectPass: false },
@@ -561,7 +561,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"throatMm":0.01,"weldLengthM":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"throatMm":0.01,"weldLengthM":0.01} },
   ],
-  "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi": [
+  "kaynak-proseduru-wps-on-isitma-sicakligi-calc": [
     { id: "golden-valid", kind: "normal", values: {"preheatTempC":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"preheatTempC":-1}, expectPass: false },
@@ -569,7 +569,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"preheatTempC":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"preheatTempC":0.01} },
   ],
-  "kaynakli-baglanti-kose-kut-mukavemet-hesabi": [
+  "kaynakli-baglanti-kose-kut-mukavemet-calc": [
     { id: "golden-valid", kind: "normal", values: {"throatMm":0.01,"legLengthMm":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"throatMm":-1,"legLengthMm":0.01}, expectPass: false },
@@ -593,7 +593,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"numerator":0.01,"denominator":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"numerator":0.01,"denominator":0.01} },
   ],
-  "kesme-bukme-abkant-tonaj-hesabi": [
+  "kesme-bukme-abkant-tonaj-calc": [
     { id: "golden-valid", kind: "normal", values: {"sheetLengthMm":0.01,"sheetThicknessMm":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"sheetLengthMm":-1,"sheetThicknessMm":0.01}, expectPass: false },
@@ -601,7 +601,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"sheetLengthMm":0.01,"sheetThicknessMm":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"sheetLengthMm":0.01,"sheetThicknessMm":0.01} },
   ],
-  "kiris-kolon-yaklasik-agirlik-hesabi": [
+  "kiris-kolon-yaklasik-agirlik-calc": [
     { id: "golden-valid", kind: "normal", values: {"lengthM":0.01,"kgPerMeter":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"lengthM":-1,"kgPerMeter":0.01}, expectPass: false },
@@ -617,7 +617,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"areaM2":0.01,"ceilingM":2.7,"loadFactor":600}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"areaM2":0.01,"ceilingM":2.7,"loadFactor":600} },
   ],
-  "kompresor-debisi-tank-hacmi-hesabi": [
+  "kompresor-debisi-tank-hacmi-calc": [
     { id: "golden-valid", kind: "normal", values: {"flowCfm":0.01,"fillMinutes":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"flowCfm":-1,"fillMinutes":0.01}, expectPass: false },
@@ -633,7 +633,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"radius":0.01,"height":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"radius":0.01,"height":0.01} },
   ],
-  "konteyner-yukleme-kapasitesi-teu-hesabi": [
+  "konteyner-yukleme-kapasitesi-teu-calc": [
     { id: "golden-valid", kind: "normal", values: {"totalWeightKg":0.01,"unitWeightKg":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"totalWeightKg":-1,"unitWeightKg":0.01}, expectPass: false },
@@ -657,7 +657,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"remainingBalance":0.01,"penaltyRate":2}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"remainingBalance":0.01,"penaltyRate":2} },
   ],
-  "kumlama-raspa-kum-sarfiyati-hesabi": [
+  "kumlama-raspa-kum-sarfiyati-calc": [
     { id: "golden-valid", kind: "normal", values: {"surfaceAreaM2":0.01,"abrasiveKgPerM2":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"surfaceAreaM2":-1,"abrasiveKgPerM2":0.01}, expectPass: false },
@@ -697,7 +697,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"lpgCost":0.01,"gasolineCost":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"lpgCost":0.01,"gasolineCost":0.01} },
   ],
-  "makine-ekonomik-omru-hurda-deger-hesabi": [
+  "makine-ekonomik-omru-hurda-deger-calc": [
     { id: "golden-valid", kind: "normal", values: {"machineCost":0.01,"salvageValue":0.01,"usefulLifeYears":10} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"machineCost":-1,"salvageValue":0.01,"usefulLifeYears":10}, expectPass: false },
@@ -713,7 +713,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"screwDiameterMm":0.01,"drillFactor":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"screwDiameterMm":0.01,"drillFactor":0.01} },
   ],
-  "merdiven-platform-yukseklik-erisim-hesabi": [
+  "merdiven-platform-yukseklik-erisim-calc": [
     { id: "golden-valid", kind: "normal", values: {"platformHeightM":0.01,"accessFactor":1.2} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"platformHeightM":-1,"accessFactor":1.2}, expectPass: false },
@@ -721,7 +721,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"platformHeightM":0.01,"accessFactor":1.2}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"platformHeightM":0.01,"accessFactor":1.2} },
   ],
-  "mil-aks-capi-hesabi-egilme-burulma": [
+  "mil-aks-capi-calc-egilme-burulma": [
     { id: "golden-valid", kind: "normal", values: {"bendingMoment":0.01,"torque":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"bendingMoment":-1,"torque":0.01}, expectPass: false },
@@ -769,7 +769,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"length":0.01,"kgPerMeter":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"length":0.01,"kgPerMeter":0.01} },
   ],
-  "ofis-kirtasiye-sarfiyat-hesabi": [
+  "ofis-kirtasiye-sarfiyat-calc": [
     { id: "golden-valid", kind: "normal", values: {"employeeCount":0.01,"monthlySpendPerHead":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"employeeCount":-1,"monthlySpendPerHead":0.01}, expectPass: false },
@@ -785,7 +785,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"shipmentCount":0.01,"materialPerShipment":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"shipmentCount":0.01,"materialPerShipment":0.01} },
   ],
-  "palet-ambalaj-kereste-hesabi": [
+  "palet-ambalaj-kereste-calc": [
     { id: "golden-valid", kind: "normal", values: {"palletCount":0.01,"boardLengthM":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"palletCount":-1,"boardLengthM":0.01}, expectPass: false },
@@ -817,7 +817,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"shotWeightG":0.01,"injectionRateGps":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"shotWeightG":0.01,"injectionRateGps":0.01} },
   ],
-  "pnomatik-silindir-kuvvet-hesabi": [
+  "pnomatik-silindir-kuvvet-calc": [
     { id: "golden-valid", kind: "normal", values: {"pressureBar":0.01,"boreMm":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"pressureBar":-1,"boreMm":0.01}, expectPass: false },
@@ -825,7 +825,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"pressureBar":0.01,"boreMm":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"pressureBar":0.01,"boreMm":0.01} },
   ],
-  "pompa-gucu-basma-yuksekligi-hesabi": [
+  "pompa-gucu-basma-yuksekligi-calc": [
     { id: "golden-valid", kind: "normal", values: {"flowM3h":0.01,"headM":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"flowM3h":-1,"headM":0.01}, expectPass: false },
@@ -865,7 +865,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"minValue":1,"maxValue":100}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"minValue":1,"maxValue":100} },
   ],
-  "rulman-omur-hesabi-l10": [
+  "rulman-omur-calc-l10": [
     { id: "golden-valid", kind: "normal", values: {"dynamicLoadKn":0.01,"basicLoadKn":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"dynamicLoadKn":-1,"basicLoadKn":0.01}, expectPass: false },
@@ -873,7 +873,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"dynamicLoadKn":0.01,"basicLoadKn":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"dynamicLoadKn":0.01,"basicLoadKn":0.01} },
   ],
-  "ruzgar-turbini-yaklasik-uretim-hesabi": [
+  "ruzgar-turbini-yaklasik-uretim-calc": [
     { id: "golden-valid", kind: "normal", values: {"ratedKw":0.01,"capacityFactor":0.25} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"ratedKw":-1,"capacityFactor":0.25}, expectPass: false },
@@ -881,7 +881,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"ratedKw":0.01,"capacityFactor":0.25}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"ratedKw":0.01,"capacityFactor":0.25} },
   ],
-  "ses-yalitimi-desibel-azaltimi-hesabi": [
+  "ses-yalitimi-desibel-azaltimi-calc": [
     { id: "golden-valid", kind: "normal", values: {"sourceDb":0.01,"attenuationDb":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"sourceDb":-1,"attenuationDb":0.01}, expectPass: false },
@@ -921,7 +921,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"dailyRate":0.01,"days":22}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"dailyRate":0.01,"days":22} },
   ],
-  "soguk-oda-sogutma-yuku-hesabi": [
+  "soguk-oda-sogutma-yuku-calc": [
     { id: "golden-valid", kind: "normal", values: {"roomVolumeM3":0.01,"loadFactor":40} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"roomVolumeM3":-1,"loadFactor":40}, expectPass: false },
@@ -961,7 +961,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"radius":1.2,"height":2.5}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"radius":1.2,"height":2.5} },
   ],
-  "su-isitma-kazan-boyler-kapasite-hesabi": [
+  "su-isitma-kazan-boyler-kapasite-calc": [
     { id: "golden-valid", kind: "normal", values: {"volumeLiters":0.01,"deltaTempC":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"volumeLiters":-1,"deltaTempC":0.01}, expectPass: false },
@@ -969,7 +969,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"volumeLiters":0.01,"deltaTempC":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"volumeLiters":0.01,"deltaTempC":0.01} },
   ],
-  "tahta-mdf-sunta-m-agirlik-hesabi": [
+  "tahta-mdf-sunta-m-agirlik-calc": [
     { id: "golden-valid", kind: "normal", values: {"areaM2":0.01,"kgPerM2":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"areaM2":-1,"kgPerM2":0.01}, expectPass: false },
@@ -977,7 +977,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"areaM2":0.01,"kgPerM2":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"areaM2":0.01,"kgPerM2":0.01} },
   ],
-  "tel-kablo-uzunlugu-agirlik-hesabi": [
+  "tel-kablo-uzunlugu-agirlik-calc": [
     { id: "golden-valid", kind: "normal", values: {"lengthM":0.01,"kgPerMeter":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"lengthM":-1,"kgPerMeter":0.01}, expectPass: false },
@@ -985,7 +985,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"lengthM":0.01,"kgPerMeter":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"lengthM":0.01,"kgPerMeter":0.01} },
   ],
-  "temizlik-malzemesi-sarfiyat-hesabi": [
+  "temizlik-malzemesi-sarfiyat-calc": [
     { id: "golden-valid", kind: "normal", values: {"areaM2":0.01,"consumptionPerM2":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"areaM2":-1,"consumptionPerM2":0.01}, expectPass: false },
@@ -1049,7 +1049,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"loadWatts":0.01,"runtimeMinutes":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"loadWatts":0.01,"runtimeMinutes":0.01} },
   ],
-  "vida-somun-adim-dis-ustu-cap-hesabi": [
+  "vida-somun-adim-dis-ustu-cap-calc": [
     { id: "golden-valid", kind: "normal", values: {"pitchMm":0.01,"threadCount":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"pitchMm":-1,"threadCount":0.01}, expectPass: false },
@@ -1073,7 +1073,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"baseA":0.01,"baseB":0.01,"height":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"baseA":0.01,"baseB":0.01,"height":0.01} },
   ],
-  "yangin-merdiveni-kacis-yolu-genisligi-hesabi": [
+  "yangin-merdiveni-kacis-yolu-genisligi-calc": [
     { id: "golden-valid", kind: "normal", values: {"occupantLoad":0.01,"flowPerMeter":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"occupantLoad":-1,"flowPerMeter":0.01}, expectPass: false },
@@ -1089,7 +1089,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"areaM2":0.01,"flowFactor":0.5}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"areaM2":0.01,"flowFactor":0.5} },
   ],
-  "yatak-rulman-omur-hesabi-l10": [
+  "yatak-rulman-omur-calc-l10": [
     { id: "golden-valid", kind: "normal", values: {"dynamicLoadKn":0.01,"basicLoadKn":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"dynamicLoadKn":-1,"basicLoadKn":0.01}, expectPass: false },
@@ -1097,7 +1097,7 @@ const SCENARIOS_BY_SLUG: Readonly<Record<RoadmapFreeBatchOracleSlug, readonly Ro
     { id: "rogue-key", kind: "absurd", values: { ...{"dynamicLoadKn":0.01,"basicLoadKn":0.01}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"dynamicLoadKn":0.01,"basicLoadKn":0.01} },
   ],
-  "yay-helisel-kuvvet-uzama-hesabi": [
+  "yay-helisel-kuvvet-uzama-calc": [
     { id: "golden-valid", kind: "normal", values: {"springRate":0.01,"deflectionMm":0.01} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"springRate":-1,"deflectionMm":0.01}, expectPass: false },

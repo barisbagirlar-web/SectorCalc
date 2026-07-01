@@ -103,11 +103,11 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Tohum Oranı (7 formulas) ──,
+  // ── Tohum Orani (7 formulas) ──,
   {
     id: "user.seed_rate_0",
     family: "cost",
-    label: "Tohum Oranı — TargetPlantPopulation",
+    label: "Tohum Orani — TargetPlantPopulation",
     fn: (inputs) => {
     const area = num(inputs, "area");
     const desiredPlantsPerSqm = num(inputs, "desiredPlantsPerSqm");
@@ -117,7 +117,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.seed_rate_1",
     family: "cost",
-    label: "Tohum Oranı — SeedRequirement",
+    label: "Tohum Orani — SeedRequirement",
     fn: (inputs) => {
     const targetPlantPopulation = num(inputs, "targetPlantPopulation");
     const germinationRate = num(inputs, "germinationRate");
@@ -128,7 +128,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.seed_rate_2",
     family: "cost",
-    label: "Tohum Oranı — SeedCost",
+    label: "Tohum Orani — SeedCost",
     fn: (inputs) => {
     const seedRequirement = num(inputs, "seedRequirement");
     const pricePerKg = num(inputs, "pricePerKg");
@@ -138,7 +138,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.seed_rate_3",
     family: "cost",
-    label: "Tohum Oranı — OptimalYield",
+    label: "Tohum Orani — OptimalYield",
     fn: (inputs) => {
     const f = num(inputs, "f");
     const plantPopulation = num(inputs, "plantPopulation");
@@ -150,7 +150,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.seed_rate_4",
     family: "cost",
-    label: "Tohum Oranı — FinancialLoss_Under",
+    label: "Tohum Orani — FinancialLoss_Under",
     fn: (inputs) => {
     const targetYield = num(inputs, "targetYield");
     const actualYield = num(inputs, "actualYield");
@@ -161,7 +161,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.seed_rate_5",
     family: "cost",
-    label: "Tohum Oranı — FinancialLoss_Over",
+    label: "Tohum Orani — FinancialLoss_Over",
     fn: (inputs) => {
     const actualSeed = num(inputs, "actualSeed");
     const optimalSeed = num(inputs, "optimalSeed");
@@ -172,7 +172,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.seed_rate_6",
     family: "cost",
-    label: "Tohum Oranı — ROI_Seed",
+    label: "Tohum Orani — ROI_Seed",
     fn: (inputs) => {
     const optimalYield = num(inputs, "optimalYield");
     const cropPrice = num(inputs, "cropPrice");
@@ -181,11 +181,11 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Toplam Çalışan Maliyeti (7 formulas) ──,
+  // ── Toplam Calisan Maliyeti (7 formulas) ──,
   {
     id: "user.total_employee_cost_0",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — GrossSalary",
+    label: "Toplam Calisan Maliyeti — GrossSalary",
     fn: (inputs) => {
     const basePay = num(inputs, "basePay");
     const bonuses = num(inputs, "bonuses");
@@ -196,7 +196,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.total_employee_cost_1",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — StatutoryCosts",
+    label: "Toplam Calisan Maliyeti — StatutoryCosts",
     fn: (inputs) => {
     const grossSalary = num(inputs, "grossSalary");
     const socialSecurity = num(inputs, "socialSecurity");
@@ -208,7 +208,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.total_employee_cost_2",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — Benefits",
+    label: "Toplam Calisan Maliyeti — Benefits",
     fn: (inputs) => {
     const healthInsurance = num(inputs, "healthInsurance");
     const retirement = num(inputs, "retirement");
@@ -220,7 +220,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.total_employee_cost_3",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — AbsenteeismCost",
+    label: "Toplam Calisan Maliyeti — AbsenteeismCost",
     fn: (inputs) => {
     const absentHours = num(inputs, "absentHours");
     const fullyBurdenedRate = num(inputs, "fullyBurdenedRate");
@@ -230,7 +230,7 @@ export const CHUNK_61_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.total_employee_cost_4",
     family: "cost",
-    label: "Toplam Çalışan Maliyeti — TurnoverCost",
+    label: "Toplam Calisan Maliyeti — TurnoverCost",
     fn: (inputs) => {
     const recruitment = num(inputs, "recruitment");
     const training = num(inputs, "training");

@@ -117,11 +117,11 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   },
   },
 
-  // ── Kesim Parameters Takım ömrü (6 formulas) ──,
+  // ── Kesim Parameters Takim omru (6 formulas) ──,
   {
     id: "user.cutting_tool_life_0",
     family: "cost",
-    label: "Kesim Parameters Takım ömrü — ToolLife_T",
+    label: "Kesim Parameters Takim omru — ToolLife_T",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const v = num(inputs, "v");
@@ -139,7 +139,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_1",
     family: "cost",
-    label: "Kesim Parameters Takım ömrü — TaylorExponent_n",
+    label: "Kesim Parameters Takim omru — TaylorExponent_n",
     fn: (inputs) => {
     const t1 = num(inputs, "t1");
     const t2 = num(inputs, "t2");
@@ -152,7 +152,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_2",
     family: "cost",
-    label: "Kesim Parameters Takım ömrü — CostPerPart_Tool",
+    label: "Kesim Parameters Takim omru — CostPerPart_Tool",
     fn: (inputs) => {
     const toolCost = num(inputs, "toolCost");
     const edges = num(inputs, "edges");
@@ -164,7 +164,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_3",
     family: "cost",
-    label: "Kesim Parameters Takım ömrü — OptimalToolLife_Cost",
+    label: "Kesim Parameters Takim omru — OptimalToolLife_Cost",
     fn: (inputs) => {
     const n = num(inputs, "n");
     const toolChangeTime = num(inputs, "toolChangeTime");
@@ -177,7 +177,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_4",
     family: "cost",
-    label: "Kesim Parameters Takım ömrü — Optimal_Vc",
+    label: "Kesim Parameters Takim omru — Optimal_Vc",
     fn: (inputs) => {
     const c = num(inputs, "c");
     const optimalToolLife = num(inputs, "optimalToolLife");
@@ -190,7 +190,7 @@ export const CHUNK_32_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.cutting_tool_life_5",
     family: "cost",
-    label: "Kesim Parameters Takım ömrü — ProductionRate",
+    label: "Kesim Parameters Takim omru — ProductionRate",
     fn: (inputs) => {
     const machiningTime = num(inputs, "machiningTime");
     const toolLife = num(inputs, "toolLife");

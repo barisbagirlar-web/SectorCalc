@@ -1,12 +1,12 @@
 /**
- * Tool #9 — Basınç Vessel Kalınlık (ASME BPVC)
+ * Tool #9 — Basinc Vessel Kalinlik (ASME BPVC)
  * Shell/sphere/head thickness + MAWP + weight
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 
 const HEAD_TYPE_OPTIONS = [
   { value: "cylindrical", label: "Silindirik (Shell)", label_i18n: {"en":"Silindirik (Shell)"} },
-  { value: "spherical", label: "Küresel (Sphere)", label_i18n: {"en":"Kuresel (Sphere)"} },
+  { value: "spherical", label: "Kuresel (Sphere)", label_i18n: {"en":"Kuresel (Sphere)"} },
   { value: "elliptical", label: "Eliptik (2:1 Head)", label_i18n: {"en":"Eliptik (2:1 Head)"} },
   { value: "torispherical", label: "Torisferik (Head)", label_i18n: {"en":"Torisferik (Head)"} },
 ] as const;
@@ -20,7 +20,7 @@ const MATERIAL_OPTIONS = [
 export const ASME_VESSEL_SCHEMA: PremiumCalculatorSchema = {
   id: "asme-pressure-vessel-analyzer", legacyPaidSlug: "asme-pressure-vessel-analyzer",
   name: "Pressure Vessel Thickness Analysis (ASME BPVC)", name_i18n: {"en":"Pressure Vessel Thickness Analysis (ASME BPVC)"}, sectorSlug: "sheet-metal", category: "measurement",
-  painStatement: "ASME BPVC Section VIII Div.1'e göre basınçlı kap tasarımında duvar kalınlığı, MAWP ve ağırlık hesabı yapılmadan imalat risklidir. Bu araç ASME formülleriyle gerekli kalınlığı ve MAWP'yi hesaplar.", painStatement_i18n: {"en":"Wall thickness, MAWP, and Weight calculation without manufacturing per ASME BPVC Section VIII Div.1 for pressure vessel design is risky. This tool calculates required thickness and MAWP using ASME formulas."},
+  painStatement: "ASME BPVC Section VIII Div.1'e gore basincli kap tasariminda duvar kalinligi, MAWP ve agirlik calc yapilmadan imalat risklidir. Bu arac ASME formulleriyle gerekli kalinligi ve MAWP'yi hesaplar.", painStatement_i18n: {"en":"Wall thickness, MAWP, and Weight calculation without manufacturing per ASME BPVC Section VIII Div.1 for pressure vessel design is risky. This tool calculates required thickness and MAWP using ASME formulas."},
   inputs: [
     { id: "internalPressure", label: "Internal Pressure (P)", label_i18n: {"en":"Internal Pressure (P)"}, type: "number", unit: "MPa", required: true, smartDefault: 1.5, validation: { min: 0.001 }, helper: "", expertMeaning: "Internal design pressure", expertMeaning_i18n: {"en":"Internal design pressure"} },
     { id: "innerRadius", label: "Inner Radius (R)", label_i18n: {"en":"Inner Radius (R)"}, type: "number", unit: "mm", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Inside radius of vessel", expertMeaning_i18n: {"en":"Inside radius of vessel"} },
@@ -42,7 +42,7 @@ export const ASME_VESSEL_SCHEMA: PremiumCalculatorSchema = {
     { id: "designVerdict", label: "Tasarm Karar", label_i18n: {"en":"Tasarm decision"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "requiredThickness", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Gerekli kalınlık > 10 mm — ağırlık ve maliyet artıyor.", warningMessage_i18n: {"en":"Required thickness > 10 mm — Weight and Cost increasing."}, criticalMessage: "Gerekli kalınlık > 25 mm — alternatif malzeme değerlendirilmeli.", criticalMessage_i18n: {"en":"Required thickness > 25 mm — alternative material should be evaluated."} },
+    { fieldId: "requiredThickness", warning: 10, critical: 25, direction: "higher_is_bad", warningMessage: "Gerekli kalinlik > 10 mm — agirlik ve maliyet artiyor.", warningMessage_i18n: {"en":"Required thickness > 10 mm — Weight and Cost increasing."}, criticalMessage: "Gerekli kalinlik > 25 mm — alternatif malzeme degerlendirilmeli.", criticalMessage_i18n: {"en":"Required thickness > 25 mm — alternative material should be evaluated."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.vessel_shell_thickness", inputMap: { pressure: "internalPressure", radius: "innerRadius", stressAllowable: "stressAllowable", jointEfficiency: "jointEfficiency", corrosionAllowance: "corrosionAllowance" }, outputId: "requiredThickness" },

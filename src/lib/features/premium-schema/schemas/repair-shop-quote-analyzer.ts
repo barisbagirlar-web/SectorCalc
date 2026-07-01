@@ -1,5 +1,5 @@
 /**
- * Tool #18 — Tamirhane Parça Teklif
+ * Tool #18 — Tamirhane Parca Teklif
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const REPAIR_SHOP_QUOTE_SCHEMA: PremiumCalculatorSchema = {

@@ -1,11 +1,11 @@
 /**
- * Tool #39 — Fabrika Yerleşim Mesafe
+ * Tool #39 — Fabrika Yerlesim Mesafe
  */
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const FACTORY_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
   id: "factory-layout-distance-analyzer", legacyPaidSlug: "factory-layout-distance-analyzer",
   name: "Factory Layout Distance & Flow Analyzer", name_i18n: {"en":"Factory Layout Distance & Flow Analyzer"}, sectorSlug: "sheet-metal", category: "measurement",
-  painStatement: "Fabrika içi malzeme akış mesafeleri optimize edilmezse taşıma maliyeti artar ve verimlilik düşer.", painStatement_i18n: {"en":"If in-plant material flow distances are not optimized, carrying cost increases and productivity decreases."},
+  painStatement: "Fabrika ici malzeme akis mesafeleri optimize edilmezse tasima maliyeti artar ve efficiency duser.", painStatement_i18n: {"en":"If in-plant material flow distances are not optimized, carrying cost increases and productivity decreases."},
   inputs: [
     { id: "flowMatrix", label: "Material flow between departments", label_i18n: {"en":"Material flow between departments"}, type: "number", unit: "", matrix: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Material flow between departments", expertMeaning_i18n: {"en":"Material flow between departments"} },
     { id: "distanceMatrix", label: "Mesafe Matrisi (2D dizi)", label_i18n: {"en":"Distance Matrisi (2D dizi)"}, type: "number", unit: "m", matrix: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Distance between departments", expertMeaning_i18n: {"en":"Distance between departments"} },
@@ -21,7 +21,7 @@ export const FACTORY_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
     { id: "spaceUtilization", label: "Alan Kullanm Oran", label_i18n: {"en":"Alan Utilization Rate"}, unit: "%", format: "percentage" },
     { id: "totalLayoutCost", label: "Toplam Yerlesim Maliyeti", label_i18n: {"en":"Total Yerlesim Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "spaceUtilization", warning: 50, critical: 35, direction: "lower_is_bad", warningMessage: "Alan kullanımı < %50 — yerleşim optimizasyonu önerilir.", warningMessage_i18n: {"en":"Space utilization < 50% — layout optimization recommended."}, criticalMessage: "Alan kullanımı < %35 — acil yeniden düzenleme.", criticalMessage_i18n: {"en":"Space utilization < 35% — urgent rearrangement."} }],
+  thresholds: [{ fieldId: "spaceUtilization", warning: 50, critical: 35, direction: "lower_is_bad", warningMessage: "Alan kullanimi < %50 — yerlesim optimizasyonu onerilir.", warningMessage_i18n: {"en":"Space utilization < 50% — layout optimization recommended."}, criticalMessage: "Alan kullanimi < %35 — acil yeniden duzenleme.", criticalMessage_i18n: {"en":"Space utilization < 35% — urgent rearrangement."} }],
   formulaPipeline: [
     { formulaId: "measurement.layout_flow_cost", inputMap: { flowMatrix: "flowMatrix", distanceMatrix: "distanceMatrix", costPerDist: "costPerDist" }, outputId: "totalFlowCost" },
     { formulaId: "measurement.layout_space_util", inputMap: {
