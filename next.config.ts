@@ -87,6 +87,22 @@ class EnsureManifestStubsPlugin {
       if (!fs.existsSync(appBuildManifestPath)) {
         fs.writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
       }
+
+      // Next.js 15 requires pages-manifest.json even in App Router only projects.
+      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
+      if (!fs.existsSync(pagesManifestPath)) {
+        fs.writeFileSync(pagesManifestPath, JSON.stringify({}), "utf8");
+      }
+
+      // Next.js 15 bug: trace collection crashes on app/_not-found/page.js.nft.json
+      const notFoundDir = path.join(serverDir, "app", "_not-found");
+      if (!fs.existsSync(notFoundDir)) {
+        fs.mkdirSync(notFoundDir, { recursive: true });
+      }
+      const notFoundNftPath = path.join(notFoundDir, "page.js.nft.json");
+      if (!fs.existsSync(notFoundNftPath)) {
+        fs.writeFileSync(notFoundNftPath, JSON.stringify({ version: 1, files: [] }), "utf8");
+      }
     });
   }
 }

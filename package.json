@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/next-build-with-500-fallback.mjs && npm run generate:sitemap-static",
+    "build": "NODE_OPTIONS='--max-old-space-size=12000' node scripts/next-build-with-500-fallback.mjs && npm run generate:sitemap-static",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit",
