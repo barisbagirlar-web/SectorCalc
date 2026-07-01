@@ -41,6 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # local cache and untracked
+.sectorcalc-build.lock
+my-next-build.log
 .firebase/
 firebase-debug.log
 scripts/.cache/
