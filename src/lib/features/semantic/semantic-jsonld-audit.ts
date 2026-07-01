@@ -30,9 +30,10 @@ export type SemanticJsonLdAuditResult = {
 };
 
 function collectPublicRouteSlugs(): Array<{ slug: string; tier: "free" | "premium" | "premium-schema" }> {
+  const premiumSchemas = new Set(listPremiumSchemaSlugs());
   return [
     ...listAllFreeToolSlugs()
-      .filter((slug) => !isFreeToolMigratedToPremium(slug))
+      .filter((slug) => !isFreeToolMigratedToPremium(slug) && !premiumSchemas.has(slug))
       .map((slug) => ({ slug, tier: "free" as const })),
     ...getPremiumRevenueRouteSlugs().map((slug) => ({ slug, tier: "premium" as const })),
     ...listMigratedPremiumRouteSlugs().map((slug) => ({ slug, tier: "premium" as const })),

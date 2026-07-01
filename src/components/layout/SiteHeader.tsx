@@ -27,6 +27,7 @@ import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool
 import { BRAND_ASSETS } from "@/config/brand";
 import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
 import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
+import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
 
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
@@ -249,6 +250,7 @@ export function SiteHeader({
           </nav>
 
           <div className="sc-right">
+            <AuthStatusIndicator />
             <AuthStatusIndicator />
             <AuthStatusIndicator />
             <Link href={accountHref} className="sc-signin">{t.signin}</Link>

@@ -7,23 +7,23 @@ const ROOT = join(import.meta.dirname, "..");
 const failures = [];
 
 const required = [
-  "src/lib/semantic/site-url.ts",
-  "src/lib/semantic/schema-types.ts",
-  "src/lib/semantic/tool-semantic-types.ts",
-  "src/lib/semantic/tool-semantic-registry.ts",
-  "src/lib/semantic/semantic-tool-reader.ts",
-  "src/lib/semantic/build-organization-schema.ts",
-  "src/lib/semantic/build-website-schema.ts",
-  "src/lib/semantic/build-software-application-schema.ts",
-  "src/lib/semantic/build-financial-service-schema.ts",
-  "src/lib/semantic/build-calculate-action-schema.ts",
-  "src/lib/semantic/build-tool-jsonld.ts",
-  "src/lib/semantic/build-home-jsonld.ts",
-  "src/lib/semantic/build-developer-showcase-schema.ts",
-  "src/lib/semantic/build-ai-tool-index.ts",
-  "src/lib/semantic/semantic-jsonld-audit.ts",
+  "src/lib/features/semantic/site-url.ts",
+  "src/lib/features/semantic/schema-types.ts",
+  "src/lib/features/semantic/tool-semantic-types.ts",
+  "src/lib/features/semantic/tool-semantic-registry.ts",
+  "src/lib/features/semantic/semantic-tool-reader.ts",
+  "src/lib/features/semantic/build-organization-schema.ts",
+  "src/lib/features/semantic/build-website-schema.ts",
+  "src/lib/features/semantic/build-software-application-schema.ts",
+  "src/lib/features/semantic/build-financial-service-schema.ts",
+  "src/lib/features/semantic/build-calculate-action-schema.ts",
+  "src/lib/features/semantic/build-tool-jsonld.ts",
+  "src/lib/features/semantic/build-home-jsonld.ts",
+  "src/lib/features/semantic/build-developer-showcase-schema.ts",
+  "src/lib/features/semantic/build-ai-tool-index.ts",
+  "src/lib/features/semantic/semantic-jsonld-audit.ts",
   "src/components/semantic/SemanticJsonLd.tsx",
-  "src/app/[locale]/developer-showcase/page.tsx",
+  "src/app/developer-showcase/page.tsx",
   "public/ai.txt",
   "public/llms.txt",
   "scripts/export-ai-index.mjs",
@@ -74,12 +74,12 @@ for (const rel of [
   }
 }
 
-const robotsPath = join(ROOT, "src/app/robots.ts");
+const robotsPath = join(ROOT, "src/lib/infrastructure/seo/seo-indexing-control.ts");
 if (existsSync(robotsPath)) {
   const robots = readFileSync(robotsPath, "utf8");
   for (const token of ["GPTBot", "ChatGPT-User", "OAI-SearchBot", "Google-Extended", "ClaudeBot", "PerplexityBot", "Googlebot", "Bingbot", "verification-queue", "sitemap"]) {
     if (!robots.includes(token)) {
-      failures.push(`robots.ts missing ${token} policy`);
+      failures.push(`robots.txt missing ${token} policy`);
     }
   }
 } else if (!existsSync(join(ROOT, "public/robots.txt"))) {
@@ -103,7 +103,7 @@ if (!existsSync(join(ROOT, "public/ai-tool-index.json"))) {
 
 try {
   const output = execSync(
-    `npx tsx -e "import { auditSemanticJsonLdCoverage } from './src/lib/semantic/semantic-jsonld-audit.ts'; const r = auditSemanticJsonLdCoverage(); if (r.issues.length) { console.error(r.issues.slice(0, 20).join('\\n')); process.exit(1);} console.log(JSON.stringify(r.stats));"`,
+    `npx tsx -e "import { auditSemanticJsonLdCoverage } from './src/lib/features/semantic/semantic-jsonld-audit.ts'; const r = auditSemanticJsonLdCoverage(); if (r.issues.length) { console.error(r.issues.slice(0, 20).join('\\n')); process.exit(1);} console.log(JSON.stringify(r.stats));"`,
     { cwd: ROOT, encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] },
   );
   console.log("coverage", output.trim());
@@ -114,9 +114,9 @@ try {
 
 const forbidden = ["example.com", "localhost", "your-domain", "TODO"];
 for (const rel of [
-  "src/lib/semantic/build-calculate-action-schema.ts",
-  "src/lib/semantic/build-tool-jsonld.ts",
-  "src/lib/semantic/build-home-jsonld.ts",
+  "src/lib/features/semantic/build-calculate-action-schema.ts",
+  "src/lib/features/semantic/build-tool-jsonld.ts",
+  "src/lib/features/semantic/build-home-jsonld.ts",
   "public/ai.txt",
 ]) {
   const text = readFileSync(join(ROOT, rel), "utf8");

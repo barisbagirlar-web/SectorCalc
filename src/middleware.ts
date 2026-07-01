@@ -14,7 +14,18 @@ function annotateAuthGate(request: NextRequest, response: NextResponse): void {
   if (!sessionCookie) response.headers.set("x-auth-gate", "challenge");
 }
 
-function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
+const PROTECTED_ROUTES = ["/account", "/account/", "/dashboard", "/dashboard/"];
+
+function isProtectedRoute(pathname: string): boolean {
+  return PROTECTED_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+}
+
+function annotateAuthGate(request: NextRequest, response: NextResponse): void {
+  if (!isProtectedRoute(request.nextUrl.pathname)) return;
+  const sessionCookie = request.cookies.get("__session")?.value;
+  if (!sessionCookie) response.headers.set("x-auth-gate", "challenge");
+}
+
   const { region, source } = detectRegionFromRequest(request);
   response.headers.set(REGION_HEADER, region);
   response.headers.set(REGION_SOURCE_HEADER, source);
@@ -24,7 +35,15 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 const SW_KILL_CODE = [`self.addEventListener("install",()=>self.skipWaiting())`,`self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,`self.addEventListener("fetch",()=>{})`].join(";");
 const SW_KILL_HEADERS = {"Content-Type":"application/javascript","Cache-Control":"no-store, no-cache, must-revalidate, max-age=0","Service-Worker-Allowed":"/","Pragma":"no-cache","Expires":"0"};
 
-export default function middleware(request: NextRequest) {
+
+  const response = NextResponse.next();
+  annotateAuthGate(request, response);
+
+  if (response.headers.get("x-auth-gate") === "challenge") {
+    return applyRegionHeaders(response, request);
+  }
+
+  const { pathname } = request.nextUrl;
   const { pathname } = request.nextUrl;
   const response = NextResponse.next();
   annotateAuthGate(request, response);

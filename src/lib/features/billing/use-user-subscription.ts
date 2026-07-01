@@ -19,6 +19,10 @@ import {
   syncSessionCookie,
   clearSessionCookie,
 } from "@/lib/infrastructure/auth/session-cookie";
+import {
+  syncSessionCookie,
+  clearSessionCookie,
+} from "@/lib/infrastructure/auth/session-cookie";
 
 export type UseUserSubscriptionState = {
   user: User | null;
