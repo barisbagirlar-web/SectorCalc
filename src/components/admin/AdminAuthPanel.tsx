@@ -17,9 +17,9 @@ import { useAdminAuth } from "@/lib/features/admin/use-admin-auth";
 const fieldClass =
  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
-const NOT_ADMIN_EMAIL_MESSAGE = "Bu kullanıcı admin yetkisine sahip değil.";
+const NOT_ADMIN_EMAIL_MESSAGE = "This user does not have admin privileges.";
 const NOT_ADMIN_GOOGLE_MESSAGE =
- "Bu Google hesabı admin yetkisine sahip değil.";
+ "This Google account does not have admin privileges.";
 
 const buttonPrimaryClass =
  "inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
@@ -63,17 +63,17 @@ export function AdminLoginForm() {
  );
 
  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
- event.preventDefault();
- setError(null);
- setSubmitting(true);
+   event.preventDefault();
+   setError(null);
+   setSubmitting(true);
 
- try {
- const signedInUser = await signInAdminWithEmailPassword(email, password);
- await finalizeAdminSignIn(signedInUser, NOT_ADMIN_EMAIL_MESSAGE);
- } catch (err) {
- setError(mapFirebaseSignInError(err));
- setSubmitting(false);
- }
+   try {
+     const signedInUser = await signInAdminWithEmailPassword(email.trim().toLowerCase(), password);
+     await finalizeAdminSignIn(signedInUser, NOT_ADMIN_EMAIL_MESSAGE);
+   } catch (err) {
+     setError(mapFirebaseSignInError(err));
+     setSubmitting(false);
+   }
  };
 
  const handleGoogleSignIn = async () => {
@@ -94,16 +94,16 @@ export function AdminLoginForm() {
 
  if (authLoading) {
  return (
- <p className="text-center text-sm text-text-secondary" role="status">
- Oturum kontrol ediliyor…
- </p>
+<p className="text-center text-sm text-text-secondary" role="status">
+ Checking session…
+</p>
  );
  }
 
  if (user && isAdmin) {
  return (
  <p className="text-center text-sm text-text-secondary" role="status">
- Yönlendiriliyor…
+ Redirecting…
  </p>
  );
  }
@@ -111,9 +111,9 @@ export function AdminLoginForm() {
  return (
  <div className="mx-auto w-full max-w-md space-y-5 rounded-sm border border-slate/20 bg-white p-6 shadow-card sm:p-8">
  <div className="space-y-1 text-center">
- <h2 className="text-lg font-bold text-deep-navy">Admin girişi</h2>
+ <h2 className="text-lg font-bold text-deep-navy">Admin sign-in</h2>
  <p className="text-sm text-text-secondary">
- Yalnızca admin claim&apos;i verilmiş hesaplar panele erişebilir.
+ Only accounts with an admin claim can access the panel.
  </p>
  </div>
 
@@ -130,7 +130,7 @@ export function AdminLoginForm() {
  className={buttonGoogleClass}
  >
  <GoogleIcon />
- {submitting ? "Giriş yapılıyor…" : "Google ile giriş yap"}
+ {submitting ? "Signing in…" : "Sign in with Google"}
  </button>
 
  <div className="relative py-1">
@@ -138,14 +138,14 @@ export function AdminLoginForm() {
  <div className="w-full border-t border-slate/20" />
  </div>
  <p className="relative mx-auto w-fit bg-white px-3 text-xs font-medium uppercase tracking-wide text-text-secondary">
- veya e-posta ile
+ or email
  </p>
  </div>
 
  <form onSubmit={(event) => void handleSubmit(event)} className="space-y-5" noValidate>
  <label className="block space-y-1.5">
  <span className="text-xs font-medium uppercase tracking-wide text-text-secondary">
- E-posta
+ Email
  </span>
  <input
  type="email"
@@ -161,7 +161,7 @@ export function AdminLoginForm() {
 
  <label className="block space-y-1.5">
  <span className="text-xs font-medium uppercase tracking-wide text-text-secondary">
- Şifre
+ Password
  </span>
  <input
  type="password"
@@ -176,13 +176,12 @@ export function AdminLoginForm() {
  </label>
 
  <button type="submit" disabled={submitting} className={buttonPrimaryClass}>
- {submitting ? "Giriş yapılıyor…" : "Giriş yap"}
+ {submitting ? "Signing in…" : "Sign in"}
  </button>
  </form>
 
  <p className="text-center text-xs text-text-secondary">
- Kayıt veya şifre sıfırlama bu ekranda sunulmaz. Google ile ilk girişten
- sonra admin claim yalnızca yönetici tarafından UID üzerinden verilir.
+ Registration and password reset are not available on this screen. After the first Google sign-in, admin claim is granted by an administrator via UID.
  </p>
  </div>
  );
@@ -247,16 +246,16 @@ export function AdminAuthBar() {
  role="alert"
  >
  <p>
- <span className="font-semibold">Admin girişi gerekli.</span> Lead
- verilerini görüntülemek ve kaydetmek için giriş yapın.
+ <span className="font-semibold">Admin sign-in required.</span> Sign in to view and save
+ lead data.
  </p>
         <Link
           href="/admin/login"
           className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black"
         >
-          Giriş yap
+          Sign in
         </Link>
- </div>
+</div>
  );
  }
 
@@ -267,9 +266,9 @@ export function AdminAuthBar() {
  role="alert"
  >
  <div className="space-y-1">
- <p className="font-semibold">Bu işlem için admin yetkisi gerekli.</p>
+ <p className="font-semibold">Admin privileges required for this action.</p>
  <p className="text-text-secondary">
- Giriş yapılan hesap:{" "}
+ Signed in account:{" "}
  <span className="font-medium text-deep-navy">{user.email ?? "—"}</span>
  </p>
  </div>
@@ -279,7 +278,7 @@ export function AdminAuthBar() {
  disabled={signingOut}
  className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
- {signingOut ? "Çıkış yapılıyor…" : "Çıkış yap"}
+ {signingOut ? "Signing out…" : "Sign out"}
  </button>
  </div>
  );
@@ -288,7 +287,7 @@ export function AdminAuthBar() {
  return (
  <div className="flex flex-col gap-3 rounded-sm border border-slate/20 bg-white px-5 py-4 text-sm text-deep-navy shadow-card sm:flex-row sm:items-center sm:justify-between">
  <p>
- <span className="text-text-secondary">Giriş yapıldı:</span>{" "}
+ <span className="text-text-secondary">Signed in:</span>{" "}
  <span className="font-medium">{user.email ?? "—"}</span>
  </p>
  <button
@@ -297,7 +296,7 @@ export function AdminAuthBar() {
  disabled={signingOut}
  className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
- {signingOut ? "Çıkış yapılıyor…" : "Çıkış yap"}
+ {signingOut ? "Signing out…" : "Sign out"}
  </button>
  </div>
  );

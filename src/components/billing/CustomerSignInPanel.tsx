@@ -74,12 +74,14 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
     e.preventDefault();
     setError(null);
     setPending(true);
-    
+
+    const normalizedEmail = email.trim().toLowerCase();
+
     try {
       if (mode === "signup") {
-        await signUpCustomerWithEmail(email, password);
+        await signUpCustomerWithEmail(normalizedEmail, password);
       } else {
-        await signInCustomerWithEmail(email, password);
+        await signInCustomerWithEmail(normalizedEmail, password);
       }
       router.replace(nextPath);
     } catch (caught) {

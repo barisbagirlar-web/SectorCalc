@@ -2013,6 +2013,11 @@
       "popup-blocked": "Popup was blocked. Redirect sign-in was attempted — allow popups or try again.",
       "network": "Network error during sign-in. Check your connection and try again.",
       "not-configured": "Sign-in is unavailable because Firebase Auth is not configured in this environment.",
+      "invalid-email": "Invalid email format. Please check and try again.",
+      "user-not-found": "No account found with this email address.",
+      "wrong-password": "Incorrect password. Try again or reset your password.",
+      "email-already-in-use": "An account with this email already exists.",
+      "weak-password": "Password is too weak. Use at least 6 characters.",
       "generic": "Sign-in failed. Try again or use a different browser."
     }
   },
