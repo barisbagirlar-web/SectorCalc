@@ -24,11 +24,10 @@ import type { Tool } from "@/data/tools";
  * Locale-aware title/description resolver
  * ────────────────────────────────────────────── */
 function localizedField(
-  field: { readonly en: string; readonly tr: string; readonly de: string; readonly fr: string; readonly es: string; readonly ar: string },
+  field: { readonly en: string; readonly de: string; readonly fr: string; readonly es: string; readonly ar: string },
   locale: string,
 ): string {
   const key = locale.toLowerCase();
-  if (key === "tr") return field.tr;
   if (key === "de") return field.de;
   if (key === "fr") return field.fr;
   if (key === "es") return field.es;

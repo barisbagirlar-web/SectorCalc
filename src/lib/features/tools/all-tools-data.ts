@@ -36,9 +36,7 @@ function resolveSchemasDir(): string {
   const candidates = [
     // Local dev / standard
     path.join(process.cwd(), "generated", "schemas"),
-    // Firebase SSR function (.next/server is deployed alongside)
-    path.join(process.cwd(), ".next", "server", "generated", "schemas"),
-    // Firebase framework-managed function (standalone)
+    // Firebase framework-managed function
     path.join(process.cwd(), ".next", "standalone", "generated", "schemas"),
   ];
   for (const candidate of candidates) {
@@ -278,16 +276,9 @@ export function getAllTools(_locale = "en"): ToolData[] {
     buildCategorizedToolIndex().map((item) => [item.slug, item] as const),
   );
 
-  // When schema files are not on the filesystem (e.g. Firebase Cloud Function deploy
-  // where generated/schemas/ may not be bundled), build ToolData from the compile-time
-  // categorized index. This always works because free-slugs.json + premium-slugs.json
-  // are imported at build time, not read at runtime.
   if (!fs.existsSync(SCHEMAS_DIR)) {
-    const fallback = [...categorized.values()]
-      .map((item) => catalogItemToToolData(item, locale))
-      .sort((left, right) => left.name.localeCompare(right.name, locale));
-    toolsCache.set(locale, fallback);
-    return fallback;
+    toolsCache.set(locale, []);
+    return [];
   }
 
   const tools = (fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[])
@@ -389,41 +380,6 @@ function resolvePremiumSectorKey(sectorSlug: string): string {
   return PREMIUM_SECTOR_SLUG_TO_TAXONOMY[sectorSlug] ?? "diger";
 }
 
-/** Build ToolData from a CategorizedToolItem when schema files are not available. */
-function catalogItemToToolData(
-  item: CategorizedToolItem,
-  locale: string,
-): ToolData {
-  const title = item.title?.[locale] ?? item.title?.en ?? humanizeSlug(item.slug);
-  const desc = item.description?.[locale] ?? item.description?.en ?? "";
-  let sectorKey = resolvePremiumSectorKey(item.categorySlug);
-  if (!TAXONOMY_SECTOR_IDS.has(sectorKey)) {
-    const override = SECTOR_SLUG_OVERRIDES[item.slug];
-    if (override) {
-      sectorKey = override;
-    } else {
-      const slugTokens = item.slug.split("-");
-      for (const token of slugTokens) {
-        const hint = SLUG_TOKEN_SECTOR_HINTS[token];
-        if (hint) { sectorKey = hint; break; }
-      }
-    }
-  }
-  return {
-    slug: item.slug,
-    name: title,
-    category: resolveSchemaCatalogCategoryLabel(item.categorySlug, locale),
-    categoryKey: item.categorySlug,
-    sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
-    sectorKey,
-    description: desc,
-    premiumRequired: item.tier !== "free",
-    premiumCategorySlug: getPremiumCategorySlugForTool(item.slug),
-    premiumCategory: resolvePremiumCategoryTitle(getPremiumCategorySlugForTool(item.slug), locale),
-    href: item.routePath ?? resolveGeneratedToolPath(item.slug),
-  };
-}
-
 function schemaToToolData(schema: PremiumCalculatorSchema, locale: string): ToolData {
   const title = schema.name_i18n?.[locale] ?? schema.name;
   const desc = schema.painStatement_i18n?.[locale] ?? schema.painStatement;
@@ -445,7 +401,33 @@ function categorizedToToolData(
   item: CategorizedToolItem,
   locale: string,
 ): ToolData {
-  return catalogItemToToolData(item, locale);
+  const title = item.title?.[locale] ?? item.title?.en ?? humanizeSlug(item.slug);
+  const desc = item.description?.[locale] ?? item.description?.en ?? "";
+  let sectorKey = resolvePremiumSectorKey(item.categorySlug);
+  // Fallback: try slug-based sector hints only if premium map returned non-taxonomy
+  if (!TAXONOMY_SECTOR_IDS.has(sectorKey)) {
+    const override = SECTOR_SLUG_OVERRIDES[item.slug];
+    if (override) {
+      sectorKey = override;
+    } else {
+      const slugTokens = item.slug.split("-");
+      for (const token of slugTokens) {
+        const hint = SLUG_TOKEN_SECTOR_HINTS[token];
+        if (hint) { sectorKey = hint; break; }
+      }
+    }
+  }
+  return {
+    slug: item.slug,
+    name: title,
+    category: resolveSchemaCatalogCategoryLabel(item.categorySlug, locale),
+    categoryKey: item.categorySlug,
+    sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
+    sectorKey,
+    description: desc,
+    premiumRequired: true,
+    href: item.routePath ?? `/tools/generated/${item.slug}`,
+  };
 }
 
 export function getPremiumTools(_locale = "en"): ToolData[] {
