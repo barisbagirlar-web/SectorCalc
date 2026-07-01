@@ -1,14 +1,14 @@
-0 verbose cli /Users/macair1/.nvm/versions/node/v22.22.2/bin/node /Users/macair1/.nvm/versions/node/v22.22.2/bin/npm
+0 verbose cli /Users/macair1/.nvm/versions/node/v22.22.2/bin/node /Users/macair1/.nvm/versions/node/v22.22.2/lib/node_modules/npm/bin/npm-cli.js
 1 info using npm@10.9.7
 2 info using node@v22.22.2
 3 silly config load:file:/Users/macair1/.nvm/versions/node/v22.22.2/lib/node_modules/npm/npmrc
 4 silly config load:file:/Users/macair1/projects/SectorCalc-p5a/.npmrc
 5 silly config load:file:/Users/macair1/.npmrc
 6 silly config load:file:/Users/macair1/.nvm/versions/node/v22.22.2/etc/npmrc
-7 verbose title npm run typecheck
-8 verbose argv "run" "typecheck"
-9 verbose logfile logs-max:10 dir:/Users/macair1/projects/SectorCalc-p5a/.npm-cache/_logs/2026-07-01T22_39_37_546Z-
-10 verbose logfile /Users/macair1/projects/SectorCalc-p5a/.npm-cache/_logs/2026-07-01T22_39_37_546Z-debug-0.log
+7 verbose title npm exec next build --no-lint
+8 verbose argv "exec" "--" "next" "build" "--no-lint"
+9 verbose logfile logs-max:10 dir:/Users/macair1/projects/SectorCalc-p5a/.npm-cache/_logs/2026-07-01T22_50_23_403Z-
+10 verbose logfile /Users/macair1/projects/SectorCalc-p5a/.npm-cache/_logs/2026-07-01T22_50_23_403Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
 12 silly logfile done cleaning log files
 13 verbose cwd /Users/macair1/projects/SectorCalc-p5a
