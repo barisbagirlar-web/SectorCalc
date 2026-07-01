@@ -124,6 +124,7 @@ const nextConfig: NextConfig = {
         { source: "/pro-tools/:path*", destination: "/en/pro-tools/:path*" },
         { source: "/refund-policy", destination: "/en/refund-policy" },
         { source: "/reports/:path*", destination: "/en/reports/:path*" },
+        { source: "/resources/:path*", destination: "/en/resources/:path*" },
         { source: "/seo/:path*", destination: "/en/seo/:path*" },
         { source: "/signup", destination: "/en/signup" },
         { source: "/sustainability", destination: "/en/sustainability" },
@@ -267,6 +268,8 @@ const nextConfig: NextConfig = {
       },
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
+      // FMEA RPN — legacy alias → canonical academic URL
+      { source: "/tools/fmea-rpn-calculator", destination: "/calculators/fmea-rpn", permanent: true },
       // /en/ paths removed — let /en/... reach middleware for proper locale cookie handling
       // (The rewrites below handle root → /en/* internally.)
       {

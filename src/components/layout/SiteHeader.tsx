@@ -238,7 +238,7 @@ export function SiteHeader({
                     <Link href="/case-studies" className="sc-res-item">
                       <span className="rico">📝</span><span className="rt"><b>{t.res_blog}</b><span>{t.res_blog_d}</span></span>
                     </Link>
-                    <Link href="/tools/fmea-rpn-calculator" className="sc-res-item">
+                    <Link href="/calculators/fmea-rpn" className="sc-res-item">
                       <span className="rico">📐</span><span className="rt"><b>{t.res_docs}</b><span>{t.res_docs_d}</span></span>
                     </Link>
                   </div>
@@ -297,7 +297,7 @@ export function SiteHeader({
             {mobileSection==='resources' && (
               <div className="sc-draw-body">
                 <Link href="/case-studies" onClick={()=>setMobileOpen(false)}>📝 {t.res_blog}</Link>
-                <Link href="/tools/fmea-rpn-calculator" onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
+                <Link href="/calculators/fmea-rpn" onClick={()=>setMobileOpen(false)}>📐 {t.res_docs}</Link>
               </div>
             )}
           </div>
