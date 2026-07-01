@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { getTranslations } from "next-intl/server";
@@ -160,7 +160,7 @@ export default async function PremiumSchemaPilotPage({
           data-calculation-form-shell="true"
           data-testid="calculator-form"
         />
-        <DynamicPremiumCalculator schema={schema} locale={locale} />
+        <PremiumSchemaToolForm schema={schema} locale={locale} />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}
           locale={locale}

@@ -99,7 +99,7 @@ if (!existsSync(join(ROOT, "src/lib/guidance/reference-graphic-resolver.ts"))) {
 const integrationFiles = {
   free: "src/components/smart-form/SmartFormWorkspace.tsx",
   premium: "src/components/tools/PremiumToolPage.tsx",
-  "premium-schema": "src/components/tools/DynamicPremiumCalculator.tsx",
+  "premium-schema": "src/components/tools/PremiumSchemaToolForm.tsx",
 };
 
 for (const [tier, rel] of Object.entries(integrationFiles)) {

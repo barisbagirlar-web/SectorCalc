@@ -163,13 +163,8 @@ if (premiumShell.includes("hasCalculated") && !premiumShell.includes("sc-mode-sw
   fail("PremiumCalculatorShell missing hasCalculated or still has mode toggle");
 }
 
-// 9. DynamicPremiumCalculator uses contract resolver
-const dynamic = read("src/components/tools/DynamicPremiumCalculator.tsx");
-if (dynamic.includes("PremiumCalculatorShell") && dynamic.includes("visibleInputs")) {
-  pass("DynamicPremiumCalculator uses premium calculator shell");
-} else {
-  fail("DynamicPremiumCalculator missing shell integration");
-}
+// DynamicPremiumCalculator has been removed — replaced by PremiumSchemaToolForm
+// PremiumSchemaToolForm uses DynamicFormEngine which has shell integration built-in.
 
 // 10. OEE guidance — not machine-time generic
 const taxonomy = read("src/lib/guidance/reference-graphic-taxonomy.ts");

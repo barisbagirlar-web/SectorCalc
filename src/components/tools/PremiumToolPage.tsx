@@ -60,7 +60,7 @@ import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePane
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
-import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
 import {
  isPremiumFullLoopRuntimeSlug,
  runPremiumFullLoopCalculation,
@@ -641,7 +641,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
   ) : showSchemaPilot ? (
   <>
-  <DynamicPremiumCalculator schema={schemaPilot!} />
+  <PremiumSchemaToolForm schema={schemaPilot!} locale={locale} />
   {tool.paidInputs.length > 0 && (
   <div className="wrap" style={{ padding: "20px 0" }}>
    {/* STATUS STRIP */}

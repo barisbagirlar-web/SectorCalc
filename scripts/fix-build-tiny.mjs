@@ -12,7 +12,7 @@ function fixUseClient(file) {
 }
 
 fixUseClient('src/components/subscription/ProCheckoutButton.tsx');
-fixUseClient('src/components/tools/DynamicPremiumCalculator.tsx');
+// DynamicPremiumCalculator deleted — no fix needed
 fixUseClient('src/components/tools/ToolSafeReviewState.tsx');
 
 let audit = fs.readFileSync('src/app/audit/[sectorKey]/page.tsx', 'utf-8');

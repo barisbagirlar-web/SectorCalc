@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -124,7 +124,7 @@ export default async function FmeaRpnCalculatorPage({
           data-calculation-form-shell="true"
           data-testid="calculator-form"
         />
-        <DynamicPremiumCalculator schema={schema} locale={locale} />
+        <PremiumSchemaToolForm schema={schema} locale={locale} />
       </Container>
       
       {/* Renders the old FMEA content exactly as requested */}

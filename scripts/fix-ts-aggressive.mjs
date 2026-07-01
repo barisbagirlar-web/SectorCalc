@@ -89,13 +89,11 @@ fixFile('src/components/smart-form/SmartFormShell.tsx', c => {
   return t;
 });
 
-// Fix missing "usePathname" and "t" in ProCheckoutButton.tsx and DynamicPremiumCalculator.tsx
+// Fix missing "usePathname" and "t" in ProCheckoutButton.tsx
 fixFile('src/components/subscription/ProCheckoutButton.tsx', c => {
   return `import { usePathname } from 'next/navigation';\n` + c;
 });
-fixFile('src/components/tools/DynamicPremiumCalculator.tsx', c => {
-  return `import { usePathname } from 'next/navigation';\n` + c;
-});
+// DynamicPremiumCalculator.tsx has been deleted — not needed.
 fixFile('src/components/tools/ToolSafeReviewState.tsx', c => {
   if (!c.includes('usePathname')) {
     return `import { usePathname } from 'next/navigation';\n` + c;

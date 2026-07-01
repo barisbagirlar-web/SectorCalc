@@ -204,7 +204,6 @@ const PREMIUM_ROUTE_FRAGMENTS = [
   "/tools/premium/",
   "/tools/premium-schema/",
   "MigratedFreePremiumToolSurface.tsx",
-  "DynamicPremiumCalculator.tsx",
   "PremiumToolPage.tsx",
 ];
 
