@@ -10,8 +10,6 @@ import {
 } from "firebase/auth";
 import { getFirebaseApp } from "@/lib/infrastructure/firebase/client";
 import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
-import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
-import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
 
 let cachedAuth: Auth | null | undefined;
 
