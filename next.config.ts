@@ -17,13 +17,30 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
  * Called at module init so they're available during "Collecting page data".
  */
 function ensurePageRouterStubs(): void {
-  const pagesDir = path.join(process.cwd(), ".next", "server", "pages");
+  const serverDir = path.join(process.cwd(), ".next", "server");
+  const pagesDir = path.join(serverDir, "pages");
   mkdirSync(pagesDir, { recursive: true });
   for (const name of ["_document.js", "_app.js"]) {
     const p = path.join(pagesDir, name);
     if (!fs.existsSync(p)) {
       writeFileSync(p, "module.exports = {};\n", "utf8");
     }
+  }
+
+  // Stub next-font-manifest to prevent Next.js 15 bug
+  const fontManifestPath = path.join(serverDir, "next-font-manifest.json");
+  if (!fs.existsSync(fontManifestPath)) {
+    writeFileSync(fontManifestPath, JSON.stringify({
+      "pages": {},
+      "app": {},
+      "appUsingSizeAdjust": false,
+      "pagesUsingSizeAdjust": false
+    }), "utf8");
+  }
+
+  const appBuildManifestPath = path.join(process.cwd(), ".next", "app-build-manifest.json");
+  if (!fs.existsSync(appBuildManifestPath)) {
+    writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
   }
 }
 ensurePageRouterStubs();

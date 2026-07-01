@@ -114,6 +114,26 @@ function ensureNextTypeAndBuildManifestStubs() {
   if (!existsSync(middlewareManifestPath)) {
     writeFileSync(middlewareManifestPath, JSON.stringify({}));
   }
+
+  const fontManifestPath = join(serverDir, "next-font-manifest.json");
+  if (!existsSync(fontManifestPath)) {
+    writeFileSync(fontManifestPath, JSON.stringify({
+      "pages": {},
+      "app": {},
+      "appUsingSizeAdjust": false,
+      "pagesUsingSizeAdjust": false
+    }), "utf8");
+  }
+
+  const appBuildManifestPath = join(NEXT_DIR, "app-build-manifest.json");
+  if (!existsSync(appBuildManifestPath)) {
+    writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
+  }
+
+  const exportDetailPath = join(NEXT_DIR, "export-detail.json");
+  if (!existsSync(exportDetailPath)) {
+    writeFileSync(exportDetailPath, JSON.stringify({ version: 1, outDirectory: "out", success: true }), "utf8");
+  }
 }
 
 function ssgFullyCompleted(log) {

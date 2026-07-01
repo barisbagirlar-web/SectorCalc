@@ -27,6 +27,19 @@ function ensure500StaticFiles() {
   }
 }
 
+function ensureMiddlewareManifest() {
+  const manifestPath = join(NEXT, "server/middleware-manifest.json");
+  if (existsSync(manifestPath)) {
+    return;
+  }
+  mkdirSync(join(NEXT, "server"), { recursive: true });
+  writeFileSync(
+    manifestPath,
+    JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
+    "utf8",
+  );
+}
+
 function ensureExportMarker() {
   const markerPath = join(NEXT, "export-marker.json");
   if (existsSync(markerPath)) {
@@ -124,6 +137,7 @@ function main() {
   }
 
   ensure500StaticFiles();
+  ensureMiddlewareManifest();
   ensureExportMarker();
   ensureExportDetail();
   ensureFirebasePagesManifest();
