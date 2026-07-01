@@ -6,6 +6,9 @@ import { listPublishedCaseStudies } from "@/lib/features/case-studies/published-
 import { getGeneratedToolLastUpdatedIso } from "@/lib/features/generated-tools/resolve-tool-updated-at";
 import { getActiveSitemapLocales } from "@/lib/infrastructure/seo/global-seo-config";
 import { getStaticPages } from "@/lib/infrastructure/seo/static-pages";
+import toolGitDatesJson from "../../../../generated/tool-git-dates.json";
+
+const toolGitDates = toolGitDatesJson as Record<string, string>;
 
 const GENERATED_TOOL_PATH = /^\/tools\/generated\/([^/]+)$/;
 const PREMIUM_SCHEMA_PATH = /^\/tools\/premium-schema\/([^/]+)$/;
@@ -21,16 +24,6 @@ const CONTENT_SOURCE_FILES = {
 } as const;
 
 const staticPagePathSet = new Set(getStaticPages().map((page) => page.path));
-
-const toolGitDates: Record<string, string> = (() => {
-  try {
-    const filePath = path.join(process.cwd(), "generated/tool-git-dates.json");
-    if (fs.existsSync(filePath)) {
-      return JSON.parse(fs.readFileSync(filePath, "utf8"));
-    }
-  } catch {}
-  return {};
-})();
 
 function readFileMtime(filePath: string): Date | null {
   try {
