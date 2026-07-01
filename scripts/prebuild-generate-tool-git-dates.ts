@@ -35,6 +35,7 @@ export function run() {
   }
 
   const datesMap: Record<string, string> = {};
+  let missingCount = 0;
 
   // 1. Scan generated calculators (generated/*.ts)
   if (fs.existsSync(GENERATED_DIR)) {
@@ -44,6 +45,10 @@ export function run() {
         const slug = file.replace(/\.ts$/, "");
         const filePath = path.join(GENERATED_DIR, file);
         const gitDate = getGitCommitDate(filePath);
+        if (!gitDate) {
+          missingCount++;
+          console.warn(`[WARN] Git date lookup missed for generated tool: ${slug}`);
+        }
         datesMap[slug] = gitDate || getFileMtimeIso(filePath);
       }
     }
@@ -54,20 +59,55 @@ export function run() {
     const files = fs.readdirSync(PREMIUM_SCHEMAS_DIR);
     for (const file of files) {
       if (file.endsWith(".ts") && file !== "index.ts") {
-        const slug = file.replace(/\.ts$/, "");
+        const fileSlug = file.replace(/\.ts$/, "");
         const filePath = path.join(PREMIUM_SCHEMAS_DIR, file);
         const gitDate = getGitCommitDate(filePath);
-        // Only override if not already scanned or git date is newer
+        if (!gitDate) {
+          missingCount++;
+          console.warn(`[WARN] Git date lookup missed for premium schema: ${fileSlug}`);
+        }
         const resolved = gitDate || getFileMtimeIso(filePath);
-        if (!datesMap[slug] || new Date(resolved) > new Date(datesMap[slug])) {
-          datesMap[slug] = resolved;
+        if (!datesMap[fileSlug] || new Date(resolved) > new Date(datesMap[fileSlug])) {
+          datesMap[fileSlug] = resolved;
+        }
+
+        // Parse file content to discover nested schema IDs (e.g. for multi-schema files)
+        try {
+          const content = fs.readFileSync(filePath, "utf8");
+          const idMatches = [...content.matchAll(/^\s*(?:id|legacyPaidSlug):\s*["']([^"']+)["']/gm)];
+          for (const match of idMatches) {
+            const schemaId = match[1];
+            if (!datesMap[schemaId] || new Date(resolved) > new Date(datesMap[schemaId])) {
+              datesMap[schemaId] = resolved;
+            }
+          }
+        } catch (e) {
+          console.error(`Failed to parse schema IDs in file: ${filePath}`, e);
         }
       }
     }
   }
 
+  // 3. Scan content source files
+  const contentSourceFiles: Record<string, string> = {
+    guides: "src/lib/content/authority-guides.ts",
+    seoLandings: "src/lib/infrastructure/seo/programmatic-seo-pages.ts",
+    premiumRegistry: "src/lib/features/premium-schema/schema-registry.ts",
+    manifest: "src/lib/infrastructure/seo/sitemap-manifest.ts",
+    casestudies: "src/lib/features/case-studies/case-study-registry.ts",
+  };
+
+  for (const [key, relativePath] of Object.entries(contentSourceFiles)) {
+    const filePath = path.join(ROOT, relativePath);
+    const gitDate = getGitCommitDate(filePath);
+    datesMap[`source:${key}`] = gitDate || getFileMtimeIso(filePath);
+  }
+
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(datesMap, null, 2), "utf8");
   console.log(`Successfully generated ${OUTPUT_FILE} with ${Object.keys(datesMap).length} entries.`);
+  if (missingCount > 0) {
+    console.warn(`[WARN] Git date lookup missed for ${missingCount} file paths.`);
+  }
 }
 
 if (require.main === module) {

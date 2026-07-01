@@ -10,8 +10,22 @@ import toolGitDatesJson from "../../../../generated/tool-git-dates.json";
 
 const toolGitDates = toolGitDatesJson as Record<string, string>;
 
-const GENERATED_TOOL_PATH = /^\/tools\/generated\/([^/]+)$/;
-const PREMIUM_SCHEMA_PATH = /^\/tools\/premium-schema\/([^/]+)$/;
+const PREMIUM_ANALYZER_TO_SCHEMA_ID: Record<string, string> = {
+  "darcy-weisbach-analyzer": "darcy-weisbach-pipe-flow-calculator",
+  "lmtd-heat-exchanger-analyzer": "lmtd-heat-exchanger-calculator",
+  "standard-time-work-study": "standard-time-work-study-calculator",
+  "learning-curve-cost-projector": "learning-curve-calculator",
+  "spring-design-analyzer": "spring-design-calculator",
+  "carbon-footprint-full-analyzer": "carbon-footprint-calculator",
+  "regression-correlation-analyzer": "regression-analyzer",
+  "sample-size-power-analyzer": "sample-size-calculator",
+  "anova-variance-analyzer": "anova-analyzer",
+  "roi-payback-analyzer": "roi-analyzer",
+  "belt-pulley-gear-analyzer": "belt-pulley-gear-calculator",
+  "hydraulic-cylinder-force-analyzer": "hydraulic-cylinder-tonnage-power-calculator",
+};
+
+const TOOL_PATH = /^\/tools\/(?:generated|premium-schema|premium)\/([^/]+)$/;
 const CASE_STUDY_PATH = /^\/case-studies\/([^/]+)$/;
 const AUTHORITY_GUIDE_PATH = /^\/guides\/([^/]+)$/;
 const SEO_LANDING_PATH = /^\/seo\/([^/]+)$/;
@@ -48,8 +62,20 @@ function readCachedFileMtime(key: keyof typeof CONTENT_SOURCE_FILES): Date | nul
   return readFileMtime(CONTENT_SOURCE_FILES[key]);
 }
 
+function readCachedFileGitDate(key: string, fallback: Date): Date {
+  const gitDateStr = toolGitDates[`source:${key}`];
+  if (gitDateStr) {
+    const parsed = new Date(gitDateStr);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed;
+    }
+  }
+  return fallback;
+}
+
 function resolveGeneratedOrPremiumToolLastMod(slug: string, fallback: Date): Date {
-  const gitDateStr = toolGitDates[slug];
+  const lookupSlug = PREMIUM_ANALYZER_TO_SCHEMA_ID[slug] ?? slug;
+  const gitDateStr = toolGitDates[lookupSlug];
   if (gitDateStr) {
     const parsed = new Date(gitDateStr);
     if (!Number.isNaN(parsed.getTime())) {
@@ -57,7 +83,7 @@ function resolveGeneratedOrPremiumToolLastMod(slug: string, fallback: Date): Dat
     }
   }
 
-  const iso = getGeneratedToolLastUpdatedIso(slug);
+  const iso = getGeneratedToolLastUpdatedIso(lookupSlug);
   if (iso) {
     const parsed = new Date(iso);
     if (!Number.isNaN(parsed.getTime())) {
@@ -68,7 +94,7 @@ function resolveGeneratedOrPremiumToolLastMod(slug: string, fallback: Date): Dat
   const premiumSchemaPath = path.join(
     process.cwd(),
     "src/lib/features/premium-schema/schemas",
-    `${slug}.ts`,
+    `${lookupSlug}.ts`,
   );
   const premiumMtime = readFileMtime(premiumSchemaPath);
   if (premiumMtime) {
@@ -114,34 +140,29 @@ export function resolveSitemapLastModified(
   fallback: Date,
   caseStudyLastMod: ReadonlyMap<string, Date>,
 ): Date {
-  const generatedMatch = routePath.match(GENERATED_TOOL_PATH);
-  if (generatedMatch) {
-    return resolveGeneratedOrPremiumToolLastMod(generatedMatch[1], fallback);
-  }
-
-  const premiumMatch = routePath.match(PREMIUM_SCHEMA_PATH);
-  if (premiumMatch) {
-    return resolveGeneratedOrPremiumToolLastMod(premiumMatch[1], fallback);
+  const toolMatch = routePath.match(TOOL_PATH);
+  if (toolMatch) {
+    return resolveGeneratedOrPremiumToolLastMod(toolMatch[1], fallback);
   }
 
   const caseStudyMatch = routePath.match(CASE_STUDY_PATH);
   if (caseStudyMatch) {
-    return caseStudyLastMod.get(caseStudyMatch[1]) ?? fallback;
+    return caseStudyLastMod.get(caseStudyMatch[1]) ?? readCachedFileGitDate("manifest", fallback);
   }
 
   if (routePath.match(AUTHORITY_GUIDE_PATH)) {
-    return readCachedFileMtime("guides") ?? fallback;
+    return readCachedFileGitDate("guides", fallback);
   }
 
   if (routePath.match(SEO_LANDING_PATH)) {
-    return readCachedFileMtime("seoLandings") ?? fallback;
+    return readCachedFileGitDate("seoLandings", fallback);
   }
 
   if (staticPagePathSet.has(routePath)) {
-    return readCachedFileMtime("manifest") ?? fallback;
+    return readCachedFileGitDate("manifest", fallback);
   }
 
-  return fallback;
+  return readCachedFileGitDate("manifest", fallback);
 }
 
 export function getSitemapSourceLastModified(now = new Date()): Date {
