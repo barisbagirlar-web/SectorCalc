@@ -249,8 +249,9 @@ export function SiteHeader({
 
           <div className="sc-right">
             <AuthStatusIndicator />
-            <Link href={accountHref} className="sc-signin">{t.signin}</Link>
-            <Link href="/signup" className="sc-getstarted">{t.getStarted}</Link>
+            {!isAuthenticated && (
+              <Link href="/signup" className="sc-getstarted">{t.getStarted}</Link>
+            )}
             <button className="sc-burger" onClick={()=>setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 {mobileOpen
@@ -301,8 +302,14 @@ export function SiteHeader({
             )}
           </div>
           <div className="sc-draw-cta">
-            <Link href="/signup" className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>
-            <Link href={accountHref} className="sc-signin" onClick={()=>setMobileOpen(false)}>{t.signin}</Link>
+            {isAuthenticated ? (
+              <Link href="/account" className="sc-getstarted" onClick={()=>setMobileOpen(false)}>My Account</Link>
+            ) : (
+              <>
+                <Link href="/signup" className="sc-getstarted" onClick={()=>setMobileOpen(false)}>{t.getStarted}</Link>
+                <Link href="/login" className="sc-signin" onClick={()=>setMobileOpen(false)}>{t.signin}</Link>
+              </>
+            )}
           </div>
         </div>
       </header>
