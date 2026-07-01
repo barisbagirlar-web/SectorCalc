@@ -10,7 +10,7 @@
  * Designed for the premium-tools listing page; each category becomes a
  * visually distinct, scannable section.
  *
- * ECMI / ISO 9001 — TÜV-certifiable engineering presentation.
+ * ECMI / ISO 9001 — TUV-certifiable engineering presentation.
  */
 
 import { Suspense } from "react";

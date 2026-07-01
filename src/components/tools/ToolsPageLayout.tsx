@@ -17,7 +17,7 @@ function ToolsPageLayoutChrome({
   subtitle,
   children,
   searchPlaceholder = "Ara...",
-  categoryTitle = "KATEGORİYE GÖRE GÖZ AT",
+  categoryTitle = "BROWSE BY CATEGORY",
 }: ToolsPageLayoutProps) {
   const { searchQuery, setSearchQuery } = useToolsPageSearch();
 

@@ -89,7 +89,7 @@ const PRO_TOOLS_EN = [
   { slug: 'koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator',                  name: 'Preventive Maintenance Frequency & Cost Optimisation',               sector: 'Maintenance & Reliability' },
   { slug: 'kritiklik-risk-matrisi-ve-bakim-stratejisi-secim-calculator',                 name: 'Criticality Risk Matrix & Maintenance Strategy Selection',           sector: 'Maintenance & Reliability' },
   { slug: 'mtbf-mttr-ve-kullanilabilirlik-finansal-calculator',                          name: 'MTBF/MTTR Availability — Financial Impact',                          sector: 'Maintenance & Reliability' },
-  { slug: 'yedek-parca-stok-seviyesi-ve-durus-riski-optimizasyon-calculator',           name: 'Spare Parts Stock Level & Downtime Risk Optimisation',               sector: 'Maintenance & Reliability' },
+  { slug: 'spare-parts-stock-level-and-downtime-risk-optimization-calculator',           name: 'Spare Parts Stock Level & Downtime Risk Optimisation',               sector: 'Maintenance & Reliability' },
   // Construction
   { slug: 'beton-karisim-tasarimi-ve-maliyet-optimizasyon-calculator',                   name: 'Concrete Mix Design & Cost Optimisation',                            sector: 'Construction' },
   { slug: 'gecici-isler-ve-santiye-tesisleri-kurulum-maliyet-calculator',                name: 'Temporary Works & Site Facilities Setup Cost',                       sector: 'Construction' },

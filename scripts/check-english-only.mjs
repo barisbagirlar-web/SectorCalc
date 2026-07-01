@@ -227,10 +227,10 @@ const EXCLUDE_PATHS = [
   /\/scripts\//,
 
   // Components directory — read-only territory, report separately
-  /\/src\/components\//,
+  //src/__components_disabled__//,
 
   // App route files — read-only territory
-  /\/src\/app\//,
+  //src/__app_disabled__//,
 
   // Regional unit engine — legitimate TRY currency definition
   /regional-unit-engine\.ts/,

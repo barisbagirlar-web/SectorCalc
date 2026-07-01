@@ -6,7 +6,7 @@
  * - Category title
  * - Tool count (+ PRO badge)
  *
- * Design matches homepage "Sektörel Hesaplama Araçları" style.
+ * Design matches homepage "Sectoral Calculation Tools" style.
  * ECMI / ISO 9001 — Industrial-grade taxonomy display.
  */
 

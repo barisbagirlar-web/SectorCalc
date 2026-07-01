@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
       {
         ok: false,
         error: "rate_limited",
-        message: "Çok fazla istek, lütfen biraz bekleyin.",
+        message: "Too many requests, please wait a moment.",
       },
       { status: 429 },
     );

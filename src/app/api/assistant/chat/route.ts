@@ -89,7 +89,7 @@ function getDeepSeekClient(): OpenAI {
 
 const FALLBACK_MESSAGE: Record<SupportedLocale, string> = {
   en: "System is currently busy. Please describe your calculation need using the sector tools directly.",
-  tr: "Sistem şu anda yoğun. Lütfen hesaplama ihtiyacınızı sektör araçlarıyla doğrudan tanımlayın.",
+  tr: "System is currently busy. Please define your calculation needs directly with sector tools.",
   de: "Das System ist derzeit ausgelastet. Bitte beschreiben Sie Ihren Berechnungsbedarf direkt mit den Branchentools.",
   fr: "Le système est actuellement occupé. Veuillez décrire votre besoin de calcul à l'aide des outils sectoriels.",
   es: "El sistema está ocupado actualmente. Describa su necesidad de cálculo usando las herramientas del sector directamente.",

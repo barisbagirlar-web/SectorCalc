@@ -8,8 +8,8 @@ import { createPageMetadata } from "@/lib/infrastructure/metadata";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: "Yeni Başarı Hikayesi (Admin)",
-    description: "Schema.org destekli başarı hikayesi taslağı oluşturun.",
+    title: "New Case Study (Admin)",
+    description: "Create a Schema.org supported case study draft.",
     path: "/admin/case-studies/new",
   }),
   robots: { index: false, follow: false },
@@ -20,8 +20,8 @@ export default function AdminNewCaseStudyPage() {
     <PageLayout>
       <PageHero
         eyebrow="Admin"
-        title="Yeni başarı hikayesi"
-        subtitle="Hikayeni tek metin kutusuna yapıştır; AI alanları otomatik doldursun."
+        title="New case study"
+        subtitle="Paste your story into a single text box; AI automatically fills fields."
       />
 
       <section className="bg-off-white py-10 md:py-14">

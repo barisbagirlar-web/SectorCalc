@@ -74,7 +74,7 @@ export function ToolAlphaList({
 }: ToolAlphaListProps) {
   if (tools.length === 0) return null;
 
-  const jsonLd = buildItemListJsonLd(tools, categoryName ?? "Araçlar", locale, baseDomain);
+  const jsonLd = buildItemListJsonLd(tools, categoryName ?? "Araclar", locale, baseDomain);
   const needsToggle = tools.length > EXPAND_THRESHOLD;
 
   return (

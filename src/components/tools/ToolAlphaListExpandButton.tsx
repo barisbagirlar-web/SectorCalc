@@ -38,7 +38,7 @@ export function ToolAlphaListExpandButton({
       >
         {expanded
           ? `Gizle`
-          : `Tümünü Göster (${total} araç)`}
+          : `Show All (${total} tools)`}
       </button>
     </div>
   );

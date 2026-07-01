@@ -93,7 +93,7 @@ export function CaseStudyEditor({ content, onChange, placeholder }: CaseStudyEdi
       return;
     }
     const previousUrl = editor.getAttributes("link").href as string | undefined;
-    const url = window.prompt("Bağlantı URL'si girin (https://...)", previousUrl ?? "https://");
+    const url = window.prompt("Enter Link URL (https://...)", previousUrl ?? "https://");
     if (url === null) {
       return;
     }
@@ -119,34 +119,34 @@ export function CaseStudyEditor({ content, onChange, placeholder }: CaseStudyEdi
     <div className="overflow-hidden rounded-lg border border-slate/25 bg-white shadow-sm">
       <div className="flex flex-wrap gap-1 border-b border-slate/15 bg-off-white px-2 py-2">
         <ToolbarButton
-          label="Kalın"
+          label="Bold"
           pressed={editor.isActive("bold")}
           onClick={() => editor.chain().focus().toggleBold().run()}
         >
           <Bold className="h-4 w-4" />
         </ToolbarButton>
         <ToolbarButton
-          label="İtalik"
+          label="Italic"
           pressed={editor.isActive("italic")}
           onClick={() => editor.chain().focus().toggleItalic().run()}
         >
           <Italic className="h-4 w-4" />
         </ToolbarButton>
         <ToolbarButton
-          label="Madde işaretli liste"
+          label="Bulleted list"
           pressed={editor.isActive("bulletList")}
           onClick={() => editor.chain().focus().toggleBulletList().run()}
         >
           <List className="h-4 w-4" />
         </ToolbarButton>
         <ToolbarButton
-          label="Numaralı liste"
+          label="Numbered list"
           pressed={editor.isActive("orderedList")}
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
         >
           <ListOrdered className="h-4 w-4" />
         </ToolbarButton>
-        <ToolbarButton label="Bağlantı ekle" pressed={editor.isActive("link")} onClick={addLink}>
+        <ToolbarButton label="Add link" pressed={editor.isActive("link")} onClick={addLink}>
           <Link2 className="h-4 w-4" />
         </ToolbarButton>
       </div>

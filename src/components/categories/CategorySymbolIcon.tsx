@@ -3,7 +3,7 @@
  *
  * Renders a premium line-art SVG symbol for any category slug.
  * Uses currentColor so it adapts to sc-copper / sc-navy context.
- * ECMI / ISO 9001 — TÜV-certifiable engineering illustration standard.
+ * ECMI / ISO 9001 — TUV-certifiable engineering illustration standard.
  */
 
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";

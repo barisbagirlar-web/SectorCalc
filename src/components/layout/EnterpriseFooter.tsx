@@ -247,7 +247,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             }
           }
 
-          /* Footer öncesi CTA/Tagline bölümü */
+          /* Pre-footer CTA/Tagline section */
           .footer-cta,
           .tagline-section,
           .bottom-cta-section {
@@ -260,7 +260,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             text-align: center;
           }
 
-          /* İçerik container - sayfa genişliği ile orantılı */
+          /* Content container - proportional to page width */
           .footer-cta .container,
           .footer-cta .content-wrapper {
             max-width: 1400px;
@@ -268,7 +268,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             padding: 0 24px;
           }
 
-          /* Ana metin - responsive ve orantılı */
+          /* Main text - responsive and proportional */
           .footer-cta p,
           .footer-cta .tagline,
           .footer-cta .cta-text {
@@ -282,7 +282,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             letter-spacing: -0.02em;
           }
 
-          /* Alt metin/açıklama varsa */
+          /* If there is subtext/description */
           .footer-cta .subtitle,
           .footer-cta .description {
             font-size: clamp(16px, 2vw, 18px);
@@ -293,7 +293,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             margin-right: auto;
           }
 
-          /* CTA butonları varsa */
+          /* If there are CTA buttons */
           .footer-cta .cta-buttons {
             margin-top: 40px;
             display: flex;
@@ -337,7 +337,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             background: #F3F4F6;
           }
 
-          /* Responsive düzenleme */
+          /* Responsive layout */
           @media (max-width: 768px) {
             .footer-cta {
               padding: 60px 20px;
@@ -359,7 +359,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
             }
           }
 
-          /* Alternatif: Daha belirgin görsel için gradient */
+          /* Alternative: Gradient for more prominent visual */
           .footer-cta.gradient {
             background: linear-gradient(135deg, #F5F3EF 0%, #FFFFFF 50%, #F9FAFB 100%);
           }

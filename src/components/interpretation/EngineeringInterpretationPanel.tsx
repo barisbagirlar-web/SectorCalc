@@ -56,27 +56,27 @@ const FN_CATEGORY_PATTERNS: Array<{
 }> = [
   {
     labelKey: "fieldNoteAssumptions",
-    patterns: [/assumption/i, /varsayım/i, /annahme/i, /hypothèse/i, /supuesto/i, /افتراض/i],
+    patterns: [/assumption/i, /assumption_tr/i, /annahme/i, /hypothèse/i, /supuesto/i, /افتراض/i],
   },
   {
     labelKey: "fieldNoteDataQuality",
-    patterns: [/data quality/i, /veri kalitesi/i, /datengüte/i, /qualité des données/i, /calidad de datos/i, /جودة البيانات/i],
+    patterns: [/data quality/i, /data_quality_tr/i, /datenguete/i, /qualite des donnees/i, /calidad de datos/i, /data_quality_arت/i],
   },
   {
     labelKey: "fieldNoteExpertConsult",
-    patterns: [/expert/i, /uzman/i, /fachmann/i, /spécialiste/i, /perito/i, /خبير/i, /consult/i, /danış/i],
+    patterns: [/expert/i, /expert_tr/i, /fachmann/i, /spécialiste/i, /perito/i, /خبير/i, /consult/i, /consult_tr/i],
   },
   {
     labelKey: "fieldNoteBoundary",
-    patterns: [/boundary/i, /sınır/i, /grenze/i, /limite/i, /límite/i, /حد/i, /range/i, /aralık/i, /bereich/i],
+    patterns: [/boundary/i, /boundary_tr/i, /grenze/i, /limite/i, /límite/i, /حد/i, /range/i, /range_tr/i, /bereich/i],
   },
   {
     labelKey: "fieldNoteNextDepth",
-    patterns: [/next step/i, /sonraki adım/i, /nächster/i, /prochaine/i, /siguiente/i, /الخطوة/i, /phase 2/i, /faz 2/i, /additional/i, /ek/i],
+    patterns: [/next step/i, /next_step_tr/i, /nächster/i, /prochaine/i, /siguiente/i, /الخطوة/i, /phase 2/i, /faz 2/i, /additional/i, /ek/i],
   },
   {
     labelKey: "fieldNoteRegulatory",
-    patterns: [/regulat/i, /yönetmelik/i, /vorschrift/i, /réglement/i, /reglamento/i, /لائحة/i, /iso/i, /ansi/i, /din/i, /astm/i, /standard/i],
+    patterns: [/regulat/i, /regulation_tr/i, /vorschrift/i, /réglement/i, /reglamento/i, /لائحة/i, /iso/i, /ansi/i, /din/i, /astm/i, /standard/i],
   },
 ];
 

@@ -380,7 +380,7 @@ const EXCLUDE_PATHS = [
   /create-verification-item\.test\.ts/,
   /tool-guide-blocklist\.ts/,
   /roadmap-free-batch[12]-specs\.generated\.ts/,
-  /\/scripts\//, /\/src\/components\//, /\/src\/app\//,
+  /\/scripts\//, //src/__components_disabled__//, //src/__app_disabled__//,
   /regional-unit-engine\.ts/,
   /\/src\/lib\/verdict\/verdict-engine\.ts/,
   /runtime-trust-engine\.ts/,

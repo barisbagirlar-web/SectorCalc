@@ -53,7 +53,7 @@ export function ImageUpload({
               className="inline-flex min-h-[36px] items-center gap-1 text-xs font-medium text-amber transition hover:text-deep-navy"
             >
               <X className="h-3.5 w-3.5" />
-              Görseli kaldır
+              Remove image
             </button>
           ) : null}
           {helpText ? <p className="text-xs text-text-secondary">{helpText}</p> : null}

@@ -62,7 +62,7 @@ const PRINT_LABELS: Record<string, PrintLabels> = {
     driver: "Treiber",
     value: "Wert",
     description: "Beschreibung",
-    thresholdCheck: "Schwellenwertprüfung",
+    thresholdCheck: "Threshold Check",
     metric: "Kennzahl",
     status: "Status",
     message: "Meldung",

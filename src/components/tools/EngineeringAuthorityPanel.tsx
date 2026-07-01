@@ -23,7 +23,7 @@ export function EngineeringAuthorityPanel({ toolSlug, className = '' }: Engineer
           </p>
         ) : (
           <p>
-            This calculation is built with TÜV audit-ready engineering documentation quality and ISO 9001-aligned calculation governance. The result is reference-backed, formula traceable, and supported by internal verification checks.
+            This calculation is built with TUV audit-ready engineering documentation quality and ISO 9001-aligned calculation governance. The result is reference-backed, formula traceable, and supported by internal verification checks.
           </p>
         )}
       </div>
@@ -34,7 +34,7 @@ export function EngineeringAuthorityPanel({ toolSlug, className = '' }: Engineer
             key={status} 
             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
           >
-            {status === "tuv_audit_ready_documentation" && "TÜV audit-ready documentation quality"}
+            {status === "tuv_audit_ready_documentation" && "TUV audit-ready documentation quality"}
             {status === "iso_9001_aligned_governance" && "ISO 9001-aligned governance"}
             {status === "reference_backed" && "Reference-backed"}
             {status === "formula_traceable" && "Formula traceable"}

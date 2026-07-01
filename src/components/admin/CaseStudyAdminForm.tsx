@@ -129,7 +129,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
     })();
   }, [firestoreLoaded, getIdToken, isAdmin, isFirestoreEdit, studyId]);
 
-  const pageTitle = mode === "create" ? "Yeni Başarı Hikayesi" : "Başarı Hikayesini Düzenle";
+  const pageTitle = mode === "create" ? "New Case Study" : "Edit Case Study";
 
   const update = <K extends keyof CaseStudyFormValues>(field: K, value: CaseStudyFormValues[K]) => {
     setValues((prev) => ({ ...prev, [field]: value }));
@@ -160,7 +160,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
     setMessage(null);
 
     if (!values.title.trim()) {
-      setError("Başlık zorunludur.");
+      setError("Title is required.");
       setSubmitting(false);
       return;
     }
@@ -170,8 +170,8 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
     downloadCaseStudyDraftExport(draft);
     setMessage(
       isPublishedEdit
-        ? "Taslak kaydedildi ve JSON indirildi. Yayına almak için repo dosyalarını güncelleyip deploy edin."
-        : "Taslak kaydedildi ve JSON indirildi. Yayına almak için dosyayı repoya ekleyin.",
+        ? "Draft saved and JSON downloaded. To publish, update repo files and deploy."
+        : "Draft saved and JSON downloaded. To publish, add the file to the repo.",
     );
     setSubmitting(false);
 
@@ -182,7 +182,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
 
   const handlePublish = async () => {
     if (!values.title.trim()) {
-      setError("Başlık zorunludur.");
+      setError("Title is required.");
       return;
     }
 
@@ -193,7 +193,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
     try {
       const token = await getIdToken(true);
       if (!token) {
-        setError("Yönetici oturumu bulunamadı. Lütfen tekrar giriş yapın.");
+        setError("Admin session not found. Please log in again.");
         return;
       }
 
@@ -214,23 +214,23 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
 
       if (!response.ok) {
         const payload = (await response.json().catch(() => null)) as { error?: string } | null;
-        setError(payload?.error ?? "Yayınlanamadı.");
+        setError(payload?.error ?? "Could not publish.");
         return;
       }
 
       saveCaseStudyDraft(formValuesToDraft(values));
-      setMessage("Başarı hikayesi Firestore'a yayınlandı. Public sayfa en geç 60 saniye içinde güncellenir.");
+      setMessage("Case study published to Firestore. Public page updates within 60 seconds.");
       router.push("/admin/case-studies");
     } catch (publishError) {
       console.error("Publish error:", publishError);
-      setError("Bağlantı hatası. Lütfen tekrar deneyin.");
+      setError("Connection error. Please try again.");
     } finally {
       setPublishing(false);
     }
   };
 
   if (authLoading) {
-    return <p className="text-sm text-text-secondary">Yönetici erişimi kontrol ediliyor…</p>;
+    return <p className="text-sm text-text-secondary">Checking admin access...</p>;
   }
 
   return (
@@ -239,7 +239,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
 
       {!isAdmin ? (
         <p className="mt-6 text-sm text-text-secondary">
-          Başarı hikayesi taslaklarını düzenlemek için yönetici hesabıyla giriş yapın.
+          Log in with an admin account to edit case study drafts.
         </p>
       ) : (
         <div className="mx-auto mt-6 max-w-4xl space-y-6">
@@ -251,7 +251,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                   href="/admin/case-studies/new"
                   className="text-sm font-medium text-sc-copper transition hover:text-deep-navy"
                 >
-                  Basit editör
+                  Simple editor
                 </Link>
               ) : null}
               <Link
@@ -259,20 +259,20 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                 className="inline-flex min-h-[44px] items-center gap-1 text-sm text-text-secondary transition hover:text-deep-navy"
               >
                 <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                Listeye Dön
+                Back to List
               </Link>
             </div>
           </div>
 
           <p className="text-sm text-text-secondary">
-            Tüm alanları doldurun. Kaydet ile tarayıcı taslağı ve JSON paketi oluşturulur; Yayınla ile
-            Firestore&apos;a yazılır ve public sayfa ISR ile güncellenir.
+            Fill all fields. Save creates a browser draft and JSON package; Publish writes to
+            written to Firestore and public page updated via ISR.
           </p>
 
           {isPublishedEdit ? (
             <p className="rounded-lg border border-amber/25 bg-amber/5 px-4 py-3 text-sm text-deep-navy">
-              Bu hikaye statik dosyalardan yayında. Kaydetme yalnızca tarayıcı taslağı oluşturur ve
-              JSON dışa aktarır.
+              This story is live from static files. Saving only creates a browser draft and
+              exports JSON.
             </p>
           ) : null}
 
@@ -290,11 +290,11 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
           <section className={sectionClass}>
             <h2 className={sectionTitleClass}>
               <FileText className="h-4 w-4" aria-hidden="true" />
-              Kimlik ve Künye
+              Identity and Details
             </h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <label className="block space-y-1">
-                <span className="text-sm font-medium text-deep-navy">Yayın Tarihi</span>
+                <span className="text-sm font-medium text-deep-navy">Publish Date</span>
                 <input
                   type="date"
                   value={values.publishedAt}
@@ -304,7 +304,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                 />
               </label>
               <label className="block space-y-1">
-                <span className="text-sm font-medium text-deep-navy">Okuma Süresi (dk)</span>
+                <span className="text-sm font-medium text-deep-navy">Reading Time (min)</span>
                 <input
                   type="number"
                   min={1}
@@ -315,33 +315,33 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
               </label>
             </div>
             <label className="mt-4 block space-y-1">
-              <span className="text-sm font-medium text-deep-navy">Başlık (H1) *</span>
+              <span className="text-sm font-medium text-deep-navy">Title (H1) *</span>
               <input
                 type="text"
                 value={values.title}
                 onChange={(event) => update("title", event.target.value)}
-                placeholder="Örn: CNC Atölyesi OEE'sini %18'den %61'e Çıkardı"
+                placeholder="Ex: CNC Shop Increased OEE from 18% to 61%"
                 className={fieldClass}
                 required
               />
             </label>
             <label className="mt-4 block space-y-1">
-              <span className="text-sm font-medium text-deep-navy">Alt Başlık</span>
+              <span className="text-sm font-medium text-deep-navy">Subtitle</span>
               <input
                 type="text"
                 value={values.subtitle}
                 onChange={(event) => update("subtitle", event.target.value)}
-                placeholder="Kısa özet cümlesi…"
+                placeholder="Short summary sentence..."
                 className={fieldClass}
               />
             </label>
             <label className="mt-4 block space-y-1">
-              <span className="text-sm font-medium text-deep-navy">Sektör</span>
+              <span className="text-sm font-medium text-deep-navy">Sector</span>
               <input
                 type="text"
                 value={values.industry}
                 onChange={(event) => update("industry", event.target.value)}
-                placeholder="Örn: Otomotiv Yan Sanayi"
+                placeholder="Ex: Automotive Supply Industry"
                 className={fieldClass}
               />
             </label>
@@ -350,38 +350,38 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
           <section className={sectionClass}>
             <h2 className={sectionTitleClass}>
               <MapPin className="h-4 w-4" aria-hidden="true" />
-              Konum ve Süre
+              Location and Duration
             </h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <label className="block space-y-1">
-                <span className="text-sm font-medium text-deep-navy">Ülke</span>
+                <span className="text-sm font-medium text-deep-navy">Country</span>
                 <input
                   type="text"
                   value={values.country}
                   onChange={(event) => update("country", event.target.value)}
-                  placeholder="Örn: Almanya"
+                  placeholder="Ex: Germany"
                   className={fieldClass}
                 />
               </label>
               <label className="block space-y-1">
-                <span className="text-sm font-medium text-deep-navy">Şehir</span>
+                <span className="text-sm font-medium text-deep-navy">City</span>
                 <input
                   type="text"
                   value={values.city}
                   onChange={(event) => update("city", event.target.value)}
-                  placeholder="Örn: Stuttgart"
+                  placeholder="Ex: Stuttgart"
                   className={fieldClass}
                 />
               </label>
             </div>
             <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
               <label className="block space-y-1">
-                <span className="text-sm font-medium text-deep-navy">Proje Süresi</span>
+                <span className="text-sm font-medium text-deep-navy">Project Duration</span>
                 <input
                   type="text"
                   value={values.projectDuration}
                   onChange={(event) => update("projectDuration", event.target.value)}
-                  placeholder="Örn: Ocak 2026 – Mayıs 2026"
+                  placeholder="Ex: January 2026 – May 2026"
                   className={fieldClass}
                 />
               </label>
@@ -421,10 +421,10 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
           <section className={sectionClass}>
             <h2 className={sectionTitleClass}>
               <Tag className="h-4 w-4" aria-hidden="true" />
-              Kullanılan Araçlar
+              Tools Used
             </h2>
             <label className="block space-y-1">
-              <span className="text-sm font-medium text-deep-navy">Slug&apos;lar (virgülle ayırın)</span>
+              <span className="text-sm font-medium text-deep-navy">Slugs (comma separated)</span>
               <input
                 type="text"
                 value={values.tools}
@@ -432,10 +432,10 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                 placeholder="oee-downtime-calculator, scrap-rate-optimizer"
                 className={fieldClass}
               />
-              <p className="text-xs text-text-secondary">Araç slug&apos;larını virgülle ayırarak yazın.</p>
+              <p className="text-xs text-text-secondary">Enter tool slugs separated by commas.</p>
             </label>
             <label className="mt-4 block space-y-1">
-              <span className="text-sm font-medium text-deep-navy">Kapak Görseli (URL)</span>
+              <span className="text-sm font-medium text-deep-navy">Cover Image (URL)</span>
               <input
                 type="text"
                 value={values.coverImage}
@@ -444,7 +444,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                 className={fieldClass}
               />
               <p className="text-xs text-text-secondary">
-                Statik dosya yolu girin. Örn: /img/case-studies/kapak.jpg
+                Enter static file path. Ex: /img/case-studies/cover.jpg
               </p>
             </label>
           </section>
@@ -452,7 +452,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
           <section className={sectionClass}>
             <h2 className={sectionTitleClass}>
               <FileText className="h-4 w-4" aria-hidden="true" />
-              Hikaye (Zorluk / Çözüm)
+              Story (Challenge / Solution)
             </h2>
             <div className="space-y-4">
               <label className="block space-y-1">
@@ -461,17 +461,17 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                   value={values.challenge}
                   onChange={(event) => update("challenge", event.target.value)}
                   rows={4}
-                  placeholder="Müşterinin karşılaştığı problemi yazın..."
+                  placeholder="Write the problem faced by the customer..."
                   className={`${fieldClass} min-h-[120px] resize-y`}
                 />
               </label>
               <label className="block space-y-1">
-                <span className="text-sm font-medium text-deep-navy">Çözüm (Solution)</span>
+                <span className="text-sm font-medium text-deep-navy">Solution</span>
                 <textarea
                   value={values.solution}
                   onChange={(event) => update("solution", event.target.value)}
                   rows={4}
-                  placeholder="Hangi modüller kullanıldı, hangi standartlar uygulandı?"
+                  placeholder="Which modules were used, which standards were applied?"
                   className={`${fieldClass} min-h-[120px] resize-y`}
                 />
               </label>
@@ -481,7 +481,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
           <section className={sectionClass}>
             <h2 className={sectionTitleClass}>
               <Star className="h-4 w-4" aria-hidden="true" />
-              Sonuçlar (Metrikler)
+              Results (Metrics)
             </h2>
             <div className="space-y-3">
               {values.results.map((row, index) => (
@@ -498,7 +498,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                         results: updateResultRow(prev.results, index, "metric", event.target.value),
                       }))
                     }
-                    placeholder="Metrik adı"
+                    placeholder="Metric name"
                     className={`${fieldClass} flex-1`}
                   />
                   <input
@@ -510,7 +510,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                         results: updateResultRow(prev.results, index, "before", event.target.value),
                       }))
                     }
-                    placeholder="Önce"
+                    placeholder="Before"
                     className={`${fieldClass} sm:w-24`}
                   />
                   <input
@@ -530,7 +530,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                     onClick={() => removeResult(index)}
                     className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-amber transition hover:text-deep-navy disabled:opacity-40"
                     disabled={values.results.length <= 1}
-                    aria-label="Metrik satırını sil"
+                    aria-label="Delete metric row"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
@@ -550,13 +550,13 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
           <section className={sectionClass}>
             <h2 className={sectionTitleClass}>
               <Users className="h-4 w-4" aria-hidden="true" />
-              Müşteri Görüşü (Opsiyonel)
+              Customer Feedback (Optional)
             </h2>
             <div className="space-y-3">
               <textarea
                 value={values.testimonialQuote}
                 onChange={(event) => update("testimonialQuote", event.target.value)}
-                placeholder="Müşteri sözü..."
+                placeholder="Customer quote..."
                 rows={2}
                 className={`${fieldClass} min-h-[80px] resize-y`}
               />
@@ -579,7 +579,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
                   type="text"
                   value={values.testimonialCompany}
                   onChange={(event) => update("testimonialCompany", event.target.value)}
-                  placeholder="Şirket"
+                  placeholder="Company"
                   className={fieldClass}
                 />
               </div>
@@ -591,7 +591,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
               href="/admin/case-studies"
               className="inline-flex min-h-[44px] items-center px-6 text-sm text-text-secondary transition hover:text-deep-navy"
             >
-              Vazgeç
+              Cancel
             </Link>
             <button
               type="button"
@@ -600,7 +600,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
               className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-slate/25 bg-white px-6 text-sm font-semibold text-deep-navy shadow-sm transition hover:bg-off-white disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Save className="h-4 w-4" aria-hidden="true" />
-              {submitting ? "Kaydediliyor…" : "Kaydet & JSON İndir"}
+              {submitting ? "Saving..." : "Save & Download JSON"}
             </button>
             <button
               type="button"
@@ -609,7 +609,7 @@ export function CaseStudyAdminForm({ studyId, mode }: CaseStudyAdminFormProps) {
               className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-emerald-700 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Rocket className="h-4 w-4" aria-hidden="true" />
-              {publishing ? "Yayınlanıyor…" : "Yayınla"}
+              {publishing ? "Publishing..." : "Publish"}
             </button>
           </div>
         </div>

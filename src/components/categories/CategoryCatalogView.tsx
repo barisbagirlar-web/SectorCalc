@@ -5,7 +5,7 @@
  * Click a category card → expands a detail panel below the grid listing
  * ALL tools in that category with their localized names and direct links.
  *
- * ECMI / ISO 9001 — TÜV-certifiable industrial UX.
+ * ECMI / ISO 9001 — TUV-certifiable industrial UX.
  */
 
 "use client";

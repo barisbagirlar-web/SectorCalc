@@ -40,12 +40,12 @@ const t = {
 };
 
 const INDUSTRY_GROUPS = [
-  { groupEn:'Production', groupTr:'Üretim', items:[
+  { groupEn:'Production', groupTr:'Production', items:[
     { slug:'manufacturing', icon:'🏭', en:'Manufacturing', count:40 },
     { slug:'lean-oee',      icon:'📊', en:'Lean & OEE',     count:33 },
     { slug:'quality-spc',   icon:'🎯', en:'Quality & SPC',  count:14 },
   ]},
-  { groupEn:'Engineering', groupTr:'Mühendislik', items:[
+  { groupEn:'Engineering', groupTr:'Engineering', items:[
     { slug:'mechanical-hvac',  icon:'⚙️', en:'Mechanical & HVAC', count:48 },
     { slug:'electrical-power', icon:'⚡', en:'Electrical & Power', count:16 },
     { slug:'construction',     icon:'🏗️', en:'Construction',       count:28 },

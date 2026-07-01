@@ -234,7 +234,7 @@
   box-sizing: border-box;
 }
 
-/* Tüm form elementleri için base stil */
+/* Base style for all form elements */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -274,7 +274,7 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
 }
 
-/* Select elementleri için özel düzenleme */
+/* Custom layout for select elements */
 select {
   padding-right: 40px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -284,7 +284,7 @@ select {
   cursor: pointer;
 }
 
-/* Form grupları için container */
+/* Container for form groups */
 .form-group {
   margin-bottom: 24px;
   width: 100%;
@@ -300,7 +300,7 @@ select {
   letter-spacing: 0.05em;
 }
 
-/* Input grupları (prefix/suffix için) */
+/* Input groups (for prefix/suffix) */
 .input-group {
   display: flex;
   align-items: stretch;
@@ -350,7 +350,7 @@ select {
   border-left: none;
 }
 
-/* Responsive düzenleme */
+/* Responsive layout */
 @media (max-width: 640px) {
   .input-group {
     flex-direction: column;
@@ -384,7 +384,7 @@ select {
   }
 }
 
-/* Disabled ve readonly durumları */
+/* Disabled and readonly states */
 input:disabled,
 select:disabled,
 textarea:disabled,
@@ -403,7 +403,7 @@ textarea::placeholder {
   opacity: 1;
 }
 
-/* Number input spinner kaldırma (isteğe bağlı) */
+/* Remove number input spinner (optional) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

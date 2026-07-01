@@ -1,4 +1,4 @@
-/** Trace AI popup devre dışı. AssistantGate hiçbir şey render etmez. */
+/** Trace AI popup disabled. AssistantGate renders nothing. */
 export function AssistantGate() {
   return null;
 }

@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "webhookUrl gerekli" }, { status: 400 });
     }
     if (!isAllowedWebhookUrl(webhookUrl)) {
-      return NextResponse.json({ error: "Geçersiz webhook URL" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid webhook URL" }, { status: 400 });
     }
 
     const response = await fetch(webhookUrl, {
@@ -60,6 +60,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true, status: response.status });
   } catch {
-    return NextResponse.json({ error: "Webhook gönderilemedi" }, { status: 500 });
+    return NextResponse.json({ error: "Webhook failed to send" }, { status: 500 });
   }
 }

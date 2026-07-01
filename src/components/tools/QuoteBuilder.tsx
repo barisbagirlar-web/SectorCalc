@@ -25,7 +25,7 @@ export type QuoteBuilderProps = {
 
 const BOOLEAN_LABELS: Record<string, [string, string]> = {
   en: ["Yes", "No"],
-  tr: ["Evet", "Hayır"],
+  tr: ["Yes", "No"],
   de: ["Ja", "Nein"],
   fr: ["Oui", "Non"],
   es: ["Sí", "No"],

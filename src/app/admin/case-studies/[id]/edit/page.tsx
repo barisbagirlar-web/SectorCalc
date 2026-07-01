@@ -29,8 +29,8 @@ export default async function AdminEditCaseStudyPage({ params }: PageProps) {
     <PageLayout>
       <PageHero
         eyebrow="Admin"
-        title="Başarı hikayesini düzenle"
-        subtitle={`${decodeURIComponent(id)} düzenleniyor. Canlı hikayeler public sayfada ancak repo commit ve deploy sonrası güncellenir.`}
+        title="Edit case study"
+        subtitle={`${decodeURIComponent(id)} editing. Live stories update on public page only after repo commit and deployncellenir.`}
       />
 
       <section className="bg-off-white py-10 md:py-14">
