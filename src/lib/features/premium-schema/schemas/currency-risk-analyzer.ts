@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "currency-risk-analyzer", legacyPaidSlug: "currency-risk-analyzer",
   name: "Currency Risk Analyzer", name_i18n: {"en":"Currency Risk Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.", painStatement_i18n: {"en":"fx riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar."},
+  painStatement: "Kur riski hedge edilmezse, döviz açık pozisyonu beklenmedik zararlara yol açar.", painStatement_i18n: {"en":"If FX risk is not hedged, the forex open position leads to unexpected losses."},
   inputs: [
     { id: "fxRevenue", label: "Döviz Gelir", label_i18n: {"en":"FX revenue"}, type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 0 }, helper: "", expertMeaning: "FX revenue", expertMeaning_i18n: {"en":"FX revenue"} },
     { id: "fxCost", label: "Döviz Gider", label_i18n: {"en":"FX cost"}, type: "number", unit: "USD", required: true, smartDefault: 600000, validation: { min: 0 }, helper: "", expertMeaning: "FX cost", expertMeaning_i18n: {"en":"FX cost"} },
@@ -23,7 +23,7 @@ export const CURRENCY_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "costOfHedge", label: "Hedge Cost", label_i18n: {"en":"Hedge Cost"}, unit: "USD", format: "currency" },
     { id: "netImpact", label: "Net Kur Etkisi", label_i18n: {"en":"Net fx Etkisi"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "unhedgedVaR", warning: 50000, critical: 200000, direction: "higher_is_bad", warningMessage: "Açık VaR > $50K — hedge oranı artırılmalı.", warningMessage_i18n: {"en":"Açık VaR > $50K — hedge rate artırılmalı."}, criticalMessage: "Açık VaR > $200K — acil hedge işlemi gerekli.", criticalMessage_i18n: {"en":"Açık VaR > $200K — urgent hedge işlemi gerekli."} }],
+  thresholds: [{ fieldId: "unhedgedVaR", warning: 50000, critical: 200000, direction: "higher_is_bad", warningMessage: "Açık VaR > $50K — hedge oranı artırılmalı.", warningMessage_i18n: {"en":"Open VaR > $50K — hedge rate must be increased."}, criticalMessage: "Açık VaR > $200K — acil hedge işlemi gerekli.", criticalMessage_i18n: {"en":"Open VaR > $200K — urgent hedge action required."} }],
   formulaPipeline: [
     { formulaId: "cost.fx_exposure", inputMap: {
         fxAmount: "fxRevenue",

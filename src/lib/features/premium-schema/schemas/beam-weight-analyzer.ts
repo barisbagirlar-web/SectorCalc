@@ -17,7 +17,7 @@ export const BEAM_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalWeight", label: "Total Weight", label_i18n: {"en":"Total Weight"}, unit: "ton", format: "number" },
     { id: "materialCost", label: "Material Cost", label_i18n: {"en":"Material Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "materialCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Malzeme > $50K — alternatif profil değerlendirilmeli.", warningMessage_i18n: {"en":"material > $50K — alternatif profil değerlendirilmeli."}, criticalMessage: "Malzeme > $150K — bütçe revizyonu gerekli.", criticalMessage_i18n: {"en":"material > $150K — budget revizyonu gerekli."} }],
+  thresholds: [{ fieldId: "materialCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Malzeme > $50K — alternatif profil değerlendirilmeli.", warningMessage_i18n: {"en":"Material > $50K — alternative profile should be evaluated."}, criticalMessage: "Malzeme > $150K — bütçe revizyonu gerekli.", criticalMessage_i18n: {"en":"material > $150K — budget revizyonu gerekli."} }],
   formulaPipeline: [
     { formulaId: "cost.beam_material", inputMap: {
         beamLength: "beamLength",
@@ -27,6 +27,6 @@ export const BEAM_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
         pricePerTon: "pricePerTon"
       }, outputId: "totalWeight" },
   ],
-  reportTemplate: { title: "Kiriş Ağırlık Raporu", title_i18n: {"en":"Kiriş Weight Raporu"}, sections: ["executive_summary", "thresholds", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Ağırlık = Kesit × Uzunluk × Adet × Yoğunluk.", "Kesit alanı profil tipine göre lookup tablosundan."],assumptionNotes_i18n:[{"en":"Ağırlık = Kesit × Uzunluk × Adet × Yoğunluk."},{"en":"Kesit alanı profil tipine göre lookup tablosundan."}]},
+  reportTemplate: { title: "Kiriş Ağırlık Raporu", title_i18n: {"en":"Beam Weight Report"}, sections: ["executive_summary", "thresholds", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Ağırlık = Kesit × Uzunluk × Adet × Yoğunluk.", "Kesit alanı profil tipine göre lookup tablosundan."],assumptionNotes_i18n:[{"en":"Weight = Section × Length × Quantity × Density."},{"en":"Section area from lookup table by profile type."}]},
 };

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const MOQ_STOCK_BALANCE_SCHEMA: PremiumCalculatorSchema = {
   id: "moq-stock-balance-analyzer", legacyPaidSlug: "moq-stock-balance-analyzer",
   name: "MOQ Stock Balance Analyzer", name_i18n: {"en":"MOQ Stock Balance Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "MOQ ile gerçek talep arasındaki fark hesaplanmazsa ya stok fazlası cezası ya da fırsat maliyeti oluşur.", painStatement_i18n: {"en":"MOQ ile Actual demand arasındaki difference if not calculated ya Inventory fazlası cezası ya da Opportunity Cost oluşur."},
+  painStatement: "MOQ ile gerçek talep arasındaki fark hesaplanmazsa ya stok fazlası cezası ya da fırsat maliyeti oluşur.", painStatement_i18n: {"en":"The difference between MOQ and actual demand, if not calculated, results in either excess inventory penalty or opportunity cost."},
   inputs: [
     { id: "moqQty", label: "Minimum order quantity", label_i18n: {"en":"Minimum order quantity"}, type: "number", unit: "adet", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Minimum order quantity", expertMeaning_i18n: {"en":"Minimum order quantity"} },
     { id: "actualDemand", label: "Actual demand per order", label_i18n: {"en":"Actual demand per order"}, type: "number", unit: "adet/sipariş", required: true, smartDefault: 300, validation: { min: 1 }, helper: "", expertMeaning: "Actual demand per order", expertMeaning_i18n: {"en":"Actual demand per order"} },
@@ -20,7 +20,7 @@ export const MOQ_STOCK_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "priceBreakSavings", label: "Fiyat Krlm Tasarrufu", label_i18n: {"en":"Fiyat Krlm Tasarrufu"}, unit: "USD/yıl", format: "currency" },
     { id: "netBenefit", label: "Net Fayda", label_i18n: {"en":"Net Fayda"}, unit: "USD/yıl", format: "currency" },
   ],
-  thresholds: [{ fieldId: "moqPenalty", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "MOQ cezası > $5K — tedarikçi ile MOQ yeniden müzakere edilmeli.", warningMessage_i18n: {"en":"MOQ cezası > $5K — supplier ile MOQ re müzakere edilmeli."}, criticalMessage: "MOQ cezası > $15K — alternatif tedarikçi değerlendirilmeli.", criticalMessage_i18n: {"en":"MOQ cezası > $15K — alternatif supplier değerlendirilmeli."} }],
+  thresholds: [{ fieldId: "moqPenalty", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "MOQ cezası > $5K — tedarikçi ile MOQ yeniden müzakere edilmeli.", warningMessage_i18n: {"en":"MOQ penalty > $5K — MOQ should be renegotiated with the supplier."}, criticalMessage: "MOQ cezası > $15K — alternatif tedarikçi değerlendirilmeli.", criticalMessage_i18n: {"en":"MOQ penalty > $15K — alternative supplier should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.moq_optimal_qty", inputMap: { actualDemand: "actualDemand", moqQty: "moqQty" ,
         eopQty: "eopQty",
@@ -36,5 +36,5 @@ export const MOQ_STOCK_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.moq_net_benefit", inputMap: { priceBreakSavings: "priceBreakSavings", moqPenalty: "moqPenalty" }, outputId: "netBenefit" },
   ],
   reportTemplate: { title: "MOQ Stock Balance Report", title_i18n: {"en":"MOQ Stock Balance Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["MOQ cezası = max(0, MOQ − talep) × birim maliyet × sipariş sayısı.", "Optimum miktar = max(talep, MOQ).", "Fiyat kırılım avantajı skontolu fiyat bazında hesaplanır."],assumptionNotes_i18n:[{"en":"MOQ cezası = max(0, MOQ − talep) × birim maliyet × sipariş sayısı."},{"en":"Optimum miktar = max(talep, MOQ)."},{"en":"Fiyat kırılım avantajı skontolu fiyat bazında hesaplanır."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["MOQ cezası = max(0, MOQ − talep) × birim maliyet × sipariş sayısı.", "Optimum miktar = max(talep, MOQ).", "Fiyat kırılım avantajı skontolu fiyat bazında hesaplanır."],assumptionNotes_i18n:[{"en":"MOQ penalty = max(0, MOQ − demand) × unit cost × order count."},{"en":"Optimum miktar = max(talep, MOQ)."},{"en":"Price break advantage is calculated based on the discounted price."}] },
 };

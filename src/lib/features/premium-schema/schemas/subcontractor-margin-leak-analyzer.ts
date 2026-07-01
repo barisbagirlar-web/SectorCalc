@@ -18,7 +18,7 @@ export const SUBCONTRACTOR_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "marginLeakSub", label: "Marj Kacag", label_i18n: {"en":"Margin Kacag"}, unit: "USD", format: "currency" },
     { id: "leakagePct", label: "Kacak Oran", label_i18n: {"en":"Leak Rate"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "leakagePct", warning: 5, critical: 15, direction: "higher_is_bad", warningMessage: "Marj kaçağı > %5 — taşeron takibi artırılmalı.", warningMessage_i18n: {"en":"Margin kaçağı > %5 — taşeron takibi artırılmalı."}, criticalMessage: "Marj kaçağı > %15 — taşeron sözleşmeleri yenilenmeli.", criticalMessage_i18n: {"en":"Margin kaçağı > %15 — taşeron sözleşmeleri yenilenmeli."} }],
+  thresholds: [{ fieldId: "leakagePct", warning: 5, critical: 15, direction: "higher_is_bad", warningMessage: "Marj kaçağı > %5 — taşeron takibi artırılmalı.", warningMessage_i18n: {"en":"Margin leakage > 5% — subcontractor monitoring should be increased."}, criticalMessage: "Marj kaçağı > %15 — taşeron sözleşmeleri yenilenmeli.", criticalMessage_i18n: {"en":"Margin leakage > 15% — subcontractor contracts should be renewed."} }],
   formulaPipeline: [
     { formulaId: "measurement.quoted_margin", inputMap: { quotedAmount: "quotedAmount", actualCost: "actualCost" ,
         quotedPrice: "quotedPrice",

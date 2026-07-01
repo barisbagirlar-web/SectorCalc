@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "interest-rate-risk-analyzer", legacyPaidSlug: "interest-rate-risk-analyzer",
   name: "Interest Rate Risk & Hedge Analyzer", name_i18n: {"en":"Interest Rate Risk & Hedge Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Faiz oranı riski (duration gap, VaR, NIM) doğru hesaplanmazsa bilanço korunmasız kalır ve beklenmedik kayıplar oluşur.", painStatement_i18n: {"en":"Faiz rate riski (duration gap, VaR, NIM) accurate if not calculated bilanço korunmasız kalır ve beklenmedik kayıplar oluşur."},
+  painStatement: "Faiz oranı riski (duration gap, VaR, NIM) doğru hesaplanmazsa bilanço korunmasız kalır ve beklenmedik kayıplar oluşur.", painStatement_i18n: {"en":"If interest rate risk (duration gap, VaR, NIM) is not accurately calculated, the balance sheet remains unprotected and unexpected losses occur."},
   inputs: [
     { id: "floatingDebt", label: "Floating rate debt", label_i18n: {"en":"Floating rate debt"}, type: "number", unit: "USD", required: true, smartDefault: 5000000, validation: { min: 0 }, helper: "", expertMeaning: "Floating rate debt", expertMeaning_i18n: {"en":"Floating rate debt"} },
     { id: "hedgeRatio", label: "Hedge ratio percentage", label_i18n: {"en":"Hedge ratio percentage"}, type: "number", unit: "%", required: false, smartDefault: 60, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Hedge ratio percentage", expertMeaning_i18n: {"en":"Hedge ratio percentage"} },
@@ -25,7 +25,7 @@ export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "eveChange", label: "EVE Degisimi", label_i18n: {"en":"EVE Degisimi"}, unit: "USD", format: "currency" },
     { id: "valueAtRisk", label: "VaR (99% G.K.)", label_i18n: {"en":"VaR (99% G.K.)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "shockImpact", warning: 500000, critical: 1000000, direction: "higher_is_bad", warningMessage: "Şok etkisi > $500K — hedge oranı artırılmalı.", warningMessage_i18n: {"en":"Şok etkisi > $500K — hedge rate artırılmalı."}, criticalMessage: "Şok etkisi > $1M — acil risk azaltma stratejisi.", criticalMessage_i18n: {"en":"Şok etkisi > $1M — urgent risk azaltma stratejisi."} }],
+  thresholds: [{ fieldId: "shockImpact", warning: 500000, critical: 1000000, direction: "higher_is_bad", warningMessage: "Şok etkisi > $500K — hedge oranı artırılmalı.", warningMessage_i18n: {"en":"Shock impact > $500K — hedge rate should be increased."}, criticalMessage: "Şok etkisi > $1M — acil risk azaltma stratejisi.", criticalMessage_i18n: {"en":"Shock impact > $1M — urgent risk mitigation strategy."} }],
   formulaPipeline: [
     { formulaId: "cost.ir_exposure", inputMap: { floatingDebt: "floatingDebt", hedgeRatio: "hedgeRatio" }, outputId: "exposure" },
     { formulaId: "cost.ir_shock_impact", inputMap: { exposure: "exposure", bpsChange: "bpsChange" }, outputId: "shockImpact" },

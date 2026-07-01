@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "noise-vibration-cost-analyzer", legacyPaidSlug: "noise-vibration-cost-analyzer",
   name: "Noise & Vibration Cost Analyzer", name_i18n: {"en":"Noise & Vibration Cost Analyzer"}, sectorSlug: "quality", category: "cost",
-  painStatement: "Gürültü ve titreşim maruziyetinin sağlık, verimlilik ve kalite maliyeti hesaplanmazsa iyileştirme yatırımı için fizibilite kurulamaz.", painStatement_i18n: {"en":"Gürültü ve titreşim maruziyetinin sağlık, productivity ve Quality Cost if not calculated improvement yatırımı için feasibility kurulamaz."},
+  painStatement: "Gürültü ve titreşim maruziyetinin sağlık, verimlilik ve kalite maliyeti hesaplanmazsa iyileştirme yatırımı için fizibilite kurulamaz.", painStatement_i18n: {"en":"If the health, productivity, and quality costs of noise and vibration exposure are not calculated, feasibility for improvement investment cannot be established."},
   inputs: [
     { id: "noiseLevelDb", label: "Gürültü Seviyesi", label_i18n: {"en":"Noise exposure level"}, type: "number", unit: "dB(A)", required: true, smartDefault: 88, validation: { min: 30, max: 130 }, helper: "", expertMeaning: "Noise exposure level", expertMeaning_i18n: {"en":"Noise exposure level"} },
     { id: "exposureHours", label: "Günlük Maruziyet Süresi", label_i18n: {"en":"Daily exposure hours"}, type: "number", unit: "saat/gün", required: true, smartDefault: 8, validation: { min: 0.5, max: 16 }, helper: "", expertMeaning: "Daily exposure hours", expertMeaning_i18n: {"en":"Daily exposure hours"} },
@@ -23,7 +23,7 @@ export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "reworkCost", label: "Hata/Revizyon Maliyeti", label_i18n: {"en":"Hata/Revizyon Cost"}, unit: "USD/yıl", format: "currency" },
     { id: "mitigationRoi", label: "Azaltma ROI", label_i18n: {"en":"Azaltma ROI"}, unit: "%", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "mitigationRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım fizibilitesi riskli.", warningMessage_i18n: {"en":"ROI < %50 — Investment fizibilitesi riskli."}, criticalMessage: "ROI < %20 — azaltma yatırımı önerilmez.", criticalMessage_i18n: {"en":"ROI < %20 — azaltma yatırımı önerilmez."} }],
+  thresholds: [{ fieldId: "mitigationRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım fizibilitesi riskli.", warningMessage_i18n: {"en":"ROI < %50 — Investment fizibilitesi riskli."}, criticalMessage: "ROI < %20 — azaltma yatırımı önerilmez.", criticalMessage_i18n: {"en":"ROI < %20 — reduction investment is not recommended."} }],
   formulaPipeline: [
     { formulaId: "measurement.noise_exposure", inputMap: { noiseLevelDb: "noiseLevelDb", exposureHours: "exposureHours" ,
         noiseLevel: "noiseLevel",
@@ -50,5 +50,5 @@ export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
         mitigationCost: "mitigationCost"}, outputId: "mitigationRoi" },
   ],
   reportTemplate: { title: "Noise & Vibration Cost Report", title_i18n: {"en":"Noise & Vibration Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["85 dB(A) üzeri gürültü sağlık riski oluşturur.", "Titreşim RMS > 2.5 m/s² el-kol vibrasyon riski.", "Sağlık maliyeti = işitme kaybı + tazminat riski."],assumptionNotes_i18n:[{"en":"85 dB(A) üzeri gürültü sağlık riski oluşturur."},{"en":"Titreşim RMS > 2.5 m/s² el-kol vibrasyon riski."},{"en":"Sağlık maliyeti = işitme kaybı + tazminat riski."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["85 dB(A) üzeri gürültü sağlık riski oluşturur.", "Titreşim RMS > 2.5 m/s² el-kol vibrasyon riski.", "Sağlık maliyeti = işitme kaybı + tazminat riski."],assumptionNotes_i18n:[{"en":"Noise above 85 dB(A) poses a health risk."},{"en":"Vibration RMS > 2.5 m/s² hand-arm vibration risk."},{"en":"Health cost = hearing loss + compensation risk."}] },
 };

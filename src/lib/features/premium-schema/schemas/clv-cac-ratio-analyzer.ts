@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
   id: "clv-cac-ratio-analyzer", legacyPaidSlug: "clv-cac-ratio-analyzer",
   name: "CLV to CAC Ratio Analyzer", name_i18n: {"en":"CLV to CAC Ratio Analyzer"}, sectorSlug: "ecommerce", category: "cost",
-  painStatement: "Müşteri kazanma maliyeti (CAC) ile yaşam boyu değer (CLV) arasındaki dengesizlik, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar.", painStatement_i18n: {"en":"customer Win Cost (CAC) ile yaşam boyu Value (CLV) arasındaki imbalance, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar."},
+  painStatement: "Müşteri kazanma maliyeti (CAC) ile yaşam boyu değer (CLV) arasındaki dengesizlik, pazarlama bütçesinin verimsiz kullanımına ve kârlılık sorunlarına yol açar.", painStatement_i18n: {"en":"The imbalance between customer Win Cost (CAC) and lifetime Value (CLV) leads to inefficient marketing budget use and profitability issues."},
   inputs: [
     { id: "avgOrderValue", label: "Average order value (AOV)", label_i18n: {"en":"Average order value (AOV)"}, type: "number", unit: "USD", required: true, smartDefault: 50, validation: { min: 0.01 }, helper: "", expertMeaning: "Average order value (AOV)", expertMeaning_i18n: {"en":"Average order value (AOV)"} },
     { id: "purchaseFreq", label: "Purchase frequency per year", label_i18n: {"en":"Purchase frequency per year"}, type: "number", unit: "adet/yıl", required: true, smartDefault: 6, validation: { min: 0.1 }, helper: "", expertMeaning: "Purchase frequency per year", expertMeaning_i18n: {"en":"Purchase frequency per year"} },
@@ -28,7 +28,7 @@ export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
     { id: "ltvCac", label: "LTV/CAC Oran", label_i18n: {"en":"LTV/CAC Rate"}, unit: "", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "ltvCac", warning: 3, critical: 1, direction: "lower_is_bad", warningMessage: "LTV/CAC < 3 — pazarlama verimliliği iyileştirilmeli.", warningMessage_i18n: {"en":"LTV/CAC < 3 — pazarlama verimliliği iyileştirilmeli."}, criticalMessage: "LTV/CAC < 1 — her müşteri zarar yazıyor, acil strateji değişikliği.", criticalMessage_i18n: {"en":"LTV/CAC < 1 — her customer Loss yazıyor, urgent strateji değişikliği."} },
+    { fieldId: "ltvCac", warning: 3, critical: 1, direction: "lower_is_bad", warningMessage: "LTV/CAC < 3 — pazarlama verimliliği iyileştirilmeli.", warningMessage_i18n: {"en":"LTV/CAC < 3 — marketing efficiency should be improved."}, criticalMessage: "LTV/CAC < 1 — her müşteri zarar yazıyor, acil strateji değişikliği.", criticalMessage_i18n: {"en":"LTV/CAC < 1 — every customer generates Loss, urgent strategy change needed."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.clv", inputMap: { avgOrderValue: "avgOrderValue", purchaseFreq: "purchaseFreq", lifespan: "lifespan" }, outputId: "clv" },

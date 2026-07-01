@@ -24,7 +24,7 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "roi", label: "FMS ROI", label_i18n: {"en":"FMS ROI"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 30, critical: 15, direction: "lower_is_bad", warningMessage: "ROI < %30 — yatırım fizibilitesi sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %30 — Investment fizibilitesi sorgulanmalı."}, criticalMessage: "ROI < %15 — dedicated sistem daha avantajlı olabilir.", criticalMessage_i18n: {"en":"ROI < %15 — dedicated System daha avantajlı olabilir."} }],
+  thresholds: [{ fieldId: "roi", warning: 30, critical: 15, direction: "lower_is_bad", warningMessage: "ROI < %30 — yatırım fizibilitesi sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %30 — Investment feasibility should be questioned."}, criticalMessage: "ROI < %15 — dedicated sistem daha avantajlı olabilir.", criticalMessage_i18n: {"en":"ROI < %15 — A dedicated system may be more advantageous."} }],
   formulaPipeline: [
     { formulaId: "cost.flex_mfg_roi", inputMap: {
         capex: "capex",

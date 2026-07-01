@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-volume-cost-analyzer", legacyPaidSlug: "weld-volume-cost-analyzer",
   name: "Weld Volume & Cost Analyzer", name_i18n: {"en":"Weld Volume & Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur.", painStatement_i18n: {"en":"resource Volume ve Filler Cost if not calculated, tahminlerin üzerinde material ve işçilik gideri oluşur."},
+  painStatement: "Kaynak hacmi ve dolgu maliyeti hesaplanmazsa, tahminlerin üzerinde malzeme ve işçilik gideri oluşur.", painStatement_i18n: {"en":"If resource Volume and Filler Cost are not calculated, material and labor expenses exceed estimates."},
   inputs: [
     { id: "leg", label: "Fillet weld leg size", label_i18n: {"en":"Fillet weld leg size"}, type: "number", unit: "mm", required: true, smartDefault: 6, validation: { min: 1 }, helper: "", expertMeaning: "Fillet weld leg size", expertMeaning_i18n: {"en":"Fillet weld leg size"} },
     { id: "weldLength", label: "Total weld length", label_i18n: {"en":"Total weld length"}, type: "number", unit: "m", required: true, smartDefault: 10, validation: { min: 0.1 }, helper: "", expertMeaning: "Total weld length", expertMeaning_i18n: {"en":"Total weld length"} },
@@ -29,7 +29,7 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "powerCost", label: "Energy Cost", label_i18n: {"en":"Energy Cost"}, unit: "USD", format: "currency" },
     { id: "totalWeldCost", label: "Toplam Kaynak Maliyeti", label_i18n: {"en":"Total resource Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalWeldCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Kaynak maliyeti > $5K — proses optimizasyonu değerlendirilmeli.", warningMessage_i18n: {"en":"resource Cost > $5K — proses optimizasyonu değerlendirilmeli."}, criticalMessage: "Kaynak maliyeti > $15K — yöntem değişikliği gerekebilir.", criticalMessage_i18n: {"en":"resource Cost > $15K — method change gerekebilir."} }],
+  thresholds: [{ fieldId: "totalWeldCost", warning: 5000, critical: 15000, direction: "higher_is_bad", warningMessage: "Kaynak maliyeti > $5K — proses optimizasyonu değerlendirilmeli.", warningMessage_i18n: {"en":"resource Cost > $5K — Process optimization should be evaluated."}, criticalMessage: "Kaynak maliyeti > $15K — yöntem değişikliği gerekebilir.", criticalMessage_i18n: {"en":"resource Cost > $15K — method change gerekebilir."} }],
   formulaPipeline: [
     { formulaId: "measurement.weld_area", inputMap: { leg: "leg" }, outputId: "weldArea" },
     { formulaId: "measurement.weld_volume", inputMap: { weldArea: "weldArea", weldLength: "weldLength" }, outputId: "weldVolume" },
@@ -46,5 +46,5 @@ export const WELD_VOLUME_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.weld_total_cost", inputMap: { fillerCost: "fillerCost", gasCost: "gasCost", powerCost: "powerCost", arcTime: "arcTime", depRate: "depRate", laborRate: "laborRate" }, outputId: "totalWeldCost" },
   ],
   reportTemplate: { title: "Kaynak Hacim ve Maliyet Raporu", title_i18n: {"en":"resource Hacim ve Cost Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kesit = Leg²/2. Hacim = Alan × Uzunluk.", "Biriktirme = Hacim × Yoğunluk.", "Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."],assumptionNotes_i18n:[{"en":"Kesit = Leg²/2. Hacim = Alan × Uzunluk."},{"en":"Biriktirme = Hacim × Yoğunluk."},{"en":"Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kesit = Leg²/2. Hacim = Alan × Uzunluk.", "Biriktirme = Hacim × Yoğunluk.", "Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."],assumptionNotes_i18n:[{"en":"Kesit = Leg²/2. Hacim = Alan × Uzunluk."},{"en":"Accumulation = Volume × Density."},{"en":"Enerji maliyeti = V×I×t / (1000×Verim) × Tarife."}] },
 };

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const SMED_CHANGEOVER_SCHEMA: PremiumCalculatorSchema = {
   id: "smed-changeover-matrix-analyzer", legacyPaidSlug: "smed-changeover-matrix-analyzer",
   name: "SMED Changeover Matrix & EBQ Analyzer", name_i18n: {"en":"SMED Changeover Matrix & EBQ Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Kalıp değişim süreleri SMED prensipleriyle optimize edilmezse kapasite kaybı yıllık büyük rakamlara ulaşır.", painStatement_i18n: {"en":"Kalıp change süreleri SMED prensipleriyle optimize edilmezse capacity Loss annual büyük rakamlara ulaşır."}, inputs: [
+  painStatement: "Kalıp değişim süreleri SMED prensipleriyle optimize edilmezse kapasite kaybı yıllık büyük rakamlara ulaşır.", painStatement_i18n: {"en":"If mold change times are not optimized with SMED principles, capacity loss reaches large annual figures."}, inputs: [
     { id: "internalSetup", label: "Internal (machine stopped) setup", label_i18n: {"en":"Internal (machine stopped) setup"}, type: "number", unit: "dak", required: true, smartDefault: 30, validation: { min: 0 }, helper: "", expertMeaning: "Internal (machine stopped) setup", expertMeaning_i18n: {"en":"Internal (machine stopped) setup"} },
     { id: "externalSetup", label: "External (machine running) setup", label_i18n: {"en":"External (machine running) setup"}, type: "number", unit: "dak", required: false, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "External (machine running) setup", expertMeaning_i18n: {"en":"External (machine running) setup"} },
     { id: "conversionRate", label: "Internal to external conversion rate", label_i18n: {"en":"Internal to external conversion rate"}, type: "number", unit: "%", required: false, smartDefault: 50, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Internal to external conversion rate", expertMeaning_i18n: {"en":"Internal to external conversion rate"} },
@@ -23,7 +23,7 @@ export const SMED_CHANGEOVER_SCHEMA: PremiumCalculatorSchema = {
     { id: "annualSavings", label: "Yllk Tasarruf", label_i18n: {"en":"Annual Tasarruf"}, unit: "USD/yıl", format: "currency" },
     { id: "capacityGain", label: "Kapasite Kazanm", label_i18n: {"en":"Capacity Kazanm"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "annualSavings", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Tasarruf > $10K — SMED projesi başlatılmalı.", warningMessage_i18n: {"en":"Tasarruf > $10K — SMED projesi başlatılmalı."}, criticalMessage: "Tasarruf > $50K — acil SMED uygulaması gerekiyor.", criticalMessage_i18n: {"en":"Tasarruf > $50K — urgent SMED uygulaması gerekiyor."} }],
+  thresholds: [{ fieldId: "annualSavings", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Tasarruf > $10K — SMED projesi başlatılmalı.", warningMessage_i18n: {"en":"Savings > $10K — SMED project should be initiated."}, criticalMessage: "Tasarruf > $50K — acil SMED uygulaması gerekiyor.", criticalMessage_i18n: {"en":"Savings > $50K — urgent SMED implementation required."} }],
   formulaPipeline: [
     { formulaId: "measurement.smed_setup_total", inputMap: { internalSetup: "internalSetup", externalSetup: "externalSetup" }, outputId: "totalSetup" },
     { formulaId: "measurement.smed_ebq", inputMap: { annualDemand: "annualDemand", setupCost: "setupCost", holdingCost: "holdingCost" ,

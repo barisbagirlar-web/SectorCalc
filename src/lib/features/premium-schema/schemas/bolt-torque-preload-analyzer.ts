@@ -15,7 +15,7 @@ const GRADE_OPTIONS = [
 export const BOLT_TORQUE_SCHEMA: PremiumCalculatorSchema = {
   id: "bolt-torque-preload-analyzer", legacyPaidSlug: "bolt-torque-preload-analyzer",
   name: "Bolt Torque & Preload Analysis", name_i18n: {"en":"Bolt Torque & Preload Analysis"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Cıvata bağlantılarında yanlış tork değeri ya yetersiz sıkma (gevşeme) ya da aşırı sıkma (kopma) riski doğurur. Bu araç ISO 898 standartlarına göre tork, öngerilme ve akma kontrolü yapar.", painStatement_i18n: {"en":"Cıvata bağlantılarında incorrect torque değeri ya insufficient tightening (gevşeme) ya da excessive tightening (kopma) riski doğurur. Bu araç ISO 898 standartlarına per torque, öngerilme ve akma kontrolü yapar."},
+  painStatement: "Cıvata bağlantılarında yanlış tork değeri ya yetersiz sıkma (gevşeme) ya da aşırı sıkma (kopma) riski doğurur. Bu araç ISO 898 standartlarına göre tork, öngerilme ve akma kontrolü yapar.", painStatement_i18n: {"en":"Incorrect torque value in bolt connections creates risk of either insufficient tightening (loosening) or excessive tightening (fracture). This tool performs torque, preload, and yield check per ISO 898 standards."},
   inputs: [
     { id: "nominalDiameter", label: "Nominal Diameter (d)", label_i18n: {"en":"Nominal Diameter (d)"}, type: "number", unit: "mm", required: true, smartDefault: 12, validation: { min: 1 }, helper: "", expertMeaning: "Bolt nominal diameter", expertMeaning_i18n: {"en":"Bolt nominal diameter"} },
     { id: "pitch", label: "Hatve (p)", label_i18n: {"en":"Pitch (p)"}, type: "number", unit: "mm", required: true, smartDefault: 1.75, validation: { min: 0.1 }, helper: "", expertMeaning: "Thread pitch", expertMeaning_i18n: {"en":"Thread pitch"} },
@@ -34,7 +34,7 @@ export const BOLT_TORQUE_SCHEMA: PremiumCalculatorSchema = {
     { id: "yieldCheck", label: "Akma Kontrolü", label_i18n: {"en":"Akma Kontrolu"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Öngerilme akma dayanımının %80'ine yaklaşıyor.", warningMessage_i18n: {"en":"Öngerilme akma dayanımının %80'ine yaklaşıyor."}, criticalMessage: "Öngerilme akma dayanımını aşıyor — bağlantı risk altında.", criticalMessage_i18n: {"en":"Öngerilme akma dayanımını aşıyor — bağlantı risk altında."} },
+    { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Öngerilme akma dayanımının %80'ine yaklaşıyor.", warningMessage_i18n: {"en":"Preload is approaching 80% of yield strength."}, criticalMessage: "Öngerilme akma dayanımını aşıyor — bağlantı risk altında.", criticalMessage_i18n: {"en":"Preload exceeds yield strength — connection is at risk."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.bolt_d2", inputMap: { nominalDiameter: "nominalDiameter", pitch: "pitch" }, outputId: "pitchDiameter" },

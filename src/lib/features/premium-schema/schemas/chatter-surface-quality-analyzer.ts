@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CHATTER_SCHEMA: PremiumCalculatorSchema = {
   id: "chatter-surface-quality-analyzer", legacyPaidSlug: "chatter-surface-quality-analyzer",
   name: "Chatter Surface Quality Loss Analyzer", name_i18n: {"en":"Chatter Surface Quality Loss Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerans dışı parça ve hurda oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar.", painStatement_i18n: {"en":"CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerance dışı Parts ve Scrap oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar."},
+  painStatement: "CNC işlemede chatter (titreşim) yüzey pürüzlülüğünü artırır, tolerans dışı parça ve hurda oranını yükseltir. Bu araç kesme parametrelerinden yola çıkarak yüzey kalitesi kaybını hesaplar.", painStatement_i18n: {"en":"Chatter (vibration) in CNC machining increases surface roughness, raising out-of-tolerance Parts and Scrap rate. This tool calculates surface quality loss based on cutting parameters."},
   inputs: [
     { id: "cuttingSpeed", label: "Cutting speed", label_i18n: {"en":"Cutting speed"}, type: "number", unit: "m/dak", required: true, smartDefault: 150, validation: { min: 1 }, helper: "", expertMeaning: "Cutting speed", expertMeaning_i18n: {"en":"Cutting speed"} },
     { id: "spindleRpm", label: "Devir (n)", label_i18n: {"en":"Rotation (n)"}, type: "number", unit: "rpm", required: true, smartDefault: 3000, validation: { min: 1 }, helper: "", expertMeaning: "Spindle speed", expertMeaning_i18n: {"en":"Spindle speed"} },
@@ -27,7 +27,7 @@ export const CHATTER_SCHEMA: PremiumCalculatorSchema = {
     { id: "qualityLossCost", label: "Kalite Kayb Maliyeti", label_i18n: {"en":"Quality Loss Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "actualRa", warning: 1.6, critical: 3.2, direction: "higher_is_bad", warningMessage: "Ra > 1.6 µm — yeniden işleme riski var.", warningMessage_i18n: {"en":"Ra > 1.6 µm — re işleme riski var."}, criticalMessage: "Ra > 3.2 µm — hurda riski yüksek, kesme parametreleri düzeltilmeli.", criticalMessage_i18n: {"en":"Ra > 3.2 µm — Scrap riski high, kesme parametreleri düzeltilmeli."} },
+    { fieldId: "actualRa", warning: 1.6, critical: 3.2, direction: "higher_is_bad", warningMessage: "Ra > 1.6 µm — yeniden işleme riski var.", warningMessage_i18n: {"en":"Ra > 1.6 µm — rework risk present."}, criticalMessage: "Ra > 3.2 µm — hurda riski yüksek, kesme parametreleri düzeltilmeli.", criticalMessage_i18n: {"en":"Ra > 3.2 µm — Scrap risk high, cutting parameters must be corrected."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cutting_speed", inputMap: { diameter: "cuttingSpeed", rpm: "spindleRpm" }, outputId: "cuttingSpeedResult" },

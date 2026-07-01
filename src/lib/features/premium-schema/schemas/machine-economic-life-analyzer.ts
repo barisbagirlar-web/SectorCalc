@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
   id: "machine-economic-life-analyzer", legacyPaidSlug: "machine-economic-life-analyzer",
   name: "Machine Economic Life Analyzer", name_i18n: {"en":"Machine Economic Life Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Makinenin gerçek ekonomik ömrü bilinmezse ya erken yenileme ya da bakım maliyeti yüksek eski makineyle üretim kaybı oluşur.", painStatement_i18n: {"en":"Makinenin Actual economical ömrü if unknown ya erken replacement ya da bakım Cost high eski makineyle Production Loss oluşur."},
+  painStatement: "Makinenin gerçek ekonomik ömrü bilinmezse ya erken yenileme ya da bakım maliyeti yüksek eski makineyle üretim kaybı oluşur.", painStatement_i18n: {"en":"If the actual economic life of the machine is unknown, either early replacement occurs or production loss occurs with the old machine due to high maintenance cost."},
   inputs: [
     { id: "purchaseCost", label: "Initial purchase cost", label_i18n: {"en":"Initial purchase cost"}, type: "number", unit: "USD", required: true, smartDefault: 150000, validation: { min: 1 }, helper: "", expertMeaning: "Initial purchase cost", expertMeaning_i18n: {"en":"Initial purchase cost"} },
     { id: "residualValue", label: "Resale or scrap value", label_i18n: {"en":"Resale or scrap value"}, type: "number", unit: "USD", required: true, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Resale or scrap value", expertMeaning_i18n: {"en":"Resale or scrap value"} },
@@ -20,7 +20,7 @@ export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalEuac", label: "Toplam EUAC", label_i18n: {"en":"Total EUAC"}, unit: "USD/yıl", format: "currency" },
     { id: "economicLife", label: "Ekonomik Ömür", label_i18n: {"en":"economical life"}, unit: "yıl", format: "number" },
   ],
-  thresholds: [{ fieldId: "totalEuac", warning: 40000, critical: 75000, direction: "higher_is_bad", warningMessage: "EUAC > $40K — alternatif makineler değerlendirilmeli.", warningMessage_i18n: {"en":"EUAC > $40K — alternatif makineler değerlendirilmeli."}, criticalMessage: "EUAC > $75K — makine yenileme planına alınmalı.", criticalMessage_i18n: {"en":"EUAC > $75K — makine replacement planına alınmalı."} }],
+  thresholds: [{ fieldId: "totalEuac", warning: 40000, critical: 75000, direction: "higher_is_bad", warningMessage: "EUAC > $40K — alternatif makineler değerlendirilmeli.", warningMessage_i18n: {"en":"EUAC > $40K — alternative machines should be evaluated."}, criticalMessage: "EUAC > $75K — makine yenileme planına alınmalı.", criticalMessage_i18n: {"en":"EUAC > $75K — machine should be scheduled for replacement."} }],
   formulaPipeline: [
     { formulaId: "cost.machine_euac_capital", inputMap: {
         purchaseCost: "purchaseCost",
@@ -38,5 +38,5 @@ export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
         holdingCostRate: "holdingCostRate"}, outputId: "economicLife" },
   ],
   reportTemplate: { title: "Machine Economic Life Report", title_i18n: {"en":"Machine Economic Life Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["EUAC = (P−S)×(A/P,i,n) + S×i + AOC.", "Ekonomik ömür = EUAC'nin minimize olduğu yıl.", "İskonto oranı firma WAACC'sine göre belirlenir."],assumptionNotes_i18n:[{"en":"EUAC = (P−S)×(A/P,i,n) + S×i + AOC."},{"en":"Ekonomik ömür = EUAC'nin minimize olduğu yıl."},{"en":"İskonto oranı firma WAACC'sine göre belirlenir."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["EUAC = (P−S)×(A/P,i,n) + S×i + AOC.", "Ekonomik ömür = EUAC'nin minimize olduğu yıl.", "İskonto oranı firma WAACC'sine göre belirlenir."],assumptionNotes_i18n:[{"en":"EUAC = (P−S)×(A/P,i,n) + S×i + AOC."},{"en":"Economic life = the year in which EUAC is minimized."},{"en":"Discount rate is determined according to the firm's WACC."}] },
 };

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
   id: "fuel-route-drift-analyzer", legacyPaidSlug: "fuel-route-drift-analyzer",
   name: "Fuel Route Drift Cost Analyzer", name_i18n: {"en":"Fuel Route Drift Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Araçlar planlanan rotadan sapınca yakıt tüketimi artar, teslimat süresi uzar ve karbon emisyonu yükselir. Rota sapma maliyeti ölçülmezse filo verimliliği düşer.", painStatement_i18n: {"en":"Araçlar planlanan rotadan sapınca Fuel Consumption artar, teslimat Duration extends ve Carbon emisyonu yükselir. Route Deviation Cost if not measured fleet verimliliği düşer."},
+  painStatement: "Araçlar planlanan rotadan sapınca yakıt tüketimi artar, teslimat süresi uzar ve karbon emisyonu yükselir. Rota sapma maliyeti ölçülmezse filo verimliliği düşer.", painStatement_i18n: {"en":"When vehicles deviate from the planned route, fuel consumption increases, delivery duration extends, and carbon emissions rise. If route deviation cost is not measured, fleet efficiency decreases."},
   inputs: [
     { id: "plannedDistance", label: "Planned Route Distance", label_i18n: {"en":"Planned Route Distance"}, type: "number", unit: "km", required: true, smartDefault: 200, validation: { min: 1 }, helper: "", expertMeaning: "Planned route distance", expertMeaning_i18n: {"en":"Planned route distance"} },
     { id: "actualDistance", label: "Actual route distance", label_i18n: {"en":"Actual route distance"}, type: "number", unit: "km", required: true, smartDefault: 250, validation: { min: 1 }, helper: "", expertMeaning: "Actual route distance", expertMeaning_i18n: {"en":"Actual route distance"} },
@@ -23,8 +23,8 @@ export const FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalDriftCost", label: "Total Route Deviation Cost", label_i18n: {"en":"Total Route Deviation Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "fuelWasteDistance", warning: 30, critical: 60, direction: "higher_is_bad", warningMessage: "Sapma > 30 km — rota planlaması iyileştirilmeli.", warningMessage_i18n: {"en":"Deviation > 30 km — Route planlaması iyileştirilmeli."}, criticalMessage: "Sapma > 60 km — GPS takibi ve dispatcher kontrolü gerekli.", criticalMessage_i18n: {"en":"Deviation > 60 km — GPS takibi ve dispatcher kontrolü gerekli."} },
-    { fieldId: "totalDriftCost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Sapma maliyeti > $10K — filo yönetim sistemi gözden geçirilmeli.", warningMessage_i18n: {"en":"Deviation Cost > $10K — fleet management system gözden geçirilmeli."}, criticalMessage: "Sapma maliyeti > $30K — acil rota optimizasyonu başlatılmalı.", criticalMessage_i18n: {"en":"Deviation Cost > $30K — urgent Route optimizasyonu başlatılmalı."} },
+    { fieldId: "fuelWasteDistance", warning: 30, critical: 60, direction: "higher_is_bad", warningMessage: "Sapma > 30 km — rota planlaması iyileştirilmeli.", warningMessage_i18n: {"en":"Deviation > 30 km — route planning should be improved."}, criticalMessage: "Sapma > 60 km — GPS takibi ve dispatcher kontrolü gerekli.", criticalMessage_i18n: {"en":"Deviation > 60 km — GPS tracking and dispatcher control are required."} },
+    { fieldId: "totalDriftCost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Sapma maliyeti > $10K — filo yönetim sistemi gözden geçirilmeli.", warningMessage_i18n: {"en":"Deviation cost > $10K — fleet management system should be reviewed."}, criticalMessage: "Sapma maliyeti > $30K — acil rota optimizasyonu başlatılmalı.", criticalMessage_i18n: {"en":"Deviation cost > $30K — urgent route optimization should be initiated."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.fuel_waste_distance", inputMap: {
@@ -52,5 +52,5 @@ export const FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "totalDriftCost" },
   ],
   reportTemplate: { title: "Yakıt Rota Sapma Maliyeti Raporu", title_i18n: {"en":"Fuel Route Deviation Cost Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 12, assumptionNotes: ["Sapma mesafesi = gerçekleşen - planlanan rota.", "Yakıt israfı = sapma mesafesi / yakıt tüketimi.", "Rötar maliyeti sürücü ücreti ve yakıt tüketimini içerir."],assumptionNotes_i18n:[{"en":"Sapma mesafesi = gerçekleşen - planlanan rota."},{"en":"Yakıt israfı = sapma mesafesi / yakıt tüketimi."},{"en":"Rötar maliyeti sürücü ücreti ve yakıt tüketimini içerir."}] },
+  assumptions: { hiddenLossMultiplier: 1.15, volatilityPercent: 10, targetMarginPercent: 12, assumptionNotes: ["Sapma mesafesi = gerçekleşen - planlanan rota.", "Yakıt israfı = sapma mesafesi / yakıt tüketimi.", "Rötar maliyeti sürücü ücreti ve yakıt tüketimini içerir."],assumptionNotes_i18n:[{"en":"Deviation distance = actual - planned route."},{"en":"Fuel waste = deviation distance / fuel consumption."},{"en":"Delay cost includes driver wage and fuel consumption."}] },
 };

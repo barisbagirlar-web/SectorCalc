@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "auto-shop-margin-leak-analyzer", legacyPaidSlug: "auto-shop-margin-leak-analyzer",
   name: "Auto Shop Margin Leak Analysis", name_i18n: {"en":"Auto Shop Margin Leak Analysis"}, sectorSlug: "auto-repair", category: "cost",
-  painStatement: "Oto servislerde parça ve işçilik marjındaki küçük sapmalar yıllık yüz binlerce dolarlık kaçağa dönüşür. Bu araç marj yapısını analiz eder ve yıllık kaçağı hesaplar.", painStatement_i18n: {"en":"Oto servislerde Parts ve işçilik marjındaki small sapmalar annual yüz binlerce dolarlık kaçağa dönüşür. Bu araç Margin yapısını analiz eder ve annual kaçağı hesaplar."},
+  painStatement: "Oto servislerde parça ve işçilik marjındaki küçük sapmalar yıllık yüz binlerce dolarlık kaçağa dönüşür. Bu araç marj yapısını analiz eder ve yıllık kaçağı hesaplar.", painStatement_i18n: {"en":"Small deviations in Parts and labor margin in auto repair shops turn into annual leakage of hundreds of thousands of dollars. This tool analyzes Margin structure and calculates annual leakage."},
   inputs: [
     { id: "monthlyPartsRevenue", label: "Monthly Parts Revenue", label_i18n: {"en":"Monthly Parts Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 40000, validation: { min: 0 }, helper: "", expertMeaning: "Parts revenue per month", expertMeaning_i18n: {"en":"Parts revenue per month"} },
     { id: "monthlyLaborRevenue", label: "Monthly Labor Revenue", label_i18n: {"en":"Monthly Labor Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 60000, validation: { min: 0 }, helper: "", expertMeaning: "Labor revenue per month", expertMeaning_i18n: {"en":"Labor revenue per month"} },
@@ -18,7 +18,7 @@ export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalOpEx", label: "Toplam OpEx", label_i18n: {"en":"Total OpEx"}, type: "number", unit: "USD", required: false, smartDefault: 35000, validation: { min: 0 }, helper: "", expertMeaning: "Total operating expenses", expertMeaning_i18n: {"en":"Total operating expenses"} },
     { id: "industryBenchmarkMargin", label: "Industry Benchmark Margin", label_i18n: {"en":"Industry Benchmark Margin"}, type: "number", unit: "%", required: false, smartDefault: 15, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Industry average net margin", expertMeaning_i18n: {"en":"Industry average Net margin"} },
     { id: "monthlyDiscounts", label: "Monthly Discounts", label_i18n: {"en":"Monthly Discounts"}, type: "number", unit: "USD", required: false, smartDefault: 3000, validation: { min: 0 }, helper: "", expertMeaning: "Total discounts given", expertMeaning_i18n: {"en":"Total discounts given"} },
-    { id: "netMarginInput", label: "Net Marj (%)", label_i18n: {"en":"Net Margin (%)"}, type: "number", unit: "%", required: true, smartDefault: 8, validation: { min: 0, max: 100 }, helper: "Mevcut net kâr marjınız.", helper_i18n: {"en":"Mevcut net kâr marjınız."}, expertMeaning: "Current net profit margin percentage", expertMeaning_i18n: {"en":"Current Net profit margin percentage"} },
+    { id: "netMarginInput", label: "Net Marj (%)", label_i18n: {"en":"Net Margin (%)"}, type: "number", unit: "%", required: true, smartDefault: 8, validation: { min: 0, max: 100 }, helper: "Mevcut net kâr marjınız.", helper_i18n: {"en":"Your current net profit margin."}, expertMeaning: "Current net profit margin percentage", expertMeaning_i18n: {"en":"Current Net profit margin percentage"} },
   ],
   outputs: [
     { id: "grossMarginParts", label: "Parts Gross Margin", label_i18n: {"en":"Parts Gross Margin"}, unit: "%", format: "percentage" },
@@ -27,7 +27,7 @@ export const AUTO_SHOP_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "annualLeakage", label: "Yllk Marj Kacag", label_i18n: {"en":"Annual Margin Kacag"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "annualLeakage", warning: 30000, critical: 100000, direction: "higher_is_bad", warningMessage: "Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli.", warningMessage_i18n: {"en":"Annual Leak > $30K — fiyatlama gözden geçirilmeli."}, criticalMessage: "Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"Annual Leak > $100K — urgent Margin improvement program başlatılmalı."} },
+    { fieldId: "annualLeakage", warning: 30000, critical: 100000, direction: "higher_is_bad", warningMessage: "Yıllık kaçak > $30K — fiyatlama gözden geçirilmeli.", warningMessage_i18n: {"en":"Annual Leak > $30K — pricing should be reviewed."}, criticalMessage: "Yıllık kaçak > $100K — acil marj iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"Annual Leak > $100K — urgent Margin improvement program must be initiated."} },
   ],
   formulaPipeline: [
     { formulaId: "math.add", inputMap: { a: "monthlyPartsRevenue", b: "monthlyLaborRevenue" }, outputId: "totalMonthlyRevenue" },

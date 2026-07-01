@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "office-supplies-cost-analyzer", legacyPaidSlug: "office-supplies-cost-analyzer",
   name: "Office Supplies Cost Analyzer", name_i18n: {"en":"Office Supplies Cost Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Ofis malzemelerinde EOQ, taşıma maliyeti ve stok tükenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama oluşur.", painStatement_i18n: {"en":"Ofis malzemelerinde EOQ, Carrying Cost ve Inventory tükenme Cost if not calculated gereksiz Inventory ve Overtime harcama oluşur."},
+  painStatement: "Ofis malzemelerinde EOQ, taşıma maliyeti ve stok tükenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama oluşur.", painStatement_i18n: {"en":"For office supplies, if EOQ, carrying cost, and inventory stockout cost are not calculated, unnecessary inventory and overtime spending occur."},
   inputs: [
     { id: "monthlyConsumption", label: "Monthly consumption quantity", label_i18n: {"en":"Monthly consumption quantity"}, type: "number", unit: "adet/ay", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Monthly consumption quantity", expertMeaning_i18n: {"en":"Monthly consumption quantity"} },
     { id: "unitPrice", label: "Unit Price", label_i18n: {"en":"Unit Price"}, type: "number", unit: "USD", required: true, smartDefault: 3.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Unit price", expertMeaning_i18n: {"en":"Unit price"} },
@@ -24,7 +24,7 @@ export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "wastePct", label: "Israf Yuzdesi", label_i18n: {"en":"Waste Yuzdesi"}, unit: "%", format: "number" },
     { id: "optimizationSavings", label: "Optimizasyon Tasarrufu", label_i18n: {"en":"optimization Tasarrufu"}, unit: "USD/yıl", format: "currency" },
   ],
-  thresholds: [{ fieldId: "optimizationSavings", warning: 500, critical: 100, direction: "lower_is_bad", warningMessage: "Tasarruf < $500 — mevcut sistem optimize.", warningMessage_i18n: {"en":"Tasarruf < $500 — Current System optimize."}, criticalMessage: "Tasarruf < $100 — küçük iyileştirme fırsatı.", criticalMessage_i18n: {"en":"Tasarruf < $100 — small improvement fırsatı."} }],
+  thresholds: [{ fieldId: "optimizationSavings", warning: 500, critical: 100, direction: "lower_is_bad", warningMessage: "Tasarruf < $500 — mevcut sistem optimize.", warningMessage_i18n: {"en":"Tasarruf < $500 — Current System optimize."}, criticalMessage: "Tasarruf < $100 — küçük iyileştirme fırsatı.", criticalMessage_i18n: {"en":"Savings < $100 — small improvement opportunity."} }],
   formulaPipeline: [
     { formulaId: "cost.office_consumption_rate", inputMap: { monthlyConsumption: "monthlyConsumption" ,
         annualUsage: "annualUsage"}, outputId: "consumptionRate" },
@@ -49,5 +49,5 @@ export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
         optimalTotalCost: "optimalTotalCost"}, outputId: "optimizationSavings" },
   ],
   reportTemplate: { title: "Office Supplies Cost Report", title_i18n: {"en":"Office Supplies Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["EOQ = √(2×yıllık talep×sipariş maliyeti / taşıma maliyeti).", "Taşıma maliyeti = stok değeri × taşıma oranı.", "Stok tükenme maliyeti = risk × birim maliyet × talep."],assumptionNotes_i18n:[{"en":"EOQ = √(2×yıllık talep×sipariş maliyeti / taşıma maliyeti)."},{"en":"Taşıma maliyeti = stok değeri × taşıma oranı."},{"en":"Stok tükenme maliyeti = risk × birim maliyet × talep."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["EOQ = √(2×yıllık talep×sipariş maliyeti / taşıma maliyeti).", "Taşıma maliyeti = stok değeri × taşıma oranı.", "Stok tükenme maliyeti = risk × birim maliyet × talep."],assumptionNotes_i18n:[{"en":"EOQ = √(2×annual demand×ordering cost / holding cost)."},{"en":"Holding cost = inventory value × holding rate."},{"en":"Stockout cost = risk × unit cost × demand."}] },
 };

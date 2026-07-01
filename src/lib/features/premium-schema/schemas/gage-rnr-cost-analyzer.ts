@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const GAGE_RNR_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "gage-rnr-cost-analyzer", legacyPaidSlug: "gage-rnr-cost-analyzer",
   name: "Gage R&R & Measurement Error Cost Analyzer", name_i18n: {"en":"Gage R&R & Measurement Error Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Ölçüm sistemi R&R değeri yüksekse yanlış kabul/red kararları ciddi maliyet kayıplarına yol açar.", painStatement_i18n: {"en":"Ölçüm system R&R değeri yüksekse incorrect kabul/red kararları serious Cost kayıplarına yol açar."},
+  painStatement: "Ölçüm sistemi R&R değeri yüksekse yanlış kabul/red kararları ciddi maliyet kayıplarına yol açar.", painStatement_i18n: {"en":"If the measurement system R&R value is high, incorrect accept/reject decisions lead to serious cost losses."},
   inputs: [
     { id: "ev", label: "Equipment variation", label_i18n: {"en":"Equipment variation"}, type: "number", unit: "", required: true, smartDefault: 0.005, validation: { min: 0 }, helper: "", expertMeaning: "Equipment variation", expertMeaning_i18n: {"en":"Equipment variation"} },
     { id: "av", label: "Appraiser variation", label_i18n: {"en":"Appraiser variation"}, type: "number", unit: "", required: true, smartDefault: 0.004, validation: { min: 0 }, helper: "", expertMeaning: "Appraiser variation", expertMeaning_i18n: {"en":"Appraiser variation"} },
@@ -20,7 +20,7 @@ export const GAGE_RNR_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "pctGrr", label: "%GRR", label_i18n: {"en":"%GRR"}, unit: "%", format: "percentage" },
     { id: "costError", label: "Olcum Hata Maliyeti", label_i18n: {"en":"Olcum Error Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "pctGrr", warning: 20, critical: 30, direction: "higher_is_bad", warningMessage: "%GRR > %20 — ölçüm sistemi iyileştirilmeli.", warningMessage_i18n: {"en":"%GRR > %20 — ölçüm system iyileştirilmeli."}, criticalMessage: "%GRR > %30 — ölçüm sistemi yetersiz.", criticalMessage_i18n: {"en":"%GRR > %30 — ölçüm system yetersiz."} }],
+  thresholds: [{ fieldId: "pctGrr", warning: 20, critical: 30, direction: "higher_is_bad", warningMessage: "%GRR > %20 — ölçüm sistemi iyileştirilmeli.", warningMessage_i18n: {"en":"%GRR > %20 — measurement system should be improved."}, criticalMessage: "%GRR > %30 — ölçüm sistemi yetersiz.", criticalMessage_i18n: {"en":"%GRR > %30 — measurement system is inadequate."} }],
   formulaPipeline: [
     { formulaId: "measurement.grr_combined", inputMap: { ev: "ev", av: "av" }, outputId: "grr" },
     { formulaId: "measurement.grr_pct", inputMap: { grr: "grr", tv: "tv" }, outputId: "pctGrr" },

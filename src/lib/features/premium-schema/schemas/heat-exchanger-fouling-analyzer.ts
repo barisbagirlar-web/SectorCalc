@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
   id: "heat-exchanger-fouling-analyzer", legacyPaidSlug: "heat-exchanger-fouling-analyzer",
   name: "Heat Exchanger Fouling & Energy Loss Analyzer", name_i18n: {"en":"Heat Exchanger Fouling & Energy Loss Analyzer"}, sectorSlug: "sheet-metal", category: "energy",
-  painStatement: "Isı değiştiricide kirlenme (fouling) nedeniyle ısı transfer verimi düşer ve enerji maliyeti artar. Temizlik ROI'si hesaplanmalıdır.", painStatement_i18n: {"en":"Heat değiştiricide kirlenme (fouling) due to heat transfer Efficiency drops ve energy Cost artar. Temizlik ROI'si hesaplanmalıdır."},
+  painStatement: "Isı değiştiricide kirlenme (fouling) nedeniyle ısı transfer verimi düşer ve enerji maliyeti artar. Temizlik ROI'si hesaplanmalıdır.", painStatement_i18n: {"en":"Fouling in the heat exchanger causes heat transfer efficiency to drop and energy cost to rise. Cleaning ROI should be calculated."},
   inputs: [
     { id: "uClean", label: "U_clean (Temiz)", label_i18n: {"en":"U_clean (Temiz)"}, type: "number", unit: "W/m²K", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Clean overall heat transfer coeff", expertMeaning_i18n: {"en":"Clean overall heat transfer coeff"} },
     { id: "uDirty", label: "U_dirty (Kirli)", label_i18n: {"en":"U_dirty (Kirli)"}, type: "number", unit: "W/m²K", required: true, smartDefault: 350, validation: { min: 1 }, helper: "", expertMeaning: "Dirty overall heat transfer coeff", expertMeaning_i18n: {"en":"Dirty overall heat transfer coeff"} },
@@ -26,7 +26,7 @@ export const HEAT_EXCHANGER_FOULING_SCHEMA: PremiumCalculatorSchema = {
     { id: "cost", label: "Annual Energy Loss", label_i18n: {"en":"Annual Energy Loss"}, unit: "USD/yıl", format: "currency" },
     { id: "roi", label: "Temizlik ROI", label_i18n: {"en":"Temizlik ROI"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "cost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Enerji kaybı > $10K/yıl — temizlik planlanmalı.", warningMessage_i18n: {"en":"energy Loss > $10K/yıl — temizlik planlanmalı."}, criticalMessage: "Kayıp > $30K/yıl — acil temizlik gerekli.", criticalMessage_i18n: {"en":"Kayıp > $30K/yıl — urgent temizlik gerekli."} }],
+  thresholds: [{ fieldId: "cost", warning: 10000, critical: 30000, direction: "higher_is_bad", warningMessage: "Enerji kaybı > $10K/yıl — temizlik planlanmalı.", warningMessage_i18n: {"en":"Energy loss > $10K/year — cleaning should be scheduled."}, criticalMessage: "Kayıp > $30K/yıl — acil temizlik gerekli.", criticalMessage_i18n: {"en":"Loss > $30K/year — urgent cleaning is required."} }],
   formulaPipeline: [
     { formulaId: "energy.fouling_resistance", inputMap: { uClean: "uClean", uDirty: "uDirty" }, outputId: "rf" },
     { formulaId: "energy.fouling_cost", inputMap: { heatLoss: "heatLoss", fuelCost: "fuelCost", pumpIncrease: "deltaPIncrease" ,

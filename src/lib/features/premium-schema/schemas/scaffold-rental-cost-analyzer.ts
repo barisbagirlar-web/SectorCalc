@@ -22,7 +22,7 @@ export const SCAFFOLD_RENTAL_SCHEMA: PremiumCalculatorSchema = {
     { id: "laborCost", label: "Labor Cost", label_i18n: {"en":"Labor Cost"}, unit: "USD", format: "currency" },
     { id: "total", label: "Toplam Iskele Maliyeti", label_i18n: {"en":"Total Iskele Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "total", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Maliyet > $50K — kiralama süresi veya alanı optimize edilmeli.", warningMessage_i18n: {"en":"Cost > $50K — kiralama Duration veya alanı optimize edilmeli."}, criticalMessage: "Maliyet > $100K — alternatif iskele sistemi değerlendirilmeli.", criticalMessage_i18n: {"en":"Cost > $100K — alternatif iskele system değerlendirilmeli."} }],
+  thresholds: [{ fieldId: "total", warning: 50000, critical: 100000, direction: "higher_is_bad", warningMessage: "Maliyet > $50K — kiralama süresi veya alanı optimize edilmeli.", warningMessage_i18n: {"en":"Cost > $50K — rental duration or area should be optimized."}, criticalMessage: "Maliyet > $100K — alternatif iskele sistemi değerlendirilmeli.", criticalMessage_i18n: {"en":"Cost > $100K — alternative scaffolding system should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.scaffold_area", inputMap: { buildingPerimeter: "buildingPerimeter", buildingHeight: "buildingHeight" ,
         perimeter: "perimeter",

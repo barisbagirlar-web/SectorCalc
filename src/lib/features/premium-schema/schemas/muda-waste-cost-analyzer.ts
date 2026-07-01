@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const MUDA_WASTE_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "muda-waste-cost-analyzer", legacyPaidSlug: "muda-waste-cost-analyzer",
   name: "Muda Waste Cost Analysis", name_i18n: {"en":"Muda Waste Cost Analysis"}, sectorSlug: "quality", category: "cost",
-  painStatement: "7 muda kaynağının her biri ayrı hesaplanmazsa toplam israf maliyeti gizli kalır ve iyileştirme önceliklendirilemez.", painStatement_i18n: {"en":"7 muda kaynağının her biri ayrı if not calculated Total Waste Cost latent kalır ve improvement önceliklendirilemez."},
+  painStatement: "7 muda kaynağının her biri ayrı hesaplanmazsa toplam israf maliyeti gizli kalır ve iyileştirme önceliklendirilemez.", painStatement_i18n: {"en":"If each of the 7 muda sources is not calculated separately, total waste cost remains latent and improvement cannot be prioritized."},
   inputs: [
     { id: "overproductionCost", label: "Overproduction Cost", label_i18n: {"en":"Overproduction Cost"}, type: "number", unit: "USD/yıl", required: true, smartDefault: 25000, validation: { min: 0 }, helper: "", expertMeaning: "Overproduction waste cost", expertMeaning_i18n: {"en":"Overproduction waste cost"} },
     { id: "waitingCost", label: "Bekleme Maliyeti", label_i18n: {"en":"Waiting Cost"}, type: "number", unit: "USD/yıl", required: true, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Waiting waste cost", expertMeaning_i18n: {"en":"Waiting waste cost"} },
@@ -25,7 +25,7 @@ export const MUDA_WASTE_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "mudaDefects", label: "Hata Israf", label_i18n: {"en":"Error Waste"}, unit: "USD/yıl", format: "currency" },
     { id: "mudaTotal", label: "Toplam Muda Maliyeti", label_i18n: {"en":"Total Muda Cost"}, unit: "USD/yıl", format: "currency" },
   ],
-  thresholds: [{ fieldId: "mudaTotal", warning: 50000, critical: 120000, direction: "higher_is_bad", warningMessage: "Toplam muda > $50K — yalın dönüşüm programı başlatılmalı.", warningMessage_i18n: {"en":"Total muda > $50K — yalın dönüşüm program başlatılmalı."}, criticalMessage: "Toplam muda > $120K — acil kaizen atölyesi planlanmalı.", criticalMessage_i18n: {"en":"Total muda > $120K — urgent kaizen atölyesi planlanmalı."} }],
+  thresholds: [{ fieldId: "mudaTotal", warning: 50000, critical: 120000, direction: "higher_is_bad", warningMessage: "Toplam muda > $50K — yalın dönüşüm programı başlatılmalı.", warningMessage_i18n: {"en":"Total muda > $50K — lean transformation program should be initiated."}, criticalMessage: "Toplam muda > $120K — acil kaizen atölyesi planlanmalı.", criticalMessage_i18n: {"en":"Total muda > $120K — urgent kaizen workshop should be planned."} }],
   formulaPipeline: [
     { formulaId: "cost.muda_overproduction", inputMap: {
         overproducedQty: "overproductionCost"
@@ -58,5 +58,5 @@ export const MUDA_WASTE_COST_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.muda_total", inputMap: { mudaOverproduction: "mudaOverproduction", mudaWaiting: "mudaWaiting", mudaTransport: "mudaTransport", mudaOverprocessing: "mudaOverprocessing", mudaInventory: "mudaInventory", mudaMotion: "mudaMotion", mudaDefects: "mudaDefects" }, outputId: "mudaTotal" },
   ],
   reportTemplate: { title: "Muda Waste Cost Report", title_i18n: {"en":"Muda Waste Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["7 muda kaynağı ayrı ayrı girilir.", "Toplam israf = Σ(her bir muda kalemi).", "Pareto analizi ile önceliklendirme yapılmalıdır."],assumptionNotes_i18n:[{"en":"7 muda kaynağı ayrı ayrı girilir."},{"en":"Toplam israf = Σ(her bir muda kalemi)."},{"en":"Pareto analizi ile önceliklendirme yapılmalıdır."}]},
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["7 muda kaynağı ayrı ayrı girilir.", "Toplam israf = Σ(her bir muda kalemi).", "Pareto analizi ile önceliklendirme yapılmalıdır."],assumptionNotes_i18n:[{"en":"7 muda sources are entered separately."},{"en":"Toplam israf = Σ(her bir muda kalemi)."},{"en":"Prioritization should be performed using Pareto analysis."}]},
 };

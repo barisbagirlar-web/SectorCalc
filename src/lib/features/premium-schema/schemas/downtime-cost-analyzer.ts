@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const DOWNTIME_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   id: "downtime-cost-analyzer", legacyPaidSlug: "downtime-cost-analyzer",
   name: "Downtime Cost Analyzer", name_i18n: {"en":"Downtime Cost Analyzer"}, sectorSlug: "sheet-metal", category: "cost",
-  painStatement: "Plansız duruşların gerçek maliyeti sadece kayıp üretim değil; işçilik, enerji, kalite ve müşteri cezalarını da içerir. Bu araç 6 bileşenli toplam duruş maliyetini hesaplar.", painStatement_i18n: {"en":"Plansız duruşların Actual Cost sadece kayıp Production değil; işçilik, energy, Quality ve customer cezalarını da içerir. Bu araç 6 bileşenli Total duruş maliyetini hesaplar."},
+  painStatement: "Plansız duruşların gerçek maliyeti sadece kayıp üretim değil; işçilik, enerji, kalite ve müşteri cezalarını da içerir. Bu araç 6 bileşenli toplam duruş maliyetini hesaplar.", painStatement_i18n: {"en":"The actual cost of unplanned downtime includes not only lost production but also labor, energy, quality, and customer penalties. This tool calculates the 6-component total downtime cost."},
   inputs: [
     { id: "downtimeHours", label: "Total downtime hours", label_i18n: {"en":"Total downtime hours"}, type: "number", unit: "saat", required: true, smartDefault: 4, validation: { min: 0 }, helper: "", expertMeaning: "Total downtime hours", expertMeaning_i18n: {"en":"Total downtime hours"} },
     { id: "affectedWorkers", label: "Number of idle workers", label_i18n: {"en":"Number of idle workers"}, type: "number", unit: "kişi", required: true, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Number of idle workers", expertMeaning_i18n: {"en":"Number of idle workers"} },
@@ -31,7 +31,7 @@ export const DOWNTIME_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalDowntimeCost", label: "Toplam Durus Maliyeti", label_i18n: {"en":"Total Durus Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "totalDowntimeCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Duruş maliyeti > $10K — önleyici bakım planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Duruş Cost > $10K — önleyici bakım planı gözden geçirilmeli."}, criticalMessage: "Duruş maliyeti > $50K — acil kök neden analizi gerekiyor.", criticalMessage_i18n: {"en":"Duruş Cost > $50K — urgent kök neden analizi gerekiyor."} },
+    { fieldId: "totalDowntimeCost", warning: 10000, critical: 50000, direction: "higher_is_bad", warningMessage: "Duruş maliyeti > $10K — önleyici bakım planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Downtime Cost > $10K — preventive maintenance plan must be reviewed."}, criticalMessage: "Duruş maliyeti > $50K — acil kök neden analizi gerekiyor.", criticalMessage_i18n: {"en":"Downtime Cost > $50K — urgent root cause analysis required."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.downtime_labor", inputMap: { downtimeHours: "downtimeHours", affectedWorkers: "affectedWorkers", avgHourlyRate: "avgHourlyRate" }, outputId: "directLaborLoss" },

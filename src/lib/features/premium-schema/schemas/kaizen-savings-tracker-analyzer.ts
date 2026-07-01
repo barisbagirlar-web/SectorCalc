@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const KAIZEN_SAVINGS_SCHEMA: PremiumCalculatorSchema = {
   id: "kaizen-savings-tracker-analyzer", legacyPaidSlug: "kaizen-savings-tracker-analyzer",
   name: "Kaizen Savings Tracker & ROI Analyzer", name_i18n: {"en":"Kaizen Savings Tracker & ROI Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik oranı takip edilmezse iyileştirme çabalarının etkisi ölçülemez.", painStatement_i18n: {"en":"Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik rate tracking edilmezse improvement çabalarının etkisi ölçülemez."},
+  painStatement: "Kaizen projelerinin hard/soft tasarrufu, ROI ve sürdürülebilirlik oranı takip edilmezse iyileştirme çabalarının etkisi ölçülemez.", painStatement_i18n: {"en":"If hard/soft savings, ROI, and sustainability rate of Kaizen projects are not tracked, the impact of improvement efforts cannot be measured."},
   inputs: [
     { id: "baselineCost", label: "Baz Maliyet (Önce)", label_i18n: {"en":"Baseline cost per unit"}, type: "number", unit: "USD", required: true, smartDefault: 5.00, validation: { min: 0 }, helper: "", expertMeaning: "Baseline cost per unit", expertMeaning_i18n: {"en":"Baseline cost per unit"} },
     { id: "actualCost", label: "Actual cost per unit after kaizen", label_i18n: {"en":"Actual cost per unit after kaizen"}, type: "number", unit: "USD", required: true, smartDefault: 4.20, validation: { min: 0 }, helper: "", expertMeaning: "Actual cost per unit after kaizen", expertMeaning_i18n: {"en":"Actual cost per unit after kaizen"} },
@@ -25,7 +25,7 @@ export const KAIZEN_SAVINGS_SCHEMA: PremiumCalculatorSchema = {
     { id: "payback", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "ay", format: "number" },
     { id: "sustainment", label: "Surdurulebilirlik Oran", label_i18n: {"en":"Surdurulebilirlik Rate"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "sustainment", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Sürdürülebilirlik < %70 — kalıcılık sağlanamamış.", warningMessage_i18n: {"en":"Sürdürülebilirlik < %70 — kalıcılık sağlanamamış."}, criticalMessage: "Sürdürülebilirlik < %50 — düzeltici faaliyet gerekli.", criticalMessage_i18n: {"en":"Sürdürülebilirlik < %50 — corrective activity gerekli."} }],
+  thresholds: [{ fieldId: "sustainment", warning: 70, critical: 50, direction: "lower_is_bad", warningMessage: "Sürdürülebilirlik < %70 — kalıcılık sağlanamamış.", warningMessage_i18n: {"en":"Sustainability < 70% — permanence not achieved."}, criticalMessage: "Sürdürülebilirlik < %50 — düzeltici faaliyet gerekli.", criticalMessage_i18n: {"en":"Sustainability < 50% — corrective action required."} }],
   formulaPipeline: [
     { formulaId: "cost.kaizen_hard_savings", inputMap: {
         baseline: "baselineCost",

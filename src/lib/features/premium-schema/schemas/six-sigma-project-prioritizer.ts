@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const SIX_SIGMA_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "six-sigma-project-prioritizer", legacyPaidSlug: "six-sigma-project-prioritizer",
   name: "Alti Sigma Proje onceliklendirici", name_i18n: {"en":"Alti Sigma Proje onceliklendirici"}, sectorSlug: "sheet-metal", category: "scrap",
-  painStatement: "Six Sigma projelerini finansal etki, sigma açığı ve stratejik uyuma göre önceliklendirmeden kaynak israfı oluşur. Bu araç DPMO, Sigma Level ve COPQ temelinde objektif proje sıralaması sağlar.", painStatement_i18n: {"en":"Six Sigma projelerini finansal etki, sigma açığı ve stratejik uyuma per önceliklendirmeden resource israfı oluşur. Bu araç DPMO, Sigma Level ve COPQ temelinde objektif proje sıralaması sağlar."},
+  painStatement: "Six Sigma projelerini finansal etki, sigma açığı ve stratejik uyuma göre önceliklendirmeden kaynak israfı oluşur. Bu araç DPMO, Sigma Level ve COPQ temelinde objektif proje sıralaması sağlar.", painStatement_i18n: {"en":"Without prioritizing Six Sigma projects by financial impact, sigma gap, and strategic alignment, resource waste occurs. This tool provides objective project ranking based on DPMO, Sigma Level, and COPQ."},
   inputs: [
     { id: "productionVolume", label: "Toplam Üretim Hacmi", label_i18n: {"en":"Units produced"}, type: "number", unit: "adet", required: true, smartDefault: 100000, validation: { min: 1 }, helper: "", expertMeaning: "Units produced", expertMeaning_i18n: {"en":"Units produced"} },
     { id: "defectiveUnits", label: "Defect count", label_i18n: {"en":"Defect count"}, type: "number", unit: "adet", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Defect count", expertMeaning_i18n: {"en":"Defect count"} },
@@ -31,7 +31,7 @@ export const SIX_SIGMA_PRIORITIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "projectScore", label: "Proje Skoru", label_i18n: {"en":"Proje Skoru"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "sigmaLevel", warning: 4, critical: 3, direction: "lower_is_bad", warningMessage: "Sigma level < 4 — iyileştirme fırsatı mevcut.", warningMessage_i18n: {"en":"Sigma level < 4 — improvement fırsatı mevcut."}, criticalMessage: "Sigma level < 3 — acil aksiyon gerekiyor.", criticalMessage_i18n: {"en":"Sigma level < 3 — urgent aksiyon gerekiyor."} },
+    { fieldId: "sigmaLevel", warning: 4, critical: 3, direction: "lower_is_bad", warningMessage: "Sigma level < 4 — iyileştirme fırsatı mevcut.", warningMessage_i18n: {"en":"Sigma level < 4 — improvement opportunity exists."}, criticalMessage: "Sigma level < 3 — acil aksiyon gerekiyor.", criticalMessage_i18n: {"en":"Sigma level < 3 — urgent aksiyon gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "stats.dpmo", inputMap: { defects: "defectiveUnits", units: "productionVolume", opportunities: "opportunitiesPerUnit" }, outputId: "dpmo" },

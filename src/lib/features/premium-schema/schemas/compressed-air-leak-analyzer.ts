@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const COMPRESSED_AIR_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "compressed-air-leak-analyzer", legacyPaidSlug: "compressed-air-leak-analyzer",
   name: "Compressor Leak Cost Analyzer", name_i18n: {"en":"Compressor Leak Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "energy",
-  painStatement: "Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir.", painStatement_i18n: {"en":"Basınçlı Air kaçakları detection edilmezse energy Cost gizlice artar ve Carbon emisyonu yükselir."},
+  painStatement: "Basınçlı hava kaçakları tespit edilmezse enerji maliyeti gizlice artar ve karbon emisyonu yükselir.", painStatement_i18n: {"en":"If compressed Air leaks are not detected, energy Cost silently increases and Carbon emissions rise."},
   inputs: [
     { id: "leakDiameter", label: "Orifice diameter", label_i18n: {"en":"Orifice diameter"}, type: "number", unit: "mm", required: true, smartDefault: 2, validation: { min: 0.1 }, helper: "", expertMeaning: "Orifice diameter", expertMeaning_i18n: {"en":"Orifice diameter"} },
     { id: "linePressure", label: "Line pressure", label_i18n: {"en":"Line pressure"}, type: "number", unit: "bar", required: true, smartDefault: 7, validation: { min: 1 }, helper: "", expertMeaning: "Line pressure", expertMeaning_i18n: {"en":"Line pressure"} },
@@ -22,7 +22,7 @@ export const COMPRESSED_AIR_LEAK_SCHEMA: PremiumCalculatorSchema = {
     { id: "carbonEmissions", label: "Karbon Emisyonu", label_i18n: {"en":"Carbon Emisyonu"}, unit: "tCO2e", format: "number" },
     { id: "paybackMonths", label: "Tamir Geri Ödeme", label_i18n: {"en":"Tamir Return Payment"}, unit: "ay", format: "duration" },
   ],
-  thresholds: [{ fieldId: "totalLeakCost", warning: 5000, critical: 20000, direction: "higher_is_bad", warningMessage: "Kaçak maliyeti > $5K/yıl — onarım programı başlatılmalı.", warningMessage_i18n: {"en":"Leak Cost > $5K/yıl — repair program başlatılmalı."}, criticalMessage: "Kaçak maliyeti > $20K/yıl — acil müdahale gerekli.", criticalMessage_i18n: {"en":"Leak Cost > $20K/yıl — urgent intervention gerekli."} }],
+  thresholds: [{ fieldId: "totalLeakCost", warning: 5000, critical: 20000, direction: "higher_is_bad", warningMessage: "Kaçak maliyeti > $5K/yıl — onarım programı başlatılmalı.", warningMessage_i18n: {"en":"Leak Cost > $5K/yr — repair program should be initiated."}, criticalMessage: "Kaçak maliyeti > $20K/yıl — acil müdahale gerekli.", criticalMessage_i18n: {"en":"Leak Cost > $20K/yr — urgent intervention required."} }],
   formulaPipeline: [
     { formulaId: "measurement.leak_flow_cfm", inputMap: {
         leakArea: "leakDiameter",
@@ -55,6 +55,6 @@ export const COMPRESSED_AIR_LEAK_SCHEMA: PremiumCalculatorSchema = {
         leakCost: "costPerLeak"
       }, outputId: "paybackMonths" },
   ],
-  reportTemplate: { title: "Kompresör Kaçak Raporu", title_i18n: {"en":"Kompresör Leak Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kaçak debisi = 22.4×d²×P/√T.", "Güç kaybı = Q×P×144/(33000×Verim).", "Geri ödeme = Tamir / Yıllık maliyet."],assumptionNotes_i18n:[{"en":"Kaçak debisi = 22.4×d²×P/√T."},{"en":"Güç kaybı = Q×P×144/(33000×Verim)."},{"en":"Geri ödeme = Tamir / Yıllık maliyet."}] },
+  reportTemplate: { title: "Kompresör Kaçak Raporu", title_i18n: {"en":"Compressor Leak Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Kaçak debisi = 22.4×d²×P/√T.", "Güç kaybı = Q×P×144/(33000×Verim).", "Geri ödeme = Tamir / Yıllık maliyet."],assumptionNotes_i18n:[{"en":"Leak flow rate = 22.4×d²×P/√T."},{"en":"Power loss = Q×P×144/(33000×Efficiency)."},{"en":"Payback = Repair / Annual cost."}] },
 };

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
   id: "inventory-turnover-risk-analyzer", legacyPaidSlug: "inventory-turnover-risk-analyzer",
   name: "Inventory Turnover Risk Analyzer", name_i18n: {"en":"Inventory Turnover Risk Analyzer"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Stok devir hızı izlenmezse fazla stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise hurda veya iskonto ile satılmak zorunda kalır.", painStatement_i18n: {"en":"Inventory Rotation hızı if not tracked Overtime stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise Scrap veya Discount ile satılmak zorunda kalır."},
+  painStatement: "Stok devir hızı izlenmezse fazla stokta bekleyen sermaye atıl kalır, modası geçen ürünler ise hurda veya iskonto ile satılmak zorunda kalır.", painStatement_i18n: {"en":"Inventory rotation rate if not tracked leads to idle capital in overtime stock, and obsolete products must be sold as scrap or at a discount."},
   inputs: [
     { id: "annualCogs", label: "Annual cost of goods sold", label_i18n: {"en":"Annual cost of goods sold"}, type: "number", unit: "USD", required: true, smartDefault: 1200000, validation: { min: 1 }, helper: "", expertMeaning: "Annual cost of goods sold", expertMeaning_i18n: {"en":"Annual cost of goods sold"} },
     { id: "avgInventory", label: "Average inventory value", label_i18n: {"en":"Average inventory value"}, type: "number", unit: "USD", required: true, smartDefault: 300000, validation: { min: 1 }, helper: "", expertMeaning: "Average inventory value", expertMeaning_i18n: {"en":"Average inventory value"} },
@@ -21,7 +21,7 @@ export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
     { id: "obsolescenceRiskCost", label: "Obsolescence Risk Cost", label_i18n: {"en":"Obsolescence Risk Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
     { id: "liquidationLoss", label: "Liquidation Loss", label_i18n: {"en":"Liquidation Loss"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "inventoryTurnoverRatio", warning: 4, critical: 2, direction: "lower_is_bad", warningMessage: "Stok devir hızı <4 — sermaye atıl kalıyor.", warningMessage_i18n: {"en":"Inventory Rotation hızı <4 — sermaye atıl kalıyor."}, criticalMessage: "Stok devir hızı <2 — acil stok eritme aksiyonu gerekli.", criticalMessage_i18n: {"en":"Inventory Rotation hızı <2 — urgent Inventory eritme aksiyonu gerekli."} }],
+  thresholds: [{ fieldId: "inventoryTurnoverRatio", warning: 4, critical: 2, direction: "lower_is_bad", warningMessage: "Stok devir hızı <4 — sermaye atıl kalıyor.", warningMessage_i18n: {"en":"Inventory rotation rate < 4 — capital is idle."}, criticalMessage: "Stok devir hızı <2 — acil stok eritme aksiyonu gerekli.", criticalMessage_i18n: {"en":"Inventory rotation rate < 2 — urgent inventory reduction action required."} }],
   formulaPipeline: [
     { formulaId: "measurement.inventory_turnover_ratio", inputMap: { annualCogs: "annualCogs", avgInventory: "avgInventory" ,
         cogs: "cogs"}, outputId: "inventoryTurnoverRatio" },
@@ -34,6 +34,6 @@ export const INVENTORY_TURNOVER_RISK_ANALYZER: PremiumCalculatorSchema = {
         liquidationDiscount: "liquidationDiscount"
       }, outputId: "liquidationLoss" },
   ],
-  reportTemplate: { title: "Stok Devir Hızı ve Risk Raporu", title_i18n: {"en":"Inventory Rotation Hızı ve Risk Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Stok devir = SMM / ortalama stok. DSI = gün / devir.", "Eskime risk maliyeti = stok × eskime oranı.", "Tasfiye zararı = adet × fiyat × iskonto oranı.", "OEM stokları ortalama 4-6 tur/yıl hedefler."],assumptionNotes_i18n:[{"en":"Stok devir = SMM / ortalama stok. DSI = gün / devir."},{"en":"Eskime risk maliyeti = stok × eskime oranı."},{"en":"Tasfiye zararı = adet × fiyat × iskonto oranı."},{"en":"OEM stokları ortalama 4-6 tur/yıl hedefler."}] },
+  reportTemplate: { title: "Stok Devir Hızı ve Risk Raporu", title_i18n: {"en":"Inventory Rotation Rate and Risk Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Stok devir = SMM / ortalama stok. DSI = gün / devir.", "Eskime risk maliyeti = stok × eskime oranı.", "Tasfiye zararı = adet × fiyat × iskonto oranı.", "OEM stokları ortalama 4-6 tur/yıl hedefler."],assumptionNotes_i18n:[{"en":"Inventory turnover = COGS / average inventory. DSI = days / turnover."},{"en":"Obsolescence risk cost = inventory × obsolescence rate."},{"en":"Liquidation loss = quantity × price × discount rate."},{"en":"OEM inventories target an average of 4-6 turns/year."}] },
 };

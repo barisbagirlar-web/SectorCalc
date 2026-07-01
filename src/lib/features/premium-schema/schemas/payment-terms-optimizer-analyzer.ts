@@ -24,7 +24,7 @@ export const PAYMENT_TERMS_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "cashFlowImpact", label: "Nakit Aks Etkisi", label_i18n: {"en":"cash Aks Etkisi"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "npvTerms", label: "Vade Degisimi Net Bugunku Deger", label_i18n: {"en":"Vade Degisimi Net Bugunku Value"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "dso", warning: 45, critical: 60, direction: "higher_is_bad", warningMessage: "DSO > 45 gün — tahsilat politikası gözden geçirilmeli.", warningMessage_i18n: {"en":"DSO > 45 gün — tahsilat policy gözden geçirilmeli."}, criticalMessage: "DSO > 60 gün — ciddi nakit akışı riski.", criticalMessage_i18n: {"en":"DSO > 60 gün — serious cash akışı riski."} }],
+  thresholds: [{ fieldId: "dso", warning: 45, critical: 60, direction: "higher_is_bad", warningMessage: "DSO > 45 gün — tahsilat politikası gözden geçirilmeli.", warningMessage_i18n: {"en":"DSO > 45 days — collection policy should be reviewed."}, criticalMessage: "DSO > 60 gün — ciddi nakit akışı riski.", criticalMessage_i18n: {"en":"DSO > 60 days — serious cash flow risk."} }],
   formulaPipeline: [
     { formulaId: "measurement.dso", inputMap: { avgReceivables: "avgReceivables", annualRevenue: "annualRevenue" ,
         accountsReceivable: "accountsReceivable"}, outputId: "dso" },
@@ -45,5 +45,5 @@ export const PAYMENT_TERMS_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
         discountCost: "discountCost"}, outputId: "npvTerms" },
   ],
   reportTemplate: { title: "Payment Terms Optimization Report", title_i18n: {"en":"Payment Terms Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 5, targetMarginPercent: 15, assumptionNotes: ["DSO = (Ort. Alacak / Gelir) × 365.", "Taşıma maliyeti = Alacak × Sermaye Maliyeti.", "İskonto maliyeti = Gelir × İskonto × Kullanım.", "NBD = nakit akış etkisi / (1 + r)^t."],assumptionNotes_i18n:[{"en":"DSO = (Ort. Alacak / Gelir) × 365."},{"en":"Taşıma maliyeti = Alacak × Sermaye Maliyeti."},{"en":"İskonto maliyeti = Gelir × İskonto × Kullanım."},{"en":"NBD = nakit akış etkisi / (1 + r)^t."}] },
+  assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 5, targetMarginPercent: 15, assumptionNotes: ["DSO = (Ort. Alacak / Gelir) × 365.", "Taşıma maliyeti = Alacak × Sermaye Maliyeti.", "İskonto maliyeti = Gelir × İskonto × Kullanım.", "NBD = nakit akış etkisi / (1 + r)^t."],assumptionNotes_i18n:[{"en":"DSO = (Ort. Alacak / Gelir) × 365."},{"en":"Carrying cost = Receivables × Cost of Capital."},{"en":"Discount cost = Revenue × Discount × Utilization."},{"en":"NBD = cash flow effect / (1 + r)^t."}] },
 };

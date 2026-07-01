@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const FOOD_WASTE_MARGIN_SCHEMA: PremiumCalculatorSchema = {
   id: "food-waste-margin-analyzer", legacyPaidSlug: "food-waste-margin-analyzer",
   name: "Food Waste Margin & Yield Analyzer", name_i18n: {"en":"Food Waste Margin & Yield Analyzer"}, sectorSlug: "food", category: "cost",
-  painStatement: "Gıda üretiminde fire, bozulma ve aşırı üretim maliyetleri ayrıştırılmazsa marj kaybının kaynağı tespit edilemez.", painStatement_i18n: {"en":"Gıda üretiminde waste, spoilage ve excessive Production maliyetleri ayrıştırılmazsa Margin kaybının source detection edilemez."},
+  painStatement: "Gıda üretiminde fire, bozulma ve aşırı üretim maliyetleri ayrıştırılmazsa marj kaybının kaynağı tespit edilemez.", painStatement_i18n: {"en":"If waste, spoilage, and excessive production costs in food manufacturing are not disaggregated, the source of margin loss cannot be detected."},
   inputs: [
     { id: "rawWeight", label: "Raw material input weight", label_i18n: {"en":"Raw material input weight"}, type: "number", unit: "kg", required: true, smartDefault: 1000, validation: { min: 0.1 }, helper: "", expertMeaning: "Raw material input weight", expertMeaning_i18n: {"en":"Raw material input weight"} },
     { id: "finishedWeight", label: "Finished product weight", label_i18n: {"en":"Finished product weight"}, type: "number", unit: "kg", required: true, smartDefault: 750, validation: { min: 0 }, helper: "", expertMeaning: "Finished product weight", expertMeaning_i18n: {"en":"Finished product weight"} },
@@ -22,7 +22,7 @@ export const FOOD_WASTE_MARGIN_SCHEMA: PremiumCalculatorSchema = {
     { id: "yield", label: "Verim Oran", label_i18n: {"en":"Efficiency Rate"}, unit: "%", format: "percentage" },
     { id: "marginLeak", label: "Marj Kayb (Toplam)", label_i18n: {"en":"Margin Loss (Total)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "yield", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — fire azaltma programı başlatılmalı.", warningMessage_i18n: {"en":"Efficiency < %80 — waste azaltma program başlatılmalı."}, criticalMessage: "Verim < %70 — proses iyileştirme acil.", criticalMessage_i18n: {"en":"Efficiency < %70 — proses improvement acil."} }],
+  thresholds: [{ fieldId: "yield", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — fire azaltma programı başlatılmalı.", warningMessage_i18n: {"en":"Efficiency < %80 — a waste reduction program should be initiated."}, criticalMessage: "Verim < %70 — proses iyileştirme acil.", criticalMessage_i18n: {"en":"Efficiency < %70 — proses improvement acil."} }],
   formulaPipeline: [
     { formulaId: "measurement.food_yield", inputMap: {
         finished: "finishedWeight",

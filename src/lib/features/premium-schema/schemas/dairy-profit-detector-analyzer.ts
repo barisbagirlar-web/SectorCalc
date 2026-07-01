@@ -20,7 +20,7 @@ export const DAIRY_PROFIT_DETECTOR_ANALYZER: PremiumCalculatorSchema = {
     { id: "fcmMilk", label: "Corrected Milk Yield (FCM)", label_i18n: {"en":"Corrected Milk Yield (FCM)"}, unit: "kg/gün", format: "number" },
     { id: "dairyIncomeOverFeed", label: "Yem Üzeri Gelir (IOFC)", label_i18n: {"en":"Income Over Feed Cost (IOFC)"}, unit: "USD/gün", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "dairyIncomeOverFeed", warning: 3, critical: 1.5, direction: "lower_is_bad", warningMessage: "Yem üzeri gelir <$3/inek/gün — kârlılık daralıyor.", warningMessage_i18n: {"en":"Feed Over Income <$3/inek/gün — kârlılık daralıyor."}, criticalMessage: "Yem üzeri gelir <$1.5/inek/gün — işletme zarar riski yüksek.", criticalMessage_i18n: {"en":"Feed Over Income <$1.5/inek/gün — operation Loss riski yüksek."} }],
+  thresholds: [{ fieldId: "dairyIncomeOverFeed", warning: 3, critical: 1.5, direction: "lower_is_bad", warningMessage: "Yem üzeri gelir <$3/inek/gün — kârlılık daralıyor.", warningMessage_i18n: {"en":"Feed Over Income <$3/cow/day — profitability is contracting."}, criticalMessage: "Yem üzeri gelir <$1.5/inek/gün — işletme zarar riski yüksek.", criticalMessage_i18n: {"en":"Feed Over Income <$1.5/cow/day — operation loss risk is high."} }],
   formulaPipeline: [
     { formulaId: "measurement.fcm_milk", inputMap: {
         milkYield: "milkYieldPerCow",
@@ -35,6 +35,6 @@ export const DAIRY_PROFIT_DETECTOR_ANALYZER: PremiumCalculatorSchema = {
         otherCostsPerCow: "otherCostsPerCow"
       }, outputId: "dairyIncomeOverFeed" },
   ],
-  reportTemplate: { title: "Süt Kâr Dedektörü Raporu", title_i18n: {"en":"Milk Kâr Dedektörü Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["FCM = verim × (0.4324 + 0.1625 × yağ% + 0.0345 × protein%).", "IOFC = (FCM × süt fiyatı) − (yem maliyeti + diğer maliyetler).", "SCC >400K hücre/mL kalite primi kaybına yol açar.", "NRC 2001 yem standartları baz alınmıştır."],assumptionNotes_i18n:[{"en":"FCM = verim × (0.4324 + 0.1625 × yağ% + 0.0345 × protein%)."},{"en":"IOFC = (FCM × süt fiyatı) − (yem maliyeti + diğer maliyetler)."},{"en":"SCC >400K hücre/mL kalite primi kaybına yol açar."},{"en":"NRC 2001 yem standartları baz alınmıştır."}] },
+  reportTemplate: { title: "Süt Kâr Dedektörü Raporu", title_i18n: {"en":"Milk Profit Detector Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["FCM = verim × (0.4324 + 0.1625 × yağ% + 0.0345 × protein%).", "IOFC = (FCM × süt fiyatı) − (yem maliyeti + diğer maliyetler).", "SCC >400K hücre/mL kalite primi kaybına yol açar.", "NRC 2001 yem standartları baz alınmıştır."],assumptionNotes_i18n:[{"en":"FCM = yield × (0.4324 + 0.1625 × fat% + 0.0345 × protein%)."},{"en":"IOFC = (FCM × milk price) − (feed cost + other costs)."},{"en":"SCC >400K cells/mL leads to quality premium loss."},{"en":"NRC 2001 feed standards are used as the basis."}] },
 };

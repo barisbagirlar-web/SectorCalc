@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "feed-cost-formulation-analyzer", legacyPaidSlug: "feed-cost-formulation-analyzer",
   name: "Feed Cost Formulation & FCR Analyzer", name_i18n: {"en":"Feed Cost Formulation & FCR Analyzer"}, sectorSlug: "food", category: "cost",
-  painStatement: "Yem formülasyonunda hammadde maliyeti, işleme ve FCR analiz edilmezse kg başına canlı ağırlık maliyeti kontrol edilemez.", painStatement_i18n: {"en":"Feed formülasyonunda raw material Cost, işleme ve FCR analiz edilmezse kg Per canlı Weight Cost control edilemez."},
+  painStatement: "Yem formülasyonunda hammadde maliyeti, işleme ve FCR analiz edilmezse kg başına canlı ağırlık maliyeti kontrol edilemez.", painStatement_i18n: {"en":"If raw material cost, processing, and FCR are not analyzed in feed formulation, cost per kg live weight cannot be controlled."},
   inputs: [
     { id: "inclusionRates", label: "Ingredient inclusion rates", label_i18n: {"en":"Ingredient inclusion rates"}, type: "number", unit: "%", array: true, required: true, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Ingredient inclusion rates", expertMeaning_i18n: {"en":"Ingredient inclusion rates"} },
     { id: "prices", label: "Ingredient prices", label_i18n: {"en":"Ingredient prices"}, type: "number", unit: "USD/ton", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Ingredient prices", expertMeaning_i18n: {"en":"Ingredient prices"} },
@@ -21,7 +21,7 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "fcr", label: "FCR (Yem Donusum Oran)", label_i18n: {"en":"FCR (Feed Donusum Rate)"}, unit: "", format: "number" },
     { id: "costPerKgGain", label: "kg Kazanc Maliyeti", label_i18n: {"en":"kg Gain Cost"}, unit: "USD/kg", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "fcr", warning: 2.5, critical: 3.0, direction: "higher_is_bad", warningMessage: "FCR > 2.5 — yem verimliliği düşük.", warningMessage_i18n: {"en":"FCR > 2.5 — Feed verimliliği düşük."}, criticalMessage: "FCR > 3.0 — rasyon optimizasyonu acil.", criticalMessage_i18n: {"en":"FCR > 3.0 — rasyon optimizasyonu acil."} }],
+  thresholds: [{ fieldId: "fcr", warning: 2.5, critical: 3.0, direction: "higher_is_bad", warningMessage: "FCR > 2.5 — yem verimliliği düşük.", warningMessage_i18n: {"en":"FCR > 2.5 — feed efficiency is low."}, criticalMessage: "FCR > 3.0 — rasyon optimizasyonu acil.", criticalMessage_i18n: {"en":"FCR > 3.0 — rasyon optimizasyonu acil."} }],
   formulaPipeline: [
     { formulaId: "cost.feed_base_cost", inputMap: { inclusionRates: "inclusionRates", prices: "prices" ,
         inclRates: "inclRates"}, outputId: "baseCost" },

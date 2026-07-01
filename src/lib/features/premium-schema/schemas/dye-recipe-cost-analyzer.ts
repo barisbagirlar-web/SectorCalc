@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const DYE_RECIPE_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "dye-recipe-cost-analyzer", legacyPaidSlug: "dye-recipe-cost-analyzer",
   name: "Dye Recipe Cost Analyzer", name_i18n: {"en":"Dye Recipe Cost Analyzer"}, sectorSlug: "textile", category: "cost",
-  painStatement: "Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar.", painStatement_i18n: {"en":"Boyarmadde reçetesinde waste ve kimyasal Cost control edilmezse kg Per Cost beklenenden high çıkar."},
+  painStatement: "Boyarmadde reçetesinde fire ve kimyasal maliyeti kontrol edilmezse kg başına maliyet beklenenden yüksek çıkar.", painStatement_i18n: {"en":"If waste and chemical cost in the dye recipe are not controlled, cost per kg turns out higher than expected."},
   inputs: [
     { id: "bathRatio", label: "Liquor ratio (liquid:goods)", label_i18n: {"en":"Liquor ratio (liquid:goods)"}, type: "number", unit: "", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Liquor ratio (liquid:goods)", expertMeaning_i18n: {"en":"Liquor ratio (liquid:goods)"} },
     { id: "fabricWeight", label: "Fabric weight per batch", label_i18n: {"en":"Fabric weight per batch"}, type: "number", unit: "kg", required: true, smartDefault: 100, validation: { min: 0.1 }, helper: "", expertMeaning: "Fabric weight per batch", expertMeaning_i18n: {"en":"Fabric weight per batch"} },

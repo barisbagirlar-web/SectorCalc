@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const DIGITAL_TWIN_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "digital-twin-cost-analyzer", legacyPaidSlug: "digital-twin-cost-analyzer",
   name: "Digital Twin Cost & ROI Analyzer", name_i18n: {"en":"Digital Twin Cost & ROI Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Digital twin yatırımının geleneksel yönteme göre maliyet avantajını ROI olarak hesaplamadan karar vermek risklidir.", painStatement_i18n: {"en":"Digital twin yatırımının geleneksel yönteme per Cost avantajını ROI olarak hesaplamadan decision vermek risklidir."},
+  painStatement: "Digital twin yatırımının geleneksel yönteme göre maliyet avantajını ROI olarak hesaplamadan karar vermek risklidir.", painStatement_i18n: {"en":"Deciding without calculating the cost advantage of digital twin investment over the traditional method as ROI is risky."},
   inputs: [
     { id: "traditionalCost", label: "Geleneksel Yöntem Maliyeti", label_i18n: {"en":"Prototyping+FieldTest+Downtime+Travel"}, type: "number", unit: "USD", required: true, smartDefault: 200000, validation: { min: 0 }, helper: "", expertMeaning: "Prototyping+FieldTest+Downtime+Travel", expertMeaning_i18n: {"en":"Prototyping+FieldTest+Downtime+Travel"} },
     { id: "dtCost", label: "Digital Twin Maliyeti", label_i18n: {"en":"Digital Twin Cost"}, type: "number", unit: "USD", required: true, smartDefault: 80000, validation: { min: 0 }, helper: "", expertMeaning: "License+Compute+Sensor+Modeling", expertMeaning_i18n: {"en":"License+Compute+Sensor+Modeling"} },
@@ -22,7 +22,7 @@ export const DIGITAL_TWIN_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "roi", label: "Digital Twin ROI", label_i18n: {"en":"Digital Twin ROI"}, unit: "%", format: "percentage" },
     { id: "paybackMonths", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "ay", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < %100 — fizibilite tekrar değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < %100 — feasibility tekrar değerlendirilmeli."}, criticalMessage: "ROI < %50 — yatırım önerilmez.", criticalMessage_i18n: {"en":"ROI < %50 — Investment önerilmez."} }],
+  thresholds: [{ fieldId: "roi", warning: 100, critical: 50, direction: "lower_is_bad", warningMessage: "ROI < %100 — fizibilite tekrar değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < 100% — feasibility must be re-evaluated."}, criticalMessage: "ROI < %50 — yatırım önerilmez.", criticalMessage_i18n: {"en":"ROI < 50% — investment is not recommended."} }],
   formulaPipeline: [
     { formulaId: "cost.digital_twin_time_gain", inputMap: {
         iterations: "iterations",

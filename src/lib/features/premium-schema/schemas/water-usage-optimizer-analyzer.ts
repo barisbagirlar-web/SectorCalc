@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
   id: "water-usage-optimizer-analyzer", legacyPaidSlug: "water-usage-optimizer-analyzer",
   name: "Water Usage Optimization Analyzer", name_i18n: {"en":"Water Usage Optimization Analyzer"}, sectorSlug: "energy-carbon", category: "measurement",
-  painStatement: "Endüstriyel su tüketimi izlenmezse su yoğunluğu artar, atık su maliyeti yükselir ve verimlilik düşer.", painStatement_i18n: {"en":"Endüstriyel Water Consumption if not tracked Water yoğunluğu artar, Waste Water Cost yükselir ve productivity düşer."},
+  painStatement: "Endüstriyel su tüketimi izlenmezse su yoğunluğu artar, atık su maliyeti yükselir ve verimlilik düşer.", painStatement_i18n: {"en":"If industrial Water Consumption is not tracked, Water intensity increases, Waste Water Cost rises, and productivity drops."},
   inputs: [
     { id: "totalWaterUse", label: "Annual total water use", label_i18n: {"en":"Annual total water use"}, type: "number", unit: "m³/yıl", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Annual total water use", expertMeaning_i18n: {"en":"Annual total water use"} },
     { id: "productionOutput", label: "Annual production output", label_i18n: {"en":"Annual production output"}, type: "number", unit: "ton/yıl", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production output", expertMeaning_i18n: {"en":"Annual production output"} },
@@ -21,7 +21,7 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
     { id: "waterCostSavings", label: "Su Maliyet Tasarrufu", label_i18n: {"en":"Water Cost Tasarrufu"}, unit: "USD/yıl", format: "currency" },
     { id: "waterRoi", label: "Su Verimliligi ROI", label_i18n: {"en":"Water Verimliligi ROI"}, unit: "%", format: "percentage" },
   ],
-  thresholds: [{ fieldId: "waterIntensity", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Su yoğunluğu >5 m³/ton — verimlilik iyileştirme fırsatı var.", warningMessage_i18n: {"en":"Water yoğunluğu >5 m³/ton — productivity improvement fırsatı var."}, criticalMessage: "Su yoğunluğu >8 m³/ton — acil su yönetim programı gerekli.", criticalMessage_i18n: {"en":"Water yoğunluğu >8 m³/ton — urgent Water management program gerekli."} }],
+  thresholds: [{ fieldId: "waterIntensity", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Su yoğunluğu >5 m³/ton — verimlilik iyileştirme fırsatı var.", warningMessage_i18n: {"en":"Water intensity > 5 m³/ton — Productivity improvement opportunity exists."}, criticalMessage: "Su yoğunluğu >8 m³/ton — acil su yönetim programı gerekli.", criticalMessage_i18n: {"en":"Water intensity > 8 m³/ton — Urgent water management program required."} }],
   formulaPipeline: [
     { formulaId: "measurement.water_intensity", inputMap: { totalWaterUse: "totalWaterUse", productionOutput: "productionOutput" ,
         totalWater: "totalWater",
@@ -42,5 +42,5 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
         installationCost: "installationCost"}, outputId: "waterRoi" },
   ],
   reportTemplate: { title: "Su Kullanım Optimizasyon Raporu", title_i18n: {"en":"Water Utilization optimization Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Su yoğunluğu = toplam kullanım / üretim miktarı.", "Tasarruf = (mevcut − hedef) yoğunluk × üretim.", "Atık su maliyeti toplam suyun atık su oranı kadar kadarına uygulanır."],assumptionNotes_i18n:[{"en":"Su yoğunluğu = toplam kullanım / üretim miktarı."},{"en":"Tasarruf = (mevcut − hedef) yoğunluk × üretim."},{"en":"Atık su maliyeti toplam suyun atık su oranı kadar kadarına uygulanır."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Su yoğunluğu = toplam kullanım / üretim miktarı.", "Tasarruf = (mevcut − hedef) yoğunluk × üretim.", "Atık su maliyeti toplam suyun atık su oranı kadar kadarına uygulanır."],assumptionNotes_i18n:[{"en":"Water intensity = total consumption / production quantity."},{"en":"Savings = (current − target) intensity × production."},{"en":"Waste water cost is applied to the portion equal to the waste water ratio of total water."}] },
 };

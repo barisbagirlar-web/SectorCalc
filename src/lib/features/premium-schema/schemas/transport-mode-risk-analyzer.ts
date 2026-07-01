@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "transport-mode-risk-analyzer", legacyPaidSlug: "transport-mode-risk-analyzer",
   name: "Transport Mode Risk and Cost Analyzer", name_i18n: {"en":"Transport Mode Risk and Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Hava, deniz ve kara taşıma modları arasında seçim yaparken risk ve transit süre maliyeti göz ardı edilir.", painStatement_i18n: {"en":"Air, deniz ve kara Carrying modları arasında choice yaparken risk ve transit Time Cost göz ardı edilir."},
+  painStatement: "Hava, deniz ve kara taşıma modları arasında seçim yaparken risk ve transit süre maliyeti göz ardı edilir.", painStatement_i18n: {"en":"When choosing between air, sea, and land carrying modes, risk and transit time cost are overlooked."},
   inputs: [
     { id: "airFreightCost", label: "Hava Kargo Maliyeti", label_i18n: {"en":"Air Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Total air freight cost", expertMeaning_i18n: {"en":"Total air freight cost"} },
     { id: "seaFreightCost", label: "Deniz Kargo Maliyeti", label_i18n: {"en":"Deniz Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 3000, validation: { min: 0 }, helper: "", expertMeaning: "Total sea freight cost", expertMeaning_i18n: {"en":"Total sea freight cost"} },
@@ -24,7 +24,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "riskCostTransport", label: "Risk Maliyeti", label_i18n: {"en":"Risk Cost"}, unit: "USD", format: "currency" },
     { id: "totalModeCost", label: "Toplam Mod Maliyeti", label_i18n: {"en":"Total Mod Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Toplam taşıma maliyeti > $10K — mod optimizasyonu önerilir.", warningMessage_i18n: {"en":"Total Carrying Cost > $10K — mod optimizasyonu önerilir."}, criticalMessage: "Toplam taşıma maliyeti > $25K — alternatif rotalar değerlendirilmeli.", criticalMessage_i18n: {"en":"Total Carrying Cost > $25K — alternatif rotalar değerlendirilmeli."} }],
+  thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Toplam taşıma maliyeti > $10K — mod optimizasyonu önerilir.", warningMessage_i18n: {"en":"Total carrying cost > $10K — mode optimization is recommended."}, criticalMessage: "Toplam taşıma maliyeti > $25K — alternatif rotalar değerlendirilmeli.", criticalMessage_i18n: {"en":"Total carrying cost > $25K — alternative routes should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "cost.transport_air", inputMap: { airFreightCost: "airFreightCost" ,
         airFreightKg: "airFreightKg",

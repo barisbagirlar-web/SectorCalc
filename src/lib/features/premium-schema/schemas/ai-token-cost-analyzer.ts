@@ -44,7 +44,7 @@ export const AI_TOKEN_COST_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "tco", label: "TCO (Aylk)", label_i18n: {"en":"TCO (Aylk)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "tco", warning: 5000, critical: 25000, direction: "higher_is_bad", warningMessage: "TCO > $5K/ay — caching veya model optimizasyonu değerlendir.", warningMessage_i18n: {"en":"TCO > $5K/ay — caching veya model optimizasyonu değerlendir."}, criticalMessage: "TCO > $25K/ay — acil maliyet optimizasyonu gerekiyor.", criticalMessage_i18n: {"en":"TCO > $25K/ay — urgent Cost optimizasyonu gerekiyor."} },
+    { fieldId: "tco", warning: 5000, critical: 25000, direction: "higher_is_bad", warningMessage: "TCO > $5K/ay — caching veya model optimizasyonu değerlendir.", warningMessage_i18n: {"en":"TCO > $5K/month — evaluate caching or model optimization."}, criticalMessage: "TCO > $25K/ay — acil maliyet optimizasyonu gerekiyor.", criticalMessage_i18n: {"en":"TCO > $25K/ay — urgent Cost optimizasyonu gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.ai_daily_prompt", inputMap: { dailyRequests: "dailyRequests", promptTokens: "promptTokens", pricePerMToken: "promptPrice" }, outputId: "dailyBasePromptCost" },

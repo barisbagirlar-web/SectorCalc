@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   id: "poka-yoke-roi-analyzer", legacyPaidSlug: "poka-yoke-roi-analyzer",
   name: "Poka-Yoke Yatirim Getirisi", name_i18n: {"en":"Poka-Yoke Investment Return"}, sectorSlug: "quality", category: "cost",
-  painStatement: "Hata önleme (Poka-Yoke) yatırımının geri dönüşü hesaplanmazsa kalite iyileştirme bütçesi verimsiz kullanılabilir.", painStatement_i18n: {"en":"Error önleme (Poka-Yoke) yatırımının Return dönüşü if not calculated Quality improvement bütçesi verimsiz kullanılabilir."},
+  painStatement: "Hata önleme (Poka-Yoke) yatırımının geri dönüşü hesaplanmazsa kalite iyileştirme bütçesi verimsiz kullanılabilir.", painStatement_i18n: {"en":"If the return on error prevention (Poka-Yoke) investment is not calculated, the quality improvement budget may be used inefficiently."},
   inputs: [
     { id: "currentDefectRate", label: "Current defect rate percentage", label_i18n: {"en":"Current defect rate percentage"}, type: "number", unit: "%", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current defect rate percentage", expertMeaning_i18n: {"en":"Current defect rate percentage"} },
     { id: "productionVolume", label: "Üretim Hacmi", label_i18n: {"en":"Annual production volume"}, type: "number", unit: "adet/yıl", required: true, smartDefault: 100000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production volume", expertMeaning_i18n: {"en":"Annual production volume"} },
@@ -23,7 +23,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "pokaYokeRoi", label: "Yatrm Getirisi (ROI)", label_i18n: {"en":"Yatrm Return (ROI)"}, unit: "%", format: "number" },
     { id: "pokaYokePayback", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "ay", format: "number" },
   ],
-  thresholds: [{ fieldId: "pokaYokeRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım fizibilitesi sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %50 — Investment fizibilitesi sorgulanmalı."}, criticalMessage: "ROI < %20 — Poka-Yoke yatırımı önerilmez.", criticalMessage_i18n: {"en":"ROI < %20 — Poka-Yoke yatırımı önerilmez."} }],
+  thresholds: [{ fieldId: "pokaYokeRoi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım fizibilitesi sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %50 — investment feasibility should be questioned."}, criticalMessage: "ROI < %20 — Poka-Yoke yatırımı önerilmez.", criticalMessage_i18n: {"en":"ROI < %20 — Poka-Yoke investment is not recommended."} }],
   formulaPipeline: [
     { formulaId: "measurement.current_defect_rate", inputMap: {
         defects: "currentDefectRate"
@@ -53,5 +53,5 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.poka_yoke_payback", inputMap: { pokaYokeCost: "pokaYokeCost", pokaYokeSavings: "pokaYokeSavings" }, outputId: "pokaYokePayback" },
   ],
   reportTemplate: { title: "Poka-Yoke ROI Analysis Report", title_i18n: {"en":"Poka-Yoke ROI Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Hata maliyeti = hacim × hata oranı × birim maliyet.", "Tasarruf = eski hata - yeni hata maliyeti.", "ROI = (yıllık tasarruf × ömür - yatırım) / yatırım × 100.", "Geri ödeme = yatırım / aylık tasarruf."],assumptionNotes_i18n:[{"en":"Hata maliyeti = hacim × hata oranı × birim maliyet."},{"en":"Tasarruf = eski hata - yeni hata maliyeti."},{"en":"ROI = (yıllık tasarruf × ömür - yatırım) / yatırım × 100."},{"en":"Geri ödeme = yatırım / aylık tasarruf."}] },
+  assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Hata maliyeti = hacim × hata oranı × birim maliyet.", "Tasarruf = eski hata - yeni hata maliyeti.", "ROI = (yıllık tasarruf × ömür - yatırım) / yatırım × 100.", "Geri ödeme = yatırım / aylık tasarruf."],assumptionNotes_i18n:[{"en":"Error cost = volume × error rate × unit cost."},{"en":"Tasarruf = eski hata - yeni hata maliyeti."},{"en":"ROI = (annual savings × life - investment) / investment × 100."},{"en":"Payback = investment / monthly savings."}] },
 };

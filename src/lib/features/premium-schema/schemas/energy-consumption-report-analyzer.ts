@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
   id: "energy-consumption-report-analyzer", legacyPaidSlug: "energy-consumption-report-analyzer",
   name: "Energy Consumption Report & PF Analyzer", name_i18n: {"en":"Energy Consumption Report & PF Analyzer"}, sectorSlug: "sheet-metal", category: "energy",
-  painStatement: "Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar.", painStatement_i18n: {"en":"energy faturasında reaktif penalty, demand bedeli ve Carbon Cost analiz edilmezse operation gereksiz Payment yapar."},
+  painStatement: "Enerji faturasında reaktif ceza, talep bedeli ve karbon maliyeti analiz edilmezse işletme gereksiz ödeme yapar.", painStatement_i18n: {"en":"If reactive penalty, demand charge, and carbon cost in the energy bill are not analyzed, the operation makes unnecessary payments."},
   inputs: [
     { id: "activeKwh", label: "Aktif Tüketim (kWh)", label_i18n: {"en":"Active energy consumption"}, type: "number", unit: "kWh", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption"} },
     { id: "reactiveKvarh", label: "Reaktif Tüketim (kVArh)", label_i18n: {"en":"Reactive energy consumption"}, type: "number", unit: "kVArh", required: true, smartDefault: 40000, validation: { min: 0 }, helper: "", expertMeaning: "Reactive energy consumption", expertMeaning_i18n: {"en":"Reactive energy consumption"} },
@@ -25,7 +25,7 @@ export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalBill", label: "Total Bill", label_i18n: {"en":"Total Bill"}, unit: "USD", format: "currency" },
     { id: "carbonFootprint", label: "Carbon Cost", label_i18n: {"en":"Carbon Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "powerFactor", warning: 90, critical: 85, direction: "lower_is_bad", warningMessage: "PF < %90 — kompanzasyon iyileştirilmeli.", warningMessage_i18n: {"en":"PF < %90 — kompanzasyon iyileştirilmeli."}, criticalMessage: "PF < %85 — reaktif ceza riski yüksek.", criticalMessage_i18n: {"en":"PF < %85 — reaktif penalty riski yüksek."} }],
+  thresholds: [{ fieldId: "powerFactor", warning: 90, critical: 85, direction: "lower_is_bad", warningMessage: "PF < %90 — kompanzasyon iyileştirilmeli.", warningMessage_i18n: {"en":"PF < 90% — compensation should be improved."}, criticalMessage: "PF < %85 — reaktif ceza riski yüksek.", criticalMessage_i18n: {"en":"PF < 85% — reactive penalty risk is high."} }],
   formulaPipeline: [
     { formulaId: "energy.power_factor", inputMap: {
         active: "activeKwh",

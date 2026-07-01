@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const ENVIRONMENTAL_WASTE_SCHEMA: PremiumCalculatorSchema = {
   id: "environmental-waste-cost-analyzer", legacyPaidSlug: "environmental-waste-cost-analyzer",
   name: "Environmental Waste Cost & Circularity Analyzer", name_i18n: {"en":"Environmental Waste Cost & Circularity Analyzer"}, sectorSlug: "legal-tax", category: "cost",
-  painStatement: "Atık bertaraf, tehlikeli atık ve emisyon maliyetleri ayrıştırılmazsa çevre cezaları ve sürdürülebilirlik raporlaması hatalı olur.", painStatement_i18n: {"en":"Waste disposal, hazardous Waste ve emission maliyetleri ayrıştırılmazsa environmental cezaları ve sürdürülebilirlik raporlaması hatalı olur."},
+  painStatement: "Atık bertaraf, tehlikeli atık ve emisyon maliyetleri ayrıştırılmazsa çevre cezaları ve sürdürülebilirlik raporlaması hatalı olur.", painStatement_i18n: {"en":"If waste disposal, hazardous waste, and emission costs are not separated, environmental penalties and sustainability reporting will be incorrect."},
   inputs: [
     { id: "nonHazWaste", label: "Non-hazardous waste", label_i18n: {"en":"Non-hazardous waste"}, type: "number", unit: "ton", required: true, smartDefault: 50, validation: { min: 0 }, helper: "", expertMeaning: "Non-hazardous waste", expertMeaning_i18n: {"en":"Non-hazardous waste"} },
     { id: "disposalFee", label: "Bertaraf Ücreti", label_i18n: {"en":"Disposal fee per ton"}, type: "number", unit: "USD/ton", required: true, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Disposal fee per ton", expertMeaning_i18n: {"en":"Disposal fee per ton"} },
@@ -25,7 +25,7 @@ export const ENVIRONMENTAL_WASTE_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "totalEnvCost", label: "Toplam Cevre Maliyeti", label_i18n: {"en":"Total environmental Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalEnvCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Çevre maliyeti > $50K — azaltım programı başlatılmalı.", warningMessage_i18n: {"en":"environmental Cost > $50K — azaltım program başlatılmalı."}, criticalMessage: "Maliyet > $150K — acil çevre yönetimi aksiyonu.", criticalMessage_i18n: {"en":"Cost > $150K — urgent environmental yönetimi aksiyonu."} }],
+  thresholds: [{ fieldId: "totalEnvCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Çevre maliyeti > $50K — azaltım programı başlatılmalı.", warningMessage_i18n: {"en":"Environmental Cost > $50K — mitigation program must be initiated."}, criticalMessage: "Maliyet > $150K — acil çevre yönetimi aksiyonu.", criticalMessage_i18n: {"en":"Cost > $150K — urgent environmental management action."} }],
   formulaPipeline: [
     { formulaId: "cost.env_fire_disposal", inputMap: {
         waste: "nonHazWaste",

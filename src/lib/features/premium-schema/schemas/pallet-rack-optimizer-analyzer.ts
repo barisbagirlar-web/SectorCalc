@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "pallet-rack-optimizer-analyzer", legacyPaidSlug: "pallet-rack-optimizer-analyzer",
   name: "Palet Rafi Kapasite Optimizasyonu", name_i18n: {"en":"Palet Rafi Capacity Optimizasyonu"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Palet rafı düzeni ve kapasitesi optimize edilmezse depo alanı verimsiz kullanılır ve operasyonel maliyet artar.", painStatement_i18n: {"en":"Palet rafı düzeni ve Capacity optimize edilmezse depo alanı verimsiz kullanılır ve operasyonel Cost artar."},
+  painStatement: "Palet rafı düzeni ve kapasitesi optimize edilmezse depo alanı verimsiz kullanılır ve operasyonel maliyet artar.", painStatement_i18n: {"en":"If pallet rack layout and capacity are not optimized, warehouse space is used inefficiently and operational cost increases."},
   inputs: [
     { id: "rackWidth", label: "Rack width in mm", label_i18n: {"en":"Rack width in mm"}, type: "number", unit: "mm", required: true, smartDefault: 2700, validation: { min: 100 }, helper: "", expertMeaning: "Rack width in mm", expertMeaning_i18n: {"en":"Rack width in mm"} },
     { id: "rackDepth", label: "Rack depth in mm", label_i18n: {"en":"Rack depth in mm"}, type: "number", unit: "mm", required: true, smartDefault: 1100, validation: { min: 100 }, helper: "", expertMeaning: "Rack depth in mm", expertMeaning_i18n: {"en":"Rack depth in mm"} },
@@ -24,7 +24,7 @@ export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "rackCostPerPosition", label: "Pozisyon Basna Maliyet", label_i18n: {"en":"position Per Cost"}, unit: "USD", format: "currency" },
     { id: "retrievalTime", label: "Ortalama Erisim Suresi", label_i18n: {"en":"Average Erisim Duration"}, unit: "saniye", format: "number" },
   ],
-  thresholds: [{ fieldId: "floorUtilization", warning: 65, critical: 50, direction: "lower_is_bad", warningMessage: "Alan kullanımı < %65 — yerleşim optimizasyonu önerilir.", warningMessage_i18n: {"en":"Alan kullanımı < %65 — yerleşim optimizasyonu önerilir."}, criticalMessage: "Alan kullanımı < %50 — depo düzeni yenilenmeli.", criticalMessage_i18n: {"en":"Alan kullanımı < %50 — depo düzeni yenilenmeli."} }],
+  thresholds: [{ fieldId: "floorUtilization", warning: 65, critical: 50, direction: "lower_is_bad", warningMessage: "Alan kullanımı < %65 — yerleşim optimizasyonu önerilir.", warningMessage_i18n: {"en":"Space utilization < %65 — layout optimization is recommended."}, criticalMessage: "Alan kullanımı < %50 — depo düzeni yenilenmeli.", criticalMessage_i18n: {"en":"Space utilization < %50 — warehouse layout should be renewed."} }],
   formulaPipeline: [
     { formulaId: "measurement.rack_capacity", inputMap: {
         rackQty: "loadCapacity",
@@ -56,5 +56,5 @@ export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "retrievalTime" },
   ],
   reportTemplate: { title: "Pallet Rack Optimization Report", title_i18n: {"en":"Pallet Rack Optimization Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Kapasite = kat × pozisyon × yük kapasitesi.", "Alan kullanımı = raf alanı / depo alanı.", "Güvenlik faktörü = yük / dayanım oranı.", "Erişim süresi raf yüksekliği ve derinliğine bağlıdır."],assumptionNotes_i18n:[{"en":"Kapasite = kat × pozisyon × yük kapasitesi."},{"en":"Alan kullanımı = raf alanı / depo alanı."},{"en":"Güvenlik faktörü = yük / dayanım oranı."},{"en":"Erişim süresi raf yüksekliği ve derinliğine bağlıdır."}] },
+  assumptions: { hiddenLossMultiplier: 1.0, volatilityPercent: 10, targetMarginPercent: 10, assumptionNotes: ["Kapasite = kat × pozisyon × yük kapasitesi.", "Alan kullanımı = raf alanı / depo alanı.", "Güvenlik faktörü = yük / dayanım oranı.", "Erişim süresi raf yüksekliği ve derinliğine bağlıdır."],assumptionNotes_i18n:[{"en":"Capacity = tier × position × load capacity."},{"en":"Space utilization = rack area / warehouse area."},{"en":"Safety factor = load / strength ratio."},{"en":"Access time depends on rack height and depth."}] },
 };

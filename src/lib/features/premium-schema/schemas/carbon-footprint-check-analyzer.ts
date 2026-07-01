@@ -34,5 +34,5 @@ export const CARBON_FOOTPRINT_CHECK_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.carbon_financial_risk", inputMap: { totalCarbon: "totalCarbon", carbonPrice: "carbonPrice" }, outputId: "financialRisk" },
   ],
   reportTemplate: { title: "Carbon Footprint Report", title_i18n: {"en":"Carbon Footprint Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Scope 2 market-based = electricity × (gridEF - REC).", "CBAM 2026 sonrası karbon fiyatı ~80 EUR/ton.", "Karbon yoğunluğu = toplam / üretim hacmi."],assumptionNotes_i18n:[{"en":"Scope 2 market-based = electricity × (gridEF - REC)."},{"en":"CBAM 2026 sonrası karbon fiyatı ~80 EUR/ton."},{"en":"Karbon yoğunluğu = toplam / üretim hacmi."}]},
+  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 15, targetMarginPercent: 20, assumptionNotes: ["Scope 2 market-based = electricity × (gridEF - REC).", "CBAM 2026 sonrası karbon fiyatı ~80 EUR/ton.", "Karbon yoğunluğu = toplam / üretim hacmi."],assumptionNotes_i18n:[{"en":"Scope 2 market-based = electricity × (gridEF - REC)."},{"en":"Carbon price after CBAM 2026 ~80 EUR/ton."},{"en":"Carbon intensity = total / production volume."}]},
 };

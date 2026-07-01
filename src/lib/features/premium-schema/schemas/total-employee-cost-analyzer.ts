@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const TOTAL_EMPLOYEE_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "total-employee-cost-analyzer", legacyPaidSlug: "total-employee-cost-analyzer",
   name: "Total Employee Cost Analyzer", name_i18n: {"en":"Total Employee Cost Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Çalışan başına brüt maaş, yan haklar ve işveren payı toplamı hesaplanmazsa gerçek işgücü maliyeti gizli kalır.", painStatement_i18n: {"en":"Employee Per brüt maaş, yan haklar ve işveren payı toplamı if not calculated Actual işgücü Cost latent kalır."},
+  painStatement: "Çalışan başına brüt maaş, yan haklar ve işveren payı toplamı hesaplanmazsa gerçek işgücü maliyeti gizli kalır.", painStatement_i18n: {"en":"If the total of employee gross salary, benefits, and employer contribution is not calculated, the actual labor cost remains hidden."},
   inputs: [
     { id: "numEmployees", label: "Number of employees", label_i18n: {"en":"Number of employees"}, type: "number", unit: "kişi", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Number of employees", expertMeaning_i18n: {"en":"Number of employees"} },
     { id: "avgGrossSalary", label: "Average monthly gross salary", label_i18n: {"en":"Average monthly gross salary"}, type: "number", unit: "USD/ay", required: true, smartDefault: 2500, validation: { min: 1 }, helper: "", expertMeaning: "Average monthly gross salary", expertMeaning_i18n: {"en":"Average monthly gross salary"} },
@@ -18,7 +18,7 @@ export const TOTAL_EMPLOYEE_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalEmployeeCost", label: "Total Employee Cost", label_i18n: {"en":"Total Employee Cost"}, unit: "USD/ay", format: "currency", isBigNumber: true },
     { id: "employeeCostPerHour", label: "Employee Hourly Cost", label_i18n: {"en":"Employee Hourly Cost"}, unit: "USD/saat", format: "currency" },
   ],
-  thresholds: [{ fieldId: "employeeCostPerHour", warning: 30, critical: 50, direction: "higher_is_bad", warningMessage: "Saatlik maliyet > $30 — verimlilik analizi önerilir.", warningMessage_i18n: {"en":"Hourly Cost > $30 — productivity analizi önerilir."}, criticalMessage: "Saatlik maliyet > $50 — maliyet yapısı optimize edilmeli.", criticalMessage_i18n: {"en":"Hourly Cost > $50 — Cost yapısı optimize edilmeli."} }],
+  thresholds: [{ fieldId: "employeeCostPerHour", warning: 30, critical: 50, direction: "higher_is_bad", warningMessage: "Saatlik maliyet > $30 — verimlilik analizi önerilir.", warningMessage_i18n: {"en":"Hourly cost > $30 — productivity analysis is recommended."}, criticalMessage: "Saatlik maliyet > $50 — maliyet yapısı optimize edilmeli.", criticalMessage_i18n: {"en":"Hourly cost > $50 — cost structure should be optimized."} }],
   formulaPipeline: [
     { formulaId: "cost.total_employee_cost", inputMap: { numEmployees: "numEmployees", avgGrossSalary: "avgGrossSalary", employerPayrollTax: "employerPayrollTax", benefitsCostPerEmployee: "benefitsCostPerEmployee", trainingCostPerEmployee: "trainingCostPerEmployee" ,
         grossSalary: "grossSalary",

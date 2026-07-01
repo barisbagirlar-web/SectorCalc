@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const IRR_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
   id: "irr-npv-investment-analyzer", legacyPaidSlug: "irr-npv-investment-analyzer",
   name: "ic Verim Orani (IRR) & Yatirim Analizi", name_i18n: {"en":"Internal Efficiency Rate (IRR) & Investment Analizi"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Yatırım projelerinde NPV, IRR, geri ödeme süresi ve PI hesaplanmadan doğru fizibilite kararı verilemez.", painStatement_i18n: {"en":"Investment projelerinde NPV, IRR, Return Payment Duration ve PI hesaplanmadan accurate feasibility kararı verilemez."},
+  painStatement: "Yatırım projelerinde NPV, IRR, geri ödeme süresi ve PI hesaplanmadan doğru fizibilite kararı verilemez.", painStatement_i18n: {"en":"In investment projects, an accurate feasibility decision cannot be made without calculating NPV, IRR, Payback Period, and PI."},
   inputs: [
     { id: "cashFlows", label: "Cash flows, first is investment (negative)", label_i18n: {"en":"Cash flows, first is investment (negative)"}, type: "number", unit: "USD", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Cash flows, first is investment (negative)", expertMeaning_i18n: {"en":"Cash flows, first is investment (negative)"} },
     { id: "discountRate", label: "Discount rate", label_i18n: {"en":"Discount rate"}, type: "number", unit: "%", required: true, smartDefault: 10, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Discount rate", expertMeaning_i18n: {"en":"Discount rate"} },
@@ -18,7 +18,7 @@ export const IRR_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
     { id: "payback", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "yıl", format: "number" },
     { id: "profitabilityIndex", label: "Karllk Indeksi (PI)", label_i18n: {"en":"Karllk Indeksi (PI)"}, unit: "", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "irr", warning: 15, critical: 10, direction: "lower_is_bad", warningMessage: "IRR < %15 — WACC'nin altında olabilir, risk değerlendirmesi yapılmalı.", warningMessage_i18n: {"en":"IRR < %15 — WACC'nin altında olabilir, risk değerlendirmesi yapılmalı."}, criticalMessage: "IRR < %10 — yatırım fizibilitesi sorgulanmalı.", criticalMessage_i18n: {"en":"IRR < %10 — Investment fizibilitesi sorgulanmalı."} }],
+  thresholds: [{ fieldId: "irr", warning: 15, critical: 10, direction: "lower_is_bad", warningMessage: "IRR < %15 — WACC'nin altında olabilir, risk değerlendirmesi yapılmalı.", warningMessage_i18n: {"en":"IRR < 15% — may be below WACC, risk assessment should be performed."}, criticalMessage: "IRR < %10 — yatırım fizibilitesi sorgulanmalı.", criticalMessage_i18n: {"en":"IRR < 10% — investment feasibility should be questioned."} }],
   formulaPipeline: [
     { formulaId: "cost.npv", inputMap: {
         discountRate: "discountRate",

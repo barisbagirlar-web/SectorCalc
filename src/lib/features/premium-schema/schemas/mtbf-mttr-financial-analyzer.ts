@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
   id: "mtbf-mttr-financial-analyzer", legacyPaidSlug: "mtbf-mttr-financial-analyzer",
   name: "MTBF/MTTR Financial Impact Analyzer", name_i18n: {"en":"MTBF/MTTR Financial Impact Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "MTBF ve MTTR verileri finansal risk olarak hesaplanmazsa bakım yatırımları önceliklendirilemez.", painStatement_i18n: {"en":"MTBF ve MTTR verileri finansal risk olarak if not calculated bakım yatırımları önceliklendirilemez."},
+  painStatement: "MTBF ve MTTR verileri finansal risk olarak hesaplanmazsa bakım yatırımları önceliklendirilemez.", painStatement_i18n: {"en":"If MTBF and MTTR data are not calculated as financial risk, maintenance investments cannot be prioritized."},
   inputs: [
     { id: "mtbfHours", label: "Mean time between failures", label_i18n: {"en":"Mean time between failures"}, type: "number", unit: "saat", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Mean time between failures", expertMeaning_i18n: {"en":"Mean time between failures"} },
     { id: "mttrHours", label: "Mean time to repair", label_i18n: {"en":"Mean time to repair"}, type: "number", unit: "saat", required: true, smartDefault: 4, validation: { min: 0.1 }, helper: "", expertMeaning: "Mean time to repair", expertMeaning_i18n: {"en":"Mean time to repair"} },
@@ -21,7 +21,7 @@ export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalReliabilityCost", label: "Toplam Güvenilirlik Maliyeti", label_i18n: {"en":"Total Guvenilirlik Cost"}, unit: "USD/yıl", format: "currency" },
     { id: "roiPercent", label: "ROI (Iyilestirme)", label_i18n: {"en":"ROI (improvement)"}, unit: "%", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "downtimeCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Durma maliyeti > $50K — bakım programı gözden geçirilmeli.", warningMessage_i18n: {"en":"Durma Cost > $50K — bakım program gözden geçirilmeli."}, criticalMessage: "Durma maliyeti > $150K — acil güvenilirlik iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"Durma Cost > $150K — urgent güvenilirlik improvement program başlatılmalı."} }],
+  thresholds: [{ fieldId: "downtimeCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Durma maliyeti > $50K — bakım programı gözden geçirilmeli.", warningMessage_i18n: {"en":"Downtime cost > $50K — maintenance schedule should be reviewed."}, criticalMessage: "Durma maliyeti > $150K — acil güvenilirlik iyileştirme programı başlatılmalı.", criticalMessage_i18n: {"en":"Downtime cost > $150K — urgent reliability improvement program should be initiated."} }],
   formulaPipeline: [
     { formulaId: "measurement.availability_mtbf", inputMap: { mtbfHours: "mtbfHours", mttrHours: "mttrHours" ,
         mtbf: "mtbf",
@@ -39,5 +39,5 @@ export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
         improvementInvestment: "improvementInvestment"}, outputId: "roiPercent" },
   ],
   reportTemplate: { title: "MTBF/MTTR Financial Impact Report", title_i18n: {"en":"MTBF/MTTR Financial Impact Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Faydalı ömür = MTBF + MTTR.", "Kullanılabilirlik = MTBF/(MTBF+MTTR).", "Yıllık durma süresi = (1−A)×çalışma saati."],assumptionNotes_i18n:[{"en":"Faydalı ömür = MTBF + MTTR."},{"en":"Kullanılabilirlik = MTBF/(MTBF+MTTR)."},{"en":"Yıllık durma süresi = (1−A)×çalışma saati."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Faydalı ömür = MTBF + MTTR.", "Kullanılabilirlik = MTBF/(MTBF+MTTR).", "Yıllık durma süresi = (1−A)×çalışma saati."],assumptionNotes_i18n:[{"en":"Useful life = MTBF + MTTR."},{"en":"Availability = MTBF/(MTBF+MTTR)."},{"en":"Annual downtime = (1−A)×operating hours."}] },
 };

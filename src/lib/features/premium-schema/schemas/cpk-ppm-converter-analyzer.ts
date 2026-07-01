@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CPK_PPM_SCHEMA: PremiumCalculatorSchema = {
   id: "cpk-ppm-converter-analyzer", legacyPaidSlug: "cpk-ppm-converter-analyzer",
   name: "CPK → PPM & Sigma Seviye Donusturucu", name_i18n: {"en":"CPK → PPM & Sigma Level Donusturucu"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Cpk değerini PPM ve Sigma seviyesine dönüştüremeden proses performansını yönetmek imkansızdır. Bu araç Cpk, PPM, Yield ve Sigma seviyesini tek adımda hesaplar.", painStatement_i18n: {"en":"Cpk değerini PPM ve Sigma seviyesine dönüştüremeden proses performansını yönetmek imkansızdır. Bu araç Cpk, PPM, Yield ve Sigma seviyesini tek adımda hesaplar."},
+  painStatement: "Cpk değerini PPM ve Sigma seviyesine dönüştüremeden proses performansını yönetmek imkansızdır. Bu araç Cpk, PPM, Yield ve Sigma seviyesini tek adımda hesaplar.", painStatement_i18n: {"en":"It is impossible to manage process performance without converting Cpk to PPM and Sigma level. This tool calculates Cpk, PPM, Yield and Sigma level in a single step."},
   inputs: [
     { id: "usl", label: "Üst Spesifikasyon Limiti (USL)", label_i18n: {"en":"Upper specification limit"}, type: "number", unit: "", required: true, smartDefault: 10.05, validation: { min: 0 }, helper: "", expertMeaning: "Upper specification limit", expertMeaning_i18n: {"en":"Upper specification limit"} },
     { id: "lsl", label: "Alt Spesifikasyon Limiti (LSL)", label_i18n: {"en":"Alt Spesifikasyon Limiti (LSL)"}, type: "number", unit: "", required: true, smartDefault: 9.95, validation: { min: 0 }, helper: "", expertMeaning: "Lower specification limit", expertMeaning_i18n: {"en":"Lower specification limit"} },

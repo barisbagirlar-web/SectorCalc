@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WELD_STRENGTH_SCHEMA: PremiumCalculatorSchema = {
   id: "weld-strength-analyzer", legacyPaidSlug: "weld-strength-analyzer",
   name: "Weld Strength Analyzer", name_i18n: {"en":"Weld Strength Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Kaynak mukavemeti ve güvenlik faktörü hesaplanmazsa, yapısal bütünlük risk altındadır.", painStatement_i18n: {"en":"resource mukavemeti ve güvenlik faktörü if not calculated, yapısal bütünlük risk altındadır."},
+  painStatement: "Kaynak mukavemeti ve güvenlik faktörü hesaplanmazsa, yapısal bütünlük risk altındadır.", painStatement_i18n: {"en":"If resource strength and safety factor are not calculated, structural integrity is at risk."},
   inputs: [
     { id: "leg", label: "Fillet weld leg", label_i18n: {"en":"Fillet weld leg"}, type: "number", unit: "mm", required: true, smartDefault: 6, validation: { min: 1 }, helper: "", expertMeaning: "Fillet weld leg", expertMeaning_i18n: {"en":"Fillet weld leg"} },
     { id: "weldLength", label: "Weld length", label_i18n: {"en":"Weld length"}, type: "number", unit: "mm", required: true, smartDefault: 100, validation: { min: 1 }, helper: "", expertMeaning: "Weld length", expertMeaning_i18n: {"en":"Weld length"} },
@@ -18,7 +18,7 @@ export const WELD_STRENGTH_SCHEMA: PremiumCalculatorSchema = {
     { id: "maxShearLoad", label: "Maksimum Kesme Yükü", label_i18n: {"en":"Maksimum Kesme Load"}, unit: "N", format: "number" },
     { id: "safetyFactor", label: "Güvenlik Faktörü", label_i18n: {"en":"Guvenlik Faktoru"}, unit: "", format: "number" },
   ],
-  thresholds: [{ fieldId: "safetyFactor", warning: 2, critical: 1.25, direction: "lower_is_bad", warningMessage: "SF < 2 — tasarım gözden geçirilmeli.", warningMessage_i18n: {"en":"SF < 2 — tasarım gözden geçirilmeli."}, criticalMessage: "SF < 1.25 — yapısal risk acil!", criticalMessage_i18n: {"en":"SF < 1.25 — yapısal risk acil!"} }],
+  thresholds: [{ fieldId: "safetyFactor", warning: 2, critical: 1.25, direction: "lower_is_bad", warningMessage: "SF < 2 — tasarım gözden geçirilmeli.", warningMessage_i18n: {"en":"SF < 2 — Design must be reviewed."}, criticalMessage: "SF < 1.25 — yapısal risk acil!", criticalMessage_i18n: {"en":"SF < 1.25 — Structural risk is urgent!"} }],
   formulaPipeline: [
     { formulaId: "measurement.weld_throat", inputMap: { leg: "leg" }, outputId: "throat" },
     { formulaId: "measurement.weld_shear_area", inputMap: { throat: "throat", weldLength: "weldLength" }, outputId: "shearArea" },
@@ -27,5 +27,5 @@ export const WELD_STRENGTH_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.weld_safety_factor", inputMap: { maxShearLoad: "maxShearLoad", appliedLoad: "appliedLoad" }, outputId: "safetyFactor" },
   ],
   reportTemplate: { title: "Kaynak Mukavemet Raporu", title_i18n: {"en":"resource Mukavemet Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Boğaz = Leg × COS(45°).", "İzin verilen kesme = 0.3 × Çekme dayanımı.", "SF < 2 uyarı, SF < 1.25 kritik."],assumptionNotes_i18n:[{"en":"Boğaz = Leg × COS(45°)."},{"en":"İzin verilen kesme = 0.3 × Çekme dayanımı."},{"en":"SF < 2 uyarı, SF < 1.25 kritik."}] },
+  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Boğaz = Leg × COS(45°).", "İzin verilen kesme = 0.3 × Çekme dayanımı.", "SF < 2 uyarı, SF < 1.25 kritik."],assumptionNotes_i18n:[{"en":"Throat = Leg × COS(45°)."},{"en":"Allowable shear = 0.3 × Tensile strength."},{"en":"SF < 2 warning, SF < 1.25 critical."}] },
 };

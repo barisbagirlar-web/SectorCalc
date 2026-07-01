@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const VOLUMETRIC_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
   id: "volumetric-weight-chargeable-analyzer", legacyPaidSlug: "volumetric-weight-chargeable-analyzer",
   name: "Volumetric Weight & Transport Cost Analyzer", name_i18n: {"en":"Volumetric Weight & Transport Cost Analyzer"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Hacimsel ağırlık doğru hesaplanmazsa taşıma maliyeti beklenenden yüksek çıkar ve navlun optimizasyonu yapılamaz.", painStatement_i18n: {"en":"Hacimsel Weight accurate if not calculated Carrying Cost beklenenden high çıkar ve freight optimizasyonu yapılamaz."},
+  painStatement: "Hacimsel ağırlık doğru hesaplanmazsa taşıma maliyeti beklenenden yüksek çıkar ve navlun optimizasyonu yapılamaz.", painStatement_i18n: {"en":"If Dimensional Weight is not accurately calculated, Carrying Cost turns out higher than expected and freight optimization cannot be performed."},
   inputs: [
     { id: "length", label: "Uzunluk", label_i18n: {"en":"Uzunluk"}, type: "number", unit: "cm", required: true, smartDefault: 60, validation: { min: 0.1 }, helper: "", expertMeaning: "Package length", expertMeaning_i18n: {"en":"Package length"} },
     { id: "width", label: "Package width", label_i18n: {"en":"Package width"}, type: "number", unit: "cm", required: true, smartDefault: 40, validation: { min: 0.1 }, helper: "", expertMeaning: "Package width", expertMeaning_i18n: {"en":"Package width"} },
@@ -19,7 +19,7 @@ export const VOLUMETRIC_WEIGHT_SCHEMA: PremiumCalculatorSchema = {
     { id: "chargeable", label: "Ucrete Esas Agrlk", label_i18n: {"en":"Ucrete Esas Weight"}, unit: "kg", format: "number" },
     { id: "freightCost", label: "Tasma Maliyeti", label_i18n: {"en":"Carrying Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "freightCost", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "Taşıma > $50 — ambalaj optimizasyonu önerilir.", warningMessage_i18n: {"en":"Carrying > $50 — ambalaj optimizasyonu önerilir."}, criticalMessage: "Taşıma > $100 — hacimsel ağırlık fazla, ambalaj küçültülmeli.", criticalMessage_i18n: {"en":"Carrying > $100 — hacimsel Weight Overtime, ambalaj küçültülmeli."} }],
+  thresholds: [{ fieldId: "freightCost", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "Taşıma > $50 — ambalaj optimizasyonu önerilir.", warningMessage_i18n: {"en":"Carrying > $50 — Packaging optimization is recommended."}, criticalMessage: "Taşıma > $100 — hacimsel ağırlık fazla, ambalaj küçültülmeli.", criticalMessage_i18n: {"en":"Carrying > $100 — Dimensional Weight overtime, packaging must be reduced."} }],
   formulaPipeline: [
     { formulaId: "measurement.volumetric_weight_air", inputMap: { length: "length", width: "width", height: "height" }, outputId: "volWeight" },
     { formulaId: "measurement.volumetric_chargeable", inputMap: {

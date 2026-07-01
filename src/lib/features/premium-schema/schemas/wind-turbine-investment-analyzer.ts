@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WIND_TURBINE_INVESTMENT_ANALYZER: PremiumCalculatorSchema = {
   id: "wind-turbine-investment-analyzer", legacyPaidSlug: "wind-turbine-investment-analyzer",
   name: "Wind Turbine Investment Analyzer", name_i18n: {"en":"Wind Turbine Investment Analyzer"}, sectorSlug: "energy-carbon", category: "cost",
-  painStatement: "Rüzgar türbini yatırımında AEP, gelir ve NPV hesaplanmazsa yatırımın geri dönüşü ve fizibilitesi belirsiz kalır.", painStatement_i18n: {"en":"Rüzgar türbini yatırımında AEP, Income ve NPV if not calculated yatırımın Return dönüşü ve fizibilitesi belirsiz kalır."},
+  painStatement: "Rüzgar türbini yatırımında AEP, gelir ve NPV hesaplanmazsa yatırımın geri dönüşü ve fizibilitesi belirsiz kalır.", painStatement_i18n: {"en":"If AEP, Income, and NPV are not calculated in wind turbine investment, the Return and feasibility of the investment remain uncertain."},
   inputs: [
     { id: "rotorDiameter", label: "Rotor diameter in meters", label_i18n: {"en":"Rotor diameter in meters"}, type: "number", unit: "m", required: true, smartDefault: 82, validation: { min: 1 }, helper: "", expertMeaning: "Rotor diameter in meters", expertMeaning_i18n: {"en":"Rotor diameter in meters"} },
     { id: "hubHeight", label: "Hub height in meters", label_i18n: {"en":"Hub height in meters"}, type: "number", unit: "m", required: true, smartDefault: 80, validation: { min: 1 }, helper: "", expertMeaning: "Hub height in meters", expertMeaning_i18n: {"en":"Hub height in meters"} },
@@ -25,7 +25,7 @@ export const WIND_TURBINE_INVESTMENT_ANALYZER: PremiumCalculatorSchema = {
     { id: "lcoe", label: "Seviyelendirilmis Enerji Maliyeti (LCOE)", label_i18n: {"en":"Seviyelendirilmis energy Cost (LCOE)"}, unit: "USD/kWh", format: "currency" },
     { id: "npv", label: "Net Bugunku Deger (NPV)", label_i18n: {"en":"Net Bugunku Value (NPV)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "lcoe", warning: 0.06, critical: 0.10, direction: "higher_is_bad", warningMessage: "LCOE > $0.06/kWh — piyasa rekabeti zorlaşabilir.", warningMessage_i18n: {"en":"LCOE > $0.06/kWh — piyasa rekabeti zorlaşabilir."}, criticalMessage: "LCOE > $0.10/kWh — yatırım fizibilitesi düşük.", criticalMessage_i18n: {"en":"LCOE > $0.10/kWh — Investment fizibilitesi düşük."} }],
+  thresholds: [{ fieldId: "lcoe", warning: 0.06, critical: 0.10, direction: "higher_is_bad", warningMessage: "LCOE > $0.06/kWh — piyasa rekabeti zorlaşabilir.", warningMessage_i18n: {"en":"LCOE > $0.06/kWh — Market competitiveness may become difficult."}, criticalMessage: "LCOE > $0.10/kWh — yatırım fizibilitesi düşük.", criticalMessage_i18n: {"en":"LCOE > $0.10/kWh — Investment feasibility is low."} }],
   formulaPipeline: [
     { formulaId: "measurement.wind_aep", inputMap: {
         capacityFactor: "capacityFactor",
@@ -62,6 +62,6 @@ export const WIND_TURBINE_INVESTMENT_ANALYZER: PremiumCalculatorSchema = {
         lifeYears: "lifeYears",
         totalCapex: "totalCapex"}, outputId: "npv" },
   ],
-  reportTemplate: { title: "Rüzgar Türbini Yatırım Raporu", title_i18n: {"en":"Rüzgar Türbini Investment Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6.", "LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ.", "NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX.", "Rüzgar hızı Weibull dağılımı varsayılmıştır."],assumptionNotes_i18n:[{"en":"AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6."},{"en":"LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ."},{"en":"NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX."},{"en":"Rüzgar hızı Weibull dağılımı varsayılmıştır."}] },
+  reportTemplate: { title: "Rüzgar Türbini Yatırım Raporu", title_i18n: {"en":"Wind Turbine Investment Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6.", "LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ.", "NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX.", "Rüzgar hızı Weibull dağılımı varsayılmıştır."],assumptionNotes_i18n:[{"en":"AEP = 0.5 × ρ × A × V³ × Cp × 8760 / 1e6."},{"en":"LCOE = (CAPEX + ΣOPEXₜ/(1+r)ᵗ) / ΣAEPₜ/(1+r)ᵗ."},{"en":"NPV = Σ(Revenueₜ − OPEXₜ)/(1+r)ᵗ − CAPEX."},{"en":"Wind speed is assumed to follow Weibull distribution."}] },
 };

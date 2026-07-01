@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "kwh-cost-analyzer", legacyPaidSlug: "kwh-cost-analyzer",
   name: "KWh Cost Analyzer", name_i18n: {"en":"KWh Cost Analyzer"}, sectorSlug: "energy-consumption", category: "cost",
-  painStatement: "Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz.", painStatement_i18n: {"en":"Unit kWh Cost ve Power faktörü cezası if not calculated, energy faturasının Actual source anlaşılamaz."},
+  painStatement: "Birim kWh maliyeti ve güç faktörü cezası hesaplanmazsa, enerji faturasının gerçek kaynağı anlaşılamaz.", painStatement_i18n: {"en":"If unit kWh cost and power factor penalty are not calculated, the actual source of the energy bill cannot be understood."},
   inputs: [
     { id: "activeEnergy", label: "Aktif Tüketim", label_i18n: {"en":"Active energy consumption"}, type: "number", unit: "kWh", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption"} },
     { id: "energyRate", label: "Energy rate", label_i18n: {"en":"Energy rate"}, type: "number", unit: "USD/kWh", required: true, smartDefault: 0.10, validation: { min: 0 }, helper: "", expertMeaning: "Energy rate", expertMeaning_i18n: {"en":"Energy rate"} },
@@ -24,7 +24,7 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "unitCostKwh", label: "Birim kWh Maliyeti", label_i18n: {"en":"Unit kWh Cost"}, unit: "USD/kWh", format: "currency" },
     { id: "peakShavingSavings", label: "Tepe Traslama Kazanc", label_i18n: {"en":"Tepe Traslama Gain"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "unitCostKwh", warning: 0.15, critical: 0.25, direction: "higher_is_bad", warningMessage: "Birim > $0.15/kWh — enerji verimliliği değerlendirilmeli.", warningMessage_i18n: {"en":"Unit > $0.15/kWh — energy verimliliği değerlendirilmeli."}, criticalMessage: "Birim > $0.25/kWh — acil enerji tasarrufu programı.", criticalMessage_i18n: {"en":"Unit > $0.25/kWh — urgent energy tasarrufu programı."} }],
+  thresholds: [{ fieldId: "unitCostKwh", warning: 0.15, critical: 0.25, direction: "higher_is_bad", warningMessage: "Birim > $0.15/kWh — enerji verimliliği değerlendirilmeli.", warningMessage_i18n: {"en":"Unit > $0.15/kWh — energy efficiency should be evaluated."}, criticalMessage: "Birim > $0.25/kWh — acil enerji tasarrufu programı.", criticalMessage_i18n: {"en":"Unit > $0.25/kWh — urgent energy savings program."} }],
   formulaPipeline: [
     { formulaId: "cost.energy_charge", inputMap: {
         consumptionKwh: "activeEnergy",
@@ -57,5 +57,5 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "peakShavingSavings" },
   ],
   reportTemplate: { title: "KWh Maliyet Raporu", title_i18n: {"en":"KWh Cost Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Reaktif ceza = PF < eşik ise reaktif × ceza oranı.", "Birim maliyet = Toplam / Aktif tüketim.", "Tepe traşlama = (Eski - Yeni) × Güç bedeli."],assumptionNotes_i18n:[{"en":"Reaktif ceza = PF < eşik ise reaktif × ceza oranı."},{"en":"Birim maliyet = Toplam / Aktif tüketim."},{"en":"Tepe traşlama = (Eski - Yeni) × Güç bedeli."}] },
+  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Reaktif ceza = PF < eşik ise reaktif × ceza oranı.", "Birim maliyet = Toplam / Aktif tüketim.", "Tepe traşlama = (Eski - Yeni) × Güç bedeli."],assumptionNotes_i18n:[{"en":"Reactive penalty = if PF < threshold then reactive × penalty rate."},{"en":"Unit cost = Total / Active consumption."},{"en":"Peak shaving = (Old - New) × Power charge."}] },
 };

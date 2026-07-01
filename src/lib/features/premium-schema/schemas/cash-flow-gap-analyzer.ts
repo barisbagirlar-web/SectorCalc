@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
   id: "cash-flow-gap-analyzer", legacyPaidSlug: "cash-flow-gap-analyzer",
   name: "Cash Flow Gap Analysis", name_i18n: {"en":"Cash Flow Gap Analysis"}, sectorSlug: "financial-planning", category: "measurement",
-  painStatement: "Nakit akışı açığı, DSO/DPO/DIO dengesi ve nakit döngüsü hesaplanmazsa likidite krizi önceden tespit edilemez.", painStatement_i18n: {"en":"cash akışı açığı, DSO/DPO/DIO dengesi ve cash döngüsü if not calculated liquidity krizi beforehand detection edilemez."},
+  painStatement: "Nakit akışı açığı, DSO/DPO/DIO dengesi ve nakit döngüsü hesaplanmazsa likidite krizi önceden tespit edilemez.", painStatement_i18n: {"en":"Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand."},
   inputs: [
     { id: "monthlyRevenue", label: "Monthly Revenue", label_i18n: {"en":"Monthly Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly revenue", expertMeaning_i18n: {"en":"Monthly revenue"} },
     { id: "monthlyExpenses", label: "Monthly Expenses", label_i18n: {"en":"Monthly Expenses"}, type: "number", unit: "USD", required: true, smartDefault: 85000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly expenses", expertMeaning_i18n: {"en":"Monthly expenses"} },
@@ -55,5 +55,5 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.cash_conversion_cycle", inputMap: { dso: "dso", dpo: "dpo", dio: "dio" }, outputId: "cashConversionCycle" },
   ],
   reportTemplate: { title: "Cash Flow Gap Report", title_i18n: {"en":"Cash Flow Gap Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["DSO = (Alacak/Gelir)×30 gün.", "CCC = DSO + DIO − DPO.", "Negatif kümülatif nakit = nakit açığı."],assumptionNotes_i18n:[{"en":"DSO = (Alacak/Gelir)×30 gün."},{"en":"CCC = DSO + DIO − DPO."},{"en":"Negatif kümülatif nakit = nakit açığı."}]},
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["DSO = (Alacak/Gelir)×30 gün.", "CCC = DSO + DIO − DPO.", "Negatif kümülatif nakit = nakit açığı."],assumptionNotes_i18n:[{"en":"DSO = (Receivables/Revenue)×30 days."},{"en":"CCC = DSO + DIO − DPO."},{"en":"Negative cumulative cash = cash deficit."}]},
 };

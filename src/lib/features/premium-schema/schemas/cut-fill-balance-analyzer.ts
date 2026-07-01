@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CUT_FILL_BALANCE_SCHEMA: PremiumCalculatorSchema = {
   id: "cut-fill-balance-analyzer", legacyPaidSlug: "cut-fill-balance-analyzer",
   name: "Cut and Fill Balance Analyzer", name_i18n: {"en":"Cut and Fill Balance Analyzer"}, sectorSlug: "construction", category: "measurement",
-  painStatement: "Kazı-dolgu dengesi hesaplanmazsa, fazla hafriyat veya ödünç malzeme maliyeti kontrol edilemez.", painStatement_i18n: {"en":"Kazı-dolgu dengesi if not calculated, Overtime hafriyat veya borrow material Cost control edilemez."},
+  painStatement: "Kazı-dolgu dengesi hesaplanmazsa, fazla hafriyat veya ödünç malzeme maliyeti kontrol edilemez.", painStatement_i18n: {"en":"If cut-fill balance is not calculated, overtime excavation or borrow material cost cannot be controlled."},
   inputs: [
     { id: "cutVolume", label: "Total cut volume", label_i18n: {"en":"Total cut volume"}, type: "number", unit: "m³", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Total cut volume", expertMeaning_i18n: {"en":"Total cut volume"} },
     { id: "fillVolume", label: "Dolgu Hacmi", label_i18n: {"en":"Filler Volume"}, type: "number", unit: "m³", required: true, smartDefault: 4500, validation: { min: 0 }, helper: "", expertMeaning: "Total fill volume", expertMeaning_i18n: {"en":"Total fill volume"} },
@@ -18,7 +18,7 @@ export const CUT_FILL_BALANCE_SCHEMA: PremiumCalculatorSchema = {
     { id: "wasteRequired", label: "Fazla Malzeme", label_i18n: {"en":"Overtime material"}, unit: "m³", format: "number" },
     { id: "totalHaulCost", label: "Toplam Nakliye Maliyeti", label_i18n: {"en":"Total Nakliye Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "borrowRequired", warning: 500, critical: 2000, direction: "higher_is_bad", warningMessage: "Ödünç > 500m³ — maliyet artışı beklenir.", warningMessage_i18n: {"en":"borrow > 500m³ — Cost artışı beklenir."}, criticalMessage: "Ödünç > 2000m³ — proje ekonomisi riskli.", criticalMessage_i18n: {"en":"borrow > 2000m³ — proje ekonomisi riskli."} }],
+  thresholds: [{ fieldId: "borrowRequired", warning: 500, critical: 2000, direction: "higher_is_bad", warningMessage: "Ödünç > 500m³ — maliyet artışı beklenir.", warningMessage_i18n: {"en":"borrow > 500m³ — cost increase expected."}, criticalMessage: "Ödünç > 2000m³ — proje ekonomisi riskli.", criticalMessage_i18n: {"en":"borrow > 2000m³ — proje ekonomisi riskli."} }],
   formulaPipeline: [
     { formulaId: "measurement.cut_fill_net", inputMap: { cutVolume: "cutVolume", fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor" }, outputId: "netBalance" },
     { formulaId: "measurement.cut_fill_borrow", inputMap: { fillVolume: "fillVolume", shrinkageFactor: "shrinkageFactor", cutVolume: "cutVolume" }, outputId: "borrowRequired" },
@@ -32,5 +32,5 @@ export const CUT_FILL_BALANCE_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "totalHaulCost" },
   ],
   reportTemplate: { title: "Kesme-Dolgu Denge Raporu", title_i18n: {"en":"Kesme-Dolgu balance Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Net Denge = Kazı - (Dolgu × Sıkışma).", "Ödünç = max(0, Dolgu×Sıkışma - Kazı).", "Nakliye = Hacim × Mesafe × Birim Fiyat."],assumptionNotes_i18n:[{"en":"Net Denge = Kazı - (Dolgu × Sıkışma)."},{"en":"Ödünç = max(0, Dolgu×Sıkışma - Kazı)."},{"en":"Nakliye = Hacim × Mesafe × Birim Fiyat."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Net Denge = Kazı - (Dolgu × Sıkışma).", "Ödünç = max(0, Dolgu×Sıkışma - Kazı).", "Nakliye = Hacim × Mesafe × Birim Fiyat."],assumptionNotes_i18n:[{"en":"Net Balance = Cut - (Fill × Compaction)."},{"en":"Borrow = max(0, Fill×Compaction - Cut)."},{"en":"Nakliye = Hacim × Mesafe × Birim Fiyat."}] },
 };

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const HYDRAULIC_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "hydraulic-system-loss-analyzer", legacyPaidSlug: "hydraulic-system-loss-analyzer",
   name: "Hydraulic System Loss & Efficiency Analyzer", name_i18n: {"en":"Hydraulic System Loss & Efficiency Analyzer"}, sectorSlug: "sheet-metal", category: "energy",
-  painStatement: "Hidrolik sistemlerde kaçak, sürtünme ve vana kayıpları enerji verimini düşürür ve işletme maliyetini artırır.", painStatement_i18n: {"en":"Hidrolik sistemlerde Leak, sürtünme ve valve kayıpları energy verimini düşürür ve operation maliyetini artırır."},
+  painStatement: "Hidrolik sistemlerde kaçak, sürtünme ve vana kayıpları enerji verimini düşürür ve işletme maliyetini artırır.", painStatement_i18n: {"en":"In hydraulic systems, leak, friction, and valve losses reduce energy efficiency and increase operational cost."},
   inputs: [
     { id: "qLeak", label: "Leakage flow rate", label_i18n: {"en":"Leakage flow rate"}, type: "number", unit: "L/dak", required: true, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Leakage flow rate", expertMeaning_i18n: {"en":"Leakage flow rate"} },
     { id: "systemPressure", label: "System pressure", label_i18n: {"en":"System pressure"}, type: "number", unit: "bar", required: true, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "System pressure", expertMeaning_i18n: {"en":"System pressure"} },
@@ -23,7 +23,7 @@ export const HYDRAULIC_LOSS_SCHEMA: PremiumCalculatorSchema = {
     { id: "eff", label: "System Efficiency", label_i18n: {"en":"System Efficiency"}, unit: "%", format: "percentage" },
     { id: "annualEnergyCost", label: "Annual Energy Loss Cost", label_i18n: {"en":"Annual Energy Loss Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "eff", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — kaçak ve sürtünme kayıpları azaltılmalı.", warningMessage_i18n: {"en":"Efficiency < %80 — Leak ve sürtünme kayıpları azaltılmalı."}, criticalMessage: "Verim < %70 — sistem revizyonu gerekli.", criticalMessage_i18n: {"en":"Efficiency < %70 — System revizyonu gerekli."} }],
+  thresholds: [{ fieldId: "eff", warning: 80, critical: 70, direction: "lower_is_bad", warningMessage: "Verim < %80 — kaçak ve sürtünme kayıpları azaltılmalı.", warningMessage_i18n: {"en":"Efficiency < %80 — leak and friction losses should be reduced."}, criticalMessage: "Verim < %70 — sistem revizyonu gerekli.", criticalMessage_i18n: {"en":"Efficiency < %70 — System revizyonu gerekli."} }],
   formulaPipeline: [
     { formulaId: "energy.hydraulic_heat_loss", inputMap: {
         qLeak: "qLeak",

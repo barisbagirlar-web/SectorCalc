@@ -6,7 +6,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const AUTO_REPAIR_COMEBACK_SCHEMA: PremiumCalculatorSchema = {
   id: "auto-repair-comeback-analyzer", legacyPaidSlug: "auto-repair-comeback-analyzer",
   name: "Auto Repair Comeback Maliyet Analizi", name_i18n: {"en":"Auto Repair Comeback Cost Analysis"}, sectorSlug: "auto-repair", category: "cost",
-  painStatement: "Geri dönüş onarımları (comeback) sadece direkt işçilik değil, körfez doluluk kaybı ve müşteri güven kaybına da yol açar. Gerçek maliyet görünenden fazladır.", painStatement_i18n: {"en":"Return Return onarımları (comeback) sadece Direct işçilik değil, körfez doluluk Loss ve customer güven kaybına da yol açar. Actual Cost görünenden fazladır."},
+  painStatement: "Geri dönüş onarımları (comeback) sadece direkt işçilik değil, körfez doluluk kaybı ve müşteri güven kaybına da yol açar. Gerçek maliyet görünenden fazladır.", painStatement_i18n: {"en":"Return repairs (comeback) cause not only Direct labor but also bay occupancy Loss and loss of customer trust. Actual Cost is higher than visible."},
   inputs: [
     { id: "totalCompletedOrders", label: "Dönem Tamamlanan RO", label_i18n: {"en":"Completed Repair Orders"}, type: "number", unit: "adet", required: true, smartDefault: 200, validation: { min: 1 }, helper: "", expertMeaning: "Total repair orders completed", expertMeaning_i18n: {"en":"Total repair orders completed"} },
     { id: "comebackOrders", label: "Comeback Repair Orders", label_i18n: {"en":"Comeback Repair Orders"}, type: "number", unit: "adet", required: true, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Return repair orders", expertMeaning_i18n: {"en":"Return repair orders"} },
@@ -27,7 +27,7 @@ export const AUTO_REPAIR_COMEBACK_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalComebackCost", label: "Total Comeback Cost", label_i18n: {"en":"Total Comeback Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "comebackRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Comeback oranı > %5 — süreç iyileştirme planı başlatılmalı.", warningMessage_i18n: {"en":"Comeback rate > %5 — süreç improvement planı başlatılmalı."}, criticalMessage: "Comeback oranı > %10 — acil kalite revizyonu gerekiyor.", criticalMessage_i18n: {"en":"Comeback rate > %10 — urgent Quality revizyonu gerekiyor."} },
+    { fieldId: "comebackRate", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Comeback oranı > %5 — süreç iyileştirme planı başlatılmalı.", warningMessage_i18n: {"en":"Comeback rate > 5% — process improvement plan must be initiated."}, criticalMessage: "Comeback oranı > %10 — acil kalite revizyonu gerekiyor.", criticalMessage_i18n: {"en":"Comeback rate > %10 — urgent Quality revizyonu gerekiyor."} },
   ],
   formulaPipeline: [
     { formulaId: "cost.comeback_direct", inputMap: { comebackOrders: "comebackOrders", avgDiagnosisMinutes: "avgDiagnosisMinutes", avgRepairMinutes: "avgRepairMinutes", laborRate: "laborRate", avgWastedPartsValue: "avgWastedPartsValue", bayOccupancyHours: "bayOccupancyHours", revenuePerBayHour: "revenuePerBayHour" ,

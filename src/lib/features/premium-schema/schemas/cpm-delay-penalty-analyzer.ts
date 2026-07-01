@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const CPM_DELAY_SCHEMA: PremiumCalculatorSchema = {
   id: "cpm-delay-penalty-analyzer", legacyPaidSlug: "cpm-delay-penalty-analyzer",
   name: "CPM Delay Penalty & EOT Claim Analyzer", name_i18n: {"en":"CPM Delay Penalty & EOT Claim Analyzer"}, sectorSlug: "construction", category: "cost",
-  painStatement: "İnşaat projelerinde gecikme cezaları ve EOT talepleri doğru hesaplanmazsa taşeron ve ana yüklenici arasında uyuşmazlık kaçınılmazdır.", painStatement_i18n: {"en":"İnşaat projelerinde gecikme cezaları ve EOT talepleri accurate if not calculated taşeron ve ana yüklenici arasında dispute kaçınılmazdır."},
+  painStatement: "İnşaat projelerinde gecikme cezaları ve EOT talepleri doğru hesaplanmazsa taşeron ve ana yüklenici arasında uyuşmazlık kaçınılmazdır.", painStatement_i18n: {"en":"In construction projects, delay penalties and EOT claims — if not calculated accurately — make disputes between subcontractor and main contractor inevitable."},
   inputs: [
     { id: "plannedDuration", label: "Planlanan Süre", label_i18n: {"en":"Planned project duration"}, type: "number", unit: "gün", required: true, smartDefault: 200, validation: { min: 1 }, helper: "", expertMeaning: "Planned project duration", expertMeaning_i18n: {"en":"Planned project duration"} },
     { id: "actualDuration", label: "Actual project duration", label_i18n: {"en":"Actual project duration"}, type: "number", unit: "gün", required: true, smartDefault: 240, validation: { min: 1 }, helper: "", expertMeaning: "Actual project duration", expertMeaning_i18n: {"en":"Actual project duration"} },
@@ -26,7 +26,7 @@ export const CPM_DELAY_SCHEMA: PremiumCalculatorSchema = {
     { id: "eotClaim", label: "EOT Talep Hakk", label_i18n: {"en":"EOT demand Hakk"}, unit: "gün", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "liquidatedDamages", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Ceza > $50K — hızlandırma veya EOT değerlendirilmeli.", warningMessage_i18n: {"en":"penalty > $50K — hızlandırma veya EOT değerlendirilmeli."}, criticalMessage: "Ceza > $150K — hukuki süreç riski yüksek.", criticalMessage_i18n: {"en":"penalty > $150K — legal süreç riski yüksek."} },
+    { fieldId: "liquidatedDamages", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Ceza > $50K — hızlandırma veya EOT değerlendirilmeli.", warningMessage_i18n: {"en":"penalty > $50K — acceleration or EOT should be evaluated."}, criticalMessage: "Ceza > $150K — hukuki süreç riski yüksek.", criticalMessage_i18n: {"en":"penalty > $150K — legal process risk is high."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cpm_critical_delay", inputMap: { actualDuration: "actualDuration", plannedDuration: "plannedDuration", totalFloat: "totalFloat" }, outputId: "criticalDelay" },

@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const INFLATION_ESCALATION_SCHEMA: PremiumCalculatorSchema = {
   id: "inflation-escalation-analyzer", legacyPaidSlug: "inflation-escalation-analyzer",
   name: "Inflation Escalation & NPV Analyzer", name_i18n: {"en":"Inflation Escalation & NPV Analyzer"}, sectorSlug: "construction", category: "cost",
-  painStatement: "Uzun vadeli projelerde enflasyon eskalasyonu doğru hesaplanmazsa bütçe sapmaları ve nakit akışı sorunları kaçınılmazdır.", painStatement_i18n: {"en":"Uzun term projelerde enflasyon eskalasyonu accurate if not calculated budget sapmaları ve cash akışı sorunları kaçınılmazdır."},
+  painStatement: "Uzun vadeli projelerde enflasyon eskalasyonu doğru hesaplanmazsa bütçe sapmaları ve nakit akışı sorunları kaçınılmazdır.", painStatement_i18n: {"en":"In long-term projects, if inflation escalation is not accurately calculated, budget deviations and cash flow problems are inevitable."},
   inputs: [
     { id: "baseMaterial", label: "Baz Malzeme Maliyeti", label_i18n: {"en":"Base material Cost"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Base material cost", expertMeaning_i18n: {"en":"Base material cost"} },
     { id: "inflMaterial", label: "Malzeme Enflasyonu", label_i18n: {"en":"material Enflasyonu"}, type: "number", unit: "%/yıl", required: true, smartDefault: 8, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Material inflation rate", expertMeaning_i18n: {"en":"Material inflation rate"} },
@@ -23,7 +23,7 @@ export const INFLATION_ESCALATION_SCHEMA: PremiumCalculatorSchema = {
     { id: "realDiscount", label: "Reel Iskonto Oran", label_i18n: {"en":"Reel Discount Rate"}, unit: "%", format: "percentage" },
     { id: "contingency", label: "Karslk (Contingency)", label_i18n: {"en":"Karslk (Contingency)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "contingency", warning: 100000, critical: 250000, direction: "higher_is_bad", warningMessage: "Karşılık > $100K — risk yönetimi planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Karşılık > $100K — risk yönetimi planı gözden geçirilmeli."}, criticalMessage: "Karşılık > $250K — proje fizibilitesi risk altında.", criticalMessage_i18n: {"en":"Karşılık > $250K — proje fizibilitesi risk altında."} }],
+  thresholds: [{ fieldId: "contingency", warning: 100000, critical: 250000, direction: "higher_is_bad", warningMessage: "Karşılık > $100K — risk yönetimi planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Provision > $100K — risk management plan should be reviewed."}, criticalMessage: "Karşılık > $250K — proje fizibilitesi risk altında.", criticalMessage_i18n: {"en":"Provision > $250K — project feasibility is at risk."} }],
   formulaPipeline: [
     { formulaId: "cost.escalation_material", inputMap: {
         inflMat: "baseMaterial",

@@ -20,7 +20,7 @@ export const CONTAINER_LOAD_SCHEMA: PremiumCalculatorSchema = {
     { id: "loadEfficiency", label: "Yükleme Verimi", label_i18n: {"en":"Loading Efficiency"}, unit: "%", format: "percentage" },
     { id: "wastedSpaceCost", label: "Void Space Cost", label_i18n: {"en":"Void Space Cost"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "loadEfficiency", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Verim < %75 — konteyner optimizasyonu önerilir.", warningMessage_i18n: {"en":"Efficiency < %75 — konteyner optimizasyonu önerilir."}, criticalMessage: "Verim < %50 — yükleme planı yenilenmeli.", criticalMessage_i18n: {"en":"Efficiency < %50 — Loading planı yenilenmeli."} }],
+  thresholds: [{ fieldId: "loadEfficiency", warning: 75, critical: 50, direction: "lower_is_bad", warningMessage: "Verim < %75 — konteyner optimizasyonu önerilir.", warningMessage_i18n: {"en":"Efficiency < 75% — container optimization recommended."}, criticalMessage: "Verim < %50 — yükleme planı yenilenmeli.", criticalMessage_i18n: {"en":"Efficiency < 50% — Loading plan should be revised."} }],
   formulaPipeline: [
     { formulaId: "measurement.container_vol_util", inputMap: {
         containerVol: "containerVol",
@@ -37,5 +37,5 @@ export const CONTAINER_LOAD_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "wastedSpaceCost" },
   ],
   reportTemplate: { title: "Container Load Optimization Report", title_i18n: {"en":"Container Load Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Doluluk = min(Hacim%, Ağırlık%).", "Boş alan maliyeti = (1 - Verim) × Navlun."],assumptionNotes_i18n:[{"en":"Doluluk = min(Hacim%, Ağırlık%)."},{"en":"Boş alan maliyeti = (1 - Verim) × Navlun."}] },
+  assumptions: { hiddenLossMultiplier: 1.05, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Doluluk = min(Hacim%, Ağırlık%).", "Boş alan maliyeti = (1 - Verim) × Navlun."],assumptionNotes_i18n:[{"en":"Fill rate = min(Volume%, Weight%)."},{"en":"Empty space cost = (1 - Efficiency) × Freight."}] },
 };

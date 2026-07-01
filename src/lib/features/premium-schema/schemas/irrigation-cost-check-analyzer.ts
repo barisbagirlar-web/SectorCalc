@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
   id: "irrigation-cost-check-analyzer", legacyPaidSlug: "irrigation-cost-check-analyzer",
   name: "Irrigation Cost Check Analyzer", name_i18n: {"en":"Irrigation Cost Check Analyzer"}, sectorSlug: "food", category: "cost",
-  painStatement: "Sulama maliyetleri su, enerji ve işçilik kalemlerinde doğru hesaplanmazsa çiftçi veya işletme ürün maliyetini gerçekçi göremez.", painStatement_i18n: {"en":"Irrigation maliyetleri Water, energy ve işçilik kalemlerinde accurate if not calculated çiftçi veya operation product maliyetini gerçekçi göremez."},
+  painStatement: "Sulama maliyetleri su, enerji ve işçilik kalemlerinde doğru hesaplanmazsa çiftçi veya işletme ürün maliyetini gerçekçi göremez.", painStatement_i18n: {"en":"Irrigation costs in water, energy, and labor items if not accurately calculated prevent the farmer or operation from seeing the true product cost."},
   inputs: [
     { id: "areaHectares", label: "Irrigated area in hectares", label_i18n: {"en":"Irrigated area in hectares"}, type: "number", unit: "ha", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "", expertMeaning: "Irrigated area in hectares", expertMeaning_i18n: {"en":"Irrigated area in hectares"} },
     { id: "cropWaterNeed", label: "Crop water requirement per season", label_i18n: {"en":"Crop water requirement per season"}, type: "number", unit: "mm/sezon", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Crop water requirement per season", expertMeaning_i18n: {"en":"Crop water requirement per season"} },
@@ -22,7 +22,7 @@ export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
     { id: "irrigationEnergyCost", label: "Irrigation Energy Cost", label_i18n: {"en":"Irrigation Energy Cost"}, unit: "USD/sezon", format: "currency" },
     { id: "irrigationTotalCost", label: "Total Irrigation Cost", label_i18n: {"en":"Total Irrigation Cost"}, unit: "USD/sezon", format: "currency" },
   ],
-  thresholds: [{ fieldId: "irrigationTotalCost", warning: 20000, critical: 40000, direction: "higher_is_bad", warningMessage: "Sulama maliyeti >$20K — sistem verimliliği sorgulanmalı.", warningMessage_i18n: {"en":"Irrigation Cost >$20K — System verimliliği sorgulanmalı."}, criticalMessage: "Sulama maliyeti >$40K — alternatif sulama yöntemleri değerlendirilmeli.", criticalMessage_i18n: {"en":"Irrigation Cost >$40K — alternatif Irrigation yöntemleri değerlendirilmeli."} }],
+  thresholds: [{ fieldId: "irrigationTotalCost", warning: 20000, critical: 40000, direction: "higher_is_bad", warningMessage: "Sulama maliyeti >$20K — sistem verimliliği sorgulanmalı.", warningMessage_i18n: {"en":"Irrigation cost > $20K — system efficiency should be questioned."}, criticalMessage: "Sulama maliyeti >$40K — alternatif sulama yöntemleri değerlendirilmeli.", criticalMessage_i18n: {"en":"Irrigation cost > $40K — alternative irrigation methods should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "measurement.irrigation_water_req", inputMap: {
         cropWaterNeed: "cropWaterNeed",
@@ -48,5 +48,5 @@ export const IRRIGATION_COST_CHECK_ANALYZER: PremiumCalculatorSchema = {
         maintCost: "maintCost"}, outputId: "irrigationTotalCost" },
   ],
   reportTemplate: { title: "Sulama Maliyet Kontrol Raporu", title_i18n: {"en":"Irrigation Cost control Raporu"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Sulama suyu = (bitki ihtiyacı − yağış) × alan × 10 / verimlilik.", "Enerji maliyeti = güç × saat × elektrik birim fiyatı.", "Toplam maliyet = su + enerji + işçilik.", "10 mm = 100 m³/ha dönüşümü kullanılır."],assumptionNotes_i18n:[{"en":"Sulama suyu = (bitki ihtiyacı − yağış) × alan × 10 / verimlilik."},{"en":"Enerji maliyeti = güç × saat × elektrik birim fiyatı."},{"en":"Toplam maliyet = su + enerji + işçilik."},{"en":"10 mm = 100 m³/ha dönüşümü kullanılır."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Sulama suyu = (bitki ihtiyacı − yağış) × alan × 10 / verimlilik.", "Enerji maliyeti = güç × saat × elektrik birim fiyatı.", "Toplam maliyet = su + enerji + işçilik.", "10 mm = 100 m³/ha dönüşümü kullanılır."],assumptionNotes_i18n:[{"en":"Irrigation water = (crop requirement − rainfall) × area × 10 / efficiency."},{"en":"Energy cost = power × hours × electricity unit price."},{"en":"Total cost = water + energy + labor."},{"en":"10 mm = 100 m³/ha conversion is used."}] },
 };

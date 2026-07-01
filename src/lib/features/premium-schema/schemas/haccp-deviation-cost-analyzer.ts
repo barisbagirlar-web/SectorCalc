@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const HACCP_DEVIATION_SCHEMA: PremiumCalculatorSchema = {
   id: "haccp-deviation-cost-analyzer", legacyPaidSlug: "haccp-deviation-cost-analyzer",
   name: "HACCP Deviation Cost & RPN Analyzer", name_i18n: {"en":"HACCP Deviation Cost & RPN Analyzer"}, sectorSlug: "food", category: "cost",
-  painStatement: "HACCP sapmalarının maliyeti (bekletme, test, rework, geri çağırma) hesaplanmazsa gıda güvenliği yatırım öncelikleri yanlış belirlenir.", painStatement_i18n: {"en":"HACCP sapmalarının Cost (holding, test, rework, Return çağırma) if not calculated gıda güvenliği Investment öncelikleri incorrect belirlenir."},
+  painStatement: "HACCP sapmalarının maliyeti (bekletme, test, rework, geri çağırma) hesaplanmazsa gıda güvenliği yatırım öncelikleri yanlış belirlenir.", painStatement_i18n: {"en":"If the cost of HACCP deviations (holding, test, rework, return recall) is not calculated, food safety investment priorities are determined incorrectly."},
   inputs: [
     { id: "quarantineVolume", label: "Karantina Hacmi", label_i18n: {"en":"Karantina Volume"}, type: "number", unit: "kg", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Quarantined product volume", expertMeaning_i18n: {"en":"Quarantined product volume"} },
     { id: "holdCostPerUnit", label: "Bekletme Maliyeti", label_i18n: {"en":"holding Cost"}, type: "number", unit: "USD/kg/gün", required: true, smartDefault: 0.1, validation: { min: 0 }, helper: "", expertMeaning: "Cost per unit per day", expertMeaning_i18n: {"en":"Cost per unit per day"} },
@@ -27,7 +27,7 @@ export const HACCP_DEVIATION_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "totalHaccpCost", label: "Toplam HACCP Sapma Maliyeti", label_i18n: {"en":"Total HACCP Deviation Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalHaccpCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Maliyet > $50K — HACCP planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Cost > $50K — HACCP planı gözden geçirilmeli."}, criticalMessage: "Maliyet > $150K — tesis denetimi ve düzeltici faaliyet acil.", criticalMessage_i18n: {"en":"Cost > $150K — facility denetimi ve corrective activity acil."} }],
+  thresholds: [{ fieldId: "totalHaccpCost", warning: 50000, critical: 150000, direction: "higher_is_bad", warningMessage: "Maliyet > $50K — HACCP planı gözden geçirilmeli.", warningMessage_i18n: {"en":"Cost > $50K — HACCP plan should be reviewed."}, criticalMessage: "Maliyet > $150K — tesis denetimi ve düzeltici faaliyet acil.", criticalMessage_i18n: {"en":"Cost > $150K — facility denetimi ve corrective activity acil."} }],
   formulaPipeline: [
     { formulaId: "cost.haccp_hold", inputMap: {
         quarVol: "quarantineVolume",

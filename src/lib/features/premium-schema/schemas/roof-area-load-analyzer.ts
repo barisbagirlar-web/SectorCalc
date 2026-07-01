@@ -25,7 +25,7 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
     { id: "snowLoad", label: "Kar Yükü", label_i18n: {"en":"Snow Load"}, unit: "kN/m²", format: "number" },
     { id: "combinedLoad", label: "Toplam Yük", label_i18n: {"en":"Total Load"}, unit: "kN/m²", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Load > 5 kN/m² — taşıyıcı System control edilmelidir."}, criticalMessage: "Yük > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent statik analiz gerekiyor."} }],
+  thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yük > 5 kN/m² — taşıyıcı sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Load > 5 kN/m² — load-bearing system must be checked."}, criticalMessage: "Yük > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent statik analiz gerekiyor."} }],
   formulaPipeline: [
     { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" ,
         buildingLength: "buildingLength",

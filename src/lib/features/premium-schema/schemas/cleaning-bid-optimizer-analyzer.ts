@@ -19,7 +19,7 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "cleaningLaborCost", label: "Iscilik Maliyeti", label_i18n: {"en":"Labor Cost"}, unit: "USD/ay", format: "currency" },
     { id: "cleaningBidPrice", label: "Onerilen Teklif Fiyat", label_i18n: {"en":"Onerilen quote Fiyat"}, unit: "USD/ay", format: "currency" },
   ],
-  thresholds: [{ fieldId: "cleaningBidPrice", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Teklif > rakip — rekabetçilik düşebilir.", warningMessage_i18n: {"en":"quote > rakip — rekabetçilik düşebilir."}, criticalMessage: "Teklif maliyetin altında — zarar riski var.", criticalMessage_i18n: {"en":"quote maliyetin altında — Loss riski var."} }],
+  thresholds: [{ fieldId: "cleaningBidPrice", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Teklif > rakip — rekabetçilik düşebilir.", warningMessage_i18n: {"en":"quote > competitor — competitiveness may decline."}, criticalMessage: "Teklif maliyetin altında — zarar riski var.", criticalMessage_i18n: {"en":"quote below cost — Loss risk present."} }],
   formulaPipeline: [
     { formulaId: "cost.cleaning_labor_cost", inputMap: {
         cleaningHours: "laborRate",

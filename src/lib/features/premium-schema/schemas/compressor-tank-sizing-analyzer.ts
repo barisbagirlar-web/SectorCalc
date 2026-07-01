@@ -19,7 +19,7 @@ export const COMPRESSOR_TANK_SCHEMA: PremiumCalculatorSchema = {
     { id: "motorStartCheck", label: "Motor Start Kontrolü", label_i18n: {"en":"Motor Start Kontrolu"}, unit: "", format: "score" },
     { id: "tankCost", label: "Tank Cost", label_i18n: {"en":"Tank Cost"}, unit: "USD", format: "currency" },
   ],
-  thresholds: [{ fieldId: "motorStartCheck", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Motor start limit aşıldı — tank hacmi artırılmalı.", warningMessage_i18n: {"en":"Motor start limit aşıldı — tank Volume artırılmalı."}, criticalMessage: "" }],
+  thresholds: [{ fieldId: "motorStartCheck", warning: 0, critical: 0, direction: "higher_is_bad", warningMessage: "Motor start limit aşıldı — tank hacmi artırılmalı.", warningMessage_i18n: {"en":"Motor start limit exceeded — tank Volume must be increased."}, criticalMessage: "" }],
   formulaPipeline: [
     { formulaId: "measurement.tank_required_vol", inputMap: {
         demand: "fillTimeTarget",
@@ -43,6 +43,6 @@ export const COMPRESSOR_TANK_SCHEMA: PremiumCalculatorSchema = {
         costPerUnitVol: "pricePerLiter"
       }, outputId: "tankCost" },
   ],
-  reportTemplate: { title: "Kompresör Tankı Raporu", title_i18n: {"en":"Kompresör Tankı Raporu"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Tank = t×Q×Patm / (Pmax - Pmin).", "Çevrim = Tank×(Pmax-Pmin) / (Q×Patm).", "Motor start < maxStart/saat."],assumptionNotes_i18n:[{"en":"Tank = t×Q×Patm / (Pmax - Pmin)."},{"en":"Çevrim = Tank×(Pmax-Pmin) / (Q×Patm)."},{"en":"Motor start < maxStart/saat."}] },
+  reportTemplate: { title: "Kompresör Tankı Raporu", title_i18n: {"en":"Compressor Tank Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
+  assumptions: { hiddenLossMultiplier: 1, volatilityPercent: 5, targetMarginPercent: 10, assumptionNotes: ["Tank = t×Q×Patm / (Pmax - Pmin).", "Çevrim = Tank×(Pmax-Pmin) / (Q×Patm).", "Motor start < maxStart/saat."],assumptionNotes_i18n:[{"en":"Tank = t×Q×Patm / (Pmax - Pmin)."},{"en":"Cycle = Tank×(Pmax-Pmin) / (Q×Patm)."},{"en":"Motor start < maxStart/saat."}] },
 };

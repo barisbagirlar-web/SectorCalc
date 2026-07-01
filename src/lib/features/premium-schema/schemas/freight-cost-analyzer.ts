@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "freight-cost-analyzer", legacyPaidSlug: "freight-cost-analyzer",
   name: "Freight Cost Analyzer", name_i18n: {"en":"Freight Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Navlun maliyetinde ağırlık, bunker, terminal ve gümrük kalemleri ayrı hesaplanmazsa gerçek lojistik maliyeti gizli kalır.", painStatement_i18n: {"en":"freight maliyetinde Weight, bunker, terminal ve customs kalemleri ayrı if not calculated Actual logistics Cost latent kalır."},
+  painStatement: "Navlun maliyetinde ağırlık, bunker, terminal ve gümrük kalemleri ayrı hesaplanmazsa gerçek lojistik maliyeti gizli kalır.", painStatement_i18n: {"en":"If weight, bunker, terminal, and customs items in freight cost are not calculated separately, the actual logistics cost remains hidden."},
   inputs: [
     { id: "grossWeight", label: "Gross weight in kg", label_i18n: {"en":"Gross weight in kg"}, type: "number", unit: "kg", required: true, smartDefault: 1500, validation: { min: 0.1 }, helper: "", expertMeaning: "Gross weight in kg", expertMeaning_i18n: {"en":"Gross weight in kg"} },
     { id: "volumeM3", label: "Hacim", label_i18n: {"en":"Hacim"}, type: "number", unit: "m³", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Volume in cubic meters", expertMeaning_i18n: {"en":"Volume in cubic meters"} },
@@ -23,7 +23,7 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "totalFreightCost", label: "Toplam Navlun Maliyeti", label_i18n: {"en":"Total freight Cost"}, unit: "USD", format: "currency" },
     { id: "costPerUnit", label: "Birim Basna Navlun", label_i18n: {"en":"Unit Per freight"}, unit: "USD/kg", format: "currency" },
   ],
-  thresholds: [{ fieldId: "totalFreightCost", warning: 3000, critical: 8000, direction: "higher_is_bad", warningMessage: "Toplam navlun > $3K — alternatif taşımacılık modları değerlendirilmeli.", warningMessage_i18n: {"en":"Total freight > $3K — alternatif taşımacılık modları değerlendirilmeli."}, criticalMessage: "Toplam navlun > $8K — lojistik ihalesi yenilenmeli.", criticalMessage_i18n: {"en":"Total freight > $8K — logistics ihalesi yenilenmeli."} }],
+  thresholds: [{ fieldId: "totalFreightCost", warning: 3000, critical: 8000, direction: "higher_is_bad", warningMessage: "Toplam navlun > $3K — alternatif taşımacılık modları değerlendirilmeli.", warningMessage_i18n: {"en":"Total freight > $3K — alternative transport modes should be evaluated."}, criticalMessage: "Toplam navlun > $8K — lojistik ihalesi yenilenmeli.", criticalMessage_i18n: {"en":"Total freight > $8K — logistics ihalesi yenilenmeli."} }],
   formulaPipeline: [
     { formulaId: "measurement.chargeable_weight", inputMap: {
         actualWeight: "grossWeight",
@@ -55,5 +55,5 @@ export const FREIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "costPerUnit" },
   ],
   reportTemplate: { title: "Freight Cost Analysis Report", title_i18n: {"en":"Freight Cost Analysis Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167).", "Bunker = baz navlun × bunker yüzdesi.", "Toplam = baz + bunker + terminal + gümrük."],assumptionNotes_i18n:[{"en":"Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167)."},{"en":"Bunker = baz navlun × bunker yüzdesi."},{"en":"Toplam = baz + bunker + terminal + gümrük."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["Taşınabilir ağırlık = max(brüt ağırlık, hacim × 167).", "Bunker = baz navlun × bunker yüzdesi.", "Toplam = baz + bunker + terminal + gümrük."],assumptionNotes_i18n:[{"en":"Chargeable weight = max(gross weight, volume × 167)."},{"en":"Bunker = base freight × bunker percentage."},{"en":"Total = base + bunker + terminal + customs."}] },
 };

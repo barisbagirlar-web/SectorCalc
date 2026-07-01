@@ -17,9 +17,9 @@ export const TRANSFER_PRICING_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "transferTaxImpact", label: "Vergi Etkisi", label_i18n: {"en":"tax Etkisi"}, unit: "USD", format: "currency" },
-    { id: "transferGlobalProfit", label: "Global Kâr", label_i18n: {"en":"Global Kâr"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "transferGlobalProfit", label: "Global Kâr", label_i18n: {"en":"Global Profit"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Vergi etkisi > $30K — transfer fiyatı optimize edilmeli.", warningMessage_i18n: {"en":"tax etkisi > $30K — transfer fiyatı optimize edilmeli."}, criticalMessage: "Vergi etkisi > $75K — vergi danışmanlığı önerilir.", criticalMessage_i18n: {"en":"tax etkisi > $75K — tax danışmanlığı önerilir."} }],
+  thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Vergi etkisi > $30K — transfer fiyatı optimize edilmeli.", warningMessage_i18n: {"en":"Tax impact > $30K — transfer price should be optimized."}, criticalMessage: "Vergi etkisi > $75K — vergi danışmanlığı önerilir.", criticalMessage_i18n: {"en":"Tax impact > $75K — tax consultancy is recommended."} }],
   formulaPipeline: [
     { formulaId: "cost.transfer_tax_impact", inputMap: {
         transferPrice: "transferPrice",

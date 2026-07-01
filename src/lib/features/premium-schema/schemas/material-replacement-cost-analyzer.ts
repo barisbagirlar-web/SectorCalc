@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "material-replacement-cost-analyzer", legacyPaidSlug: "material-replacement-cost-analyzer",
   name: "Material Replacement Cost Analyzer", name_i18n: {"en":"Material Replacement Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Alternatif malzeme geçişlerinde TCO, ağırlık tasarrufu ve net fayda hesaplanmazsa yanlış karar maliyet artırır.", painStatement_i18n: {"en":"Alternatif material geçişlerinde TCO, Weight tasarrufu ve Net fayda if not calculated incorrect decision Cost artırır."},
+  painStatement: "Alternatif malzeme geçişlerinde TCO, ağırlık tasarrufu ve net fayda hesaplanmazsa yanlış karar maliyet artırır.", painStatement_i18n: {"en":"In alternative material transitions, if TCO, weight savings, and net benefit are not calculated, incorrect decisions increase cost."},
   inputs: [
     { id: "currentMaterialCost", label: "Mevcut Malzeme Birim Maliyeti", label_i18n: {"en":"Current material Unit Cost"}, type: "number", unit: "USD/kg", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current material cost per kg", expertMeaning_i18n: {"en":"Current material cost per kg"} },
     { id: "currentMaterialWeight", label: "Current material weight", label_i18n: {"en":"Current material weight"}, type: "number", unit: "kg", required: true, smartDefault: 100, validation: { min: 0.1 }, helper: "", expertMeaning: "Current material weight", expertMeaning_i18n: {"en":"Current material weight"} },
@@ -21,7 +21,7 @@ export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "netBenefit", label: "Net Yllk Fayda", label_i18n: {"en":"Net Annual Fayda"}, unit: "USD/yıl", format: "currency" },
     { id: "paybackYears", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "yıl", format: "number" },
   ],
-  thresholds: [{ fieldId: "netBenefit", warning: 5000, critical: -5000, direction: "lower_is_bad", warningMessage: "Net fayda < $5K — geçiş kararı riskli.", warningMessage_i18n: {"en":"Net fayda < $5K — geçiş kararı riskli."}, criticalMessage: "Net fayda negatif — alternatif malzeme daha pahalı.", criticalMessage_i18n: {"en":"Net fayda negatif — alternatif material daha pahalı."} }],
+  thresholds: [{ fieldId: "netBenefit", warning: 5000, critical: -5000, direction: "lower_is_bad", warningMessage: "Net fayda < $5K — geçiş kararı riskli.", warningMessage_i18n: {"en":"Net benefit < $5K — transition decision is risky."}, criticalMessage: "Net fayda negatif — alternatif malzeme daha pahalı.", criticalMessage_i18n: {"en":"Net benefit negative — alternative material is more expensive."} }],
   formulaPipeline: [
     { formulaId: "cost.tco_current", inputMap: { currentMaterialCost: "currentMaterialCost", currentMaterialWeight: "currentMaterialWeight", productionVolume: "productionVolume" ,
         currentPurchase: "currentPurchase",
@@ -45,5 +45,5 @@ export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
         tcoNetBenefit: "tcoNetBenefit"}, outputId: "paybackYears" },
   ],
   reportTemplate: { title: "Material Replacement Cost Report", title_i18n: {"en":"Material Replacement Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["TCO = birim maliyet × ağırlık × hacim.", "Net fayda = mevcut TCO − alternatif TCO − takım maliyeti.", "Ağırlık tasarrufu = (mevcut − alternatif) × hacim."],assumptionNotes_i18n:[{"en":"TCO = birim maliyet × ağırlık × hacim."},{"en":"Net fayda = mevcut TCO − alternatif TCO − takım maliyeti."},{"en":"Ağırlık tasarrufu = (mevcut − alternatif) × hacim."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["TCO = birim maliyet × ağırlık × hacim.", "Net fayda = mevcut TCO − alternatif TCO − takım maliyeti.", "Ağırlık tasarrufu = (mevcut − alternatif) × hacim."],assumptionNotes_i18n:[{"en":"TCO = unit cost × weight × volume."},{"en":"Net benefit = current TCO − alternative TCO − tooling cost."},{"en":"Weight savings = (current − alternative) × volume."}] },
 };

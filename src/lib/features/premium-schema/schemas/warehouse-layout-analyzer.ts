@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const WAREHOUSE_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
   id: "warehouse-layout-analyzer", legacyPaidSlug: "warehouse-layout-analyzer",
   name: "Warehouse Layout & Efficiency Analyzer", name_i18n: {"en":"Warehouse Layout & Efficiency Analyzer"}, sectorSlug: "logistics-transport", category: "measurement",
-  painStatement: "Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar.", painStatement_i18n: {"en":"Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği drops, operation Cost artar."},
+  painStatement: "Depo yerleşimi optimize edilmezse palet pozisyonu, throughput ve toplama verimliliği düşer, işletme maliyeti artar.", painStatement_i18n: {"en":"If warehouse layout is not optimized, pallet position, throughput, and picking efficiency drops, operation Cost increases."},
   inputs: [
     { id: "warehouseFootprint", label: "Warehouse footprint", label_i18n: {"en":"Warehouse footprint"}, type: "number", unit: "m²", required: true, smartDefault: 2000, validation: { min: 1 }, helper: "", expertMeaning: "Warehouse footprint", expertMeaning_i18n: {"en":"Warehouse footprint"} },
     { id: "utilRate", label: "Storage utilization rate", label_i18n: {"en":"Storage utilization rate"}, type: "number", unit: "%", required: true, smartDefault: 70, validation: { min: 1, max: 100 }, helper: "", expertMeaning: "Storage utilization rate", expertMeaning_i18n: {"en":"Storage utilization rate"} },
@@ -26,7 +26,7 @@ export const WAREHOUSE_LAYOUT_SCHEMA: PremiumCalculatorSchema = {
     { id: "pickEfficiency", label: "Toplama Verimliligi", label_i18n: {"en":"Toplama Verimliligi"}, unit: "kalem/saat", format: "number" },
     { id: "costPerPosition", label: "Pozisyon Basna Maliyet", label_i18n: {"en":"position Per Cost"}, unit: "USD/yıl", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "costPerPosition", warning: 150, critical: 250, direction: "higher_is_bad", warningMessage: "Pozisyon maliyeti > $150 — optimizasyon fırsatı var.", warningMessage_i18n: {"en":"position Cost > $150 — optimization fırsatı var."}, criticalMessage: "Pozisyon maliyeti > $250 — depo verimliliği düşük.", criticalMessage_i18n: {"en":"position Cost > $250 — depo verimliliği düşük."} }],
+  thresholds: [{ fieldId: "costPerPosition", warning: 150, critical: 250, direction: "higher_is_bad", warningMessage: "Pozisyon maliyeti > $150 — optimizasyon fırsatı var.", warningMessage_i18n: {"en":"position Cost > $150 — Optimization opportunity exists."}, criticalMessage: "Pozisyon maliyeti > $250 — depo verimliliği düşük.", criticalMessage_i18n: {"en":"position Cost > $250 — Warehouse efficiency is low."} }],
   formulaPipeline: [
     { formulaId: "measurement.warehouse_pallet_positions", inputMap: { warehouseFootprint: "warehouseFootprint", utilRate: "utilRate", palletFootprint: "palletFootprint", aisleFactor: "aisleFactor" ,
         storageArea: "storageArea"}, outputId: "palletPositions" },

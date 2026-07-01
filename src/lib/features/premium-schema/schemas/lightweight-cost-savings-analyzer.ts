@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const LIGHTWEIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "lightweight-cost-savings-analyzer", legacyPaidSlug: "lightweight-cost-savings-analyzer",
   name: "Lightweight Cost Savings Analyzer", name_i18n: {"en":"Lightweight Cost Savings Analyzer"}, sectorSlug: "sheet-metal", category: "cost",
-  painStatement: "Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir.", painStatement_i18n: {"en":"Parts hafifletmenin Fuel, payload ve material primi etkisini hesaplamadan yapılan material change Expected tasarrufu sağlamayabilir."},
+  painStatement: "Parça hafifletmenin yakıt, payload ve malzeme primi etkisini hesaplamadan yapılan malzeme değişikliği beklenen tasarrufu sağlamayabilir.", painStatement_i18n: {"en":"A material change made without calculating the fuel, payload, and material premium effects of parts light weighting may not deliver the expected savings."},
   inputs: [
     { id: "originalMass", label: "Original part mass", label_i18n: {"en":"Original part mass"}, type: "number", unit: "kg", required: true, smartDefault: 50, validation: { min: 0.1 }, helper: "", expertMeaning: "Original part mass", expertMeaning_i18n: {"en":"Original part mass"} },
     { id: "lightweightMass", label: "Lightweight part mass", label_i18n: {"en":"Lightweight part mass"}, type: "number", unit: "kg", required: true, smartDefault: 35, validation: { min: 0.1 }, helper: "", expertMeaning: "Lightweight part mass", expertMeaning_i18n: {"en":"Lightweight part mass"} },
@@ -23,7 +23,7 @@ export const LIGHTWEIGHT_COST_SCHEMA: PremiumCalculatorSchema = {
     { id: "payloadGain", label: "Payload Gelir Arts", label_i18n: {"en":"Payload Income Arts"}, unit: "USD/yıl", format: "currency" },
     { id: "netSavings", label: "Net Tasarruf (Ömür Boyu)", label_i18n: {"en":"Net Tasarruf (life Boyu)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "netSavings", warning: 5000, critical: 0, direction: "lower_is_bad", warningMessage: "Net tasarruf < $5000 — hafifletme yatırımı sorgulanmalı.", warningMessage_i18n: {"en":"Net tasarruf < $5000 — hafifletme yatırımı sorgulanmalı."}, criticalMessage: "Net tasarruf ≤ $0 — hafifletme ekonomik değil.", criticalMessage_i18n: {"en":"Net tasarruf ≤ $0 — hafifletme economical değil."} }],
+  thresholds: [{ fieldId: "netSavings", warning: 5000, critical: 0, direction: "lower_is_bad", warningMessage: "Net tasarruf < $5000 — hafifletme yatırımı sorgulanmalı.", warningMessage_i18n: {"en":"Net savings < $5000 — light weighting investment should be questioned."}, criticalMessage: "Net tasarruf ≤ $0 — hafifletme ekonomik değil.", criticalMessage_i18n: {"en":"Net savings ≤ $0 — light weighting is not economical."} }],
   formulaPipeline: [
     { formulaId: "measurement.lightweight_weight_red", inputMap: { originalMass: "originalMass", lightweightMass: "lightweightMass" ,
         massOrig: "massOrig",

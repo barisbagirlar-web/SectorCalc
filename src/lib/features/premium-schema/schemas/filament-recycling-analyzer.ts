@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const FILAMENT_RECYCLING_SCHEMA: PremiumCalculatorSchema = {
   id: "filament-recycling-analyzer", legacyPaidSlug: "filament-recycling-analyzer",
   name: "Filament Recycling Economy Analyzer", name_i18n: {"en":"Filament Recycling Economy Analyzer"}, sectorSlug: "sheet-metal", category: "cost",
-  painStatement: "3D baskı filamentinde geri dönüşüm ekonomisi hesaplanmazsa hammadde maliyeti ve sürdürülebilirlik hedefleri arasında denge kurulamaz.", painStatement_i18n: {"en":"3D baskı filamentinde Return dönüşüm ekonomisi if not calculated raw material Cost ve sürdürülebilirlik hedefleri arasında balance kurulamaz."},
+  painStatement: "3D baskı filamentinde geri dönüşüm ekonomisi hesaplanmazsa hammadde maliyeti ve sürdürülebilirlik hedefleri arasında denge kurulamaz.", painStatement_i18n: {"en":"If the recycling economics of 3D printing filament is not calculated, a balance between raw material cost and sustainability targets cannot be established."},
   inputs: [
     { id: "virginPrice", label: "Virgin filament price", label_i18n: {"en":"Virgin filament price"}, type: "number", unit: "USD/kg", required: true, smartDefault: 25, validation: { min: 0 }, helper: "", expertMeaning: "Virgin filament price", expertMeaning_i18n: {"en":"Virgin filament price"} },
     { id: "virginScrapPct", label: "Virgin material scrap rate", label_i18n: {"en":"Virgin material scrap rate"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Virgin material scrap rate", expertMeaning_i18n: {"en":"Virgin material scrap rate"} },
@@ -22,7 +22,7 @@ export const FILAMENT_RECYCLING_SCHEMA: PremiumCalculatorSchema = {
     { id: "recycledCost", label: "Geri Donusum Maliyeti", label_i18n: {"en":"Return Donusum Cost"}, unit: "USD/kg", format: "currency" },
     { id: "roi", label: "Geri Donusum ROI", label_i18n: {"en":"Return Donusum ROI"}, unit: "%", format: "percentage", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 30, critical: 10, direction: "lower_is_bad", warningMessage: "ROI < %30 — geri dönüşüm yatırımı sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %30 — Return dönüşüm yatırımı sorgulanmalı."}, criticalMessage: "ROI < %10 — yatırım fizibil değil.", criticalMessage_i18n: {"en":"ROI < %10 — Investment fizibil değil."} }],
+  thresholds: [{ fieldId: "roi", warning: 30, critical: 10, direction: "lower_is_bad", warningMessage: "ROI < %30 — geri dönüşüm yatırımı sorgulanmalı.", warningMessage_i18n: {"en":"ROI < %30 — Return on conversion investment should be questioned."}, criticalMessage: "ROI < %10 — yatırım fizibil değil.", criticalMessage_i18n: {"en":"ROI < %10 — Investment is not feasible."} }],
   formulaPipeline: [
     { formulaId: "cost.filament_virgin", inputMap: {
         priceV: "virginPrice",

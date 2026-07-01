@@ -5,7 +5,7 @@ import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/prem
 export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
   id: "bottleneck-investment-analyzer", legacyPaidSlug: "bottleneck-investment-analyzer",
   name: "Bottleneck Investment ROI Analysis", name_i18n: {"en":"Bottleneck Investment ROI Analysis"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Darboğazı tespit etmeden yapılan kapasite yatırımları beklenen getiriyi sağlamaz. Bu araç kısıt teorisi (TOC) ile yatırım ROI'sini hesaplar.", painStatement_i18n: {"en":"Darboğazı detection etmeden yapılan capacity yatırımları Expected getiriyi sağlamaz. Bu araç Constraint teorisi (TOC) ile Investment ROI'sini hesaplar."},
+  painStatement: "Darboğazı tespit etmeden yapılan kapasite yatırımları beklenen getiriyi sağlamaz. Bu araç kısıt teorisi (TOC) ile yatırım ROI'sini hesaplar.", painStatement_i18n: {"en":"Capacity investments made without detecting the bottleneck do not deliver Expected return. This tool calculates Investment ROI using Constraint theory (TOC)."},
   inputs: [
     { id: "designCapacity", label: "Design Capacity", label_i18n: {"en":"Design Capacity"}, type: "number", unit: "birim/gün", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Design capacity", expertMeaning_i18n: {"en":"Design capacity"} },
     { id: "actualOutput", label: "Actual Output", label_i18n: {"en":"Actual Output"}, type: "number", unit: "birim/gün", required: true, smartDefault: 350, validation: { min: 0 }, helper: "", expertMeaning: "Actual daily output", expertMeaning_i18n: {"en":"Actual daily output"} },
@@ -26,7 +26,7 @@ export const BOTTLENECK_INVESTMENT_SCHEMA: PremiumCalculatorSchema = {
     { id: "roi", label: "Yatrm ROI", label_i18n: {"en":"Yatrm ROI"}, unit: "%", format: "percentage" },
     { id: "paybackMonths", label: "Geri Ödeme Süresi", label_i18n: {"en":"Payback Period"}, unit: "ay", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım alternatifleri değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < %50 — Investment alternatifleri değerlendirilmeli."}, criticalMessage: "ROI < %20 — yatırım fizibilitesi zayıf.", criticalMessage_i18n: {"en":"ROI < %20 — Investment fizibilitesi zayıf."} }],
+  thresholds: [{ fieldId: "roi", warning: 50, critical: 20, direction: "lower_is_bad", warningMessage: "ROI < %50 — yatırım alternatifleri değerlendirilmeli.", warningMessage_i18n: {"en":"ROI < 50% — Investment alternatives should be evaluated."}, criticalMessage: "ROI < %20 — yatırım fizibilitesi zayıf.", criticalMessage_i18n: {"en":"ROI < 20% — Investment feasibility is weak."} }],
   formulaPipeline: [
     { formulaId: "measurement.bottleneck_util", inputMap: { actualOutput: "actualOutput", designCapacity: "designCapacity" }, outputId: "utilization" },
     { formulaId: "measurement.bottleneck_takt_time", inputMap: { availableTime: "availableTime", demand: "demand" }, outputId: "taktTime" },
