@@ -24,7 +24,7 @@ import {
 } from "@/lib/infrastructure/i18n/locale-config";
 
 /** Canonical public origin — always production domain. */
-export const SITE_BASE_URL = "https://www.sectorcalc.com";
+export const SITE_BASE_URL = "https://sectorcalc.com";
 
 export { SUPPORTED_LOCALES, DEFAULT_LOCALE, ROOT_LOCALE, type SupportedLocale, isSupportedLocale };
 
@@ -40,7 +40,7 @@ export function resolveSitemapBaseUrl(request?: Request): string {
   if (!request) return SITE_BASE_URL;
   const host = request.headers.get("host") || request.headers.get("x-forwarded-host") || "";
   if (host.includes("sectorcalc.com")) {
-    return "https://www.sectorcalc.com";
+    return "https://sectorcalc.com";
   }
   return SITE_BASE_URL;
 }

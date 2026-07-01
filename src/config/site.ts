@@ -1,11 +1,11 @@
-const DEFAULT_SITE_URL = "https://www.sectorcalc.com";
+const DEFAULT_SITE_URL = "https://sectorcalc.com";
 
 function normalizeSiteUrl(value: string): string {
  const trimmed = value.trim().replace(/\/$/, "");
  try {
   const url = new URL(trimmed);
-  if (url.hostname === "sectorcalc.com") {
-   url.hostname = "www.sectorcalc.com";
+  if (url.hostname === "www.sectorcalc.com") {
+   url.hostname = "sectorcalc.com";
   }
   return url.origin;
  } catch {

@@ -52,7 +52,7 @@ describe("seo authority signal JSON-LD", () => {
   test("ClaimReview schema is emitted for calculator results", () => {
     const graph = buildClaimReviewJsonLd({
       claimReviewed: "Cutting Speed Calculator: 120 m/min",
-      pageUrl: "https://www.sectorcalc.com/en/tools/generated/cutting-speed-calculator",
+      pageUrl: "https://sectorcalc.com/en/tools/generated/cutting-speed-calculator",
     });
     expect(graph["@type"]).toBe("ClaimReview");
     expect(graph.reviewRating).toBeTruthy();

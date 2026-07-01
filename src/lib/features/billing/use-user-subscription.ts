@@ -11,6 +11,14 @@ import {
   normalizeUserSubscription,
   type UserSubscription,
 } from "@/lib/features/billing/subscription";
+import {
+  syncSessionCookie,
+  clearSessionCookie,
+} from "@/lib/infrastructure/auth/session-cookie";
+import {
+  syncSessionCookie,
+  clearSessionCookie,
+} from "@/lib/infrastructure/auth/session-cookie";
 
 export type UseUserSubscriptionState = {
   user: User | null;
@@ -120,6 +128,8 @@ function bootstrapAuthStore() {
       }
 
       if (!user) {
+        // Clear server-side session cookie on sign-out
+        clearSessionCookie();
         setStoreState({
           user: null,
           subscription: null,
@@ -129,6 +139,9 @@ function bootstrapAuthStore() {
         });
         return;
       }
+
+      // Sync server-side session cookie on every auth detection
+      syncSessionCookie(user);
 
       setStoreState({
         ...storeState,

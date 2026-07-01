@@ -16,7 +16,7 @@ function run(label, command, args, extraEnv = {}) {
     stdio: "inherit",
     env: {
       ...process.env,
-      NEXT_PUBLIC_SITE_URL: "https://www.sectorcalc.com",
+      NEXT_PUBLIC_SITE_URL: "https://sectorcalc.com",
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=12288",
       ...extraEnv,
     },

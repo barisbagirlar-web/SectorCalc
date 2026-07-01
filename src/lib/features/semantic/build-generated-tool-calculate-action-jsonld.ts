@@ -17,7 +17,7 @@ export function buildGeneratedToolCalculateActionJsonLd(input: {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "Action",
-    additionalType: "https://www.sectorcalc.com/semantic/CalculateAction",
+    additionalType: "https://sectorcalc.com/semantic/CalculateAction",
     identifier: `CalculateAction:${input.slug}`,
     name: `${input.toolName} — CalculateAction`,
     description: input.description || input.schema.outputs.primary,

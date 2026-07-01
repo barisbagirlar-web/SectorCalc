@@ -25,6 +25,8 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
 import { BRAND_ASSETS } from "@/config/brand";
+import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
+import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
 
 const t = {
   products: 'Products', industries: 'Industries', pricing: 'Pricing', resources: 'Resources',
@@ -247,6 +249,8 @@ export function SiteHeader({
           </nav>
 
           <div className="sc-right">
+            <AuthStatusIndicator />
+            <AuthStatusIndicator />
             <Link href={accountHref} className="sc-signin">{t.signin}</Link>
             <Link href="/signup" className="sc-getstarted">{t.getStarted}</Link>
             <button className="sc-burger" onClick={()=>setMobileOpen(!mobileOpen)} aria-label="Menu" aria-expanded={mobileOpen}>

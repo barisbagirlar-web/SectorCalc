@@ -14,7 +14,7 @@ const result = spawnSync("npx", ["tsx", "scripts/generate-sitemap-static.ts"], {
   env: {
     ...process.env,
     NEXT_PUBLIC_SITE_URL:
-      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.sectorcalc.com",
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
   },
 });
 

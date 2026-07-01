@@ -9,6 +9,8 @@ import {
  type User,
 } from "firebase/auth";
 import { getFirebaseApp } from "@/lib/infrastructure/firebase/client";
+import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
+import { clearSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
 
 let cachedAuth: Auth | null | undefined;
 
@@ -73,12 +75,15 @@ export async function verifyUserAdminClaim(user: User): Promise<boolean> {
 }
 
 export async function signOutAdmin(): Promise<void> {
- const auth = getFirebaseAuth();
- if (!auth) {
- return;
- }
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    return;
+  }
 
- await firebaseSignOut(auth);
+  // Clear server-side session cookie before Firebase sign-out
+  await clearSessionCookie();
+
+  await firebaseSignOut(auth);
 }
 
 export async function refreshUserAdminClaim(user: User): Promise<boolean> {

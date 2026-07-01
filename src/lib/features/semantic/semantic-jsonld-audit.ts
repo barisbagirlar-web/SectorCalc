@@ -82,8 +82,8 @@ export function auditSemanticJsonLdCoverage(): SemanticJsonLdAuditResult {
   const routes = collectPublicRouteSlugs();
   const contracts = listSemanticToolContracts().filter((tool) => tool.isPublic);
 
-  if (SITE_URL !== "https://www.sectorcalc.com") {
-    issues.push(`SITE_URL must be https://www.sectorcalc.com (got ${SITE_URL})`);
+  if (SITE_URL !== "https://sectorcalc.com") {
+    issues.push(`SITE_URL must be https://sectorcalc.com (got ${SITE_URL})`);
   }
 
   for (const route of routes) {

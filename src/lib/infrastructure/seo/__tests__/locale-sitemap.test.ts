@@ -75,11 +75,11 @@ describe("locale sitemap", () => {
   test("generateSitemapIndexXml lists locale shards", () => {
     const xml = generateSitemapIndexXml([
       {
-        url: "https://www.sectorcalc.com/sitemap/en.xml",
+        url: "https://sectorcalc.com/sitemap/en.xml",
         lastModified: new Date("2026-06-17T12:00:00.000Z"),
       },
       {
-        url: "https://www.sectorcalc.com/sitemap/tr.xml",
+        url: "https://sectorcalc.com/sitemap/tr.xml",
         lastModified: new Date("2026-06-17T12:00:00.000Z"),
       },
     ]);

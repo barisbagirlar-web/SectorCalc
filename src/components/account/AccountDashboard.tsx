@@ -3,6 +3,8 @@
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { CreditSummary } from "@/components/account/CreditSummary";
 import { SupportTicketForm } from "@/components/account/SupportTicketForm";
+import { SubscriptionStatusCard } from "@/components/account/SubscriptionStatusCard";
+import { SubscriptionStatusCard } from "@/components/account/SubscriptionStatusCard";
 import { LogoutButton } from "@/components/account/LogoutButton";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
@@ -34,7 +36,7 @@ function AccountDashboardLoginPrompt() {
 }
 
 export function AccountDashboard() {
-  const { user, loading: authLoading } = useUserSubscription();
+  const { user, subscription, isActive, loading: authLoading } = useUserSubscription();
 
   return (
     <PageLayout>
@@ -74,6 +76,16 @@ export function AccountDashboard() {
               <AccountDashboardLoginPrompt />
             ) : (
               <div className="account-dashboard__content">
+                <SubscriptionStatusCard
+                  subscription={subscription}
+                  isActive={isActive}
+                  loading={authLoading}
+                />
+                <SubscriptionStatusCard
+                  subscription={subscription}
+                  isActive={isActive}
+                  loading={authLoading}
+                />
                 <CreditSummary />
                 <SupportTicketForm />
               </div>
