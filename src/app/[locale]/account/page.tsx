@@ -16,6 +16,7 @@ import { LogoutButton } from './_components/LogoutButton';
 import { OpenSupportButton } from './_components/OpenSupportButton';
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
 import { normalizeUserSubscription, hasActiveSubscription } from "@/lib/features/billing/subscription";
+import { PageLayout } from "@/components/layout/PageLayout";
 
 async function getAccountType(userId: string): Promise<string> {
   const db = getAdminFirestore();
@@ -81,22 +82,22 @@ export default async function AccountPage({ params }: PageProps) {
   const accountType = await getAccountType(s.user.id);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* HEADER */}
-        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Account Dashboard</h1>
-            <p className="mt-1 text-sm text-gray-500">
-              Manage your subscription, credits, and support tickets in one place.
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <OpenSupportButton />
-            <LogoutButton />
-          </div>
-        </header>
+    <PageLayout>
+      {/* account page header */}
+      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Account Dashboard</h1>
+          <p className="mt-1 text-sm text-gray-500">
+            Manage your subscription, credits, and support tickets in one place.
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <OpenSupportButton />
+          <LogoutButton />
+        </div>
+      </header>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* LEFT COLUMN: FINANCIALS & ACTIVITY */}
@@ -128,6 +129,6 @@ export default async function AccountPage({ params }: PageProps) {
 
       {/* SUPPORT MODAL (Hidden by default) */}
       <SupportTicketModal userId={s.user.id} email={s.user.email} />
-    </div>
+    </PageLayout>
   );
 }
