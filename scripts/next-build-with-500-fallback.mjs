@@ -17,11 +17,6 @@ import {
 } from "./lib/global-build-lock.mjs";
 
 
-/**
- * Pre-flight: run TypeScript syntax validation on all generated tool files.
- * Catches syntax errors in generated/*.ts before webpack tries to compile them,
- * which produces opaque "Syntax Error" messages without line numbers.
- */
 function prebuildValidateGeneratedSyntax() {
   const result = spawnSync(
     "npx",
@@ -31,6 +26,20 @@ function prebuildValidateGeneratedSyntax() {
   if (result.status !== 0) {
     console.error(
       "next-build-with-500-fallback: generated file syntax validation FAILED — aborting build.",
+    );
+    process.exit(1);
+  }
+}
+
+function prebuildGenerateToolGitDates() {
+  const result = spawnSync(
+    "npx",
+    ["tsx", "scripts/prebuild-generate-tool-git-dates.ts"],
+    { cwd: ROOT, stdio: "inherit" },
+  );
+  if (result.status !== 0) {
+    console.error(
+      "next-build-with-500-fallback: git dates generation FAILED — aborting build.",
     );
     process.exit(1);
   }
@@ -303,9 +312,8 @@ try {
     process.exit(1);
   }
 
-  // Generated-file syntax gate — catch TS syntax errors in generated/*.ts
-  // before webpack/SWC encounters them and produces opaque error messages.
   prebuildValidateGeneratedSyntax();
+  prebuildGenerateToolGitDates();
 
   ensureNextTypeAndBuildManifestStubs();
 

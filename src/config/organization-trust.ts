@@ -8,7 +8,6 @@ export const ORGANIZATION_TRUST = {
   displayName: "SectorCalc",
   description: {
     en: "Sector calculators for manufacturing, industry, and business.",
-    tr: "Üretim, sanayi ve işletme hesaplamaları için sektörel hesap makineleri.",
     de: "Branchenspezifische Rechner für Produktion, Industrie und Unternehmen.",
     fr: "Calculateurs sectoriels pour la production, l'industrie et les entreprises.",
     es: "Calculadoras sectoriales para producción, industria y negocios.",

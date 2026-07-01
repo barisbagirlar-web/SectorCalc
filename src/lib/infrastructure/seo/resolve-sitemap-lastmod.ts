@@ -22,6 +22,16 @@ const CONTENT_SOURCE_FILES = {
 
 const staticPagePathSet = new Set(getStaticPages().map((page) => page.path));
 
+const toolGitDates: Record<string, string> = (() => {
+  try {
+    const filePath = path.join(process.cwd(), "generated/tool-git-dates.json");
+    if (fs.existsSync(filePath)) {
+      return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    }
+  } catch {}
+  return {};
+})();
+
 function readFileMtime(filePath: string): Date | null {
   try {
     if (!fs.existsSync(filePath)) {
@@ -46,6 +56,14 @@ function readCachedFileMtime(key: keyof typeof CONTENT_SOURCE_FILES): Date | nul
 }
 
 function resolveGeneratedOrPremiumToolLastMod(slug: string, fallback: Date): Date {
+  const gitDateStr = toolGitDates[slug];
+  if (gitDateStr) {
+    const parsed = new Date(gitDateStr);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed;
+    }
+  }
+
   const iso = getGeneratedToolLastUpdatedIso(slug);
   if (iso) {
     const parsed = new Date(iso);

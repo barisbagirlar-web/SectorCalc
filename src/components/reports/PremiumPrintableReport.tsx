@@ -52,28 +52,6 @@ const PRINT_LABELS: Record<string, PrintLabels> = {
     warning: "Warning",
     acceptable: "Acceptable",
   },
-  tr: {
-    sampleBanner:
-      "Örnek rapor — etiketsiz dışa aktarmak için tam karar raporunun kilidini açın.",
-    generated: "Oluşturulma",
-    sector: "Sektör",
-    executiveSummary: "Yönetici Özeti",
-    hiddenLossDrivers: "Görünmeyen Kayıp Kalemleri",
-    driver: "Kalem",
-    value: "Değer",
-    description: "Açıklama",
-    thresholdCheck: "Eşik Kontrolü",
-    metric: "Metrik",
-    status: "Durum",
-    message: "Mesaj",
-    suggestedActions: "Önerilen Adımlar",
-    assumptions: "Varsayımlar",
-    legalNote: "Yasal Not",
-    reportId: "Rapor No",
-    critical: "Kritik",
-    warning: "Uyarı",
-    acceptable: "Kabul edilebilir",
-  },
   de: {
     sampleBanner:
       "Musterbericht — schalten Sie den vollständigen Entscheidungsbericht frei, um ohne dieses Label zu exportieren.",

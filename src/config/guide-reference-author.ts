@@ -10,7 +10,6 @@ export const GUIDE_REFERENCE_AUTHOR = {
   familyName: "Schilders",
   role: {
     en: "ECMI President",
-    tr: "ECMI Başkanı",
     de: "ECMI-Präsident",
     fr: "Président de l'ECMI",
     es: "Presidente de ECMI",
