@@ -49,8 +49,8 @@ export async function signInAdminWithEmailPassword(
 
  const credential = await signInWithEmailAndPassword(
  auth,
- email.trim(),
- password
+    email.trim().toLowerCase(),
+    password
  );
  return credential.user;
 }

@@ -1,6 +1,11 @@
 /**
  * Safe AST expression engine — no eval, no Function constructor.
  * Tokenizes → Pratt-parses → evaluates against a scope object.
+ *
+ * CRITICAL FIX: Preprocesses Math constants (Math.PI, Math.E, etc.) into
+ * numeric literals before tokenization because the tokenizer treats '.' as
+ * part of identifier names, making "Math.PI" a single unresolvable token.
+ * Also converts ** and ^ (engineering exponentiation) to Math.pow() calls.
  */
 
 type Token =
@@ -19,6 +24,53 @@ type ASTNode =
   | { k: "call"; c: string; a: ASTNode[] }
   | { k: "bin"; op: string; l: ASTNode; r: ASTNode }
   | { k: "tern"; cond: ASTNode; t: ASTNode; f: ASTNode };
+
+/**
+ * Preprocess expression string before tokenization:
+ * 1. Replace Math constants with numeric literals
+ * 2. Convert ** and ^ exponentiation to Math.pow() calls
+ */
+const MATH_CONSTS: Record<string, string> = {
+  "Math.PI":     "3.141592653589793",
+  "Math.E":      "2.718281828459045",
+  "Math.SQRT2":  "1.4142135623730951",
+  "Math.SQRT1_2":"0.7071067811865476",
+  "Math.LN2":    "0.6931471805599453",
+  "Math.LN10":   "2.302585092994046",
+  "Math.LOG2E":  "1.4426950408889634",
+  "Math.LOG10E": "0.4342944819032518",
+};
+
+function preprocess(src: string): string {
+  let result = src;
+  // 1. Replace Math constants with literal numeric values
+  for (const [key, val] of Object.entries(MATH_CONSTS)) {
+    // Match key NOT followed by a letter/digit/dot/underscore (i.e. not part of a longer identifier)
+    const re = new RegExp(
+      key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![A-Za-z0-9_.$])",
+      "g",
+    );
+    result = result.replace(re, val);
+  }
+  // 2. Convert a ** b (exponentiation)  →  Math.pow(a, b)
+  result = result.replace(
+    /(\w+|[)])\s*\*\*\s*(\w+|-?\d+\.?\d*)/g,
+    (_, left, right) => {
+      const l = left === ")" ? left : left;
+      return `Math.pow(${l}, ${right})`;
+    },
+  );
+  // 3. Convert a ^ b (engineering exponentiation)  →  Math.pow(a, b)
+  //    Must not be confused with bitwise XOR (rare in engineering calc)
+  result = result.replace(
+    /(\w+|[)])\s*\^\s*(\w+|-?\d+\.?\d*)/g,
+    (_, left, right) => {
+      const l = left === ")" ? left : left;
+      return `Math.pow(${l}, ${right})`;
+    },
+  );
+  return result;
+}
 
 function tokenize(src: string): Token[] {
   const t: Token[] = [];
@@ -202,7 +254,8 @@ export type CompiledExpression = {
 };
 
 export function compile(src: string): CompiledExpression {
-  const ast = parse(tokenize(src));
+  const processed = preprocess(src);
+  const ast = parse(tokenize(processed));
   const fn = (scope: Record<string, unknown>): unknown => ev(ast, scope);
   fn.src = src;
   return fn;

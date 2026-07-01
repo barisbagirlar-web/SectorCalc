@@ -112,7 +112,7 @@ export async function signInCustomerWithEmail(email: string, password: string): 
     throw new Error("Firebase Auth is not configured.");
   }
 
-  await signInWithEmailAndPassword(auth, email, password);
+  await signInWithEmailAndPassword(auth, email.trim().toLowerCase(), password);
 }
 
 export async function signUpCustomerWithEmail(email: string, password: string): Promise<void> {
@@ -121,7 +121,7 @@ export async function signUpCustomerWithEmail(email: string, password: string): 
     throw new Error("Firebase Auth is not configured.");
   }
 
-  await createUserWithEmailAndPassword(auth, email, password);
+  await createUserWithEmailAndPassword(auth, email.trim().toLowerCase(), password);
 }
 
 /**
