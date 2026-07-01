@@ -82,6 +82,22 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
         tool={toolData}
         showMasthead={false}
         onCompute={handleDynamicCompute}
+        externalCompute={(scope) => {
+          const raw: SchemaInputValues = buildDefaultSchemaInputs(schema);
+          for (const key of Object.keys(scope)) {
+            const val = scope[key];
+            if (key in raw && (typeof val === "number" || typeof val === "string" || typeof val === "boolean" || Array.isArray(val))) {
+              raw[key] = val as any;
+            }
+          }
+          const result = runPremiumSchemaEngine(schema, raw, locale);
+          
+          const results: Record<string, unknown> = {};
+          for (const out of result.outputs) {
+            results[out.id] = out.raw;
+          }
+          return { results };
+        }}
       />
 
       {/* Premium Report Section */}

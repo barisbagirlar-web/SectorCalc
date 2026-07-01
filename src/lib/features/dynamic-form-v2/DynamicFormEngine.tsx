@@ -107,9 +107,10 @@ export type DynamicFormEngineProps = {
   toolRegistry?: Array<{ id: string; name: string }>;
   onToolSwitch?: (toolId: string) => void;
   onCompute?: (scope: Record<string, unknown>, uncertainties: Record<string, number>) => void;
+  externalCompute?: (scope: Record<string, unknown>) => { results: Record<string, unknown>; uncertainties?: Record<string, number> };
 };
 
-export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onToolSwitch, onCompute }: DynamicFormEngineProps) {
+export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onToolSwitch, onCompute, externalCompute }: DynamicFormEngineProps) {
   // Batch-commit: state = committed, draft = editing
   const [state, setState] = useState<Record<string, unknown>>(() => {
     const init: Record<string, unknown> = {};
@@ -285,14 +286,24 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
     }
 
     // Formulas
-    (tool.formulas || []).forEach((fm) => {
-      const val = safeEval(compiled.f[fm.id], results);
-      if (val !== undefined) results[fm.output] = val;
-      if (compiled.u[fm.id]) {
-        const uv = safeEval(compiled.u[fm.id], results);
-        if (typeof uv === "number" && Number.isFinite(uv)) unc[fm.output] = uv;
+    if (externalCompute) {
+      try {
+        const ext = externalCompute(results);
+        Object.assign(results, ext.results);
+        if (ext.uncertainties) Object.assign(unc, ext.uncertainties);
+      } catch (err) {
+        console.error("externalCompute failed:", err);
       }
-    });
+    } else {
+      (tool.formulas || []).forEach((fm) => {
+        const val = safeEval(compiled.f[fm.id], results);
+        if (val !== undefined) results[fm.output] = val;
+        if (compiled.u[fm.id]) {
+          const uv = safeEval(compiled.u[fm.id], results);
+          if (typeof uv === "number" && Number.isFinite(uv)) unc[fm.output] = uv;
+        }
+      });
+    }
     setComputed(results);
     setUncertainties(unc);
     setComputationStatus('DONE');
