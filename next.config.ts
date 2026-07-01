@@ -12,39 +12,6 @@ import {
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-/**
- * Ensure Pages Router stubs exist on disk before webpack/SSG starts.
- * Called at module init so they're available during "Collecting page data".
- */
-function ensurePageRouterStubs(): void {
-  const serverDir = path.join(process.cwd(), ".next", "server");
-  const pagesDir = path.join(serverDir, "pages");
-  mkdirSync(pagesDir, { recursive: true });
-  for (const name of ["_document.js", "_app.js"]) {
-    const p = path.join(pagesDir, name);
-    if (!fs.existsSync(p)) {
-      writeFileSync(p, "module.exports = {};\n", "utf8");
-    }
-  }
-
-  // Stub next-font-manifest to prevent Next.js 15 bug
-  const fontManifestPath = path.join(serverDir, "next-font-manifest.json");
-  if (!fs.existsSync(fontManifestPath)) {
-    writeFileSync(fontManifestPath, JSON.stringify({
-      "pages": {},
-      "app": {},
-      "appUsingSizeAdjust": false,
-      "pagesUsingSizeAdjust": false
-    }), "utf8");
-  }
-
-  const appBuildManifestPath = path.join(process.cwd(), ".next", "app-build-manifest.json");
-  if (!fs.existsSync(appBuildManifestPath)) {
-    writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
-  }
-}
-ensurePageRouterStubs();
-
 /** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
 const LOCALE_REWRITE_EXCLUDE_PATTERN = LOCALE_REWRITE_EXCLUDE;
 
@@ -59,31 +26,66 @@ class EnsureManifestStubsPlugin {
     compiler.hooks.done.tap("EnsureManifestStubsPlugin", () => {
       const nextDir = path.join(process.cwd(), ".next");
       const serverDir = path.join(nextDir, "server");
+      
+      // Ensure pages directory and _document / _app exist for Pages Router bugs
+      const pagesDir = path.join(serverDir, "pages");
+      if (!fs.existsSync(pagesDir)) {
+        fs.mkdirSync(pagesDir, { recursive: true });
+      }
+      for (const name of ["_document.js", "_app.js"]) {
+        const p = path.join(pagesDir, name);
+        if (!fs.existsSync(p)) {
+          fs.writeFileSync(p, "module.exports = {};\n", "utf8");
+        }
+      }
+
       const appPathsManifestPath = path.join(serverDir, "app-paths-manifest.json");
       const middlewareManifestPath = path.join(serverDir, "middleware-manifest.json");
-      // Only create app paths/middleware manifests — skip pages-manifest
-      // (empty pages-manifest triggers Pages Router module resolution during SSG).
-      // finalize-next-build.mjs creates pages-manifest + _document + _app stubs post-build.
-      if (!fs.existsSync(appPathsManifestPath)) {
+      const pagesManifestPath = path.join(serverDir, "pages-manifest.json");
+      
+      if (!fs.existsSync(serverDir)) {
         fs.mkdirSync(serverDir, { recursive: true });
+      }
+      
+      if (!fs.existsSync(appPathsManifestPath)) {
         fs.writeFileSync(appPathsManifestPath, JSON.stringify({}), "utf8");
       }
       if (!fs.existsSync(middlewareManifestPath)) {
-        fs.mkdirSync(serverDir, { recursive: true });
         fs.writeFileSync(
           middlewareManifestPath,
           JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
           "utf8",
         );
       }
+      if (!fs.existsSync(pagesManifestPath)) {
+        fs.writeFileSync(pagesManifestPath, JSON.stringify({
+          "/_document": "pages/_document.js",
+          "/_app": "pages/_app.js"
+        }), "utf8");
+      }
+      
       const serverRefManifestPath = path.join(serverDir, "server-reference-manifest.json");
       if (!fs.existsSync(serverRefManifestPath)) {
-        fs.mkdirSync(serverDir, { recursive: true });
         fs.writeFileSync(
           serverRefManifestPath,
           JSON.stringify({ serverActions: [], version: 1 }),
           "utf8",
         );
+      }
+
+      const fontManifestPath = path.join(serverDir, "next-font-manifest.json");
+      if (!fs.existsSync(fontManifestPath)) {
+        fs.writeFileSync(fontManifestPath, JSON.stringify({
+          "pages": {},
+          "app": {},
+          "appUsingSizeAdjust": false,
+          "pagesUsingSizeAdjust": false
+        }), "utf8");
+      }
+
+      const appBuildManifestPath = path.join(nextDir, "app-build-manifest.json");
+      if (!fs.existsSync(appBuildManifestPath)) {
+        fs.writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
       }
     });
   }

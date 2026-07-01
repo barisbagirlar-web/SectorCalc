@@ -130,10 +130,9 @@ function ensureNextTypeAndBuildManifestStubs() {
     writeFileSync(appBuildManifestPath, JSON.stringify({ pages: {} }), "utf8");
   }
 
-  const exportDetailPath = join(NEXT_DIR, "export-detail.json");
-  if (!existsSync(exportDetailPath)) {
-    writeFileSync(exportDetailPath, JSON.stringify({ version: 1, outDirectory: "out", success: true }), "utf8");
-  }
+  // export-detail.json is intentionally NOT stubbed here.
+  // Creating it before `next build` triggers static-export mode which fails
+  // for SSR/middleware projects. It is created post-build by finalize-next-build.mjs.
 }
 
 function ssgFullyCompleted(log) {
