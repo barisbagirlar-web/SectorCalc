@@ -4,7 +4,7 @@ import * as path from 'path';
 
 // Load Free Tool Slugs
 const generatedSchemasDir = path.join(process.cwd(), 'generated', 'schemas');
-let freeSlugs: string[] = [];
+const freeSlugs: string[] = [];
 if (fs.existsSync(generatedSchemasDir)) {
   const folders = fs.readdirSync(generatedSchemasDir);
   folders.forEach(f => {
@@ -20,7 +20,7 @@ if (fs.existsSync(generatedSchemasDir)) {
 
 // Load Premium Tool Slugs
 const premiumSchemasDir = path.join(process.cwd(), 'src', 'lib', 'features', 'premium-schema', 'schemas');
-let premiumSlugs: string[] = [];
+const premiumSlugs: string[] = [];
 if (fs.existsSync(premiumSchemasDir)) {
   const files = fs.readdirSync(premiumSchemasDir).filter(f => f.endsWith('.ts') && f !== 'index.ts' && !f.endsWith('.test.ts'));
   files.forEach(file => {
