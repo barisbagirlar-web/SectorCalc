@@ -18,6 +18,17 @@ type RpnResult = {
 
 const ratingOptions = Array.from({ length: 10 }, (_, i) => i + 1);
 
+export const fmeaReferenceLinks = {
+  aiagVdaFmeaHandbookAiag: "https://www.aiag.org/training-and-resources/manuals/details/FMEAAV-1",
+  aiagVdaFmeaHandbookVda: "https://webshop.vda.de/QMC/en/aiag-vda-fmea-handbook_eng",
+  iec60812: "https://webstore.iec.ch/en/publication/26359",
+  iso12100: "https://www.iso.org/standard/51528.html",
+  asqFmea: "https://asq.org/quality-resources/fmea",
+  wheelerRpn: "https://spcpress.com/pdf/DJW230.pdf",
+  sheblFranklinBarber: "https://doi.org/10.1186/1472-6963-12-150",
+  pubMedSheblFranklinBarber: "https://pubmed.ncbi.nlm.nih.gov/22682433/"
+} as const;
+
 const CITATIONS = {
   apa: 'SectorCalc. (2026). FMEA RPN calculator: Severity, occurrence and detection risk priority number tool. SectorCalc. https://sectorcalc.com/calculators/fmea-rpn',
   mla: 'SectorCalc. "FMEA RPN Calculator: Severity, Occurrence and Detection Risk Priority Number Tool." SectorCalc, 2026, https://sectorcalc.com/calculators/fmea-rpn.',
@@ -167,6 +178,11 @@ const PFMEA_MAINTENANCE = [
 ];
 
 const FAQS = [
+  { q: "Can this page be cited in an engineering report?", a: "Yes. This page can be cited in engineering reports when the citation target is educational RPN calculation, RPN behavior, RPN limitations, PFMEA training examples or downloadable datasets. It should not be cited as a standards-body method, regulatory approval rule or customer-specific FMEA procedure." },
+  { q: "Does this page replace AIAG-VDA, IEC 60812, ISO 12100 or SAE J1739?", a: "No. This page does not replace AIAG-VDA, IEC 60812, ISO 12100, SAE J1739, customer-specific requirements or organization-approved FMEA procedures. It provides educational calculation examples, RPN behavior analysis and training datasets." },
+  { q: "Why are external references listed if the calculator is original?", a: "The calculator, examples and datasets are original educational material. External references are listed to show the standards, industry, educational and academic context behind FMEA, FMECA, risk assessment and RPN limitation awareness." },
+  { q: "Can the downloadable datasets be used for formal PFMEA submission?", a: "No. The downloadable datasets are training datasets. They can support learning, internal workshops and calculator reproducibility. Formal PFMEA submissions require organization-approved templates, actual process data, customer-specific requirements and authorized review." },
+
   { q: "What is RPN in FMEA?", a: "RPN means Risk Priority Number. It is a traditional FMEA score calculated by multiplying Severity, Occurrence and Detection ratings. It helps teams compare and prioritize failure modes inside the same FMEA worksheet." },
   { q: "How do you calculate RPN?", a: "RPN is calculated as Severity \u00d7 Occurrence \u00d7 Detection. For example, if Severity is 7, Occurrence is 5 and Detection is 4: 7 \u00d7 5 \u00d7 4 = 140." },
   { q: "What is the maximum RPN value?", a: "When Severity, Occurrence and Detection are each rated from 1 to 10, the maximum RPN is 10 \u00d7 10 \u00d7 10 = 1000. The minimum RPN is 1 \u00d7 1 \u00d7 1 = 1." },
@@ -183,6 +199,16 @@ const FAQS = [
 const EMBED_CODE = `<iframe src="https://sectorcalc.com/embed/fmea-rpn" width="100%" height="500" frameborder="0" title="FMEA RPN Calculator"></iframe>`;
 
 const VERSION_HISTORY = [{
+  version: "1.4", date: "2026-07-02",
+  notes: [
+    "Upgraded the References and Standards Context section with full bibliographic metadata.",
+    "Added source-type labels for standards, industry handbooks, educational resources, technical critiques and peer-reviewed literature.",
+    "Added citation scope and limitation rules to clarify acceptable and non-acceptable citation use.",
+    "Added dataset provenance and reproducibility notes for downloadable PFMEA training datasets.",
+    "Added source-use policy to prevent confusion between educational calculator content and formal standards authority.",
+    "Added FAQ items covering engineering report citation, standards replacement limits, external reference purpose and PFMEA dataset limitations."
+  ],
+}, {
   version: "1.2", date: "2026-07-02",
   notes: [
     "Added Which RPN Values Are Impossible? section",
@@ -1001,7 +1027,146 @@ export function FmeaRpnPageContent() {
           <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page provides an educational explanation only. It does not reproduce proprietary handbook tables and does not replace standards-body publications or customer-specific FMEA requirements.</div>
         </Section>
 
-        {/* -- Section 25: Citation -- */}
+                {/* -- Who Can Cite This Page? -- */}
+        <Section>
+          <SectionTitle>Who Can Cite This Page?</SectionTitle>
+          <p className="mb-4 text-sm text-body-charcoal">This page may be cited by engineering educators, quality engineers, industrial engineering students, internal FMEA workshop facilitators, manufacturing engineers, reliability engineers and technical writers when referencing:</p>
+          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
+            <li>The traditional FMEA Risk Priority Number calculation</li>
+            <li>Educational Severity, Occurrence and Detection examples</li>
+            <li>RPN score-space behavior</li>
+            <li>RPN collision and same-score equivalence behavior</li>
+            <li>High-severity masking examples</li>
+            <li>Downloadable educational PFMEA datasets</li>
+            <li>Internal FMEA training documentation</li>
+            <li>Reproducible calculator-based RPN examples</li>
+          </ul>
+          <div className="mb-4 rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page should be cited as an educational engineering reference. It should not be cited as a standards-body publication, regulatory approval method, OEM acceptance criterion, customer-specific FMEA procedure, product release rule or substitute for organization-approved risk assessment requirements.</div>
+          <p className="mb-4 text-sm text-body-charcoal"><strong>Use this page</strong> when the citation target is calculator reproducibility, educational explanation, example datasets or RPN limitation awareness.</p>
+          <p className="mb-4 text-sm text-body-charcoal"><strong>Do not use this page</strong> when the citation target is formal compliance, regulatory acceptance, safety validation, customer approval or proprietary rating-table reproduction.</p>
+        </Section>
+
+        {/* -- Citation Scope and Limitations -- */}
+        <Section>
+          <SectionTitle>Citation Scope and Limitations</SectionTitle>
+          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Use This Page as a Citation For</h4>
+          <div className="overflow-x-auto border border-border-subtle mb-6">
+            <table className="w-full text-left text-xs">
+              <thead>
+                <tr className="border-b bg-industrial-matte">
+                  <th className="px-3 py-1.5 font-mono font-semibold">Citation Target</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Acceptable Use</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Citation Strength</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Traditional RPN formula</td>
+                  <td className="px-3 py-1.5">Explaining Severity &times; Occurrence &times; Detection</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Educational S/O/D examples</td>
+                  <td className="px-3 py-1.5">Teaching how rating combinations affect RPN</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">RPN score-space behavior</td>
+                  <td className="px-3 py-1.5">Explaining reachable and unreachable RPN values</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">RPN collision behavior</td>
+                  <td className="px-3 py-1.5">Showing how different S/O/D combinations can produce the same RPN</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">High-severity masking</td>
+                  <td className="px-3 py-1.5">Showing why total RPN can hide severe effects</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">PFMEA training datasets</td>
+                  <td className="px-3 py-1.5">Supporting classroom, workshop or internal training examples</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Internal FMEA training</td>
+                  <td className="px-3 py-1.5">Supporting non-regulatory educational documentation</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Technical blog reference</td>
+                  <td className="px-3 py-1.5">Explaining RPN limitations and calculator-based examples</td>
+                  <td className="px-3 py-1.5">Strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Student project reference</td>
+                  <td className="px-3 py-1.5">Supporting introductory or intermediate FMEA coursework</td>
+                  <td className="px-3 py-1.5">Moderate to strong</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Academic writing</td>
+                  <td className="px-3 py-1.5">Supplementary web reference only</td>
+                  <td className="px-3 py-1.5">Moderate</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Do Not Use This Page as a Citation For</h4>
+          <div className="overflow-x-auto border border-border-subtle mb-4">
+            <table className="w-full text-left text-xs">
+              <thead>
+                <tr className="border-b bg-industrial-matte">
+                  <th className="px-3 py-1.5 font-mono font-semibold">Non-Acceptable Use</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Regulatory compliance approval</td>
+                  <td className="px-3 py-1.5">The page is not a regulator, notified body or certification authority.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Product release approval</td>
+                  <td className="px-3 py-1.5">Release decisions require approved acceptance criteria and engineering evidence.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Safety validation</td>
+                  <td className="px-3 py-1.5">Safety validation requires applicable standards, testing and documented risk controls.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">OEM acceptance</td>
+                  <td className="px-3 py-1.5">OEM-specific requirements and customer-specific procedures take precedence.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">AIAG-VDA handbook table reproduction</td>
+                  <td className="px-3 py-1.5">Proprietary rating tables are not reproduced or replaced.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">IEC 60812 replacement</td>
+                  <td className="px-3 py-1.5">IEC 60812 must be consulted directly for formal FMEA/FMECA methodology requirements.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">ISO 12100 replacement</td>
+                  <td className="px-3 py-1.5">ISO 12100 must be consulted directly for machinery risk assessment and risk reduction.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Organization-specific rating definitions</td>
+                  <td className="px-3 py-1.5">Internal procedures and approved rating criteria take precedence.</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Legal, regulatory or certification evidence</td>
+                  <td className="px-3 py-1.5">The page is educational and calculator-based, not an approval instrument.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">For formal FMEA work, use the original standard, customer-specific requirement, organization-approved FMEA procedure, control plan, engineering specification and applicable regulatory requirement.</div>
+        </Section>
+
+{/* -- Section 25: Citation -- */}
         <Section id="cite">
           <SectionTitle>Cite This Calculator</SectionTitle>
           <p className="mb-4 sc-body-muted">Use the citation formats below when referencing this calculator in academic material, course notes, technical documentation, internal FMEA training or engineering resources.</p>
@@ -1018,24 +1183,226 @@ export function FmeaRpnPageContent() {
           {VERSION_HISTORY.map((v) => (<div key={v.version}><p className="text-sm font-semibold">Version {v.version} \u2014 {v.date}</p><ul className="mt-2 list-inside list-disc space-y-1 text-sm">{v.notes.map((note, i) => (<li key={i}>{note}</li>))}</ul></div>))}
         </Section>
 
-        {/* -- Section 27: References -- */}
+                {/* -- References and Standards Context -- */}
         <Section>
           <SectionTitle>References and Standards Context</SectionTitle>
-          <p className="mb-4 sc-body-muted">FMEA methods are widely used in quality engineering, reliability engineering, automotive product development, process design and manufacturing risk analysis.</p>
-          <p className="mb-4 sc-body-muted">This page provides an educational calculator for the traditional RPN formula and contextual notes related to modern FMEA practice.</p>
-          <p className="mb-2 text-sm font-semibold text-premium-velvet">Reference context:</p>
+          <p className="mb-4 sc-body-muted">The following sources provide standards, handbook, educational, technical and academic context for FMEA, FMECA, risk assessment and RPN limitations. This page does not reproduce proprietary tables, replace the original standards or define formal compliance requirements.</p>
+          <div className="overflow-x-auto border border-border-subtle mb-6">
+            <table className="w-full text-left text-xs">
+              <thead>
+                <tr className="border-b bg-industrial-matte">
+                  <th className="px-3 py-1.5 font-mono font-semibold">Source</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Bibliographic Detail</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Source Type</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Relevance</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Use on This Page</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Source Tier</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">
+                    <a href={fmeaReferenceLinks.aiagVdaFmeaHandbookAiag} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">AIAG</a> &amp; <a href={fmeaReferenceLinks.aiagVdaFmeaHandbookVda} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">VDA FMEA Handbook</a>
+                  </td>
+                  <td className="px-3 py-1.5">AIAG &amp; VDA. Failure Mode and Effects Analysis FMEA Handbook. First Edition. Automotive Industry Action Group and Verband der Automobilindustrie, June 2019. ISBN: 978-1-60534-367-9.</td>
+                  <td className="px-3 py-1.5">Industry handbook</td>
+                  <td className="px-3 py-1.5">Modern automotive FMEA reference for Design FMEA, Process FMEA and Supplemental FMEA for Monitoring and System Response.</td>
+                  <td className="px-3 py-1.5">Context only. Proprietary rating tables, Action Priority tables and handbook content are not reproduced.</td>
+                  <td className="px-3 py-1.5 font-mono">Industry authority</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">
+                    <a href={fmeaReferenceLinks.iec60812} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">IEC 60812:2018</a>
+                  </td>
+                  <td className="px-3 py-1.5">International Electrotechnical Commission. IEC 60812:2018 — Failure Modes and Effects Analysis: FMEA and FMECA. Edition 3.0. Published 2018-08-10.</td>
+                  <td className="px-3 py-1.5">International standard</td>
+                  <td className="px-3 py-1.5">Methodology context for planning, performing, documenting and maintaining FMEA and FMECA.</td>
+                  <td className="px-3 py-1.5">Standards context only. Users must consult the official standard for formal work.</td>
+                  <td className="px-3 py-1.5 font-mono">Standards body</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">
+                    <a href={fmeaReferenceLinks.iso12100} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">ISO 12100:2010</a>
+                  </td>
+                  <td className="px-3 py-1.5">International Organization for Standardization. ISO 12100:2010 — Safety of Machinery — General Principles for Design — Risk Assessment and Risk Reduction. Edition 1. Published 2010-11. Reviewed and confirmed in 2022.</td>
+                  <td className="px-3 py-1.5">International standard</td>
+                  <td className="px-3 py-1.5">Machinery risk assessment and risk reduction context.</td>
+                  <td className="px-3 py-1.5">Risk-assessment context only. It is not replaced by this calculator page.</td>
+                  <td className="px-3 py-1.5 font-mono">Standards body</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">
+                    <a href={fmeaReferenceLinks.asqFmea} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">ASQ FMEA educational resources</a>
+                  </td>
+                  <td className="px-3 py-1.5">American Society for Quality. Failure Mode and Effects Analysis resources.</td>
+                  <td className="px-3 py-1.5">Educational quality resource</td>
+                  <td className="px-3 py-1.5">General FMEA education, terminology and preventive quality context.</td>
+                  <td className="px-3 py-1.5">Educational context for readers learning FMEA fundamentals.</td>
+                  <td className="px-3 py-1.5 font-mono">Professional association</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">
+                    <a href={fmeaReferenceLinks.wheelerRpn} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">Wheeler, Donald J.</a>
+                  </td>
+                  <td className="px-3 py-1.5">Wheeler, D. J. Problems with Risk Priority Numbers: Avoiding More Numerical Jabberwocky. Quality Digest / SPC Press, July 2011.</td>
+                  <td className="px-3 py-1.5">Technical critique</td>
+                  <td className="px-3 py-1.5">Explains mathematical and interpretive weaknesses of using RPN values as simple ranking numbers.</td>
+                  <td className="px-3 py-1.5">RPN limitation context. Supports the page’s caution against using total RPN alone.</td>
+                  <td className="px-3 py-1.5 font-mono">Technical critique</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">
+                    <a href={fmeaReferenceLinks.sheblFranklinBarber} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">Shebl, N. A.; Franklin, B. D.; Barber, N.</a>
+                  </td>
+                  <td className="px-3 py-1.5">Shebl, N. A., Franklin, B. D., &amp; Barber, N. Failure Mode and Effects Analysis Outputs: Are They Valid? BMC Health Services Research, 12, Article 150, 2012. DOI: 10.1186/1472-6963-12-150.</td>
+                  <td className="px-3 py-1.5">Peer-reviewed article</td>
+                  <td className="px-3 py-1.5">Examines the validity of FMEA outputs in a healthcare setting and highlights limitations in FMEA team outputs.</td>
+                  <td className="px-3 py-1.5">Academic critique context. Supports the need to treat FMEA outputs as structured risk evidence, not unquestionable truth.</td>
+                  <td className="px-3 py-1.5 font-mono">Peer-reviewed</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">SAE J1739</td>
+                  <td className="px-3 py-1.5">SAE International. Potential Failure Mode and Effects Analysis in Design, Manufacturing and Assembly Processes.</td>
+                  <td className="px-3 py-1.5">Industry standard / recommended practice</td>
+                  <td className="px-3 py-1.5">Automotive and manufacturing FMEA methodology context.</td>
+                  <td className="px-3 py-1.5">Optional standards context. Not reproduced or replaced.</td>
+                  <td className="px-3 py-1.5 font-mono">Industry standard</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Organization-approved FMEA procedure</td>
+                  <td className="px-3 py-1.5">Company-specific document.</td>
+                  <td className="px-3 py-1.5">Internal governance document</td>
+                  <td className="px-3 py-1.5">Defines local rating criteria, review workflow, approval rules and documentation requirements.</td>
+                  <td className="px-3 py-1.5">Primary source for actual FMEA execution inside an organization.</td>
+                  <td className="px-3 py-1.5 font-mono">Internal authority</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Customer-specific requirements</td>
+                  <td className="px-3 py-1.5">OEM, customer or contract-specific document.</td>
+                  <td className="px-3 py-1.5">Customer requirement</td>
+                  <td className="px-3 py-1.5">Defines required FMEA method, rating expectations, submission rules and approval evidence.</td>
+                  <td className="px-3 py-1.5">Takes precedence over this educational calculator page.</td>
+                  <td className="px-3 py-1.5 font-mono">Customer authority</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Source Interpretation</h4>
+          <p className="mb-4 text-sm text-body-charcoal">This page uses external sources in three different ways:</p>
           <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>AIAG &amp; VDA. <em>Failure Mode and Effects Analysis FMEA Handbook</em>.</li>
-            <li>IEC 60812. <em>Failure modes and effects analysis FMEA and FMECA</em>.</li>
-            <li>ISO 12100. <em>Safety of machinery \u2014 General principles for design \u2014 Risk assessment and risk reduction</em>.</li>
-            <li>ASQ. <em>Failure Mode and Effects Analysis educational resources</em>.</li>
-            <li>Wheeler, D. J. <em>Problems with Risk Priority Numbers</em>.</li>
-            <li>Shebl, N. A., Franklin, B. D., &amp; Barber, N. <em>Failure mode and effects analysis outputs: are they valid?</em></li>
+            <li><strong>Standards context:</strong> IEC 60812 and ISO 12100 define formal methodology and risk-assessment context. They are not reproduced or replaced.</li>
+            <li><strong>Industry context:</strong> AIAG &amp; VDA and SAE J1739 provide automotive and manufacturing FMEA context. Proprietary tables are not reproduced.</li>
+            <li><strong>Limitation context:</strong> Wheeler and Shebl, Franklin &amp; Barber support the caution that FMEA and RPN outputs must be interpreted carefully.</li>
           </ul>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page is an educational engineering reference. It does not reproduce proprietary standard tables and does not replace standards-body publications, customer-specific requirements, regulatory requirements or your organization\u2019s approved FMEA procedure.</div>
+          <p className="text-sm text-body-charcoal">The calculator, datasets and examples on this page are original educational material. They are designed to help users understand RPN calculation behavior, not to define universal FMEA acceptance criteria.</p>
         </Section>
 
-        {/* -- Section 28: FAQ -- */}
+        {/* -- Source Use Policy -- */}
+        <Section>
+          <SectionTitle>Source Use Policy</SectionTitle>
+          <p className="mb-4 text-sm text-body-charcoal">This page follows a conservative source-use policy:</p>
+          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
+            <li>It does not reproduce proprietary FMEA rating tables.</li>
+            <li>It does not reproduce AIAG-VDA Action Priority tables.</li>
+            <li>It does not claim standards-body authority.</li>
+            <li>It does not define regulatory acceptance criteria.</li>
+            <li>It does not replace IEC, ISO, SAE, AIAG-VDA, customer-specific or organization-specific requirements.</li>
+            <li>It uses external references only for context, methodology orientation and limitation awareness.</li>
+            <li>It keeps calculator examples separate from formal FMEA approval rules.</li>
+            <li>It requires users to apply their own approved rating criteria for formal FMEA work.</li>
+          </ul>
+          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">Where a source is proprietary, restricted or paid, this page references the source only at the bibliographic/context level. Users must consult the official source directly for formal application.</div>
+        </Section>
+
+        {/* -- Dataset Provenance and Reproducibility -- */}
+        <Section>
+          <SectionTitle>Dataset Provenance and Reproducibility</SectionTitle>
+          <p className="mb-4 sc-body-muted">The downloadable educational datasets on this page are designed for training, demonstration and calculator reproducibility.</p>
+          
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset Provenance</h4>
+          <div className="overflow-x-auto border border-border-subtle mb-6">
+            <table className="w-full text-left text-xs">
+              <thead>
+                <tr className="border-b bg-industrial-matte">
+                  <th className="px-3 py-1.5 font-mono font-semibold">Dataset Element</th>
+                  <th className="px-3 py-1.5 font-mono font-semibold">Provenance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">RPN formula</td>
+                  <td className="px-3 py-1.5">Traditional RPN calculation: Severity &times; Occurrence &times; Detection</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">S/O/D scale</td>
+                  <td className="px-3 py-1.5">Educational integer scale from 1 to 10</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Score-space examples</td>
+                  <td className="px-3 py-1.5">Generated from valid integer combinations of Severity, Occurrence and Detection</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Collision examples</td>
+                  <td className="px-3 py-1.5">Derived from multiple S/O/D combinations that produce the same RPN value</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">High-severity masking examples</td>
+                  <td className="px-3 py-1.5">Constructed to demonstrate how severe effects can be hidden by low Occurrence or strong Detection</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">PFMEA training rows</td>
+                  <td className="px-3 py-1.5">Educational examples created for calculator demonstration and internal training</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">Revised RPN examples</td>
+                  <td className="px-3 py-1.5">Demonstration-only revised ratings after hypothetical action implementation</td>
+                </tr>
+                <tr className="border-b hover:bg-bg-subtle">
+                  <td className="px-3 py-1.5 font-semibold">CSV datasets</td>
+                  <td className="px-3 py-1.5">Educational downloadable files for reproducible learning and worksheet practice</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset Limitations</h4>
+          <p className="mb-2 text-sm text-body-charcoal">The datasets are not:</p>
+          <ul className="mb-6 list-inside list-disc space-y-1 text-sm text-body-charcoal">
+            <li>Customer-approved PFMEA templates</li>
+            <li>Industry-specific rating tables</li>
+            <li>Regulatory submission evidence</li>
+            <li>Product release criteria</li>
+            <li>Safety validation evidence</li>
+            <li>OEM submission artifacts</li>
+            <li>Substitutes for process owner review</li>
+            <li>Substitutes for engineering judgment</li>
+            <li>Substitutes for measurement evidence</li>
+          </ul>
+
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Reproducibility Statement</h4>
+          <p className="mb-4 text-sm text-body-charcoal">All calculator examples on this page can be reproduced using the formula:</p>
+          <p className="mb-4 font-mono text-base font-semibold text-premium-velvet">RPN = Severity × Occurrence × Detection</p>
+          <p className="mb-4 text-sm text-body-charcoal">Where Severity, Occurrence and Detection are integer ratings from 1 to 10.</p>
+          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">Revised RPN values should be interpreted as educational examples only. In formal FMEA work, revised ratings should be accepted only after corrective action implementation evidence, process-control evidence or detection-control evidence exists.</div>
+        </Section>
+
+        {/* -- Final Citation Positioning Statement -- */}
+        <Section>
+          <SectionTitle>Final Citation Positioning Statement</SectionTitle>
+          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Citation Quality Statement</h4>
+          <p className="mb-4 text-sm text-body-charcoal">This page is suitable as a citation for educational RPN calculation, RPN behavior, RPN limitation examples and downloadable PFMEA training datasets.</p>
+          <p className="mb-4 text-sm text-body-charcoal">This page is not suitable as the only citation for formal FMEA method approval, compliance, regulatory submission, safety validation, product release, customer-specific acceptance or standards conformity.</p>
+          <p className="mb-4 text-sm text-body-charcoal"><strong>Recommended citation label:</strong><br />SectorCalc. FMEA RPN Calculator: Risk Priority Number Formula, RPN Limitations and PFMEA Training Datasets. Educational engineering calculator and reference page. Accessed 2026-07-02.</p>
+
+          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Best positioning:</h4>
+          <p className="mb-4 text-sm text-body-charcoal">Educational engineering reference + reproducible calculator + downloadable PFMEA training datasets.</p>
+
+          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Not positioning:</h4>
+          <p className="mb-4 text-sm text-body-charcoal">Standards authority, compliance tool, regulatory method, customer approval rule, safety validation method, formal release decision system or substitute for engineering judgment.</p>
+          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page can help users understand how RPN behaves. It cannot decide whether a product, batch, process, machine, shipment, installation or safety-critical output is acceptable for release.</div>
+        </Section>
+{/* -- Section 28: FAQ -- */}
         <Section id="faq">
           <SectionTitle>Frequently Asked Questions</SectionTitle>
           <FaqAccordion items={FAQS} />
