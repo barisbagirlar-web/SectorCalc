@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "fabricWidth": 1.5,
+        "markerLength": 10,
+        "endLoss": 2,
+        "patternAreas": [
+          10,
+          10
+        ],
+        "markerEfficiency": 85,
+        "pricePerMeter": 12,
+        "spliceOverlap": 0.05,
+        "splices": 0,
+        "oldEfficiency": 80
+      },
+      "expected": {
+        "cutEfficiency": 1.3333333333333333,
+        "fabricRequired": 0.24,
+        "fabricCost": 2.88,
+        "utilGain": -14.399999999999999,
+        "totalYardage": 20
+      }
+    }
+  ]
+}

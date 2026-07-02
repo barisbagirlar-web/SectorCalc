@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "noiseLevelDb": 88,
+        "exposureHours": 8,
+        "numWorkers": 15,
+        "vibrationRms": 2.5,
+        "vibrationDailyHours": 4,
+        "avgWorkerSalary": 35000,
+        "mitigationInvestment": 40000
+      },
+      "expected": {
+        "noiseExposure": 1100,
+        "vibrationLevel": 10,
+        "healthCost": 525000,
+        "productivityLoss": 4620,
+        "reworkCost": 880,
+        "mitigationRoi": 1226.25
+      }
+    }
+  ]
+}

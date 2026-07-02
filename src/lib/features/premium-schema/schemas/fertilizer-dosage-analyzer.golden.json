@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "eff": 10,
+        "yieldTarget": 8,
+        "removalRate": 24,
+        "soilTestN": 15,
+        "convFactor": 2.24,
+        "efficiency": 60,
+        "nutrientContentPct": 46,
+        "fieldArea": 10,
+        "unitPrice": 0.8,
+        "cropUptake": 150,
+        "leachingFactor": 20
+      },
+      "expected": {
+        "fertNeed": -1.6,
+        "appRate": -0.034782608695652174,
+        "totalCost": -0.2782608695652174
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "totalInvestment": 10,
+        "annualCashFlow": 10,
+        "installationCost": 500000,
+        "annualGeneration": 800000,
+        "tariffRate": 0.1,
+        "operatingCost": 15000,
+        "projectLife": 25,
+        "discountRate": 8,
+        "degradationRate": 0.5,
+        "incentiveAmount": 50000
+      },
+      "expected": {
+        "renewableAnnualGen": 3504000000,
+        "renewableNpv": 61665.64931797181,
+        "renewableLcoe": 1875.078125,
+        "renewableIrr": 100,
+        "paybackPeriod": 0.625
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "buildingPerimeter": 80,
+        "buildingHeight": 15,
+        "rentalRatePerM2": 8,
+        "rentalDuration": 6,
+        "erectionRate": 5,
+        "dismantleRate": 3,
+        "transportCost": 2000,
+        "overrunCost": 1500
+      },
+      "expected": {
+        "scaffoldArea": 1200,
+        "rental": 57600,
+        "laborCost": 9600,
+        "total": 70700
+      }
+    }
+  ]
+}

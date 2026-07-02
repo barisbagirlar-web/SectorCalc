@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "penaltyPerHydrant": 10,
+        "deficientHydrants": 10,
+        "hydrantDiameter": 100,
+        "staticPressure": 4,
+        "residualPressure": 2.5,
+        "flowTestDuration": 5,
+        "requiredFlow": 1000,
+        "numHydrants": 10,
+        "complianceFine": 5000
+      },
+      "expected": {
+        "hydrantFlow": 4000,
+        "availableFlow": 3996,
+        "hydrantCompliance": 4000000,
+        "complianceCost": 100
+      }
+    }
+  ]
+}

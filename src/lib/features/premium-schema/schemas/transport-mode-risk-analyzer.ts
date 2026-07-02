@@ -5,6 +5,51 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
   name: "Transport Mode Risk and Cost Analyzer", name_i18n: {"en":"Transport Mode Risk and Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "When choosing between air, sea, and land carrying modes, risk and transit time cost are overlooked.", painStatement_i18n: {"en":"When choosing between air, sea, and land carrying modes, risk and transit time cost are overlooked."},
   inputs: [
+    {
+      id: "riskPct",
+      label: "Risk Pct",
+      label_i18n: { en: "Risk Pct" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Risk Pct",
+      group: "General"
+    },
+    {
+      id: "costOfCapital",
+      label: "Cost Of Capital",
+      label_i18n: { en: "Cost Of Capital" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Cost Of Capital",
+      group: "General"
+    },
+    {
+      id: "roadRatePerKm",
+      label: "Road Rate Per Km",
+      label_i18n: { en: "Road Rate Per Km" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Road Rate Per Km",
+      group: "General"
+    },
+    {
+      id: "seaRatePerCbm",
+      label: "Sea Rate Per Cbm",
+      label_i18n: { en: "Sea Rate Per Cbm" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Sea Rate Per Cbm",
+      group: "General"
+    },
+    {
+      id: "airRatePerKg",
+      label: "Air Rate Per Kg",
+      label_i18n: { en: "Air Rate Per Kg" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Air Rate Per Kg",
+      group: "General"
+    },
     { id: "airFreightCost", label: "Air Kargo Cost", label_i18n: {"en":"Air Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Total air freight cost", expertMeaning_i18n: {"en":"Total air freight cost"} },
     { id: "seaFreightCost", label: "Deniz Kargo Cost", label_i18n: {"en":"Deniz Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 3000, validation: { min: 0 }, helper: "", expertMeaning: "Total sea freight cost", expertMeaning_i18n: {"en":"Total sea freight cost"} },
     { id: "roadFreightCost", label: "Kara Nakliye Cost", label_i18n: {"en":"Kara Nakliye Cost"}, type: "number", unit: "USD", required: true, smartDefault: 2000, validation: { min: 0 }, helper: "", expertMeaning: "Total road freight cost", expertMeaning_i18n: {"en":"Total road freight cost"} },
@@ -25,16 +70,16 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Total carrying cost > $10K — mode optimization is recommended.", warningMessage_i18n: {"en":"Total carrying cost > $10K — mode optimization is recommended."}, criticalMessage: "Total carrying cost > $25K — alternative routes should be evaluated.", criticalMessage_i18n: {"en":"Total carrying cost > $25K — alternative routes should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "cost.transport_air", inputMap: { airFreightCost: "airFreightCost" ,
-        airFreightKg: "airFreightKg",
+        airFreightKg: "airFreightCost",
         airRatePerKg: "airRatePerKg"}, outputId: "transportAir" },
     { formulaId: "cost.transport_sea", inputMap: { seaFreightCost: "seaFreightCost" ,
-        seaFreightCbm: "seaFreightCbm",
+        seaFreightCbm: "seaFreightCost",
         seaRatePerCbm: "seaRatePerCbm"}, outputId: "transportSea" },
     { formulaId: "cost.transport_road", inputMap: { roadFreightCost: "roadFreightCost" ,
-        roadFreightKm: "roadFreightKm",
+        roadFreightKm: "roadFreightCost",
         roadRatePerKm: "roadRatePerKm"}, outputId: "transportRoad" },
     { formulaId: "cost.transit_time_cost", inputMap: { airTransitDays: "airTransitDays", seaTransitDays: "seaTransitDays", roadTransitDays: "roadTransitDays", dailyCostOfDelay: "dailyCostOfDelay" ,
-        transitDays: "transitDays",
+        transitDays: "airTransitDays",
         costOfCapital: "costOfCapital",
         cargoValue: "cargoValue"}, outputId: "transitTimeCost" },
     { formulaId: "cost.risk_cost_transport", inputMap: {

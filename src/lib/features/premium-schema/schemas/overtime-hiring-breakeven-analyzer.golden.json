@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "benefits": 10,
+        "onboarding": 10,
+        "training": 10,
+        "recruiting": 10,
+        "overtimeRate": 30,
+        "hiringCost": 3500,
+        "annualSalary": 42000,
+        "overtimeHoursPerMonth": 40,
+        "qualityDefectRate": 5
+      },
+      "expected": {
+        "otCostHour": 150,
+        "hiringTotalCost": 3530,
+        "annualNewHireCost": 45540,
+        "breakevenHours": 303.6,
+        "otHireDecision": 0
+      }
+    }
+  ]
+}

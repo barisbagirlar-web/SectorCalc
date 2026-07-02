@@ -5,6 +5,24 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
   name: "WPS Preheat Temperature Analyzer", name_i18n: {"en":"WPS Preheat Temperature Analyzer"}, sectorSlug: "cnc-manufacturing", category: "measurement",
   painStatement: "If pre-heating temperature before resource is not accurately calculated, cracking risk increases and energy Cost rises. Optimum Temperature must be determined based on carbon equivalent and material thickness.", painStatement_i18n: {"en":"If pre-heating temperature before resource is not accurately calculated, cracking risk increases and energy Cost rises. Optimum Temperature must be determined based on carbon equivalent and material thickness."},
   inputs: [
+    {
+      id: "cuPct",
+      label: "Cu Pct",
+      label_i18n: { en: "Cu Pct" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Cu Pct",
+      group: "General"
+    },
+    {
+      id: "vPct",
+      label: "V Pct",
+      label_i18n: { en: "V Pct" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter V Pct",
+      group: "General"
+    },
     { id: "carbonContent", label: "Carbon percentage in material", label_i18n: {"en":"Carbon percentage in material"}, type: "number", unit: "%", required: true, smartDefault: 0.2, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Carbon percentage in material", expertMeaning_i18n: {"en":"Carbon percentage in material"} },
     { id: "manganeseContent", label: "Manganese percentage", label_i18n: {"en":"Manganese percentage"}, type: "number", unit: "%", required: true, smartDefault: 1.2, validation: { min: 0, max: 5 }, helper: "", expertMeaning: "Manganese percentage", expertMeaning_i18n: {"en":"Manganese percentage"} },
     { id: "chromiumContent", label: "Chromium percentage", label_i18n: {"en":"Chromium percentage"}, type: "number", unit: "%", required: false, smartDefault: 0.5, validation: { min: 0, max: 10 }, helper: "", expertMeaning: "Chromium percentage", expertMeaning_i18n: {"en":"Chromium percentage"} },

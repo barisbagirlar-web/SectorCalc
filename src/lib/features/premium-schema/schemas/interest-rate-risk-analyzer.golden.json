@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "floatingDebt": 5000000,
+        "hedgeRatio": 60,
+        "bpsChange": 100,
+        "durGap": 2.5,
+        "assetValue": 10000000,
+        "rateChange": 1.5,
+        "portfolioValue": 8000000,
+        "volatility": 15,
+        "zScore": 2.33,
+        "notionalAmount": 3000000,
+        "swapSpread": 1.5
+      },
+      "expected": {
+        "exposure": -295000000,
+        "shockImpact": -2950000,
+        "eveChange": -37500000,
+        "valueAtRisk": 279600000
+      }
+    }
+  ]
+}

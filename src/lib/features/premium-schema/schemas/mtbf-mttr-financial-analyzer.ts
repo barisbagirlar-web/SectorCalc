@@ -11,6 +11,7 @@ export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
     { id: "machineHourlyCost", label: "Makine Hourly Cost", label_i18n: {"en":"Makine Hourly Cost"}, type: "number", unit: "USD/hour", required: true, smartDefault: 150, validation: { min: 0.01 }, helper: "", expertMeaning: "Machine cost per hour", expertMeaning_i18n: {"en":"Machine cost per hour"} },
     { id: "numMachines", label: "Number of machines", label_i18n: {"en":"Number of machines"}, type: "number", unit: "units", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Number of machines", expertMeaning_i18n: {"en":"Number of machines"} },
     { id: "improvedMtbf", label: "Target MTBF after improvement", label_i18n: {"en":"Target MTBF after improvement"}, type: "number", unit: "hours", required: false, smartDefault: 800, validation: { min: 1 }, helper: "", expertMeaning: "Target MTBF after improvement", expertMeaning_i18n: {"en":"Target MTBF after improvement"} },
+    { id: "improvementInvestment", label: "Improvement Investment", label_i18n: {"en":"Improvement Investment"}, type: "number", unit: "USD", required: true, smartDefault: 10000, validation: { min: 0 }, helper: "", expertMeaning: "Improvement investment", expertMeaning_i18n: {"en":"Improvement investment"} },
   ],
   outputs: [
     { id: "availability", label: "Kullanlabilirlik Rate", label_i18n: {"en":"Kullanlabilirlik Rate"}, unit: "%", format: "number" },
@@ -25,7 +26,7 @@ export const MTBF_MTTR_FINANCIAL_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.expected_downtime", inputMap: { availability: "availability", operatingHours: "operatingHours" }, outputId: "expectedDowntime" },
     { formulaId: "cost.downtime_cost_mtbf", inputMap: { expectedDowntime: "expectedDowntime", machineHourlyCost: "machineHourlyCost" }, outputId: "downtimeCost" },
     { formulaId: "cost.reliability_total_cost", inputMap: { downtimeCost: "downtimeCost" }, outputId: "totalReliabilityCost" },
-    { formulaId: "cost.reliability_roi", inputMap: { mtbfHours: "mtbfHours", improvedMtbf: "improvedMtbf", downtimeCost: "downtimeCost" }, outputId: "roiPercent" },
+    { formulaId: "cost.reliability_roi", inputMap: { mtbfHours: "mtbfHours", improvedMtbf: "improvedMtbf", downtimeCost: "downtimeCost", improvementInvestment: "improvementInvestment" }, outputId: "roiPercent" },
   ],
   reportTemplate: { title: "MTBF/MTTR Financial Impact Report", title_i18n: {"en":"MTBF/MTTR Financial Impact Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: [],assumptionNotes_i18n:[{"en":"Useful life = MTBF + MTTR."},{"en":"Availability = MTBF/(MTBF+MTTR)."},{"en":"Annual downtime = (1−A)×operating hours."}] },

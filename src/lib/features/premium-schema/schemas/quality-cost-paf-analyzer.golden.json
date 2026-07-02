@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "training": 10000,
+        "qualityPlanning": 15000,
+        "supplierScore": 8000,
+        "designReview": 12000,
+        "inspection": 20000,
+        "testing": 15000,
+        "calibration": 5000,
+        "audit": 7000,
+        "scrap": 30000,
+        "rework": 25000,
+        "reinspection": 8000,
+        "downtime": 12000,
+        "warranty": 40000,
+        "returns": 15000,
+        "recall": 50000,
+        "liability": 20000,
+        "lostSales": 60000,
+        "totalRevenue": 2000000
+      },
+      "expected": {
+        "prevention": 45000,
+        "appraisal": 47000,
+        "internalFailure": 75000,
+        "externalFailure": 185000,
+        "totalCoq": 352000,
+        "coqRatio": 0.176,
+        "pafRatio": 0.1278409090909091
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "geneticPotential": 1000,
+        "envFactor": 0.8,
+        "harvestedWeight": 700,
+        "area": 1,
+        "pestLossPct": 5,
+        "weatherLossPct": 8,
+        "nutrientLossPct": 7,
+        "marketPrice": 2.5,
+        "interventionCost": 500
+      },
+      "expected": {
+        "potentialYield": 800,
+        "actualYield": 700,
+        "yieldGap": 100,
+        "financialLoss": 250,
+        "roiIntervention": -50
+      }
+    }
+  ]
+}

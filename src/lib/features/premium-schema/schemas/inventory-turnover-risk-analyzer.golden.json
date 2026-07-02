@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "annualCogs": 1200000,
+        "avgInventory": 300000,
+        "daysInPeriod": 365,
+        "avgSellingPrice": 100,
+        "inventoryUnitCount": 3000,
+        "obsolescenceRate": 10,
+        "liquidationDiscount": 50
+      },
+      "expected": {
+        "inventoryTurnoverRatio": 4,
+        "dsiDays": 91.25,
+        "obsolescenceRiskCost": 30000,
+        "liquidationLoss": 0
+      }
+    }
+  ]
+}

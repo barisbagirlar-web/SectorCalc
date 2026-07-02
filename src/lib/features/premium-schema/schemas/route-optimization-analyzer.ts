@@ -7,6 +7,15 @@ export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
   name: "Route Optimization Analysis", name_i18n: {"en":"Route Optimization Analysis"}, sectorSlug: "logistics-transport", category: "cost",
   painStatement: "If vehicle routes are not optimized, fuel, time, and maintenance costs grow uncontrollably, reducing fleet efficiency.", painStatement_i18n: {"en":"If vehicle routes are not optimized, fuel, time, and maintenance costs grow uncontrollably, reducing fleet efficiency."},
   inputs: [
+    {
+      id: "distAB",
+      label: "Dist A B",
+      label_i18n: { en: "Dist A B" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Dist A B",
+      group: "General"
+    },
     { id: "numStops", label: "Number of Stops", label_i18n: {"en":"Number of Stops"}, type: "number", unit: "units", required: true, smartDefault: 20, validation: { min: 2 }, helper: "", expertMeaning: "Number of delivery stops", expertMeaning_i18n: {"en":"Number of delivery stops"} },
     { id: "totalDistance", label: "Total Distance", label_i18n: {"en":"Total Distance"}, type: "number", unit: "km", required: true, smartDefault: 350, validation: { min: 1 }, helper: "", expertMeaning: "Total route distance", expertMeaning_i18n: {"en":"Total route distance"} },
     { id: "fuelCostPerKm", label: "Fuel Cost per Km", label_i18n: {"en":"Fuel Cost per Km"}, type: "number", unit: "USD/km", required: true, smartDefault: 0.45, validation: { min: 0.01 }, helper: "", expertMeaning: "Fuel cost per km", expertMeaning_i18n: {"en":"Fuel cost per km"} },

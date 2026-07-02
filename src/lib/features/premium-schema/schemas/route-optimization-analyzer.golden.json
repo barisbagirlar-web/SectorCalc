@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "distAB": 10,
+        "numStops": 20,
+        "totalDistance": 350,
+        "fuelCostPerKm": 0.45,
+        "driverCostPerHour": 25,
+        "avgSpeed": 50,
+        "vehicleCount": 5,
+        "workingDaysPerYear": 260
+      },
+      "expected": {
+        "nearestNeighborDist": 20,
+        "clarkeWrightDist": 360,
+        "efficiencyScore": 0.05555555555555555,
+        "totalSavings": 349.55
+      }
+    }
+  ]
+}

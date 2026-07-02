@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "internalSetup": 30,
+        "externalSetup": 10,
+        "conversionRate": 50,
+        "changeoverFreq": 20,
+        "annualDemand": 100000,
+        "setupCost": 500,
+        "holdingCost": 2,
+        "machineRate": 85,
+        "targetSetup": 10,
+        "availableTime": 19200
+      },
+      "expected": {
+        "measurement_smed_target_time_out": -1460,
+        "totalSetup": 40,
+        "ebq": 7071.067811865475,
+        "annualSavings": 51000,
+        "capacityGain": 0.03125
+      }
+    }
+  ]
+}

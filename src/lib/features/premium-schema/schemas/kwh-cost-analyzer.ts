@@ -4,6 +4,15 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
   name: "KWh Cost Analyzer", name_i18n: {"en":"KWh Cost Analyzer"}, sectorSlug: "energy-consumption", category: "cost",
   painStatement: "If unit kWh cost and power factor penalty are not calculated, the actual source of the energy bill cannot be understood.", painStatement_i18n: {"en":"If unit kWh cost and power factor penalty are not calculated, the actual source of the energy bill cannot be understood."},
   inputs: [
+    {
+      id: "months",
+      label: "Months",
+      label_i18n: { en: "Months" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Months",
+      group: "General"
+    },
     { id: "activeEnergy", label: "Active energy consumption", label_i18n: {"en":"Active energy consumption"}, type: "number", unit: "kWh", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption"} },
     { id: "energyRate", label: "Energy rate", label_i18n: {"en":"Energy rate"}, type: "number", unit: "USD/kWh", required: true, smartDefault: 0.10, validation: { min: 0 }, helper: "", expertMeaning: "Energy rate", expertMeaning_i18n: {"en":"Energy rate"} },
     { id: "peakDemand", label: "Peak demand", label_i18n: {"en":"Peak demand"}, type: "number", unit: "kW", required: true, smartDefault: 800, validation: { min: 0 }, helper: "", expertMeaning: "Peak demand", expertMeaning_i18n: {"en":"Peak demand"} },

@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "flowMatrix": 10,
+        "distanceMatrix": 10,
+        "costPerDist": 0.5,
+        "equipmentArea": 800,
+        "facilityArea": 2000,
+        "matHandlingCost": 15000,
+        "spaceCost": 10000,
+        "congestionCost": 5000
+      },
+      "expected": {
+        "totalFlowCost": 0,
+        "spaceUtilization": 0.4,
+        "totalLayoutCost": 75015000
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "entityALocation": null,
+        "entityBLocation": null,
+        "transferAmount": 500000,
+        "entityATaxRate": 25,
+        "entityBTaxRate": 30,
+        "transferPrice": 550000,
+        "armLengthPrice": 520000
+      },
+      "expected": {
+        "transferTaxImpact": 12500,
+        "transferGlobalProfit": 1057500
+      }
+    }
+  ]
+}

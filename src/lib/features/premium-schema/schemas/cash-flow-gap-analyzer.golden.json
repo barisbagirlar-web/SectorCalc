@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "annualCOGS": 10,
+        "annualRevenue": 10,
+        "taxPayment": 10,
+        "operatingExpenses": 10,
+        "payroll": 10,
+        "otherIncome": 10,
+        "monthlyRevenue": 100000,
+        "monthlyExpenses": 85000,
+        "accountsReceivable": 150000,
+        "accountsPayable": 80000,
+        "inventoryValue": 120000,
+        "cogsMonthly": 60000,
+        "numMonths": 6
+      },
+      "expected": {
+        "cashInflow": 250010,
+        "cashOutflow": 85030,
+        "netCashFlow": 164980,
+        "cumulativeCash": 164986,
+        "cashGap": 0,
+        "dso": 5475000,
+        "dpo": 2920000,
+        "dio": 4380000,
+        "cashConversionCycle": 6935000
+      }
+    }
+  ]
+}

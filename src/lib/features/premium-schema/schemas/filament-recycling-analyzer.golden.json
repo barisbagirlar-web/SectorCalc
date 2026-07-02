@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "virginPrice": 25,
+        "virginScrapPct": 5,
+        "virginTransport": 2,
+        "collectCost": 3,
+        "sortCost": 2,
+        "pelletCost": 4,
+        "recyclingYield": 80,
+        "productionVolume": 5000,
+        "capex": 50000
+      },
+      "expected": {
+        "virginCost": 152,
+        "recycledCost": 0.1125,
+        "roi": 15.18875
+      }
+    }
+  ]
+}

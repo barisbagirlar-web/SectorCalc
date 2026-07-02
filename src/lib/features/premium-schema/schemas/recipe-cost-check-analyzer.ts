@@ -5,6 +5,42 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   name: "Recipe Cost Check", name_i18n: {"en":"Recipe Cost Check"}, sectorSlug: "food", category: "cost",
   painStatement: "If the gap between theoretical and actual recipe cost is not tracked, waste, evaporation, and material loss silently erode profit.", painStatement_i18n: {"en":"If the gap between theoretical and actual recipe cost is not tracked, waste, evaporation, and material loss silently erode profit."},
   inputs: [
+    {
+      id: "outputWeight",
+      label: "Output Weight",
+      label_i18n: { en: "Output Weight" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Output Weight",
+      group: "General"
+    },
+    {
+      id: "costPerUnit",
+      label: "Cost Per Unit",
+      label_i18n: { en: "Cost Per Unit" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Cost Per Unit",
+      group: "General"
+    },
+    {
+      id: "actualYield",
+      label: "Actual Yield",
+      label_i18n: { en: "Actual Yield" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Actual Yield",
+      group: "General"
+    },
+    {
+      id: "expectedYield",
+      label: "Expected Yield",
+      label_i18n: { en: "Expected Yield" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Expected Yield",
+      group: "General"
+    },
     { id: "recipeQty", label: "Recipe Quantity", label_i18n: {"en":"Recipe Quantity"}, type: "number", unit: "kg", required: true, smartDefault: 100, validation: { min: 0.01 }, helper: "", expertMeaning: "Recipe batch quantity in kg", expertMeaning_i18n: {"en":"Recipe batch quantity in kg"} },
     { id: "ingredientCostPerKg", label: "Ingredient Unit Cost", label_i18n: {"en":"Ingredient Unit Cost"}, type: "number", unit: "USD/kg", required: true, smartDefault: 8.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Ingredient cost per kg", expertMeaning_i18n: {"en":"Ingredient cost per kg"} },
     { id: "actualUsage", label: "Actual Usage", label_i18n: {"en":"Actual Usage"}, type: "number", unit: "kg", required: true, smartDefault: 110, validation: { min: 0 }, helper: "", expertMeaning: "Actual material used", expertMeaning_i18n: {"en":"Actual material used"} },

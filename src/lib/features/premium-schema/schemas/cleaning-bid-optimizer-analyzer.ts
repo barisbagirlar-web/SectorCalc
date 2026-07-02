@@ -5,6 +5,15 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   name: "Cleaning Bid Optimizer", name_i18n: {"en":"Cleaning Bid Optimizer"}, sectorSlug: "financial-planning", category: "cost",
   painStatement: "If labor, materials, and profit margin are not clearly separated in cleaning service quotes, pricing becomes inaccurate.", painStatement_i18n: {"en":"If labor, materials, and profit margin are not clearly separated in cleaning service quotes, pricing becomes inaccurate."},
   inputs: [
+    {
+      id: "cleaningMargin",
+      label: "Cleaning Margin",
+      label_i18n: { en: "Cleaning Margin" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Cleaning Margin",
+      group: "General"
+    },
     { id: "totalSquareMeters", label: "Total Metrekare", label_i18n: {"en":"Total Metrekare"}, type: "number", unit: "m²", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Total cleaning area in sqm", expertMeaning_i18n: {"en":"Total cleaning area in sqm"} },
     { id: "cleaningFrequency", label: "Cleaning frequency", label_i18n: {"en":"Cleaning frequency"}, type: "select", unit: "scalar", required: true, smartDefault: "weekly", validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Cleaning frequency", expertMeaning_i18n: {"en":"Cleaning frequency"}, enumValues: ["daily", "weekly", "biweekly", "monthly"] },
     { id: "laborRate", label: "Hourly labor rate", label_i18n: {"en":"Hourly labor rate"}, type: "number", unit: "USD/hour", required: true, smartDefault: 20, validation: { min: 1 }, helper: "", expertMeaning: "Hourly labor rate", expertMeaning_i18n: {"en":"Hourly labor rate"} },

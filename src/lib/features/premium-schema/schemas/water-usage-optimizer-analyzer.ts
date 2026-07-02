@@ -7,6 +7,24 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
   name: "Water Usage Optimization Analyzer", name_i18n: {"en":"Water Usage Optimization Analyzer"}, sectorSlug: "energy-carbon", category: "measurement",
   painStatement: "If industrial Water Consumption is not tracked, Water intensity increases, Waste Water Cost rises, and productivity drops.", painStatement_i18n: {"en":"If industrial Water Consumption is not tracked, Water intensity increases, Waste Water Cost rises, and productivity drops."},
   inputs: [
+    {
+      id: "installationCost",
+      label: "Installation Cost",
+      label_i18n: { en: "Installation Cost" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Installation Cost",
+      group: "General"
+    },
+    {
+      id: "equipmentCost",
+      label: "Equipment Cost",
+      label_i18n: { en: "Equipment Cost" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Equipment Cost",
+      group: "General"
+    },
     { id: "totalWaterUse", label: "Annual total water use", label_i18n: {"en":"Annual total water use"}, type: "number", unit: "m³/yil", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Annual total water use", expertMeaning_i18n: {"en":"Annual total water use"} },
     { id: "productionOutput", label: "Annual production output", label_i18n: {"en":"Annual production output"}, type: "number", unit: "ton/yil", required: true, smartDefault: 10000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production output", expertMeaning_i18n: {"en":"Annual production output"} },
     { id: "waterCostPerM3", label: "Water Unit Cost", label_i18n: {"en":"Water Unit Cost"}, type: "number", unit: "USD/m³", required: true, smartDefault: 1.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Cost per cubic meter", expertMeaning_i18n: {"en":"Cost per cubic meter"} },

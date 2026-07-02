@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "cuttingSpeed": 150,
+        "spindleRpm": 3000,
+        "feedRate": 600,
+        "toothCount": 4,
+        "toolNoseRadius": 0.8,
+        "chatterAmplification": 30,
+        "surfaceRoughnessLimitRa": 1.6,
+        "maxToleranceRa": 3.2,
+        "batchSize": 500,
+        "reworkCostPerMicron": 2
+      },
+      "expected": {
+        "cuttingSpeedResult": 1413.7166941154069,
+        "chipLoad": 0.05,
+        "theoreticalRa": 0.0003906250000000001,
+        "actualRa": 0.0005078125000000001,
+        "qualityLossCost": 0
+      }
+    }
+  ]
+}

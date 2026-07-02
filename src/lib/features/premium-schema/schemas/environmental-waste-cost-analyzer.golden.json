@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "nonHazWaste": 50,
+        "disposalFee": 100,
+        "hazMass": 10,
+        "hazFee": 500,
+        "hazSurcharge": 100,
+        "recycMass": 20,
+        "sortCost": 50,
+        "scrapRevenue": 30,
+        "airEmissions": 100,
+        "carbonPrice": 50,
+        "waterEffluent": 1000,
+        "treatCost": 3,
+        "probViolation": 5,
+        "fineAmount": 500000
+      },
+      "expected": {
+        "disposalCost": 5000,
+        "hazCost": 6000,
+        "recyclingCost": 400,
+        "emissionsCost": 8000,
+        "penaltyRisk": 2500000,
+        "totalEnvCost": 2519400
+      }
+    }
+  ]
+}

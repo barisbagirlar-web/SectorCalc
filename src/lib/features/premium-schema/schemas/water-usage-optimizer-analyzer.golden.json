@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "installationCost": 10,
+        "equipmentCost": 10,
+        "totalWaterUse": 50000,
+        "productionOutput": 10000,
+        "waterCostPerM3": 1.5,
+        "wastewaterCostPerM3": 2,
+        "wastewaterPct": 70,
+        "targetWaterIntensity": 3,
+        "efficiencyInvestment": 25000
+      },
+      "expected": {
+        "waterIntensity": 5,
+        "waterSavingsTotal": 2,
+        "waterCostSavings": 7,
+        "waterRoi": -2499.65
+      }
+    }
+  ]
+}

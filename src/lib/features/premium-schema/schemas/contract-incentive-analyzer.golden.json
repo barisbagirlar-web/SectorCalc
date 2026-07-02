@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "targetCost": 5000000,
+        "actualCost": 4800000,
+        "targetFee": 500000,
+        "shareRatio": 50,
+        "minFee": 100000,
+        "maxFee": 800000
+      },
+      "expected": {
+        "incentiveTargetFee": 25000000000,
+        "incentiveActualFee": 600000
+      }
+    }
+  ]
+}

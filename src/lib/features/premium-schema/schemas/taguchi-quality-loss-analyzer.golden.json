@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "targetValue": 10,
+        "tolerance": 1,
+        "lossAtTolerance": 5,
+        "processMean": 10.3,
+        "processStdDev": 0.4,
+        "annualProductionVolume": 100000,
+        "specLower": 9,
+        "specUpper": 11
+      },
+      "expected": {
+        "taguchiLossPerUnit": 0.0036000000000000172
+      }
+    }
+  ]
+}

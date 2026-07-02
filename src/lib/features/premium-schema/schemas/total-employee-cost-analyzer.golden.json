@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "numEmployees": 50,
+        "avgGrossSalary": 2500,
+        "employerPayrollTax": 22,
+        "benefitsCostPerEmployee": 400,
+        "trainingCostPerEmployee": 500,
+        "avgWorkHoursPerMonth": 176
+      },
+      "expected": {
+        "totalEmployeeCost": 3822,
+        "employeeCostPerHour": 21.71590909090909
+      }
+    }
+  ]
+}

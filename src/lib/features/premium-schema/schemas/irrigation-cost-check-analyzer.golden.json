@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "areaHectares": 50,
+        "cropWaterNeed": 500,
+        "rainfall": 150,
+        "irrigationEfficiency": 75,
+        "waterCost": 0.12,
+        "pumpPower": 15,
+        "pumpHours": 500,
+        "electricityCost": 0.1,
+        "laborCost": 2000
+      },
+      "expected": {
+        "irrigationWaterReq": -12500,
+        "irrigationEnergyCost": 0.1,
+        "irrigationTotalCost": -10499.779999999999
+      }
+    }
+  ]
+}

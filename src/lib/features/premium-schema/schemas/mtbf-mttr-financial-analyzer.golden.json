@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "mtbfHours": 500,
+        "mttrHours": 4,
+        "operatingHours": 8000,
+        "machineHourlyCost": 150,
+        "numMachines": 10,
+        "improvedMtbf": 800,
+        "improvementInvestment": 10000
+      },
+      "expected": {
+        "availability": 0.9920634920634921,
+        "expectedDowntime": 63.49206349206327,
+        "downtimeCost": 9523.80952380949,
+        "totalReliabilityCost": 9523.80952380949,
+        "roiPercent": 35.71428571428559
+      }
+    }
+  ]
+}

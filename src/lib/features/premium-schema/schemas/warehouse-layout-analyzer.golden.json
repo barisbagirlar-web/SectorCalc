@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "warehouseFootprint": 2000,
+        "utilRate": 70,
+        "palletFootprint": 1,
+        "aisleFactor": 1.5,
+        "rackLevels": 4,
+        "doorCount": 4,
+        "turnaroundLoad": 0.5,
+        "turnaroundUnload": 0.5,
+        "pickLines": 500,
+        "travelTime": 40,
+        "facilityCost": 120000
+      },
+      "expected": {
+        "palletPositions": 1333.3333333333333,
+        "verticalCap": 5333.333333333333,
+        "throughputCap": 4,
+        "pickEfficiency": 12.5,
+        "costPerPosition": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "outputWeight": 10,
+        "costPerUnit": 10,
+        "actualYield": 10,
+        "expectedYield": 10,
+        "recipeQty": 100,
+        "ingredientCostPerKg": 8.5,
+        "actualUsage": 110,
+        "yieldLossPct": 8,
+        "evaporationPct": 5
+      },
+      "expected": {
+        "recipeTheoretical": 850,
+        "recipeActual": 935,
+        "recipeVariance": 85,
+        "recipeYieldLoss": 0,
+        "recipeEvaporation": -100,
+        "recipeEfficiency": 100,
+        "recipeCostPerKg": 8.5
+      }
+    }
+  ]
+}

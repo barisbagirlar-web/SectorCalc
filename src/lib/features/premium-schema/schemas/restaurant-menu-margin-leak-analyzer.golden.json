@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "theoreticalFoodCost": 15000,
+        "actualFoodCost": 18500,
+        "revenue": 55000,
+        "wasteAmount": 1200,
+        "theftLoss": 800
+      },
+      "expected": {
+        "restaurantTheoreticalFood": 15000,
+        "restaurantActualFood": 18500,
+        "restaurantVariance": 3500,
+        "restaurantVariancePct": 23.333333333333332,
+        "restaurantWasteCost": 1200,
+        "restaurantTheftLoss": 800,
+        "restaurantIdealMargin": 72.72727272727273,
+        "restaurantActualMargin": 66.36363636363636
+      }
+    }
+  ]
+}

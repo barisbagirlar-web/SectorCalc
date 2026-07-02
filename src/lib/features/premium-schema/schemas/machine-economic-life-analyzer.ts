@@ -11,6 +11,7 @@ export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
     { id: "annualOperatingCost", label: "Annual operating cost", label_i18n: {"en":"Annual operating cost"}, type: "number", unit: "USD/year", required: true, smartDefault: 25000, validation: { min: 0 }, helper: "", expertMeaning: "Annual operating cost", expertMeaning_i18n: {"en":"Annual operating cost"} },
     { id: "discountRate", label: "Discount rate for NPV", label_i18n: {"en":"Discount rate for NPV"}, type: "number", unit: "%", required: true, smartDefault: 12, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Discount rate for NPV", expertMeaning_i18n: {"en":"Discount rate for NPV"} },
     { id: "annualEnergy", label: "Annual energy cost", label_i18n: {"en":"Annual energy cost"}, type: "number", unit: "USD/year", required: false, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Annual energy cost", expertMeaning_i18n: {"en":"Annual energy cost"} },
+    { id: "annualMaintenance", label: "Annual Maintenance Cost", label_i18n: {"en":"Annual Maintenance Cost"}, type: "number", unit: "USD/year", required: true, smartDefault: 5000, validation: { min: 0 }, helper: "", expertMeaning: "Annual maintenance cost", expertMeaning_i18n: {"en":"Annual maintenance cost"} },
   ],
   outputs: [
     { id: "euacCapital", label: "EUAC (Sermaye)", label_i18n: {"en":"EUAC (Sermaye)"}, unit: "USD/year", format: "currency" },
@@ -21,7 +22,7 @@ export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
   thresholds: [{ fieldId: "totalEuac", warning: 40000, critical: 75000, direction: "higher_is_bad", warningMessage: "EUAC > $40K — alternative machines should be evaluated.", warningMessage_i18n: {"en":"EUAC > $40K — alternative machines should be evaluated."}, criticalMessage: "EUAC > $75K — machine should be scheduled for replacement.", criticalMessage_i18n: {"en":"EUAC > $75K — machine should be scheduled for replacement."} }],
   formulaPipeline: [
     { formulaId: "cost.machine_euac_capital", inputMap: { purchaseCost: "purchaseCost", discountRate: "discountRate", lifeYears: "lifeYears", residualValue: "residualValue" }, outputId: "euacCapital" },
-    { formulaId: "cost.machine_euac_operating", inputMap: { annualOperatingCost: "annualOperatingCost", annualEnergy: "annualEnergy" }, outputId: "euacOperating" },
+    { formulaId: "cost.machine_euac_operating", inputMap: { annualOperatingCost: "annualOperatingCost", annualEnergy: "annualEnergy", annualMaintenance: "annualMaintenance" }, outputId: "euacOperating" },
     { formulaId: "cost.machine_total_euac", inputMap: { euacCapital: "euacCapital", euacOperating: "euacOperating" }, outputId: "totalEuac" },
     { formulaId: "measurement.machine_economic_life", inputMap: { purchaseCost: "purchaseCost", purchaseResidualAmt: "residualValue", annualOperatingCost: "annualOperatingCost", discountRate: "discountRate" ,
         salvageFactor: "salvageFactor",

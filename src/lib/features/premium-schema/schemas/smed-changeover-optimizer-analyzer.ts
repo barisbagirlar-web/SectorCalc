@@ -7,6 +7,15 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
   name: "SMED Changeover Duration Optimizer", name_i18n: {"en":"SMED Changeover Duration Optimizer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Long mold changeover times increase machine downtime, cause capacity loss, and remain invisible if SMED is not applied.", painStatement_i18n: {"en":"Long mold changeover times increase machine downtime, cause capacity loss, and remain invisible if SMED is not applied."},
   inputs: [
+    {
+      id: "smedInvestment",
+      label: "Smed Investment",
+      label_i18n: { en: "Smed Investment" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Smed Investment",
+      group: "General"
+    },
     { id: "currentChangeoverTime", label: "Current changeover time in minutes", label_i18n: {"en":"Current changeover time in minutes"}, type: "number", unit: "minutes", required: true, smartDefault: 45, validation: { min: 1 }, helper: "", expertMeaning: "Current changeover time in minutes", expertMeaning_i18n: {"en":"Current changeover time in minutes"} },
     { id: "changeoversPerMonth", label: "Changeovers per month", label_i18n: {"en":"Changeovers per month"}, type: "number", unit: "units", required: true, smartDefault: 30, validation: { min: 1 }, helper: "", expertMeaning: "Changeovers per month", expertMeaning_i18n: {"en":"Changeovers per month"} },
     { id: "targetChangeoverTime", label: "Target changeover time after SMED", label_i18n: {"en":"Target changeover time after SMED"}, type: "number", unit: "minutes", required: false, smartDefault: 15, validation: { min: 1 }, helper: "", expertMeaning: "Target changeover time after SMED", expertMeaning_i18n: {"en":"Target changeover time after SMED"} },

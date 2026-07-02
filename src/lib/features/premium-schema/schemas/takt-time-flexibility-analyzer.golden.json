@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "availableTime": 480,
+        "customerDemand": 500,
+        "cycleTime": 1.2,
+        "numOperators": 3,
+        "targetEfficiency": 85
+      },
+      "expected": {
+        "taktTime": 0.96,
+        "cycleFlexibility": 1,
+        "balanceLoss": 1.152,
+        "flexibilityPremium": 85
+      }
+    }
+  ]
+}

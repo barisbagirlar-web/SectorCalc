@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "ev": 0.005,
+        "av": 0.004,
+        "tv": 0.015,
+        "falseAccept": 100,
+        "escapeCost": 500,
+        "falseReject": 200,
+        "scrapCost": 25
+      },
+      "expected": {
+        "grr": 0,
+        "pctGrr": 0,
+        "costError": 55000
+      }
+    }
+  ]
+}

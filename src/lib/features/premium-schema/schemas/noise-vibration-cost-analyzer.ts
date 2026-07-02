@@ -45,7 +45,7 @@ export const NOISE_VIBRATION_COST_SCHEMA: PremiumCalculatorSchema = {
         reworkCost: "reworkCost",
         mitigationInvestment: "mitigationInvestment"
       ,
-        mitigationCost: "mitigationCost"}, outputId: "mitigationRoi" },
+        mitigationCost: "mitigationInvestment"}, outputId: "mitigationRoi" },
   ],
   reportTemplate: { title: "Noise & Vibration Cost Report", title_i18n: {"en":"Noise & Vibration Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: [],assumptionNotes_i18n:[{"en":"Noise above 85 dB(A) poses a health risk."},{"en":"Vibration RMS > 2.5 m/s² hand-arm vibration risk."},{"en":"Health cost = hearing loss + compensation risk."}] },

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "designFee": 10,
+        "propertyValue": 500000,
+        "renovationScope": 150,
+        "baseCostPerSqm": 500,
+        "expectedValueAfter": 650000,
+        "contingencyPercent": 15,
+        "laborCostPercent": 40,
+        "materialCostPercent": 35
+      },
+      "expected": {
+        "renovationBaseCost": 75000,
+        "renovationTotalBudget": 75025,
+        "renovationRoi": 766.377874041986,
+        "budgetBreakdown": 75025
+      }
+    }
+  ]
+}

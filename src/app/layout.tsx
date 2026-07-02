@@ -47,11 +47,8 @@ export default async function RootLayout({
   const locale = "en";
   setRequestLocale(locale);
   const messages = await getMessages({ locale });
-  
-  // Strip server-only free tool inputs dictionary to prevent massive client payload injection
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { freeToolInputs, ...clientMessages } = messages as any;
-  
+
   const { region, source } = await getServerRegion(locale);
 
   return (

@@ -5,6 +5,15 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   name: "Project Overrun Risk & Earned Value", name_i18n: {"en":"Project Overrun Risk & Earned Value"}, sectorSlug: "construction", category: "cost",
   painStatement: "If project overruns are not detected early, budget swells, delivery is delayed, and commitment penalties kick in.", painStatement_i18n: {"en":"If project overruns are not detected early, budget swells, delivery is delayed, and commitment penalties kick in."},
   inputs: [
+    {
+      id: "budgetAtCompletion",
+      label: "Budget At Completion",
+      label_i18n: { en: "Budget At Completion" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Budget At Completion",
+      group: "General"
+    },
     { id: "plannedValue", label: "Planned Value (PV)", label_i18n: {"en":"Planned Value (PV)"}, type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 1 }, helper: "", expertMeaning: "Planned Value (budget)", expertMeaning_i18n: {"en":"Planned Value (budget)"} },
     { id: "earnedValue", label: "Earned Value (EV)", label_i18n: {"en":"Earned Value (EV)"}, type: "number", unit: "USD", required: true, smartDefault: 750000, validation: { min: 0 }, helper: "", expertMeaning: "Earned Value (work completed)", expertMeaning_i18n: {"en":"Earned Value (work completed)"} },
     { id: "actualCost", label: "Actual Cost (AC)", label_i18n: {"en":"Actual Cost (AC)"}, type: "number", unit: "USD", required: true, smartDefault: 800000, validation: { min: 0 }, helper: "", expertMeaning: "Actual Cost incurred", expertMeaning_i18n: {"en":"Actual Cost incurred"} },
@@ -37,13 +46,13 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
         earnedValue: "earnedValue",
         budgetAtCompletion: "budgetAtCompletion"}, outputId: "scheduleDelay" },
     { formulaId: "cost.risk_exposure", inputMap: { riskProbability: "riskProbability", riskImpact: "riskImpact" ,
-        probability: "probability",
-        impact: "impact"}, outputId: "riskExposure" },
+        probability: "riskProbability",
+        impact: "riskImpact"}, outputId: "riskExposure" },
     { formulaId: "cost.mitigation_cost", inputMap: {
         mitigationLabor: "mitigationCost"
       ,
-        mitigationMaterial: "mitigationMaterial",
-        mitigationEquipment: "mitigationEquipment"}, outputId: "mitigationCost" },
+        mitigationMaterial: "mitigationCost",
+        mitigationEquipment: "mitigationCost"}, outputId: "mitigationCost" },
     { formulaId: "cost.net_risk", inputMap: { riskExposure: "riskExposure", mitigationCost: "mitigationCost" }, outputId: "netRisk" },
   ],
   reportTemplate: { title: "Project Overrun Risk Report", title_i18n: {"en":"Project Overrun Risk Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "inclusionRates": [
+          10,
+          10
+        ],
+        "prices": [
+          10,
+          10
+        ],
+        "grindCost": 10,
+        "mixCost": 5,
+        "pelletCost": 15,
+        "shrinkRate": 2,
+        "feedConsumed": 2000,
+        "weightGain": 800
+      },
+      "expected": {
+        "baseCost": 200,
+        "fcr": 2.5,
+        "costPerKgGain": 0.585
+      }
+    }
+  ]
+}

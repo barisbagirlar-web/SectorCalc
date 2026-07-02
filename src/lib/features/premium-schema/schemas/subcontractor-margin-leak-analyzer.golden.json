@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "quotedAmount": 50000,
+        "actualCost": 55000,
+        "contractMargin": 15,
+        "totalSubBudgets": 500000
+      },
+      "expected": {
+        "quotedMargin": -0.1,
+        "actualMargin": -3665.6666666666665,
+        "marginLeakSub": 3665.5666666666666,
+        "leakagePct": -3665566.6666666665
+      }
+    }
+  ]
+}

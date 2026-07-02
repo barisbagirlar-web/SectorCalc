@@ -5,6 +5,42 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   name: "Poka-Yoke Investment Return", name_i18n: {"en":"Poka-Yoke Investment Return"}, sectorSlug: "quality", category: "cost",
   painStatement: "If the return on error prevention (Poka-Yoke) investment is not calculated, the quality improvement budget may be used inefficiently.", painStatement_i18n: {"en":"If the return on error prevention (Poka-Yoke) investment is not calculated, the quality improvement budget may be used inefficiently."},
   inputs: [
+    {
+      id: "reductionFactor",
+      label: "Reduction Factor",
+      label_i18n: { en: "Reduction Factor" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Reduction Factor",
+      group: "General"
+    },
+    {
+      id: "trainingCost",
+      label: "Training Cost",
+      label_i18n: { en: "Training Cost" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Training Cost",
+      group: "General"
+    },
+    {
+      id: "installationCost",
+      label: "Installation Cost",
+      label_i18n: { en: "Installation Cost" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Installation Cost",
+      group: "General"
+    },
+    {
+      id: "totalInspected",
+      label: "Total Inspected",
+      label_i18n: { en: "Total Inspected" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Total Inspected",
+      group: "General"
+    },
     { id: "currentDefectRate", label: "Current defect rate percentage", label_i18n: {"en":"Current defect rate percentage"}, type: "number", unit: "%", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current defect rate percentage", expertMeaning_i18n: {"en":"Current defect rate percentage"} },
     { id: "productionVolume", label: "Annual production volume", label_i18n: {"en":"Annual production volume"}, type: "number", unit: "units/year", required: true, smartDefault: 100000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production volume", expertMeaning_i18n: {"en":"Annual production volume"} },
     { id: "defectCostPerUnit", label: "Unit Error Cost", label_i18n: {"en":"Unit Error Cost"}, type: "number", unit: "USD", required: true, smartDefault: 15, validation: { min: 0.01 }, helper: "", expertMeaning: "Cost per defective unit", expertMeaning_i18n: {"en":"Cost per defective unit"} },
@@ -46,7 +82,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
         newDefectRate: "newDefectRate",
         annualVolume: "defectCostAnnual"
       ,
-        costPerDefect: "costPerDefect"}, outputId: "pokaYokeSavings" },
+        costPerDefect: "defectCostPerUnit"}, outputId: "pokaYokeSavings" },
     { formulaId: "cost.poka_yoke_roi", inputMap: { pokaYokeSavings: "pokaYokeSavings", pokaYokeCost: "pokaYokeCost", usefulLife: "usefulLife" }, outputId: "pokaYokeRoi" },
     { formulaId: "cost.poka_yoke_payback", inputMap: { pokaYokeCost: "pokaYokeCost", pokaYokeSavings: "pokaYokeSavings" }, outputId: "pokaYokePayback" },
   ],

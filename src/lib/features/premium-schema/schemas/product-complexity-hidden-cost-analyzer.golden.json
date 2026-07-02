@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "costPerMinute": 10,
+        "changeoverTime": 10,
+        "numSkus": 50,
+        "numPartsPerSku": 12,
+        "setupTime": 45,
+        "hourlyRate": 35,
+        "batchFrequency": 6,
+        "complexityScore": 5,
+        "avgMargin": 20
+      },
+      "expected": {
+        "complexityIndex": 4.166666666666667,
+        "hiddenCostComplexity": 145.83333333333334,
+        "profitabilityPerSku": -2.516666666666667,
+        "totalSetupCost": 100,
+        "wastePercent": 291.6666666666667
+      }
+    }
+  ]
+}

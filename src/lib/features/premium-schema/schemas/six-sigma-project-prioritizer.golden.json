@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "productionVolume": 100000,
+        "defectiveUnits": 5000,
+        "opportunitiesPerUnit": 1,
+        "internalFailureCost": 25000,
+        "externalFailureCost": 75000,
+        "appraisalCost": 15000,
+        "preventionCost": 10000,
+        "currentZBench": 3,
+        "targetSigmaLevel": 5,
+        "safetyImpact": 5,
+        "customerImpact": 7,
+        "recoveryProbability": 0.5,
+        "implementationEase": 5
+      },
+      "expected": {
+        "dpmo": 50000,
+        "yield": 0.95,
+        "zBench": 1.645211440143815,
+        "sigmaLevel": 3.145211440143815,
+        "copq": 125000,
+        "projectScore": 43753.75
+      }
+    }
+  ]
+}

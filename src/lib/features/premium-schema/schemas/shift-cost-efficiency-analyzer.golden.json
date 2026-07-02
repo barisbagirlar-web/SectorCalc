@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "shiftDays": 10,
+        "shiftRate": 10,
+        "shiftCount": 3,
+        "workersPerShift": 10,
+        "hourlyWage": 20,
+        "shiftHours": 8,
+        "shiftPremium": 15,
+        "dailyOutput": 1000,
+        "overtimeHours": 1
+      },
+      "expected": {
+        "shiftTotalCost": 1600,
+        "shiftEfficiency": 1,
+        "shiftCostPerUnit": 1.6,
+        "annualShiftCost": 8000
+      }
+    }
+  ]
+}

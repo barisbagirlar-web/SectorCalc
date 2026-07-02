@@ -5,6 +5,24 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
   name: "Shift Cost and Efficiency", name_i18n: {"en":"Shift Cost and Efficiency"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "If cost and efficiency differences between shifts are not measured, low-performing shifts drag down overall operational profitability. Each shift's true unit cost must be known.", painStatement_i18n: {"en":"If cost and efficiency differences between shifts are not measured, low-performing shifts drag down overall operational profitability. Each shift's true unit cost must be known."},
   inputs: [
+    {
+      id: "shiftDays",
+      label: "Shift Days",
+      label_i18n: { en: "Shift Days" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Shift Days",
+      group: "General"
+    },
+    {
+      id: "shiftRate",
+      label: "Shift Rate",
+      label_i18n: { en: "Shift Rate" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Shift Rate",
+      group: "General"
+    },
     { id: "shiftCount", label: "Number of Shifts", label_i18n: {"en":"Number of Shifts"}, type: "number", unit: "vardiya/gun", required: true, smartDefault: 3, validation: { min: 1, max: 3 }, helper: "", expertMeaning: "Number of daily shifts", expertMeaning_i18n: {"en":"Number of daily shifts"} },
     { id: "workersPerShift", label: "Workers per Shift", label_i18n: {"en":"Workers per Shift"}, type: "number", unit: "people", required: true, smartDefault: 10, validation: { min: 1 }, helper: "", expertMeaning: "Workers per shift", expertMeaning_i18n: {"en":"Workers per shift"} },
     { id: "hourlyWage", label: "Hourly Wage", label_i18n: {"en":"Hourly Wage"}, type: "number", unit: "USD/hour", required: true, smartDefault: 20, validation: { min: 1 }, helper: "", expertMeaning: "Average hourly wage", expertMeaning_i18n: {"en":"Average hourly wage"} },
@@ -25,7 +43,7 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
   ],
   formulaPipeline: [
     { formulaId: "cost.shift_total_cost", inputMap: { shiftCount: "shiftCount", workersPerShift: "workersPerShift", hourlyWage: "hourlyWage", shiftHours: "shiftHours", shiftPremium: "shiftPremium", overtimeHours: "overtimeHours" ,
-        shiftWorkers: "shiftWorkers",
+        shiftWorkers: "workersPerShift",
         shiftRate: "shiftRate"}, outputId: "shiftTotalCost" },
     { formulaId: "measurement.shift_efficiency", inputMap: { dailyOutput: "dailyOutput", shiftCount: "shiftCount", workersPerShift: "workersPerShift", shiftHours: "shiftHours" ,
         shiftOutput: "shiftOutput",
@@ -33,7 +51,7 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.shift_cost_per_unit", inputMap: { shiftTotalCost: "shiftTotalCost", dailyOutput: "dailyOutput" ,
         shiftOutput: "shiftOutput"}, outputId: "shiftCostPerUnit" },
     { formulaId: "cost.annual_shift_cost", inputMap: { shiftTotalCost: "shiftTotalCost" ,
-        shiftWorkers: "shiftWorkers",
+        shiftWorkers: "workersPerShift",
         shiftHours: "shiftHours",
         shiftRate: "shiftRate",
         shiftDays: "shiftDays"}, outputId: "annualShiftCost" },

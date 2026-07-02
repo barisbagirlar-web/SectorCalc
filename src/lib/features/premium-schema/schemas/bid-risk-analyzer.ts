@@ -5,6 +5,24 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
   name: "Bid Risk Analysis", name_i18n: {"en":"Bid Risk Analysis"}, sectorSlug: "construction", category: "cost",
   painStatement: "Without calculating uncertainty and risk premium in construction bids, you submit either low-profit or losing bids.", painStatement_i18n: {"en":"Without calculating uncertainty and risk premium in construction bids, you submit either low-profit or losing bids."},
   inputs: [
+    {
+      id: "profitMargin",
+      label: "Profit Margin",
+      label_i18n: { en: "Profit Margin" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Profit Margin",
+      group: "General"
+    },
+    {
+      id: "indirectCost",
+      label: "Indirect Cost",
+      label_i18n: { en: "Indirect Cost" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Indirect Cost",
+      group: "General"
+    },
     { id: "baseEstimate", label: "Base Estimate", label_i18n: {"en":"Base Estimate"}, type: "number", unit: "USD", required: true, smartDefault: 200000, validation: { min: 1 }, helper: "", expertMeaning: "Base cost estimate", expertMeaning_i18n: {"en":"Base cost estimate"} },
     { id: "materialUncertainty", label: "Material Uncertainty Rate", label_i18n: {"en":"Material Uncertainty Rate"}, type: "number", unit: "%", required: true, smartDefault: 10, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Material price uncertainty", expertMeaning_i18n: {"en":"Material price uncertainty"} },
     { id: "laborUncertainty", label: "Labor Uncertainty Rate", label_i18n: {"en":"Labor Uncertainty Rate"}, type: "number", unit: "%", required: true, smartDefault: 8, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Labor uncertainty", expertMeaning_i18n: {"en":"Labor uncertainty"} },

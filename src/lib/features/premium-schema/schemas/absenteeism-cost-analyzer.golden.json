@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "absentHours": 500,
+        "hourlyRate": 20,
+        "burdenRate": 30,
+        "replaceOtHours": 150,
+        "regularRate": 20,
+        "otRate": 30,
+        "tempHours": 200,
+        "tempRate": 18,
+        "tempMarkup": 20,
+        "outputPerHour": 50,
+        "unitMargin": 2,
+        "effDropPct": 20,
+        "absentEvents": 50,
+        "hrTime": 1,
+        "hrRate": 30
+      },
+      "expected": {
+        "cost_absenteeism_temp_out": 75600,
+        "cost_absenteeism_admin_out": 1500,
+        "directLaborLoss": 310000,
+        "prodLoss": -9500,
+        "totalAbsenteeismCost": 300900
+      }
+    }
+  ]
+}

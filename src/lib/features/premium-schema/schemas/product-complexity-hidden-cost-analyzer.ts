@@ -5,6 +5,24 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
   name: "Product Complexity Hidden Cost", name_i18n: {"en":"Product Complexity Hidden Cost"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "High product variety and complex designs increase hidden operational costs. Without knowing each SKU's true profitability, resource waste is inevitable.", painStatement_i18n: {"en":"High product variety and complex designs increase hidden operational costs. Without knowing each SKU's true profitability, resource waste is inevitable."},
   inputs: [
+    {
+      id: "costPerMinute",
+      label: "Cost Per Minute",
+      label_i18n: { en: "Cost Per Minute" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Cost Per Minute",
+      group: "General"
+    },
+    {
+      id: "changeoverTime",
+      label: "Changeover Time",
+      label_i18n: { en: "Changeover Time" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Changeover Time",
+      group: "General"
+    },
     { id: "numSkus", label: "Total number of active SKUs", label_i18n: {"en":"Total number of active SKUs"}, type: "number", unit: "units", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Total number of active SKUs", expertMeaning_i18n: {"en":"Total number of active SKUs"} },
     { id: "numPartsPerSku", label: "Average parts per SKU", label_i18n: {"en":"Average parts per SKU"}, type: "number", unit: "units", required: true, smartDefault: 12, validation: { min: 1 }, helper: "", expertMeaning: "Average parts per SKU", expertMeaning_i18n: {"en":"Average parts per SKU"} },
     { id: "setupTime", label: "Average setup time per batch", label_i18n: {"en":"Average setup time per batch"}, type: "number", unit: "dk", required: true, smartDefault: 45, validation: { min: 1 }, helper: "", expertMeaning: "Average setup time per batch", expertMeaning_i18n: {"en":"Average setup time per batch"} },

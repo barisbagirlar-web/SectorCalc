@@ -5,6 +5,15 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
   name: "Renovation Budget Optimization", name_i18n: {"en":"Renovation Budget Optimization"}, sectorSlug: "construction", category: "cost",
   painStatement: "Without budget planning in renovation projects, unexpected cost overruns and low investment returns occur. Every line item must be optimized.", painStatement_i18n: {"en":"Without budget planning in renovation projects, unexpected cost overruns and low investment returns occur. Every line item must be optimized."},
   inputs: [
+    {
+      id: "designFee",
+      label: "Design Fee",
+      label_i18n: { en: "Design Fee" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Design Fee",
+      group: "General"
+    },
     { id: "propertyValue", label: "Property Value", label_i18n: {"en":"Property Value"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1000 }, helper: "", expertMeaning: "Current property value", expertMeaning_i18n: {"en":"Current property value"} },
     { id: "renovationScope", label: "Renovation Scope", label_i18n: {"en":"Renovation Scope"}, type: "number", unit: "m²", required: true, smartDefault: 150, validation: { min: 1 }, helper: "", expertMeaning: "Renovation area in sqm", expertMeaning_i18n: {"en":"Renovation area in sqm"} },
     { id: "baseCostPerSqm", label: "Unit Renovation Cost", label_i18n: {"en":"Unit Renovation Cost"}, type: "number", unit: "USD/m²", required: true, smartDefault: 500, validation: { min: 10 }, helper: "", expertMeaning: "Base renovation cost per sqm", expertMeaning_i18n: {"en":"Base renovation cost per sqm"} },
@@ -40,7 +49,7 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
       }, outputId: "renovationRoi" },
     { formulaId: "cost.renovation_budget_breakdown", inputMap: { renovationTotalBudget: "renovationTotalBudget", laborCostPercent: "laborCostPercent", materialCostPercent: "materialCostPercent" ,
         renovationBaseCost: "renovationBaseCost",
-        contingencyBudget: "contingencyBudget",
+        contingencyBudget: "contingencyPercent",
         designFee: "designFee"}, outputId: "budgetBreakdown" },
   ],
   reportTemplate: { title: "Renovation Budget Optimization Report", title_i18n: {"en":"Renovation Budget Optimization Report"}, sections: ["executive_summary", "loss_breakdown", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

@@ -5,6 +5,24 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
   name: "Flexible Manufacturing (FMS) ROI Analyzer", name_i18n: {"en":"Flexible Manufacturing (FMS) ROI Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Investment decision for a Flexible Manufacturing System (FMS) should not be made without a comparative ROI analysis against a dedicated system.", painStatement_i18n: {"en":"Investment decision for a Flexible Manufacturing System (FMS) should not be made without a comparative ROI analysis against a dedicated system."},
   inputs: [
+    {
+      id: "invSav",
+      label: "Inv Sav",
+      label_i18n: { en: "Inv Sav" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Inv Sav",
+      group: "General"
+    },
+    {
+      id: "flexVal",
+      label: "Flex Val",
+      label_i18n: { en: "Flex Val" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Flex Val",
+      group: "General"
+    },
     { id: "costDedicated", label: "Dedicated System Cost", label_i18n: {"en":"Dedicated System Cost"}, type: "number", unit: "USD", required: true, smartDefault: 300000, validation: { min: 0 }, helper: "", expertMeaning: "Dedicated system cost", expertMeaning_i18n: {"en":"Dedicated system cost"} },
     { id: "costFlex", label: "FMS System Cost", label_i18n: {"en":"FMS System Cost"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Flexible system cost", expertMeaning_i18n: {"en":"Flexible system cost"} },
     { id: "ttmReduction", label: "Time-to-market reduction", label_i18n: {"en":"Time-to-market reduction"}, type: "number", unit: "days", required: false, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Time-to-market reduction", expertMeaning_i18n: {"en":"Time-to-market reduction"} },
@@ -31,7 +49,7 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
       ,
         flexVal: "flexVal",
         invSav: "invSav",
-        scrapRed: "scrapRed"}, outputId: "roi" },
+        scrapRed: "scrapReduction"}, outputId: "roi" },
   ],
   reportTemplate: { title: "Flexible Manufacturing ROI Report", title_i18n: {"en":"Flexible Manufacturing ROI Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
   assumptions: { hiddenLossMultiplier: 1.2, volatilityPercent: 20, targetMarginPercent: 25, assumptionNotes: ["Compares dedicated vs flexible manufacturing cost.", "Includes flex value (TTM + customer premium), WIP savings, scrap reduction.", "ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex."],assumptionNotes_i18n:[{"en":"Compares dedicated vs flexible manufacturing cost."},{"en":"Includes flex value (TTM + customer premium), WIP savings, scrap reduction."},{"en":"ROI = (CostGap+FlexVal+InvSav+ScrapRed)/Capex."}] },

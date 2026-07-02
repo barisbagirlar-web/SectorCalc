@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "cutVolume": 5000,
+        "fillVolume": 4500,
+        "shrinkageFactor": 0.85,
+        "swellFactor": 1.25,
+        "haulCost": 2.5,
+        "borrowDistance": 10,
+        "wasteDistance": 5
+      },
+      "expected": {
+        "netBalance": 500,
+        "borrowRequired": 0,
+        "wasteRequired": 500,
+        "totalHaulCost": 5000
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "plannedDistance": 200,
+        "actualDistance": 250,
+        "fuelCostPerLiter": 1.5,
+        "fuelEfficiency": 4,
+        "numTrips": 250,
+        "idleTimePerTrip": 20,
+        "driverCostPerHour": 25,
+        "fleetSize": 10
+      },
+      "expected": {
+        "fuelWasteDistance": -75,
+        "fuelWasteEfficiency": -301.5,
+        "idleFuelCost": 500,
+        "totalDriftCost": 426.5
+      }
+    }
+  ]
+}

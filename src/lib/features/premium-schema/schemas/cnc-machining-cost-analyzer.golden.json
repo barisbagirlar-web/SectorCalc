@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "rawVolume": 500,
+        "density": 7.85,
+        "pricePerKg": 2,
+        "scrapRate": 5,
+        "totalTime": 5,
+        "machineRate": 85,
+        "cutTime": 3,
+        "toolLife": 60,
+        "toolCost": 50,
+        "machinePower": 15,
+        "elecRate": 0.12,
+        "overheadRate": 20,
+        "qualityCost": 0.5
+      },
+      "expected": {
+        "materialCost": 47100,
+        "machiningCost": 425,
+        "toolingCost": 2.5,
+        "energyCost": 9,
+        "overheadCost": 100,
+        "totalUnitCost": 47637
+      }
+    }
+  ]
+}

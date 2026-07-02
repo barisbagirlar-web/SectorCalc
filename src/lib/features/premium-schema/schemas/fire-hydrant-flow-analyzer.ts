@@ -5,6 +5,24 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
   name: "waste Hydrant Flow Analyzer", name_i18n: {"en":"waste Hydrant Flow Analyzer"}, sectorSlug: "quality", category: "measurement",
   painStatement: "If fire hydrant flow rate and current flow capacity are not measured regularly, water is wasted instantly and insufficient water pressure can lead to disaster. In case of non-compliance, penal sanctions and insurance issues arise.", painStatement_i18n: {"en":"If fire hydrant flow rate and current flow capacity are not measured regularly, water is wasted instantly and insufficient water pressure can lead to disaster. In case of non-compliance, penal sanctions and insurance issues arise."},
   inputs: [
+    {
+      id: "penaltyPerHydrant",
+      label: "Penalty Per Hydrant",
+      label_i18n: { en: "Penalty Per Hydrant" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Penalty Per Hydrant",
+      group: "General"
+    },
+    {
+      id: "deficientHydrants",
+      label: "Deficient Hydrants",
+      label_i18n: { en: "Deficient Hydrants" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Deficient Hydrants",
+      group: "General"
+    },
     { id: "hydrantDiameter", label: "Hydrant outlet diameter", label_i18n: {"en":"Hydrant outlet diameter"}, type: "number", unit: "mm", required: true, smartDefault: 100, validation: { min: 25 }, helper: "", expertMeaning: "Hydrant outlet diameter", expertMeaning_i18n: {"en":"Hydrant outlet diameter"} },
     { id: "staticPressure", label: "Static pressure at hydrant", label_i18n: {"en":"Static pressure at hydrant"}, type: "number", unit: "bar", required: true, smartDefault: 4, validation: { min: 0.5 }, helper: "", expertMeaning: "Static pressure at hydrant", expertMeaning_i18n: {"en":"Static pressure at hydrant"} },
     { id: "residualPressure", label: "Residual pressure during flow", label_i18n: {"en":"Residual pressure during flow"}, type: "number", unit: "bar", required: true, smartDefault: 2.5, validation: { min: 0.1 }, helper: "", expertMeaning: "Residual pressure during flow", expertMeaning_i18n: {"en":"Residual pressure during flow"} },

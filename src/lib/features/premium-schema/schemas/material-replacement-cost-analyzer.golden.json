@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "currentMaterialCost": 5,
+        "currentMaterialWeight": 100,
+        "alternativeMaterialCost": 7,
+        "alternativeWeight": 60,
+        "productionVolume": 50000,
+        "toolingCost": 15000
+      },
+      "expected": {
+        "currentTco": 25000000,
+        "alternativeTco": 21000000,
+        "weightSavings": 2000000,
+        "netBenefit": 3985000,
+        "paybackYears": 0.0037641154328732747
+      }
+    }
+  ]
+}

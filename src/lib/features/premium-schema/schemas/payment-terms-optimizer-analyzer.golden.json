@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "avgReceivables": 500000,
+        "annualRevenue": 5000000,
+        "costOfCapital": 12,
+        "currentTerms": 45,
+        "proposedTerms": 30,
+        "badDebtRate": 2.5,
+        "discountRate": 2,
+        "discountTakeRate": 30
+      },
+      "expected": {
+        "dso": 36.5,
+        "carryingCostAr": 60000,
+        "badDebtExpense": 125000,
+        "discountCost": 100000,
+        "cashFlowImpact": 75000000,
+        "npvTerms": 66864285.71428571
+      }
+    }
+  ]
+}

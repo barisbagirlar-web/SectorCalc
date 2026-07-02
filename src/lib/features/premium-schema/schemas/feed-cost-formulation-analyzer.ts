@@ -31,7 +31,8 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
         shrinkRate: "shrinkRate",
         fcr: "fcr",
         procCost: "grindCost",
-        addCost: "pelletCost" // Note: replacing mixCost with pelletCost or we'd need a math.sum. Actually, let's use a new step.
+        addCost: "mixCost",
+        pelletCost: "pelletCost"
       }, outputId: "costPerKgGain" },
   ],
   reportTemplate: { title: "Feed Cost Formulation Report", title_i18n: {"en":"Feed Cost Formulation Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

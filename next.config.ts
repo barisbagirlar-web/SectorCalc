@@ -190,6 +190,10 @@ function unwrapNextConfig<T>(maybeWrapped: T): T {
   return maybeWrapped;
 }
 
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
 const sentryEnabled = Boolean(
   process.env.NEXT_PUBLIC_SENTRY_DSN ?? process.env.SENTRY_DSN,
 );
@@ -205,4 +209,4 @@ const finalConfig = sentryEnabled
     })
   : nextConfig;
 
-export default unwrapNextConfig(finalConfig);
+export default unwrapNextConfig(withNextIntl(finalConfig));

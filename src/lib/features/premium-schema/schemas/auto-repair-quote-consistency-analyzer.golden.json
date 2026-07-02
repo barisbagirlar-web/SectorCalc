@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "quote1Total": 850,
+        "quote2Total": 950,
+        "quote3Total": 900,
+        "partQuotedPrice": 320,
+        "partMarketPrice": 300,
+        "partsQuantity": 1,
+        "quotedLaborHours": 3.5,
+        "standardLaborHours": 3,
+        "shopHourlyRate": 85
+      },
+      "expected": {
+        "quoteVariance": 0.04536092116265145,
+        "partPriceDeviation": 0.06666666666666667,
+        "consistencyScore": 8.56528727520076,
+        "marginLeak": 0
+      }
+    }
+  ]
+}

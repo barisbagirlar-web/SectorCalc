@@ -5,6 +5,24 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
   name: "Renewable Energy IRR Analyzer", name_i18n: {"en":"Renewable Energy IRR Analyzer"}, sectorSlug: "energy-carbon", category: "cost",
   painStatement: "Without calculating IRR, NPV, and LCOE for renewable energy investments, the true return and feasibility remain unknown. Wrong decisions lead to significant capital loss.", painStatement_i18n: {"en":"Without calculating IRR, NPV, and LCOE for renewable energy investments, the true return and feasibility remain unknown. Wrong decisions lead to significant capital loss."},
   inputs: [
+    {
+      id: "totalInvestment",
+      label: "Total Investment",
+      label_i18n: { en: "Total Investment" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Total Investment",
+      group: "General"
+    },
+    {
+      id: "annualCashFlow",
+      label: "Annual Cash Flow",
+      label_i18n: { en: "Annual Cash Flow" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Annual Cash Flow",
+      group: "General"
+    },
     { id: "installationCost", label: "Installation Cost", label_i18n: {"en":"Installation Cost"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1000 }, helper: "", expertMeaning: "Total installation cost", expertMeaning_i18n: {"en":"Total installation cost"} },
     { id: "annualGeneration", label: "Annual energy generation", label_i18n: {"en":"Annual energy generation"}, type: "number", unit: "kWh/yil", required: true, smartDefault: 800000, validation: { min: 1 }, helper: "", expertMeaning: "Annual energy generation", expertMeaning_i18n: {"en":"Annual energy generation"} },
     { id: "tariffRate", label: "Feed-in tariff or PPA rate", label_i18n: {"en":"Feed-in tariff or PPA rate"}, type: "number", unit: "USD/kWh", required: true, smartDefault: 0.10, validation: { min: 0.01 }, helper: "", expertMeaning: "Feed-in tariff or PPA rate", expertMeaning_i18n: {"en":"Feed-in tariff or PPA rate"} },

@@ -5,6 +5,42 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
   name: "Overtime vs Hiring Breakeven", sectorSlug: "cnc-manufacturing", category: "cost",
   painStatement: "Is overtime or hiring a new worker more advantageous? A wrong decision inflates production costs and reduces profitability.",
   inputs: [
+    {
+      id: "benefits",
+      label: "Benefits",
+      label_i18n: { en: "Benefits" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Benefits",
+      group: "General"
+    },
+    {
+      id: "onboarding",
+      label: "Onboarding",
+      label_i18n: { en: "Onboarding" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Onboarding",
+      group: "General"
+    },
+    {
+      id: "training",
+      label: "Training",
+      label_i18n: { en: "Training" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Training",
+      group: "General"
+    },
+    {
+      id: "recruiting",
+      label: "Recruiting",
+      label_i18n: { en: "Recruiting" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Recruiting",
+      group: "General"
+    },
     { id: "overtimeRate", label: "Hourly overtime premium rate", type: "number", unit: "USD/hr", required: true, smartDefault: 30, validation: { min: 1 }, helper: "", expertMeaning: "Hourly overtime premium rate" },
     { id: "hiringCost", label: "Total hiring cost per worker", type: "number", unit: "USD", required: true, smartDefault: 3500, validation: { min: 1 }, helper: "", expertMeaning: "Total hiring cost per worker" },
     { id: "annualSalary", label: "Annual gross salary per hire", type: "number", unit: "USD/yr", required: true, smartDefault: 42000, validation: { min: 1 }, helper: "", expertMeaning: "Annual gross salary per hire" },

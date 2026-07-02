@@ -5,6 +5,60 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
   name: "Cash Flow Gap Analysis", name_i18n: {"en":"Cash Flow Gap Analysis"}, sectorSlug: "financial-planning", category: "measurement",
   painStatement: "Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand.", painStatement_i18n: {"en":"Cash flow gap, DSO/DPO/DIO balance, and cash cycle — if not calculated, liquidity crisis cannot be detected beforehand."},
   inputs: [
+    {
+      id: "annualCOGS",
+      label: "Annual C O G S",
+      label_i18n: { en: "Annual C O G S" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Annual C O G S",
+      group: "General"
+    },
+    {
+      id: "annualRevenue",
+      label: "Annual Revenue",
+      label_i18n: { en: "Annual Revenue" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Annual Revenue",
+      group: "General"
+    },
+    {
+      id: "taxPayment",
+      label: "Tax Payment",
+      label_i18n: { en: "Tax Payment" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Tax Payment",
+      group: "General"
+    },
+    {
+      id: "operatingExpenses",
+      label: "Operating Expenses",
+      label_i18n: { en: "Operating Expenses" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Operating Expenses",
+      group: "General"
+    },
+    {
+      id: "payroll",
+      label: "Payroll",
+      label_i18n: { en: "Payroll" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Payroll",
+      group: "General"
+    },
+    {
+      id: "otherIncome",
+      label: "Other Income",
+      label_i18n: { en: "Other Income" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Other Income",
+      group: "General"
+    },
     { id: "monthlyRevenue", label: "Monthly Revenue", label_i18n: {"en":"Monthly Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly revenue", expertMeaning_i18n: {"en":"Monthly revenue"} },
     { id: "monthlyExpenses", label: "Monthly Expenses", label_i18n: {"en":"Monthly Expenses"}, type: "number", unit: "USD", required: true, smartDefault: 85000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly expenses", expertMeaning_i18n: {"en":"Monthly expenses"} },
     { id: "accountsReceivable", label: "Accounts Receivable", label_i18n: {"en":"Accounts Receivable"}, type: "number", unit: "USD", required: true, smartDefault: 150000, validation: { min: 0 }, helper: "", expertMeaning: "Accounts receivable", expertMeaning_i18n: {"en":"Accounts receivable"} },
@@ -29,7 +83,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "measurement.cash_inflow", inputMap: {
         salesRevenue: "monthlyRevenue"
       ,
-        receivablesCollected: "receivablesCollected",
+        receivablesCollected: "accountsReceivable",
         otherIncome: "otherIncome"}, outputId: "cashInflow" },
     { formulaId: "measurement.cash_outflow", inputMap: {
         supplierPayments: "monthlyExpenses"
@@ -43,12 +97,12 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
         openingBalance: "numMonths"
       }, outputId: "cumulativeCash" },
     { formulaId: "measurement.cash_gap", inputMap: { cumulativeCash: "cumulativeCash", netCashFlow: "netCashFlow" }, outputId: "cashGap" },
-    { formulaId: "measurement.dso", inputMap: { accountsReceivable: "accountsReceivable", monthlyRevenue: "monthlyRevenue" ,
+    { formulaId: "measurement.dso", inputMap: { avgReceivables: "accountsReceivable", monthlyRevenue: "monthlyRevenue" ,
         annualRevenue: "annualRevenue"}, outputId: "dso" },
     { formulaId: "measurement.dpo", inputMap: { accountsPayable: "accountsPayable", cogsMonthly: "cogsMonthly" ,
         annualCOGS: "annualCOGS"}, outputId: "dpo" },
     { formulaId: "measurement.dio", inputMap: { inventoryValue: "inventoryValue", cogsMonthly: "cogsMonthly" ,
-        inventory: "inventory",
+        inventory: "inventoryValue",
         annualCOGS: "annualCOGS"}, outputId: "dio" },
     { formulaId: "measurement.cash_conversion_cycle", inputMap: { dso: "dso", dpo: "dpo", dio: "dio" }, outputId: "cashConversionCycle" },
   ],

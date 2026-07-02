@@ -5,6 +5,15 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
   name: "Fertilizer Dosage & Yield Optimization", name_i18n: {"en":"Fertilizer Dosage & Yield Optimization"}, sectorSlug: "food", category: "measurement",
   painStatement: "If fertilizer dosage is not calculated per soil analysis, either insufficient fertilization reduces efficiency or excess fertilizer creates environmental pollution.", painStatement_i18n: {"en":"If fertilizer dosage is not calculated per soil analysis, either insufficient fertilization reduces efficiency or excess fertilizer creates environmental pollution."},
   inputs: [
+    {
+      id: "eff",
+      label: "Eff",
+      label_i18n: { en: "Eff" },
+      type: "number",
+      unit: "—",
+      placeholder: "Enter Eff",
+      group: "General"
+    },
     { id: "yieldTarget", label: "Hedef Efficiency", label_i18n: {"en":"Hedef Efficiency"}, type: "number", unit: "ton/ha", required: true, smartDefault: 8, validation: { min: 0.1 }, helper: "", expertMeaning: "Target yield per hectare", expertMeaning_i18n: {"en":"Target yield per hectare"} },
     { id: "removalRate", label: "Nutrient removal rate per ton yield", label_i18n: {"en":"Nutrient removal rate per ton yield"}, type: "number", unit: "kg/ton", required: true, smartDefault: 24, validation: { min: 0 }, helper: "", expertMeaning: "Nutrient removal rate per ton yield", expertMeaning_i18n: {"en":"Nutrient removal rate per ton yield"} },
     { id: "soilTestN", label: "Toprak N (PPM)", label_i18n: {"en":"Toprak N (PPM)"}, type: "number", unit: "ppm", required: true, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Soil test nitrogen", expertMeaning_i18n: {"en":"Soil test nitrogen"} },

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "totalEnergy": 5000000,
+        "productionVolume": 10000,
+        "intercept": 500000,
+        "slopeProd": 400,
+        "slopeDegreeDay": 1000,
+        "degreeDays": 2000,
+        "actualConsumption": 4800000,
+        "predictedConsumption": 5100000,
+        "targetReduction": 10
+      },
+      "expected": {
+        "enpi": 500,
+        "cusum": -300000,
+        "savings": 300000
+      }
+    }
+  ]
+}

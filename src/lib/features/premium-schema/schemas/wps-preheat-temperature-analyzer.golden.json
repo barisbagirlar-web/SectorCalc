@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "cuPct": 10,
+        "vPct": 10,
+        "carbonContent": 0.2,
+        "manganeseContent": 1.2,
+        "chromiumContent": 0.5,
+        "molybdenumContent": 0.1,
+        "nickelContent": 0.3,
+        "materialThickness": 20,
+        "energyCostPerKwh": 0.12,
+        "weldLength": 10
+      },
+      "expected": {
+        "carbonEquivalent": 3.206666666666667,
+        "preheatRequired": 0,
+        "preheatEnergyCost": 0,
+        "crackRisk": 16.033333333333335
+      }
+    }
+  ]
+}

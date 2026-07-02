@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "subgroupMeans": [
+          10.1,
+          10.2,
+          9.9,
+          10,
+          10.1
+        ],
+        "subgroupRanges": [
+          0.2,
+          0.1,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "subgroupSize": 5,
+        "usl": 10.05,
+        "lsl": 9.95
+      },
+      "expected": {
+        "xBarAvg": 10.059999999999999,
+        "rBar": 0.19999999999999998,
+        "uclX": 11.059999999999999,
+        "lclX": 9.059999999999999,
+        "sigmaEstimate": 0.039999999999999994,
+        "cp": 0.4166666666666726
+      }
+    }
+  ]
+}

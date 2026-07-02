@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "annualDemand": 10000,
+        "orderCost": 50,
+        "holdingCost": 2,
+        "leadTime": 7,
+        "demandStdDev": 20,
+        "zScore": 1.65,
+        "avgInventory": 500
+      },
+      "expected": {
+        "eoq": 707.1067811865476,
+        "safetyStock": 87.30979326513149,
+        "rop": 70087.30979326513,
+        "totalInvCost": 1588.833148903358,
+        "inventoryTurnover": 20
+      }
+    }
+  ]
+}

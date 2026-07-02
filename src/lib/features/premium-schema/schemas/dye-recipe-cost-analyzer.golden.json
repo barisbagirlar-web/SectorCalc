@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "bathRatio": 10,
+        "fabricWeight": 100,
+        "dyeConcentrations": [
+          10,
+          10
+        ],
+        "dyePrices": [
+          10,
+          10
+        ],
+        "dosages": [
+          10,
+          10
+        ],
+        "chemPrices": [
+          10,
+          10
+        ],
+        "waterTariff": 3,
+        "heatingCost": 25,
+        "wasteTreatmentCost": 2,
+        "rftPct": 85,
+        "reworkCost": 75
+      },
+      "expected": {
+        "dyeCost": 200,
+        "chemCost": 200,
+        "totalBatchCost": 430,
+        "rftSavings": -6300,
+        "costPerKg": -58.7
+      }
+    }
+  ]
+}

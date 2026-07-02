@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "downtimeHours": 4,
+        "affectedWorkers": 5,
+        "avgHourlyRate": 25,
+        "lineCapacityPerHour": 100,
+        "contributionMarginPerUnit": 10,
+        "idlePowerKw": 50,
+        "electricityRate": 0.12,
+        "overtimeHours": 2,
+        "overtimeRate": 37.5,
+        "startupScrapUnits": 20,
+        "unitCost": 5,
+        "lateDeliveryPenalty": 2000,
+        "mtbfHours": 8760
+      },
+      "expected": {
+        "directLaborLoss": 650,
+        "productionLoss": 4000,
+        "energyWaste": 24,
+        "recoveryCost": 75,
+        "qualityLoss": 100,
+        "totalDowntimeCost": 6849
+      }
+    }
+  ]
+}

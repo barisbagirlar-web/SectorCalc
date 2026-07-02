@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "totalLicenses": 500,
+        "activeUsers": 320,
+        "licenseCostPerSeat": 25,
+        "lowUsageThreshold": 5,
+        "annualBudget": 150000
+      },
+      "expected": {
+        "shelfwarePct": 0.36,
+        "shelfwareCost": 160000
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "milkYieldPerCow": 30,
+        "milkFatPct": 3.8,
+        "milkProteinPct": 3.2,
+        "milkPrice": 0.45,
+        "dailyFeedCostPerCow": 6.5,
+        "herdSize": 200,
+        "sccCount": 200000,
+        "otherCostsPerCow": 1.5
+      },
+      "expected": {
+        "fcmMilk": 69,
+        "dairyIncomeOverFeed": 24.55
+      }
+    }
+  ]
+}

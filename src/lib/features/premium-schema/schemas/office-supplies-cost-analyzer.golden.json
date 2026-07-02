@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "monthlyConsumption": 500,
+        "unitPrice": 3.5,
+        "orderCost": 15,
+        "holdingRate": 20,
+        "stockoutRate": 5,
+        "stockoutCostPerUnit": 10,
+        "currentOrderQty": 300
+      },
+      "expected": {
+        "consumptionRate": 41.666666666666664,
+        "annualCost": 41.666666666666664,
+        "carryingCost": 525,
+        "stockoutCost": 50,
+        "optimalEoq": 7.905694150420948,
+        "wastePct": 3794.7331922020553,
+        "optimizationSavings": 292.09430584957903
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "cleaningMargin": 10,
+        "totalSquareMeters": 500,
+        "cleaningFrequency": null,
+        "laborRate": 20,
+        "hoursPerVisit": 4,
+        "materialCostPerVisit": 30,
+        "desiredMargin": 25,
+        "competitorBid": 1200
+      },
+      "expected": {
+        "cleaningLaborCost": 80,
+        "cleaningBidPrice": 145
+      }
+    }
+  ]
+}

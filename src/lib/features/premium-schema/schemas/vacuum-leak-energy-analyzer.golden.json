@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "leakRate": 50,
+        "systemPressure": 80,
+        "operatingHours": 8760,
+        "energyRate": 0.12,
+        "numLeaks": 5,
+        "motorPower": 7.5,
+        "capacityWaste": 15
+      },
+      "expected": {
+        "vacuumLeakRate": 50,
+        "vacuumLeakCost": 52560,
+        "vacuumCapacityWaste": 200,
+        "potentialSavings": 36792
+      }
+    }
+  ]
+}

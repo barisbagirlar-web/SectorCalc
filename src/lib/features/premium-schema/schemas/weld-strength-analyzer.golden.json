@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "leg": 6,
+        "weldLength": 100,
+        "appliedLoad": 50000,
+        "appliedMoment": 0,
+        "tensileStrength": 480,
+        "yieldStrength": 350
+      },
+      "expected": {
+        "throat": 4.242640687119286,
+        "shearArea": 424.2640687119286,
+        "allowableStress": 144,
+        "maxShearLoad": 61094.02589451772,
+        "safetyFactor": 1.2218805178903545
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "designCapacity": 500,
+        "actualOutput": 350,
+        "demand": 450,
+        "defectRate": 5,
+        "availableTime": 28800,
+        "cycleTimeGap": 15,
+        "unitMargin": 3,
+        "throughputIncrease": 100,
+        "upgradeCost": 150000,
+        "operatingDays": 250,
+        "monthlyGain": 8000
+      },
+      "expected": {
+        "measurement_bottleneck_throughput_out": -1800,
+        "utilization": 0.7,
+        "taktTime": 64,
+        "constraintCost": 20250,
+        "roi": 0.5,
+        "paybackMonths": 18.75
+      }
+    }
+  ]
+}

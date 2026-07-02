@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "tolerance": {
+      "abs": 0.0001,
+      "rel": 0.000001
+    }
+  },
+  "cases": [
+    {
+      "name": "Smart Defaults Base Case",
+      "inputs": {
+        "grossWeight": 1500,
+        "volumeM3": 5,
+        "baseRate": 2.5,
+        "bunkerPct": 15,
+        "terminalFee": 200,
+        "customsFee": 150,
+        "handlingRate": 0.15,
+        "customsRate": 5,
+        "insurance": 75
+      },
+      "expected": {
+        "chargeableWeight": 1500,
+        "baseFreight": 3750,
+        "bunkerSurcharge": 562.5,
+        "terminalCost": 225,
+        "customsCost": 7.5,
+        "totalFreightCost": 4620,
+        "costPerUnit": 3.08
+      }
+    }
+  ]
+}
