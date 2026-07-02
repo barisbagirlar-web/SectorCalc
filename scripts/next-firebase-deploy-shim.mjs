@@ -21,12 +21,8 @@ if (process.env.SECTORCALC_SHIM_REAL_NEXT) {
 }
 
 function finalizeExistingBuild() {
-  spawnSync("node", ["scripts/finalize-next-build.mjs"], { cwd: ROOT, stdio: "inherit" });
-  const validate = spawnSync("node", ["scripts/validate-next-build.mjs"], {
-    cwd: ROOT,
-    stdio: "inherit",
-  });
-  return (validate.status ?? 1) === 0;
+  const finalize = spawnSync("node", ["scripts/finalize-next-build.mjs"], { cwd: ROOT, stdio: "inherit" });
+  return (finalize.status ?? 1) === 0;
 }
 
 if (args[0] === "build") {

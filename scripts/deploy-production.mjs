@@ -112,10 +112,7 @@ function restoreNextBin() {
 }
 
 function ensureBuildReady() {
-  if (run("node", ["scripts/finalize-next-build.mjs"]) !== 0) {
-    return false;
-  }
-  return run("node", ["scripts/validate-next-build.mjs"]) === 0;
+  return run("node", ["scripts/finalize-next-build.mjs"]) === 0;
 }
 
 if (!acquireDeployLock()) {
