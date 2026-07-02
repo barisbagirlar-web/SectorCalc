@@ -17,9 +17,9 @@ const PREMIUM_SCHEMA_DISCLAIMER =
   "Technical simulation only — not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
 
 const _5sDenetimSkoruVerimlilikKaybiMaliyetCalculatorContract: FormulaContract = buildAssuredCriticalContract({
-  toolId: "premium-schema.5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  toolId: "premium-schema.5s-audit-score-productivity-loss-cost-calculator",
   toolName: "5S Audit Score Efficiency Loss Cost Converter",
-  slug: "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  slug: "5s-audit-score-productivity-loss-cost-calculator",
   purpose: "Converts 5S audit scores into actual dollar losses from workplace disorganization, search time, and inefficient workflows, making the financial case for workplace organization visible to management.\n\nMost factories track 5S scores but cannot answer: \"How much money are we losing because of a low 5S score?\" This tool models the efficiency loss percentage based on the gap between current and target 5S score, then multiplies it by total labor capacity cost to reveal the monthly financial drain of poor workplace organization.\n\nExample: A department with 50 employees, a 38/100 current 5S score, 87/100 target, and $35/hour labor cost discovers $34,496 monthly efficiency loss. Improving to the target score recovers $25,168 monthly — a $302,000 annual opportunity.\n\nLean managers, production supervisors, and continuous improvement teams use this converter to prove the ROI of 5S initiatives, set data-driven improvement targets, and communicate workplace organization value in financial terms that leadership understands.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
   decisionImpact: "pricing",
@@ -35,7 +35,7 @@ const _5sDenetimSkoruVerimlilikKaybiMaliyetCalculatorContract: FormulaContract =
     "Premium schema engine — deterministic formula pipeline via formula-registry.",
     "Oracle mirror reuses runPremiumSchemaEngine for production parity checks.",
   ],
-  formulaSummary: "Premium schema pipeline for 5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator.",
+  formulaSummary: "Premium schema pipeline for 5s-audit-score-productivity-loss-cost-calculator.",
   missingParameterWarnings: [],
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
@@ -67,9 +67,9 @@ const _5sDenetimSkoruVerimlilikKaybiMaliyetCalculatorContract: FormulaContract =
 });
 
 const _3bBaskiDestekYapisiVePostProsesMaliyetCalculatorContract: FormulaContract = buildAssuredCriticalContract({
-  toolId: "premium-schema.3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+  toolId: "premium-schema.3d-printing-support-structure-post-processing-cost-calculator",
   toolName: "3D Printing Support & Post-Process Cost Calculator",
-  slug: "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+  slug: "3d-printing-support-structure-post-processing-cost-calculator",
   purpose: "Calculates the total cost of support structures and post-processing labor for 3D printed parts, revealing hidden expenses routinely excluded from additive manufacturing job quotes.\n\nAdditive manufacturing cost estimates frequently focus on build time and model material, ignoring support material consumption, removal labor, and surface finishing. This tool aggregates support volume cost, removal labor, and batch post-process cost into a total that often adds 30-60% to the apparent part cost.\n\nExample: A part with 20 cm³ support volume at $0.05/cm³ and 15-minute cleaning time at $25/hour has $12.25 total post-process cost. In a batch of 10, post-process adds only $1.23 per part. But a single-part batch with 60 cm³ support and 45-minute cleanup jumps to $46.50 — often more than the build cost.\n\nAdditive manufacturing engineers, shop owners, and quoting specialists use this calculator to build complete cost models, optimize part orientation for minimal support, and ensure every quote covers the full cost of post-processing.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
   decisionImpact: "pricing",
@@ -85,7 +85,7 @@ const _3bBaskiDestekYapisiVePostProsesMaliyetCalculatorContract: FormulaContract
     "Premium schema engine — deterministic formula pipeline via formula-registry.",
     "Oracle mirror reuses runPremiumSchemaEngine for production parity checks.",
   ],
-  formulaSummary: "Premium schema pipeline for 3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator.",
+  formulaSummary: "Premium schema pipeline for 3d-printing-support-structure-post-processing-cost-calculator.",
   missingParameterWarnings: [],
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
@@ -117,9 +117,9 @@ const _3bBaskiDestekYapisiVePostProsesMaliyetCalculatorContract: FormulaContract
 });
 
 const _3bBaskiPartiOptimizasyonuVeYuvalamaCalculatorContract: FormulaContract = buildAssuredCriticalContract({
-  toolId: "premium-schema.3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+  toolId: "premium-schema.3d-printing-batch-optimization-nesting-calculator",
   toolName: "3D Printing Batch Nesting Optimizer",
-  slug: "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+  slug: "3d-printing-batch-optimization-nesting-calculator",
   purpose: "Optimizes 3D printer build plate utilization by calculating maximum parts per batch based on bounding box dimensions, bed size, and nesting efficiency — translating utilization percentages into cost per part.\n\nBuild plate utilization is the single biggest lever for additive manufacturing profitability, yet most operators estimate it by eye. This tool calculates exact rectangular nesting fit, utilization percentage, and machine hours per part, revealing the true cost impact of inefficient bed packing.\n\nExample: A 200×200 mm bed with 50×50 mm parts fits 12 parts per batch at 75% utilization with an 8-hour print. Each part costs 0.67 machine hours. Poor nesting fitting only 8 parts raises machine hours to 1.0 per part — a 50% cost increase that directly reduces margin.\n\nAdditive manufacturing engineers and production planners use this optimizer to maximize batch size, reduce per-part machine costs, and make data-driven decisions about build orientation and multi-part nesting strategy.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
   decisionImpact: "pricing",
@@ -135,7 +135,7 @@ const _3bBaskiPartiOptimizasyonuVeYuvalamaCalculatorContract: FormulaContract = 
     "Premium schema engine — deterministic formula pipeline via formula-registry.",
     "Oracle mirror reuses runPremiumSchemaEngine for production parity checks.",
   ],
-  formulaSummary: "Premium schema pipeline for 3b-baski-parti-optimizasyonu-ve-yuvalama-calculator.",
+  formulaSummary: "Premium schema pipeline for 3d-printing-batch-optimization-nesting-calculator.",
   missingParameterWarnings: [],
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
@@ -167,9 +167,9 @@ const _3bBaskiPartiOptimizasyonuVeYuvalamaCalculatorContract: FormulaContract = 
 });
 
 const _3bBaskiVsTalasliImalatBasabasNoktasiCalculatorContract: FormulaContract = buildAssuredCriticalContract({
-  toolId: "premium-schema.3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  toolId: "premium-schema.3d-printing-vs-machining-break-even-calculator",
   toolName: "3D Printing vs Machining Break-Even Calculator",
-  slug: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  slug: "3d-printing-vs-machining-break-even-calculator",
   purpose: "Determines the exact production quantity at which 3D printing becomes more economical than CNC machining (or vice versa), using break-even analysis of setup costs and unit costs for both manufacturing methods.\n\nChoosing between additive manufacturing and subtractive machining is one of the most common production decisions in modern manufacturing. Without data-driven comparison, teams default to habit — overpaying for additive at high volumes or machining at low volumes. This tool calculates the crossover quantity, total cost curves, and cost difference at any specified volume.\n\nExample: With 3D printing at $100 setup and $5/part, and machining at $500 setup and $2/part, the break-even quantity is 134 parts. Below 134 units, printing is cheaper; above 134, machining wins. At 100 units, printing costs $600 vs. machining’s $700.\n\nManufacturing engineers, production planners, and sourcing managers use this break-even analyzer to objectively select the most cost-effective manufacturing process for any production quantity, eliminating guesswork and reducing per-part costs.",
   userDecision: "What decision-support outputs do these inputs produce under the documented premium schema?",
   decisionImpact: "pricing",
@@ -185,7 +185,7 @@ const _3bBaskiVsTalasliImalatBasabasNoktasiCalculatorContract: FormulaContract =
     "Premium schema engine — deterministic formula pipeline via formula-registry.",
     "Oracle mirror reuses runPremiumSchemaEngine for production parity checks.",
   ],
-  formulaSummary: "Premium schema pipeline for 3b-baski-vs-talasli-imalat-basabas-noktasi-calculator.",
+  formulaSummary: "Premium schema pipeline for 3d-printing-vs-machining-break-even-calculator.",
   missingParameterWarnings: [],
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
@@ -9517,11 +9517,11 @@ const _5sAuditScoringCalculatorContract: FormulaContract = buildAssuredCriticalC
 });
 
 export const PREMIUM_SCHEMA_EXTENDED_CRITICAL_SLUGS = [
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  "3d-printing-support-structure-post-processing-cost-calculator",
+  "3d-printing-batch-optimization-nesting-calculator",
+  "3d-printing-vs-machining-break-even-calculator",
   "5s-audit-scoring-calculator",
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  "5s-audit-score-productivity-loss-cost-calculator",
   "absenteeism-cost-analyzer",
   "ai-token-cost-analyzer",
   "anova-analyzer",

@@ -471,11 +471,11 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 };
 
 const TURKISH_TO_ENGLISH_VERDICT_SLUG: Readonly<Record<string, string>> = {
-  "7-israf-muda-avcisi-parasal-karsilik-calculator": "7-waste-muda-hunter-monetary-provision-calculator",
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": "5s-audit-score-loss-productivity-cost-converter-calculator",
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": "3d-printing-support-structure-and-post-process-cost-calculator",
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": "3d-printing-batch-optimization-and-nesting-calculator",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": "3d-printing-etc-machining-break-even-point-calculator",
+  "seven-wastes-muda-monetary-cost-calculator": "7-waste-muda-hunter-monetary-provision-calculator",
+  "5s-audit-score-productivity-loss-cost-calculator": "5s-audit-score-loss-productivity-cost-converter-calculator",
+  "3d-printing-support-structure-post-processing-cost-calculator": "3d-printing-support-structure-and-post-process-cost-calculator",
+  "3d-printing-batch-optimization-nesting-calculator": "3d-printing-batch-optimization-and-nesting-calculator",
+  "3d-printing-vs-machining-break-even-calculator": "3d-printing-etc-machining-break-even-point-calculator",
 };
 
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {

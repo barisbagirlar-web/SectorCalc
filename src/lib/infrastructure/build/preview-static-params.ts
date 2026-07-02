@@ -49,18 +49,18 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
     "cnc-oee-loss",
     "logistics-route-loss",
     "energy-peak-cost",
-    "7-israf-muda-avcisi-parasal-karsilik-calculator",
+    "seven-wastes-muda-monetary-cost-calculator",
   ],
   "premium-schema-print": [
     "cnc-oee-loss",
     "logistics-route-loss",
     "energy-peak-cost",
-    "7-israf-muda-avcisi-parasal-karsilik-calculator",
+    "seven-wastes-muda-monetary-cost-calculator",
   ],
   "generated-tools": [
     "cnc-oee-loss",
     "cloud-api-cost-overrun",
-    "7-israf-muda-avcisi-parasal-karsilik-calculator",
+    "seven-wastes-muda-monetary-cost-calculator",
     "abonelik-yazilim-cloud-yillik-maliyet-calc",
   ],
   seo: [

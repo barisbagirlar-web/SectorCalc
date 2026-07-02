@@ -21,9 +21,9 @@ import { SUPPORTED_LOCALES } from "@/lib/infrastructure/i18n/locale-config";
 
 /** Premium 152 batch 1 — schema-backed routes with verified trust chain. */
 const PREMIUM_152_ACTIVE_BATCH_SLUGS: ReadonlySet<string> = new Set([
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  "3d-printing-support-structure-post-processing-cost-calculator",
+  "3d-printing-batch-optimization-nesting-calculator",
+  "3d-printing-vs-machining-break-even-calculator",
 ]);
 
 function resolvePremium152BatchRoute(slug: string): string | null {

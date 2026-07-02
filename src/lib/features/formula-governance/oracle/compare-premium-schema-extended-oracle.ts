@@ -63,7 +63,7 @@ export function isPremiumSchemaExtendedComparisonSlug(
 const SCENARIOS_BY_SLUG: Readonly<
   Record<PremiumSchemaExtendedOracleSchemaId, readonly PremiumSchemaExtendedComparisonScenario[]>
 > = {
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": [
+  "3d-printing-support-structure-post-processing-cost-calculator": [
     { id: "golden-valid", kind: "normal", values: {"supportVolumeCm3":20,"materialCostPerCm3":0.05,"cleaningTimeMinutes":15,"laborRatePerHour":25,"batchQuantity":1} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"supportVolumeCm3":-1,"materialCostPerCm3":0.05,"cleaningTimeMinutes":15,"laborRatePerHour":25,"batchQuantity":1}, expectPass: false },
@@ -71,7 +71,7 @@ const SCENARIOS_BY_SLUG: Readonly<
     { id: "rogue-key", kind: "absurd", values: { ...{"supportVolumeCm3":20,"materialCostPerCm3":0.05,"cleaningTimeMinutes":15,"laborRatePerHour":25,"batchQuantity":1}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"supportVolumeCm3":20,"materialCostPerCm3":0.05,"cleaningTimeMinutes":15,"laborRatePerHour":25,"batchQuantity":1} },
   ],
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": [
+  "3d-printing-batch-optimization-nesting-calculator": [
     { id: "golden-valid", kind: "normal", values: {"bedWidthMm":200,"bedDepthMm":200,"partWidthMm":50,"partDepthMm":50,"printTimeHours":8} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"bedWidthMm":-1,"bedDepthMm":200,"partWidthMm":50,"partDepthMm":50,"printTimeHours":8}, expectPass: false },
@@ -79,7 +79,7 @@ const SCENARIOS_BY_SLUG: Readonly<
     { id: "rogue-key", kind: "absurd", values: { ...{"bedWidthMm":200,"bedDepthMm":200,"partWidthMm":50,"partDepthMm":50,"printTimeHours":8}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"bedWidthMm":200,"bedDepthMm":200,"partWidthMm":50,"partDepthMm":50,"printTimeHours":8} },
   ],
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": [
+  "3d-printing-vs-machining-break-even-calculator": [
     { id: "golden-valid", kind: "normal", values: {"printingSetupCost":100,"printingUnitCost":5,"machiningSetupCost":500,"machiningUnitCost":2,"analysisQuantity":100} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"printingSetupCost":-1,"printingUnitCost":5,"machiningSetupCost":500,"machiningUnitCost":2,"analysisQuantity":100}, expectPass: false },
@@ -95,7 +95,7 @@ const SCENARIOS_BY_SLUG: Readonly<
     { id: "rogue-key", kind: "absurd", values: { ...{"currency":"USD","sort_puan":18,"sort_max":25,"setInOrder_puan":16,"setInOrder_max":25,"shine_puan":20,"shine_max":25,"standardize_puan":14,"standardize_max":25,"sustain_puan":12,"sustain_max":25,"hedefSkor":80,"toplamCalisanSayisi":25,"egitimSaati_calisan":4,"egitimMaliyeti_saat":15}, rogueKey: 999 } },
     { id: "valid-success", kind: "normal", values: {"currency":"USD","sort_puan":18,"sort_max":25,"setInOrder_puan":16,"setInOrder_max":25,"shine_puan":20,"shine_max":25,"standardize_puan":14,"standardize_max":25,"sustain_puan":12,"sustain_max":25,"hedefSkor":80,"toplamCalisanSayisi":25,"egitimSaati_calisan":4,"egitimMaliyeti_saat":15} },
   ],
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator": [
+  "5s-audit-score-productivity-loss-cost-calculator": [
     { id: "golden-valid", kind: "normal", values: {"current5sScore":38,"target5sScore":87,"totalEmployees":50,"avgHourlyCost":35,"monthlyWorkingHours":176} },
     { id: "missing-input", kind: "edge", values: {}, expectPass: false },
     { id: "invalid-negative", kind: "edge", values: {"current5sScore":-1,"target5sScore":87,"totalEmployees":50,"avgHourlyCost":35,"monthlyWorkingHours":176}, expectPass: false },

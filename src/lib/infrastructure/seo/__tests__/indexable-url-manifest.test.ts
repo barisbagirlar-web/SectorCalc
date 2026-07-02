@@ -103,7 +103,7 @@ describe("indexable URL manifest", () => {
     const enPaths = getManifestEnPathSet();
     expect(enPaths.has("/")).toBe(true);
     expect(enPaths.has("/tools/generated/overall-equipment-effectiveness-calculator")).toBe(true);
-    expect(enPaths.has("/tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator")).toBe(true);
+    expect(enPaths.has("/tools/premium-schema/seven-wastes-muda-monetary-cost-calculator")).toBe(true);
     expect(enPaths.has("/guides/what-is-oee-and-how-to-calculate-it")).toBe(true);
   });
 

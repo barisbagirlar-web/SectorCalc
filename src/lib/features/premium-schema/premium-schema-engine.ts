@@ -34,7 +34,7 @@ export function getSchemaLegalNote(locale: SupportedLocale | string = "en"): str
 const Z_P90 = 1.2816;
 
 const PRIMED_SCHEMA_IDS = new Set<string>([
-  "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  "seven-wastes-muda-monetary-cost-calculator",
 ]);
 
 function clamp(value: number, min: number, max: number): number {

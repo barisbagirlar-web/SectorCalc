@@ -9,19 +9,19 @@ export const OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA: PremiumCalculatorSch
     "Without OEE tracking, chronic downtime and quality loss stay invisible.",
 
   inputs: [
-    { id: "plannedProductionTime", label: "Planned Production Time", type: "number", unit: "min", required: true, smartDefault: 480 },
-    { id: "downtime", label: "Downtime", type: "number", unit: "min", required: true, smartDefault: 60 },
-    { id: "idealCycleTime", label: "Ideal Cycle Time", type: "number", unit: "min", required: true, smartDefault: 1 },
-    { id: "totalCount", label: "Total Parts Produced", type: "number", unit: "units", required: true, smartDefault: 400 },
-    { id: "goodCount", label: "Good Parts Produced", type: "number", unit: "units", required: true, smartDefault: 380 }
+    { id: "plannedProductionTime", label: "Planned Production Time", type: "number", unit: "min", required: true, smartDefault: 480, helper: "Total planned production time.", expertMeaning: "Time scheduled for production." },
+    { id: "downtime", label: "Downtime", type: "number", unit: "min", required: true, smartDefault: 60, helper: "Total downtime experienced.", expertMeaning: "Loss of availability." },
+    { id: "idealCycleTime", label: "Ideal Cycle Time", type: "number", unit: "min", required: true, smartDefault: 1, helper: "Ideal cycle time per part.", expertMeaning: "Theoretical shortest time to produce one unit." },
+    { id: "totalCount", label: "Total Parts Produced", type: "number", unit: "units", required: true, smartDefault: 400, helper: "Total amount produced.", expertMeaning: "Gross production volume." },
+    { id: "goodCount", label: "Good Parts Produced", type: "number", unit: "units", required: true, smartDefault: 380, helper: "Number of defect-free parts.", expertMeaning: "First-pass yield volume." }
   ],
 
   outputs: [
-    { id: "operatingTime", label: "Operating Time", unit: "dak", format: "decimal" },
-    { id: "availability", label: "Availability", unit: "percent", format: "decimal" },
-    { id: "performance", label: "Performance", unit: "percent", format: "decimal" },
-    { id: "quality", label: "Quality", unit: "percent", format: "decimal" },
-    { id: "oee", label: "OEE Score", unit: "percent", format: "decimal", isBigNumber: true }
+    { id: "operatingTime", label: "Operating Time", unit: "min", format: "number" },
+    { id: "availability", label: "Availability", unit: "percent", format: "percentage" },
+    { id: "performance", label: "Performance", unit: "percent", format: "percentage" },
+    { id: "quality", label: "Quality", unit: "percent", format: "percentage" },
+    { id: "oee", label: "OEE Score", unit: "percent", format: "percentage", isBigNumber: true }
   ],
 
   thresholds: [

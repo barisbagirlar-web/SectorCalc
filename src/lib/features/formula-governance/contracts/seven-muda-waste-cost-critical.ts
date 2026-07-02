@@ -62,9 +62,9 @@ const ENGINEERING_OUTPUTS = [
 ] as const;
 
 export const SevenMudaWasteCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
-  toolId: "premium-schema.7-israf-muda-avcisi-parasal-karsilik-calculator",
+  toolId: "premium-schema.seven-wastes-muda-monetary-cost-calculator",
   toolName: "7 Waste (Muda) Hunter Monetary Impact Calculator",
-  slug: "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  slug: "seven-wastes-muda-monetary-cost-calculator",
   purpose:
     "Operations leaders need each of the seven wastes expressed in comparable monetary terms with period context, margin ratios, and prioritized actions.",
   userDecision:

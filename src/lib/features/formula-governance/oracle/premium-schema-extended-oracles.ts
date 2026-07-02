@@ -8,11 +8,11 @@ import { runPremiumSchemaEngine } from "@/lib/features/premium-schema/premium-sc
 import type { SchemaInputValues } from "@/lib/features/premium-schema/premium-calculator-schema";
 
 export const PREMIUM_SCHEMA_EXTENDED_ORACLE_SCHEMA_IDS = [
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  "3d-printing-support-structure-post-processing-cost-calculator",
+  "3d-printing-batch-optimization-nesting-calculator",
+  "3d-printing-vs-machining-break-even-calculator",
   "5s-audit-scoring-calculator",
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  "5s-audit-score-productivity-loss-cost-calculator",
   "absenteeism-cost-analyzer",
   "ai-token-cost-analyzer",
   "anova-analyzer",

@@ -38,8 +38,8 @@ const BANNED_PDF_TERMS = [
 
 const LEGACY_PREMIUM_SLUG = "welding-bid-risk-analyzer";
 const PREMIUM_SCHEMA_SLUGS = [
-  "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
-  "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  "5s-audit-score-productivity-loss-cost-calculator",
+  "seven-wastes-muda-monetary-cost-calculator",
 ] as const;
 
 function defaultLegacyValues(slug: string): Record<string, number | string> {

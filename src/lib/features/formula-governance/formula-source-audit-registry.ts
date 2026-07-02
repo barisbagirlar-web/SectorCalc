@@ -57,8 +57,8 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
-  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
-    "slug": "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  "seven-wastes-muda-monetary-cost-calculator": {
+    "slug": "seven-wastes-muda-monetary-cost-calculator",
     "status": "verified",
     "auditGate": "Formula Source-of-Truth Audit Gate",
     "auditVersion": "v1",

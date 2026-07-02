@@ -69,7 +69,7 @@ function buildBatchContract(config: {
 }
 
 export const ThreeBPrintingSupportPostProcessContract = buildBatchContract({
-  slug: "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+  slug: "3d-printing-support-structure-post-processing-cost-calculator",
   toolName: "3D Printing Support & Post-Process Cost Calculator",
   purpose: "Expose support material and cleaning labor costs that are often omitted from additive quotes.",
   userDecision: "What is the true post-process cost for this build batch?",
@@ -85,7 +85,7 @@ export const ThreeBPrintingSupportPostProcessContract = buildBatchContract({
 });
 
 export const ThreeBPrintingBatchNestingContract = buildBatchContract({
-  slug: "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+  slug: "3d-printing-batch-optimization-nesting-calculator",
   toolName: "3D Printing Batch Nesting Optimizer",
   purpose: "Estimate how many parts fit per bed and the resulting utilization rate.",
   userDecision: "How many parts fit on the bed and is utilization strong enough?",
@@ -95,7 +95,7 @@ export const ThreeBPrintingBatchNestingContract = buildBatchContract({
 });
 
 export const ThreeBPrintingVsMachiningBreakevenContract = buildBatchContract({
-  slug: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+  slug: "3d-printing-vs-machining-break-even-calculator",
   toolName: "3D Printing vs Machining Break-Even Calculator",
   purpose: "Compare additive and machining cost curves to find crossover quantity.",
   userDecision: "At what quantity does additive become cheaper than machining?",
@@ -111,7 +111,7 @@ export const ThreeBPrintingVsMachiningBreakevenContract = buildBatchContract({
 });
 
 export const FiveSAuditEfficiencyLossContract = buildBatchContract({
-  slug: "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+  slug: "5s-audit-score-productivity-loss-cost-calculator",
   toolName: "5S Audit Score Efficiency Loss Cost Converter",
   purpose: "Translate 5S audit scores into monthly efficiency loss and improvement potential.",
   userDecision: "What is the monetary cost of the current 5S gap?",

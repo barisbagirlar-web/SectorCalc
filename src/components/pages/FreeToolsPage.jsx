@@ -60,8 +60,8 @@ const SAMPLE_TOOLS = [
   { slug: 'fabric-shrinkage-calculator',                      name: 'Fabric Shrinkage',                    sector: 'textile-printing',isPro: false },
   { slug: 'loom-production-calculator',                       name: 'Loom Production',                     sector: 'textile-printing',isPro: false },
   // Pro tools — English display names (slugs are your existing Turkish URLs)
-  { slug: 'tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator',        name: '7-Waste (Muda) Monetary Mapping',     sector: 'lean-oee',        isPro: true },
-  { slug: 'tools/premium-schema/5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator',   name: '5S Audit Score & Productivity Loss',  sector: 'lean-oee',        isPro: true },
+  { slug: 'tools/premium-schema/seven-wastes-muda-monetary-cost-calculator',        name: '7-Waste (Muda) Monetary Mapping',     sector: 'lean-oee',        isPro: true },
+  { slug: 'tools/premium-schema/5s-audit-score-productivity-loss-cost-calculator',   name: '5S Audit Score & Productivity Loss',  sector: 'lean-oee',        isPro: true },
   { slug: 'tools/generated/mtbf-mttr-ve-kullanilabilirlik-finansal-calculator',          name: 'MTBF/MTTR Availability & Financial',  sector: 'maintenance',     isPro: true },
   { slug: 'tools/generated/cpk-ppk-hata-maliyeti-ppm-calculator',                       name: 'CPK/PPK Error Cost & PPM',            sector: 'quality-spc',     isPro: true },
   { slug: 'tools/generated/htea-rpn-skoru-parasal-risk-calculator',                     name: 'FMEA RPN Score & Monetary Risk',      sector: 'quality-spc',     isPro: true },

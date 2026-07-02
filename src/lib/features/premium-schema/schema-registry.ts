@@ -13,9 +13,6 @@ import { ICI_STACK_SCHEMA } from "./schemas/ici-stack";
 import { ICI_BRIDGE_LIFE_SCHEMA } from "./schemas/ici-bridge-life";
 import { ICI_WELL_SCHEMA } from "./schemas/ici-well";
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
-import { THREE_B_PRINTING_SUPPORT_POST_PROCESS_SCHEMA } from "@/lib/features/premium-schema/schemas/3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator";
-import { THREE_B_PRINTING_BATCH_NESTING_SCHEMA } from "@/lib/features/premium-schema/schemas/3b-baski-parti-optimizasyonu-ve-yuvalama-calculator";
-import { THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA } from "@/lib/features/premium-schema/schemas/3b-baski-vs-talasli-imalat-basabas-noktasi-calculator";
 import { AI_TOKEN_COST_ANALYZER_SCHEMA } from "@/lib/features/premium-schema/schemas/ai-token-cost-analyzer";
 import { SIX_SIGMA_PRIORITIZER_SCHEMA } from "@/lib/features/premium-schema/schemas/six-sigma-project-prioritizer";
 import { AQL_SAMPLING_SCHEMA } from "@/lib/features/premium-schema/schemas/aql-sampling-risk-analyzer";
@@ -125,9 +122,6 @@ import { WELD_VOLUME_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/w
 
 /** Premium 152 batch 1 — schema-backed calculators. */
 export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
-  THREE_B_PRINTING_SUPPORT_POST_PROCESS_SCHEMA,
-  THREE_B_PRINTING_BATCH_NESTING_SCHEMA,
-  THREE_B_PRINTING_VS_MACHINING_BREAKEVEN_SCHEMA,
   AI_TOKEN_COST_ANALYZER_SCHEMA,
   SIX_SIGMA_PRIORITIZER_SCHEMA,
   AQL_SAMPLING_SCHEMA,
@@ -237,12 +231,6 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
 ];
 
 export const PREMIUM_SCHEMA_SLUG_MAP: Readonly<Record<string, string>> = {
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator":
-    "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator":
-    "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator":
-    "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
   "ai-token-cost-analyzer": "ai-token-cost-analyzer",
   "six-sigma-project-prioritizer": "six-sigma-project-prioritizer",
   "aql-sampling-risk-analyzer": "aql-sampling-risk-analyzer",

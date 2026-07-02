@@ -7,8 +7,8 @@ import type { ProductionFormulaLocator } from "@/lib/features/formula-governance
 
 export const PREMIUM_SCHEMA_EXTENDED_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
   {
-    slug: "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
-    toolId: "premium-schema.3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+    slug: "3d-printing-support-structure-post-processing-cost-calculator",
+    toolId: "premium-schema.3d-printing-support-structure-post-processing-cost-calculator",
     productionFilePath: "src/lib/premium-schema/premium-schema-engine.ts",
     productionFunctionName: "runPremiumSchemaEngine",
     productionEntry: 'runPremiumSchemaEngine(schema, values) → minimumSafePrice',
@@ -19,8 +19,8 @@ export const PREMIUM_SCHEMA_EXTENDED_PRODUCTION_FORMULA_LOCATORS: readonly Produ
     comparisonWired: true,
   },
   {
-    slug: "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
-    toolId: "premium-schema.3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+    slug: "3d-printing-batch-optimization-nesting-calculator",
+    toolId: "premium-schema.3d-printing-batch-optimization-nesting-calculator",
     productionFilePath: "src/lib/premium-schema/premium-schema-engine.ts",
     productionFunctionName: "runPremiumSchemaEngine",
     productionEntry: 'runPremiumSchemaEngine(schema, values) → minimumSafePrice',
@@ -31,8 +31,8 @@ export const PREMIUM_SCHEMA_EXTENDED_PRODUCTION_FORMULA_LOCATORS: readonly Produ
     comparisonWired: true,
   },
   {
-    slug: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
-    toolId: "premium-schema.3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+    slug: "3d-printing-vs-machining-break-even-calculator",
+    toolId: "premium-schema.3d-printing-vs-machining-break-even-calculator",
     productionFilePath: "src/lib/premium-schema/premium-schema-engine.ts",
     productionFunctionName: "runPremiumSchemaEngine",
     productionEntry: 'runPremiumSchemaEngine(schema, values) → minimumSafePrice',
@@ -55,8 +55,8 @@ export const PREMIUM_SCHEMA_EXTENDED_PRODUCTION_FORMULA_LOCATORS: readonly Produ
     comparisonWired: true,
   },
   {
-    slug: "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
-    toolId: "premium-schema.5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+    slug: "5s-audit-score-productivity-loss-cost-calculator",
+    toolId: "premium-schema.5s-audit-score-productivity-loss-cost-calculator",
     productionFilePath: "src/lib/premium-schema/premium-schema-engine.ts",
     productionFunctionName: "runPremiumSchemaEngine",
     productionEntry: 'runPremiumSchemaEngine(schema, values) → minimumSafePrice',

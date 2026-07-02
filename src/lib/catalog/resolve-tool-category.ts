@@ -82,7 +82,7 @@ export const MANUAL_CATEGORY_OVERRIDES: Readonly<Record<string, GlobalToolCatego
 
   // ── Lean / OEE ──────────────────────────────────────────
   "value-stream-map-vsm-calculator": "lean-production",
-  "7-israf-muda-avcisi-parasal-karsilik-calculator": "lean-production",
+  "seven-wastes-muda-monetary-cost-calculator": "lean-production",
 
   // ── Quality / SPC ───────────────────────────────────────
   "quality-cost-paf-calculator": "quality-six-sigma",

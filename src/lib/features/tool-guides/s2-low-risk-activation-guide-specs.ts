@@ -24,7 +24,7 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
   {
-    slug: "7-israf-muda-avcisi-parasal-karsilik-calculator",
+    slug: "seven-wastes-muda-monetary-cost-calculator",
     guideType: "cost_breakdown",
     titleKey: "inputGuide.s2Activation.tools.7IsrafMudaAvcisiParasalKarsilikCalculator.title",
     descriptionKey: "inputGuide.costBreakdown.description",
@@ -470,7 +470,7 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
   {
-    slug: "5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator",
+    slug: "5s-audit-score-productivity-loss-cost-calculator",
     guideType: "cost_breakdown",
     titleKey: "inputGuide.s2Activation.tools.5sDenetimSkoru.title",
     descriptionKey: "inputGuide.costBreakdown.description",
@@ -484,7 +484,7 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
   {
-    slug: "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator",
+    slug: "3d-printing-support-structure-post-processing-cost-calculator",
     guideType: "cost_breakdown",
     titleKey: "inputGuide.s2Activation.tools.3bBaskiDestek.title",
     descriptionKey: "inputGuide.costBreakdown.description",
@@ -498,7 +498,7 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
   {
-    slug: "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator",
+    slug: "3d-printing-batch-optimization-nesting-calculator",
     guideType: "process_flow",
     titleKey: "inputGuide.s2Activation.tools.3bBaskiParti.title",
     descriptionKey: "inputGuide.processFlow.description",
@@ -512,7 +512,7 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
   {
-    slug: "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator",
+    slug: "3d-printing-vs-machining-break-even-calculator",
     guideType: "cost_breakdown",
     titleKey: "inputGuide.s2Activation.tools.3bBaskiBreakeven.title",
     descriptionKey: "inputGuide.costBreakdown.description",

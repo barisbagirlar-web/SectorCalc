@@ -63,7 +63,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Record<string, PremiumCatalogToolOverride>
     searchTerms: ["5s", "denetim", "verimlilik", "lean", "audit score"],
     keywords: ["5s", "lean", "efficiency", "audit"],
   },
-  "3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator": {
+  "3d-printing-support-structure-post-processing-cost-calculator": {
     categoryId: "cnc-additive-manufacturing",
     titles: {
       tr: "3B Printing Support Structure ve Post-Process Maliyet Calculator",
@@ -84,7 +84,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Record<string, PremiumCatalogToolOverride>
     searchTerms: ["3d print", "support", "post process", "additive"],
     keywords: ["3d", "additive", "support", "post-process"],
   },
-  "3b-baski-parti-optimizasyonu-ve-yuvalama-calculator": {
+  "3d-printing-batch-optimization-nesting-calculator": {
     categoryId: "cnc-additive-manufacturing",
     titles: {
       tr: "3B Printing Parti Optimizasyonu ve Yuvalama Calculator",
@@ -105,7 +105,7 @@ const PREMIUM_CATALOG_TOOL_OVERRIDES: Record<string, PremiumCatalogToolOverride>
     searchTerms: ["3d print", "nesting", "batch", "bed utilization"],
     keywords: ["3d", "nesting", "batch", "utilization"],
   },
-  "3b-baski-vs-talasli-imalat-basabas-noktasi-calculator": {
+  "3d-printing-vs-machining-break-even-calculator": {
     categoryId: "cnc-additive-manufacturing",
     titles: {
       tr: "3B Printing vs. Talasli Imalat Basabas Noktasi Calculator",

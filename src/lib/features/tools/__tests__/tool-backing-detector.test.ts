@@ -10,9 +10,9 @@ import { isGuideExplicitlyBlocked } from "@/lib/features/tools/guide/tool-guide-
 
 describe("P8 tool backing detector", () => {
   test("7-israf backing is complete and activation eligible", () => {
-    const backing = checkToolBacking("7-israf-muda-avcisi-parasal-karsilik-calculator");
+    const backing = checkToolBacking("seven-wastes-muda-monetary-cost-calculator");
     expect(backing.isComplete).toBe(true);
-    expect(isToolBackingActivationEligible("7-israf-muda-avcisi-parasal-karsilik-calculator")).toBe(true);
+    expect(isToolBackingActivationEligible("seven-wastes-muda-monetary-cost-calculator")).toBe(true);
   });
 
   test("cnc-quote backing is complete despite P24 WARN", () => {
