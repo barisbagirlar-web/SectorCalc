@@ -284,7 +284,7 @@ function buildPremiumSchemaContract(slug: string): SemanticToolContract | null {
     ),
     unitText: input.unit || undefined,
     unitGroup: input.unit || undefined,
-    required: input.required,
+    required: input.required ?? false,
     valueType:
       input.type === "boolean" ? "boolean" : input.type === "select" ? "select" : "number",
   }));

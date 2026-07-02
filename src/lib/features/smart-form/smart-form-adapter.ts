@@ -233,10 +233,10 @@ function mapSchemaInput(
   const display = locale
     ? resolveFreeToolFieldDisplay(toolSlug, input.id, locale, {
         label: input.label,
-        placeholder: input.helper,
-        helper: input.helper,
+        placeholder: input.helper ?? "",
+        helper: input.helper ?? "",
       })
-    : { label: input.label, placeholder: input.helper, helper: input.helper };
+    : { label: input.label, placeholder: input.helper ?? "", helper: input.helper ?? "" };
 
   return {
     key: input.id,
@@ -244,7 +244,7 @@ function mapSchemaInput(
     label: display.label,
     type,
     unit: inferInputUnit(input.id, input.unit),
-    required: input.required,
+    required: input.required ?? false,
     min: input.validation?.min,
     max: input.validation?.max,
     placeholder: display.placeholder,

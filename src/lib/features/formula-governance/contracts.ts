@@ -13,51 +13,6 @@ import { BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formu
 import { BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/batch-traffic-catalog-critical";
 import { BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/batch-premium-schema-critical";
 import { PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/premium-schema-extended-critical";
-import { SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/seven-muda-waste-cost-critical";
-import { AGRICULTURE_IRRIGATION_YIELD_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/agriculture-irrigation-yield-loss-critical";
-import { ENERGY_COMPRESSOR_LEAK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/energy-compressor-leak-cost-critical";
-import { CNC_TOOL_WEAR_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/cnc-tool-wear-cost-critical";
-import { DAIRY_FEED_EFFICIENCY_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/dairy-feed-efficiency-loss-critical";
-import { CONSTRUCTION_PROJECT_OVERRUN_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/construction-project-overrun-critical";
-import { CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/construction-subcontractor-margin-leak-critical";
-import { PAINTING_REWORK_COVERAGE_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/painting-rework-coverage-risk-critical";
-import { FOOD_WASTE_MARGIN_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/food-waste-margin-loss-critical";
-import { HVAC_CALLBACK_MARGIN_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/hvac-callback-margin-risk-critical";
-import { RESTAURANT_MENU_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/restaurant-menu-margin-leak-critical";
-import { WAREHOUSE_SPACE_COST_LEAK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/warehouse-space-cost-leak-critical";
-import { SHEET_METAL_SCRAP_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/sheet-metal-scrap-risk-critical";
-import { PRINTING_REPRINT_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/printing-reprint-margin-leak-critical";
-import { COMPRESSOR_LEAK_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/compressor-leak-cost-calculator-critical";
-import { DOWNTIME_MINUTE_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/downtime-minute-cost-calculator-critical";
-import { ENERGY_PEAK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/energy-peak-cost-critical";
-import { ENERGY_SAVINGS_PACKAGE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/energy-savings-package-calculator-critical";
-import { INVENTORY_CARRYING_COST_EOQ_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/inventory-carrying-cost-eoq-calculator-critical";
-import { LOGISTICS_FUEL_ROUTE_DRIFT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/logistics-fuel-route-drift-critical";
-import { LOGISTICS_ROUTE_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/logistics-route-loss-critical";
-import { PLUMBING_LEAK_CALLBACK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/plumbing-leak-callback-cost-critical";
-import { PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/product-customer-profitability-calculator-critical";
-import { RETAIL_INVENTORY_TURNOVER_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/retail-inventory-turnover-risk-critical";
-import { ROOFING_WEATHER_DELAY_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/roofing-weather-delay-risk-critical";
-import { TEXTILE_FABRIC_WASTE_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/textile-fabric-waste-risk-critical";
-import { VALUE_STREAM_MAP_VSM_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/value-stream-map-vsm-calculator-critical";
-import { ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/annual-leave-severance-notice-calculator-critical";
-import { BELT_PULLEY_SPEED_LENGTH_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/belt-pulley-speed-length-calculator-critical";
-import { BOLT_TIGHTENING_TORQUE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/bolt-tightening-torque-calculator-critical";
-import { CNC_OEE_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/cnc-oee-loss-critical";
-import { EMPLOYEE_TOTAL_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/employee-total-cost-calculator-critical";
-import { FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/fire-system-flow-hydrant-calculator-critical";
-import { HYDRAULIC_PNEUMATIC_CYLINDER_FORCE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/hydraulic-pneumatic-cylinder-force-calculator-critical";
-import { INVESTMENT_PAYBACK_NPV_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/investment-payback-npv-calculator-critical";
-import { OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/oee-equipment-effectiveness-calculator-critical";
-import { QUALITY_COST_PAF_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/quality-cost-paf-calculator-critical";
-import { SHOP_RATE_HOURLY_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/shop-rate-hourly-cost-calculator-critical";
-import { TOLERANCE_STACK_UP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/tolerance-stack-up-calculator-critical";
-import { AUTO_REPAIR_COMEBACK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/auto-repair-comeback-cost-critical";
-import { CARBON_FOOTPRINT_COMPLIANCE_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/carbon-footprint-compliance-risk-critical";
-import { CBAM_COMPLIANCE_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/cbam-compliance-verdict-critical";
-import { CBAM_EXPOSURE_QUICK_CHECK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/cbam-exposure-quick-check-critical";
-import { ELECTRICAL_PANEL_REWORK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/electrical-panel-rework-cost-critical";
-import { LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/legal-interest-fee-calculator-pro-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/engine-modules-critical";
 import { P77_FREE_TRAFFIC_FORMULA_CONTRACTS } from "@/lib/features/formula-governance/contracts/p77-free-traffic-batch";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/features/tools/rent-vs-buy-model";
@@ -267,51 +222,6 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS,
   ...BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS,
   ...PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS,
-  ...SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...AGRICULTURE_IRRIGATION_YIELD_LOSS_CRITICAL_FORMULA_CONTRACTS,
-  ...ENERGY_COMPRESSOR_LEAK_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...CNC_TOOL_WEAR_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...DAIRY_FEED_EFFICIENCY_LOSS_CRITICAL_FORMULA_CONTRACTS,
-  ...CONSTRUCTION_PROJECT_OVERRUN_CRITICAL_FORMULA_CONTRACTS,
-  ...CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS,
-  ...PAINTING_REWORK_COVERAGE_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...FOOD_WASTE_MARGIN_LOSS_CRITICAL_FORMULA_CONTRACTS,
-  ...HVAC_CALLBACK_MARGIN_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...RESTAURANT_MENU_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS,
-  ...WAREHOUSE_SPACE_COST_LEAK_CRITICAL_FORMULA_CONTRACTS,
-  ...SHEET_METAL_SCRAP_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...PRINTING_REPRINT_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS,
-  ...COMPRESSOR_LEAK_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...DOWNTIME_MINUTE_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...ENERGY_PEAK_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...ENERGY_SAVINGS_PACKAGE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...INVENTORY_CARRYING_COST_EOQ_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...LOGISTICS_FUEL_ROUTE_DRIFT_CRITICAL_FORMULA_CONTRACTS,
-  ...LOGISTICS_ROUTE_LOSS_CRITICAL_FORMULA_CONTRACTS,
-  ...PLUMBING_LEAK_CALLBACK_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...PRODUCT_CUSTOMER_PROFITABILITY_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...RETAIL_INVENTORY_TURNOVER_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...ROOFING_WEATHER_DELAY_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...TEXTILE_FABRIC_WASTE_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...VALUE_STREAM_MAP_VSM_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...BELT_PULLEY_SPEED_LENGTH_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...BOLT_TIGHTENING_TORQUE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...CNC_OEE_LOSS_CRITICAL_FORMULA_CONTRACTS,
-  ...EMPLOYEE_TOTAL_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...HYDRAULIC_PNEUMATIC_CYLINDER_FORCE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...INVESTMENT_PAYBACK_NPV_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...QUALITY_COST_PAF_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...SHOP_RATE_HOURLY_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...TOLERANCE_STACK_UP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
-  ...AUTO_REPAIR_COMEBACK_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...CARBON_FOOTPRINT_COMPLIANCE_RISK_CRITICAL_FORMULA_CONTRACTS,
-  ...CBAM_COMPLIANCE_VERDICT_CRITICAL_FORMULA_CONTRACTS,
-  ...CBAM_EXPOSURE_QUICK_CHECK_CRITICAL_FORMULA_CONTRACTS,
-  ...ELECTRICAL_PANEL_REWORK_COST_CRITICAL_FORMULA_CONTRACTS,
-  ...LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
   ...P77_FREE_TRAFFIC_FORMULA_CONTRACTS,
 

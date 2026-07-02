@@ -47,7 +47,7 @@ export interface PremiumInputSchema {
   readonly unit: string;
   readonly placeholder?: string;
   readonly group?: string;
-  readonly required: boolean;
+  readonly required?: boolean;
   readonly smartDefault?: number | string | boolean;
   readonly array?: boolean;
   readonly matrix?: boolean;
@@ -57,10 +57,10 @@ export interface PremiumInputSchema {
     readonly max?: number;
     readonly step?: number;
   };
-  readonly helper: string;
+  readonly helper?: string;
   /** Optional 6-locale helper map (en, tr, de, fr, es, ar) — falls back to helper */
   readonly helper_i18n?: Readonly<Record<string, string>>;
-  readonly expertMeaning: string;
+  readonly expertMeaning?: string;
   /** Optional 6-locale expertMeaning map */
   readonly expertMeaning_i18n?: Readonly<Record<string, string>>;
   readonly options?: readonly { readonly value: string; readonly label: string }[];
