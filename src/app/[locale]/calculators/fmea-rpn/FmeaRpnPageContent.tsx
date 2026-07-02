@@ -219,6 +219,9 @@ function buildFmeaJsonLd(): Record<string, unknown> {
           { "@id": `${siteUrl}/calculators/fmea-rpn#techarticle` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#learningresource` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset` },
+          { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-reachability` },
+          { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-prime` },
+          { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-impossible` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-collision` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-equivalence` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-masking` },
@@ -230,9 +233,12 @@ function buildFmeaJsonLd(): Record<string, unknown> {
       { "@type": "TechArticle", "@id": `${siteUrl}/calculators/fmea-rpn#techarticle`, headline: "FMEA RPN Calculator Methodology", about: ["Failure Mode and Effects Analysis", "Risk Priority Number", "Severity", "Occurrence", "Detection", "PFMEA", "Severity Masking", "RPN Collision"], publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "LearningResource", "@id": `${siteUrl}/calculators/fmea-rpn#learningresource`, name: "FMEA RPN Calculator and PFMEA Dataset Library", learningResourceType: "calculator", educationalUse: "engineering education", publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset`, name: "CNC PFMEA Example Dataset", description: "Illustrative PFMEA example table for CNC machining process with Severity, Occurrence, Detection and RPN values.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-reachability`, name: "RPN Reachability Dataset", description: "List of reachable and unreachable RPN scores between 1 and 1000.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-prime`, name: "Prime RPN Reachability Table", description: "Reachability analysis of prime numbers as FMEA RPN scores.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-impossible`, name: "Impossible RPN Values Dataset", description: "Summary counts of impossible RPN values categorized by range.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-collision`, name: "RPN Collision Atlas", description: "Complete enumeration of RPN collision counts for all 120 unique RPN values in a 1-10 S/O/D scoring system.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
-      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-equivalence`, name: "RPN Equivalence Families", description: "Same-RPN equivalence families showing different S/O/D signatures producing identical RPN scores.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
-      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-masking`, name: "High-Severity Masking Analysis", description: "Analysis of how many high-severity combinations produce low-to-moderate RPN scores.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-equivalence`, name: "Same-RPN Equivalence Families", description: "Same-RPN equivalence families showing different S/O/D signatures producing identical RPN scores.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-masking`, name: "High-Severity Masking Cases", description: "Analysis of how many high-severity combinations produce low-to-moderate RPN scores.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-sensitivity`, name: "RPN Sensitivity Matrix", description: "Marginal RPN sensitivity table showing effect of changing O, D or both ratings.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-assembly`, name: "Assembly PFMEA Example Dataset", description: "Illustrative PFMEA example table for assembly process with four failure modes.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-maintenance`, name: "Maintenance PFMEA Example Dataset", description: "Illustrative PFMEA example table for maintenance process with four failure modes.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
@@ -689,23 +695,91 @@ export function FmeaRpnPageContent() {
           <p className="text-xs italic text-body-charcoal">This score-space behavior is generated directly from all integer triples where S, O and D range from 1 to 10.</p>
         </Section>
 
-        {/* -- Section 9B: Which RPN Values Are Impossible? (NEW) -- */}
-        <Section id="impossible-rpn">
-          <SectionTitle>Which RPN Values Are Impossible?</SectionTitle>
-          <p className="mb-4 sc-body-muted">Between 1 and 1000, 880 values are mathematically impossible to reach using a 1-10 Severity, Occurrence and Detection scoring system.</p>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">RPN Reachability Rule</h4>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">For an RPN to be valid (reachable):</p>
-          <ol className="mb-4 list-inside list-decimal space-y-1 text-sm text-body-charcoal">
-            <li>It must be an integer between 1 and 1000.</li>
-            <li>Its prime factorization cannot contain any prime number strictly greater than 7 (i.e., no 11, 13, 17, 19, etc.).</li>
-            <li>It must be factorable into exactly three integers, each &le; 10.</li>
-          </ol>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Are Prime-Number RPN Scores Possible?</h4>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">Yes, but only 2, 3, 5, and 7. Any larger prime (such as 11, 13, 17, 19) requires a factor greater than 10, which violates the 1-10 rating scale.</p>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Is RPN 750 Possible?</h4>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">No. Even though 750 does not have prime factors greater than 7, it cannot be formed by three factors &le; 10. (750 = 5 &times; 5 &times; 30, and you cannot break 30 into two numbers &le; 10). The closest reachable values are 720 and 800.</p>
-          
+        {/* -- RPN Reachability Checker -- */}
+        <Section id="reachability-checker">
+          <SectionTitle>RPN Reachability Checker</SectionTitle>
+          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">Not every number between 1 and 1000 can be an FMEA RPN. A number is reachable only if it can be produced by multiplying three integers from 1 to 10.</p>
+          <div className="mb-6 overflow-x-auto border border-border-subtle">
+            <table className="w-full text-left text-xs">
+              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">RPN</th><th className="px-3 py-1.5 font-mono font-semibold">Reachable?</th><th className="px-3 py-1.5 font-mono font-semibold">Example or Reason</th></tr></thead>
+              <tbody>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">50</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 5 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">60</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">2 &times; 3 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">75</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">3 &times; 5 &times; 5</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">100</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 10 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">101</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">125</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">5 &times; 5 &times; 5</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">150</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">3 &times; 5 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">175</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">5 &times; 5 &times; 7</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">200</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">2 &times; 10 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">333</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">500</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">5 &times; 10 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">750</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">850</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">900</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">9 &times; 10 &times; 10</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">999</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
+                <tr className="border-b border-border-subtle last:border-b-0 hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">1000</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">10 &times; 10 &times; 10</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-reachability-dataset.csv" className="text-premium-velvet underline">Download RPN Reachability Dataset CSV</a>.</p>
           <ReachabilityChecker />
+        </Section>
+
+        {/* -- Is RPN 750 possible? -- */}
+        <Section id="rpn-750-possible">
+          <SectionTitle>Is RPN 750 possible?</SectionTitle>
+          <p className="text-sm leading-relaxed text-body-charcoal">No. RPN 750 is not possible in a traditional 1&ndash;10 FMEA scoring system. RPN must be created by multiplying three integers from 1 to 10. Since 750 cannot be factored into three allowed S/O/D ratings, it is an unreachable RPN value.</p>
+        </Section>
+
+        {/* -- Which RPN values are impossible? -- */}
+        <Section id="impossible-rpn-values">
+          <SectionTitle>Which RPN values are impossible?</SectionTitle>
+          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">In a 1&ndash;10 FMEA scoring system, 880 values between 1 and 1000 are impossible RPN scores. A value is impossible when it cannot be factored into three integers where each factor is between 1 and 10.</p>
+          <div className="mb-6 overflow-x-auto border border-border-subtle">
+            <table className="w-full text-left text-xs">
+              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Range</th><th className="px-3 py-1.5 font-mono font-semibold">Reachable Values</th><th className="px-3 py-1.5 font-mono font-semibold">Impossible Values</th></tr></thead>
+              <tbody>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">1&ndash;100</td><td className="px-3 py-2 font-mono text-premium-velvet">46</td><td className="px-3 py-2 font-mono text-premium-velvet">54</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">101&ndash;200</td><td className="px-3 py-2 font-mono text-premium-velvet">21</td><td className="px-3 py-2 font-mono text-premium-velvet">79</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">201&ndash;300</td><td className="px-3 py-2 font-mono text-premium-velvet">15</td><td className="px-3 py-2 font-mono text-premium-velvet">85</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">301&ndash;400</td><td className="px-3 py-2 font-mono text-premium-velvet">11</td><td className="px-3 py-2 font-mono text-premium-velvet">89</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">401&ndash;500</td><td className="px-3 py-2 font-mono text-premium-velvet">10</td><td className="px-3 py-2 font-mono text-premium-velvet">90</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">501&ndash;600</td><td className="px-3 py-2 font-mono text-premium-velvet">7</td><td className="px-3 py-2 font-mono text-premium-velvet">93</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">601&ndash;700</td><td className="px-3 py-2 font-mono text-premium-velvet">4</td><td className="px-3 py-2 font-mono text-premium-velvet">96</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">701&ndash;800</td><td className="px-3 py-2 font-mono text-premium-velvet">3</td><td className="px-3 py-2 font-mono text-premium-velvet">97</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">801&ndash;900</td><td className="px-3 py-2 font-mono text-premium-velvet">2</td><td className="px-3 py-2 font-mono text-premium-velvet">98</td></tr>
+                <tr className="border-b border-border-subtle last:border-b-0 hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">901&ndash;1000</td><td className="px-3 py-2 font-mono text-premium-velvet">1</td><td className="px-3 py-2 font-mono text-premium-velvet">99</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-impossible-values.csv" className="text-premium-velvet underline">Download Impossible RPN Values CSV</a>.</p>
+        </Section>
+
+        {/* -- Are prime-number RPN scores possible? -- */}
+        <Section id="prime-number-rpn">
+          <SectionTitle>Are prime-number RPN scores possible?</SectionTitle>
+          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">Only four prime-number RPN scores are possible in a 1&ndash;10 FMEA system: 2, 3, 5 and 7. All other prime numbers up to 1000 are unreachable because RPN is produced by multiplying three ratings between 1 and 10.</p>
+          <div className="mb-6 overflow-x-auto border border-border-subtle">
+            <table className="w-full text-left text-xs">
+              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Prime RPN</th><th className="px-3 py-1.5 font-mono font-semibold">Reachable?</th><th className="px-3 py-1.5 font-mono font-semibold">Valid Combination</th></tr></thead>
+              <tbody>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">2</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 2</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">3</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 3</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">5</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 5</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">7</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 7</td></tr>
+                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">11</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">Factor 11 is not allowed</td></tr>
+                <tr className="border-b border-border-subtle last:border-b-0 hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">13</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">Factor 13 is not allowed</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-prime-reachability.csv" className="text-premium-velvet underline">Download Prime RPN Reachability CSV</a>.</p>
+        </Section>
+
+        {/* -- RPN Reachability Rule -- */}
+        <Section id="rpn-reachability-rule">
+          <SectionTitle>RPN Reachability Rule</SectionTitle>
+          <p className="text-sm leading-relaxed text-body-charcoal">An RPN value is reachable only if it can be expressed as S &times; O &times; D where S, O and D are integers from 1 to 10. If no such ordered triple exists, the RPN value is impossible in a traditional 1&ndash;10 FMEA scoring system.</p>
         </Section>
 
         {/* -- Section 10: Highest-Collision RPN Values (NEW) -- */}

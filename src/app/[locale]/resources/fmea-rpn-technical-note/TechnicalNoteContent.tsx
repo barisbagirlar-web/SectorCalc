@@ -34,9 +34,29 @@ const SECTIONS = [
     content: <div><p className="mb-3 text-sm leading-relaxed text-body-charcoal">A 1\u201310 S/O/D system creates 1000 possible input combinations but only <strong>120 unique RPN values</strong>. The remaining 880 values between 1 and 1000 cannot be reached. The reachable score density is 12%.</p><p className="mb-3 text-sm leading-relaxed text-body-charcoal">This sparse, non-uniform space is a direct mathematical property of the RPN multiplication model.</p></div>,
   },
   {
-    id: "impossible-rpn",
-    title: "Impossible RPN Values & Reachability",
-    content: <div><p className="mb-3 text-sm leading-relaxed text-body-charcoal">Between 1 and 1000, 880 values are mathematically impossible to reach using a 1-10 Severity, Occurrence and Detection scoring system.</p><h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">RPN Reachability Rule</h4><p className="mb-3 text-sm leading-relaxed text-body-charcoal">For an RPN to be valid (reachable):</p><ol className="mb-3 list-inside list-decimal space-y-1 text-sm text-body-charcoal"><li>It must be an integer between 1 and 1000.</li><li>Its prime factorization cannot contain any prime number strictly greater than 7 (i.e., no 11, 13, 17, 19, etc.).</li><li>It must be factorable into exactly three integers, each &le; 10.</li></ol><h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Is RPN 750 Possible?</h4><p className="mb-3 text-sm leading-relaxed text-body-charcoal">No. Even though 750 does not have prime factors greater than 7, it cannot be formed by three factors &le; 10. (750 = 5 &times; 5 &times; 30, and you cannot break 30 into two numbers &le; 10).</p><h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Are Prime-Number RPN Scores Possible?</h4><p className="mb-3 text-sm leading-relaxed text-body-charcoal">Yes, but only 2, 3, 5, and 7. Any larger prime requires a factor greater than 10, which violates the 1-10 rating scale.</p></div>,
+    id: "reachability-checker",
+    title: "RPN Reachability Checker",
+    content: <div><p className="mb-3 text-sm leading-relaxed text-body-charcoal">Not every number between 1 and 1000 can be an FMEA RPN. A number is reachable only if it can be produced by multiplying three integers from 1 to 10.</p></div>,
+  },
+  {
+    id: "rpn-750-possible",
+    title: "Is RPN 750 possible?",
+    content: <div><p className="mb-3 text-sm leading-relaxed text-body-charcoal">No. RPN 750 is not possible in a traditional 1&ndash;10 FMEA scoring system. RPN must be created by multiplying three integers from 1 to 10. Since 750 cannot be factored into three allowed S/O/D ratings, it is an unreachable RPN value.</p></div>,
+  },
+  {
+    id: "impossible-rpn-values",
+    title: "Which RPN values are impossible?",
+    content: <div><p className="mb-3 text-sm leading-relaxed text-body-charcoal">In a 1&ndash;10 FMEA scoring system, 880 values between 1 and 1000 are impossible RPN scores. A value is impossible when it cannot be factored into three integers where each factor is between 1 and 10.</p></div>,
+  },
+  {
+    id: "prime-number-rpn",
+    title: "Are prime-number RPN scores possible?",
+    content: <div><p className="mb-3 text-sm leading-relaxed text-body-charcoal">Only four prime-number RPN scores are possible in a 1&ndash;10 FMEA system: 2, 3, 5 and 7. All other prime numbers up to 1000 are unreachable because RPN is produced by multiplying three ratings between 1 and 10.</p></div>,
+  },
+  {
+    id: "rpn-reachability-rule",
+    title: "RPN Reachability Rule",
+    content: <div><p className="text-sm leading-relaxed text-body-charcoal">An RPN value is reachable only if it can be expressed as S &times; O &times; D where S, O and D are integers from 1 to 10. If no such ordered triple exists, the RPN value is impossible in a traditional 1&ndash;10 FMEA scoring system.</p></div>,
   },
   {
     id: "collision-analysis",
