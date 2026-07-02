@@ -25,13 +25,13 @@ export function CalculationFeedbackButton(props: CalculationFeedbackButtonProps)
         className="mt-4 rounded-lg border border-slate-200 bg-slate-50/80 p-4"
         data-calculation-feedback-button="true"
       >
-        <p className="text-sm font-medium text-slate-900">{t("prompt")}</p>
+        <p className="text-sm font-medium text-slate-900">Have feedback or spotted an issue?</p>
         <button
           type="button"
           className="mt-2 min-h-[44px] text-sm font-semibold text-blue-700 hover:underline"
           onClick={() => setOpen(true)}
         >
-          {t("cta")}
+          Send Feedback
         </button>
       </aside>
       {open ? (

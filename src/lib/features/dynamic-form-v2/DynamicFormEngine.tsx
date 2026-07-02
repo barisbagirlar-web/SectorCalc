@@ -778,7 +778,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
             <div className="card">
               <h3>PRIMARY READOUTS</h3>
               <div className="kpis">
-                {(tool.ui_contract.result_cards || []).map((id) => {
+                {Array.from(new Set(tool.ui_contract.result_cards || [])).map((id) => {
                   const m = outMeta(id);
                   const [val, unit] = valFmt(m, computed[id], ccy);
                   const isPrimary = id === tool.ui_contract.primary;

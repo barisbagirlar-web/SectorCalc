@@ -16,9 +16,9 @@ import { buildAcademicTeamProfileJsonLd } from "@/lib/features/semantic/build-ac
 
 type PageProps = { params: Promise<{  slug: string }> };
 
-export const generateStaticParams = async () => {
+export async function generateStaticParams() {
   return DYNAMIC_ACADEMIC_TEAM_SLUGS.map((slug) => ({ slug }));
-};
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
