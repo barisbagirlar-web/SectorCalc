@@ -22,9 +22,10 @@
     "guard:universal-renderer": "node scripts/sectorcalc-universal-renderer-guard.mjs",
     "guard:balanced-input-fields": "node scripts/sectorcalc-balanced-input-fields-guard.mjs",
     "guard:header-clickability": "node scripts/sectorcalc-header-controls-clickability-guard.mjs",
+    "guard:turkish": "node scripts/zero-tolerance-turkish-guard.mjs",
     "generate:sitemap-static": "tsx scripts/generate-sitemap-static.ts",
     "validate:translations": "node scripts/validate-schema-translations.mjs",
-    "prebuild": "npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts",
+    "prebuild": "node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts",
     "audit:runtime": "tsx scripts/audit-premium-runtime.ts"
   },
   "dependencies": {
