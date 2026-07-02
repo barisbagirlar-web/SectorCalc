@@ -5,7 +5,7 @@ export interface _0_100_kmh_acceleration_calculatorInput {
   dataConfidence?: number;
   kutle: number;
   tork: number;
-  cekişKatsayisi: number;
+  tractionCoefficient: number;
   havaDirenci: number;
 }
 
@@ -13,7 +13,7 @@ export const _0_100_kmh_acceleration_calculatorInputSchema = z.object({
   dataConfidence: z.number().optional(),
   kutle: z.number().min(0).default(1500),
   tork: z.number().min(0).default(300),
-  cekişKatsayisi: z.number().min(0).default(0.8),
+  tractionCoefficient: z.number().min(0).default(0.8),
   havaDirenci: z.number().min(0).default(500),
 });
 
@@ -23,7 +23,7 @@ function toNumericFormulaValue(value: number): number {
 
 function evaluateAllFormulas(input: _0_100_kmh_acceleration_calculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  try { const v = ((input["tork"] * input["cekişKatsayisi"]) - input["havaDirenci"]) / Math.max(0.0001, input["kutle"]); results["ivme"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ivme"] = Number.NaN; }
+  try { const v = ((input["tork"] * input["tractionCoefficient"]) - input["havaDirenci"]) / Math.max(0.0001, input["kutle"]); results["ivme"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["ivme"] = Number.NaN; }
   try { const v = (100 / 3.6) / Math.max(0.0001, results["ivme"]); results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }

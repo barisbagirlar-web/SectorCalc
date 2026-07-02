@@ -123,7 +123,7 @@ function lintInputs(inputs: readonly PremiumInputSchema[], schemaId: string): Sc
   }
 
   for (const input of inputs) {
-    if (!input.label.trim() || !input.helper.trim()) {
+    if (!input.label?.trim() || !input.helper?.trim()) {
       issues.push(
         issue("warning", "INPUT_COPY", `Input "${input.id}" missing label or helper text.`, input.id)
       );
@@ -158,7 +158,7 @@ export function lintPremiumCalculatorSchema(schema: PremiumCalculatorSchema): Sc
   const errors: SchemaLintIssue[] = [];
   const warnings: SchemaLintIssue[] = [];
 
-  if (!schema.id.trim() || !schema.name.trim()) {
+  if (!schema.id?.trim() || !schema.name?.trim()) {
     errors.push(issue("error", "SCHEMA_ID", "Schema must have id and name."));
   }
 
@@ -241,7 +241,7 @@ export function lintPremiumCalculatorSchema(schema: PremiumCalculatorSchema): Sc
           )
         );
       }
-      if (!param.trim()) {
+      if (!param?.trim()) {
         errors.push(issue("error", "EMPTY_PARAM", "inputMap parameter keys must be non-empty.", stepPath));
       }
     }

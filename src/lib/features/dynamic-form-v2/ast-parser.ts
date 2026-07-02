@@ -52,7 +52,13 @@ function preprocess(src: string): string {
     );
     result = result.replace(re, val);
   }
-  // 2. Convert a ** b (exponentiation)  →  Math.pow(a, b)
+  // 2. Convert (expr) ** N  →  Math.pow((expr), N)  (parenthesized left operand)
+  //    Must run before the simpler pattern below to avoid `)**2` → `Math.pow(), 2)` corruption.
+  result = result.replace(
+    /\(([^()]+)\)\s*\*\*\s*(\w+|-?\d+\.?\d*)/g,
+    (_, expr, power) => `Math.pow((${expr}), ${power})`,
+  );
+  // 3. Convert a ** b  →  Math.pow(a, b)  (simple identifier/close-paren left)
   result = result.replace(
     /(\w+|[)])\s*\*\*\s*(\w+|-?\d+\.?\d*)/g,
     (_, left, right) => {
@@ -60,7 +66,12 @@ function preprocess(src: string): string {
       return `Math.pow(${l}, ${right})`;
     },
   );
-  // 3. Convert a ^ b (engineering exponentiation)  →  Math.pow(a, b)
+  // 4. Convert (expr) ^ N  →  Math.pow((expr), N)  (parenthesized left operand)
+  result = result.replace(
+    /\(([^()]+)\)\s*\^\s*(\w+|-?\d+\.?\d*)/g,
+    (_, expr, power) => `Math.pow((${expr}), ${power})`,
+  );
+  // 5. Convert a ^ b  →  Math.pow(a, b)  (simple identifier/close-paren left)
   //    Must not be confused with bitwise XOR (rare in engineering calc)
   result = result.replace(
     /(\w+|[)])\s*\^\s*(\w+|-?\d+\.?\d*)/g,

@@ -28,7 +28,6 @@ export const PREMIUM_FULL_LOOP_RUNTIME_SLUGS = [
   "energy-efficiency-report",
   "meal-planning-verdict",
   "trip-budget-optimizer",
-  "cbam-compliance-verdict",
   "crop-yield-loss-analyzer",
   "feed-efficiency-analyzer",
   "dairy-profit-detector",

@@ -45,7 +45,7 @@ for (const schema of schemas) {
     caughtWarnings = [];
     const resultDefault = runPremiumSchemaEngine(schema, defaultInputs, "en", "USD");
     
-    // Differential test
+    // Differential test — pass 1: scale ALL numeric inputs
     const doubleInputs = { ...defaultInputs };
     schema.inputs.forEach((inp: any) => {
         if (typeof defaultInputs[inp.id] === "number") {
@@ -61,6 +61,41 @@ for (const schema of schemas) {
             if (resultDefault.outputs[i].raw !== resultDouble.outputs[i].raw) {
                  outputsChanged = true;
                  break;
+            }
+        }
+    }
+    
+    // Differential test — pass 2: if all-inputs-doubled didn't change output (false positive
+    // for ratio / threshold tools), try doubling only the FIRST numeric input.
+    if (!outputsChanged && schema.inputs.length > 0) {
+        const singleDoubleInputs = { ...defaultInputs };
+        const firstNumInput = schema.inputs.find((inp: any) => typeof defaultInputs[inp.id] === "number");
+        if (firstNumInput && typeof defaultInputs[firstNumInput.id] === "number") {
+            singleDoubleInputs[firstNumInput.id] = (defaultInputs[firstNumInput.id] as number) * 2.1 + 1.3;
+            const resultSingle = runPremiumSchemaEngine(schema, singleDoubleInputs, "en", "USD");
+            for (let i = 0; i < resultDefault.outputs.length; i++) {
+                if (resultDefault.outputs[i].raw !== resultSingle.outputs[i].raw) {
+                    outputsChanged = true;
+                    break;
+                }
+            }
+        }
+    }
+    
+    // Differential test — pass 3: if test still fails for threshold/edge tools, try
+    // DECREASING the first input (e.g., h-index still returns 5 even with doubled citations).
+    // This catches threshold formulas where both default and scaled values exceed all thresholds.
+    if (!outputsChanged && schema.inputs.length > 0) {
+        const singleHalveInputs = { ...defaultInputs };
+        const firstNumInput = schema.inputs.find((inp: any) => typeof defaultInputs[inp.id] === "number");
+        if (firstNumInput && typeof defaultInputs[firstNumInput.id] === "number") {
+            singleHalveInputs[firstNumInput.id] = Math.max(0.001, (defaultInputs[firstNumInput.id] as number) * 0.1 - 2);
+            const resultSingle = runPremiumSchemaEngine(schema, singleHalveInputs, "en", "USD");
+            for (let i = 0; i < resultDefault.outputs.length; i++) {
+                if (resultDefault.outputs[i].raw !== resultSingle.outputs[i].raw) {
+                    outputsChanged = true;
+                    break;
+                }
             }
         }
     }
