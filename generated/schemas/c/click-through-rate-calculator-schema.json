@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tiklama",
-      "label": "Clicks",
+      "label": "Tıklama (Adet)",
       "label_i18n": {
         "en": "Clicks",
         "tr": "Tıklama (Adet)",
@@ -20,7 +20,7 @@
       "unit": "clicks",
       "default": 500,
       "min": 0,
-      "businessContext": "Ad clicks.",
+      "businessContext": "Reklama yapılan tıklamalar.",
       "businessContext_i18n": {
         "en": "Ad clicks.",
         "tr": "Reklama yapılan tıklamalar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gosterim",
-      "label": "Impressions",
+      "label": "Gösterim (Adet)",
       "label_i18n": {
         "en": "Impressions",
         "tr": "Gösterim (Adet)",
@@ -45,7 +45,7 @@
       "unit": "impressions",
       "default": 50000,
       "min": 1,
-      "businessContext": "Ad display count.",
+      "businessContext": "Reklamın görüntülenme sayısı.",
       "businessContext_i18n": {
         "en": "Ad display count.",
         "tr": "Reklamın görüntülenme sayısı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Click-Through Rate (CTR)"
+      "sonuc": "Tıklama Oranı (CTR)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Click-Through Rate (CTR)",
+        "en": "Tıklama Oranı (CTR)",
         "tr": "Tıklama Oranı (CTR)",
         "de": "Klickrate (CTR)",
         "fr": "Taux de clics (CTR)",

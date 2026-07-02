@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Flow Rate (m³/s)",
+      "label": "Debi (m³/s)",
       "label_i18n": {
         "en": "Flow Rate (m³/s)",
         "tr": "Debi (m³/s)",
@@ -20,7 +20,7 @@
       "unit": "m3/s",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Liquid flow rate.",
+      "businessContext": "Sıvının akış debisi.",
       "businessContext_i18n": {
         "en": "Liquid flow rate.",
         "tr": "Sıvının akış debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "basincDusumu",
-      "label": "Pressure Drop (Pa)",
+      "label": "Basınç Düşümü (Pa)",
       "label_i18n": {
         "en": "Pressure Drop (Pa)",
         "tr": "Basınç Düşümü (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "Total pipe pressure loss.",
+      "businessContext": "Borudaki toplam basınç kaybı.",
       "businessContext_i18n": {
         "en": "Total pipe pressure loss.",
         "tr": "Borudaki toplam basınç kaybı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pompaVerim",
-      "label": "Pump Efficiency (%)",
+      "label": "Pompa Verimi (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "Pump efficiency.",
+      "businessContext": "Pompa verim yüzdesi.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verim yüzdesi.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Required Pump Power"
+      "sonuc": "Gereken Pompa Gücü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Pump Power",
+        "en": "Gereken Pompa Gücü",
         "tr": "Gereken Pompa Gücü",
         "de": "Required Pump Power",
         "fr": "Puissance de pompe requise",

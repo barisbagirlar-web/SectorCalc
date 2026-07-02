@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "E",
-      "label": "Equity (USD)",
+      "label": "Özsermaye (₺)",
       "label_i18n": {
         "en": "Equity (USD)",
         "tr": "Özsermaye (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total equity value.",
+      "businessContext": "Şirketin toplam özsermayesi.",
       "businessContext_i18n": {
         "en": "Total equity value.",
         "tr": "Şirketin toplam özsermayesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "D",
-      "label": "Debt (USD)",
+      "label": "Borç (₺)",
       "label_i18n": {
         "en": "Debt (USD)",
         "tr": "Borç (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total debt.",
+      "businessContext": "Şirketin toplam borcu.",
       "businessContext_i18n": {
         "en": "Total debt.",
         "tr": "Şirketin toplam borcu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "Re",
-      "label": "Cost of Equity (%)",
+      "label": "Özsermaye Maliyeti (%)",
       "label_i18n": {
         "en": "Cost of Equity (%)",
         "tr": "Özsermaye Maliyeti (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Expected return for shareholders.",
+      "businessContext": "Hissedarların beklediği getiri.",
       "businessContext_i18n": {
         "en": "Expected return for shareholders.",
         "tr": "Hissedarların beklediği getiri.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "Rd",
-      "label": "Cost of Debt (%)",
+      "label": "Borç Maliyeti (%)",
       "label_i18n": {
         "en": "Cost of Debt (%)",
         "tr": "Borç Maliyeti (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Company's borrowing cost.",
+      "businessContext": "Şirketin borçlanma maliyeti.",
       "businessContext_i18n": {
         "en": "Company's borrowing cost.",
         "tr": "Şirketin borçlanma maliyeti.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "vergi",
-      "label": "Tax Rate (%)",
+      "label": "Vergi Oranı (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Corporate tax rate.",
+      "businessContext": "Kurumlar vergisi oranı.",
       "businessContext_i18n": {
         "en": "Corporate tax rate.",
         "tr": "Kurumlar vergisi oranı.",
@@ -145,11 +145,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "WACC (Weighted Average Cost of Capital)"
+      "sonuc": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "WACC (Weighted Average Cost of Capital)",
+        "en": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
         "tr": "AOSM (Ağırlıklı Ortalama Sermaye Maliyeti)",
         "de": "WACC (Weighted Average Cost of Capital)",
         "fr": "WACC (Coût moyen pondéré du capital)",

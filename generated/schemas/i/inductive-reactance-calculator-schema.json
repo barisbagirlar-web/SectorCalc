@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Frequency (Hz)",
+      "label": "Frekans (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
         "tr": "Frekans (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 50,
       "min": 0,
-      "businessContext": "AC signal frequency.",
+      "businessContext": "AC sinyal frekansı.",
       "businessContext_i18n": {
         "en": "AC signal frequency.",
         "tr": "AC sinyal frekansı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "induktans",
-      "label": "Inductance (H)",
+      "label": "İndüktans (H)",
       "label_i18n": {
         "en": "Inductance (H)",
         "tr": "İndüktans (H)",
@@ -45,7 +45,7 @@
       "unit": "H",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Inductor value.",
+      "businessContext": "Bobin değeri.",
       "businessContext_i18n": {
         "en": "Inductor value.",
         "tr": "Bobin değeri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ohms",
     "breakdown": {
-      "sonuc": "Inductive Reactance (Xl)"
+      "sonuc": "Endüktif Reaktans (Xl)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Inductive Reactance (Xl)",
+        "en": "Endüktif Reaktans (Xl)",
         "tr": "Endüktif Reaktans (Xl)",
         "de": "Induktiver Blindwiderstand (Xl)",
         "fr": "Réactance inductive (Xl)",

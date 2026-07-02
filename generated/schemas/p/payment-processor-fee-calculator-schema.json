@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satis",
-      "label": "Sale Amount (USD)",
+      "label": "Satış Tutarı (TL)",
       "label_i18n": {
         "en": "Sale Amount (USD)",
         "tr": "Satış Tutarı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Amount charged to customer.",
+      "businessContext": "Müşteriden tahsil edilen tutar.",
       "businessContext_i18n": {
         "en": "Amount charged to customer.",
         "tr": "Müşteriden tahsil edilen tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yuzde",
-      "label": "Percentage Fee (%)",
+      "label": "Yüzde Kesinti (%)",
       "label_i18n": {
         "en": "Percentage Fee (%)",
         "tr": "Yüzde Kesinti (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2.9,
       "min": 0,
-      "businessContext": "Transaction percentage.",
+      "businessContext": "İşlem yüzdesi.",
       "businessContext_i18n": {
         "en": "Transaction percentage.",
         "tr": "İşlem yüzdesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabit",
-      "label": "Fixed Fee (USD)",
+      "label": "Sabit Kesinti (TL)",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
         "tr": "Sabit Kesinti (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 2.35,
       "min": 0,
-      "businessContext": "Fixed transaction fee.",
+      "businessContext": "Sabit işlem ücreti.",
       "businessContext_i18n": {
         "en": "Fixed transaction fee.",
         "tr": "Sabit işlem ücreti.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Credited Amount"
+      "sonuc": "Net Hesaba Geçen Tutar"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Credited Amount",
+        "en": "Net Hesaba Geçen Tutar",
         "tr": "Net Hesaba Geçen Tutar",
         "de": "Netto-Gutschriftbetrag",
         "fr": "Montant net crédité",

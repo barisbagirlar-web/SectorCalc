@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hisseFiyati",
-      "label": "Share Price (USD)",
+      "label": "Hisse Fiyatı (₺)",
       "label_i18n": {
         "en": "Share Price (USD)",
         "tr": "Hisse Fiyatı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Current market price per share.",
+      "businessContext": "Hisse senedinin güncel piyasa fiyatı.",
       "businessContext_i18n": {
         "en": "Current market price per share.",
         "tr": "Hisse senedinin güncel piyasa fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hisseBasiKar",
-      "label": "Earnings Per Share (USD)",
+      "label": "Hisse Başı Kâr (₺)",
       "label_i18n": {
         "en": "Earnings Per Share (USD)",
         "tr": "Hisse Başı Kâr (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Net earnings per share.",
+      "businessContext": "Şirketin hisse başına düşen net kârı.",
       "businessContext_i18n": {
         "en": "Net earnings per share.",
         "tr": "Şirketin hisse başına düşen net kârı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "P/E Ratio"
+      "sonuc": "F/K (P/E) Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "P/E Ratio",
+        "en": "F/K (P/E) Oranı",
         "tr": "F/K (P/E) Oranı",
         "de": "Kurs-Gewinn-Verhältnis (KGV)",
         "fr": "Ratio P/E (Price/Earnings)",

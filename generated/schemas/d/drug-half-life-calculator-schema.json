@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yarilanmaOmru",
-      "label": "Half-Life (Hours)",
+      "label": "Yarılanma Ömrü (Saat)",
       "label_i18n": {
         "en": "Half-Life (Hours)",
         "tr": "Yarılanma Ömrü (Saat)",
@@ -20,7 +20,7 @@
       "unit": "h",
       "default": 12,
       "min": 0,
-      "businessContext": "Drug elimination half-life.",
+      "businessContext": "İlacın vücuttan yarılanma süresi.",
       "businessContext_i18n": {
         "en": "Drug elimination half-life.",
         "tr": "İlacın vücuttan yarılanma süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dozAraligi",
-      "label": "Dosing Interval (Hours)",
+      "label": "Doz Aralığı (Saat)",
       "label_i18n": {
         "en": "Dosing Interval (Hours)",
         "tr": "Doz Aralığı (Saat)",
@@ -45,7 +45,7 @@
       "unit": "h",
       "default": 8,
       "min": 0,
-      "businessContext": "Time between doses.",
+      "businessContext": "İlaç alma sıklığı.",
       "businessContext_i18n": {
         "en": "Time between doses.",
         "tr": "İlaç alma sıklığı.",
@@ -70,11 +70,11 @@
     "primary": "sonuc",
     "unit": "factor",
     "breakdown": {
-      "sonuc": "Accumulation Factor"
+      "sonuc": "Birikim Faktörü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Accumulation Factor",
+        "en": "Birikim Faktörü",
         "tr": "Birikim Faktörü",
         "de": "Akkumulationsfaktor",
         "fr": "Facteur d'Accumulation",

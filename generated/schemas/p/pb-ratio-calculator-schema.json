@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "piyasaDegeri",
-      "label": "Market Cap (USD)",
+      "label": "Piyasa Değeri (₺)",
       "label_i18n": {
         "en": "Market Cap (USD)",
         "tr": "Piyasa Değeri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Total market capitalization.",
+      "businessContext": "Şirketin toplam piyasa değeri.",
       "businessContext_i18n": {
         "en": "Total market capitalization.",
         "tr": "Şirketin toplam piyasa değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ozsermaye",
-      "label": "Shareholders Equity (USD)",
+      "label": "Özsermaye (₺)",
       "label_i18n": {
         "en": "Shareholders Equity (USD)",
         "tr": "Özsermaye (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 3000000,
       "min": 0,
-      "businessContext": "Book value of shareholders equity.",
+      "businessContext": "Şirketin defter değeri.",
       "businessContext_i18n": {
         "en": "Book value of shareholders equity.",
         "tr": "Şirketin defter değeri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "P/B Ratio"
+      "sonuc": "PD/DD (P/B) Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "P/B Ratio",
+        "en": "PD/DD (P/B) Oranı",
         "tr": "PD/DD (P/B) Oranı",
         "de": "Kurs-Buchwert-Verhältnis (P/B)",
         "fr": "Ratio P/B (Price/Book)",

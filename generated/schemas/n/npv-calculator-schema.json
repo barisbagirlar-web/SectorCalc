@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nakit1",
-      "label": "Year 1 Cash Flow (USD)",
+      "label": "1. Yıl Nakit Akışı (₺)",
       "label_i18n": {
         "en": "Year 1 Cash Flow (USD)",
         "tr": "1. Yıl Nakit Akışı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "First year cash flow.",
+      "businessContext": "Projenin ilk yıl nakit akışı.",
       "businessContext_i18n": {
         "en": "First year cash flow.",
         "tr": "Projenin ilk yıl nakit akışı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "nakit2",
-      "label": "Year 2 Cash Flow (USD)",
+      "label": "2. Yıl Nakit Akışı (₺)",
       "label_i18n": {
         "en": "Year 2 Cash Flow (USD)",
         "tr": "2. Yıl Nakit Akışı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 40000,
       "min": 0,
-      "businessContext": "Second year cash flow.",
+      "businessContext": "Projenin ikinci yıl nakit akışı.",
       "businessContext_i18n": {
         "en": "Second year cash flow.",
         "tr": "Projenin ikinci yıl nakit akışı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "nakit3",
-      "label": "Year 3 Cash Flow (USD)",
+      "label": "3. Yıl Nakit Akışı (₺)",
       "label_i18n": {
         "en": "Year 3 Cash Flow (USD)",
         "tr": "3. Yıl Nakit Akışı (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Third year cash flow.",
+      "businessContext": "Projenin üçüncü yıl nakit akışı.",
       "businessContext_i18n": {
         "en": "Third year cash flow.",
         "tr": "Projenin üçüncü yıl nakit akışı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "nakit4",
-      "label": "Year 4 Cash Flow (USD)",
+      "label": "4. Yıl Nakit Akışı (₺)",
       "label_i18n": {
         "en": "Year 4 Cash Flow (USD)",
         "tr": "4. Yıl Nakit Akışı (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 35000,
       "min": 0,
-      "businessContext": "Fourth year cash flow.",
+      "businessContext": "Projenin dördüncü yıl nakit akışı.",
       "businessContext_i18n": {
         "en": "Fourth year cash flow.",
         "tr": "Projenin dördüncü yıl nakit akışı.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "nakit5",
-      "label": "Year 5 Cash Flow (USD)",
+      "label": "5. Yıl Nakit Akışı (₺)",
       "label_i18n": {
         "en": "Year 5 Cash Flow (USD)",
         "tr": "5. Yıl Nakit Akışı (₺)",
@@ -120,7 +120,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Fifth year cash flow.",
+      "businessContext": "Projenin beşinci yıl nakit akışı.",
       "businessContext_i18n": {
         "en": "Fifth year cash flow.",
         "tr": "Projenin beşinci yıl nakit akışı.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "iskonto",
-      "label": "Discount Rate (%)",
+      "label": "İskonto Oranı (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
         "tr": "İskonto Oranı (%)",
@@ -145,7 +145,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Discount rate reflecting cost of capital.",
+      "businessContext": "Sermaye maliyetini yansıtan iskonto oranı.",
       "businessContext_i18n": {
         "en": "Discount rate reflecting cost of capital.",
         "tr": "Sermaye maliyetini yansıtan iskonto oranı.",
@@ -157,7 +157,7 @@
     },
     {
       "id": "yatirim",
-      "label": "Initial Investment (USD)",
+      "label": "Başlangıç Yatırımı (₺)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Başlangıç Yatırımı (₺)",
@@ -170,7 +170,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Initial project investment.",
+      "businessContext": "Projenin başlangıç yatırım tutarı.",
       "businessContext_i18n": {
         "en": "Initial project investment.",
         "tr": "Projenin başlangıç yatırım tutarı.",
@@ -199,11 +199,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Present Value (NPV)"
+      "sonuc": "Net Bugünkü Değer (NPV)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Present Value (NPV)",
+        "en": "Net Bugünkü Değer (NPV)",
         "tr": "Net Bugünkü Değer (NPV)",
         "de": "Nettobarwert (NPV)",
         "fr": "Valeur actuelle nette (VAN)",

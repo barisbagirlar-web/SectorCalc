@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "maksSinyalFrekansi",
-      "label": "Max Signal Frequency (Hz)",
+      "label": "Maks. Sinyal Frekansı (Hz)",
       "label_i18n": {
         "en": "Max Signal Frequency (Hz)",
         "tr": "Maks. Sinyal Frekansı (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 100,
       "min": 0,
-      "businessContext": "Highest frequency component.",
+      "businessContext": "Sinyaldeki en yüksek frekans bileşeni.",
       "businessContext_i18n": {
         "en": "Highest frequency component.",
         "tr": "Sinyaldeki en yüksek frekans bileşeni.",
@@ -44,11 +44,11 @@
     "primary": "sonuc",
     "unit": "Hz",
     "breakdown": {
-      "sonuc": "Min Sampling Rate"
+      "sonuc": "Min. Örnekleme Hızı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Min Sampling Rate",
+        "en": "Min. Örnekleme Hızı",
         "tr": "Min. Örnekleme Hızı",
         "de": "Min. Sampling Rate",
         "fr": "Vitesse d'échantillonnage min.",

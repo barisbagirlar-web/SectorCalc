@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nopat",
-      "label": "NOPAT (USD)",
+      "label": "NOPAT (₺)",
       "label_i18n": {
         "en": "NOPAT (USD)",
         "tr": "NOPAT (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Net operating profit after tax.",
+      "businessContext": "Vergi sonrası net faaliyet kârı.",
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
         "tr": "Vergi sonrası net faaliyet kârı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yatirilanSermaye",
-      "label": "Invested Capital (USD)",
+      "label": "Yatırılan Sermaye (₺)",
       "label_i18n": {
         "en": "Invested Capital (USD)",
         "tr": "Yatırılan Sermaye (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Total invested capital.",
+      "businessContext": "Toplam yatırılmış sermaye.",
       "businessContext_i18n": {
         "en": "Total invested capital.",
         "tr": "Toplam yatırılmış sermaye.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "ROIC (Return on Invested Capital)"
+      "sonuc": "ROIC (Yatırılan Sermaye Getirisi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "ROIC (Return on Invested Capital)",
+        "en": "ROIC (Yatırılan Sermaye Getirisi)",
         "tr": "ROIC (Yatırılan Sermaye Getirisi)",
         "de": "ROIC (Rendite auf das investierte Kapital)",
         "fr": "ROIC (Rendement du capital investi)",

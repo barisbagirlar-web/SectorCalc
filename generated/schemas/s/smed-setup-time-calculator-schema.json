@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "icAyar",
-      "label": "Internal Setup (Min)",
+      "label": "İç Ayar Süresi (Dk)",
       "label_i18n": {
         "en": "Internal Setup (Min)",
         "tr": "İç Ayar Süresi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "Setup done while machine stopped.",
+      "businessContext": "Makine dururken yapılan ayar.",
       "businessContext_i18n": {
         "en": "Setup done while machine stopped.",
         "tr": "Makine dururken yapılan ayar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "disAyar",
-      "label": "External Setup (Min)",
+      "label": "Dış Ayar Süresi (Dk)",
       "label_i18n": {
         "en": "External Setup (Min)",
         "tr": "Dış Ayar Süresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 15,
       "min": 0,
-      "businessContext": "Setup done while machine runs.",
+      "businessContext": "Makine çalışırken yapılan ayar.",
       "businessContext_i18n": {
         "en": "Setup done while machine runs.",
         "tr": "Makine çalışırken yapılan ayar.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "donusum",
-      "label": "Conversion Rate (%)",
+      "label": "İç-Dış Dönüşüm Oranı (%)",
       "label_i18n": {
         "en": "Conversion Rate (%)",
         "tr": "İç-Dış Dönüşüm Oranı (%)",
@@ -71,7 +71,7 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Percentage of internal converted to external.",
+      "businessContext": "İç ayarın ne kadarının dışa dönüştüğü.",
       "businessContext_i18n": {
         "en": "Percentage of internal converted to external.",
         "tr": "İç ayarın ne kadarının dışa dönüştüğü.",
@@ -96,11 +96,11 @@
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "New Setup Time"
+      "sonuc": "Yeni Setup Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "New Setup Time",
+        "en": "Yeni Setup Süresi",
         "tr": "Yeni Setup Süresi",
         "de": "Neue Rüstzeit",
         "fr": "Temps de nouveau réglage",

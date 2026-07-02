@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Uniform Load (N/m)",
+      "label": "Yayılı Yük (N/m)",
       "label_i18n": {
         "en": "Uniform Load (N/m)",
         "tr": "Yayılı Yük (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 5000,
       "min": 0,
-      "businessContext": "Load per unit length.",
+      "businessContext": "Birim boya gelen yük.",
       "businessContext_i18n": {
         "en": "Load per unit length.",
         "tr": "Birim boya gelen yük.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Span (m)",
+      "label": "Açıklık (m)",
       "label_i18n": {
         "en": "Span (m)",
         "tr": "Açıklık (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Beam span between supports.",
+      "businessContext": "Kiriş mesnetler arası mesafe.",
       "businessContext_i18n": {
         "en": "Beam span between supports.",
         "tr": "Kiriş mesnetler arası mesafe.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "elastisiteModulu",
-      "label": "Young's Modulus (Pa)",
+      "label": "Elastisite Modülü (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Elastisite Modülü (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Material modulus.",
+      "businessContext": "Malzeme modülü.",
       "businessContext_i18n": {
         "en": "Material modulus.",
         "tr": "Malzeme modülü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ataletMomenti",
-      "label": "Moment of Inertia (m⁴)",
+      "label": "Atalet Momenti (m⁴)",
       "label_i18n": {
         "en": "Moment of Inertia (m⁴)",
         "tr": "Atalet Momenti (m⁴)",
@@ -95,7 +95,7 @@
       "unit": "m4",
       "default": 0.0000083,
       "min": 0,
-      "businessContext": "Section moment of inertia.",
+      "businessContext": "Kesitin atalet momenti.",
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
         "tr": "Kesitin atalet momenti.",

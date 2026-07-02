@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Investment (USD)",
+      "label": "Yatırım Tutarı (TL)",
       "label_i18n": {
         "en": "Investment (USD)",
         "tr": "Yatırım Tutarı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Note investment amount.",
+      "businessContext": "Nota yatırılan tutar.",
       "businessContext_i18n": {
         "en": "Note investment amount.",
         "tr": "Nota yatırılan tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "degerleme",
-      "label": "Valuation Cap (USD)",
+      "label": "Değerleme Tavanı (TL)",
       "label_i18n": {
         "en": "Valuation Cap (USD)",
         "tr": "Değerleme Tavanı (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Conversion valuation cap.",
+      "businessContext": "Dönüşümdeki tavan değerleme.",
       "businessContext_i18n": {
         "en": "Conversion valuation cap.",
         "tr": "Dönüşümdeki tavan değerleme.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "iskonto",
-      "label": "Discount (%)",
+      "label": "İskonto (%)",
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İskonto (%)",
@@ -71,7 +71,7 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Conversion discount.",
+      "businessContext": "Dönüşüm iskontosu.",
       "businessContext_i18n": {
         "en": "Conversion discount.",
         "tr": "Dönüşüm iskontosu.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "faiz",
-      "label": "Interest (%)",
+      "label": "Faiz (%)",
       "label_i18n": {
         "en": "Interest (%)",
         "tr": "Faiz (%)",
@@ -96,7 +96,7 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Accrued interest.",
+      "businessContext": "Notun birikmiş faizi.",
       "businessContext_i18n": {
         "en": "Accrued interest.",
         "tr": "Notun birikmiş faizi.",
@@ -121,11 +121,11 @@
     "primary": "sonuc",
     "unit": "shares",
     "breakdown": {
-      "sonuc": "Post-Conversion Shares"
+      "sonuc": "Dönüşüm Sonrası Hisse"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Post-Conversion Shares",
+        "en": "Dönüşüm Sonrası Hisse",
         "tr": "Dönüşüm Sonrası Hisse",
         "de": "Aktie nach Konversion",
         "fr": "Action après conversion",

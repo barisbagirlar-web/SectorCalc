@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "basinc",
-      "label": "Liquid Surface Pressure (Pa)",
+      "label": "Sıvı Yüzey Basıncı (Pa)",
       "label_i18n": {
         "en": "Liquid Surface Pressure (Pa)",
         "tr": "Sıvı Yüzey Basıncı (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Tank or atmospheric pressure.",
+      "businessContext": "Tank içi veya atmosfer basıncı.",
       "businessContext_i18n": {
         "en": "Tank or atmospheric pressure.",
         "tr": "Tank içi veya atmosfer basıncı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "buharBasinci",
-      "label": "Vapor Pressure (Pa)",
+      "label": "Sıvının Buhar Basıncı (Pa)",
       "label_i18n": {
         "en": "Vapor Pressure (Pa)",
         "tr": "Sıvının Buhar Basıncı (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 5000,
       "min": 0,
-      "businessContext": "Vapor pressure at pumping temperature.",
+      "businessContext": "Pompalama sıcaklığındaki buhar basıncı.",
       "businessContext_i18n": {
         "en": "Vapor pressure at pumping temperature.",
         "tr": "Pompalama sıcaklığındaki buhar basıncı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Liquid Density (kg/m³)",
+      "label": "Sıvı Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
         "tr": "Sıvı Yoğunluğu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Pumped fluid density.",
+      "businessContext": "Pompalanan sıvının yoğunluğu.",
       "businessContext_i18n": {
         "en": "Pumped fluid density.",
         "tr": "Pompalanan sıvının yoğunluğu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Liquid Level to Pump (m)",
+      "label": "Sıvı Seviyesi-Pompa Kot Farkı (m)",
       "label_i18n": {
         "en": "Liquid Level to Pump (m)",
         "tr": "Sıvı Seviyesi-Pompa Kot Farkı (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Positive if suction lift.",
+      "businessContext": "Pozitifse emme yüksekliği.",
       "businessContext_i18n": {
         "en": "Positive if suction lift.",
         "tr": "Pozitifse emme yüksekliği.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "kayip",
-      "label": "Suction Line Loss (m)",
+      "label": "Emme Hattı Kaybı (m)",
       "label_i18n": {
         "en": "Suction Line Loss (m)",
         "tr": "Emme Hattı Kaybı (m)",
@@ -120,7 +120,7 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Friction loss in suction pipe.",
+      "businessContext": "Sürtünme kaybı.",
       "businessContext_i18n": {
         "en": "Friction loss in suction pipe.",
         "tr": "Sürtünme kaybı.",
@@ -144,11 +144,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "NPSH (Net Positive Suction Head)"
+      "sonuc": "NPSH (Net Pozitif Emme Yüksekliği)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "NPSH (Net Positive Suction Head)",
+        "en": "NPSH (Net Pozitif Emme Yüksekliği)",
         "tr": "NPSH (Net Pozitif Emme Yüksekliği)",
         "de": "NPSH (Net Positive Suction Head)",
         "fr": "NPSH (Hauteur d'aspiration nette positive)",

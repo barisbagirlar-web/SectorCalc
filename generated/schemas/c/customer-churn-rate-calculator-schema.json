@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "donemBasi",
-      "label": "Start Customers",
+      "label": "Dönem Başı Müşteri",
       "label_i18n": {
         "en": "Start Customers",
         "tr": "Dönem Başı Müşteri",
@@ -20,7 +20,7 @@
       "unit": "customers",
       "default": 1000,
       "min": 1,
-      "businessContext": "Active customers at start.",
+      "businessContext": "Dönem başı aktif müşteri.",
       "businessContext_i18n": {
         "en": "Active customers at start.",
         "tr": "Dönem başı aktif müşteri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kaybedilen",
-      "label": "Lost Customers",
+      "label": "Kaybedilen Müşteri",
       "label_i18n": {
         "en": "Lost Customers",
         "tr": "Kaybedilen Müşteri",
@@ -45,7 +45,7 @@
       "unit": "customers",
       "default": 50,
       "min": 0,
-      "businessContext": "Customers lost during period.",
+      "businessContext": "Dönemde kaybedilen müşteri.",
       "businessContext_i18n": {
         "en": "Customers lost during period.",
         "tr": "Dönemde kaybedilen müşteri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Customer Churn"
+      "sonuc": "Müşteri Kaybı (Churn)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Customer Churn",
+        "en": "Müşteri Kaybı (Churn)",
         "tr": "Müşteri Kaybı (Churn)",
         "de": "Kundenabwanderung (Churn)",
         "fr": "Taux d'attrition client (Churn)",

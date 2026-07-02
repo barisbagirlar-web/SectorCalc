@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "temettu",
-      "label": "Gross Dividend (USD)",
+      "label": "Brüt Temettü (₺)",
       "label_i18n": {
         "en": "Gross Dividend (USD)",
         "tr": "Brüt Temettü (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Dividend amount before tax.",
+      "businessContext": "Vergi kesintisi öncesi temettü tutarı.",
       "businessContext_i18n": {
         "en": "Dividend amount before tax.",
         "tr": "Vergi kesintisi öncesi temettü tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "stopaj",
-      "label": "Withholding Rate (%)",
+      "label": "Stopaj Oranı (%)",
       "label_i18n": {
         "en": "Withholding Rate (%)",
         "tr": "Stopaj Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Dividend withholding tax rate.",
+      "businessContext": "Temettüye uygulanan stopaj vergisi.",
       "businessContext_i18n": {
         "en": "Dividend withholding tax rate.",
         "tr": "Temettüye uygulanan stopaj vergisi.",
@@ -70,11 +70,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Dividend"
+      "sonuc": "Net Temettü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Dividend",
+        "en": "Net Temettü",
         "tr": "Net Temettü",
         "de": "Nettodividende",
         "fr": "Dividende Net",

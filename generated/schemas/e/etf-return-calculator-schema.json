@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alisFiyati",
-      "label": "Purchase Price (USD)",
+      "label": "Alış Fiyatı (₺)",
       "label_i18n": {
         "en": "Purchase Price (USD)",
         "tr": "Alış Fiyatı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "ETF purchase price.",
+      "businessContext": "ETF alış fiyatı.",
       "businessContext_i18n": {
         "en": "ETF purchase price.",
         "tr": "ETF alış fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satisFiyati",
-      "label": "Sell Price (USD)",
+      "label": "Satış Fiyatı (₺)",
       "label_i18n": {
         "en": "Sell Price (USD)",
         "tr": "Satış Fiyatı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 115,
       "min": 0,
-      "businessContext": "ETF sell price.",
+      "businessContext": "ETF satış fiyatı.",
       "businessContext_i18n": {
         "en": "ETF sell price.",
         "tr": "ETF satış fiyatı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "temettu",
-      "label": "Dividend (USD)",
+      "label": "Temettü (₺)",
       "label_i18n": {
         "en": "Dividend (USD)",
         "tr": "Temettü (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 2,
       "min": 0,
-      "businessContext": "Dividend distributed.",
+      "businessContext": "Dönem boyunca dağıtılan temettü.",
       "businessContext_i18n": {
         "en": "Dividend distributed.",
         "tr": "Dönem boyunca dağıtılan temettü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "giderOrani",
-      "label": "Expense Ratio (%)",
+      "label": "Gider Oranı (%)",
       "label_i18n": {
         "en": "Expense Ratio (%)",
         "tr": "Gider Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Annual management fee.",
+      "businessContext": "ETF'in yıllık yönetim ücreti.",
       "businessContext_i18n": {
         "en": "Annual management fee.",
         "tr": "ETF'in yıllık yönetim ücreti.",

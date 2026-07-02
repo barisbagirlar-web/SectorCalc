@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ciro",
-      "label": "Revenue (USD)",
+      "label": "Ciro (TL)",
       "label_i18n": {
         "en": "Revenue (USD)",
         "tr": "Ciro (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total revenue.",
+      "businessContext": "Toplam satış geliri.",
       "businessContext_i18n": {
         "en": "Total revenue.",
         "tr": "Toplam satış geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cogs",
-      "label": "COGS (USD)",
+      "label": "SMM (TL)",
       "label_i18n": {
         "en": "COGS (USD)",
         "tr": "SMM (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 600000,
       "min": 0,
-      "businessContext": "Cost of goods sold.",
+      "businessContext": "Satılan mal maliyeti.",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
         "tr": "Satılan mal maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "isletmeGideri",
-      "label": "Operating Expense (USD)",
+      "label": "İşletme Gideri (TL)",
       "label_i18n": {
         "en": "Operating Expense (USD)",
         "tr": "İşletme Gideri (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Operating expenses.",
+      "businessContext": "Faaliyet giderleri.",
       "businessContext_i18n": {
         "en": "Operating expenses.",
         "tr": "Faaliyet giderleri.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "vergi",
-      "label": "Tax (USD)",
+      "label": "Vergi (TL)",
       "label_i18n": {
         "en": "Tax (USD)",
         "tr": "Vergi (TL)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Tax expense.",
+      "businessContext": "Vergi gideri.",
       "businessContext_i18n": {
         "en": "Tax expense.",
         "tr": "Vergi gideri.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "brut": "Gross Profit",
+      "brut": "Brüt Kâr",
       "sonuc": "Net Kâr"
     },
     "breakdown_i18n": {
       "brut": {
-        "en": "Gross Profit",
+        "en": "Brüt Kâr",
         "tr": "Brüt Kâr",
         "de": "Bruttogewinn",
         "fr": "Bénéfice brut",

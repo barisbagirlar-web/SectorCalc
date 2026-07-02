@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Initial Investment (USD)",
+      "label": "Başlangıç Yatırımı (₺)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Başlangıç Yatırımı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Total upfront investment.",
+      "businessContext": "Toplam başlangıç yatırımı.",
       "businessContext_i18n": {
         "en": "Total upfront investment.",
         "tr": "Toplam başlangıç yatırımı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "nakit1",
-      "label": "Year 1 Cash Flow (USD)",
+      "label": "1. Yıl Nakit (₺)",
       "label_i18n": {
         "en": "Year 1 Cash Flow (USD)",
         "tr": "1. Yıl Nakit (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "First year cash inflow.",
+      "businessContext": "İlk yıl nakit girişi.",
       "businessContext_i18n": {
         "en": "First year cash inflow.",
         "tr": "İlk yıl nakit girişi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "nakit2",
-      "label": "Year 2 Cash Flow (USD)",
+      "label": "2. Yıl Nakit (₺)",
       "label_i18n": {
         "en": "Year 2 Cash Flow (USD)",
         "tr": "2. Yıl Nakit (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Second year cash inflow.",
+      "businessContext": "İkinci yıl nakit girişi.",
       "businessContext_i18n": {
         "en": "Second year cash inflow.",
         "tr": "İkinci yıl nakit girişi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "nakit3",
-      "label": "Year 3 Cash Flow (USD)",
+      "label": "3. Yıl Nakit (₺)",
       "label_i18n": {
         "en": "Year 3 Cash Flow (USD)",
         "tr": "3. Yıl Nakit (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Third year cash inflow.",
+      "businessContext": "Üçüncü yıl nakit girişi.",
       "businessContext_i18n": {
         "en": "Third year cash inflow.",
         "tr": "Üçüncü yıl nakit girişi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "iskonto",
-      "label": "Discount Rate (%)",
+      "label": "İskonto Oranı (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
         "tr": "İskonto Oranı (%)",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cost of capital.",
+      "businessContext": "Sermaye maliyeti.",
       "businessContext_i18n": {
         "en": "Cost of capital.",
         "tr": "Sermaye maliyeti.",
@@ -150,11 +150,11 @@
     "primary": "sonuc",
     "unit": "years",
     "breakdown": {
-      "sonuc": "Discounted Payback Period"
+      "sonuc": "İskontolu Geri Ödeme Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Discounted Payback Period",
+        "en": "İskontolu Geri Ödeme Süresi",
         "tr": "İskontolu Geri Ödeme Süresi",
         "de": "Diskontierte Amortisationszeit",
         "fr": "Discounted Payback Period",

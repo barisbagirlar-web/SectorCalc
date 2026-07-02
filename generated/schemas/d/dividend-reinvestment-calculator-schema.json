@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hisse",
-      "label": "Shares Held",
+      "label": "Mevcut Hisse (Adet)",
       "label_i18n": {
         "en": "Shares Held",
         "tr": "Mevcut Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 100,
       "min": 0,
-      "businessContext": "Number of shares owned.",
+      "businessContext": "Sahip olunan hisse adedi.",
       "businessContext_i18n": {
         "en": "Number of shares owned.",
         "tr": "Sahip olunan hisse adedi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "temettu",
-      "label": "Dividend Per Share (USD)",
+      "label": "Hisse Başı Temettü (₺)",
       "label_i18n": {
         "en": "Dividend Per Share (USD)",
         "tr": "Hisse Başı Temettü (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 2,
       "min": 0,
-      "businessContext": "Annual dividend per share.",
+      "businessContext": "Hisse başına ödenen yıllık temettü.",
       "businessContext_i18n": {
         "en": "Annual dividend per share.",
         "tr": "Hisse başına ödenen yıllık temettü.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "fiyat",
-      "label": "Share Price (USD)",
+      "label": "Hisse Fiyatı (₺)",
       "label_i18n": {
         "en": "Share Price (USD)",
         "tr": "Hisse Fiyatı (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Current share price.",
+      "businessContext": "Hisse senedinin güncel fiyatı.",
       "businessContext_i18n": {
         "en": "Current share price.",
         "tr": "Hisse senedinin güncel fiyatı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yil",
-      "label": "Number of Years",
+      "label": "Yıl Sayısı",
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
@@ -95,7 +95,7 @@
       "unit": "years",
       "default": 10,
       "min": 0,
-      "businessContext": "DRIP strategy duration.",
+      "businessContext": "DRIP stratejisinin uygulanacağı süre.",
       "businessContext_i18n": {
         "en": "DRIP strategy duration.",
         "tr": "DRIP stratejisinin uygulanacağı süre.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "getiri",
-      "label": "Expected Annual Return (%)",
+      "label": "Beklenen Yıllık Getiri (%)",
       "label_i18n": {
         "en": "Expected Annual Return (%)",
         "tr": "Beklenen Yıllık Getiri (%)",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Expected annual price appreciation.",
+      "businessContext": "Hisse fiyatının yıllık büyüme beklentisi.",
       "businessContext_i18n": {
         "en": "Expected annual price appreciation.",
         "tr": "Hisse fiyatının yıllık büyüme beklentisi.",
@@ -145,11 +145,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "DRIP Portfolio Value"
+      "sonuc": "DRIP Portföy Değeri"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "DRIP Portfolio Value",
+        "en": "DRIP Portföy Değeri",
         "tr": "DRIP Portföy Değeri",
         "de": "DRIP-Portfoliowert",
         "fr": "Valeur du Portefeuille DRIP",

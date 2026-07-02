@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Wall Area (m²)",
+      "label": "Duvar Alanı (m²)",
       "label_i18n": {
         "en": "Wall Area (m²)",
         "tr": "Duvar Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Wall area.",
+      "businessContext": "Kaplanacak duvar.",
       "businessContext_i18n": {
         "en": "Wall area.",
         "tr": "Kaplanacak duvar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruloEn",
-      "label": "Roll Width (m)",
+      "label": "Rulo Eni (m)",
       "label_i18n": {
         "en": "Roll Width (m)",
         "tr": "Rulo Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.53,
       "min": 0,
-      "businessContext": "Wallpaper roll width.",
+      "businessContext": "Duvar kağıdı rulo eni.",
       "businessContext_i18n": {
         "en": "Wallpaper roll width.",
         "tr": "Duvar kağıdı rulo eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ruloBoy",
-      "label": "Roll Length (m)",
+      "label": "Rulo Boyu (m)",
       "label_i18n": {
         "en": "Roll Length (m)",
         "tr": "Rulo Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Roll length.",
+      "businessContext": "Rulo uzunluğu.",
       "businessContext_i18n": {
         "en": "Roll length.",
         "tr": "Rulo uzunluğu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "desenTekrari",
-      "label": "Pattern Repeat (m)",
+      "label": "Desen Tekrarı (m)",
       "label_i18n": {
         "en": "Pattern Repeat (m)",
         "tr": "Desen Tekrarı (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 0,
       "min": 0,
-      "businessContext": "Pattern repeat length.",
+      "businessContext": "Desen eşleşme aralığı.",
       "businessContext_i18n": {
         "en": "Pattern repeat length.",
         "tr": "Desen eşleşme aralığı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "rolls",
     "breakdown": {
-      "sonuc": "Required Wallpaper Rolls"
+      "sonuc": "Gerekli Duvar Kağıdı Rulosu"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Wallpaper Rolls",
+        "en": "Gerekli Duvar Kağıdı Rulosu",
         "tr": "Gerekli Duvar Kağıdı Rulosu",
         "de": "Required Wallpaper Roll",
         "fr": "Rouleau de papier peint nécessaire",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "duvarUzunlugu",
-      "label": "Wall Length (m)",
+      "label": "Duvar Uzunluğu (m)",
       "label_i18n": {
         "en": "Wall Length (m)",
         "tr": "Duvar Uzunluğu (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 20,
       "min": 0,
-      "businessContext": "Wall length for chair rail.",
+      "businessContext": "Korkuluk çekilecek duvar.",
       "businessContext_i18n": {
         "en": "Wall length for chair rail.",
         "tr": "Korkuluk çekilecek duvar.",

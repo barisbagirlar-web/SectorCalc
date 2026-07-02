@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "risksizFaiz",
-      "label": "Risk-Free Rate (%)",
+      "label": "Risksiz Faiz (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Return on risk-free assets (e.g., government bonds).",
+      "businessContext": "Devlet tahvili gibi risksiz yatırım getirisi.",
       "businessContext_i18n": {
         "en": "Return on risk-free assets (e.g., government bonds).",
         "tr": "Devlet tahvili gibi risksiz yatırım getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "beta",
-      "label": "Beta (Number)",
+      "label": "Beta (Sayı)",
       "label_i18n": {
         "en": "Beta (Number)",
         "tr": "Beta (Sayı)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Stock's sensitivity to market movements.",
+      "businessContext": "Hissenin piyasaya duyarlılık katsayısı.",
       "businessContext_i18n": {
         "en": "Stock's sensitivity to market movements.",
         "tr": "Hissenin piyasaya duyarlılık katsayısı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "piyasaPrimi",
-      "label": "Market Risk Premium (%)",
+      "label": "Piyasa Risk Primi (%)",
       "label_i18n": {
         "en": "Market Risk Premium (%)",
         "tr": "Piyasa Risk Primi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 6,
       "min": 0,
-      "businessContext": "Excess return of market over risk-free rate.",
+      "businessContext": "Piyasanın risksiz faiz üzerindeki getiri fazlası.",
       "businessContext_i18n": {
         "en": "Excess return of market over risk-free rate.",
         "tr": "Piyasanın risksiz faiz üzerindeki getiri fazlası.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Cost of Equity (CAPM)"
+      "sonuc": "Özsermaye Maliyeti (CAPM)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cost of Equity (CAPM)",
+        "en": "Özsermaye Maliyeti (CAPM)",
         "tr": "Özsermaye Maliyeti (CAPM)",
         "de": "Eigenkapitalkosten (CAPM)",
         "fr": "Coût des capitaux propres (CAPM)",

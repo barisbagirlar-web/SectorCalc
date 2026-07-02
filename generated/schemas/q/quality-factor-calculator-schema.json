@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "rezonansFrekans",
-      "label": "Resonant Frequency (Hz)",
+      "label": "Rezonans Frekansı (Hz)",
       "label_i18n": {
         "en": "Resonant Frequency (Hz)",
         "tr": "Rezonans Frekansı (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Circuit resonant frequency.",
+      "businessContext": "Devrenin rezonans frekansı.",
       "businessContext_i18n": {
         "en": "Circuit resonant frequency.",
         "tr": "Devrenin rezonans frekansı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bantGenislik",
-      "label": "Bandwidth (Hz)",
+      "label": "Bant Genişliği (Hz)",
       "label_i18n": {
         "en": "Bandwidth (Hz)",
         "tr": "Bant Genişliği (Hz)",
@@ -45,7 +45,7 @@
       "unit": "Hz",
       "default": 20000,
       "min": 0,
-      "businessContext": "-3 dB bandwidth.",
+      "businessContext": "-3 dB bant genişliği.",
       "businessContext_i18n": {
         "en": "-3 dB bandwidth.",
         "tr": "-3 dB bant genişliği.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "Q",
     "breakdown": {
-      "sonuc": "Quality Factor (Q)"
+      "sonuc": "Kalite Faktörü (Q)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Quality Factor (Q)",
+        "en": "Kalite Faktörü (Q)",
         "tr": "Kalite Faktörü (Q)",
         "de": "Gütefaktor (Q)",
         "fr": "Facteur de qualité (Q)",

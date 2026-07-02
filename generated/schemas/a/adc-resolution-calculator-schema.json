@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bitSayisi",
-      "label": "Number of Bits (N)",
+      "label": "Bit Sayısı (N)",
       "label_i18n": {
         "en": "Number of Bits (N)",
         "tr": "Bit Sayısı (N)",
@@ -21,7 +21,7 @@
       "default": 12,
       "min": 1,
       "max": 32,
-      "businessContext": "ADC resolution bits.",
+      "businessContext": "ADC çözünürlüğü.",
       "businessContext_i18n": {
         "en": "ADC resolution bits.",
         "tr": "ADC çözünürlüğü.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "refVoltaj",
-      "label": "Reference Voltage (V)",
+      "label": "Referans Voltajı (V)",
       "label_i18n": {
         "en": "Reference Voltage (V)",
         "tr": "Referans Voltajı (V)",
@@ -46,7 +46,7 @@
       "unit": "V",
       "default": 5,
       "min": 0,
-      "businessContext": "ADC reference voltage.",
+      "businessContext": "ADC referans gerilimi.",
       "businessContext_i18n": {
         "en": "ADC reference voltage.",
         "tr": "ADC referans gerilimi.",
@@ -72,7 +72,7 @@
     "unit": "dB",
     "breakdown": {
       "LSB": "LSB (V)",
-      "sonuc": "Dynamic Range (dB)"
+      "sonuc": "Dinamik Aralık (dB)"
     },
     "breakdown_i18n": {
       "LSB": {
@@ -84,7 +84,7 @@
         "ar": "البت الأقل أهمية (V)"
       },
       "sonuc": {
-        "en": "Dynamic Range (dB)",
+        "en": "Dinamik Aralık (dB)",
         "tr": "Dinamik Aralık (dB)",
         "de": "Dynamikbereich (dB)",
         "fr": "Plage dynamique (dB)",

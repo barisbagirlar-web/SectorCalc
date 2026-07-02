@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mesafe",
-      "label": "Distance (km)",
+      "label": "Mesafe (km)",
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
@@ -20,7 +20,7 @@
       "unit": "km",
       "default": 500,
       "min": 0,
-      "businessContext": "Transport distance.",
+      "businessContext": "Taşıma mesafesi.",
       "businessContext_i18n": {
         "en": "Transport distance.",
         "tr": "Taşıma mesafesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tonaj",
-      "label": "Weight (Tons)",
+      "label": "Tonaj (Ton)",
       "label_i18n": {
         "en": "Weight (Tons)",
         "tr": "Tonaj (Ton)",
@@ -45,7 +45,7 @@
       "unit": "tons",
       "default": 20,
       "min": 0,
-      "businessContext": "Cargo weight.",
+      "businessContext": "Taşınan yük miktarı.",
       "businessContext_i18n": {
         "en": "Cargo weight.",
         "tr": "Taşınan yük miktarı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "birimFiyat",
-      "label": "Unit Price (USD/ton-km)",
+      "label": "Birim Fiyat (TL/Ton-km)",
       "label_i18n": {
         "en": "Unit Price (USD/ton-km)",
         "tr": "Birim Fiyat (TL/Ton-km)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Rate per ton-km.",
+      "businessContext": "Ton-km başı navlun fiyatı.",
       "businessContext_i18n": {
         "en": "Rate per ton-km.",
         "tr": "Ton-km başı navlun fiyatı.",

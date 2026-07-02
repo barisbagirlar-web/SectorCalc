@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Paving Area (m²)",
+      "label": "Döşeme Alanı (m²)",
       "label_i18n": {
         "en": "Paving Area (m²)",
         "tr": "Döşeme Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to pave.",
+      "businessContext": "Döşenecek alan.",
       "businessContext_i18n": {
         "en": "Area to pave.",
         "tr": "Döşenecek alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tasEn",
-      "label": "Stone Width (m)",
+      "label": "Taş Eni (m)",
       "label_i18n": {
         "en": "Stone Width (m)",
         "tr": "Taş Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Paver width.",
+      "businessContext": "Kilit taşı eni.",
       "businessContext_i18n": {
         "en": "Paver width.",
         "tr": "Kilit taşı eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tasBoy",
-      "label": "Stone Length (m)",
+      "label": "Taş Boyu (m)",
       "label_i18n": {
         "en": "Stone Length (m)",
         "tr": "Taş Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Paver length.",
+      "businessContext": "Kilit taşı boyu.",
       "businessContext_i18n": {
         "en": "Paver length.",
         "tr": "Kilit taşı boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Waste Factor (%)",
+      "label": "Fire Oranı (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Cutting waste.",
+      "businessContext": "Kesim kaybı.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "stones",
     "breakdown": {
-      "sonuc": "Required Paving Stones"
+      "sonuc": "Gerekli Kilit Taşı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Paving Stones",
+        "en": "Gerekli Kilit Taşı",
         "tr": "Gerekli Kilit Taşı",
         "de": "Erforderlicher Keystone",
         "fr": "Pierre angulaire requise",

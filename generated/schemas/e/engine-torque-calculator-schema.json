@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "guc",
-      "label": "Engine Power (kW)",
+      "label": "Motor Gücü (kW)",
       "label_i18n": {
         "en": "Engine Power (kW)",
         "tr": "Motor Gücü (kW)",
@@ -20,7 +20,7 @@
       "unit": "kW",
       "default": 100,
       "min": 0,
-      "businessContext": "Engine output power.",
+      "businessContext": "Motorun ürettiği güç.",
       "businessContext_i18n": {
         "en": "Engine output power.",
         "tr": "Motorun ürettiği güç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "devir",
-      "label": "Engine Speed (RPM)",
+      "label": "Motor Devri (devir/dk)",
       "label_i18n": {
         "en": "Engine Speed (RPM)",
         "tr": "Motor Devri (devir/dk)",
@@ -45,7 +45,7 @@
       "unit": "rpm",
       "default": 3000,
       "min": 0,
-      "businessContext": "Crankshaft speed.",
+      "businessContext": "Krank mili devri.",
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
         "tr": "Krank mili devri.",

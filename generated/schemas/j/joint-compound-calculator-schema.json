@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Drywall Area (m²)",
+      "label": "Alçıpan Alanı (m²)",
       "label_i18n": {
         "en": "Drywall Area (m²)",
         "tr": "Alçıpan Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 80,
       "min": 0,
-      "businessContext": "Total drywall area.",
+      "businessContext": "Toplam alçıpan yüzeyi.",
       "businessContext_i18n": {
         "en": "Total drywall area.",
         "tr": "Toplam alçıpan yüzeyi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sarfiyat",
-      "label": "Consumption (kg/m²)",
+      "label": "Sarfiyat (kg/m²)",
       "label_i18n": {
         "en": "Consumption (kg/m²)",
         "tr": "Sarfiyat (kg/m²)",
@@ -45,7 +45,7 @@
       "unit": "kg/m2",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Joint compound per m².",
+      "businessContext": "m² başı macun tüketimi.",
       "businessContext_i18n": {
         "en": "Joint compound per m².",
         "tr": "m² başı macun tüketimi.",

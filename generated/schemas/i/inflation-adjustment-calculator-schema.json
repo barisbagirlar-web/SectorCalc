@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nominalDeger",
-      "label": "Nominal Value (USD)",
+      "label": "Nominal Değer (₺)",
       "label_i18n": {
         "en": "Nominal Value (USD)",
         "tr": "Nominal Değer (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Current nominal money value.",
+      "businessContext": "Bugünkü para değeri.",
       "businessContext_i18n": {
         "en": "Current nominal money value.",
         "tr": "Bugünkü para değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "enflasyon",
-      "label": "Annual Inflation (%)",
+      "label": "Yıllık Enflasyon (%)",
       "label_i18n": {
         "en": "Annual Inflation (%)",
         "tr": "Yıllık Enflasyon (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Average annual inflation rate.",
+      "businessContext": "Ortalama yıllık enflasyon oranı.",
       "businessContext_i18n": {
         "en": "Average annual inflation rate.",
         "tr": "Ortalama yıllık enflasyon oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Number of Years",
+      "label": "Yıl Sayısı",
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Future period in years.",
+      "businessContext": "Gelecek dönem.",
       "businessContext_i18n": {
         "en": "Future period in years.",
         "tr": "Gelecek dönem.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Inflation Adjusted Value"
+      "sonuc": "Enflasyon Düzeltilmiş Değer"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Inflation Adjusted Value",
+        "en": "Enflasyon Düzeltilmiş Değer",
         "tr": "Enflasyon Düzeltilmiş Değer",
         "de": "Inflationsbereinigter Wert",
         "fr": "Valeur ajustée à l'inflation",

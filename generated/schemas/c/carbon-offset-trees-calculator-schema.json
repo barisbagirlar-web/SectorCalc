@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "emisyon",
-      "label": "Total Emissions (ton CO₂)",
+      "label": "Toplam Emisyon (ton CO₂)",
       "label_i18n": {
         "en": "Total Emissions (ton CO₂)",
         "tr": "Toplam Emisyon (ton CO₂)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 100,
       "min": 0,
-      "businessContext": "Carbon to offset.",
+      "businessContext": "Nötrelenmek istenen karbon.",
       "businessContext_i18n": {
         "en": "Carbon to offset.",
         "tr": "Nötrelenmek istenen karbon.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "agacYillikYutak",
-      "label": "Tree Annual Uptake (kg CO₂)",
+      "label": "Ağaç Başı Yıllık Yutak (kg CO₂)",
       "label_i18n": {
         "en": "Tree Annual Uptake (kg CO₂)",
         "tr": "Ağaç Başı Yıllık Yutak (kg CO₂)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 22,
       "min": 0,
-      "businessContext": "Annual carbon capture per tree.",
+      "businessContext": "Bir ağacın yıllık karbon tutma kapasitesi.",
       "businessContext_i18n": {
         "en": "Annual carbon capture per tree.",
         "tr": "Bir ağacın yıllık karbon tutma kapasitesi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "trees",
     "breakdown": {
-      "sonuc": "Required Number of Trees"
+      "sonuc": "Gerekli Ağaç Sayısı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Number of Trees",
+        "en": "Gerekli Ağaç Sayısı",
         "tr": "Gerekli Ağaç Sayısı",
         "de": "Erforderliche Anzahl Bäume",
         "fr": "Nombre d'arbres nécessaires",

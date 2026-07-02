@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "direnc",
-      "label": "Unit Resistance (Ω/m)",
+      "label": "Birim Direnç (Ω/m)",
       "label_i18n": {
         "en": "Unit Resistance (Ω/m)",
         "tr": "Birim Direnç (Ω/m)",
@@ -20,7 +20,7 @@
       "unit": "ohm/m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Line resistance.",
+      "businessContext": "Hat direnci.",
       "businessContext_i18n": {
         "en": "Line resistance.",
         "tr": "Hat direnci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "induktans",
-      "label": "Unit Inductance (H/m)",
+      "label": "Birim İndüktans (H/m)",
       "label_i18n": {
         "en": "Unit Inductance (H/m)",
         "tr": "Birim İndüktans (H/m)",
@@ -45,7 +45,7 @@
       "unit": "H/m",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Line inductance.",
+      "businessContext": "Hat endüktansı.",
       "businessContext_i18n": {
         "en": "Line inductance.",
         "tr": "Hat endüktansı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kapasite",
-      "label": "Unit Capacitance (F/m)",
+      "label": "Birim Kapasite (F/m)",
       "label_i18n": {
         "en": "Unit Capacitance (F/m)",
         "tr": "Birim Kapasite (F/m)",
@@ -70,7 +70,7 @@
       "unit": "F/m",
       "default": 1e-12,
       "min": 0,
-      "businessContext": "Line capacitance.",
+      "businessContext": "Hat kapasitesi.",
       "businessContext_i18n": {
         "en": "Line capacitance.",
         "tr": "Hat kapasitesi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "frekans",
-      "label": "Frequency (Hz)",
+      "label": "Frekans (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
         "tr": "Frekans (Hz)",
@@ -95,7 +95,7 @@
       "unit": "Hz",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Operating frequency.",
+      "businessContext": "Çalışma frekansı.",
       "businessContext_i18n": {
         "en": "Operating frequency.",
         "tr": "Çalışma frekansı.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "Np/m",
     "breakdown": {
-      "sonuc": "Attenuation Constant (α)"
+      "sonuc": "Zayıflama Sabiti (α)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Attenuation Constant (α)",
+        "en": "Zayıflama Sabiti (α)",
         "tr": "Zayıflama Sabiti (α)",
         "de": "Dämpfungskonstante (α)",
         "fr": "Constante d'atténuation (α)",

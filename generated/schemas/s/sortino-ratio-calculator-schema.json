@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "Portfolio Return (%)",
+      "label": "Portföy Getirisi (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
         "tr": "Portföy Getirisi (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portfolio return.",
+      "businessContext": "Portföyün dönemsel getirisi.",
       "businessContext_i18n": {
         "en": "Portfolio return.",
         "tr": "Portföyün dönemsel getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "risksizFaiz",
-      "label": "Risk-Free Rate (%)",
+      "label": "Risksiz Faiz (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risk-free return.",
+      "businessContext": "Risksiz varlık getirisi.",
       "businessContext_i18n": {
         "en": "Risk-free return.",
         "tr": "Risksiz varlık getirisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "asagiSapma",
-      "label": "Downside Deviation (%)",
+      "label": "Aşağı Yönlü Sapma (%)",
       "label_i18n": {
         "en": "Downside Deviation (%)",
         "tr": "Aşağı Yönlü Sapma (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Standard deviation of negative returns.",
+      "businessContext": "Negatif getirilerin standart sapması.",
       "businessContext_i18n": {
         "en": "Standard deviation of negative returns.",
         "tr": "Negatif getirilerin standart sapması.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Sortino Ratio"
+      "sonuc": "Sortino Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sortino Ratio",
+        "en": "Sortino Oranı",
         "tr": "Sortino Oranı",
         "de": "Sortino-Verhältnis",
         "fr": "Ratio Sortino",

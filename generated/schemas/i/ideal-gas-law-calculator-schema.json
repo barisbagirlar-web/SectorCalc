@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "basinc",
-      "label": "Pressure (Pa)",
+      "label": "Basınç (Pa)",
       "label_i18n": {
         "en": "Pressure (Pa)",
         "tr": "Basınç (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Gas pressure.",
+      "businessContext": "Gaz basıncı.",
       "businessContext_i18n": {
         "en": "Gas pressure.",
         "tr": "Gaz basıncı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hacim",
-      "label": "Volume (m³)",
+      "label": "Hacim (m³)",
       "label_i18n": {
         "en": "Volume (m³)",
         "tr": "Hacim (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.024,
       "min": 0,
-      "businessContext": "Gas volume.",
+      "businessContext": "Gaz hacmi.",
       "businessContext_i18n": {
         "en": "Gas volume.",
         "tr": "Gaz hacmi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "mol",
-      "label": "Amount (mol)",
+      "label": "Miktar (mol)",
       "label_i18n": {
         "en": "Amount (mol)",
         "tr": "Miktar (mol)",
@@ -70,7 +70,7 @@
       "unit": "mol",
       "default": 1,
       "min": 0,
-      "businessContext": "Amount of substance.",
+      "businessContext": "Gaz miktarı.",
       "businessContext_i18n": {
         "en": "Amount of substance.",
         "tr": "Gaz miktarı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "sicaklik",
-      "label": "Temperature (K)",
+      "label": "Sıcaklık (K)",
       "label_i18n": {
         "en": "Temperature (K)",
         "tr": "Sıcaklık (K)",
@@ -95,7 +95,7 @@
       "unit": "K",
       "default": 293,
       "min": 0,
-      "businessContext": "Gas temperature.",
+      "businessContext": "Gaz sıcaklığı.",
       "businessContext_i18n": {
         "en": "Gas temperature.",
         "tr": "Gaz sıcaklığı.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "K",
     "breakdown": {
-      "sonuc": "Temperature (T)"
+      "sonuc": "Sıcaklık (T)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Temperature (T)",
+        "en": "Sıcaklık (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
         "fr": "Température (T)",

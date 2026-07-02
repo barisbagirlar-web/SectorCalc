@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "L",
-      "label": "Inductance (H)",
+      "label": "İndüktans (H)",
       "label_i18n": {
         "en": "Inductance (H)",
         "tr": "İndüktans (H)",
@@ -20,7 +20,7 @@
       "unit": "H",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Inductor value.",
+      "businessContext": "Bobin endüktansı.",
       "businessContext_i18n": {
         "en": "Inductor value.",
         "tr": "Bobin endüktansı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "C",
-      "label": "Capacitance (F)",
+      "label": "Kapasite (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
@@ -45,7 +45,7 @@
       "unit": "F",
       "default": 1e-7,
       "min": 0,
-      "businessContext": "Capacitor value.",
+      "businessContext": "Kapasitör değeri.",
       "businessContext_i18n": {
         "en": "Capacitor value.",
         "tr": "Kapasitör değeri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "R",
-      "label": "Resistance (Ω)",
+      "label": "Direnç (Ω)",
       "label_i18n": {
         "en": "Resistance (Ω)",
         "tr": "Direnç (Ω)",
@@ -70,7 +70,7 @@
       "unit": "ohms",
       "default": 10,
       "min": 0,
-      "businessContext": "Circuit resistance.",
+      "businessContext": "Devre direnci.",
       "businessContext_i18n": {
         "en": "Circuit resistance.",
         "tr": "Devre direnci.",
@@ -95,12 +95,12 @@
     "primary": "sonuc",
     "unit": "Q",
     "breakdown": {
-      "f0": "Resonance Frequency (Hz)",
-      "sonuc": "Quality Factor (Q)"
+      "f0": "Rezonans Frekansı (Hz)",
+      "sonuc": "Kalite Faktörü (Q)"
     },
     "breakdown_i18n": {
       "f0": {
-        "en": "Resonance Frequency (Hz)",
+        "en": "Rezonans Frekansı (Hz)",
         "tr": "Rezonans Frekansı (Hz)",
         "de": "Resonanzfrequenz (Hz)",
         "fr": "Fréquence de résonance (Hz)",
@@ -108,7 +108,7 @@
         "ar": "تردد الرنين (Hz)"
       },
       "sonuc": {
-        "en": "Quality Factor (Q)",
+        "en": "Kalite Faktörü (Q)",
         "tr": "Kalite Faktörü (Q)",
         "de": "Gütefaktor (Q)",
         "fr": "Facteur de qualité (Q)",

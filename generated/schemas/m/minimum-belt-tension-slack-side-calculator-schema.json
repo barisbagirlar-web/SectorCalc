@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "guc",
-      "label": "Power Transmitted (W)",
+      "label": "İletilen Güç (W)",
       "label_i18n": {
         "en": "Power Transmitted (W)",
         "tr": "İletilen Güç (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 5000,
       "min": 0,
-      "businessContext": "Belt power transmission.",
+      "businessContext": "Kayışla iletilen güç.",
       "businessContext_i18n": {
         "en": "Belt power transmission.",
         "tr": "Kayışla iletilen güç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hiz",
-      "label": "Belt Speed (m/s)",
+      "label": "Kayış Hızı (m/s)",
       "label_i18n": {
         "en": "Belt Speed (m/s)",
         "tr": "Kayış Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 10,
       "min": 0,
-      "businessContext": "Belt linear speed.",
+      "businessContext": "Kayışın lineer hızı.",
       "businessContext_i18n": {
         "en": "Belt linear speed.",
         "tr": "Kayışın lineer hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sarilmaAcisi",
-      "label": "Wrap Angle (Rad)",
+      "label": "Sarılma Açısı (Rad)",
       "label_i18n": {
         "en": "Wrap Angle (Rad)",
         "tr": "Sarılma Açısı (Rad)",
@@ -70,7 +70,7 @@
       "unit": "rad",
       "default": 2.8,
       "min": 0,
-      "businessContext": "Small pulley wrap angle.",
+      "businessContext": "Küçük kasnağa sarılma açısı.",
       "businessContext_i18n": {
         "en": "Small pulley wrap angle.",
         "tr": "Küçük kasnağa sarılma açısı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "suratme",
-      "label": "Friction Coefficient",
+      "label": "Sürtünme Katsayısı",
       "label_i18n": {
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Belt-pulley friction.",
+      "businessContext": "Kayış-kasnak sürtünmesi.",
       "businessContext_i18n": {
         "en": "Belt-pulley friction.",
         "tr": "Kayış-kasnak sürtünmesi.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
-      "sonuc": "Slack Side Tension (F₂)"
+      "sonuc": "Gevşek Kol Gerilimi (F₂)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Slack Side Tension (F₂)",
+        "en": "Gevşek Kol Gerilimi (F₂)",
         "tr": "Gevşek Kol Gerilimi (F₂)",
         "de": "Leerlaufseilspannung (F₂)",
         "fr": "Tension du côté mou (F₂)",

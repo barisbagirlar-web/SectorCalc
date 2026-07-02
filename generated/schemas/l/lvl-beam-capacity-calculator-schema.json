@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kesitModulu",
-      "label": "Section Modulus (m³)",
+      "label": "Kesit Modülü (m³)",
       "label_i18n": {
         "en": "Section Modulus (m³)",
         "tr": "Kesit Modülü (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 0.00025,
       "min": 0,
-      "businessContext": "LVL beam section modulus.",
+      "businessContext": "LVL kirişin kesit modülü.",
       "businessContext_i18n": {
         "en": "LVL beam section modulus.",
         "tr": "LVL kirişin kesit modülü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "egilmeDayanimi",
-      "label": "Bending Strength (Pa)",
+      "label": "Eğilme Dayanımı (Pa)",
       "label_i18n": {
         "en": "Bending Strength (Pa)",
         "tr": "Eğilme Dayanımı (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 40000000,
       "min": 0,
-      "businessContext": "LVL allowable bending stress.",
+      "businessContext": "LVL'nin izin verilen eğilme gerilmesi.",
       "businessContext_i18n": {
         "en": "LVL allowable bending stress.",
         "tr": "LVL'nin izin verilen eğilme gerilmesi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "Max Bending Moment"
+      "sonuc": "Maks. Eğilme Momenti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Max Bending Moment",
+        "en": "Maks. Eğilme Momenti",
         "tr": "Maks. Eğilme Momenti",
         "de": "Max. Biegemoment",
         "fr": "Moment de flexion maximal",

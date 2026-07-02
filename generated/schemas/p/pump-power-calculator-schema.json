@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Flow Rate (m³/h)",
+      "label": "Debi (m³/saat)",
       "label_i18n": {
         "en": "Flow Rate (m³/h)",
         "tr": "Debi (m³/saat)",
@@ -20,7 +20,7 @@
       "unit": "m3/h",
       "default": 10,
       "min": 0,
-      "businessContext": "Pumping flow rate.",
+      "businessContext": "Pompalama debisi.",
       "businessContext_i18n": {
         "en": "Pumping flow rate.",
         "tr": "Pompalama debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Total Head (m)",
+      "label": "Toplam Yükseklik (m)",
       "label_i18n": {
         "en": "Total Head (m)",
         "tr": "Toplam Yükseklik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Suction + discharge head.",
+      "businessContext": "Emme+basma yüksekliği.",
       "businessContext_i18n": {
         "en": "Suction + discharge head.",
         "tr": "Emme+basma yüksekliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Pump Efficiency (%)",
+      "label": "Pompa Verimi (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 70,
       "min": 0,
-      "businessContext": "Pump efficiency.",
+      "businessContext": "Pompa verimi.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verimi.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "kW",
     "breakdown": {
-      "sonuc": "Min Pump Power"
+      "sonuc": "Min. Pompa Gücü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Min Pump Power",
+        "en": "Min. Pompa Gücü",
         "tr": "Min. Pompa Gücü",
         "de": "Min. Pumpenleistung",
         "fr": "Puissance minimale de la pompe",

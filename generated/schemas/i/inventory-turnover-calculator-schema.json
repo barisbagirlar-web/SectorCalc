@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Annual COGS (USD)",
+      "label": "Yıllık SMM (TL)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Yıllık SMM (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "Annual COGS.",
+      "businessContext": "Yıllık satılan mal maliyeti.",
       "businessContext_i18n": {
         "en": "Annual COGS.",
         "tr": "Yıllık satılan mal maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortStok",
-      "label": "Avg Inventory (USD)",
+      "label": "Ortalama Stok (TL)",
       "label_i18n": {
         "en": "Avg Inventory (USD)",
         "tr": "Ortalama Stok (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Average inventory level.",
+      "businessContext": "Dönem ortalama stok seviyesi.",
       "businessContext_i18n": {
         "en": "Average inventory level.",
         "tr": "Dönem ortalama stok seviyesi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Days in Inventory"
+      "sonuc": "Stokta Kalma Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Days in Inventory",
+        "en": "Stokta Kalma Süresi",
         "tr": "Stokta Kalma Süresi",
         "de": "Lagerdauer",
         "fr": "Stock Holding Period",

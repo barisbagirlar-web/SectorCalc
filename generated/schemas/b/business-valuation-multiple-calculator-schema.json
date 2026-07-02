@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "favok",
-      "label": "EBITDA (USD)",
+      "label": "FAVÖK (TL)",
       "label_i18n": {
         "en": "EBITDA (USD)",
         "tr": "FAVÖK (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Earnings before interest, tax, depreciation.",
+      "businessContext": "Vergi ve faiz öncesi kâr.",
       "businessContext_i18n": {
         "en": "Earnings before interest, tax, depreciation.",
         "tr": "Vergi ve faiz öncesi kâr.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "carpan",
-      "label": "Industry Multiple",
+      "label": "Sektör Çarpanı",
       "label_i18n": {
         "en": "Industry Multiple",
         "tr": "Sektör Çarpanı",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 5,
       "min": 1,
-      "businessContext": "Industry average EBITDA multiple.",
+      "businessContext": "Sektörün ortalama FAVÖK çarpanı.",
       "businessContext_i18n": {
         "en": "Industry average EBITDA multiple.",
         "tr": "Sektörün ortalama FAVÖK çarpanı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Estimated Enterprise Value"
+      "sonuc": "Tahmini İşletme Değeri"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Estimated Enterprise Value",
+        "en": "Tahmini İşletme Değeri",
         "tr": "Tahmini İşletme Değeri",
         "de": "Geschätzter Unternehmenswert",
         "fr": "Valeur d'exploitation estimée",

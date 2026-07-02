@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ziyaretci",
-      "label": "Visitors",
+      "label": "Ziyaretçi (Adet)",
       "label_i18n": {
         "en": "Visitors",
         "tr": "Ziyaretçi (Adet)",
@@ -20,7 +20,7 @@
       "unit": "visitors",
       "default": 10000,
       "min": 1,
-      "businessContext": "Total website visitors.",
+      "businessContext": "Toplam web sitesi ziyaretçisi.",
       "businessContext_i18n": {
         "en": "Total website visitors.",
         "tr": "Toplam web sitesi ziyaretçisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "donusum",
-      "label": "Conversions",
+      "label": "Dönüşüm (Adet)",
       "label_i18n": {
         "en": "Conversions",
         "tr": "Dönüşüm (Adet)",
@@ -45,7 +45,7 @@
       "unit": "conversions",
       "default": 500,
       "min": 0,
-      "businessContext": "Completed target actions.",
+      "businessContext": "Hedef eylemi gerçekleştiren sayısı.",
       "businessContext_i18n": {
         "en": "Completed target actions.",
         "tr": "Hedef eylemi gerçekleştiren sayısı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Conversion Rate (CRO)"
+      "sonuc": "Dönüşüm Oranı (CRO)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Conversion Rate (CRO)",
+        "en": "Dönüşüm Oranı (CRO)",
         "tr": "Dönüşüm Oranı (CRO)",
         "de": "Konversionsrate (CRO)",
         "fr": "Taux de conversion (CRO)",

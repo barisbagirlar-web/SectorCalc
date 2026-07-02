@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "HB",
-      "label": "Brinell Hardness (HB)",
+      "label": "Brinell Sertlik (HB)",
       "label_i18n": {
         "en": "Brinell Hardness (HB)",
         "tr": "Brinell Sertlik (HB)",
@@ -21,7 +21,7 @@
       "default": 300,
       "min": 100,
       "max": 700,
-      "businessContext": "Brinell hardness number.",
+      "businessContext": "Brinell sertlik değeri.",
       "businessContext_i18n": {
         "en": "Brinell hardness number.",
         "tr": "Brinell sertlik değeri.",

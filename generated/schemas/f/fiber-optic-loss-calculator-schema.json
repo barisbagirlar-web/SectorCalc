@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "uzunluk",
-      "label": "Fiber Length (km)",
+      "label": "Fiber Uzunluğu (km)",
       "label_i18n": {
         "en": "Fiber Length (km)",
         "tr": "Fiber Uzunluğu (km)",
@@ -20,7 +20,7 @@
       "unit": "km",
       "default": 50,
       "min": 0,
-      "businessContext": "Fiber cable length.",
+      "businessContext": "Fiber kablo boyu.",
       "businessContext_i18n": {
         "en": "Fiber cable length.",
         "tr": "Fiber kablo boyu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "birimKayip",
-      "label": "Attenuation (dB/km)",
+      "label": "Birim Kayıp (dB/km)",
       "label_i18n": {
         "en": "Attenuation (dB/km)",
         "tr": "Birim Kayıp (dB/km)",
@@ -45,7 +45,7 @@
       "unit": "dB/km",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Loss per km.",
+      "businessContext": "Fiberin km başına zayıflaması.",
       "businessContext_i18n": {
         "en": "Loss per km.",
         "tr": "Fiberin km başına zayıflaması.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ekKayip",
-      "label": "Splice Losses (dB)",
+      "label": "Ek Kayıplar (dB)",
       "label_i18n": {
         "en": "Splice Losses (dB)",
         "tr": "Ek Kayıplar (dB)",
@@ -70,7 +70,7 @@
       "unit": "dB",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Connector and splice losses.",
+      "businessContext": "Konnektör ve ek kayıpları.",
       "businessContext_i18n": {
         "en": "Connector and splice losses.",
         "tr": "Konnektör ve ek kayıpları.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "Total Attenuation"
+      "sonuc": "Toplam Zayıflama"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Total Attenuation",
+        "en": "Toplam Zayıflama",
         "tr": "Toplam Zayıflama",
         "de": "Gesamtdämpfung",
         "fr": "Atténuation totale",

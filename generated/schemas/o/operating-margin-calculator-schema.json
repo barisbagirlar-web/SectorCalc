@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "favok",
-      "label": "EBITDA (USD)",
+      "label": "FAVÖK (TL)",
       "label_i18n": {
         "en": "EBITDA (USD)",
         "tr": "FAVÖK (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "EBITDA.",
+      "businessContext": "Vergi ve faiz öncesi kâr.",
       "businessContext_i18n": {
         "en": "EBITDA.",
         "tr": "Vergi ve faiz öncesi kâr.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ciro",
-      "label": "Revenue (USD)",
+      "label": "Ciro (TL)",
       "label_i18n": {
         "en": "Revenue (USD)",
         "tr": "Ciro (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total revenue.",
+      "businessContext": "Toplam satış geliri.",
       "businessContext_i18n": {
         "en": "Total revenue.",
         "tr": "Toplam satış geliri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Operating Margin"
+      "sonuc": "İşletme Marjı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Operating Margin",
+        "en": "İşletme Marjı",
         "tr": "İşletme Marjı",
         "de": "Betriebsmarge",
         "fr": "Marge opérationnelle",

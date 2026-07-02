@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satis",
-      "label": "Sale Amount (USD)",
+      "label": "Satış Tutarı (₺)",
       "label_i18n": {
         "en": "Sale Amount (USD)",
         "tr": "Satış Tutarı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Transaction amount.",
+      "businessContext": "İşlem tutarı.",
       "businessContext_i18n": {
         "en": "Transaction amount.",
         "tr": "İşlem tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yuzde",
-      "label": "Percentage Fee (%)",
+      "label": "Yüzde Komisyon (%)",
       "label_i18n": {
         "en": "Percentage Fee (%)",
         "tr": "Yüzde Komisyon (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Per-transaction percentage fee.",
+      "businessContext": "İşlem başı yüzde komisyon.",
       "businessContext_i18n": {
         "en": "Per-transaction percentage fee.",
         "tr": "İşlem başı yüzde komisyon.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabit",
-      "label": "Fixed Fee (USD)",
+      "label": "Sabit Ücret (₺)",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
         "tr": "Sabit Ücret (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Per-transaction fixed fee.",
+      "businessContext": "İşlem başı sabit ücret.",
       "businessContext_i18n": {
         "en": "Per-transaction fixed fee.",
         "tr": "İşlem başı sabit ücret.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Transaction Fee"
+      "sonuc": "İşlem Ücreti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Transaction Fee",
+        "en": "İşlem Ücreti",
         "tr": "İşlem Ücreti",
         "de": "Transaktionsgebühr",
         "fr": "Frais de transaction",

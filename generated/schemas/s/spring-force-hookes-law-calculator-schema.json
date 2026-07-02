@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yayKatsayisi",
-      "label": "Spring Constant (N/m)",
+      "label": "Yay Sabiti (N/m)",
       "label_i18n": {
         "en": "Spring Constant (N/m)",
         "tr": "Yay Sabiti (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 500,
       "min": 0,
-      "businessContext": "Spring stiffness.",
+      "businessContext": "Yayın rijitliği.",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
         "tr": "Yayın rijitliği.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "deplasman",
-      "label": "Spring Displacement (m)",
+      "label": "Yaydaki Deplasman (m)",
       "label_i18n": {
         "en": "Spring Displacement (m)",
         "tr": "Yaydaki Deplasman (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Spring compression/extension.",
+      "businessContext": "Yayın sıkışma/gerilme miktarı.",
       "businessContext_i18n": {
         "en": "Spring compression/extension.",
         "tr": "Yayın sıkışma/gerilme miktarı.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Principal (USD)",
+      "label": "Anapara (₺)",
       "label_i18n": {
         "en": "Principal (USD)",
         "tr": "Anapara (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Principal amount for interest calculation.",
+      "businessContext": "Faiz hesaplanacak ana para.",
       "businessContext_i18n": {
         "en": "Principal amount for interest calculation.",
         "tr": "Faiz hesaplanacak ana para.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Interest Rate (%)",
+      "label": "Faiz Oranı (%)",
       "label_i18n": {
         "en": "Interest Rate (%)",
         "tr": "Faiz Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Annual interest rate.",
+      "businessContext": "Yıllık faiz oranı.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
         "tr": "Yıllık faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sure",
-      "label": "Time (Years)",
+      "label": "Süre (Yıl)",
       "label_i18n": {
         "en": "Time (Years)",
         "tr": "Süre (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 3,
       "min": 0,
-      "businessContext": "Number of years for interest accrual.",
+      "businessContext": "Faiz uygulanacak yıl sayısı.",
       "businessContext_i18n": {
         "en": "Number of years for interest accrual.",
         "tr": "Faiz uygulanacak yıl sayısı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Simple Interest Amount"
+      "sonuc": "Basit Faiz Tutarı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Simple Interest Amount",
+        "en": "Basit Faiz Tutarı",
         "tr": "Basit Faiz Tutarı",
         "de": "Einfacher Zinsbetrag",
         "fr": "Montant des intérêts simples",

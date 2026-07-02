@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netIsletmeGeliri",
-      "label": "Net Operating Income (USD)",
+      "label": "Net İşletme Geliri (₺)",
       "label_i18n": {
         "en": "Net Operating Income (USD)",
         "tr": "Net İşletme Geliri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Annual net operating income.",
+      "businessContext": "Yıllık net işletme geliri.",
       "businessContext_i18n": {
         "en": "Annual net operating income.",
         "tr": "Yıllık net işletme geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikBorcOdemesi",
-      "label": "Annual Debt Service (USD)",
+      "label": "Yıllık Borç Ödemesi (₺)",
       "label_i18n": {
         "en": "Annual Debt Service (USD)",
         "tr": "Yıllık Borç Ödemesi (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Annual principal + interest payment.",
+      "businessContext": "Yıllık anapara+faiz ödemesi.",
       "businessContext_i18n": {
         "en": "Annual principal + interest payment.",
         "tr": "Yıllık anapara+faiz ödemesi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "DSCR Ratio"
+      "sonuc": "DSCR Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "DSCR Ratio",
+        "en": "DSCR Oranı",
         "tr": "DSCR Oranı",
         "de": "DSCR-Verhältnis",
         "fr": "Ratio DSCR",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Facade Area (m²)",
+      "label": "Cephe Alanı (m²)",
       "label_i18n": {
         "en": "Facade Area (m²)",
         "tr": "Cephe Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 100,
       "min": 0,
-      "businessContext": "Facade surface area.",
+      "businessContext": "Kaplanacak cephe alanı.",
       "businessContext_i18n": {
         "en": "Facade surface area.",
         "tr": "Kaplanacak cephe alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "panelEn",
-      "label": "Panel Width (m)",
+      "label": "Panel Eni (m)",
       "label_i18n": {
         "en": "Panel Width (m)",
         "tr": "Panel Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Siding panel width.",
+      "businessContext": "Kaplama panel eni.",
       "businessContext_i18n": {
         "en": "Siding panel width.",
         "tr": "Kaplama panel eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "panelBoy",
-      "label": "Panel Length (m)",
+      "label": "Panel Boyu (m)",
       "label_i18n": {
         "en": "Panel Length (m)",
         "tr": "Panel Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Panel length.",
+      "businessContext": "Panel boyu.",
       "businessContext_i18n": {
         "en": "Panel length.",
         "tr": "Panel boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Waste Factor (%)",
+      "label": "Fire Oranı (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cutting waste.",
+      "businessContext": "Kesim payı.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim payı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "panels",
     "breakdown": {
-      "sonuc": "Required Number of Panels"
+      "sonuc": "Gerekli Panel Sayısı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Number of Panels",
+        "en": "Gerekli Panel Sayısı",
         "tr": "Gerekli Panel Sayısı",
         "de": "Erforderliche Anzahl Paneele",
         "fr": "Nombre de panneaux requis",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Investment (USD)",
+      "label": "Yatırım (TL)",
       "label_i18n": {
         "en": "Investment (USD)",
         "tr": "Yatırım (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "SAFE investment.",
+      "businessContext": "SAFE yatırım tutarı.",
       "businessContext_i18n": {
         "en": "SAFE investment.",
         "tr": "SAFE yatırım tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tavanDeger",
-      "label": "Valuation Cap (USD)",
+      "label": "Değerleme Tavanı (TL)",
       "label_i18n": {
         "en": "Valuation Cap (USD)",
         "tr": "Değerleme Tavanı (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Valuation cap.",
+      "businessContext": "Maksimum değerleme.",
       "businessContext_i18n": {
         "en": "Valuation cap.",
         "tr": "Maksimum değerleme.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "toplamHisse",
-      "label": "Total Shares",
+      "label": "Toplam Hisse (Adet)",
       "label_i18n": {
         "en": "Total Shares",
         "tr": "Toplam Hisse (Adet)",
@@ -70,7 +70,7 @@
       "unit": "shares",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total shares outstanding.",
+      "businessContext": "Şirketin toplam hisse adedi.",
       "businessContext_i18n": {
         "en": "Total shares outstanding.",
         "tr": "Şirketin toplam hisse adedi.",

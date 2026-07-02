@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hiz",
-      "label": "Wave Speed (m/s)",
+      "label": "Dalga Hızı (m/s)",
       "label_i18n": {
         "en": "Wave Speed (m/s)",
         "tr": "Dalga Hızı (m/s)",
@@ -20,7 +20,7 @@
       "unit": "m/s",
       "default": 343,
       "min": 0,
-      "businessContext": "Wave propagation speed.",
+      "businessContext": "Dalganın yayılma hızı.",
       "businessContext_i18n": {
         "en": "Wave propagation speed.",
         "tr": "Dalganın yayılma hızı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "frekans",
-      "label": "Frequency (Hz)",
+      "label": "Frekans (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
         "tr": "Frekans (Hz)",
@@ -45,7 +45,7 @@
       "unit": "Hz",
       "default": 440,
       "min": 0,
-      "businessContext": "Wave frequency.",
+      "businessContext": "Dalganın frekansı.",
       "businessContext_i18n": {
         "en": "Wave frequency.",
         "tr": "Dalganın frekansı.",

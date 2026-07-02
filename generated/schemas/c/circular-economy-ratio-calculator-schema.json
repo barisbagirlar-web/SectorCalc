@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "geriKazanilan",
-      "label": "Recovered Material (tons)",
+      "label": "Geri Kazanılan Malzeme (ton)",
       "label_i18n": {
         "en": "Recovered Material (tons)",
         "tr": "Geri Kazanılan Malzeme (ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 500,
       "min": 0,
-      "businessContext": "Secondary raw material.",
+      "businessContext": "İkincil hammadde miktarı.",
       "businessContext_i18n": {
         "en": "Secondary raw material.",
         "tr": "İkincil hammadde miktarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamGirdi",
-      "label": "Total Material Input (tons)",
+      "label": "Toplam Hammadde Girdisi (ton)",
       "label_i18n": {
         "en": "Total Material Input (tons)",
         "tr": "Toplam Hammadde Girdisi (ton)",
@@ -45,7 +45,7 @@
       "unit": "tons",
       "default": 2000,
       "min": 0,
-      "businessContext": "All production material input.",
+      "businessContext": "Üretimde kullanılan tüm malzeme.",
       "businessContext_i18n": {
         "en": "All production material input.",
         "tr": "Üretimde kullanılan tüm malzeme.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Circular Economy Ratio"
+      "sonuc": "Döngüsel Ekonomi Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Circular Economy Ratio",
+        "en": "Döngüsel Ekonomi Oranı",
         "tr": "Döngüsel Ekonomi Oranı",
         "de": "Kreislaufwirtschaftsquote",
         "fr": "Taux d'économie circulaire",

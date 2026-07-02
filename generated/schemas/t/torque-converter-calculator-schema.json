@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "deger",
-      "label": "Torque Value",
+      "label": "Tork Değeri",
       "label_i18n": {
         "en": "Torque Value",
         "tr": "Tork Değeri",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Torque to convert.",
+      "businessContext": "Dönüştürülecek tork.",
       "businessContext_i18n": {
         "en": "Torque to convert.",
         "tr": "Dönüştürülecek tork.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kaynak",
-      "label": "Source (0=N.m, 1=lbft, 2=kgfm)",
+      "label": "Kaynak (0=N.m, 1=lbft, 2=kgfm)",
       "label_i18n": {
         "en": "Source (0=N.m, 1=lbft, 2=kgfm)",
         "tr": "Kaynak (0=N.m, 1=lbft, 2=kgfm)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Input unit.",
+      "businessContext": "Girilen birim.",
       "businessContext_i18n": {
         "en": "Input unit.",
         "tr": "Girilen birim.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "Equivalent in N.m"
+      "sonuc": "N.m Karşılığı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Equivalent in N.m",
+        "en": "N.m Karşılığı",
         "tr": "N.m Karşılığı",
         "de": "Entsprechung in N.m",
         "fr": "Équivalent en N.m",

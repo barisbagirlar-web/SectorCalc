@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nominal",
-      "label": "Nominal Rate (%)",
+      "label": "Nominal Faiz (%)",
       "label_i18n": {
         "en": "Nominal Rate (%)",
         "tr": "Nominal Faiz (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Stated annual nominal interest rate.",
+      "businessContext": "Belirtilen yıllık nominal faiz.",
       "businessContext_i18n": {
         "en": "Stated annual nominal interest rate.",
         "tr": "Belirtilen yıllık nominal faiz.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "siklik",
-      "label": "Compounding Frequency",
+      "label": "Bileşim Sıklığı (Adet/Yıl)",
       "label_i18n": {
         "en": "Compounding Frequency",
         "tr": "Bileşim Sıklığı (Adet/Yıl)",
@@ -45,7 +45,7 @@
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Number of compounding periods per year.",
+      "businessContext": "Faizin yılda kaç kez bileşikleştiği.",
       "businessContext_i18n": {
         "en": "Number of compounding periods per year.",
         "tr": "Faizin yılda kaç kez bileşikleştiği.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Effective Annual Interest"
+      "sonuc": "Efektif Yıllık Faiz"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Effective Annual Interest",
+        "en": "Efektif Yıllık Faiz",
         "tr": "Efektif Yıllık Faiz",
         "de": "Effektiver Jahreszins",
         "fr": "Taux annuel effectif",

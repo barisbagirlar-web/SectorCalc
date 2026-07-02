@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "uretimHacmi",
-      "label": "Production Volume (Tons)",
+      "label": "Üretim Hacmi (Ton)",
       "label_i18n": {
         "en": "Production Volume (Tons)",
         "tr": "Üretim Hacmi (Ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Total production quantity.",
+      "businessContext": "Toplam üretim miktarı.",
       "businessContext_i18n": {
         "en": "Total production quantity.",
         "tr": "Toplam üretim miktarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tuketilenSu",
-      "label": "Water Consumed (m³)",
+      "label": "Tüketilen Su (m³)",
       "label_i18n": {
         "en": "Water Consumed (m³)",
         "tr": "Tüketilen Su (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 15000,
       "min": 0,
-      "businessContext": "Total water used in production.",
+      "businessContext": "Üretimde kullanılan toplam su.",
       "businessContext_i18n": {
         "en": "Total water used in production.",
         "tr": "Üretimde kullanılan toplam su.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "m3/ton",
     "breakdown": {
-      "sonuc": "Water Footprint"
+      "sonuc": "Su Ayak İzi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Water Footprint",
+        "en": "Su Ayak İzi",
         "tr": "Su Ayak İzi",
         "de": "Wasserfußabdruck",
         "fr": "Empreinte eau",

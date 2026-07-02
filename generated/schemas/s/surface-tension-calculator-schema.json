@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kuvvet",
-      "label": "Force (N)",
+      "label": "Kuvvet (N)",
       "label_i18n": {
         "en": "Force (N)",
         "tr": "Kuvvet (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Force on the surface.",
+      "businessContext": "Yüzeye etkiyen kuvvet.",
       "businessContext_i18n": {
         "en": "Force on the surface.",
         "tr": "Yüzeye etkiyen kuvvet.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Length (m)",
+      "label": "Uzunluk (m)",
       "label_i18n": {
         "en": "Length (m)",
         "tr": "Uzunluk (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Length over which force acts.",
+      "businessContext": "Kuvvetin etki ettiği uzunluk.",
       "businessContext_i18n": {
         "en": "Length over which force acts.",
         "tr": "Kuvvetin etki ettiği uzunluk.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "N/m",
     "breakdown": {
-      "sonuc": "Surface Tension"
+      "sonuc": "Yüzey Gerilimi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Surface Tension",
+        "en": "Yüzey Gerilimi",
         "tr": "Yüzey Gerilimi",
         "de": "Oberflächenspannung",
         "fr": "Tension superficielle",

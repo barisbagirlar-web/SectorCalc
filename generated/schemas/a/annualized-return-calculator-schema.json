@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "baslangic",
-      "label": "Starting Value (USD)",
+      "label": "Başlangıç Değeri (₺)",
       "label_i18n": {
         "en": "Starting Value (USD)",
         "tr": "Başlangıç Değeri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Investment value at start of period.",
+      "businessContext": "Dönem başı yatırım değeri.",
       "businessContext_i18n": {
         "en": "Investment value at start of period.",
         "tr": "Dönem başı yatırım değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitis",
-      "label": "Ending Value (USD)",
+      "label": "Bitiş Değeri (₺)",
       "label_i18n": {
         "en": "Ending Value (USD)",
         "tr": "Bitiş Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Investment value at end of period.",
+      "businessContext": "Dönem sonu yatırım değeri.",
       "businessContext_i18n": {
         "en": "Investment value at end of period.",
         "tr": "Dönem sonu yatırım değeri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Period (Years)",
+      "label": "Süre (Yıl)",
       "label_i18n": {
         "en": "Period (Years)",
         "tr": "Süre (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Total investment period.",
+      "businessContext": "Toplam yatırım süresi.",
       "businessContext_i18n": {
         "en": "Total investment period.",
         "tr": "Toplam yatırım süresi.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Annualized Return"
+      "sonuc": "Yıllıklandırılmış Getiri"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Annualized Return",
+        "en": "Yıllıklandırılmış Getiri",
         "tr": "Yıllıklandırılmış Getiri",
         "de": "Annualisierte Rendite",
         "fr": "Rendement annualisé",

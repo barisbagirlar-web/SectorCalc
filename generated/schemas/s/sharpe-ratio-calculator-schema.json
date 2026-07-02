@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "Portfolio Return (%)",
+      "label": "Portföy Getirisi (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
         "tr": "Portföy Getirisi (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portfolio's periodic return.",
+      "businessContext": "Portföyün dönemsel getirisi.",
       "businessContext_i18n": {
         "en": "Portfolio's periodic return.",
         "tr": "Portföyün dönemsel getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "risksizFaiz",
-      "label": "Risk-Free Rate (%)",
+      "label": "Risksiz Faiz (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risk-free asset return.",
+      "businessContext": "Risksiz varlık getirisi.",
       "businessContext_i18n": {
         "en": "Risk-free asset return.",
         "tr": "Risksiz varlık getirisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "volatilite",
-      "label": "Volatility (%)",
+      "label": "Volatilite (%)",
       "label_i18n": {
         "en": "Volatility (%)",
         "tr": "Volatilite (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Portfolio standard deviation.",
+      "businessContext": "Portföyün standart sapması.",
       "businessContext_i18n": {
         "en": "Portfolio standard deviation.",
         "tr": "Portföyün standart sapması.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Sharpe Ratio"
+      "sonuc": "Sharpe Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sharpe Ratio",
+        "en": "Sharpe Oranı",
         "tr": "Sharpe Oranı",
         "de": "Sharpe Ratio",
         "fr": "Ratio de Sharpe",

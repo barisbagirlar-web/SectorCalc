@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "R",
-      "label": "Resistance (Ω)",
+      "label": "Direnç (Ω)",
       "label_i18n": {
         "en": "Resistance (Ω)",
         "tr": "Direnç (Ω)",
@@ -20,7 +20,7 @@
       "unit": "ohms",
       "default": 10000,
       "min": 0,
-      "businessContext": "Circuit resistance.",
+      "businessContext": "Devre direnci.",
       "businessContext_i18n": {
         "en": "Circuit resistance.",
         "tr": "Devre direnci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "C",
-      "label": "Capacitance (F)",
+      "label": "Kapasite (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
@@ -45,7 +45,7 @@
       "unit": "F",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Circuit capacitance.",
+      "businessContext": "Devre kapasitesi.",
       "businessContext_i18n": {
         "en": "Circuit capacitance.",
         "tr": "Devre kapasitesi.",

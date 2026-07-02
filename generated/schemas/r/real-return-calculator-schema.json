@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nominalGetiri",
-      "label": "Nominal Return (%)",
+      "label": "Nominal Getiri (%)",
       "label_i18n": {
         "en": "Nominal Return (%)",
         "tr": "Nominal Getiri (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Nominal investment return.",
+      "businessContext": "Yatırımın nominal getirisi.",
       "businessContext_i18n": {
         "en": "Nominal investment return.",
         "tr": "Yatırımın nominal getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "enflasyon",
-      "label": "Inflation (%)",
+      "label": "Enflasyon (%)",
       "label_i18n": {
         "en": "Inflation (%)",
         "tr": "Enflasyon (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Period inflation rate.",
+      "businessContext": "Dönem enflasyon oranı.",
       "businessContext_i18n": {
         "en": "Period inflation rate.",
         "tr": "Dönem enflasyon oranı.",

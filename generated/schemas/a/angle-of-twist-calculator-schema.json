@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tork",
-      "label": "Torque (N.m)",
+      "label": "Burulma Momenti (N.m)",
       "label_i18n": {
         "en": "Torque (N.m)",
         "tr": "Burulma Momenti (N.m)",
@@ -20,7 +20,7 @@
       "unit": "N.m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Torque on shaft.",
+      "businessContext": "Mile etkiyen tork.",
       "businessContext_i18n": {
         "en": "Torque on shaft.",
         "tr": "Mile etkiyen tork.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Shaft Length (m)",
+      "label": "Mil Boyu (m)",
       "label_i18n": {
         "en": "Shaft Length (m)",
         "tr": "Mil Boyu (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Shaft length under torsion.",
+      "businessContext": "Burulmaya maruz mil uzunluğu.",
       "businessContext_i18n": {
         "en": "Shaft length under torsion.",
         "tr": "Burulmaya maruz mil uzunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kaymaModulu",
-      "label": "Shear Modulus (Pa)",
+      "label": "Kayma Modülü (Pa)",
       "label_i18n": {
         "en": "Shear Modulus (Pa)",
         "tr": "Kayma Modülü (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 80000000000,
       "min": 0,
-      "businessContext": "Material shear modulus.",
+      "businessContext": "Malzemenin kayma modülü.",
       "businessContext_i18n": {
         "en": "Material shear modulus.",
         "tr": "Malzemenin kayma modülü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kutupsalAtalet",
-      "label": "Polar Moment (m⁴)",
+      "label": "Kutupsal Atalet Momenti (m⁴)",
       "label_i18n": {
         "en": "Polar Moment (m⁴)",
         "tr": "Kutupsal Atalet Momenti (m⁴)",
@@ -95,7 +95,7 @@
       "unit": "m4",
       "default": 6.14e-7,
       "min": 0,
-      "businessContext": "J = πR⁴/2.",
+      "businessContext": "J = πR⁴/2",
       "businessContext_i18n": {
         "en": "J = πR⁴/2.",
         "tr": "J = πR⁴/2",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "rad",
     "breakdown": {
-      "sonuc": "Twist Angle (θ)"
+      "sonuc": "Burulma Açısı (θ)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Twist Angle (θ)",
+        "en": "Burulma Açısı (θ)",
         "tr": "Burulma Açısı (θ)",
         "de": "Verdrehwinkel (θ)",
         "fr": "Angle de torsion (θ)",

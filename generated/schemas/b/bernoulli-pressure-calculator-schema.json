@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "P1",
-      "label": "Point 1 Pressure (Pa)",
+      "label": "1. Nokta Basıncı (Pa)",
       "label_i18n": {
         "en": "Point 1 Pressure (Pa)",
         "tr": "1. Nokta Basıncı (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "Static pressure at point 1.",
+      "businessContext": "Birinci noktadaki statik basınç.",
       "businessContext_i18n": {
         "en": "Static pressure at point 1.",
         "tr": "Birinci noktadaki statik basınç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "v1",
-      "label": "Point 1 Velocity (m/s)",
+      "label": "1. Nokta Hızı (m/s)",
       "label_i18n": {
         "en": "Point 1 Velocity (m/s)",
         "tr": "1. Nokta Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 2,
       "min": 0,
-      "businessContext": "Flow velocity at point 1.",
+      "businessContext": "Birinci noktadaki akış hızı.",
       "businessContext_i18n": {
         "en": "Flow velocity at point 1.",
         "tr": "Birinci noktadaki akış hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "v2",
-      "label": "Point 2 Velocity (m/s)",
+      "label": "2. Nokta Hızı (m/s)",
       "label_i18n": {
         "en": "Point 2 Velocity (m/s)",
         "tr": "2. Nokta Hızı (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 4,
       "min": 0,
-      "businessContext": "Flow velocity at point 2.",
+      "businessContext": "İkinci noktadaki akış hızı.",
       "businessContext_i18n": {
         "en": "Flow velocity at point 2.",
         "tr": "İkinci noktadaki akış hızı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "h1",
-      "label": "Point 1 Height (m)",
+      "label": "1. Nokta Yükseklik (m)",
       "label_i18n": {
         "en": "Point 1 Height (m)",
         "tr": "1. Nokta Yükseklik (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Elevation at point 1.",
+      "businessContext": "Birinci noktanın kotu.",
       "businessContext_i18n": {
         "en": "Elevation at point 1.",
         "tr": "Birinci noktanın kotu.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "h2",
-      "label": "Point 2 Height (m)",
+      "label": "2. Nokta Yükseklik (m)",
       "label_i18n": {
         "en": "Point 2 Height (m)",
         "tr": "2. Nokta Yükseklik (m)",
@@ -120,7 +120,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Elevation at point 2.",
+      "businessContext": "İkinci noktanın kotu.",
       "businessContext_i18n": {
         "en": "Elevation at point 2.",
         "tr": "İkinci noktanın kotu.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Fluid Density (kg/m³)",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Akışkan Yoğunluğu (kg/m³)",
@@ -145,7 +145,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Fluid density.",
+      "businessContext": "Akışkanın yoğunluğu.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akışkanın yoğunluğu.",
@@ -169,11 +169,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "2nd Point Pressure (P₂)"
+      "sonuc": "2. Nokta Basıncı (P₂)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "2nd Point Pressure (P₂)",
+        "en": "2. Nokta Basıncı (P₂)",
         "tr": "2. Nokta Basıncı (P₂)",
         "de": "Point 2 Pressure (P₂)",
         "fr": "Pression au point 2 (P₂)",

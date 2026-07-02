@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "acilis",
-      "label": "Base Fare (USD)",
+      "label": "Açılış Ücreti (TL)",
       "label_i18n": {
         "en": "Base Fare (USD)",
         "tr": "Açılış Ücreti (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10,
       "min": 0,
-      "businessContext": "Flag-fall charge.",
+      "businessContext": "Taksimetre açılış ücreti.",
       "businessContext_i18n": {
         "en": "Flag-fall charge.",
         "tr": "Taksimetre açılış ücreti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kmFiyati",
-      "label": "Per km Rate (USD)",
+      "label": "Km Başı Ücret (TL)",
       "label_i18n": {
         "en": "Per km Rate (USD)",
         "tr": "Km Başı Ücret (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 15,
       "min": 0,
-      "businessContext": "Charge per km.",
+      "businessContext": "Her km için ücret.",
       "businessContext_i18n": {
         "en": "Charge per km.",
         "tr": "Her km için ücret.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dakikaFiyati",
-      "label": "Per Minute Rate (USD)",
+      "label": "Dakika Başı Ücret (TL)",
       "label_i18n": {
         "en": "Per Minute Rate (USD)",
         "tr": "Dakika Başı Ücret (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 3,
       "min": 0,
-      "businessContext": "Waiting or slow traffic rate.",
+      "businessContext": "Bekleme veya yavaş trafik ücreti.",
       "businessContext_i18n": {
         "en": "Waiting or slow traffic rate.",
         "tr": "Bekleme veya yavaş trafik ücreti.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Distance (km)",
+      "label": "Mesafe (km)",
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
@@ -95,7 +95,7 @@
       "unit": "km",
       "default": 10,
       "min": 0,
-      "businessContext": "Trip distance.",
+      "businessContext": "Yolculuk mesafesi.",
       "businessContext_i18n": {
         "en": "Trip distance.",
         "tr": "Yolculuk mesafesi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "sure",
-      "label": "Duration (Min)",
+      "label": "Süre (Dk)",
       "label_i18n": {
         "en": "Duration (Min)",
         "tr": "Süre (Dk)",
@@ -120,7 +120,7 @@
       "unit": "min",
       "default": 25,
       "min": 0,
-      "businessContext": "Estimated trip duration.",
+      "businessContext": "Tahmini yolculuk süresi.",
       "businessContext_i18n": {
         "en": "Estimated trip duration.",
         "tr": "Tahmini yolculuk süresi.",
@@ -144,11 +144,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Estimated Trip Fare"
+      "sonuc": "Tahmini Yolculuk Ücreti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Estimated Trip Fare",
+        "en": "Tahmini Yolculuk Ücreti",
         "tr": "Tahmini Yolculuk Ücreti",
         "de": "Geschätzte Fahrkosten",
         "fr": "Frais de voyage estimés",

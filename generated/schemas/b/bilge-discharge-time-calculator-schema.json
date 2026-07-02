@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tankHacim",
-      "label": "Bilge Tank Volume (m³)",
+      "label": "Sintine Tank Hacmi (m³)",
       "label_i18n": {
         "en": "Bilge Tank Volume (m³)",
         "tr": "Sintine Tank Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 50,
       "min": 0,
-      "businessContext": "Total bilge water volume.",
+      "businessContext": "Toplam sintine suyu hacmi.",
       "businessContext_i18n": {
         "en": "Total bilge water volume.",
         "tr": "Toplam sintine suyu hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "pompaDebi",
-      "label": "Pump Flow (m³/h)",
+      "label": "Pompa Debisi (m³/saat)",
       "label_i18n": {
         "en": "Pump Flow (m³/h)",
         "tr": "Pompa Debisi (m³/saat)",
@@ -45,7 +45,7 @@
       "unit": "m3/h",
       "default": 10,
       "min": 0,
-      "businessContext": "Bilge pump flow rate.",
+      "businessContext": "Sintine pompasının debisi.",
       "businessContext_i18n": {
         "en": "Bilge pump flow rate.",
         "tr": "Sintine pompasının debisi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Evacuation Time"
+      "sonuc": "Tahliye Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Evacuation Time",
+        "en": "Tahliye Süresi",
         "tr": "Tahliye Süresi",
         "de": "Discharge Time",
         "fr": "Durée d'évacuation",

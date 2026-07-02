@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sozurulenDoz",
-      "label": "Absorbed Dose (mGy)",
+      "label": "Soğurulan Doz (mGy)",
       "label_i18n": {
         "en": "Absorbed Dose (mGy)",
         "tr": "Soğurulan Doz (mGy)",
@@ -20,7 +20,7 @@
       "unit": "mGy",
       "default": 10,
       "min": 0,
-      "businessContext": "Energy absorbed by tissue.",
+      "businessContext": "Doku tarafından emilen enerji.",
       "businessContext_i18n": {
         "en": "Energy absorbed by tissue.",
         "tr": "Doku tarafından emilen enerji.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dokuAgirlikFaktoru",
-      "label": "Tissue Weighting Factor",
+      "label": "Doku Ağırlık Faktörü",
       "label_i18n": {
         "en": "Tissue Weighting Factor",
         "tr": "Doku Ağırlık Faktörü",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0.12,
       "min": 0,
-      "businessContext": "Tissue radiation sensitivity.",
+      "businessContext": "Dokunun radyasyon hassasiyeti.",
       "businessContext_i18n": {
         "en": "Tissue radiation sensitivity.",
         "tr": "Dokunun radyasyon hassasiyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "radyasyonTuruFaktoru",
-      "label": "Radiation Type Factor",
+      "label": "Radyasyon Türü Faktörü",
       "label_i18n": {
         "en": "Radiation Type Factor",
         "tr": "Radyasyon Türü Faktörü",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Radiation type effectiveness.",
+      "businessContext": "Radyasyon türünün biyolojik etkinliği.",
       "businessContext_i18n": {
         "en": "Radiation type effectiveness.",
         "tr": "Radyasyon türünün biyolojik etkinliği.",

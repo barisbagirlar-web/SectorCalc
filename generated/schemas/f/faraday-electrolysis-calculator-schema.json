@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akim",
-      "label": "Current (A)",
+      "label": "Akım (A)",
       "label_i18n": {
         "en": "Current (A)",
         "tr": "Akım (A)",
@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 2,
       "min": 0,
-      "businessContext": "Electrolysis current.",
+      "businessContext": "Elektroliz akımı.",
       "businessContext_i18n": {
         "en": "Electrolysis current.",
         "tr": "Elektroliz akımı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sure",
-      "label": "Time (s)",
+      "label": "Süre (s)",
       "label_i18n": {
         "en": "Time (s)",
         "tr": "Süre (s)",
@@ -45,7 +45,7 @@
       "unit": "s",
       "default": 3600,
       "min": 0,
-      "businessContext": "Time current applied.",
+      "businessContext": "Akımın uygulandığı süre.",
       "businessContext_i18n": {
         "en": "Time current applied.",
         "tr": "Akımın uygulandığı süre.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "esdegerAgirlik",
-      "label": "Equivalent Weight (g/mol)",
+      "label": "Eşdeğer Ağırlık (g/mol)",
       "label_i18n": {
         "en": "Equivalent Weight (g/mol)",
         "tr": "Eşdeğer Ağırlık (g/mol)",
@@ -70,7 +70,7 @@
       "unit": "g/mol",
       "default": 27,
       "min": 0,
-      "businessContext": "Element equivalent mass.",
+      "businessContext": "Maddenin eşdeğer kütlesi.",
       "businessContext_i18n": {
         "en": "Element equivalent mass.",
         "tr": "Maddenin eşdeğer kütlesi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "elektronSayisi",
-      "label": "Electron Count (n)",
+      "label": "Elektron Sayısı (n)",
       "label_i18n": {
         "en": "Electron Count (n)",
         "tr": "Elektron Sayısı (n)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "Number of electrons transferred.",
+      "businessContext": "Reaksiyona giren elektron sayısı.",
       "businessContext_i18n": {
         "en": "Number of electrons transferred.",
         "tr": "Reaksiyona giren elektron sayısı.",

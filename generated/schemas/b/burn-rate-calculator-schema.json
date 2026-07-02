@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "baslangicNakit",
-      "label": "Start Cash (USD)",
+      "label": "Dönem Başı Nakit (TL)",
       "label_i18n": {
         "en": "Start Cash (USD)",
         "tr": "Dönem Başı Nakit (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Cash at period start.",
+      "businessContext": "Dönem başı nakit bakiyesi.",
       "businessContext_i18n": {
         "en": "Cash at period start.",
         "tr": "Dönem başı nakit bakiyesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitisNakit",
-      "label": "End Cash (USD)",
+      "label": "Dönem Sonu Nakit (TL)",
       "label_i18n": {
         "en": "End Cash (USD)",
         "tr": "Dönem Sonu Nakit (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Cash at period end.",
+      "businessContext": "Dönem sonu nakit bakiyesi.",
       "businessContext_i18n": {
         "en": "Cash at period end.",
         "tr": "Dönem sonu nakit bakiyesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ay",
-      "label": "Period (Months)",
+      "label": "Dönem (Ay)",
       "label_i18n": {
         "en": "Period (Months)",
         "tr": "Dönem (Ay)",
@@ -70,7 +70,7 @@
       "unit": "months",
       "default": 3,
       "min": 1,
-      "businessContext": "Calculation period.",
+      "businessContext": "Hesaplama dönemi.",
       "businessContext_i18n": {
         "en": "Calculation period.",
         "tr": "Hesaplama dönemi.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "months",
     "breakdown": {
-      "sonuc": "Runway"
+      "sonuc": "Kalan Süre (Runway)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Runway",
+        "en": "Kalan Süre (Runway)",
         "tr": "Kalan Süre (Runway)",
         "de": "Verbleibende Zeit (Runway)",
         "fr": "Temps restant (Runway)",

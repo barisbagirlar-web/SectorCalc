@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "cifBedel",
-      "label": "CIF Value (USD)",
+      "label": "CIF Bedel (TL)",
       "label_i18n": {
         "en": "CIF Value (USD)",
         "tr": "CIF Bedel (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Cost, insurance, freight inclusive value.",
+      "businessContext": "Sigorta ve navlun dahil toplam mal bedeli.",
       "businessContext_i18n": {
         "en": "Cost, insurance, freight inclusive value.",
         "tr": "Sigorta ve navlun dahil toplam mal bedeli.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gumrukOrani",
-      "label": "Customs Duty Rate (%)",
+      "label": "Gümrük Oranı (%)",
       "label_i18n": {
         "en": "Customs Duty Rate (%)",
         "tr": "Gümrük Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "HS code based duty rate.",
+      "businessContext": "GTİP bazlı gümrük vergisi oranı.",
       "businessContext_i18n": {
         "en": "HS code based duty rate.",
         "tr": "GTİP bazlı gümrük vergisi oranı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Customs Duty"
+      "sonuc": "Gümrük Vergisi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Customs Duty",
+        "en": "Gümrük Vergisi",
         "tr": "Gümrük Vergisi",
         "de": "Zollgebühr",
         "fr": "Droit de douane",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "smvToplam",
-      "label": "Total SMV (Min)",
+      "label": "Toplam SMV (Dk)",
       "label_i18n": {
         "en": "Total SMV (Min)",
         "tr": "Toplam SMV (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 120,
       "min": 0,
-      "businessContext": "Total standard minutes per product.",
+      "businessContext": "Ürünün toplam standart dakikası.",
       "businessContext_i18n": {
         "en": "Total standard minutes per product.",
         "tr": "Ürünün toplam standart dakikası.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "taktTime",
-      "label": "Target Takt Time (Min)",
+      "label": "Hedef Takt Süresi (Dk)",
       "label_i18n": {
         "en": "Target Takt Time (Min)",
         "tr": "Hedef Takt Süresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "Target time per unit.",
+      "businessContext": "Birim üretim için hedef süre.",
       "businessContext_i18n": {
         "en": "Target time per unit.",
         "tr": "Birim üretim için hedef süre.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "operator",
-      "label": "Operator Count",
+      "label": "Operatör Sayısı",
       "label_i18n": {
         "en": "Operator Count",
         "tr": "Operatör Sayısı",
@@ -70,7 +70,7 @@
       "unit": "operators",
       "default": 15,
       "min": 1,
-      "businessContext": "Total operators on line.",
+      "businessContext": "Hattaki toplam operatör.",
       "businessContext_i18n": {
         "en": "Total operators on line.",
         "tr": "Hattaki toplam operatör.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Sewing Line Efficiency"
+      "sonuc": "Dikiş Hattı Verimliliği"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sewing Line Efficiency",
+        "en": "Dikiş Hattı Verimliliği",
         "tr": "Dikiş Hattı Verimliliği",
         "de": "Nahtlinien-Effizienz",
         "fr": "Efficacité de la ligne de couture",

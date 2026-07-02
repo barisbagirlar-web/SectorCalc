@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortTalep",
-      "label": "Avg Daily Demand",
+      "label": "Ortalama Günlük Talep",
       "label_i18n": {
         "en": "Avg Daily Demand",
         "tr": "Ortalama Günlük Talep",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 100,
       "min": 0,
-      "businessContext": "Average daily demand.",
+      "businessContext": "Günlük ortalama talep.",
       "businessContext_i18n": {
         "en": "Average daily demand.",
         "tr": "Günlük ortalama talep.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "stdSapma",
-      "label": "Demand Std Dev",
+      "label": "Talep Standart Sapma",
       "label_i18n": {
         "en": "Demand Std Dev",
         "tr": "Talep Standart Sapma",
@@ -45,7 +45,7 @@
       "unit": "units",
       "default": 20,
       "min": 0,
-      "businessContext": "Demand variability.",
+      "businessContext": "Talep değişkenliği.",
       "businessContext_i18n": {
         "en": "Demand variability.",
         "tr": "Talep değişkenliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tedarikSure",
-      "label": "Lead Time (Days)",
+      "label": "Tedarik Süresi (Gün)",
       "label_i18n": {
         "en": "Lead Time (Days)",
         "tr": "Tedarik Süresi (Gün)",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 7,
       "min": 0,
-      "businessContext": "Order-to-delivery time.",
+      "businessContext": "Siparişten teslimata kadar geçen süre.",
       "businessContext_i18n": {
         "en": "Order-to-delivery time.",
         "tr": "Siparişten teslimata kadar geçen süre.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "Z",
-      "label": "Z Score (Service Level)",
+      "label": "Z Skoru (Servis Seviyesi)",
       "label_i18n": {
         "en": "Z Score (Service Level)",
         "tr": "Z Skoru (Servis Seviyesi)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 1.65,
       "min": 0,
-      "businessContext": "Z value for target service level (1.65=95%).",
+      "businessContext": "Servis seviyesine karşılık gelen Z değeri (1.65=%95).",
       "businessContext_i18n": {
         "en": "Z value for target service level (1.65=95%).",
         "tr": "Servis seviyesine karşılık gelen Z değeri (1.65=%95).",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "units",
     "breakdown": {
-      "sonuc": "ROP (Reorder Point)"
+      "sonuc": "ROP (Yeniden Sipariş Seviyesi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "ROP (Reorder Point)",
+        "en": "ROP (Yeniden Sipariş Seviyesi)",
         "tr": "ROP (Yeniden Sipariş Seviyesi)",
         "de": "ROP (Wiederbestellpunkt)",
         "fr": "ROP (Niveau de réapprovisionnement)",

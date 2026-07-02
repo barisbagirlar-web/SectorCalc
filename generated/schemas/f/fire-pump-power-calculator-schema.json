@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Flow Rate (L/min)",
+      "label": "Debi (L/dk)",
       "label_i18n": {
         "en": "Flow Rate (L/min)",
         "tr": "Debi (L/dk)",
@@ -20,7 +20,7 @@
       "unit": "L/min",
       "default": 1000,
       "min": 0,
-      "businessContext": "System flow rate.",
+      "businessContext": "Sistem debisi.",
       "businessContext_i18n": {
         "en": "System flow rate.",
         "tr": "Sistem debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "basinc",
-      "label": "Pressure (bar)",
+      "label": "Basınç (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
         "tr": "Basınç (bar)",
@@ -45,7 +45,7 @@
       "unit": "bar",
       "default": 7,
       "min": 0,
-      "businessContext": "Required pressure.",
+      "businessContext": "Gerekli basınç.",
       "businessContext_i18n": {
         "en": "Required pressure.",
         "tr": "Gerekli basınç.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pompaVerim",
-      "label": "Pump Efficiency (%)",
+      "label": "Pompa Verimi (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "Pump efficiency.",
+      "businessContext": "Pompa verimi.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verimi.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "HP",
     "breakdown": {
-      "sonuc": "Pump Motor Power"
+      "sonuc": "Pompa Motor Gücü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Pump Motor Power",
+        "en": "Pompa Motor Gücü",
         "tr": "Pompa Motor Gücü",
         "de": "Pumpenmotorleistung",
         "fr": "Puissance du moteur de la pompe",

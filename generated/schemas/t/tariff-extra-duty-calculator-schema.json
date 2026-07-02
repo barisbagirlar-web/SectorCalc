@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "urunBedeli",
-      "label": "Product Value (USD)",
+      "label": "Ürün Bedeli (TL)",
       "label_i18n": {
         "en": "Product Value (USD)",
         "tr": "Ürün Bedeli (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Product invoice value.",
+      "businessContext": "Ürünün fatura değeri.",
       "businessContext_i18n": {
         "en": "Product invoice value.",
         "tr": "Ürünün fatura değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ekVergi",
-      "label": "Additional Tariff (%)",
+      "label": "Ek Vergi Oranı (%)",
       "label_i18n": {
         "en": "Additional Tariff (%)",
         "tr": "Ek Vergi Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Origin-based extra tariff rate.",
+      "businessContext": "Menşei bazlı ek vergi oranı.",
       "businessContext_i18n": {
         "en": "Origin-based extra tariff rate.",
         "tr": "Menşei bazlı ek vergi oranı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Additional Customs Duty"
+      "sonuc": "Ek Gümrük Vergisi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Additional Customs Duty",
+        "en": "Ek Gümrük Vergisi",
         "tr": "Ek Gümrük Vergisi",
         "de": "Additional Customs Duty",
         "fr": "Droit de douane supplémentaire",

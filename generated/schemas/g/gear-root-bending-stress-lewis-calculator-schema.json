@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Tangential Force (N)",
+      "label": "Teğetsel Kuvvet (N)",
       "label_i18n": {
         "en": "Tangential Force (N)",
         "tr": "Teğetsel Kuvvet (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 5000,
       "min": 0,
-      "businessContext": "Tangential gear force.",
+      "businessContext": "Dişliye etkiyen teğetsel kuvvet.",
       "businessContext_i18n": {
         "en": "Tangential gear force.",
         "tr": "Dişliye etkiyen teğetsel kuvvet.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "modul",
-      "label": "Module (m)",
+      "label": "Modül (m)",
       "label_i18n": {
         "en": "Module (m)",
         "tr": "Modül (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Gear module.",
+      "businessContext": "Dişli modülü.",
       "businessContext_i18n": {
         "en": "Gear module.",
         "tr": "Dişli modülü.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "genislik",
-      "label": "Face Width (m)",
+      "label": "Dişli Genişliği (m)",
       "label_i18n": {
         "en": "Face Width (m)",
         "tr": "Dişli Genişliği (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.04,
       "min": 0,
-      "businessContext": "Gear face width.",
+      "businessContext": "Dişlinin yüz genişliği.",
       "businessContext_i18n": {
         "en": "Gear face width.",
         "tr": "Dişlinin yüz genişliği.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "formFaktoru",
-      "label": "Lewis Form Factor (Y)",
+      "label": "Lewis Form Faktörü (Y)",
       "label_i18n": {
         "en": "Lewis Form Factor (Y)",
         "tr": "Lewis Form Faktörü (Y)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.35,
       "min": 0,
-      "businessContext": "Tooth count factor.",
+      "businessContext": "Diş sayısına bağlı faktör.",
       "businessContext_i18n": {
         "en": "Tooth count factor.",
         "tr": "Diş sayısına bağlı faktör.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Tooth Root Stress"
+      "sonuc": "Diş Kökü Gerilmesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tooth Root Stress",
+        "en": "Diş Kökü Gerilmesi",
         "tr": "Diş Kökü Gerilmesi",
         "de": "Zahnfußspannung",
         "fr": "Contrainte à la racine de la dent",

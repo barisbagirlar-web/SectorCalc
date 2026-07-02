@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikSatis",
-      "label": "Annual Sales (USD)",
+      "label": "Yıllık Satış (TL)",
       "label_i18n": {
         "en": "Annual Sales (USD)",
         "tr": "Yıllık Satış (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Total annual revenue.",
+      "businessContext": "Toplam yıllık satış.",
       "businessContext_i18n": {
         "en": "Total annual revenue.",
         "tr": "Toplam yıllık satış.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortAlacak",
-      "label": "Avg Receivables (USD)",
+      "label": "Ortalama Alacak (TL)",
       "label_i18n": {
         "en": "Avg Receivables (USD)",
         "tr": "Ortalama Alacak (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Average accounts receivable.",
+      "businessContext": "Dönem ortalama ticari alacak.",
       "businessContext_i18n": {
         "en": "Average accounts receivable.",
         "tr": "Dönem ortalama ticari alacak.",
@@ -70,11 +70,11 @@
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Average Collection Period"
+      "sonuc": "Ortalama Tahsilat Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Average Collection Period",
+        "en": "Ortalama Tahsilat Süresi",
         "tr": "Ortalama Tahsilat Süresi",
         "de": "Durchschnittliche Inkassofrist",
         "fr": "Période moyenne de recouvrement",

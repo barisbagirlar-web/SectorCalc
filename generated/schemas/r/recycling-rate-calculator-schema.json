@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "geriDonusen",
-      "label": "Recycled (tons)",
+      "label": "Geri Dönüştürülen (ton)",
       "label_i18n": {
         "en": "Recycled (tons)",
         "tr": "Geri Dönüştürülen (ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 300,
       "min": 0,
-      "businessContext": "Amount of waste recovered.",
+      "businessContext": "Geri kazanılan atık miktarı.",
       "businessContext_i18n": {
         "en": "Amount of waste recovered.",
         "tr": "Geri kazanılan atık miktarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamAtik",
-      "label": "Total Waste (tons)",
+      "label": "Toplam Atık (ton)",
       "label_i18n": {
         "en": "Total Waste (tons)",
         "tr": "Toplam Atık (ton)",
@@ -45,7 +45,7 @@
       "unit": "tons",
       "default": 1000,
       "min": 0,
-      "businessContext": "Total waste generated.",
+      "businessContext": "Oluşan toplam atık.",
       "businessContext_i18n": {
         "en": "Total waste generated.",
         "tr": "Oluşan toplam atık.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Recycling Rate"
+      "sonuc": "Geri Dönüşüm Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Recycling Rate",
+        "en": "Geri Dönüşüm Oranı",
         "tr": "Geri Dönüşüm Oranı",
         "de": "Recyclingquote",
         "fr": "Taux de recyclage",

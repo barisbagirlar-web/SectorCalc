@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kutle",
-      "label": "Particle Mass (kg)",
+      "label": "Parçacık Kütlesi (kg)",
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parçacık Kütlesi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Particle mass.",
+      "businessContext": "Parçacığın kütlesi.",
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parçacığın kütlesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hiz",
-      "label": "Particle Velocity (m/s)",
+      "label": "Parçacık Hızı (m/s)",
       "label_i18n": {
         "en": "Particle Velocity (m/s)",
         "tr": "Parçacık Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Particle velocity.",
+      "businessContext": "Parçacığın hızı.",
       "businessContext_i18n": {
         "en": "Particle velocity.",
         "tr": "Parçacığın hızı.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikTalep",
-      "label": "Annual Demand",
+      "label": "Yıllık Talep (Adet)",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep (Adet)",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Annual total demand.",
+      "businessContext": "Yıllık toplam talep.",
       "businessContext_i18n": {
         "en": "Annual total demand.",
         "tr": "Yıllık toplam talep.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "siparisMaliyeti",
-      "label": "Order Cost (USD)",
+      "label": "Sipariş Maliyeti (TL)",
       "label_i18n": {
         "en": "Order Cost (USD)",
         "tr": "Sipariş Maliyeti (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Fixed cost per order.",
+      "businessContext": "Her siparişin sabit maliyeti.",
       "businessContext_i18n": {
         "en": "Fixed cost per order.",
         "tr": "Her siparişin sabit maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tasimaMaliyeti",
-      "label": "Holding Cost (USD/Unit/yr)",
+      "label": "Taşıma Maliyeti (TL/Adet-Yıl)",
       "label_i18n": {
         "en": "Holding Cost (USD/Unit/yr)",
         "tr": "Taşıma Maliyeti (TL/Adet-Yıl)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Annual holding cost per unit.",
+      "businessContext": "Birim başı yıllık depolama maliyeti.",
       "businessContext_i18n": {
         "en": "Annual holding cost per unit.",
         "tr": "Birim başı yıllık depolama maliyeti.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "units",
     "breakdown": {
-      "sonuc": "EOQ (Economic Order Quantity)"
+      "sonuc": "EOQ (Optimum Sipariş Miktarı)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "EOQ (Economic Order Quantity)",
+        "en": "EOQ (Optimum Sipariş Miktarı)",
         "tr": "EOQ (Optimum Sipariş Miktarı)",
         "de": "EOQ (Optimale Bestellmenge)",
         "fr": "EOQ (Quantité économique de commande)",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Investment Amount (USD)",
+      "label": "Yatırım Tutarı (TL)",
       "label_i18n": {
         "en": "Investment Amount (USD)",
         "tr": "Yatırım Tutarı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Investor capital contribution.",
+      "businessContext": "Yatırımcının koyduğu tutar.",
       "businessContext_i18n": {
         "en": "Investor capital contribution.",
         "tr": "Yatırımcının koyduğu tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hisseOrani",
-      "label": "Equity Given (%)",
+      "label": "Verilen Hisse Oranı (%)",
       "label_i18n": {
         "en": "Equity Given (%)",
         "tr": "Verilen Hisse Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 20,
       "min": 0.1,
       "max": 99,
-      "businessContext": "Percentage equity given to investor.",
+      "businessContext": "Yatırımcıya verilen hisse yüzdesi.",
       "businessContext_i18n": {
         "en": "Percentage equity given to investor.",
         "tr": "Yatırımcıya verilen hisse yüzdesi.",
@@ -71,11 +71,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Pre-Money Valuation"
+      "sonuc": "Yatırım Öncesi Değerleme"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Pre-Money Valuation",
+        "en": "Yatırım Öncesi Değerleme",
         "tr": "Yatırım Öncesi Değerleme",
         "de": "Pre-Money-Bewertung",
         "fr": "Valorisation pré-investissement",

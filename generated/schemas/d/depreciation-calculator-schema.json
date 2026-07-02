@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bedel",
-      "label": "Asset Cost (USD)",
+      "label": "Varlık Bedeli (₺)",
       "label_i18n": {
         "en": "Asset Cost (USD)",
         "tr": "Varlık Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Purchase cost of asset.",
+      "businessContext": "Varlığın satın alma maliyeti.",
       "businessContext_i18n": {
         "en": "Purchase cost of asset.",
         "tr": "Varlığın satın alma maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinti",
-      "label": "Salvage Value (USD)",
+      "label": "Kalıntı Değer (₺)",
       "label_i18n": {
         "en": "Salvage Value (USD)",
         "tr": "Kalıntı Değer (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Estimated end-of-life value.",
+      "businessContext": "Varlığın ömür sonu tahmini değeri.",
       "businessContext_i18n": {
         "en": "Estimated end-of-life value.",
         "tr": "Varlığın ömür sonu tahmini değeri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "omur",
-      "label": "Useful Life (Years)",
+      "label": "Ekonomik Ömür (Yıl)",
       "label_i18n": {
         "en": "Useful Life (Years)",
         "tr": "Ekonomik Ömür (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Useful economic life.",
+      "businessContext": "Varlığın faydalı ömrü.",
       "businessContext_i18n": {
         "en": "Useful economic life.",
         "tr": "Varlığın faydalı ömrü.",
@@ -95,12 +95,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Annual Depreciation",
-      "dogrusal": "Linear Expense"
+      "sonuc": "Yıllık Amortisman",
+      "dogrusal": "Doğrusal Gider"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Annual Depreciation",
+        "en": "Yıllık Amortisman",
         "tr": "Yıllık Amortisman",
         "de": "Jährliche Abschreibung",
         "fr": "Amortissement annuel",
@@ -108,7 +108,7 @@
         "ar": "الإهلاك السنوي"
       },
       "dogrusal": {
-        "en": "Linear Expense",
+        "en": "Doğrusal Gider",
         "tr": "Doğrusal Gider",
         "de": "Lineare Abschreibung",
         "fr": "Charge linéaire",

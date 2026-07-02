@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kanatCapi",
-      "label": "Rotor Diameter (m)",
+      "label": "Rotor Çapı (m)",
       "label_i18n": {
         "en": "Rotor Diameter (m)",
         "tr": "Rotor Çapı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 80,
       "min": 0,
-      "businessContext": "Turbine blade diameter.",
+      "businessContext": "Türbin kanat çapı.",
       "businessContext_i18n": {
         "en": "Turbine blade diameter.",
         "tr": "Türbin kanat çapı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruzgarHizi",
-      "label": "Wind Speed (m/s)",
+      "label": "Rüzgar Hızı (m/s)",
       "label_i18n": {
         "en": "Wind Speed (m/s)",
         "tr": "Rüzgar Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 12,
       "min": 0,
-      "businessContext": "Average wind speed.",
+      "businessContext": "Ortalama rüzgar hızı.",
       "businessContext_i18n": {
         "en": "Average wind speed.",
         "tr": "Ortalama rüzgar hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "havaYogunlugu",
-      "label": "Air Density (kg/m³)",
+      "label": "Hava Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Air Density (kg/m³)",
         "tr": "Hava Yoğunluğu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1.225,
       "min": 0,
-      "businessContext": "Sea-level air density.",
+      "businessContext": "Deniz seviyesi hava yoğunluğu.",
       "businessContext_i18n": {
         "en": "Sea-level air density.",
         "tr": "Deniz seviyesi hava yoğunluğu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "Cp",
-      "label": "Power Coefficient (Cp)",
+      "label": "Güç Katsayısı (Cp)",
       "label_i18n": {
         "en": "Power Coefficient (Cp)",
         "tr": "Güç Katsayısı (Cp)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Efficiency below Betz limit.",
+      "businessContext": "Betz limiti altındaki verim.",
       "businessContext_i18n": {
         "en": "Efficiency below Betz limit.",
         "tr": "Betz limiti altındaki verim.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Turbine Power"
+      "sonuc": "Türbin Gücü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Turbine Power",
+        "en": "Türbin Gücü",
         "tr": "Türbin Gücü",
         "de": "Turbine Power",
         "fr": "Puissance de la turbine",

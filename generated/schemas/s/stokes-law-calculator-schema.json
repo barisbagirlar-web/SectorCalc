@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yariCap",
-      "label": "Particle Radius (m)",
+      "label": "Parçacık Yarıçapı (m)",
       "label_i18n": {
         "en": "Particle Radius (m)",
         "tr": "Parçacık Yarıçapı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Spherical particle radius.",
+      "businessContext": "Küresel parçacığın yarıçapı.",
       "businessContext_i18n": {
         "en": "Spherical particle radius.",
         "tr": "Küresel parçacığın yarıçapı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "parcacikYogunluk",
-      "label": "Particle Density (kg/m³)",
+      "label": "Parçacık Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Particle Density (kg/m³)",
         "tr": "Parçacık Yoğunluğu (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 2500,
       "min": 0,
-      "businessContext": "Particle density.",
+      "businessContext": "Parçacığın yoğunluğu.",
       "businessContext_i18n": {
         "en": "Particle density.",
         "tr": "Parçacığın yoğunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akiskanYogunluk",
-      "label": "Fluid Density (kg/m³)",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Akışkan Yoğunluğu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Fluid density.",
+      "businessContext": "Akışkanın yoğunluğu.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akışkanın yoğunluğu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "viskozite",
-      "label": "Dynamic Viscosity (Pa·s)",
+      "label": "Dinamik Viskozite (Pa·s)",
       "label_i18n": {
         "en": "Dynamic Viscosity (Pa·s)",
         "tr": "Dinamik Viskozite (Pa·s)",
@@ -95,7 +95,7 @@
       "unit": "Pa*s",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Fluid viscosity.",
+      "businessContext": "Akışkanın viskozitesi.",
       "businessContext_i18n": {
         "en": "Fluid viscosity.",
         "tr": "Akışkanın viskozitesi.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Settling Velocity"
+      "sonuc": "Çökelme Hızı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Settling Velocity",
+        "en": "Çökelme Hızı",
         "tr": "Çökelme Hızı",
         "de": "Sedimentationsgeschwindigkeit",
         "fr": "Taux de sédimentation",

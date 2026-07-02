@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kohezyon",
-      "label": "Cohesion (Pa)",
+      "label": "Kohezyon (Pa)",
       "label_i18n": {
         "en": "Cohesion (Pa)",
         "tr": "Kohezyon (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 20000,
       "min": 0,
-      "businessContext": "Soil cohesion.",
+      "businessContext": "Zemin kohezyonu.",
       "businessContext_i18n": {
         "en": "Soil cohesion.",
         "tr": "Zemin kohezyonu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "temelGenislik",
-      "label": "Footing Width (m)",
+      "label": "Temel Genişliği (m)",
       "label_i18n": {
         "en": "Footing Width (m)",
         "tr": "Temel Genişliği (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Footing base width.",
+      "businessContext": "Temel taban genişliği.",
       "businessContext_i18n": {
         "en": "Footing base width.",
         "tr": "Temel taban genişliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Footing Depth (m)",
+      "label": "Temel Derinliği (m)",
       "label_i18n": {
         "en": "Footing Depth (m)",
         "tr": "Temel Derinliği (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Footing base depth.",
+      "businessContext": "Temel alt kotu.",
       "businessContext_i18n": {
         "en": "Footing base depth.",
         "tr": "Temel alt kotu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Soil Density (kg/m³)",
+      "label": "Zemin Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Soil Density (kg/m³)",
         "tr": "Zemin Yoğunluğu (kg/m³)",
@@ -95,7 +95,7 @@
       "unit": "kg/m3",
       "default": 1800,
       "min": 0,
-      "businessContext": "Soil unit weight.",
+      "businessContext": "Zeminin birim hacim ağırlığı.",
       "businessContext_i18n": {
         "en": "Soil unit weight.",
         "tr": "Zeminin birim hacim ağırlığı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Ultimate Bearing Capacity (q)"
+      "sonuc": "Nihai Taşıma Kapasitesi (q)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ultimate Bearing Capacity (q)",
+        "en": "Nihai Taşıma Kapasitesi (q)",
         "tr": "Nihai Taşıma Kapasitesi (q)",
         "de": "Endgültige Tragfähigkeit (q)",
         "fr": "Capacité portante ultime (q)",

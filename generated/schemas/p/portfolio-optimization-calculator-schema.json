@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "beklenenGetiri",
-      "label": "Expected Return (%)",
+      "label": "Beklenen Getiri (%)",
       "label_i18n": {
         "en": "Expected Return (%)",
         "tr": "Beklenen Getiri (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Target portfolio return expectation.",
+      "businessContext": "Portföyün hedef getiri beklentisi.",
       "businessContext_i18n": {
         "en": "Target portfolio return expectation.",
         "tr": "Portföyün hedef getiri beklentisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "beklenenRisk",
-      "label": "Expected Risk (%)",
+      "label": "Beklenen Risk (%)",
       "label_i18n": {
         "en": "Expected Risk (%)",
         "tr": "Beklenen Risk (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Estimated portfolio risk/volatility.",
+      "businessContext": "Portföyün tahmini volatilitesi.",
       "businessContext_i18n": {
         "en": "Estimated portfolio risk/volatility.",
         "tr": "Portföyün tahmini volatilitesi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Return/Risk Ratio"
+      "sonuc": "Getiri/Risk Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Return/Risk Ratio",
+        "en": "Getiri/Risk Oranı",
         "tr": "Getiri/Risk Oranı",
         "de": "Rendite/Risiko-Verhältnis",
         "fr": "Ratio rendement/risque",

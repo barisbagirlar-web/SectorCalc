@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mevcutHisse",
-      "label": "Current Shares",
+      "label": "Mevcut Hisse (Adet)",
       "label_i18n": {
         "en": "Current Shares",
         "tr": "Mevcut Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Current total shares.",
+      "businessContext": "Mevcut toplam hisse.",
       "businessContext_i18n": {
         "en": "Current total shares.",
         "tr": "Mevcut toplam hisse.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yeniHisse",
-      "label": "New Shares",
+      "label": "Yeni Hisse (Adet)",
       "label_i18n": {
         "en": "New Shares",
         "tr": "Yeni Hisse (Adet)",
@@ -45,7 +45,7 @@
       "unit": "shares",
       "default": 200000,
       "min": 0,
-      "businessContext": "Newly issued shares.",
+      "businessContext": "Yeni ihraç edilen hisse.",
       "businessContext_i18n": {
         "en": "Newly issued shares.",
         "tr": "Yeni ihraç edilen hisse.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Dilution Ratio"
+      "sonuc": "Sulandırma Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Dilution Ratio",
+        "en": "Sulandırma Oranı",
         "tr": "Sulandırma Oranı",
         "de": "Verwässerungsrate",
         "fr": "Taux de dilution",

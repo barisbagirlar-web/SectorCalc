@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hamOlcu",
-      "label": "Greige Dimension (cm)",
+      "label": "Ham Ölçü (cm)",
       "label_i18n": {
         "en": "Greige Dimension (cm)",
         "tr": "Ham Ölçü (cm)",
@@ -20,7 +20,7 @@
       "unit": "cm",
       "default": 100,
       "min": 0,
-      "businessContext": "Pre-processing fabric size.",
+      "businessContext": "İşlem öncesi kumaş ölçüsü.",
       "businessContext_i18n": {
         "en": "Pre-processing fabric size.",
         "tr": "İşlem öncesi kumaş ölçüsü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitmisOlcu",
-      "label": "Finished Dimension (cm)",
+      "label": "Bitmiş Ölçü (cm)",
       "label_i18n": {
         "en": "Finished Dimension (cm)",
         "tr": "Bitmiş Ölçü (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 96,
       "min": 0,
-      "businessContext": "Post-processing fabric size.",
+      "businessContext": "İşlem sonrası kumaş ölçüsü.",
       "businessContext_i18n": {
         "en": "Post-processing fabric size.",
         "tr": "İşlem sonrası kumaş ölçüsü.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Draw Ratio"
+      "sonuc": "Çekme Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Draw Ratio",
+        "en": "Çekme Oranı",
         "tr": "Çekme Oranı",
         "de": "Ziehverhältnis",
         "fr": "Taux de retrait",

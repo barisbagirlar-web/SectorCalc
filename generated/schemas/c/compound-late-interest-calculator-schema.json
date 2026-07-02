@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Principal (TL)",
+      "label": "Anapara (TL)",
       "label_i18n": {
         "en": "Principal (TL)",
         "tr": "Anapara (TL)",
@@ -20,7 +20,7 @@
       "unit": "TL",
       "default": 10000,
       "min": 0,
-      "businessContext": "Principal debt amount.",
+      "businessContext": "Ana borç tutarı.",
       "businessContext_i18n": {
         "en": "Principal debt amount.",
         "tr": "Ana borç tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikFaiz",
-      "label": "Annual Late Interest (%)",
+      "label": "Yıllık Gecikme Faizi (%)",
       "label_i18n": {
         "en": "Annual Late Interest (%)",
         "tr": "Yıllık Gecikme Faizi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 24,
       "min": 0,
-      "businessContext": "Legal default interest rate.",
+      "businessContext": "Yasal temerrüt faiz oranı.",
       "businessContext_i18n": {
         "en": "Legal default interest rate.",
         "tr": "Yasal temerrüt faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gecikmeGun",
-      "label": "Days Overdue",
+      "label": "Gecikme Günü",
       "label_i18n": {
         "en": "Days Overdue",
         "tr": "Gecikme Günü",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "Days past due.",
+      "businessContext": "Vade aşımı süresi.",
       "businessContext_i18n": {
         "en": "Days past due.",
         "tr": "Vade aşımı süresi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "bilesimSikligi",
-      "label": "Compounding Frequency (Days)",
+      "label": "Bileşim Sıklığı (Gün)",
       "label_i18n": {
         "en": "Compounding Frequency (Days)",
         "tr": "Bileşim Sıklığı (Gün)",
@@ -95,7 +95,7 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Interest capitalization period.",
+      "businessContext": "Faizin anaparaya eklendiği periyot.",
       "businessContext_i18n": {
         "en": "Interest capitalization period.",
         "tr": "Faizin anaparaya eklendiği periyot.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "TL",
     "breakdown": {
-      "sonuc": "Total Debt"
+      "sonuc": "Toplam Borç"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Total Debt",
+        "en": "Toplam Borç",
         "tr": "Toplam Borç",
         "de": "Gesamtschuld",
         "fr": "Dette totale",

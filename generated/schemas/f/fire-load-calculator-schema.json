@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yaniciKutle",
-      "label": "Combustible Mass (kg)",
+      "label": "Yanıcı Malzeme Kütlesi (kg)",
       "label_i18n": {
         "en": "Combustible Mass (kg)",
         "tr": "Yanıcı Malzeme Kütlesi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 5000,
       "min": 0,
-      "businessContext": "Combustible material on floor.",
+      "businessContext": "Kat planında yanıcı kütle.",
       "businessContext_i18n": {
         "en": "Combustible material on floor.",
         "tr": "Kat planında yanıcı kütle.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "isilDeger",
-      "label": "Calorific Value (MJ/kg)",
+      "label": "Isıl Değer (MJ/kg)",
       "label_i18n": {
         "en": "Calorific Value (MJ/kg)",
         "tr": "Isıl Değer (MJ/kg)",
@@ -45,7 +45,7 @@
       "unit": "MJ/kg",
       "default": 18,
       "min": 0,
-      "businessContext": "Material energy per kg.",
+      "businessContext": "Malzemenin birim kütle enerjisi.",
       "businessContext_i18n": {
         "en": "Material energy per kg.",
         "tr": "Malzemenin birim kütle enerjisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "katAlani",
-      "label": "Floor Area (m²)",
+      "label": "Kat Alanı (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
         "tr": "Kat Alanı (m²)",
@@ -70,7 +70,7 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Fire compartment area.",
+      "businessContext": "Yangın kompartmanı alanı.",
       "businessContext_i18n": {
         "en": "Fire compartment area.",
         "tr": "Yangın kompartmanı alanı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "MJ/m2",
     "breakdown": {
-      "sonuc": "Fire Load"
+      "sonuc": "Yangın Yükü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Fire Load",
+        "en": "Yangın Yükü",
         "tr": "Yangın Yükü",
         "de": "Brandlast",
         "fr": "Charge calorifique",

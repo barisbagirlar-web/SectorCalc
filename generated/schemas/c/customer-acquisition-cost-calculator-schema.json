@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "pazarlama",
-      "label": "Marketing Spend (USD)",
+      "label": "Pazarlama Gideri (TL)",
       "label_i18n": {
         "en": "Marketing Spend (USD)",
         "tr": "Pazarlama Gideri (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Marketing expenses.",
+      "businessContext": "Dönem pazarlama harcaması.",
       "businessContext_i18n": {
         "en": "Marketing expenses.",
         "tr": "Dönem pazarlama harcaması.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satisGideri",
-      "label": "Sales Cost (USD)",
+      "label": "Satış Gideri (TL)",
       "label_i18n": {
         "en": "Sales Cost (USD)",
         "tr": "Satış Gideri (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Sales team costs.",
+      "businessContext": "Satış ekibi giderleri.",
       "businessContext_i18n": {
         "en": "Sales team costs.",
         "tr": "Satış ekibi giderleri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yeniMusteri",
-      "label": "New Customers",
+      "label": "Yeni Müşteri (Adet)",
       "label_i18n": {
         "en": "New Customers",
         "tr": "Yeni Müşteri (Adet)",
@@ -70,7 +70,7 @@
       "unit": "customers",
       "default": 100,
       "min": 0,
-      "businessContext": "New customers acquired.",
+      "businessContext": "Kazanılan yeni müşteri sayısı.",
       "businessContext_i18n": {
         "en": "New customers acquired.",
         "tr": "Kazanılan yeni müşteri sayısı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Customer Acquisition Cost (CAC)"
+      "sonuc": "Müşteri Edinim Maliyeti (CAC)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Customer Acquisition Cost (CAC)",
+        "en": "Müşteri Edinim Maliyeti (CAC)",
         "tr": "Müşteri Edinim Maliyeti (CAC)",
         "de": "Kundenakquisitionskosten (CAC)",
         "fr": "Coût d'acquisition client (CAC)",

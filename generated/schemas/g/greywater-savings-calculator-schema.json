@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "griSuHacmi",
-      "label": "Daily Greywater (m³/day)",
+      "label": "Günlük Gri Su Hacmi (m³/gün)",
       "label_i18n": {
         "en": "Daily Greywater (m³/day)",
         "tr": "Günlük Gri Su Hacmi (m³/gün)",
@@ -20,7 +20,7 @@
       "unit": "m3/day",
       "default": 5,
       "min": 0,
-      "businessContext": "Daily greywater volume.",
+      "businessContext": "Günlük oluşan gri su.",
       "businessContext_i18n": {
         "en": "Daily greywater volume.",
         "tr": "Günlük oluşan gri su.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aritmaMaliyet",
-      "label": "Treatment Cost (TL/m³)",
+      "label": "Arıtma Maliyeti (TL/m³)",
       "label_i18n": {
         "en": "Treatment Cost (TL/m³)",
         "tr": "Arıtma Maliyeti (TL/m³)",
@@ -45,7 +45,7 @@
       "unit": "TL/m3",
       "default": 3,
       "min": 0,
-      "businessContext": "Greywater treatment unit cost.",
+      "businessContext": "Gri su arıtma birim maliyeti.",
       "businessContext_i18n": {
         "en": "Greywater treatment unit cost.",
         "tr": "Gri su arıtma birim maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sebekeFiyat",
-      "label": "Mains Water Price (TL/m³)",
+      "label": "Şebeke Su Fiyatı (TL/m³)",
       "label_i18n": {
         "en": "Mains Water Price (TL/m³)",
         "tr": "Şebeke Su Fiyatı (TL/m³)",
@@ -70,7 +70,7 @@
       "unit": "TL/m3",
       "default": 15,
       "min": 0,
-      "businessContext": "Municipal water unit price.",
+      "businessContext": "Şebekeden alınan su birim fiyatı.",
       "businessContext_i18n": {
         "en": "Municipal water unit price.",
         "tr": "Şebekeden alınan su birim fiyatı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "TL/year",
     "breakdown": {
-      "sonuc": "Annual Net Savings"
+      "sonuc": "Yıllık Net Tasarruf"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Annual Net Savings",
+        "en": "Yıllık Net Tasarruf",
         "tr": "Yıllık Net Tasarruf",
         "de": "Jährliche Nettoeinsparung",
         "fr": "Économies nettes annuelles",

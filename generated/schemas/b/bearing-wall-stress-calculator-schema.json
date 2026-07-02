@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Vertical Load (N)",
+      "label": "Düşey Yük (N)",
       "label_i18n": {
         "en": "Vertical Load (N)",
         "tr": "Düşey Yük (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 200000,
       "min": 0,
-      "businessContext": "Vertical load on wall.",
+      "businessContext": "Duvara gelen düşey yük.",
       "businessContext_i18n": {
         "en": "Vertical load on wall.",
         "tr": "Duvara gelen düşey yük.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "duvarAlani",
-      "label": "Wall Cross-Section (m²)",
+      "label": "Duvar Kesit Alanı (m²)",
       "label_i18n": {
         "en": "Wall Cross-Section (m²)",
         "tr": "Duvar Kesit Alanı (m²)",
@@ -45,7 +45,7 @@
       "unit": "m2",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Wall horizontal section area.",
+      "businessContext": "Duvarın yatay kesit alanı.",
       "businessContext_i18n": {
         "en": "Wall horizontal section area.",
         "tr": "Duvarın yatay kesit alanı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Wall Compressive Stress"
+      "sonuc": "Duvar Basınç Gerilmesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Wall Compressive Stress",
+        "en": "Duvar Basınç Gerilmesi",
         "tr": "Duvar Basınç Gerilmesi",
         "de": "Wall Bearing Stress",
         "fr": "Contrainte de compression du mur",

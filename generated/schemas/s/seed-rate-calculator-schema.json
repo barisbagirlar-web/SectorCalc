@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "siraAraligi",
-      "label": "Row Spacing (m)",
+      "label": "Sıra Aralığı (m)",
       "label_i18n": {
         "en": "Row Spacing (m)",
         "tr": "Sıra Aralığı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.7,
       "min": 0,
-      "businessContext": "Distance between rows.",
+      "businessContext": "Sıralar arası mesafe.",
       "businessContext_i18n": {
         "en": "Distance between rows.",
         "tr": "Sıralar arası mesafe.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzeriMesafe",
-      "label": "In-Row Spacing (m)",
+      "label": "Sıra Üzeri Mesafe (m)",
       "label_i18n": {
         "en": "In-Row Spacing (m)",
         "tr": "Sıra Üzeri Mesafe (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Distance between plants.",
+      "businessContext": "Bitkiler arası mesafe.",
       "businessContext_i18n": {
         "en": "Distance between plants.",
         "tr": "Bitkiler arası mesafe.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "binTaneAgirlik",
-      "label": "Thousand Grain Weight (g)",
+      "label": "Bin Tane Ağırlığı (g)",
       "label_i18n": {
         "en": "Thousand Grain Weight (g)",
         "tr": "Bin Tane Ağırlığı (g)",
@@ -70,7 +70,7 @@
       "unit": "g",
       "default": 350,
       "min": 0,
-      "businessContext": "Weight of 1000 seeds.",
+      "businessContext": "1000 adet tohumun ağırlığı.",
       "businessContext_i18n": {
         "en": "Weight of 1000 seeds.",
         "tr": "1000 adet tohumun ağırlığı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "cimlenme",
-      "label": "Germination Rate (%)",
+      "label": "Çimlenme Oranı (%)",
       "label_i18n": {
         "en": "Germination Rate (%)",
         "tr": "Çimlenme Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Germination percentage.",
+      "businessContext": "Tohumun çimlenme yüzdesi.",
       "businessContext_i18n": {
         "en": "Germination percentage.",
         "tr": "Tohumun çimlenme yüzdesi.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "kg/da",
     "breakdown": {
-      "sonuc": "Seed Requirement"
+      "sonuc": "Tohum İhtiyacı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Seed Requirement",
+        "en": "Tohum İhtiyacı",
         "tr": "Tohum İhtiyacı",
         "de": "Saatgutbedarf",
         "fr": "Besoin en semences",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikNetGelir",
-      "label": "Annual Net Rental Income (USD)",
+      "label": "Yıllık Net Kira Geliri (₺)",
       "label_i18n": {
         "en": "Annual Net Rental Income (USD)",
         "tr": "Yıllık Net Kira Geliri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Net rental income after expenses.",
+      "businessContext": "Giderler düşüldükten sonraki net kira geliri.",
       "businessContext_i18n": {
         "en": "Net rental income after expenses.",
         "tr": "Giderler düşüldükten sonraki net kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mulkDegeri",
-      "label": "Property Value (USD)",
+      "label": "Mülk Değeri (₺)",
       "label_i18n": {
         "en": "Property Value (USD)",
         "tr": "Mülk Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Property market value.",
+      "businessContext": "Gayrimenkulün piyasa değeri.",
       "businessContext_i18n": {
         "en": "Property market value.",
         "tr": "Gayrimenkulün piyasa değeri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Cap Rate"
+      "sonuc": "Cap Rate (Getiri Oranı)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cap Rate",
+        "en": "Cap Rate (Getiri Oranı)",
         "tr": "Cap Rate (Getiri Oranı)",
         "de": "Kapitalisierungsrate (Getiri Oranı)",
         "fr": "Taux de capitalisation (Getiri Oranı)",

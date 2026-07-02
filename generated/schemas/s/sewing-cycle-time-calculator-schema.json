@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "dikisUzunluk",
-      "label": "Seam Length (mm)",
+      "label": "Dikiş Uzunluğu (mm)",
       "label_i18n": {
         "en": "Seam Length (mm)",
         "tr": "Dikiş Uzunluğu (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 500,
       "min": 0,
-      "businessContext": "Seam length.",
+      "businessContext": "Dikilecek dikiş boyu.",
       "businessContext_i18n": {
         "en": "Seam length.",
         "tr": "Dikilecek dikiş boyu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "devirSayisi",
-      "label": "Machine Speed (stitches/min)",
+      "label": "Makine Devri (dikiş/dk)",
       "label_i18n": {
         "en": "Machine Speed (stitches/min)",
         "tr": "Makine Devri (dikiş/dk)",
@@ -45,7 +45,7 @@
       "unit": "spm",
       "default": 4000,
       "min": 0,
-      "businessContext": "Sewing machine speed.",
+      "businessContext": "Dikiş makinesinin devir hızı.",
       "businessContext_i18n": {
         "en": "Sewing machine speed.",
         "tr": "Dikiş makinesinin devir hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dikisSikligi",
-      "label": "Stitch Density (stitches/mm)",
+      "label": "Dikiş Sıklığı (dikiş/mm)",
       "label_i18n": {
         "en": "Stitch Density (stitches/mm)",
         "tr": "Dikiş Sıklığı (dikiş/mm)",
@@ -70,7 +70,7 @@
       "unit": "per_mm",
       "default": 3,
       "min": 0,
-      "businessContext": "Stitches per mm.",
+      "businessContext": "mm başına düşen dikiş sayısı.",
       "businessContext_i18n": {
         "en": "Stitches per mm.",
         "tr": "mm başına düşen dikiş sayısı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Sewing Time"
+      "sonuc": "Dikiş Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sewing Time",
+        "en": "Dikiş Süresi",
         "tr": "Dikiş Süresi",
         "de": "Nähzeit",
         "fr": "Temps de couture",

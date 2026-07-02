@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sesGucu",
-      "label": "Sound Power Level (dB)",
+      "label": "Ses Gücü Seviyesi (dB)",
       "label_i18n": {
         "en": "Sound Power Level (dB)",
         "tr": "Ses Gücü Seviyesi (dB)",
@@ -20,7 +20,7 @@
       "unit": "dB",
       "default": 100,
       "min": 0,
-      "businessContext": "Source sound power.",
+      "businessContext": "Kaynağın ses gücü.",
       "businessContext_i18n": {
         "en": "Source sound power.",
         "tr": "Kaynağın ses gücü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Distance from Source (m)",
+      "label": "Kaynağa Uzaklık (m)",
       "label_i18n": {
         "en": "Distance from Source (m)",
         "tr": "Kaynağa Uzaklık (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Measurement distance.",
+      "businessContext": "Ölçüm noktası uzaklığı.",
       "businessContext_i18n": {
         "en": "Measurement distance.",
         "tr": "Ölçüm noktası uzaklığı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "zeminZayiflama",
-      "label": "Ground Attenuation (dB)",
+      "label": "Zemin Zayıflaması (dB)",
       "label_i18n": {
         "en": "Ground Attenuation (dB)",
         "tr": "Zemin Zayıflaması (dB)",
@@ -70,7 +70,7 @@
       "unit": "dB",
       "default": 3,
       "min": 0,
-      "businessContext": "Ground absorption.",
+      "businessContext": "Zemin emilimi.",
       "businessContext_i18n": {
         "en": "Ground absorption.",
         "tr": "Zemin emilimi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "engelZayiflama",
-      "label": "Barrier Attenuation (dB)",
+      "label": "Engel Zayıflaması (dB)",
       "label_i18n": {
         "en": "Barrier Attenuation (dB)",
         "tr": "Engel Zayıflaması (dB)",
@@ -95,7 +95,7 @@
       "unit": "dB",
       "default": 5,
       "min": 0,
-      "businessContext": "Wall/barrier screening.",
+      "businessContext": "Duvar/bina perdelemesi.",
       "businessContext_i18n": {
         "en": "Wall/barrier screening.",
         "tr": "Duvar/bina perdelemesi.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "Sound Pressure Level"
+      "sonuc": "Ses Basınç Seviyesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sound Pressure Level",
+        "en": "Ses Basınç Seviyesi",
         "tr": "Ses Basınç Seviyesi",
         "de": "Schalldruckpegel",
         "fr": "Niveau de pression acoustique",

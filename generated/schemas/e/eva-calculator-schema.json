@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nopat",
-      "label": "NOPAT (USD)",
+      "label": "NOPAT (₺)",
       "label_i18n": {
         "en": "NOPAT (USD)",
         "tr": "NOPAT (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Net operating profit after tax.",
+      "businessContext": "Vergi sonrası net faaliyet kârı.",
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
         "tr": "Vergi sonrası net faaliyet kârı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sermaye",
-      "label": "Invested Capital (USD)",
+      "label": "Yatırılan Sermaye (₺)",
       "label_i18n": {
         "en": "Invested Capital (USD)",
         "tr": "Yatırılan Sermaye (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Total capital employed.",
+      "businessContext": "Toplam yatırılmış sermaye.",
       "businessContext_i18n": {
         "en": "Total capital employed.",
         "tr": "Toplam yatırılmış sermaye.",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Weighted average cost of capital.",
+      "businessContext": "Ağırlıklı ortalama sermaye maliyeti.",
       "businessContext_i18n": {
         "en": "Weighted average cost of capital.",
         "tr": "Ağırlıklı ortalama sermaye maliyeti.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "EVA (Economic Value Added)"
+      "sonuc": "EVA (Ekonomik Katma Değer)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "EVA (Economic Value Added)",
+        "en": "EVA (Ekonomik Katma Değer)",
         "tr": "EVA (Ekonomik Katma Değer)",
         "de": "EVA (Economic Value Added)",
         "fr": "EVA (Valeur Économique Ajoutée)",

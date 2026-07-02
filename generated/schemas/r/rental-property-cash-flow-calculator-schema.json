@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "brutKira",
-      "label": "Gross Monthly Rent (USD)",
+      "label": "Brüt Aylık Kira (₺)",
       "label_i18n": {
         "en": "Gross Monthly Rent (USD)",
         "tr": "Brüt Aylık Kira (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Total monthly rental income.",
+      "businessContext": "Toplam aylık kira geliri.",
       "businessContext_i18n": {
         "en": "Total monthly rental income.",
         "tr": "Toplam aylık kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bosluk",
-      "label": "Vacancy Rate (%)",
+      "label": "Boşluk Oranı (%)",
       "label_i18n": {
         "en": "Vacancy Rate (%)",
         "tr": "Boşluk Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Annual vacancy percentage.",
+      "businessContext": "Yıllık boş geçen süre oranı.",
       "businessContext_i18n": {
         "en": "Annual vacancy percentage.",
         "tr": "Yıllık boş geçen süre oranı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "isletme",
-      "label": "Monthly Operating Cost (USD)",
+      "label": "Aylık İşletme Gideri (₺)",
       "label_i18n": {
         "en": "Monthly Operating Cost (USD)",
         "tr": "Aylık İşletme Gideri (₺)",
@@ -71,7 +71,7 @@
       "unit": "USD",
       "default": 2000,
       "min": 0,
-      "businessContext": "Taxes, insurance, maintenance.",
+      "businessContext": "Vergi, sigorta, bakım giderleri.",
       "businessContext_i18n": {
         "en": "Taxes, insurance, maintenance.",
         "tr": "Vergi, sigorta, bakım giderleri.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "kredi",
-      "label": "Monthly Mortgage (USD)",
+      "label": "Aylık Kredi Taksiti (₺)",
       "label_i18n": {
         "en": "Monthly Mortgage (USD)",
         "tr": "Aylık Kredi Taksiti (₺)",
@@ -96,7 +96,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Monthly debt service.",
+      "businessContext": "Kredinin aylık geri ödemesi.",
       "businessContext_i18n": {
         "en": "Monthly debt service.",
         "tr": "Kredinin aylık geri ödemesi.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Monthly Net Cash Flow"
+      "sonuc": "Aylık Net Nakit Akışı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Monthly Net Cash Flow",
+        "en": "Aylık Net Nakit Akışı",
         "tr": "Aylık Net Nakit Akışı",
         "de": "Monatlicher Netto-Cashflow",
         "fr": "Flux de trésorerie net mensuel",

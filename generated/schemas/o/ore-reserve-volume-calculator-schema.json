@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "blokHacim",
-      "label": "Ore Block Volume (m³)",
+      "label": "Cevher Blok Hacmi (m³)",
       "label_i18n": {
         "en": "Ore Block Volume (m³)",
         "tr": "Cevher Blok Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Ore body volume.",
+      "businessContext": "Cevher kütlesinin hacmi.",
       "businessContext_i18n": {
         "en": "Ore body volume.",
         "tr": "Cevher kütlesinin hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cevherYogunlugu",
-      "label": "Ore Density (ton/m³)",
+      "label": "Cevher Yoğunluğu (ton/m³)",
       "label_i18n": {
         "en": "Ore Density (ton/m³)",
         "tr": "Cevher Yoğunluğu (ton/m³)",
@@ -45,7 +45,7 @@
       "unit": "ton/m3",
       "default": 2.7,
       "min": 0,
-      "businessContext": "Ore density.",
+      "businessContext": "Cevherin yoğunluğu.",
       "businessContext_i18n": {
         "en": "Ore density.",
         "tr": "Cevherin yoğunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tenor",
-      "label": "Grade (%)",
+      "label": "Tenör (%)",
       "label_i18n": {
         "en": "Grade (%)",
         "tr": "Tenör (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Metal grade in ore.",
+      "businessContext": "Cevherin metal içeriği.",
       "businessContext_i18n": {
         "en": "Metal grade in ore.",
         "tr": "Cevherin metal içeriği.",
@@ -96,7 +96,7 @@
     "unit": "tons",
     "breakdown": {
       "tonaj": "Toplam Cevher (ton)",
-      "sonuc": "Metal Amount (tons)"
+      "sonuc": "Metal Miktarı (ton)"
     },
     "breakdown_i18n": {
       "tonaj": {
@@ -108,7 +108,7 @@
         "ar": "إجمالي الخام (طن)"
       },
       "sonuc": {
-        "en": "Metal Amount (tons)",
+        "en": "Metal Miktarı (ton)",
         "tr": "Metal Miktarı (ton)",
         "de": "Metallmenge (t)",
         "fr": "Quantité de métal (tonne)",

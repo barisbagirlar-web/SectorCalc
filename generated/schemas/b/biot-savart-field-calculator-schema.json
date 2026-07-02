@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akim",
-      "label": "Current (A)",
+      "label": "Akım (A)",
       "label_i18n": {
         "en": "Current (A)",
         "tr": "Akım (A)",
@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 10,
       "min": 0,
-      "businessContext": "Wire current.",
+      "businessContext": "Telden geçen akım.",
       "businessContext_i18n": {
         "en": "Wire current.",
         "tr": "Telden geçen akım.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Wire Segment Length (m)",
+      "label": "Tel Parçası Boyu (m)",
       "label_i18n": {
         "en": "Wire Segment Length (m)",
         "tr": "Tel Parçası Boyu (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Differential wire length.",
+      "businessContext": "Diferansiyel tel uzunluğu.",
       "businessContext_i18n": {
         "en": "Differential wire length.",
         "tr": "Diferansiyel tel uzunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Distance (m)",
+      "label": "Uzaklık (m)",
       "label_i18n": {
         "en": "Distance (m)",
         "tr": "Uzaklık (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Measurement distance.",
+      "businessContext": "Ölçüm noktası uzaklığı.",
       "businessContext_i18n": {
         "en": "Measurement distance.",
         "tr": "Ölçüm noktası uzaklığı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "aci",
-      "label": "Angle (Deg)",
+      "label": "Açı (Derece)",
       "label_i18n": {
         "en": "Angle (Deg)",
         "tr": "Açı (Derece)",
@@ -95,7 +95,7 @@
       "unit": "degrees",
       "default": 90,
       "min": 0,
-      "businessContext": "Angle between wire and direction.",
+      "businessContext": "Tel-doğrultu arası açı.",
       "businessContext_i18n": {
         "en": "Angle between wire and direction.",
         "tr": "Tel-doğrultu arası açı.",

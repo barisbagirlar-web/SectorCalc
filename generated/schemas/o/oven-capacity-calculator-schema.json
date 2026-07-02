@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tavaSayisi",
-      "label": "Number of Trays",
+      "label": "Tava Sayısı (Adet/lot)",
       "label_i18n": {
         "en": "Number of Trays",
         "tr": "Tava Sayısı (Adet/lot)",
@@ -20,7 +20,7 @@
       "unit": "trays",
       "default": 10,
       "min": 0,
-      "businessContext": "Trays per batch.",
+      "businessContext": "Fırına giren tava sayısı.",
       "businessContext_i18n": {
         "en": "Trays per batch.",
         "tr": "Fırına giren tava sayısı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tavaKapasite",
-      "label": "Tray Capacity (kg)",
+      "label": "Tava Kapasitesi (kg)",
       "label_i18n": {
         "en": "Tray Capacity (kg)",
         "tr": "Tava Kapasitesi (kg)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 5,
       "min": 0,
-      "businessContext": "Product per tray.",
+      "businessContext": "Her tavadaki ürün miktarı.",
       "businessContext_i18n": {
         "en": "Product per tray.",
         "tr": "Her tavadaki ürün miktarı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pismeSure",
-      "label": "Baking Time (min)",
+      "label": "Pişme Süresi (dk)",
       "label_i18n": {
         "en": "Baking Time (min)",
         "tr": "Pişme Süresi (dk)",
@@ -70,7 +70,7 @@
       "unit": "min",
       "default": 20,
       "min": 0,
-      "businessContext": "Baking time per batch.",
+      "businessContext": "Bir lot pişme süresi.",
       "businessContext_i18n": {
         "en": "Baking time per batch.",
         "tr": "Bir lot pişme süresi.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "kg/h",
     "breakdown": {
-      "sonuc": "Oven Capacity"
+      "sonuc": "Fırın Kapasitesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Oven Capacity",
+        "en": "Fırın Kapasitesi",
         "tr": "Fırın Kapasitesi",
         "de": "Ofenkapazität",
         "fr": "Capacité du four",

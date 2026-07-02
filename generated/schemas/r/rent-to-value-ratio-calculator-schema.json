@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "aylikKira",
-      "label": "Monthly Rent (USD)",
+      "label": "Aylık Kira (₺)",
       "label_i18n": {
         "en": "Monthly Rent (USD)",
         "tr": "Aylık Kira (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Monthly gross rental income from the property.",
+      "businessContext": "Mülkten elde edilen aylık brüt kira geliri.",
       "businessContext_i18n": {
         "en": "Monthly gross rental income from the property.",
         "tr": "Mülkten elde edilen aylık brüt kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mulkDegeri",
-      "label": "Property Value (USD)",
+      "label": "Mülk Değeri (₺)",
       "label_i18n": {
         "en": "Property Value (USD)",
         "tr": "Mülk Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Current market value of the real estate property.",
+      "businessContext": "Gayrimenkulün güncel piyasa değeri.",
       "businessContext_i18n": {
         "en": "Current market value of the real estate property.",
         "tr": "Gayrimenkulün güncel piyasa değeri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Rent/Value Ratio"
+      "sonuc": "Kira / Değer Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Rent/Value Ratio",
+        "en": "Kira / Değer Oranı",
         "tr": "Kira / Değer Oranı",
         "de": "Mietwertverhältnis",
         "fr": "Ratio loyer/valeur",

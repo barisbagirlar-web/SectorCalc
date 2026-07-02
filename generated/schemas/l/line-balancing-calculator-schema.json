@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "toplamIs",
-      "label": "Total Work Content (Min)",
+      "label": "Toplam İş İçeriği (Dk)",
       "label_i18n": {
         "en": "Total Work Content (Min)",
         "tr": "Toplam İş İçeriği (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 500,
       "min": 0,
-      "businessContext": "Sum of all operation times.",
+      "businessContext": "Tüm operasyonların toplam süresi.",
       "businessContext_i18n": {
         "en": "Sum of all operation times.",
         "tr": "Tüm operasyonların toplam süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "taktTime",
-      "label": "Takt Time (Min)",
+      "label": "Takt Süresi (Dk)",
       "label_i18n": {
         "en": "Takt Time (Min)",
         "tr": "Takt Süresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 50,
       "min": 0,
-      "businessContext": "Maximum cycle time to meet demand.",
+      "businessContext": "Müşteri talebini karşılayan maksimum çevrim süresi.",
       "businessContext_i18n": {
         "en": "Maximum cycle time to meet demand.",
         "tr": "Müşteri talebini karşılayan maksimum çevrim süresi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "istasyonSayisi",
-      "label": "Number of Stations",
+      "label": "İstasyon Sayısı",
       "label_i18n": {
         "en": "Number of Stations",
         "tr": "İstasyon Sayısı",
@@ -70,7 +70,7 @@
       "unit": "stations",
       "default": 12,
       "min": 1,
-      "businessContext": "Total workstations on the line.",
+      "businessContext": "Hattaki toplam iş istasyonu.",
       "businessContext_i18n": {
         "en": "Total workstations on the line.",
         "tr": "Hattaki toplam iş istasyonu.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Line Balancing Efficiency"
+      "sonuc": "Bant Dengeleme Verimliliği"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Line Balancing Efficiency",
+        "en": "Bant Dengeleme Verimliliği",
         "tr": "Bant Dengeleme Verimliliği",
         "de": "Bandabstimmungseffizienz",
         "fr": "Line Balancing Efficiency",

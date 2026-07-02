@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kosuMesafesi",
-      "label": "12min Run Distance (m)",
+      "label": "12 Dk Koşu Mesafesi (m)",
       "label_i18n": {
         "en": "12min Run Distance (m)",
         "tr": "12 Dk Koşu Mesafesi (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 2400,
       "min": 500,
-      "businessContext": "Total distance covered in 12 minutes.",
+      "businessContext": "12 dakikada koşulan toplam mesafe.",
       "businessContext_i18n": {
         "en": "Total distance covered in 12 minutes.",
         "tr": "12 dakikada koşulan toplam mesafe.",

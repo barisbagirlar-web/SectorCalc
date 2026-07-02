@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "konteynerHacim",
-      "label": "Container Volume (m³)",
+      "label": "Konteyner Hacmi (m³)",
       "label_i18n": {
         "en": "Container Volume (m³)",
         "tr": "Konteyner Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 33,
       "min": 0,
-      "businessContext": "Container internal volume.",
+      "businessContext": "Konteynerin iç hacmi.",
       "businessContext_i18n": {
         "en": "Container internal volume.",
         "tr": "Konteynerin iç hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kutuHacim",
-      "label": "Box Volume (m³)",
+      "label": "Kutu Hacmi (m³)",
       "label_i18n": {
         "en": "Box Volume (m³)",
         "tr": "Kutu Hacmi (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.036,
       "min": 0,
-      "businessContext": "Volume per box.",
+      "businessContext": "Bir kutunun hacmi.",
       "businessContext_i18n": {
         "en": "Volume per box.",
         "tr": "Bir kutunun hacmi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "istifleme",
-      "label": "Stacking Efficiency (%)",
+      "label": "İstifleme Verimi (%)",
       "label_i18n": {
         "en": "Stacking Efficiency (%)",
         "tr": "İstifleme Verimi (%)",
@@ -71,7 +71,7 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Usable volume percentage.",
+      "businessContext": "Kullanılabilir hacim yüzdesi.",
       "businessContext_i18n": {
         "en": "Usable volume percentage.",
         "tr": "Kullanılabilir hacim yüzdesi.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "boxes",
     "breakdown": {
-      "sonuc": "Maximum Number of Boxes"
+      "sonuc": "Maksimum Kutu Sayısı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maximum Number of Boxes",
+        "en": "Maksimum Kutu Sayısı",
         "tr": "Maksimum Kutu Sayısı",
         "de": "Maximale Anzahl Kartons",
         "fr": "Nombre maximum de boîtes",

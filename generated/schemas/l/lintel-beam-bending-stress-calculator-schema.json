@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Uniform Load (N/m)",
+      "label": "Yayılı Yük (N/m)",
       "label_i18n": {
         "en": "Uniform Load (N/m)",
         "tr": "Yayılı Yük (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 10000,
       "min": 0,
-      "businessContext": "Load on lintel.",
+      "businessContext": "Lentoya gelen yük.",
       "businessContext_i18n": {
         "en": "Load on lintel.",
         "tr": "Lentoya gelen yük.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aciklik",
-      "label": "Span (m)",
+      "label": "Açıklık (m)",
       "label_i18n": {
         "en": "Span (m)",
         "tr": "Açıklık (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Lintel clear span.",
+      "businessContext": "Lento mesnetler arası mesafe.",
       "businessContext_i18n": {
         "en": "Lintel clear span.",
         "tr": "Lento mesnetler arası mesafe.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "genislik",
-      "label": "Lintel Width (m)",
+      "label": "Lento Genişliği (m)",
       "label_i18n": {
         "en": "Lintel Width (m)",
         "tr": "Lento Genişliği (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Lintel section width.",
+      "businessContext": "Lento kesit genişliği.",
       "businessContext_i18n": {
         "en": "Lintel section width.",
         "tr": "Lento kesit genişliği.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Lintel Height (m)",
+      "label": "Lento Yüksekliği (m)",
       "label_i18n": {
         "en": "Lintel Height (m)",
         "tr": "Lento Yüksekliği (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Lintel section height.",
+      "businessContext": "Lento kesit yüksekliği.",
       "businessContext_i18n": {
         "en": "Lintel section height.",
         "tr": "Lento kesit yüksekliği.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Max Bending Stress"
+      "sonuc": "Maks. Eğilme Gerilmesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Max Bending Stress",
+        "en": "Maks. Eğilme Gerilmesi",
         "tr": "Maks. Eğilme Gerilmesi",
         "de": "Maximale Biegespannung",
         "fr": "Contrainte de flexion maximale",

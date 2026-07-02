@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "deplasman",
-      "label": "Displacement (tons)",
+      "label": "Deplasman (ton)",
       "label_i18n": {
         "en": "Displacement (tons)",
         "tr": "Deplasman (ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Ship total weight.",
+      "businessContext": "Geminin toplam ağırlığı.",
       "businessContext_i18n": {
         "en": "Ship total weight.",
         "tr": "Geminin toplam ağırlığı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "suYogunlugu",
-      "label": "Water Density (t/m³)",
+      "label": "Su Yoğunluğu (t/m³)",
       "label_i18n": {
         "en": "Water Density (t/m³)",
         "tr": "Su Yoğunluğu (t/m³)",
@@ -45,7 +45,7 @@
       "unit": "t/m3",
       "default": 1.025,
       "min": 0,
-      "businessContext": "Seawater density.",
+      "businessContext": "Deniz suyu yoğunluğu.",
       "businessContext_i18n": {
         "en": "Seawater density.",
         "tr": "Deniz suyu yoğunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "boy",
-      "label": "Ship Length (m)",
+      "label": "Gemi Boyu (m)",
       "label_i18n": {
         "en": "Ship Length (m)",
         "tr": "Gemi Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 100,
       "min": 0,
-      "businessContext": "Ship length.",
+      "businessContext": "Gemi boyu.",
       "businessContext_i18n": {
         "en": "Ship length.",
         "tr": "Gemi boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "en",
-      "label": "Ship Beam (m)",
+      "label": "Gemi Eni (m)",
       "label_i18n": {
         "en": "Ship Beam (m)",
         "tr": "Gemi Eni (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 18,
       "min": 0,
-      "businessContext": "Ship breadth.",
+      "businessContext": "Gemi genişliği.",
       "businessContext_i18n": {
         "en": "Ship breadth.",
         "tr": "Gemi genişliği.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "blokKatsayi",
-      "label": "Block Coefficient",
+      "label": "Blok Katsayısı",
       "label_i18n": {
         "en": "Block Coefficient",
         "tr": "Blok Katsayısı",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 0.7,
       "min": 0,
-      "businessContext": "Ship hull form coefficient.",
+      "businessContext": "Gemi form katsayısı.",
       "businessContext_i18n": {
         "en": "Ship hull form coefficient.",
         "tr": "Gemi form katsayısı.",
@@ -144,11 +144,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Draft"
+      "sonuc": "Su Çekimi (Draft)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Draft",
+        "en": "Su Çekimi (Draft)",
         "tr": "Su Çekimi (Draft)",
         "de": "Tiefgang (Entwurf)",
         "fr": "Tirant d'eau (Draft)",

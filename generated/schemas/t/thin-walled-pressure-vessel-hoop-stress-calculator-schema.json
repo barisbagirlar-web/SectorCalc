@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "basinc",
-      "label": "Internal Pressure (Pa)",
+      "label": "İç Basınç (Pa)",
       "label_i18n": {
         "en": "Internal Pressure (Pa)",
         "tr": "İç Basınç (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 500000,
       "min": 0,
-      "businessContext": "Internal vessel pressure.",
+      "businessContext": "Kap içindeki basınç.",
       "businessContext_i18n": {
         "en": "Internal vessel pressure.",
         "tr": "Kap içindeki basınç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cap",
-      "label": "Diameter (m)",
+      "label": "Çap (m)",
       "label_i18n": {
         "en": "Diameter (m)",
         "tr": "Çap (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Cylinder diameter.",
+      "businessContext": "Silindir çapı.",
       "businessContext_i18n": {
         "en": "Cylinder diameter.",
         "tr": "Silindir çapı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kalinlik",
-      "label": "Wall Thickness (m)",
+      "label": "Cidar Kalınlığı (m)",
       "label_i18n": {
         "en": "Wall Thickness (m)",
         "tr": "Cidar Kalınlığı (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.003,
       "min": 0,
-      "businessContext": "Vessel wall thickness.",
+      "businessContext": "Kap et kalınlığı.",
       "businessContext_i18n": {
         "en": "Vessel wall thickness.",
         "tr": "Kap et kalınlığı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Circumferential Stress"
+      "sonuc": "Çevresel Gerilme"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Circumferential Stress",
+        "en": "Çevresel Gerilme",
         "tr": "Çevresel Gerilme",
         "de": "Umfangsspannung",
         "fr": "Contrainte circonférentielle",

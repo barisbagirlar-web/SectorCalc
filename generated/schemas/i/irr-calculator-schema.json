@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Initial Investment (USD)",
+      "label": "Başlangıç Yatırımı (₺)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Başlangıç Yatırımı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Initial project cost.",
+      "businessContext": "Projenin başlangıç yatırım maliyeti.",
       "businessContext_i18n": {
         "en": "Initial project cost.",
         "tr": "Projenin başlangıç yatırım maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortalamaNakit",
-      "label": "Avg Annual Cash Flow (USD)",
+      "label": "Ortalama Yıllık Nakit Akışı (₺)",
       "label_i18n": {
         "en": "Avg Annual Cash Flow (USD)",
         "tr": "Ortalama Yıllık Nakit Akışı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 35000,
       "min": 0,
-      "businessContext": "Average annual cash inflow.",
+      "businessContext": "Projenin ortalama yıllık nakit girişi.",
       "businessContext_i18n": {
         "en": "Average annual cash inflow.",
         "tr": "Projenin ortalama yıllık nakit girişi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Project Life (Years)",
+      "label": "Proje Süresi (Yıl)",
       "label_i18n": {
         "en": "Project Life (Years)",
         "tr": "Proje Süresi (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Project's economic life.",
+      "businessContext": "Projenin ekonomik ömrü.",
       "businessContext_i18n": {
         "en": "Project's economic life.",
         "tr": "Projenin ekonomik ömrü.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "IRR (Internal Rate of Return - Approx)"
+      "sonuc": "IRR (İç Verim Oranı - Yaklaşık)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "IRR (Internal Rate of Return - Approx)",
+        "en": "IRR (İç Verim Oranı - Yaklaşık)",
         "tr": "IRR (İç Verim Oranı - Yaklaşık)",
         "de": "IRR (interner Zinsfuß - Näherungswert)",
         "fr": "IRR (Internal Rate of Return - Approximate)",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kalkisHiz",
-      "label": "Takeoff Speed (m/s)",
+      "label": "Kalkış Hızı (m/s)",
       "label_i18n": {
         "en": "Takeoff Speed (m/s)",
         "tr": "Kalkış Hızı (m/s)",
@@ -20,7 +20,7 @@
       "unit": "m/s",
       "default": 80,
       "min": 0,
-      "businessContext": "Aircraft rotation speed.",
+      "businessContext": "Uçağın yerden kesilme hızı.",
       "businessContext_i18n": {
         "en": "Aircraft rotation speed.",
         "tr": "Uçağın yerden kesilme hızı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ivme",
-      "label": "Average Acceleration (m/s²)",
+      "label": "Ortalama İvme (m/s²)",
       "label_i18n": {
         "en": "Average Acceleration (m/s²)",
         "tr": "Ortalama İvme (m/s²)",
@@ -45,7 +45,7 @@
       "unit": "m/s2",
       "default": 3,
       "min": 0,
-      "businessContext": "Engine thrust acceleration.",
+      "businessContext": "Motor itki gücüyle hızlanma.",
       "businessContext_i18n": {
         "en": "Engine thrust acceleration.",
         "tr": "Motor itki gücüyle hızlanma.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ruzgarHiz",
-      "label": "Headwind Speed (m/s)",
+      "label": "Karşı Rüzgar Hızı (m/s)",
       "label_i18n": {
         "en": "Headwind Speed (m/s)",
         "tr": "Karşı Rüzgar Hızı (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 5,
       "min": 0,
-      "businessContext": "Runway headwind component.",
+      "businessContext": "Pist başı rüzgar.",
       "businessContext_i18n": {
         "en": "Runway headwind component.",
         "tr": "Pist başı rüzgar.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Required Runway Length"
+      "sonuc": "Gerekli Pist Uzunluğu"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Runway Length",
+        "en": "Gerekli Pist Uzunluğu",
         "tr": "Gerekli Pist Uzunluğu",
         "de": "Erforderliche Startbahnlänge",
         "fr": "Longueur de piste requise",

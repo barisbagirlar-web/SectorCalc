@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "siloHacim",
-      "label": "Silo Volume (m³)",
+      "label": "Silo Hacmi (m³)",
       "label_i18n": {
         "en": "Silo Volume (m³)",
         "tr": "Silo Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 500,
       "min": 0,
-      "businessContext": "Total silo volume.",
+      "businessContext": "Silonun toplam hacmi.",
       "businessContext_i18n": {
         "en": "Total silo volume.",
         "tr": "Silonun toplam hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sikistirmaYogunlugu",
-      "label": "Packing Density (kg/m³)",
+      "label": "Sıkıştırma Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Packing Density (kg/m³)",
         "tr": "Sıkıştırma Yoğunluğu (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 700,
       "min": 0,
-      "businessContext": "Packed silage density.",
+      "businessContext": "Sıkıştırılmış yem yoğunluğu.",
       "businessContext_i18n": {
         "en": "Packed silage density.",
         "tr": "Sıkıştırılmış yem yoğunluğu.",

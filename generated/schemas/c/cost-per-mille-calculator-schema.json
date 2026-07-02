@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "reklamMaliyeti",
-      "label": "Ad Cost (USD)",
+      "label": "Reklam Maliyeti (TL)",
       "label_i18n": {
         "en": "Ad Cost (USD)",
         "tr": "Reklam Maliyeti (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Total ad spend.",
+      "businessContext": "Toplam reklam harcaması.",
       "businessContext_i18n": {
         "en": "Total ad spend.",
         "tr": "Toplam reklam harcaması.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gosterim",
-      "label": "Impressions",
+      "label": "Gösterim (Adet)",
       "label_i18n": {
         "en": "Impressions",
         "tr": "Gösterim (Adet)",
@@ -45,7 +45,7 @@
       "unit": "impressions",
       "default": 500000,
       "min": 1,
-      "businessContext": "Total impressions.",
+      "businessContext": "Toplam gösterim.",
       "businessContext_i18n": {
         "en": "Total impressions.",
         "tr": "Toplam gösterim.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Cost Per Mille (CPM)"
+      "sonuc": "Bin Gösterim Maliyeti (CPM)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cost Per Mille (CPM)",
+        "en": "Bin Gösterim Maliyeti (CPM)",
         "tr": "Bin Gösterim Maliyeti (CPM)",
         "de": "Kosten pro tausend Impressionen (CPM)",
         "fr": "Coût pour mille impressions (CPM)",

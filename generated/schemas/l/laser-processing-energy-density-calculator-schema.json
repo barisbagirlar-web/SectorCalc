@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "lazerGuc",
-      "label": "Laser Power (W)",
+      "label": "Lazer Gücü (W)",
       "label_i18n": {
         "en": "Laser Power (W)",
         "tr": "Lazer Gücü (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 4000,
       "min": 0,
-      "businessContext": "Laser source power.",
+      "businessContext": "Lazer kaynağının gücü.",
       "businessContext_i18n": {
         "en": "Laser source power.",
         "tr": "Lazer kaynağının gücü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kesmeHiz",
-      "label": "Cutting Speed (m/s)",
+      "label": "Kesme Hızı (m/s)",
       "label_i18n": {
         "en": "Cutting Speed (m/s)",
         "tr": "Kesme Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Laser travel speed.",
+      "businessContext": "Lazerin ilerleme hızı.",
       "businessContext_i18n": {
         "en": "Laser travel speed.",
         "tr": "Lazerin ilerleme hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "malzemeKalinlik",
-      "label": "Material Thickness (m)",
+      "label": "Malzeme Kalınlığı (m)",
       "label_i18n": {
         "en": "Material Thickness (m)",
         "tr": "Malzeme Kalınlığı (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Material thickness.",
+      "businessContext": "Kesilen malzemenin kalınlığı.",
       "businessContext_i18n": {
         "en": "Material thickness.",
         "tr": "Kesilen malzemenin kalınlığı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "J/m2",
     "breakdown": {
-      "sonuc": "Energy Density"
+      "sonuc": "Enerji Yoğunluğu"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Energy Density",
+        "en": "Enerji Yoğunluğu",
         "tr": "Enerji Yoğunluğu",
         "de": "Energiedichte",
         "fr": "Densité énergétique",

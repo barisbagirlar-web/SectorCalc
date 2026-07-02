@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ilkSure",
-      "label": "First Unit Time (Min)",
+      "label": "İlk Birim Süresi (Dk)",
       "label_i18n": {
         "en": "First Unit Time (Min)",
         "tr": "İlk Birim Süresi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 100,
       "min": 0,
-      "businessContext": "Time for first unit.",
+      "businessContext": "İlk üretilen birimin süresi.",
       "businessContext_i18n": {
         "en": "Time for first unit.",
         "tr": "İlk üretilen birimin süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ogrenmeOrani",
-      "label": "Learning Rate (%)",
+      "label": "Öğrenme Oranı (%)",
       "label_i18n": {
         "en": "Learning Rate (%)",
         "tr": "Öğrenme Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 90,
       "min": 1,
       "max": 100,
-      "businessContext": "Time reduction per doubling of output.",
+      "businessContext": "Her iki kat üretimde süre düşüş oranı.",
       "businessContext_i18n": {
         "en": "Time reduction per doubling of output.",
         "tr": "Her iki kat üretimde süre düşüş oranı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "uretilenAdet",
-      "label": "Units Produced",
+      "label": "Üretilen Adet",
       "label_i18n": {
         "en": "Units Produced",
         "tr": "Üretilen Adet",
@@ -71,7 +71,7 @@
       "unit": "units",
       "default": 100,
       "min": 1,
-      "businessContext": "Total units produced.",
+      "businessContext": "Toplam üretim adedi.",
       "businessContext_i18n": {
         "en": "Total units produced.",
         "tr": "Toplam üretim adedi.",
@@ -96,11 +96,11 @@
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Last Unit Time"
+      "sonuc": "Son Birim Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Last Unit Time",
+        "en": "Son Birim Süresi",
         "tr": "Son Birim Süresi",
         "de": "Zeit der letzten Einheit",
         "fr": "Last Unit Time",

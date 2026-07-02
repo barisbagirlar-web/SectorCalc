@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Annual COGS (USD)",
+      "label": "Yıllık SMM (TL)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Yıllık SMM (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Annual cost of goods sold.",
+      "businessContext": "Yıllık satılan mal maliyeti.",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
         "tr": "Yıllık satılan mal maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortStok",
-      "label": "Average Inventory (USD)",
+      "label": "Ortalama Stok (TL)",
       "label_i18n": {
         "en": "Average Inventory (USD)",
         "tr": "Ortalama Stok (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Average inventory value.",
+      "businessContext": "Dönem ortalama stok değeri.",
       "businessContext_i18n": {
         "en": "Average inventory value.",
         "tr": "Dönem ortalama stok değeri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "times",
     "breakdown": {
-      "sonuc": "Inventory Turnover"
+      "sonuc": "Envanter Devir Hızı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Inventory Turnover",
+        "en": "Envanter Devir Hızı",
         "tr": "Envanter Devir Hızı",
         "de": "Lagerumschlagshäufigkeit",
         "fr": "Inventory Turnover Rate",

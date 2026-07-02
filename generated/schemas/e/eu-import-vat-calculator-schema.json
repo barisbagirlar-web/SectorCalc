@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netFiyat",
-      "label": "Net Price (EUR)",
+      "label": "Net Fiyat (EUR)",
       "label_i18n": {
         "en": "Net Price (EUR)",
         "tr": "Net Fiyat (EUR)",
@@ -20,7 +20,7 @@
       "unit": "EUR",
       "default": 100,
       "min": 0,
-      "businessContext": "Product net price.",
+      "businessContext": "Ürünün net fiyatı.",
       "businessContext_i18n": {
         "en": "Product net price.",
         "tr": "Ürünün net fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kargo",
-      "label": "Shipping (EUR)",
+      "label": "Kargo (EUR)",
       "label_i18n": {
         "en": "Shipping (EUR)",
         "tr": "Kargo (EUR)",
@@ -45,7 +45,7 @@
       "unit": "EUR",
       "default": 15,
       "min": 0,
-      "businessContext": "Shipping cost.",
+      "businessContext": "Kargo ücreti.",
       "businessContext_i18n": {
         "en": "Shipping cost.",
         "tr": "Kargo ücreti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ulkeKDV",
-      "label": "Country VAT Rate (%)",
+      "label": "Ülke KDV Oranı (%)",
       "label_i18n": {
         "en": "Country VAT Rate (%)",
         "tr": "Ülke KDV Oranı (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Destination country VAT rate.",
+      "businessContext": "Hedef ülkenin KDV oranı.",
       "businessContext_i18n": {
         "en": "Destination country VAT rate.",
         "tr": "Hedef ülkenin KDV oranı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "EUR",
     "breakdown": {
-      "sonuc": "VAT Payable (IOSS)"
+      "sonuc": "Ödenecek KDV (IOSS)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "VAT Payable (IOSS)",
+        "en": "Ödenecek KDV (IOSS)",
         "tr": "Ödenecek KDV (IOSS)",
         "de": "Zu zahlende MwSt. (IOSS)",
         "fr": "TVA à payer (IOSS)",

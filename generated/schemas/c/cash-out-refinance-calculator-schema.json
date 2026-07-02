@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mulkDegeri",
-      "label": "Property Value (USD)",
+      "label": "Mülk Değeri (₺)",
       "label_i18n": {
         "en": "Property Value (USD)",
         "tr": "Mülk Değeri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Current property value.",
+      "businessContext": "Evin güncel piyasa değeri.",
       "businessContext_i18n": {
         "en": "Current property value.",
         "tr": "Evin güncel piyasa değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalanBorc",
-      "label": "Remaining Debt (USD)",
+      "label": "Kalan Borç (₺)",
       "label_i18n": {
         "en": "Remaining Debt (USD)",
         "tr": "Kalan Borç (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Current mortgage balance.",
+      "businessContext": "Mevcut kredi bakiyesi.",
       "businessContext_i18n": {
         "en": "Current mortgage balance.",
         "tr": "Mevcut kredi bakiyesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yeniKredi",
-      "label": "New Loan Amount (USD)",
+      "label": "Yeni Kredi Tutarı (₺)",
       "label_i18n": {
         "en": "New Loan Amount (USD)",
         "tr": "Yeni Kredi Tutarı (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total new loan to draw.",
+      "businessContext": "Yeni çekilen toplam kredi.",
       "businessContext_i18n": {
         "en": "Total new loan to draw.",
         "tr": "Yeni çekilen toplam kredi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "masraf",
-      "label": "Closing Costs (USD)",
+      "label": "Masraflar (₺)",
       "label_i18n": {
         "en": "Closing Costs (USD)",
         "tr": "Masraflar (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Closing and processing costs.",
+      "businessContext": "Kapatma ve işlem masrafları.",
       "businessContext_i18n": {
         "en": "Closing and processing costs.",
         "tr": "Kapatma ve işlem masrafları.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "ltv": "LTV Ratio (%)",
-      "sonuc": "Net Cash Outflow"
+      "ltv": "LTV Oranı (%)",
+      "sonuc": "Net Nakit Çıkış"
     },
     "breakdown_i18n": {
       "ltv": {
-        "en": "LTV Ratio (%)",
+        "en": "LTV Oranı (%)",
         "tr": "LTV Oranı (%)",
         "de": "LTV-Verhältnis (%)",
         "fr": "Ratio LTV (%)",
@@ -133,7 +133,7 @@
         "ar": "نسبة LTV (%)"
       },
       "sonuc": {
-        "en": "Net Cash Outflow",
+        "en": "Net Nakit Çıkış",
         "tr": "Net Nakit Çıkış",
         "de": "Netto-Cash-Abfluss",
         "fr": "Sortie nette de trésorerie",

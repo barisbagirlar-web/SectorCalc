@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sonHata",
-      "label": "Latest Error",
+      "label": "Son Kalibrasyon Hatası (Birim)",
       "label_i18n": {
         "en": "Latest Error",
         "tr": "Son Kalibrasyon Hatası (Birim)",
@@ -20,7 +20,7 @@
       "unit": "unit",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Error at last calibration.",
+      "businessContext": "Son kalibrasyondaki hata.",
       "businessContext_i18n": {
         "en": "Error at last calibration.",
         "tr": "Son kalibrasyondaki hata.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oncekiHata",
-      "label": "Previous Error",
+      "label": "Önceki Hata (Birim)",
       "label_i18n": {
         "en": "Previous Error",
         "tr": "Önceki Hata (Birim)",
@@ -45,7 +45,7 @@
       "unit": "unit",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Previous calibration error.",
+      "businessContext": "Bir önceki kalibrasyon hatası.",
       "businessContext_i18n": {
         "en": "Previous calibration error.",
         "tr": "Bir önceki kalibrasyon hatası.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gecenSure",
-      "label": "Elapsed Time (Days)",
+      "label": "Geçen Süre (Gün)",
       "label_i18n": {
         "en": "Elapsed Time (Days)",
         "tr": "Geçen Süre (Gün)",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "Time between calibrations.",
+      "businessContext": "İki kalibrasyon arası süre.",
       "businessContext_i18n": {
         "en": "Time between calibrations.",
         "tr": "İki kalibrasyon arası süre.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "unit/day",
     "breakdown": {
-      "sonuc": "Deviation Rate"
+      "sonuc": "Sapma Hızı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Deviation Rate",
+        "en": "Sapma Hızı",
         "tr": "Sapma Hızı",
         "de": "Abweichungsrate",
         "fr": "Taux de déviation",

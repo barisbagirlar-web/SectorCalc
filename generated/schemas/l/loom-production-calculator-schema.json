@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "atimSayisi",
-      "label": "Picks per Minute (ppm)",
+      "label": "Atım Sayısı (atım/dk)",
       "label_i18n": {
         "en": "Picks per Minute (ppm)",
         "tr": "Atım Sayısı (atım/dk)",
@@ -20,7 +20,7 @@
       "unit": "ppm",
       "default": 800,
       "min": 0,
-      "businessContext": "Loom picks per minute.",
+      "businessContext": "Tezgahın dakikadaki atım adedi.",
       "businessContext_i18n": {
         "en": "Loom picks per minute.",
         "tr": "Tezgahın dakikadaki atım adedi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "durusSure",
-      "label": "Downtime (min)",
+      "label": "Duruş Süresi (dk)",
       "label_i18n": {
         "en": "Downtime (min)",
         "tr": "Duruş Süresi (dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 20,
       "min": 0,
-      "businessContext": "Total downtime per shift.",
+      "businessContext": "Vardiya başı toplam duruş.",
       "businessContext_i18n": {
         "en": "Total downtime per shift.",
         "tr": "Vardiya başı toplam duruş.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "vardiyaSure",
-      "label": "Shift Duration (min)",
+      "label": "Vardiya Süresi (dk)",
       "label_i18n": {
         "en": "Shift Duration (min)",
         "tr": "Vardiya Süresi (dk)",
@@ -70,7 +70,7 @@
       "unit": "min",
       "default": 480,
       "min": 0,
-      "businessContext": "Total shift duration.",
+      "businessContext": "Toplam vardiya süresi.",
       "businessContext_i18n": {
         "en": "Total shift duration.",
         "tr": "Toplam vardiya süresi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kumasSikligi",
-      "label": "Fabric Density (picks/cm)",
+      "label": "Kumaş Sıklığı (atım/cm)",
       "label_i18n": {
         "en": "Fabric Density (picks/cm)",
         "tr": "Kumaş Sıklığı (atım/cm)",
@@ -95,7 +95,7 @@
       "unit": "picks/cm",
       "default": 25,
       "min": 0,
-      "businessContext": "Picks per cm.",
+      "businessContext": "cm başına atım sıklığı.",
       "businessContext_i18n": {
         "en": "Picks per cm.",
         "tr": "cm başına atım sıklığı.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Net Fabric Production"
+      "sonuc": "Net Kumaş Üretimi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Fabric Production",
+        "en": "Net Kumaş Üretimi",
         "tr": "Net Kumaş Üretimi",
         "de": "Nettostoffproduktion",
         "fr": "Production nette de tissu",

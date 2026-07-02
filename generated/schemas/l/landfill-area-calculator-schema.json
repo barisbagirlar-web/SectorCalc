@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "atikHacmi",
-      "label": "Waste Volume (m³)",
+      "label": "Atık Hacmi (m³)",
       "label_i18n": {
         "en": "Waste Volume (m³)",
         "tr": "Atık Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Waste volume to store.",
+      "businessContext": "Depolanacak atık hacmi.",
       "businessContext_i18n": {
         "en": "Waste volume to store.",
         "tr": "Depolanacak atık hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sikistirma",
-      "label": "Compaction Ratio (%)",
+      "label": "Sıkıştırma Oranı (%)",
       "label_i18n": {
         "en": "Compaction Ratio (%)",
         "tr": "Sıkıştırma Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Volume reduction by compaction.",
+      "businessContext": "Sıkıştırmayla hacim azalma oranı.",
       "businessContext_i18n": {
         "en": "Volume reduction by compaction.",
         "tr": "Sıkıştırmayla hacim azalma oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Landfill Depth (m)",
+      "label": "Deponi Derinliği (m)",
       "label_i18n": {
         "en": "Landfill Depth (m)",
         "tr": "Deponi Derinliği (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Average landfill depth.",
+      "businessContext": "Deponi ortalama derinliği.",
       "businessContext_i18n": {
         "en": "Average landfill depth.",
         "tr": "Deponi ortalama derinliği.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "m2",
     "breakdown": {
-      "sonuc": "Required Landfill Area"
+      "sonuc": "Gerekli Deponi Alanı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Landfill Area",
+        "en": "Gerekli Deponi Alanı",
         "tr": "Gerekli Deponi Alanı",
         "de": "Erforderliche Deponiefläche",
         "fr": "Required Landfill Area",

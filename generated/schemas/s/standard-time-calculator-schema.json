@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "gozlenenSure",
-      "label": "Observed Time (Min)",
+      "label": "Gözlenen Süre (Dk)",
       "label_i18n": {
         "en": "Observed Time (Min)",
         "tr": "Gözlenen Süre (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "Measured operation time.",
+      "businessContext": "Operasyonda ölçülen süre.",
       "businessContext_i18n": {
         "en": "Measured operation time.",
         "tr": "Operasyonda ölçülen süre.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "performans",
-      "label": "Performance Rating (%)",
+      "label": "Performans Hızı (%)",
       "label_i18n": {
         "en": "Performance Rating (%)",
         "tr": "Performans Hızı (%)",
@@ -46,7 +46,7 @@
       "default": 90,
       "min": 20,
       "max": 150,
-      "businessContext": "Operator speed vs standard.",
+      "businessContext": "Operatörün standart hıza göre performansı.",
       "businessContext_i18n": {
         "en": "Operator speed vs standard.",
         "tr": "Operatörün standart hıza göre performansı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "ekSure",
-      "label": "Allowance (%)",
+      "label": "Ek Süre Payı (%)",
       "label_i18n": {
         "en": "Allowance (%)",
         "tr": "Ek Süre Payı (%)",
@@ -72,7 +72,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Fatigue and personal allowance.",
+      "businessContext": "Yorgunluk, kişisel ihtiyaçlar için ek süre.",
       "businessContext_i18n": {
         "en": "Fatigue and personal allowance.",
         "tr": "Yorgunluk, kişisel ihtiyaçlar için ek süre.",
@@ -97,11 +97,11 @@
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Standard Time"
+      "sonuc": "Standart Süre"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Standard Time",
+        "en": "Standart Süre",
         "tr": "Standart Süre",
         "de": "Standardzeit",
         "fr": "Durée standard",

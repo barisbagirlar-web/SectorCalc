@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Wall Area (m²)",
+      "label": "Duvar Alanı (m²)",
       "label_i18n": {
         "en": "Wall Area (m²)",
         "tr": "Duvar Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 80,
       "min": 0,
-      "businessContext": "Wall area.",
+      "businessContext": "Kaplanacak duvar alanı.",
       "businessContext_i18n": {
         "en": "Wall area.",
         "tr": "Kaplanacak duvar alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "levhaEn",
-      "label": "Sheet Width (m)",
+      "label": "Levha Eni (m)",
       "label_i18n": {
         "en": "Sheet Width (m)",
         "tr": "Levha Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Drywall sheet width.",
+      "businessContext": "Alçıpan levha eni.",
       "businessContext_i18n": {
         "en": "Drywall sheet width.",
         "tr": "Alçıpan levha eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "levhaBoy",
-      "label": "Sheet Length (m)",
+      "label": "Levha Boyu (m)",
       "label_i18n": {
         "en": "Sheet Length (m)",
         "tr": "Levha Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Drywall sheet length.",
+      "businessContext": "Alçıpan levha boyu.",
       "businessContext_i18n": {
         "en": "Drywall sheet length.",
         "tr": "Alçıpan levha boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Waste Factor (%)",
+      "label": "Fire Oranı (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cutting allowance.",
+      "businessContext": "Kesim payı.",
       "businessContext_i18n": {
         "en": "Cutting allowance.",
         "tr": "Kesim payı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "sheets",
     "breakdown": {
-      "sonuc": "Required Drywall Sheets"
+      "sonuc": "Gerekli Alçıpan Levha"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Drywall Sheets",
+        "en": "Gerekli Alçıpan Levha",
         "tr": "Gerekli Alçıpan Levha",
         "de": "Erforderliche Gipskartonplatte",
         "fr": "Plaques de plâtre nécessaires",

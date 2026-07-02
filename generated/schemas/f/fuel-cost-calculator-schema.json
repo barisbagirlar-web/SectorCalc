@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mesafe",
-      "label": "Distance (km)",
+      "label": "Mesafe (km)",
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
@@ -20,7 +20,7 @@
       "unit": "km",
       "default": 500,
       "min": 0,
-      "businessContext": "Total distance.",
+      "businessContext": "Toplam mesafe.",
       "businessContext_i18n": {
         "en": "Total distance.",
         "tr": "Toplam mesafe.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tuketim",
-      "label": "Fuel Consumption (L/100km)",
+      "label": "Yakıt Tüketimi (L/100km)",
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
         "tr": "Yakıt Tüketimi (L/100km)",
@@ -45,7 +45,7 @@
       "unit": "L/100km",
       "default": 10,
       "min": 0,
-      "businessContext": "Fuel per 100 km.",
+      "businessContext": "100 km'de tüketilen yakıt.",
       "businessContext_i18n": {
         "en": "Fuel per 100 km.",
         "tr": "100 km'de tüketilen yakıt.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "litreFiyati",
-      "label": "Fuel Price/Liter (USD)",
+      "label": "Litre Fiyatı (TL)",
       "label_i18n": {
         "en": "Fuel Price/Liter (USD)",
         "tr": "Litre Fiyatı (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 25,
       "min": 0,
-      "businessContext": "Price per liter.",
+      "businessContext": "Litre başı yakıt fiyatı.",
       "businessContext_i18n": {
         "en": "Price per liter.",
         "tr": "Litre başı yakıt fiyatı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Total Fuel Cost"
+      "sonuc": "Toplam Yakıt Maliyeti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Total Fuel Cost",
+        "en": "Toplam Yakıt Maliyeti",
         "tr": "Toplam Yakıt Maliyeti",
         "de": "Gesamtkraftstoffkosten",
         "fr": "Coût total du carburant",

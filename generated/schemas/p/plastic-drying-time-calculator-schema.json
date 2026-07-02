@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "malzemeKutle",
-      "label": "Material Mass (kg)",
+      "label": "Malzeme Kütlesi (kg)",
       "label_i18n": {
         "en": "Material Mass (kg)",
         "tr": "Malzeme Kütlesi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 50,
       "min": 0,
-      "businessContext": "Polymer to dry.",
+      "businessContext": "Kurutulacak polimer.",
       "businessContext_i18n": {
         "en": "Polymer to dry.",
         "tr": "Kurutulacak polimer.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "nemOrani",
-      "label": "Moisture Content (%)",
+      "label": "Nem Oranı (%)",
       "label_i18n": {
         "en": "Moisture Content (%)",
         "tr": "Nem Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Polymer moisture percentage.",
+      "businessContext": "Polimerin nem yüzdesi.",
       "businessContext_i18n": {
         "en": "Polymer moisture percentage.",
         "tr": "Polimerin nem yüzdesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "havaDebi",
-      "label": "Air Flow (kg/s)",
+      "label": "Hava Debisi (kg/s)",
       "label_i18n": {
         "en": "Air Flow (kg/s)",
         "tr": "Hava Debisi (kg/s)",
@@ -70,7 +70,7 @@
       "unit": "kg/s",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Drying air flow.",
+      "businessContext": "Kurutma havası debisi.",
       "businessContext_i18n": {
         "en": "Drying air flow.",
         "tr": "Kurutma havası debisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "nemAlmaKapasite",
-      "label": "Moisture Removal Capacity (kg/kg)",
+      "label": "Nem Alma Kapasitesi (kg/kg)",
       "label_i18n": {
         "en": "Moisture Removal Capacity (kg/kg)",
         "tr": "Nem Alma Kapasitesi (kg/kg)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Air moisture removal capacity.",
+      "businessContext": "Havanın nem alma kapasitesi.",
       "businessContext_i18n": {
         "en": "Air moisture removal capacity.",
         "tr": "Havanın nem alma kapasitesi.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Drying Time"
+      "sonuc": "Kurutma Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Drying Time",
+        "en": "Kurutma Süresi",
         "tr": "Kurutma Süresi",
         "de": "Trocknungszeit",
         "fr": "Temps de séchage",

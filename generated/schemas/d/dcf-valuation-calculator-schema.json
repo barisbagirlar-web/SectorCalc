@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "fcf1",
-      "label": "Year 1 FCF (USD)",
+      "label": "1. Yıl FCF (₺)",
       "label_i18n": {
         "en": "Year 1 FCF (USD)",
         "tr": "1. Yıl FCF (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "First year free cash flow.",
+      "businessContext": "Birinci yıl serbest nakit akışı.",
       "businessContext_i18n": {
         "en": "First year free cash flow.",
         "tr": "Birinci yıl serbest nakit akışı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "fcf2",
-      "label": "Year 2 FCF (USD)",
+      "label": "2. Yıl FCF (₺)",
       "label_i18n": {
         "en": "Year 2 FCF (USD)",
         "tr": "2. Yıl FCF (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 110000,
       "min": 0,
-      "businessContext": "Second year free cash flow.",
+      "businessContext": "İkinci yıl serbest nakit akışı.",
       "businessContext_i18n": {
         "en": "Second year free cash flow.",
         "tr": "İkinci yıl serbest nakit akışı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "fcf3",
-      "label": "Year 3 FCF (USD)",
+      "label": "3. Yıl FCF (₺)",
       "label_i18n": {
         "en": "Year 3 FCF (USD)",
         "tr": "3. Yıl FCF (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 121000,
       "min": 0,
-      "businessContext": "Third year free cash flow.",
+      "businessContext": "Üçüncü yıl serbest nakit akışı.",
       "businessContext_i18n": {
         "en": "Third year free cash flow.",
         "tr": "Üçüncü yıl serbest nakit akışı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fcf4",
-      "label": "Year 4 FCF (USD)",
+      "label": "4. Yıl FCF (₺)",
       "label_i18n": {
         "en": "Year 4 FCF (USD)",
         "tr": "4. Yıl FCF (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 133100,
       "min": 0,
-      "businessContext": "Fourth year free cash flow.",
+      "businessContext": "Dördüncü yıl serbest nakit akışı.",
       "businessContext_i18n": {
         "en": "Fourth year free cash flow.",
         "tr": "Dördüncü yıl serbest nakit akışı.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "fcf5",
-      "label": "Year 5 FCF (USD)",
+      "label": "5. Yıl FCF (₺)",
       "label_i18n": {
         "en": "Year 5 FCF (USD)",
         "tr": "5. Yıl FCF (₺)",
@@ -120,7 +120,7 @@
       "unit": "USD",
       "default": 146410,
       "min": 0,
-      "businessContext": "Fifth year free cash flow.",
+      "businessContext": "Beşinci yıl serbest nakit akışı.",
       "businessContext_i18n": {
         "en": "Fifth year free cash flow.",
         "tr": "Beşinci yıl serbest nakit akışı.",
@@ -145,7 +145,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Weighted average cost of capital.",
+      "businessContext": "Ağırlıklı ortalama sermaye maliyeti.",
       "businessContext_i18n": {
         "en": "Weighted average cost of capital.",
         "tr": "Ağırlıklı ortalama sermaye maliyeti.",
@@ -157,7 +157,7 @@
     },
     {
       "id": "terminalBuyume",
-      "label": "Terminal Growth (%)",
+      "label": "Terminal Büyüme (%)",
       "label_i18n": {
         "en": "Terminal Growth (%)",
         "tr": "Terminal Büyüme (%)",
@@ -170,7 +170,7 @@
       "unit": "%",
       "default": 3,
       "min": 0,
-      "businessContext": "Perpetual growth rate assumption.",
+      "businessContext": "Sonsuz büyüme varsayımı.",
       "businessContext_i18n": {
         "en": "Perpetual growth rate assumption.",
         "tr": "Sonsuz büyüme varsayımı.",
@@ -201,11 +201,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Enterprise Value (DCF)"
+      "sonuc": "İşletme Değeri (DCF)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Enterprise Value (DCF)",
+        "en": "İşletme Değeri (DCF)",
         "tr": "İşletme Değeri (DCF)",
         "de": "Unternehmenswert (DCF)",
         "fr": "Valeur d'entreprise (DCF)",

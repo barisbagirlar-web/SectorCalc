@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Barn Area (m²)",
+      "label": "Ahır Alanı (m²)",
       "label_i18n": {
         "en": "Barn Area (m²)",
         "tr": "Ahır Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Barn floor area.",
+      "businessContext": "Ahır taban alanı.",
       "businessContext_i18n": {
         "en": "Barn floor area.",
         "tr": "Ahır taban alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Barn Height (m)",
+      "label": "Ahır Yüksekliği (m)",
       "label_i18n": {
         "en": "Barn Height (m)",
         "tr": "Ahır Yüksekliği (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 4,
       "min": 0,
-      "businessContext": "Barn height.",
+      "businessContext": "Ahır yüksekliği.",
       "businessContext_i18n": {
         "en": "Barn height.",
         "tr": "Ahır yüksekliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "havaDegisimSayisi",
-      "label": "Air Changes (per hour)",
+      "label": "Hava Değişim Sayısı (adet/saat)",
       "label_i18n": {
         "en": "Air Changes (per hour)",
         "tr": "Hava Değişim Sayısı (adet/saat)",
@@ -70,7 +70,7 @@
       "unit": "per_hour",
       "default": 6,
       "min": 0,
-      "businessContext": "Hourly air change rate.",
+      "businessContext": "Saatlik hava değişim adedi.",
       "businessContext_i18n": {
         "en": "Hourly air change rate.",
         "tr": "Saatlik hava değişim adedi.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "m3/s",
     "breakdown": {
-      "sonuc": "Ventilation Flow Rate"
+      "sonuc": "Havalandırma Debisi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ventilation Flow Rate",
+        "en": "Havalandırma Debisi",
         "tr": "Havalandırma Debisi",
         "de": "Lüftungsvolumenstrom",
         "fr": "Débit de ventilation",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kuvvet",
-      "label": "Axial Force (N)",
+      "label": "Eksenel Kuvvet (N)",
       "label_i18n": {
         "en": "Axial Force (N)",
         "tr": "Eksenel Kuvvet (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 50000,
       "min": 0,
-      "businessContext": "Force perpendicular to section.",
+      "businessContext": "Kesite dik etkiyen kuvvet.",
       "businessContext_i18n": {
         "en": "Force perpendicular to section.",
         "tr": "Kesite dik etkiyen kuvvet.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "alan",
-      "label": "Cross-Sectional Area (m²)",
+      "label": "Kesit Alanı (m²)",
       "label_i18n": {
         "en": "Cross-Sectional Area (m²)",
         "tr": "Kesit Alanı (m²)",
@@ -45,7 +45,7 @@
       "unit": "m2",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Area over which force acts.",
+      "businessContext": "Kuvvetin etki ettiği alan.",
       "businessContext_i18n": {
         "en": "Area over which force acts.",
         "tr": "Kuvvetin etki ettiği alan.",

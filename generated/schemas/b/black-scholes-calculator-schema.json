@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "S",
-      "label": "Spot Price (USD)",
+      "label": "Spot Fiyat (₺)",
       "label_i18n": {
         "en": "Spot Price (USD)",
         "tr": "Spot Fiyat (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Current underlying asset price.",
+      "businessContext": "Dayanak varlığın güncel fiyatı.",
       "businessContext_i18n": {
         "en": "Current underlying asset price.",
         "tr": "Dayanak varlığın güncel fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "K",
-      "label": "Strike Price (USD)",
+      "label": "Kullanım Fiyatı (₺)",
       "label_i18n": {
         "en": "Strike Price (USD)",
         "tr": "Kullanım Fiyatı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 110,
       "min": 0,
-      "businessContext": "Option strike price.",
+      "businessContext": "Opsiyonun kullanım fiyatı.",
       "businessContext_i18n": {
         "en": "Option strike price.",
         "tr": "Opsiyonun kullanım fiyatı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "r",
-      "label": "Risk-Free Rate (%)",
+      "label": "Risksiz Faiz (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risk-free interest rate.",
+      "businessContext": "Risksiz faiz oranı.",
       "businessContext_i18n": {
         "en": "Risk-free interest rate.",
         "tr": "Risksiz faiz oranı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "t",
-      "label": "Time to Maturity (Years)",
+      "label": "Vade (Yıl)",
       "label_i18n": {
         "en": "Time to Maturity (Years)",
         "tr": "Vade (Yıl)",
@@ -95,7 +95,7 @@
       "unit": "years",
       "default": 1,
       "min": 0.0001,
-      "businessContext": "Time remaining to expiry.",
+      "businessContext": "Vadeye kalan süre.",
       "businessContext_i18n": {
         "en": "Time remaining to expiry.",
         "tr": "Vadeye kalan süre.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "v",
-      "label": "Volatility (%)",
+      "label": "Volatilite (%)",
       "label_i18n": {
         "en": "Volatility (%)",
         "tr": "Volatilite (%)",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 30,
       "min": 0,
-      "businessContext": "Annualized volatility.",
+      "businessContext": "Yıllık volatilite.",
       "businessContext_i18n": {
         "en": "Annualized volatility.",
         "tr": "Yıllık volatilite.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "etKalinlik",
-      "label": "Wall Thickness (mm)",
+      "label": "Et Kalınlığı (mm)",
       "label_i18n": {
         "en": "Wall Thickness (mm)",
         "tr": "Et Kalınlığı (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 3,
       "min": 0,
-      "businessContext": "Average part wall thickness.",
+      "businessContext": "Parçanın ortalama et kalınlığı.",
       "businessContext_i18n": {
         "en": "Average part wall thickness.",
         "tr": "Parçanın ortalama et kalınlığı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "termalDifuzyon",
-      "label": "Thermal Diffusivity (mm²/s)",
+      "label": "Termal Difüzyon (mm²/s)",
       "label_i18n": {
         "en": "Thermal Diffusivity (mm²/s)",
         "tr": "Termal Difüzyon (mm²/s)",
@@ -45,7 +45,7 @@
       "unit": "mm2/s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Polymer thermal diffusivity.",
+      "businessContext": "Polimerin termal difüzyonu.",
       "businessContext_i18n": {
         "en": "Polymer thermal diffusivity.",
         "tr": "Polimerin termal difüzyonu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "erimeSicaklik",
-      "label": "Melt Temperature (°C)",
+      "label": "Erime Sıcaklığı (°C)",
       "label_i18n": {
         "en": "Melt Temperature (°C)",
         "tr": "Erime Sıcaklığı (°C)",
@@ -70,7 +70,7 @@
       "unit": "°C",
       "default": 230,
       "min": 0,
-      "businessContext": "Melt temperature.",
+      "businessContext": "Polimerin ergime sıcaklığı.",
       "businessContext_i18n": {
         "en": "Melt temperature.",
         "tr": "Polimerin ergime sıcaklığı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kalipSicaklik",
-      "label": "Mold Temperature (°C)",
+      "label": "Kalıp Sıcaklığı (°C)",
       "label_i18n": {
         "en": "Mold Temperature (°C)",
         "tr": "Kalıp Sıcaklığı (°C)",
@@ -95,7 +95,7 @@
       "unit": "°C",
       "default": 40,
       "min": 0,
-      "businessContext": "Mold surface temperature.",
+      "businessContext": "Kalıp yüzey sıcaklığı.",
       "businessContext_i18n": {
         "en": "Mold surface temperature.",
         "tr": "Kalıp yüzey sıcaklığı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Cooling Time"
+      "sonuc": "Soğutma Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cooling Time",
+        "en": "Soğutma Süresi",
         "tr": "Soğutma Süresi",
         "de": "Kühlzeit",
         "fr": "Temps de refroidissement",

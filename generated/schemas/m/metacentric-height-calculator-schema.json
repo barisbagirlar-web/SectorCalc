@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "KB",
-      "label": "KB (m) - Center of Buoyancy",
+      "label": "KB (m) - Basınç Merkezi",
       "label_i18n": {
         "en": "KB (m) - Center of Buoyancy",
         "tr": "KB (m) - Basınç Merkezi",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Center of buoyancy.",
+      "businessContext": "Su altı hacminin ağırlık merkezi.",
       "businessContext_i18n": {
         "en": "Center of buoyancy.",
         "tr": "Su altı hacminin ağırlık merkezi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "BM",
-      "label": "BM (m) - Metacentric Radius",
+      "label": "BM (m) - Metasentrik Yarıçap",
       "label_i18n": {
         "en": "BM (m) - Metacentric Radius",
         "tr": "BM (m) - Metasentrik Yarıçap",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Metacentric radius.",
+      "businessContext": "Metasentrik yarıçap.",
       "businessContext_i18n": {
         "en": "Metacentric radius.",
         "tr": "Metasentrik yarıçap.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "KG",
-      "label": "KG (m) - Center of Gravity",
+      "label": "KG (m) - Ağırlık Merkezi",
       "label_i18n": {
         "en": "KG (m) - Center of Gravity",
         "tr": "KG (m) - Ağırlık Merkezi",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Vertical center of gravity.",
+      "businessContext": "Geminin ağırlık merkezi yüksekliği.",
       "businessContext_i18n": {
         "en": "Vertical center of gravity.",
         "tr": "Geminin ağırlık merkezi yüksekliği.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "GM (Metacentric Height)"
+      "sonuc": "GM (Metasentrik Yükseklik)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "GM (Metacentric Height)",
+        "en": "GM (Metasentrik Yükseklik)",
         "tr": "GM (Metasentrik Yükseklik)",
         "de": "GM (metazentrische Höhe)",
         "fr": "GM (Hauteur métacentrique)",

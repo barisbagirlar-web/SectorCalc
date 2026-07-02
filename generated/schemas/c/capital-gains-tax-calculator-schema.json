@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satis",
-      "label": "Sale Proceeds (USD)",
+      "label": "Satış Bedeli (₺)",
       "label_i18n": {
         "en": "Sale Proceeds (USD)",
         "tr": "Satış Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Asset sale proceeds.",
+      "businessContext": "Varlığın satış bedeli.",
       "businessContext_i18n": {
         "en": "Asset sale proceeds.",
         "tr": "Varlığın satış bedeli.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "alis",
-      "label": "Cost Basis (USD)",
+      "label": "Alış Bedeli (₺)",
       "label_i18n": {
         "en": "Cost Basis (USD)",
         "tr": "Alış Bedeli (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Asset purchase cost.",
+      "businessContext": "Varlığın satın alma maliyeti.",
       "businessContext_i18n": {
         "en": "Asset purchase cost.",
         "tr": "Varlığın satın alma maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "vergiOrani",
-      "label": "Tax Rate (%)",
+      "label": "Vergi Oranı (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
@@ -71,7 +71,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Capital gains tax rate.",
+      "businessContext": "Sermaye kazancı vergi oranı.",
       "businessContext_i18n": {
         "en": "Capital gains tax rate.",
         "tr": "Sermaye kazancı vergi oranı.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "istisna",
-      "label": "Exemption Amount (USD)",
+      "label": "İstisna Tutarı (₺)",
       "label_i18n": {
         "en": "Exemption Amount (USD)",
         "tr": "İstisna Tutarı (₺)",
@@ -96,7 +96,7 @@
       "unit": "USD",
       "default": 0,
       "min": 0,
-      "businessContext": "Tax-free allowance.",
+      "businessContext": "Vergiden muaf kısım.",
       "businessContext_i18n": {
         "en": "Tax-free allowance.",
         "tr": "Vergiden muaf kısım.",
@@ -121,11 +121,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Payable Capital Gains Tax"
+      "sonuc": "Ödenecek Sermaye Kazancı Vergisi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Payable Capital Gains Tax",
+        "en": "Ödenecek Sermaye Kazancı Vergisi",
         "tr": "Ödenecek Sermaye Kazancı Vergisi",
         "de": "Zahlbare Kapitalertragssteuer",
         "fr": "Impôt sur les plus-values à payer",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "Z",
-      "label": "Z Value",
+      "label": "Z Değeri",
       "label_i18n": {
         "en": "Z Value",
         "tr": "Z Değeri",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 1.96,
       "min": 0,
-      "businessContext": "Z-score for confidence level.",
+      "businessContext": "Güven seviyesine karşılık Z (1.96=%95).",
       "businessContext_i18n": {
         "en": "Z-score for confidence level.",
         "tr": "Güven seviyesine karşılık Z (1.96=%95).",
@@ -32,7 +32,7 @@
     },
     {
       "id": "stdSapma",
-      "label": "Estimated Std Dev",
+      "label": "Tahmini Standart Sapma",
       "label_i18n": {
         "en": "Estimated Std Dev",
         "tr": "Tahmini Standart Sapma",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 10,
       "min": 0,
-      "businessContext": "Population standard deviation.",
+      "businessContext": "Popülasyon standart sapması.",
       "businessContext_i18n": {
         "en": "Population standard deviation.",
         "tr": "Popülasyon standart sapması.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "hataPayi",
-      "label": "Margin of Error",
+      "label": "Kabul Edilebilir Hata Payı",
       "label_i18n": {
         "en": "Margin of Error",
         "tr": "Kabul Edilebilir Hata Payı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 2,
       "min": 0,
-      "businessContext": "Maximum allowable error.",
+      "businessContext": "İzin verilen maksimum hata.",
       "businessContext_i18n": {
         "en": "Maximum allowable error.",
         "tr": "İzin verilen maksimum hata.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "samples",
     "breakdown": {
-      "sonuc": "Minimum Required Sample"
+      "sonuc": "Gereken Minimum Örneklem"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Minimum Required Sample",
+        "en": "Gereken Minimum Örneklem",
         "tr": "Gereken Minimum Örneklem",
         "de": "Erforderliche Mindeststichprobe",
         "fr": "Required Minimum Sample",

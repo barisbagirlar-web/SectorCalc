@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Plaster Area (m²)",
+      "label": "Sıva Alanı (m²)",
       "label_i18n": {
         "en": "Plaster Area (m²)",
         "tr": "Sıva Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 100,
       "min": 0,
-      "businessContext": "Facade area to plaster.",
+      "businessContext": "Sıvanacak cephe alanı.",
       "businessContext_i18n": {
         "en": "Facade area to plaster.",
         "tr": "Sıvanacak cephe alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinlik",
-      "label": "Plaster Thickness (cm)",
+      "label": "Sıva Kalınlığı (cm)",
       "label_i18n": {
         "en": "Plaster Thickness (cm)",
         "tr": "Sıva Kalınlığı (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 2,
       "min": 0,
-      "businessContext": "Application thickness.",
+      "businessContext": "Uygulama kalınlığı.",
       "businessContext_i18n": {
         "en": "Application thickness.",
         "tr": "Uygulama kalınlığı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Mortar Density (kg/m³)",
+      "label": "Harç Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Mortar Density (kg/m³)",
         "tr": "Harç Yoğunluğu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1800,
       "min": 0,
-      "businessContext": "Dry mortar density.",
+      "businessContext": "Kuru harç yoğunluğu.",
       "businessContext_i18n": {
         "en": "Dry mortar density.",
         "tr": "Kuru harç yoğunluğu.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Required Plaster Mortar"
+      "sonuc": "Gerekli Sıva Harcı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Plaster Mortar",
+        "en": "Gerekli Sıva Harcı",
         "tr": "Gerekli Sıva Harcı",
         "de": "Erforderlicher Putzmörtel",
         "fr": "Mortier de plâtre requis",

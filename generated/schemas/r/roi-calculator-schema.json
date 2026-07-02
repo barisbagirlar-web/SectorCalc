@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netKar",
-      "label": "Net Profit (USD)",
+      "label": "Net Kâr (₺)",
       "label_i18n": {
         "en": "Net Profit (USD)",
         "tr": "Net Kâr (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 25000,
       "min": 0,
-      "businessContext": "Total net profit from investment.",
+      "businessContext": "Yatırımdan elde edilen toplam net kâr.",
       "businessContext_i18n": {
         "en": "Total net profit from investment.",
         "tr": "Yatırımdan elde edilen toplam net kâr.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "maliyet",
-      "label": "Total Cost (USD)",
+      "label": "Toplam Maliyet (₺)",
       "label_i18n": {
         "en": "Total Cost (USD)",
         "tr": "Toplam Maliyet (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Total investment expenditure.",
+      "businessContext": "Yatırım için yapılan toplam harcama.",
       "businessContext_i18n": {
         "en": "Total investment expenditure.",
         "tr": "Yatırım için yapılan toplam harcama.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "ROI (Return on Investment)"
+      "sonuc": "ROI (Yatırım Getirisi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "ROI (Return on Investment)",
+        "en": "ROI (Yatırım Getirisi)",
         "tr": "ROI (Yatırım Getirisi)",
         "de": "ROI (Kapitalrendite)",
         "fr": "ROI (Retour sur investissement)",

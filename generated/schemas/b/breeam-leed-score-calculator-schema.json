@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "enerji",
-      "label": "Energy Score (0-100)",
+      "label": "Enerji Kriter Puanı (0-100)",
       "label_i18n": {
         "en": "Energy Score (0-100)",
         "tr": "Enerji Kriter Puanı (0-100)",
@@ -21,7 +21,7 @@
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Energy efficiency score.",
+      "businessContext": "Enerji verimliliği puanı.",
       "businessContext_i18n": {
         "en": "Energy efficiency score.",
         "tr": "Enerji verimliliği puanı.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "su",
-      "label": "Water Score (0-100)",
+      "label": "Su Kriter Puanı (0-100)",
       "label_i18n": {
         "en": "Water Score (0-100)",
         "tr": "Su Kriter Puanı (0-100)",
@@ -47,7 +47,7 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Water management score.",
+      "businessContext": "Su yönetimi puanı.",
       "businessContext_i18n": {
         "en": "Water management score.",
         "tr": "Su yönetimi puanı.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "malzeme",
-      "label": "Materials Score (0-100)",
+      "label": "Malzeme Kriter Puanı (0-100)",
       "label_i18n": {
         "en": "Materials Score (0-100)",
         "tr": "Malzeme Kriter Puanı (0-100)",
@@ -73,7 +73,7 @@
       "default": 65,
       "min": 0,
       "max": 100,
-      "businessContext": "Materials selection score.",
+      "businessContext": "Malzeme seçimi puanı.",
       "businessContext_i18n": {
         "en": "Materials selection score.",
         "tr": "Malzeme seçimi puanı.",
@@ -97,11 +97,11 @@
     "primary": "sonuc",
     "unit": "score",
     "breakdown": {
-      "sonuc": "Estimated Certification Score"
+      "sonuc": "Tahmini Sertifika Puanı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Estimated Certification Score",
+        "en": "Tahmini Sertifika Puanı",
         "tr": "Tahmini Sertifika Puanı",
         "de": "Estimated Certification Score",
         "fr": "Score de certification estimé",

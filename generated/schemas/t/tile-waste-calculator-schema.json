@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alanEn",
-      "label": "Room Width (m)",
+      "label": "Alan Genişliği (m)",
       "label_i18n": {
         "en": "Room Width (m)",
         "tr": "Alan Genişliği (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 4.2,
       "min": 0,
-      "businessContext": "Room width.",
+      "businessContext": "Döşenecek alanın genişliği.",
       "businessContext_i18n": {
         "en": "Room width.",
         "tr": "Döşenecek alanın genişliği.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "fayansEn",
-      "label": "Tile Width (m)",
+      "label": "Fayans Eni (m)",
       "label_i18n": {
         "en": "Tile Width (m)",
         "tr": "Fayans Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.6,
       "min": 0,
-      "businessContext": "Tile width.",
+      "businessContext": "Fayansın eni.",
       "businessContext_i18n": {
         "en": "Tile width.",
         "tr": "Fayansın eni.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Cutting Waste Ratio"
+      "sonuc": "Kesim Fire Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cutting Waste Ratio",
+        "en": "Kesim Fire Oranı",
         "tr": "Kesim Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de déchet de coupe",

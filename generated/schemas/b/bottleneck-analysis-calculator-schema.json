@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "istasyon1",
-      "label": "Station 1 Time (Min)",
+      "label": "1. İstasyon Süresi (Dk)",
       "label_i18n": {
         "en": "Station 1 Time (Min)",
         "tr": "1. İstasyon Süresi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 45,
       "min": 0,
-      "businessContext": "First station operation time.",
+      "businessContext": "Birinci istasyonun işlem süresi.",
       "businessContext_i18n": {
         "en": "First station operation time.",
         "tr": "Birinci istasyonun işlem süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "istasyon2",
-      "label": "Station 2 Time (Min)",
+      "label": "2. İstasyon Süresi (Dk)",
       "label_i18n": {
         "en": "Station 2 Time (Min)",
         "tr": "2. İstasyon Süresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "Second station time.",
+      "businessContext": "İkinci istasyon süresi.",
       "businessContext_i18n": {
         "en": "Second station time.",
         "tr": "İkinci istasyon süresi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "istasyon3",
-      "label": "Station 3 Time (Min)",
+      "label": "3. İstasyon Süresi (Dk)",
       "label_i18n": {
         "en": "Station 3 Time (Min)",
         "tr": "3. İstasyon Süresi (Dk)",
@@ -70,7 +70,7 @@
       "unit": "min",
       "default": 50,
       "min": 0,
-      "businessContext": "Third station time.",
+      "businessContext": "Üçüncü istasyon süresi.",
       "businessContext_i18n": {
         "en": "Third station time.",
         "tr": "Üçüncü istasyon süresi.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "units/hour",
     "breakdown": {
-      "sonuc": "Maximum Production Rate"
+      "sonuc": "Maksimum Üretim Hızı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maximum Production Rate",
+        "en": "Maksimum Üretim Hızı",
         "tr": "Maksimum Üretim Hızı",
         "de": "Maximum Production Rate",
         "fr": "Taux de production maximal",

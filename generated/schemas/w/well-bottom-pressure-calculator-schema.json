@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "camurYogunlugu",
-      "label": "Mud Density (kg/m³)",
+      "label": "Çamur Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Mud Density (kg/m³)",
         "tr": "Çamur Yoğunluğu (kg/m³)",
@@ -20,7 +20,7 @@
       "unit": "kg/m3",
       "default": 1500,
       "min": 0,
-      "businessContext": "Drilling mud density.",
+      "businessContext": "Sondaj çamuru yoğunluğu.",
       "businessContext_i18n": {
         "en": "Drilling mud density.",
         "tr": "Sondaj çamuru yoğunluğu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Vertical Depth (m)",
+      "label": "Dikey Derinlik (m)",
       "label_i18n": {
         "en": "Vertical Depth (m)",
         "tr": "Dikey Derinlik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2000,
       "min": 0,
-      "businessContext": "Well depth.",
+      "businessContext": "Kuyu derinliği.",
       "businessContext_i18n": {
         "en": "Well depth.",
         "tr": "Kuyu derinliği.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "MPa",
     "breakdown": {
-      "sonuc": "Bottom Hole Pressure"
+      "sonuc": "Kuyu Taban Basıncı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Bottom Hole Pressure",
+        "en": "Kuyu Taban Basıncı",
         "tr": "Kuyu Taban Basıncı",
         "de": "Bohrlochsohlendruck",
         "fr": "Pression au fond du puits",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "oncekiKonum",
-      "label": "Previous Position (m)",
+      "label": "Önceki Konum (m)",
       "label_i18n": {
         "en": "Previous Position (m)",
         "tr": "Önceki Konum (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Previous state estimate.",
+      "businessContext": "Bir önceki adımdaki tahmin.",
       "businessContext_i18n": {
         "en": "Previous state estimate.",
         "tr": "Bir önceki adımdaki tahmin.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oncekiHiz",
-      "label": "Previous Velocity (m/s)",
+      "label": "Önceki Hız (m/s)",
       "label_i18n": {
         "en": "Previous Velocity (m/s)",
         "tr": "Önceki Hız (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 1,
       "min": 0,
-      "businessContext": "Previous velocity.",
+      "businessContext": "Önceki adım hızı.",
       "businessContext_i18n": {
         "en": "Previous velocity.",
         "tr": "Önceki adım hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kontrolIvme",
-      "label": "Control Acceleration (m/s²)",
+      "label": "Kontrol İvmesi (m/s²)",
       "label_i18n": {
         "en": "Control Acceleration (m/s²)",
         "tr": "Kontrol İvmesi (m/s²)",
@@ -70,7 +70,7 @@
       "unit": "m/s2",
       "default": 0,
       "min": 0,
-      "businessContext": "System acceleration input.",
+      "businessContext": "Sisteme uygulanan ivme.",
       "businessContext_i18n": {
         "en": "System acceleration input.",
         "tr": "Sisteme uygulanan ivme.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "dt",
-      "label": "Time Step (s)",
+      "label": "Zaman Adımı (s)",
       "label_i18n": {
         "en": "Time Step (s)",
         "tr": "Zaman Adımı (s)",
@@ -95,7 +95,7 @@
       "unit": "s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Sampling period.",
+      "businessContext": "Örnekleme zamanı.",
       "businessContext_i18n": {
         "en": "Sampling period.",
         "tr": "Örnekleme zamanı.",

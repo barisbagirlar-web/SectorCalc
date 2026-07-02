@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "en",
-      "label": "Width (cm)",
+      "label": "En (cm)",
       "label_i18n": {
         "en": "Width (cm)",
         "tr": "En (cm)",
@@ -20,7 +20,7 @@
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Package width.",
+      "businessContext": "Paketin eni.",
       "businessContext_i18n": {
         "en": "Package width.",
         "tr": "Paketin eni.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "boy",
-      "label": "Length (cm)",
+      "label": "Boy (cm)",
       "label_i18n": {
         "en": "Length (cm)",
         "tr": "Boy (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 40,
       "min": 0,
-      "businessContext": "Package length.",
+      "businessContext": "Paketin boyu.",
       "businessContext_i18n": {
         "en": "Package length.",
         "tr": "Paketin boyu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Height (cm)",
+      "label": "Yükseklik (cm)",
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Yükseklik (cm)",
@@ -70,7 +70,7 @@
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Package height.",
+      "businessContext": "Paketin yüksekliği.",
       "businessContext_i18n": {
         "en": "Package height.",
         "tr": "Paketin yüksekliği.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "bolen",
-      "label": "Divider (Vol. Factor)",
+      "label": "Bölen (Desi Faktörü)",
       "label_i18n": {
         "en": "Divider (Vol. Factor)",
         "tr": "Bölen (Desi Faktörü)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 3000,
       "min": 1,
-      "businessContext": "Carrier's volumetric divisor.",
+      "businessContext": "Kargo firmasının desi böleni.",
       "businessContext_i18n": {
         "en": "Carrier's volumetric divisor.",
         "tr": "Kargo firmasının desi böleni.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Volumetric Weight (DIM)"
+      "sonuc": "Hacimsel Ağırlık (Desi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Volumetric Weight (DIM)",
+        "en": "Hacimsel Ağırlık (Desi)",
         "tr": "Hacimsel Ağırlık (Desi)",
         "de": "Volumetric Weight (Desi)",
         "fr": "Poids volumétrique (Desi)",

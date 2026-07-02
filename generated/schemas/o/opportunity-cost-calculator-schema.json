@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tercihEdilenGetiri",
-      "label": "Chosen Return (USD)",
+      "label": "Tercih Edilen Getiri (₺)",
       "label_i18n": {
         "en": "Chosen Return (USD)",
         "tr": "Tercih Edilen Getiri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 15000,
       "min": 0,
-      "businessContext": "Return of the chosen investment.",
+      "businessContext": "Seçilen yatırımın getirisi.",
       "businessContext_i18n": {
         "en": "Return of the chosen investment.",
         "tr": "Seçilen yatırımın getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "vazgecilenGetiri",
-      "label": "Foregone Return (USD)",
+      "label": "Vazgeçilen Getiri (₺)",
       "label_i18n": {
         "en": "Foregone Return (USD)",
         "tr": "Vazgeçilen Getiri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 25000,
       "min": 0,
-      "businessContext": "Return of the alternative investment.",
+      "businessContext": "Alternatif yatırımın getirisi.",
       "businessContext_i18n": {
         "en": "Return of the alternative investment.",
         "tr": "Alternatif yatırımın getirisi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Opportunity Cost"
+      "sonuc": "Fırsat Maliyeti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Opportunity Cost",
+        "en": "Fırsat Maliyeti",
         "tr": "Fırsat Maliyeti",
         "de": "Opportunitätskosten",
         "fr": "Coût d'opportunité",

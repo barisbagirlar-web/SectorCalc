@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Deck Area (m²)",
+      "label": "Deck Alanı (m²)",
       "label_i18n": {
         "en": "Deck Area (m²)",
         "tr": "Deck Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to cover.",
+      "businessContext": "Döşenecek alan.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Döşenecek alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tahtaEn",
-      "label": "Board Width (m)",
+      "label": "Tahta Eni (m)",
       "label_i18n": {
         "en": "Board Width (m)",
         "tr": "Tahta Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.14,
       "min": 0,
-      "businessContext": "Board width.",
+      "businessContext": "Tek tahtanın eni.",
       "businessContext_i18n": {
         "en": "Board width.",
         "tr": "Tek tahtanın eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tahtaBoy",
-      "label": "Board Length (m)",
+      "label": "Tahta Boyu (m)",
       "label_i18n": {
         "en": "Board Length (m)",
         "tr": "Tahta Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Board length.",
+      "businessContext": "Tek tahtanın boyu.",
       "businessContext_i18n": {
         "en": "Board length.",
         "tr": "Tek tahtanın boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Waste Factor (%)",
+      "label": "Fire Oranı (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Cutting waste.",
+      "businessContext": "Kesim kaybı.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "boards",
     "breakdown": {
-      "sonuc": "Required Deck Boards"
+      "sonuc": "Gerekli Deck Tahtası"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Deck Boards",
+        "en": "Gerekli Deck Tahtası",
         "tr": "Gerekli Deck Tahtası",
         "de": "Erforderliche Terrassendielen",
         "fr": "Lames de terrasse nécessaires",

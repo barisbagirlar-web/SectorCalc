@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortSiparis",
-      "label": "Avg Order Value (USD)",
+      "label": "Ortalama Sipariş (TL)",
       "label_i18n": {
         "en": "Avg Order Value (USD)",
         "tr": "Ortalama Sipariş (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Average order value.",
+      "businessContext": "Müşteri başına ortalama sipariş.",
       "businessContext_i18n": {
         "en": "Average order value.",
         "tr": "Müşteri başına ortalama sipariş.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "siklik",
-      "label": "Orders per Year",
+      "label": "Yıllık Sipariş Sıklığı",
       "label_i18n": {
         "en": "Orders per Year",
         "tr": "Yıllık Sipariş Sıklığı",
@@ -45,7 +45,7 @@
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Purchase frequency per year.",
+      "businessContext": "Müşterinin yıllık alışveriş sayısı.",
       "businessContext_i18n": {
         "en": "Purchase frequency per year.",
         "tr": "Müşterinin yıllık alışveriş sayısı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "omur",
-      "label": "Customer Lifetime (Years)",
+      "label": "Müşteri Ömrü (Yıl)",
       "label_i18n": {
         "en": "Customer Lifetime (Years)",
         "tr": "Müşteri Ömrü (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 3,
       "min": 0,
-      "businessContext": "Average customer retention.",
+      "businessContext": "Ortalama müşteri sadakat süresi.",
       "businessContext_i18n": {
         "en": "Average customer retention.",
         "tr": "Ortalama müşteri sadakat süresi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "marj",
-      "label": "Profit Margin (%)",
+      "label": "Kâr Marjı (%)",
       "label_i18n": {
         "en": "Profit Margin (%)",
         "tr": "Kâr Marjı (%)",
@@ -96,7 +96,7 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Net profit margin.",
+      "businessContext": "Net kâr marjı.",
       "businessContext_i18n": {
         "en": "Net profit margin.",
         "tr": "Net kâr marjı.",
@@ -120,11 +120,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Customer Lifetime Value (CLV)"
+      "sonuc": "Müşteri Yaşam Boyu Değeri (CLV)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Customer Lifetime Value (CLV)",
+        "en": "Müşteri Yaşam Boyu Değeri (CLV)",
         "tr": "Müşteri Yaşam Boyu Değeri (CLV)",
         "de": "Kundenlebenszeitwert (CLV)",
         "fr": "Valeur à vie du client (CLV)",

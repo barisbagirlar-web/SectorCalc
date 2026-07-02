@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "toplamHarcama",
-      "label": "Total Spend (USD)",
+      "label": "Toplam Harcama (TL)",
       "label_i18n": {
         "en": "Total Spend (USD)",
         "tr": "Toplam Harcama (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Ad budget spent.",
+      "businessContext": "Reklam bütçesi.",
       "businessContext_i18n": {
         "en": "Ad budget spent.",
         "tr": "Reklam bütçesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tiklama",
-      "label": "Clicks",
+      "label": "Tıklama (Adet)",
       "label_i18n": {
         "en": "Clicks",
         "tr": "Tıklama (Adet)",
@@ -45,7 +45,7 @@
       "unit": "clicks",
       "default": 500,
       "min": 1,
-      "businessContext": "Total clicks.",
+      "businessContext": "Toplam tıklama.",
       "businessContext_i18n": {
         "en": "Total clicks.",
         "tr": "Toplam tıklama.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Cost Per Click (CPC)"
+      "sonuc": "Tıklama Başı Maliyet (CPC)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cost Per Click (CPC)",
+        "en": "Tıklama Başı Maliyet (CPC)",
         "tr": "Tıklama Başı Maliyet (CPC)",
         "de": "Kosten pro Klick (CPC)",
         "fr": "Coût par clic (CPC)",

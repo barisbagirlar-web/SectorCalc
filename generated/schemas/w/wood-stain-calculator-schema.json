@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Wood Surface (m²)",
+      "label": "Ahşap Yüzey (m²)",
       "label_i18n": {
         "en": "Wood Surface (m²)",
         "tr": "Ahşap Yüzey (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to treat.",
+      "businessContext": "Emprenye edilecek alan.",
       "businessContext_i18n": {
         "en": "Area to treat.",
         "tr": "Emprenye edilecek alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sarfiyat",
-      "label": "Coverage (m²/L)",
+      "label": "Sarfiyat (m²/L)",
       "label_i18n": {
         "en": "Coverage (m²/L)",
         "tr": "Sarfiyat (m²/L)",
@@ -45,7 +45,7 @@
       "unit": "m2/L",
       "default": 12,
       "min": 0,
-      "businessContext": "Coverage per liter.",
+      "businessContext": "Litre başına kaplanan alan.",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
         "tr": "Litre başına kaplanan alan.",

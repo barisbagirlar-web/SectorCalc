@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "damaticiDebi",
-      "label": "Emitter Flow (L/h)",
+      "label": "Damlatıcı Debi (L/h)",
       "label_i18n": {
         "en": "Emitter Flow (L/h)",
         "tr": "Damlatıcı Debi (L/h)",
@@ -20,7 +20,7 @@
       "unit": "L/h",
       "default": 4,
       "min": 0,
-      "businessContext": "Flow per emitter.",
+      "businessContext": "Her bir damlatıcının debisi.",
       "businessContext_i18n": {
         "en": "Flow per emitter.",
         "tr": "Her bir damlatıcının debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "damaticiSayisi",
-      "label": "Number of Emitters",
+      "label": "Damlatıcı Sayısı",
       "label_i18n": {
         "en": "Number of Emitters",
         "tr": "Damlatıcı Sayısı",
@@ -45,7 +45,7 @@
       "unit": "emitters",
       "default": 500,
       "min": 0,
-      "businessContext": "Total emitters on line.",
+      "businessContext": "Hatta bağlı toplam damlatıcı.",
       "businessContext_i18n": {
         "en": "Total emitters on line.",
         "tr": "Hatta bağlı toplam damlatıcı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "maxHiz",
-      "label": "Max. Flow Velocity (m/s)",
+      "label": "Maks. Akış Hızı (m/s)",
       "label_i18n": {
         "en": "Max. Flow Velocity (m/s)",
         "tr": "Maks. Akış Hızı (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Max permissible velocity.",
+      "businessContext": "Boruda izin verilen azami hız.",
       "businessContext_i18n": {
         "en": "Max permissible velocity.",
         "tr": "Boruda izin verilen azami hız.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "mm",
     "breakdown": {
-      "sonuc": "Min Pipe Inner Diameter"
+      "sonuc": "Min. Boru İç Çapı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Min Pipe Inner Diameter",
+        "en": "Min. Boru İç Çapı",
         "tr": "Min. Boru İç Çapı",
         "de": "Min. Rohrinnendurchmesser",
         "fr": "Diamètre Intérieur Min. du Tuyau",

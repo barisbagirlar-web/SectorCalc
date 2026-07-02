@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuzeyGerilimi",
-      "label": "Surface Tension (N/m)",
+      "label": "Yüzey Gerilimi (N/m)",
       "label_i18n": {
         "en": "Surface Tension (N/m)",
         "tr": "Yüzey Gerilimi (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 0.073,
       "min": 0,
-      "businessContext": "Liquid surface tension.",
+      "businessContext": "Sıvının yüzey gerilimi.",
       "businessContext_i18n": {
         "en": "Liquid surface tension.",
         "tr": "Sıvının yüzey gerilimi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "temasAcisi",
-      "label": "Contact Angle (Deg)",
+      "label": "Temas Açısı (Derece)",
       "label_i18n": {
         "en": "Contact Angle (Deg)",
         "tr": "Temas Açısı (Derece)",
@@ -45,7 +45,7 @@
       "unit": "degrees",
       "default": 0,
       "min": 0,
-      "businessContext": "Liquid-solid contact angle.",
+      "businessContext": "Sıvı-katı temas açısı.",
       "businessContext_i18n": {
         "en": "Liquid-solid contact angle.",
         "tr": "Sıvı-katı temas açısı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yariCap",
-      "label": "Tube Radius (m)",
+      "label": "Borun Yarıçap (m)",
       "label_i18n": {
         "en": "Tube Radius (m)",
         "tr": "Borun Yarıçap (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.0005,
       "min": 0,
-      "businessContext": "Capillary tube inner radius.",
+      "businessContext": "Kılcal borunun iç yarıçapı.",
       "businessContext_i18n": {
         "en": "Capillary tube inner radius.",
         "tr": "Kılcal borunun iç yarıçapı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Liquid Density (kg/m³)",
+      "label": "Sıvı Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
         "tr": "Sıvı Yoğunluğu (kg/m³)",
@@ -95,7 +95,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Liquid density.",
+      "businessContext": "Sıvının yoğunluğu.",
       "businessContext_i18n": {
         "en": "Liquid density.",
         "tr": "Sıvının yoğunluğu.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Capillary Rise"
+      "sonuc": "Kılcal Yükselme"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Capillary Rise",
+        "en": "Kılcal Yükselme",
         "tr": "Kılcal Yükselme",
         "de": "Kapillarer Aufstieg",
         "fr": "Ascension capillaire",

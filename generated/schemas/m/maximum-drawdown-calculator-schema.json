@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "zirveDeger",
-      "label": "Peak Value (USD)",
+      "label": "Zirve Değer (₺)",
       "label_i18n": {
         "en": "Peak Value (USD)",
         "tr": "Zirve Değer (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Highest portfolio value.",
+      "businessContext": "Portföyün en yüksek değeri.",
       "businessContext_i18n": {
         "en": "Highest portfolio value.",
         "tr": "Portföyün en yüksek değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dipDeger",
-      "label": "Trough Value (USD)",
+      "label": "Dip Değer (₺)",
       "label_i18n": {
         "en": "Trough Value (USD)",
         "tr": "Dip Değer (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 70000,
       "min": 0,
-      "businessContext": "Lowest portfolio value.",
+      "businessContext": "Portföyün en düşük değeri.",
       "businessContext_i18n": {
         "en": "Lowest portfolio value.",
         "tr": "Portföyün en düşük değeri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Maximum Drawdown (MDD)"
+      "sonuc": "Maksimum Düşüş (MDD)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maximum Drawdown (MDD)",
+        "en": "Maksimum Düşüş (MDD)",
         "tr": "Maksimum Düşüş (MDD)",
         "de": "Maximaler Drawdown (MDD)",
         "fr": "Drawdown maximum (MDD)",

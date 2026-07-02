@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "krediTutari",
-      "label": "Loan Amount (USD)",
+      "label": "Kredi Tutarı (₺)",
       "label_i18n": {
         "en": "Loan Amount (USD)",
         "tr": "Kredi Tutarı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Loan principal.",
+      "businessContext": "Çekilen kredi anaparası.",
       "businessContext_i18n": {
         "en": "Loan principal.",
         "tr": "Çekilen kredi anaparası.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oran",
-      "label": "Percentage-Based Fee (%)",
+      "label": "Oran Bazlı Masraf (%)",
       "label_i18n": {
         "en": "Percentage-Based Fee (%)",
         "tr": "Oran Bazlı Masraf (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2,
       "min": 0,
-      "businessContext": "Percentage-based closing costs.",
+      "businessContext": "Kredi yüzdesiyle hesaplanan masraflar.",
       "businessContext_i18n": {
         "en": "Percentage-based closing costs.",
         "tr": "Kredi yüzdesiyle hesaplanan masraflar.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabitUcretler",
-      "label": "Fixed Fees (USD)",
+      "label": "Sabit Ücretler (₺)",
       "label_i18n": {
         "en": "Fixed Fees (USD)",
         "tr": "Sabit Ücretler (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Fixed costs like appraisal and filing fees.",
+      "businessContext": "Ekspertiz, ipotek tescili gibi sabit ücretler.",
       "businessContext_i18n": {
         "en": "Fixed costs like appraisal and filing fees.",
         "tr": "Ekspertiz, ipotek tescili gibi sabit ücretler.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Total Closing Cost"
+      "sonuc": "Toplam Kapanış Maliyeti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Total Closing Cost",
+        "en": "Toplam Kapanış Maliyeti",
         "tr": "Toplam Kapanış Maliyeti",
         "de": "Gesamte Abschlusskosten",
         "fr": "Coût total de clôture",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikTalep",
-      "label": "Annual Demand",
+      "label": "Yıllık Talep (Adet)",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep (Adet)",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 10000,
       "min": 0,
-      "businessContext": "Annual demand quantity.",
+      "businessContext": "Ürünün yıllık talep miktarı.",
       "businessContext_i18n": {
         "en": "Annual demand quantity.",
         "tr": "Ürünün yıllık talep miktarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "birimMaliyet",
-      "label": "Unit Cost (USD)",
+      "label": "Birim Maliyet (TL)",
       "label_i18n": {
         "en": "Unit Cost (USD)",
         "tr": "Birim Maliyet (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Unit product cost.",
+      "businessContext": "Ürünün birim maliyeti.",
       "businessContext_i18n": {
         "en": "Unit product cost.",
         "tr": "Ürünün birim maliyeti.",
@@ -70,11 +70,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Annual Inventory Value"
+      "sonuc": "Yıllık Stok Değeri"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Annual Inventory Value",
+        "en": "Yıllık Stok Değeri",
         "tr": "Yıllık Stok Değeri",
         "de": "Jährlicher Lagerwert",
         "fr": "Valeur annuelle des stocks",

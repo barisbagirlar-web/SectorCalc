@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "basinc",
-      "label": "Mean Indicated Pressure (Pa)",
+      "label": "Ortalama İndike Basınc (Pa)",
       "label_i18n": {
         "en": "Mean Indicated Pressure (Pa)",
         "tr": "Ortalama İndike Basınc (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Average cylinder pressure.",
+      "businessContext": "Silindir içi ortalama basınç.",
       "businessContext_i18n": {
         "en": "Average cylinder pressure.",
         "tr": "Silindir içi ortalama basınç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "strok",
-      "label": "Stroke (m)",
+      "label": "Strok (m)",
       "label_i18n": {
         "en": "Stroke (m)",
         "tr": "Strok (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Piston stroke length.",
+      "businessContext": "Pistonun alt-üst ölü nokta mesafesi.",
       "businessContext_i18n": {
         "en": "Piston stroke length.",
         "tr": "Pistonun alt-üst ölü nokta mesafesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "alan",
-      "label": "Piston Area (m²)",
+      "label": "Piston Alanı (m²)",
       "label_i18n": {
         "en": "Piston Area (m²)",
         "tr": "Piston Alanı (m²)",
@@ -70,7 +70,7 @@
       "unit": "m2",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Piston cross-section area.",
+      "businessContext": "Piston yüzey alanı.",
       "businessContext_i18n": {
         "en": "Piston cross-section area.",
         "tr": "Piston yüzey alanı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "devir",
-      "label": "Engine Speed (RPM)",
+      "label": "Motor Devri (devir/dk)",
       "label_i18n": {
         "en": "Engine Speed (RPM)",
         "tr": "Motor Devri (devir/dk)",
@@ -95,7 +95,7 @@
       "unit": "rpm",
       "default": 3000,
       "min": 0,
-      "businessContext": "Crankshaft speed.",
+      "businessContext": "Krank mili dönüş hızı.",
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
         "tr": "Krank mili dönüş hızı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "kW",
     "breakdown": {
-      "sonuc": "Indicated Horsepower (IHP)"
+      "sonuc": "İndike Beygir Gücü (IHP)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Indicated Horsepower (IHP)",
+        "en": "İndike Beygir Gücü (IHP)",
         "tr": "İndike Beygir Gücü (IHP)",
         "de": "Indizierte Leistung (IHP)",
         "fr": "Puissance indiquée (IHP)",

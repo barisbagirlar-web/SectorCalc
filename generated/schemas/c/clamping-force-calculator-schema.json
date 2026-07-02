@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "projeksiyonAlani",
-      "label": "Projected Area (cm²)",
+      "label": "Projeksiyon Alanı (cm²)",
       "label_i18n": {
         "en": "Projected Area (cm²)",
         "tr": "Projeksiyon Alanı (cm²)",
@@ -20,7 +20,7 @@
       "unit": "cm2",
       "default": 500,
       "min": 0,
-      "businessContext": "Part projected area on mold.",
+      "businessContext": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
       "businessContext_i18n": {
         "en": "Part projected area on mold.",
         "tr": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalipIcBasinc",
-      "label": "Cavity Pressure (bar)",
+      "label": "Kalıp İçi Basınc (bar)",
       "label_i18n": {
         "en": "Cavity Pressure (bar)",
         "tr": "Kalıp İçi Basınc (bar)",
@@ -45,7 +45,7 @@
       "unit": "bar",
       "default": 800,
       "min": 0,
-      "businessContext": "Melt cavity pressure.",
+      "businessContext": "Ergiyik plastiğin kalıp içindeki basıncı.",
       "businessContext_i18n": {
         "en": "Melt cavity pressure.",
         "tr": "Ergiyik plastiğin kalıp içindeki basıncı.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "tons",
     "breakdown": {
-      "sonuc": "Required Locking Tonnage"
+      "sonuc": "Gerekli Kilit Tonajı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Locking Tonnage",
+        "en": "Gerekli Kilit Tonajı",
         "tr": "Gerekli Kilit Tonajı",
         "de": "Erforderliche Schließkraft",
         "fr": "Tonage de verrouillage requis",

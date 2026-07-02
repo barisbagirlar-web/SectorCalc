@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ciro",
-      "label": "Revenue (USD)",
+      "label": "Ciro (TL)",
       "label_i18n": {
         "en": "Revenue (USD)",
         "tr": "Ciro (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total revenue.",
+      "businessContext": "Toplam satış geliri.",
       "businessContext_i18n": {
         "en": "Total revenue.",
         "tr": "Toplam satış geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cogs",
-      "label": "COGS (USD)",
+      "label": "SMM (TL)",
       "label_i18n": {
         "en": "COGS (USD)",
         "tr": "SMM (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Cost of goods sold.",
+      "businessContext": "Satılan mal maliyeti.",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
         "tr": "Satılan mal maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pazarlama",
-      "label": "Marketing (USD)",
+      "label": "Pazarlama (TL)",
       "label_i18n": {
         "en": "Marketing (USD)",
         "tr": "Pazarlama (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 80000,
       "min": 0,
-      "businessContext": "Marketing expense.",
+      "businessContext": "Reklam ve pazarlama gideri.",
       "businessContext_i18n": {
         "en": "Marketing expense.",
         "tr": "Reklam ve pazarlama gideri.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "operasyon",
-      "label": "Operations (USD)",
+      "label": "Operasyon (TL)",
       "label_i18n": {
         "en": "Operations (USD)",
         "tr": "Operasyon (TL)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Warehouse, shipping, software costs.",
+      "businessContext": "Depo, kargo, yazılım giderleri.",
       "businessContext_i18n": {
         "en": "Warehouse, shipping, software costs.",
         "tr": "Depo, kargo, yazılım giderleri.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net E-Commerce Profit"
+      "sonuc": "Net E-Ticaret Kârı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net E-Commerce Profit",
+        "en": "Net E-Ticaret Kârı",
         "tr": "Net E-Ticaret Kârı",
         "de": "Nettogewinn E-Commerce",
         "fr": "Bénéfice net e-commerce",

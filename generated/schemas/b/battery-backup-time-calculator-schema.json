@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akuKapasite",
-      "label": "Battery Capacity (Ah)",
+      "label": "Akü Kapasitesi (Ah)",
       "label_i18n": {
         "en": "Battery Capacity (Ah)",
         "tr": "Akü Kapasitesi (Ah)",
@@ -20,7 +20,7 @@
       "unit": "Ah",
       "default": 100,
       "min": 0,
-      "businessContext": "Battery rated capacity.",
+      "businessContext": "Akü nominal kapasitesi.",
       "businessContext_i18n": {
         "en": "Battery rated capacity.",
         "tr": "Akü nominal kapasitesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukGucu",
-      "label": "Load Power (W)",
+      "label": "Yük Gücü (W)",
       "label_i18n": {
         "en": "Load Power (W)",
         "tr": "Yük Gücü (W)",
@@ -45,7 +45,7 @@
       "unit": "W",
       "default": 500,
       "min": 0,
-      "businessContext": "Total connected load power.",
+      "businessContext": "Beslenecek cihazların toplam gücü.",
       "businessContext_i18n": {
         "en": "Total connected load power.",
         "tr": "Beslenecek cihazların toplam gücü.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dcVoltaj",
-      "label": "DC System Voltage (V)",
+      "label": "DC Sistem Voltajı (V)",
       "label_i18n": {
         "en": "DC System Voltage (V)",
         "tr": "DC Sistem Voltajı (V)",
@@ -70,7 +70,7 @@
       "unit": "V",
       "default": 12,
       "min": 0,
-      "businessContext": "Battery system voltage.",
+      "businessContext": "Akü sistemi voltajı.",
       "businessContext_i18n": {
         "en": "Battery system voltage.",
         "tr": "Akü sistemi voltajı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "desarjDerinligi",
-      "label": "Depth of Discharge (%)",
+      "label": "Deşarj Derinliği (%)",
       "label_i18n": {
         "en": "Depth of Discharge (%)",
         "tr": "Deşarj Derinliği (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 80,
       "min": 0,
-      "businessContext": "Maximum allowed discharge.",
+      "businessContext": "İzin verilen maksimum deşarj.",
       "businessContext_i18n": {
         "en": "Maximum allowed discharge.",
         "tr": "İzin verilen maksimum deşarj.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Backup Time"
+      "sonuc": "Yedekleme Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Backup Time",
+        "en": "Yedekleme Süresi",
         "tr": "Yedekleme Süresi",
         "de": "Sicherungszeit",
         "fr": "Durée de sauvegarde",

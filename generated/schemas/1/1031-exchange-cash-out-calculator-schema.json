@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satisFiyati",
-      "label": "Sale Price (USD)",
+      "label": "Satış Fiyatı (₺)",
       "label_i18n": {
         "en": "Sale Price (USD)",
         "tr": "Satış Fiyatı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Sale price of relinquished property.",
+      "businessContext": "Eski mülkün satış fiyatı.",
       "businessContext_i18n": {
         "en": "Sale price of relinquished property.",
         "tr": "Eski mülkün satış fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalanBorc",
-      "label": "Remaining Debt (USD)",
+      "label": "Kalan Borç (₺)",
       "label_i18n": {
         "en": "Remaining Debt (USD)",
         "tr": "Kalan Borç (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Remaining mortgage balance.",
+      "businessContext": "Satılan mülkün kalan ipotek borcu.",
       "businessContext_i18n": {
         "en": "Remaining mortgage balance.",
         "tr": "Satılan mülkün kalan ipotek borcu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yeniYatirim",
-      "label": "New Investment (USD)",
+      "label": "Yeni Yatırım (₺)",
       "label_i18n": {
         "en": "New Investment (USD)",
         "tr": "Yeni Yatırım (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 1800000,
       "min": 0,
-      "businessContext": "Total cost of replacement property.",
+      "businessContext": "Yeni mülkün toplam maliyeti.",
       "businessContext_i18n": {
         "en": "Total cost of replacement property.",
         "tr": "Yeni mülkün toplam maliyeti.",
@@ -96,7 +96,7 @@
     "unit": "USD",
     "breakdown": {
       "sonuc": "Vergiye Tabi Tutar",
-      "nakitCikis": "Total Cash Outflow"
+      "nakitCikis": "Toplam Nakit Çıkış"
     },
     "breakdown_i18n": {
       "sonuc": {
@@ -108,7 +108,7 @@
         "ar": "المبلغ الخاضع للضريبة"
       },
       "nakitCikis": {
-        "en": "Total Cash Outflow",
+        "en": "Toplam Nakit Çıkış",
         "tr": "Toplam Nakit Çıkış",
         "de": "Gesamter Mittelabfluss",
         "fr": "Sortie de trésorerie totale",

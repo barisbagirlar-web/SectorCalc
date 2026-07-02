@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Frequency (MHz)",
+      "label": "Frekans (MHz)",
       "label_i18n": {
         "en": "Frequency (MHz)",
         "tr": "Frekans (MHz)",
@@ -20,7 +20,7 @@
       "unit": "MHz",
       "default": 100,
       "min": 0,
-      "businessContext": "Operating frequency.",
+      "businessContext": "Çalışma frekansı.",
       "businessContext_i18n": {
         "en": "Operating frequency.",
         "tr": "Çalışma frekansı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tip",
-      "label": "Antenna Type (1=Dipole, 2=Yagi)",
+      "label": "Anten Tipi (1=Dipole, 2=Yagi)",
       "label_i18n": {
         "en": "Antenna Type (1=Dipole, 2=Yagi)",
         "tr": "Anten Tipi (1=Dipole, 2=Yagi)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Antenna type.",
+      "businessContext": "Anten türü.",
       "businessContext_i18n": {
         "en": "Antenna type.",
         "tr": "Anten türü.",
@@ -70,11 +70,11 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Antenna Length"
+      "sonuc": "Anten Uzunluğu"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Antenna Length",
+        "en": "Anten Uzunluğu",
         "tr": "Anten Uzunluğu",
         "de": "Antennenlänge",
         "fr": "Longueur de l'antenne",

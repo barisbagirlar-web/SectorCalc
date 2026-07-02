@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "girisim",
-      "label": "Interference (m)",
+      "label": "Girişim Miktarı (m)",
       "label_i18n": {
         "en": "Interference (m)",
         "tr": "Girişim Miktarı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.00005,
       "min": 0,
-      "businessContext": "Diametral interference.",
+      "businessContext": "Mil-delik arasındaki çap farkı.",
       "businessContext_i18n": {
         "en": "Diametral interference.",
         "tr": "Mil-delik arasındaki çap farkı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cap",
-      "label": "Nominal Diameter (m)",
+      "label": "Nominal Çap (m)",
       "label_i18n": {
         "en": "Nominal Diameter (m)",
         "tr": "Nominal Çap (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Joint nominal diameter.",
+      "businessContext": "Bağlantının nominal çapı.",
       "businessContext_i18n": {
         "en": "Joint nominal diameter.",
         "tr": "Bağlantının nominal çapı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "E1",
-      "label": "Material 1 Modulus (Pa)",
+      "label": "Malzeme 1 Modülü (Pa)",
       "label_i18n": {
         "en": "Material 1 Modulus (Pa)",
         "tr": "Malzeme 1 Modülü (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "First material modulus.",
+      "businessContext": "Birinci malzemenin elastisite modülü.",
       "businessContext_i18n": {
         "en": "First material modulus.",
         "tr": "Birinci malzemenin elastisite modülü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "E2",
-      "label": "Material 2 Modulus (Pa)",
+      "label": "Malzeme 2 Modülü (Pa)",
       "label_i18n": {
         "en": "Material 2 Modulus (Pa)",
         "tr": "Malzeme 2 Modülü (Pa)",
@@ -95,7 +95,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Second material modulus.",
+      "businessContext": "İkinci malzemenin modülü.",
       "businessContext_i18n": {
         "en": "Second material modulus.",
         "tr": "İkinci malzemenin modülü.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Contact Pressure"
+      "sonuc": "Temas Basıncı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Contact Pressure",
+        "en": "Temas Basıncı",
         "tr": "Temas Basıncı",
         "de": "Kontaktdruck",
         "fr": "Pression de contact",

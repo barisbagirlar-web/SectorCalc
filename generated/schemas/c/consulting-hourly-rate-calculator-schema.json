@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hedefGelir",
-      "label": "Target Annual Income (USD)",
+      "label": "Hedef Yıllık Gelir (TL)",
       "label_i18n": {
         "en": "Target Annual Income (USD)",
         "tr": "Hedef Yıllık Gelir (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Consultant's target income.",
+      "businessContext": "Danışmanın hedef geliri.",
       "businessContext_i18n": {
         "en": "Consultant's target income.",
         "tr": "Danışmanın hedef geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikGider",
-      "label": "Annual Overhead (USD)",
+      "label": "Yıllık İşletme Gideri (TL)",
       "label_i18n": {
         "en": "Annual Overhead (USD)",
         "tr": "Yıllık İşletme Gideri (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Office, insurance, travel costs.",
+      "businessContext": "Ofis, sigorta, seyahat giderleri.",
       "businessContext_i18n": {
         "en": "Office, insurance, travel costs.",
         "tr": "Ofis, sigorta, seyahat giderleri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "faturaliSaat",
-      "label": "Billable Hours/Year",
+      "label": "Faturalanabilir Saat",
       "label_i18n": {
         "en": "Billable Hours/Year",
         "tr": "Faturalanabilir Saat",
@@ -70,7 +70,7 @@
       "unit": "hours",
       "default": 1500,
       "min": 1,
-      "businessContext": "Annual billable hours.",
+      "businessContext": "Yıllık faturalanabilir saat.",
       "businessContext_i18n": {
         "en": "Annual billable hours.",
         "tr": "Yıllık faturalanabilir saat.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "TRY/hour",
     "breakdown": {
-      "sonuc": "Hourly Consulting Rate"
+      "sonuc": "Saatlik Danışmanlık Ücreti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Hourly Consulting Rate",
+        "en": "Saatlik Danışmanlık Ücreti",
         "tr": "Saatlik Danışmanlık Ücreti",
         "de": "Stündlicher Beratungssatz",
         "fr": "Tarif horaire de conseil",

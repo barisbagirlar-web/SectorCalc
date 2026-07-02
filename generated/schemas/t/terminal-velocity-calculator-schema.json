@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kutle",
-      "label": "Mass (kg)",
+      "label": "Kütle (kg)",
       "label_i18n": {
         "en": "Mass (kg)",
         "tr": "Kütle (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 80,
       "min": 0,
-      "businessContext": "Object mass.",
+      "businessContext": "Cismin kütlesi.",
       "businessContext_i18n": {
         "en": "Object mass.",
         "tr": "Cismin kütlesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Fluid Density (kg/m³)",
+      "label": "Akışkan Yoğunluğu (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Akışkan Yoğunluğu (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 1.225,
       "min": 0,
-      "businessContext": "Air density.",
+      "businessContext": "Havanın yoğunluğu.",
       "businessContext_i18n": {
         "en": "Air density.",
         "tr": "Havanın yoğunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "direncKatsayisi",
-      "label": "Drag Coefficient",
+      "label": "Sürükleme Katsayısı",
       "label_i18n": {
         "en": "Drag Coefficient",
         "tr": "Sürükleme Katsayısı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Shape-dependent drag coefficient.",
+      "businessContext": "Cismin şekline bağlı sürükleme katsayısı.",
       "businessContext_i18n": {
         "en": "Shape-dependent drag coefficient.",
         "tr": "Cismin şekline bağlı sürükleme katsayısı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "alan",
-      "label": "Cross-sectional Area (m²)",
+      "label": "Kesit Alanı (m²)",
       "label_i18n": {
         "en": "Cross-sectional Area (m²)",
         "tr": "Kesit Alanı (m²)",
@@ -95,7 +95,7 @@
       "unit": "m2",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Projected frontal area.",
+      "businessContext": "Cismin izdüşüm alanı.",
       "businessContext_i18n": {
         "en": "Projected frontal area.",
         "tr": "Cismin izdüşüm alanı.",
@@ -119,11 +119,11 @@
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Terminal Velocity"
+      "sonuc": "Terminal Hız"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Terminal Velocity",
+        "en": "Terminal Hız",
         "tr": "Terminal Hız",
         "de": "Endgeschwindigkeit",
         "fr": "Vitesse terminale",

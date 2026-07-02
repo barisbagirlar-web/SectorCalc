@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bataryaEnerji",
-      "label": "Battery Energy (kWh)",
+      "label": "Batarya Enerjisi (kWh)",
       "label_i18n": {
         "en": "Battery Energy (kWh)",
         "tr": "Batarya Enerjisi (kWh)",
@@ -20,7 +20,7 @@
       "unit": "kWh",
       "default": 60,
       "min": 0,
-      "businessContext": "Usable battery capacity.",
+      "businessContext": "Kullanılabilir batarya kapasitesi.",
       "businessContext_i18n": {
         "en": "Usable battery capacity.",
         "tr": "Kullanılabilir batarya kapasitesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tuketim",
-      "label": "Energy Consumption (Wh/km)",
+      "label": "Enerji Tüketimi (Wh/km)",
       "label_i18n": {
         "en": "Energy Consumption (Wh/km)",
         "tr": "Enerji Tüketimi (Wh/km)",
@@ -45,7 +45,7 @@
       "unit": "Wh/km",
       "default": 180,
       "min": 0,
-      "businessContext": "Energy consumption per km.",
+      "businessContext": "km başı enerji tüketimi.",
       "businessContext_i18n": {
         "en": "Energy consumption per km.",
         "tr": "km başı enerji tüketimi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Drivetrain Efficiency (%)",
+      "label": "Aktarma Verimi (%)",
       "label_i18n": {
         "en": "Drivetrain Efficiency (%)",
         "tr": "Aktarma Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Motor-to-wheel efficiency.",
+      "businessContext": "Motordan tekerleğe verim.",
       "businessContext_i18n": {
         "en": "Motor-to-wheel efficiency.",
         "tr": "Motordan tekerleğe verim.",

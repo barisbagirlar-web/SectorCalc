@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Point Load (N)",
+      "label": "Tekil Yük (N)",
       "label_i18n": {
         "en": "Point Load (N)",
         "tr": "Tekil Yük (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 15000,
       "min": 0,
-      "businessContext": "Mid-span point load.",
+      "businessContext": "Kiriş ortasındaki yük.",
       "businessContext_i18n": {
         "en": "Mid-span point load.",
         "tr": "Kiriş ortasındaki yük.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aciklik",
-      "label": "Span (m)",
+      "label": "Açıklık (m)",
       "label_i18n": {
         "en": "Span (m)",
         "tr": "Açıklık (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 4,
       "min": 0,
-      "businessContext": "Support spacing.",
+      "businessContext": "Mesnetler arası mesafe.",
       "businessContext_i18n": {
         "en": "Support spacing.",
         "tr": "Mesnetler arası mesafe.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "elastisiteModulu",
-      "label": "Young's Modulus (Pa)",
+      "label": "Elastisite Modülü (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Elastisite Modülü (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Material modulus.",
+      "businessContext": "Malzeme modülü.",
       "businessContext_i18n": {
         "en": "Material modulus.",
         "tr": "Malzeme modülü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ataletMomenti",
-      "label": "Moment of Inertia (m⁴)",
+      "label": "Atalet Momenti (m⁴)",
       "label_i18n": {
         "en": "Moment of Inertia (m⁴)",
         "tr": "Atalet Momenti (m⁴)",
@@ -95,7 +95,7 @@
       "unit": "m4",
       "default": 0.0000083,
       "min": 0,
-      "businessContext": "Section moment of inertia.",
+      "businessContext": "Kesitin atalet momenti.",
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
         "tr": "Kesitin atalet momenti.",

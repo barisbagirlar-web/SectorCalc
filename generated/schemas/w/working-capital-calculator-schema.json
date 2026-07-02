@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "donenVarliklar",
-      "label": "Current Assets (USD)",
+      "label": "Dönen Varlıklar (TL)",
       "label_i18n": {
         "en": "Current Assets (USD)",
         "tr": "Dönen Varlıklar (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Short-term assets.",
+      "businessContext": "Kısa vadeli varlıklar.",
       "businessContext_i18n": {
         "en": "Short-term assets.",
         "tr": "Kısa vadeli varlıklar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kisaVadeliBorc",
-      "label": "Current Liabilities (USD)",
+      "label": "Kısa Vadeli Borç (TL)",
       "label_i18n": {
         "en": "Current Liabilities (USD)",
         "tr": "Kısa Vadeli Borç (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Short-term obligations.",
+      "businessContext": "Kısa vadeli yükümlülükler.",
       "businessContext_i18n": {
         "en": "Short-term obligations.",
         "tr": "Kısa vadeli yükümlülükler.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Working Capital"
+      "sonuc": "Net Çalışma Sermayesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Working Capital",
+        "en": "Net Çalışma Sermayesi",
         "tr": "Net Çalışma Sermayesi",
         "de": "Net Working Capital",
         "fr": "Besoin en fonds de roulement net",

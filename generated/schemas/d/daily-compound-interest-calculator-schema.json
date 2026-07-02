@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Principal (USD)",
+      "label": "Anapara (₺)",
       "label_i18n": {
         "en": "Principal (USD)",
         "tr": "Anapara (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Initial investment amount.",
+      "businessContext": "Başlangıç yatırım tutarı.",
       "businessContext_i18n": {
         "en": "Initial investment amount.",
         "tr": "Başlangıç yatırım tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Annual Interest (%)",
+      "label": "Yıllık Faiz (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
         "tr": "Yıllık Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Annual interest rate.",
+      "businessContext": "Yıllık nominal faiz oranı.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
         "tr": "Yıllık nominal faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gun",
-      "label": "Number of Days",
+      "label": "Gün Sayısı",
       "label_i18n": {
         "en": "Number of Days",
         "tr": "Gün Sayısı",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 365,
       "min": 1,
-      "businessContext": "Number of days for the term.",
+      "businessContext": "Vadeye kalan gün sayısı.",
       "businessContext_i18n": {
         "en": "Number of days for the term.",
         "tr": "Vadeye kalan gün sayısı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Daily Compounded Value"
+      "sonuc": "Günlük Bileşik Değer"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Daily Compounded Value",
+        "en": "Günlük Bileşik Değer",
         "tr": "Günlük Bileşik Değer",
         "de": "Täglicher Zinseszinswert",
         "fr": "Valeur composée quotidienne",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "rsaAnahtarUzunlugu",
-      "label": "RSA Key Length (bits)",
+      "label": "RSA Anahtar Uzunluğu (bit)",
       "label_i18n": {
         "en": "RSA Key Length (bits)",
         "tr": "RSA Anahtar Uzunluğu (bit)",
@@ -20,7 +20,7 @@
       "unit": "bits",
       "default": 2048,
       "min": 0,
-      "businessContext": "RSA key size.",
+      "businessContext": "RSA anahtar boyu.",
       "businessContext_i18n": {
         "en": "RSA key size.",
         "tr": "RSA anahtar boyu.",
@@ -44,11 +44,11 @@
     "primary": "sonuc",
     "unit": "bits",
     "breakdown": {
-      "sonuc": "Symmetrical Equivalent"
+      "sonuc": "Simetrik Eşdeğer"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Symmetrical Equivalent",
+        "en": "Simetrik Eşdeğer",
         "tr": "Simetrik Eşdeğer",
         "de": "Symmetrisches Äquivalent",
         "fr": "Équivalent symétrique",

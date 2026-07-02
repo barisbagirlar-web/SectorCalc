@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "havzaAlani",
-      "label": "Watershed Area (km²)",
+      "label": "Havza Alanı (km²)",
       "label_i18n": {
         "en": "Watershed Area (km²)",
         "tr": "Havza Alanı (km²)",
@@ -20,7 +20,7 @@
       "unit": "km2",
       "default": 100,
       "min": 0,
-      "businessContext": "Catchment area.",
+      "businessContext": "Toplama havzası alanı.",
       "businessContext_i18n": {
         "en": "Catchment area.",
         "tr": "Toplama havzası alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yagis",
-      "label": "Rainfall (mm)",
+      "label": "Yağış Miktarı (mm)",
       "label_i18n": {
         "en": "Rainfall (mm)",
         "tr": "Yağış Miktarı (mm)",
@@ -45,7 +45,7 @@
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Single rainfall depth.",
+      "businessContext": "Birim yağış yüksekliği.",
       "businessContext_i18n": {
         "en": "Single rainfall depth.",
         "tr": "Birim yağış yüksekliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akisKatsayisi",
-      "label": "Runoff Coefficient (0-1)",
+      "label": "Akış Katsayısı (0-1)",
       "label_i18n": {
         "en": "Runoff Coefficient (0-1)",
         "tr": "Akış Katsayısı (0-1)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Surface permeability coefficient.",
+      "businessContext": "Zeminin geçirgenliğine bağlı katsayı.",
       "businessContext_i18n": {
         "en": "Surface permeability coefficient.",
         "tr": "Zeminin geçirgenliğine bağlı katsayı.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "m3",
     "breakdown": {
-      "sonuc": "Total Surface Runoff Volume"
+      "sonuc": "Toplam Yüzey Akış Hacmi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Total Surface Runoff Volume",
+        "en": "Toplam Yüzey Akış Hacmi",
         "tr": "Toplam Yüzey Akış Hacmi",
         "de": "Gesamtes Oberflächenabflussvolumen",
         "fr": "Volume total de ruissellement de surface",

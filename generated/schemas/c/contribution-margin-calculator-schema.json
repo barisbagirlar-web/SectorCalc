@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satisFiyati",
-      "label": "Selling Price (USD)",
+      "label": "Satış Fiyatı (TL)",
       "label_i18n": {
         "en": "Selling Price (USD)",
         "tr": "Satış Fiyatı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Unit selling price.",
+      "businessContext": "Ürünün birim satış fiyatı.",
       "businessContext_i18n": {
         "en": "Unit selling price.",
         "tr": "Ürünün birim satış fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "degiskenMaliyet",
-      "label": "Variable Cost (USD)",
+      "label": "Değişken Maliyet (TL)",
       "label_i18n": {
         "en": "Variable Cost (USD)",
         "tr": "Değişken Maliyet (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 60,
       "min": 0,
-      "businessContext": "Unit variable cost.",
+      "businessContext": "Birim başı değişken maliyet.",
       "businessContext_i18n": {
         "en": "Unit variable cost.",
         "tr": "Birim başı değişken maliyet.",
@@ -70,11 +70,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Contribution Margin Ratio"
+      "sonuc": "Katkı Marjı Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Contribution Margin Ratio",
+        "en": "Katkı Marjı Oranı",
         "tr": "Katkı Marjı Oranı",
         "de": "Deckungsbeitragsquote",
         "fr": "Ratio de marge de contribution",

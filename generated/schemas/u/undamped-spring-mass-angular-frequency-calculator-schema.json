@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kutle",
-      "label": "Mass (kg)",
+      "label": "Kütle (kg)",
       "label_i18n": {
         "en": "Mass (kg)",
         "tr": "Kütle (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 10,
       "min": 0,
-      "businessContext": "System mass.",
+      "businessContext": "Sistem kütlesi.",
       "businessContext_i18n": {
         "en": "System mass.",
         "tr": "Sistem kütlesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yayKatsayisi",
-      "label": "Spring Constant (N/m)",
+      "label": "Yay Sabiti (N/m)",
       "label_i18n": {
         "en": "Spring Constant (N/m)",
         "tr": "Yay Sabiti (N/m)",
@@ -45,7 +45,7 @@
       "unit": "N/m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Spring stiffness.",
+      "businessContext": "Yay rijitliği.",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
         "tr": "Yay rijitliği.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "rad/s",
     "breakdown": {
-      "sonuc": "Angular Frequency (ω)"
+      "sonuc": "Açısal Frekans (ω)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Angular Frequency (ω)",
+        "en": "Açısal Frekans (ω)",
         "tr": "Açısal Frekans (ω)",
         "de": "Angular Frequency (ω)",
         "fr": "Pulsation (ω)",

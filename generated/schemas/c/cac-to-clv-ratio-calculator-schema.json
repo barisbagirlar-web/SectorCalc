@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "clv",
-      "label": "CLV (USD)",
+      "label": "CLV (TL)",
       "label_i18n": {
         "en": "CLV (USD)",
         "tr": "CLV (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Customer lifetime value.",
+      "businessContext": "Müşteri yaşam boyu değeri.",
       "businessContext_i18n": {
         "en": "Customer lifetime value.",
         "tr": "Müşteri yaşam boyu değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cac",
-      "label": "CAC (USD)",
+      "label": "CAC (TL)",
       "label_i18n": {
         "en": "CAC (USD)",
         "tr": "CAC (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Customer acquisition cost.",
+      "businessContext": "Müşteri edinim maliyeti.",
       "businessContext_i18n": {
         "en": "Customer acquisition cost.",
         "tr": "Müşteri edinim maliyeti.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "CLV/CAC Ratio"
+      "sonuc": "CLV/CAC Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "CLV/CAC Ratio",
+        "en": "CLV/CAC Oranı",
         "tr": "CLV/CAC Oranı",
         "de": "CLV/CAC-Verhältnis",
         "fr": "Ratio CLV/CAC",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "enlem",
-      "label": "Latitude (Deg)",
+      "label": "Enlem (Derece)",
       "label_i18n": {
         "en": "Latitude (Deg)",
         "tr": "Enlem (Derece)",
@@ -20,7 +20,7 @@
       "unit": "degrees",
       "default": 41,
       "min": 0,
-      "businessContext": "Building latitude.",
+      "businessContext": "Binanın bulunduğu enlem.",
       "businessContext_i18n": {
         "en": "Building latitude.",
         "tr": "Binanın bulunduğu enlem.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gunSayisi",
-      "label": "Day of Year (1-365)",
+      "label": "Yılın Günü (1-365)",
       "label_i18n": {
         "en": "Day of Year (1-365)",
         "tr": "Yılın Günü (1-365)",
@@ -46,7 +46,7 @@
       "default": 172,
       "min": 1,
       "max": 365,
-      "businessContext": "Target day.",
+      "businessContext": "Hesaplanan gün.",
       "businessContext_i18n": {
         "en": "Target day.",
         "tr": "Hesaplanan gün.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "engelYukseklik",
-      "label": "Obstacle Height (m)",
+      "label": "Engel Yüksekliği (m)",
       "label_i18n": {
         "en": "Obstacle Height (m)",
         "tr": "Engel Yüksekliği (m)",
@@ -71,7 +71,7 @@
       "unit": "m",
       "default": 20,
       "min": 0,
-      "businessContext": "Neighboring building height.",
+      "businessContext": "Komşu bina/engel yüksekliği.",
       "businessContext_i18n": {
         "en": "Neighboring building height.",
         "tr": "Komşu bina/engel yüksekliği.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Obstacle-Building Distance (m)",
+      "label": "Engel-Bina Mesafesi (m)",
       "label_i18n": {
         "en": "Obstacle-Building Distance (m)",
         "tr": "Engel-Bina Mesafesi (m)",
@@ -96,7 +96,7 @@
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "Distance between buildings.",
+      "businessContext": "İki bina arası mesafe.",
       "businessContext_i18n": {
         "en": "Distance between buildings.",
         "tr": "İki bina arası mesafe.",
@@ -121,11 +121,11 @@
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Estimated Shadow Duration"
+      "sonuc": "Tahmini Gölge Süresi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Estimated Shadow Duration",
+        "en": "Tahmini Gölge Süresi",
         "tr": "Tahmini Gölge Süresi",
         "de": "Geschätzte Schattenzeit",
         "fr": "Durée d'ombre estimée",

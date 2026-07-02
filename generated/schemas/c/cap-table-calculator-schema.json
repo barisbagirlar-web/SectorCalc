@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kurucu",
-      "label": "Founder Shares",
+      "label": "Kurucu Hisse (Adet)",
       "label_i18n": {
         "en": "Founder Shares",
         "tr": "Kurucu Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 600000,
       "min": 0,
-      "businessContext": "Founder shares.",
+      "businessContext": "Kurucuya ait hisse.",
       "businessContext_i18n": {
         "en": "Founder shares.",
         "tr": "Kurucuya ait hisse.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yatirimci",
-      "label": "Investor Shares",
+      "label": "Yatırımcı Hisse (Adet)",
       "label_i18n": {
         "en": "Investor Shares",
         "tr": "Yatırımcı Hisse (Adet)",
@@ -45,7 +45,7 @@
       "unit": "shares",
       "default": 300000,
       "min": 0,
-      "businessContext": "Investor shares.",
+      "businessContext": "Yatırımcıya ait hisse.",
       "businessContext_i18n": {
         "en": "Investor shares.",
         "tr": "Yatırımcıya ait hisse.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "opsiyon",
-      "label": "Option Pool",
+      "label": "Opsiyon Havuzu (Adet)",
       "label_i18n": {
         "en": "Option Pool",
         "tr": "Opsiyon Havuzu (Adet)",
@@ -70,7 +70,7 @@
       "unit": "shares",
       "default": 100000,
       "min": 0,
-      "businessContext": "Employee option pool.",
+      "businessContext": "Çalışan opsiyon havuzu.",
       "businessContext_i18n": {
         "en": "Employee option pool.",
         "tr": "Çalışan opsiyon havuzu.",
@@ -95,11 +95,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Founder Ratio"
+      "sonuc": "Kurucu Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Founder Ratio",
+        "en": "Kurucu Oranı",
         "tr": "Kurucu Oranı",
         "de": "Gründerquote",
         "fr": "Taux de fondateur",

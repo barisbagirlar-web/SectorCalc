@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "piyasaDegeri",
-      "label": "Market Cap (USD)",
+      "label": "Piyasa Değeri (₺)",
       "label_i18n": {
         "en": "Market Cap (USD)",
         "tr": "Piyasa Değeri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Market capitalization.",
+      "businessContext": "Şirketin toplam piyasa değeri.",
       "businessContext_i18n": {
         "en": "Market capitalization.",
         "tr": "Şirketin toplam piyasa değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamSatislar",
-      "label": "Total Revenue (USD)",
+      "label": "Toplam Satışlar (₺)",
       "label_i18n": {
         "en": "Total Revenue (USD)",
         "tr": "Toplam Satışlar (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 4000000,
       "min": 0,
-      "businessContext": "Annual total revenue.",
+      "businessContext": "Şirketin yıllık toplam satış geliri.",
       "businessContext_i18n": {
         "en": "Annual total revenue.",
         "tr": "Şirketin yıllık toplam satış geliri.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "P/S Ratio"
+      "sonuc": "F/S (P/S) Oranı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "P/S Ratio",
+        "en": "F/S (P/S) Oranı",
         "tr": "F/S (P/S) Oranı",
         "de": "KUV (P/S) Verhältnis",
         "fr": "Ratio F/S (P/S)",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "parcaDerinlik",
-      "label": "Part Depth (mm)",
+      "label": "Parça Derinliği (mm)",
       "label_i18n": {
         "en": "Part Depth (mm)",
         "tr": "Parça Derinliği (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Part depth in mold direction.",
+      "businessContext": "Parçanın kalıp hareket yönündeki derinliği.",
       "businessContext_i18n": {
         "en": "Part depth in mold direction.",
         "tr": "Parçanın kalıp hareket yönündeki derinliği.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "buzulmeOrani",
-      "label": "Shrinkage Rate (%)",
+      "label": "Büzülme Oranı (%)",
       "label_i18n": {
         "en": "Shrinkage Rate (%)",
         "tr": "Büzülme Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Polymer shrinkage rate.",
+      "businessContext": "Polimerin çekme oranı.",
       "businessContext_i18n": {
         "en": "Polymer shrinkage rate.",
         "tr": "Polimerin çekme oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yanYuzeyUzunluk",
-      "label": "Side Wall Length (mm)",
+      "label": "Yan Yüzey Uzunluğu (mm)",
       "label_i18n": {
         "en": "Side Wall Length (mm)",
         "tr": "Yan Yüzey Uzunluğu (mm)",
@@ -70,7 +70,7 @@
       "unit": "mm",
       "default": 100,
       "min": 0,
-      "businessContext": "Mold side wall length.",
+      "businessContext": "Kalıp yan yüzey uzunluğu.",
       "businessContext_i18n": {
         "en": "Mold side wall length.",
         "tr": "Kalıp yan yüzey uzunluğu.",
@@ -94,11 +94,11 @@
     "primary": "sonuc",
     "unit": "degrees",
     "breakdown": {
-      "sonuc": "Required Draft Angle"
+      "sonuc": "Gerekli Draft Açısı"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Required Draft Angle",
+        "en": "Gerekli Draft Açısı",
         "tr": "Gerekli Draft Açısı",
         "de": "Erforderlicher Abzugswinkel",
         "fr": "Angle de Dépouille Requis",

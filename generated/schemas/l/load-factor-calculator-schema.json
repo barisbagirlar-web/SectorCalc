@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortalamaGuc",
-      "label": "Average Power (kW)",
+      "label": "Ortalama Güç (kW)",
       "label_i18n": {
         "en": "Average Power (kW)",
         "tr": "Ortalama Güç (kW)",
@@ -20,7 +20,7 @@
       "unit": "kW",
       "default": 80,
       "min": 0,
-      "businessContext": "Average power drawn.",
+      "businessContext": "Dönem boyunca ortalama çekilen güç.",
       "businessContext_i18n": {
         "en": "Average power drawn.",
         "tr": "Dönem boyunca ortalama çekilen güç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "pikGuc",
-      "label": "Peak Power (kW)",
+      "label": "Pik Güç (kW)",
       "label_i18n": {
         "en": "Peak Power (kW)",
         "tr": "Pik Güç (kW)",
@@ -45,7 +45,7 @@
       "unit": "kW",
       "default": 200,
       "min": 0,
-      "businessContext": "Peak power demand.",
+      "businessContext": "Dönemdeki en yüksek güç talebi.",
       "businessContext_i18n": {
         "en": "Peak power demand.",
         "tr": "Dönemdeki en yüksek güç talebi.",
@@ -69,11 +69,11 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Load Factor"
+      "sonuc": "Yük Faktörü"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Load Factor",
+        "en": "Yük Faktörü",
         "tr": "Yük Faktörü",
         "de": "Load Factor",
         "fr": "Facteur de charge",

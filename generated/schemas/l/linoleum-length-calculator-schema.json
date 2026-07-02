@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Floor Area (m²)",
+      "label": "Döşeme Alanı (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
         "tr": "Döşeme Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Area to cover.",
+      "businessContext": "Kaplanacak alan.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Kaplanacak alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruloEn",
-      "label": "Roll Width (m)",
+      "label": "Rulo Eni (m)",
       "label_i18n": {
         "en": "Roll Width (m)",
         "tr": "Rulo Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Roll width.",
+      "businessContext": "Rulo genişliği.",
       "businessContext_i18n": {
         "en": "Roll width.",
         "tr": "Rulo genişliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "fire",
-      "label": "Waste Factor (%)",
+      "label": "Fire Oranı (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Cutting waste.",
+      "businessContext": "Kesim kaybı.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybı.",
