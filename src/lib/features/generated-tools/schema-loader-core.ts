@@ -2,7 +2,47 @@ import * as fs from "fs";
 import * as path from "path";
 import { normalizeGeneratedI18nText } from "@/lib/features/generated-tools/resolve-i18n-text";
 import { normalizeRawGeneratedSchema } from "@/lib/features/generated-tools/normalize-schema";
+import { translateTurkishToEnglish, containsTurkish } from "@/lib/core/schema/schema-loader";
 import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
+
+/**
+ * Recursively translate all Turkish string values in a raw schema object.
+ * Walks toolName, title, description, label, helper, businessContext, sector,
+ * categoryName and all nested fields.
+ */
+function translateSchemaTurkish(obj: unknown): void {
+  if (!obj || typeof obj !== "object") return;
+  if (Array.isArray(obj)) {
+    for (const item of obj) translateSchemaTurkish(item);
+    return;
+  }
+  const record = obj as Record<string, unknown>;
+
+  // Fields most likely to contain Turkish text
+  const textFields = [
+    "toolName", "title", "description", "label", "helper", "hint",
+    "placeholder", "businessContext", "sector", "categoryName",
+    "subCategory", "categoryLabel", "longDescription", "metaDescription",
+    "unitLabel", "group", "eyebrow", "unit", "resultLabel",
+  ];
+  for (const field of textFields) {
+    if (typeof record[field] === "string") {
+      const val = record[field] as string;
+      if (containsTurkish(val)) {
+        // Extract ID for fallback naming
+        const id = typeof record.id === "string" ? record.id : undefined;
+        record[field] = translateTurkishToEnglish(val, id);
+      }
+    }
+  }
+
+  // Recurse into known nested structures
+  for (const key of ["inputs", "outputs", "options", "formulas", "examples", "faq", "aboutContents"]) {
+    if (Array.isArray(record[key])) {
+      for (const item of record[key] as unknown[]) translateSchemaTurkish(item);
+    }
+  }
+}
 
 /** Resolve generated schemas directory — tries multiple deployment paths. */
 function resolveSchemasDir(): string {
@@ -72,6 +112,10 @@ export function getGeneratedToolSchema(slug: string): GeneratedToolSchema | null
     return null;
   }
   const raw = JSON.parse(fs.readFileSync(schemaPath, "utf-8")) as unknown;
+
+  // ── Layer 1: Auto-translate all Turkish content → English ──
+  translateSchemaTurkish(raw);
+
   const normalized = normalizeRawGeneratedSchema(raw, slug);
   if (!normalized) {
     return null;

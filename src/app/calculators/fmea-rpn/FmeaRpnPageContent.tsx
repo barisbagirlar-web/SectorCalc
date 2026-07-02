@@ -561,7 +561,7 @@ function RpnCalculatorPanel() {
           </select>
         </div>
       </div>
-      <button type="button" onClick={handleCalculate} className="w-full sm:w-auto bg-[var(--sc-text)] text-white font-semibold uppercase tracking-wider px-8 py-3 min-h-[44px] hover:bg-[var(--sc-muted)] transition-colors focus-visible" aria-label="Calculate RPN">
+      <button type="button" onClick={handleCalculate} className="w-full sm:w-auto bg-[var(--sc-text)] !text-white font-semibold uppercase tracking-wider px-8 py-3 min-h-[44px] hover:bg-[var(--sc-muted)] transition-colors focus-visible" aria-label="Calculate RPN">
         Calculate RPN
       </button>
 
@@ -685,7 +685,7 @@ export function FmeaRpnPageContent() {
                   Calculate traditional FMEA Risk Priority Number using Severity, Occurrence and Detection ratings from 1 to 10. This reference also explains RPN score-space behavior, unreachable RPN values, same-score collisions, high-severity masking and PFMEA training datasets.
                 </p>
                 <div className="flex flex-wrap gap-4 mb-8">
-                  <a href="#calculator" className="bg-[var(--sc-text)] text-white font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-muted)] transition-colors inline-flex items-center justify-center focus-visible">Calculate RPN</a>
+                  <a href="#calculator" className="bg-[var(--sc-text)] !text-white font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-muted)] transition-colors inline-flex items-center justify-center focus-visible">Calculate RPN</a>
                   <a href="#behavior" className="bg-transparent border border-[var(--sc-border)] text-[var(--sc-text)] font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-surface)] transition-colors inline-flex items-center justify-center focus-visible">View RPN Limitations</a>
                   <a href="#datasets" className="bg-transparent border border-[var(--sc-border)] text-[var(--sc-text)] font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-surface)] transition-colors inline-flex items-center justify-center focus-visible">Download Datasets</a>
                 </div>

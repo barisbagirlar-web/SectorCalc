@@ -14,6 +14,21 @@ import {
 } from "@/lib/features/premium-schema/premium-schema-engine";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 
+// ── Layer 3: Runtime fallback — Turkish character sanitizer ──
+const TURKISH_PATTERN = /[çğıöşüÇĞİÖŞÜ]/;
+
+function sanitizeLabel(label: string | undefined, fallbackId: string): string {
+  if (!label) return fallbackId;
+  if (TURKISH_PATTERN.test(label)) {
+    console.warn(`[SanitizeLabel] Turkish detected: "${label}" → using ID: ${fallbackId}`);
+    return fallbackId
+      .split("_")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+  }
+  return label;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTS — SINGLE SOURCE OF TRUTH (English only, no i18n)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -480,7 +495,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
     (result: PremiumSchemaEngineResult): string => {
       const parts: string[] = [];
       for (const out of result.outputs) {
-        const label = out.label ?? out.id;
+        const label = sanitizeLabel(out.label, out.id);
         const value = typeof out.raw === "number" ? out.raw : out.raw;
         if (typeof value === "number" && !Number.isNaN(value)) {
           parts.push(
@@ -664,7 +679,8 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
             <div style={{ fontSize: 13 }}>{LABELS.fixBeforeCompute}</div>
             <ul style={{ margin: "8px 0 0 0", paddingLeft: 20, fontSize: 12, color: "var(--ink-60, #525252)" }}>
               {Object.entries(validationErrors).map(([field, msg]) => {
-                const label = schema.inputs.find((i) => i.id === field)?.label ?? field;
+                const rawLabel = schema.inputs.find((i) => i.id === field)?.label ?? field;
+                const label = sanitizeLabel(rawLabel, field);
                 return (
                   <li key={field}>
                     <strong>{label}</strong>: {msg}
@@ -737,7 +753,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
                           fontFamily: "var(--mono, monospace)",
                         }}
                       >
-                        {out.label ?? out.id}
+                        {sanitizeLabel(out.label, out.id)}
                       </div>
                       <div
                         style={{
