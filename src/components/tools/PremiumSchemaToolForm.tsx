@@ -103,6 +103,7 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
       <DynamicFormEngine
         tool={toolData}
         showMasthead={false}
+        hideRail={true}
         onCompute={handleDynamicCompute}
         externalCompute={(scope) => {
           const raw: SchemaInputValues = buildDefaultSchemaInputs(schema);
