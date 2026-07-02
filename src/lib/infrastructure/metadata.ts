@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import type { Metadata } from "next";
 import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";

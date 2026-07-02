@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { GUIDE_REFERENCE_AUTHOR } from "@/config/guide-reference-author";

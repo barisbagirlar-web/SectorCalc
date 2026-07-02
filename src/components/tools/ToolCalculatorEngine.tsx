@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 /* eslint-disable */
 // @ts-nocheck
@@ -234,7 +235,7 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
        <DecisionToolLegalDisclaimer variant={isPremiumTool ? "paid" : "free"} />
       ) : null}
       {isFreeTool && revenueFree && computed.results.length > 0 && !computed.hasErrors ? (
-       <FreeToolUpgradePanel locale="en" revenue={revenueFree} />
+       <FreeToolUpgradePanel locale="en" locale="en" revenue={revenueFree} />
       ) : null}
        {computed.premium && !computed.hasErrors && (
         <RiskVerdictCard

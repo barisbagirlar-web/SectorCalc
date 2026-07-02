@@ -1,0 +1,48 @@
+
+> fresh_app@0.1.0 typecheck
+> NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit
+
+src/app/account/page.tsx(77,14): error TS2345: Argument of type '{ href: string; locale: string; }' is not assignable to parameter of type 'string'.
+src/app/api/export-pdf/route.ts(98,9): error TS2322: Type 'string' is not assignable to type '"en"'.
+src/app/api/export-pdf/route.ts(98,29): error TS2304: Cannot find name 'isAppLocale'.
+src/app/audit/[sectorKey]/page.tsx(28,5): error TS2322: Type '"locale"' is not assignable to type '"sectorKey"'.
+src/app/case-studies/[slug]/page.tsx(34,5): error TS2322: Type '"locale"' is not assignable to type '"slug"'.
+src/components/assistant/SectorCalcAssistant.tsx(200,44): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/components/catalog/CategoryExplorer.tsx(150,20): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/components/layout/SiteHeader.tsx(79,37): error TS7006: Parameter 'm' implicitly has an 'any' type.
+src/components/layout/SiteHeader.tsx(79,65): error TS2304: Cannot find name 'clearReturnType'.
+src/components/layout/SiteHeader.tsx(79,102): error TS2721: Cannot invoke an object which is possibly 'null'.
+src/components/layout/SiteHeader.tsx(80,65): error TS2304: Cannot find name 'clearReturnType'.
+src/components/layout/SiteHeader.tsx(80,102): error TS2721: Cannot invoke an object which is possibly 'null'.
+src/components/layout/SiteHeader.tsx(80,128): error TS2322: Type 'number' is not assignable to type 'null'.
+src/components/layout/SiteHeader.tsx(80,147): error TS2304: Cannot find name 'setReturnType'.
+src/components/layout/SiteHeader.tsx(80,182): error TS2721: Cannot invoke an object which is possibly 'null'.
+src/components/layout/SiteHeader.tsx(83,22): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/layout/SiteHeader.tsx(84,44): error TS2339: Property 'contains' does not exist on type 'never'.
+src/components/layout/SiteHeader.tsx(86,20): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/reports/PremiumDecisionReportPreview.tsx(37,49): error TS2307: Cannot find module '@/lib/features/premium-schema/calculators/seven-muda-waste-cost' or its corresponding type declarations.
+src/components/reports/PremiumDecisionReportPreview.tsx(372,48): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/reports/PremiumDecisionReportPreview.tsx(388,52): error TS7006: Parameter 'key' implicitly has an 'any' type.
+src/components/reports/PremiumDecisionReportPreview.tsx(406,51): error TS7006: Parameter 'scenario' implicitly has an 'any' type.
+src/components/reports/PremiumDecisionReportPreview.tsx(422,51): error TS7006: Parameter 'warning' implicitly has an 'any' type.
+src/components/smart-form/SmartFormWorkspace.tsx(81,46): error TS2345: Argument of type 'import("/Users/macair1/projects/SectorCalc-p5a/src/lib/features/smart-form/smart-form-adapter").SmartFormExistingInputConfig | undefined' is not assignable to parameter of type 'SmartFormExistingInputConfig | undefined'.
+  Type '{ readonly kind: "schema"; readonly inputs: readonly PremiumInputSchema[]; }' is not assignable to type 'SmartFormExistingInputConfig | undefined'.
+    Type '{ readonly kind: "schema"; readonly inputs: readonly PremiumInputSchema[]; }' is not assignable to type '{ readonly kind: "traffic"; readonly inputs: readonly FreeTrafficInput[]; } | { readonly kind: "revenue"; readonly inputs: readonly RevenueToolInput[]; } | { readonly kind: "premium"; readonly schema: PremiumCalculatorSchema; }'.
+      Type '{ readonly kind: "schema"; readonly inputs: readonly PremiumInputSchema[]; }' is not assignable to type '{ readonly kind: "revenue"; readonly inputs: readonly RevenueToolInput[]; }'.
+        Types of property 'kind' are incompatible.
+          Type '"schema"' is not assignable to type '"revenue"'.
+src/components/tools/CatalogSearchUrlSync.tsx(39,22): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/components/tools/CategoryFilterSidebar.tsx(53,17): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/components/tools/ToolCalculatorEngine.tsx(237,42): error TS17001: JSX elements cannot have multiple attributes with the same name.
+src/components/tools/ToolCalculatorEngine.tsx(240,10): error TS2741: Property 'locale' is missing in type '{ riskLevel: ResultTone; riskLevelLabel: string; verdictText: string; }' but required in type 'RiskVerdictCardProps'.
+src/components/trace/useTraceChat.ts(72,21): error TS2322: Type 'string | null' is not assignable to type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/lib/features/ai/build-ai-index-export.ts(86,5): error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Partial<Record<"en", readonly string[]>>'.
+  No index signature with a parameter of type 'string' was found on type 'Partial<Record<"en", readonly string[]>>'.
+src/lib/features/ai/build-ai-index-export.ts(164,3): error TS2741: Property 'locales' is missing in type '{ site: "SectorCalc"; baseUrl: "https://www.sectorcalc.com"; generatedAt: string; totalTools: number; totalActiveRoutes: number; totalCategoryOnly: number; totalRedirected: number; categories: readonly AiCategoryIndexRecord[]; tools: AiToolIndexRecord[]; }' but required in type 'AiToolIndexDocument'.
+src/lib/features/semantic/build-ai-tool-index.ts(33,3): error TS2322: Type '{ toolSlug: string; title: string; description: string; url: string; tier: SemanticToolTier; category: string; archetype: ToolArchetype; inputParameters: { ...; }[]; outputParameters: { ...; }[]; }[]' is not assignable to type 'readonly AiToolIndexEntry[]'.
+  Property 'locales' is missing in type '{ toolSlug: string; title: string; description: string; url: string; tier: SemanticToolTier; category: string; archetype: ToolArchetype; inputParameters: { ...; }[]; outputParameters: { ...; }[]; }' but required in type 'AiToolIndexEntry'.

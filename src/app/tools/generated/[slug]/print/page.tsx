@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import { PageLayout } from "@/components/layout/PageLayout";
 
 export const dynamic = "force-dynamic";

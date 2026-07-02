@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import { BRAND_ASSETS } from "@/config/brand";
 import {
   FOUNDER_PROFILE,

@@ -14,6 +14,6 @@ export function verifyAdminLeadUpdateSecret(req: Request): boolean {
     return false;
   }
 
-  const provided = req.ge"x-admin-lead-secret"?.trim();
+  const provided = req.header("x-admin-lead-secret")?.trim();
   return provided === expected;
 }

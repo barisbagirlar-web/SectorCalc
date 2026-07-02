@@ -48,7 +48,7 @@ export function TrackedCtaLink({
           stage: mapEventToStage(eventName),
           eventName,
           locale,
-          pagePath: stripLocalePrefix(pathname ?? "/"),
+          pagePath: pathname ?? "/",
           campaignId: campaignId ?? attribution.utmCampaign,
           source: attribution.utmSource ?? source,
           medium: attribution.utmMedium ?? medium,

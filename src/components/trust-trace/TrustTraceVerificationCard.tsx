@@ -1,3 +1,4 @@
+type AppLocale = "en";
 "use client";
 
 import { useEffect, useState } from "react";

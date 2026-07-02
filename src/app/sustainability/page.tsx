@@ -1,3 +1,4 @@
+type AppLocale = "en";
 export const dynamic = "force-dynamic";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";

@@ -1,3 +1,4 @@
+type AppLocale = "en";
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";

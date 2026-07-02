@@ -52,10 +52,7 @@ export async function buildSitemapEntries(buildTime?: Date): Promise<MetadataRou
       url: canonicalUrl,
       lastModified: cleanDate,
       alternates: {
-        languages: {
-          en: canonicalUrl,
-          "x-default": canonicalUrl,
-        },
+        
       },
     });
   }
@@ -74,12 +71,7 @@ export async function buildSitemapEntries(buildTime?: Date): Promise<MetadataRou
     entries.push({
       url: canonicalUrl,
       lastModified: cleanDate,
-      alternates: {
-        languages: {
-          en: canonicalUrl,
-          "x-default": canonicalUrl,
-        },
-      },
+      alternates: {},
     });
   }
 

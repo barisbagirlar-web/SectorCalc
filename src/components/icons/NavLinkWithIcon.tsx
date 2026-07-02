@@ -19,7 +19,7 @@ export function NavLinkWithIcon({
  showIcon = true,
  prefetch = false,
 }: NavLinkWithIconProps) {
- const Icon = resolveNavIcon(stripLocalePrefix(href));
+ const Icon = resolveNavIcon(href);
 
  return (
  <Link

@@ -26,7 +26,7 @@ export function BetaPartnerForm() {
   const t = useTranslations("betaPartner.form");
   const locale = useLocale();
   const pathname = usePathname();
-  const pagePath = stripLocalePrefix(pathname ?? "/");
+  const pagePath = pathname ?? "/";
   const attribution = useAttributionContext();
 
   const [form, setForm] = useState<BetaPartnerInput>(() =>

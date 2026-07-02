@@ -12,7 +12,7 @@ export function AttributionBootstrap() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const pagePath = stripLocalePrefix(pathname ?? "/");
+    const pagePath = pathname ?? "/";
     const params = new URLSearchParams(window.location.search);
     captureAttributionFromLocation(params, pagePath);
   }, [pathname]);

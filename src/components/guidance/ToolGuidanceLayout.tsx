@@ -1,3 +1,4 @@
+type AppLocale = "en";
 "use client";
 
 import { useMemo, type ReactNode } from "react";

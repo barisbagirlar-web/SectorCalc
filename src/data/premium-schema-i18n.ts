@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import {
   AR_SCHEMAS,
   DE_SCHEMAS,

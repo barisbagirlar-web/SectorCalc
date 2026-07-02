@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import { BRAND_ASSETS } from "@/config/brand";
 import { buildOrganizationSameAs } from "@/config/knowledge-graph";
 import { LEGAL_ENTITY } from "@/config/legal-entity";

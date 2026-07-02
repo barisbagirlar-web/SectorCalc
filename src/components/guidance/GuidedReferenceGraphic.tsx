@@ -1,3 +1,4 @@
+type AppLocale = "en";
 "use client";
 
 import { useTranslations } from "@/lib/i18n-stub";

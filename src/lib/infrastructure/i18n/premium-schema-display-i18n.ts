@@ -1,3 +1,4 @@
+type AppLocale = "en";
 /**
  * Locale-aware premium schema display names for user-facing UI.
  */

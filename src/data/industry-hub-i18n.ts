@@ -1,3 +1,4 @@
+type AppLocale = "en";
 import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 
 /**

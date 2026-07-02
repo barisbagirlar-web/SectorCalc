@@ -1,3 +1,4 @@
+type AppLocale = "en";
 
 export type ReferenceGraphicTemplate =
   | "box-dimension"
