@@ -477,6 +477,21 @@ export const FALLBACK_MAP: Record<string, string> = {
   "premiumSchemaPage.legalQuestion": "Is this financial or legal advice?",
   "premiumSchemaPage.legalAnswer":
     "No. SectorCalc provides technical simulations for decision support only. Verify all results with qualified professionals before making business decisions.",
+
+  // ─── Premium Decision Report ──────────────────────────────────────
+  "premiumDecisionReport.decisionValue.bullet1":
+    "Multi-scenario financial modeling with sensitivity analysis.",
+  "premiumDecisionReport.decisionValue.bullet2":
+    "Risk-adjusted projections using Monte Carlo simulation.",
+  "premiumDecisionReport.decisionValue.bullet3":
+    "Executive summary with actionable recommendations.",
+  "premiumDecisionReport.decisionValue.bullet4":
+    "Full audit trail compliant with ISO 9001 §8.5.1.",
+
+  "premiumDecisionReport.legalQuestion":
+    "Is this decision support or professional advice?",
+  "premiumDecisionReport.legalAnswer":
+    "Decision support only. Consult qualified professionals for legal, financial, or regulatory compliance.",
 };
 
 /**
