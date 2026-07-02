@@ -3318,7 +3318,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "routeFuelCost") + num(inputs, "routeLaborCost") + num(inputs, "routeOverhead")),
   },
 
-  // ── ICI (Irreversible Commitment Index) Formülleri ──
+  // ── ICI (Irreversible Commitment Index) Formulas ──
   { id: "calculateUncertaintyBand", family: "ici", label: "Uncertainty Band", fn: (i) => num(i,"expectedValue") * (num(i,"uncertaintySigma") / 100) * (num(i,"confidenceLevel", 90) / 100) },
   { id: "calculateDownsideExposure", family: "ici", label: "Downside Exposure", fn: (i) => Math.max(0, (num(i,"expectedValue") * (num(i,"uncertaintySigma") / 100)) + num(i,"downsideLoss") - num(i,"operatingMarginBuffer")) },
   { id: "calculateIrreversibilityPenalty", family: "ici", label: "Irreversibility Penalty", fn: (i) => Math.max(0, num(i,"irreversibleCapex") - num(i,"recoveryValue")) * (1 + (num(i,"regulatoryOrSafetyCriticality") > 0 ? 0.5 : 0)) },

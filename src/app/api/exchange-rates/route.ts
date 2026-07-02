@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export const revalidate = 86400; // ECB günde 1 kez (16:00 CET) güncellenir
+export const revalidate = 86400; // ECB updates once daily (16:00 CET)
 
 export async function GET() {
   try {

@@ -25,7 +25,7 @@ function evaluateAllFormulas(input: Dupont_roi_calculatorInput): Record<string, 
   const results: Record<string, number> = {};
   try { const v = input["netKar"] / Math.max(1, input["satislar"]); results["karMarji"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["karMarji"] = Number.NaN; }
   try { const v = input["satislar"] / Math.max(1, input["varliklar"]); results["varlikDevri"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["varlikDevri"] = Number.NaN; }
-  try { const v = input["varliklar"] / Math.max(1, input["ozsermaye"]); results["kaldırac"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kaldırac"] = Number.NaN; }
+  try { const v = input["varliklar"] / Math.max(1, input["ozsermaye"]); results["kaldirac"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["kaldirac"] = Number.NaN; }
   try { const v = (input["netKar"] / Math.max(1, input["satislar"])) * (input["satislar"] / Math.max(1, input["varliklar"])) * (input["varliklar"] / Math.max(1, input["ozsermaye"])) * 100; results["sonuc"] = typeof v === "number" && Number.isFinite(v) ? v : Number.NaN; } catch { results["sonuc"] = Number.NaN; }
   return results;
 }
@@ -68,5 +68,5 @@ export interface Dupont_roi_calculatorOutput {
 export const Dupont_roi_calculatorOutputMeta = {
   primaryKey: "sonuc",
   unit: "%",
-  breakdownKeys: ["karMarji","varlikDevri","kaldırac"],
+  breakdownKeys: ["karMarji","varlikDevri","kaldirac"],
 } as const;
