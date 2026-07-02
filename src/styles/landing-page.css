@@ -813,11 +813,12 @@
 }
 
 /* ═══════════════════════════════════════════
-   ANA ORTALAMA DUZELTMELERI / MAIN ALIGNMENT CORRECTIONS
+   SELECTIVE ALIGNMENT — Center only titles/headers/CTAs, content left-aligned
+   ═══════════════════════════════════════════
+   Rule: short titles center, body text left, buttons/actions center.
    ═══════════════════════════════════════════ */
 
-/* Ana container - tam ortali */
-.claude-landing .hero,
+/* ── Containers: default left, no global center override ── */
 .claude-landing .container,
 .claude-landing .wrap,
 .claude-landing .main-content,
@@ -825,10 +826,14 @@
   max-width: var(--maxw);
   margin-left: auto !important;
   margin-right: auto !important;
+  text-align: left;
+}
+
+/* ── Hero / section headings — centered ── */
+.claude-landing .hero {
   text-align: center;
 }
 
-/* Baslik - tam ortali */
 .claude-landing h1,
 .claude-landing .hero-title,
 .claude-landing .main-heading {
@@ -838,7 +843,6 @@
   max-width: 900px;
 }
 
-/* Alt baslik - tam ortali */
 .claude-landing .hero-subtitle,
 .claude-landing .subhead,
 .claude-landing .subtitle,
@@ -850,7 +854,35 @@
   max-width: 700px;
 }
 
-/* Arama kutusu - tam ortali */
+.claude-landing section.sec-section h2 {
+  text-align: center;
+}
+
+.claude-landing .section-desc {
+  text-align: center;
+}
+
+.claude-landing .pricing-split h2,
+.claude-landing .transparency-section h2,
+.claude-landing .usecases-section h2,
+.claude-landing .community-section h2,
+.claude-landing .final-cta h2 {
+  text-align: center;
+}
+
+.claude-landing .final-cta .text-center {
+  text-align: center;
+}
+
+.claude-landing .final-cta .text-center h2 {
+  text-align: center;
+}
+
+.claude-landing .meta-subtitle {
+  text-align: center;
+}
+
+/* ── Search — centered wrapper ── */
 .claude-landing .search-container,
 .claude-landing .search-wrapper,
 .claude-landing .search-box {
@@ -873,7 +905,11 @@
   margin-right: auto !important;
 }
 
-/* Butonlar - tam ortali */
+.claude-landing .search-results {
+  text-align: left;
+}
+
+/* ── Buttons / CTA rows — centered ── */
 .claude-landing .button-group,
 .claude-landing .cta-buttons,
 .claude-landing .action-buttons,
@@ -889,7 +925,7 @@
   flex-wrap: wrap;
 }
 
-/* "Verified Against" / Standards bolumu - tam ortali */
+/* ── Standards strip — centered ── */
 .claude-landing .verified-section,
 .claude-landing .standards-section,
 .claude-landing .standards-strip {
@@ -904,7 +940,148 @@
   flex-wrap: wrap;
 }
 
-/* Mobil icin responsive */
+/* ── Trust strip — centered ── */
+.claude-landing .corp-trust-strip {
+  text-align: center;
+}
+
+.claude-landing .corp-trust-strip .trust-title {
+  text-align: center;
+}
+
+.claude-landing .corp-trust-strip .trust-items {
+  justify-content: center;
+}
+
+.claude-landing .corp-trust-strip .trust-support {
+  text-align: center;
+}
+
+/* ── CATEGORY CARDS (cat-card) ── */
+/* Title centered, body text left, CTA left */
+.claude-landing .cat-card {
+  text-align: left;
+}
+
+.claude-landing .cat-card h4 {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.claude-landing .cat-card p {
+  text-align: left;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.claude-landing .cat-card .btn-link {
+  text-align: left;
+  align-self: flex-start;
+}
+
+/* ── FEATURE CARDS (feature-card) ── */
+/* Title centered, body text left */
+.claude-landing .feature-card {
+  text-align: left;
+}
+
+.claude-landing .feature-card h4 {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.claude-landing .feature-card p {
+  text-align: left;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ── USE CASE CARDS (uc-card) — Challenge/Solution ── */
+/* Title centered, Challenge/Solution body text LEFT */
+.claude-landing .uc-card {
+  text-align: left;
+}
+
+.claude-landing .uc-card h4 {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.claude-landing .uc-card p {
+  text-align: left;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 8px;
+  line-height: 1.55;
+}
+
+.claude-landing .uc-card p:last-child {
+  margin-bottom: 0;
+}
+
+.claude-landing .uc-card p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── TRANSPARENCY CARDS (flex-cards .card) ── */
+/* Short label cards can stay centered */
+.claude-landing .flex-cards .card {
+  text-align: center;
+}
+
+/* ── Feedback / empty state ── */
+.claude-landing .empty-feedback {
+  text-align: center;
+}
+
+/* ── SEO block ── */
+.claude-landing .seo-block p {
+  text-align: center;
+}
+
+/* ── Split cols (Free vs Pro) ── */
+.claude-landing .split-col {
+  text-align: left;
+}
+
+.claude-landing .split-col h3 {
+  text-align: center;
+}
+
+.claude-landing .split-col .btn-primary,
+.claude-landing .split-col .btn-secondary {
+  align-self: center;
+}
+
+/* ── cta-center ── */
+.claude-landing .cta-center {
+  text-align: center;
+}
+
+/* ── Sec-head meta ── */
+.claude-landing .sec-head .meta {
+  text-align: right;
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .claude-landing .hero,
   .claude-landing .container,
@@ -934,9 +1111,9 @@
   }
 }
 
-/* Genel ortalama - Container'lar icin global guvenli fallback */
+/* ── Container/wrapper global fallback (no center override) ── */
 .container,
 .wrapper {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto;
+  margin-right: auto;
 }
