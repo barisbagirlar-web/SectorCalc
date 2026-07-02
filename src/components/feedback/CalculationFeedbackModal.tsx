@@ -153,12 +153,12 @@ export function CalculationFeedbackModal({
     >
       <div className="max-h-[min(90vh,640px)] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-4 shadow-xl sm:p-5">
         <div className="flex items-start justify-between gap-3">
-          <h2 id="calculation-feedback-title" className="text-base font-semibold text-slate-900">
+          <h2 id="calculation-feedback-title" className="text-base font-semibold text-kil-text">
             {t("modalTitle")}
           </h2>
           <button
             type="button"
-            className="min-h-[44px] min-w-[44px] text-sm text-slate-600"
+            className="min-h-[44px] px-3 text-sm font-medium text-body-charcoal hover:text-kil-text"
             onClick={onClose}
           >
             {t("close")}
@@ -166,13 +166,13 @@ export function CalculationFeedbackModal({
         </div>
 
         {done ? (
-          <p className="mt-4 text-sm text-slate-700">{t("success")}</p>
+          <p className="mt-4 text-sm text-body-charcoal">{t("success")}</p>
         ) : (
           <form className="mt-4 space-y-3" onSubmit={handleSubmit}>
-            <label className="block text-xs font-medium text-slate-700">
+            <label className="block text-xs font-medium text-body-charcoal">
               {t("issueTypeLabel")}
               <select
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-lg border border-border-subtle bg-white px-3 py-2 text-sm text-kil-text focus:border-kil-accent focus:outline-none focus:ring-1 focus:ring-kil-accent/30"
                 value={issueType}
                 onChange={(event) => setIssueType(event.target.value as VerificationIssueType)}
               >
@@ -184,10 +184,10 @@ export function CalculationFeedbackModal({
               </select>
             </label>
 
-            <label className="block text-xs font-medium text-slate-700">
+            <label className="block text-xs font-medium text-body-charcoal">
               {t("messageLabel")}
               <textarea
-                className="mt-1 min-h-[120px] w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                className="mt-1 min-h-[120px] w-full rounded-lg border border-border-subtle bg-white px-3 py-2 text-sm text-kil-text focus:border-kil-accent focus:outline-none focus:ring-1 focus:ring-kil-accent/30"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 required
@@ -196,11 +196,11 @@ export function CalculationFeedbackModal({
               />
             </label>
 
-            <label className="block text-xs font-medium text-slate-700">
+            <label className="block text-xs font-medium text-body-charcoal">
               {t("emailLabel")}
               <input
                 type="email"
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-lg border border-border-subtle bg-white px-3 py-2 text-sm text-kil-text focus:border-kil-accent focus:outline-none focus:ring-1 focus:ring-kil-accent/30"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -217,18 +217,28 @@ export function CalculationFeedbackModal({
             />
 
             {error ? (
-              <p className="text-xs text-red-700" role="alert">
+              <p className="text-xs text-crit-red font-semibold" role="alert">
                 {error}
               </p>
             ) : null}
 
-            <button
-              type="submit"
-              disabled={loading || done}
-              className="min-h-[44px] w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60 sm:w-auto"
-            >
-              {loading ? t("submitting") : t("submit")}
-            </button>
+            <div className="pt-2 flex justify-end gap-3">
+              <button
+                type="button"
+                className="sc-cta-secondary min-h-[44px] w-full px-4 py-2 text-sm font-semibold sm:w-auto"
+                onClick={onClose}
+                disabled={loading}
+              >
+                {t("close")}
+              </button>
+              <button
+                type="submit"
+                disabled={loading || done}
+                className="sc-cta-primary min-h-[44px] w-full px-4 py-2 text-sm font-semibold disabled:opacity-60 sm:w-auto"
+              >
+                {loading ? t("submitting") : t("submit")}
+              </button>
+            </div>
           </form>
         )}
       </div>

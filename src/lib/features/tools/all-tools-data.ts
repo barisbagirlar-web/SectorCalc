@@ -4,6 +4,7 @@ import fs from "fs";
 import * as path from "path";
 import schemaCatalogMetadata from "@/data/schema-catalog-metadata.generated.json";
 import { buildCategorizedToolIndex, type CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
+import { CANONICAL_FREE_SLUGS } from "@/lib/features/tools/canonical-tool-slugs";
 import { PREMIUM_CALCULATOR_SCHEMAS } from "@/lib/features/premium-schema/schema-registry";
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 import { normalizeRawGeneratedSchema } from "@/lib/features/generated-tools/normalize-schema";
@@ -256,10 +257,14 @@ function resolveSector(
 }
 
 function isPremiumTool(
+  slug: string,
   raw: RawSchemaRecord,
   normalized: GeneratedToolSchema | null,
   tier: ReturnType<typeof buildCategorizedToolIndex>[number]["tier"] | undefined,
 ): boolean {
+  if (CANONICAL_FREE_SLUGS.includes(slug)) {
+    return false;
+  }
   if (raw.premiumRequired === true || normalized?.premiumRequired === true) {
     return true;
   }
@@ -307,17 +312,19 @@ export function getAllTools(_locale = "en"): ToolData[] {
     return fallback;
   }
 
-  const tools = (fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[])
+  const toolsMap = new Map<string, ToolData>();
+
+  (fs.readdirSync(SCHEMAS_DIR, { recursive: true }) as string[])
     .filter((fileName) => fileName.endsWith(".json"))
-    .map((fileName) => {
+    .forEach((fileName) => {
       const raw = readSchemaFile(fileName);
       if (!raw) {
-        return null;
+        return;
       }
 
       const slug = resolveSlug(fileName, raw);
       if (!slug) {
-        return null;
+        return;
       }
 
       const normalized = normalizeRawGeneratedSchema(raw, slug);
@@ -341,15 +348,22 @@ export function getAllTools(_locale = "en"): ToolData[] {
         ...category,
         ...sector,
         description,
-        premiumRequired: isPremiumTool(raw, normalized, catalogItem?.tier),
+        premiumRequired: isPremiumTool(slug, raw, normalized, catalogItem?.tier),
         premiumCategorySlug: getPremiumCategorySlugForTool(slug),
         premiumCategory: resolvePremiumCategoryTitle(getPremiumCategorySlugForTool(slug), locale),
         href: catalogItem?.routePath ?? resolveGeneratedToolPath(slug),
       };
-      return toolData;
-    })
-    .filter((item): item is ToolData => item !== null)
-    .sort((left, right) => left.name.localeCompare(right.name, locale));
+      toolsMap.set(slug, toolData);
+    });
+
+  // Supplement with premium schemas from schema-registry
+  for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
+    if (!toolsMap.has(schema.id)) {
+      toolsMap.set(schema.id, schemaToToolData(schema, locale));
+    }
+  }
+
+  const tools = [...toolsMap.values()].sort((left, right) => left.name.localeCompare(right.name, locale));
 
   toolsCache.set(locale, tools);
   return tools;
@@ -411,6 +425,7 @@ function schemaToToolData(schema: PremiumCalculatorSchema, locale: string): Tool
   const desc = schema.painStatement_i18n?.[locale] ?? schema.painStatement;
   const sectorKey = resolvePremiumSectorKey(schema.sectorSlug);
   const catalogCategory = FORMULA_CATEGORY_TO_CATALOG[schema.category] ?? "other";
+  const isFree = CANONICAL_FREE_SLUGS.includes(schema.id);
   return {
     slug: schema.id,
     name: title,
@@ -419,7 +434,7 @@ function schemaToToolData(schema: PremiumCalculatorSchema, locale: string): Tool
     sector: resolveSchemaCatalogSectorLabel(sectorKey, locale),
     sectorKey,
     description: desc,
-    premiumRequired: true,
+    premiumRequired: !isFree,
     href: `/tools/premium-schema/${schema.id}`,
   };
 }
@@ -463,7 +478,10 @@ export function getPremiumTools(_locale = "en"): ToolData[] {
   // 1. Premium schemas from schema-registry - these are the user's premium
   //    calculator pages with working implementations at /tools/premium-schema/{id}.
   for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
-    bySlug.set(schema.id, schemaToToolData(schema, locale));
+    const isFree = CANONICAL_FREE_SLUGS.includes(schema.id);
+    if (!isFree) {
+      bySlug.set(schema.id, schemaToToolData(schema, locale));
+    }
   }
 
   // 2. Premium-152 seed items with a routePath (e.g. batch-active tools that

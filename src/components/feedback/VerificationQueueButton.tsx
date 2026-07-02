@@ -74,26 +74,26 @@ export function VerificationQueueButton(props: Props) {
     <>
       <button
         type="button"
-        className="mt-4 min-h-[44px] text-sm font-semibold text-slate-600 hover:text-blue-700"
+        className="mt-4 min-h-[44px] text-sm font-semibold text-body-charcoal hover:text-kil-accent hover:underline"
         onClick={() => setOpen(true)}
       >
         {t("reportIssue")}
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-4">
-          <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl">
-            <h3 className="text-lg font-semibold text-slate-900">{t("title")}</h3>
-            <p className="mt-1 text-sm text-slate-600">{t("description")}</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true">
+          <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl border border-border-subtle">
+            <h3 className="text-lg font-semibold text-kil-text">{t("title")}</h3>
+            <p className="mt-1 text-sm text-body-charcoal">{t("description")}</p>
 
             <form onSubmit={handleSubmit} className="mt-4 space-y-4">
               <div>
-                <label className="text-sm font-medium text-slate-700" htmlFor="vq-issue-type">
+                <label className="text-xs font-semibold text-body-charcoal" htmlFor="vq-issue-type">
                   {t("issueTypeLabel")}
                 </label>
                 <select
                   id="vq-issue-type"
-                  className="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  className="mt-1 block w-full rounded-lg border border-border-subtle bg-white px-3 py-2 text-sm text-kil-text focus:border-kil-accent focus:outline-none focus:ring-1 focus:ring-kil-accent/30"
                   value={issueType}
                   onChange={(e) => setIssueType(e.target.value as VerificationIssueType)}
                 >
@@ -106,12 +106,12 @@ export function VerificationQueueButton(props: Props) {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-slate-700" htmlFor="vq-message">
+                <label className="text-xs font-semibold text-body-charcoal" htmlFor="vq-message">
                   {t("messageLabel")}
                 </label>
                 <textarea
                   id="vq-message"
-                  className="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  className="mt-1 block w-full rounded-lg border border-border-subtle bg-white px-3 py-2 text-sm text-kil-text focus:border-kil-accent focus:outline-none focus:ring-1 focus:ring-kil-accent/30"
                   rows={3}
                   minLength={10}
                   maxLength={2000}
@@ -123,25 +123,25 @@ export function VerificationQueueButton(props: Props) {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-slate-700" htmlFor="vq-email">
+                <label className="text-xs font-semibold text-body-charcoal" htmlFor="vq-email">
                   {t("emailLabel")}
                 </label>
                 <input
                   id="vq-email"
                   type="email"
-                  className="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  className="mt-1 block w-full rounded-lg border border-border-subtle bg-white px-3 py-2 text-sm text-kil-text focus:border-kil-accent focus:outline-none focus:ring-1 focus:ring-kil-accent/30"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t("emailPlaceholder")}
                 />
               </div>
 
-              {error ? <p className="text-sm text-red-600">{error}</p> : null}
+              {error ? <p className="text-sm text-crit-red font-semibold">{error}</p> : null}
 
-              <div className="flex items-center justify-end gap-3">
+              <div className="flex items-center justify-end gap-3 pt-2">
                 <button
                   type="button"
-                  className="min-h-[44px] rounded-lg px-4 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                  className="sc-cta-secondary min-h-[44px] px-4 text-sm font-semibold"
                   onClick={() => setOpen(false)}
                   disabled={submitting}
                 >
@@ -149,7 +149,7 @@ export function VerificationQueueButton(props: Props) {
                 </button>
                 <button
                   type="submit"
-                  className="min-h-[44px] rounded-lg bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50"
+                  className="sc-cta-primary min-h-[44px] px-4 text-sm font-semibold disabled:opacity-50"
                   disabled={submitting || message.trim().length < 10}
                 >
                   {submitting ? t("submitting") : t("send")}

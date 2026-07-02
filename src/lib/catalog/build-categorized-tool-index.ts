@@ -117,6 +117,7 @@ function buildPremium152SeedItems(): CategorizedToolItem[] {
 
     const batchRoute = resolvePremium152BatchRoute(tool.slug);
     const isBatchActive = batchRoute !== null;
+    const isFree = CANONICAL_FREE_SLUGS.includes(tool.slug);
 
     return {
       slug: tool.slug,
@@ -124,13 +125,13 @@ function buildPremium152SeedItems(): CategorizedToolItem[] {
         locale === "tr" ? tool.trTitle : humanizeCanonicalSlug(tool.slug),
       ),
       description: fillLocaleRecord((locale) => (locale === "tr" ? description : description)),
-      tier: isBatchActive ? "premium-schema" : "premium",
+      tier: isFree ? "free" : (isBatchActive ? "premium-schema" : "premium"),
       categorySlug,
       source: "user-premium-152",
-      routePath: batchRoute,
+      routePath: isFree ? `/tools/premium-schema/${tool.slug}` : batchRoute,
       formulaContractStatus:
-        tool.formulaStatus === "source-formula-provided" || isBatchActive ? "ready" : "missing",
-      publicStatus: isBatchActive ? "active" : (tool.publicStatus as CategorizedToolPublicStatus),
+        tool.formulaStatus === "source-formula-provided" || isBatchActive || isFree ? "ready" : "missing",
+      publicStatus: isBatchActive || isFree ? "active" : (tool.publicStatus as CategorizedToolPublicStatus),
       seedId: tool.id,
     };
   });

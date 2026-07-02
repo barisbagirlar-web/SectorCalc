@@ -8,7 +8,7 @@ describe("all-tools-data", () => {
   it("includes slug-based premium schemas from filenames", { timeout: 30000 }, () => {
     const premiumTools = getPremiumTools("en");
     const slugOnlyPremium = premiumTools.find(
-      (tool) => tool.slug === "auto-repair-parts-labor-quote-calculator",
+      (tool) => tool.slug === "auto-repair-comeback-analyzer",
     );
 
     expect(slugOnlyPremium).toBeDefined();
@@ -18,7 +18,7 @@ describe("all-tools-data", () => {
 
   it("includes legacy toolName-based schemas", () => {
     const allTools = getAllTools("en");
-    const legacyTool = allTools.find((tool) => tool.slug === "margin-calculator");
+    const legacyTool = allTools.find((tool) => tool.slug === "contribution-margin-calculator");
 
     expect(legacyTool).toBeDefined();
     expect(legacyTool?.premiumRequired).toBe(false);
@@ -33,14 +33,15 @@ describe("all-tools-data", () => {
   });
 
   it("prefers taxonomy category label over metadata categorySlug", () => {
-    const tool = getAllTools("en").find((entry) => entry.slug === "margin-calculator");
+    const tool = getAllTools("en").find((entry) => entry.slug === "contribution-margin-calculator");
     expect(tool?.categoryKey).toBe("finance-sales-working-capital");
   });
 
   it("resolves localized sector labels for all supported locales", { timeout: 30000 }, async () => {
     const { SUPPORTED_LOCALES } = await import("@/lib/infrastructure/i18n/locale-config");
     for (const locale of SUPPORTED_LOCALES) {
-      const tool = getAllTools(locale).find((entry) => entry.sectorKey === "cnc-manufacturing");
+      const tool = getAllTools(locale).find((entry) => entry.sectorKey === "makine");
+      expect(tool).toBeDefined();
       expect(tool?.sector.length).toBeGreaterThan(0);
     }
   });
