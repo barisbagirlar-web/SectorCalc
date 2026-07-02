@@ -108,9 +108,10 @@ export type DynamicFormEngineProps = {
   onToolSwitch?: (toolId: string) => void;
   onCompute?: (scope: Record<string, unknown>, uncertainties: Record<string, number>) => void;
   externalCompute?: (scope: Record<string, unknown>) => { results: Record<string, unknown>; uncertainties?: Record<string, number> };
+  renderInputExtra?: (inputId: string) => React.ReactNode;
 };
 
-export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onToolSwitch, onCompute, externalCompute }: DynamicFormEngineProps) {
+export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onToolSwitch, onCompute, externalCompute, renderInputExtra }: DynamicFormEngineProps) {
   // Batch-commit: state = committed, draft = editing
   const [state, setState] = useState<Record<string, unknown>>(() => {
     const init: Record<string, unknown> = {};
@@ -729,6 +730,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
                             <span className="info" tabIndex={0}>i<span className="tip">{inp.note || inp.name}</span></span>
                             {cl.c === "ratio" && draft[inp.id] != null ? <span className="pct">= {(draft[inp.id] as number * 100).toFixed(2)}%</span> : null}
                           </div>
+                          {renderInputExtra ? renderInputExtra(inp.id) : null}
                           <div className="err" style={{ display: isInvalid ? "block" : "none" }}>{liveErrors[inp.id] || ""}</div>
                         </div>
                       );
