@@ -2,7 +2,7 @@ import React from "react";
 import { resolve, has } from "@/lib/i18n/translation-fallback";
 
 /**
- * Extract namespace string from next-intl style argument.
+ * Extract namespace string from localization style argument.
  * Accepts string "pricing_v2" or object { locale, namespace: "pricing_v2" }.
  */
 function extractNamespace(ns: any): string {

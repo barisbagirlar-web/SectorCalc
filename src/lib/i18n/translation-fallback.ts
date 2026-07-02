@@ -2,7 +2,7 @@
  * Global translation fallback middleware.
  *
  * Provides hardcoded English text for all known translation keys used across
- * public pages.  This is a production workaround until the real next-intl
+ * public pages.  This is a production workaround until the real localization
  * message system is wired up.
  *
  * Two resolution strategies:
