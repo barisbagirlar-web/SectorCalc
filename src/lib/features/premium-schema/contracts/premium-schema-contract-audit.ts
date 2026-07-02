@@ -49,6 +49,7 @@ export function auditPremiumSchema(
       }
     }
 
+
     if (!contract) {
       // Contract not yet defined; skip for now per rollout strategy.
       // Make step output available to subsequent steps.
