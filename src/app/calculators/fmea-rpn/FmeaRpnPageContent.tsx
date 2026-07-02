@@ -170,6 +170,16 @@ const PFMEA_ASSEMBLY = [
   { processStep: "Seal installation", failureMode: "Seal damaged during insertion", effect: "Leak or premature failure", cause: "Sharp edge, incorrect insertion angle", prevention: "Operator training and visual standard", detection: "Leak test", s: 8, o: 4, d: 4, initialRpn: 128, action: "Add insertion fixture and edge-condition check", rs: 8, ro: 2, rd: 3, revisedRpn: 48 },
 ];
 
+
+const PFMEA_DATASET_D = [
+  { processStep: "Weld post-weld heat treatment", failureMode: "Inadequate PWHT cycle", effect: "NDT rejection, delayed field installation, rework or pressure-boundary integrity concern", cause: "Incorrect soak time, uneven furnace temperature, wrong thermocouple placement or uncontrolled cooling", prevention: "Approved WPS/PQR, heat-treatment procedure, calibrated thermocouples, furnace qualification", detection: "Furnace chart review, NDT hold point, hardness verification where required", s: 10, o: 3, d: 5, initialRpn: 150, action: "Add thermocouple placement verification, require furnace chart sign-off and define cooling-rate acceptance check", rs: 10, ro: 2, rd: 3, revisedRpn: 60 },
+  { processStep: "Composite autoclave cure", failureMode: "Insufficient cure degree or Tg margin", effect: "Part rejection, delamination risk, mechanical property loss or critical part release delay", cause: "Wrong cure recipe, vacuum leak, thermal lag, resin batch variation or sensor error", prevention: "Locked cure recipe, material batch control, vacuum integrity check, equipment calibration", detection: "Cure chart review, thermocouple monitoring, post-cure inspection, material test evidence", s: 10, o: 3, d: 6, initialRpn: 180, action: "Add recipe-lock control, require vacuum trend alarm and add mapped thermocouple verification for critical part runs", rs: 10, ro: 2, rd: 3, revisedRpn: 60 },
+  { processStep: "Heat treatment quench", failureMode: "Incorrect quench severity or cooling profile", effect: "Hardness out of specification, distortion, cracking, microstructure mismatch or batch scrap", cause: "Quench media degradation, wrong transfer time, poor agitation, load geometry or temperature drift", prevention: "Furnace temperature control, transfer-time standard, quench media maintenance plan", detection: "Hardness testing, dimensional inspection, metallographic sampling where required", s: 8, o: 5, d: 5, initialRpn: 200, action: "Add quench media monitoring, transfer-time verification, agitation check and documented load configuration control", rs: 8, ro: 3, rd: 3, revisedRpn: 72 },
+  { processStep: "Metal additive manufacturing powder reuse", failureMode: "Reused powder outside acceptable quality range", effect: "Porosity, poor mechanical properties, failed inspection or part rejection", cause: "Oxygen pickup, particle-size distribution drift, contamination or excessive reuse cycles", prevention: "Powder lot traceability, reuse-count limit, sieving procedure, storage control", detection: "Oxygen analysis, particle-size test, coupon testing, build inspection", s: 8, o: 4, d: 6, initialRpn: 192, action: "Add powder genealogy record, define reuse downgrade rule and require quality test before critical builds", rs: 8, ro: 2, rd: 3, revisedRpn: 48 },
+  { processStep: "Concrete maturity and formwork release", failureMode: "Premature formwork stripping or early loading", effect: "Cracking, deflection, repair work, schedule delay or structural safety concern", cause: "Wrong maturity assumption, temperature variation, inadequate curing or insufficient field strength evidence", prevention: "Approved curing plan, maturity method setup, placement and curing records", detection: "Maturity sensor review, cylinder tests, engineer release hold point", s: 9, o: 3, d: 5, initialRpn: 135, action: "Require release checklist, link maturity data to acceptance criteria and document engineer approval before stripping or loading", rs: 9, ro: 2, rd: 3, revisedRpn: 54 },
+  { processStep: "Grain silo storage", failureMode: "Undetected self-heating", effect: "Product loss, fire, ignition, insurance event or operational shutdown", cause: "Moisture variation, poor aeration, biological activity, delayed unloading or sensor blind spots", prevention: "Moisture control, aeration plan, storage rotation rule, housekeeping procedure", detection: "Temperature probes, inspection route, aeration log, alarm review", s: 10, o: 2, d: 7, initialRpn: 140, action: "Add temperature trend review, define aeration trigger and increase inspection frequency during high-risk storage conditions", rs: 10, ro: 1, rd: 4, revisedRpn: 40 },
+];
+
 const PFMEA_MAINTENANCE = [
   { processStep: "Lubrication task", failureMode: "Lubrication missed", effect: "Bearing wear or unplanned downtime", cause: "Manual schedule missed", prevention: "PM checklist", detection: "Operator noise/temperature observation", s: 7, o: 5, d: 6, initialRpn: 210, action: "Add CMMS reminder and lubrication confirmation record", rs: 7, ro: 3, rd: 4, revisedRpn: 84 },
   { processStep: "Filter replacement", failureMode: "Wrong filter installed", effect: "Reduced flow or equipment damage", cause: "Similar filter part numbers", prevention: "Parts list and maintenance instruction", detection: "Post-maintenance pressure check", s: 8, o: 3, d: 5, initialRpn: 120, action: "Add barcode verification and kitting control", rs: 8, ro: 2, rd: 3, revisedRpn: 48 },
@@ -199,6 +209,14 @@ const FAQS = [
 const EMBED_CODE = `<iframe src="https://sectorcalc.com/embed/fmea-rpn" width="100%" height="500" frameborder="0" title="FMEA RPN Calculator"></iframe>`;
 
 const VERSION_HISTORY = [{
+  version: "1.5", date: "2026-07-02",
+  notes: [
+    "Upgraded readability, accessibility and design preference based on engineering-grade aesthetic system.",
+    "Added High-Consequence Industrial Process PFMEA Examples (Dataset D).",
+    "Restructured calculator component to provide more prominent feedback for high-severity inputs.",
+    "Replaced compressed reference list with individual Source Cards for citation transparency.",
+  ],
+}, {
   version: "1.4", date: "2026-07-02",
   notes: [
     "Upgraded the References and Standards Context section with full bibliographic metadata.",
@@ -254,6 +272,7 @@ function buildFmeaJsonLd(): Record<string, unknown> {
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-sensitivity` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-assembly` },
           { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-maintenance` },
+          { "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-d` },
         ] },
       { "@type": "SoftwareApplication", "@id": `${siteUrl}/calculators/fmea-rpn#softwareapplication`, name: "FMEA RPN Calculator", applicationCategory: "EngineeringApplication", operatingSystem: "Web", url: `${siteUrl}/calculators/fmea-rpn`, description: "Educational calculator for traditional FMEA Risk Priority Number scoring using Severity, Occurrence and Detection.", publisher: { "@id": `${siteUrl}/#organization` }, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
       { "@type": "TechArticle", "@id": `${siteUrl}/calculators/fmea-rpn#techarticle`, headline: "FMEA RPN Calculator Methodology", about: ["Failure Mode and Effects Analysis", "Risk Priority Number", "Severity", "Occurrence", "Detection", "PFMEA", "Severity Masking", "RPN Collision"], publisher: { "@id": `${siteUrl}/#organization` } },
@@ -267,6 +286,7 @@ function buildFmeaJsonLd(): Record<string, unknown> {
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-masking`, name: "High-Severity Masking Cases", description: "Analysis of how many high-severity combinations produce low-to-moderate RPN scores.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-sensitivity`, name: "RPN Sensitivity Matrix", description: "Marginal RPN sensitivity table showing effect of changing O, D or both ratings.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-assembly`, name: "Assembly PFMEA Example Dataset", description: "Illustrative PFMEA example table for assembly process with four failure modes.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-d`, name: "High-Consequence Industrial Process PFMEA Examples", description: "Illustrative PFMEA example table for high consequence industrial processes.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "Dataset", "@id": `${siteUrl}/calculators/fmea-rpn#dataset-pfmea-maintenance`, name: "Maintenance PFMEA Example Dataset", description: "Illustrative PFMEA example table for maintenance process with four failure modes.", license: `${siteUrl}/terms`, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "FAQPage", "@id": `${siteUrl}/calculators/fmea-rpn#faq`, mainEntity: FAQS.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) },
       { "@type": "BreadcrumbList", "@id": `${siteUrl}/calculators/fmea-rpn#breadcrumb`, itemListElement: [
@@ -299,104 +319,160 @@ function copyToClipboard(text: string) {
   void navigator.clipboard.writeText(text);
 }
 
+
+
+
 function RpnBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block rounded-none border border-border-subtle bg-industrial-matte px-2 py-0.5 font-mono text-xs font-semibold uppercase tracking-wider text-premium-velvet">{children}</span>
+    <span className="inline-block rounded-none border border-[var(--sc-border)] bg-[var(--sc-surface-strong)] px-2 py-0.5 font-mono text-xs font-semibold uppercase tracking-wider text-[var(--sc-accent)]">{children}</span>
   );
 }
 
 function Section({ id, className = "", children }: { id?: string; className?: string; children: React.ReactNode }) {
   return (
-    <section id={id} className={`border-b border-border-subtle py-8 sm:py-10 sc-section ${className}`}>
+    <section id={id} className={`border-b border-[var(--sc-border)] py-8 sm:py-10 sc-section ${className}`}>
       <Container size="narrow">{children}</Container>
     </section>
   );
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="mb-4 sc-h2">{children}</h2>;
+  return <h2 className="mb-4 sc-h2 heading-serif">{children}</h2>;
 }
 
 function SectionSubtitle({ children }: { children: React.ReactNode }) {
   return <p className="mb-6 sc-body-muted">{children}</p>;
 }
 
-function RpnCalculator() {
-  const [severity, setSeverity] = useState(7);
-  const [occurrence, setOccurrence] = useState(5);
-  const [detection, setDetection] = useState(4);
-  const [result, setResult] = useState<RpnResult | null>(null);
-  const handleCalculate = useCallback(() => {
-    setResult(calculateRpn(severity, occurrence, detection));
-  }, [severity, occurrence, detection]);
-
+function SkipLink() {
   return (
-    <div className="border border-border-subtle bg-bg-card p-4 sm:p-6">
-      <div className="mb-6 grid gap-4 sm:grid-cols-3">
-        <div>
-          <label htmlFor="fmea-severity" className="mb-1 block text-xs font-semibold uppercase tracking-wider text-body-charcoal">Severity (S)</label>
-          <select id="fmea-severity" value={severity} onChange={(e) => setSeverity(Number(e.target.value))} className="w-full border border-border-subtle bg-bg-subtle px-3 py-2 text-sm text-premium-velvet focus:outline-none focus:ring-1 focus:ring-premium-velvet">
-            {ratingOptions.map((v) => (<option key={v} value={v}>{v}</option>))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="fmea-occurrence" className="mb-1 block text-xs font-semibold uppercase tracking-wider text-body-charcoal">Occurrence (O)</label>
-          <select id="fmea-occurrence" value={occurrence} onChange={(e) => setOccurrence(Number(e.target.value))} className="w-full border border-border-subtle bg-bg-subtle px-3 py-2 text-sm text-premium-velvet focus:outline-none focus:ring-1 focus:ring-premium-velvet">
-            {ratingOptions.map((v) => (<option key={v} value={v}>{v}</option>))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="fmea-detection" className="mb-1 block text-xs font-semibold uppercase tracking-wider text-body-charcoal">Detection (D)</label>
-          <select id="fmea-detection" value={detection} onChange={(e) => setDetection(Number(e.target.value))} className="w-full border border-border-subtle bg-bg-subtle px-3 py-2 text-sm text-premium-velvet focus:outline-none focus:ring-1 focus:ring-premium-velvet">
-            {ratingOptions.map((v) => (<option key={v} value={v}>{v}</option>))}
-          </select>
-        </div>
-      </div>
-      <Button onClick={handleCalculate} size="cta">Calculate RPN</Button>
-      {result && (
-        <div className="mt-6 border-t border-border-subtle pt-6">
-          <div className="mb-3 text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-body-charcoal">RPN = {result.severity} \u00d7 {result.occurrence} \u00d7 {result.detection}</p>
-            <p className={`mt-1 text-3xl font-bold ${bandColor(result.band)}`}>{result.rpn}</p>
-            <RpnBadge>{result.band === "high" ? "High RPN" : result.band === "moderate" ? "Moderate RPN" : "Low RPN"}</RpnBadge>
-          </div>
-          <div className="mt-4 space-y-2 text-sm text-body-charcoal">
-            {result.band === "low" && <p>The failure mode appears lower priority compared with other listed risks. Keep it documented and review it when process conditions change.</p>}
-            {result.band === "moderate" && <p>The failure mode deserves review. Check whether prevention controls, detection controls or process capability can be improved.</p>}
-            {result.band === "high" && <p>The failure mode should be reviewed for corrective action. Focus first on prevention, then detection. Do not reduce Severity unless the design or process change actually reduces the effect of failure.</p>}
-            <p className="text-xs italic">A lower RPN does not always mean a lower business or safety risk. A high Severity rating can require action even when Occurrence or Detection values keep the total RPN moderate.</p>
-          </div>
-        </div>
-      )}
+    <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-[var(--sc-accent)] focus:text-white focus-visible">
+      Skip to main content
+    </a>
+  );
+}
+
+function PageToc() {
+  return (
+    <nav className="hidden lg:block lg:w-[280px] shrink-0 sticky top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-r border-[var(--sc-border)] pr-6" aria-label="Table of Contents">
+      <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--sc-text)] mb-4">Contents</h3>
+      <ul className="space-y-3 text-sm text-[var(--sc-muted)]">
+        <li><a href="#hero" className="hover:text-[var(--sc-accent)]">FMEA RPN Calculator</a></li>
+        <li><a href="#quick-decision" className="hover:text-[var(--sc-accent)]">Quick Decision Summary</a></li>
+        <li><a href="#choose-path" className="hover:text-[var(--sc-accent)]">Choose Your Path</a></li>
+        <li><a href="#what-this-is" className="hover:text-[var(--sc-accent)]">What This Page Is</a></li>
+        <li><a href="#citable" className="hover:text-[var(--sc-accent)]">Citation Authority</a></li>
+        <li><a href="#methodology" className="hover:text-[var(--sc-accent)]">Calculation Methodology</a></li>
+        <li><a href="#behavior" className="hover:text-[var(--sc-accent)]">RPN Behavior Intelligence</a></li>
+        <li><a href="#datasets" className="hover:text-[var(--sc-accent)]">PFMEA Dataset Library</a></li>
+        <li><a href="#source-integrity" className="hover:text-[var(--sc-accent)]">Source Integrity Layer</a></li>
+        <li><a href="#faq" className="hover:text-[var(--sc-accent)]">FAQ</a></li>
+        <li><a href="#related" className="hover:text-[var(--sc-accent)]">Related Calculators</a></li>
+      </ul>
+    </nav>
+  );
+}
+
+function MobileJumpNav() {
+  return (
+    <nav className="lg:hidden flex overflow-x-auto gap-4 py-4 border-b border-[var(--sc-border)] mb-8" aria-label="Jump Navigation">
+      <a href="#hero" className="shrink-0 text-sm font-semibold text-[var(--sc-muted)] hover:text-[var(--sc-accent)] focus-visible px-2 py-1 rounded">Calculator</a>
+      <a href="#behavior" className="shrink-0 text-sm font-semibold text-[var(--sc-muted)] hover:text-[var(--sc-accent)] focus-visible px-2 py-1 rounded">Behavior</a>
+      <a href="#datasets" className="shrink-0 text-sm font-semibold text-[var(--sc-muted)] hover:text-[var(--sc-accent)] focus-visible px-2 py-1 rounded">Datasets</a>
+      <a href="#citation" className="shrink-0 text-sm font-semibold text-[var(--sc-muted)] hover:text-[var(--sc-accent)] focus-visible px-2 py-1 rounded">Citation</a>
+      <a href="#faq" className="shrink-0 text-sm font-semibold text-[var(--sc-muted)] hover:text-[var(--sc-accent)] focus-visible px-2 py-1 rounded">FAQ</a>
+    </nav>
+  );
+}
+
+function SectionCard({ id, title, children }: { id: string; title?: string; children: React.ReactNode }) {
+  return (
+    <section id={id} className="mb-16 lg:mb-24">
+      {title && <h2 className="mb-8 text-2xl lg:text-3xl font-semibold text-[var(--sc-text)] font-heading heading-serif">{title}</h2>}
+      {children}
+    </section>
+  );
+}
+
+function InsightStatCard({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 shadow-sm rounded-sm mb-4">
+      <h3 className="text-lg font-semibold text-[var(--sc-text)] mb-2 font-heading heading-serif">{title}</h3>
+      <p className="text-[var(--sc-muted)] text-sm md:text-base leading-relaxed">{children}</p>
     </div>
   );
 }
 
-function CitationBlock({ label, text, isPre }: { label: string; text: string; isPre?: boolean }) {
+function SourceReferenceCard({ title, detail, type, matters, usage, limit, tier, accessed }: any) {
   return (
-    <div className="mb-3 last:mb-0">
-      <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-body-charcoal">{label}</p>
-      <div className="relative border border-border-subtle bg-industrial-matte p-3">
-        {isPre ? <pre className="overflow-x-auto text-xs leading-relaxed text-premium-velvet">{text}</pre> : <p className="text-xs leading-relaxed text-premium-velvet">{text}</p>}
-        <button type="button" onClick={() => copyToClipboard(text)} className="absolute right-2 top-2 text-xs font-semibold uppercase tracking-wider text-amber hover:text-premium-velvet" aria-label={`Copy ${label} citation`}>Copy</button>
+    <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 mb-4 rounded-sm shadow-sm">
+      <h3 className="text-lg font-semibold text-[var(--sc-text)] mb-4 font-heading heading-serif">{title}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div className="space-y-3">
+          <div><strong className="text-[var(--sc-text)]">Bibliographic detail:</strong> <span className="text-[var(--sc-muted)]">{detail}</span></div>
+          <div><strong className="text-[var(--sc-text)]">Source type:</strong> <span className="text-[var(--sc-muted)]">{type}</span></div>
+          <div><strong className="text-[var(--sc-text)]">Source tier:</strong> <span className="text-[var(--sc-muted)]">{tier}</span></div>
+          <div><strong className="text-[var(--sc-text)]">Accessed date:</strong> <span className="text-[var(--sc-muted)]">{accessed}</span></div>
+        </div>
+        <div className="space-y-3">
+          <div><strong className="text-[var(--sc-text)]">Why it matters:</strong> <span className="text-[var(--sc-muted)]">{matters}</span></div>
+          <div><strong className="text-[var(--sc-text)]">Use on this page:</strong> <span className="text-[var(--sc-muted)]">{usage}</span></div>
+          <div className="bg-[var(--sc-warning-bg)] border border-[var(--sc-warning)]/20 p-2 mt-2">
+            <strong className="text-[var(--sc-warning)] block mb-1">Use limitation:</strong>
+            <span className="text-[var(--sc-warning)]/80">{limit}</span>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function FaqAccordion({ items }: { items: readonly { q: string; a: string }[] }) {
+function AccessibleAccordion({ items }: { items: { q: string; a: string }[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <div className="divide-y divide-border-subtle border-t border-border-subtle">
+    <div className="divide-y divide-[var(--sc-border)] border-y border-[var(--sc-border)]">
       {items.map((faq, i) => (
         <div key={i}>
-          <button type="button" onClick={() => setOpenIndex(openIndex === i ? null : i)} className="flex w-full items-start justify-between gap-4 px-0 py-3 text-left text-sm font-semibold text-premium-velvet hover:text-amber" aria-expanded={openIndex === i} aria-controls={`faq-answer-${i}`}>
+          <button type="button" onClick={() => setOpenIndex(openIndex === i ? null : i)} className="flex w-full items-start justify-between gap-4 py-4 text-left font-semibold text-[var(--sc-text)] hover:text-[var(--sc-accent)] focus-visible min-h-[44px]" aria-expanded={openIndex === i} aria-controls={`faq-panel-${i}`}>
             <span>{faq.q}</span>
-            <span className="mt-0.5 shrink-0 font-mono text-xs text-body-charcoal">{openIndex === i ? "[\u2013]" : "[+]"}</span>
+            <span className="shrink-0 font-mono text-sm text-[var(--sc-muted)]">{openIndex === i ? "\u2212" : "+"}</span>
           </button>
-          {openIndex === i && <div id={`faq-answer-${i}`} className="pb-4 text-sm leading-relaxed text-body-charcoal">{faq.a}</div>}
+          <div id={`faq-panel-${i}`} role="region" className={`pb-4 text-[var(--sc-muted)] leading-relaxed ${openIndex === i ? 'block' : 'hidden'}`}>
+            {faq.a}
+          </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function ResponsiveDataTable({ headers, rows, caption, instructions }: { headers: string[], rows: any[], caption: string, instructions?: string }) {
+  return (
+    <div className="mb-8">
+      {instructions && <p className="mb-2 text-sm text-[var(--sc-muted)]">{instructions}</p>}
+      <div className="table-scroll border border-[var(--sc-border)] bg-[var(--sc-surface-strong)] shadow-sm">
+        <table className="w-full text-left text-sm" aria-label={caption}>
+          <caption className="sr-only">{caption}</caption>
+          <thead>
+            <tr className="border-b border-[var(--sc-border)] bg-[var(--sc-surface)]">
+              {headers.map((h, i) => (
+                <th key={i} scope="col" className={`px-4 py-3 font-semibold text-[var(--sc-text)] whitespace-nowrap ${i === 0 ? 'lg:sticky lg:left-0 lg:bg-[var(--sc-surface)] lg:z-10' : ''}`}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[var(--sc-border)]">
+            {rows.map((row, i) => (
+              <tr key={i} className="hover:bg-[var(--sc-surface)]/50 transition-colors">
+                {Object.values(row).map((val: any, j: number) => (
+                  <td key={j} className={`px-4 py-3 text-[var(--sc-muted)] ${typeof val === 'number' ? 'numeric' : ''} ${j === 0 ? 'lg:sticky lg:left-0 lg:bg-[var(--sc-surface-strong)] lg:z-10 font-medium text-[var(--sc-text)]' : ''}`}>
+                    {val}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -425,1005 +501,526 @@ function ReachabilityChecker() {
   }, [testValue]);
 
   return (
-    <div className="mt-4 border border-border-subtle bg-bg-card p-4 sm:p-6">
-      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">RPN Reachability Checker</h3>
-      <p className="mb-4 text-sm text-body-charcoal">Enter a value between 1 and 1000 to see if it can be reached using a 1-10 S/O/D scoring system.</p>
+    <div className="mt-4 border border-[var(--sc-border)] bg-[var(--sc-surface-strong)] p-4 sm:p-6 shadow-sm">
+      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-[var(--sc-text)]">RPN Reachability Checker</h3>
+      <p className="mb-4 text-sm text-[var(--sc-muted)]">Enter a value between 1 and 1000 to see if it can be reached using a 1-10 S/O/D scoring system.</p>
       <div className="mb-4 flex gap-2">
-        <input type="number" min="1" max="1000" placeholder="Enter RPN (1-1000)" value={testValue} onChange={(e) => setTestValue(e.target.value)} className="w-full border border-border-subtle bg-bg-subtle px-3 py-2 text-sm text-premium-velvet focus:outline-none focus:ring-1 focus:ring-premium-velvet sm:w-64" />
+        <input type="number" min="1" max="1000" placeholder="Enter RPN (1-1000)" value={testValue} onChange={(e) => setTestValue(e.target.value)} className="w-full border border-[var(--sc-border)] bg-[var(--sc-surface)] px-3 py-2 text-sm text-[var(--sc-text)] focus:outline-none focus:ring-1 focus:ring-[var(--sc-accent)] sm:w-64 min-h-[44px]" />
         <Button onClick={checkReachability} size="cta">Check</Button>
       </div>
-      {result && (
-        <div className="mt-4 border-t border-border-subtle pt-4 text-sm text-body-charcoal">
-          {result.isReachable ? (
-            <div>
-              <p className="mb-2 font-semibold text-green-600">Reachable!</p>
-              <p>This RPN can be formed by {result.factors?.length} combination(s).</p>
-            </div>
-          ) : (
-            <div>
-              <p className="mb-2 font-semibold text-amber">Not Reachable</p>
-              <p>There is no valid integer combination of S, O, D (1-10) that multiplies to {testValue}.</p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-const SEVERITY_GUIDE = [
-  { range: "1\u20133", category: "Low", desc: "Minor effect, limited inconvenience, low disruption or no major functional loss" },
-  { range: "4\u20136", category: "Moderate", desc: "Degraded function, rework, delay, customer dissatisfaction or measurable process impact" },
-  { range: "7\u20138", category: "High", desc: "Significant reliability, production, performance, quality or customer impact" },
-  { range: "9\u201310", category: "Very High", desc: "Safety, regulatory, mission-critical, severe customer or severe system-level impact" },
-];
-const OCCURRENCE_GUIDE = [
-  { range: "1\u20133", category: "Low", desc: "Rare or unlikely based on history, robust prevention or stable process evidence" },
-  { range: "4\u20136", category: "Moderate", desc: "Occasional; the cause may appear under certain design, process or operating conditions" },
-  { range: "7\u20138", category: "High", desc: "Frequent; the cause is expected to repeat unless prevention is improved" },
-  { range: "9\u201310", category: "Very High", desc: "Very frequent; the process or design is likely to generate the failure repeatedly" },
-];
-const DETECTION_GUIDE = [
-  { range: "1\u20133", category: "Strong Detection", desc: "Controls are likely to detect the issue early and consistently" },
-  { range: "4\u20136", category: "Moderate Detection", desc: "Controls may detect the issue, but gaps, sampling limits or timing limits exist" },
-  { range: "7\u20138", category: "Weak Detection", desc: "The issue may escape because detection is late, manual or inconsistent" },
-  { range: "9\u201310", category: "Very Weak Detection", desc: "The current system is unlikely to detect the issue before impact" },
-];
-
-function RatingGuideTable({ title, data }: { title: string; data: { range: string; category: string; desc: string }[] }) {
-  return (
-    <div className="mb-6 last:mb-0">
-      <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">{title}</h4>
-      <div className="overflow-x-auto border border-border-subtle">
-        <table className="w-full text-left text-xs">
-          <thead>
-            <tr className="border-b border-border-subtle bg-industrial-matte">
-              <th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Rating Range</th>
-              <th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Category</th>
-              <th className="px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Educational Meaning</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row) => (
-              <tr key={row.range} className="border-b border-border-subtle last:border-b-0">
-                <td className="whitespace-nowrap px-3 py-2 font-mono font-semibold text-premium-velvet">{row.range}</td>
-                <td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">{row.category}</td>
-                <td className="px-3 py-2 text-body-charcoal">{row.desc}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div aria-live="polite">
+        {result && (
+          <div className="mt-4 border-t border-[var(--sc-border)] pt-4 text-sm text-[var(--sc-muted)]">
+            {result.isReachable ? (
+              <div>
+                <p className="mb-2 font-semibold text-[var(--sc-success)]">Reachable!</p>
+                <p>This RPN can be formed by {result.factors?.length} combination(s).</p>
+              </div>
+            ) : (
+              <div>
+                <p className="mb-2 font-semibold text-[var(--sc-warning)]">Not Reachable</p>
+                <p>There is no valid integer combination of S, O, D (1-10) that multiplies to {testValue}.</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-function PfmeaTable({ rows }: { rows: typeof PFMEA_CNC }) {
+function RpnCalculatorPanel() {
+  const [severity, setSeverity] = useState(7);
+  const [occurrence, setOccurrence] = useState(5);
+  const [detection, setDetection] = useState(4);
+  const [result, setResult] = useState<RpnResult | null>(null);
+  
+  const handleCalculate = useCallback(() => {
+    setResult(calculateRpn(severity, occurrence, detection));
+  }, [severity, occurrence, detection]);
+
   return (
-    <div className="overflow-x-auto border border-border-subtle">
-      <table className="w-full text-left text-xs">
-        <thead><tr className="border-b bg-industrial-matte">{PFMEA_TABLE_HEADERS.map((h) => (<th key={h} className="px-2 py-1.5 font-mono font-semibold">{h}</th>))}</tr></thead>
-        <tbody>{rows.map((row, i) => (<tr key={i} className="border-b last:border-b-0 hover:bg-bg-subtle">
-          <td className="px-2 py-1.5 font-semibold">{row.processStep}</td>
-          <td className="px-2 py-1.5">{row.failureMode}</td>
-          <td className="px-2 py-1.5">{row.effect}</td>
-          <td className="px-2 py-1.5">{row.cause}</td>
-          <td className="px-2 py-1.5">{row.prevention}</td>
-          <td className="px-2 py-1.5">{row.detection}</td>
-          <td className="px-2 py-1.5 font-mono">{row.s}</td>
-          <td className="px-2 py-1.5 font-mono">{row.o}</td>
-          <td className="px-2 py-1.5 font-mono">{row.d}</td>
-          <td className="px-2 py-1.5 font-mono font-semibold text-amber">{row.initialRpn}</td>
-          <td className="px-2 py-1.5">{row.action}</td>
-          <td className="px-2 py-1.5 font-mono">{row.rs}</td>
-          <td className="px-2 py-1.5 font-mono">{row.ro}</td>
-          <td className="px-2 py-1.5 font-mono">{row.rd}</td>
-          <td className="px-2 py-1.5 font-mono font-semibold">{row.revisedRpn}</td>
-        </tr>))}</tbody>
-      </table>
+    <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 shadow-sm rounded-sm">
+      <div className="mb-6 grid gap-6 md:grid-cols-3">
+        <div>
+          <label htmlFor="fmea-severity" className="mb-2 block text-sm font-semibold uppercase tracking-wider text-[var(--sc-text)]">Severity (S)</label>
+          <select id="fmea-severity" value={severity} onChange={(e) => setSeverity(Number(e.target.value))} className="w-full border border-[var(--sc-border)] bg-[var(--sc-surface)] px-4 py-3 text-base text-[var(--sc-text)] focus-visible min-h-[44px]">
+            {ratingOptions.map((v) => (<option key={v} value={v}>{v}</option>))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="fmea-occurrence" className="mb-2 block text-sm font-semibold uppercase tracking-wider text-[var(--sc-text)]">Occurrence (O)</label>
+          <select id="fmea-occurrence" value={occurrence} onChange={(e) => setOccurrence(Number(e.target.value))} className="w-full border border-[var(--sc-border)] bg-[var(--sc-surface)] px-4 py-3 text-base text-[var(--sc-text)] focus-visible min-h-[44px]">
+            {ratingOptions.map((v) => (<option key={v} value={v}>{v}</option>))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="fmea-detection" className="mb-2 block text-sm font-semibold uppercase tracking-wider text-[var(--sc-text)]">Detection (D)</label>
+          <select id="fmea-detection" value={detection} onChange={(e) => setDetection(Number(e.target.value))} className="w-full border border-[var(--sc-border)] bg-[var(--sc-surface)] px-4 py-3 text-base text-[var(--sc-text)] focus-visible min-h-[44px]">
+            {ratingOptions.map((v) => (<option key={v} value={v}>{v}</option>))}
+          </select>
+        </div>
+      </div>
+      <button type="button" onClick={handleCalculate} className="w-full sm:w-auto bg-[var(--sc-text)] text-white font-semibold uppercase tracking-wider px-8 py-3 min-h-[44px] hover:bg-[var(--sc-muted)] transition-colors focus-visible" aria-label="Calculate RPN">
+        Calculate RPN
+      </button>
+
+      <div aria-live="polite" aria-atomic="true">
+        {result && (
+          <div className="mt-8 border-t border-[var(--sc-border)] pt-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-[var(--sc-muted)] mb-2" id="rpn-result-label">Calculated RPN</p>
+                <p className={`text-5xl lg:text-6xl font-bold mb-4 font-mono ${result.band === "high" ? "text-[var(--sc-warning)]" : "text-[var(--sc-text)]"}`} aria-labelledby="rpn-result-label">{result.rpn}</p>
+                
+                <p className="text-sm font-semibold uppercase tracking-wider text-[var(--sc-muted)] mb-1">Formula Trace</p>
+                <p className="font-mono text-sm bg-[var(--sc-surface)] p-2 inline-block border border-[var(--sc-border)]">S &times; O &times; D = {result.severity} &times; {result.occurrence} &times; {result.detection} = {result.rpn}</p>
+              </div>
+              <div className="space-y-4 text-[var(--sc-muted)]">
+                <div>
+                  <strong className="text-[var(--sc-text)] block">Risk Signature</strong>
+                  Severity {result.severity} / Occurrence {result.occurrence} / Detection {result.detection}
+                </div>
+                <div>
+                  <strong className="text-[var(--sc-text)] block">Interpretation</strong>
+                  Use this RPN to compare failure modes inside the same FMEA worksheet. Review Severity, Occurrence and Detection separately before assigning actions.
+                </div>
+                {result.severity >= 9 && (
+                  <div className="bg-[var(--sc-warning-bg)] border-l-4 border-[var(--sc-warning)] p-3 text-[var(--sc-warning)] font-medium">
+                    High-severity warning: This failure mode has high Severity. Review it separately even if the total RPN is not the highest value in the worksheet.
+                  </div>
+                )}
+                {HIGH_COLLISION_RPNS.find(c => c.rpn === result.rpn) && (
+                  <div className="bg-[var(--sc-danger-bg)] border-l-4 border-[var(--sc-danger)] p-3 text-[var(--sc-danger)] font-medium">
+                    Collision warning: This RPN belongs to a high-collision family. ({HIGH_COLLISION_RPNS.find(c => c.rpn === result.rpn)?.risk})
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            <div className="mt-8 pt-8 border-t border-[var(--sc-border)]">
+              <strong className="text-[var(--sc-text)] block mb-3 font-heading heading-serif text-lg">Documentation checklist</strong>
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm text-[var(--sc-muted)] list-disc list-inside">
+                <li>Failure mode</li><li>Failure effect</li><li>Failure cause</li>
+                <li>Current prevention control</li><li>Current detection control</li><li>Initial S/O/D and RPN</li>
+                <li>Recommended action</li><li>Action owner</li><li>Target date</li>
+                <li>Verification evidence</li><li>Revised S/O/D and RPN</li>
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
-function DownloadButton({ href, label, primary }: { href: string; label: string; primary?: boolean }) {
+function CopyCitationButton({ text, label }: { text: string; label: string }) {
+  const [copied, setCopied] = useState(false);
+  
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <a href={href} download className={`mb-3 inline-flex min-h-[44px] items-center justify-center px-6 text-sm font-mono font-semibold uppercase tracking-wide ${primary ? "bg-premium-velvet text-base-white" : "border border-border-subtle bg-transparent text-premium-velvet"}`}>{label}</a>
+    <div className="relative mb-6">
+      <p className="text-sm font-semibold text-[var(--sc-text)] mb-2 uppercase tracking-wider">{label}</p>
+      <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-4 relative group">
+        <pre className="text-sm font-mono text-[var(--sc-muted)] whitespace-pre-wrap">{text}</pre>
+        <button type="button" onClick={handleCopy} className="absolute top-2 right-2 bg-[var(--sc-surface)] border border-[var(--sc-border)] px-3 py-1 text-xs font-semibold uppercase hover:bg-[var(--sc-accent-soft)] hover:text-[var(--sc-accent)] transition-colors focus-visible min-h-[44px] min-w-[44px]" aria-label={`Copy ${label} citation`}>
+          {copied ? "Copied!" : "Copy"}
+        </button>
+        <div aria-live="polite" className="sr-only">{copied ? "Citation copied to clipboard" : ""}</div>
+      </div>
+    </div>
   );
 }
 
+function FormulaCard() {
+  return (
+    <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 shadow-sm">
+      <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--sc-muted)] mb-2">Traditional RPN Formula</h3>
+      <p className="text-2xl font-mono font-bold text-[var(--sc-text)] mb-6">RPN = Severity &times; Occurrence &times; Detection</p>
+      <div className="text-sm text-[var(--sc-muted)] space-y-4">
+        <p><strong>Note:</strong> Use the same approved rating criteria across all compared failure modes. Do not compare RPN values across different rating tables, products, organizations or customer-specific procedures.</p>
+        <div className="flex flex-col gap-2">
+          <div className="bg-[var(--sc-success-bg)] p-3 border-l-4 border-[var(--sc-success)]">
+            <strong className="text-[var(--sc-success)] block uppercase text-xs">Use</strong>
+            <span className="text-[var(--sc-success)]/90">Compare failure modes inside the same FMEA worksheet.</span>
+          </div>
+          <div className="bg-[var(--sc-warning-bg)] p-3 border-l-4 border-[var(--sc-warning)]">
+            <strong className="text-[var(--sc-warning)] block uppercase text-xs">Do not use</strong>
+            <span className="text-[var(--sc-warning)]/90">As a universal safety threshold, regulatory approval rule or product release criterion.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Main Page ── */
 export function FmeaRpnPageContent() {
   return (
     <PageLayout>
       <SemanticJsonLd data={buildFmeaJsonLd()} />
-      <main>
-        {/* -- Section 1: Hero -- */}
-        <Section className="bg-bg-subtle">
-          <RpnBadge>Educational Engineering Reference</RpnBadge>
-          <h1 className="mt-3 text-balance sc-h2">FMEA RPN Calculator for Severity, Occurrence and Detection Scoring</h1>
-          <p className="mt-4 max-w-2xl sc-body-muted sm:text-lg">An educational engineering reference for calculating traditional Risk Priority Number in Failure Mode and Effects Analysis, with PFMEA examples, downloadable templates, validation cases, RPN collision analysis and academic citation formats.</p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button href="#calculator" size="cta">Calculate RPN</Button>
-            <Button href="#citable" variant="outline" size="cta">Why This Is Citable</Button>
-            <Button href="#collision" variant="outline" size="cta">Collision Atlas</Button>
-            <Button href="#masking" variant="outline" size="cta">Severity Masking</Button>
-            <Button href="/resources/fmea-rpn-technical-note" variant="outline" size="cta">Technical Note</Button>
-          </div>
-        </Section>
+      <SkipLink />
+      <main id="main-content" className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 flex flex-col lg:flex-row gap-12">
+        <PageToc />
+        
+        <div className="flex-1 min-w-0">
+          <MobileJumpNav />
 
-        {/* -- Section 2: Abstract -- */}
-        <Section id="abstract">
-          <SectionTitle>Abstract</SectionTitle>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">This page documents the traditional Risk Priority Number calculation used in Failure Mode and Effects Analysis.</p>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">The calculator applies the formula:</p>
-          <p className="mb-4 font-mono text-base font-semibold text-premium-velvet">RPN = Severity \u00d7 Occurrence \u00d7 Detection</p>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">using integer ratings from 1 to 10.</p>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">The page includes input definitions, calculation assumptions, validation test cases, an RPN score-space atlas, collision analysis, severity masking analysis, sensitivity matrix, action leverage matrix, illustrative PFMEA datasets, downloadable teaching assets and academic citation formats.</p>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">The tool is intended for engineering education, quality management training, industrial engineering coursework, internal FMEA workshops and practical failure-mode documentation.</p>
-          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page is an educational engineering reference and not a standards-body publication. It does not replace AIAG-VDA, IEC, ISO, customer-specific, regulatory or organization-specific FMEA procedures.</div>
-        </Section>
+          {/* 01. Hero + Trust Strip */}
+          <section id="hero" className="mb-16">
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              <div>
+                <span className="inline-block bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] text-[var(--sc-text)] px-3 py-1 text-xs font-semibold uppercase tracking-wider mb-6">
+                  Educational Engineering Reference
+                </span>
+                <h1 className="text-4xl lg:text-5xl font-heading heading-serif font-semibold text-[var(--sc-text)] leading-tight mb-6 max-w-[920px]">
+                  FMEA RPN Calculator for Severity, Occurrence and Detection Scoring
+                </h1>
+                <p className="text-lg text-[var(--sc-muted)] mb-8 max-w-[760px] leading-relaxed">
+                  Calculate traditional FMEA Risk Priority Number using Severity, Occurrence and Detection ratings from 1 to 10. This reference also explains RPN score-space behavior, unreachable RPN values, same-score collisions, high-severity masking and PFMEA training datasets.
+                </p>
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <a href="#calculator" className="bg-[var(--sc-text)] text-white font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-muted)] transition-colors inline-flex items-center justify-center focus-visible">Calculate RPN</a>
+                  <a href="#behavior" className="bg-transparent border border-[var(--sc-border)] text-[var(--sc-text)] font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-surface)] transition-colors inline-flex items-center justify-center focus-visible">View RPN Limitations</a>
+                  <a href="#datasets" className="bg-transparent border border-[var(--sc-border)] text-[var(--sc-text)] font-semibold uppercase tracking-wider px-6 py-3 min-h-[44px] hover:bg-[var(--sc-surface)] transition-colors inline-flex items-center justify-center focus-visible">Download Datasets</a>
+                </div>
+                <div className="text-xs text-[var(--sc-muted)] flex flex-wrap gap-x-4 gap-y-2 uppercase tracking-wider font-semibold border-t border-[var(--sc-border)] pt-4">
+                  <span>&bull; Formula traceable</span>
+                  <span>&bull; Datasets downloadable</span>
+                  <span>&bull; Citation-ready</span>
+                  <span>&bull; Standards-context aware</span>
+                  <span>&bull; Not a standards replacement</span>
+                </div>
+              </div>
+              <div className="lg:sticky lg:top-24">
+                <FormulaCard />
+              </div>
+            </div>
+          </section>
 
-        {/* -- Section 3: Why This Reference Is Citable (NEW) -- */}
-        <Section id="citable">
-          <SectionTitle>Why This Reference Is Citable</SectionTitle>
-          <p className="mb-4 sc-body-muted">This page is designed as a reproducible educational reference for traditional FMEA Risk Priority Number calculation.</p>
-          <p className="mb-4 text-sm text-body-charcoal">Unlike a basic calculator page, it includes:</p>
-          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>the RPN formula and input assumptions</li>
-            <li>validation test cases</li>
-            <li>a full score-space explanation for 1\u201310 S/O/D ratings</li>
-            <li>RPN collision behavior</li>
-            <li>same-score equivalence examples</li>
-            <li>high-severity masking examples</li>
-            <li>sensitivity and action-leverage tables</li>
-            <li>an illustrative PFMEA dataset library</li>
-            <li>downloadable teaching datasets</li>
-            <li>citation formats for academic and technical use</li>
-          </ul>
-          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page should be cited as an educational engineering reference, not as a standards-body publication or substitute for organization-approved FMEA procedures.</div>
-        </Section>
+          {/* 02. Calculator Workspace */}
+          <SectionCard id="calculator">
+            <RpnCalculatorPanel />
+          </SectionCard>
 
-        {/* -- Section 4: Quick Answer -- */}
-        <Section>
-          <SectionTitle>Quick Answer</SectionTitle>
-          <p className="mb-4 text-sm text-body-charcoal">Risk Priority Number, or RPN, is a traditional FMEA score calculated by multiplying Severity, Occurrence and Detection ratings.</p>
-          <p className="mb-2 font-mono text-base font-semibold text-premium-velvet">RPN = S \u00d7 O \u00d7 D</p>
-          <dl className="mb-4 space-y-1 text-sm">
-            <div><dt className="font-semibold text-premium-velvet">S</dt><dd className="text-body-charcoal">= Severity</dd></div>
-            <div><dt className="font-semibold text-premium-velvet">O</dt><dd className="text-body-charcoal">= Occurrence</dd></div>
-            <div><dt className="font-semibold text-premium-velvet">D</dt><dd className="text-body-charcoal">= Detection</dd></div>
-          </dl>
-          <p className="mb-2 text-sm text-body-charcoal">Each factor is usually rated from 1 to 10.</p>
-          <div className="mb-4 border border-border-subtle p-3 text-sm">
-            <p className="text-body-charcoal">The lowest possible RPN is:<br /><span className="font-mono font-semibold text-premium-velvet">1 \u00d7 1 \u00d7 1 = 1</span></p>
-            <p className="mt-2 text-body-charcoal">The highest possible RPN is:<br /><span className="font-mono font-semibold text-premium-velvet">10 \u00d7 10 \u00d7 10 = 1000</span></p>
-          </div>
-          <p className="text-sm text-body-charcoal">RPN helps compare failure modes within the same FMEA worksheet. It should be treated as a relative prioritization aid, not as an absolute safety threshold, approval rule or substitute for an approved FMEA procedure.</p>
-        </Section>
+          {/* 03. Quick Decision Summary */}
+          <SectionCard id="quick-decision" title="Quick Decision Summary">
+            <ResponsiveDataTable 
+              caption="Quick decision summary for RPN"
+              instructions="How to read this table: Summary of basic RPN concepts and their direct answers."
+              headers={["Question", "Short Answer"]}
+              rows={[
+                { q: "What does RPN calculate?", a: "It multiplies Severity, Occurrence and Detection." },
+                { q: "What is the formula?", a: "RPN = S × O × D" },
+                { q: "What is the rating range?", a: "Each input normally uses an integer rating from 1 to 10." },
+                { q: "What is the minimum RPN?", a: 1 },
+                { q: "What is the maximum RPN?", a: 1000 },
+                { q: "Can every number from 1 to 1000 occur?", a: "No. Only 120 unique RPN values are reachable under a 1–10 integer S/O/D system." },
+                { q: "Can the same RPN hide different risks?", a: "Yes. Different S/O/D signatures can produce the same RPN." },
+                { q: "Can a low RPN still contain high Severity?", a: "Yes. High Severity can be masked by low Occurrence or strong Detection." },
+                { q: "Should RPN decide release or safety approval?", a: "No. Use approved engineering, customer-specific and regulatory criteria." },
+              ]}
+            />
+          </SectionCard>
 
-        {/* -- Section 5: Calculator -- */}
-        <Section id="calculator">
-          <SectionTitle>Calculate FMEA Risk Priority Number</SectionTitle>
-          <SectionSubtitle>Use the calculator below to compute traditional FMEA Risk Priority Number. Enter Severity, Occurrence and Detection values from 1 to 10. Use your organization\u2019s approved rating criteria when available.</SectionSubtitle>
-          <RpnCalculator />
-          <div className="mt-6 border-t border-border-subtle pt-6">
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Result Interpretation</h3>
-            <h4 className="mb-2 text-sm font-semibold text-premium-velvet">Calculated RPN</h4>
-            <p className="mb-4 text-sm text-body-charcoal">The calculator returns:<br /><span className="font-mono">RPN = Severity \u00d7 Occurrence \u00d7 Detection</span></p>
-            <h4 className="mb-2 text-sm font-semibold text-premium-velvet">Formula Trace</h4>
-            <p className="mb-4 text-sm text-body-charcoal">Each result should be documented as a traceable calculation:<br /><span className="font-mono">S \u00d7 O \u00d7 D = [Severity] \u00d7 [Occurrence] \u00d7 [Detection] = [RPN]</span></p>
-            <h4 className="mb-2 text-sm font-semibold text-premium-velvet">Interpretation Note</h4>
-            <p className="mb-4 text-sm text-body-charcoal">The RPN score can be used to compare one failure mode against other items in the same FMEA worksheet. It should not be used alone to decide whether a risk is acceptable. High-Severity items should be reviewed separately even when their RPN is not the highest value in the worksheet.</p>
-            <h4 className="mb-2 text-sm font-semibold text-premium-velvet">Documentation Note</h4>
-            <p className="text-sm text-body-charcoal">After calculating RPN, document:</p>
-            <ul className="mt-1 mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-              <li>Failure mode, Failure effect, Failure cause</li>
-              <li>Current prevention control, Current detection control</li>
-              <li>Initial S/O/D ratings, Initial RPN</li>
-              <li>Recommended action, Action owner, Target date, Action taken</li>
-              <li>Revised S/O/D ratings, Revised RPN, Verification evidence</li>
-            </ul>
-          </div>
-        </Section>
+          {/* Choose Your Path */}
+          <SectionCard id="choose-path" title="Choose Your Path">
+            <ResponsiveDataTable 
+              caption="Navigation guide for RPN topics"
+              instructions="How to read this table: Find the task you need to complete and click the suggested section."
+              headers={["If you need to...", "Start here"]}
+              rows={[
+                { if: "Calculate a single RPN value", then: <a href="#calculator" className="text-[var(--sc-accent)] underline focus-visible">Use the calculator</a> },
+                { if: "Understand the formula", then: <a href="#methodology" className="text-[var(--sc-accent)] underline focus-visible">Read Calculation Methodology</a> },
+                { if: "Check whether an RPN value is possible", then: <a href="#reachability-checker" className="text-[var(--sc-accent)] underline focus-visible">Use RPN Reachability Checker</a> },
+                { if: "Understand why equal RPN values can differ", then: <a href="#behavior" className="text-[var(--sc-accent)] underline focus-visible">Read Same-RPN Equivalence Families</a> },
+                { if: "Explain high-Severity masking", then: <a href="#behavior" className="text-[var(--sc-accent)] underline focus-visible">Read High-Severity Masking Analysis</a> },
+                { if: "Teach PFMEA examples", then: <a href="#datasets" className="text-[var(--sc-accent)] underline focus-visible">Use PFMEA Dataset Library</a> },
+                { if: "Cite the page in training or technical material", then: <a href="#citable" className="text-[var(--sc-accent)] underline focus-visible">Use Cite This Calculator</a> },
+                { if: "Check source boundaries", then: <a href="#source-integrity" className="text-[var(--sc-accent)] underline focus-visible">Read References and Standards Context</a> },
+              ]}
+            />
+          </SectionCard>
 
-        {/* -- Section 6: Academic Use and Citation -- */}
-        <Section id="academic-use">
-          <SectionTitle>Academic Use and Citation</SectionTitle>
-          <p className="mb-4 sc-body-muted">This page is designed as an educational engineering reference for Risk Priority Number calculation in Failure Mode and Effects Analysis.</p>
-          <p className="mb-4 text-sm text-body-charcoal">It may be cited when referencing:</p>
-          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>The traditional RPN formula: Severity \u00d7 Occurrence \u00d7 Detection</li>
-            <li>Educational examples of PFMEA scoring</li>
-            <li>Practical limitations of RPN-based prioritization</li>
-            <li>RPN collision and duplicate-score behavior</li>
-            <li>Use of downloadable FMEA templates in teaching or internal training</li>
-            <li>Comparison between traditional RPN and modern Action Priority thinking</li>
-          </ul>
-          <div className="rounded-none border border-border-subtle bg-industrial-matte p-3 text-xs italic text-body-charcoal">This calculator should not be cited as a standards-body method, regulatory approval tool or substitute for AIAG-VDA, IEC, ISO, customer-specific or organization-specific FMEA procedures.</div>
-        </Section>
-
-        {/* -- Section 7: Calculation Methodology -- */}
-        <Section id="methodology">
-          <SectionTitle>Calculation Methodology</SectionTitle>
-          <p className="mb-4 sc-body-muted">The calculator applies direct multiplication of three validated integer inputs:</p>
-          <p className="mb-4 font-mono text-base font-semibold text-premium-velvet">RPN = S \u00d7 O \u00d7 D</p>
-          <dl className="mb-6 space-y-1 text-sm">
-            <div><dt className="font-semibold text-premium-velvet">S</dt><dd className="text-body-charcoal">= Severity</dd></div>
-            <div><dt className="font-semibold text-premium-velvet">O</dt><dd className="text-body-charcoal">= Occurrence</dd></div>
-            <div><dt className="font-semibold text-premium-velvet">D</dt><dd className="text-body-charcoal">= Detection</dd></div>
-          </dl>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Input Range</h4>
-          <div className="mb-4 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b border-border-subtle bg-industrial-matte"><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Input</th><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Minimum</th><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Maximum</th><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Type</th></tr></thead>
-              <tbody>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Severity</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">10</td><td className="whitespace-nowrap px-3 py-2 text-body-charcoal">Integer</td></tr>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Occurrence</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">10</td><td className="whitespace-nowrap px-3 py-2 text-body-charcoal">Integer</td></tr>
-                <tr className="border-b border-border-subtle last:border-b-0"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Detection</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">10</td><td className="whitespace-nowrap px-3 py-2 text-body-charcoal">Integer</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Output Range</h4>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b border-border-subtle bg-industrial-matte"><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Output</th><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Value</th></tr></thead>
-              <tbody>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Minimum RPN</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1</td></tr>
-                <tr className="border-b border-border-subtle last:border-b-0"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Maximum RPN</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1000</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Method Assumptions</h4>
-          <ol className="list-inside list-decimal space-y-1 text-sm text-body-charcoal">
-            <li>Each input is an integer from 1 to 10.</li>
-            <li>All compared failure modes use the same rating definitions.</li>
-            <li>RPN is used as a relative prioritization score inside the same FMEA context.</li>
-            <li>Revised RPN is calculated only after a defined engineering, design or process action changes Occurrence or Detection evidence.</li>
-            <li>Severity should only be reduced when the actual effect of the failure has changed.</li>
-            <li>RPN values from different organizations, products, processes or rating tables are not directly comparable.</li>
-            <li>The method does not convert ordinal ratings into a physically measured risk value.</li>
-          </ol>
-        </Section>
-
-        {/* -- Section 8: Calculation Validation Test Cases -- */}
-        <Section id="validation">
-          <SectionTitle>Calculation Validation Test Cases</SectionTitle>
-          <p className="mb-4 text-sm text-body-charcoal">The table below provides expected outputs for direct multiplication of validated integer inputs from 1 to 10.</p>
-          <div className="overflow-x-auto border border-border-subtle" role="region" aria-label="RPN validation test cases">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b border-border-subtle bg-industrial-matte"><th>Severity</th><th>Occurrence</th><th>Detection</th><th>Expected RPN</th><th>Result</th></tr></thead>
-              <tbody>{VALIDATION_CASES.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="px-3 py-2 font-mono">{row.s}</td><td className="px-3 py-2 font-mono">{row.o}</td><td className="px-3 py-2 font-mono">{row.d}</td><td className="px-3 py-2 font-mono font-semibold">{row.expected}</td><td className="px-3 py-2 font-mono font-semibold text-green-600">Pass</td></tr>))}</tbody>
-            </table>
-          </div>
-          <p className="mt-3 text-xs italic text-body-charcoal">The calculator performs direct multiplication of validated integer inputs from 1 to 10. Inputs outside this range must be rejected or corrected before calculation.</p>
-        </Section>
-
-        {/* -- Section 9: RPN Score-Space Atlas (NEW) -- */}
-        <Section id="space-atlas">
-          <SectionTitle>RPN Score-Space Atlas</SectionTitle>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">A 1\u201310 Severity, Occurrence and Detection system creates 1000 possible input combinations:</p>
-          <p className="mb-2 font-mono text-base font-semibold text-premium-velvet">10 \u00d7 10 \u00d7 10 = 1000</p>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">However, those 1000 input combinations produce only <strong>120 unique RPN values</strong>.</p>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">This means 880 numbers between 1 and 1000 cannot occur as an RPN value under the traditional 1\u201310 integer scoring system. This creates a sparse, non-uniform score space.</p>
-          <div className="mb-4 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b border-border-subtle bg-industrial-matte"><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Metric</th><th className="whitespace-nowrap px-3 py-1.5 font-mono font-semibold uppercase tracking-wider text-body-charcoal">Value</th></tr></thead>
-              <tbody>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Possible S/O/D combinations</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1000</td></tr>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Minimum RPN</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1</td></tr>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Maximum RPN</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">1000</td></tr>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Unique reachable RPN values</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">120</td></tr>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Unreachable values between 1 and 1000</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">880</td></tr>
-                <tr className="border-b border-border-subtle"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Reachable score density</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">12%</td></tr>
-                <tr className="border-b border-border-subtle last:border-b-0"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">Unreachable score density</td><td className="whitespace-nowrap px-3 py-2 font-mono text-premium-velvet">88%</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs italic text-body-charcoal">This score-space behavior is generated directly from all integer triples where S, O and D range from 1 to 10.</p>
-        </Section>
-
-        {/* -- RPN Reachability Checker -- */}
-        <Section id="reachability-checker">
-          <SectionTitle>RPN Reachability Checker</SectionTitle>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">Not every number between 1 and 1000 can be an FMEA RPN. A number is reachable only if it can be produced by multiplying three integers from 1 to 10.</p>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">RPN</th><th className="px-3 py-1.5 font-mono font-semibold">Reachable?</th><th className="px-3 py-1.5 font-mono font-semibold">Example or Reason</th></tr></thead>
-              <tbody>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">50</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 5 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">60</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">2 &times; 3 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">75</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">3 &times; 5 &times; 5</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">100</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 10 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">101</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">125</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">5 &times; 5 &times; 5</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">150</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">3 &times; 5 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">175</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">5 &times; 5 &times; 7</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">200</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">2 &times; 10 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">333</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">500</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">5 &times; 10 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">750</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">850</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">900</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">9 &times; 10 &times; 10</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">999</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">No valid S/O/D triple</td></tr>
-                <tr className="border-b border-border-subtle last:border-b-0 hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">1000</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">10 &times; 10 &times; 10</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-reachability-dataset.csv" className="text-premium-velvet underline">Download RPN Reachability Dataset CSV</a>.</p>
-          <ReachabilityChecker />
-        </Section>
-
-        {/* -- Is RPN 750 possible? -- */}
-        <Section id="rpn-750-possible">
-          <SectionTitle>Is RPN 750 possible?</SectionTitle>
-          <p className="text-sm leading-relaxed text-body-charcoal">No. RPN 750 is not possible in a traditional 1&ndash;10 FMEA scoring system. RPN must be created by multiplying three integers from 1 to 10. Since 750 cannot be factored into three allowed S/O/D ratings, it is an unreachable RPN value.</p>
-        </Section>
-
-        {/* -- Which RPN values are impossible? -- */}
-        <Section id="impossible-rpn-values">
-          <SectionTitle>Which RPN values are impossible?</SectionTitle>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">In a 1&ndash;10 FMEA scoring system, 880 values between 1 and 1000 are impossible RPN scores. A value is impossible when it cannot be factored into three integers where each factor is between 1 and 10.</p>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Range</th><th className="px-3 py-1.5 font-mono font-semibold">Reachable Values</th><th className="px-3 py-1.5 font-mono font-semibold">Impossible Values</th></tr></thead>
-              <tbody>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">1&ndash;100</td><td className="px-3 py-2 font-mono text-premium-velvet">46</td><td className="px-3 py-2 font-mono text-premium-velvet">54</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">101&ndash;200</td><td className="px-3 py-2 font-mono text-premium-velvet">21</td><td className="px-3 py-2 font-mono text-premium-velvet">79</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">201&ndash;300</td><td className="px-3 py-2 font-mono text-premium-velvet">15</td><td className="px-3 py-2 font-mono text-premium-velvet">85</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">301&ndash;400</td><td className="px-3 py-2 font-mono text-premium-velvet">11</td><td className="px-3 py-2 font-mono text-premium-velvet">89</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">401&ndash;500</td><td className="px-3 py-2 font-mono text-premium-velvet">10</td><td className="px-3 py-2 font-mono text-premium-velvet">90</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">501&ndash;600</td><td className="px-3 py-2 font-mono text-premium-velvet">7</td><td className="px-3 py-2 font-mono text-premium-velvet">93</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">601&ndash;700</td><td className="px-3 py-2 font-mono text-premium-velvet">4</td><td className="px-3 py-2 font-mono text-premium-velvet">96</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">701&ndash;800</td><td className="px-3 py-2 font-mono text-premium-velvet">3</td><td className="px-3 py-2 font-mono text-premium-velvet">97</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">801&ndash;900</td><td className="px-3 py-2 font-mono text-premium-velvet">2</td><td className="px-3 py-2 font-mono text-premium-velvet">98</td></tr>
-                <tr className="border-b border-border-subtle last:border-b-0 hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">901&ndash;1000</td><td className="px-3 py-2 font-mono text-premium-velvet">1</td><td className="px-3 py-2 font-mono text-premium-velvet">99</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-impossible-values.csv" className="text-premium-velvet underline">Download Impossible RPN Values CSV</a>.</p>
-        </Section>
-
-        {/* -- Are prime-number RPN scores possible? -- */}
-        <Section id="prime-number-rpn">
-          <SectionTitle>Are prime-number RPN scores possible?</SectionTitle>
-          <p className="mb-4 text-sm leading-relaxed text-body-charcoal">Only four prime-number RPN scores are possible in a 1&ndash;10 FMEA system: 2, 3, 5 and 7. All other prime numbers up to 1000 are unreachable because RPN is produced by multiplying three ratings between 1 and 10.</p>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Prime RPN</th><th className="px-3 py-1.5 font-mono font-semibold">Reachable?</th><th className="px-3 py-1.5 font-mono font-semibold">Valid Combination</th></tr></thead>
-              <tbody>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">2</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 2</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">3</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 3</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">5</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 5</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">7</td><td className="px-3 py-2 font-semibold text-green-600">Yes</td><td className="px-3 py-2 text-body-charcoal">1 &times; 1 &times; 7</td></tr>
-                <tr className="border-b border-border-subtle hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">11</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">Factor 11 is not allowed</td></tr>
-                <tr className="border-b border-border-subtle last:border-b-0 hover:bg-bg-subtle"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">13</td><td className="px-3 py-2 font-semibold text-amber">No</td><td className="px-3 py-2 text-body-charcoal">Factor 13 is not allowed</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-prime-reachability.csv" className="text-premium-velvet underline">Download Prime RPN Reachability CSV</a>.</p>
-        </Section>
-
-        {/* -- RPN Reachability Rule -- */}
-        <Section id="rpn-reachability-rule">
-          <SectionTitle>RPN Reachability Rule</SectionTitle>
-          <p className="text-sm leading-relaxed text-body-charcoal">An RPN value is reachable only if it can be expressed as S &times; O &times; D where S, O and D are integers from 1 to 10. If no such ordered triple exists, the RPN value is impossible in a traditional 1&ndash;10 FMEA scoring system.</p>
-        </Section>
-
-        {/* -- Section 10: Highest-Collision RPN Values (NEW) -- */}
-        <Section id="collision">
-          <SectionTitle>Highest-Collision RPN Values</SectionTitle>
-          <p className="mb-4 sc-body-muted">Some RPN values are produced by many different S/O/D combinations. These values are collision-heavy and should be interpreted carefully.</p>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">RPN Value</th><th className="px-3 py-1.5 font-mono font-semibold">Number of S/O/D Combinations</th><th className="px-3 py-1.5 font-mono font-semibold">Interpretation Risk</th></tr></thead>
-              <tbody>{HIGH_COLLISION_RPNS.map((row) => (<tr key={row.rpn} className="border-b last:border-b-0"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">{row.rpn}</td><td className="px-3 py-2 font-mono text-premium-velvet">{row.combos}</td><td className="px-3 py-2 text-body-charcoal">{row.risk}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">A high-collision RPN value should never be treated as a single risk profile. Always inspect Severity, Occurrence and Detection separately.</p></div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Full collision atlas available for download: <a href="/data/fmea-rpn-collision-atlas.csv" className="text-premium-velvet underline">Download RPN Collision Atlas CSV</a>.</p>
-        </Section>
-
-        {/* -- Section 11: Same-RPN Equivalence Families (NEW) -- */}
-        <Section id="equivalence">
-          <SectionTitle>Same-RPN Equivalence Families</SectionTitle>
-          <p className="mb-4 sc-body-muted">The same RPN can be produced by different S/O/D signatures. A signature with high Severity should not be treated as equivalent to a low-Severity signature simply because the multiplied RPN is the same.</p>
-          <div className="mb-4 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-2 py-1.5 font-mono font-semibold">RPN</th><th className="px-2 py-1.5 font-mono font-semibold">S</th><th className="px-2 py-1.5 font-mono font-semibold">O</th><th className="px-2 py-1.5 font-mono font-semibold">D</th><th className="px-2 py-1.5 font-mono font-semibold">Risk Signature</th><th className="px-2 py-1.5 font-mono font-semibold">Why It Matters</th></tr></thead>
-              <tbody>{EQUIVALENCE_FAMILIES.map((row, i) => (<tr key={i} className="border-b last:border-b-0 hover:bg-bg-subtle"><td className="px-2 py-2 font-mono font-semibold text-amber">{row.rpn}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.s}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.o}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.d}</td><td className="px-2 py-2 text-body-charcoal">{row.signature}</td><td className="px-2 py-2 text-body-charcoal">{row.why}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">Equivalent RPN does not mean equivalent risk. The individual S/O/D pattern is the actual engineering signal.</p></div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-equivalence-families.csv" className="text-premium-velvet underline">Download Same-RPN Equivalence Families CSV</a>.</p>
-        </Section>
-
-        {/* -- Section 12: High-Severity Masking Analysis (NEW) -- */}
-        <Section id="masking">
-          <SectionTitle>High-Severity Masking Analysis</SectionTitle>
-          <p className="mb-4 sc-body-muted">A high Severity rating can be masked by low Occurrence or strong Detection values. This is one of the main weaknesses of using RPN as a single action trigger.</p>
-          <p className="mb-4 text-sm text-body-charcoal">When Severity is 9 or 10, there are 200 possible S/O/D combinations.</p>
-          <p className="mb-4 text-sm text-body-charcoal">Among those high-Severity combinations:</p>
-          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>54 combinations produce RPN \u2264 100</li>
-            <li>73 combinations produce RPN \u2264 150</li>
-            <li>94 combinations produce RPN \u2264 200</li>
-          </ul>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Severity Group</th><th className="px-3 py-1.5 font-mono font-semibold">RPN Threshold</th><th className="px-3 py-1.5 font-mono font-semibold">High-Severity Combinations</th><th className="px-3 py-1.5 font-mono font-semibold">Share of S=9 or S=10 Space</th></tr></thead>
-              <tbody>{MASKING_STATS.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="px-3 py-2 font-semibold text-premium-velvet">{row.group}</td><td className="px-3 py-2 font-mono text-premium-velvet">{row.threshold}</td><td className="px-3 py-2 font-mono text-premium-velvet">{row.count}</td><td className="px-3 py-2 font-mono text-premium-velvet">{row.share}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <p className="mb-4 text-sm font-semibold">Interpretation</p>
-          <p className="mb-4 text-sm text-body-charcoal">Nearly half of all S=9 or S=10 combinations can still produce an RPN of 200 or lower. This is why high-Severity items should be reviewed separately from the total RPN score.</p>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Examples of Masking</h4>
-          <div className="overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">S</th><th className="px-3 py-1.5 font-mono font-semibold">O</th><th className="px-3 py-1.5 font-mono font-semibold">D</th><th className="px-3 py-1.5 font-mono font-semibold">RPN</th><th className="px-3 py-1.5 font-mono font-semibold">Why RPN Alone Can Mislead</th></tr></thead>
-              <tbody>{MASKING_EXAMPLES.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="px-3 py-2 font-mono font-semibold text-premium-velvet">{row.s}</td><td className="px-3 py-2 font-mono text-premium-velvet">{row.o}</td><td className="px-3 py-2 font-mono text-premium-velvet">{row.d}</td><td className="px-3 py-2 font-mono font-semibold text-amber">{row.rpn}</td><td className="px-3 py-2 text-body-charcoal">{row.warning}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-severity-masking-cases.csv" className="text-premium-velvet underline">Download Severity Masking Cases CSV</a>.</p>
-        </Section>
-
-        {/* -- Section 13: RPN Sensitivity Matrix (NEW) -- */}
-        <Section id="sensitivity">
-          <SectionTitle>RPN Sensitivity Matrix</SectionTitle>
-          <p className="mb-4 sc-body-muted">RPN changes linearly with each input while the other two inputs remain constant. The marginal effect of changing Severity, Occurrence or Detection depends on the product of the other two ratings.</p>
-          <p className="mb-4 font-mono text-sm text-premium-velvet">
-            \u0394RPN<sub>O</sub> = S \u00d7 \u0394O \u00d7 D &nbsp;|&nbsp; \u0394RPN<sub>D</sub> = S \u00d7 O \u00d7 \u0394D
-          </p>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-2 py-1.5 font-mono font-semibold">Current S/O/D</th><th className="px-2 py-1.5 font-mono font-semibold">Current RPN</th><th className="px-2 py-1.5 font-mono font-semibold">Reduce O by 1</th><th className="px-2 py-1.5 font-mono font-semibold">Reduce D by 1</th><th className="px-2 py-1.5 font-mono font-semibold">Reduce O and D by 1</th><th className="px-2 py-1.5 font-mono font-semibold">Interpretation</th></tr></thead>
-              <tbody>{SENSITIVITY_DATA.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="whitespace-nowrap px-2 py-2 font-mono font-semibold text-premium-velvet">{row.s} / {row.o} / {row.d}</td><td className="whitespace-nowrap px-2 py-2 font-mono font-semibold text-amber">{row.rpn}</td><td className="whitespace-nowrap px-2 py-2 font-mono text-premium-velvet">{row.ro1}</td><td className="whitespace-nowrap px-2 py-2 font-mono text-premium-velvet">{row.rd1}</td><td className="whitespace-nowrap px-2 py-2 font-mono text-premium-velvet">{row.rod1}</td><td className="px-2 py-2 text-body-charcoal">{row.note}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">Sensitivity analysis does not decide the correct action. It shows which rating change mathematically moves the RPN most. Engineering evidence must determine whether a rating change is justified.</p></div>
-          <p className="mt-4 text-xs italic text-body-charcoal">Download full dataset: <a href="/data/fmea-rpn-sensitivity-matrix.csv" className="text-premium-velvet underline">Download RPN Sensitivity Matrix CSV</a>.</p>
-        </Section>
-
-        {/* -- Section 14: Action Leverage Matrix (NEW) -- */}
-        <Section id="leverage">
-          <SectionTitle>Action Leverage Matrix</SectionTitle>
-          <p className="mb-4 sc-body-muted">Corrective actions usually affect Occurrence, Detection or both. Severity should only change when the actual failure effect changes.</p>
-          <div className="mb-6 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-2 py-1.5 font-mono font-semibold">Action Type</th><th className="px-2 py-1.5 font-mono font-semibold">Usually Affects</th><th className="px-2 py-1.5 font-mono font-semibold">Example</th><th className="px-2 py-1.5 font-mono font-semibold">Evidence Needed Before Revising RPN</th></tr></thead>
-              <tbody>{ACTION_LEVERAGE.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="px-2 py-2 font-semibold text-premium-velvet">{row.actionType}</td><td className="whitespace-nowrap px-2 py-2 font-mono text-premium-velvet">{row.affects}</td><td className="px-2 py-2 text-body-charcoal">{row.example}</td><td className="px-2 py-2 text-body-charcoal">{row.evidence}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">Do not revise S/O/D values because an action was planned. Revise them only when implementation evidence supports the new rating.</p></div>
-        </Section>
-
-        {/* -- Section 15: Revised RPN Audit Trail (NEW) -- */}
-        <Section id="audit-trail">
-          <SectionTitle>Revised RPN Audit Trail</SectionTitle>
-          <p className="mb-4 sc-body-muted">A revised RPN is credible only when the action and evidence are documented. A before/after RPN reduction without evidence should not be treated as risk reduction.</p>
-          <div className="mb-4 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Field</th><th className="px-3 py-1.5 font-mono font-semibold">Required Documentation</th></tr></thead>
-              <tbody>{AUDIT_TRAIL_FIELDS.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="whitespace-nowrap px-3 py-2 font-semibold text-premium-velvet">{row.field}</td><td className="px-3 py-2 text-body-charcoal">{row.doc}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">This audit trail is useful for teaching, internal reviews and FMEA workshop documentation.</p></div>
-        </Section>
-
-        {/* -- Section 16: S/O/D Guide -- */}
-        <Section>
-          <SectionTitle>Severity, Occurrence and Detection Guide</SectionTitle>
-          <p className="mb-4 sc-body-muted">The exact rating scale should come from your organization\u2019s FMEA procedure. The guide below is an educational reference for understanding how the rating direction works.</p>
-          <RatingGuideTable title="Severity Rating Guide" data={SEVERITY_GUIDE} />
-          <RatingGuideTable title="Occurrence Rating Guide" data={OCCURRENCE_GUIDE} />
-          <RatingGuideTable title="Detection Rating Guide" data={DETECTION_GUIDE} />
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">These ranges are educational references. Use the approved rating tables defined by your organization for formal work.</div>
-        </Section>
-
-        {/* -- Section 17: Limitations of RPN -- */}
-        <Section>
-          <SectionTitle>Limitations of RPN</SectionTitle>
-          <p className="mb-4 sc-body-muted">RPN is useful because it is simple, fast and easy to compare inside the same FMEA worksheet. However, it has important limitations.</p>
-          <div className="space-y-4 text-sm">
-            <div className="border-l-2 pl-3"><p className="font-semibold">1. Different S/O/D Combinations Can Produce the Same RPN</p><p className="mt-1">Example: S=10,O=2,D=3 yields RPN=60, while S=3,O=5,D=4 also yields RPN=60. The first case has much higher Severity.</p></div>
-            <div className="border-l-2 pl-3"><p className="font-semibold">2. High-Severity Risks Can Be Hidden</p><p className="mt-1">A high-Severity item can receive a moderate RPN if Occurrence and Detection scores are low.</p></div>
-            <div className="border-l-2 pl-3"><p className="font-semibold">3. RPN Depends on Rating Consistency</p><p className="mt-1">If different teams use different rating definitions, their RPN values are not comparable.</p></div>
-            <div className="border-l-2 pl-3"><p className="font-semibold">4. RPN Is Not a Physical Measurement</p><p className="mt-1">Multiplying ordinal ratings creates a prioritization index, not a measured risk value.</p></div>
-            <div className="border-l-2 pl-3"><p className="font-semibold">5. RPN Does Not Replace Engineering Judgment</p><p className="mt-1">FMEA is not complete when an RPN is calculated. The score must be connected to the full failure chain.</p></div>
-          </div>
-        </Section>
-
-        {/* -- Section 18: RPN Misranking Examples (NEW) -- */}
-        <Section id="misranking">
-          <SectionTitle>RPN Misranking Examples</SectionTitle>
-          <p className="mb-4 sc-body-muted">RPN can rank a lower-severity issue above a higher-severity issue when Occurrence and Detection scores dominate the multiplication.</p>
-          <div className="mb-4 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-2 py-1.5 font-mono font-semibold">Failure Mode</th><th className="px-2 py-1.5 font-mono font-semibold">S</th><th className="px-2 py-1.5 font-mono font-semibold">O</th><th className="px-2 py-1.5 font-mono font-semibold">D</th><th className="px-2 py-1.5 font-mono font-semibold">RPN</th><th className="px-2 py-1.5 font-mono font-semibold">RPN Rank</th><th className="px-2 py-1.5 font-mono font-semibold">Engineering Concern</th></tr></thead>
-              <tbody>{MISRANKING_EXAMPLES.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="px-2 py-2 text-body-charcoal">{row.label}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.s}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.o}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.d}</td><td className="px-2 py-2 font-mono font-semibold text-amber">{row.rpn}</td><td className="px-2 py-2 font-mono text-premium-velvet">{row.rank}</td><td className="px-2 py-2 text-body-charcoal">{row.concern}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">This does not mean frequent low-severity issues should be ignored. It means RPN ranking should be interpreted with the S/O/D signature visible.</p></div>
-        </Section>
-
-        {/* -- Section 19: PFMEA Dataset Library (NEW, expanded) -- */}
-        <Section id="pfmea-library">
-          <SectionTitle>Illustrative PFMEA Dataset Library</SectionTitle>
-          <p className="mb-4 sc-body-muted">The datasets below are illustrative examples for teaching and internal training. They are not universal rating templates. Replace all ratings with evidence from your own process, customer requirements and approved FMEA criteria.</p>
-
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset A: CNC Machining Process</h3>
-          <PfmeaTable rows={PFMEA_CNC} />
-          <p className="mt-3 mb-6 text-xs italic text-body-charcoal">Dataset A represents a typical CNC machining PFMEA with drilling, milling, clamping and deburring operations.</p>
-
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset B: Assembly Process</h3>
-          <PfmeaTable rows={PFMEA_ASSEMBLY} />
-          <p className="mt-3 mb-6 text-xs italic text-body-charcoal">Dataset B represents a general assembly process with press-fit, fastening, labeling and seal installation failure modes.</p>
-
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset C: Maintenance Process</h3>
-          <PfmeaTable rows={PFMEA_MAINTENANCE} />
-          <p className="mt-3 text-xs italic text-body-charcoal">Dataset C represents a preventive maintenance process with lubrication, filter, belt and sensor cleaning tasks.</p>
-        </Section>
-
-        {/* -- Section 20: When to Use RPN (NEW) -- */}
-        <Section id="when-to-use">
-          <SectionTitle>When to Use RPN and When Not to Use RPN</SectionTitle>
-          <div className="mb-4 overflow-x-auto border border-border-subtle">
-            <table className="w-full text-left text-xs">
-              <thead><tr className="border-b bg-industrial-matte"><th className="px-3 py-1.5 font-mono font-semibold">Use RPN When</th><th className="px-3 py-1.5 font-mono font-semibold">Do Not Use RPN As</th></tr></thead>
-              <tbody>{WHEN_USE.map((row, i) => (<tr key={i} className="border-b last:border-b-0"><td className="px-3 py-2 text-body-charcoal">{row.use}</td><td className="px-3 py-2 text-body-charcoal">{row.notUse}</td></tr>))}</tbody>
-            </table>
-          </div>
-          <div className="border-l-2 border-amber/40 pl-3 text-sm"><p className="font-semibold">Note</p><p className="mt-1">RPN is most useful as a transparent calculation and teaching aid. It is weakest when used as a single gate for action decisions.</p></div>
-        </Section>
-
-        {/* -- Section 21: Reproducibility Note (NEW) -- */}
-        <Section id="reproducibility">
-          <SectionTitle>Reproducibility Note</SectionTitle>
-          <p className="mb-4 sc-body-muted">The RPN score-space, collision counts, same-RPN families and high-severity masking examples are generated from the complete integer grid:</p>
-          <p className="mb-2 font-mono text-sm text-premium-velvet">{`S \u2208 {1,2,3,4,5,6,7,8,9,10}`}</p>
-          <p className="mb-2 font-mono text-sm text-premium-velvet">{`O \u2208 {1,2,3,4,5,6,7,8,9,10}`}</p>
-          <p className="mb-4 font-mono text-sm text-premium-velvet">{`D \u2208 {1,2,3,4,5,6,7,8,9,10}`}</p>
-          <p className="mb-4 text-sm text-body-charcoal">For each ordered triple, the RPN is calculated as:</p>
-          <p className="mb-4 font-mono text-base font-semibold text-premium-velvet">RPN = S \u00d7 O \u00d7 D</p>
-          <p className="mb-4 text-sm text-body-charcoal">This produces 1000 ordered combinations and 120 unique RPN values.</p>
-          <div className="border border-border-subtle bg-industrial-matte p-3 text-xs font-mono text-premium-velvet">
-            for severity in range(1, 11):<br />
-            &nbsp;&nbsp;for occurrence in range(1, 11):<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;for detection in range(1, 11):<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rpn = severity * occurrence * detection
-          </div>
-          <p className="mt-4 text-xs italic text-body-charcoal">The downloadable collision atlas is generated from this full enumeration.</p>
-        </Section>
-
-        {/* -- Section 22: Downloadable Assets -- */}
-        <Section id="template">
-          <SectionTitle>Downloadable Academic and Training Assets</SectionTitle>
-          <p className="mb-4 sc-body-muted">Use the downloads below for teaching, training, internal FMEA workshops or practical engineering documentation.</p>
-          <div className="flex flex-col">
-            <DownloadButton href="/data/fmea-template.csv" label="Download Blank FMEA CSV Template" primary />
-            <DownloadButton href="/data/fmea-pfmea-cnc-dataset.csv" label="Download CNC PFMEA Dataset CSV" />
-            <DownloadButton href="/data/fmea-template-example.csv" label="Download Example PFMEA CSV Dataset" />
-            <DownloadButton href="/data/fmea-rpn-collision-atlas.csv" label="Download RPN Collision Atlas CSV" />
-            <DownloadButton href="/data/fmea-rpn-equivalence-families.csv" label="Download Same-RPN Equivalence Families CSV" />
-            <DownloadButton href="/data/fmea-rpn-severity-masking-cases.csv" label="Download High-Severity Masking Cases CSV" />
-            <DownloadButton href="/data/fmea-rpn-sensitivity-matrix.csv" label="Download RPN Sensitivity Matrix CSV" />
-          </div>
-          <div className="mt-6">
-            <Button href="/resources/fmea-rpn-technical-note" variant="outline" size="cta">View FMEA RPN Technical Note</Button>
-          </div>
-        </Section>
-
-        {/* -- Section 23: Technical Note -- */}
-        <Section id="technical-note">
-          <SectionTitle>FMEA RPN Technical Note</SectionTitle>
-          <p className="mb-4 text-sm font-semibold">FMEA RPN Calculator Technical Note</p>
-          <p className="mb-4 text-sm">This technical note documents the traditional Risk Priority Number calculation used in Failure Mode and Effects Analysis. It includes compact versions of the score-space atlas, collision analysis, equivalence families, severity masking, sensitivity matrix, action leverage, PFMEA datasets and reproducibility note.</p>
-          <Button href="/resources/fmea-rpn-technical-note" variant="outline" size="cta">Open Full Technical Note</Button>
-        </Section>
-
-        {/* -- Section 24: RPN vs Action Priority -- */}
-        <Section>
-          <SectionTitle>RPN vs Action Priority</SectionTitle>
-          <p className="mb-4 sc-body-muted">Traditional RPN is a numeric product of Severity, Occurrence and Detection. It is simple, fast and useful for comparing failure modes inside the same FMEA worksheet.</p>
-          <p className="mb-4 sc-body-muted">Action Priority is a decision support concept used in modern automotive FMEA practice. It gives stronger attention to the pattern of Severity, Occurrence and Detection instead of relying only on a single multiplied number.</p>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic">This page provides an educational explanation only. It does not reproduce proprietary handbook tables and does not replace standards-body publications or customer-specific FMEA requirements.</div>
-        </Section>
-
-                {/* -- Who Can Cite This Page? -- */}
-        <Section>
-          <SectionTitle>Who Can Cite This Page?</SectionTitle>
-          <p className="mb-4 text-sm text-body-charcoal">This page may be cited by engineering educators, quality engineers, industrial engineering students, internal FMEA workshop facilitators, manufacturing engineers, reliability engineers and technical writers when referencing:</p>
-          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>The traditional FMEA Risk Priority Number calculation</li>
-            <li>Educational Severity, Occurrence and Detection examples</li>
-            <li>RPN score-space behavior</li>
-            <li>RPN collision and same-score equivalence behavior</li>
-            <li>High-severity masking examples</li>
-            <li>Downloadable educational PFMEA datasets</li>
-            <li>Internal FMEA training documentation</li>
-            <li>Reproducible calculator-based RPN examples</li>
-          </ul>
-          <div className="mb-4 rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page should be cited as an educational engineering reference. It should not be cited as a standards-body publication, regulatory approval method, OEM acceptance criterion, customer-specific FMEA procedure, product release rule or substitute for organization-approved risk assessment requirements.</div>
-          <p className="mb-4 text-sm text-body-charcoal"><strong>Use this page</strong> when the citation target is calculator reproducibility, educational explanation, example datasets or RPN limitation awareness.</p>
-          <p className="mb-4 text-sm text-body-charcoal"><strong>Do not use this page</strong> when the citation target is formal compliance, regulatory acceptance, safety validation, customer approval or proprietary rating-table reproduction.</p>
-        </Section>
-
-        {/* -- Citation Scope and Limitations -- */}
-        <Section>
-          <SectionTitle>Citation Scope and Limitations</SectionTitle>
-          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Use This Page as a Citation For</h4>
-          <div className="overflow-x-auto border border-border-subtle mb-6">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b bg-industrial-matte">
-                  <th className="px-3 py-1.5 font-mono font-semibold">Citation Target</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Acceptable Use</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Citation Strength</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Traditional RPN formula</td>
-                  <td className="px-3 py-1.5">Explaining Severity &times; Occurrence &times; Detection</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Educational S/O/D examples</td>
-                  <td className="px-3 py-1.5">Teaching how rating combinations affect RPN</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">RPN score-space behavior</td>
-                  <td className="px-3 py-1.5">Explaining reachable and unreachable RPN values</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">RPN collision behavior</td>
-                  <td className="px-3 py-1.5">Showing how different S/O/D combinations can produce the same RPN</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">High-severity masking</td>
-                  <td className="px-3 py-1.5">Showing why total RPN can hide severe effects</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">PFMEA training datasets</td>
-                  <td className="px-3 py-1.5">Supporting classroom, workshop or internal training examples</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Internal FMEA training</td>
-                  <td className="px-3 py-1.5">Supporting non-regulatory educational documentation</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Technical blog reference</td>
-                  <td className="px-3 py-1.5">Explaining RPN limitations and calculator-based examples</td>
-                  <td className="px-3 py-1.5">Strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Student project reference</td>
-                  <td className="px-3 py-1.5">Supporting introductory or intermediate FMEA coursework</td>
-                  <td className="px-3 py-1.5">Moderate to strong</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Academic writing</td>
-                  <td className="px-3 py-1.5">Supplementary web reference only</td>
-                  <td className="px-3 py-1.5">Moderate</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Do Not Use This Page as a Citation For</h4>
-          <div className="overflow-x-auto border border-border-subtle mb-4">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b bg-industrial-matte">
-                  <th className="px-3 py-1.5 font-mono font-semibold">Non-Acceptable Use</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Reason</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Regulatory compliance approval</td>
-                  <td className="px-3 py-1.5">The page is not a regulator, notified body or certification authority.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Product release approval</td>
-                  <td className="px-3 py-1.5">Release decisions require approved acceptance criteria and engineering evidence.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Safety validation</td>
-                  <td className="px-3 py-1.5">Safety validation requires applicable standards, testing and documented risk controls.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">OEM acceptance</td>
-                  <td className="px-3 py-1.5">OEM-specific requirements and customer-specific procedures take precedence.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">AIAG-VDA handbook table reproduction</td>
-                  <td className="px-3 py-1.5">Proprietary rating tables are not reproduced or replaced.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">IEC 60812 replacement</td>
-                  <td className="px-3 py-1.5">IEC 60812 must be consulted directly for formal FMEA/FMECA methodology requirements.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">ISO 12100 replacement</td>
-                  <td className="px-3 py-1.5">ISO 12100 must be consulted directly for machinery risk assessment and risk reduction.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Organization-specific rating definitions</td>
-                  <td className="px-3 py-1.5">Internal procedures and approved rating criteria take precedence.</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Legal, regulatory or certification evidence</td>
-                  <td className="px-3 py-1.5">The page is educational and calculator-based, not an approval instrument.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">For formal FMEA work, use the original standard, customer-specific requirement, organization-approved FMEA procedure, control plan, engineering specification and applicable regulatory requirement.</div>
-        </Section>
-
-{/* -- Section 25: Citation -- */}
-        <Section id="cite">
-          <SectionTitle>Cite This Calculator</SectionTitle>
-          <p className="mb-4 sc-body-muted">Use the citation formats below when referencing this calculator in academic material, course notes, technical documentation, internal FMEA training or engineering resources.</p>
-          <CitationBlock label="APA 7" text={CITATIONS.apa} />
-          <CitationBlock label="MLA 9" text={CITATIONS.mla} />
-          <CitationBlock label="Chicago" text={CITATIONS.chicago} />
-          <CitationBlock label="BibTeX" text={CITATIONS.bibtex} isPre />
-          <CitationBlock label="RIS" text={CITATIONS.ris} isPre />
-        </Section>
-
-        {/* -- Section 26: Version History -- */}
-        <Section id="version-history">
-          <SectionTitle>Version History</SectionTitle>
-          {VERSION_HISTORY.map((v) => (<div key={v.version}><p className="text-sm font-semibold">Version {v.version} \u2014 {v.date}</p><ul className="mt-2 list-inside list-disc space-y-1 text-sm">{v.notes.map((note, i) => (<li key={i}>{note}</li>))}</ul></div>))}
-        </Section>
-
-                {/* -- References and Standards Context -- */}
-        <Section>
-          <SectionTitle>References and Standards Context</SectionTitle>
-          <p className="mb-4 sc-body-muted">The following sources provide standards, handbook, educational, technical and academic context for FMEA, FMECA, risk assessment and RPN limitations. This page does not reproduce proprietary tables, replace the original standards or define formal compliance requirements.</p>
-          <div className="overflow-x-auto border border-border-subtle mb-6">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b bg-industrial-matte">
-                  <th className="px-3 py-1.5 font-mono font-semibold">Source</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Bibliographic Detail</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Source Type</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Relevance</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Use on This Page</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Source Tier</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">
-                    <a href={fmeaReferenceLinks.aiagVdaFmeaHandbookAiag} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">AIAG</a> &amp; <a href={fmeaReferenceLinks.aiagVdaFmeaHandbookVda} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">VDA FMEA Handbook</a>
-                  </td>
-                  <td className="px-3 py-1.5">AIAG &amp; VDA. Failure Mode and Effects Analysis FMEA Handbook. First Edition. Automotive Industry Action Group and Verband der Automobilindustrie, June 2019. ISBN: 978-1-60534-367-9.</td>
-                  <td className="px-3 py-1.5">Industry handbook</td>
-                  <td className="px-3 py-1.5">Modern automotive FMEA reference for Design FMEA, Process FMEA and Supplemental FMEA for Monitoring and System Response.</td>
-                  <td className="px-3 py-1.5">Context only. Proprietary rating tables, Action Priority tables and handbook content are not reproduced.</td>
-                  <td className="px-3 py-1.5 font-mono">Industry authority</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">
-                    <a href={fmeaReferenceLinks.iec60812} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">IEC 60812:2018</a>
-                  </td>
-                  <td className="px-3 py-1.5">International Electrotechnical Commission. IEC 60812:2018 — Failure Modes and Effects Analysis: FMEA and FMECA. Edition 3.0. Published 2018-08-10.</td>
-                  <td className="px-3 py-1.5">International standard</td>
-                  <td className="px-3 py-1.5">Methodology context for planning, performing, documenting and maintaining FMEA and FMECA.</td>
-                  <td className="px-3 py-1.5">Standards context only. Users must consult the official standard for formal work.</td>
-                  <td className="px-3 py-1.5 font-mono">Standards body</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">
-                    <a href={fmeaReferenceLinks.iso12100} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">ISO 12100:2010</a>
-                  </td>
-                  <td className="px-3 py-1.5">International Organization for Standardization. ISO 12100:2010 — Safety of Machinery — General Principles for Design — Risk Assessment and Risk Reduction. Edition 1. Published 2010-11. Reviewed and confirmed in 2022.</td>
-                  <td className="px-3 py-1.5">International standard</td>
-                  <td className="px-3 py-1.5">Machinery risk assessment and risk reduction context.</td>
-                  <td className="px-3 py-1.5">Risk-assessment context only. It is not replaced by this calculator page.</td>
-                  <td className="px-3 py-1.5 font-mono">Standards body</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">
-                    <a href={fmeaReferenceLinks.asqFmea} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">ASQ FMEA educational resources</a>
-                  </td>
-                  <td className="px-3 py-1.5">American Society for Quality. Failure Mode and Effects Analysis resources.</td>
-                  <td className="px-3 py-1.5">Educational quality resource</td>
-                  <td className="px-3 py-1.5">General FMEA education, terminology and preventive quality context.</td>
-                  <td className="px-3 py-1.5">Educational context for readers learning FMEA fundamentals.</td>
-                  <td className="px-3 py-1.5 font-mono">Professional association</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">
-                    <a href={fmeaReferenceLinks.wheelerRpn} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">Wheeler, Donald J.</a>
-                  </td>
-                  <td className="px-3 py-1.5">Wheeler, D. J. Problems with Risk Priority Numbers: Avoiding More Numerical Jabberwocky. Quality Digest / SPC Press, July 2011.</td>
-                  <td className="px-3 py-1.5">Technical critique</td>
-                  <td className="px-3 py-1.5">Explains mathematical and interpretive weaknesses of using RPN values as simple ranking numbers.</td>
-                  <td className="px-3 py-1.5">RPN limitation context. Supports the page’s caution against using total RPN alone.</td>
-                  <td className="px-3 py-1.5 font-mono">Technical critique</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">
-                    <a href={fmeaReferenceLinks.sheblFranklinBarber} target="_blank" rel="noopener noreferrer" className="text-amber hover:underline">Shebl, N. A.; Franklin, B. D.; Barber, N.</a>
-                  </td>
-                  <td className="px-3 py-1.5">Shebl, N. A., Franklin, B. D., &amp; Barber, N. Failure Mode and Effects Analysis Outputs: Are They Valid? BMC Health Services Research, 12, Article 150, 2012. DOI: 10.1186/1472-6963-12-150.</td>
-                  <td className="px-3 py-1.5">Peer-reviewed article</td>
-                  <td className="px-3 py-1.5">Examines the validity of FMEA outputs in a healthcare setting and highlights limitations in FMEA team outputs.</td>
-                  <td className="px-3 py-1.5">Academic critique context. Supports the need to treat FMEA outputs as structured risk evidence, not unquestionable truth.</td>
-                  <td className="px-3 py-1.5 font-mono">Peer-reviewed</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">SAE J1739</td>
-                  <td className="px-3 py-1.5">SAE International. Potential Failure Mode and Effects Analysis in Design, Manufacturing and Assembly Processes.</td>
-                  <td className="px-3 py-1.5">Industry standard / recommended practice</td>
-                  <td className="px-3 py-1.5">Automotive and manufacturing FMEA methodology context.</td>
-                  <td className="px-3 py-1.5">Optional standards context. Not reproduced or replaced.</td>
-                  <td className="px-3 py-1.5 font-mono">Industry standard</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Organization-approved FMEA procedure</td>
-                  <td className="px-3 py-1.5">Company-specific document.</td>
-                  <td className="px-3 py-1.5">Internal governance document</td>
-                  <td className="px-3 py-1.5">Defines local rating criteria, review workflow, approval rules and documentation requirements.</td>
-                  <td className="px-3 py-1.5">Primary source for actual FMEA execution inside an organization.</td>
-                  <td className="px-3 py-1.5 font-mono">Internal authority</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Customer-specific requirements</td>
-                  <td className="px-3 py-1.5">OEM, customer or contract-specific document.</td>
-                  <td className="px-3 py-1.5">Customer requirement</td>
-                  <td className="px-3 py-1.5">Defines required FMEA method, rating expectations, submission rules and approval evidence.</td>
-                  <td className="px-3 py-1.5">Takes precedence over this educational calculator page.</td>
-                  <td className="px-3 py-1.5 font-mono">Customer authority</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Source Interpretation</h4>
-          <p className="mb-4 text-sm text-body-charcoal">This page uses external sources in three different ways:</p>
-          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li><strong>Standards context:</strong> IEC 60812 and ISO 12100 define formal methodology and risk-assessment context. They are not reproduced or replaced.</li>
-            <li><strong>Industry context:</strong> AIAG &amp; VDA and SAE J1739 provide automotive and manufacturing FMEA context. Proprietary tables are not reproduced.</li>
-            <li><strong>Limitation context:</strong> Wheeler and Shebl, Franklin &amp; Barber support the caution that FMEA and RPN outputs must be interpreted carefully.</li>
-          </ul>
-          <p className="text-sm text-body-charcoal">The calculator, datasets and examples on this page are original educational material. They are designed to help users understand RPN calculation behavior, not to define universal FMEA acceptance criteria.</p>
-        </Section>
-
-        {/* -- Source Use Policy -- */}
-        <Section>
-          <SectionTitle>Source Use Policy</SectionTitle>
-          <p className="mb-4 text-sm text-body-charcoal">This page follows a conservative source-use policy:</p>
-          <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>It does not reproduce proprietary FMEA rating tables.</li>
-            <li>It does not reproduce AIAG-VDA Action Priority tables.</li>
-            <li>It does not claim standards-body authority.</li>
-            <li>It does not define regulatory acceptance criteria.</li>
-            <li>It does not replace IEC, ISO, SAE, AIAG-VDA, customer-specific or organization-specific requirements.</li>
-            <li>It uses external references only for context, methodology orientation and limitation awareness.</li>
-            <li>It keeps calculator examples separate from formal FMEA approval rules.</li>
-            <li>It requires users to apply their own approved rating criteria for formal FMEA work.</li>
-          </ul>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">Where a source is proprietary, restricted or paid, this page references the source only at the bibliographic/context level. Users must consult the official source directly for formal application.</div>
-        </Section>
-
-        {/* -- Dataset Provenance and Reproducibility -- */}
-        <Section>
-          <SectionTitle>Dataset Provenance and Reproducibility</SectionTitle>
-          <p className="mb-4 sc-body-muted">The downloadable educational datasets on this page are designed for training, demonstration and calculator reproducibility.</p>
+          {/* What This Page Is and Is Not */}
+          <SectionCard id="what-this-is" title="What This Page Is and Is Not">
+            <ResponsiveDataTable 
+              caption="Page scope boundaries"
+              instructions="How to read this table: Clarification of this page's educational scope versus formal authority."
+              headers={["This page is", "This page is not"]}
+              rows={[
+                { is: "An educational RPN calculator", isNot: "A standards-body publication" },
+                { is: "A reproducible RPN reference", isNot: "A regulatory approval method" },
+                { is: "A PFMEA training dataset source", isNot: "A customer-specific FMEA procedure" },
+                { is: "A citation-ready technical resource", isNot: "A product release rule" },
+                { is: "A guide to RPN limitations", isNot: "A substitute for engineering judgment" },
+              ]}
+            />
+          </SectionCard>
           
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset Provenance</h4>
-          <div className="overflow-x-auto border border-border-subtle mb-6">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b bg-industrial-matte">
-                  <th className="px-3 py-1.5 font-mono font-semibold">Dataset Element</th>
-                  <th className="px-3 py-1.5 font-mono font-semibold">Provenance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">RPN formula</td>
-                  <td className="px-3 py-1.5">Traditional RPN calculation: Severity &times; Occurrence &times; Detection</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">S/O/D scale</td>
-                  <td className="px-3 py-1.5">Educational integer scale from 1 to 10</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Score-space examples</td>
-                  <td className="px-3 py-1.5">Generated from valid integer combinations of Severity, Occurrence and Detection</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Collision examples</td>
-                  <td className="px-3 py-1.5">Derived from multiple S/O/D combinations that produce the same RPN value</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">High-severity masking examples</td>
-                  <td className="px-3 py-1.5">Constructed to demonstrate how severe effects can be hidden by low Occurrence or strong Detection</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">PFMEA training rows</td>
-                  <td className="px-3 py-1.5">Educational examples created for calculator demonstration and internal training</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">Revised RPN examples</td>
-                  <td className="px-3 py-1.5">Demonstration-only revised ratings after hypothetical action implementation</td>
-                </tr>
-                <tr className="border-b hover:bg-bg-subtle">
-                  <td className="px-3 py-1.5 font-semibold">CSV datasets</td>
-                  <td className="px-3 py-1.5">Educational downloadable files for reproducible learning and worksheet practice</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          {/* Why This Reference Is Citable */}
+          <SectionCard id="citable" title="Why This Reference Is Citable">
+            <p className="text-[var(--sc-muted)] mb-4 max-w-[760px]">
+              This page is designed as a reproducible educational reference for traditional FMEA Risk Priority Number calculation.
+              Unlike a basic calculator page, it includes:
+            </p>
+            <ul className="mb-4 list-inside list-disc space-y-1 text-sm text-[var(--sc-muted)]">
+              <li>the RPN formula and input assumptions</li>
+              <li>a full score-space explanation for 1–10 S/O/D ratings</li>
+              <li>RPN collision behavior</li>
+              <li>same-score equivalence examples</li>
+              <li>high-severity masking examples</li>
+              <li>an illustrative PFMEA dataset library</li>
+              <li>citation formats for academic and technical use</li>
+            </ul>
+            <div className="bg-[var(--sc-warning-bg)] border-l-4 border-[var(--sc-warning)] p-3 mt-4 text-sm text-[var(--sc-warning)]/90">
+              <strong className="block uppercase text-xs text-[var(--sc-warning)] mb-1">Citation limitation</strong>
+              This page should be cited as an educational engineering reference, not as a standards-body publication or substitute for organization-approved FMEA procedures.
+            </div>
+          </SectionCard>
 
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Dataset Limitations</h4>
-          <p className="mb-2 text-sm text-body-charcoal">The datasets are not:</p>
-          <ul className="mb-6 list-inside list-disc space-y-1 text-sm text-body-charcoal">
-            <li>Customer-approved PFMEA templates</li>
-            <li>Industry-specific rating tables</li>
-            <li>Regulatory submission evidence</li>
-            <li>Product release criteria</li>
-            <li>Safety validation evidence</li>
-            <li>OEM submission artifacts</li>
-            <li>Substitutes for process owner review</li>
-            <li>Substitutes for engineering judgment</li>
-            <li>Substitutes for measurement evidence</li>
-          </ul>
+          {/* 05. Calculation Methodology */}
+          <SectionCard id="methodology" title="Calculation Methodology">
+            <div className="space-y-4 text-[var(--sc-muted)] leading-relaxed max-w-[760px] mb-8">
+              <p>The calculator applies direct multiplication of three validated integer inputs:</p>
+              <p className="font-mono font-bold text-lg text-[var(--sc-text)]">RPN = S &times; O &times; D</p>
+              <ul className="list-disc pl-5">
+                <li><strong className="text-[var(--sc-text)]">S</strong> = Severity (1-10)</li>
+                <li><strong className="text-[var(--sc-text)]">O</strong> = Occurrence (1-10)</li>
+                <li><strong className="text-[var(--sc-text)]">D</strong> = Detection (1-10)</li>
+              </ul>
+              <p>Output Range: Minimum RPN is 1. Maximum RPN is 1000.</p>
+              <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mt-8 mb-4">Method Assumptions</h3>
+              <ol className="list-decimal pl-5 space-y-2">
+                <li>Each input is an integer from 1 to 10.</li>
+                <li>All compared failure modes use the same rating definitions.</li>
+                <li>RPN is used as a relative prioritization score inside the same FMEA context.</li>
+                <li>Revised RPN is calculated only after a defined engineering, design or process action changes Occurrence or Detection evidence.</li>
+                <li>Severity should only be reduced when the actual effect of the failure has changed.</li>
+                <li>RPN values from different organizations, products, processes or rating tables are not directly comparable.</li>
+                <li>The method does not convert ordinal ratings into a physically measured risk value.</li>
+              </ol>
+            </div>
+          </SectionCard>
 
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Reproducibility Statement</h4>
-          <p className="mb-4 text-sm text-body-charcoal">All calculator examples on this page can be reproduced using the formula:</p>
-          <p className="mb-4 font-mono text-base font-semibold text-premium-velvet">RPN = Severity × Occurrence × Detection</p>
-          <p className="mb-4 text-sm text-body-charcoal">Where Severity, Occurrence and Detection are integer ratings from 1 to 10.</p>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">Revised RPN values should be interpreted as educational examples only. In formal FMEA work, revised ratings should be accepted only after corrective action implementation evidence, process-control evidence or detection-control evidence exists.</div>
-        </Section>
+          {/* 06. RPN Behavior Intelligence */}
+          <SectionCard id="behavior" title="RPN Behavior Intelligence">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <InsightStatCard title="Only 120 unique RPN values are reachable.">
+                The 1–10 S/O/D grid creates 1000 input combinations, but only 120 unique RPN values. This makes RPN a sparse and non-uniform prioritization index.
+              </InsightStatCard>
+              <InsightStatCard title="880 numbers cannot occur.">
+                Most numbers between 1 and 1000 are impossible RPN values under a traditional integer 1–10 rating system.
+              </InsightStatCard>
+              <InsightStatCard title="Same RPN does not mean same risk.">
+                A high-Severity / low-Occurrence signature can produce the same RPN as a low-Severity / high-Detection-weakness signature.
+              </InsightStatCard>
+              <InsightStatCard title="High Severity can be masked.">
+                Nearly half of S=9 or S=10 combinations can produce an RPN of 200 or lower.
+              </InsightStatCard>
+            </div>
+            
+            <div id="reachability-checker" className="mb-12">
+              <ReachabilityChecker />
+            </div>
 
-        {/* -- Final Citation Positioning Statement -- */}
-        <Section>
-          <SectionTitle>Final Citation Positioning Statement</SectionTitle>
-          <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Citation Quality Statement</h4>
-          <p className="mb-4 text-sm text-body-charcoal">This page is suitable as a citation for educational RPN calculation, RPN behavior, RPN limitation examples and downloadable PFMEA training datasets.</p>
-          <p className="mb-4 text-sm text-body-charcoal">This page is not suitable as the only citation for formal FMEA method approval, compliance, regulatory submission, safety validation, product release, customer-specific acceptance or standards conformity.</p>
-          <p className="mb-4 text-sm text-body-charcoal"><strong>Recommended citation label:</strong><br />SectorCalc. FMEA RPN Calculator: Risk Priority Number Formula, RPN Limitations and PFMEA Training Datasets. Educational engineering calculator and reference page. Accessed 2026-07-02.</p>
+            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4 mt-12">Same-RPN Equivalence Families</h3>
+            <ResponsiveDataTable
+              caption="Same-RPN Equivalence Families"
+              instructions="How to read this table: Shows how different S/O/D ratings can produce the same RPN."
+              headers={["RPN", "S", "O", "D", "Signature", "Why it matters"]}
+              rows={EQUIVALENCE_FAMILIES.map(row => ({ rpn: row.rpn, s: row.s, o: row.o, d: row.d, sig: row.signature, why: row.why }))}
+            />
 
-          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Best positioning:</h4>
-          <p className="mb-4 text-sm text-body-charcoal">Educational engineering reference + reproducible calculator + downloadable PFMEA training datasets.</p>
+            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4 mt-12">High-Severity Masking Analysis</h3>
+            <ResponsiveDataTable
+              caption="High-Severity Masking Analysis"
+              instructions="How to read this table: Shows percentage of high-severity inputs that result in surprisingly low total RPNs."
+              headers={["Severity Group", "Threshold", "Combination Count", "Share of Total S=9/10"]}
+              rows={MASKING_STATS.map(row => ({ group: row.group, t: row.threshold, c: row.count, s: row.share }))}
+            />
+          </SectionCard>
 
-          <h4 className="mb-2 mt-4 text-sm font-semibold uppercase tracking-wider text-premium-velvet">Not positioning:</h4>
-          <p className="mb-4 text-sm text-body-charcoal">Standards authority, compliance tool, regulatory method, customer approval rule, safety validation method, formal release decision system or substitute for engineering judgment.</p>
-          <div className="rounded-none border bg-industrial-matte p-3 text-xs italic text-body-charcoal">This page can help users understand how RPN behaves. It cannot decide whether a product, batch, process, machine, shipment, installation or safety-critical output is acceptable for release.</div>
-        </Section>
-{/* -- Section 28: FAQ -- */}
-        <Section id="faq">
-          <SectionTitle>Frequently Asked Questions</SectionTitle>
-          <FaqAccordion items={FAQS} />
-        </Section>
+          {/* 07. PFMEA Dataset Library */}
+          <SectionCard id="datasets" title="PFMEA Dataset Library">
+            <p className="text-[var(--sc-muted)] mb-8 max-w-[760px]">
+              The examples below show how traditional FMEA RPN scoring can be applied to industrial processes. They are training examples only. They are not universal rating templates, release criteria, regulatory acceptance rules or substitutes for approved FMEA procedures.
+            </p>
 
-        {/* -- Section 29: Embed -- */}
-        <Section>
-          <SectionTitle>Embed This Calculator</SectionTitle>
-          <p className="mb-4 sc-body-muted">You may embed this calculator in engineering education pages, internal quality resources, FMEA training pages or technical learning material.</p>
-          <p className="mb-3 text-xs italic">Recommended Attribution Text: FMEA RPN Calculator by SectorCalc</p>
-          <div className="relative border bg-industrial-matte p-3"><pre className="overflow-x-auto text-xs">{EMBED_CODE}</pre><button type="button" onClick={() => copyToClipboard(EMBED_CODE)} className="absolute right-2 top-2 text-xs font-semibold uppercase" aria-label="Copy embed code">Copy</button></div>
-        </Section>
+            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4">Dataset A: CNC Machining</h3>
+            <ResponsiveDataTable
+              caption="CNC Machining PFMEA Dataset"
+              instructions="How to read this table: Illustrative PFMEA for CNC processes."
+              headers={PFMEA_TABLE_HEADERS}
+              rows={PFMEA_CNC}
+            />
+            
+            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4">Dataset B: Assembly</h3>
+            <ResponsiveDataTable
+              caption="Assembly PFMEA Dataset"
+              instructions="How to read this table: Illustrative PFMEA for assembly processes."
+              headers={PFMEA_TABLE_HEADERS}
+              rows={PFMEA_ASSEMBLY}
+            />
 
-        {/* -- Section 30: Related Tools -- */}
-        <Section>
-          <SectionTitle>Related Engineering Calculators</SectionTitle>
-          <p className="mb-4 sc-body-muted">FMEA identifies and prioritizes failure risks. SectorCalc Pro Tools includes related engineering calculators for process capability, equipment performance, setup losses, risk analysis and manufacturing cost review.</p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/pro-tools" className="block border p-3 text-sm hover:border-premium-velvet"><span className="font-semibold">SectorCalc Pro Tools</span><span className="mt-1 block">Engineering calculator library for deeper process, production, risk and cost analysis.</span></Link>
-          </div>
-        </Section>
+            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4 mt-12">Dataset C: Maintenance</h3>
+            <ResponsiveDataTable
+              caption="Maintenance PFMEA Dataset"
+              instructions="How to read this table: Illustrative PFMEA for maintenance processes."
+              headers={PFMEA_TABLE_HEADERS}
+              rows={PFMEA_MAINTENANCE}
+            />
+
+            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4 mt-12">Dataset D: High-Consequence Industrial Process PFMEA Examples</h3>
+            <p className="text-[var(--sc-muted)] mb-4 max-w-[760px]">
+              Use these examples to understand how severe process consequences can be documented without treating total RPN as a standalone release decision.
+            </p>
+            <ResponsiveDataTable
+              caption="High-Consequence PFMEA Dataset"
+              instructions="How to read this table: Illustrative PFMEA for high consequence processes (weld, composite, quench, AM, concrete, silo)."
+              headers={PFMEA_TABLE_HEADERS}
+              rows={PFMEA_DATASET_D}
+            />
+
+            <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 shadow-sm mt-8">
+              <h3 className="text-lg font-heading heading-serif text-[var(--sc-text)] mb-2">Dataset D Interpretation</h3>
+              <div className="text-[var(--sc-muted)] text-sm space-y-3 leading-relaxed">
+                <p>Dataset D shows why the individual S/O/D signature must remain visible.</p>
+                <p>A moderate RPN can still contain a severe effect when Occurrence is low or Detection is strong. A high RPN can also represent recurring operational loss rather than a safety, regulatory or mission-critical consequence.</p>
+                <p>The engineering meaning is not contained in the RPN value alone. It is contained in the full failure chain:<br/>
+                <code className="bg-[var(--sc-surface)] border border-[var(--sc-border)] px-2 py-1 mt-2 mb-2 inline-block font-mono font-semibold">Failure mode &rarr; Effect &rarr; Cause &rarr; Current controls &rarr; S/O/D signature &rarr; Recommended action &rarr; Evidence &rarr; Revised S/O/D</code></p>
+                <p>Do not reduce Severity unless the actual failure effect has changed. Most process actions reduce Occurrence, Detection or both. Revised RPN should be accepted only when implementation evidence supports the revised rating.</p>
+              </div>
+            </div>
+          </SectionCard>
+
+          {/* 08. Citation Authority Layer */}
+          <SectionCard id="citation" title="Cite This Calculator">
+            <p className="text-[var(--sc-muted)] mb-6 max-w-[760px]">
+              This page can be cited in engineering reports when the citation target is educational RPN calculation, RPN behavior, RPN limitations, PFMEA training examples or downloadable datasets.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <CopyCitationButton label="APA" text={CITATIONS.apa} />
+                <CopyCitationButton label="MLA" text={CITATIONS.mla} />
+                <CopyCitationButton label="Chicago" text={CITATIONS.chicago} />
+              </div>
+              <div>
+                <CopyCitationButton label="BibTeX" text={CITATIONS.bibtex} />
+                <CopyCitationButton label="RIS" text={CITATIONS.ris} />
+              </div>
+            </div>
+          </SectionCard>
+
+          {/* 09. Source Integrity Layer */}
+          <SectionCard id="source-integrity" title="References and Standards Context">
+            <p className="text-[var(--sc-muted)] mb-8 max-w-[760px]">
+              The following sources provide the standards, handbook, educational, technical and academic context for FMEA, FMECA, risk assessment and RPN limitations. This page does not reproduce proprietary tables, replace original standards or define formal compliance requirements.
+            </p>
+            
+            <div className="space-y-6">
+              <SourceReferenceCard 
+                title="AIAG & VDA FMEA Handbook"
+                detail="AIAG & VDA. Failure Mode and Effects Analysis FMEA Handbook. First Edition. Automotive Industry Action Group and Verband der Automobilindustrie, June 2019. ISBN: 978-1-60534-367-9."
+                type="Industry handbook"
+                tier="Industry authority"
+                accessed="2026-07-02"
+                matters="Provides modern automotive FMEA context for Design FMEA, Process FMEA and Supplemental FMEA for Monitoring and System Response."
+                usage="Industry context only."
+                limit="Proprietary rating tables, Action Priority tables and handbook content are not reproduced."
+              />
+              <SourceReferenceCard 
+                title="IEC 60812:2018"
+                detail="International Electrotechnical Commission. IEC 60812:2018 — Failure Modes and Effects Analysis: FMEA and FMECA. Edition 3.0. Published 2018-08-10."
+                type="International standard"
+                tier="Standards body"
+                accessed="2026-07-02"
+                matters="Provides methodology context for planning, performing, documenting and maintaining FMEA and FMECA."
+                usage="Standards context only."
+                limit="Users must consult the official IEC standard for formal work."
+              />
+              <SourceReferenceCard 
+                title="ISO 12100:2010"
+                detail="International Organization for Standardization. ISO 12100:2010 — Safety of Machinery — General Principles for Design — Risk Assessment and Risk Reduction. Edition 1. Published 2010-11. Reviewed and confirmed in 2022."
+                type="International standard"
+                tier="Standards body"
+                accessed="2026-07-02"
+                matters="Provides machinery risk assessment and risk reduction context."
+                usage="Risk-assessment context only."
+                limit="This calculator does not replace ISO 12100 risk assessment or risk reduction requirements."
+              />
+              <SourceReferenceCard 
+                title="ASQ FMEA Educational Resources"
+                detail="American Society for Quality. Failure Mode and Effects Analysis resources."
+                type="Educational quality resource"
+                tier="Professional association"
+                accessed="2026-07-02"
+                matters="Provides general FMEA education, terminology and preventive quality context."
+                usage="Educational context for readers learning FMEA fundamentals."
+                limit="Not a replacement for standards, handbooks, customer-specific requirements or internal procedures."
+              />
+              <SourceReferenceCard 
+                title="Wheeler, Donald J."
+                detail="Wheeler, D. J. Problems with Risk Priority Numbers: Avoiding More Numerical Jabberwocky. Quality Digest / SPC Press, July 2011."
+                type="Technical critique"
+                tier="Technical critique"
+                accessed="2026-07-02"
+                matters="Explains mathematical and interpretive weaknesses of using RPN values as simple ranking numbers."
+                usage="RPN limitation context."
+                limit="Used to support the caution against total-RPN-only decision rules."
+              />
+              <SourceReferenceCard 
+                title="Shebl, Franklin and Barber"
+                detail="Shebl, N. A., Franklin, B. D., & Barber, N. Failure Mode and Effects Analysis Outputs: Are They Valid? BMC Health Services Research, 12, Article 150, 2012. DOI: 10.1186/1472-6963-12-150."
+                type="Peer-reviewed article"
+                tier="Peer-reviewed"
+                accessed="2026-07-02"
+                matters="Examines the validity of FMEA outputs and highlights limitations in FMEA team outputs."
+                usage="Academic critique context."
+                limit="Used to support cautious interpretation of FMEA outputs, not to define manufacturing-specific rating criteria."
+              />
+            </div>
+          </SectionCard>
+
+          {/* 10. FAQ */}
+          <SectionCard id="faq" title="Frequently Asked Questions">
+            <AccessibleAccordion items={FAQS} />
+          </SectionCard>
+
+          {/* 12. Related Engineering Calculators */}
+          <SectionCard id="related" title="Related Engineering Calculators">
+            <p className="text-[var(--sc-muted)] mb-4 max-w-[760px]">
+              FMEA identifies and prioritizes failure modes. For operational decisions where the next action is costly, difficult or impossible to reverse, use a decision-specific engineering calculator.
+            </p>
+            <p className="text-[var(--sc-muted)] mb-4 font-semibold max-w-[760px]">
+              Traditional RPN helps answer: Which failure modes should be reviewed first inside this FMEA worksheet?
+            </p>
+            <p className="text-[var(--sc-muted)] mb-8 font-semibold max-w-[760px]">
+              Advanced decision calculators help answer: Should we release, rework, scrap, ship, defer, replace, lock the process or commit capacity now?
+            </p>
+            <ResponsiveDataTable 
+              caption="Related decision calculators"
+              instructions="How to read this table: Matches FMEA decision areas to more specific engineering calculators."
+              headers={["Decision Area", "Example Decision", "Related Calculator Direction"]}
+              rows={[
+                { area: "Weld fabrication", decision: "Approve PWHT / rework / hold", calc: "PWHT adequacy margin" },
+                { area: "Composite manufacturing", decision: "Release cured part / hold / scrap", calc: "Cure degree and Tg margin" },
+                { area: "Heat treatment", decision: "Release batch / reprocess / scrap", calc: "Quench hardness and microstructure risk" },
+                { area: "Additive manufacturing", decision: "Reuse / downgrade / scrap powder", calc: "Metal AM powder reuse risk" },
+                { area: "Concrete construction", decision: "Strip formwork / wait / load", calc: "Concrete maturity and strength margin" },
+                { area: "Grain storage", decision: "Aerate / unload / wait", calc: "Silo self-heating and ignition risk" },
+                { area: "LNG storage", decision: "Vent / hold / ship", calc: "Boil-off and tank pressure margin" },
+                { area: "Battery manufacturing", decision: "Ramp capacity / hold / investigate", calc: "Formation yield and scrap ramp" },
+              ]}
+            />
+          </SectionCard>
+          
+        </div>
       </main>
     </PageLayout>
   );
