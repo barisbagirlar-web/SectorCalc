@@ -2,7 +2,7 @@
   "toolName": "spring-force-hookes-law-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "N/m",
       "default": 500,
       "min": 0,
-      "businessContext": "Yayın rijitliği.",
+      "businessContext": "YayKatsayisi",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
-        "tr": "Yayın rijitliği.",
+        "tr": "Yayin rijitligi.",
         "de": "Federsteifigkeit.",
         "fr": "Raideur du ressort.",
         "es": "Rigidez del resorte.",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Yayın sıkışma/gerilme miktarı.",
+      "businessContext": "Deplasman",
       "businessContext_i18n": {
         "en": "Spring compression/extension.",
-        "tr": "Yayın sıkışma/gerilme miktarı.",
+        "tr": "Yayin sikisma/gerilme Amounti.",
         "de": "Federkompression/-extension.",
         "fr": "Compression/extension du ressort.",
         "es": "Compresión/extensión del resorte.",
@@ -99,7 +99,7 @@
       "long": "Calculate spring force using Hooke's law (F=kx).",
       "short_i18n": {
         "en": "Calculate spring force using Hooke's law (F=kx).",
-        "tr": "Yayda depolanan elastik potansiyel kuvveti Hooke yasası ile hesaplar.",
+        "tr": "Yayda depolanan elastik potansiyel Forcei Hooke yasasi ile hesaplar.",
         "de": "Berechnen Sie die Federkraft mit dem Hookeschen Gesetz (F=kx).",
         "fr": "Calculer la force du ressort en utilisant la loi de Hooke (F=kx).",
         "es": "Calcular la fuerza del resorte usando la ley de Hooke (F=kx).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate spring force using Hooke's law (F=kx).",
-        "tr": "Yayda depolanan elastik potansiyel kuvveti Hooke yasası ile hesaplar.",
+        "tr": "Yayda depolanan elastik potansiyel Forcei Hooke yasasi ile hesaplar.",
         "de": "Berechnen Sie die Federkraft mit dem Hookeschen Gesetz (F=kx).",
         "fr": "Calculer la force du ressort en utilisant la loi de Hooke (F=kx).",
         "es": "Calcular la fuerza del resorte usando la ley de Hooke (F=kx).",
@@ -117,7 +117,7 @@
   },
   "title_i18n": {
     "en": "spring-force-hookes-law-calculator",
-    "de": "Rechner für Federkraft und Auslenkung",
+    "de": "Rechner fur Federkraft und Auslenkung",
     "fr": "Calculateur de force et déplacement de ressort",
     "es": "Calculadora de fuerza y desplazamiento de resorte",
     "ar": "حاسبة قوة الزنبرك والإزاحة"

@@ -2,7 +2,7 @@
   "toolName": "mohrs-circle-principal-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "Pa",
       "default": 100000000,
       "min": 0,
-      "businessContext": "X yönündeki normal gerilme.",
+      "businessContext": "SigmaX",
       "businessContext_i18n": {
         "en": "Normal stress in x direction.",
-        "tr": "X yönündeki normal gerilme.",
+        "tr": "X yonundeki Normal Stress.",
         "de": "Normalspannung in x-Richtung.",
         "fr": "Contrainte normale dans la direction x.",
         "es": "Esfuerzo normal en dirección x.",
@@ -45,10 +45,10 @@
       "unit": "Pa",
       "default": 50000000,
       "min": 0,
-      "businessContext": "Y yönündeki normal gerilme.",
+      "businessContext": "SigmaY",
       "businessContext_i18n": {
         "en": "Normal stress in y direction.",
-        "tr": "Y yönündeki normal gerilme.",
+        "tr": "Y yonundeki Normal Stress.",
         "de": "Normalspannung in y-Richtung.",
         "fr": "Contrainte normale dans la direction y.",
         "es": "Esfuerzo normal en dirección y.",
@@ -70,10 +70,10 @@
       "unit": "Pa",
       "default": 30000000,
       "min": 0,
-      "businessContext": "Düzlemdeki kayma gerilmesi.",
+      "businessContext": "TauXY",
       "businessContext_i18n": {
         "en": "Shear stress in xy plane.",
-        "tr": "Düzlemdeki kayma gerilmesi.",
+        "tr": "Duzlemdeki Shear Stress.",
         "de": "Schubspannung in der xy-Ebene.",
         "fr": "Contrainte de cisaillement dans le plan xy.",
         "es": "Esfuerzo cortante en el plano xy.",
@@ -95,21 +95,21 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "merkez": "Çember Merkezi",
-      "sonuc": "Çember Yarıçapı"
+      "merkez": "Cember Merkezi",
+      "sonuc": "Cember Radiusi"
     },
     "breakdown_i18n": {
       "merkez": {
-        "en": "Çember Merkezi",
-        "tr": "Çember Merkezi",
+        "en": "Cember Merkezi",
+        "tr": "Cember Merkezi",
         "de": "Kreismittelpunkt",
         "fr": "Centre du cercle",
         "es": "Centro del Círculo",
         "ar": "مركز الدائرة"
       },
       "sonuc": {
-        "en": "Çember Yarıçapı",
-        "tr": "Çember Yarıçapı",
+        "en": "Cember Radiusi",
+        "tr": "Cember Radiusi",
         "de": "Kreisradius",
         "fr": "Rayon du cercle",
         "es": "Radio del Círculo",
@@ -135,16 +135,16 @@
       "long": "Calculate Mohr's circle parameters for principal stresses.",
       "short_i18n": {
         "en": "Calculate Mohr's circle parameters for principal stresses.",
-        "tr": "Asal gerilmeler ve maksimum kayma gerilmesi için Mohr çemberi parametrelerini hesaplar.",
-        "de": "Berechnen Sie die Parameter des Mohrschen Kreises für Hauptspannungen.",
+        "tr": "Principal Stressler ve Maximum Shear Stress icin Mohr cemberi Parameterlerini hesaplar.",
+        "de": "Berechnen Sie die Parameter des Mohrschen Kreises fur Hauptspannungen.",
         "fr": "Calculer les paramètres du cercle de Mohr pour les contraintes principales.",
         "es": "Calcular los parámetros del círculo de Mohr para esfuerzos principales.",
         "ar": "حساب معلمات دائرة مور للإجهادات الرئيسية."
       },
       "long_i18n": {
         "en": "Calculate Mohr's circle parameters for principal stresses.",
-        "tr": "Asal gerilmeler ve maksimum kayma gerilmesi için Mohr çemberi parametrelerini hesaplar.",
-        "de": "Berechnen Sie die Parameter des Mohrschen Kreises für Hauptspannungen.",
+        "tr": "Principal Stressler ve Maximum Shear Stress icin Mohr cemberi Parameterlerini hesaplar.",
+        "de": "Berechnen Sie die Parameter des Mohrschen Kreises fur Hauptspannungen.",
         "fr": "Calculer les paramètres du cercle de Mohr pour les contraintes principales.",
         "es": "Calcular los parámetros del círculo de Mohr para esfuerzos principales.",
         "ar": "حساب معلمات دائرة مور للإجهادات الرئيسية."

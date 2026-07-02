@@ -2,7 +2,7 @@
   "toolName": "machine-depreciation-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Makinenin satın alma bedeli.",
+      "businessContext": "Bedel",
       "businessContext_i18n": {
         "en": "Machine purchase cost.",
-        "tr": "Makinenin satın alma bedeli.",
+        "tr": "Makinenin satin alma bedeli.",
         "de": "Anschaffungskosten der Maschine.",
         "fr": "Coût d'achat de la machine.",
         "es": "Costo de compra de la máquina.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "kalinti",
-      "label": "Kalıntı Değer (TL)",
+      "label": "Kalinti",
       "label_i18n": {
         "en": "Salvage Value (USD)",
-        "tr": "Kalıntı Değer (TL)",
+        "tr": "Kalinti Value (TL)",
         "de": "Restwert am Ende der Nutzungsdauer",
         "fr": "Valeur de récupération en fin de vie",
         "es": "Valor residual al final de la vida útil",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Makinenin ömür sonu değeri.",
+      "businessContext": "Kalinti",
       "businessContext_i18n": {
         "en": "End-of-life value.",
-        "tr": "Makinenin ömür sonu değeri.",
+        "tr": "Makinenin omur sonu Valuei.",
         "de": "Restwert am Ende der Nutzungsdauer.",
         "fr": "Valeur en fin de vie.",
         "es": "Valor al final de la vida útil.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "uretimKapasite",
-      "label": "Toplam Üretim Kapasitesi",
+      "label": "Total Production Kapasitesi",
       "label_i18n": {
         "en": "Total Production Capacity",
-        "tr": "Toplam Üretim Kapasitesi",
+        "tr": "Total Production Capacity",
         "de": "Gesamtproduktionskapazität",
         "fr": "Capacité de production totale",
         "es": "Capacidad total de producción",
@@ -70,11 +70,11 @@
       "unit": "units",
       "default": 1000000,
       "min": 1,
-      "businessContext": "Makinenin ömrü boyunca üreteceği toplam ürün.",
+      "businessContext": "UretimKapasite",
       "businessContext_i18n": {
         "en": "Total units over machine life.",
-        "tr": "Makinenin ömrü boyunca üreteceği toplam ürün.",
-        "de": "Gesamteinheiten über die Maschinenlebensdauer.",
+        "tr": "Makinenin omru Heightunca uretecegi Total urun.",
+        "de": "Gesamteinheiten uber die Maschinenlebensdauer.",
         "fr": "Nombre total d'unités sur la durée de vie de la machine.",
         "es": "Unidades totales durante la vida útil de la máquina.",
         "ar": "إجمالي الوحدات على مدى عمر الماكينة."
@@ -124,7 +124,7 @@
       "long": "Calculate depreciation cost per unit based on production capacity.",
       "short_i18n": {
         "en": "Calculate depreciation cost per unit based on production capacity.",
-        "tr": "Üretilen her bir ürüne yüklenen yıpranma payını (birim amortisman) hesaplar.",
+        "tr": "Uretilen her bir urune yuklenen yipranma payini (Unit Depreciation) hesaplar.",
         "de": "Berechnen Sie die Abschreibungskosten pro Einheit basierend auf der Produktionskapazität.",
         "fr": "Calculer le coût d'amortissement par unité en fonction de la capacité de production.",
         "es": "Calcular el costo de depreciación por unidad basado en la capacidad de producción.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate depreciation cost per unit based on production capacity.",
-        "tr": "Üretilen her bir ürüne yüklenen yıpranma payını (birim amortisman) hesaplar.",
+        "tr": "Uretilen her bir urune yuklenen yipranma payini (Unit Depreciation) hesaplar.",
         "de": "Berechnen Sie die Abschreibungskosten pro Einheit basierend auf der Produktionskapazität.",
         "fr": "Calculer le coût d'amortissement par unité en fonction de la capacité de production.",
         "es": "Calcular el costo de depreciación por unidad basado en la capacidad de producción.",

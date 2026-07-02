@@ -2,15 +2,15 @@
   "toolName": "quantum-tunneling-probability-calculator",
   "catalogCategory": "math-statistics",
   "categorySlug": "other",
-  "sector": "İleri Fizik ve Kuantum",
+  "sector": "Ileri Fizik ve Kuantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "engelGenisligi",
-      "label": "Engel Genişliği (m)",
+      "label": "EngelGenisligi",
       "label_i18n": {
         "en": "Barrier Width (m)",
-        "tr": "Engel Genişliği (m)",
+        "tr": "Engel Width (m)",
         "de": "Barrierenbreite (m)",
         "fr": "Largeur de la barrière (m)",
         "es": "Ancho de la Barrera (m)",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 1e-10,
       "min": 0,
-      "businessContext": "Potansiyel engelin kalınlığı.",
+      "businessContext": "EngelGenisligi",
       "businessContext_i18n": {
         "en": "Potential barrier thickness.",
-        "tr": "Potansiyel engelin kalınlığı.",
+        "tr": "Potansiyel engelin kalinligi.",
         "de": "Dicke der Potentialbarriere.",
         "fr": "Épaisseur de la barrière de potentiel.",
         "es": "Espesor de la barrera de potencial.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "engelYuksekligi",
-      "label": "Engel Yüksekliği (J)",
+      "label": "EngelYuksekligi",
       "label_i18n": {
         "en": "Barrier Height (J)",
-        "tr": "Engel Yüksekliği (J)",
-        "de": "Barrierenhöhe (J)",
+        "tr": "Engel Height (J)",
+        "de": "Barrierenhohe (J)",
         "fr": "Hauteur de la barrière (J)",
         "es": "Altura de la Barrera (J)",
         "ar": "ارتفاع الحاجز (J)"
@@ -45,11 +45,11 @@
       "unit": "J",
       "default": 1.6e-19,
       "min": 0,
-      "businessContext": "Potansiyel engelin yüksekliği.",
+      "businessContext": "EngelYuksekligi",
       "businessContext_i18n": {
         "en": "Potential barrier height.",
-        "tr": "Potansiyel engelin yüksekliği.",
-        "de": "Höhe der Potentialbarriere.",
+        "tr": "Potansiyel engelin yuksekligi.",
+        "de": "Hohe der Potentialbarriere.",
         "fr": "Hauteur de la barrière de potentiel.",
         "es": "Altura de la barrera de potencial.",
         "ar": "ارتفاع حاجز الجهد."
@@ -57,10 +57,10 @@
     },
     {
       "id": "enerji",
-      "label": "Parçacık Enerjisi (J)",
+      "label": "Enerji",
       "label_i18n": {
         "en": "Particle Energy (J)",
-        "tr": "Parçacık Enerjisi (J)",
+        "tr": "Parcacik Energysi (J)",
         "de": "Teilchenenergie (J)",
         "fr": "Énergie de la particule (J)",
         "es": "Energía de la Partícula (J)",
@@ -70,10 +70,10 @@
       "unit": "J",
       "default": 8e-20,
       "min": 0,
-      "businessContext": "Gelen parçacığın kinetik enerjisi.",
+      "businessContext": "Enerji",
       "businessContext_i18n": {
         "en": "Incident particle kinetic energy.",
-        "tr": "Gelen parçacığın kinetik enerjisi.",
+        "tr": "Gelen parcacigin kiNetik Energysi.",
         "de": "Kinetische Energie des einfallenden Teilchens.",
         "fr": "Énergie cinétique de la particule incidente.",
         "es": "Energía cinética de la partícula incidente.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "kutle",
-      "label": "Parçacık Kütlesi (kg)",
+      "label": "Kutle",
       "label_i18n": {
         "en": "Particle Mass (kg)",
-        "tr": "Parçacık Kütlesi (kg)",
+        "tr": "Parcacik Masssi (kg)",
         "de": "Partikelmasse (kg)",
         "fr": "Masse de la particule (kg)",
         "es": "Masa de la Partícula (kg)",
@@ -95,10 +95,10 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Parçacığın kütlesi.",
+      "businessContext": "Kutle",
       "businessContext_i18n": {
         "en": "Particle mass.",
-        "tr": "Parçacığın kütlesi.",
+        "tr": "Parcacigin Masssi.",
         "de": "Partikelmasse.",
         "fr": "Masse de la particule.",
         "es": "Masa de la partícula.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Tünelleme Olasılığı"
+      "sonuc": "Tunelleme Olasiligi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tünelleme Olasılığı",
-        "tr": "Tünelleme Olasılığı",
+        "en": "Tunelleme Olasiligi",
+        "tr": "Tunelleme Olasiligi",
         "de": "Tunnelwahrscheinlichkeit",
         "fr": "Probabilité de tunneling",
         "es": "Probabilidad de Tunelización",
@@ -150,7 +150,7 @@
       "long": "Calculate quantum tunneling probability through a potential barrier.",
       "short_i18n": {
         "en": "Calculate quantum tunneling probability through a potential barrier.",
-        "tr": "Parçacığın klasik fizikte aşamayacağı engeli geçme olasılığını (kuantum tünelleme) hesaplar.",
+        "tr": "Parcacigin klasik fizikte asamayacagi engeli gecme olasiligini (kuantum tunelleme) hesaplar.",
         "de": "Berechnen Sie die Wahrscheinlichkeit des Quantentunnelns durch eine Potentialbarriere.",
         "fr": "Calculer la probabilité de tunneling quantique à travers une barrière de potentiel.",
         "es": "Calcular la probabilidad de tunelización cuántica a través de una barrera de potencial.",
@@ -158,7 +158,7 @@
       },
       "long_i18n": {
         "en": "Calculate quantum tunneling probability through a potential barrier.",
-        "tr": "Parçacığın klasik fizikte aşamayacağı engeli geçme olasılığını (kuantum tünelleme) hesaplar.",
+        "tr": "Parcacigin klasik fizikte asamayacagi engeli gecme olasiligini (kuantum tunelleme) hesaplar.",
         "de": "Berechnen Sie die Wahrscheinlichkeit des Quantentunnelns durch eine Potentialbarriere.",
         "fr": "Calculer la probabilité de tunneling quantique à travers une barrière de potentiel.",
         "es": "Calcular la probabilidad de tunelización cuántica a través de una barrera de potencial.",

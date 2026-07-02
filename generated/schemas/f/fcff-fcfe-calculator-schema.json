@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Dönem net kârı.",
+      "businessContext": "NetKar",
       "businessContext_i18n": {
         "en": "Net profit for the period.",
-        "tr": "Dönem net kârı.",
+        "tr": "Donem Net Profiti.",
         "de": "Perioden-Nettogewinn.",
         "fr": "Bénéfice net de la période.",
         "es": "Beneficio neto del período.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Dönem amortisman gideri.",
+      "businessContext": "Amortisman",
       "businessContext_i18n": {
         "en": "Period depreciation expense.",
-        "tr": "Dönem amortisman gideri.",
+        "tr": "Donem Amortization Expense.",
         "de": "Periodische Abschreibungen.",
         "fr": "Charge de dépréciation de la période.",
         "es": "Gasto por depreciación del período.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "isletmeSermayesi",
-      "label": "İşletme Sermayesi Değişimi (₺)",
+      "label": "IsletmeSermayesi",
       "label_i18n": {
         "en": "Working Capital Change (USD)",
-        "tr": "İşletme Sermayesi Değişimi (₺)",
+        "tr": "Workletme Sermayesi Degisimi (₺)",
         "de": "Veränderung des Betriebskapitals (USD)",
         "fr": "Variation du fonds de roulement (USD)",
         "es": "Cambio en el Capital de Trabajo (USD)",
@@ -70,11 +70,11 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Net işletme sermayesindeki artış.",
+      "businessContext": "IsletmeSermayesi",
       "businessContext_i18n": {
         "en": "Increase in net working capital.",
-        "tr": "Net işletme sermayesindeki artış.",
-        "de": "Erhöhung des Nettoumlaufvermögens.",
+        "tr": "Net isletme sermayesindeki artis.",
+        "de": "Erhohung des NettoUmlaufvermogens.",
         "fr": "Augmentation du besoin en fonds de roulement.",
         "es": "Aumento en el capital de trabajo neto.",
         "ar": "الزيادة في صافي رأس المال العامل."
@@ -82,10 +82,10 @@
     },
     {
       "id": "capex",
-      "label": "Sermaye Harcaması (₺)",
+      "label": "Capex",
       "label_i18n": {
         "en": "CapEx (USD)",
-        "tr": "Sermaye Harcaması (₺)",
+        "tr": "Sermaye Harcamasi (₺)",
         "de": "Anfangsinvestition (CAPEX)",
         "fr": "Investissement initial (CAPEX)",
         "es": "Inversión inicial (CAPEX)",
@@ -95,11 +95,11 @@
       "unit": "USD",
       "default": 40000,
       "min": 0,
-      "businessContext": "Duran varlık yatırımları.",
+      "businessContext": "Capex",
       "businessContext_i18n": {
         "en": "Capital expenditures on fixed assets.",
-        "tr": "Duran varlık yatırımları.",
-        "de": "Investitionsausgaben für Anlagevermögen.",
+        "tr": "Duran varlik yatirimlari.",
+        "de": "Investitionsausgaben fur Anlagevermogen.",
         "fr": "Dépenses d'investissement en immobilisations.",
         "es": "Gastos de capital en activos fijos.",
         "ar": "النفقات الرأسمالية على الأصول الثابتة."
@@ -107,10 +107,10 @@
     },
     {
       "id": "borc",
-      "label": "Net Borç Değişimi (₺)",
+      "label": "Borc",
       "label_i18n": {
         "en": "Net Debt Change (USD)",
-        "tr": "Net Borç Değişimi (₺)",
+        "tr": "Net Borc Degisimi (₺)",
         "de": "Veränderung der Nettoverschuldung (USD)",
         "fr": "Variation de la dette nette (USD)",
         "es": "Cambio Neto en Deuda (USD)",
@@ -120,11 +120,11 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Yeni borç - anapara ödemesi.",
+      "businessContext": "Borc",
       "businessContext_i18n": {
         "en": "New debt issuance minus principal payments.",
-        "tr": "Yeni borç - anapara ödemesi.",
-        "de": "Neue Schuldenemission abzüglich Tilgungszahlungen.",
+        "tr": "Yeni borc - Principal odemesi.",
+        "de": "Neue Schuldenemission abzuglich Tilgungszahlungen.",
         "fr": "Nouvelles émissions de dette moins remboursements de principal.",
         "es": "Nueva emisión de deuda menos pagos de principal.",
         "ar": "إصدار دين جديد مطروحًا منه مدفوعات أصل الدين."
@@ -185,7 +185,7 @@
       "long": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
       "short_i18n": {
         "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-        "tr": "Firma ve hissedar serbest nakit akışlarını (FCFF/FCFE) hesaplar.",
+        "tr": "Firma ve hissedar serbest nakit akislarini (FCFF/FCFE) hesaplar.",
         "de": "Berechnen Sie den Free Cash Flow to Firm (FCFF) und to Equity (FCFE).",
         "fr": "Calculer le flux de trésorerie disponible pour l'entreprise (FCFF) et pour les actionnaires (FCFE).",
         "es": "Calcular el flujo de caja libre para la empresa (FCFF) y para el patrimonio (FCFE).",
@@ -193,7 +193,7 @@
       },
       "long_i18n": {
         "en": "Calculate free cash flow to firm (FCFF) and to equity (FCFE).",
-        "tr": "Firma ve hissedar serbest nakit akışlarını (FCFF/FCFE) hesaplar.",
+        "tr": "Firma ve hissedar serbest nakit akislarini (FCFF/FCFE) hesaplar.",
         "de": "Berechnen Sie den Free Cash Flow to Firm (FCFF) und to Equity (FCFE).",
         "fr": "Calculer le flux de trésorerie disponible pour l'entreprise (FCFF) et pour les actionnaires (FCFE).",
         "es": "Calcular el flujo de caja libre para la empresa (FCFF) y para el patrimonio (FCFE).",

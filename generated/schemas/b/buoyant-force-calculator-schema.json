@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "yogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "Yogunluk",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
-        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "tr": "Fluid Dmostsity (kg/m³)",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
@@ -20,10 +20,10 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext": "Yogunluk",
       "businessContext_i18n": {
         "en": "Fluid density.",
-        "tr": "Akışkanın yoğunluğu.",
+        "tr": "Akiskanin yogunlugu.",
         "de": "Fluiddichte.",
         "fr": "Masse volumique du fluide.",
         "es": "Densidad del fluido.",
@@ -45,11 +45,11 @@
       "unit": "m3",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Cismin batan kısmının hacmi.",
+      "businessContext": "Hacim",
       "businessContext_i18n": {
         "en": "Volume of displaced fluid.",
-        "tr": "Cismin batan kısmının hacmi.",
-        "de": "Volumen der verdrängten Flüssigkeit.",
+        "tr": "Cismin batan kisminin hacmi.",
+        "de": "Volumen der verdrängten Flussigkeit.",
         "fr": "Volume de fluide déplacé.",
         "es": "Volumen de fluido desplazado.",
         "ar": "حجم المائع المزاح."
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
-      "sonuc": "Kaldırma Kuvveti"
+      "sonuc": "Kaldirma Forcei"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Kaldırma Kuvveti",
-        "tr": "Kaldırma Kuvveti",
+        "en": "Kaldirma Forcei",
+        "tr": "Kaldirma Forcei",
         "de": "Auftriebskraft",
         "fr": "Force de levage",
         "es": "Fuerza de Elevación",
@@ -99,16 +99,16 @@
       "long": "Calculate buoyant force on an object submerged in a fluid.",
       "short_i18n": {
         "en": "Calculate buoyant force on an object submerged in a fluid.",
-        "tr": "Akışkanın cisme uyguladığı yukarı yönlü kaldırma kuvvetini hesaplar.",
-        "de": "Berechnen Sie die Auftriebskraft auf einen in einer Flüssigkeit eingetauchten Gegenstand.",
+        "tr": "Akiskanin cisme uyguladigi yukari yonlu Kaldirma Forceini hesaplar.",
+        "de": "Berechnen Sie die Auftriebskraft auf einen in einer Flussigkeit eingetauchten Gegenstand.",
         "fr": "Calculer la force de poussée sur un objet immergé dans un fluide.",
         "es": "Calcular la fuerza de flotación sobre un objeto sumergido en un fluido.",
         "ar": "حساب قوة الطفو على جسم مغمور في مائع."
       },
       "long_i18n": {
         "en": "Calculate buoyant force on an object submerged in a fluid.",
-        "tr": "Akışkanın cisme uyguladığı yukarı yönlü kaldırma kuvvetini hesaplar.",
-        "de": "Berechnen Sie die Auftriebskraft auf einen in einer Flüssigkeit eingetauchten Gegenstand.",
+        "tr": "Akiskanin cisme uyguladigi yukari yonlu Kaldirma Forceini hesaplar.",
+        "de": "Berechnen Sie die Auftriebskraft auf einen in einer Flussigkeit eingetauchten Gegenstand.",
         "fr": "Calculer la force de poussée sur un objet immergé dans un fluide.",
         "es": "Calcular la fuerza de flotación sobre un objeto sumergido en un fluido.",
         "ar": "حساب قوة الطفو على جسم مغمور في مائع."

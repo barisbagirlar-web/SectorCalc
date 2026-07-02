@@ -2,7 +2,7 @@
   "toolName": "maximum-torsional-shear-stress-circular-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -32,10 +32,10 @@
     },
     {
       "id": "yariCap",
-      "label": "Kesit Yarıçapı (m)",
+      "label": "YariCap",
       "label_i18n": {
         "en": "Section Radius (m)",
-        "tr": "Kesit Yarıçapı (m)",
+        "tr": "Kesit Radiusi (m)",
         "de": "Querschnittsradius (m)",
         "fr": "Rayon de la section (m)",
         "es": "Radio de la sección (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.025,
       "min": 0,
-      "businessContext": "Milin dış yarıçapı.",
+      "businessContext": "YariCap",
       "businessContext_i18n": {
         "en": "Shaft outer radius.",
-        "tr": "Milin dış yarıçapı.",
+        "tr": "Milin dis Radiusi.",
         "de": "Außenradius der Welle.",
         "fr": "Rayon extérieur de l'arbre.",
         "es": "Radio exterior del eje.",
@@ -125,7 +125,7 @@
       "short_i18n": {
         "en": "Calculate maximum torsional shear stress in a circular section.",
         "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
-        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisförmigen Querschnitt.",
+        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisformigen Querschnitt.",
         "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
         "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
         "ar": "احسب أقصى إجهاد قص الالتوائي في مقطع دائري."
@@ -133,7 +133,7 @@
       "long_i18n": {
         "en": "Calculate maximum torsional shear stress in a circular section.",
         "tr": "Dairesel kesitteki maksimum burulma (torsiyonel) kayma gerilmesini hesaplar.",
-        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisförmigen Querschnitt.",
+        "de": "Berechnen Sie die maximale Torsionsschubspannung in einem kreisformigen Querschnitt.",
         "fr": "Calculer la contrainte de cisaillement de torsion maximale dans une section circulaire.",
         "es": "Calcular el esfuerzo cortante torsional máximo en una sección circular.",
         "ar": "احسب أقصى إجهاد قص الالتوائي في مقطع دائري."

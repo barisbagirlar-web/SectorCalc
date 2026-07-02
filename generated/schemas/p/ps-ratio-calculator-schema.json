@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "piyasaDegeri",
-      "label": "Piyasa Değeri (₺)",
+      "label": "Piyasa Valuei (₺)",
       "label_i18n": {
         "en": "Market Cap (USD)",
-        "tr": "Piyasa Değeri (₺)",
+        "tr": "Piyasa Value (TRY)",
         "de": "Marktkapitalisierung (USD)",
         "fr": "Capitalisation boursière (USD)",
         "es": "Capitalización de mercado (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Şirketin toplam piyasa değeri.",
+      "businessContext": "PiyasaDegeri",
       "businessContext_i18n": {
         "en": "Market capitalization.",
-        "tr": "Şirketin toplam piyasa değeri.",
+        "tr": "Sirketin Total piyasa Valuei.",
         "de": "Marktkapitalisierung.",
         "fr": "Capitalisation boursière.",
         "es": "Capitalización de mercado.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "toplamSatislar",
-      "label": "Toplam Satışlar (₺)",
+      "label": "ToplamSatislar",
       "label_i18n": {
         "en": "Total Revenue (USD)",
-        "tr": "Toplam Satışlar (₺)",
+        "tr": "Total Satislar (₺)",
         "de": "Gesamtumsatz",
         "fr": "Revenu total",
         "es": "Ingresos totales",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 4000000,
       "min": 0,
-      "businessContext": "Şirketin yıllık toplam satış geliri.",
+      "businessContext": "ToplamSatislar",
       "businessContext_i18n": {
         "en": "Annual total revenue.",
-        "tr": "Şirketin yıllık toplam satış geliri.",
+        "tr": "Sirketin yillik Total Revenue.",
         "de": "Jährlicher Gesamtumsatz.",
         "fr": "Revenu total annuel.",
         "es": "Ingresos totales anuales.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "F/S (P/S) Oranı"
+      "sonuc": "F/S (P/S) Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "F/S (P/S) Oranı",
-        "tr": "F/S (P/S) Oranı",
+        "en": "F/S (P/S) Ratio",
+        "tr": "F/S (P/S) Ratio",
         "de": "KUV (P/S) Verhältnis",
         "fr": "Ratio F/S (P/S)",
         "es": "Relación P/S (Precio/Ventas)",
@@ -99,7 +99,7 @@
       "long": "Calculate the price-to-sales (P/S) ratio.",
       "short_i18n": {
         "en": "Calculate the price-to-sales (P/S) ratio.",
-        "tr": "1 birimlik satış için ödenen piyasa bedelini (F/S) hesaplar.",
+        "tr": "1 Unitlik satis icin odenen piyasa bedelini (F/S) hesaplar.",
         "de": "Berechnen Sie das Kurs-Umsatz-Verhältnis (P/S).",
         "fr": "Calculer le ratio cours/ventes (P/S).",
         "es": "Calcular la relación precio-ventas (P/S).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate the price-to-sales (P/S) ratio.",
-        "tr": "1 birimlik satış için ödenen piyasa bedelini (F/S) hesaplar.",
+        "tr": "1 Unitlik satis icin odenen piyasa bedelini (F/S) hesaplar.",
         "de": "Berechnen Sie das Kurs-Umsatz-Verhältnis (P/S).",
         "fr": "Calculer le ratio cours/ventes (P/S).",
         "es": "Calcular la relación precio-ventas (P/S).",

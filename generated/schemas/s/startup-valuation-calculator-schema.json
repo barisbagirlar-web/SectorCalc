@@ -2,15 +2,15 @@
   "toolName": "startup-valuation-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Yatırım Tutarı (TL)",
+      "label": "Investment Amount (TL)",
       "label_i18n": {
         "en": "Investment Amount (USD)",
-        "tr": "Yatırım Tutarı (TL)",
+        "tr": "Investment Amount (TL)",
         "de": "Investitionsbetrag ($)",
         "fr": "Montant de l'investissement ($)",
         "es": "Monto de inversión ($)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Yatırımcının koyduğu tutar.",
+      "businessContext": "Yatirim",
       "businessContext_i18n": {
         "en": "Investor capital contribution.",
-        "tr": "Yatırımcının koyduğu tutar.",
+        "tr": "Yatirimcinin koydugu tutar.",
         "de": "Investorenkapitalbeitrag.",
         "fr": "Apport en capital de l'investisseur.",
         "es": "Aporte de capital del inversor.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "hisseOrani",
-      "label": "Verilen Hisse Oranı (%)",
+      "label": "HisseOrani",
       "label_i18n": {
         "en": "Equity Given (%)",
-        "tr": "Verilen Hisse Oranı (%)",
+        "tr": "Verwithn Hisse Ratio (%)",
         "de": "Eigenkapital gegeben (%)",
         "fr": "Pourcentage d'équité donné (%)",
         "es": "Capital Social Otorgado (%)",
@@ -46,10 +46,10 @@
       "default": 20,
       "min": 0.1,
       "max": 99,
-      "businessContext": "Yatırımcıya verilen hisse yüzdesi.",
+      "businessContext": "HisseOrani",
       "businessContext_i18n": {
         "en": "Percentage equity given to investor.",
-        "tr": "Yatırımcıya verilen hisse yüzdesi.",
+        "tr": "Yatirimciya verilen hisse yuzdesi.",
         "de": "Prozentsatz des an den Investor gegebenen Eigenkapitals.",
         "fr": "Pourcentage d'équité donné à l'investisseur.",
         "es": "Porcentaje de capital entregado al inversor.",
@@ -71,12 +71,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Yatırım Öncesi Değerleme"
+      "sonuc": "Yatirim Oncesi Valueleme"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yatırım Öncesi Değerleme",
-        "tr": "Yatırım Öncesi Değerleme",
+        "en": "Yatirim Oncesi Valueleme",
+        "tr": "Yatirim Oncesi Valueleme",
         "de": "Pre-Money-Bewertung",
         "fr": "Valorisation pré-investissement",
         "es": "Valoración Pre-Inversión",
@@ -101,7 +101,7 @@
       "long": "Calculate pre-money and post-money startup valuation.",
       "short_i18n": {
         "en": "Calculate pre-money and post-money startup valuation.",
-        "tr": "Yatırım öncesi ve sonrası girişim değerini hesaplar.",
+        "tr": "Yatirim oncesi ve sonrasi Inputim Valueini hesaplar.",
         "de": "Berechnen Sie die Pre-Money- und Post-Money-Bewertung eines Startups.",
         "fr": "Calculer la valorisation pré-money et post-money d'une startup.",
         "es": "Calcular la valoración pre-money y post-money de una startup.",
@@ -109,7 +109,7 @@
       },
       "long_i18n": {
         "en": "Calculate pre-money and post-money startup valuation.",
-        "tr": "Yatırım öncesi ve sonrası girişim değerini hesaplar.",
+        "tr": "Yatirim oncesi ve sonrasi Inputim Valueini hesaplar.",
         "de": "Berechnen Sie die Pre-Money- und Post-Money-Bewertung eines Startups.",
         "fr": "Calculer la valorisation pré-money et post-money d'une startup.",
         "es": "Calcular la valoración pre-money y post-money de una startup.",

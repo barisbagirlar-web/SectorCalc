@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "hisseFiyati",
-      "label": "Hisse Fiyatı (₺)",
+      "label": "HisseFiyati",
       "label_i18n": {
         "en": "Share Price (USD)",
-        "tr": "Hisse Fiyatı (₺)",
+        "tr": "Hisse Fiyati (₺)",
         "de": "Aktueller Aktienkurs ($)",
         "fr": "Cours actuel de l'action ($)",
         "es": "Precio actual de la acción ($)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Hisse senedinin güncel piyasa fiyatı.",
+      "businessContext": "HisseFiyati",
       "businessContext_i18n": {
         "en": "Current market price per share.",
-        "tr": "Hisse senedinin güncel piyasa fiyatı.",
+        "tr": "Hisse senedinin guncel piyasa fiyati.",
         "de": "Aktueller Marktpreis pro Aktie.",
         "fr": "Prix actuel du marché par action.",
         "es": "Precio actual de mercado por acción.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "hisseBasiKar",
-      "label": "Hisse Başı Kâr (₺)",
+      "label": "HisseBasiKar",
       "label_i18n": {
         "en": "Earnings Per Share (USD)",
-        "tr": "Hisse Başı Kâr (₺)",
+        "tr": "Hisse Basi Kâr (₺)",
         "de": "Gewinn pro Aktie (EPS)",
         "fr": "Bénéfice par action (BPA)",
         "es": "Ganancias por acción (EPS)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Şirketin hisse başına düşen net kârı.",
+      "businessContext": "HisseBasiKar",
       "businessContext_i18n": {
         "en": "Net earnings per share.",
-        "tr": "Şirketin hisse başına düşen net kârı.",
+        "tr": "Sirketin hisse basina dusen Net Profiti.",
         "de": "Nettogewinn pro Aktie.",
         "fr": "Bénéfice net par action.",
         "es": "Ganancias netas por acción.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "F/K (P/E) Oranı"
+      "sonuc": "F/K (P/E) Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "F/K (P/E) Oranı",
-        "tr": "F/K (P/E) Oranı",
+        "en": "F/K (P/E) Ratio",
+        "tr": "F/K (P/E) Ratio",
         "de": "Kurs-Gewinn-Verhältnis (KGV)",
         "fr": "Ratio P/E (Price/Earnings)",
         "es": "Relación P/E (Precio/Ganancias)",
@@ -99,7 +99,7 @@
       "long": "Calculate the price-to-earnings (P/E) ratio.",
       "short_i18n": {
         "en": "Calculate the price-to-earnings (P/E) ratio.",
-        "tr": "Yatırımın kâr üzerinden kendini amorti etme süresini (F/K) hesaplar.",
+        "tr": "Yatirimin kâr uzerinden kendini amorti etme suresini (F/K) hesaplar.",
         "de": "Berechnen Sie das Kurs-Gewinn-Verhältnis (KGV).",
         "fr": "Calculer le ratio cours/bénéfice (P/E).",
         "es": "Calcular la relación precio/ganancias (P/E).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate the price-to-earnings (P/E) ratio.",
-        "tr": "Yatırımın kâr üzerinden kendini amorti etme süresini (F/K) hesaplar.",
+        "tr": "Yatirimin kâr uzerinden kendini amorti etme suresini (F/K) hesaplar.",
         "de": "Berechnen Sie das Kurs-Gewinn-Verhältnis (KGV).",
         "fr": "Calculer le ratio cours/bénéfice (P/E).",
         "es": "Calcular la relación precio/ganancias (P/E).",

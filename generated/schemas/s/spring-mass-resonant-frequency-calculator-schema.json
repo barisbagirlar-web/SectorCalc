@@ -2,15 +2,15 @@
   "toolName": "spring-mass-resonant-frequency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "kutle",
-      "label": "Kütle (kg)",
+      "label": "Mass (kg)",
       "label_i18n": {
         "en": "Mass (kg)",
-        "tr": "Kütle (kg)",
+        "tr": "Mass (kg)",
         "de": "Massenstrom des heißen Fluids",
         "fr": "Débit massique du fluide chaud",
         "es": "Caudal másico del fluido caliente",
@@ -20,10 +20,10 @@
       "unit": "kg",
       "default": 10,
       "min": 0,
-      "businessContext": "Sistem kütlesi.",
+      "businessContext": "Sistem Masssi.",
       "businessContext_i18n": {
         "en": "System mass.",
-        "tr": "Sistem kütlesi.",
+        "tr": "Sistem Masssi.",
         "de": "Systemmasse.",
         "fr": "Masse du système.",
         "es": "Masa del sistema.",
@@ -45,10 +45,10 @@
       "unit": "N/m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Yayın rijitliği.",
+      "businessContext": "YayKatsayisi",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
-        "tr": "Yayın rijitliği.",
+        "tr": "Yayin rijitligi.",
         "de": "Federsteifigkeit.",
         "fr": "Raideur du ressort.",
         "es": "Rigidez del resorte.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "Hz",
     "breakdown": {
-      "sonuc": "Doğal Frekans"
+      "sonuc": "Dogal Frequency"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Doğal Frekans",
-        "tr": "Doğal Frekans",
+        "en": "Dogal Frequency",
+        "tr": "Dogal Frequency",
         "de": "Eigenfrequenz",
         "fr": "Fréquence naturelle",
         "es": "Frecuencia Natural",
@@ -99,16 +99,16 @@
       "long": "Calculate natural resonant frequency of a spring-mass system.",
       "short_i18n": {
         "en": "Calculate natural resonant frequency of a spring-mass system.",
-        "tr": "Sistemin genliğinin maksimuma ulaştığı doğal titreşim frekansını (rezonans) hesaplar.",
-        "de": "Berechnen Sie die natürliche Resonanzfrequenz eines Feder-Masse-Systems.",
+        "tr": "Sistemin genliginin Maximuma ulastigi dogal titresim Frequencyini (rezonans) hesaplar.",
+        "de": "Berechnen Sie die naturliche Resonanzfrequenz eines Feder-Masse-Systems.",
         "fr": "Calculer la fréquence de résonance naturelle d'un système masse-ressort.",
         "es": "Calcular la frecuencia de resonancia natural de un sistema masa-resorte.",
         "ar": "احسب تردد الرنين الطبيعي لنظام كتلة-زنبرك."
       },
       "long_i18n": {
         "en": "Calculate natural resonant frequency of a spring-mass system.",
-        "tr": "Sistemin genliğinin maksimuma ulaştığı doğal titreşim frekansını (rezonans) hesaplar.",
-        "de": "Berechnen Sie die natürliche Resonanzfrequenz eines Feder-Masse-Systems.",
+        "tr": "Sistemin genliginin Maximuma ulastigi dogal titresim Frequencyini (rezonans) hesaplar.",
+        "de": "Berechnen Sie die naturliche Resonanzfrequenz eines Feder-Masse-Systems.",
         "fr": "Calculer la fréquence de résonance naturelle d'un système masse-ressort.",
         "es": "Calcular la frecuencia de resonancia natural de un sistema masa-resorte.",
         "ar": "احسب تردد الرنين الطبيعي لنظام كتلة-زنبرك."

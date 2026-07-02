@@ -11,7 +11,7 @@
       "label_i18n": {
         "en": "Lot (Number)",
         "tr": "Lot (Adet)",
-        "de": "Losgröße (N)",
+        "de": "Losgroße (N)",
         "fr": "Taille du lot (N)",
         "es": "Tamaño de Lote (N)",
         "ar": "حجم الدفعة (N)"
@@ -20,11 +20,11 @@
       "unit": "lots",
       "default": 1,
       "min": 0.01,
-      "businessContext": "İşlem büyüklüğü.",
+      "businessContext": "Lot",
       "businessContext_i18n": {
         "en": "Trade size in lots.",
-        "tr": "İşlem büyüklüğü.",
-        "de": "Handelsgröße in Lots.",
+        "tr": "Worklem buyuklugu.",
+        "de": "Handelsgroße in Lots.",
         "fr": "Taille de la transaction en lots.",
         "es": "Tamaño de la operación en lotes.",
         "ar": "حجم التداول باللوت."
@@ -32,10 +32,10 @@
     },
     {
       "id": "pipDegeri",
-      "label": "Pip Değeri (₺)",
+      "label": "Pip Valuei (₺)",
       "label_i18n": {
         "en": "Pip Value (USD)",
-        "tr": "Pip Değeri (₺)",
+        "tr": "Pip Value (TRY)",
         "de": "Pip-Wert (USD pro Pip)",
         "fr": "Valeur du pip (USD par pip)",
         "es": "Valor del pip (USD por pip)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 10,
       "min": 0,
-      "businessContext": "Her pip'in TL karşılığı.",
+      "businessContext": "PipDegeri",
       "businessContext_i18n": {
         "en": "TRY value per pip.",
-        "tr": "Her pip'in TL karşılığı.",
+        "tr": "Her pip'in TL karsiligi.",
         "de": "TRY-Wert pro Pip.",
         "fr": "Valeur TRY par pip.",
         "es": "Valor de TRY por pip.",
@@ -70,10 +70,10 @@
       "unit": "pips",
       "default": 50,
       "min": 0,
-      "businessContext": "Fiyatın hareket ettiği pip sayısı.",
+      "businessContext": "PipHareketi",
       "businessContext_i18n": {
         "en": "Number of pips the price moved.",
-        "tr": "Fiyatın hareket ettiği pip sayısı.",
+        "tr": "Fiyatin hareket ettigi pip Numbersi.",
         "de": "Anzahl der Pips, die sich der Preis bewegt hat.",
         "fr": "Nombre de pips dont le prix a bougé.",
         "es": "Número de pips que se movió el precio.",
@@ -124,7 +124,7 @@
       "long": "Calculate forex profit/loss in account currency from pip movement.",
       "short_i18n": {
         "en": "Calculate forex profit/loss in account currency from pip movement.",
-        "tr": "Parite hareketinin hesap para birimindeki kâr/zarar karşılığını hesaplar.",
+        "tr": "Parite hareketinin hesap para Unitindeki kâr/zarar karsiligini hesaplar.",
         "de": "Berechnen Sie den Forex-Gewinn/-Verlust in Kontowährung aus der Pip-Bewegung.",
         "fr": "Calculer le profit/perte de change dans la devise du compte à partir du mouvement en pips.",
         "es": "Calcular ganancia/pérdida de forex en la moneda de la cuenta a partir del movimiento de pips.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate forex profit/loss in account currency from pip movement.",
-        "tr": "Parite hareketinin hesap para birimindeki kâr/zarar karşılığını hesaplar.",
+        "tr": "Parite hareketinin hesap para Unitindeki kâr/zarar karsiligini hesaplar.",
         "de": "Berechnen Sie den Forex-Gewinn/-Verlust in Kontowährung aus der Pip-Bewegung.",
         "fr": "Calculer le profit/perte de change dans la devise du compte à partir du mouvement en pips.",
         "es": "Calcular ganancia/pérdida de forex en la moneda de la cuenta a partir del movimiento de pips.",

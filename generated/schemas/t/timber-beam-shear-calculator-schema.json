@@ -2,7 +2,7 @@
   "toolName": "timber-beam-shear-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "N",
       "default": 20000,
       "min": 0,
-      "businessContext": "Kirişe etkiyen kesme kuvveti.",
+      "businessContext": "KesmeKuvveti",
       "businessContext_i18n": {
         "en": "Beam shear force.",
-        "tr": "Kirişe etkiyen kesme kuvveti.",
+        "tr": "Beame etkiymost kesme kuvandti.",
         "de": "Querkraft des Balkens.",
         "fr": "Effort tranchant de la poutre.",
         "es": "Fuerza cortante de la viga.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "genislik",
-      "label": "Kesit Genişliği (m)",
+      "label": "Genislik",
       "label_i18n": {
         "en": "Section Width (m)",
-        "tr": "Kesit Genişliği (m)",
+        "tr": "Kesit Width (m)",
         "de": "Querschnittsbreite (m)",
         "fr": "Largeur de la section (m)",
         "es": "Ancho de la Sección (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Ahşap kesit genişliği.",
+      "businessContext": "Genislik",
       "businessContext_i18n": {
         "en": "Timber section width.",
-        "tr": "Ahşap kesit genişliği.",
+        "tr": "Ahsap kesit genisligi.",
         "de": "Breite des Holzquerschnitts.",
         "fr": "Largeur de la section de bois.",
         "es": "Ancho de la sección de madera.",
@@ -57,11 +57,11 @@
     },
     {
       "id": "yukseklik",
-      "label": "Kesit Yüksekliği (m)",
+      "label": "Yukseklik",
       "label_i18n": {
         "en": "Section Height (m)",
-        "tr": "Kesit Yüksekliği (m)",
-        "de": "Querschnittshöhe (m)",
+        "tr": "Kesit Height (m)",
+        "de": "Querschnittshohe (m)",
         "fr": "Hauteur de la section (m)",
         "es": "Altura de la Sección (m)",
         "ar": "ارتفاع المقطع (m)"
@@ -70,11 +70,11 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Ahşap kesit yüksekliği.",
+      "businessContext": "Yukseklik",
       "businessContext_i18n": {
         "en": "Timber section height.",
-        "tr": "Ahşap kesit yüksekliği.",
-        "de": "Höhe des Holzquerschnitts.",
+        "tr": "Ahsap kesit yuksekligi.",
+        "de": "Hohe des Holzquerschnitts.",
         "fr": "Hauteur de la section de bois.",
         "es": "Altura de la sección de madera.",
         "ar": "ارتفاع المقطع الخشبي."
@@ -124,7 +124,7 @@
       "long": "Calculate maximum shear stress in a rectangular timber beam.",
       "short_i18n": {
         "en": "Calculate maximum shear stress in a rectangular timber beam.",
-        "tr": "Dikdörtgen ahşap kesitteki maksimum kayma gerilmesini hesaplar.",
+        "tr": "Dikdortgen ahsap kesitteki Maximum Shear Stressni hesaplar.",
         "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
         "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
         "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate maximum shear stress in a rectangular timber beam.",
-        "tr": "Dikdörtgen ahşap kesitteki maksimum kayma gerilmesini hesaplar.",
+        "tr": "Dikdortgen ahsap kesitteki Maximum Shear Stressni hesaplar.",
         "de": "Berechnen Sie die maximale Schubspannung in einem rechteckigen Holzbalken.",
         "fr": "Calculer la contrainte de cisaillement maximale dans une poutre rectangulaire en bois.",
         "es": "Calcular el esfuerzo cortante máximo en una viga rectangular de madera.",

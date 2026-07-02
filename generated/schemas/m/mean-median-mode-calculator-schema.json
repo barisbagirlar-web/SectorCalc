@@ -2,15 +2,15 @@
   "toolName": "mean-median-mode-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mathematics-statistics",
-  "sector": "Veri ve İstatistik",
+  "sector": "Veri ve Istatistik",
   "sectorId": "mathematics-statistics",
   "inputs": [
     {
       "id": "deger1",
-      "label": "Değer 1",
+      "label": "Value 1",
       "label_i18n": {
         "en": "Value 1",
-        "tr": "Değer 1",
+        "tr": "Value 1",
         "de": "Wert 1",
         "fr": "Valeur 1",
         "es": "Valor 1",
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 10,
       "min": 0,
-      "businessContext": "Veri setinin birinci elemanı.",
+      "businessContext": "Deger1",
       "businessContext_i18n": {
         "en": "First data value.",
-        "tr": "Veri setinin birinci elemanı.",
+        "tr": "Veri setinin birinci elemani.",
         "de": "Erster Datenwert.",
         "fr": "Première valeur de données.",
         "es": "Primer valor de datos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "deger2",
-      "label": "Değer 2",
+      "label": "Value 2",
       "label_i18n": {
         "en": "Value 2",
-        "tr": "Değer 2",
+        "tr": "Value 2",
         "de": "Wert 2",
         "fr": "Valeur 2",
         "es": "Valor 2",
@@ -45,10 +45,10 @@
       "unit": "scalar",
       "default": 20,
       "min": 0,
-      "businessContext": "İkinci eleman.",
+      "businessContext": "Deger2",
       "businessContext_i18n": {
         "en": "Second value.",
-        "tr": "İkinci eleman.",
+        "tr": "Second eleman.",
         "de": "Zweiter Wert.",
         "fr": "Deuxième valeur.",
         "es": "Segundo valor.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "deger3",
-      "label": "Değer 3",
+      "label": "Value 3",
       "label_i18n": {
         "en": "Value 3",
-        "tr": "Değer 3",
+        "tr": "Value 3",
         "de": "Wert 3",
         "fr": "Valeur 3",
         "es": "Valor 3",
@@ -70,10 +70,10 @@
       "unit": "scalar",
       "default": 30,
       "min": 0,
-      "businessContext": "Üçüncü eleman.",
+      "businessContext": "Deger3",
       "businessContext_i18n": {
         "en": "Third value.",
-        "tr": "Üçüncü eleman.",
+        "tr": "Third eleman.",
         "de": "Dritter Wert.",
         "fr": "Troisième valeur.",
         "es": "Tercer valor.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "deger4",
-      "label": "Değer 4",
+      "label": "Value 4",
       "label_i18n": {
         "en": "Value 4",
-        "tr": "Değer 4",
+        "tr": "Value 4",
         "de": "Wert 4",
         "fr": "Valeur 4",
         "es": "Valor 4",
@@ -95,10 +95,10 @@
       "unit": "scalar",
       "default": 40,
       "min": 0,
-      "businessContext": "Dördüncü eleman.",
+      "businessContext": "Deger4",
       "businessContext_i18n": {
         "en": "Fourth value.",
-        "tr": "Dördüncü eleman.",
+        "tr": "Fourth eleman.",
         "de": "Vierter Wert.",
         "fr": "Quatrième valeur.",
         "es": "Cuarto valor.",
@@ -107,10 +107,10 @@
     },
     {
       "id": "deger5",
-      "label": "Değer 5",
+      "label": "Value 5",
       "label_i18n": {
         "en": "Value 5",
-        "tr": "Değer 5",
+        "tr": "Value 5",
         "de": "Wert 5",
         "fr": "Valeur 5",
         "es": "Valor 5",
@@ -120,11 +120,11 @@
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "Beşinci eleman.",
+      "businessContext": "Deger5",
       "businessContext_i18n": {
         "en": "Fifth value.",
-        "tr": "Beşinci eleman.",
-        "de": "Fünfter Wert.",
+        "tr": "Fifth eleman.",
+        "de": "Funfter Wert.",
         "fr": "Cinquième valeur.",
         "es": "Quinto valor.",
         "ar": "القيمة الخامسة."
@@ -175,7 +175,7 @@
       "long": "Calculate mean, median, and mode of a data set.",
       "short_i18n": {
         "en": "Calculate mean, median, and mode of a data set.",
-        "tr": "Veri setinin merkezi eğilim ölçülerini (ortalama, medyan, mod) hesaplar.",
+        "tr": "Veri setinin merkezi egilim olculerini (Mean, Median, Mode) hesaplar.",
         "de": "Berechnen Sie Mittelwert, Median und Modus eines Datensatzes.",
         "fr": "Calculer la moyenne, la médiane et le mode d'un ensemble de données.",
         "es": "Calcular la media, mediana y moda de un conjunto de datos.",
@@ -183,7 +183,7 @@
       },
       "long_i18n": {
         "en": "Calculate mean, median, and mode of a data set.",
-        "tr": "Veri setinin merkezi eğilim ölçülerini (ortalama, medyan, mod) hesaplar.",
+        "tr": "Veri setinin merkezi egilim olculerini (Mean, Median, Mode) hesaplar.",
         "de": "Berechnen Sie Mittelwert, Median und Modus eines Datensatzes.",
         "fr": "Calculer la moyenne, la médiane et le mode d'un ensemble de données.",
         "es": "Calcular la media, mediana y moda de un conjunto de datos.",

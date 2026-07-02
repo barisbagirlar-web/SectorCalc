@@ -2,15 +2,15 @@
   "toolName": "anova-f-statistic-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mathematics-statistics",
-  "sector": "Veri ve İstatistik",
+  "sector": "Veri ve Istatistik",
   "sectorId": "mathematics-statistics",
   "inputs": [
     {
       "id": "grup1",
-      "label": "Grup 1 Ortalaması",
+      "label": "Grup1",
       "label_i18n": {
         "en": "Group 1 Mean",
-        "tr": "Grup 1 Ortalaması",
+        "tr": "Grup 1 Meansi",
         "de": "Gruppe 1 Mittelwert",
         "fr": "Moyenne du Groupe 1",
         "es": "Media del Grupo 1",
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Birinci grubun ortalaması.",
+      "businessContext": "Grup1",
       "businessContext_i18n": {
         "en": "Mean of first group.",
-        "tr": "Birinci grubun ortalaması.",
+        "tr": "Birinci grubun Meansi.",
         "de": "Mittelwert der ersten Gruppe.",
         "fr": "Moyenne du premier groupe.",
         "es": "Media del primer grupo.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "grup2",
-      "label": "Grup 2 Ortalaması",
+      "label": "Grup2",
       "label_i18n": {
         "en": "Group 2 Mean",
-        "tr": "Grup 2 Ortalaması",
+        "tr": "Grup 2 Meansi",
         "de": "Gruppe 2 Mittelwert",
         "fr": "Moyenne du Groupe 2",
         "es": "Media del Grupo 2",
@@ -45,10 +45,10 @@
       "unit": "scalar",
       "default": 110,
       "min": 0,
-      "businessContext": "İkinci grubun ortalaması.",
+      "businessContext": "Grup2",
       "businessContext_i18n": {
         "en": "Mean of second group.",
-        "tr": "İkinci grubun ortalaması.",
+        "tr": "Ikinci grubun Meansi.",
         "de": "Mittelwert der zweiten Gruppe.",
         "fr": "Moyenne du deuxième groupe.",
         "es": "Media del segundo grupo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "grup1N",
-      "label": "Grup 1 Örneklem",
+      "label": "Grup1N",
       "label_i18n": {
         "en": "Group 1 N",
-        "tr": "Grup 1 Örneklem",
+        "tr": "Grup 1 Orneklem",
         "de": "Gruppe 1 N",
         "fr": "N du Groupe 1",
         "es": "N del Grupo 1",
@@ -70,11 +70,11 @@
       "unit": "scalar",
       "default": 30,
       "min": 2,
-      "businessContext": "Birinci grubun örneklem sayısı.",
+      "businessContext": "Grup1N",
       "businessContext_i18n": {
         "en": "First group sample size.",
-        "tr": "Birinci grubun örneklem sayısı.",
-        "de": "Stichprobengröße der ersten Gruppe.",
+        "tr": "Birinci grubun orneklem Numbersi.",
+        "de": "Stichprobengroße der ersten Gruppe.",
         "fr": "Taille de l'échantillon du premier groupe.",
         "es": "Tamaño de la muestra del primer grupo.",
         "ar": "حجم عينة المجموعة الأولى."
@@ -82,10 +82,10 @@
     },
     {
       "id": "grup2N",
-      "label": "Grup 2 Örneklem",
+      "label": "Grup2N",
       "label_i18n": {
         "en": "Group 2 N",
-        "tr": "Grup 2 Örneklem",
+        "tr": "Grup 2 Orneklem",
         "de": "Gruppe 2 N",
         "fr": "N du Groupe 2",
         "es": "N del Grupo 2",
@@ -95,11 +95,11 @@
       "unit": "scalar",
       "default": 30,
       "min": 2,
-      "businessContext": "İkinci grubun örneklem sayısı.",
+      "businessContext": "Grup2N",
       "businessContext_i18n": {
         "en": "Second group sample size.",
-        "tr": "İkinci grubun örneklem sayısı.",
-        "de": "Stichprobengröße der zweiten Gruppe.",
+        "tr": "Ikinci grubun orneklem Numbersi.",
+        "de": "Stichprobengroße der zweiten Gruppe.",
         "fr": "Taille de l'échantillon du deuxième groupe.",
         "es": "Tamaño de la muestra del segundo grupo.",
         "ar": "حجم عينة المجموعة الثانية."
@@ -120,10 +120,10 @@
       "unit": "scalar",
       "default": 225,
       "min": 0,
-      "businessContext": "Birinci grubun varyansı.",
+      "businessContext": "Grup1Varyans",
       "businessContext_i18n": {
         "en": "First group variance.",
-        "tr": "Birinci grubun varyansı.",
+        "tr": "Birinci grubun Variancei.",
         "de": "Varianz der ersten Gruppe.",
         "fr": "Variance du premier groupe.",
         "es": "Varianza del primer grupo.",
@@ -145,10 +145,10 @@
       "unit": "scalar",
       "default": 225,
       "min": 0,
-      "businessContext": "İkinci grubun varyansı.",
+      "businessContext": "Grup2Varyans",
       "businessContext_i18n": {
         "en": "Second group variance.",
-        "tr": "İkinci grubun varyansı.",
+        "tr": "Ikinci grubun Variancei.",
         "de": "Varianz der zweiten Gruppe.",
         "fr": "Variance du deuxième groupe.",
         "es": "Varianza del segundo grupo.",
@@ -174,12 +174,12 @@
     "primary": "sonuc",
     "unit": "F-value",
     "breakdown": {
-      "sonuc": "F-İstatistiği"
+      "sonuc": "F-Istatistigi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "F-İstatistiği",
-        "tr": "F-İstatistiği",
+        "en": "F-Istatistigi",
+        "tr": "F-Istatistigi",
         "de": "F-Statistik",
         "fr": "Statistique F",
         "es": "Estadístico F",
@@ -204,7 +204,7 @@
       "long": "Calculate ANOVA F-statistic for comparing group means.",
       "short_i18n": {
         "en": "Calculate ANOVA F-statistic for comparing group means.",
-        "tr": "Grup ortalamaları arası farkın istatistiksel anlamlılığını (ANOVA) hesaplar.",
+        "tr": "Grup Meanlari arasi farkin istatistiksel anlamliligini (ANOVA) hesaplar.",
         "de": "Berechnen Sie die ANOVA-F-Statistik zum Vergleich von Gruppenmittelwerten.",
         "fr": "Calculer la statistique F de l'ANOVA pour comparer les moyennes des groupes.",
         "es": "Calcular el estadístico F de ANOVA para comparar medias de grupos.",
@@ -212,7 +212,7 @@
       },
       "long_i18n": {
         "en": "Calculate ANOVA F-statistic for comparing group means.",
-        "tr": "Grup ortalamaları arası farkın istatistiksel anlamlılığını (ANOVA) hesaplar.",
+        "tr": "Grup Meanlari arasi farkin istatistiksel anlamliligini (ANOVA) hesaplar.",
         "de": "Berechnen Sie die ANOVA-F-Statistik zum Vergleich von Gruppenmittelwerten.",
         "fr": "Calculer la statistique F de l'ANOVA pour comparer les moyennes des groupes.",
         "es": "Calcular el estadístico F de ANOVA para comparar medias de grupos.",

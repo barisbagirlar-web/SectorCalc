@@ -2,16 +2,16 @@
   "toolName": "rsa-key-strength-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sector": "Bilisim, Biyomedikal ve Maden",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "rsaAnahtarUzunlugu",
-      "label": "RSA Anahtar Uzunluğu (bit)",
+      "label": "RsaAnahtarUzunlugu",
       "label_i18n": {
         "en": "RSA Key Length (bits)",
-        "tr": "RSA Anahtar Uzunluğu (bit)",
-        "de": "RSA-Schlüssellänge (Bits)",
+        "tr": "RSA Anahtar Lmostgth (bit)",
+        "de": "RSA-Schlussellänge (Bits)",
         "fr": "Longueur de clé RSA (bits)",
         "es": "Longitud de Clave RSA (bits)",
         "ar": "طول مفتاح RSA (بت)"
@@ -24,7 +24,7 @@
       "businessContext_i18n": {
         "en": "RSA key size.",
         "tr": "RSA anahtar boyu.",
-        "de": "RSA-Schlüsselgröße.",
+        "de": "RSA-Schlusselgroße.",
         "fr": "Taille de la clé RSA.",
         "es": "Tamaño de clave RSA.",
         "ar": "حجم مفتاح RSA."
@@ -44,12 +44,12 @@
     "primary": "sonuc",
     "unit": "bits",
     "breakdown": {
-      "sonuc": "Simetrik Eşdeğer"
+      "sonuc": "Simetrik EsValue"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Simetrik Eşdeğer",
-        "tr": "Simetrik Eşdeğer",
+        "en": "Simetrik EsValue",
+        "tr": "Simetrik EsValue",
         "de": "Symmetrisches Äquivalent",
         "fr": "Équivalent symétrique",
         "es": "Equivalente Simétrico",
@@ -77,16 +77,16 @@
       "long": "Estimate symmetric key equivalent strength for RSA key size.",
       "short_i18n": {
         "en": "Estimate symmetric key equivalent strength for RSA key size.",
-        "tr": "RSA anahtar uzunluğunun sağladığı teorik simetrik şifreleme eşdeğerini hesaplar.",
-        "de": "Schätzen Sie die symmetrische Schlüsseläquivalentstärke für die RSA-Schlüssellänge.",
+        "tr": "RSA anahtar uzunlugunun sagladigi teorik simetrik sifreleme esValueini hesaplar.",
+        "de": "Schätzen Sie die symmetrische Schlusseläquivalentstärke fur die RSA-Schlussellänge.",
         "fr": "Estimer la force équivalente de clé symétrique pour une taille de clé RSA.",
         "es": "Estimar la fortaleza equivalente de clave simétrica para el tamaño de clave RSA.",
         "ar": "تقدير القوة المكافئة للمفتاح المتماثل لحجم مفتاح RSA."
       },
       "long_i18n": {
         "en": "Estimate symmetric key equivalent strength for RSA key size.",
-        "tr": "RSA anahtar uzunluğunun sağladığı teorik simetrik şifreleme eşdeğerini hesaplar.",
-        "de": "Schätzen Sie die symmetrische Schlüsseläquivalentstärke für die RSA-Schlüssellänge.",
+        "tr": "RSA anahtar uzunlugunun sagladigi teorik simetrik sifreleme esValueini hesaplar.",
+        "de": "Schätzen Sie die symmetrische Schlusseläquivalentstärke fur die RSA-Schlussellänge.",
         "fr": "Estimer la force équivalente de clé symétrique pour une taille de clé RSA.",
         "es": "Estimar la fortaleza equivalente de clave simétrica para el tamaño de clave RSA.",
         "ar": "تقدير القوة المكافئة للمفتاح المتماثل لحجم مفتاح RSA."
@@ -95,7 +95,7 @@
   },
   "title_i18n": {
     "en": "rsa-key-strength-calculator",
-    "de": "RSA-Verschlüsselungssicherheitsrechner",
+    "de": "RSA-Verschlusselungssicherheitsrechner",
     "fr": "Calculateur de sécurité de chiffrement RSA",
     "es": "Calculadora de seguridad de cifrado RSA",
     "ar": "حاسبة أمان تشفير RSA"

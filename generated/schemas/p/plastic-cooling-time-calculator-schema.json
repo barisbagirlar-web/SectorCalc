@@ -2,15 +2,15 @@
   "toolName": "plastic-cooling-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "etKalinlik",
-      "label": "Et Kalınlığı (mm)",
+      "label": "Wall Thickness (mm)",
       "label_i18n": {
         "en": "Wall Thickness (mm)",
-        "tr": "Et Kalınlığı (mm)",
+        "tr": "Et Thickness (mm)",
         "de": "Wanddicke",
         "fr": "Épaisseur du mur",
         "es": "Espesor de pared",
@@ -20,10 +20,10 @@
       "unit": "mm",
       "default": 3,
       "min": 0,
-      "businessContext": "Parçanın ortalama et kalınlığı.",
+      "businessContext": "EtKalinlik",
       "businessContext_i18n": {
         "en": "Average part wall thickness.",
-        "tr": "Parçanın ortalama et kalınlığı.",
+        "tr": "Parcanin Mean Wall Thickness.",
         "de": "Durchschnittliche Wanddicke des Teils.",
         "fr": "Épaisseur moyenne de la paroi de la pièce.",
         "es": "Espesor promedio de la pared de la pieza.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "termalDifuzyon",
-      "label": "Termal Difüzyon (mm²/s)",
+      "label": "Thermal Diffusivity (mm²/s)",
       "label_i18n": {
         "en": "Thermal Diffusivity (mm²/s)",
-        "tr": "Termal Difüzyon (mm²/s)",
+        "tr": "Thermal Diffusivity (mm²/s)",
         "de": "Temperaturleitfähigkeit (mm²/s)",
         "fr": "Diffusivité thermique (mm²/s)",
         "es": "Difusividad Térmica (mm²/s)",
@@ -45,10 +45,10 @@
       "unit": "mm2/s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Polimerin termal difüzyonu.",
+      "businessContext": "Polimerin Thermal Diffusivityu.",
       "businessContext_i18n": {
         "en": "Polymer thermal diffusivity.",
-        "tr": "Polimerin termal difüzyonu.",
+        "tr": "Polimerin Thermal Diffusivityu.",
         "de": "Temperaturleitfähigkeit des Polymers.",
         "fr": "Diffusivité thermique du polymère.",
         "es": "Difusividad térmica del polímero.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "erimeSicaklik",
-      "label": "Erime Sıcaklığı (°C)",
+      "label": "Melt Temperature (°C)",
       "label_i18n": {
         "en": "Melt Temperature (°C)",
-        "tr": "Erime Sıcaklığı (°C)",
+        "tr": "Erime Temperature (°C)",
         "de": "Schmelztemperatur (°C)",
         "fr": "Température de fusion (°C)",
         "es": "Temperatura de Fusión (°C)",
@@ -70,10 +70,10 @@
       "unit": "°C",
       "default": 230,
       "min": 0,
-      "businessContext": "Polimerin ergime sıcaklığı.",
+      "businessContext": "ErimeSicaklik",
       "businessContext_i18n": {
         "en": "Melt temperature.",
-        "tr": "Polimerin ergime sıcaklığı.",
+        "tr": "Polimerin ergime sicakligi.",
         "de": "Schmelztemperatur.",
         "fr": "Température de fusion.",
         "es": "Temperatura de fusión.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "kalipSicaklik",
-      "label": "Kalıp Sıcaklığı (°C)",
+      "label": "Mold Temperature (°C)",
       "label_i18n": {
         "en": "Mold Temperature (°C)",
-        "tr": "Kalıp Sıcaklığı (°C)",
+        "tr": "Formwork Temperature (°C)",
         "de": "Werkzeugtemperatur (°C)",
         "fr": "Température du moule (°C)",
         "es": "Temperatura del Molde (°C)",
@@ -95,10 +95,10 @@
       "unit": "°C",
       "default": 40,
       "min": 0,
-      "businessContext": "Kalıp yüzey sıcaklığı.",
+      "businessContext": "KalipSicaklik",
       "businessContext_i18n": {
         "en": "Mold surface temperature.",
-        "tr": "Kalıp yüzey sıcaklığı.",
+        "tr": "Kalip yuzey sicakligi.",
         "de": "Werkzeugoberflächentemperatur.",
         "fr": "Température de surface du moule.",
         "es": "Temperatura de la superficie del molde.",
@@ -119,13 +119,13 @@
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Soğutma Süresi"
+      "sonuc": "Cooling Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Soğutma Süresi",
-        "tr": "Soğutma Süresi",
-        "de": "Kühlzeit",
+        "en": "Cooling Time",
+        "tr": "Cooling Time",
+        "de": "Kuhlzeit",
         "fr": "Temps de refroidissement",
         "es": "Tiempo de Enfriamiento",
         "ar": "وقت التبريد"
@@ -151,16 +151,16 @@
       "long": "Calculate cooling time for plastic part to reach ejection temperature.",
       "short_i18n": {
         "en": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "tr": "Parçanın kalıptan çıkarılabilir sıcaklığa inme süresini hesaplar.",
-        "de": "Berechnen Sie die Kühlzeit für ein Kunststoffteil bis zur Entformungstemperatur.",
+        "tr": "Parcanin kaliptan cikarilabilir sicakliga inme suresini hesaplar.",
+        "de": "Berechnen Sie die Kuhlzeit fur ein Kunststoffteil bis zur Entformungstemperatur.",
         "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
         "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
         "ar": "حساب وقت التبريد للجزء البلاستيكي للوصول إلى درجة حرارة القذف."
       },
       "long_i18n": {
         "en": "Calculate cooling time for plastic part to reach ejection temperature.",
-        "tr": "Parçanın kalıptan çıkarılabilir sıcaklığa inme süresini hesaplar.",
-        "de": "Berechnen Sie die Kühlzeit für ein Kunststoffteil bis zur Entformungstemperatur.",
+        "tr": "Parcanin kaliptan cikarilabilir sicakliga inme suresini hesaplar.",
+        "de": "Berechnen Sie die Kuhlzeit fur ein Kunststoffteil bis zur Entformungstemperatur.",
         "fr": "Calculer le temps de refroidissement d'une pièce en plastique pour atteindre la température d'éjection.",
         "es": "Calcular el tiempo de enfriamiento para que una pieza de plástico alcance la temperatura de expulsión.",
         "ar": "حساب وقت التبريد للجزء البلاستيكي للوصول إلى درجة حرارة القذف."
@@ -169,7 +169,7 @@
   },
   "title_i18n": {
     "en": "plastic-cooling-time-calculator",
-    "de": "Kunststoffkühlzeitrechner",
+    "de": "KunststoffKuhlzeitrechner",
     "fr": "Calculateur de temps de refroidissement du plastique",
     "es": "Calculadora de tiempo de enfriamiento de plástico",
     "ar": "حاسبة وقت تبريد البلاستيك"

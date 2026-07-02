@@ -2,15 +2,15 @@
   "toolName": "business-valuation-multiple-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "favok",
-      "label": "FAVÖK (TL)",
+      "label": "Favok",
       "label_i18n": {
         "en": "EBITDA (USD)",
-        "tr": "FAVÖK (TL)",
+        "tr": "FAVOK (TL)",
         "de": "EBITDA-Marge (%)",
         "fr": "Marge d'EBITDA (%)",
         "es": "Margen EBITDA (%)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Vergi ve faiz öncesi kâr.",
+      "businessContext": "Favok",
       "businessContext_i18n": {
         "en": "Earnings before interest, tax, depreciation.",
-        "tr": "Vergi ve faiz öncesi kâr.",
+        "tr": "Vergi ve faiz oncesi kâr.",
         "de": "Gewinn vor Zinsen, Steuern und Abschreibungen.",
         "fr": "Bénéfice avant intérêts, impôts et amortissements.",
         "es": "Ganancias antes de intereses, impuestos, depreciación.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "carpan",
-      "label": "Sektör Çarpanı",
+      "label": "Carpan",
       "label_i18n": {
         "en": "Industry Multiple",
-        "tr": "Sektör Çarpanı",
+        "tr": "Sektor Carpani",
         "de": "Branchenmultiplikator",
         "fr": "Multiple sectoriel",
         "es": "Múltiplo de la Industria",
@@ -45,10 +45,10 @@
       "unit": "scalar",
       "default": 5,
       "min": 1,
-      "businessContext": "Sektörün ortalama FAVÖK çarpanı.",
+      "businessContext": "Carpan",
       "businessContext_i18n": {
         "en": "Industry average EBITDA multiple.",
-        "tr": "Sektörün ortalama FAVÖK çarpanı.",
+        "tr": "Sektorun Mean FAVOK carpani.",
         "de": "Branchendurchschnittliches EBITDA-Multiple.",
         "fr": "Multiple d'EBITDA moyen du secteur.",
         "es": "Múltiplo promedio de EBITDA de la industria.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tahmini İşletme Değeri"
+      "sonuc": "Tahmini Workletme Valuei"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tahmini İşletme Değeri",
-        "tr": "Tahmini İşletme Değeri",
+        "en": "Tahmini Workletme Valuei",
+        "tr": "Tahmini Workletme Valuei",
         "de": "Geschätzter Unternehmenswert",
         "fr": "Valeur d'exploitation estimée",
         "es": "Valor Operativo Estimado",
@@ -99,7 +99,7 @@
       "long": "Estimate business valuation based on EBITDA multiples.",
       "short_i18n": {
         "en": "Estimate business valuation based on EBITDA multiples.",
-        "tr": "Piyasa emsallerine göre tahmini satış değerini hesaplar.",
+        "tr": "Piyasa emsallerine gore tahmini satis Valueini hesaplar.",
         "de": "Schätzen Sie die Unternehmensbewertung auf Basis von EBITDA-Multiplikatoren.",
         "fr": "Estimer la valorisation de l'entreprise basée sur les multiples d'EBITDA.",
         "es": "Estimar la valoración del negocio basada en múltiplos de EBITDA.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Estimate business valuation based on EBITDA multiples.",
-        "tr": "Piyasa emsallerine göre tahmini satış değerini hesaplar.",
+        "tr": "Piyasa emsallerine gore tahmini satis Valueini hesaplar.",
         "de": "Schätzen Sie die Unternehmensbewertung auf Basis von EBITDA-Multiplikatoren.",
         "fr": "Estimer la valorisation de l'entreprise basée sur les multiples d'EBITDA.",
         "es": "Estimar la valoración del negocio basada en múltiplos de EBITDA.",

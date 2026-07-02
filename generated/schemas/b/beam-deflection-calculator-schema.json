@@ -2,15 +2,15 @@
   "toolName": "beam-deflection-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Tekil Yük (N)",
+      "label": "Yuk",
       "label_i18n": {
         "en": "Point Load (N)",
-        "tr": "Tekil Yük (N)",
+        "tr": "Tekil Load (N)",
         "de": "Punktlast (P)",
         "fr": "Charge ponctuelle (P)",
         "es": "Carga Puntual (P)",
@@ -20,10 +20,10 @@
       "unit": "N",
       "default": 15000,
       "min": 0,
-      "businessContext": "Kiriş ortasındaki yük.",
+      "businessContext": "Yuk",
       "businessContext_i18n": {
         "en": "Mid-span point load.",
-        "tr": "Kiriş ortasındaki yük.",
+        "tr": "Kiris ortasindaki yuk.",
         "de": "Einzellast in Feldmitte.",
         "fr": "Charge ponctuelle à mi-portée.",
         "es": "Carga puntual en el centro del vano.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "aciklik",
-      "label": "Açıklık (m)",
+      "label": "Aciklik",
       "label_i18n": {
         "en": "Span (m)",
-        "tr": "Açıklık (m)",
+        "tr": "Aciklik (m)",
         "de": "Cobot-Lebensdauer",
         "fr": "Durée de vie du cobot",
         "es": "Vida útil del cobot",
@@ -45,11 +45,11 @@
       "unit": "m",
       "default": 4,
       "min": 0,
-      "businessContext": "Mesnetler arası mesafe.",
+      "businessContext": "Aciklik",
       "businessContext_i18n": {
         "en": "Support spacing.",
-        "tr": "Mesnetler arası mesafe.",
-        "de": "Stützweite.",
+        "tr": "MesNetler arasi Distance.",
+        "de": "Stutzweite.",
         "fr": "Espacement des appuis.",
         "es": "Separación entre apoyos.",
         "ar": "تباعد الإسناد."
@@ -57,10 +57,10 @@
     },
     {
       "id": "elastisiteModulu",
-      "label": "Elastisite Modülü (Pa)",
+      "label": "Modeulus of Elasticity (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
-        "tr": "Elastisite Modülü (Pa)",
+        "tr": "Modeulus of Elasticity (Pa)",
         "de": "Elastizitätsmodul (E)",
         "fr": "Module de Young (E)",
         "es": "Módulo de Young (E)",
@@ -70,10 +70,10 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Malzeme modülü.",
+      "businessContext": "ElastisiteModulu",
       "businessContext_i18n": {
         "en": "Material modulus.",
-        "tr": "Malzeme modülü.",
+        "tr": "Malzeme Modeuleu.",
         "de": "Materialmodul.",
         "fr": "Module du matériau.",
         "es": "Módulo del material.",
@@ -149,7 +149,7 @@
       "long": "Calculate mid-span deflection of a simply supported beam under point load.",
       "short_i18n": {
         "en": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "tr": "Tekil yük altındaki basit kirişin orta nokta çökmesini (sehim) hesaplar.",
+        "tr": "Tekil yuk altindaki basit kirisin orta nokta cokmesini (Deflection) hesaplar.",
         "de": "Berechnen Sie die Durchbiegung in Feldmitte eines einfach gelagerten Trägers unter Einzellast.",
         "fr": "Calculer la flèche à mi-portée d'une poutre simplement appuyée sous une charge ponctuelle.",
         "es": "Calcular la deflexión en el centro del vano de una viga simplemente apoyada bajo carga puntual.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate mid-span deflection of a simply supported beam under point load.",
-        "tr": "Tekil yük altındaki basit kirişin orta nokta çökmesini (sehim) hesaplar.",
+        "tr": "Tekil yuk altindaki basit kirisin orta nokta cokmesini (Deflection) hesaplar.",
         "de": "Berechnen Sie die Durchbiegung in Feldmitte eines einfach gelagerten Trägers unter Einzellast.",
         "fr": "Calculer la flèche à mi-portée d'une poutre simplement appuyée sous une charge ponctuelle.",
         "es": "Calcular la deflexión en el centro del vano de una viga simplemente apoyada bajo carga puntual.",
@@ -167,7 +167,7 @@
   },
   "title_i18n": {
     "en": "beam-deflection-calculator",
-    "de": "Durchbiegungsrechner für Bodenbalken",
+    "de": "Durchbiegungsrechner fur Bodenbalken",
     "fr": "Calculateur de flèche de poutre de plancher",
     "es": "Calculadora de deflexión de viga de piso",
     "ar": "حاسبة انحراف عارضة الأرضية"

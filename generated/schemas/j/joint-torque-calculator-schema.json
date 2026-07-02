@@ -20,10 +20,10 @@
       "unit": "kgm2",
       "default": 5,
       "min": 0,
-      "businessContext": "Eklem etrafındaki atalet.",
+      "businessContext": "EylemsizlikMomenti",
       "businessContext_i18n": {
         "en": "Inertia about joint.",
-        "tr": "Eklem etrafındaki atalet.",
+        "tr": "Eklem etrafindaki atalet.",
         "de": "Trägheit um das Gelenk.",
         "fr": "Inertie autour de l'articulation.",
         "es": "Inercia respecto a la articulación.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "acisalIvme",
-      "label": "Açısal İvme (rad/s²)",
+      "label": "AcisalIvme",
       "label_i18n": {
         "en": "Angular Acceleration (rad/s²)",
-        "tr": "Açısal İvme (rad/s²)",
+        "tr": "Acisal Acceleration (rad/s²)",
         "de": "Winkelbeschleunigung (rad/s²)",
         "fr": "Accélération angulaire (rad/s²)",
         "es": "Aceleración Angular (rad/s²)",
@@ -45,10 +45,10 @@
       "unit": "rad/s2",
       "default": 2,
       "min": 0,
-      "businessContext": "Hedef açısal ivme.",
+      "businessContext": "AcisalIvme",
       "businessContext_i18n": {
         "en": "Target angular acceleration.",
-        "tr": "Hedef açısal ivme.",
+        "tr": "Hedef acisal ivme.",
         "de": "Zielwinkelbeschleunigung.",
         "fr": "Accélération angulaire cible.",
         "es": "Aceleración angular objetivo.",
@@ -102,7 +102,7 @@
       "long": "Calculate joint torque from moment of inertia and angular acceleration.",
       "short_i18n": {
         "en": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "tr": "Bir robot ekleminin etrafında üretilen net döndürme momentini (tork) hesaplar.",
+        "tr": "Bir robot ekleminin etrafinda uretilen Net dondurme momentini (Torque) hesaplar.",
         "de": "Berechnen Sie das Gelenkmoment aus Trägheitsmoment und Winkelbeschleunigung.",
         "fr": "Calculer le couple articulaire à partir du moment d'inertie et de l'accélération angulaire.",
         "es": "Calcular el torque en la articulación a partir del momento de inercia y la aceleración angular.",
@@ -110,7 +110,7 @@
       },
       "long_i18n": {
         "en": "Calculate joint torque from moment of inertia and angular acceleration.",
-        "tr": "Bir robot ekleminin etrafında üretilen net döndürme momentini (tork) hesaplar.",
+        "tr": "Bir robot ekleminin etrafinda uretilen Net dondurme momentini (Torque) hesaplar.",
         "de": "Berechnen Sie das Gelenkmoment aus Trägheitsmoment und Winkelbeschleunigung.",
         "fr": "Calculer le couple articulaire à partir du moment d'inertie et de l'accélération angulaire.",
         "es": "Calcular el torque en la articulación a partir del momento de inercia y la aceleración angular.",

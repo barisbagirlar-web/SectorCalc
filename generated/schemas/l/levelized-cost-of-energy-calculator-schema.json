@@ -2,15 +2,15 @@
   "toolName": "levelized-cost-of-energy-calculator",
   "catalogCategory": "energy-carbon",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "toplamYatirim",
-      "label": "Toplam Yatırım (TL)",
+      "label": "ToplamYatirim",
       "label_i18n": {
         "en": "Total Investment (USD)",
-        "tr": "Toplam Yatırım (TL)",
+        "tr": "Total Inandstmmostt (TRY)",
         "de": "Gesamtinvestitionsbetrag",
         "fr": "Montant total de l'investissement",
         "es": "Monto Total de Inversión",
@@ -32,10 +32,10 @@
     },
     {
       "id": "toplamIsletme",
-      "label": "Ömür Boyu İşletme (TL)",
+      "label": "ToplamIsletme",
       "label_i18n": {
         "en": "Lifetime O&M (USD)",
-        "tr": "Ömür Boyu İşletme (TL)",
+        "tr": "Omur Heightu Workletme (TL)",
         "de": "Lebensdauer O&M (USD)",
         "fr": "O&M sur la durée de vie (USD)",
         "es": "O&M de por vida (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Bakım ve işletme giderleri.",
+      "businessContext": "ToplamIsletme",
       "businessContext_i18n": {
         "en": "Operation and maintenance costs.",
-        "tr": "Bakım ve işletme giderleri.",
+        "tr": "BCurrent ve isletme giderleri.",
         "de": "Betriebs- und Wartungskosten.",
         "fr": "Coûts d'exploitation et de maintenance.",
         "es": "Costos de operación y mantenimiento.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "toplamUretim",
-      "label": "Ömür Boyu Üretim (kWh)",
+      "label": "ToplamUretim",
       "label_i18n": {
         "en": "Lifetime Production (kWh)",
-        "tr": "Ömür Boyu Üretim (kWh)",
+        "tr": "Omur Heightu Uretim (kWh)",
         "de": "Lebensdauerproduktion (kWh)",
         "fr": "Production sur la durée de vie (kWh)",
         "es": "Producción de por vida (kWh)",
@@ -70,10 +70,10 @@
       "unit": "kWh",
       "default": 25000000,
       "min": 1,
-      "businessContext": "Toplam elektrik üretimi.",
+      "businessContext": "ToplamUretim",
       "businessContext_i18n": {
         "en": "Total electricity generation.",
-        "tr": "Toplam elektrik üretimi.",
+        "tr": "Total elektrik uretimi.",
         "de": "Gesamte Stromerzeugung.",
         "fr": "Production totale d'électricité.",
         "es": "Generación total de electricidad.",
@@ -124,7 +124,7 @@
       "long": "Calculate levelized cost of energy (LCOE).",
       "short_i18n": {
         "en": "Calculate levelized cost of energy (LCOE).",
-        "tr": "Enerji santralinin ömrü boyunca ürettiği elektriğin birim maliyetini (LCOE) hesaplar.",
+        "tr": "Energy santralinin omru Heightunca urettigi elektrigin Unit Costini (LCOE) hesaplar.",
         "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
         "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
         "es": "Calcular el costo nivelado de la energía (LCOE).",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate levelized cost of energy (LCOE).",
-        "tr": "Enerji santralinin ömrü boyunca ürettiği elektriğin birim maliyetini (LCOE) hesaplar.",
+        "tr": "Energy santralinin omru Heightunca urettigi elektrigin Unit Costini (LCOE) hesaplar.",
         "de": "Berechnen Sie die Stromgestehungskosten (LCOE).",
         "fr": "Calculer le coût actualisé de l'énergie (LCOE).",
         "es": "Calcular el costo nivelado de la energía (LCOE).",

@@ -20,10 +20,10 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Yatırımın nominal getirisi.",
+      "businessContext": "NominalGetiri",
       "businessContext_i18n": {
         "en": "Nominal investment return.",
-        "tr": "Yatırımın nominal getirisi.",
+        "tr": "Yatirimin nominal getirisi.",
         "de": "Nominale Kapitalrendite.",
         "fr": "Rendement nominal de l'investissement.",
         "es": "Rendimiento nominal de la inversión.",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Dönem enflasyon oranı.",
+      "businessContext": "Enflasyon",
       "businessContext_i18n": {
         "en": "Period inflation rate.",
-        "tr": "Dönem enflasyon oranı.",
+        "tr": "Donem enflasyon Ratioi.",
         "de": "Periodeninflationsrate.",
         "fr": "Taux d'inflation de la période.",
         "es": "Tasa de inflación del período.",
@@ -99,7 +99,7 @@
       "long": "Calculate real return — nominal return adjusted for inflation.",
       "short_i18n": {
         "en": "Calculate real return — nominal return adjusted for inflation.",
-        "tr": "Enflasyon etkisi çıkarılmış net satın alma gücü artışını (reel getiri) hesaplar.",
+        "tr": "Enflasyon etkisi cikarilmis Net satin alma gucu artisini (reel getiri) hesaplar.",
         "de": "Berechnung der realen Rendite — nominale Rendite inflationsbereinigt.",
         "fr": "Calculer le rendement réel — rendement nominal ajusté de l'inflation.",
         "es": "Calcular el rendimiento real — rendimiento nominal ajustado por inflación.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate real return — nominal return adjusted for inflation.",
-        "tr": "Enflasyon etkisi çıkarılmış net satın alma gücü artışını (reel getiri) hesaplar.",
+        "tr": "Enflasyon etkisi cikarilmis Net satin alma gucu artisini (reel getiri) hesaplar.",
         "de": "Berechnung der realen Rendite — nominale Rendite inflationsbereinigt.",
         "fr": "Calculer le rendement réel — rendement nominal ajusté de l'inflation.",
         "es": "Calcular el rendimiento real — rendimiento nominal ajustado por inflación.",

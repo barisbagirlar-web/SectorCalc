@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "oncekiKonum",
-      "label": "Önceki Konum (m)",
+      "label": "OncekiKonum",
       "label_i18n": {
         "en": "Previous Position (m)",
-        "tr": "Önceki Konum (m)",
+        "tr": "Onceki Konum (m)",
         "de": "Vorherige Position (m)",
         "fr": "Position précédente (m)",
         "es": "Posición Anterior (m)",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Bir önceki adımdaki tahmin.",
+      "businessContext": "OncekiKonum",
       "businessContext_i18n": {
         "en": "Previous state estimate.",
-        "tr": "Bir önceki adımdaki tahmin.",
+        "tr": "Bir onceki adimdaki tahmin.",
         "de": "Vorherige Zustandsschätzung.",
         "fr": "Estimation d'état précédente.",
         "es": "Estimación del estado anterior.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "oncekiHiz",
-      "label": "Önceki Hız (m/s)",
+      "label": "OncekiHiz",
       "label_i18n": {
         "en": "Previous Velocity (m/s)",
-        "tr": "Önceki Hız (m/s)",
+        "tr": "Onceki Speed (m/s)",
         "de": "Vorherige Geschwindigkeit (m/s)",
         "fr": "Vitesse précédente (m/s)",
         "es": "Velocidad Anterior (m/s)",
@@ -45,10 +45,10 @@
       "unit": "m/s",
       "default": 1,
       "min": 0,
-      "businessContext": "Önceki adım hızı.",
+      "businessContext": "OncekiHiz",
       "businessContext_i18n": {
         "en": "Previous velocity.",
-        "tr": "Önceki adım hızı.",
+        "tr": "Onceki adim Speedi.",
         "de": "Vorherige Geschwindigkeit.",
         "fr": "Vitesse précédente.",
         "es": "Velocidad anterior.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "kontrolIvme",
-      "label": "Kontrol İvmesi (m/s²)",
+      "label": "Kontrol Accelerationsi (m/s²)",
       "label_i18n": {
         "en": "Control Acceleration (m/s²)",
-        "tr": "Kontrol İvmesi (m/s²)",
+        "tr": "Kontrol Accelerationsi (m/s²)",
         "de": "Steuerbeschleunigung (m/s²)",
         "fr": "Accélération de commande (m/s²)",
         "es": "Aceleración de Control (m/s²)",
@@ -82,10 +82,10 @@
     },
     {
       "id": "dt",
-      "label": "Zaman Adımı (s)",
+      "label": "Dt",
       "label_i18n": {
         "en": "Time Step (s)",
-        "tr": "Zaman Adımı (s)",
+        "tr": "Zaman Adimi (s)",
         "de": "Zeitschritt (s)",
         "fr": "Pas de temps (s)",
         "es": "Paso de Tiempo (s)",
@@ -95,10 +95,10 @@
       "unit": "s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Örnekleme zamanı.",
+      "businessContext": "Dt",
       "businessContext_i18n": {
         "en": "Sampling period.",
-        "tr": "Örnekleme zamanı.",
+        "tr": "Ornekleme zamani.",
         "de": "Abtastperiode.",
         "fr": "Période d'échantillonnage.",
         "es": "Período de muestreo.",
@@ -152,7 +152,7 @@
       "long": "Estimate filtered position using Kalman filter prediction step.",
       "short_i18n": {
         "en": "Estimate filtered position using Kalman filter prediction step.",
-        "tr": "Gürültülü sensör verileriyle filtrelenmiş tahmini konumu Kalman filtresi ile hesaplar.",
+        "tr": "Gurultulu sensor verileriyle filtrelenmis tahmini konumu Kalman filtresi ile hesaplar.",
         "de": "Schätzen Sie die gefilterte Position mithilfe des Kalman-Filter-Prädiktionsschritts.",
         "fr": "Estimer la position filtrée à l'aide de l'étape de prédiction du filtre de Kalman.",
         "es": "Estimar la posición filtrada usando el paso de predicción del filtro de Kalman.",
@@ -160,7 +160,7 @@
       },
       "long_i18n": {
         "en": "Estimate filtered position using Kalman filter prediction step.",
-        "tr": "Gürültülü sensör verileriyle filtrelenmiş tahmini konumu Kalman filtresi ile hesaplar.",
+        "tr": "Gurultulu sensor verileriyle filtrelenmis tahmini konumu Kalman filtresi ile hesaplar.",
         "de": "Schätzen Sie die gefilterte Position mithilfe des Kalman-Filter-Prädiktionsschritts.",
         "fr": "Estimer la position filtrée à l'aide de l'étape de prédiction du filtre de Kalman.",
         "es": "Estimar la posición filtrada usando el paso de predicción del filtro de Kalman.",

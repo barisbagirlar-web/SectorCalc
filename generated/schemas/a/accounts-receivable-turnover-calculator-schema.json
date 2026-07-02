@@ -2,15 +2,15 @@
   "toolName": "accounts-receivable-turnover-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yillikSatis",
-      "label": "Yıllık Satış (TL)",
+      "label": "YillikSatis",
       "label_i18n": {
         "en": "Annual Sales (USD)",
-        "tr": "Yıllık Satış (TL)",
+        "tr": "Yillik Satis (TL)",
         "de": "Jahresumsatz (USD)",
         "fr": "Ventes annuelles (USD)",
         "es": "Ventas Anuales (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Toplam yıllık satış.",
+      "businessContext": "YillikSatis",
       "businessContext_i18n": {
         "en": "Total annual revenue.",
-        "tr": "Toplam yıllık satış.",
+        "tr": "Total yillik satis.",
         "de": "Gesamter Jahresumsatz.",
         "fr": "Revenu annuel total.",
         "es": "Ingresos anuales totales.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Dönem ortalama ticari alacak.",
+      "businessContext": "OrtAlacak",
       "businessContext_i18n": {
         "en": "Average accounts receivable.",
-        "tr": "Dönem ortalama ticari alacak.",
+        "tr": "Donem Mean ticari alacak.",
         "de": "Durchschnittliche Forderungen aus Lieferungen und Leistungen.",
         "fr": "Comptes clients moyens.",
         "es": "Promedio de cuentas por cobrar.",
@@ -70,12 +70,12 @@
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Ortalama Tahsilat Süresi"
+      "sonuc": "Aandrage Tahsilat Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ortalama Tahsilat Süresi",
-        "tr": "Ortalama Tahsilat Süresi",
+        "en": "Aandrage Tahsilat Time",
+        "tr": "Aandrage Tahsilat Time",
         "de": "Durchschnittliche Inkassofrist",
         "fr": "Période moyenne de recouvrement",
         "es": "Período Promedio de Cobro",
@@ -100,7 +100,7 @@
       "long": "Calculate accounts receivable turnover in days.",
       "short_i18n": {
         "en": "Calculate accounts receivable turnover in days.",
-        "tr": "Alacakların nakde dönüşme ortalama süresini (gün) hesaplar.",
+        "tr": "Alacaklarin nakde donusme Mean suresini (gun) hesaplar.",
         "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des créances clients en jours.",
         "es": "Calcular la rotación de cuentas por cobrar en días.",
@@ -108,7 +108,7 @@
       },
       "long_i18n": {
         "en": "Calculate accounts receivable turnover in days.",
-        "tr": "Alacakların nakde dönüşme ortalama süresini (gün) hesaplar.",
+        "tr": "Alacaklarin nakde donusme Mean suresini (gun) hesaplar.",
         "de": "Berechnen Sie die Debitorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des créances clients en jours.",
         "es": "Calcular la rotación de cuentas por cobrar en días.",

@@ -2,15 +2,15 @@
   "toolName": "vo2-max-cooper-test-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "health-fitness-daily-life",
-  "sector": "Sağlık ve Fitness",
+  "sector": "Saglik ve Fitness",
   "sectorId": "health-fitness-daily-life",
   "inputs": [
     {
       "id": "kosuMesafesi",
-      "label": "12 Dk Koşu Mesafesi (m)",
+      "label": "12 Dk Running Distance (m)",
       "label_i18n": {
         "en": "12min Run Distance (m)",
-        "tr": "12 Dk Koşu Mesafesi (m)",
+        "tr": "12 Dk Running Distance (m)",
         "de": "12min Laufstrecke (m)",
         "fr": "Distance de course de 12 min (m)",
         "es": "Distancia recorrida en 12 min (m)",
@@ -20,11 +20,11 @@
       "unit": "m",
       "default": 2400,
       "min": 500,
-      "businessContext": "12 dakikada koşulan toplam mesafe.",
+      "businessContext": "KosuMesafesi",
       "businessContext_i18n": {
         "en": "Total distance covered in 12 minutes.",
-        "tr": "12 dakikada koşulan toplam mesafe.",
-        "de": "Gesamtstrecke in 12 Minuten zurückgelegt.",
+        "tr": "12 dakikada kosulan Total Distance.",
+        "de": "Gesamtstrecke in 12 Minuten zuruckgelegt.",
         "fr": "Distance totale parcourue en 12 minutes.",
         "es": "Distancia total recorrida en 12 minutos.",
         "ar": "المسافة الإجمالية المقطوعة في 12 دقيقة."
@@ -74,7 +74,7 @@
       "long": "Estimate VO2 max using the Cooper test formula.",
       "short_i18n": {
         "en": "Estimate VO2 max using the Cooper test formula.",
-        "tr": "Cooper testine göre maksimum oksijen tüketim kapasitesini (VO2 Max) hesaplar.",
+        "tr": "Cooper testine gore Maximum oksijen tuketim kapasitesini (VO2 Max) hesaplar.",
         "de": "Schätzen Sie die VO2max mit der Cooper-Test-Formel.",
         "fr": "Estimer le VO2 max à l'aide de la formule du test de Cooper.",
         "es": "Estimar el VO2 máximo usando la fórmula de la prueba de Cooper.",
@@ -82,7 +82,7 @@
       },
       "long_i18n": {
         "en": "Estimate VO2 max using the Cooper test formula.",
-        "tr": "Cooper testine göre maksimum oksijen tüketim kapasitesini (VO2 Max) hesaplar.",
+        "tr": "Cooper testine gore Maximum oksijen tuketim kapasitesini (VO2 Max) hesaplar.",
         "de": "Schätzen Sie die VO2max mit der Cooper-Test-Formel.",
         "fr": "Estimer le VO2 max à l'aide de la formule du test de Cooper.",
         "es": "Estimar el VO2 máximo usando la fórmula de la prueba de Cooper.",

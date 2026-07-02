@@ -2,7 +2,7 @@
   "toolName": "angle-of-twist-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Burulmaya maruz mil uzunluğu.",
+      "businessContext": "Uzunluk",
       "businessContext_i18n": {
         "en": "Shaft length under torsion.",
-        "tr": "Burulmaya maruz mil uzunluğu.",
+        "tr": "Burulmaya maruz mil uzunlugu.",
         "de": "Wellenlänge unter Torsion.",
         "fr": "Longueur de l'arbre sous torsion.",
         "es": "Longitud del eje bajo torsión.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "kaymaModulu",
-      "label": "Kayma Modülü (Pa)",
+      "label": "Shear Modeulus (Pa)",
       "label_i18n": {
         "en": "Shear Modulus (Pa)",
-        "tr": "Kayma Modülü (Pa)",
+        "tr": "Shear Modeulus (Pa)",
         "de": "Schubmodul (Pa)",
         "fr": "Module de cisaillement (Pa)",
         "es": "Módulo de Corte (Pa)",
@@ -70,10 +70,10 @@
       "unit": "Pa",
       "default": 80000000000,
       "min": 0,
-      "businessContext": "Malzemenin kayma modülü.",
+      "businessContext": "Malzemenin Shear Modeulus.",
       "businessContext_i18n": {
         "en": "Material shear modulus.",
-        "tr": "Malzemenin kayma modülü.",
+        "tr": "Malzemenin Shear Modeulus.",
         "de": "Schubmodul des Materials.",
         "fr": "Module de cisaillement du matériau.",
         "es": "Módulo de corte del material.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "rad",
     "breakdown": {
-      "sonuc": "Burulma Açısı (θ)"
+      "sonuc": "Burulma Acisi (θ)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Burulma Açısı (θ)",
-        "tr": "Burulma Açısı (θ)",
+        "en": "Burulma Acisi (θ)",
+        "tr": "Burulma Acisi (θ)",
         "de": "Verdrehwinkel (θ)",
         "fr": "Angle de torsion (θ)",
         "es": "Ángulo de Torsión (θ)",
@@ -149,7 +149,7 @@
       "long": "Calculate total angle of twist in a shaft under torsion.",
       "short_i18n": {
         "en": "Calculate total angle of twist in a shaft under torsion.",
-        "tr": "Milin boyunda oluşan toplam burulma (dönme) miktarını hesaplar.",
+        "tr": "Milin Heightunda olusan Total burulma (donme) Amountini hesaplar.",
         "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
         "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
         "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate total angle of twist in a shaft under torsion.",
-        "tr": "Milin boyunda oluşan toplam burulma (dönme) miktarını hesaplar.",
+        "tr": "Milin Heightunda olusan Total burulma (donme) Amountini hesaplar.",
         "de": "Berechnen Sie den gesamten Verdrehwinkel einer Welle unter Torsion.",
         "fr": "Calculer l'angle de torsion total dans un arbre sous torsion.",
         "es": "Calcular el ángulo total de torsión en un eje bajo torsión.",

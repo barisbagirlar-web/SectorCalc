@@ -2,15 +2,15 @@
   "toolName": "undamped-spring-mass-angular-frequency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "kutle",
-      "label": "Kütle (kg)",
+      "label": "Mass (kg)",
       "label_i18n": {
         "en": "Mass (kg)",
-        "tr": "Kütle (kg)",
+        "tr": "Mass (kg)",
         "de": "Massenstrom des heißen Fluids",
         "fr": "Débit massique du fluide chaud",
         "es": "Caudal másico del fluido caliente",
@@ -20,10 +20,10 @@
       "unit": "kg",
       "default": 10,
       "min": 0,
-      "businessContext": "Sistem kütlesi.",
+      "businessContext": "Sistem Masssi.",
       "businessContext_i18n": {
         "en": "System mass.",
-        "tr": "Sistem kütlesi.",
+        "tr": "Sistem Masssi.",
         "de": "Systemmasse.",
         "fr": "Masse du système.",
         "es": "Masa del sistema.",
@@ -45,10 +45,10 @@
       "unit": "N/m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Yay rijitliği.",
+      "businessContext": "YayKatsayisi",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
-        "tr": "Yay rijitliği.",
+        "tr": "Yay rijitligi.",
         "de": "Federsteifigkeit.",
         "fr": "Raideur du ressort.",
         "es": "Rigidez del resorte.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "rad/s",
     "breakdown": {
-      "sonuc": "Açısal Frekans (ω)"
+      "sonuc": "Acisal Frequency (ω)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Açısal Frekans (ω)",
-        "tr": "Açısal Frekans (ω)",
+        "en": "Acisal Frequency (ω)",
+        "tr": "Acisal Frequency (ω)",
         "de": "Angular Frequency (ω)",
         "fr": "Pulsation (ω)",
         "es": "Frecuencia Angular (ω)",
@@ -99,7 +99,7 @@
       "long": "Calculate undamped natural angular frequency of spring-mass system.",
       "short_i18n": {
         "en": "Calculate undamped natural angular frequency of spring-mass system.",
-        "tr": "Sönümsüz yay-kütle sisteminin doğal açısal frekansını (ω) hesaplar.",
+        "tr": "Sonumsuz yay-Mass sisteminin dogal acisal Frequencyini (ω) hesaplar.",
         "de": "Berechnen Sie die ungedämpfte Eigenkreisfrequenz eines Feder-Masse-Systems.",
         "fr": "Calculer la pulsation naturelle non amortie d'un système masse-ressort.",
         "es": "Calcular la frecuencia angular natural no amortiguada de un sistema masa-resorte.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate undamped natural angular frequency of spring-mass system.",
-        "tr": "Sönümsüz yay-kütle sisteminin doğal açısal frekansını (ω) hesaplar.",
+        "tr": "Sonumsuz yay-Mass sisteminin dogal acisal Frequencyini (ω) hesaplar.",
         "de": "Berechnen Sie die ungedämpfte Eigenkreisfrequenz eines Feder-Masse-Systems.",
         "fr": "Calculer la pulsation naturelle non amortie d'un système masse-ressort.",
         "es": "Calcular la frecuencia angular natural no amortiguada de un sistema masa-resorte.",
@@ -117,7 +117,7 @@
   },
   "title_i18n": {
     "en": "undamped-spring-mass-angular-frequency-calculator",
-    "de": "Rechner für Feder-Masse-System",
+    "de": "Rechner fur Feder-Masse-System",
     "fr": "Calculateur de système masse-ressort",
     "es": "Calculadora de sistema masa-resorte",
     "ar": "حاسبة نظام الكتلة والزنبرك"

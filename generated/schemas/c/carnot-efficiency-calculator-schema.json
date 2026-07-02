@@ -2,15 +2,15 @@
   "toolName": "carnot-efficiency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "sicakKaynak",
-      "label": "Sıcak Rezervuar (K)",
+      "label": "SicakKaynak",
       "label_i18n": {
         "en": "Hot Reservoir (K)",
-        "tr": "Sıcak Rezervuar (K)",
+        "tr": "Sicak Rezervuar (K)",
         "de": "Heißes Reservoir (K)",
         "fr": "Réservoir chaud (K)",
         "es": "Reservorio Caliente (K)",
@@ -20,10 +20,10 @@
       "unit": "K",
       "default": 500,
       "min": 0,
-      "businessContext": "Isı kaynağı sıcaklığı.",
+      "businessContext": "SicakKaynak",
       "businessContext_i18n": {
         "en": "Heat source temperature.",
-        "tr": "Isı kaynağı sıcaklığı.",
+        "tr": "Isi kaynagi sicakligi.",
         "de": "Temperatur der Wärmequelle.",
         "fr": "Température de la source de chaleur.",
         "es": "Temperatura de la fuente de calor.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "sogukKaynak",
-      "label": "Soğuk Rezervuar (K)",
+      "label": "SogukKaynak",
       "label_i18n": {
         "en": "Cold Reservoir (K)",
-        "tr": "Soğuk Rezervuar (K)",
+        "tr": "Soguk Rezervuar (K)",
         "de": "Kaltes Reservoir (K)",
         "fr": "Réservoir froid (K)",
         "es": "Reservorio Frío (K)",
@@ -45,10 +45,10 @@
       "unit": "K",
       "default": 300,
       "min": 0,
-      "businessContext": "Isı kuyusu sıcaklığı.",
+      "businessContext": "SogukKaynak",
       "businessContext_i18n": {
         "en": "Heat sink temperature.",
-        "tr": "Isı kuyusu sıcaklığı.",
+        "tr": "Isi kuyusu sicakligi.",
         "de": "Temperatur der Wärmesenke.",
         "fr": "Température du puits de chaleur.",
         "es": "Temperatura del sumidero de calor.",
@@ -102,7 +102,7 @@
       "long": "Calculate Carnot efficiency of an ideal heat engine.",
       "short_i18n": {
         "en": "Calculate Carnot efficiency of an ideal heat engine.",
-        "tr": "İki sıcaklık rezervuarı arasında çalışan ideal ısı makinesinin maksimum verimini hesaplar.",
+        "tr": "Iki Temperature rezervuari arasinda calisan ideal isi makinesinin Maximum Efficiencyini hesaplar.",
         "de": "Berechnen Sie den Carnot-Wirkungsgrad einer idealen Wärmekraftmaschine.",
         "fr": "Calculer le rendement de Carnot d'un moteur thermique idéal.",
         "es": "Calcular la eficiencia de Carnot de un motor térmico ideal.",
@@ -110,7 +110,7 @@
       },
       "long_i18n": {
         "en": "Calculate Carnot efficiency of an ideal heat engine.",
-        "tr": "İki sıcaklık rezervuarı arasında çalışan ideal ısı makinesinin maksimum verimini hesaplar.",
+        "tr": "Iki Temperature rezervuari arasinda calisan ideal isi makinesinin Maximum Efficiencyini hesaplar.",
         "de": "Berechnen Sie den Carnot-Wirkungsgrad einer idealen Wärmekraftmaschine.",
         "fr": "Calculer le rendement de Carnot d'un moteur thermique idéal.",
         "es": "Calcular la eficiencia de Carnot de un motor térmico ideal.",

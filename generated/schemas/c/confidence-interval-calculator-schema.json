@@ -2,15 +2,15 @@
   "toolName": "confidence-interval-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mathematics-statistics",
-  "sector": "Veri ve İstatistik",
+  "sector": "Veri ve Istatistik",
   "sectorId": "mathematics-statistics",
   "inputs": [
     {
       "id": "ortalama",
-      "label": "Örneklem Ortalaması",
+      "label": "Ortalama",
       "label_i18n": {
         "en": "Sample Mean",
-        "tr": "Örneklem Ortalaması",
+        "tr": "Orneklem Meansi",
         "de": "Stichprobenmittelwert",
         "fr": "Moyenne de l'échantillon",
         "es": "Media Muestral",
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Örneklemin ortalaması.",
+      "businessContext": "Ortalama",
       "businessContext_i18n": {
         "en": "Sample average.",
-        "tr": "Örneklemin ortalaması.",
+        "tr": "Orneklemin Meansi.",
         "de": "Stichprobendurchschnitt.",
         "fr": "Moyenne de l'échantillon.",
         "es": "Promedio muestral.",
@@ -45,10 +45,10 @@
       "unit": "scalar",
       "default": 5,
       "min": 0,
-      "businessContext": "Ortalamanın standart hatası.",
+      "businessContext": "StdHata",
       "businessContext_i18n": {
         "en": "Standard error of the mean.",
-        "tr": "Ortalamanın standart hatası.",
+        "tr": "Meannin Standard Errorsi.",
         "de": "Standardfehler des Mittelwerts.",
         "fr": "Erreur standard de la moyenne.",
         "es": "Error estándar de la media.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "guvenSeviyesi",
-      "label": "Güven Seviyesi (%)",
+      "label": "GuvenSeviyesi",
       "label_i18n": {
         "en": "Confidence Level (%)",
-        "tr": "Güven Seviyesi (%)",
+        "tr": "Guven Seviyesi (%)",
         "de": "Konfidenzniveau",
         "fr": "Niveau de confiance",
         "es": "Nivel de Confianza",
@@ -71,10 +71,10 @@
       "default": 95,
       "min": 1,
       "max": 99.9,
-      "businessContext": "İstatistiksel güven düzeyi.",
+      "businessContext": "GuvenSeviyesi",
       "businessContext_i18n": {
         "en": "Statistical confidence level.",
-        "tr": "İstatistiksel güven düzeyi.",
+        "tr": "Istatistiksel guven Leveli.",
         "de": "Statistisches Konfidenzniveau.",
         "fr": "Niveau de confiance statistique.",
         "es": "Nivel de confianza estadística.",
@@ -97,21 +97,21 @@
     "primary": "sonuc",
     "unit": "number",
     "breakdown": {
-      "alt": "Alt Sınır",
-      "sonuc": "Üst Sınır"
+      "alt": "Alt Sinir",
+      "sonuc": "Ust Sinir"
     },
     "breakdown_i18n": {
       "alt": {
-        "en": "Alt Sınır",
-        "tr": "Alt Sınır",
+        "en": "Alt Sinir",
+        "tr": "Alt Sinir",
         "de": "Untergrenze",
         "fr": "Limite inférieure",
         "es": "Límite Inferior",
         "ar": "الحد الأدنى"
       },
       "sonuc": {
-        "en": "Üst Sınır",
-        "tr": "Üst Sınır",
+        "en": "Ust Sinir",
+        "tr": "Ust Sinir",
         "de": "Obergrenze",
         "fr": "Limite supérieure",
         "es": "Límite Superior",
@@ -137,16 +137,16 @@
       "long": "Calculate confidence interval for population parameter.",
       "short_i18n": {
         "en": "Calculate confidence interval for population parameter.",
-        "tr": "Popülasyon parametresinin bulunma olasılığı yüksek aralığı (güven aralığı) hesaplar.",
-        "de": "Konfidenzintervall für den Populationsparameter berechnen.",
+        "tr": "Populasyon Parametersinin bulunma olasiligi yuksek araligi (Confidence Interval) hesaplar.",
+        "de": "Konfidenzintervall fur den Populationsparameter berechnen.",
         "fr": "Calculer l'intervalle de confiance pour un paramètre de population.",
         "es": "Calcular el intervalo de confianza para un parámetro poblacional.",
         "ar": "حساب فاصل الثقة لمعلمة المجتمع."
       },
       "long_i18n": {
         "en": "Calculate confidence interval for population parameter.",
-        "tr": "Popülasyon parametresinin bulunma olasılığı yüksek aralığı (güven aralığı) hesaplar.",
-        "de": "Konfidenzintervall für den Populationsparameter berechnen.",
+        "tr": "Populasyon Parametersinin bulunma olasiligi yuksek araligi (Confidence Interval) hesaplar.",
+        "de": "Konfidenzintervall fur den Populationsparameter berechnen.",
         "fr": "Calculer l'intervalle de confiance pour un paramètre de population.",
         "es": "Calcular el intervalo de confianza para un parámetro poblacional.",
         "ar": "حساب فاصل الثقة لمعلمة المجتمع."

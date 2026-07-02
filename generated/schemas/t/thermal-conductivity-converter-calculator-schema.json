@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "deger",
-      "label": "Isı İletkenlik Değeri",
+      "label": "Deger",
       "label_i18n": {
         "en": "Thermal Conductivity",
-        "tr": "Isı İletkenlik Değeri",
+        "tr": "Isi Iletkenlik Valuei",
         "de": "Wärmeleitfähigkeit",
         "fr": "Conductivité thermique",
         "es": "Conductividad Térmica",
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Dönüştürülecek değer.",
+      "businessContext": "Deger",
       "businessContext_i18n": {
         "en": "Value to convert.",
-        "tr": "Dönüştürülecek değer.",
+        "tr": "Donusturulecek Value.",
         "de": "Zu konvertierender Wert.",
         "fr": "Valeur à convertir.",
         "es": "Valor a convertir.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "W/mK",
     "breakdown": {
-      "sonuc": "Isı İletkenliği (W/mK)"
+      "sonuc": "Isi Iletkenligi (W/mK)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Isı İletkenliği (W/mK)",
-        "tr": "Isı İletkenliği (W/mK)",
+        "en": "Isi Iletkenligi (W/mK)",
+        "tr": "Isi Iletkenligi (W/mK)",
         "de": "Wärmeleitfähigkeit (W/mK)",
         "fr": "Conductivité thermique (W/mK)",
         "es": "Conductividad Térmica (W/mK)",
@@ -99,7 +99,7 @@
       "long": "Convert thermal conductivity values to W/mK (SI unit).",
       "short_i18n": {
         "en": "Convert thermal conductivity values to W/mK (SI unit).",
-        "tr": "Farklı birimlerdeki ısı iletkenlik değerini W/mK SI birimine dönüştürür.",
+        "tr": "Farkli Unitlerdeki isi iletkenlik Valueini W/mK SI Unitine donusturur.",
         "de": "Konvertieren Sie Wärmeleitfähigkeitswerte in W/mK (SI-Einheit).",
         "fr": "Convertir les valeurs de conductivité thermique en W/mK (unité SI).",
         "es": "Convertir valores de conductividad térmica a W/mK (unidad SI).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Convert thermal conductivity values to W/mK (SI unit).",
-        "tr": "Farklı birimlerdeki ısı iletkenlik değerini W/mK SI birimine dönüştürür.",
+        "tr": "Farkli Unitlerdeki isi iletkenlik Valueini W/mK SI Unitine donusturur.",
         "de": "Konvertieren Sie Wärmeleitfähigkeitswerte in W/mK (SI-Einheit).",
         "fr": "Convertir les valeurs de conductivité thermique en W/mK (unité SI).",
         "es": "Convertir valores de conductividad térmica a W/mK (unidad SI).",

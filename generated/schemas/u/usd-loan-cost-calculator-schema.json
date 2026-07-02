@@ -2,15 +2,15 @@
   "toolName": "usd-loan-cost-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Kredi ve Borç",
+  "sector": "Kredi ve Borc",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "tutar",
-      "label": "Kredi Tutarı (USD)",
+      "label": "Tutar",
       "label_i18n": {
         "en": "Loan Amount (USD)",
-        "tr": "Kredi Tutarı (USD)",
+        "tr": "Kredi Tutari (USD)",
         "de": "Darlehensbetrag",
         "fr": "Montant du prêt",
         "es": "Monto del préstamo",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "USD cinsinden kredi anaparası.",
+      "businessContext": "Tutar",
       "businessContext_i18n": {
         "en": "Loan principal in USD.",
-        "tr": "USD cinsinden kredi anaparası.",
+        "tr": "USD cinsinden kredi Principalsi.",
         "de": "Darlehensbetrag in USD.",
         "fr": "Principal du prêt en USD.",
         "es": "Principal del préstamo en USD.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "faiz",
-      "label": "Yıllık Faiz (%)",
+      "label": "Faiz",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Yıllık Faiz (%)",
+        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Kredi faiz oranı.",
+      "businessContext": "Kredi Interest Rate.",
       "businessContext_i18n": {
         "en": "Loan interest rate.",
-        "tr": "Kredi faiz oranı.",
+        "tr": "Kredi Interest Rate.",
         "de": "Darlehenszinssatz.",
         "fr": "Taux d'intérêt du prêt.",
         "es": "Tasa de interés del préstamo.",
@@ -95,10 +95,10 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Kurun yıllık artış beklentisi.",
+      "businessContext": "KurBeklentisi",
       "businessContext_i18n": {
         "en": "Expected annual FX rate increase.",
-        "tr": "Kurun yıllık artış beklentisi.",
+        "tr": "Kurun yillik artis beklentisi.",
         "de": "Erwarteter jährlicher Wechselkursanstieg.",
         "fr": "Augmentation annuelle attendue du taux de change.",
         "es": "Incremento anual esperado del tipo de cambio.",
@@ -120,10 +120,10 @@
       "unit": "USD",
       "default": 30,
       "min": 0,
-      "businessContext": "Güncel dolar kuru.",
+      "businessContext": "MevcutKur",
       "businessContext_i18n": {
         "en": "Current USD/TRY rate.",
-        "tr": "Güncel dolar kuru.",
+        "tr": "Daycel dolar kuru.",
         "de": "Aktueller USD/TRY-Kurs.",
         "fr": "Taux actuel USD/TRY.",
         "es": "Tipo de cambio actual USD/TRY.",
@@ -145,12 +145,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tahmini TL Aylık Taksit"
+      "sonuc": "Tahmini TRY Monthly Taksit"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tahmini TL Aylık Taksit",
-        "tr": "Tahmini TL Aylık Taksit",
+        "en": "Tahmini TRY Monthly Taksit",
+        "tr": "Tahmini TRY Monthly Taksit",
         "de": "Estimated Monthly Installment in TRY",
         "fr": "Mensualité estimée en TL",
         "es": "Cuota Mensual Estimada en TL",
@@ -175,7 +175,7 @@
       "long": "Calculate estimated TRY cost of a USD loan with FX risk.",
       "short_i18n": {
         "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "tr": "Döviz kredisinin kur riskiyle artırılmış tahmini TL maliyetini hesaplar.",
+        "tr": "Doviz kredisinin kur riskiyle artirilmis tahmini TL Costini hesaplar.",
         "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
         "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
         "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",
@@ -183,7 +183,7 @@
       },
       "long_i18n": {
         "en": "Calculate estimated TRY cost of a USD loan with FX risk.",
-        "tr": "Döviz kredisinin kur riskiyle artırılmış tahmini TL maliyetini hesaplar.",
+        "tr": "Doviz kredisinin kur riskiyle artirilmis tahmini TL Costini hesaplar.",
         "de": "Berechnen Sie die geschätzten TRY-Kosten eines USD-Darlehens mit Wechselkursrisiko.",
         "fr": "Calculer le coût estimé en TRY d'un prêt en USD avec risque de change.",
         "es": "Calcular el costo estimado en TRY de un préstamo en USD con riesgo cambiario.",

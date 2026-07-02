@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 25000,
       "min": 0,
-      "businessContext": "Yatırımdan elde edilen toplam net kâr.",
+      "businessContext": "NetKar",
       "businessContext_i18n": {
         "en": "Total net profit from investment.",
-        "tr": "Yatırımdan elde edilen toplam net kâr.",
+        "tr": "Inandstmmosttdan elde edwithn Total Net Profit.",
         "de": "Gesamtnettogewinn aus der Investition.",
         "fr": "Bénéfice net total de l'investissement.",
         "es": "Beneficio neto total de la inversión.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Yatırım için yapılan toplam harcama.",
+      "businessContext": "Maliyet",
       "businessContext_i18n": {
         "en": "Total investment expenditure.",
-        "tr": "Yatırım için yapılan toplam harcama.",
+        "tr": "Yatirim icin yapilan Total harcama.",
         "de": "Gesamtinvestitionsausgaben.",
         "fr": "Dépense totale d'investissement.",
         "es": "Gasto total de inversión.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "ROI (Yatırım Getirisi)"
+      "sonuc": "ROI (Inandstmmostt Getirisi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "ROI (Yatırım Getirisi)",
-        "tr": "ROI (Yatırım Getirisi)",
+        "en": "ROI (Inandstmmostt Getirisi)",
+        "tr": "ROI (Inandstmmostt Getirisi)",
         "de": "ROI (Kapitalrendite)",
         "fr": "ROI (Retour sur investissement)",
         "es": "ROI (Retorno de la Inversión)",
@@ -99,7 +99,7 @@
       "long": "Calculate return on investment (ROI) relative to cost.",
       "short_i18n": {
         "en": "Calculate return on investment (ROI) relative to cost.",
-        "tr": "Yatırımın maliyetine göre ürettiği net verimi (ROI) hesaplar.",
+        "tr": "Yatirimin Costine gore urettigi Net Efficiencyi (ROI) hesaplar.",
         "de": "Berechnen Sie die Kapitalrendite (ROI) im Verhältnis zu den Kosten.",
         "fr": "Calculer le retour sur investissement (ROI) par rapport au coût.",
         "es": "Calcular el retorno de la inversión (ROI) en relación con el costo.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate return on investment (ROI) relative to cost.",
-        "tr": "Yatırımın maliyetine göre ürettiği net verimi (ROI) hesaplar.",
+        "tr": "Yatirimin Costine gore urettigi Net Efficiencyi (ROI) hesaplar.",
         "de": "Berechnen Sie die Kapitalrendite (ROI) im Verhältnis zu den Kosten.",
         "fr": "Calculer le retour sur investissement (ROI) par rapport au coût.",
         "es": "Calcular el retorno de la inversión (ROI) en relación con el costo.",

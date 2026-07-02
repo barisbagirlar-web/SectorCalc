@@ -2,15 +2,15 @@
   "toolName": "wood-siding-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Kaplama Alanı (m²)",
+      "label": "Alan",
       "label_i18n": {
         "en": "Siding Area (m²)",
-        "tr": "Kaplama Alanı (m²)",
+        "tr": "Coating Area (m²)",
         "de": "Verkleidungsfläche (m²)",
         "fr": "Surface de bardage (m²)",
         "es": "Área de Revestimiento (m²)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Tahtanın toplam eni.",
+      "businessContext": "TahtaEn",
       "businessContext_i18n": {
         "en": "Board total width.",
-        "tr": "Tahtanın toplam eni.",
+        "tr": "Tahtanin Total eni.",
         "de": "Gesamtbreite des Bretts.",
         "fr": "Largeur totale de la planche.",
         "es": "Ancho total del tablero.",
@@ -57,11 +57,11 @@
     },
     {
       "id": "bindirmePayi",
-      "label": "Bindirme Payı (m)",
+      "label": "BindirmePayi",
       "label_i18n": {
         "en": "Overlap (m)",
-        "tr": "Bindirme Payı (m)",
-        "de": "Überlappung (m)",
+        "tr": "Bindirme Payi (m)",
+        "de": "Uberlappung (m)",
         "fr": "Chevauchement (m)",
         "es": "Superposición (m)",
         "ar": "التداخل (m)"
@@ -70,11 +70,11 @@
       "unit": "m",
       "default": 0.025,
       "min": 0,
-      "businessContext": "Tahtaların üst üste binme miktarı.",
+      "businessContext": "BindirmePayi",
       "businessContext_i18n": {
         "en": "Overlap between boards.",
-        "tr": "Tahtaların üst üste binme miktarı.",
-        "de": "Überlappung zwischen den Brettern.",
+        "tr": "Tahtalarin ust uste binme Amounti.",
+        "de": "Uberlappung zwischen den Brettern.",
         "fr": "Chevauchement entre les planches.",
         "es": "Superposición entre tableros.",
         "ar": "التداخل بين الألواح."
@@ -124,16 +124,16 @@
       "long": "Calculate wood siding length needed accounting for overlap.",
       "short_i18n": {
         "en": "Calculate wood siding length needed accounting for overlap.",
-        "tr": "Üst üste binme payları düşülmüş toplam kaplama uzunluğunu hesaplar.",
-        "de": "Berechnen Sie die benötigte Länge der Holzverkleidung unter Berücksichtigung der Überlappung.",
+        "tr": "Ust uste binme paylari dusulmus Total kaplama uzunlugunu hesaplar.",
+        "de": "Berechnen Sie die benotigte Länge der Holzverkleidung unter Berucksichtigung der Uberlappung.",
         "fr": "Calculer la longueur de bardage en bois nécessaire en tenant compte du chevauchement.",
         "es": "Calcular la longitud necesaria de revestimiento de madera considerando la superposición.",
         "ar": "حساب طول انحياز الخشب المطلوب مع مراعاة التداخل."
       },
       "long_i18n": {
         "en": "Calculate wood siding length needed accounting for overlap.",
-        "tr": "Üst üste binme payları düşülmüş toplam kaplama uzunluğunu hesaplar.",
-        "de": "Berechnen Sie die benötigte Länge der Holzverkleidung unter Berücksichtigung der Überlappung.",
+        "tr": "Ust uste binme paylari dusulmus Total kaplama uzunlugunu hesaplar.",
+        "de": "Berechnen Sie die benotigte Länge der Holzverkleidung unter Berucksichtigung der Uberlappung.",
         "fr": "Calculer la longueur de bardage en bois nécessaire en tenant compte du chevauchement.",
         "es": "Calcular la longitud necesaria de revestimiento de madera considerando la superposición.",
         "ar": "حساب طول انحياز الخشب المطلوب مع مراعاة التداخل."

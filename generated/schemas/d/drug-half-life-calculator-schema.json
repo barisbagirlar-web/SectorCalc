@@ -2,15 +2,15 @@
   "toolName": "drug-half-life-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sector": "Bilisim, Biyomedikal ve Maden",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "yarilanmaOmru",
-      "label": "Yarılanma Ömrü (Saat)",
+      "label": "YarilanmaOmru",
       "label_i18n": {
         "en": "Half-Life (Hours)",
-        "tr": "Yarılanma Ömrü (Saat)",
+        "tr": "Yarilanma Omru (Saat)",
         "de": "Halbwertszeit (Stunden)",
         "fr": "Demi-Vie (Heures)",
         "es": "Vida Media (Horas)",
@@ -20,10 +20,10 @@
       "unit": "h",
       "default": 12,
       "min": 0,
-      "businessContext": "İlacın vücuttan yarılanma süresi.",
+      "businessContext": "YarilanmaOmru",
       "businessContext_i18n": {
         "en": "Drug elimination half-life.",
-        "tr": "İlacın vücuttan yarılanma süresi.",
+        "tr": "Ilacin vucuttan Half-life.",
         "de": "Arzneimittel-Eliminationshalbwertszeit.",
         "fr": "Demi-vie d'élimination du médicament.",
         "es": "Vida media de eliminación del fármaco.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "dozAraligi",
-      "label": "Doz Aralığı (Saat)",
+      "label": "DozAraligi",
       "label_i18n": {
         "en": "Dosing Interval (Hours)",
-        "tr": "Doz Aralığı (Saat)",
+        "tr": "Doz Araligi (Saat)",
         "de": "Dosierungsintervall (Stunden)",
         "fr": "Intervalle de Dosage (Heures)",
         "es": "Intervalo de Dosificación (Horas)",
@@ -45,10 +45,10 @@
       "unit": "h",
       "default": 8,
       "min": 0,
-      "businessContext": "İlaç alma sıklığı.",
+      "businessContext": "DozAraligi",
       "businessContext_i18n": {
         "en": "Time between doses.",
-        "tr": "İlaç alma sıklığı.",
+        "tr": "Ilac alma sikligi.",
         "de": "Zeit zwischen den Dosen.",
         "fr": "Temps entre les doses.",
         "es": "Tiempo entre dosis.",
@@ -70,12 +70,12 @@
     "primary": "sonuc",
     "unit": "factor",
     "breakdown": {
-      "sonuc": "Birikim Faktörü"
+      "sonuc": "Birikim Faktoru"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Birikim Faktörü",
-        "tr": "Birikim Faktörü",
+        "en": "Birikim Faktoru",
+        "tr": "Birikim Faktoru",
         "de": "Akkumulationsfaktor",
         "fr": "Facteur d'Accumulation",
         "es": "Factor de Acumulación",
@@ -103,7 +103,7 @@
       "long": "Calculate drug accumulation factor based on half-life and dosing interval.",
       "short_i18n": {
         "en": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "tr": "Kararlı durumda ilacın vücutta birikim faktörünü yarılanma ömrüne göre hesaplar.",
+        "tr": "Kararli durumda ilacin vucutta Birikim Faktorunu yarilanma omrune gore hesaplar.",
         "de": "Berechnen Sie den Arzneimittelakkumulationsfaktor basierend auf Halbwertszeit und Dosierungsintervall.",
         "fr": "Calculez le facteur d'accumulation du médicament en fonction de la demi-vie et de l'intervalle de dosage.",
         "es": "Calcular el factor de acumulación del fármaco basado en la vida media y el intervalo de dosificación.",
@@ -111,7 +111,7 @@
       },
       "long_i18n": {
         "en": "Calculate drug accumulation factor based on half-life and dosing interval.",
-        "tr": "Kararlı durumda ilacın vücutta birikim faktörünü yarılanma ömrüne göre hesaplar.",
+        "tr": "Kararli durumda ilacin vucutta Birikim Faktorunu yarilanma omrune gore hesaplar.",
         "de": "Berechnen Sie den Arzneimittelakkumulationsfaktor basierend auf Halbwertszeit und Dosierungsintervall.",
         "fr": "Calculez le facteur d'accumulation du médicament en fonction de la demi-vie et de l'intervalle de dosage.",
         "es": "Calcular el factor de acumulación del fármaco basado en la vida media y el intervalo de dosificación.",

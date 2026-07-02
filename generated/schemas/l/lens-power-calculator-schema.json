@@ -2,15 +2,15 @@
   "toolName": "lens-power-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "odakUzaklik",
-      "label": "Odak Uzaklığı (m)",
+      "label": "OdakUzaklik",
       "label_i18n": {
         "en": "Focal Length (m)",
-        "tr": "Odak Uzaklığı (m)",
+        "tr": "Odak Uzakligi (m)",
         "de": "Brennweite (m)",
         "fr": "Distance focale (m)",
         "es": "Distancia Focal (m)",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Merceğin odak uzaklığı.",
+      "businessContext": "OdakUzaklik",
       "businessContext_i18n": {
         "en": "Lens focal length.",
-        "tr": "Merceğin odak uzaklığı.",
+        "tr": "Mercegin odak uzakligi.",
         "de": "Brennweite der Linse.",
         "fr": "Distance focale de la lentille.",
         "es": "Distancia focal de la lente.",
@@ -77,7 +77,7 @@
       "long": "Calculate lens optical power (diopters) from focal length.",
       "short_i18n": {
         "en": "Calculate lens optical power (diopters) from focal length.",
-        "tr": "Merceğin ışığı kırma gücünü (diyoptri) odak uzaklığından hesaplar.",
+        "tr": "Mercegin isigi kirma gucunu (diyoptri) odak uzakligindan hesaplar.",
         "de": "Berechnen Sie die optische Leistung einer Linse (Dioptrien) aus der Brennweite.",
         "fr": "Calculer la puissance optique d'une lentille (dioptries) à partir de la distance focale.",
         "es": "Calcular la potencia óptica de una lente (dioptrías) a partir de la distancia focal.",
@@ -85,7 +85,7 @@
       },
       "long_i18n": {
         "en": "Calculate lens optical power (diopters) from focal length.",
-        "tr": "Merceğin ışığı kırma gücünü (diyoptri) odak uzaklığından hesaplar.",
+        "tr": "Mercegin isigi kirma gucunu (diyoptri) odak uzakligindan hesaplar.",
         "de": "Berechnen Sie die optische Leistung einer Linse (Dioptrien) aus der Brennweite.",
         "fr": "Calculer la puissance optique d'une lentille (dioptries) à partir de la distance focale.",
         "es": "Calcular la potencia óptica de una lente (dioptrías) a partir de la distancia focal.",

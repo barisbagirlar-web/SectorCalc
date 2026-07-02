@@ -2,15 +2,15 @@
   "toolName": "rlc-resonant-frequency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
       "id": "L",
-      "label": "İndüktans (H)",
+      "label": "L",
       "label_i18n": {
         "en": "Inductance (H)",
-        "tr": "İndüktans (H)",
+        "tr": "Induktans (H)",
         "de": "Induktivität (H)",
         "fr": "Inductance (H)",
         "es": "Inductancia (H)",
@@ -20,10 +20,10 @@
       "unit": "H",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Bobin endüktansı.",
+      "businessContext": "L",
       "businessContext_i18n": {
         "en": "Inductor value.",
-        "tr": "Bobin endüktansı.",
+        "tr": "Bobin Inductancei.",
         "de": "Spulenwert.",
         "fr": "Valeur de l'inductance.",
         "es": "Valor del inductor.",
@@ -45,10 +45,10 @@
       "unit": "F",
       "default": 1e-7,
       "min": 0,
-      "businessContext": "Kapasitör değeri.",
+      "businessContext": "C",
       "businessContext_i18n": {
         "en": "Capacitor value.",
-        "tr": "Kapasitör değeri.",
+        "tr": "Kapasitor Valuei.",
         "de": "Kondensatorwert.",
         "fr": "Valeur du condensateur.",
         "es": "Valor del capacitor.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "R",
-      "label": "Direnç (Ω)",
+      "label": "Resistance (Ω)",
       "label_i18n": {
         "en": "Resistance (Ω)",
-        "tr": "Direnç (Ω)",
+        "tr": "Resistance (Ω)",
         "de": "Widerstand (R)",
         "fr": "Résistance (R)",
         "es": "Resistencia (R)",
@@ -95,22 +95,22 @@
     "primary": "sonuc",
     "unit": "Q",
     "breakdown": {
-      "f0": "Rezonans Frekansı (Hz)",
-      "sonuc": "Kalite Faktörü (Q)"
+      "f0": "Resonant Frequency (Hz)",
+      "sonuc": "Kalite Faktoru (Q)"
     },
     "breakdown_i18n": {
       "f0": {
-        "en": "Rezonans Frekansı (Hz)",
-        "tr": "Rezonans Frekansı (Hz)",
+        "en": "Resonant Frequency (Hz)",
+        "tr": "Resonant Frequency (Hz)",
         "de": "Resonanzfrequenz (Hz)",
         "fr": "Fréquence de résonance (Hz)",
         "es": "Frecuencia de Resonancia (Hz)",
         "ar": "تردد الرنين (Hz)"
       },
       "sonuc": {
-        "en": "Kalite Faktörü (Q)",
-        "tr": "Kalite Faktörü (Q)",
-        "de": "Gütefaktor (Q)",
+        "en": "Kalite Faktoru (Q)",
+        "tr": "Kalite Faktoru (Q)",
+        "de": "Gutefaktor (Q)",
         "fr": "Facteur de qualité (Q)",
         "es": "Factor de Calidad (Q)",
         "ar": "عامل الجودة (Q)"
@@ -137,16 +137,16 @@
       "long": "Calculate RLC circuit resonant frequency and Q factor.",
       "short_i18n": {
         "en": "Calculate RLC circuit resonant frequency and Q factor.",
-        "tr": "RLC devresinin maksimum genlikte titreştiği frekansı (rezonans) ve Q faktörünü hesaplar.",
-        "de": "Berechnen Sie die Resonanzfrequenz und den Gütefaktor eines RLC-Schwingkreises.",
+        "tr": "RLC devresinin Maximum genlikte titrestigi Frequencyi (rezonans) ve Q faktorunu hesaplar.",
+        "de": "Berechnen Sie die Resonanzfrequenz und den Gutefaktor eines RLC-Schwingkreises.",
         "fr": "Calculer la fréquence de résonance et le facteur Q d'un circuit RLC.",
         "es": "Calcular la frecuencia de resonancia y el factor Q de un circuito RLC.",
         "ar": "حساب تردد الرنين وعامل الجودة لدائرة RLC."
       },
       "long_i18n": {
         "en": "Calculate RLC circuit resonant frequency and Q factor.",
-        "tr": "RLC devresinin maksimum genlikte titreştiği frekansı (rezonans) ve Q faktörünü hesaplar.",
-        "de": "Berechnen Sie die Resonanzfrequenz und den Gütefaktor eines RLC-Schwingkreises.",
+        "tr": "RLC devresinin Maximum genlikte titrestigi Frequencyi (rezonans) ve Q faktorunu hesaplar.",
+        "de": "Berechnen Sie die Resonanzfrequenz und den Gutefaktor eines RLC-Schwingkreises.",
         "fr": "Calculer la fréquence de résonance et le facteur Q d'un circuit RLC.",
         "es": "Calcular la frecuencia de resonancia y el factor Q de un circuito RLC.",
         "ar": "حساب تردد الرنين وعامل الجودة لدائرة RLC."

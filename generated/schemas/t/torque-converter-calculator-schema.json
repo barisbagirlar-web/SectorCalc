@@ -2,15 +2,15 @@
   "toolName": "torque-converter-calculator",
   "catalogCategory": "conversion",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "deger",
-      "label": "Tork Değeri",
+      "label": "Torque Value",
       "label_i18n": {
         "en": "Torque Value",
-        "tr": "Tork Değeri",
+        "tr": "Torque Value",
         "de": "Drehmomentwert",
         "fr": "Valeur de couple",
         "es": "Valor de Torque",
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Dönüştürülecek tork.",
+      "businessContext": "Deger",
       "businessContext_i18n": {
         "en": "Torque to convert.",
-        "tr": "Dönüştürülecek tork.",
+        "tr": "Donusturulecek Torque.",
         "de": "Zu konvertierendes Drehmoment.",
         "fr": "Couple à convertir.",
         "es": "Torque a convertir.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "N.m Karşılığı"
+      "sonuc": "N.m Karsiligi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "N.m Karşılığı",
-        "tr": "N.m Karşılığı",
+        "en": "N.m Karsiligi",
+        "tr": "N.m Karsiligi",
         "de": "Entsprechung in N.m",
         "fr": "Équivalent en N.m",
         "es": "Equivalente en N.m",
@@ -99,7 +99,7 @@
       "long": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
       "short_i18n": {
         "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-        "tr": "Farklı birimlerdeki tork değerini standart N.m birimine dönüştürür.",
+        "tr": "Farkli Unitlerdeki Torque Valueni standart N.m Unitine donusturur.",
         "de": "Konvertieren Sie Drehmomentwerte (lbft/kgfm) in N.m (SI-Einheit).",
         "fr": "Convertir les valeurs de couple (lbft/kgfm) en N.m (unité SI).",
         "es": "Convertir valores de torque (lbft/kgfm) a N.m (unidad SI).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Convert torque values (lbft/kgfm) to N.m (SI unit).",
-        "tr": "Farklı birimlerdeki tork değerini standart N.m birimine dönüştürür.",
+        "tr": "Farkli Unitlerdeki Torque Valueni standart N.m Unitine donusturur.",
         "de": "Konvertieren Sie Drehmomentwerte (lbft/kgfm) in N.m (SI-Einheit).",
         "fr": "Convertir les valeurs de couple (lbft/kgfm) en N.m (unité SI).",
         "es": "Convertir valores de torque (lbft/kgfm) a N.m (unidad SI).",

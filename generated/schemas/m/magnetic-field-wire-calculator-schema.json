@@ -2,15 +2,15 @@
   "toolName": "magnetic-field-wire-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
       "id": "akim",
-      "label": "Telden Geçen Akım (A)",
+      "label": "Akim",
       "label_i18n": {
         "en": "Current in Wire (A)",
-        "tr": "Telden Geçen Akım (A)",
+        "tr": "Telden Gecen Currmostt (A)",
         "de": "Strom im Draht (A)",
         "fr": "Courant dans le fil (A)",
         "es": "Corriente en el cable (A)",
@@ -20,10 +20,10 @@
       "unit": "A",
       "default": 10,
       "min": 0,
-      "businessContext": "İletkendeki akım.",
+      "businessContext": "Akim",
       "businessContext_i18n": {
         "en": "Conductor current.",
-        "tr": "İletkendeki akım.",
+        "tr": "Iletkendeki Current.",
         "de": "Leiterstrom.",
         "fr": "Courant conducteur.",
         "es": "Corriente del conductor.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "mesafe",
-      "label": "Telden Uzaklık (m)",
+      "label": "Mesafe",
       "label_i18n": {
         "en": "Distance from Wire (m)",
-        "tr": "Telden Uzaklık (m)",
+        "tr": "Telden Uzaklik (m)",
         "de": "Abstand vom Draht",
         "fr": "Distance du fil",
         "es": "Distancia desde el cable",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Ölçüm noktasının tele uzaklığı.",
+      "businessContext": "Mesafe",
       "businessContext_i18n": {
         "en": "Measurement distance from wire.",
-        "tr": "Ölçüm noktasının tele uzaklığı.",
+        "tr": "Olcum noktasinin tele uzakligi.",
         "de": "Messabstand vom Draht.",
         "fr": "Distance de mesure par rapport au fil.",
         "es": "Distancia de medición desde el cable.",
@@ -101,7 +101,7 @@
       "long": "Calculate magnetic flux density around a long straight wire.",
       "short_i18n": {
         "en": "Calculate magnetic flux density around a long straight wire.",
-        "tr": "Sonsuz telin belirli mesafesindeki manyetik akı yoğunluğunu Ampere yasası ile hesaplar.",
+        "tr": "Sonsuz telin belirli Distancesindeki manyetik aki yogunlugunu Ampere yasasi ile hesaplar.",
         "de": "Berechnen Sie die magnetische Flussdichte um einen langen geraden Draht.",
         "fr": "Calculer la densité de flux magnétique autour d'un long fil droit.",
         "es": "Calcular la densidad de flujo magnético alrededor de un cable largo y recto.",
@@ -109,7 +109,7 @@
       },
       "long_i18n": {
         "en": "Calculate magnetic flux density around a long straight wire.",
-        "tr": "Sonsuz telin belirli mesafesindeki manyetik akı yoğunluğunu Ampere yasası ile hesaplar.",
+        "tr": "Sonsuz telin belirli Distancesindeki manyetik aki yogunlugunu Ampere yasasi ile hesaplar.",
         "de": "Berechnen Sie die magnetische Flussdichte um einen langen geraden Draht.",
         "fr": "Calculer la densité de flux magnétique autour d'un long fil droit.",
         "es": "Calcular la densidad de flujo magnético alrededor de un cable largo y recto.",

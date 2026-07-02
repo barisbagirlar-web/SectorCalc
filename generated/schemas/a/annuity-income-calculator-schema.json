@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Anüiteye yatırılan toplam ana para.",
+      "businessContext": "Anapara",
       "businessContext_i18n": {
         "en": "Total principal invested.",
-        "tr": "Anüiteye yatırılan toplam ana para.",
+        "tr": "Anuiteye yatirilan Total ana para.",
         "de": "Investiertes Gesamtkapital.",
         "fr": "Principal total investi.",
         "es": "Capital total invertido.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "faiz",
-      "label": "Yıllık Faiz (%)",
+      "label": "Faiz",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Yıllık Faiz (%)",
+        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Yıllık faiz oranı.",
+      "businessContext": "Annual Interest Rate.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
-        "tr": "Yıllık faiz oranı.",
+        "tr": "Annual Interest Rate.",
         "de": "Nominaler jährlicher Zinssatz.",
         "fr": "Taux d'intérêt annuel nominal.",
         "es": "Tasa de interés anual nominal.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "donem",
-      "label": "Dönem (Ay)",
+      "label": "Donem",
       "label_i18n": {
         "en": "Period (Months)",
-        "tr": "Dönem (Ay)",
+        "tr": "Donem (Ay)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -70,10 +70,10 @@
       "unit": "months",
       "default": 120,
       "min": 1,
-      "businessContext": "Gelir çekilecek toplam ay.",
+      "businessContext": "Donem",
       "businessContext_i18n": {
         "en": "Total income withdrawal months.",
-        "tr": "Gelir çekilecek toplam ay.",
+        "tr": "Gelir cekilecek Total ay.",
         "de": "Monate des Einkommensbezugs.",
         "fr": "Mois de retrait de revenu total.",
         "es": "Meses de retiro de ingresos totales.",
@@ -95,12 +95,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Aylık Anüite Geliri"
+      "sonuc": "Aylik Anuite Geliri"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Aylık Anüite Geliri",
-        "tr": "Aylık Anüite Geliri",
+        "en": "Aylik Anuite Geliri",
+        "tr": "Aylik Anuite Geliri",
         "de": "Monatliche Annuitäteneinnahme",
         "fr": "Revenu de rente mensuelle",
         "es": "Ingreso de Anualidad Mensual",
@@ -125,7 +125,7 @@
       "long": "Calculate fixed periodic income from a principal amount at a given interest rate.",
       "short_i18n": {
         "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-        "tr": "Birikmiş anaparanın belirli faiz oranında düzenli çekilebilecek sabit gelirini hesaplar.",
+        "tr": "Birikmis Principalnin belirli Interest Ratenda duzenli cekilebilecek sabit gelirini hesaplar.",
         "de": "Berechnen Sie ein festes periodisches Einkommen aus einem Kapitalbetrag bei einem gegebenen Zinssatz.",
         "fr": "Calculer le revenu périodique fixe à partir d'un montant principal à un taux d'intérêt donné.",
         "es": "Calcular el ingreso periódico fijo a partir de un monto principal a una tasa de interés dada.",
@@ -133,7 +133,7 @@
       },
       "long_i18n": {
         "en": "Calculate fixed periodic income from a principal amount at a given interest rate.",
-        "tr": "Birikmiş anaparanın belirli faiz oranında düzenli çekilebilecek sabit gelirini hesaplar.",
+        "tr": "Birikmis Principalnin belirli Interest Ratenda duzenli cekilebilecek sabit gelirini hesaplar.",
         "de": "Berechnen Sie ein festes periodisches Einkommen aus einem Kapitalbetrag bei einem gegebenen Zinssatz.",
         "fr": "Calculer le revenu périodique fixe à partir d'un montant principal à un taux d'intérêt donné.",
         "es": "Calcular el ingreso periódico fijo a partir de un monto principal a una tasa de interés dada.",

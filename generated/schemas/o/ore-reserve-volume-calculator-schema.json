@@ -2,7 +2,7 @@
   "toolName": "ore-reserve-volume-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sector": "Bilisim, Biyomedikal ve Maden",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
@@ -20,11 +20,11 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Cevher kütlesinin hacmi.",
+      "businessContext": "Cevher Masssinin hacmi.",
       "businessContext_i18n": {
         "en": "Ore body volume.",
-        "tr": "Cevher kütlesinin hacmi.",
-        "de": "Erzkörpervolumen.",
+        "tr": "Cevher Masssinin hacmi.",
+        "de": "Erzkorpervolumen.",
         "fr": "Volume du corps minéralisé.",
         "es": "Volumen del cuerpo mineral.",
         "ar": "حجم جسم الخام."
@@ -32,10 +32,10 @@
     },
     {
       "id": "cevherYogunlugu",
-      "label": "Cevher Yoğunluğu (ton/m³)",
+      "label": "CevherYogunlugu",
       "label_i18n": {
         "en": "Ore Density (ton/m³)",
-        "tr": "Cevher Yoğunluğu (ton/m³)",
+        "tr": "Cevher Dmostsity (ton/m³)",
         "de": "Erzdichte (ton/m³)",
         "fr": "Densité du minerai (ton/m³)",
         "es": "Densidad del Mineral (ton/m³)",
@@ -45,10 +45,10 @@
       "unit": "ton/m3",
       "default": 2.7,
       "min": 0,
-      "businessContext": "Cevherin yoğunluğu.",
+      "businessContext": "CevherYogunlugu",
       "businessContext_i18n": {
         "en": "Ore density.",
-        "tr": "Cevherin yoğunluğu.",
+        "tr": "Cevherin yogunlugu.",
         "de": "Erzdichte.",
         "fr": "Densité du minerai.",
         "es": "Densidad del mineral.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "tenor",
-      "label": "Tenör (%)",
+      "label": "Tenor",
       "label_i18n": {
         "en": "Grade (%)",
-        "tr": "Tenör (%)",
+        "tr": "Tenor (%)",
         "de": "Schraubenfestigkeitsklasse / Eigenschaftsklasse",
         "fr": "Classe de qualité de boulon / Classe de propriété",
         "es": "Grado de perno / Clase de propiedad",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Cevherin metal içeriği.",
+      "businessContext": "Tenor",
       "businessContext_i18n": {
         "en": "Metal grade in ore.",
-        "tr": "Cevherin metal içeriği.",
+        "tr": "Cevherin metal icerigi.",
         "de": "Metallgehalt im Erz.",
         "fr": "Teneur en métal dans le minerai.",
         "es": "Ley del metal en el mineral.",
@@ -96,7 +96,7 @@
     "unit": "tons",
     "breakdown": {
       "tonaj": "Toplam Cevher (ton)",
-      "sonuc": "Metal Miktarı (ton)"
+      "sonuc": "Metal Quantity (ton)"
     },
     "breakdown_i18n": {
       "tonaj": {
@@ -108,8 +108,8 @@
         "ar": "إجمالي الخام (طن)"
       },
       "sonuc": {
-        "en": "Metal Miktarı (ton)",
-        "tr": "Metal Miktarı (ton)",
+        "en": "Metal Quantity (ton)",
+        "tr": "Metal Quantity (ton)",
         "de": "Metallmenge (t)",
         "fr": "Quantité de métal (tonne)",
         "es": "Cantidad de Metal (ton)",
@@ -138,7 +138,7 @@
       "long": "Calculate ore tonnage and metal content in a mining block.",
       "short_i18n": {
         "en": "Calculate ore tonnage and metal content in a mining block.",
-        "tr": "Sahadaki net cevher ve saf metal ağırlığını (rezerv hacim) hesaplar.",
+        "tr": "Sahadaki Net cevher ve saf metal agirligini (rezerv Volume) hesaplar.",
         "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
         "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
         "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",
@@ -146,7 +146,7 @@
       },
       "long_i18n": {
         "en": "Calculate ore tonnage and metal content in a mining block.",
-        "tr": "Sahadaki net cevher ve saf metal ağırlığını (rezerv hacim) hesaplar.",
+        "tr": "Sahadaki Net cevher ve saf metal agirligini (rezerv Volume) hesaplar.",
         "de": "Erztonnage und Metallgehalt in einem Bergbaublock berechnen.",
         "fr": "Calculer le tonnage de minerai et la teneur en métal dans un bloc minier.",
         "es": "Calcular el tonelaje de mineral y el contenido metálico en un bloque minero.",

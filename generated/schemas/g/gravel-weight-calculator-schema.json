@@ -2,7 +2,7 @@
   "toolName": "gravel-weight-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
@@ -32,10 +32,10 @@
     },
     {
       "id": "kalinlik",
-      "label": "Tabaka Kalınlığı (cm)",
+      "label": "Kalinlik",
       "label_i18n": {
         "en": "Layer Thickness (cm)",
-        "tr": "Tabaka Kalınlığı (cm)",
+        "tr": "Tabaka Thickness (cm)",
         "de": "Schichtdicke (cm)",
         "fr": "Épaisseur de la couche (cm)",
         "es": "Espesor de Capa (cm)",
@@ -45,10 +45,10 @@
       "unit": "cm",
       "default": 10,
       "min": 0,
-      "businessContext": "Sıkıştırılmış kalınlık.",
+      "businessContext": "Kalinlik",
       "businessContext_i18n": {
         "en": "Compacted thickness.",
-        "tr": "Sıkıştırılmış kalınlık.",
+        "tr": "Sikistirilmis kalinlik.",
         "de": "Verdichtete Dicke.",
         "fr": "Épaisseur compactée.",
         "es": "Espesor compactado.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yoğunluk (ton/m³)",
+      "label": "Density (ton/m³)",
       "label_i18n": {
         "en": "Density (ton/m³)",
-        "tr": "Yoğunluk (ton/m³)",
+        "tr": "Dmostsity (ton/m³)",
         "de": "Materialdichte",
         "fr": "Densité du matériau",
         "es": "Densidad del material",
@@ -70,10 +70,10 @@
       "unit": "ton/m3",
       "default": 1.6,
       "min": 0,
-      "businessContext": "Agreganın yoğunluğu.",
+      "businessContext": "Yogunluk",
       "businessContext_i18n": {
         "en": "Aggregate density.",
-        "tr": "Agreganın yoğunluğu.",
+        "tr": "Agreganin yogunlugu.",
         "de": "Gesteinsdichte.",
         "fr": "Densité des granulats.",
         "es": "Densidad del agregado.",
@@ -124,16 +124,16 @@
       "long": "Calculate gravel or sand weight needed for base course.",
       "short_i18n": {
         "en": "Calculate gravel or sand weight needed for base course.",
-        "tr": "Alt temel için gereken agrega (çakıl/kum) ağırlığını hesaplar.",
-        "de": "Berechnen Sie das benötigte Kies- oder Sandgewicht für die Tragschicht.",
+        "tr": "Alt temel icin gereken agrega (cakil/kum) agirligini hesaplar.",
+        "de": "Berechnen Sie das benotigte Kies- oder Sandgewicht fur die Tragschicht.",
         "fr": "Calculer le poids de gravier ou de sable nécessaire pour la couche de base.",
         "es": "Calcular el peso de grava o arena necesario para la base.",
         "ar": "احسب وزن الحصى أو الرمل اللازم للطبقة الأساسية."
       },
       "long_i18n": {
         "en": "Calculate gravel or sand weight needed for base course.",
-        "tr": "Alt temel için gereken agrega (çakıl/kum) ağırlığını hesaplar.",
-        "de": "Berechnen Sie das benötigte Kies- oder Sandgewicht für die Tragschicht.",
+        "tr": "Alt temel icin gereken agrega (cakil/kum) agirligini hesaplar.",
+        "de": "Berechnen Sie das benotigte Kies- oder Sandgewicht fur die Tragschicht.",
         "fr": "Calculer le poids de gravier ou de sable nécessaire pour la couche de base.",
         "es": "Calcular el peso de grava o arena necesario para la base.",
         "ar": "احسب وزن الحصى أو الرمل اللازم للطبقة الأساسية."

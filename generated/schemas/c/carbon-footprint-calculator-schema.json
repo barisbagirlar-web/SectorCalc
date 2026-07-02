@@ -2,15 +2,15 @@
   "toolName": "carbon-footprint-calculator",
   "catalogCategory": "energy-carbon",
   "categorySlug": "sustainability-resource-esg",
-  "sector": "Çevre ve Sürdürülebilirlik",
+  "sector": "Environment and Sustainability",
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
       "id": "yakit",
-      "label": "Yakıt Tüketimi (L)",
+      "label": "Fuel Consumption (L)",
       "label_i18n": {
         "en": "Fuel Consumption (L)",
-        "tr": "Yakıt Tüketimi (L)",
+        "tr": "Fuel Consumption (L)",
         "de": "Dieselkraftstoffverbrauch (Flotte)",
         "fr": "Consommation de carburant diesel (Flotte)",
         "es": "Consumo de combustible diésel (Flota)",
@@ -20,10 +20,10 @@
       "unit": "L",
       "default": 10000,
       "min": 0,
-      "businessContext": "Yıllık yakıt tüketimi (motorin).",
+      "businessContext": "Annual Fuel Consumption (motorin).",
       "businessContext_i18n": {
         "en": "Annual diesel consumption.",
-        "tr": "Yıllık yakıt tüketimi (motorin).",
+        "tr": "Annual Fuel Consumption (motorin).",
         "de": "Jährlicher Dieselverbrauch.",
         "fr": "Consommation annuelle de diesel.",
         "es": "Consumo anual de diésel.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "elektrik",
-      "label": "Elektrik Tüketimi (kWh)",
+      "label": "Electricity Consumption (kWh)",
       "label_i18n": {
         "en": "Electricity (kWh)",
-        "tr": "Elektrik Tüketimi (kWh)",
+        "tr": "Electricity Consumption (kWh)",
         "de": "Stromverbrauch",
         "fr": "Consommation d'électricité",
         "es": "Consumo de electricidad",
@@ -45,10 +45,10 @@
       "unit": "kWh",
       "default": 50000,
       "min": 0,
-      "businessContext": "Yıllık elektrik tüketimi.",
+      "businessContext": "Annual Electricity Consumption.",
       "businessContext_i18n": {
         "en": "Annual electricity consumption.",
-        "tr": "Yıllık elektrik tüketimi.",
+        "tr": "Annual Electricity Consumption.",
         "de": "Jährlicher Stromverbrauch.",
         "fr": "Consommation annuelle d'électricité.",
         "es": "Consumo anual de electricidad.",
@@ -70,11 +70,11 @@
       "unit": "kgCO2",
       "default": 20000,
       "min": 0,
-      "businessContext": "Satın alınan mal/hizmet kaynaklı emisyon.",
+      "businessContext": "Emissions from Purchased Goods/Services.",
       "businessContext_i18n": {
         "en": "Purchased goods emissions.",
-        "tr": "Satın alınan mal/hizmet kaynaklı emisyon.",
-        "de": "Emissionen aus eingekauften Gütern.",
+        "tr": "Emissions from Purchased Goods/Services.",
+        "de": "Emissionen aus eingekauften Gutern.",
         "fr": "Émissions des biens achetés.",
         "es": "Emisiones de bienes comprados.",
         "ar": "انبعاثات السلع المشتراة."
@@ -96,12 +96,12 @@
     "primary": "sonuc",
     "unit": "kgCO2",
     "breakdown": {
-      "sonuc": "Toplam Karbon Ayak İzi"
+      "sonuc": "Total Carbon Footprint"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Toplam Karbon Ayak İzi",
-        "tr": "Toplam Karbon Ayak İzi",
+        "en": "Total Carbon Footprint",
+        "tr": "Total Carbon Footprint",
         "de": "Gesamter CO2-Fußabdruck",
         "fr": "Empreinte carbone totale",
         "es": "Huella de Carbono Total",
@@ -129,7 +129,7 @@
       "long": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
       "short_i18n": {
         "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-        "tr": "Kurumun toplam sera gazı emisyonunu (karbon ayak izi) hesaplar.",
+        "tr": "Kurumun Total Greenhouse Gas Emissionsnu (karbon ayak izi) hesaplar.",
         "de": "Berechnen Sie die gesamten Treibhausgasemissionen des Unternehmens (CO2-Fußabdruck).",
         "fr": "Calculer les émissions totales de gaz à effet de serre de l'entreprise (empreinte carbone).",
         "es": "Calcular las emisiones totales de gases de efecto invernadero corporativas (huella de carbono).",
@@ -137,7 +137,7 @@
       },
       "long_i18n": {
         "en": "Calculate total corporate greenhouse gas emissions (carbon footprint).",
-        "tr": "Kurumun toplam sera gazı emisyonunu (karbon ayak izi) hesaplar.",
+        "tr": "Kurumun Total Greenhouse Gas Emissionsnu (karbon ayak izi) hesaplar.",
         "de": "Berechnen Sie die gesamten Treibhausgasemissionen des Unternehmens (CO2-Fußabdruck).",
         "fr": "Calculer les émissions totales de gaz à effet de serre de l'entreprise (empreinte carbone).",
         "es": "Calcular las emisiones totales de gases de efecto invernadero corporativas (huella de carbono).",

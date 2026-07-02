@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext": "Anapara",
       "businessContext_i18n": {
         "en": "Initial investment amount.",
-        "tr": "Başlangıç yatırım tutarı.",
+        "tr": "Baslangic Investment Amount.",
         "de": "Anfänglicher Anlagebetrag.",
         "fr": "Montant de l'investissement initial.",
         "es": "Monto de inversión inicial.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "faiz",
-      "label": "Yıllık Faiz (%)",
+      "label": "Faiz",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Yıllık Faiz (%)",
+        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Yıllık nominal faiz oranı.",
+      "businessContext": "Faiz",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
-        "tr": "Yıllık nominal faiz oranı.",
+        "tr": "Yillik nominal Interest Rate.",
         "de": "Nominaler jährlicher Zinssatz.",
         "fr": "Taux d'intérêt annuel nominal.",
         "es": "Tasa de interés anual nominal.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "gun",
-      "label": "Gün Sayısı",
+      "label": "Gun",
       "label_i18n": {
         "en": "Number of Days",
-        "tr": "Gün Sayısı",
+        "tr": "Day Count",
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
         "es": "Número de días",
@@ -70,11 +70,11 @@
       "unit": "days",
       "default": 365,
       "min": 1,
-      "businessContext": "Vadeye kalan gün sayısı.",
+      "businessContext": "Gun",
       "businessContext_i18n": {
         "en": "Number of days for the term.",
-        "tr": "Vadeye kalan gün sayısı.",
-        "de": "Anzahl der Tage für die Laufzeit.",
+        "tr": "Maturityye kArea Day Count.",
+        "de": "Anzahl der Tage fur die Laufzeit.",
         "fr": "Nombre de jours pour la durée.",
         "es": "Número de días del plazo.",
         "ar": "عدد أيام المدة."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Günlük Bileşik Değer"
+      "sonuc": "Gunluk Bilesik Value"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Günlük Bileşik Değer",
-        "tr": "Günlük Bileşik Değer",
+        "en": "Gunluk Bilesik Value",
+        "tr": "Gunluk Bilesik Value",
         "de": "Täglicher Zinseszinswert",
         "fr": "Valeur composée quotidienne",
         "es": "Valor Compuesto Diario",
@@ -124,16 +124,16 @@
       "long": "Calculate daily compound interest future value.",
       "short_i18n": {
         "en": "Calculate daily compound interest future value.",
-        "tr": "Günlük bazda bileşik getirinin vade sonu değerini hesaplar.",
-        "de": "Berechnen Sie den zukünftigen Wert bei täglicher Zinseszinsrechnung.",
+        "tr": "Gunluk bazda bilesik getirinin Maturity Sonu Valueini hesaplar.",
+        "de": "Berechnen Sie den zukunftigen Wert bei täglicher Zinseszinsrechnung.",
         "fr": "Calculer la valeur future des intérêts composés quotidiens.",
         "es": "Calcular el valor futuro del interés compuesto diario.",
         "ar": "احسب القيمة المستقبلية للفائدة المركبة اليومية."
       },
       "long_i18n": {
         "en": "Calculate daily compound interest future value.",
-        "tr": "Günlük bazda bileşik getirinin vade sonu değerini hesaplar.",
-        "de": "Berechnen Sie den zukünftigen Wert bei täglicher Zinseszinsrechnung.",
+        "tr": "Gunluk bazda bilesik getirinin Maturity Sonu Valueini hesaplar.",
+        "de": "Berechnen Sie den zukunftigen Wert bei täglicher Zinseszinsrechnung.",
         "fr": "Calculer la valeur future des intérêts composés quotidiens.",
         "es": "Calcular el valor futuro del interés compuesto diario.",
         "ar": "احسب القيمة المستقبلية للفائدة المركبة اليومية."

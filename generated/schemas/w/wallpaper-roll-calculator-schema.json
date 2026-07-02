@@ -2,15 +2,15 @@
   "toolName": "wallpaper-roll-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Duvar Alanı (m²)",
+      "label": "Wall Area (m²)",
       "label_i18n": {
         "en": "Wall Area (m²)",
-        "tr": "Duvar Alanı (m²)",
+        "tr": "Wall Area (m²)",
         "de": "Wandfläche",
         "fr": "Surface murale",
         "es": "Área de la pared",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.53,
       "min": 0,
-      "businessContext": "Duvar kağıdı rulo eni.",
+      "businessContext": "RuloEn",
       "businessContext_i18n": {
         "en": "Wallpaper roll width.",
-        "tr": "Duvar kağıdı rulo eni.",
+        "tr": "Duvar kagidi rulo eni.",
         "de": "Tapetenrollenbreite.",
         "fr": "Largeur du rouleau de papier peint.",
         "es": "Ancho del rollo de papel tapiz.",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Rulo uzunluğu.",
+      "businessContext": "RuloBoy",
       "businessContext_i18n": {
         "en": "Roll length.",
-        "tr": "Rulo uzunluğu.",
+        "tr": "Rulo uzunlugu.",
         "de": "Rollenlänge.",
         "fr": "Longueur du rouleau.",
         "es": "Longitud del rollo.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "desenTekrari",
-      "label": "Desen Tekrarı (m)",
+      "label": "DesenTekrari",
       "label_i18n": {
         "en": "Pattern Repeat (m)",
-        "tr": "Desen Tekrarı (m)",
+        "tr": "Desen Tekrari (m)",
         "de": "Musterrapport (m)",
         "fr": "Raccord du motif (m)",
         "es": "Repetición del patrón (m)",
@@ -95,10 +95,10 @@
       "unit": "m",
       "default": 0,
       "min": 0,
-      "businessContext": "Desen eşleşme aralığı.",
+      "businessContext": "DesenTekrari",
       "businessContext_i18n": {
         "en": "Pattern repeat length.",
-        "tr": "Desen eşleşme aralığı.",
+        "tr": "Desen eslesme araligi.",
         "de": "Musterrapportlänge.",
         "fr": "Longueur du raccord du motif.",
         "es": "Longitud de repetición del patrón.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "rolls",
     "breakdown": {
-      "sonuc": "Gerekli Duvar Kağıdı Rulosu"
+      "sonuc": "Gerekli Duvar Kagidi Rulosu"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Duvar Kağıdı Rulosu",
-        "tr": "Gerekli Duvar Kağıdı Rulosu",
+        "en": "Gerekli Duvar Kagidi Rulosu",
+        "tr": "Gerekli Duvar Kagidi Rulosu",
         "de": "Required Wallpaper Roll",
         "fr": "Rouleau de papier peint nécessaire",
         "es": "Rollo de Papel Tapiz Requerido",
@@ -149,16 +149,16 @@
       "long": "Calculate wallpaper rolls needed including pattern repeat waste.",
       "short_i18n": {
         "en": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "tr": "Desen eşleşme fireleri dahil gereken duvar kağıdı rulo sayısını hesaplar.",
-        "de": "Berechnen Sie die benötigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
+        "tr": "Desen eslesme Scrapleri dahil gereken duvar kagidi rulo Numbersini hesaplar.",
+        "de": "Berechnen Sie die benotigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
         "fr": "Calculer le nombre de rouleaux de papier peint nécessaires en incluant les pertes dues au raccord du motif.",
         "es": "Calcular los rollos de papel tapiz necesarios incluyendo el desperdicio por repetición del patrón.",
         "ar": "حساب اللفائف المطلوبة من ورق الحائط بما في ذلك هدر تكرار النمط."
       },
       "long_i18n": {
         "en": "Calculate wallpaper rolls needed including pattern repeat waste.",
-        "tr": "Desen eşleşme fireleri dahil gereken duvar kağıdı rulo sayısını hesaplar.",
-        "de": "Berechnen Sie die benötigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
+        "tr": "Desen eslesme Scrapleri dahil gereken duvar kagidi rulo Numbersini hesaplar.",
+        "de": "Berechnen Sie die benotigten Tapetenrollen inklusive Musterrapport-Verschwendung.",
         "fr": "Calculer le nombre de rouleaux de papier peint nécessaires en incluant les pertes dues au raccord du motif.",
         "es": "Calcular los rollos de papel tapiz necesarios incluyendo el desperdicio por repetición del patrón.",
         "ar": "حساب اللفائف المطلوبة من ورق الحائط بما في ذلك هدر تكرار النمط."

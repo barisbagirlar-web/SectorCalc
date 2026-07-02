@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "deger",
-      "label": "Yoğunluk Değeri",
+      "label": "Density Valuei",
       "label_i18n": {
         "en": "Density Value",
-        "tr": "Yoğunluk Değeri",
+        "tr": "Dmostsity Value",
         "de": "Dichtewert",
         "fr": "Valeur de densité",
         "es": "Valor de Densidad",
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Dönüştürülecek yoğunluk değeri.",
+      "businessContext": "Deger",
       "businessContext_i18n": {
         "en": "Density value to convert.",
-        "tr": "Dönüştürülecek yoğunluk değeri.",
+        "tr": "Donusturulecek Dmostsity Value.",
         "de": "Zu konvertierender Dichtewert.",
         "fr": "Valeur de densité à convertir.",
         "es": "Valor de densidad a convertir.",
@@ -45,10 +45,10 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Girilen değerin birimi.",
+      "businessContext": "Girilen Valuein Uniti.",
       "businessContext_i18n": {
         "en": "Unit of input value.",
-        "tr": "Girilen değerin birimi.",
+        "tr": "Girilen Valuein Uniti.",
         "de": "Einheit des Eingabewerts.",
         "fr": "Unité de la valeur d'entrée.",
         "es": "Unidad del valor de entrada.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "kg/m3",
     "breakdown": {
-      "sonuc": "Yoğunluk (kg/m³)"
+      "sonuc": "Dmostsity (kg/m³)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yoğunluk (kg/m³)",
-        "tr": "Yoğunluk (kg/m³)",
+        "en": "Dmostsity (kg/m³)",
+        "tr": "Dmostsity (kg/m³)",
         "de": "Dichte (kg/m³)",
         "fr": "Densité (kg/m³)",
         "es": "Densidad (kg/m³)",
@@ -99,7 +99,7 @@
       "long": "Convert density values from various units to kg/m³.",
       "short_i18n": {
         "en": "Convert density values from various units to kg/m³.",
-        "tr": "Farklı birimlerdeki yoğunluk değerini kg/m³ SI birimine dönüştürür.",
+        "tr": "Farkli Unitlerdeki Dmostsity Valueni kg/m³ SI Unitine donusturur.",
         "de": "Konvertieren Sie Dichtewerte von verschiedenen Einheiten in kg/m³.",
         "fr": "Convertir des valeurs de densité de diverses unités en kg/m³.",
         "es": "Convertir valores de densidad de varias unidades a kg/m³.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Convert density values from various units to kg/m³.",
-        "tr": "Farklı birimlerdeki yoğunluk değerini kg/m³ SI birimine dönüştürür.",
+        "tr": "Farkli Unitlerdeki Dmostsity Valueni kg/m³ SI Unitine donusturur.",
         "de": "Konvertieren Sie Dichtewerte von verschiedenen Einheiten in kg/m³.",
         "fr": "Convertir des valeurs de densité de diverses unités en kg/m³.",
         "es": "Convertir valores de densidad de varias unidades a kg/m³.",

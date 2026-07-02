@@ -2,15 +2,15 @@
   "toolName": "load-factor-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik ve Kuantum",
+  "sector": "Ileri Fizik ve Kuantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "ortalamaGuc",
-      "label": "Ortalama Güç (kW)",
+      "label": "Mean Power (kW)",
       "label_i18n": {
         "en": "Average Power (kW)",
-        "tr": "Ortalama Güç (kW)",
+        "tr": "Aandrage Power (kW)",
         "de": "Durchschnittsleistung (kW)",
         "fr": "Puissance moyenne (kW)",
         "es": "Potencia promedio (kW)",
@@ -20,10 +20,10 @@
       "unit": "kW",
       "default": 80,
       "min": 0,
-      "businessContext": "Dönem boyunca ortalama çekilen güç.",
+      "businessContext": "OrtalamaGuc",
       "businessContext_i18n": {
         "en": "Average power drawn.",
-        "tr": "Dönem boyunca ortalama çekilen güç.",
+        "tr": "Donem Heightunca Mean cekilen Power.",
         "de": "Durchschnittliche Leistungsaufnahme.",
         "fr": "Puissance moyenne consommée.",
         "es": "Potencia promedio consumida.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "pikGuc",
-      "label": "Pik Güç (kW)",
+      "label": "Pik Power (kW)",
       "label_i18n": {
         "en": "Peak Power (kW)",
-        "tr": "Pik Güç (kW)",
+        "tr": "Pik Power (kW)",
         "de": "Spitzenleistung (kW)",
         "fr": "Puissance de pointe (kW)",
         "es": "Potencia pico (kW)",
@@ -45,10 +45,10 @@
       "unit": "kW",
       "default": 200,
       "min": 0,
-      "businessContext": "Dönemdeki en yüksek güç talebi.",
+      "businessContext": "PikGuc",
       "businessContext_i18n": {
         "en": "Peak power demand.",
-        "tr": "Dönemdeki en yüksek güç talebi.",
+        "tr": "Donemdeki en yuksek Power talebi.",
         "de": "Spitzenleistungsbedarf.",
         "fr": "Demande de puissance de pointe.",
         "es": "Demanda de potencia pico.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Yük Faktörü"
+      "sonuc": "Load Factor"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yük Faktörü",
-        "tr": "Yük Faktörü",
+        "en": "Load Factor",
+        "tr": "Load Factor",
         "de": "Load Factor",
         "fr": "Facteur de charge",
         "es": "Factor de Carga",
@@ -99,7 +99,7 @@
       "long": "Calculate electrical load factor — average vs peak power usage ratio.",
       "short_i18n": {
         "en": "Calculate electrical load factor — average vs peak power usage ratio.",
-        "tr": "Tüketicinin enerjiyi ne kadar dengeli kullandığının göstergesini (yük faktörü) hesaplar.",
+        "tr": "Tuketicinin Energyyi ne kadar dengeli kullandiginin gostergesini (Load Factor) hesaplar.",
         "de": "Berechnen Sie den elektrischen Lastfaktor – das Verhältnis von Durchschnitts- zu Spitzenleistung.",
         "fr": "Calculer le facteur de charge électrique — rapport entre la puissance moyenne et la puissance de pointe.",
         "es": "Calcular el factor de carga eléctrica — relación de uso de potencia promedio vs pico.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate electrical load factor — average vs peak power usage ratio.",
-        "tr": "Tüketicinin enerjiyi ne kadar dengeli kullandığının göstergesini (yük faktörü) hesaplar.",
+        "tr": "Tuketicinin Energyyi ne kadar dengeli kullandiginin gostergesini (Load Factor) hesaplar.",
         "de": "Berechnen Sie den elektrischen Lastfaktor – das Verhältnis von Durchschnitts- zu Spitzenleistung.",
         "fr": "Calculer le facteur de charge électrique — rapport entre la puissance moyenne et la puissance de pointe.",
         "es": "Calcular el factor de carga eléctrica — relación de uso de potencia promedio vs pico.",
@@ -117,7 +117,7 @@
   },
   "title_i18n": {
     "en": "load-factor-calculator",
-    "de": "Lastfaktor-Rechner für Elektrizität",
+    "de": "Lastfaktor-Rechner fur Elektrizität",
     "fr": "Calculateur de facteur de charge électrique",
     "es": "Calculadora de factor de carga eléctrica",
     "ar": "حاسبة عامل الحمولة الكهربائية"

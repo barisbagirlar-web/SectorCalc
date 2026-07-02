@@ -2,15 +2,15 @@
   "toolName": "barn-ventilation-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sector": "Tarim, Denizcilik ve Sondaj",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "alan",
-      "label": "Ahır Alanı (m²)",
+      "label": "Alan",
       "label_i18n": {
         "en": "Barn Area (m²)",
-        "tr": "Ahır Alanı (m²)",
+        "tr": "Ahir Areai (m²)",
         "de": "Stallfläche (m²)",
         "fr": "Surface du bâtiment (m²)",
         "es": "Área del Establo (m²)",
@@ -20,10 +20,10 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Ahır taban alanı.",
+      "businessContext": "Alan",
       "businessContext_i18n": {
         "en": "Barn floor area.",
-        "tr": "Ahır taban alanı.",
+        "tr": "Ahir taban Areai.",
         "de": "Stallgrundfläche.",
         "fr": "Surface au sol du bâtiment.",
         "es": "Área del piso del establo.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "yukseklik",
-      "label": "Ahır Yüksekliği (m)",
+      "label": "Yukseklik",
       "label_i18n": {
         "en": "Barn Height (m)",
-        "tr": "Ahır Yüksekliği (m)",
-        "de": "Stallhöhe (m)",
+        "tr": "Ahir Yuksekligi (m)",
+        "de": "Stallhohe (m)",
         "fr": "Hauteur du bâtiment (m)",
         "es": "Altura del Establo (m)",
         "ar": "ارتفاع الحظيرة (m)"
@@ -45,11 +45,11 @@
       "unit": "m",
       "default": 4,
       "min": 0,
-      "businessContext": "Ahır yüksekliği.",
+      "businessContext": "Yukseklik",
       "businessContext_i18n": {
         "en": "Barn height.",
-        "tr": "Ahır yüksekliği.",
-        "de": "Stallhöhe.",
+        "tr": "Ahir yuksekligi.",
+        "de": "Stallhohe.",
         "fr": "Hauteur du bâtiment.",
         "es": "Altura del establo.",
         "ar": "ارتفاع الحظيرة."
@@ -57,10 +57,10 @@
     },
     {
       "id": "havaDegisimSayisi",
-      "label": "Hava Değişim Sayısı (adet/saat)",
+      "label": "HavaDegisimSayisi",
       "label_i18n": {
         "en": "Air Changes (per hour)",
-        "tr": "Hava Değişim Sayısı (adet/saat)",
+        "tr": "Hava Degisim Numbersi (Quantity/saat)",
         "de": "Luftwechsel (pro Stunde)",
         "fr": "Renouvellements d'air (par heure)",
         "es": "Cambios de Aire (por hora)",
@@ -70,11 +70,11 @@
       "unit": "per_hour",
       "default": 6,
       "min": 0,
-      "businessContext": "Saatlik hava değişim adedi.",
+      "businessContext": "HavaDegisimSayisi",
       "businessContext_i18n": {
         "en": "Hourly air change rate.",
-        "tr": "Saatlik hava değişim adedi.",
-        "de": "Stündliche Luftwechselrate.",
+        "tr": "Saatlik hava degisim adedi.",
+        "de": "Stundliche Luftwechselrate.",
         "fr": "Taux de renouvellement d'air horaire.",
         "es": "Tasa de cambio de aire por hora.",
         "ar": "معدل تغيير الهواء في الساعة."
@@ -94,13 +94,13 @@
     "primary": "sonuc",
     "unit": "m3/s",
     "breakdown": {
-      "sonuc": "Havalandırma Debisi"
+      "sonuc": "HavAreadirma Flow Ratesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Havalandırma Debisi",
-        "tr": "Havalandırma Debisi",
-        "de": "Lüftungsvolumenstrom",
+        "en": "HavAreadirma Flow Ratesi",
+        "tr": "HavAreadirma Flow Ratesi",
+        "de": "Luftungsvolumenstrom",
         "fr": "Débit de ventilation",
         "es": "Caudal de Ventilación",
         "ar": "معدل التهوية"
@@ -126,16 +126,16 @@
       "long": "Calculate ventilation air flow rate needed for animal barn.",
       "short_i18n": {
         "en": "Calculate ventilation air flow rate needed for animal barn.",
-        "tr": "Ahırdan atılması gereken kirli hava debisini hesaplar.",
-        "de": "Lüftungsvolumenstrom für Tierstall berechnen.",
+        "tr": "Ahirdan atilmasi gereken kirli Air Flow Rateni hesaplar.",
+        "de": "Luftungsvolumenstrom fur Tierstall berechnen.",
         "fr": "Calculer le débit d'air de ventilation nécessaire pour un bâtiment d'élevage.",
         "es": "Calcular el caudal de aire de ventilación necesario para un establo de animales.",
         "ar": "حساب معدل تدفق هواء التهوية المطلوب لحظيرة الحيوانات."
       },
       "long_i18n": {
         "en": "Calculate ventilation air flow rate needed for animal barn.",
-        "tr": "Ahırdan atılması gereken kirli hava debisini hesaplar.",
-        "de": "Lüftungsvolumenstrom für Tierstall berechnen.",
+        "tr": "Ahirdan atilmasi gereken kirli Air Flow Rateni hesaplar.",
+        "de": "Luftungsvolumenstrom fur Tierstall berechnen.",
         "fr": "Calculer le débit d'air de ventilation nécessaire pour un bâtiment d'élevage.",
         "es": "Calcular el caudal de aire de ventilación necesario para un establo de animales.",
         "ar": "حساب معدل تدفق هواء التهوية المطلوب لحظيرة الحيوانات."
@@ -144,7 +144,7 @@
   },
   "title_i18n": {
     "en": "barn-ventilation-calculator",
-    "de": "Ahmet Ferdi Lüftungsrechner",
+    "de": "Ahmet Ferdi Luftungsrechner",
     "fr": "Calculateur de ventilation Ahmet Ferdi",
     "es": "Calculadora de ventilación Ahmet Ferdi",
     "ar": "حاسبة تهوية أحمد فردي"

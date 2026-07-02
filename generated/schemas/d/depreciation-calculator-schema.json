@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "bedel",
-      "label": "Varlık Bedeli (₺)",
+      "label": "Bedel",
       "label_i18n": {
         "en": "Asset Cost (USD)",
-        "tr": "Varlık Bedeli (₺)",
+        "tr": "Varlik Bedeli (₺)",
         "de": "Anschaffungskosten",
         "fr": "Coût de l'actif",
         "es": "Costo del activo",
@@ -20,11 +20,11 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Varlığın satın alma maliyeti.",
+      "businessContext": "Bedel",
       "businessContext_i18n": {
         "en": "Purchase cost of asset.",
-        "tr": "Varlığın satın alma maliyeti.",
-        "de": "Anschaffungskosten des Vermögenswerts.",
+        "tr": "Varligin satin alma Costi.",
+        "de": "Anschaffungskosten des Vermogenswerts.",
         "fr": "Coût d'acquisition de l'actif.",
         "es": "Costo de compra del activo.",
         "ar": "تكلفة شراء الأصل."
@@ -32,10 +32,10 @@
     },
     {
       "id": "kalinti",
-      "label": "Kalıntı Değer (₺)",
+      "label": "Kalinti",
       "label_i18n": {
         "en": "Salvage Value (USD)",
-        "tr": "Kalıntı Değer (₺)",
+        "tr": "Kalinti Value (₺)",
         "de": "Restwert am Ende der Nutzungsdauer",
         "fr": "Valeur de récupération en fin de vie",
         "es": "Valor residual al final de la vida útil",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Varlığın ömür sonu tahmini değeri.",
+      "businessContext": "Kalinti",
       "businessContext_i18n": {
         "en": "Estimated end-of-life value.",
-        "tr": "Varlığın ömür sonu tahmini değeri.",
+        "tr": "Varligin omur sonu tahmini Valuei.",
         "de": "Geschätzter Restwert am Ende der Nutzungsdauer.",
         "fr": "Valeur résiduelle estimée en fin de vie.",
         "es": "Valor estimado al final de la vida útil.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "omur",
-      "label": "Ekonomik Ömür (Yıl)",
+      "label": "Omur",
       "label_i18n": {
         "en": "Useful Life (Years)",
-        "tr": "Ekonomik Ömür (Yıl)",
+        "tr": "Ekonomik Omur (Yil)",
         "de": "Nutzungsdauer (Jahre)",
         "fr": "Durée de vie utile (années)",
         "es": "Vida útil (años)",
@@ -70,10 +70,10 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Varlığın faydalı ömrü.",
+      "businessContext": "Omur",
       "businessContext_i18n": {
         "en": "Useful economic life.",
-        "tr": "Varlığın faydalı ömrü.",
+        "tr": "Varligin faydali omru.",
         "de": "Nutzungsdauer.",
         "fr": "Durée de vie économique utile.",
         "es": "Vida económica útil.",
@@ -95,21 +95,21 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Yıllık Amortisman",
-      "dogrusal": "Doğrusal Gider"
+      "sonuc": "Annual Depreciation",
+      "dogrusal": "Dogrusal Gider"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yıllık Amortisman",
-        "tr": "Yıllık Amortisman",
+        "en": "Annual Depreciation",
+        "tr": "Annual Depreciation",
         "de": "Jährliche Abschreibung",
         "fr": "Amortissement annuel",
         "es": "Depreciación Anual",
         "ar": "الإهلاك السنوي"
       },
       "dogrusal": {
-        "en": "Doğrusal Gider",
-        "tr": "Doğrusal Gider",
+        "en": "Dogrusal Gider",
+        "tr": "Dogrusal Gider",
         "de": "Lineare Abschreibung",
         "fr": "Charge linéaire",
         "es": "Gasto Lineal",
@@ -135,7 +135,7 @@
       "long": "Calculate annual depreciation using straight-line, declining balance, or sum-of-years-digits.",
       "short_i18n": {
         "en": "Calculate annual depreciation using straight-line, declining balance, or sum-of-years-digits.",
-        "tr": "Varlıkların yıllık amortisman giderini doğrusal, azalan bakiye veya SYD yöntemiyle hesaplar.",
+        "tr": "Varliklarin yillik Amortization Expenseni dogrusal, azArea bakiye veya SYD yontemiyle hesaplar.",
         "de": "Berechnen Sie die jährliche Abschreibung mit linearer, degressiver oder Sum-of-the-years'-digits-Methode.",
         "fr": "Calculer l'amortissement annuel selon le mode linéaire, dégressif ou par somme des années.",
         "es": "Calcular la depreciación anual usando línea recta, saldo decreciente o suma de dígitos de los años.",
@@ -143,7 +143,7 @@
       },
       "long_i18n": {
         "en": "Calculate annual depreciation using straight-line, declining balance, or sum-of-years-digits.",
-        "tr": "Varlıkların yıllık amortisman giderini doğrusal, azalan bakiye veya SYD yöntemiyle hesaplar.",
+        "tr": "Varliklarin yillik Amortization Expenseni dogrusal, azArea bakiye veya SYD yontemiyle hesaplar.",
         "de": "Berechnen Sie die jährliche Abschreibung mit linearer, degressiver oder Sum-of-the-years'-digits-Methode.",
         "fr": "Calculer l'amortissement annuel selon le mode linéaire, dégressif ou par somme des années.",
         "es": "Calcular la depreciación anual usando línea recta, saldo decreciente o suma de dígitos de los años.",

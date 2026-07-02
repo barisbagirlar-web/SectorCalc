@@ -2,7 +2,7 @@
   "toolName": "viscous-pump-power-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
@@ -20,11 +20,11 @@
       "unit": "m3/s",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Sıvının akış debisi.",
+      "businessContext": "Debi",
       "businessContext_i18n": {
         "en": "Liquid flow rate.",
-        "tr": "Sıvının akış debisi.",
-        "de": "Flüssigkeitsdurchflussrate.",
+        "tr": "Sivinin akis Flow Ratesi.",
+        "de": "Flussigkeitsdurchflussrate.",
         "fr": "Débit du liquide.",
         "es": "Caudal del líquido.",
         "ar": "معدل تدفق السائل."
@@ -32,10 +32,10 @@
     },
     {
       "id": "basincDusumu",
-      "label": "Basınç Düşümü (Pa)",
+      "label": "Pressure Drop (Pa)",
       "label_i18n": {
         "en": "Pressure Drop (Pa)",
-        "tr": "Basınç Düşümü (Pa)",
+        "tr": "Pressure Drop (Pa)",
         "de": "Gesamtdruckabfall",
         "fr": "Perte de charge totale",
         "es": "Caída de presión total",
@@ -45,10 +45,10 @@
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "Borudaki toplam basınç kaybı.",
+      "businessContext": "BasincDusumu",
       "businessContext_i18n": {
         "en": "Total pipe pressure loss.",
-        "tr": "Borudaki toplam basınç kaybı.",
+        "tr": "Borudaki Total Pressure kaybi.",
         "de": "Gesamter Rohrleitungsdruckverlust.",
         "fr": "Perte de charge totale dans la canalisation.",
         "es": "Pérdida total de presión en la tubería.",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "Pompa verim yüzdesi.",
+      "businessContext": "PompaVerim",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
-        "tr": "Pompa verim yüzdesi.",
+        "tr": "Pompa Efficiency yuzdesi.",
         "de": "Pumpenwirkungsgrad.",
         "fr": "Rendement de la pompe.",
         "es": "Eficiencia de la bomba.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Gereken Pompa Gücü"
+      "sonuc": "Gerekmost Pump Power"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gereken Pompa Gücü",
-        "tr": "Gereken Pompa Gücü",
+        "en": "Gerekmost Pump Power",
+        "tr": "Gerekmost Pump Power",
         "de": "Required Pump Power",
         "fr": "Puissance de pompe requise",
         "es": "Potencia de Bomba Requerida",
@@ -126,16 +126,16 @@
       "long": "Calculate pump power for viscous food liquid transfer.",
       "short_i18n": {
         "en": "Calculate pump power for viscous food liquid transfer.",
-        "tr": "Viskoz sıvıyı boruda ilerletmek için gereken pompa mil gücünü hesaplar.",
-        "de": "Berechnen Sie die Pumpenleistung für den Transport von viskosen Lebensmittelflüssigkeiten.",
+        "tr": "Viskoz siviyi boruda ilerletmek icin gereken pompa mil gucunu hesaplar.",
+        "de": "Berechnen Sie die Pumpenleistung fur den Transport von viskosen Lebensmittelflussigkeiten.",
         "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
         "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
         "ar": "حساب قدرة المضخة لنقل السوائل الغذائية اللزجة."
       },
       "long_i18n": {
         "en": "Calculate pump power for viscous food liquid transfer.",
-        "tr": "Viskoz sıvıyı boruda ilerletmek için gereken pompa mil gücünü hesaplar.",
-        "de": "Berechnen Sie die Pumpenleistung für den Transport von viskosen Lebensmittelflüssigkeiten.",
+        "tr": "Viskoz siviyi boruda ilerletmek icin gereken pompa mil gucunu hesaplar.",
+        "de": "Berechnen Sie die Pumpenleistung fur den Transport von viskosen Lebensmittelflussigkeiten.",
         "fr": "Calculer la puissance de la pompe pour le transfert de liquide alimentaire visqueux.",
         "es": "Calcular la potencia de la bomba para la transferencia de líquido alimenticio viscoso.",
         "ar": "حساب قدرة المضخة لنقل السوائل الغذائية اللزجة."
@@ -144,7 +144,7 @@
   },
   "title_i18n": {
     "en": "viscous-pump-power-calculator",
-    "de": "Energie-Rechner für Flüssignahrungsströmung",
+    "de": "Energie-Rechner fur Flussignahrungsstromung",
     "fr": "Calculateur d'énergie d'écoulement d'aliments liquides",
     "es": "Calculadora de energía de flujo de alimentos líquidos",
     "ar": "حاسبة طاقة تدفق الأغذية السائلة"

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "E",
-      "label": "Özsermaye (₺)",
+      "label": "E",
       "label_i18n": {
         "en": "Equity (USD)",
-        "tr": "Özsermaye (₺)",
+        "tr": "Ozsermaye (₺)",
         "de": "Gesamter Eigenkapitalwert ($)",
         "fr": "Valeur totale des capitaux propres ($)",
         "es": "Valor total del patrimonio ($)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Şirketin toplam özsermayesi.",
+      "businessContext": "E",
       "businessContext_i18n": {
         "en": "Total equity value.",
-        "tr": "Şirketin toplam özsermayesi.",
+        "tr": "Sirketin Total ozsermayesi.",
         "de": "Gesamter Eigenkapitalwert.",
         "fr": "Valeur totale des capitaux propres.",
         "es": "Valor total del patrimonio.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "D",
-      "label": "Borç (₺)",
+      "label": "D",
       "label_i18n": {
         "en": "Debt (USD)",
-        "tr": "Borç (₺)",
+        "tr": "Debt (TRY)",
         "de": "Bestehende monatliche Schuldenzahlungen",
         "fr": "Paiements mensuels de dettes existants",
         "es": "Pagos de Deuda Mensuales Existentes",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Şirketin toplam borcu.",
+      "businessContext": "D",
       "businessContext_i18n": {
         "en": "Total debt.",
-        "tr": "Şirketin toplam borcu.",
+        "tr": "Sirketin Total borcu.",
         "de": "Gesamtschulden.",
         "fr": "Dette totale.",
         "es": "Deuda total.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "Re",
-      "label": "Özsermaye Maliyeti (%)",
+      "label": "Re",
       "label_i18n": {
         "en": "Cost of Equity (%)",
-        "tr": "Özsermaye Maliyeti (%)",
+        "tr": "Ozsermaye Costi (%)",
         "de": "Eigenkapitalkosten (%)",
         "fr": "Coût des capitaux propres (%)",
         "es": "Costo del capital (%)",
@@ -70,11 +70,11 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Hissedarların beklediği getiri.",
+      "businessContext": "Re",
       "businessContext_i18n": {
         "en": "Expected return for shareholders.",
-        "tr": "Hissedarların beklediği getiri.",
-        "de": "Erwartete Rendite für Aktionäre.",
+        "tr": "Hissedarlarin bekledigi getiri.",
+        "de": "Erwartete Rendite fur Aktionäre.",
         "fr": "Rendement attendu pour les actionnaires.",
         "es": "Rendimiento esperado para los accionistas.",
         "ar": "العائد المتوقع للمساهمين."
@@ -82,10 +82,10 @@
     },
     {
       "id": "Rd",
-      "label": "Borç Maliyeti (%)",
+      "label": "Rd",
       "label_i18n": {
         "en": "Cost of Debt (%)",
-        "tr": "Borç Maliyeti (%)",
+        "tr": "Debt Costi (%)",
         "de": "Fremdkapitalkosten (%)",
         "fr": "Coût de la dette (%)",
         "es": "Costo de la deuda (%)",
@@ -95,10 +95,10 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Şirketin borçlanma maliyeti.",
+      "businessContext": "Rd",
       "businessContext_i18n": {
         "en": "Company's borrowing cost.",
-        "tr": "Şirketin borçlanma maliyeti.",
+        "tr": "Sirketin borclanma Costi.",
         "de": "Fremdkapitalkosten des Unternehmens.",
         "fr": "Coût d'emprunt de l'entreprise.",
         "es": "Costo de endeudamiento de la empresa.",
@@ -107,10 +107,10 @@
     },
     {
       "id": "vergi",
-      "label": "Vergi Oranı (%)",
+      "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Vergi Oranı (%)",
+        "tr": "Tax Ratio (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa Impositiva (%)",
@@ -120,11 +120,11 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Kurumlar vergisi oranı.",
+      "businessContext": "Vergi",
       "businessContext_i18n": {
         "en": "Corporate tax rate.",
-        "tr": "Kurumlar vergisi oranı.",
-        "de": "Körperschaftsteuersatz.",
+        "tr": "Corporate Tax Ratioi.",
+        "de": "Korperschaftsteuersatz.",
         "fr": "Taux d'imposition des sociétés.",
         "es": "Tasa impositiva corporativa.",
         "ar": "معدل الضريبة على الشركات."
@@ -145,12 +145,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)"
+      "sonuc": "WACC (Weightli Mean Sermaye Costi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "WACC (Ağırlıklı Ortalama Sermaye Maliyeti)",
-        "tr": "AOSM (Ağırlıklı Ortalama Sermaye Maliyeti)",
+        "en": "WACC (Weightli Mean Sermaye Costi)",
+        "tr": "AOSM (Weightli Mean Sermaye Costi)",
         "de": "WACC (Weighted Average Cost of Capital)",
         "fr": "WACC (Coût moyen pondéré du capital)",
         "es": "WACC (Costo Promedio Ponderado del Capital)",
@@ -175,7 +175,7 @@
       "long": "Calculate weighted average cost of capital (WACC).",
       "short_i18n": {
         "en": "Calculate weighted average cost of capital (WACC).",
-        "tr": "Şirketin borç ve özsermaye ağırlıklı ortalama fon maliyetini (WACC) hesaplar.",
+        "tr": "Sirketin borc ve ozsermaye Weightli Mean fon Costini (WACC) hesaplar.",
         "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
         "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
         "es": "Calcular el costo promedio ponderado del capital (WACC).",
@@ -183,7 +183,7 @@
       },
       "long_i18n": {
         "en": "Calculate weighted average cost of capital (WACC).",
-        "tr": "Şirketin borç ve özsermaye ağırlıklı ortalama fon maliyetini (WACC) hesaplar.",
+        "tr": "Sirketin borc ve ozsermaye Weightli Mean fon Costini (WACC) hesaplar.",
         "de": "Berechnen Sie die gewichteten durchschnittlichen Kapitalkosten (WACC).",
         "fr": "Calculer le coût moyen pondéré du capital (CMPC).",
         "es": "Calcular el costo promedio ponderado del capital (WACC).",

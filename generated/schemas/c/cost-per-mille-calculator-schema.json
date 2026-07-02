@@ -2,7 +2,7 @@
   "toolName": "cost-per-mille-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Toplam reklam harcaması.",
+      "businessContext": "Total Ad Spend.",
       "businessContext_i18n": {
         "en": "Total ad spend.",
-        "tr": "Toplam reklam harcaması.",
+        "tr": "Total Ad Spend.",
         "de": "Gesamte Werbeausgaben.",
         "fr": "Dépenses publicitaires totales.",
         "es": "Gasto total en anuncios.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "gosterim",
-      "label": "Gösterim (Adet)",
+      "label": "Gosterim",
       "label_i18n": {
         "en": "Impressions",
-        "tr": "Gösterim (Adet)",
+        "tr": "Gosterim (Quantity)",
         "de": "Impressionen",
         "fr": "Impressions",
         "es": "Impresiones",
@@ -45,10 +45,10 @@
       "unit": "impressions",
       "default": 500000,
       "min": 1,
-      "businessContext": "Toplam gösterim.",
+      "businessContext": "Gosterim",
       "businessContext_i18n": {
         "en": "Total impressions.",
-        "tr": "Toplam gösterim.",
+        "tr": "Total gosterim.",
         "de": "Gesamte Impressionen.",
         "fr": "Impressions totales.",
         "es": "Total de impresiones.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Bin Gösterim Maliyeti (CPM)"
+      "sonuc": "Bin Gosterim Costi (CPM)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Bin Gösterim Maliyeti (CPM)",
-        "tr": "Bin Gösterim Maliyeti (CPM)",
+        "en": "Bin Gosterim Costi (CPM)",
+        "tr": "Bin Gosterim Costi (CPM)",
         "de": "Kosten pro tausend Impressionen (CPM)",
         "fr": "Coût pour mille impressions (CPM)",
         "es": "Costo por Mil Impresiones (CPM)",
@@ -99,16 +99,16 @@
       "long": "Calculate cost per mille (CPM) for advertising.",
       "short_i18n": {
         "en": "Calculate cost per mille (CPM) for advertising.",
-        "tr": "Reklamın 1000 kişiye ulaşmasının maliyetini (CPM) hesaplar.",
-        "de": "Cost-per-Mille (CPM) für Werbung berechnen.",
+        "tr": "Reklamin 1000 kisiye ulasmasinin Costini (CPM) hesaplar.",
+        "de": "Cost-per-Mille (CPM) fur Werbung berechnen.",
         "fr": "Calculer le coût pour mille (CPM) pour la publicité.",
         "es": "Calcular el costo por mil (CPM) para publicidad.",
         "ar": "احسب تكلفة الألف ظهور (CPM) للإعلان."
       },
       "long_i18n": {
         "en": "Calculate cost per mille (CPM) for advertising.",
-        "tr": "Reklamın 1000 kişiye ulaşmasının maliyetini (CPM) hesaplar.",
-        "de": "Cost-per-Mille (CPM) für Werbung berechnen.",
+        "tr": "Reklamin 1000 kisiye ulasmasinin Costini (CPM) hesaplar.",
+        "de": "Cost-per-Mille (CPM) fur Werbung berechnen.",
         "fr": "Calculer le coût pour mille (CPM) pour la publicité.",
         "es": "Calcular el costo por mil (CPM) para publicidad.",
         "ar": "احسب تكلفة الألف ظهور (CPM) للإعلان."

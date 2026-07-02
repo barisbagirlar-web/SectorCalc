@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "yillikNetGelir",
-      "label": "Yıllık Net Kira Geliri (₺)",
+      "label": "YillikNetGelir",
       "label_i18n": {
         "en": "Annual Net Rental Income (USD)",
-        "tr": "Yıllık Net Kira Geliri (₺)",
+        "tr": "Annual Net Kira Incomei (TRY)",
         "de": "Jährliches Netto-Mieteinkommen (USD)",
         "fr": "Revenu locatif net annuel (USD)",
         "es": "Ingreso Neto Anual por Alquiler (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Giderler düşüldükten sonraki net kira geliri.",
+      "businessContext": "YillikNetGelir",
       "businessContext_i18n": {
         "en": "Net rental income after expenses.",
-        "tr": "Giderler düşüldükten sonraki net kira geliri.",
+        "tr": "Giderler dusuldukten sonraki Net kira geliri.",
         "de": "Netto-Mieteinkommen nach Ausgaben.",
         "fr": "Revenu locatif net après dépenses.",
         "es": "Ingreso neto por alquiler después de gastos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "mulkDegeri",
-      "label": "Mülk Değeri (₺)",
+      "label": "MulkDegeri",
       "label_i18n": {
         "en": "Property Value (USD)",
-        "tr": "Mülk Değeri (₺)",
+        "tr": "Mulk Valuei (₺)",
         "de": "Immobilienwert",
         "fr": "Valeur de la propriété",
         "es": "Valor de la propiedad",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Gayrimenkulün piyasa değeri.",
+      "businessContext": "MulkDegeri",
       "businessContext_i18n": {
         "en": "Property market value.",
-        "tr": "Gayrimenkulün piyasa değeri.",
+        "tr": "Gayrimenkulun piyasa Valuei.",
         "de": "Marktwert der Immobilie.",
         "fr": "Valeur marchande du bien.",
         "es": "Valor de mercado de la propiedad.",
@@ -69,16 +69,16 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Cap Rate (Getiri Oranı)"
+      "sonuc": "Cap Rate (Getiri Ratio)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Cap Rate (Getiri Oranı)",
-        "tr": "Cap Rate (Getiri Oranı)",
-        "de": "Kapitalisierungsrate (Getiri Oranı)",
-        "fr": "Taux de capitalisation (Getiri Oranı)",
-        "es": "Tasa de Capitalización (Getiri Oranı)",
-        "ar": "معدل الرسملة (Getiri Oranı)"
+        "en": "Cap Rate (Getiri Ratio)",
+        "tr": "Cap Rate (Getiri Ratio)",
+        "de": "Kapitalisierungsrate (Getiri Ratio)",
+        "fr": "Taux de capitalisation (Getiri Ratio)",
+        "es": "Tasa de Capitalización (Getiri Ratio)",
+        "ar": "معدل الرسملة (Getiri Ratio)"
       }
     },
     "breakdownUnits": {
@@ -99,7 +99,7 @@
       "long": "Calculate property cap rate — unleveraged annual net return.",
       "short_i18n": {
         "en": "Calculate property cap rate — unleveraged annual net return.",
-        "tr": "Mülkün kredi kaldıracı hariç yıllık net getiri oranını (Cap Rate) hesaplar.",
+        "tr": "Mulkun kredi kaldiraci haric yillik Net getiri Ratioini (Cap Rate) hesaplar.",
         "de": "Berechnen Sie die Kapitalisierungsrate der Immobilie — unverschuldete jährliche Nettorendite.",
         "fr": "Calculer le taux de capitalisation immobilière — rendement net annuel sans effet de levier.",
         "es": "Calcular la tasa de capitalización de la propiedad — rendimiento neto anual sin apalancamiento.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate property cap rate — unleveraged annual net return.",
-        "tr": "Mülkün kredi kaldıracı hariç yıllık net getiri oranını (Cap Rate) hesaplar.",
+        "tr": "Mulkun kredi kaldiraci haric yillik Net getiri Ratioini (Cap Rate) hesaplar.",
         "de": "Berechnen Sie die Kapitalisierungsrate der Immobilie — unverschuldete jährliche Nettorendite.",
         "fr": "Calculer le taux de capitalisation immobilière — rendement net annuel sans effet de levier.",
         "es": "Calcular la tasa de capitalización de la propiedad — rendimiento neto anual sin apalancamiento.",

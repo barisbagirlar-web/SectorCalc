@@ -2,15 +2,15 @@
   "toolName": "constrained-pipe-axial-thermal-stress-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "elastisiteModulu",
-      "label": "Elastisite Modülü (Pa)",
+      "label": "Modeulus of Elasticity (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
-        "tr": "Elastisite Modülü (Pa)",
+        "tr": "Modeulus of Elasticity (Pa)",
         "de": "Elastizitätsmodul (E)",
         "fr": "Module de Young (E)",
         "es": "Módulo de Young (E)",
@@ -20,10 +20,10 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Boru malzemesi modülü.",
+      "businessContext": "ElastisiteModulu",
       "businessContext_i18n": {
         "en": "Pipe material modulus.",
-        "tr": "Boru malzemesi modülü.",
+        "tr": "Boru malzemesi Modeuleu.",
         "de": "Elastizitätsmodul des Rohrmaterials.",
         "fr": "Module du matériau du tuyau.",
         "es": "Módulo del material de la tubería.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "genlesmeKatsayisi",
-      "label": "Isıl Genleşme Katsayısı (1/K)",
+      "label": "GenlesmeKatsayisi",
       "label_i18n": {
         "en": "Thermal Expansion Coeff (1/K)",
-        "tr": "Isıl Genleşme Katsayısı (1/K)",
+        "tr": "Isil Expansion Coefficient (1/K)",
         "de": "Wärmeausdehnungskoeffizient",
         "fr": "Coefficient de dilatation thermique",
         "es": "Coeficiente de expansión térmica",
@@ -45,10 +45,10 @@
       "unit": "1/K",
       "default": 0.000012,
       "min": 0,
-      "businessContext": "Malzemenin lineer genleşme katsayısı.",
+      "businessContext": "Malzemenin lineer Expansion Coefficient.",
       "businessContext_i18n": {
         "en": "Linear expansion coefficient.",
-        "tr": "Malzemenin lineer genleşme katsayısı.",
+        "tr": "Malzemenin lineer Expansion Coefficient.",
         "de": "Linearer Ausdehnungskoeffizient.",
         "fr": "Coefficient de dilatation linéaire.",
         "es": "Coeficiente de expansión lineal.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "sicaklikFarki",
-      "label": "Sıcaklık Farkı (K)",
+      "label": "Temperature Difference (K)",
       "label_i18n": {
         "en": "Temperature Difference (K)",
-        "tr": "Sıcaklık Farkı (K)",
+        "tr": "Temperature Difference (K)",
         "de": "Temperaturdifferenz",
         "fr": "Différence de température",
         "es": "Diferencia de temperatura",
@@ -70,10 +70,10 @@
       "unit": "K",
       "default": 50,
       "min": 0,
-      "businessContext": "Montaj ve işletme sıcaklık farkı.",
+      "businessContext": "SicaklikFarki",
       "businessContext_i18n": {
         "en": "Installation vs operating temperature difference.",
-        "tr": "Montaj ve işletme sıcaklık farkı.",
+        "tr": "Montaj ve isletme Temperature Difference.",
         "de": "Temperaturdifferenz zwischen Einbau- und Betriebszustand.",
         "fr": "Différence de température entre installation et fonctionnement.",
         "es": "Diferencia de temperatura entre instalación y operación.",
@@ -124,7 +124,7 @@
       "long": "Calculate axial thermal stress in a constrained pipe.",
       "short_i18n": {
         "en": "Calculate axial thermal stress in a constrained pipe.",
-        "tr": "Sıcaklık değişiminin sabit boruda yarattığı eksenel termal gerilmeyi hesaplar.",
+        "tr": "Temperature degisiminin sabit boruda yarattigi eksenel termal gerilmeyi hesaplar.",
         "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
         "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
         "es": "Calcular la tensión térmica axial en una tubería restringida.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate axial thermal stress in a constrained pipe.",
-        "tr": "Sıcaklık değişiminin sabit boruda yarattığı eksenel termal gerilmeyi hesaplar.",
+        "tr": "Temperature degisiminin sabit boruda yarattigi eksenel termal gerilmeyi hesaplar.",
         "de": "Axiale thermische Spannung in einem eingespannten Rohr berechnen.",
         "fr": "Calculer la contrainte thermique axiale dans un tuyau contraint.",
         "es": "Calcular la tensión térmica axial en una tubería restringida.",

@@ -2,15 +2,15 @@
   "toolName": "tile-waste-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alanEn",
-      "label": "Alan Genişliği (m)",
+      "label": "AlanEn",
       "label_i18n": {
         "en": "Room Width (m)",
-        "tr": "Alan Genişliği (m)",
+        "tr": "Area Width (m)",
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
         "es": "Ancho de la Habitación",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 4.2,
       "min": 0,
-      "businessContext": "Döşenecek alanın genişliği.",
+      "businessContext": "AlanEn",
       "businessContext_i18n": {
         "en": "Room width.",
-        "tr": "Döşenecek alanın genişliği.",
+        "tr": "Dosenecek Areain genisligi.",
         "de": "Raumbreite.",
         "fr": "Largeur de la pièce.",
         "es": "Ancho de la habitación.",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.6,
       "min": 0,
-      "businessContext": "Fayansın eni.",
+      "businessContext": "FayansEn",
       "businessContext_i18n": {
         "en": "Tile width.",
-        "tr": "Fayansın eni.",
+        "tr": "Fayansin eni.",
         "de": "Fliesenbreite.",
         "fr": "Largeur du carreau.",
         "es": "Ancho del azulejo.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Kesim Fire Oranı"
+      "sonuc": "Kesim Scrap Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Kesim Fire Oranı",
-        "tr": "Kesim Fire Oranı",
+        "en": "Kesim Scrap Ratio",
+        "tr": "Kesim Scrap Ratio",
         "de": "Verschnittanteil",
         "fr": "Taux de déchet de coupe",
         "es": "Tasa de Desperdicio de Corte",
@@ -99,7 +99,7 @@
       "long": "Calculate tile cutting waste ratio for layout optimization.",
       "short_i18n": {
         "en": "Calculate tile cutting waste ratio for layout optimization.",
-        "tr": "Kenarlarda oluşacak fayans kesim fire optimizasyon oranını hesaplar.",
+        "tr": "Kenarlarda olusacak fayans kesim Scrap optimizasyon Ratioini hesaplar.",
         "de": "Berechnen Sie den Verschnittanteil bei der Fliesenverlegung zur Layoutoptimierung.",
         "fr": "Calculer le taux de déchet de coupe de carrelage pour l'optimisation de la disposition.",
         "es": "Calcular la tasa de desperdicio de corte de azulejos para optimización de diseño.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate tile cutting waste ratio for layout optimization.",
-        "tr": "Kenarlarda oluşacak fayans kesim fire optimizasyon oranını hesaplar.",
+        "tr": "Kenarlarda olusacak fayans kesim Scrap optimizasyon Ratioini hesaplar.",
         "de": "Berechnen Sie den Verschnittanteil bei der Fliesenverlegung zur Layoutoptimierung.",
         "fr": "Calculer le taux de déchet de coupe de carrelage pour l'optimisation de la disposition.",
         "es": "Calcular la tasa de desperdicio de corte de azulejos para optimización de diseño.",

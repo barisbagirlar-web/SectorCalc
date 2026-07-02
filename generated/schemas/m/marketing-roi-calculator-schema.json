@@ -2,7 +2,7 @@
   "toolName": "marketing-roi-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Toplam kampanya harcaması.",
+      "businessContext": "KampanyaMaliyeti",
       "businessContext_i18n": {
         "en": "Total campaign spend.",
-        "tr": "Toplam kampanya harcaması.",
+        "tr": "Total kampanya harcamasi.",
         "de": "Gesamtausgaben der Kampagne.",
         "fr": "Dépenses totales de la campagne.",
         "es": "Gasto total de la campaña.",
@@ -99,7 +99,7 @@
       "long": "Calculate marketing ROI from campaign revenue and cost.",
       "short_i18n": {
         "en": "Calculate marketing ROI from campaign revenue and cost.",
-        "tr": "Pazarlama harcamasının getirdiği net kâr oranını hesaplar.",
+        "tr": "Pazarlama harcamasinin getirdigi Net Profit Ratioini hesaplar.",
         "de": "Berechnen Sie den Marketing-ROI aus Kampagneneinnahmen und -kosten.",
         "fr": "Calculer le ROI marketing à partir des revenus et des coûts de la campagne.",
         "es": "Calcular el ROI de marketing a partir de los ingresos y costos de la campaña.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate marketing ROI from campaign revenue and cost.",
-        "tr": "Pazarlama harcamasının getirdiği net kâr oranını hesaplar.",
+        "tr": "Pazarlama harcamasinin getirdigi Net Profit Ratioini hesaplar.",
         "de": "Berechnen Sie den Marketing-ROI aus Kampagneneinnahmen und -kosten.",
         "fr": "Calculer le ROI marketing à partir des revenus et des coûts de la campagne.",
         "es": "Calcular el ROI de marketing a partir de los ingresos y costos de la campaña.",

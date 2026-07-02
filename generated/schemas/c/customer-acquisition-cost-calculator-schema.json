@@ -2,7 +2,7 @@
   "toolName": "customer-acquisition-cost-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Dönem pazarlama harcaması.",
+      "businessContext": "Pazarlama",
       "businessContext_i18n": {
         "en": "Marketing expenses.",
-        "tr": "Dönem pazarlama harcaması.",
+        "tr": "Donem pazarlama harcamasi.",
         "de": "Marketingausgaben.",
         "fr": "Dépenses marketing.",
         "es": "Gastos de marketing.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "satisGideri",
-      "label": "Satış Gideri (TL)",
+      "label": "SatisGideri",
       "label_i18n": {
         "en": "Sales Cost (USD)",
-        "tr": "Satış Gideri (TL)",
-        "de": "Kosten für Haftung und entgangene Verkäufe bei externem Fehler",
+        "tr": "Satis Gideri (TL)",
+        "de": "Kosten fur Haftung und entgangene Verkäufe bei externem Fehler",
         "fr": "Coût de responsabilité et de perte de ventes dû à un défaut externe",
         "es": "Costo de responsabilidad y pérdida de ventas por falla externa",
         "ar": "تكلفة المسؤولية وفقدان المبيعات بسبب الفشل الخارجي"
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Satış ekibi giderleri.",
+      "businessContext": "SatisGideri",
       "businessContext_i18n": {
         "en": "Sales team costs.",
-        "tr": "Satış ekibi giderleri.",
+        "tr": "Satis ekibi giderleri.",
         "de": "Vertriebsteamkosten.",
         "fr": "Coûts de l'équipe commerciale.",
         "es": "Costos del equipo de ventas.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "yeniMusteri",
-      "label": "Yeni Müşteri (Adet)",
+      "label": "YeniMusteri",
       "label_i18n": {
         "en": "New Customers",
-        "tr": "Yeni Müşteri (Adet)",
+        "tr": "Yeni Musteri (Quantity)",
         "de": "Neue Kunden",
         "fr": "Nouveaux clients",
         "es": "Nuevos Clientes",
@@ -70,10 +70,10 @@
       "unit": "customers",
       "default": 100,
       "min": 0,
-      "businessContext": "Kazanılan yeni müşteri sayısı.",
+      "businessContext": "YeniMusteri",
       "businessContext_i18n": {
         "en": "New customers acquired.",
-        "tr": "Kazanılan yeni müşteri sayısı.",
+        "tr": "Kazanilan yeni musteri Numbersi.",
         "de": "Neue gewonnene Kunden.",
         "fr": "Nouveaux clients acquis.",
         "es": "Nuevos clientes adquiridos.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Müşteri Edinim Maliyeti (CAC)"
+      "sonuc": "Musteri Edinim Costi (CAC)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Müşteri Edinim Maliyeti (CAC)",
-        "tr": "Müşteri Edinim Maliyeti (CAC)",
+        "en": "Musteri Edinim Costi (CAC)",
+        "tr": "Musteri Edinim Costi (CAC)",
         "de": "Kundenakquisitionskosten (CAC)",
         "fr": "Coût d'acquisition client (CAC)",
         "es": "Costo de Adquisición de Cliente (CAC)",
@@ -124,7 +124,7 @@
       "long": "Calculate customer acquisition cost (CAC).",
       "short_i18n": {
         "en": "Calculate customer acquisition cost (CAC).",
-        "tr": "Bir yeni müşteriyi kazanmanın ortalama maliyetini (CAC) hesaplar.",
+        "tr": "Bir yeni musteriyi kazanmanin Mean Costini (CAC) hesaplar.",
         "de": "Kundenakquisitionskosten (CAC) berechnen.",
         "fr": "Calculer le coût d'acquisition client (CAC).",
         "es": "Calcular el costo de adquisición de clientes (CAC).",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate customer acquisition cost (CAC).",
-        "tr": "Bir yeni müşteriyi kazanmanın ortalama maliyetini (CAC) hesaplar.",
+        "tr": "Bir yeni musteriyi kazanmanin Mean Costini (CAC) hesaplar.",
         "de": "Kundenakquisitionskosten (CAC) berechnen.",
         "fr": "Calculer le coût d'acquisition client (CAC).",
         "es": "Calcular el costo de adquisición de clientes (CAC).",

@@ -35,9 +35,11 @@ if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 const INDUSTRIAL_PROMPT = (slug, premium) => `
 You are an industrial engineering expert. Generate a complete industrial-grade JSON schema for the calculation tool with slug "${slug}".
 
+CRITICAL: All text fields (label, businessContext, description, category, sector, toolName) must be in English ONLY. No Turkish, no other languages.
+
 Requirements:
 - Only valid JSON output, no extra text.
-- Inputs: each input must have id, label, type (number/select/boolean), unit, default, min, max, businessContext.
+- Inputs: each input must have id, label, type (number/select/boolean), unit, default, min, max, businessContext (in English).
 - validation: rules (conditional rules) and thresholds (alert conditions).
 - formulas: at least 3-7 sub-formulas leading to a primary result.
 - outputs: primary, breakdown (object with component values), hiddenLossDrivers (array), suggestedActions (array), dataConfidenceAdjusted (number).
@@ -45,7 +47,7 @@ Requirements:
 - premiumFeatures: array of strings (e.g., "PDF export", "CSV export", "Trend analysis").
 
 Use your knowledge of industrial engineering standards (ISO, Lean, Six Sigma, WERC, etc.). 
-Output only JSON.
+Output only JSON. All strings must be in English.
 `;
 
 function isRetryableError(err) {

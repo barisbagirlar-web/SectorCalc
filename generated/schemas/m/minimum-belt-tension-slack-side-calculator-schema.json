@@ -2,16 +2,16 @@
   "toolName": "minimum-belt-tension-slack-side-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "guc",
-      "label": "İletilen Güç (W)",
+      "label": "Guc",
       "label_i18n": {
         "en": "Power Transmitted (W)",
-        "tr": "İletilen Güç (W)",
-        "de": "Übertragene Leistung (W)",
+        "tr": "Iletilen Power (W)",
+        "de": "Ubertragene Leistung (W)",
         "fr": "Puissance transmise (W)",
         "es": "Potencia transmitida (W)",
         "ar": "القدرة المنقولة (W)"
@@ -20,11 +20,11 @@
       "unit": "W",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kayışla iletilen güç.",
+      "businessContext": "Guc",
       "businessContext_i18n": {
         "en": "Belt power transmission.",
-        "tr": "Kayışla iletilen güç.",
-        "de": "Riemenleistungsübertragung.",
+        "tr": "Kayisla iletilen Power.",
+        "de": "Riemenleistungsubertragung.",
         "fr": "Transmission de puissance par courroie.",
         "es": "Transmisión de potencia por correa.",
         "ar": "نقل قدرة الحزام."
@@ -32,10 +32,10 @@
     },
     {
       "id": "hiz",
-      "label": "Kayış Hızı (m/s)",
+      "label": "Hiz",
       "label_i18n": {
         "en": "Belt Speed (m/s)",
-        "tr": "Kayış Hızı (m/s)",
+        "tr": "Kayis Speedi (m/s)",
         "de": "Riemengeschwindigkeit (m/s)",
         "fr": "Vitesse de la courroie (m/s)",
         "es": "Velocidad de la correa (m/s)",
@@ -45,10 +45,10 @@
       "unit": "m/s",
       "default": 10,
       "min": 0,
-      "businessContext": "Kayışın lineer hızı.",
+      "businessContext": "Hiz",
       "businessContext_i18n": {
         "en": "Belt linear speed.",
-        "tr": "Kayışın lineer hızı.",
+        "tr": "Kayisin lineer Speedi.",
         "de": "Lineare Riemengeschwindigkeit.",
         "fr": "Vitesse linéaire de la courroie.",
         "es": "Velocidad lineal de la correa.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "sarilmaAcisi",
-      "label": "Sarılma Açısı (Rad)",
+      "label": "SarilmaAcisi",
       "label_i18n": {
         "en": "Wrap Angle (Rad)",
-        "tr": "Sarılma Açısı (Rad)",
+        "tr": "Sarilma Acisi (Rad)",
         "de": "Umschlingungswinkel (Rad)",
         "fr": "Angle d'enroulement (Rad)",
         "es": "Ángulo de contacto (Rad)",
@@ -70,10 +70,10 @@
       "unit": "rad",
       "default": 2.8,
       "min": 0,
-      "businessContext": "Küçük kasnağa sarılma açısı.",
+      "businessContext": "SarilmaAcisi",
       "businessContext_i18n": {
         "en": "Small pulley wrap angle.",
-        "tr": "Küçük kasnağa sarılma açısı.",
+        "tr": "Kucuk kasnaga sarilma acisi.",
         "de": "Umschlingungswinkel der kleinen Riemenscheibe.",
         "fr": "Angle d'enroulement de la petite poulie.",
         "es": "Ángulo de contacto de la polea pequeña.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "suratme",
-      "label": "Sürtünme Katsayısı",
+      "label": "Friction Factor",
       "label_i18n": {
         "en": "Friction Coefficient",
-        "tr": "Sürtünme Katsayısı",
+        "tr": "Friction Factor",
         "de": "Reibungskoeffizient",
         "fr": "Coefficient de frottement",
         "es": "Coeficiente de fricción",
@@ -95,10 +95,10 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Kayış-kasnak sürtünmesi.",
+      "businessContext": "Suratme",
       "businessContext_i18n": {
         "en": "Belt-pulley friction.",
-        "tr": "Kayış-kasnak sürtünmesi.",
+        "tr": "Kayis-kasnak surtunmesi.",
         "de": "Riemen-Scheiben-Reibung.",
         "fr": "Frottement courroie-poulie.",
         "es": "Fricción correa-polea.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "N",
     "breakdown": {
-      "sonuc": "Gevşek Kol Gerilimi (F₂)"
+      "sonuc": "Gevsek Kol Voltagei (F₂)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gevşek Kol Gerilimi (F₂)",
-        "tr": "Gevşek Kol Gerilimi (F₂)",
+        "en": "Gevsek Kol Voltagei (F₂)",
+        "tr": "Gevsek Kol Voltagei (F₂)",
         "de": "Leerlaufseilspannung (F₂)",
         "fr": "Tension du côté mou (F₂)",
         "es": "Tensión del lado flojo (F₂)",
@@ -150,7 +150,7 @@
       "long": "Calculate minimum belt tension on the slack side.",
       "short_i18n": {
         "en": "Calculate minimum belt tension on the slack side.",
-        "tr": "Kayışın gevşek kolundaki minimum gerilme kuvvetini hesaplar.",
+        "tr": "Kayisin gevsek kolundaki Minimum gerilme Forceini hesaplar.",
         "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
         "fr": "Calculer la tension minimale de la courroie du côté mou.",
         "es": "Calcular la tensión mínima de la correa en el lado flojo.",
@@ -158,7 +158,7 @@
       },
       "long_i18n": {
         "en": "Calculate minimum belt tension on the slack side.",
-        "tr": "Kayışın gevşek kolundaki minimum gerilme kuvvetini hesaplar.",
+        "tr": "Kayisin gevsek kolundaki Minimum gerilme Forceini hesaplar.",
         "de": "Berechnen Sie die minimale Riemenspannung auf der losen Seite.",
         "fr": "Calculer la tension minimale de la courroie du côté mou.",
         "es": "Calcular la tensión mínima de la correa en el lado flojo.",

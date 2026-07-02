@@ -2,15 +2,15 @@
   "toolName": "vswr-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
       "id": "yukEmpedans",
-      "label": "Yük Empedansı (Ω)",
+      "label": "YukEmpedans",
       "label_i18n": {
         "en": "Load Impedance (Ω)",
-        "tr": "Yük Empedansı (Ω)",
+        "tr": "Yuk Impedancei (Ω)",
         "de": "Lastimpedanz (Ω)",
         "fr": "Impédance de charge (Ω)",
         "es": "Impedancia de carga (Ω)",
@@ -20,10 +20,10 @@
       "unit": "ohms",
       "default": 100,
       "min": 0,
-      "businessContext": "Anten/yük empedansı.",
+      "businessContext": "YukEmpedans",
       "businessContext_i18n": {
         "en": "Load/antenna impedance.",
-        "tr": "Anten/yük empedansı.",
+        "tr": "Anten/yuk Impedancei.",
         "de": "Last-/Antennenimpedanz.",
         "fr": "Impédance de la charge/antenne.",
         "es": "Impedancia de carga/antena.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "hatEmpedans",
-      "label": "Hat Karakteristik Empedansı (Ω)",
+      "label": "HatEmpedans",
       "label_i18n": {
         "en": "Line Characteristic Impedance (Ω)",
-        "tr": "Hat Karakteristik Empedansı (Ω)",
+        "tr": "Hat Karakteristik Impedancei (Ω)",
         "de": "Leitungswellenwiderstand (Ω)",
         "fr": "Impédance caractéristique de la ligne (Ω)",
         "es": "Impedancia característica de la línea (Ω)",
@@ -45,11 +45,11 @@
       "unit": "ohms",
       "default": 50,
       "min": 0,
-      "businessContext": "İletim hattı empedansı.",
+      "businessContext": "HatEmpedans",
       "businessContext_i18n": {
         "en": "Transmission line impedance.",
-        "tr": "İletim hattı empedansı.",
-        "de": "Übertragungsleitungswellenwiderstand.",
+        "tr": "Iletim hatti Impedancei.",
+        "de": "Ubertragungsleitungswellenwiderstand.",
         "fr": "Impédance de la ligne de transmission.",
         "es": "Impedancia de la línea de transmisión.",
         "ar": "معاوقة خط النقل."
@@ -75,7 +75,7 @@
     "breakdown_i18n": {
       "sonuc": {
         "en": "VSWR",
-        "tr": "Dalgacıklı Gerilim Duran Dalga Oranı",
+        "tr": "Dalgacikli Voltage Duran Dalga Ratioi",
         "de": "VSWR",
         "fr": "VSWR",
         "es": "ROE (Relación de Onda Estacionaria de Voltaje)",
@@ -102,7 +102,7 @@
       "long": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
       "short_i18n": {
         "en": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
-        "tr": "İletim hattındaki empedans uyumsuzluk oranını (VSWR) hesaplar.",
+        "tr": "Iletim hattindaki Impedance uyumsuzluk Ratioini (VSWR) hesaplar.",
         "de": "Berechnen Sie das Spannungs-Stehwellenverhältnis (VSWR) aus der Impedanzfehlanpassung.",
         "fr": "Calculer le rapport d'ondes stationnaires de tension (VSWR) à partir d'une désadaptation d'impédance.",
         "es": "Calcular la relación de onda estacionaria de voltaje (VSWR) a partir del desajuste de impedancia.",
@@ -110,7 +110,7 @@
       },
       "long_i18n": {
         "en": "Calculate Voltage Standing Wave Ratio (VSWR) from impedance mismatch.",
-        "tr": "İletim hattındaki empedans uyumsuzluk oranını (VSWR) hesaplar.",
+        "tr": "Iletim hattindaki Impedance uyumsuzluk Ratioini (VSWR) hesaplar.",
         "de": "Berechnen Sie das Spannungs-Stehwellenverhältnis (VSWR) aus der Impedanzfehlanpassung.",
         "fr": "Calculer le rapport d'ondes stationnaires de tension (VSWR) à partir d'une désadaptation d'impédance.",
         "es": "Calcular la relación de onda estacionaria de voltaje (VSWR) a partir del desajuste de impedancia.",

@@ -2,15 +2,15 @@
   "toolName": "fire-load-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
       "id": "yaniciKutle",
-      "label": "Yanıcı Malzeme Kütlesi (kg)",
+      "label": "YaniciKutle",
       "label_i18n": {
         "en": "Combustible Mass (kg)",
-        "tr": "Yanıcı Malzeme Kütlesi (kg)",
+        "tr": "Yanici Malzeme Masssi (kg)",
         "de": "Brennbare Masse (kg)",
         "fr": "Masse combustible (kg)",
         "es": "Masa Combustible (kg)",
@@ -20,10 +20,10 @@
       "unit": "kg",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kat planında yanıcı kütle.",
+      "businessContext": "YaniciKutle",
       "businessContext_i18n": {
         "en": "Combustible material on floor.",
-        "tr": "Kat planında yanıcı kütle.",
+        "tr": "Kat planinda yanici Mass.",
         "de": "Brennbare Masse auf dem Boden.",
         "fr": "Matériau combustible au sol.",
         "es": "Material combustible en el piso.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "isilDeger",
-      "label": "Isıl Değer (MJ/kg)",
+      "label": "IsilDeger",
       "label_i18n": {
         "en": "Calorific Value (MJ/kg)",
-        "tr": "Isıl Değer (MJ/kg)",
+        "tr": "Isil Value (MJ/kg)",
         "de": "Brennwert (MJ/kg)",
         "fr": "Pouvoir calorifique (MJ/kg)",
         "es": "Valor Calorífico (MJ/kg)",
@@ -45,10 +45,10 @@
       "unit": "MJ/kg",
       "default": 18,
       "min": 0,
-      "businessContext": "Malzemenin birim kütle enerjisi.",
+      "businessContext": "Malzemenin Unit Mass Energysi.",
       "businessContext_i18n": {
         "en": "Material energy per kg.",
-        "tr": "Malzemenin birim kütle enerjisi.",
+        "tr": "Malzemenin Unit Mass Energysi.",
         "de": "Energie des Materials pro kg.",
         "fr": "Énergie du matériau par kg.",
         "es": "Energía del material por kg.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "katAlani",
-      "label": "Kat Alanı (m²)",
+      "label": "Floor Area (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
-        "tr": "Kat Alanı (m²)",
+        "tr": "Kat Area (m²)",
         "de": "Gesamtfläche",
         "fr": "Surface totale",
         "es": "Superficie total",
@@ -70,10 +70,10 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Yangın kompartmanı alanı.",
+      "businessContext": "KatAlani",
       "businessContext_i18n": {
         "en": "Fire compartment area.",
-        "tr": "Yangın kompartmanı alanı.",
+        "tr": "Yangin kompartmani Areai.",
         "de": "Brandabschnittsfläche.",
         "fr": "Surface du compartiment coupe-feu.",
         "es": "Área del compartimento de incendio.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "MJ/m2",
     "breakdown": {
-      "sonuc": "Yangın Yükü"
+      "sonuc": "Scrap Load"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yangın Yükü",
-        "tr": "Yangın Yükü",
+        "en": "Scrap Load",
+        "tr": "Scrap Load",
         "de": "Brandlast",
         "fr": "Charge calorifique",
         "es": "Carga de incendio",
@@ -126,7 +126,7 @@
       "long": "Calculate building fire load per unit area.",
       "short_i18n": {
         "en": "Calculate building fire load per unit area.",
-        "tr": "Yangın anında açığa çıkacak birim alandaki toplam ısı enerjisini (yangın yükü) hesaplar.",
+        "tr": "Yangin aninda aciga cikacak Unit Areadaki Total isi Energysini (Scrap Load) hesaplar.",
         "de": "Berechnen Sie die Brandlast pro Flächeneinheit eines Gebäudes.",
         "fr": "Calculer la charge calorifique d'un bâtiment par unité de surface.",
         "es": "Calcular la carga de incendio del edificio por unidad de área.",
@@ -134,7 +134,7 @@
       },
       "long_i18n": {
         "en": "Calculate building fire load per unit area.",
-        "tr": "Yangın anında açığa çıkacak birim alandaki toplam ısı enerjisini (yangın yükü) hesaplar.",
+        "tr": "Yangin aninda aciga cikacak Unit Areadaki Total isi Energysini (Scrap Load) hesaplar.",
         "de": "Berechnen Sie die Brandlast pro Flächeneinheit eines Gebäudes.",
         "fr": "Calculer la charge calorifique d'un bâtiment par unité de surface.",
         "es": "Calcular la carga de incendio del edificio por unidad de área.",

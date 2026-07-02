@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "donguSuresi",
-      "label": "Sinyal Döngü Süresi (s)",
+      "label": "DonguSuresi",
       "label_i18n": {
         "en": "Cycle Length (s)",
-        "tr": "Sinyal Döngü Süresi (s)",
+        "tr": "Sinyal Dongu Suresi (s)",
         "de": "Durchschnittliche Zykluslänge (Tage)",
         "fr": "Longueur moyenne du cycle (jours)",
         "es": "Longitud media del ciclo (días)",
@@ -20,10 +20,10 @@
       "unit": "s",
       "default": 90,
       "min": 0,
-      "businessContext": "Trafik sinyal döngü süresi.",
+      "businessContext": "DonguSuresi",
       "businessContext_i18n": {
         "en": "Signal cycle length.",
-        "tr": "Trafik sinyal döngü süresi.",
+        "tr": "Trafik sinyal dongu suresi.",
         "de": "Signalumlaufzeit.",
         "fr": "Durée du cycle de signalisation.",
         "es": "Duración del ciclo del semáforo.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "yesilSure",
-      "label": "Yeşil Süre (s)",
+      "label": "YesilSure",
       "label_i18n": {
         "en": "Green Time (s)",
-        "tr": "Yeşil Süre (s)",
-        "de": "Grünzeit (s)",
+        "tr": "Yesil Duration (s)",
+        "de": "Grunzeit (s)",
         "fr": "Temps de vert (s)",
         "es": "Tiempo en Verde (s)",
         "ar": "الوقت الأخضر (s)"
@@ -45,11 +45,11 @@
       "unit": "s",
       "default": 30,
       "min": 0,
-      "businessContext": "Yeşil ışık süresi.",
+      "businessContext": "YesilSure",
       "businessContext_i18n": {
         "en": "Green signal duration.",
-        "tr": "Yeşil ışık süresi.",
-        "de": "Grünsignaldauer.",
+        "tr": "Yesil isik suresi.",
+        "de": "Grunsignaldauer.",
         "fr": "Durée du feu vert.",
         "es": "Duración de la señal verde.",
         "ar": "مدة الإشارة الخضراء."
@@ -57,10 +57,10 @@
     },
     {
       "id": "akisHizi",
-      "label": "Trafik Akış Hızı (araç/s)",
+      "label": "AkisHizi",
       "label_i18n": {
         "en": "Traffic Flow (veh/s)",
-        "tr": "Trafik Akış Hızı (araç/s)",
+        "tr": "Trafik Flow Velocity (arac/s)",
         "de": "Verkehrsfluss (veh/s)",
         "fr": "Débit de trafic (veh/s)",
         "es": "Flujo de Tráfico (veh/s)",
@@ -70,10 +70,10 @@
       "unit": "veh/s",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Gelen trafik hızı.",
+      "businessContext": "AkisHizi",
       "businessContext_i18n": {
         "en": "Arrival flow rate.",
-        "tr": "Gelen trafik hızı.",
+        "tr": "Gelen trafik Speedi.",
         "de": "Ankunftsflussrate.",
         "fr": "Débit d'arrivée.",
         "es": "Tasa de flujo de llegada.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "doygunAkis",
-      "label": "Doygun Akış Hızı (araç/s)",
+      "label": "DoygunAkis",
       "label_i18n": {
         "en": "Saturation Flow (veh/s)",
-        "tr": "Doygun Akış Hızı (araç/s)",
+        "tr": "Doygun Flow Velocity (arac/s)",
         "de": "Sättigungsfluss (veh/s)",
         "fr": "Débit de saturation (veh/s)",
         "es": "Flujo de Saturación (veh/s)",
@@ -95,10 +95,10 @@
       "unit": "veh/s",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Maksimum geçiş kapasitesi.",
+      "businessContext": "DoygunAkis",
       "businessContext_i18n": {
         "en": "Maximum discharge rate.",
-        "tr": "Maksimum geçiş kapasitesi.",
+        "tr": "Maximum gecis kapasitesi.",
         "de": "Maximale Abflussrate.",
         "fr": "Taux de décharge maximal.",
         "es": "Tasa máxima de descarga.",
@@ -152,16 +152,16 @@
       "long": "Calculate average vehicle delay at a signalized intersection.",
       "short_i18n": {
         "en": "Calculate average vehicle delay at a signalized intersection.",
-        "tr": "Kavşaktaki ortalama araç bekleme süresini (trafik sinyal gecikmesi) hesaplar.",
-        "de": "Berechnen Sie die durchschnittliche Fahrzeugverzögerung an einer signalisierten Kreuzung.",
+        "tr": "Kavsaktaki Mean arac Waiting Timeni (trafik sinyal gecikmesi) hesaplar.",
+        "de": "Berechnen Sie die durchschnittliche Fahrzeugverzogerung an einer signalisierten Kreuzung.",
         "fr": "Calculer le retard moyen des véhicules à une intersection avec feux de signalisation.",
         "es": "Calcular el retardo promedio de vehículos en una intersección semaforizada.",
         "ar": "حساب متوسط تأخير المركبات عند تقاطع إشارات مرورية."
       },
       "long_i18n": {
         "en": "Calculate average vehicle delay at a signalized intersection.",
-        "tr": "Kavşaktaki ortalama araç bekleme süresini (trafik sinyal gecikmesi) hesaplar.",
-        "de": "Berechnen Sie die durchschnittliche Fahrzeugverzögerung an einer signalisierten Kreuzung.",
+        "tr": "Kavsaktaki Mean arac Waiting Timeni (trafik sinyal gecikmesi) hesaplar.",
+        "de": "Berechnen Sie die durchschnittliche Fahrzeugverzogerung an einer signalisierten Kreuzung.",
         "fr": "Calculer le retard moyen des véhicules à une intersection avec feux de signalisation.",
         "es": "Calcular el retardo promedio de vehículos en una intersección semaforizada.",
         "ar": "حساب متوسط تأخير المركبات عند تقاطع إشارات مرورية."
@@ -170,7 +170,7 @@
   },
   "title_i18n": {
     "en": "traffic-signal-delay-calculator",
-    "de": "Rechner für Verkehrssignalverzögerung",
+    "de": "Rechner fur Verkehrssignalverzogerung",
     "fr": "Calculateur de délai de signalisation routière",
     "es": "Calculadora de retardo de señalización de tráfico",
     "ar": "حاسبة تأخير إشارات المرور"

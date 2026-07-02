@@ -2,15 +2,15 @@
   "toolName": "conversion-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "ziyaretci",
-      "label": "Ziyaretçi (Adet)",
+      "label": "Ziyaretci",
       "label_i18n": {
         "en": "Visitors",
-        "tr": "Ziyaretçi (Adet)",
+        "tr": "Ziyaretci (Quantity)",
         "de": "Besucher der Kontrollgruppe",
         "fr": "Visiteurs du groupe de contrôle",
         "es": "Visitantes del grupo de control",
@@ -20,10 +20,10 @@
       "unit": "visitors",
       "default": 10000,
       "min": 1,
-      "businessContext": "Toplam web sitesi ziyaretçisi.",
+      "businessContext": "Ziyaretci",
       "businessContext_i18n": {
         "en": "Total website visitors.",
-        "tr": "Toplam web sitesi ziyaretçisi.",
+        "tr": "Total web sitesi ziyaretcisi.",
         "de": "Gesamtzahl der Website-Besucher.",
         "fr": "Nombre total de visiteurs du site web.",
         "es": "Total de visitantes del sitio web.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "donusum",
-      "label": "Dönüşüm (Adet)",
+      "label": "Donusum",
       "label_i18n": {
         "en": "Conversions",
-        "tr": "Dönüşüm (Adet)",
+        "tr": "Donusum (Quantity)",
         "de": "Konversionen der Kontrollgruppe",
         "fr": "Conversions du groupe de contrôle",
         "es": "Conversiones del grupo de control",
@@ -45,10 +45,10 @@
       "unit": "conversions",
       "default": 500,
       "min": 0,
-      "businessContext": "Hedef eylemi gerçekleştiren sayısı.",
+      "businessContext": "Donusum",
       "businessContext_i18n": {
         "en": "Completed target actions.",
-        "tr": "Hedef eylemi gerçekleştiren sayısı.",
+        "tr": "Hedef eylemi gerceklestiren Numbersi.",
         "de": "Abgeschlossene Zielaktionen.",
         "fr": "Actions cibles complétées.",
         "es": "Acciones objetivo completadas.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Dönüşüm Oranı (CRO)"
+      "sonuc": "Conversion Rate (CRO)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Dönüşüm Oranı (CRO)",
-        "tr": "Dönüşüm Oranı (CRO)",
+        "en": "Conversion Rate (CRO)",
+        "tr": "Conversion Rate (CRO)",
         "de": "Konversionsrate (CRO)",
         "fr": "Taux de conversion (CRO)",
         "es": "Tasa de Conversión (CRO)",
@@ -99,7 +99,7 @@
       "long": "Calculate conversion rate optimization (CRO) percentage.",
       "short_i18n": {
         "en": "Calculate conversion rate optimization (CRO) percentage.",
-        "tr": "Siteye girenlerin hedeflenen eylemi gerçekleştirme yüzdesini hesaplar.",
+        "tr": "Siteye girenlerin hedeflenen eylemi gerceklestirme yuzdesini hesaplar.",
         "de": "Conversion-Rate-Optimierung (CRO) in Prozent berechnen.",
         "fr": "Calculer le pourcentage d'optimisation du taux de conversion (CRO).",
         "es": "Calcular el porcentaje de optimización de la tasa de conversión (CRO).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate conversion rate optimization (CRO) percentage.",
-        "tr": "Siteye girenlerin hedeflenen eylemi gerçekleştirme yüzdesini hesaplar.",
+        "tr": "Siteye girenlerin hedeflenen eylemi gerceklestirme yuzdesini hesaplar.",
         "de": "Conversion-Rate-Optimierung (CRO) in Prozent berechnen.",
         "fr": "Calculer le pourcentage d'optimisation du taux de conversion (CRO).",
         "es": "Calcular el porcentaje de optimización de la tasa de conversión (CRO).",

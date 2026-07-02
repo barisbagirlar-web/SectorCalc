@@ -2,16 +2,16 @@
   "toolName": "learning-curve-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "ilkSure",
-      "label": "İlk Birim Süresi (Dk)",
+      "label": "IlkSure",
       "label_i18n": {
         "en": "First Unit Time (Min)",
-        "tr": "İlk Birim Süresi (Dk)",
-        "de": "Zeit für erste Einheit (Stunden)",
+        "tr": "Ilk Unit Suresi (Dk)",
+        "de": "Zeit fur erste Einheit (Stunden)",
         "fr": "Temps de la première unité (heures)",
         "es": "Tiempo de la primera unidad (horas)",
         "ar": "وقت الوحدة الأولى (ساعات)"
@@ -20,11 +20,11 @@
       "unit": "min",
       "default": 100,
       "min": 0,
-      "businessContext": "İlk üretilen birimin süresi.",
+      "businessContext": "IlkSure",
       "businessContext_i18n": {
         "en": "Time for first unit.",
-        "tr": "İlk üretilen birimin süresi.",
-        "de": "Zeit für das erste Stück.",
+        "tr": "Ilk uretilen Unitin suresi.",
+        "de": "Zeit fur das erste Stuck.",
         "fr": "Temps pour la première unité.",
         "es": "Tiempo para la primera unidad.",
         "ar": "زمن الوحدة الأولى."
@@ -32,10 +32,10 @@
     },
     {
       "id": "ogrenmeOrani",
-      "label": "Öğrenme Oranı (%)",
+      "label": "OgrenmeOrani",
       "label_i18n": {
         "en": "Learning Rate (%)",
-        "tr": "Öğrenme Oranı (%)",
+        "tr": "Ogrenme Ratioi (%)",
         "de": "Lernrate (%)",
         "fr": "Taux d'apprentissage (%)",
         "es": "Tasa de aprendizaje (%)",
@@ -46,10 +46,10 @@
       "default": 90,
       "min": 1,
       "max": 100,
-      "businessContext": "Her iki kat üretimde süre düşüş oranı.",
+      "businessContext": "OgrenmeOrani",
       "businessContext_i18n": {
         "en": "Time reduction per doubling of output.",
-        "tr": "Her iki kat üretimde süre düşüş oranı.",
+        "tr": "Her iki kat uretimde sure dusus Ratioi.",
         "de": "Zeitreduktion pro Verdopplung der Ausbringungsmenge.",
         "fr": "Réduction de temps par doublement de la production.",
         "es": "Reducción de tiempo por duplicación de la producción.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "uretilenAdet",
-      "label": "Üretilen Adet",
+      "label": "UretilenAdet",
       "label_i18n": {
         "en": "Units Produced",
-        "tr": "Üretilen Adet",
+        "tr": "Uretilen Quantity",
         "de": "Produzierte Einheiten",
         "fr": "Unités produites",
         "es": "Unidades producidas",
@@ -71,10 +71,10 @@
       "unit": "units",
       "default": 100,
       "min": 1,
-      "businessContext": "Toplam üretim adedi.",
+      "businessContext": "Total Production adedi.",
       "businessContext_i18n": {
         "en": "Total units produced.",
-        "tr": "Toplam üretim adedi.",
+        "tr": "Total Production adedi.",
         "de": "Gesamtzahl der produzierten Einheiten.",
         "fr": "Nombre total d'unités produites.",
         "es": "Total de unidades producidas.",
@@ -96,12 +96,12 @@
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Son Birim Süresi"
+      "sonuc": "Son Unit Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Son Birim Süresi",
-        "tr": "Son Birim Süresi",
+        "en": "Son Unit Time",
+        "tr": "Son Unit Time",
         "de": "Zeit der letzten Einheit",
         "fr": "Last Unit Time",
         "es": "Tiempo de la Última Unidad",
@@ -126,16 +126,16 @@
       "long": "Calculate unit production time using the learning curve theory.",
       "short_i18n": {
         "en": "Calculate unit production time using the learning curve theory.",
-        "tr": "Tecrübe arttıkça azalan birim başı üretim süresini hesaplar.",
-        "de": "Berechnen Sie die Stückproduktionszeit mithilfe der Lernkurventheorie.",
+        "tr": "Tecrube arttikca azArea Unit basi uretim suresini hesaplar.",
+        "de": "Berechnen Sie die Stuckproduktionszeit mithilfe der Lernkurventheorie.",
         "fr": "Calculer le temps de production unitaire en utilisant la théorie de la courbe d'apprentissage.",
         "es": "Calcular el tiempo de producción unitario usando la teoría de la curva de aprendizaje.",
         "ar": "حساب زمن الإنتاج للوحدة باستخدام نظرية منحنى التعلم."
       },
       "long_i18n": {
         "en": "Calculate unit production time using the learning curve theory.",
-        "tr": "Tecrübe arttıkça azalan birim başı üretim süresini hesaplar.",
-        "de": "Berechnen Sie die Stückproduktionszeit mithilfe der Lernkurventheorie.",
+        "tr": "Tecrube arttikca azArea Unit basi uretim suresini hesaplar.",
+        "de": "Berechnen Sie die Stuckproduktionszeit mithilfe der Lernkurventheorie.",
         "fr": "Calculer le temps de production unitaire en utilisant la théorie de la courbe d'apprentissage.",
         "es": "Calcular el tiempo de producción unitario usando la teoría de la curva de aprendizaje.",
         "ar": "حساب زمن الإنتاج للوحدة باستخدام نظرية منحنى التعلم."

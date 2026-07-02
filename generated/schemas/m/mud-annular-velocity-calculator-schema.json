@@ -2,16 +2,16 @@
   "toolName": "mud-annular-velocity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sector": "Tarim, Denizcilik ve Sondaj",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "camurDebi",
-      "label": "Çamur Debisi (m³/s)",
+      "label": "CamurDebi",
       "label_i18n": {
         "en": "Mud Flow Rate (m³/s)",
-        "tr": "Çamur Debisi (m³/s)",
-        "de": "Spülungsdurchflussrate (m³/s)",
+        "tr": "Camur Flow Ratesi (m³/s)",
+        "de": "Spulungsdurchflussrate (m³/s)",
         "fr": "Débit de la boue (m³/s)",
         "es": "Caudal de Lodo (m³/s)",
         "ar": "معدل تدفق الطين (m³/s)"
@@ -20,11 +20,11 @@
       "unit": "m3/s",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Sondaj çamuru debisi.",
+      "businessContext": "CamurDebi",
       "businessContext_i18n": {
         "en": "Mud flow rate.",
-        "tr": "Sondaj çamuru debisi.",
-        "de": "Spülungsdurchflussrate.",
+        "tr": "Sondaj camuru Flow Ratesi.",
+        "de": "Spulungsdurchflussrate.",
         "fr": "Débit de la boue.",
         "es": "Caudal de lodo.",
         "ar": "معدل تدفق الطين."
@@ -32,10 +32,10 @@
     },
     {
       "id": "kuyuCapi",
-      "label": "Kuyu Çapı (m)",
+      "label": "KuyuCapi",
       "label_i18n": {
         "en": "Wellbore Diameter (m)",
-        "tr": "Kuyu Çapı (m)",
+        "tr": "Kuyu Diameter (m)",
         "de": "Bohrlochdurchmesser (m)",
         "fr": "Diamètre du puits (m)",
         "es": "Diámetro del Pozo (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Kuyu delik çapı.",
+      "businessContext": "KuyuCapi",
       "businessContext_i18n": {
         "en": "Hole diameter.",
-        "tr": "Kuyu delik çapı.",
+        "tr": "Kuyu delik Diameteri.",
         "de": "Lochdurchmesser.",
         "fr": "Diamètre du trou.",
         "es": "Diámetro del agujero.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "matkapCapi",
-      "label": "Matkap Borusu Dış Çapı (m)",
+      "label": "MatkapCapi",
       "label_i18n": {
         "en": "Drill Pipe OD (m)",
-        "tr": "Matkap Borusu Dış Çapı (m)",
+        "tr": "Matkap Borusu Dis Diameteri (m)",
         "de": "Bohrgestänge-Außendurchmesser (m)",
         "fr": "Diamètre extérieur de la tige de forage (m)",
         "es": "DE de la Tubería de Perforación (m)",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Sondaj borusu dış çapı.",
+      "businessContext": "MatkapCapi",
       "businessContext_i18n": {
         "en": "Drill pipe outer diameter.",
-        "tr": "Sondaj borusu dış çapı.",
+        "tr": "Sondaj borusu dis Diameteri.",
         "de": "Außendurchmesser des Bohrgestänges.",
         "fr": "Diamètre extérieur de la tige de forage.",
         "es": "Diámetro exterior de la tubería de perforación.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Halkasal Hız"
+      "sonuc": "Halkasal Speed"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Halkasal Hız",
-        "tr": "Halkasal Hız",
+        "en": "Halkasal Speed",
+        "tr": "Halkasal Speed",
         "de": "Ringgeschwindigkeit",
         "fr": "Vitesse angulaire",
         "es": "Velocidad Angular",
@@ -126,16 +126,16 @@
       "long": "Calculate mud annular velocity in wellbore.",
       "short_i18n": {
         "en": "Calculate mud annular velocity in wellbore.",
-        "tr": "Kuyu-matkap arası halkasal kesitte çamurun yükselme hızını hesaplar.",
-        "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspülung im Bohrloch.",
+        "tr": "Kuyu-matkap arasi halkasal kesitte camurun yukselme Speedini hesaplar.",
+        "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspulung im Bohrloch.",
         "fr": "Calculer la vitesse annulaire de la boue dans le puits.",
         "es": "Calcular la velocidad anular del lodo en el pozo.",
         "ar": "حساب السرعة الحلقية للطين في حفرة البئر."
       },
       "long_i18n": {
         "en": "Calculate mud annular velocity in wellbore.",
-        "tr": "Kuyu-matkap arası halkasal kesitte çamurun yükselme hızını hesaplar.",
-        "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspülung im Bohrloch.",
+        "tr": "Kuyu-matkap arasi halkasal kesitte camurun yukselme Speedini hesaplar.",
+        "de": "Berechnen Sie die Ringraumgeschwindigkeit der Bohrspulung im Bohrloch.",
         "fr": "Calculer la vitesse annulaire de la boue dans le puits.",
         "es": "Calcular la velocidad anular del lodo en el pozo.",
         "ar": "حساب السرعة الحلقية للطين في حفرة البئر."

@@ -2,15 +2,15 @@
   "toolName": "debt-service-coverage-ratio-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Kredi ve Borç",
+  "sector": "Kredi ve Borc",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "netIsletmeGeliri",
-      "label": "Net İşletme Geliri (₺)",
+      "label": "Net Workletme Geliri (₺)",
       "label_i18n": {
         "en": "Net Operating Income (USD)",
-        "tr": "Net İşletme Geliri (₺)",
+        "tr": "Net Workletme Geliri (₺)",
         "de": "Nettoertrag aus Betriebstätigkeit",
         "fr": "Résultat net d'exploitation",
         "es": "Ingreso operativo neto",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Yıllık net işletme geliri.",
+      "businessContext": "NetIsletmeGeliri",
       "businessContext_i18n": {
         "en": "Annual net operating income.",
-        "tr": "Yıllık net işletme geliri.",
+        "tr": "Yillik Net isletme geliri.",
         "de": "Jährlicher Nettoertrag aus Betrieb.",
         "fr": "Revenu net d'exploitation annuel.",
         "es": "Ingreso neto operativo anual.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yillikBorcOdemesi",
-      "label": "Yıllık Borç Ödemesi (₺)",
+      "label": "YillikBorcOdemesi",
       "label_i18n": {
         "en": "Annual Debt Service (USD)",
-        "tr": "Yıllık Borç Ödemesi (₺)",
+        "tr": "Annual Debt Paymmosttsi (TRY)",
         "de": "Jährlicher Schuldendienst (USD)",
         "fr": "Service annuel de la dette (USD)",
         "es": "Servicio Anual de la Deuda (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Yıllık anapara+faiz ödemesi.",
+      "businessContext": "YillikBorcOdemesi",
       "businessContext_i18n": {
         "en": "Annual principal + interest payment.",
-        "tr": "Yıllık anapara+faiz ödemesi.",
+        "tr": "Yillik Principal+faiz odemesi.",
         "de": "Jährliche Tilgungs- und Zinszahlung.",
         "fr": "Paiement annuel du principal + intérêts.",
         "es": "Pago anual de capital + intereses.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "DSCR Oranı"
+      "sonuc": "DSCR Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "DSCR Oranı",
-        "tr": "DSCR Oranı",
+        "en": "DSCR Ratio",
+        "tr": "DSCR Ratio",
         "de": "DSCR-Verhältnis",
         "fr": "Ratio DSCR",
         "es": "Índice DSCR",
@@ -99,7 +99,7 @@
       "long": "Calculate debt service coverage ratio (DSCR).",
       "short_i18n": {
         "en": "Calculate debt service coverage ratio (DSCR).",
-        "tr": "İşletmenin borç taksitlerini ödeme kapasitesini (DSCR) hesaplar.",
+        "tr": "Workletmenin borc taksitlerini odeme kapasitesini (DSCR) hesaplar.",
         "de": "Berechnen Sie den Schuldendienstdeckungsgrad (DSCR).",
         "fr": "Calculer le ratio de couverture du service de la dette (DSCR).",
         "es": "Calcular el índice de cobertura del servicio de la deuda (DSCR).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate debt service coverage ratio (DSCR).",
-        "tr": "İşletmenin borç taksitlerini ödeme kapasitesini (DSCR) hesaplar.",
+        "tr": "Workletmenin borc taksitlerini odeme kapasitesini (DSCR) hesaplar.",
         "de": "Berechnen Sie den Schuldendienstdeckungsgrad (DSCR).",
         "fr": "Calculer le ratio de couverture du service de la dette (DSCR).",
         "es": "Calcular el índice de cobertura del servicio de la deuda (DSCR).",

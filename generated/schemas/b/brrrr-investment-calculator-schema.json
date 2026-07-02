@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "alim",
-      "label": "Alım Fiyatı (₺)",
+      "label": "Alim",
       "label_i18n": {
         "en": "Purchase Price (USD)",
-        "tr": "Alım Fiyatı (₺)",
+        "tr": "Alim Fiyati (₺)",
         "de": "Kaufpreis (USD)",
         "fr": "Prix d'achat (USD)",
         "es": "Precio de Compra (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Mülkün satın alma fiyatı.",
+      "businessContext": "Alim",
       "businessContext_i18n": {
         "en": "Property purchase price.",
-        "tr": "Mülkün satın alma fiyatı.",
+        "tr": "Mulkun satin alma fiyati.",
         "de": "Kaufpreis der Immobilie.",
         "fr": "Prix d'achat de la propriété.",
         "es": "Precio de compra de la propiedad.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "deger",
-      "label": "Yenilenmiş Değer (₺)",
+      "label": "Deger",
       "label_i18n": {
         "en": "After-Repair Value (USD)",
-        "tr": "Yenilenmiş Değer (₺)",
+        "tr": "Yenilenmis Value (₺)",
         "de": "Wert nach Reparatur (USD)",
         "fr": "Valeur après réparation (USD)",
         "es": "Valor posterior a la reparación (USD)",
@@ -70,10 +70,10 @@
       "unit": "USD",
       "default": 800000,
       "min": 0,
-      "businessContext": "Tadilat sonrası mülk değeri.",
+      "businessContext": "Deger",
       "businessContext_i18n": {
         "en": "Post-renovation property value.",
-        "tr": "Tadilat sonrası mülk değeri.",
+        "tr": "Tadilat sonrasi mulk Valuei.",
         "de": "Wert der Immobilie nach der Renovierung.",
         "fr": "Valeur du bien après rénovation.",
         "es": "Valor de la propiedad después de la renovación.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "kredi",
-      "label": "Kredi Tutarı (₺)",
+      "label": "Kredi",
       "label_i18n": {
         "en": "Refinance Loan (USD)",
-        "tr": "Kredi Tutarı (₺)",
+        "tr": "Kredi Tutari (₺)",
         "de": "Refinanzierungsdarlehen (USD)",
         "fr": "Prêt de refinancement (USD)",
         "es": "Préstamo de refinanciamiento (USD)",
@@ -95,10 +95,10 @@
       "unit": "USD",
       "default": 600000,
       "min": 0,
-      "businessContext": "Refinansman ile çekilen kredi.",
+      "businessContext": "Kredi",
       "businessContext_i18n": {
         "en": "Cash-out refinance loan.",
-        "tr": "Refinansman ile çekilen kredi.",
+        "tr": "Refinansman ile cekilen kredi.",
         "de": "Cash-out-Refinanzierungsdarlehen.",
         "fr": "Prêt de refinancement avec sortie de fonds.",
         "es": "Préstamo de refinanciamiento con retiro de efectivo.",
@@ -107,10 +107,10 @@
     },
     {
       "id": "kira",
-      "label": "Aylık Kira (₺)",
+      "label": "Kira",
       "label_i18n": {
         "en": "Monthly Rent (USD)",
-        "tr": "Aylık Kira (₺)",
+        "tr": "Monthly Kira (TRY)",
         "de": "Monatsmiete",
         "fr": "Loyer mensuel",
         "es": "Alquiler mensual",
@@ -120,10 +120,10 @@
       "unit": "USD",
       "default": 8000,
       "min": 0,
-      "businessContext": "Aylık kira geliri.",
+      "businessContext": "Kira",
       "businessContext_i18n": {
         "en": "Monthly rental income.",
-        "tr": "Aylık kira geliri.",
+        "tr": "Monthly kira geliri.",
         "de": "Monatliche Mieteinnahmen.",
         "fr": "Revenu locatif mensuel.",
         "es": "Ingreso mensual por alquiler.",

@@ -20,11 +20,11 @@
       "unit": "m2",
       "default": 10,
       "min": 0,
-      "businessContext": "Isı transfer yüzey alanı.",
+      "businessContext": "Alan",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
-        "tr": "Isı transfer yüzey alanı.",
-        "de": "Wärmeübertragungsfläche.",
+        "tr": "Isi transfer yuzey Areai.",
+        "de": "Wärmeubertragungsfläche.",
         "fr": "Surface de transfert de chaleur.",
         "es": "Área de transferencia de calor.",
         "ar": "مساحة نقل الحرارة."
@@ -32,10 +32,10 @@
     },
     {
       "id": "K",
-      "label": "Isı İletim Katsayısı (W/mK)",
+      "label": "K",
       "label_i18n": {
         "en": "Thermal Conductivity (W/mK)",
-        "tr": "Isı İletim Katsayısı (W/mK)",
+        "tr": "Isi Iletim KatNumbersi (W/mK)",
         "de": "Wärmeleitfähigkeit (W/mK)",
         "fr": "Conductivité thermique (W/mK)",
         "es": "Conductividad Térmica (W/mK)",
@@ -45,10 +45,10 @@
       "unit": "W/mK",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Malzemenin ısıl iletkenliği.",
+      "businessContext": "K",
       "businessContext_i18n": {
         "en": "Material thermal conductivity.",
-        "tr": "Malzemenin ısıl iletkenliği.",
+        "tr": "Malzemenin isil iletkenligi.",
         "de": "Wärmeleitfähigkeit des Materials.",
         "fr": "Conductivité thermique du matériau.",
         "es": "Conductividad térmica del material.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "kalinlik",
-      "label": "Duvar Kalınlığı (m)",
+      "label": "Kalinlik",
       "label_i18n": {
         "en": "Wall Thickness (m)",
-        "tr": "Duvar Kalınlığı (m)",
+        "tr": "Wall Thickness (m)",
         "de": "Wanddicke",
         "fr": "Épaisseur du mur",
         "es": "Espesor de pared",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Duvar et kalınlığı.",
+      "businessContext": "Duvar Wall Thickness.",
       "businessContext_i18n": {
         "en": "Wall thickness.",
-        "tr": "Duvar et kalınlığı.",
+        "tr": "Duvar Wall Thickness.",
         "de": "Wanddicke.",
         "fr": "Épaisseur de la paroi.",
         "es": "Espesor de la pared.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "sicaklikFarki",
-      "label": "Sıcaklık Farkı (K)",
+      "label": "Temperature Difference (K)",
       "label_i18n": {
         "en": "Temperature Difference (K)",
-        "tr": "Sıcaklık Farkı (K)",
+        "tr": "Temperature Difference (K)",
         "de": "Temperaturdifferenz",
         "fr": "Différence de température",
         "es": "Diferencia de temperatura",
@@ -95,10 +95,10 @@
       "unit": "K",
       "default": 20,
       "min": 0,
-      "businessContext": "İki yüzey arası sıcaklık farkı.",
+      "businessContext": "SicaklikFarki",
       "businessContext_i18n": {
         "en": "Temperature difference between surfaces.",
-        "tr": "İki yüzey arası sıcaklık farkı.",
+        "tr": "Iki yuzey arasi Temperature Difference.",
         "de": "Temperaturdifferenz zwischen den Oberflächen.",
         "fr": "Différence de température entre les surfaces.",
         "es": "Diferencia de temperatura entre las superficies.",
@@ -119,13 +119,13 @@
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Isı Transfer Hızı"
+      "sonuc": "Isi Transfer Speedi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Isı Transfer Hızı",
-        "tr": "Isı Transfer Hızı",
-        "de": "Wärmeübertragungsrate",
+        "en": "Isi Transfer Speedi",
+        "tr": "Isi Transfer Speedi",
+        "de": "Wärmeubertragungsrate",
         "fr": "Taux de transfert de chaleur",
         "es": "Tasa de Transferencia de Calor",
         "ar": "معدل انتقال الحرارة"
@@ -149,16 +149,16 @@
       "long": "Calculate heat transfer rate through a plane wall using Fourier's law.",
       "short_i18n": {
         "en": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "tr": "Düzlem duvardan geçen ısı transfer hızını Fourier yasası ile hesaplar.",
-        "de": "Berechnen Sie die Wärmeübertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
+        "tr": "Duzlem duvardan gecen isi transfer Speedini Fourier yasasi ile hesaplar.",
+        "de": "Berechnen Sie die Wärmeubertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
         "fr": "Calculer le taux de transfert de chaleur à travers une paroi plane en utilisant la loi de Fourier.",
         "es": "Calcular la tasa de transferencia de calor a través de una pared plana usando la ley de Fourier.",
         "ar": "احسب معدل انتقال الحرارة عبر جدار مستو باستخدام قانون فورييه."
       },
       "long_i18n": {
         "en": "Calculate heat transfer rate through a plane wall using Fourier's law.",
-        "tr": "Düzlem duvardan geçen ısı transfer hızını Fourier yasası ile hesaplar.",
-        "de": "Berechnen Sie die Wärmeübertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
+        "tr": "Duzlem duvardan gecen isi transfer Speedini Fourier yasasi ile hesaplar.",
+        "de": "Berechnen Sie die Wärmeubertragungsrate durch eine ebene Wand mit dem Fourier'schen Gesetz.",
         "fr": "Calculer le taux de transfert de chaleur à travers une paroi plane en utilisant la loi de Fourier.",
         "es": "Calcular la tasa de transferencia de calor a través de una pared plana usando la ley de Fourier.",
         "ar": "احسب معدل انتقال الحرارة عبر جدار مستو باستخدام قانون فورييه."

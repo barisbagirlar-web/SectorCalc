@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "kutle",
-      "label": "Kütle (kg)",
+      "label": "Mass (kg)",
       "label_i18n": {
         "en": "Mass (kg)",
-        "tr": "Kütle (kg)",
+        "tr": "Mass (kg)",
         "de": "Massenstrom des heißen Fluids",
         "fr": "Débit massique du fluide chaud",
         "es": "Caudal másico del fluido caliente",
@@ -20,10 +20,10 @@
       "unit": "kg",
       "default": 80,
       "min": 0,
-      "businessContext": "Cismin kütlesi.",
+      "businessContext": "Cismin Masssi.",
       "businessContext_i18n": {
         "en": "Object mass.",
-        "tr": "Cismin kütlesi.",
+        "tr": "Cismin Masssi.",
         "de": "Objektmasse.",
         "fr": "Masse de l'objet.",
         "es": "Masa del objeto.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "Yogunluk",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
-        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "tr": "Fluid Dmostsity (kg/m³)",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
@@ -45,10 +45,10 @@
       "unit": "kg/m3",
       "default": 1.225,
       "min": 0,
-      "businessContext": "Havanın yoğunluğu.",
+      "businessContext": "Yogunluk",
       "businessContext_i18n": {
         "en": "Air density.",
-        "tr": "Havanın yoğunluğu.",
+        "tr": "Havanin yogunlugu.",
         "de": "Luftdichte.",
         "fr": "Densité de l'air.",
         "es": "Densidad del aire.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "direncKatsayisi",
-      "label": "Sürükleme Katsayısı",
+      "label": "DirencKatsayisi",
       "label_i18n": {
         "en": "Drag Coefficient",
-        "tr": "Sürükleme Katsayısı",
+        "tr": "Surukleme KatNumbersi",
         "de": "Widerstandsbeiwert",
         "fr": "Coefficient de traînée",
         "es": "Coeficiente de Arrastre",
@@ -70,10 +70,10 @@
       "unit": "scalar",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Cismin şekline bağlı sürükleme katsayısı.",
+      "businessContext": "DirencKatsayisi",
       "businessContext_i18n": {
         "en": "Shape-dependent drag coefficient.",
-        "tr": "Cismin şekline bağlı sürükleme katsayısı.",
+        "tr": "Cismin sekline bagli Surukleme KatNumbersi.",
         "de": "Formabhängiger Widerstandsbeiwert.",
         "fr": "Coefficient de traînée dépendant de la forme.",
         "es": "Coeficiente de arrastre dependiente de la forma.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "alan",
-      "label": "Kesit Alanı (m²)",
+      "label": "Cross-sectional Area (m²)",
       "label_i18n": {
         "en": "Cross-sectional Area (m²)",
-        "tr": "Kesit Alanı (m²)",
+        "tr": "Kesit Area (m²)",
         "de": "Querschnittsfläche",
         "fr": "Aire de la section transversale",
         "es": "Área de la sección transversal",
@@ -95,10 +95,10 @@
       "unit": "m2",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Cismin izdüşüm alanı.",
+      "businessContext": "Alan",
       "businessContext_i18n": {
         "en": "Projected frontal area.",
-        "tr": "Cismin izdüşüm alanı.",
+        "tr": "Cismin izdusum Areai.",
         "de": "Projizierte Stirnfläche.",
         "fr": "Surface frontale projetée.",
         "es": "Área frontal proyectada.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Terminal Hız"
+      "sonuc": "Terminal Speed"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Terminal Hız",
-        "tr": "Terminal Hız",
+        "en": "Terminal Speed",
+        "tr": "Terminal Speed",
         "de": "Endgeschwindigkeit",
         "fr": "Vitesse terminale",
         "es": "Velocidad Terminal",
@@ -149,7 +149,7 @@
       "long": "Calculate terminal velocity where drag balances gravity.",
       "short_i18n": {
         "en": "Calculate terminal velocity where drag balances gravity.",
-        "tr": "Hava direnci ile yerçekiminin dengelendiği sabit terminal hızını hesaplar.",
+        "tr": "Hava direnci ile yercekiminin dengelendigi sabit Terminal Speedini hesaplar.",
         "de": "Berechnen Sie die Endgeschwindigkeit, bei der der Luftwiderstand die Schwerkraft ausgleicht.",
         "fr": "Calculer la vitesse terminale où la traînée équilibre la gravité.",
         "es": "Calcular la velocidad terminal donde la resistencia equilibra la gravedad.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate terminal velocity where drag balances gravity.",
-        "tr": "Hava direnci ile yerçekiminin dengelendiği sabit terminal hızını hesaplar.",
+        "tr": "Hava direnci ile yercekiminin dengelendigi sabit Terminal Speedini hesaplar.",
         "de": "Berechnen Sie die Endgeschwindigkeit, bei der der Luftwiderstand die Schwerkraft ausgleicht.",
         "fr": "Calculer la vitesse terminale où la traînée équilibre la gravité.",
         "es": "Calcular la velocidad terminal donde la resistencia equilibra la gravedad.",

@@ -2,15 +2,15 @@
   "toolName": "landfill-area-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "sustainability-resource-esg",
-  "sector": "Çevre ve Sürdürülebilirlik",
+  "sector": "Environment and Sustainability",
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
       "id": "atikHacmi",
-      "label": "Atık Hacmi (m³)",
+      "label": "AtikHacmi",
       "label_i18n": {
         "en": "Waste Volume (m³)",
-        "tr": "Atık Hacmi (m³)",
+        "tr": "Atik Hacmi (m³)",
         "de": "Abfallvolumen (kg)",
         "fr": "Volume de déchets (kg)",
         "es": "Volumen de residuos (kg)",
@@ -20,10 +20,10 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Depolanacak atık hacmi.",
+      "businessContext": "AtikHacmi",
       "businessContext_i18n": {
         "en": "Waste volume to store.",
-        "tr": "Depolanacak atık hacmi.",
+        "tr": "Depolanacak atik hacmi.",
         "de": "Abfallvolumen zur Lagerung.",
         "fr": "Volume de déchets à stocker.",
         "es": "Volumen de residuos a almacenar.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "sikistirma",
-      "label": "Sıkıştırma Oranı (%)",
+      "label": "Compression Ratio (%)",
       "label_i18n": {
         "en": "Compaction Ratio (%)",
-        "tr": "Sıkıştırma Oranı (%)",
+        "tr": "Compression Ratio (%)",
         "de": "Verdichtungsverhältnis (%)",
         "fr": "Taux de compactage (%)",
         "es": "Relación de Compactación (%)",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Sıkıştırmayla hacim azalma oranı.",
+      "businessContext": "Sikistirma",
       "businessContext_i18n": {
         "en": "Volume reduction by compaction.",
-        "tr": "Sıkıştırmayla hacim azalma oranı.",
+        "tr": "Sikistirmayla Volume azalma Ratioi.",
         "de": "Volumenreduktion durch Verdichtung.",
         "fr": "Réduction de volume par compactage.",
         "es": "Reducción de volumen por compactación.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "derinlik",
-      "label": "Deponi Derinliği (m)",
+      "label": "Derinlik",
       "label_i18n": {
         "en": "Landfill Depth (m)",
-        "tr": "Deponi Derinliği (m)",
+        "tr": "Deponi Depth (m)",
         "de": "Deponietiefe (m)",
         "fr": "Profondeur de la décharge (m)",
         "es": "Profundidad del Vertedero (m)",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Deponi ortalama derinliği.",
+      "businessContext": "Derinlik",
       "businessContext_i18n": {
         "en": "Average landfill depth.",
-        "tr": "Deponi ortalama derinliği.",
+        "tr": "Deponi Mean derinligi.",
         "de": "Durchschnittliche Deponietiefe.",
         "fr": "Profondeur moyenne de la décharge.",
         "es": "Profundidad promedio del vertedero.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "m2",
     "breakdown": {
-      "sonuc": "Gerekli Deponi Alanı"
+      "sonuc": "Gerekli Deponi Area"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Deponi Alanı",
-        "tr": "Gerekli Deponi Alanı",
+        "en": "Gerekli Deponi Area",
+        "tr": "Gerekli Deponi Area",
         "de": "Erforderliche Deponiefläche",
         "fr": "Required Landfill Area",
         "es": "Área de Vertedero Requerida",
@@ -127,16 +127,16 @@
       "long": "Calculate minimum landfill area required for waste storage.",
       "short_i18n": {
         "en": "Calculate minimum landfill area required for waste storage.",
-        "tr": "Atığı depolamak için gereken minimum deponi sahası yüzey alanını hesaplar.",
-        "de": "Berechnen Sie die minimale Deponiefläche, die für die Abfalllagerung erforderlich ist.",
+        "tr": "Atigi depolamak icin gereken Minimum deponi sahasi yuzey Areaini hesaplar.",
+        "de": "Berechnen Sie die minimale Deponiefläche, die fur die Abfalllagerung erforderlich ist.",
         "fr": "Calculer la surface minimale de décharge requise pour le stockage des déchets.",
         "es": "Calcular el área mínima de vertedero requerida para el almacenamiento de residuos.",
         "ar": "حساب الحد الأدنى لمساحة المكب المطلوبة لتخزين النفايات."
       },
       "long_i18n": {
         "en": "Calculate minimum landfill area required for waste storage.",
-        "tr": "Atığı depolamak için gereken minimum deponi sahası yüzey alanını hesaplar.",
-        "de": "Berechnen Sie die minimale Deponiefläche, die für die Abfalllagerung erforderlich ist.",
+        "tr": "Atigi depolamak icin gereken Minimum deponi sahasi yuzey Areaini hesaplar.",
+        "de": "Berechnen Sie die minimale Deponiefläche, die fur die Abfalllagerung erforderlich ist.",
         "fr": "Calculer la surface minimale de décharge requise pour le stockage des déchets.",
         "es": "Calcular el área mínima de vertedero requerida para el almacenamiento de residuos.",
         "ar": "حساب الحد الأدنى لمساحة المكب المطلوبة لتخزين النفايات."

@@ -20,10 +20,10 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Belirtilen yıllık nominal faiz.",
+      "businessContext": "Nominal",
       "businessContext_i18n": {
         "en": "Stated annual nominal interest rate.",
-        "tr": "Belirtilen yıllık nominal faiz.",
+        "tr": "Belirtilen yillik nominal faiz.",
         "de": "Angegebener jährlicher Nominalzinssatz.",
         "fr": "Taux d'intérêt nominal annuel déclaré.",
         "es": "Tasa de interés nominal anual declarada.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "siklik",
-      "label": "Bileşim Sıklığı (Adet/Yıl)",
+      "label": "Siklik",
       "label_i18n": {
         "en": "Compounding Frequency",
-        "tr": "Bileşim Sıklığı (Adet/Yıl)",
+        "tr": "Bilesim Sikligi (Quantity/Yil)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -45,10 +45,10 @@
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Faizin yılda kaç kez bileşikleştiği.",
+      "businessContext": "Siklik",
       "businessContext_i18n": {
         "en": "Number of compounding periods per year.",
-        "tr": "Faizin yılda kaç kez bileşikleştiği.",
+        "tr": "Faizin yilda kac kez bilesiklestigi.",
         "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
         "fr": "Nombre de périodes de composition par an (par exemple, 1=annuel, 12=mensuel, 365=quotidien).",
         "es": "Número de períodos de capitalización por año (por ejemplo, 1=anual, 12=mensual, 365=diario).",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Efektif Yıllık Faiz"
+      "sonuc": "Efektif Annual Interest"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Efektif Yıllık Faiz",
-        "tr": "Efektif Yıllık Faiz",
+        "en": "Efektif Annual Interest",
+        "tr": "Efektif Annual Interest",
         "de": "Effektiver Jahreszins",
         "fr": "Taux annuel effectif",
         "es": "Tasa de Interés Efectiva Anual",
@@ -99,7 +99,7 @@
       "long": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
       "short_i18n": {
         "en": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
-        "tr": "Bileşim sıklığının etkisiyle oluşan gerçek yıllık getiriyi (efektif faiz) hesaplar.",
+        "tr": "Bilesim sikliginin etkisiyle olusan gercek Annual Returnyi (efektif faiz) hesaplar.",
         "de": "Wandeln Sie den nominalen Zinssatz basierend auf der Zinseszinshäufigkeit in den effektiven Jahreszins um.",
         "fr": "Convertir le taux d'intérêt nominal en taux annuel effectif en fonction de la fréquence de composition.",
         "es": "Convertir la tasa de interés nominal a la tasa anual efectiva según la frecuencia de capitalización.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Convert nominal interest rate to effective annual rate based on compounding frequency.",
-        "tr": "Bileşim sıklığının etkisiyle oluşan gerçek yıllık getiriyi (efektif faiz) hesaplar.",
+        "tr": "Bilesim sikliginin etkisiyle olusan gercek Annual Returnyi (efektif faiz) hesaplar.",
         "de": "Wandeln Sie den nominalen Zinssatz basierend auf der Zinseszinshäufigkeit in den effektiven Jahreszins um.",
         "fr": "Convertir le taux d'intérêt nominal en taux annuel effectif en fonction de la fréquence de composition.",
         "es": "Convertir la tasa de interés nominal a la tasa anual efectiva según la frecuencia de capitalización.",

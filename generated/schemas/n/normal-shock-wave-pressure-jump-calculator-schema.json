@@ -2,15 +2,15 @@
   "toolName": "normal-shock-wave-pressure-jump-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "mach",
-      "label": "Mach Sayısı",
+      "label": "Mach",
       "label_i18n": {
         "en": "Mach Number",
-        "tr": "Mach Sayısı",
+        "tr": "Mach Count",
         "de": "Mach-Zahl",
         "fr": "Nombre de Mach",
         "es": "Número de Mach",
@@ -20,10 +20,10 @@
       "unit": "Mach",
       "default": 2,
       "min": 1,
-      "businessContext": "Şok öncesi Mach sayısı.",
+      "businessContext": "Mach",
       "businessContext_i18n": {
         "en": "Upstream Mach number.",
-        "tr": "Şok öncesi Mach sayısı.",
+        "tr": "Sok oncesi Mach Count.",
         "de": "Upstream-Mach-Zahl.",
         "fr": "Nombre de Mach amont.",
         "es": "Número de Mach aguas arriba.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "basinc1",
-      "label": "Şok Öncesi Basınç (Pa)",
+      "label": "Basinc1",
       "label_i18n": {
         "en": "Upstream Pressure (Pa)",
-        "tr": "Şok Öncesi Basınç (Pa)",
+        "tr": "Sok Oncesi Pressure (Pa)",
         "de": "Upstream-Druck (Pa)",
         "fr": "Pression amont (Pa)",
         "es": "Presión Aguas Arriba (Pa)",
@@ -45,10 +45,10 @@
       "unit": "Pa",
       "default": 50000,
       "min": 0,
-      "businessContext": "Şok öncesi statik basınç.",
+      "businessContext": "Basinc1",
       "businessContext_i18n": {
         "en": "Static pressure before shock.",
-        "tr": "Şok öncesi statik basınç.",
+        "tr": "Sok oncesi statik Pressure.",
         "de": "Statischer Druck vor dem Stoß.",
         "fr": "Pression statique avant le choc.",
         "es": "Presión estática antes del choque.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "k",
-      "label": "Özgül Isı Oranı (k)",
+      "label": "K",
       "label_i18n": {
         "en": "Specific Heat Ratio (k)",
-        "tr": "Özgül Isı Oranı (k)",
+        "tr": "Ozgul Isi Ratioi (k)",
         "de": "Spezifisches Wärmeverhältnis (k)",
         "fr": "Rapport de chaleur spécifique (k)",
         "es": "Relación de Calores Específicos (k)",
@@ -70,11 +70,11 @@
       "unit": "scalar",
       "default": 1.4,
       "min": 0,
-      "businessContext": "Hava için k=1.4.",
+      "businessContext": "K",
       "businessContext_i18n": {
         "en": "For air k=1.4.",
-        "tr": "Hava için k=1.4.",
-        "de": "Für Luft k=1.4.",
+        "tr": "Hava for k=1st4th",
+        "de": "Fur Luft k=1.4.",
         "fr": "Pour l'air k=1.4.",
         "es": "Para aire k=1.4.",
         "ar": "للهواء k=1.4."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Şok Sonrası Basınç (P₂)"
+      "sonuc": "Sok Sonrasi Pressure (P₂)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Şok Sonrası Basınç (P₂)",
-        "tr": "Şok Sonrası Basınç (P₂)",
+        "en": "Sok Sonrasi Pressure (P₂)",
+        "tr": "Sok Sonrasi Pressure (P₂)",
         "de": "Druck nach Stoß (P₂)",
         "fr": "Pression après choc (P₂)",
         "es": "Presión Post-Choque (P₂)",
@@ -124,16 +124,16 @@
       "long": "Calculate static pressure jump across a normal shock wave.",
       "short_i18n": {
         "en": "Calculate static pressure jump across a normal shock wave.",
-        "tr": "Normal şok dalgası sonrası statik basınç sıçramasını hesaplar.",
-        "de": "Statischen Drucksprung über eine normale Stoßwelle berechnen.",
+        "tr": "Normal sok dalgasi sonrasi statik Pressure sicramasini hesaplar.",
+        "de": "Statischen Drucksprung uber eine normale Stoßwelle berechnen.",
         "fr": "Calculer le saut de pression statique à travers une onde de choc normale.",
         "es": "Calcular el salto de presión estática a través de una onda de choque normal.",
         "ar": "احسب قفزة الضغط الساكن عبر موجة صدمة عادية."
       },
       "long_i18n": {
         "en": "Calculate static pressure jump across a normal shock wave.",
-        "tr": "Normal şok dalgası sonrası statik basınç sıçramasını hesaplar.",
-        "de": "Statischen Drucksprung über eine normale Stoßwelle berechnen.",
+        "tr": "Normal sok dalgasi sonrasi statik Pressure sicramasini hesaplar.",
+        "de": "Statischen Drucksprung uber eine normale Stoßwelle berechnen.",
         "fr": "Calculer le saut de pression statique à travers une onde de choc normale.",
         "es": "Calcular el salto de presión estática a través de una onda de choque normal.",
         "ar": "احسب قفزة الضغط الساكن عبر موجة صدمة عادية."

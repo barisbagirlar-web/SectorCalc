@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "brutKira",
-      "label": "Brüt Aylık Kira (₺)",
+      "label": "BrutKira",
       "label_i18n": {
         "en": "Gross Monthly Rent (USD)",
-        "tr": "Brüt Aylık Kira (₺)",
+        "tr": "Gross Monthly Kira (TRY)",
         "de": "Bruttomonatsmiete (USD)",
         "fr": "Loyer brut mensuel (USD)",
         "es": "Alquiler Bruto Mensual (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Toplam aylık kira geliri.",
+      "businessContext": "BrutKira",
       "businessContext_i18n": {
         "en": "Total monthly rental income.",
-        "tr": "Toplam aylık kira geliri.",
+        "tr": "Total Monthly kira geliri.",
         "de": "Gesamtes monatliches Mieteinkommen.",
         "fr": "Revenu locatif mensuel total.",
         "es": "Ingreso total mensual por alquiler.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "bosluk",
-      "label": "Boşluk Oranı (%)",
+      "label": "Bosluk",
       "label_i18n": {
         "en": "Vacancy Rate (%)",
-        "tr": "Boşluk Oranı (%)",
+        "tr": "Bosluk Ratioi (%)",
         "de": "Leerstandsrate (%)",
         "fr": "Taux d'inoccupation (%)",
         "es": "Tasa de desocupación (%)",
@@ -46,10 +46,10 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Yıllık boş geçen süre oranı.",
+      "businessContext": "Bosluk",
       "businessContext_i18n": {
         "en": "Annual vacancy percentage.",
-        "tr": "Yıllık boş geçen süre oranı.",
+        "tr": "Yillik bos gecen sure Ratioi.",
         "de": "Jährliche Leerstandsquote.",
         "fr": "Pourcentage de vacance annuelle.",
         "es": "Porcentaje anual de desocupación.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "isletme",
-      "label": "Aylık İşletme Gideri (₺)",
+      "label": "Isletme",
       "label_i18n": {
         "en": "Monthly Operating Cost (USD)",
-        "tr": "Aylık İşletme Gideri (₺)",
+        "tr": "Aylik Workletme Gideri (₺)",
         "de": "Monatliche Betriebskosten (USD)",
         "fr": "Coût d'exploitation mensuel (USD)",
         "es": "Costo Operativo Mensual (USD)",
@@ -71,10 +71,10 @@
       "unit": "USD",
       "default": 2000,
       "min": 0,
-      "businessContext": "Vergi, sigorta, bakım giderleri.",
+      "businessContext": "Vergi, sigorta, bCurrent giderleri.",
       "businessContext_i18n": {
         "en": "Taxes, insurance, maintenance.",
-        "tr": "Vergi, sigorta, bakım giderleri.",
+        "tr": "Vergi, sigorta, bCurrent giderleri.",
         "de": "Steuern, Versicherung, Instandhaltung.",
         "fr": "Taxes, assurances, entretien.",
         "es": "Impuestos, seguros, mantenimiento.",
@@ -83,10 +83,10 @@
     },
     {
       "id": "kredi",
-      "label": "Aylık Kredi Taksiti (₺)",
+      "label": "Kredi",
       "label_i18n": {
         "en": "Monthly Mortgage (USD)",
-        "tr": "Aylık Kredi Taksiti (₺)",
+        "tr": "Monthly Loan Taksiti (TRY)",
         "de": "Monatliche Hypothek/Miete",
         "fr": "Hypothèque/loyer mensuel",
         "es": "Hipoteca/alquiler mensual",
@@ -96,10 +96,10 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kredinin aylık geri ödemesi.",
+      "businessContext": "Kredi",
       "businessContext_i18n": {
         "en": "Monthly debt service.",
-        "tr": "Kredinin aylık geri ödemesi.",
+        "tr": "Kredinin aylik geri odemesi.",
         "de": "Monatlicher Schuldendienst.",
         "fr": "Service de la dette mensuel.",
         "es": "Servicio de deuda mensual.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Aylık Net Nakit Akışı"
+      "sonuc": "Aylik Net Nakit Akisi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Aylık Net Nakit Akışı",
-        "tr": "Aylık Net Nakit Akışı",
+        "en": "Aylik Net Nakit Akisi",
+        "tr": "Aylik Net Nakit Akisi",
         "de": "Monatlicher Netto-Cashflow",
         "fr": "Flux de trésorerie net mensuel",
         "es": "Flujo de Caja Neto Mensual",
@@ -150,7 +150,7 @@
       "long": "Calculate monthly net cash flow from rental property after all expenses.",
       "short_i18n": {
         "en": "Calculate monthly net cash flow from rental property after all expenses.",
-        "tr": "Tüm giderler ve kredi sonrası aylık net nakit akışını hesaplar.",
+        "tr": "Tum giderler ve kredi sonrasi Aylik Net Nakit Akisini hesaplar.",
         "de": "Berechnung des monatlichen Netto-Cashflows aus Mietobjekten nach allen Ausgaben.",
         "fr": "Calculer le flux de trésorerie net mensuel d'un bien locatif après toutes les dépenses.",
         "es": "Calcular el flujo de caja neto mensual de una propiedad en alquiler después de todos los gastos.",
@@ -158,7 +158,7 @@
       },
       "long_i18n": {
         "en": "Calculate monthly net cash flow from rental property after all expenses.",
-        "tr": "Tüm giderler ve kredi sonrası aylık net nakit akışını hesaplar.",
+        "tr": "Tum giderler ve kredi sonrasi Aylik Net Nakit Akisini hesaplar.",
         "de": "Berechnung des monatlichen Netto-Cashflows aus Mietobjekten nach allen Ausgaben.",
         "fr": "Calculer le flux de trésorerie net mensuel d'un bien locatif après toutes les dépenses.",
         "es": "Calcular el flujo de caja neto mensual de una propiedad en alquiler después de todos los gastos.",

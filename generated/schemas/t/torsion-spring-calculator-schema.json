@@ -2,7 +2,7 @@
   "toolName": "torsion-spring-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -45,10 +45,10 @@
       "unit": "N.m/rad",
       "default": 100,
       "min": 0,
-      "businessContext": "Burulma yayının rijitliği.",
+      "businessContext": "YayKatsayisi",
       "businessContext_i18n": {
         "en": "Torsion spring stiffness.",
-        "tr": "Burulma yayının rijitliği.",
+        "tr": "Burulma yayinin rijitligi.",
         "de": "Steifigkeit der Torsionsfeder.",
         "fr": "Raideur du ressort de torsion.",
         "es": "Rigidez del resorte de torsión.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "rad",
     "breakdown": {
-      "sonuc": "Açısal Deplasman"
+      "sonuc": "Acisal Displacement"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Açısal Deplasman",
-        "tr": "Açısal Deplasman",
+        "en": "Acisal Displacement",
+        "tr": "Acisal Displacement",
         "de": "Winkelauslenkung",
         "fr": "Déplacement angulaire",
         "es": "Desplazamiento Angular",
@@ -99,7 +99,7 @@
       "long": "Calculate angular displacement of a torsion spring.",
       "short_i18n": {
         "en": "Calculate angular displacement of a torsion spring.",
-        "tr": "Burulma yayında oluşan açısal deplasmanı hesaplar.",
+        "tr": "Burulma yayinda olusan Acisal Displacementi hesaplar.",
         "de": "Berechnen Sie die Winkelauslenkung einer Torsionsfeder.",
         "fr": "Calculer le déplacement angulaire d'un ressort de torsion.",
         "es": "Calcular el desplazamiento angular de un resorte de torsión.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate angular displacement of a torsion spring.",
-        "tr": "Burulma yayında oluşan açısal deplasmanı hesaplar.",
+        "tr": "Burulma yayinda olusan Acisal Displacementi hesaplar.",
         "de": "Berechnen Sie die Winkelauslenkung einer Torsionsfeder.",
         "fr": "Calculer le déplacement angulaire d'un ressort de torsion.",
         "es": "Calcular el desplazamiento angular de un resorte de torsión.",

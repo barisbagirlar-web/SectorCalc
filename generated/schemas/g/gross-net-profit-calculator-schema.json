@@ -2,7 +2,7 @@
   "toolName": "gross-net-profit-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Toplam satış geliri.",
+      "businessContext": "Total Revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
-        "tr": "Toplam satış geliri.",
+        "tr": "Total Revenue.",
         "de": "Gesamtumsatz.",
         "fr": "Revenu total.",
         "es": "Ingresos totales.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 600000,
       "min": 0,
-      "businessContext": "Satılan mal maliyeti.",
+      "businessContext": "Cogs",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
-        "tr": "Satılan mal maliyeti.",
+        "tr": "Satilan mal Costi.",
         "de": "Kosten der verkauften Waren.",
         "fr": "Coût des marchandises vendues.",
         "es": "Costo de los bienes vendidos.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "isletmeGideri",
-      "label": "İşletme Gideri (TL)",
+      "label": "Workletme Gideri (TL)",
       "label_i18n": {
         "en": "Operating Expense (USD)",
-        "tr": "İşletme Gideri (TL)",
+        "tr": "Workletme Gideri (TL)",
         "de": "Tägliche Betriebsausgaben",
         "fr": "Dépenses d'exploitation quotidiennes",
         "es": "Gastos operativos diarios",
@@ -120,13 +120,13 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "brut": "Brüt Kâr",
+      "brut": "Gross Profit",
       "sonuc": "Net Kâr"
     },
     "breakdown_i18n": {
       "brut": {
-        "en": "Brüt Kâr",
-        "tr": "Brüt Kâr",
+        "en": "Gross Profit",
+        "tr": "Gross Profit",
         "de": "Bruttogewinn",
         "fr": "Bénéfice brut",
         "es": "Ganancia Bruta",
@@ -160,7 +160,7 @@
       "long": "Calculate gross profit and net profit after all expenses.",
       "short_i18n": {
         "en": "Calculate gross profit and net profit after all expenses.",
-        "tr": "Üretim ve tüm giderler sonrası brüt ve net kârı hesaplar.",
+        "tr": "Uretim ve tum giderler sonrasi Gross ve Net Profiti hesaplar.",
         "de": "Berechnen Sie den Bruttogewinn und den Nettogewinn nach allen Ausgaben.",
         "fr": "Calculer le bénéfice brut et le bénéfice net après toutes les dépenses.",
         "es": "Calcular la ganancia bruta y la ganancia neta después de todos los gastos.",
@@ -168,7 +168,7 @@
       },
       "long_i18n": {
         "en": "Calculate gross profit and net profit after all expenses.",
-        "tr": "Üretim ve tüm giderler sonrası brüt ve net kârı hesaplar.",
+        "tr": "Uretim ve tum giderler sonrasi Gross ve Net Profiti hesaplar.",
         "de": "Berechnen Sie den Bruttogewinn und den Nettogewinn nach allen Ausgaben.",
         "fr": "Calculer le bénéfice brut et le bénéfice net après toutes les dépenses.",
         "es": "Calcular la ganancia bruta y la ganancia neta después de todos los gastos.",

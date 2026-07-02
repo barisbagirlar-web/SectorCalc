@@ -2,7 +2,7 @@
   "toolName": "pump-power-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
@@ -24,7 +24,7 @@
       "businessContext_i18n": {
         "en": "Pumping flow rate.",
         "tr": "Pompalama debisi.",
-        "de": "Förderstrom der Pumpe.",
+        "de": "Forderstrom der Pumpe.",
         "fr": "Débit de pompage.",
         "es": "Caudal de bombeo.",
         "ar": "معدل تدفق الضخ."
@@ -32,11 +32,11 @@
     },
     {
       "id": "yukseklik",
-      "label": "Toplam Yükseklik (m)",
+      "label": "Total Height (m)",
       "label_i18n": {
         "en": "Total Head (m)",
-        "tr": "Toplam Yükseklik (m)",
-        "de": "Gesamtförderhöhe (m)",
+        "tr": "Total Height (m)",
+        "de": "Gesamtforderhohe (m)",
         "fr": "Hauteur manométrique totale (m)",
         "es": "Altura Total (m)",
         "ar": "الارتفاع الكلي (m)"
@@ -45,11 +45,11 @@
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Emme+basma yüksekliği.",
+      "businessContext": "Yukseklik",
       "businessContext_i18n": {
         "en": "Suction + discharge head.",
-        "tr": "Emme+basma yüksekliği.",
-        "de": "Saug- + Druckhöhe.",
+        "tr": "Emme+basma yuksekligi.",
+        "de": "Saug- + Druckhohe.",
         "fr": "Hauteur d'aspiration + de refoulement.",
         "es": "Altura de succión + descarga.",
         "ar": "ارتفاع الشفط + الطرد."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "kW",
     "breakdown": {
-      "sonuc": "Min. Pompa Gücü"
+      "sonuc": "Min. Pump Power"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Min. Pompa Gücü",
-        "tr": "Min. Pompa Gücü",
+        "en": "Min. Pump Power",
+        "tr": "Min. Pump Power",
         "de": "Min. Pumpenleistung",
         "fr": "Puissance minimale de la pompe",
         "es": "Potencia Mínima de la Bomba",
@@ -124,16 +124,16 @@
       "long": "Calculate minimum pump shaft power for water lifting.",
       "short_i18n": {
         "en": "Calculate minimum pump shaft power for water lifting.",
-        "tr": "Suyu yüzeye basacak pompanın minimum mil gücünü hesaplar.",
-        "de": "Berechnen Sie die minimale Pumpenwellenleistung für die Wasserförderung.",
+        "tr": "Suyu yuzeye basacak pompanin Minimum mil gucunu hesaplar.",
+        "de": "Berechnen Sie die minimale Pumpenwellenleistung fur die Wasserforderung.",
         "fr": "Calculer la puissance minimale à l'arbre de la pompe pour le relevage d'eau.",
         "es": "Calcular la potencia mínima del eje de la bomba para elevación de agua.",
         "ar": "احسب الحد الأدنى لطاقة عمود المضخة لرفع المياه."
       },
       "long_i18n": {
         "en": "Calculate minimum pump shaft power for water lifting.",
-        "tr": "Suyu yüzeye basacak pompanın minimum mil gücünü hesaplar.",
-        "de": "Berechnen Sie die minimale Pumpenwellenleistung für die Wasserförderung.",
+        "tr": "Suyu yuzeye basacak pompanin Minimum mil gucunu hesaplar.",
+        "de": "Berechnen Sie die minimale Pumpenwellenleistung fur die Wasserforderung.",
         "fr": "Calculer la puissance minimale à l'arbre de la pompe pour le relevage d'eau.",
         "es": "Calcular la potencia mínima del eje de la bomba para elevación de agua.",
         "ar": "احسب الحد الأدنى لطاقة عمود المضخة لرفع المياه."

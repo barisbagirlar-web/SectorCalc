@@ -20,10 +20,10 @@
       "unit": "degrees",
       "default": 41,
       "min": 0,
-      "businessContext": "Binanın bulunduğu enlem.",
+      "businessContext": "Enlem",
       "businessContext_i18n": {
         "en": "Building latitude.",
-        "tr": "Binanın bulunduğu enlem.",
+        "tr": "Binanin bulundugu enlem.",
         "de": "Geografische Breite des Gebäudes.",
         "fr": "Latitude du bâtiment.",
         "es": "Latitud del edificio.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "gunSayisi",
-      "label": "Yılın Günü (1-365)",
+      "label": "GunSayisi",
       "label_i18n": {
         "en": "Day of Year (1-365)",
-        "tr": "Yılın Günü (1-365)",
+        "tr": "Yilin Gunu (1-365)",
         "de": "Tag des Jahres (1-365)",
         "fr": "Jour de l'année (1-365)",
         "es": "Día del año (1-365)",
@@ -46,10 +46,10 @@
       "default": 172,
       "min": 1,
       "max": 365,
-      "businessContext": "Hesaplanan gün.",
+      "businessContext": "GunSayisi",
       "businessContext_i18n": {
         "en": "Target day.",
-        "tr": "Hesaplanan gün.",
+        "tr": "Calculated gun.",
         "de": "Zieltag.",
         "fr": "Jour cible.",
         "es": "Día objetivo.",
@@ -58,11 +58,11 @@
     },
     {
       "id": "engelYukseklik",
-      "label": "Engel Yüksekliği (m)",
+      "label": "EngelYukseklik",
       "label_i18n": {
         "en": "Obstacle Height (m)",
-        "tr": "Engel Yüksekliği (m)",
-        "de": "Hindernishöhe (m)",
+        "tr": "Engel Height (m)",
+        "de": "Hindernishohe (m)",
         "fr": "Hauteur de l'obstacle (m)",
         "es": "Altura del Obstáculo (m)",
         "ar": "ارتفاع العائق (m)"
@@ -71,11 +71,11 @@
       "unit": "m",
       "default": 20,
       "min": 0,
-      "businessContext": "Komşu bina/engel yüksekliği.",
+      "businessContext": "EngelYukseklik",
       "businessContext_i18n": {
         "en": "Neighboring building height.",
-        "tr": "Komşu bina/engel yüksekliği.",
-        "de": "Höhe des Nachbargebäudes.",
+        "tr": "Komsu bina/engel yuksekligi.",
+        "de": "Hohe des Nachbargebäudes.",
         "fr": "Hauteur du bâtiment voisin.",
         "es": "Altura del edificio vecino.",
         "ar": "ارتفاع المبنى المجاور."
@@ -96,10 +96,10 @@
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "İki bina arası mesafe.",
+      "businessContext": "Mesafe",
       "businessContext_i18n": {
         "en": "Distance between buildings.",
-        "tr": "İki bina arası mesafe.",
+        "tr": "Iki bina arasi Distance.",
         "de": "Abstand zwischen Gebäuden.",
         "fr": "Distance entre les bâtiments.",
         "es": "Distancia entre edificios.",
@@ -121,12 +121,12 @@
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Tahmini Gölge Süresi"
+      "sonuc": "Tahmini Shade Duration"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tahmini Gölge Süresi",
-        "tr": "Tahmini Gölge Süresi",
+        "en": "Tahmini Shade Duration",
+        "tr": "Tahmini Shade Duration",
         "de": "Geschätzte Schattenzeit",
         "fr": "Durée d'ombre estimée",
         "es": "Duración Estimada de la Sombra",
@@ -154,17 +154,17 @@
       "long": "Calculate daily shadow duration on building facade due to obstacles.",
       "short_i18n": {
         "en": "Calculate daily shadow duration on building facade due to obstacles.",
-        "tr": "Engel nedeniyle cephenin güneşsiz kaldığı toplam süreyi (günışığı analizi) hesaplar.",
+        "tr": "Engel nedeniyle cephenin gunessiz kaldigi Total Timeyi (gunisigi analizi) hesaplar.",
         "de": "Berechnen Sie die tägliche Schattendauer auf der Gebäudefassade aufgrund von Hindernissen.",
-        "fr": "Calculer la durée quotidienne d'ombre sur la façade du bâtiment due aux obstacles.",
+        "fr": "Calculer la durée quotidienne d'ombre sur la facade du bâtiment due aux obstacles.",
         "es": "Calcular la duración diaria de sombra en la fachada del edificio debido a obstáculos.",
         "ar": "حساب مدة الظل اليومي على واجهة المبنى بسبب العوائق."
       },
       "long_i18n": {
         "en": "Calculate daily shadow duration on building facade due to obstacles.",
-        "tr": "Engel nedeniyle cephenin güneşsiz kaldığı toplam süreyi (günışığı analizi) hesaplar.",
+        "tr": "Engel nedeniyle cephenin gunessiz kaldigi Total Timeyi (gunisigi analizi) hesaplar.",
         "de": "Berechnen Sie die tägliche Schattendauer auf der Gebäudefassade aufgrund von Hindernissen.",
-        "fr": "Calculer la durée quotidienne d'ombre sur la façade du bâtiment due aux obstacles.",
+        "fr": "Calculer la durée quotidienne d'ombre sur la facade du bâtiment due aux obstacles.",
         "es": "Calcular la duración diaria de sombra en la fachada del edificio debido a obstáculos.",
         "ar": "حساب مدة الظل اليومي على واجهة المبنى بسبب العوائق."
       }

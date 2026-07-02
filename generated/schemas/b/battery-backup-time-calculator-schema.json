@@ -2,15 +2,15 @@
   "toolName": "battery-backup-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "akuKapasite",
-      "label": "Akü Kapasitesi (Ah)",
+      "label": "AkuKapasite",
       "label_i18n": {
         "en": "Battery Capacity (Ah)",
-        "tr": "Akü Kapasitesi (Ah)",
+        "tr": "Aku Kapasitesi (Ah)",
         "de": "Batteriekapazität (Ah)",
         "fr": "Capacité de la batterie (Ah)",
         "es": "Capacidad de la batería (Ah)",
@@ -20,10 +20,10 @@
       "unit": "Ah",
       "default": 100,
       "min": 0,
-      "businessContext": "Akü nominal kapasitesi.",
+      "businessContext": "AkuKapasite",
       "businessContext_i18n": {
         "en": "Battery rated capacity.",
-        "tr": "Akü nominal kapasitesi.",
+        "tr": "Aku nominal kapasitesi.",
         "de": "Nennkapazität der Batterie.",
         "fr": "Capacité nominale de la batterie.",
         "es": "Capacidad nominal de la batería.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yukGucu",
-      "label": "Yük Gücü (W)",
+      "label": "YukGucu",
       "label_i18n": {
         "en": "Load Power (W)",
-        "tr": "Yük Gücü (W)",
+        "tr": "Load Power (W)",
         "de": "Lastleistung (W)",
         "fr": "Puissance de charge (W)",
         "es": "Potencia de carga (W)",
@@ -45,10 +45,10 @@
       "unit": "W",
       "default": 500,
       "min": 0,
-      "businessContext": "Beslenecek cihazların toplam gücü.",
+      "businessContext": "YukGucu",
       "businessContext_i18n": {
         "en": "Total connected load power.",
-        "tr": "Beslenecek cihazların toplam gücü.",
+        "tr": "Beslenecek cihazlarin Total gucu.",
         "de": "Gesamtleistung der angeschlossenen Last.",
         "fr": "Puissance totale de la charge connectée.",
         "es": "Potencia total de la carga conectada.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "dcVoltaj",
-      "label": "DC Sistem Voltajı (V)",
+      "label": "DcVoltaj",
       "label_i18n": {
         "en": "DC System Voltage (V)",
-        "tr": "DC Sistem Voltajı (V)",
+        "tr": "DC Sistem Voltaji (V)",
         "de": "DC-Systemspannung (V)",
         "fr": "Tension du système CC (V)",
         "es": "Tensión del Sistema DC (V)",
@@ -70,10 +70,10 @@
       "unit": "V",
       "default": 12,
       "min": 0,
-      "businessContext": "Akü sistemi voltajı.",
+      "businessContext": "DcVoltaj",
       "businessContext_i18n": {
         "en": "Battery system voltage.",
-        "tr": "Akü sistemi voltajı.",
+        "tr": "Aku sistemi voltaji.",
         "de": "Batteriesystemspannung.",
         "fr": "Tension du système de batterie.",
         "es": "Tensión del sistema de baterías.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "desarjDerinligi",
-      "label": "Deşarj Derinliği (%)",
+      "label": "DesarjDerinligi",
       "label_i18n": {
         "en": "Depth of Discharge (%)",
-        "tr": "Deşarj Derinliği (%)",
+        "tr": "Desarj Derinligi (%)",
         "de": "Entladetiefe (%)",
         "fr": "Profondeur de décharge (%)",
         "es": "Profundidad de descarga (%)",
@@ -95,10 +95,10 @@
       "unit": "%",
       "default": 80,
       "min": 0,
-      "businessContext": "İzin verilen maksimum deşarj.",
+      "businessContext": "DesarjDerinligi",
       "businessContext_i18n": {
         "en": "Maximum allowed discharge.",
-        "tr": "İzin verilen maksimum deşarj.",
+        "tr": "Izin verilen Maximum desarj.",
         "de": "Maximal zulässige Entladung.",
         "fr": "Décharge maximale autorisée.",
         "es": "Descarga máxima permitida.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "hours",
     "breakdown": {
-      "sonuc": "Yedekleme Süresi"
+      "sonuc": "Yedekleme Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yedekleme Süresi",
-        "tr": "Yedekleme Süresi",
+        "en": "Yedekleme Time",
+        "tr": "Yedekleme Time",
         "de": "Sicherungszeit",
         "fr": "Durée de sauvegarde",
         "es": "Tiempo de Respaldo",
@@ -152,16 +152,16 @@
       "long": "Calculate battery backup time for a given load.",
       "short_i18n": {
         "en": "Calculate battery backup time for a given load.",
-        "tr": "Akünün yükü besleyebileceği maksimum kesintisiz süreyi hesaplar.",
-        "de": "Batterieüberbrückungszeit für eine gegebene Last berechnen.",
+        "tr": "Akunun yuku besleyebilecegi Maximum kesintisiz sureyi hesaplar.",
+        "de": "Batterieuberbruckungszeit fur eine gegebene Last berechnen.",
         "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
         "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
         "ar": "حساب وقت النسخ الاحتياطي للبطارية لحمل معين."
       },
       "long_i18n": {
         "en": "Calculate battery backup time for a given load.",
-        "tr": "Akünün yükü besleyebileceği maksimum kesintisiz süreyi hesaplar.",
-        "de": "Batterieüberbrückungszeit für eine gegebene Last berechnen.",
+        "tr": "Akunun yuku besleyebilecegi Maximum kesintisiz sureyi hesaplar.",
+        "de": "Batterieuberbruckungszeit fur eine gegebene Last berechnen.",
         "fr": "Calculer le temps de secours de la batterie pour une charge donnée.",
         "es": "Calcular el tiempo de respaldo de la batería para una carga determinada.",
         "ar": "حساب وقت النسخ الاحتياطي للبطارية لحمل معين."

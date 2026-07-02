@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "aylikKira",
-      "label": "Aylık Kira (₺)",
+      "label": "AylikKira",
       "label_i18n": {
         "en": "Monthly Rent (USD)",
-        "tr": "Aylık Kira (₺)",
+        "tr": "Monthly Kira (TRY)",
         "de": "Monatsmiete",
         "fr": "Loyer mensuel",
         "es": "Alquiler mensual",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Mülkten elde edilen aylık brüt kira geliri.",
+      "businessContext": "AylikKira",
       "businessContext_i18n": {
         "en": "Monthly gross rental income from the property.",
-        "tr": "Mülkten elde edilen aylık brüt kira geliri.",
+        "tr": "Mulkten elde edilen aylik Gross kira geliri.",
         "de": "Monatliches Bruttomieteinkommen aus der Immobilie.",
         "fr": "Revenu locatif brut mensuel du bien.",
         "es": "Ingreso bruto mensual por alquiler de la propiedad.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "mulkDegeri",
-      "label": "Mülk Değeri (₺)",
+      "label": "MulkDegeri",
       "label_i18n": {
         "en": "Property Value (USD)",
-        "tr": "Mülk Değeri (₺)",
+        "tr": "Mulk Valuei (₺)",
         "de": "Immobilienwert",
         "fr": "Valeur de la propriété",
         "es": "Valor de la propiedad",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Gayrimenkulün güncel piyasa değeri.",
+      "businessContext": "MulkDegeri",
       "businessContext_i18n": {
         "en": "Current market value of the real estate property.",
-        "tr": "Gayrimenkulün güncel piyasa değeri.",
+        "tr": "Gayrimenkulun guncel piyasa Valuei.",
         "de": "Aktueller Marktwert der Immobilie.",
         "fr": "Valeur marchande actuelle du bien immobilier.",
         "es": "Valor de mercado actual de la propiedad inmobiliaria.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Kira / Değer Oranı"
+      "sonuc": "Kira / Value Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Kira / Değer Oranı",
-        "tr": "Kira / Değer Oranı",
+        "en": "Kira / Value Ratio",
+        "tr": "Kira / Value Ratio",
         "de": "Mietwertverhältnis",
         "fr": "Ratio loyer/valeur",
         "es": "Relación Alquiler / Valor",
@@ -99,16 +99,16 @@
       "long": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
       "short_i18n": {
         "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-        "tr": "Aylık kira gelirinin mülk değerine oranını hesaplar. Gayrimenkul yatırımının getiri potansiyelini değerlendirir.",
-        "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert für die Immobilieninvestitionsbewertung.",
+        "tr": "Aylik kira gelirinin mulk Valueine Ratioini hesaplar. Gayrimenkul yatiriminin getiri potansiyelini Valuelendirir.",
+        "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert fur die Immobilieninvestitionsbewertung.",
         "fr": "Calculer le ratio du loyer mensuel par rapport à la valeur du bien pour l'évaluation d'un investissement immobilier.",
         "es": "Calcular la relación entre el alquiler mensual y el valor de la propiedad para la evaluación de inversiones inmobiliarias.",
         "ar": "احسب نسبة الإيجار الشهري إلى قيمة العقار لتقييم الاستثمار العقاري."
       },
       "long_i18n": {
         "en": "Calculate the ratio of monthly rent to property value for real estate investment evaluation.",
-        "tr": "Aylık kira gelirinin mülk değerine oranını hesaplar. Gayrimenkul yatırımının getiri potansiyelini değerlendirir.",
-        "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert für die Immobilieninvestitionsbewertung.",
+        "tr": "Aylik kira gelirinin mulk Valueine Ratioini hesaplar. Gayrimenkul yatiriminin getiri potansiyelini Valuelendirir.",
+        "de": "Berechnung des Verhältnisses von monatlicher Miete zum Immobilienwert fur die Immobilieninvestitionsbewertung.",
         "fr": "Calculer le ratio du loyer mensuel par rapport à la valeur du bien pour l'évaluation d'un investissement immobilier.",
         "es": "Calcular la relación entre el alquiler mensual y el valor de la propiedad para la evaluación de inversiones inmobiliarias.",
         "ar": "احسب نسبة الإيجار الشهري إلى قيمة العقار لتقييم الاستثمار العقاري."

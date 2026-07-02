@@ -2,7 +2,7 @@
   "toolName": "antenna-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik ve Kuantum",
+  "sector": "Ileri Fizik ve Kuantum",
   "sectorId": "other",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "MHz",
       "default": 100,
       "min": 0,
-      "businessContext": "Çalışma frekansı.",
+      "businessContext": "Frekans",
       "businessContext_i18n": {
         "en": "Operating frequency.",
-        "tr": "Çalışma frekansı.",
+        "tr": "Calisma Frequencyi.",
         "de": "Betriebsfrequenz.",
         "fr": "Fréquence de fonctionnement.",
         "es": "Frecuencia de operación.",
@@ -45,10 +45,10 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Anten türü.",
+      "businessContext": "Tip",
       "businessContext_i18n": {
         "en": "Antenna type.",
-        "tr": "Anten türü.",
+        "tr": "Anten turu.",
         "de": "Antennentyp.",
         "fr": "Type d'antenne.",
         "es": "Tipo de antena.",
@@ -70,12 +70,12 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Anten Uzunluğu"
+      "sonuc": "Antmost Lmostgth"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Anten Uzunluğu",
-        "tr": "Anten Uzunluğu",
+        "en": "Antmost Lmostgth",
+        "tr": "Antmost Lmostgth",
         "de": "Antennenlänge",
         "fr": "Longueur de l'antenne",
         "es": "Longitud de la Antena",
@@ -100,16 +100,16 @@
       "long": "Calculate physical antenna element length for resonance at given frequency.",
       "short_i18n": {
         "en": "Calculate physical antenna element length for resonance at given frequency.",
-        "tr": "Rezonans için gereken fiziksel anten eleman boyunu hesaplar.",
-        "de": "Berechnen Sie die physikalische Antennenelementlänge für Resonanz bei einer gegebenen Frequenz.",
+        "tr": "Rezonans required for fiziksel antmost eleman Heightunu calculates.",
+        "de": "Berechnen Sie die physikalische Antennenelementlänge fur Resonanz bei einer gegebenen Frequenz.",
         "fr": "Calculer la longueur de l'élément d'antenne physique pour la résonance à une fréquence donnée.",
         "es": "Calcular la longitud del elemento de antena física para resonancia a una frecuencia dada.",
         "ar": "حساب طول عنصر الهوائي الفيزيائي للرنين عند تردد معين."
       },
       "long_i18n": {
         "en": "Calculate physical antenna element length for resonance at given frequency.",
-        "tr": "Rezonans için gereken fiziksel anten eleman boyunu hesaplar.",
-        "de": "Berechnen Sie die physikalische Antennenelementlänge für Resonanz bei einer gegebenen Frequenz.",
+        "tr": "Rezonans required for fiziksel antmost eleman Heightunu calculates.",
+        "de": "Berechnen Sie die physikalische Antennenelementlänge fur Resonanz bei einer gegebenen Frequenz.",
         "fr": "Calculer la longueur de l'élément d'antenne physique pour la résonance à une fréquence donnée.",
         "es": "Calcular la longitud del elemento de antena física para resonancia a una frecuencia dada.",
         "ar": "حساب طول عنصر الهوائي الفيزيائي للرنين عند تردد معين."
@@ -118,7 +118,7 @@
   },
   "title_i18n": {
     "en": "antenna-length-calculator",
-    "de": "RF-Antennengrößenrechner",
+    "de": "RF-Antennengroßenrechner",
     "fr": "Calculateur de dimensionnement d'antenne RF",
     "es": "Calculadora de dimensionamiento de antena RF",
     "ar": "حاسبة حجم هوائي RF"

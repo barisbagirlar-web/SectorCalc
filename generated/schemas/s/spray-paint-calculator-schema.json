@@ -2,15 +2,15 @@
   "toolName": "spray-paint-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Yüzey Alanı (m²)",
+      "label": "Alan",
       "label_i18n": {
         "en": "Surface Area (m²)",
-        "tr": "Yüzey Alanı (m²)",
+        "tr": "Yuzey Areai (m²)",
         "de": "Surface Fläche to paint",
         "fr": "Surface Surface to paint",
         "es": "Surface Área to paint",
@@ -32,10 +32,10 @@
     },
     {
       "id": "katSayisi",
-      "label": "Kat Sayısı",
+      "label": "KatSayisi",
       "label_i18n": {
         "en": "Number of Coats",
-        "tr": "Kat Sayısı",
+        "tr": "Kat Count",
         "de": "Anzahl der Anstriche",
         "fr": "Nombre de couches",
         "es": "Número de capas",
@@ -45,10 +45,10 @@
       "unit": "coats",
       "default": 2,
       "min": 1,
-      "businessContext": "Uygulanacak boya katı.",
+      "businessContext": "KatSayisi",
       "businessContext_i18n": {
         "en": "Number of paint coats.",
-        "tr": "Uygulanacak boya katı.",
+        "tr": "Uygulanacak Heighta kati.",
         "de": "Anzahl der Farbschichten.",
         "fr": "Nombre de couches de peinture.",
         "es": "Número de capas de pintura.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "ortmeOrani",
-      "label": "Örtme Oranı (m²/L)",
+      "label": "OrtmeOrani",
       "label_i18n": {
         "en": "Coverage Rate (m²/L)",
-        "tr": "Örtme Oranı (m²/L)",
+        "tr": "Ortme Ratioi (m²/L)",
         "de": "Abdeckungsrate",
         "fr": "Taux de couverture",
         "es": "Tasa de cobertura",
@@ -70,10 +70,10 @@
       "unit": "m2/L",
       "default": 8,
       "min": 0,
-      "businessContext": "1 litrenin örttüğü alan.",
+      "businessContext": "OrtmeOrani",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
-        "tr": "1 litrenin örttüğü alan.",
+        "tr": "1 litrenin orttugu Area.",
         "de": "Deckungsbereich pro Liter.",
         "fr": "Couverture par litre.",
         "es": "Cobertura por litro.",
@@ -100,7 +100,7 @@
       "sonuc": {
         "en": "Gerekli Sprey Boya",
         "tr": "Gerekli Sprey Boya",
-        "de": "Erforderliche Sprühfarbe",
+        "de": "Erforderliche Spruhfarbe",
         "fr": "Peinture en spray requise",
         "es": "Pintura en Spray Necesaria",
         "ar": "طلاء الرش المطلوب"
@@ -124,16 +124,16 @@
       "long": "Calculate spray paint volume needed for a surface.",
       "short_i18n": {
         "en": "Calculate spray paint volume needed for a surface.",
-        "tr": "Yüzeyi boyamak için gereken sprey boya hacmini hesaplar.",
-        "de": "Berechnen Sie das benötigte Sprühfarbvolumen für eine Oberfläche.",
+        "tr": "Yuzeyi Heightamak icin gereken sprey Heighta hacmini hesaplar.",
+        "de": "Berechnen Sie das benotigte Spruhfarbvolumen fur eine Oberfläche.",
         "fr": "Calculer le volume de peinture en aérosol nécessaire pour une surface.",
         "es": "Calcular el volumen de pintura en aerosol necesario para una superficie.",
         "ar": "احسب حجم طلاء الرش المطلوب لسطح."
       },
       "long_i18n": {
         "en": "Calculate spray paint volume needed for a surface.",
-        "tr": "Yüzeyi boyamak için gereken sprey boya hacmini hesaplar.",
-        "de": "Berechnen Sie das benötigte Sprühfarbvolumen für eine Oberfläche.",
+        "tr": "Yuzeyi Heightamak icin gereken sprey Heighta hacmini hesaplar.",
+        "de": "Berechnen Sie das benotigte Spruhfarbvolumen fur eine Oberfläche.",
         "fr": "Calculer le volume de peinture en aérosol nécessaire pour une surface.",
         "es": "Calcular el volumen de pintura en aerosol necesario para una superficie.",
         "ar": "احسب حجم طلاء الرش المطلوب لسطح."
@@ -142,7 +142,7 @@
   },
   "title_i18n": {
     "en": "spray-paint-calculator",
-    "de": "Sprühfarbe-Rechner",
+    "de": "Spruhfarbe-Rechner",
     "fr": "Calculateur de peinture pulvérisée",
     "es": "Calculadora de pintura en aerosol",
     "ar": "حاسبة طلاء الرش"

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "krediTutari",
-      "label": "Kredi Tutarı (₺)",
+      "label": "KrediTutari",
       "label_i18n": {
         "en": "Loan Amount (USD)",
-        "tr": "Kredi Tutarı (₺)",
+        "tr": "Kredi Tutari (₺)",
         "de": "Darlehensbetrag",
         "fr": "Montant du prêt",
         "es": "Monto del préstamo",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Çekilen kredi anaparası.",
+      "businessContext": "KrediTutari",
       "businessContext_i18n": {
         "en": "Loan principal.",
-        "tr": "Çekilen kredi anaparası.",
+        "tr": "Cekilen kredi Principalsi.",
         "de": "Erste Barzahlung, die den Darlehensbetrag reduziert.",
         "fr": "Paiement initial en espèces réduisant le principal du prêt.",
         "es": "Pago inicial en efectivo que reduce el capital del préstamo.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "oran",
-      "label": "Oran Bazlı Masraf (%)",
+      "label": "Oran",
       "label_i18n": {
         "en": "Percentage-Based Fee (%)",
-        "tr": "Oran Bazlı Masraf (%)",
-        "de": "Prozentuale Gebühr (%)",
+        "tr": "Ratio Bazli Masraf (%)",
+        "de": "Prozentuale Gebuhr (%)",
         "fr": "Frais basés sur un pourcentage (%)",
         "es": "Tarifa Basada en Porcentaje (%)",
         "ar": "الرسوم النسبية (%)"
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 2,
       "min": 0,
-      "businessContext": "Kredi yüzdesiyle hesaplanan masraflar.",
+      "businessContext": "Oran",
       "businessContext_i18n": {
         "en": "Percentage-based closing costs.",
-        "tr": "Kredi yüzdesiyle hesaplanan masraflar.",
+        "tr": "Kredi yuzdesiyle Calculated masraflar.",
         "de": "Prozentuale Abschlusskosten.",
         "fr": "Frais de clôture basés sur un pourcentage.",
         "es": "Costos de cierre basados en porcentaje.",
@@ -57,11 +57,11 @@
     },
     {
       "id": "sabitUcretler",
-      "label": "Sabit Ücretler (₺)",
+      "label": "SabitUcretler",
       "label_i18n": {
         "en": "Fixed Fees (USD)",
-        "tr": "Sabit Ücretler (₺)",
-        "de": "Feste Gebühren (USD)",
+        "tr": "Sabit Ucretler (₺)",
+        "de": "Feste Gebuhren (USD)",
         "fr": "Frais fixes (USD)",
         "es": "Tarifas Fijas (USD)",
         "ar": "الرسوم الثابتة (USD)"
@@ -70,11 +70,11 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Ekspertiz, ipotek tescili gibi sabit ücretler.",
+      "businessContext": "SabitUcretler",
       "businessContext_i18n": {
         "en": "Fixed costs like appraisal and filing fees.",
-        "tr": "Ekspertiz, ipotek tescili gibi sabit ücretler.",
-        "de": "Feste Kosten wie Bewertungs- und Bearbeitungsgebühren.",
+        "tr": "Ekspertiz, ipotek tescili gibi sabit ucretler.",
+        "de": "Feste Kosten wie Bewertungs- und Bearbeitungsgebuhren.",
         "fr": "Frais fixes comme les frais d'évaluation et de dépôt.",
         "es": "Costos fijos como tasación y tarifas de presentación.",
         "ar": "التكاليف الثابتة مثل رسوم التقييم والتسجيل."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Toplam Kapanış Maliyeti"
+      "sonuc": "Total Kapanis Costi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Toplam Kapanış Maliyeti",
-        "tr": "Toplam Kapanış Maliyeti",
+        "en": "Total Kapanis Costi",
+        "tr": "Total Kapanis Costi",
         "de": "Gesamte Abschlusskosten",
         "fr": "Coût total de clôture",
         "es": "Costo Total de Cierre",
@@ -124,16 +124,16 @@
       "long": "Calculate total closing costs including title, appraisal, and origination fees.",
       "short_i18n": {
         "en": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "tr": "Tapu, ekspertiz ve dosya masrafları toplamını hesaplar.",
-        "de": "Berechnen Sie die gesamten Abschlusskosten einschließlich Grundbuchgebühren, Bewertungs- und Bearbeitungsgebühren.",
+        "tr": "Tapu, ekspertiz ve dosya masraflari Totalini hesaplar.",
+        "de": "Berechnen Sie die gesamten Abschlusskosten einschließlich Grundbuchgebuhren, Bewertungs- und Bearbeitungsgebuhren.",
         "fr": "Calculer le total des frais de clôture incluant les frais de titre, d'évaluation et de montage.",
         "es": "Calcular los costos totales de cierre, incluyendo honorarios de título, tasación y originación.",
         "ar": "حساب إجمالي تكاليف الإغلاق بما في ذلك رسوم الملكية والتقييم والإنشاء."
       },
       "long_i18n": {
         "en": "Calculate total closing costs including title, appraisal, and origination fees.",
-        "tr": "Tapu, ekspertiz ve dosya masrafları toplamını hesaplar.",
-        "de": "Berechnen Sie die gesamten Abschlusskosten einschließlich Grundbuchgebühren, Bewertungs- und Bearbeitungsgebühren.",
+        "tr": "Tapu, ekspertiz ve dosya masraflari Totalini hesaplar.",
+        "de": "Berechnen Sie die gesamten Abschlusskosten einschließlich Grundbuchgebuhren, Bewertungs- und Bearbeitungsgebuhren.",
         "fr": "Calculer le total des frais de clôture incluant les frais de titre, d'évaluation et de montage.",
         "es": "Calcular los costos totales de cierre, incluyendo honorarios de título, tasación y originación.",
         "ar": "حساب إجمالي تكاليف الإغلاق بما في ذلك رسوم الملكية والتقييم والإنشاء."

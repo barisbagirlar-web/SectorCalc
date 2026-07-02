@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Başlangıç Yatırımı (₺)",
+      "label": "Initial Investment (₺)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
-        "tr": "Başlangıç Yatırımı (₺)",
+        "tr": "Initial Investment (₺)",
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
         "es": "Inversión Inicial",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Toplam başlangıç yatırımı.",
+      "businessContext": "Total Initial Investment.",
       "businessContext_i18n": {
         "en": "Total upfront investment.",
-        "tr": "Toplam başlangıç yatırımı.",
+        "tr": "Total Initial Investment.",
         "de": "Gesamte Anfangsinvestition.",
         "fr": "Investissement initial total.",
         "es": "Inversión inicial total.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "nakit1",
-      "label": "1. Yıl Nakit (₺)",
+      "label": "Nakit1",
       "label_i18n": {
         "en": "Year 1 Cash Flow (USD)",
-        "tr": "1. Yıl Nakit (₺)",
+        "tr": "1st Year Cash (TRY)",
         "de": "Jahr 1 Cashflow (USD)",
         "fr": "Flux de trésorerie de l'année 1 (USD)",
         "es": "Flujo de Caja Año 1 (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "İlk yıl nakit girişi.",
+      "businessContext": "Nakit1",
       "businessContext_i18n": {
         "en": "First year cash inflow.",
-        "tr": "İlk yıl nakit girişi.",
+        "tr": "Ilk yil Cash Inflow.",
         "de": "Cashflow im ersten Jahr.",
         "fr": "Entrée de trésorerie de la première année.",
         "es": "Entrada de efectivo del primer año.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "nakit2",
-      "label": "2. Yıl Nakit (₺)",
+      "label": "Nakit2",
       "label_i18n": {
         "en": "Year 2 Cash Flow (USD)",
-        "tr": "2. Yıl Nakit (₺)",
+        "tr": "2nd Year Cash (TRY)",
         "de": "Jahr 2 Cashflow (USD)",
         "fr": "Flux de trésorerie de l'année 2 (USD)",
         "es": "Flujo de Caja Año 2 (USD)",
@@ -70,10 +70,10 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "İkinci yıl nakit girişi.",
+      "businessContext": "Nakit2",
       "businessContext_i18n": {
         "en": "Second year cash inflow.",
-        "tr": "İkinci yıl nakit girişi.",
+        "tr": "Ikinci yil Cash Inflow.",
         "de": "Cashflow im zweiten Jahr.",
         "fr": "Entrée de trésorerie de la deuxième année.",
         "es": "Entrada de efectivo del segundo año.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "nakit3",
-      "label": "3. Yıl Nakit (₺)",
+      "label": "Nakit3",
       "label_i18n": {
         "en": "Year 3 Cash Flow (USD)",
-        "tr": "3. Yıl Nakit (₺)",
+        "tr": "3rd Year Cash (TRY)",
         "de": "Jahr 3 Cashflow (USD)",
         "fr": "Flux de trésorerie de l'année 3 (USD)",
         "es": "Flujo de Caja Año 3 (USD)",
@@ -95,10 +95,10 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Üçüncü yıl nakit girişi.",
+      "businessContext": "Nakit3",
       "businessContext_i18n": {
         "en": "Third year cash inflow.",
-        "tr": "Üçüncü yıl nakit girişi.",
+        "tr": "Ucuncu yil Cash Inflow.",
         "de": "Mittelzufluss im dritten Jahr.",
         "fr": "Entrée de trésorerie de la troisième année.",
         "es": "Entrada de efectivo del tercer año.",
@@ -107,10 +107,10 @@
     },
     {
       "id": "iskonto",
-      "label": "İskonto Oranı (%)",
+      "label": "Discount Rate (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
-        "tr": "İskonto Oranı (%)",
+        "tr": "Discount Rate (%)",
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
         "es": "Tasa de descuento (%)",
@@ -150,12 +150,12 @@
     "primary": "sonuc",
     "unit": "years",
     "breakdown": {
-      "sonuc": "İskontolu Geri Ödeme Süresi"
+      "sonuc": "Iskontolu Payback Period"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "İskontolu Geri Ödeme Süresi",
-        "tr": "İskontolu Geri Ödeme Süresi",
+        "en": "Iskontolu Payback Period",
+        "tr": "Iskontolu Payback Period",
         "de": "Diskontierte Amortisationszeit",
         "fr": "Discounted Payback Period",
         "es": "Discounted Payback Period",
@@ -180,16 +180,16 @@
       "long": "Calculate the discounted payback period considering time value of money.",
       "short_i18n": {
         "en": "Calculate the discounted payback period considering time value of money.",
-        "tr": "Yatırımın paranın zaman değeriyle geri kazanılma süresini hesaplar.",
-        "de": "Berechnen Sie die diskontierte Amortisationszeit unter Berücksichtigung des Zeitwerts des Geldes.",
+        "tr": "Yatirimin paranin zaman Valueiyle geri kazanilma suresini hesaplar.",
+        "de": "Berechnen Sie die diskontierte Amortisationszeit unter Berucksichtigung des Zeitwerts des Geldes.",
         "fr": "Calculer la période de récupération actualisée en tenant compte de la valeur temporelle de l'argent.",
         "es": "Calcular el período de recuperación descontado considerando el valor del dinero en el tiempo.",
         "ar": "احسب فترة الاسترداد المخصومة مع مراعاة القيمة الزمنية للنقود."
       },
       "long_i18n": {
         "en": "Calculate the discounted payback period considering time value of money.",
-        "tr": "Yatırımın paranın zaman değeriyle geri kazanılma süresini hesaplar.",
-        "de": "Berechnen Sie die diskontierte Amortisationszeit unter Berücksichtigung des Zeitwerts des Geldes.",
+        "tr": "Yatirimin paranin zaman Valueiyle geri kazanilma suresini hesaplar.",
+        "de": "Berechnen Sie die diskontierte Amortisationszeit unter Berucksichtigung des Zeitwerts des Geldes.",
         "fr": "Calculer la période de récupération actualisée en tenant compte de la valeur temporelle de l'argent.",
         "es": "Calcular el período de recuperación descontado considerando el valor del dinero en el tiempo.",
         "ar": "احسب فترة الاسترداد المخصومة مع مراعاة القيمة الزمنية للنقود."
@@ -198,7 +198,7 @@
   },
   "title_i18n": {
     "en": "discounted-payback-calculator",
-    "de": "Rechner für den diskontierten Amortisationszeitraum",
+    "de": "Rechner fur den diskontierten Amortisationszeitraum",
     "fr": "Calculateur de délai de récupération actualisé",
     "es": "Calculadora de período de recuperación descontado",
     "ar": "حاسبة فترة الاسترداد المخصومة"

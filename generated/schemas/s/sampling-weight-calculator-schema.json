@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "tabakaPopulasyon",
-      "label": "Tabaka Popülasyonu (N_h)",
+      "label": "TabakaPopulasyon",
       "label_i18n": {
         "en": "Stratum Population (N_h)",
-        "tr": "Tabaka Popülasyonu (N_h)",
+        "tr": "Tabaka Populasyonu (N_h)",
         "de": "Schichtpopulation (N_h)",
         "fr": "Population de la strate (N_h)",
         "es": "Población del estrato (N_h)",
@@ -32,10 +32,10 @@
     },
     {
       "id": "toplamPopulasyon",
-      "label": "Toplam Popülasyon (N)",
+      "label": "ToplamPopulasyon",
       "label_i18n": {
         "en": "Total Population (N)",
-        "tr": "Toplam Popülasyon (N)",
+        "tr": "Total Populasyon (N)",
         "de": "Gesamtpopulation (N)",
         "fr": "Population totale (N)",
         "es": "Población total (N)",
@@ -45,11 +45,11 @@
       "unit": "scalar",
       "default": 5000,
       "min": 0,
-      "businessContext": "Evren büyüklüğü.",
+      "businessContext": "ToplamPopulasyon",
       "businessContext_i18n": {
         "en": "Population size.",
-        "tr": "Evren büyüklüğü.",
-        "de": "Populationsgröße.",
+        "tr": "Evren buyuklugu.",
+        "de": "Populationsgroße.",
         "fr": "Taille de la population.",
         "es": "Tamaño de la población.",
         "ar": "حجم السكان."
@@ -57,10 +57,10 @@
     },
     {
       "id": "tabakaOrneklem",
-      "label": "Tabaka Örneklemi (n_h)",
+      "label": "TabakaOrneklem",
       "label_i18n": {
         "en": "Stratum Sample (n_h)",
-        "tr": "Tabaka Örneklemi (n_h)",
+        "tr": "Tabaka Orneklemi (n_h)",
         "de": "Schichtstichprobe (n_h)",
         "fr": "Échantillon de la strate (n_h)",
         "es": "Muestra del estrato (n_h)",
@@ -70,10 +70,10 @@
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "Tabakadan alınan örneklem.",
+      "businessContext": "TabakaOrneklem",
       "businessContext_i18n": {
         "en": "Sample drawn from stratum.",
-        "tr": "Tabakadan alınan örneklem.",
+        "tr": "Tabakadan alinan orneklem.",
         "de": "Aus der Schicht gezogene Stichprobe.",
         "fr": "Échantillon prélevé dans la strate.",
         "es": "Muestra extraída del estrato.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "toplamOrneklem",
-      "label": "Toplam Örneklem (n)",
+      "label": "ToplamOrneklem",
       "label_i18n": {
         "en": "Total Sample (n)",
-        "tr": "Toplam Örneklem (n)",
+        "tr": "Total Orneklem (n)",
         "de": "Gesamtstichprobe (n)",
         "fr": "Échantillon total (n)",
         "es": "Muestra total (n)",
@@ -95,11 +95,11 @@
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "Tüm örneklem büyüklüğü.",
+      "businessContext": "ToplamOrneklem",
       "businessContext_i18n": {
         "en": "Total sample size.",
-        "tr": "Tüm örneklem büyüklüğü.",
-        "de": "Gesamtstichprobengröße.",
+        "tr": "Tum Sample Size.",
+        "de": "Gesamtstichprobengroße.",
         "fr": "Taille totale de l'échantillon.",
         "es": "Tamaño total de la muestra.",
         "ar": "حجم العينة الإجمالي."
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "weight",
     "breakdown": {
-      "sonuc": "Ağırlık Katsayısı"
+      "sonuc": "Weight Coefficimostt"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ağırlık Katsayısı",
-        "tr": "Ağırlık Katsayısı",
+        "en": "Weight Coefficimostt",
+        "tr": "Weight Coefficimostt",
         "de": "Gewichtungskoeffizient",
         "fr": "Coefficient de pondération",
         "es": "Coeficiente de ponderación",
@@ -152,16 +152,16 @@
       "long": "Calculate sampling weight for each stratum in stratified sampling.",
       "short_i18n": {
         "en": "Calculate sampling weight for each stratum in stratified sampling.",
-        "tr": "Tabakalı örneklemede her tabakanın ağırlıklandırma katsayısını hesaplar.",
-        "de": "Berechnen Sie das Stichprobengewicht für jede Schicht bei geschichteter Stichprobenziehung.",
+        "tr": "Tabakali orneklemede her tabakanin Weightlandirma katNumbersini hesaplar.",
+        "de": "Berechnen Sie das Stichprobengewicht fur jede Schicht bei geschichteter Stichprobenziehung.",
         "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
         "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
         "ar": "احسب وزن العينة لكل طبقة في أخذ العينات الطبقي."
       },
       "long_i18n": {
         "en": "Calculate sampling weight for each stratum in stratified sampling.",
-        "tr": "Tabakalı örneklemede her tabakanın ağırlıklandırma katsayısını hesaplar.",
-        "de": "Berechnen Sie das Stichprobengewicht für jede Schicht bei geschichteter Stichprobenziehung.",
+        "tr": "Tabakali orneklemede her tabakanin Weightlandirma katNumbersini hesaplar.",
+        "de": "Berechnen Sie das Stichprobengewicht fur jede Schicht bei geschichteter Stichprobenziehung.",
         "fr": "Calculer le poids d'échantillonnage pour chaque strate dans un échantillonnage stratifié.",
         "es": "Calcular el peso de muestreo para cada estrato en el muestreo estratificado.",
         "ar": "احسب وزن العينة لكل طبقة في أخذ العينات الطبقي."

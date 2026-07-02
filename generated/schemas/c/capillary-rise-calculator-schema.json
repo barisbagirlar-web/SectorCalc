@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "yuzeyGerilimi",
-      "label": "Yüzey Gerilimi (N/m)",
+      "label": "YuzeyGerilimi",
       "label_i18n": {
         "en": "Surface Tension (N/m)",
-        "tr": "Yüzey Gerilimi (N/m)",
+        "tr": "Yuzey Voltagei (N/m)",
         "de": "Oberflächenspannung (N/m)",
         "fr": "Tension superficielle (N/m)",
         "es": "Tensión Superficial (N/m)",
@@ -20,11 +20,11 @@
       "unit": "N/m",
       "default": 0.073,
       "min": 0,
-      "businessContext": "Sıvının yüzey gerilimi.",
+      "businessContext": "YuzeyGerilimi",
       "businessContext_i18n": {
         "en": "Liquid surface tension.",
-        "tr": "Sıvının yüzey gerilimi.",
-        "de": "Oberflächenspannung der Flüssigkeit.",
+        "tr": "Sivinin Yuzey Voltagei.",
+        "de": "Oberflächenspannung der Flussigkeit.",
         "fr": "Tension superficielle du liquide.",
         "es": "Tensión superficial del líquido.",
         "ar": "التوتر السطحي للسائل."
@@ -32,10 +32,10 @@
     },
     {
       "id": "temasAcisi",
-      "label": "Temas Açısı (Derece)",
+      "label": "TemasAcisi",
       "label_i18n": {
         "en": "Contact Angle (Deg)",
-        "tr": "Temas Açısı (Derece)",
+        "tr": "Temas Acisi (Derece)",
         "de": "Kontaktwinkel (Deg)",
         "fr": "Angle de contact (Deg)",
         "es": "Ángulo de Contacto (Grados)",
@@ -45,11 +45,11 @@
       "unit": "degrees",
       "default": 0,
       "min": 0,
-      "businessContext": "Sıvı-katı temas açısı.",
+      "businessContext": "TemasAcisi",
       "businessContext_i18n": {
         "en": "Liquid-solid contact angle.",
-        "tr": "Sıvı-katı temas açısı.",
-        "de": "Kontaktwinkel zwischen Flüssigkeit und Feststoff.",
+        "tr": "Sivi-kati temas acisi.",
+        "de": "Kontaktwinkel zwischen Flussigkeit und Feststoff.",
         "fr": "Angle de contact liquide-solide.",
         "es": "Ángulo de contacto líquido-sólido.",
         "ar": "زاوية التلامس بين السائل والصلب."
@@ -57,10 +57,10 @@
     },
     {
       "id": "yariCap",
-      "label": "Borun Yarıçap (m)",
+      "label": "Borun Radius (m)",
       "label_i18n": {
         "en": "Tube Radius (m)",
-        "tr": "Borun Yarıçap (m)",
+        "tr": "Pipmost Radius (m)",
         "de": "Rohrradius (m)",
         "fr": "Rayon du tube (m)",
         "es": "Radio del Tubo (m)",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.0005,
       "min": 0,
-      "businessContext": "Kılcal borunun iç yarıçapı.",
+      "businessContext": "YariCap",
       "businessContext_i18n": {
         "en": "Capillary tube inner radius.",
-        "tr": "Kılcal borunun iç yarıçapı.",
+        "tr": "Kilcal borunun ic Radiusi.",
         "de": "Innerer Radius des Kapillarrohrs.",
         "fr": "Rayon intérieur du tube capillaire.",
         "es": "Radio interno del tubo capilar.",
@@ -82,11 +82,11 @@
     },
     {
       "id": "yogunluk",
-      "label": "Sıvı Yoğunluğu (kg/m³)",
+      "label": "Yogunluk",
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
-        "tr": "Sıvı Yoğunluğu (kg/m³)",
-        "de": "Flüssigkeitsdichte (kg/m³)",
+        "tr": "Sivi Yogunlugu (kg/m³)",
+        "de": "Flussigkeitsdichte (kg/m³)",
         "fr": "Masse volumique du liquide (kg/m³)",
         "es": "Densidad del Líquido (kg/m³)",
         "ar": "كثافة السائل (kg/m³)"
@@ -95,11 +95,11 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Sıvının yoğunluğu.",
+      "businessContext": "Yogunluk",
       "businessContext_i18n": {
         "en": "Liquid density.",
-        "tr": "Sıvının yoğunluğu.",
-        "de": "Flüssigkeitsdichte.",
+        "tr": "Sivinin yogunlugu.",
+        "de": "Flussigkeitsdichte.",
         "fr": "Masse volumique du liquide.",
         "es": "Densidad del líquido.",
         "ar": "كثافة السائل."
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Kılcal Yükselme"
+      "sonuc": "Kilcal Yukselme"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Kılcal Yükselme",
-        "tr": "Kılcal Yükselme",
+        "en": "Kilcal Yukselme",
+        "tr": "Kilcal Yukselme",
         "de": "Kapillarer Aufstieg",
         "fr": "Ascension capillaire",
         "es": "Ascenso Capilar",
@@ -149,16 +149,16 @@
       "long": "Calculate capillary rise height of liquid in a narrow tube.",
       "short_i18n": {
         "en": "Calculate capillary rise height of liquid in a narrow tube.",
-        "tr": "Sıvının dar bir boruda kılcal yükselme yüksekliğini hesaplar.",
-        "de": "Berechnen Sie die kapillare Steighöhe einer Flüssigkeit in einem engen Rohr.",
+        "tr": "Sivinin dar bir boruda Kilcal Yukselme yuksekligini hesaplar.",
+        "de": "Berechnen Sie die kapillare Steighohe einer Flussigkeit in einem engen Rohr.",
         "fr": "Calculer la hauteur de remontée capillaire d'un liquide dans un tube étroit.",
         "es": "Calcular la altura de ascenso capilar de un líquido en un tubo estrecho.",
         "ar": "حساب ارتفاع الصعود الشعري للسائل في أنبوب ضيق."
       },
       "long_i18n": {
         "en": "Calculate capillary rise height of liquid in a narrow tube.",
-        "tr": "Sıvının dar bir boruda kılcal yükselme yüksekliğini hesaplar.",
-        "de": "Berechnen Sie die kapillare Steighöhe einer Flüssigkeit in einem engen Rohr.",
+        "tr": "Sivinin dar bir boruda Kilcal Yukselme yuksekligini hesaplar.",
+        "de": "Berechnen Sie die kapillare Steighohe einer Flussigkeit in einem engen Rohr.",
         "fr": "Calculer la hauteur de remontée capillaire d'un liquide dans un tube étroit.",
         "es": "Calcular la altura de ascenso capilar de un líquido en un tubo estrecho.",
         "ar": "حساب ارتفاع الصعود الشعري للسائل في أنبوب ضيق."

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "boslukHacim",
-      "label": "Boşluk Hacmi (m³)",
+      "label": "BoslukHacim",
       "label_i18n": {
         "en": "Void Volume (m³)",
-        "tr": "Boşluk Hacmi (m³)",
+        "tr": "Bosluk Hacmi (m³)",
         "de": "Porenvolumen (m³)",
         "fr": "Volume des vides (m³)",
         "es": "Volumen de Vacíos (m³)",
@@ -20,10 +20,10 @@
       "unit": "m3",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Malzemedeki boşlukların toplam hacmi.",
+      "businessContext": "BoslukHacim",
       "businessContext_i18n": {
         "en": "Total void volume.",
-        "tr": "Malzemedeki boşlukların toplam hacmi.",
+        "tr": "Malzemedeki bosluklarin Total hacmi.",
         "de": "Gesamtes Porenvolumen.",
         "fr": "Volume total des vides.",
         "es": "Volumen total de vacíos.",
@@ -99,7 +99,7 @@
       "long": "Calculate material porosity as percentage of void volume.",
       "short_i18n": {
         "en": "Calculate material porosity as percentage of void volume.",
-        "tr": "Malzemedeki boşluk oranını (porozite/gözeneklilik) hesaplar.",
+        "tr": "Malzemedeki bosluk Ratioini (porozite/Porosity) hesaplar.",
         "de": "Berechnen Sie die Materialporosität als Prozentsatz des Porenvolumens.",
         "fr": "Calculer la porosité du matériau en pourcentage du volume des vides.",
         "es": "Calcular la porosidad del material como porcentaje del volumen de vacíos.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate material porosity as percentage of void volume.",
-        "tr": "Malzemedeki boşluk oranını (porozite/gözeneklilik) hesaplar.",
+        "tr": "Malzemedeki bosluk Ratioini (porozite/Porosity) hesaplar.",
         "de": "Berechnen Sie die Materialporosität als Prozentsatz des Porenvolumens.",
         "fr": "Calculer la porosité du matériau en pourcentage du volume des vides.",
         "es": "Calcular la porosidad del material como porcentaje del volumen de vacíos.",

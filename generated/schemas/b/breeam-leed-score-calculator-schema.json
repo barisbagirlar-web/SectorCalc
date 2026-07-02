@@ -2,15 +2,15 @@
   "toolName": "breeam-leed-score-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "sustainability-resource-esg",
-  "sector": "Çevre ve Sürdürülebilirlik",
+  "sector": "Environment and Sustainability",
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
       "id": "enerji",
-      "label": "Enerji Kriter Puanı (0-100)",
+      "label": "Enerji",
       "label_i18n": {
         "en": "Energy Score (0-100)",
-        "tr": "Enerji Kriter Puanı (0-100)",
+        "tr": "Energy Kriter Puani (0-100)",
         "de": "Energiebewertung (0-100)",
         "fr": "Score énergétique (0-100)",
         "es": "Puntuación Energética (0-100)",
@@ -21,10 +21,10 @@
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Enerji verimliliği puanı.",
+      "businessContext": "Enerji",
       "businessContext_i18n": {
         "en": "Energy efficiency score.",
-        "tr": "Enerji verimliliği puanı.",
+        "tr": "Energy Efficiencyliligi puani.",
         "de": "Energieeffizienzpunktzahl.",
         "fr": "Score d'efficacité énergétique.",
         "es": "Puntuación de eficiencia energética.",
@@ -33,10 +33,10 @@
     },
     {
       "id": "su",
-      "label": "Su Kriter Puanı (0-100)",
+      "label": "Su",
       "label_i18n": {
         "en": "Water Score (0-100)",
-        "tr": "Su Kriter Puanı (0-100)",
+        "tr": "Su Kriter Puani (0-100)",
         "de": "Wasserbewertung (0-100)",
         "fr": "Score eau (0-100)",
         "es": "Puntuación del Agua (0-100)",
@@ -47,10 +47,10 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Su yönetimi puanı.",
+      "businessContext": "Su",
       "businessContext_i18n": {
         "en": "Water management score.",
-        "tr": "Su yönetimi puanı.",
+        "tr": "Su yoNetimi puani.",
         "de": "Wassermanagementpunktzahl.",
         "fr": "Score de gestion de l'eau.",
         "es": "Puntuación de gestión del agua.",
@@ -59,10 +59,10 @@
     },
     {
       "id": "malzeme",
-      "label": "Malzeme Kriter Puanı (0-100)",
+      "label": "Malzeme",
       "label_i18n": {
         "en": "Materials Score (0-100)",
-        "tr": "Malzeme Kriter Puanı (0-100)",
+        "tr": "Malzeme Kriter Puani (0-100)",
         "de": "Materialbewertung (0-100)",
         "fr": "Score matériaux (0-100)",
         "es": "Puntuación de Materiales (0-100)",
@@ -73,10 +73,10 @@
       "default": 65,
       "min": 0,
       "max": 100,
-      "businessContext": "Malzeme seçimi puanı.",
+      "businessContext": "Malzeme",
       "businessContext_i18n": {
         "en": "Materials selection score.",
-        "tr": "Malzeme seçimi puanı.",
+        "tr": "Malzeme secimi puani.",
         "de": "Materialauswahlpunktzahl.",
         "fr": "Score de sélection des matériaux.",
         "es": "Puntuación de selección de materiales.",
@@ -97,12 +97,12 @@
     "primary": "sonuc",
     "unit": "score",
     "breakdown": {
-      "sonuc": "Tahmini Sertifika Puanı"
+      "sonuc": "Tahmini Sertifika Puani"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tahmini Sertifika Puanı",
-        "tr": "Tahmini Sertifika Puanı",
+        "en": "Tahmini Sertifika Puani",
+        "tr": "Tahmini Sertifika Puani",
         "de": "Estimated Certification Score",
         "fr": "Score de certification estimé",
         "es": "Puntuación Estimada del Certificado",
@@ -130,7 +130,7 @@
       "long": "Estimate BREEAM/LEED sustainability certification score.",
       "short_i18n": {
         "en": "Estimate BREEAM/LEED sustainability certification score.",
-        "tr": "Binanın sürdürülebilirlik sertifikası (BREEAM/LEED) tahmini puanını hesaplar.",
+        "tr": "Binanin surdurulebilirlik sertifikasi (BREEAM/LEED) tahmini puanini hesaplar.",
         "de": "Schätzung der BREEAM/LEED-Nachhaltigkeitszertifizierungspunktzahl.",
         "fr": "Estimer le score de certification de durabilité BREEAM/LEED.",
         "es": "Estimar la puntuación de certificación de sostenibilidad BREEAM/LEED.",
@@ -138,7 +138,7 @@
       },
       "long_i18n": {
         "en": "Estimate BREEAM/LEED sustainability certification score.",
-        "tr": "Binanın sürdürülebilirlik sertifikası (BREEAM/LEED) tahmini puanını hesaplar.",
+        "tr": "Binanin surdurulebilirlik sertifikasi (BREEAM/LEED) tahmini puanini hesaplar.",
         "de": "Schätzung der BREEAM/LEED-Nachhaltigkeitszertifizierungspunktzahl.",
         "fr": "Estimer le score de certification de durabilité BREEAM/LEED.",
         "es": "Estimar la puntuación de certificación de sostenibilidad BREEAM/LEED.",

@@ -2,15 +2,15 @@
   "toolName": "credit-card-processing-fee-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Kredi ve Borç",
+  "sector": "Kredi ve Borc",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "satis",
-      "label": "Satış Tutarı (₺)",
+      "label": "Satis",
       "label_i18n": {
         "en": "Sale Amount (USD)",
-        "tr": "Satış Tutarı (₺)",
+        "tr": "Satis Tutari (₺)",
         "de": "Verkaufsbetrag",
         "fr": "Montant de la vente",
         "es": "Monto de venta",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "İşlem tutarı.",
+      "businessContext": "Satis",
       "businessContext_i18n": {
         "en": "Transaction amount.",
-        "tr": "İşlem tutarı.",
+        "tr": "Worklem tutari.",
         "de": "Transaktionsbetrag.",
         "fr": "Montant de la transaction.",
         "es": "Monto de la transacción.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "yuzde",
-      "label": "Yüzde Komisyon (%)",
+      "label": "Yuzde",
       "label_i18n": {
         "en": "Percentage Fee (%)",
-        "tr": "Yüzde Komisyon (%)",
-        "de": "Prozentsatzgebühr (%)",
+        "tr": "Yuzde Komisyon (%)",
+        "de": "Prozentsatzgebuhr (%)",
         "fr": "Frais en pourcentage (%)",
         "es": "Tarifa de Porcentaje (%)",
         "ar": "رسوم النسبة المئوية (%)"
@@ -45,11 +45,11 @@
       "unit": "%",
       "default": 2.5,
       "min": 0,
-      "businessContext": "İşlem başı yüzde komisyon.",
+      "businessContext": "Yuzde",
       "businessContext_i18n": {
         "en": "Per-transaction percentage fee.",
-        "tr": "İşlem başı yüzde komisyon.",
-        "de": "Prozentsatzgebühr pro Transaktion.",
+        "tr": "Worklem basi yuzde komisyon.",
+        "de": "Prozentsatzgebuhr pro Transaktion.",
         "fr": "Frais de pourcentage par transaction.",
         "es": "Comisión porcentual por transacción.",
         "ar": "رسوم النسبة المئوية لكل معاملة."
@@ -57,11 +57,11 @@
     },
     {
       "id": "sabit",
-      "label": "Sabit Ücret (₺)",
+      "label": "Sabit",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
-        "tr": "Sabit Ücret (₺)",
-        "de": "Feste Gebühr (USD)",
+        "tr": "Sabit Ucret (₺)",
+        "de": "Feste Gebuhr (USD)",
         "fr": "Frais fixes (USD)",
         "es": "Tarifa fija (USD)",
         "ar": "الرسوم الثابتة (دولار أمريكي)"
@@ -70,11 +70,11 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "İşlem başı sabit ücret.",
+      "businessContext": "Sabit",
       "businessContext_i18n": {
         "en": "Per-transaction fixed fee.",
-        "tr": "İşlem başı sabit ücret.",
-        "de": "Feste Gebühr pro Transaktion.",
+        "tr": "Worklem basi sabit ucret.",
+        "de": "Feste Gebuhr pro Transaktion.",
         "fr": "Frais fixes par transaction.",
         "es": "Comisión fija por transacción.",
         "ar": "الرسوم الثابتة لكل معاملة."
@@ -94,13 +94,13 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "İşlem Ücreti"
+      "sonuc": "Worklem Ucreti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "İşlem Ücreti",
-        "tr": "İşlem Ücreti",
-        "de": "Transaktionsgebühr",
+        "en": "Worklem Ucreti",
+        "tr": "Worklem Ucreti",
+        "de": "Transaktionsgebuhr",
         "fr": "Frais de transaction",
         "es": "Tarifa de Transacción",
         "ar": "رسوم المعاملة"
@@ -124,16 +124,16 @@
       "long": "Calculate credit card processing fee for POS or online payments.",
       "short_i18n": {
         "en": "Calculate credit card processing fee for POS or online payments.",
-        "tr": "POS cihazı veya sanal ödeme altyapısı kesintisini hesaplar.",
-        "de": "Kreditkartenabwicklungsgebühr für POS- oder Online-Zahlungen berechnen.",
+        "tr": "POS cihazi veya sanal odeme altyapisi kesintisini hesaplar.",
+        "de": "Kreditkartenabwicklungsgebuhr fur POS- oder Online-Zahlungen berechnen.",
         "fr": "Calculer les frais de traitement de la carte de crédit pour les paiements POS ou en ligne.",
         "es": "Calcular la comisión de procesamiento de tarjeta de crédito para pagos POS o en línea.",
         "ar": "احسب رسوم معالجة بطاقة الائتمان للمدفوعات عبر نقاط البيع أو عبر الإنترنت."
       },
       "long_i18n": {
         "en": "Calculate credit card processing fee for POS or online payments.",
-        "tr": "POS cihazı veya sanal ödeme altyapısı kesintisini hesaplar.",
-        "de": "Kreditkartenabwicklungsgebühr für POS- oder Online-Zahlungen berechnen.",
+        "tr": "POS cihazi veya sanal odeme altyapisi kesintisini hesaplar.",
+        "de": "Kreditkartenabwicklungsgebuhr fur POS- oder Online-Zahlungen berechnen.",
         "fr": "Calculer les frais de traitement de la carte de crédit pour les paiements POS ou en ligne.",
         "es": "Calcular la comisión de procesamiento de tarjeta de crédito para pagos POS o en línea.",
         "ar": "احسب رسوم معالجة بطاقة الائتمان للمدفوعات عبر نقاط البيع أو عبر الإنترنت."
@@ -142,7 +142,7 @@
   },
   "title_i18n": {
     "en": "credit-card-processing-fee-calculator",
-    "de": "Kreditkartentransaktionsgebührenrechner",
+    "de": "KreditkartenTransaktionsgebuhrenrechner",
     "fr": "Calculateur de Frais de Transaction par Carte de Crédit",
     "es": "Calculadora de Tarifa de Transacción de Tarjeta de Crédito",
     "ar": "حاسبة رسوم معاملات بطاقة الائتمان"

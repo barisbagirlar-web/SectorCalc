@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "Portföy Getirisi (%)",
+      "label": "PortfoyGetirisi",
       "label_i18n": {
         "en": "Portfolio Return (%)",
-        "tr": "Portföy Getirisi (%)",
+        "tr": "Portfoy Getirisi (%)",
         "de": "Portfoliorendite (%)",
         "fr": "Rendement du portefeuille (%)",
         "es": "Rendimiento de la cartera (%)",
@@ -20,10 +20,10 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portföyün dönemsel getirisi.",
+      "businessContext": "PortfoyGetirisi",
       "businessContext_i18n": {
         "en": "Portfolio return.",
-        "tr": "Portföyün dönemsel getirisi.",
+        "tr": "Portfoyun donemsel getirisi.",
         "de": "Portfoliorendite.",
         "fr": "Rendement du portefeuille.",
         "es": "Rendimiento de la cartera.",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risksiz varlık getirisi.",
+      "businessContext": "RisksizFaiz",
       "businessContext_i18n": {
         "en": "Risk-free return.",
-        "tr": "Risksiz varlık getirisi.",
+        "tr": "Risksiz varlik getirisi.",
         "de": "Risikofreie Rendite.",
         "fr": "Rendement sans risque.",
         "es": "Rendimiento libre de riesgo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "asagiSapma",
-      "label": "Aşağı Yönlü Sapma (%)",
+      "label": "AsagiSapma",
       "label_i18n": {
         "en": "Downside Deviation (%)",
-        "tr": "Aşağı Yönlü Sapma (%)",
+        "tr": "Asagi Yonlu Sapma (%)",
         "de": "Abwärtsabweichung (%)",
         "fr": "Écart à la baisse (%)",
         "es": "Desviación a la baja (%)",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Negatif getirilerin standart sapması.",
+      "businessContext": "AsagiSapma",
       "businessContext_i18n": {
         "en": "Standard deviation of negative returns.",
-        "tr": "Negatif getirilerin standart sapması.",
+        "tr": "Negatif getirilerin Standard Deviationsi.",
         "de": "Standardabweichung der negativen Renditen.",
         "fr": "Écart type des rendements négatifs.",
         "es": "Desviación estándar de los rendimientos negativos.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Sortino Oranı"
+      "sonuc": "Sortino Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sortino Oranı",
-        "tr": "Sortino Oranı",
+        "en": "Sortino Ratio",
+        "tr": "Sortino Ratio",
         "de": "Sortino-Verhältnis",
         "fr": "Ratio Sortino",
         "es": "Ratio Sortino",
@@ -124,7 +124,7 @@
       "long": "Calculate the Sortino ratio — return per unit of downside risk only.",
       "short_i18n": {
         "en": "Calculate the Sortino ratio — return per unit of downside risk only.",
-        "tr": "Sadece aşağı yönlü (zarar) risk başına üretilen getiriyi (Sortino) hesaplar.",
+        "tr": "Sadece asagi yonlu (zarar) risk basina uretilen getiriyi (Sortino) hesaplar.",
         "de": "Berechnen Sie die Sortino-Ratio — Rendite pro Einheit des Abwärtsrisikos.",
         "fr": "Calculer le ratio Sortino — rendement par unité de risque de baisse uniquement.",
         "es": "Calcular el ratio Sortino — rendimiento por unidad de riesgo a la baja únicamente.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate the Sortino ratio — return per unit of downside risk only.",
-        "tr": "Sadece aşağı yönlü (zarar) risk başına üretilen getiriyi (Sortino) hesaplar.",
+        "tr": "Sadece asagi yonlu (zarar) risk basina uretilen getiriyi (Sortino) hesaplar.",
         "de": "Berechnen Sie die Sortino-Ratio — Rendite pro Einheit des Abwärtsrisikos.",
         "fr": "Calculer le ratio Sortino — rendement par unité de risque de baisse uniquement.",
         "es": "Calcular el ratio Sortino — rendimiento por unidad de riesgo a la baja únicamente.",

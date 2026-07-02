@@ -2,15 +2,15 @@
   "toolName": "weld-heat-input-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "akim",
-      "label": "Kaynak Akımı (A)",
+      "label": "Akim",
       "label_i18n": {
         "en": "Welding Current (A)",
-        "tr": "Kaynak Akımı (A)",
+        "tr": "Welding Currmostt (A)",
         "de": "Schweißstrom (A)",
         "fr": "Courant de soudage (A)",
         "es": "Corriente de soldadura (A)",
@@ -20,10 +20,10 @@
       "unit": "A",
       "default": 200,
       "min": 0,
-      "businessContext": "Ark akımı.",
+      "businessContext": "Akim",
       "businessContext_i18n": {
         "en": "Arc current.",
-        "tr": "Ark akımı.",
+        "tr": "Ark Currenti.",
         "de": "Lichtbogenstrom.",
         "fr": "Courant d'arc.",
         "es": "Corriente del arco.",
@@ -45,10 +45,10 @@
       "unit": "V",
       "default": 25,
       "min": 0,
-      "businessContext": "Ark voltajı.",
+      "businessContext": "Gerilim",
       "businessContext_i18n": {
         "en": "Arc voltage.",
-        "tr": "Ark voltajı.",
+        "tr": "Ark voltaji.",
         "de": "Lichtbogenspannung.",
         "fr": "Tension d'arc.",
         "es": "Tensión del arco.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "ilerlemeHiz",
-      "label": "İlerleme Hızı (mm/s)",
+      "label": "IlerlemeHiz",
       "label_i18n": {
         "en": "Travel Speed (mm/s)",
-        "tr": "İlerleme Hızı (mm/s)",
+        "tr": "Ilerleme Speedi (mm/s)",
         "de": "Vorschubgeschwindigkeit (mm/s)",
         "fr": "Vitesse de déplacement (mm/s)",
         "es": "Velocidad de avance (mm/s)",
@@ -70,10 +70,10 @@
       "unit": "mm/s",
       "default": 5,
       "min": 0,
-      "businessContext": "Kaynak hızı.",
+      "businessContext": "IlerlemeHiz",
       "businessContext_i18n": {
         "en": "Welding speed.",
-        "tr": "Kaynak hızı.",
+        "tr": "Kaynak Speedi.",
         "de": "Schweißgeschwindigkeit.",
         "fr": "Vitesse de soudage.",
         "es": "Velocidad de soldadura.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "verim",
-      "label": "Isıl Verim",
+      "label": "Verim",
       "label_i18n": {
         "en": "Thermal Efficiency",
-        "tr": "Isıl Verim",
+        "tr": "Isil Efficiency",
         "de": "Thermischer Wirkungsgrad",
         "fr": "Rendement thermique",
         "es": "Eficiencia térmica",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "J/mm",
     "breakdown": {
-      "sonuc": "Isı Girdisi"
+      "sonuc": "Heat Input"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Isı Girdisi",
-        "tr": "Isı Girdisi",
+        "en": "Heat Input",
+        "tr": "Heat Input",
         "de": "Wärmeeintrag",
         "fr": "Apport de chaleur",
         "es": "Aporte de Calor",
@@ -149,7 +149,7 @@
       "long": "Calculate weld heat input per unit length.",
       "short_i18n": {
         "en": "Calculate weld heat input per unit length.",
-        "tr": "Kaynak dikişine aktarılan birim enerji miktarını (ısı girdisi) hesaplar.",
+        "tr": "Kaynak dikisine aktarilan Unit Energy Amountini (isi girdisi) hesaplar.",
         "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
         "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
         "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate weld heat input per unit length.",
-        "tr": "Kaynak dikişine aktarılan birim enerji miktarını (ısı girdisi) hesaplar.",
+        "tr": "Kaynak dikisine aktarilan Unit Energy Amountini (isi girdisi) hesaplar.",
         "de": "Berechnen Sie den Wärmeeintrag pro Längeneinheit beim Schweißen.",
         "fr": "Calculer l'apport de chaleur de soudage par unité de longueur.",
         "es": "Calcular el aporte térmico de soldadura por unidad de longitud.",

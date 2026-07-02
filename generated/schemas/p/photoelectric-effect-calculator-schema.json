@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Foton Frekansı (Hz)",
+      "label": "Frekans",
       "label_i18n": {
         "en": "Photon Frequency (Hz)",
-        "tr": "Foton Frekansı (Hz)",
+        "tr": "Foton Frequencyi (Hz)",
         "de": "Photonenfrequenz (Hz)",
         "fr": "Fréquence du photon (Hz)",
         "es": "Frecuencia del fotón (Hz)",
@@ -20,10 +20,10 @@
       "unit": "Hz",
       "default": 1000000000000000,
       "min": 0,
-      "businessContext": "Gelen fotonun frekansı.",
+      "businessContext": "Frekans",
       "businessContext_i18n": {
         "en": "Incident photon frequency.",
-        "tr": "Gelen fotonun frekansı.",
+        "tr": "Gelen fotonun Frequencyi.",
         "de": "Einfallende Photonenfrequenz.",
         "fr": "Fréquence du photon incident.",
         "es": "Frecuencia del fotón incidente.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "esikEnerji",
-      "label": "Eşik Enerjisi (J)",
+      "label": "EsikEnerji",
       "label_i18n": {
         "en": "Work Function (J)",
-        "tr": "Eşik Enerjisi (J)",
+        "tr": "Esik Energysi (J)",
         "de": "Austrittsarbeit (J)",
         "fr": "Fonction de travail (J)",
         "es": "Función de Trabajo (J)",
@@ -45,10 +45,10 @@
       "unit": "J",
       "default": 4e-19,
       "min": 0,
-      "businessContext": "Metalden elektron koparmak için gereken minimum enerji.",
+      "businessContext": "EsikEnerji",
       "businessContext_i18n": {
         "en": "Minimum energy to eject electron.",
-        "tr": "Metalden elektron koparmak için gereken minimum enerji.",
+        "tr": "Metaldmost elektron koparmak required for Minimum mosterji.",
         "de": "Mindestenergie zum Ausstoßen eines Elektrons.",
         "fr": "Énergie minimale pour éjecter un électron.",
         "es": "Energía mínima para expulsar un electrón.",
@@ -100,7 +100,7 @@
       "long": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
       "short_i18n": {
         "en": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "tr": "Fotonun metal yüzeyden kopardığı elektronun maksimum kinetik enerjisini hesaplar.",
+        "tr": "Fotonun metal yuzeyden kopardigi elektronun Maximum kiNetik Energysini hesaplar.",
         "de": "Berechnen Sie die maximale kinetische Energie des emittierten Elektrons beim photoelektrischen Effekt.",
         "fr": "Calculer l'énergie cinétique maximale de l'électron émis dans l'effet photoélectrique.",
         "es": "Calcular la energía cinética máxima del electrón emitido en el efecto fotoeléctrico.",
@@ -108,7 +108,7 @@
       },
       "long_i18n": {
         "en": "Calculate maximum kinetic energy of emitted electron in photoelectric effect.",
-        "tr": "Fotonun metal yüzeyden kopardığı elektronun maksimum kinetik enerjisini hesaplar.",
+        "tr": "Fotonun metal yuzeyden kopardigi elektronun Maximum kiNetik Energysini hesaplar.",
         "de": "Berechnen Sie die maximale kinetische Energie des emittierten Elektrons beim photoelektrischen Effekt.",
         "fr": "Calculer l'énergie cinétique maximale de l'électron émis dans l'effet photoélectrique.",
         "es": "Calcular la energía cinética máxima del electrón emitido en el efecto fotoeléctrico.",

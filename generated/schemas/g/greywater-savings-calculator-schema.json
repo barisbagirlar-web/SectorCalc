@@ -2,15 +2,15 @@
   "toolName": "greywater-savings-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "sustainability-resource-esg",
-  "sector": "Çevre ve Sürdürülebilirlik",
+  "sector": "Environment and Sustainability",
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
       "id": "griSuHacmi",
-      "label": "Günlük Gri Su Hacmi (m³/gün)",
+      "label": "GriSuHacmi",
       "label_i18n": {
         "en": "Daily Greywater (m³/day)",
-        "tr": "Günlük Gri Su Hacmi (m³/gün)",
+        "tr": "Gunluk Gri Su Hacmi (m³/gun)",
         "de": "Tägliches Grauwasser (m³/Tag)",
         "fr": "Eaux grises quotidiennes (m³/jour)",
         "es": "Aguas Grises Diarias (m³/día)",
@@ -20,10 +20,10 @@
       "unit": "m3/day",
       "default": 5,
       "min": 0,
-      "businessContext": "Günlük oluşan gri su.",
+      "businessContext": "GriSuHacmi",
       "businessContext_i18n": {
         "en": "Daily greywater volume.",
-        "tr": "Günlük oluşan gri su.",
+        "tr": "Gunluk olusan gri su.",
         "de": "Tägliches Grauwasservolumen.",
         "fr": "Volume quotidien d'eaux grises.",
         "es": "Volumen diario de aguas grises.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "aritmaMaliyet",
-      "label": "Arıtma Maliyeti (TL/m³)",
+      "label": "AritmaMaliyet",
       "label_i18n": {
         "en": "Treatment Cost (TL/m³)",
-        "tr": "Arıtma Maliyeti (TL/m³)",
+        "tr": "Aritma Costi (TL/m³)",
         "de": "Behandlungskosten (TL/m³)",
         "fr": "Coût de traitement (TL/m³)",
         "es": "Costo de Tratamiento (TL/m³)",
@@ -45,11 +45,11 @@
       "unit": "TL/m3",
       "default": 3,
       "min": 0,
-      "businessContext": "Gri su arıtma birim maliyeti.",
+      "businessContext": "AritmaMaliyet",
       "businessContext_i18n": {
         "en": "Greywater treatment unit cost.",
-        "tr": "Gri su arıtma birim maliyeti.",
-        "de": "Stückkosten der Grauwasserbehandlung.",
+        "tr": "Gri su aritma Unit Costi.",
+        "de": "Stuckkosten der Grauwasserbehandlung.",
         "fr": "Coût unitaire de traitement des eaux grises.",
         "es": "Costo unitario del tratamiento de aguas grises.",
         "ar": "تكلفة وحدة معالجة المياه الرمادية."
@@ -57,11 +57,11 @@
     },
     {
       "id": "sebekeFiyat",
-      "label": "Şebeke Su Fiyatı (TL/m³)",
+      "label": "SebekeFiyat",
       "label_i18n": {
         "en": "Mains Water Price (TL/m³)",
-        "tr": "Şebeke Su Fiyatı (TL/m³)",
-        "de": "Wasserpreis der öffentlichen Versorgung (TL/m³)",
+        "tr": "Sebeke Su Fiyati (TL/m³)",
+        "de": "Wasserpreis der offentlichen Versorgung (TL/m³)",
         "fr": "Prix de l'eau du réseau (TL/m³)",
         "es": "Precio del Agua de Red (TL/m³)",
         "ar": "سعر مياه الشبكة (TL/m³)"
@@ -70,11 +70,11 @@
       "unit": "TL/m3",
       "default": 15,
       "min": 0,
-      "businessContext": "Şebekeden alınan su birim fiyatı.",
+      "businessContext": "SebekeFiyat",
       "businessContext_i18n": {
         "en": "Municipal water unit price.",
-        "tr": "Şebekeden alınan su birim fiyatı.",
-        "de": "Stückpreis des kommunalen Wassers.",
+        "tr": "Sebekeden alinan su Unit fiyati.",
+        "de": "Stuckpreis des kommunalen Wassers.",
         "fr": "Prix unitaire de l'eau municipale.",
         "es": "Precio unitario del agua municipal.",
         "ar": "سعر وحدة المياه البلدية."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "TL/year",
     "breakdown": {
-      "sonuc": "Yıllık Net Tasarruf"
+      "sonuc": "Annual Net Tasarruf"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yıllık Net Tasarruf",
-        "tr": "Yıllık Net Tasarruf",
+        "en": "Annual Net Tasarruf",
+        "tr": "Annual Net Tasarruf",
         "de": "Jährliche Nettoeinsparung",
         "fr": "Économies nettes annuelles",
         "es": "Ahorro Neto Anual",
@@ -127,7 +127,7 @@
       "long": "Calculate annual net financial savings from greywater system.",
       "short_i18n": {
         "en": "Calculate annual net financial savings from greywater system.",
-        "tr": "Gri su sisteminin yıllık net finansal kazancını hesaplar.",
+        "tr": "Gri su sisteminin yillik Net finansal kazancini hesaplar.",
         "de": "Berechnen Sie die jährlichen Netto-Finanzersparnisse aus dem Grauwassersystem.",
         "fr": "Calculer les économies financières nettes annuelles d'un système d'eaux grises.",
         "es": "Calcular el ahorro financiero neto anual del sistema de aguas grises.",
@@ -135,7 +135,7 @@
       },
       "long_i18n": {
         "en": "Calculate annual net financial savings from greywater system.",
-        "tr": "Gri su sisteminin yıllık net finansal kazancını hesaplar.",
+        "tr": "Gri su sisteminin yillik Net finansal kazancini hesaplar.",
         "de": "Berechnen Sie die jährlichen Netto-Finanzersparnisse aus dem Grauwassersystem.",
         "fr": "Calculer les économies financières nettes annuelles d'un système d'eaux grises.",
         "es": "Calcular el ahorro financiero neto anual del sistema de aguas grises.",
@@ -145,7 +145,7 @@
   },
   "title_i18n": {
     "en": "greywater-savings-calculator",
-    "de": "Grauwasser-Rückgewinnungsrechner",
+    "de": "Grauwasser-Ruckgewinnungsrechner",
     "fr": "Calculateur de récupération d'eaux grises",
     "es": "Calculadora de recuperación de aguas grises",
     "ar": "حاسبة استرداد المياه الرمادية"

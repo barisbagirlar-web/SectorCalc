@@ -1,25 +1,25 @@
 /**
- * SectorCalc — 192 Araç Master Rewrite Pipeline
+ * SectorCalc — 192 Tool Master Rewrite Pipeline (Claude)
  * 
- * Kullanım:
+ * Usage:
  *   npm install @anthropic-ai/sdk
  *   node rewrite-pipeline.mjs --input ./pro_hesaplama_araclari_193_.txt --output ./output
  * 
- * Çıktı: ./output/PRO_001.json ... PRO_193.json
- *        ./output/_report.json (başarı/hata raporu)
- *        ./output/_merged.json (tüm araçlar tek dosyada)
+ * Output: ./output/PRO_001.json ... PRO_193.json
+ *        ./output/_report.json (success/fail report)
+ *        ./output/_merged.json (all tools in one file)
  */
 
 import Anthropic from "@anthropic-ai/sdk";
 import fs from "fs";
 import path from "path";
 
-// ─── KONFİGÜRASYON ──────────────────────────────────────────────────────────
+// ─── CONFIGURATION ────────────────────────────────────────────────────────────
 const CONFIG = {
   model:           "claude-sonnet-4-6",
   max_tokens:      4096,
-  delay_ms:        600,       // Rate limit koruması (ms)
-  retry_max:       3,         // Hata durumunda yeniden deneme
+  delay_ms:        600,       // Rate limit protection (ms)
+  retry_max:       3,         // Retry on error
   retry_delay_ms:  2000,
   output_dir:      "./output",
   priority_first:  ["PRO_019", "PRO_043", "PRO_092", "PRO_164", "PRO_100", "PRO_112"],
@@ -27,203 +27,205 @@ const CONFIG = {
 
 // ─── MASTER REWRITE PROMPT ───────────────────────────────────────────────────
 const MASTER_PROMPT = `
-Sen SectorCalc için kıdemli endüstriyel mühendislik uzmanısın.
-Görevin: Verilen hesap aracı JSON'unu endüstriyel otorite standardına yükseltmek.
+You are a senior industrial engineering expert for SectorCalc.
+Your task: Upgrade the given calculation tool JSON to industrial authority standard.
 
-HEDEF KİTLE: Mühendisler, teknisyenler, CNC operatörleri, tesis yöneticileri,
-kalite mühendisleri, kaynak ustası, tamirci, tadilatçı — saha kararı veren profesyoneller.
-Bu kişiler para ödüyor. Hatalı hesap kabul edilemez. Güvenli aralık dışı değerlerde sistem uyarmalı.
+CRITICAL: ALL TEXT fields (name, error_msg, message, options, description, tool_name, category) must be in ENGLISH ONLY. No Turkish, no other languages.
 
-ÇIKTI KURALI: SADECE geçerli JSON döndür. Markdown yok, açıklama yok, \`\`\`json yok.
-İlk karakter { olmalı, son karakter } olmalı.
+TARGET AUDIENCE: Engineers, technicians, CNC operators, facility managers,
+quality engineers, welding specialists, mechanics, renovators — field decision-making professionals.
+These people pay money. Incorrect calculations are unacceptable. System must warn when values are outside safe range.
+
+OUTPUT RULE: Return ONLY valid JSON. No markdown, no explanation, no \`\`\`json.
+First character must be {, last character must be }.
 
 ════════════════════════════════════════════════════════════
-KURAL 1 — INPUT TAMAMLAMA
+RULE 1 — INPUT COMPLETION
 ════════════════════════════════════════════════════════════
-Mevcut inputları KORU, eksik kritik inputları EKLE.
+PRESERVE existing inputs, ADD missing critical inputs.
 
-Her input objesi ZORUNLU alanlar:
+Each input object REQUIRED fields:
 {
   "id": "snake_case_id",
-  "name": "Türkçe Etiket (Sembol)",
-  "unit": "SI veya endüstriyel birim",
+  "name": "English Label (Symbol)",
+  "unit": "SI or industrial unit",
   "type": "number" | "enum",
   "required": true | false,
   "confidence_label": "EXACT" | "STRONG" | "DEFAULT",
-  "absolute_min": sayısal fiziksel alt sınır (zorunlu, number için),
-  "absolute_max": sayısal fiziksel üst sınır (varsa)
+  "absolute_min": numeric physical lower limit (required for number),
+  "absolute_max": numeric physical upper limit (if exists)
 }
 
-Opsiyonel inputlar için ekle:
-  "default": varsayılan değer
+For optional inputs add:
+  "default": default value
 
-Enum inputlar için ekle:
-  "options": ["Seçenek1", "Seçenek2", ...]
+For enum inputs add:
+  "options": ["Option1", "Option2", ...]
 
-KATEGORİ BAZLI ZORUNLU EK INPUTLAR:
+CATEGORY-BASED REQUIRED ADDITIONAL INPUTS:
 
-CNC/Talaşlı İmalat:
+CNC/Machining:
   - material_group: enum [P_soft, P_hard, M_aust, M_duplex, K_gg, K_ggg, N_al, N_cu, S_ti, S_ni, H_hrc55]
-  - nose_radius_mm: mm (Ra hesabı için şart, absolute_min: 0.01)
-  - coolant_type: enum [Kuru, Sulu/Emülsiyon, MQL, Yüksek Basınç]
+  - nose_radius_mm: mm (required for Ra calc, absolute_min: 0.01)
+  - coolant_type: enum [Dry, Wet/Emulsion, MQL, High Pressure]
   - machine_power_kw: kW (absolute_min: 1)
 
-Kaynak Mühendisliği:
+Welding Engineering:
   - base_material_grade: enum [S235, S275, S355, S420, S460, 304SS, 316SS, P265GH, P355GH]
-  - joint_type: enum [Alın, T-Bağlantı, Köşe, Örtme]
+  - joint_type: enum [Butt, T-Joint, Fillet, Lap]
   - preheat_temp_c: °C (absolute_min: 0, absolute_max: 400)
   - heat_input_kj_mm: kJ/mm (absolute_min: 0.1, absolute_max: 10)
 
-Basınçlı Kap/Boru:
+Pressure Vessel/Pipe:
   - design_pressure_bar: bar (absolute_min: 0.1)
   - design_temp_c: °C (absolute_min: -196, absolute_max: 1000)
   - material_grade: enum [P265GH, P355GH, 304L, 316L, A106-B, API5L-X52]
   - corrosion_allowance_mm: mm (absolute_min: 0, default: 3)
 
-HVAC/Termodinamik:
+HVAC/Thermodynamics:
   - ambient_temp_c: °C (absolute_min: -40, absolute_max: 60, default: 35)
   - altitude_m: m (absolute_min: 0, absolute_max: 4000, default: 0)
-  - fluid_type: enum [Su, Hava, R410A, R32, R134a, Doğalgaz, Buhar]
+  - fluid_type: enum [Water, Air, R410A, R32, R134a, Natural Gas, Steam]
 
-Kalite/Metroloji:
-  - tolerance_range: birim (absolute_min: 0.001)
-  - number_of_appraisers: Adet (absolute_min: 2, absolute_max: 5, default: 3)
-  - parts_per_appraiser: Adet (absolute_min: 5, absolute_max: 30, default: 10)
+Quality/Metrology:
+  - tolerance_range: unit (absolute_min: 0.001)
+  - number_of_appraisers: count (absolute_min: 2, absolute_max: 5, default: 3)
+  - parts_per_appraiser: count (absolute_min: 5, absolute_max: 30, default: 10)
 
-Akışkanlar Mekaniği:
+Fluid Mechanics:
   - fluid_density_kg_m3: kg/m³ (absolute_min: 0.1)
   - fluid_viscosity_cst: cSt (absolute_min: 0.1)
   - pipe_roughness_mm: mm (absolute_min: 0.0001, absolute_max: 5)
 
-Elektrik:
-  - power_factor: Katsayı (absolute_min: 0.5, absolute_max: 1.0)
+Electrical:
+  - power_factor: ratio (absolute_min: 0.5, absolute_max: 1.0)
   - ambient_temp_c: °C (absolute_min: -20, absolute_max: 60, default: 30)
   - installation_method: enum [A1, A2, B1, B2, C, E, F, G]
 
-Yapısal:
-  - safety_factor: Katsayı (absolute_min: 1.0, default: 2.5)
-  - load_type: enum [Statik, Dinamik, Yorulma, Darbe]
+Structural:
+  - safety_factor: ratio (absolute_min: 1.0, default: 2.5)
+  - load_type: enum [Static, Dynamic, Fatigue, Impact]
   - steel_grade: enum [S235, S275, S355, S420, S460]
 
-Finans/Maliyet:
+Finance/Cost:
   - currency: enum [USD, EUR, TRY, GBP]
-  - analysis_period_years: Yıl (absolute_min: 1, absolute_max: 50)
+  - analysis_period_years: years (absolute_min: 1, absolute_max: 50)
   - inflation_rate_pct: % (absolute_min: 0, absolute_max: 100, default: 5)
 
 ════════════════════════════════════════════════════════════
-KURAL 2 — FORMÜL DOĞRULAMA VE ZENGİNLEŞTİRME
+RULE 2 — FORMULA VALIDATION AND ENRICHMENT
 ════════════════════════════════════════════════════════════
-Mevcut doğru formülleri KORU.
-Hatalı formülleri DÜZELT (örn: Ra = fz²/(8×(D/2)) YANLIŞ → Ra = fz²/(8×r_epsilon) DOĞRU).
-Eksik formülleri EKLE.
-Her formül sonu yorum olarak birim ve kaynak yaz:
+PRESERVE correct formulas.
+FIX incorrect formulas (e.g. Ra = fz²/(8×(D/2)) WRONG → Ra = fz²/(8×r_epsilon) CORRECT).
+ADD missing formulas.
+Write unit and source as comment after each formula:
 
-"VarName = expression   // [birim] | Kaynak: STANDART"
+"VarName = expression   // [unit] | Source: STANDARD"
 
-FORMÜL DİLİ (desteklenen fonksiyonlar):
+FORMULA LANGUAGE (supported functions):
   POWER(x, n), SQRT(x), ABS(x), LN(x), LOG10(x), EXP(x)
   SIN(x), COS(x), TAN(x), PI
   NORMSINV(p), NORMSDIST(z)
   MAX(a,b), MIN(a,b), FLOOR(x), CEIL(x)
-  Operatörler: + - * / ( ) && ||
+  Operators: + - * / ( ) && ||
 
-CNC formülleri şablonu:
+CNC formula template:
   n_rpm = (1000 * vc) / (PI * tool_diameter)   // [RPM]
-  Vf = fz * z * n_rpm   // [mm/dak]
-  Rz = (POWER(fz, 2) / (8 * nose_radius_mm)) * 1000   // [μm] | Kaynak: ISO 3002
-  Ra = Rz / k_surface   // k_surface: tornalama=4.0, frezeleme=4.5, ball-nose=6.0
-  Fc = kc_actual * ap * fz   // [N] | Kaynak: Kienzle/ISO 513
+  Vf = fz * z * n_rpm   // [mm/min]
+  Rz = (POWER(fz, 2) / (8 * nose_radius_mm)) * 1000   // [μm] | Source: ISO 3002
+  Ra = Rz / k_surface   // k_surface: turning=4.0, milling=4.5, ball-nose=6.0
+  Fc = kc_actual * ap * fz   // [N] | Source: Kienzle/ISO 513
   Pc = (Fc * vc) / (60000)   // [kW]
-  Tool_Life_T = POWER(C_taylor / vc, 1 / n_taylor)   // [dak] | Kaynak: ISO 3685
+  Tool_Life_T = POWER(C_taylor / vc, 1 / n_taylor)   // [min] | Source: ISO 3685
 
 ════════════════════════════════════════════════════════════
-KURAL 3 — VALİDASYON KATMANI (MİNİMUM 3)
+RULE 3 — VALIDATION LAYER (MINIMUM 3)
 ════════════════════════════════════════════════════════════
 "engine_rules": {
   "validation": {
     "key_name": {
-      "absolute_min": sayı,         // VEYA
-      "absolute_max": sayı,         // VEYA
-      "condition": "expr > val",    // hesaplanan değişken kontrolü
-      "error_msg": "Türkçe hata mesajı — neden imkânsız olduğunu açıkla"
+      "absolute_min": number,         // OR
+      "absolute_max": number,         // OR
+      "condition": "expr > val",    // computed variable check
+      "error_msg": "English error message — explain why it is impossible"
     }
   }
 }
 
-Validation örnekleri her kategoriden:
+Validation examples by category:
 
 CNC:
-  ae_diameter_limit: { "condition": "ae > tool_diameter", "error_msg": "Radyal genişlik (ae) takım çapını aşamaz. Geometrik imkânsızlık." }
-  fz_minimum: { "absolute_min": 0.001, "error_msg": "Diş başına ilerleme 0.001 mm altında olamaz. Bu değerde talaş oluşmaz, takım sürtünür." }
-  ap_tool_limit: { "condition": "ap > tool_diameter * 0.8", "error_msg": "Eksenel derinlik takım çapının %80'ini aşamaz. Kırılma riski." }
+  ae_diameter_limit: { "condition": "ae > tool_diameter", "error_msg": "Radial width (ae) cannot exceed tool diameter. Geometric impossibility." }
+  fz_minimum: { "absolute_min": 0.001, "error_msg": "Feed per tooth cannot be below 0.001 mm. No chip forms, tool rubs." }
+  ap_tool_limit: { "condition": "ap > tool_diameter * 0.8", "error_msg": "Axial depth cannot exceed 80% of tool diameter. Breakage risk." }
 
-Basınçlı Kap:
-  wall_minimum: { "condition": "wall_thickness < (pressure * diameter / (2 * allowable_stress))", "error_msg": "Et kalınlığı ASME VIII minimum değerinin altında. Yapısal güvensiz." }
+Pressure Vessel:
+  wall_minimum: { "condition": "wall_thickness < (pressure * diameter / (2 * allowable_stress))", "error_msg": "Wall thickness below ASME VIII minimum. Structurally unsafe." }
 
-Kaynak:
-  ce_limit: { "condition": "CE_IIW > 0.45 AND preheat_temp_c < 100", "error_msg": "CE > 0.45 için EN 1011 ön ısıtma şartı karşılanmıyor. Soğuk çatlak riski kritik." }
+Welding:
+  ce_limit: { "condition": "CE_IIW > 0.45 AND preheat_temp_c < 100", "error_msg": "CE > 0.45 but EN 1011 preheat requirement not met. Cold crack risk critical." }
 
-Kalite:
-  sample_minimum: { "absolute_min": 25, "error_msg": "İstatistiksel güvenilirlik için minimum 25 ölçüm gereklidir." }
-  grr_limit: { "condition": "GRR_pct > 30", "error_msg": "GR&R %30 üstünde. Ölçüm sistemi yetersiz, sonuçlar güvenilmez (AIAG MSA)." }
+Quality:
+  sample_minimum: { "absolute_min": 25, "error_msg": "Minimum 25 measurements required for statistical reliability." }
+  grr_limit: { "condition": "GRR_pct > 30", "error_msg": "GR&R above 30%. Measurement system inadequate, results unreliable (AIAG MSA)." }
 
 ════════════════════════════════════════════════════════════
-KURAL 4 — SMART WARNING SİSTEMİ (MİNİMUM 3, İDEAL 5)
+RULE 4 — SMART WARNING SYSTEM (MINIMUM 3, IDEAL 5)
 ════════════════════════════════════════════════════════════
 {
-  "condition": "matematiksel koşul (hesaplanan değişkenler kullanılabilir)",
+  "condition": "mathematical condition (computed variables accessible)",
   "severity": "CRITICAL" | "WARNING" | "INFO",
-  "source": "ISO/IEC/ASME/VDI/Sandvik kaynak kodu",
-  "message": "Türkçe mesaj: SORUN + NEDEN + ÖNERİ (max 200 karakter)"
+  "source": "ISO/IEC/ASME/VDI/Sandvik standard code",
+  "message": "English message: PROBLEM + CAUSE + RECOMMENDATION (max 200 chars)"
 }
 
-SEVİYE KURALLARI:
-- CRITICAL: Fiziksel güvensizlik, standart ihlali, ekipman hasarı, yapısal risk
-- WARNING: Suboptimal parametreler, ekonomik kayıp, erken arıza riski
-- INFO: Optimizasyon fırsatı, alternatif yaklaşım, bakım önerisi
+SEVERITY RULES:
+- CRITICAL: Physical unsafety, standard violation, equipment damage, structural risk
+- WARNING: Suboptimal parameters, economic loss, early failure risk
+- INFO: Optimization opportunity, alternative approach, maintenance suggestion
 
-ZORUNLU WARNING KATEGORİLERİ (her araç için uygunsa ekle):
-1. Fiziksel limit: Hesaplanan değer standart maksimumu aşıyor
-2. Güvenlik faktörü: SF < minimum → CRITICAL
-3. Ekonomik: Optimum değerin %30 dışında → WARNING
-4. Kalite: Tolerans/spec ihlali → CRITICAL
-5. Enerji: Verimsizlik tespiti → INFO
+REQUIRED WARNING CATEGORIES (add if applicable for each tool):
+1. Physical limit: Computed value exceeds standard maximum
+2. Safety factor: SF < minimum → CRITICAL
+3. Economic: More than 30% outside optimal value → WARNING
+4. Quality: Tolerance/spec violation → CRITICAL
+5. Energy: Inefficiency detected → INFO
 
-KURAL 5 — REFERANS STANDARDINI HER ARAÇTA BELİRT
-Araç JSON'una şu alanı ekle (engine_rules içine):
+RULE 5 — SPECIFY REFERENCE STANDARD FOR EACH TOOL
+Add the following field to the tool JSON (inside engine_rules):
 "standards": ["ISO XXXX", "ASME BYYY", "VDI ZZZZ"]
 
-REFERANS TABLOSU (kategoriye göre doğru standardı seç):
+REFERENCE TABLE (select correct standard by category):
 CNC: ISO 513, ISO 3002, ISO 3685, Sandvik C-2920
-Kaynak: AWS D1.1, EN 1011, IIW Doc. IX-2136, ASME BPVC IX
-Basınçlı Kap: ASME VIII Div.1, EN 13445, PED 2014/68/EU
-Boru: ASME B31.3, EN 13480, ISO 4200
+Welding: AWS D1.1, EN 1011, IIW Doc. IX-2136, ASME BPVC IX
+Pressure Vessel: ASME VIII Div.1, EN 13445, PED 2014/68/EU
+Pipe: ASME B31.3, EN 13480, ISO 4200
 HVAC: ASHRAE 90.1, EN 14511, IEC 60335
-Elektrik: IEC 60364, IEC 60228, NFPA 70
-Yapısal Çelik: AISC 360, EN 1993-1-1 (EC3), ASCE 7
-Beton/Ankraj: ACI 318, EN 1992, EN 1504
-Kalite: ISO 9001, IATF 16949, AIAG MSA 4th Ed., ISO 17025
-İSG: OSHA 29 CFR 1910, ISO 45001, EN ISO 13849
-Güvenilirlik: IEC 61508, MIL-HDBK-217, ISO 13849
-Enerji: ISO 50001, EN 15900, IEC 60034
-ESG/Emisyon: GHG Protocol, EU ETS, CBAM EU 2023/956
-Finans: IFRS 16, IAS 36, Big Four TCO Framework
-Rulman: ISO 281, SKF Application Handbook
-Dişli: ISO 6336, AGMA 2001, DIN 3990
-Yay: DIN 2089, EN 13906
+Electrical: IEC 60364, IEC 60228, NFPA 70
+Structural Steel: AISC 360, EN 1993-1-1 (EC3), ASCE 7
+Concrete/Anchor: ACI 318, EN 1992, EN 1504
+Quality: ISO 9001, IATF 16949, AIAG MSA 4th Ed., ISO 17025
+OHS: OSHA 29 CFR 1910, ISO 45001, EN ISO 13849
+Reliability: IEC 61508, MIL-HDBK-217, ISO 13849
+Energy: ISO 50001, EN 15900, IEC 60034
+ESG/Emissions: GHG Protocol, EU ETS, CBAM EU 2023/956
+Finance: IFRS 16, IAS 36, Big Four TCO Framework
+Bearing: ISO 281, SKF Application Handbook
+Gear: ISO 6336, AGMA 2001, DIN 3990
+Spring: DIN 2089, EN 13906
 
 ════════════════════════════════════════════════════════════
-SCOPE TANIMI
+SCOPE DEFINITION
 ════════════════════════════════════════════════════════════
-JSON'a şu alanı ekle:
+Add the following field to the JSON:
 "scope": "single_operation" | "multi_operation" | "process_agnostic"
-"primary_operation": "milling" | "turning" | "welding" | "hvac" | "structural" | "financial" | vb.
+"primary_operation": "milling" | "turning" | "welding" | "hvac" | "structural" | "financial" | etc.
 
-Eğer araç hem frezeleme hem tornalama içeriyorsa → scope: "multi_operation"
-ve formülleri ayır: "formulas_milling": [...], "formulas_turning": [...]
+If the tool includes both milling and turning → scope: "multi_operation"
+and separate formulas: "formulas_milling": [...], "formulas_turning": [...]
 
 ════════════════════════════════════════════════════════════
-ÇIKTI JSON YAPISI
+OUTPUT JSON STRUCTURE
 ════════════════════════════════════════════════════════════
 {
   "tool_id": "PRO_XXX",
@@ -231,16 +233,16 @@ ve formülleri ayır: "formulas_milling": [...], "formulas_turning": [...]
   "category": "...",
   "scope": "...",
   "primary_operation": "...",
-  "inputs": [ ...zenginleştirilmiş inputlar... ],
-  "formulas": [ ...düzeltilmiş ve eklenmiş formüller... ],
+  "inputs": [ ...enriched inputs... ],
+  "formulas": [ ...corrected and added formulas... ],
   "engine_rules": {
     "standards": ["..."],
-    "validation": { ...minimum 3 kural... },
-    "smart_warnings": [ ...minimum 3 warning... ]
+    "validation": { ...minimum 3 rules... },
+    "smart_warnings": [ ...minimum 3 warnings... ]
   }
 }
 
-GİRDİ ARACI:
+INPUT TOOL:
 `;
 
 // ─── ARAÇ PARSE ─────────────────────────────────────────────────────────────

@@ -2,15 +2,15 @@
   "toolName": "water-footprint-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "sustainability-resource-esg",
-  "sector": "Çevre ve Sürdürülebilirlik",
+  "sector": "Environment and Sustainability",
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
       "id": "uretimHacmi",
-      "label": "Üretim Hacmi (Ton)",
+      "label": "UretimHacmi",
       "label_i18n": {
         "en": "Production Volume (Tons)",
-        "tr": "Üretim Hacmi (Ton)",
+        "tr": "Production Volume (Ton)",
         "de": "Produktionsvolumen (N)",
         "fr": "Volume de production (N)",
         "es": "Volumen de producción (N)",
@@ -20,10 +20,10 @@
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Toplam üretim miktarı.",
+      "businessContext": "Total Production Volume.",
       "businessContext_i18n": {
         "en": "Total production quantity.",
-        "tr": "Toplam üretim miktarı.",
+        "tr": "Total Production Volume.",
         "de": "Gesamtproduktionsmenge.",
         "fr": "Quantité totale de production.",
         "es": "Cantidad total de producción.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "tuketilenSu",
-      "label": "Tüketilen Su (m³)",
+      "label": "TuketilenSu",
       "label_i18n": {
         "en": "Water Consumed (m³)",
-        "tr": "Tüketilen Su (m³)",
+        "tr": "Tuketilen Su (m³)",
         "de": "Wasserverbrauch (m³)",
         "fr": "Eau consommée (m³)",
         "es": "Agua consumida (m³)",
@@ -45,10 +45,10 @@
       "unit": "m3",
       "default": 15000,
       "min": 0,
-      "businessContext": "Üretimde kullanılan toplam su.",
+      "businessContext": "TuketilenSu",
       "businessContext_i18n": {
         "en": "Total water used in production.",
-        "tr": "Üretimde kullanılan toplam su.",
+        "tr": "Uretimde kullanilan Total su.",
         "de": "Gesamtes in der Produktion verwendetes Wasser.",
         "fr": "Eau totale utilisée dans la production.",
         "es": "Agua total utilizada en la producción.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "m3/ton",
     "breakdown": {
-      "sonuc": "Su Ayak İzi"
+      "sonuc": "Su Ayak Izi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Su Ayak İzi",
-        "tr": "Su Ayak İzi",
+        "en": "Su Ayak Izi",
+        "tr": "Su Ayak Izi",
         "de": "Wasserfußabdruck",
         "fr": "Empreinte eau",
         "es": "Huella Hídrica",
@@ -102,7 +102,7 @@
       "long": "Calculate water footprint per unit of production.",
       "short_i18n": {
         "en": "Calculate water footprint per unit of production.",
-        "tr": "Birim ürün başına harcanan tatlı su miktarını (su ayak izi) hesaplar.",
+        "tr": "Unit urun basina harcanan tatli su Amountini (su ayak izi) hesaplar.",
         "de": "Berechnen Sie den Wasserfußabdruck pro Produktionseinheit.",
         "fr": "Calculer l'empreinte eau par unité de production.",
         "es": "Calcular la huella hídrica por unidad de producción.",
@@ -110,7 +110,7 @@
       },
       "long_i18n": {
         "en": "Calculate water footprint per unit of production.",
-        "tr": "Birim ürün başına harcanan tatlı su miktarını (su ayak izi) hesaplar.",
+        "tr": "Unit urun basina harcanan tatli su Amountini (su ayak izi) hesaplar.",
         "de": "Berechnen Sie den Wasserfußabdruck pro Produktionseinheit.",
         "fr": "Calculer l'empreinte eau par unité de production.",
         "es": "Calcular la huella hídrica por unidad de producción.",

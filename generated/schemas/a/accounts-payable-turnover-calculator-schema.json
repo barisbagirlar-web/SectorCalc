@@ -2,15 +2,15 @@
   "toolName": "accounts-payable-turnover-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Yıllık SMM (TL)",
+      "label": "YillikCOGS",
       "label_i18n": {
         "en": "Annual COGS (USD)",
-        "tr": "Yıllık SMM (TL)",
+        "tr": "Annual SMM (TRY)",
         "de": "Jährliche COGS (USD)",
         "fr": "COGS annuel (USD)",
         "es": "COGS anual (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext": "YillikCOGS",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
-        "tr": "Yıllık satılan mal maliyeti.",
+        "tr": "Yillik Satilan mal Costi.",
         "de": "Jährliche Kosten der verkauften Waren.",
         "fr": "Coût annuel des marchandises vendues.",
         "es": "Costo anual de los bienes vendidos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "ortBorc",
-      "label": "Ortalama Borç (TL)",
+      "label": "OrtBorc",
       "label_i18n": {
         "en": "Avg Payables (USD)",
-        "tr": "Ortalama Borç (TL)",
+        "tr": "Aandrage Debt (TRY)",
         "de": "Durchschnittliche Verbindlichkeiten (USD)",
         "fr": "Dettes fournisseurs moyennes (USD)",
         "es": "Promedio de cuentas por pagar (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Ortalama ticari borç.",
+      "businessContext": "OrtBorc",
       "businessContext_i18n": {
         "en": "Average accounts payable.",
-        "tr": "Ortalama ticari borç.",
+        "tr": "Mean ticari borc.",
         "de": "Durchschnittliche Kreditorenbuchhaltung.",
         "fr": "Moyenne des dettes fournisseurs.",
         "es": "Promedio de cuentas por pagar.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Ortalama Ödeme Süresi"
+      "sonuc": "Aandrage Paymmostt Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ortalama Ödeme Süresi",
-        "tr": "Ortalama Ödeme Süresi",
+        "en": "Aandrage Paymmostt Time",
+        "tr": "Aandrage Paymmostt Time",
         "de": "Durchschnittliche Zahlungsfrist",
         "fr": "Délai de paiement moyen",
         "es": "Período promedio de pago",
@@ -99,7 +99,7 @@
       "long": "Calculate accounts payable turnover in days.",
       "short_i18n": {
         "en": "Calculate accounts payable turnover in days.",
-        "tr": "Tedarikçilere borçların ödenme ortalama süresini hesaplar.",
+        "tr": "Tedarikcilere borclarin odenme Mean suresini hesaplar.",
         "de": "Berechnen Sie die Kreditorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des dettes fournisseurs en jours.",
         "es": "Calcular la rotación de cuentas por pagar en días.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate accounts payable turnover in days.",
-        "tr": "Tedarikçilere borçların ödenme ortalama süresini hesaplar.",
+        "tr": "Tedarikcilere borclarin odenme Mean suresini hesaplar.",
         "de": "Berechnen Sie die Kreditorenumschlagshäufigkeit in Tagen.",
         "fr": "Calculer le délai de rotation des dettes fournisseurs en jours.",
         "es": "Calcular la rotación de cuentas por pagar en días.",

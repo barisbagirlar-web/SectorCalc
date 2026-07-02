@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Vergi sonrası net faaliyet kârı.",
+      "businessContext": "Nopat",
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
-        "tr": "Vergi sonrası net faaliyet kârı.",
+        "tr": "Vergi sonrasi Net faaliyet kâri.",
         "de": "Netto-Betriebsgewinn nach Steuern.",
         "fr": "Bénéfice net d'exploitation après impôts.",
         "es": "Beneficio operativo neto después de impuestos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yatirilanSermaye",
-      "label": "Yatırılan Sermaye (₺)",
+      "label": "YatirilanSermaye",
       "label_i18n": {
         "en": "Invested Capital (USD)",
-        "tr": "Yatırılan Sermaye (₺)",
+        "tr": "Yatirilan Sermaye (₺)",
         "de": "Investiertes Kapital (USD)",
         "fr": "Capital investi (USD)",
         "es": "Capital invertido (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Toplam yatırılmış sermaye.",
+      "businessContext": "YatirilanSermaye",
       "businessContext_i18n": {
         "en": "Total invested capital.",
-        "tr": "Toplam yatırılmış sermaye.",
+        "tr": "Total yatirilmis sermaye.",
         "de": "Gesamtes investiertes Kapital.",
         "fr": "Capital total investi.",
         "es": "Capital total invertido.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "ROIC (Yatırılan Sermaye Getirisi)"
+      "sonuc": "ROIC (Yatirilan Sermaye Getirisi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "ROIC (Yatırılan Sermaye Getirisi)",
-        "tr": "ROIC (Yatırılan Sermaye Getirisi)",
+        "en": "ROIC (Yatirilan Sermaye Getirisi)",
+        "tr": "ROIC (Yatirilan Sermaye Getirisi)",
         "de": "ROIC (Rendite auf das investierte Kapital)",
         "fr": "ROIC (Rendement du capital investi)",
         "es": "ROIC (Retorno sobre el Capital Invertido)",
@@ -99,7 +99,7 @@
       "long": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
       "short_i18n": {
         "en": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "tr": "Şirketin yatırdığı sermayeden ürettiği vergi sonrası verimi (ROIC) hesaplar.",
+        "tr": "Sirketin yatirdigi sermayeden urettigi vergi sonrasi Efficiencyi (ROIC) hesaplar.",
         "de": "Berechnen Sie die Rendite auf das investierte Kapital (ROIC) – Nachsteuereffizienz.",
         "fr": "Calculer le rendement du capital investi (ROIC) — efficacité après impôt.",
         "es": "Calcular el retorno sobre el capital invertido (ROIC) — eficiencia después de impuestos.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate return on invested capital (ROIC) — post-tax efficiency.",
-        "tr": "Şirketin yatırdığı sermayeden ürettiği vergi sonrası verimi (ROIC) hesaplar.",
+        "tr": "Sirketin yatirdigi sermayeden urettigi vergi sonrasi Efficiencyi (ROIC) hesaplar.",
         "de": "Berechnen Sie die Rendite auf das investierte Kapital (ROIC) – Nachsteuereffizienz.",
         "fr": "Calculer le rendement du capital investi (ROIC) — efficacité après impôt.",
         "es": "Calcular el retorno sobre el capital invertido (ROIC) — eficiencia después de impuestos.",

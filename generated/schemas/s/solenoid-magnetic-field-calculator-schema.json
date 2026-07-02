@@ -2,15 +2,15 @@
   "toolName": "solenoid-magnetic-field-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "akim",
-      "label": "Sargı Akımı (A)",
+      "label": "Akim",
       "label_i18n": {
         "en": "Coil Current (A)",
-        "tr": "Sargı Akımı (A)",
+        "tr": "Sargi Currenti (A)",
         "de": "Spulenstrom (A)",
         "fr": "Courant de la bobine (A)",
         "es": "Corriente de la Bobina (A)",
@@ -20,10 +20,10 @@
       "unit": "A",
       "default": 2,
       "min": 0,
-      "businessContext": "Bobin sargısından geçen akım.",
+      "businessContext": "Akim",
       "businessContext_i18n": {
         "en": "Coil winding current.",
-        "tr": "Bobin sargısından geçen akım.",
+        "tr": "Bobin sargisindan gecen Current.",
         "de": "Spulenwicklungsstrom.",
         "fr": "Courant de bobinage de la bobine.",
         "es": "Corriente de bobinado de la bobina.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "sarimSayisi",
-      "label": "Toplam Sarım Sayısı",
+      "label": "Total Number of Coils",
       "label_i18n": {
         "en": "Number of Turns",
-        "tr": "Toplam Sarım Sayısı",
+        "tr": "Total Number of Coils",
         "de": "Windungszahl",
         "fr": "Nombre de spires",
         "es": "Número de vueltas",
@@ -45,10 +45,10 @@
       "unit": "turns",
       "default": 500,
       "min": 0,
-      "businessContext": "Bobin toplam sarım adedi.",
+      "businessContext": "SarimSayisi",
       "businessContext_i18n": {
         "en": "Total coil turns.",
-        "tr": "Bobin toplam sarım adedi.",
+        "tr": "Bobin Total sarim adedi.",
         "de": "Gesamte Spulenwindungen.",
         "fr": "Nombre total de spires de la bobine.",
         "es": "Vueltas totales de la bobina.",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Solenoidin fiziksel uzunluğu.",
+      "businessContext": "Uzunluk",
       "businessContext_i18n": {
         "en": "Solenoid physical length.",
-        "tr": "Solenoidin fiziksel uzunluğu.",
+        "tr": "Solenoidin fiziksel uzunlugu.",
         "de": "Physikalische Länge des Solenoids.",
         "fr": "Longueur physique du solénoïde.",
         "es": "Longitud física del solenoide.",
@@ -127,7 +127,7 @@
       "long": "Calculate magnetic flux density inside a solenoid.",
       "short_i18n": {
         "en": "Calculate magnetic flux density inside a solenoid.",
-        "tr": "Bobin içindeki homojen manyetik akı yoğunluğunu (solenoid) hesaplar.",
+        "tr": "Bobin icindeki homojen manyetik aki yogunlugunu (solenoid) hesaplar.",
         "de": "Berechnen Sie die magnetische Flussdichte im Inneren einer Spule.",
         "fr": "Calculer la densité de flux magnétique à l'intérieur d'un solénoïde.",
         "es": "Calcular la densidad de flujo magnético dentro de un solenoide.",
@@ -135,7 +135,7 @@
       },
       "long_i18n": {
         "en": "Calculate magnetic flux density inside a solenoid.",
-        "tr": "Bobin içindeki homojen manyetik akı yoğunluğunu (solenoid) hesaplar.",
+        "tr": "Bobin icindeki homojen manyetik aki yogunlugunu (solenoid) hesaplar.",
         "de": "Berechnen Sie die magnetische Flussdichte im Inneren einer Spule.",
         "fr": "Calculer la densité de flux magnétique à l'intérieur d'un solénoïde.",
         "es": "Calcular la densidad de flujo magnético dentro de un solenoide.",

@@ -2,15 +2,15 @@
   "toolName": "api-latency-sla-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sector": "Bilisim, Biyomedikal ve Maden",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "toplamIstek",
-      "label": "Toplam İstek Sayısı",
+      "label": "ToplamIstek",
       "label_i18n": {
         "en": "Total Requests",
-        "tr": "Toplam İstek Sayısı",
+        "tr": "Total Istek Numbersi",
         "de": "Gesamtanfragen",
         "fr": "Requêtes totales",
         "es": "Solicitudes Totales",
@@ -20,10 +20,10 @@
       "unit": "requests",
       "default": 10000,
       "min": 0,
-      "businessContext": "Toplam API çağrısı.",
+      "businessContext": "ToplamIstek",
       "businessContext_i18n": {
         "en": "Total API calls.",
-        "tr": "Toplam API çağrısı.",
+        "tr": "Total API cagrisi.",
         "de": "Gesamtzahl der API-Aufrufe.",
         "fr": "Appels API totaux.",
         "es": "Total de llamadas API.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "hataliIstek",
-      "label": "Hatalı İstek Sayısı",
+      "label": "HataliIstek",
       "label_i18n": {
         "en": "Failed Requests",
-        "tr": "Hatalı İstek Sayısı",
+        "tr": "Hatali Istek Numbersi",
         "de": "Fehlgeschlagene Anfragen",
         "fr": "Requêtes échouées",
         "es": "Solicitudes Fallidas",
@@ -45,10 +45,10 @@
       "unit": "requests",
       "default": 50,
       "min": 0,
-      "businessContext": "Başarısız istek adedi.",
+      "businessContext": "HataliIstek",
       "businessContext_i18n": {
         "en": "Number of failed requests.",
-        "tr": "Başarısız istek adedi.",
+        "tr": "Basarisiz istek adedi.",
         "de": "Anzahl der fehlgeschlagenen Anfragen.",
         "fr": "Nombre de requêtes échouées.",
         "es": "Número de solicitudes fallidas.",
@@ -70,10 +70,10 @@
       "unit": "ms",
       "default": 250000,
       "min": 0,
-      "businessContext": "Tüm isteklerin süre toplamı.",
+      "businessContext": "ToplamGecikme",
       "businessContext_i18n": {
         "en": "Sum of all request durations.",
-        "tr": "Tüm isteklerin süre toplamı.",
+        "tr": "Tum isteklerin sure Totali.",
         "de": "Summe aller Anfragedauern.",
         "fr": "Somme de toutes les durées de requêtes.",
         "es": "Suma de todas las duraciones de solicitudes.",
@@ -138,7 +138,7 @@
       "long": "Calculate API average latency and SLA success rate.",
       "short_i18n": {
         "en": "Calculate API average latency and SLA success rate.",
-        "tr": "API servisinin yanıt hızını (ortalama gecikme) ve başarıyla karşılama yüzdesini (SLA) hesaplar.",
+        "tr": "API servisinin yanit Speedini (Mean gecikme) ve basariyla karsilama yuzdesini (SLA) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche API-Latenz und die SLA-Erfolgsrate.",
         "fr": "Calculer la latence moyenne de l'API et le taux de succès SLA.",
         "es": "Calcular la latencia promedio de API y la tasa de éxito de SLA.",
@@ -146,7 +146,7 @@
       },
       "long_i18n": {
         "en": "Calculate API average latency and SLA success rate.",
-        "tr": "API servisinin yanıt hızını (ortalama gecikme) ve başarıyla karşılama yüzdesini (SLA) hesaplar.",
+        "tr": "API servisinin yanit Speedini (Mean gecikme) ve basariyla karsilama yuzdesini (SLA) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche API-Latenz und die SLA-Erfolgsrate.",
         "fr": "Calculer la latence moyenne de l'API et le taux de succès SLA.",
         "es": "Calcular la latencia promedio de API y la tasa de éxito de SLA.",

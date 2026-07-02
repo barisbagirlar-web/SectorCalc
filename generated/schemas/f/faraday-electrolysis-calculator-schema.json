@@ -2,15 +2,15 @@
   "toolName": "faraday-electrolysis-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "akim",
-      "label": "Akım (A)",
+      "label": "Current (A)",
       "label_i18n": {
         "en": "Current (A)",
-        "tr": "Akım (A)",
+        "tr": "Currmostt (A)",
         "de": "CBAM-Zertifikatspreis (aktuelle Auktion)",
         "fr": "Prix du certificat CBAM (enchère en cours)",
         "es": "Precio del certificado CBAM (subasta actual)",
@@ -20,10 +20,10 @@
       "unit": "A",
       "default": 2,
       "min": 0,
-      "businessContext": "Elektroliz akımı.",
+      "businessContext": "Akim",
       "businessContext_i18n": {
         "en": "Electrolysis current.",
-        "tr": "Elektroliz akımı.",
+        "tr": "Elektroliz Currenti.",
         "de": "Elektrolysestrom.",
         "fr": "Courant d'électrolyse.",
         "es": "Corriente de electrólisis.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "sure",
-      "label": "Süre (s)",
+      "label": "Sure",
       "label_i18n": {
         "en": "Time (s)",
-        "tr": "Süre (s)",
-        "de": "Überstundenzuschlag einbeziehen",
+        "tr": "Duration (s)",
+        "de": "Uberstundenzuschlag einbeziehen",
         "fr": "Inclure la pénalité pour heures supplémentaires",
         "es": "Incluir Penalización por Horas Extra",
         "ar": "تضمين عقوبة العمل الإضافي"
@@ -45,10 +45,10 @@
       "unit": "s",
       "default": 3600,
       "min": 0,
-      "businessContext": "Akımın uygulandığı süre.",
+      "businessContext": "Sure",
       "businessContext_i18n": {
         "en": "Time current applied.",
-        "tr": "Akımın uygulandığı süre.",
+        "tr": "Currentin uygulandigi sure.",
         "de": "Zeit, in der der Strom angelegt wird.",
         "fr": "Durée d'application du courant.",
         "es": "Tiempo de aplicación de la corriente.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "esdegerAgirlik",
-      "label": "Eşdeğer Ağırlık (g/mol)",
+      "label": "EsdegerAgirlik",
       "label_i18n": {
         "en": "Equivalent Weight (g/mol)",
-        "tr": "Eşdeğer Ağırlık (g/mol)",
+        "tr": "EsValue Weight (g/mol)",
         "de": "Äquivalentgewicht (g/mol)",
         "fr": "Poids équivalent (g/mol)",
         "es": "Peso Equivalente (g/mol)",
@@ -70,10 +70,10 @@
       "unit": "g/mol",
       "default": 27,
       "min": 0,
-      "businessContext": "Maddenin eşdeğer kütlesi.",
+      "businessContext": "EsdegerAgirlik",
       "businessContext_i18n": {
         "en": "Element equivalent mass.",
-        "tr": "Maddenin eşdeğer kütlesi.",
+        "tr": "Maddenin esValue Masssi.",
         "de": "Äquivalente Masse des Elements.",
         "fr": "Masse équivalente de l'élément.",
         "es": "Masa equivalente del elemento.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "elektronSayisi",
-      "label": "Elektron Sayısı (n)",
+      "label": "ElektronSayisi",
       "label_i18n": {
         "en": "Electron Count (n)",
-        "tr": "Elektron Sayısı (n)",
+        "tr": "Elektron Count (n)",
         "de": "Elektronenzahl (n)",
         "fr": "Nombre d'électrons (n)",
         "es": "Número de Electrones (n)",
@@ -95,11 +95,11 @@
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "Reaksiyona giren elektron sayısı.",
+      "businessContext": "ElektronSayisi",
       "businessContext_i18n": {
         "en": "Number of electrons transferred.",
-        "tr": "Reaksiyona giren elektron sayısı.",
-        "de": "Anzahl der übertragenen Elektronen.",
+        "tr": "Reaksiyona giren elektron Numbersi.",
+        "de": "Anzahl der ubertragenen Elektronen.",
         "fr": "Nombre d'électrons transférés.",
         "es": "Número de electrones transferidos.",
         "ar": "عدد الإلكترونات المنقولة."
@@ -152,16 +152,16 @@
       "long": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
       "short_i18n": {
         "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "tr": "Elektrotta biriken veya çözünen madde miktarını Faraday elektroliz yasasıyla hesaplar.",
-        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder gelöste Masse mit dem Faradayschen Gesetz.",
+        "tr": "Elektrotta biriken veya cozunen madde Amountini Faraday elektroliz yasasiyla hesaplar.",
+        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder geloste Masse mit dem Faradayschen Gesetz.",
         "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
         "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
         "ar": "حساب الكتلة المترسبة أو المذابة عند القطب باستخدام قانون فاراداي."
       },
       "long_i18n": {
         "en": "Calculate mass deposited or dissolved at electrode using Faraday's law.",
-        "tr": "Elektrotta biriken veya çözünen madde miktarını Faraday elektroliz yasasıyla hesaplar.",
-        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder gelöste Masse mit dem Faradayschen Gesetz.",
+        "tr": "Elektrotta biriken veya cozunen madde Amountini Faraday elektroliz yasasiyla hesaplar.",
+        "de": "Berechnen Sie die an der Elektrode abgeschiedene oder geloste Masse mit dem Faradayschen Gesetz.",
         "fr": "Calculer la masse déposée ou dissoute à l'électrode en utilisant la loi de Faraday.",
         "es": "Calcular la masa depositada o disuelta en el electrodo usando la ley de Faraday.",
         "ar": "حساب الكتلة المترسبة أو المذابة عند القطب باستخدام قانون فاراداي."

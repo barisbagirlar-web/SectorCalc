@@ -2,15 +2,15 @@
   "toolName": "calibration-drift-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "sonHata",
-      "label": "Son Kalibrasyon Hatası (Birim)",
+      "label": "SonHata",
       "label_i18n": {
         "en": "Latest Error",
-        "tr": "Son Kalibrasyon Hatası (Birim)",
+        "tr": "Son Kalibrasyon Hatasi (Unit)",
         "de": "Letzter Fehler",
         "fr": "Erreur la plus récente",
         "es": "Último Error",
@@ -32,10 +32,10 @@
     },
     {
       "id": "oncekiHata",
-      "label": "Önceki Hata (Birim)",
+      "label": "OncekiHata",
       "label_i18n": {
         "en": "Previous Error",
-        "tr": "Önceki Hata (Birim)",
+        "tr": "Onceki Hata (Unit)",
         "de": "Vorheriger Fehler",
         "fr": "Erreur précédente",
         "es": "Error Anterior",
@@ -45,10 +45,10 @@
       "unit": "unit",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Bir önceki kalibrasyon hatası.",
+      "businessContext": "OncekiHata",
       "businessContext_i18n": {
         "en": "Previous calibration error.",
-        "tr": "Bir önceki kalibrasyon hatası.",
+        "tr": "Bir onceki kalibrasyon hatasi.",
         "de": "Vorheriger Kalibrierungsfehler.",
         "fr": "Erreur d'étalonnage précédente.",
         "es": "Error de calibración anterior.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "gecenSure",
-      "label": "Geçen Süre (Gün)",
+      "label": "GecenSure",
       "label_i18n": {
         "en": "Elapsed Time (Days)",
-        "tr": "Geçen Süre (Gün)",
+        "tr": "Gecen Sure (Gun)",
         "de": "Verstrichene Zeit (Days)",
         "fr": "Temps écoulé (Days)",
         "es": "Tiempo Transcurrido (Días)",
@@ -70,10 +70,10 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "İki kalibrasyon arası süre.",
+      "businessContext": "GecenSure",
       "businessContext_i18n": {
         "en": "Time between calibrations.",
-        "tr": "İki kalibrasyon arası süre.",
+        "tr": "Iki kalibrasyon arasi sure.",
         "de": "Zeit zwischen Kalibrierungen.",
         "fr": "Temps entre les étalonnages.",
         "es": "Tiempo entre calibraciones.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "unit/day",
     "breakdown": {
-      "sonuc": "Sapma Hızı"
+      "sonuc": "Sapma Speed"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sapma Hızı",
-        "tr": "Sapma Hızı",
+        "en": "Sapma Speed",
+        "tr": "Sapma Speed",
         "de": "Abweichungsrate",
         "fr": "Taux de déviation",
         "es": "Tasa de Desviación",
@@ -124,7 +124,7 @@
       "long": "Calculate measurement instrument drift rate over time.",
       "short_i18n": {
         "en": "Calculate measurement instrument drift rate over time.",
-        "tr": "Ölçüm cihazının zamanla bozulma hızını (sapma) hesaplar.",
+        "tr": "Olcum cihazinin zamanla bozulma Speedini (sapma) hesaplar.",
         "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
         "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
         "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate measurement instrument drift rate over time.",
-        "tr": "Ölçüm cihazının zamanla bozulma hızını (sapma) hesaplar.",
+        "tr": "Olcum cihazinin zamanla bozulma Speedini (sapma) hesaplar.",
         "de": "Berechnen Sie die Driftrate eines Messgeräts im Zeitverlauf.",
         "fr": "Calculer le taux de dérive d'un instrument de mesure au fil du temps.",
         "es": "Calcular la tasa de deriva del instrumento de medición a lo largo del tiempo.",

@@ -2,7 +2,7 @@
   "toolName": "fire-pump-power-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
@@ -32,10 +32,10 @@
     },
     {
       "id": "basinc",
-      "label": "Basınç (bar)",
+      "label": "Pressure (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
-        "tr": "Basınç (bar)",
+        "tr": "Pressure (bar)",
         "de": "Druck (bar)",
         "fr": "Pression (bar)",
         "es": "Presión (bar)",
@@ -45,10 +45,10 @@
       "unit": "bar",
       "default": 7,
       "min": 0,
-      "businessContext": "Gerekli basınç.",
+      "businessContext": "Gerekli Pressure.",
       "businessContext_i18n": {
         "en": "Required pressure.",
-        "tr": "Gerekli basınç.",
+        "tr": "Gerekli Pressure.",
         "de": "Erforderlicher Druck.",
         "fr": "Pression requise.",
         "es": "Presión requerida.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "HP",
     "breakdown": {
-      "sonuc": "Pompa Motor Gücü"
+      "sonuc": "Pump Motor Power"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Pompa Motor Gücü",
-        "tr": "Pompa Motor Gücü",
+        "en": "Pump Motor Power",
+        "tr": "Pump Motor Power",
         "de": "Pumpenmotorleistung",
         "fr": "Puissance du moteur de la pompe",
         "es": "Potencia del motor de la bomba",
@@ -126,16 +126,16 @@
       "long": "Calculate minimum fire pump motor power for hydrant system.",
       "short_i18n": {
         "en": "Calculate minimum fire pump motor power for hydrant system.",
-        "tr": "Hidrant sistemini besleyecek pompanın minimum motor gücünü hesaplar.",
-        "de": "Berechnen Sie die Mindestmotorleistung der Feuerlöschpumpe für das Hydrantensystem.",
+        "tr": "Hidrant sistemini besleyecek pompanin Minimum Motor Powernu hesaplar.",
+        "de": "Berechnen Sie die Mindestmotorleistung der Feuerloschpumpe fur das Hydrantensystem.",
         "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
         "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
         "ar": "حساب الحد الأدنى لقدرة محرك مضخة الحريق لنظام الحنفيات."
       },
       "long_i18n": {
         "en": "Calculate minimum fire pump motor power for hydrant system.",
-        "tr": "Hidrant sistemini besleyecek pompanın minimum motor gücünü hesaplar.",
-        "de": "Berechnen Sie die Mindestmotorleistung der Feuerlöschpumpe für das Hydrantensystem.",
+        "tr": "Hidrant sistemini besleyecek pompanin Minimum Motor Powernu hesaplar.",
+        "de": "Berechnen Sie die Mindestmotorleistung der Feuerloschpumpe fur das Hydrantensystem.",
         "fr": "Calculer la puissance minimale du moteur de la pompe à incendie pour un système de poteaux d'incendie.",
         "es": "Calcular la potencia mínima del motor de la bomba contra incendios para el sistema de hidrantes.",
         "ar": "حساب الحد الأدنى لقدرة محرك مضخة الحريق لنظام الحنفيات."
@@ -144,7 +144,7 @@
   },
   "title_i18n": {
     "en": "fire-pump-power-calculator",
-    "de": "Leistungsrechner für Feuerlöschpumpe",
+    "de": "Leistungsrechner fur Feuerloschpumpe",
     "fr": "Calculateur de puissance de pompe à incendie",
     "es": "Calculadora de potencia de bomba contra incendios",
     "ar": "حاسبة قدرة مضخة الحريق"

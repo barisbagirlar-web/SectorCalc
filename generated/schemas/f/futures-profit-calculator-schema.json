@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "girisFiyati",
-      "label": "Giriş Fiyatı (₺)",
+      "label": "GirisFiyati",
       "label_i18n": {
         "en": "Entry Price (USD)",
-        "tr": "Giriş Fiyatı (₺)",
+        "tr": "Input Fiyati (₺)",
         "de": "Einstiegspreis (USD)",
         "fr": "Prix d'entrée (USD)",
         "es": "Precio de Entrada (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Kontratın açılış fiyatı.",
+      "businessContext": "GirisFiyati",
       "businessContext_i18n": {
         "en": "Contract entry price.",
-        "tr": "Kontratın açılış fiyatı.",
+        "tr": "Kontratin acilis fiyati.",
         "de": "Einstiegspreis des Kontrakts.",
         "fr": "Prix d'entrée du contrat.",
         "es": "Precio de entrada del contrato.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "cikisFiyati",
-      "label": "Çıkış Fiyatı (₺)",
+      "label": "CikisFiyati",
       "label_i18n": {
         "en": "Exit Price (USD)",
-        "tr": "Çıkış Fiyatı (₺)",
+        "tr": "Output Fiyati (₺)",
         "de": "Ausstiegspreis (USD)",
         "fr": "Prix de sortie (USD)",
         "es": "Precio de Salida (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 105,
       "min": 0,
-      "businessContext": "Kontratın kapanış fiyatı.",
+      "businessContext": "CikisFiyati",
       "businessContext_i18n": {
         "en": "Contract exit price.",
-        "tr": "Kontratın kapanış fiyatı.",
+        "tr": "Kontratin kapanis fiyati.",
         "de": "Ausstiegspreis des Kontrakts.",
         "fr": "Prix de sortie du contrat.",
         "es": "Precio de salida del contrato.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "carpan",
-      "label": "Kontrat Çarpanı",
+      "label": "Carpan",
       "label_i18n": {
         "en": "Contract Multiplier",
-        "tr": "Kontrat Çarpanı",
+        "tr": "Kontrat Carpani",
         "de": "Kontraktmultiplikator",
         "fr": "Multiplicateur du contrat",
         "es": "Multiplicador del contrato",
@@ -70,11 +70,11 @@
       "unit": "scalar",
       "default": 100,
       "min": 1,
-      "businessContext": "Kontratın büyüklük çarpanı.",
+      "businessContext": "Carpan",
       "businessContext_i18n": {
         "en": "Contract size multiplier.",
-        "tr": "Kontratın büyüklük çarpanı.",
-        "de": "Multiplikator der Kontraktgröße.",
+        "tr": "Kontratin buyukluk carpani.",
+        "de": "Multiplikator der Kontraktgroße.",
         "fr": "Multiplicateur de taille du contrat.",
         "es": "Multiplicador del tamaño del contrato.",
         "ar": "مضاعف حجم العقد."
@@ -86,7 +86,7 @@
       "label_i18n": {
         "en": "Lot (Number)",
         "tr": "Lot (Adet)",
-        "de": "Losgröße (N)",
+        "de": "Losgroße (N)",
         "fr": "Taille du lot (N)",
         "es": "Tamaño de Lote (N)",
         "ar": "حجم الدفعة (N)"
@@ -95,10 +95,10 @@
       "unit": "lots",
       "default": 1,
       "min": 1,
-      "businessContext": "İşlem miktarı.",
+      "businessContext": "Lot",
       "businessContext_i18n": {
         "en": "Number of contracts traded.",
-        "tr": "İşlem miktarı.",
+        "tr": "Worklem Amounti.",
         "de": "Anzahl der gehandelten Kontrakte.",
         "fr": "Nombre de contrats négociés.",
         "es": "Número de contratos negociados.",
@@ -149,7 +149,7 @@
       "long": "Calculate profit/loss from futures contract price movement.",
       "short_i18n": {
         "en": "Calculate profit/loss from futures contract price movement.",
-        "tr": "Vadeli kontratın fiyat hareketinden doğan nakit kâr/zararını hesaplar.",
+        "tr": "Maturityli kontratin fiyat hareketinden dogan nakit kâr/zararini hesaplar.",
         "de": "Berechnen Sie Gewinn/Verlust aus der Preisbewegung eines Futures-Kontrakts.",
         "fr": "Calculer le profit/perte d'un contrat à terme à partir du mouvement de prix.",
         "es": "Calcular ganancia/pérdida del movimiento del precio de un contrato de futuros.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate profit/loss from futures contract price movement.",
-        "tr": "Vadeli kontratın fiyat hareketinden doğan nakit kâr/zararını hesaplar.",
+        "tr": "Maturityli kontratin fiyat hareketinden dogan nakit kâr/zararini hesaplar.",
         "de": "Berechnen Sie Gewinn/Verlust aus der Preisbewegung eines Futures-Kontrakts.",
         "fr": "Calculer le profit/perte d'un contrat à terme à partir du mouvement de prix.",
         "es": "Calcular ganancia/pérdida del movimiento del precio de un contrato de futuros.",

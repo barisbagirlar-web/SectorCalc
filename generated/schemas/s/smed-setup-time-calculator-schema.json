@@ -2,16 +2,16 @@
   "toolName": "smed-setup-time-calculator",
   "catalogCategory": "manufacturing-workshop",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "icAyar",
-      "label": "İç Ayar Süresi (Dk)",
+      "label": "IcAyar",
       "label_i18n": {
         "en": "Internal Setup (Min)",
-        "tr": "İç Ayar Süresi (Dk)",
-        "de": "Interne Rüstzeit pro Rüstvorgang (Minuten)",
+        "tr": "Ic Ayar Suresi (Dk)",
+        "de": "Interne Rustzeit pro Rustvorgang (Minuten)",
         "fr": "Temps de réglage interne par changement (minutes)",
         "es": "Tiempo de configuración interna por cambio (minutos)",
         "ar": "وقت الإعداد الداخلي لكل تغيير (بالدقائق)"
@@ -20,11 +20,11 @@
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "Makine dururken yapılan ayar.",
+      "businessContext": "IcAyar",
       "businessContext_i18n": {
         "en": "Setup done while machine stopped.",
-        "tr": "Makine dururken yapılan ayar.",
-        "de": "Rüsten bei stillstehender Maschine.",
+        "tr": "Makine dururken yapilan ayar.",
+        "de": "Rusten bei stillstehender Maschine.",
         "fr": "Réglage effectué pendant l'arrêt de la machine.",
         "es": "Preparación realizada mientras la máquina está detenida.",
         "ar": "الإعداد يتم أثناء توقف الماكينة."
@@ -32,11 +32,11 @@
     },
     {
       "id": "disAyar",
-      "label": "Dış Ayar Süresi (Dk)",
+      "label": "DisAyar",
       "label_i18n": {
         "en": "External Setup (Min)",
-        "tr": "Dış Ayar Süresi (Dk)",
-        "de": "Externe Rüstzeit pro Rüstvorgang (Minuten)",
+        "tr": "Dis Ayar Suresi (Dk)",
+        "de": "Externe Rustzeit pro Rustvorgang (Minuten)",
         "fr": "Temps de réglage externe par changement (minutes)",
         "es": "Tiempo de configuración externa por cambio (minutos)",
         "ar": "وقت الإعداد الخارجي لكل تغيير (بالدقائق)"
@@ -45,11 +45,11 @@
       "unit": "min",
       "default": 15,
       "min": 0,
-      "businessContext": "Makine çalışırken yapılan ayar.",
+      "businessContext": "DisAyar",
       "businessContext_i18n": {
         "en": "Setup done while machine runs.",
-        "tr": "Makine çalışırken yapılan ayar.",
-        "de": "Rüsten bei laufender Maschine.",
+        "tr": "Makine calisirken yapilan ayar.",
+        "de": "Rusten bei laufender Maschine.",
         "fr": "Réglage effectué pendant le fonctionnement de la machine.",
         "es": "Preparación realizada mientras la máquina funciona.",
         "ar": "الإعداد يتم أثناء تشغيل الماكينة."
@@ -57,10 +57,10 @@
     },
     {
       "id": "donusum",
-      "label": "İç-Dış Dönüşüm Oranı (%)",
+      "label": "Donusum",
       "label_i18n": {
         "en": "Conversion Rate (%)",
-        "tr": "İç-Dış Dönüşüm Oranı (%)",
+        "tr": "Ic-Dis Conversion Rate (%)",
         "de": "Currency Conversion Satz (to EUR)",
         "fr": "Currency Conversion Taux (to EUR)",
         "es": "Currency Conversion Tasa (to EUR)",
@@ -71,10 +71,10 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "İç ayarın ne kadarının dışa dönüştüğü.",
+      "businessContext": "Donusum",
       "businessContext_i18n": {
         "en": "Percentage of internal converted to external.",
-        "tr": "İç ayarın ne kadarının dışa dönüştüğü.",
+        "tr": "Ic ayarin ne kadarinin disa donustugu.",
         "de": "Prozentsatz der internen in externe umgewandelten Vorgänge.",
         "fr": "Pourcentage d'internes convertis en externes.",
         "es": "Porcentaje de interno convertido a externo.",
@@ -96,13 +96,13 @@
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Yeni Setup Süresi"
+      "sonuc": "Ymosti Setup Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yeni Setup Süresi",
-        "tr": "Yeni Setup Süresi",
-        "de": "Neue Rüstzeit",
+        "en": "Ymosti Setup Time",
+        "tr": "Ymosti Setup Time",
+        "de": "Neue Rustzeit",
         "fr": "Temps de nouveau réglage",
         "es": "Tiempo de Nueva Configuración",
         "ar": "مدة الإعداد الجديدة"
@@ -126,16 +126,16 @@
       "long": "Calculate reduced setup time by converting internal to external SMED adjustments.",
       "short_i18n": {
         "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-        "tr": "İç ayarların dış ayara çevrilmesiyle kısaltılmış setup süresini hesaplar.",
-        "de": "Berechnen Sie die reduzierte Rüstzeit durch Umwandlung interner in externe SMED-Anpassungen.",
+        "tr": "Ic ayarlarin dis ayara cevrilmesiyle kisaltilmis setup suresini hesaplar.",
+        "de": "Berechnen Sie die reduzierte Rustzeit durch Umwandlung interner in externe SMED-Anpassungen.",
         "fr": "Calculer le temps de réglage réduit en convertissant les réglages internes en externes SMED.",
         "es": "Calcular el tiempo de preparación reducido convirtiendo ajustes internos a externos SMED.",
         "ar": "حساب وقت الإعداد المخفض عن طريق تحويل التعديلات الداخلية إلى خارجية SMED."
       },
       "long_i18n": {
         "en": "Calculate reduced setup time by converting internal to external SMED adjustments.",
-        "tr": "İç ayarların dış ayara çevrilmesiyle kısaltılmış setup süresini hesaplar.",
-        "de": "Berechnen Sie die reduzierte Rüstzeit durch Umwandlung interner in externe SMED-Anpassungen.",
+        "tr": "Ic ayarlarin dis ayara cevrilmesiyle kisaltilmis setup suresini hesaplar.",
+        "de": "Berechnen Sie die reduzierte Rustzeit durch Umwandlung interner in externe SMED-Anpassungen.",
         "fr": "Calculer le temps de réglage réduit en convertissant les réglages internes en externes SMED.",
         "es": "Calcular el tiempo de preparación reducido convirtiendo ajustes internos a externos SMED.",
         "ar": "حساب وقت الإعداد المخفض عن طريق تحويل التعديلات الداخلية إلى خارجية SMED."

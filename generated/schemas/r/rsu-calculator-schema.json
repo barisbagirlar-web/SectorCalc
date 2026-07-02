@@ -2,7 +2,7 @@
   "toolName": "rsu-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "shares",
       "default": 1000,
       "min": 0,
-      "businessContext": "Hak kazanılan RSU hisse adedi.",
+      "businessContext": "HisseSayisi",
       "businessContext_i18n": {
         "en": "Vested RSU shares.",
-        "tr": "Hak kazanılan RSU hisse adedi.",
+        "tr": "Hak kazanilan RSU hisse adedi.",
         "de": "Unverfallbare RSU-Aktien.",
         "fr": "Actions RSU acquises.",
         "es": "Acciones RSU adquiridas.",
@@ -46,10 +46,10 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Dönemde hak kazanılan yüzde.",
+      "businessContext": "HakKazanma",
       "businessContext_i18n": {
         "en": "Vesting percentage.",
-        "tr": "Dönemde hak kazanılan yüzde.",
+        "tr": "Donemde hak kazanilan yuzde.",
         "de": "Unverfallbarkeitsprozentsatz.",
         "fr": "Pourcentage d'acquisition.",
         "es": "Porcentaje de adquisición.",
@@ -72,10 +72,10 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Stopaj oranı.",
+      "businessContext": "Withholding Rate.",
       "businessContext_i18n": {
         "en": "Withholding tax rate.",
-        "tr": "Stopaj oranı.",
+        "tr": "Withholding Rate.",
         "de": "Steuereinbehaltssatz.",
         "fr": "Taux de retenue d'impôt.",
         "es": "Tasa de retención de impuestos.",
@@ -126,7 +126,7 @@
       "long": "Calculate net RSU shares after tax withholding.",
       "short_i18n": {
         "en": "Calculate net RSU shares after tax withholding.",
-        "tr": "Vergi kesintisi sonrası ele geçen net hisse sayısını hesaplar.",
+        "tr": "Vergi kesintisi sonrasi ele gecen Net hisse Numbersini hesaplar.",
         "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
         "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
         "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",
@@ -134,7 +134,7 @@
       },
       "long_i18n": {
         "en": "Calculate net RSU shares after tax withholding.",
-        "tr": "Vergi kesintisi sonrası ele geçen net hisse sayısını hesaplar.",
+        "tr": "Vergi kesintisi sonrasi ele gecen Net hisse Numbersini hesaplar.",
         "de": "Berechnen Sie die Netto-RSU-Aktien nach Steuereinbehalt.",
         "fr": "Calculer les actions RSU nettes après retenue d'impôt.",
         "es": "Calcular las acciones netas de RSU después de la retención de impuestos.",

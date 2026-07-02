@@ -2,15 +2,15 @@
   "toolName": "gear-root-bending-stress-lewis-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Teğetsel Kuvvet (N)",
+      "label": "Yuk",
       "label_i18n": {
         "en": "Tangential Force (N)",
-        "tr": "Teğetsel Kuvvet (N)",
+        "tr": "Tegetsel Force (N)",
         "de": "Tangentialkraft (N)",
         "fr": "Force tangentielle (N)",
         "es": "Fuerza Tangencial (N)",
@@ -20,10 +20,10 @@
       "unit": "N",
       "default": 5000,
       "min": 0,
-      "businessContext": "Dişliye etkiyen teğetsel kuvvet.",
+      "businessContext": "Yuk",
       "businessContext_i18n": {
         "en": "Tangential gear force.",
-        "tr": "Dişliye etkiyen teğetsel kuvvet.",
+        "tr": "Disliye etkiyen tegetsel Force.",
         "de": "Tangentiale Zahnkraft.",
         "fr": "Force tangentielle de l'engrenage.",
         "es": "Fuerza tangencial del engranaje.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "modul",
-      "label": "Modül (m)",
+      "label": "Modeule (m)",
       "label_i18n": {
         "en": "Module (m)",
-        "tr": "Modül (m)",
+        "tr": "Modeule (m)",
         "de": "Modulbreite",
         "fr": "Largeur du module",
         "es": "Ancho del módulo",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Dişli modülü.",
+      "businessContext": "Modul",
       "businessContext_i18n": {
         "en": "Gear module.",
-        "tr": "Dişli modülü.",
+        "tr": "Disli Modeuleu.",
         "de": "Zahnmodul.",
         "fr": "Module de l'engrenage.",
         "es": "Módulo del engranaje.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "genislik",
-      "label": "Dişli Genişliği (m)",
+      "label": "Genislik",
       "label_i18n": {
         "en": "Face Width (m)",
-        "tr": "Dişli Genişliği (m)",
+        "tr": "Disli Genisligi (m)",
         "de": "Zahnbreite (m)",
         "fr": "Largeur de face (m)",
         "es": "Ancho de Cara (m)",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.04,
       "min": 0,
-      "businessContext": "Dişlinin yüz genişliği.",
+      "businessContext": "Genislik",
       "businessContext_i18n": {
         "en": "Gear face width.",
-        "tr": "Dişlinin yüz genişliği.",
+        "tr": "Dislinin yuz genisligi.",
         "de": "Zahnbreite des Zahnrads.",
         "fr": "Largeur de face de l'engrenage.",
         "es": "Ancho de cara del engranaje.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "formFaktoru",
-      "label": "Lewis Form Faktörü (Y)",
+      "label": "FormFaktoru",
       "label_i18n": {
         "en": "Lewis Form Factor (Y)",
-        "tr": "Lewis Form Faktörü (Y)",
+        "tr": "Lewis Form Faktoru (Y)",
         "de": "Lewis-Formfaktor (Y)",
         "fr": "Facteur de forme de Lewis (Y)",
         "es": "Factor de Forma de Lewis (Y)",
@@ -95,10 +95,10 @@
       "unit": "scalar",
       "default": 0.35,
       "min": 0,
-      "businessContext": "Diş sayısına bağlı faktör.",
+      "businessContext": "FormFaktoru",
       "businessContext_i18n": {
         "en": "Tooth count factor.",
-        "tr": "Diş sayısına bağlı faktör.",
+        "tr": "Number of Teethna bagli faktor.",
         "de": "Zähnezahlfaktor.",
         "fr": "Facteur de nombre de dents.",
         "es": "Factor de número de dientes.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Diş Kökü Gerilmesi"
+      "sonuc": "Dis Koku Gerilmesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Diş Kökü Gerilmesi",
-        "tr": "Diş Kökü Gerilmesi",
+        "en": "Dis Koku Gerilmesi",
+        "tr": "Dis Koku Gerilmesi",
         "de": "Zahnfußspannung",
         "fr": "Contrainte à la racine de la dent",
         "es": "Tensión en la Raíz del Diente",
@@ -149,7 +149,7 @@
       "long": "Calculate gear root bending stress using Lewis formula.",
       "short_i18n": {
         "en": "Calculate gear root bending stress using Lewis formula.",
-        "tr": "Dişli kökündeki maksimum eğilme gerilmesini Lewis formülü ile hesaplar.",
+        "tr": "Disli kokundeki Maximum Bending Stressni Lewis formulu ile hesaplar.",
         "de": "Berechnen Sie die Zahnfußbiegespannung mit der Lewis-Formel.",
         "fr": "Calculer la contrainte de flexion à la racine de la dent à l'aide de la formule de Lewis.",
         "es": "Calcular la tensión de flexión en la raíz del diente usando la fórmula de Lewis.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate gear root bending stress using Lewis formula.",
-        "tr": "Dişli kökündeki maksimum eğilme gerilmesini Lewis formülü ile hesaplar.",
+        "tr": "Disli kokundeki Maximum Bending Stressni Lewis formulu ile hesaplar.",
         "de": "Berechnen Sie die Zahnfußbiegespannung mit der Lewis-Formel.",
         "fr": "Calculer la contrainte de flexion à la racine de la dent à l'aide de la formule de Lewis.",
         "es": "Calcular la tensión de flexión en la raíz del diente usando la fórmula de Lewis.",
@@ -167,7 +167,7 @@
   },
   "title_i18n": {
     "en": "gear-root-bending-stress-lewis-calculator",
-    "de": "Lewis-Spannungsrechner für Stirnräder",
+    "de": "Lewis-Spannungsrechner fur Stirnräder",
     "fr": "Calculateur de contrainte Lewis pour engrenages droits",
     "es": "Calculadora de tensión Lewis para engranajes rectos",
     "ar": "حاسبة إجهاد لويس للتروس المستقيمة"

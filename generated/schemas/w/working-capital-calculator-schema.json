@@ -2,16 +2,16 @@
   "toolName": "working-capital-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "donenVarliklar",
-      "label": "Dönen Varlıklar (TL)",
+      "label": "DonenVarliklar",
       "label_i18n": {
         "en": "Current Assets (USD)",
-        "tr": "Dönen Varlıklar (TL)",
-        "de": "Umlaufvermögen",
+        "tr": "Donen Varliklar (TL)",
+        "de": "Umlaufvermogen",
         "fr": "Actifs courants",
         "es": "Activos Corrientes",
         "ar": "الأصول المتداولة"
@@ -20,11 +20,11 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Kısa vadeli varlıklar.",
+      "businessContext": "DonenVarliklar",
       "businessContext_i18n": {
         "en": "Short-term assets.",
-        "tr": "Kısa vadeli varlıklar.",
-        "de": "Kurzfristige Vermögenswerte.",
+        "tr": "Kisa Maturityli varliklar.",
+        "de": "Kurzfristige Vermogenswerte.",
         "fr": "Actifs à court terme.",
         "es": "Activos a corto plazo.",
         "ar": "الأصول قصيرة الأجل."
@@ -32,10 +32,10 @@
     },
     {
       "id": "kisaVadeliBorc",
-      "label": "Kısa Vadeli Borç (TL)",
+      "label": "KisaVadeliBorc",
       "label_i18n": {
         "en": "Current Liabilities (USD)",
-        "tr": "Kısa Vadeli Borç (TL)",
+        "tr": "Kisa Maturityli Borc (TL)",
         "de": "Kurzfristige Verbindlichkeiten",
         "fr": "Passifs courants",
         "es": "Pasivos Corrientes",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Kısa vadeli yükümlülükler.",
+      "businessContext": "KisaVadeliBorc",
       "businessContext_i18n": {
         "en": "Short-term obligations.",
-        "tr": "Kısa vadeli yükümlülükler.",
+        "tr": "Kisa Maturityli yukumlulukler.",
         "de": "Kurzfristige Verbindlichkeiten.",
         "fr": "Obligations à court terme.",
         "es": "Obligaciones a corto plazo.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Çalışma Sermayesi"
+      "sonuc": "Net Calisma Sermayesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Çalışma Sermayesi",
-        "tr": "Net Çalışma Sermayesi",
+        "en": "Net Calisma Sermayesi",
+        "tr": "Net Calisma Sermayesi",
         "de": "Net Working Capital",
         "fr": "Besoin en fonds de roulement net",
         "es": "Capital de Trabajo Neto",
@@ -99,16 +99,16 @@
       "long": "Calculate working capital (current assets - current liabilities).",
       "short_i18n": {
         "en": "Calculate working capital (current assets - current liabilities).",
-        "tr": "Şirketin kısa vadeli likidite gücünü (çalışma sermayesi) hesaplar.",
-        "de": "Berechnen Sie das Betriebskapital (Umlaufvermögen - kurzfristige Verbindlichkeiten).",
+        "tr": "Sirketin kisa Maturityli likidite gucunu (calisma sermayesi) hesaplar.",
+        "de": "Berechnen Sie das Betriebskapital (Umlaufvermogen - kurzfristige Verbindlichkeiten).",
         "fr": "Calculer le fonds de roulement (actifs courants - passifs courants).",
         "es": "Calcular el capital de trabajo (activos corrientes - pasivos corrientes).",
         "ar": "حساب رأس المال العامل (الأصول المتداولة - الخصوم المتداولة)."
       },
       "long_i18n": {
         "en": "Calculate working capital (current assets - current liabilities).",
-        "tr": "Şirketin kısa vadeli likidite gücünü (çalışma sermayesi) hesaplar.",
-        "de": "Berechnen Sie das Betriebskapital (Umlaufvermögen - kurzfristige Verbindlichkeiten).",
+        "tr": "Sirketin kisa Maturityli likidite gucunu (calisma sermayesi) hesaplar.",
+        "de": "Berechnen Sie das Betriebskapital (Umlaufvermogen - kurzfristige Verbindlichkeiten).",
         "fr": "Calculer le fonds de roulement (actifs courants - passifs courants).",
         "es": "Calcular el capital de trabajo (activos corrientes - pasivos corrientes).",
         "ar": "حساب رأس المال العامل (الأصول المتداولة - الخصوم المتداولة)."

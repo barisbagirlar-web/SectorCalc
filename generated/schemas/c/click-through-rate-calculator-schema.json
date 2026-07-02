@@ -2,15 +2,15 @@
   "toolName": "click-through-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "tiklama",
-      "label": "Tıklama (Adet)",
+      "label": "Tiklama",
       "label_i18n": {
         "en": "Clicks",
-        "tr": "Tıklama (Adet)",
+        "tr": "Tiklama (Quantity)",
         "de": "Klicks",
         "fr": "Clics",
         "es": "Clics",
@@ -20,10 +20,10 @@
       "unit": "clicks",
       "default": 500,
       "min": 0,
-      "businessContext": "Reklama yapılan tıklamalar.",
+      "businessContext": "Tiklama",
       "businessContext_i18n": {
         "en": "Ad clicks.",
-        "tr": "Reklama yapılan tıklamalar.",
+        "tr": "Reklama yapilan tiklamalar.",
         "de": "Anzeigenklicks.",
         "fr": "Clics sur l'annonce.",
         "es": "Clics en anuncios.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "gosterim",
-      "label": "Gösterim (Adet)",
+      "label": "Gosterim",
       "label_i18n": {
         "en": "Impressions",
-        "tr": "Gösterim (Adet)",
+        "tr": "Gosterim (Quantity)",
         "de": "Impressionen",
         "fr": "Impressions",
         "es": "Impresiones",
@@ -45,10 +45,10 @@
       "unit": "impressions",
       "default": 50000,
       "min": 1,
-      "businessContext": "Reklamın görüntülenme sayısı.",
+      "businessContext": "Gosterim",
       "businessContext_i18n": {
         "en": "Ad display count.",
-        "tr": "Reklamın görüntülenme sayısı.",
+        "tr": "Reklamin goruntulenme Numbersi.",
         "de": "Anzeigenanzahl der Ausspielungen.",
         "fr": "Nombre d'affichages de l'annonce.",
         "es": "Recuento de visualizaciones del anuncio.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Tıklama Oranı (CTR)"
+      "sonuc": "Tiklama Ratioi (CTR)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tıklama Oranı (CTR)",
-        "tr": "Tıklama Oranı (CTR)",
+        "en": "Tiklama Ratioi (CTR)",
+        "tr": "Tiklama Ratioi (CTR)",
         "de": "Klickrate (CTR)",
         "fr": "Taux de clics (CTR)",
         "es": "Tasa de Clics (CTR)",
@@ -99,16 +99,16 @@
       "long": "Calculate click-through rate (CTR) for ads.",
       "short_i18n": {
         "en": "Calculate click-through rate (CTR) for ads.",
-        "tr": "Reklamın ne kadar ilgi çektiğini gösteren tıklama oranını hesaplar.",
-        "de": "Berechnen Sie die Klickrate (CTR) für Anzeigen.",
+        "tr": "Reklamin ne kadar ilgi cektigini gosteren tiklama Ratioini hesaplar.",
+        "de": "Berechnen Sie die Klickrate (CTR) fur Anzeigen.",
         "fr": "Calculer le taux de clics (CTR) pour les annonces.",
         "es": "Calcular la tasa de clics (CTR) para anuncios.",
         "ar": "حساب نسبة النقر إلى الظهور (CTR) للإعلانات."
       },
       "long_i18n": {
         "en": "Calculate click-through rate (CTR) for ads.",
-        "tr": "Reklamın ne kadar ilgi çektiğini gösteren tıklama oranını hesaplar.",
-        "de": "Berechnen Sie die Klickrate (CTR) für Anzeigen.",
+        "tr": "Reklamin ne kadar ilgi cektigini gosteren tiklama Ratioini hesaplar.",
+        "de": "Berechnen Sie die Klickrate (CTR) fur Anzeigen.",
         "fr": "Calculer le taux de clics (CTR) pour les annonces.",
         "es": "Calcular la tasa de clics (CTR) para anuncios.",
         "ar": "حساب نسبة النقر إلى الظهور (CTR) للإعلانات."

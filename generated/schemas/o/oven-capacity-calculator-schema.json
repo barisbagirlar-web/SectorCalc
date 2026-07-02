@@ -2,15 +2,15 @@
   "toolName": "oven-capacity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "tavaSayisi",
-      "label": "Tava Sayısı (Adet/lot)",
+      "label": "TavaSayisi",
       "label_i18n": {
         "en": "Number of Trays",
-        "tr": "Tava Sayısı (Adet/lot)",
+        "tr": "Tava Count (Quantity/lot)",
         "de": "Anzahl der Tabletts",
         "fr": "Nombre de plateaux",
         "es": "Número de bandejas",
@@ -20,10 +20,10 @@
       "unit": "trays",
       "default": 10,
       "min": 0,
-      "businessContext": "Fırına giren tava sayısı.",
+      "businessContext": "TavaSayisi",
       "businessContext_i18n": {
         "en": "Trays per batch.",
-        "tr": "Fırına giren tava sayısı.",
+        "tr": "Firina giren tava Numbersi.",
         "de": "Tabletts pro Charge.",
         "fr": "Plateaux par lot.",
         "es": "Bandejas por lote.",
@@ -45,10 +45,10 @@
       "unit": "kg",
       "default": 5,
       "min": 0,
-      "businessContext": "Her tavadaki ürün miktarı.",
+      "businessContext": "Her tavadaki Crop Yield.",
       "businessContext_i18n": {
         "en": "Product per tray.",
-        "tr": "Her tavadaki ürün miktarı.",
+        "tr": "Her tavadaki Crop Yield.",
         "de": "Produkt pro Tablett.",
         "fr": "Produit par plateau.",
         "es": "Producto por bandeja.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "pismeSure",
-      "label": "Pişme Süresi (dk)",
+      "label": "PismeSure",
       "label_i18n": {
         "en": "Baking Time (min)",
-        "tr": "Pişme Süresi (dk)",
+        "tr": "Pisme Suresi (dk)",
         "de": "Backzeit (min)",
         "fr": "Temps de cuisson (min)",
         "es": "Tiempo de horneado (min)",
@@ -70,10 +70,10 @@
       "unit": "min",
       "default": 20,
       "min": 0,
-      "businessContext": "Bir lot pişme süresi.",
+      "businessContext": "PismeSure",
       "businessContext_i18n": {
         "en": "Baking time per batch.",
-        "tr": "Bir lot pişme süresi.",
+        "tr": "Bir lot pisme suresi.",
         "de": "Backzeit pro Charge.",
         "fr": "Temps de cuisson par lot.",
         "es": "Tiempo de horneado por lote.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "kg/h",
     "breakdown": {
-      "sonuc": "Fırın Kapasitesi"
+      "sonuc": "Oven Capacity"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Fırın Kapasitesi",
-        "tr": "Fırın Kapasitesi",
+        "en": "Oven Capacity",
+        "tr": "Oven Capacity",
         "de": "Ofenkapazität",
         "fr": "Capacité du four",
         "es": "Capacidad del Horno",
@@ -126,16 +126,16 @@
       "long": "Calculate oven hourly baking capacity.",
       "short_i18n": {
         "en": "Calculate oven hourly baking capacity.",
-        "tr": "Fırının saatlik net pişirme çıktısını (kapasite) hesaplar.",
-        "de": "Berechnen Sie die stündliche Backkapazität des Ofens.",
+        "tr": "Firinin saatlik Net pisirme ciktisini (kapasite) hesaplar.",
+        "de": "Berechnen Sie die stundliche Backkapazität des Ofens.",
         "fr": "Calculer la capacité horaire de cuisson du four.",
         "es": "Calcular la capacidad horaria de horneado del horno.",
         "ar": "احسب سعة الخبز في الفرن بالساعة."
       },
       "long_i18n": {
         "en": "Calculate oven hourly baking capacity.",
-        "tr": "Fırının saatlik net pişirme çıktısını (kapasite) hesaplar.",
-        "de": "Berechnen Sie die stündliche Backkapazität des Ofens.",
+        "tr": "Firinin saatlik Net pisirme ciktisini (kapasite) hesaplar.",
+        "de": "Berechnen Sie die stundliche Backkapazität des Ofens.",
         "fr": "Calculer la capacité horaire de cuisson du four.",
         "es": "Calcular la capacidad horaria de horneado del horno.",
         "ar": "احسب سعة الخبز في الفرن بالساعة."

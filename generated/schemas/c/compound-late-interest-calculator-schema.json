@@ -20,10 +20,10 @@
       "unit": "TL",
       "default": 10000,
       "min": 0,
-      "businessContext": "Ana borç tutarı.",
+      "businessContext": "Anapara",
       "businessContext_i18n": {
         "en": "Principal debt amount.",
-        "tr": "Ana borç tutarı.",
+        "tr": "Ana borc tutari.",
         "de": "Hauptschuldbetrag.",
         "fr": "Montant de la dette principale.",
         "es": "Monto de la deuda principal.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yillikFaiz",
-      "label": "Yıllık Gecikme Faizi (%)",
+      "label": "YillikFaiz",
       "label_i18n": {
         "en": "Annual Late Interest (%)",
-        "tr": "Yıllık Gecikme Faizi (%)",
+        "tr": "Annual Gecikme Interesti (%)",
         "de": "Jährlicher Verzugszins (%)",
         "fr": "Intérêt annuel de retard (%)",
         "es": "Interés Anual por Mora (%)",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 24,
       "min": 0,
-      "businessContext": "Yasal temerrüt faiz oranı.",
+      "businessContext": "YillikFaiz",
       "businessContext_i18n": {
         "en": "Legal default interest rate.",
-        "tr": "Yasal temerrüt faiz oranı.",
+        "tr": "Yasal temerrut Interest Rate.",
         "de": "Gesetzlicher Verzugszinssatz.",
         "fr": "Taux d'intérêt légal par défaut.",
         "es": "Tasa de interés legal por defecto.",
@@ -57,11 +57,11 @@
     },
     {
       "id": "gecikmeGun",
-      "label": "Gecikme Günü",
+      "label": "GecikmeGun",
       "label_i18n": {
         "en": "Days Overdue",
-        "tr": "Gecikme Günü",
-        "de": "Überfällige Tage",
+        "tr": "Gecikme Gunu",
+        "de": "Uberfällige Tage",
         "fr": "Jours de retard",
         "es": "Días de Vencimiento",
         "ar": "أيام التأخير"
@@ -70,10 +70,10 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "Vade aşımı süresi.",
+      "businessContext": "GecikmeGun",
       "businessContext_i18n": {
         "en": "Days past due.",
-        "tr": "Vade aşımı süresi.",
+        "tr": "Maturity asimi suresi.",
         "de": "Tage nach Fälligkeit.",
         "fr": "Jours de dépassement de l'échéance.",
         "es": "Días vencidos.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "bilesimSikligi",
-      "label": "Bileşim Sıklığı (Gün)",
+      "label": "BilesimSikligi",
       "label_i18n": {
         "en": "Compounding Frequency (Days)",
-        "tr": "Bileşim Sıklığı (Gün)",
+        "tr": "Bilesim Sikligi (Gun)",
         "de": "Zinseszinshäufigkeit",
         "fr": "Fréquence de capitalisation",
         "es": "Frecuencia de Capitalización",
@@ -95,10 +95,10 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Faizin anaparaya eklendiği periyot.",
+      "businessContext": "BilesimSikligi",
       "businessContext_i18n": {
         "en": "Interest capitalization period.",
-        "tr": "Faizin anaparaya eklendiği periyot.",
+        "tr": "Faizin Principalya eklendigi periyot.",
         "de": "Zinskapitalisierungszeitraum.",
         "fr": "Période de capitalisation des intérêts.",
         "es": "Período de capitalización de intereses.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "TL",
     "breakdown": {
-      "sonuc": "Toplam Borç"
+      "sonuc": "Total Liabilities"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Toplam Borç",
-        "tr": "Toplam Borç",
+        "en": "Total Liabilities",
+        "tr": "Total Liabilities",
         "de": "Gesamtschuld",
         "fr": "Dette totale",
         "es": "Deuda Total",
@@ -152,7 +152,7 @@
       "long": "Calculate compound late payment interest on principal debt.",
       "short_i18n": {
         "en": "Calculate compound late payment interest on principal debt.",
-        "tr": "Temerrüt faizinin anaparaya eklendiği yasal toplam borç tutarını hesaplar.",
+        "tr": "Temerrut faizinin Principalya eklendigi yasal Total Liabilities tutarini hesaplar.",
         "de": "Berechnen Sie die Verzugszinsen auf die Hauptschuld bei Zinseszins.",
         "fr": "Calculer les intérêts de retard composés sur la dette principale.",
         "es": "Calcular el interés compuesto por mora sobre la deuda principal.",
@@ -160,7 +160,7 @@
       },
       "long_i18n": {
         "en": "Calculate compound late payment interest on principal debt.",
-        "tr": "Temerrüt faizinin anaparaya eklendiği yasal toplam borç tutarını hesaplar.",
+        "tr": "Temerrut faizinin Principalya eklendigi yasal Total Liabilities tutarini hesaplar.",
         "de": "Berechnen Sie die Verzugszinsen auf die Hauptschuld bei Zinseszins.",
         "fr": "Calculer les intérêts de retard composés sur la dette principale.",
         "es": "Calcular el interés compuesto por mora sobre la deuda principal.",

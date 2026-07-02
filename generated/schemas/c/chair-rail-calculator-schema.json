@@ -2,15 +2,15 @@
   "toolName": "chair-rail-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "duvarUzunlugu",
-      "label": "Duvar Uzunluğu (m)",
+      "label": "DuvarUzunlugu",
       "label_i18n": {
         "en": "Wall Length (m)",
-        "tr": "Duvar Uzunluğu (m)",
+        "tr": "Wall Lmostgth (m)",
         "de": "Wandlänge",
         "fr": "Longueur du mur",
         "es": "Longitud de la pared",
@@ -20,11 +20,11 @@
       "unit": "m",
       "default": 20,
       "min": 0,
-      "businessContext": "Korkuluk çekilecek duvar.",
+      "businessContext": "DuvarUzunlugu",
       "businessContext_i18n": {
         "en": "Wall length for chair rail.",
-        "tr": "Korkuluk çekilecek duvar.",
-        "de": "Wandlänge für Sockelleiste.",
+        "tr": "Korkuluk cekilecek duvar.",
+        "de": "Wandlänge fur Sockelleiste.",
         "fr": "Longueur du mur pour la cimaise.",
         "es": "Longitud de la pared para la barandilla.",
         "ar": "طول الجدار لسكة الكرسي."
@@ -74,16 +74,16 @@
       "long": "Calculate chair rail length needed for room.",
       "short_i18n": {
         "en": "Calculate chair rail length needed for room.",
-        "tr": "Duvar ortasına monte edilecek dekoratif profil boyunu hesaplar.",
-        "de": "Berechnen Sie die benötigte Länge der Sockelleiste für den Raum.",
+        "tr": "Duvar ortasina monte edilecek dekoratif profil Heightunu hesaplar.",
+        "de": "Berechnen Sie die benotigte Länge der Sockelleiste fur den Raum.",
         "fr": "Calculer la longueur de la cimaise nécessaire pour la pièce.",
         "es": "Calcular la longitud de la barandilla necesaria para la habitación.",
         "ar": "احسب طول سكة الكرسي اللازمة للغرفة."
       },
       "long_i18n": {
         "en": "Calculate chair rail length needed for room.",
-        "tr": "Duvar ortasına monte edilecek dekoratif profil boyunu hesaplar.",
-        "de": "Berechnen Sie die benötigte Länge der Sockelleiste für den Raum.",
+        "tr": "Duvar ortasina monte edilecek dekoratif profil Heightunu hesaplar.",
+        "de": "Berechnen Sie die benotigte Länge der Sockelleiste fur den Raum.",
         "fr": "Calculer la longueur de la cimaise nécessaire pour la pièce.",
         "es": "Calcular la longitud de la barandilla necesaria para la habitación.",
         "ar": "احسب طول سكة الكرسي اللازمة للغرفة."

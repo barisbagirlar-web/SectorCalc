@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "Portföy Getirisi (%)",
+      "label": "PortfoyGetirisi",
       "label_i18n": {
         "en": "Portfolio Return (%)",
-        "tr": "Portföy Getirisi (%)",
+        "tr": "Portfoy Getirisi (%)",
         "de": "Portfoliorendite (%)",
         "fr": "Rendement du portefeuille (%)",
         "es": "Rendimiento de la cartera (%)",
@@ -20,10 +20,10 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portföyün dönemsel getirisi.",
+      "businessContext": "PortfoyGetirisi",
       "businessContext_i18n": {
         "en": "Portfolio return.",
-        "tr": "Portföyün dönemsel getirisi.",
+        "tr": "Portfoyun donemsel getirisi.",
         "de": "Portfoliorendite.",
         "fr": "Rendement du portefeuille.",
         "es": "Rendimiento de la cartera.",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risksiz varlık getirisi.",
+      "businessContext": "RisksizFaiz",
       "businessContext_i18n": {
         "en": "Risk-free rate.",
-        "tr": "Risksiz varlık getirisi.",
+        "tr": "Risksiz varlik getirisi.",
         "de": "Risikofreier Zinssatz.",
         "fr": "Taux sans risque.",
         "es": "Tasa libre de riesgo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "beta",
-      "label": "Beta (Sayı)",
+      "label": "Beta (Number)",
       "label_i18n": {
         "en": "Beta (Number)",
-        "tr": "Beta (Sayı)",
+        "tr": "Beta (Number)",
         "de": "Beta (Anzahl)",
         "fr": "Bêta",
         "es": "Beta (Número)",
@@ -70,10 +70,10 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Portföyün piyasa duyarlılığı.",
+      "businessContext": "Beta",
       "businessContext_i18n": {
         "en": "Portfolio market sensitivity.",
-        "tr": "Portföyün piyasa duyarlılığı.",
+        "tr": "Portfoyun piyasa duyarliligi.",
         "de": "Marktsensitivität des Portfolios.",
         "fr": "Sensibilité du portefeuille au marché.",
         "es": "Sensibilidad del portafolio al mercado.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Treynor Oranı"
+      "sonuc": "Treynor Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Treynor Oranı",
-        "tr": "Treynor Oranı",
+        "en": "Treynor Ratio",
+        "tr": "Treynor Ratio",
         "de": "Treynor Ratio",
         "fr": "Ratio de Treynor",
         "es": "Ratio de Treynor",
@@ -124,16 +124,16 @@
       "long": "Calculate the Treynor ratio — excess return per unit of systematic risk (beta).",
       "short_i18n": {
         "en": "Calculate the Treynor ratio — excess return per unit of systematic risk (beta).",
-        "tr": "Sistematik risk (Beta) başına üretilen fazla getiriyi (Treynor) hesaplar.",
-        "de": "Berechnen Sie die Treynor-Ratio — Überschussrendite pro Einheit systematischen Risikos (Beta).",
+        "tr": "Sistematik risk (Beta) basina uretilen fazla getiriyi (Treynor) hesaplar.",
+        "de": "Berechnen Sie die Treynor-Ratio — Uberschussrendite pro Einheit systematischen Risikos (Beta).",
         "fr": "Calculer le ratio de Treynor — rendement excédentaire par unité de risque systématique (bêta).",
         "es": "Calcular el ratio Treynor — exceso de rendimiento por unidad de riesgo sistemático (beta).",
         "ar": "حساب نسبة ترينور — العائد الزائد لكل وحدة من المخاطر النظامية (بيتا)."
       },
       "long_i18n": {
         "en": "Calculate the Treynor ratio — excess return per unit of systematic risk (beta).",
-        "tr": "Sistematik risk (Beta) başına üretilen fazla getiriyi (Treynor) hesaplar.",
-        "de": "Berechnen Sie die Treynor-Ratio — Überschussrendite pro Einheit systematischen Risikos (Beta).",
+        "tr": "Sistematik risk (Beta) basina uretilen fazla getiriyi (Treynor) hesaplar.",
+        "de": "Berechnen Sie die Treynor-Ratio — Uberschussrendite pro Einheit systematischen Risikos (Beta).",
         "fr": "Calculer le ratio de Treynor — rendement excédentaire par unité de risque systématique (bêta).",
         "es": "Calcular el ratio Treynor — exceso de rendimiento por unidad de riesgo sistemático (beta).",
         "ar": "حساب نسبة ترينور — العائد الزائد لكل وحدة من المخاطر النظامية (بيتا)."

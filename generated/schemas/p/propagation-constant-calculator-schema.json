@@ -2,15 +2,15 @@
   "toolName": "propagation-constant-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "direnc",
-      "label": "Birim Direnç (Ω/m)",
+      "label": "Unit Resistance (Ω/m)",
       "label_i18n": {
         "en": "Unit Resistance (Ω/m)",
-        "tr": "Birim Direnç (Ω/m)",
+        "tr": "Unit Resistance (Ω/m)",
         "de": "Widerstand pro Längeneinheit (Ω/m)",
         "fr": "Résistance linéique (Ω/m)",
         "es": "Resistencia Unitaria (Ω/m)",
@@ -32,10 +32,10 @@
     },
     {
       "id": "induktans",
-      "label": "Birim İndüktans (H/m)",
+      "label": "Induktans",
       "label_i18n": {
         "en": "Unit Inductance (H/m)",
-        "tr": "Birim İndüktans (H/m)",
+        "tr": "Unit Induktans (H/m)",
         "de": "Induktivität pro Längeneinheit (H/m)",
         "fr": "Inductance linéique (H/m)",
         "es": "Inductancia Unitaria (H/m)",
@@ -45,10 +45,10 @@
       "unit": "H/m",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Hat endüktansı.",
+      "businessContext": "Induktans",
       "businessContext_i18n": {
         "en": "Line inductance.",
-        "tr": "Hat endüktansı.",
+        "tr": "Hat Inductancei.",
         "de": "Leitungsinduktivität.",
         "fr": "Inductance de la ligne.",
         "es": "Inductancia de línea.",
@@ -95,10 +95,10 @@
       "unit": "Hz",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Çalışma frekansı.",
+      "businessContext": "Frekans",
       "businessContext_i18n": {
         "en": "Operating frequency.",
-        "tr": "Çalışma frekansı.",
+        "tr": "Calisma Frequencyi.",
         "de": "Betriebsfrequenz.",
         "fr": "Fréquence de fonctionnement.",
         "es": "Frecuencia de operación.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "Np/m",
     "breakdown": {
-      "sonuc": "Zayıflama Sabiti (α)"
+      "sonuc": "Zayiflama Sabiti (α)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Zayıflama Sabiti (α)",
-        "tr": "Zayıflama Sabiti (α)",
+        "en": "Zayiflama Sabiti (α)",
+        "tr": "Zayiflama Sabiti (α)",
         "de": "Dämpfungskonstante (α)",
         "fr": "Constante d'atténuation (α)",
         "es": "Constante de Atenuación (α)",
@@ -153,16 +153,16 @@
       "long": "Calculate transmission line propagation constant (gamma).",
       "short_i18n": {
         "en": "Calculate transmission line propagation constant (gamma).",
-        "tr": "İletim hattındaki zayıflama ve faz değişim katsayısını (yayılma sabiti) hesaplar.",
-        "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Übertragungsleitung.",
+        "tr": "Iletim hattindaki zayiflama ve faz degisim katNumbersini (yayilma sabiti) hesaplar.",
+        "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Ubertragungsleitung.",
         "fr": "Calculer la constante de propagation de la ligne de transmission (gamma).",
         "es": "Calcular la constante de propagación de la línea de transmisión (gamma).",
         "ar": "احسب ثابت انتشار خط النقل (جاما)."
       },
       "long_i18n": {
         "en": "Calculate transmission line propagation constant (gamma).",
-        "tr": "İletim hattındaki zayıflama ve faz değişim katsayısını (yayılma sabiti) hesaplar.",
-        "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Übertragungsleitung.",
+        "tr": "Iletim hattindaki zayiflama ve faz degisim katNumbersini (yayilma sabiti) hesaplar.",
+        "de": "Berechnen Sie die Ausbreitungskonstante (gamma) einer Ubertragungsleitung.",
         "fr": "Calculer la constante de propagation de la ligne de transmission (gamma).",
         "es": "Calcular la constante de propagación de la línea de transmisión (gamma).",
         "ar": "احسب ثابت انتشار خط النقل (جاما)."
@@ -171,7 +171,7 @@
   },
   "title_i18n": {
     "en": "propagation-constant-calculator",
-    "de": "Rechner für Ausbreitungskonstante",
+    "de": "Rechner fur Ausbreitungskonstante",
     "fr": "Calculateur de constante de propagation",
     "es": "Calculadora de constante de propagación",
     "ar": "حاسبة ثابت الانتشار"

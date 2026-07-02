@@ -7,11 +7,11 @@
   "inputs": [
     {
       "id": "satis",
-      "label": "Satış Bedeli (₺)",
+      "label": "Satis",
       "label_i18n": {
         "en": "Sale Proceeds (USD)",
-        "tr": "Satış Bedeli (₺)",
-        "de": "Verkaufserlös (USD)",
+        "tr": "Satis Bedeli (₺)",
+        "de": "Verkaufserlos (USD)",
         "fr": "Produit de la vente (USD)",
         "es": "Ingresos por Venta (USD)",
         "ar": "حصيلة البيع (USD)"
@@ -20,11 +20,11 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Varlığın satış bedeli.",
+      "businessContext": "Satis",
       "businessContext_i18n": {
         "en": "Asset sale proceeds.",
-        "tr": "Varlığın satış bedeli.",
-        "de": "Verkaufserlös des Vermögenswerts.",
+        "tr": "Varligin satis bedeli.",
+        "de": "Verkaufserlos des Vermogenswerts.",
         "fr": "Produit de la vente d'actifs.",
         "es": "Ingresos por venta de activos.",
         "ar": "حصيلة بيع الأصل."
@@ -32,10 +32,10 @@
     },
     {
       "id": "alis",
-      "label": "Alış Bedeli (₺)",
+      "label": "Alis",
       "label_i18n": {
         "en": "Cost Basis (USD)",
-        "tr": "Alış Bedeli (₺)",
+        "tr": "Alis Bedeli (₺)",
         "de": "Anpassungen der Kostenbasis",
         "fr": "Ajustements de la base de coût",
         "es": "Ajustes de base de costo",
@@ -45,11 +45,11 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Varlığın satın alma maliyeti.",
+      "businessContext": "Alis",
       "businessContext_i18n": {
         "en": "Asset purchase cost.",
-        "tr": "Varlığın satın alma maliyeti.",
-        "de": "Anschaffungskosten des Vermögenswerts.",
+        "tr": "Varligin satin alma Costi.",
+        "de": "Anschaffungskosten des Vermogenswerts.",
         "fr": "Coût d'achat de l'actif.",
         "es": "Costo de compra del activo.",
         "ar": "تكلفة شراء الأصل."
@@ -57,10 +57,10 @@
     },
     {
       "id": "vergiOrani",
-      "label": "Vergi Oranı (%)",
+      "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Vergi Oranı (%)",
+        "tr": "Tax Ratio (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa Impositiva (%)",
@@ -71,10 +71,10 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Sermaye kazancı vergi oranı.",
+      "businessContext": "VergiOrani",
       "businessContext_i18n": {
         "en": "Capital gains tax rate.",
-        "tr": "Sermaye kazancı vergi oranı.",
+        "tr": "Sermaye kazanci Tax Rate.",
         "de": "Kapitalertragssteuersatz.",
         "fr": "Taux d'imposition des plus-values.",
         "es": "Tasa impositiva sobre ganancias de capital.",
@@ -83,10 +83,10 @@
     },
     {
       "id": "istisna",
-      "label": "İstisna Tutarı (₺)",
+      "label": "Istisna",
       "label_i18n": {
         "en": "Exemption Amount (USD)",
-        "tr": "İstisna Tutarı (₺)",
+        "tr": "Istisna Tutari (₺)",
         "de": "Freibetragsbetrag",
         "fr": "Montant de l'exonération",
         "es": "Monto de exención",
@@ -96,10 +96,10 @@
       "unit": "USD",
       "default": 0,
       "min": 0,
-      "businessContext": "Vergiden muaf kısım.",
+      "businessContext": "Istisna",
       "businessContext_i18n": {
         "en": "Tax-free allowance.",
-        "tr": "Vergiden muaf kısım.",
+        "tr": "Vergiden muaf kisim.",
         "de": "Steuerfreibetrag.",
         "fr": "Abattement fiscal.",
         "es": "Exención fiscal.",
@@ -121,12 +121,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Ödenecek Sermaye Kazancı Vergisi"
+      "sonuc": "Odenecek Capital Gains Tax"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ödenecek Sermaye Kazancı Vergisi",
-        "tr": "Ödenecek Sermaye Kazancı Vergisi",
+        "en": "Odenecek Capital Gains Tax",
+        "tr": "Odenecek Capital Gains Tax",
         "de": "Zahlbare Kapitalertragssteuer",
         "fr": "Impôt sur les plus-values à payer",
         "es": "Impuesto a Pagar sobre Ganancias de Capital",
@@ -151,16 +151,16 @@
       "long": "Calculate capital gains tax liability from asset sales.",
       "short_i18n": {
         "en": "Calculate capital gains tax liability from asset sales.",
-        "tr": "Varlık satışından doğan yasal vergi yükümlülüğünü hesaplar.",
-        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermögensverkäufen.",
+        "tr": "Varlik satisindan dogan yasal vergi yukumlulugunu hesaplar.",
+        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermogensverkäufen.",
         "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
         "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
         "ar": "حساب ضريبة أرباح رأس المال المستحقة من بيع الأصول."
       },
       "long_i18n": {
         "en": "Calculate capital gains tax liability from asset sales.",
-        "tr": "Varlık satışından doğan yasal vergi yükümlülüğünü hesaplar.",
-        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermögensverkäufen.",
+        "tr": "Varlik satisindan dogan yasal vergi yukumlulugunu hesaplar.",
+        "de": "Berechnen Sie die Kapitalertragssteuerschuld aus Vermogensverkäufen.",
         "fr": "Calculer l'impôt sur les plus-values provenant de la vente d'actifs.",
         "es": "Calcular la obligación tributaria por ganancias de capital por venta de activos.",
         "ar": "حساب ضريبة أرباح رأس المال المستحقة من بيع الأصول."

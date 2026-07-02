@@ -2,7 +2,7 @@
   "toolName": "capacitive-reactance-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "Hz",
       "default": 50,
       "min": 0,
-      "businessContext": "AC sinyal frekansı.",
+      "businessContext": "AC Signal Frequency.",
       "businessContext_i18n": {
         "en": "AC signal frequency.",
-        "tr": "AC sinyal frekansı.",
+        "tr": "AC Signal Frequency.",
         "de": "Frequenz des Wechselstromsignals.",
         "fr": "Fréquence du signal AC.",
         "es": "Frecuencia de la señal de CA.",
@@ -45,10 +45,10 @@
       "unit": "F",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Kapasitör değeri.",
+      "businessContext": "Kapasite",
       "businessContext_i18n": {
         "en": "Capacitor value.",
-        "tr": "Kapasitör değeri.",
+        "tr": "Kapasitor Valuei.",
         "de": "Kondensatorwert.",
         "fr": "Valeur du condensateur.",
         "es": "Valor del capacitor.",
@@ -101,7 +101,7 @@
       "long": "Calculate capacitive reactance of a capacitor at given frequency.",
       "short_i18n": {
         "en": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "tr": "Kapasitörün alternatif akıma gösterdiği direnci (kapasitif reaktans) hesaplar.",
+        "tr": "Kapasitorun alternatif Currenta gosterdigi direnci (kapasitif reaktans) hesaplar.",
         "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
         "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
         "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",
@@ -109,7 +109,7 @@
       },
       "long_i18n": {
         "en": "Calculate capacitive reactance of a capacitor at given frequency.",
-        "tr": "Kapasitörün alternatif akıma gösterdiği direnci (kapasitif reaktans) hesaplar.",
+        "tr": "Kapasitorun alternatif Currenta gosterdigi direnci (kapasitif reaktans) hesaplar.",
         "de": "Berechnen Sie den kapazitiven Blindwiderstand eines Kondensators bei gegebener Frequenz.",
         "fr": "Calculer la réactance capacitive d'un condensateur à une fréquence donnée.",
         "es": "Calcular la reactancia capacitiva de un capacitor a una frecuencia dada.",

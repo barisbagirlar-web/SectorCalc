@@ -2,15 +2,15 @@
   "toolName": "earthquake-pga-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilişim, Biyomedikal ve Maden",
+  "sector": "Bilisim, Biyomedikal ve Maden",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "momentMagnitudu",
-      "label": "Deprem Büyüklüğü (Mw)",
+      "label": "MomentMagnitudu",
       "label_i18n": {
         "en": "Moment Magnitude (Mw)",
-        "tr": "Deprem Büyüklüğü (Mw)",
+        "tr": "Deprem Buyuklugu (Mw)",
         "de": "Momenten-Magnitude (Mw)",
         "fr": "Magnitude de moment (Mw)",
         "es": "Magnitud de Momento (Mw)",
@@ -21,10 +21,10 @@
       "default": 7,
       "min": 0,
       "max": 10,
-      "businessContext": "Depremin moment magnitüdü.",
+      "businessContext": "MomentMagnitudu",
       "businessContext_i18n": {
         "en": "Earthquake moment magnitude.",
-        "tr": "Depremin moment magnitüdü.",
+        "tr": "Depremin moment magnitudu.",
         "de": "Erdbeben-Momenten-Magnitude.",
         "fr": "Magnitude de moment sismique.",
         "es": "Magnitud de momento del terremoto.",
@@ -33,10 +33,10 @@
     },
     {
       "id": "mesafe",
-      "label": "Deprem Merkezine Uzaklık (km)",
+      "label": "Mesafe",
       "label_i18n": {
         "en": "Distance from Epicenter (km)",
-        "tr": "Deprem Merkezine Uzaklık (km)",
+        "tr": "Deprem Merkezine Uzaklik (km)",
         "de": "Entfernung vom Epizentrum (km)",
         "fr": "Distance de l'épicentre (km)",
         "es": "Distancia desde el Epicentro (km)",
@@ -46,10 +46,10 @@
       "unit": "km",
       "default": 50,
       "min": 0,
-      "businessContext": "Gözlem noktasının deprem merkezine uzaklığı.",
+      "businessContext": "Mesafe",
       "businessContext_i18n": {
         "en": "Distance from epicenter.",
-        "tr": "Gözlem noktasının deprem merkezine uzaklığı.",
+        "tr": "Gozlem noktasinin deprem merkezine uzakligi.",
         "de": "Entfernung vom Epizentrum.",
         "fr": "Distance de l'épicentre.",
         "es": "Distancia desde el epicentro.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "zeminKatsayisi",
-      "label": "Zemin Katsayısı",
+      "label": "ZeminKatsayisi",
       "label_i18n": {
         "en": "Site Coefficient",
-        "tr": "Zemin Katsayısı",
+        "tr": "Zemin Coefficimostt",
         "de": "Standortkoeffizient",
         "fr": "Coefficient de site",
         "es": "Coeficiente de Sitio",
@@ -71,10 +71,10 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Zemin türü katsayısı (sert=0.8, yumuşak=1.5).",
+      "businessContext": "ZeminKatsayisi",
       "businessContext_i18n": {
         "en": "Soil amplification factor.",
-        "tr": "Zemin türü katsayısı (sert=0.8, yumuşak=1.5).",
+        "tr": "Zemin turu katNumbersi (sert=0.8, yumusak=1.5).",
         "de": "Bodenverstärkungsfaktor.",
         "fr": "Facteur d'amplification du sol.",
         "es": "Factor de amplificación del suelo.",
@@ -128,7 +128,7 @@
       "long": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
       "short_i18n": {
         "en": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
-        "tr": "Belirli bir deprem büyüklüğü ve mesafe için yüzeyde beklenen maksimum yer ivmesini (PGA) hesaplar.",
+        "tr": "Belirli bir deprem buyuklugu ve Distance icin yuzeyde beklenen Maximum yer ivmesini (PGA) hesaplar.",
         "de": "Schätzen Sie die maximale Bodenbeschleunigung (PGA) aus Erdbebenstärke und Entfernung.",
         "fr": "Estimer l'accélération maximale du sol (PGA) à partir de la magnitude du séisme et de la distance.",
         "es": "Estimar la aceleración máxima del suelo (PGA) a partir de la magnitud del terremoto y la distancia.",
@@ -136,7 +136,7 @@
       },
       "long_i18n": {
         "en": "Estimate peak ground acceleration (PGA) from earthquake magnitude and distance.",
-        "tr": "Belirli bir deprem büyüklüğü ve mesafe için yüzeyde beklenen maksimum yer ivmesini (PGA) hesaplar.",
+        "tr": "Belirli bir deprem buyuklugu ve Distance icin yuzeyde beklenen Maximum yer ivmesini (PGA) hesaplar.",
         "de": "Schätzen Sie die maximale Bodenbeschleunigung (PGA) aus Erdbebenstärke und Entfernung.",
         "fr": "Estimer l'accélération maximale du sol (PGA) à partir de la magnitude du séisme et de la distance.",
         "es": "Estimar la aceleración máxima del suelo (PGA) a partir de la magnitud del terremoto y la distancia.",

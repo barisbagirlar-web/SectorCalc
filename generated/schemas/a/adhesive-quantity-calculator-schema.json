@@ -2,15 +2,15 @@
   "toolName": "adhesive-quantity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Yüzey Alanı (m²)",
+      "label": "Alan",
       "label_i18n": {
         "en": "Surface Area (m²)",
-        "tr": "Yüzey Alanı (m²)",
+        "tr": "Yuzey Areai (m²)",
         "de": "Surface Fläche to paint",
         "fr": "Surface Surface to paint",
         "es": "Surface Área to paint",
@@ -45,10 +45,10 @@
       "unit": "kg/m2",
       "default": 2,
       "min": 0,
-      "businessContext": "Birim alan için yapıştırıcı tüketimi.",
+      "businessContext": "Sarfiyat",
       "businessContext_i18n": {
         "en": "Adhesive consumption per m².",
-        "tr": "Birim alan için yapıştırıcı tüketimi.",
+        "tr": "Unit Area icin yapistirici tuketimi.",
         "de": "Klebstoffverbrauch pro m².",
         "fr": "Consommation d'adhésif par m².",
         "es": "Consumo de adhesivo por m².",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Gerekli Yapıştırıcı"
+      "sonuc": "Gerekli Yapistirici"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Yapıştırıcı",
-        "tr": "Gerekli Yapıştırıcı",
+        "en": "Gerekli Yapistirici",
+        "tr": "Gerekli Yapistirici",
         "de": "Erforderlicher Klebstoff",
         "fr": "Adhésif requis",
         "es": "Adhesivo Requerido",
@@ -99,16 +99,16 @@
       "long": "Calculate adhesive quantity needed to cover a surface area.",
       "short_i18n": {
         "en": "Calculate adhesive quantity needed to cover a surface area.",
-        "tr": "Yüzeyi kaplamak için gereken net yapıştırıcı miktarını hesaplar.",
-        "de": "Berechnen Sie die benötigte Klebstoffmenge zur Abdeckung einer Fläche.",
+        "tr": "Yuzeyi kaplamak icin gereken Net yapistirici Amountini hesaplar.",
+        "de": "Berechnen Sie die benotigte Klebstoffmenge zur Abdeckung einer Fläche.",
         "fr": "Calculer la quantité d'adhésif nécessaire pour couvrir une surface.",
         "es": "Calcular la cantidad de adhesivo necesaria para cubrir una superficie.",
         "ar": "احسب كمية المادة اللاصقة اللازمة لتغطية مساحة سطح."
       },
       "long_i18n": {
         "en": "Calculate adhesive quantity needed to cover a surface area.",
-        "tr": "Yüzeyi kaplamak için gereken net yapıştırıcı miktarını hesaplar.",
-        "de": "Berechnen Sie die benötigte Klebstoffmenge zur Abdeckung einer Fläche.",
+        "tr": "Yuzeyi kaplamak icin gereken Net yapistirici Amountini hesaplar.",
+        "de": "Berechnen Sie die benotigte Klebstoffmenge zur Abdeckung einer Fläche.",
         "fr": "Calculer la quantité d'adhésif nécessaire pour couvrir une surface.",
         "es": "Calcular la cantidad de adhesivo necesaria para cubrir una superficie.",
         "ar": "احسب كمية المادة اللاصقة اللازمة لتغطية مساحة سطح."

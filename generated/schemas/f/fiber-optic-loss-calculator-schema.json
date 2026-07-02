@@ -2,15 +2,15 @@
   "toolName": "fiber-optic-loss-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik ve Kuantum",
+  "sector": "Ileri Fizik ve Kuantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "uzunluk",
-      "label": "Fiber Uzunluğu (km)",
+      "label": "Uzunluk",
       "label_i18n": {
         "en": "Fiber Length (km)",
-        "tr": "Fiber Uzunluğu (km)",
+        "tr": "Fiber Lmostgth (km)",
         "de": "Faserlänge (km)",
         "fr": "Longueur de fibre (km)",
         "es": "Longitud de Fibra (km)",
@@ -32,10 +32,10 @@
     },
     {
       "id": "birimKayip",
-      "label": "Birim Kayıp (dB/km)",
+      "label": "BirimKayip",
       "label_i18n": {
         "en": "Attenuation (dB/km)",
-        "tr": "Birim Kayıp (dB/km)",
+        "tr": "Unit Kayip (dB/km)",
         "de": "Dämpfung (dB/km)",
         "fr": "Atténuation (dB/km)",
         "es": "Atenuación (dB/km)",
@@ -45,10 +45,10 @@
       "unit": "dB/km",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Fiberin km başına zayıflaması.",
+      "businessContext": "BirimKayip",
       "businessContext_i18n": {
         "en": "Loss per km.",
-        "tr": "Fiberin km başına zayıflaması.",
+        "tr": "Fiberin km basina zayiflamasi.",
         "de": "Verlust pro km.",
         "fr": "Perte par km.",
         "es": "Pérdida por km.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "ekKayip",
-      "label": "Ek Kayıplar (dB)",
+      "label": "EkKayip",
       "label_i18n": {
         "en": "Splice Losses (dB)",
-        "tr": "Ek Kayıplar (dB)",
+        "tr": "Ek Kayiplar (dB)",
         "de": "Spleißverluste (dB)",
         "fr": "Pertes d'épissure (dB)",
         "es": "Pérdidas por Empalme (dB)",
@@ -70,10 +70,10 @@
       "unit": "dB",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Konnektör ve ek kayıpları.",
+      "businessContext": "EkKayip",
       "businessContext_i18n": {
         "en": "Connector and splice losses.",
-        "tr": "Konnektör ve ek kayıpları.",
+        "tr": "Konnektor ve ek kayiplari.",
         "de": "Stecker- und Spleißverluste.",
         "fr": "Pertes de connecteurs et d'épissures.",
         "es": "Pérdidas por conectores y empalmes.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "Toplam Zayıflama"
+      "sonuc": "Total Zayiflama"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Toplam Zayıflama",
-        "tr": "Toplam Zayıflama",
+        "en": "Total Zayiflama",
+        "tr": "Total Zayiflama",
         "de": "Gesamtdämpfung",
         "fr": "Atténuation totale",
         "es": "Atenuación total",
@@ -124,7 +124,7 @@
       "long": "Calculate total optical power loss in fiber optic link.",
       "short_i18n": {
         "en": "Calculate total optical power loss in fiber optic link.",
-        "tr": "Işık sinyalinin hat sonundaki toplam güç kaybını (fiber optik zayıflama) hesaplar.",
+        "tr": "Isik sinyalinin hat sonundaki Total Power kaybini (fiber optik zayiflama) hesaplar.",
         "de": "Berechnen Sie den gesamten optischen Leistungsverlust in einer Glasfaserverbindung.",
         "fr": "Calculer la perte de puissance optique totale dans une liaison par fibre optique.",
         "es": "Calcular la pérdida total de potencia óptica en un enlace de fibra óptica.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate total optical power loss in fiber optic link.",
-        "tr": "Işık sinyalinin hat sonundaki toplam güç kaybını (fiber optik zayıflama) hesaplar.",
+        "tr": "Isik sinyalinin hat sonundaki Total Power kaybini (fiber optik zayiflama) hesaplar.",
         "de": "Berechnen Sie den gesamten optischen Leistungsverlust in einer Glasfaserverbindung.",
         "fr": "Calculer la perte de puissance optique totale dans une liaison par fibre optique.",
         "es": "Calcular la pérdida total de potencia óptica en un enlace de fibra óptica.",

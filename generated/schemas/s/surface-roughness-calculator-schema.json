@@ -2,15 +2,15 @@
   "toolName": "surface-roughness-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "ilerleme",
-      "label": "İlerleme (mm/dev)",
+      "label": "Ilerleme",
       "label_i18n": {
         "en": "Feed Rate (mm/rev)",
-        "tr": "İlerleme (mm/dev)",
+        "tr": "Ilerleme (mm/dev)",
         "de": "Vorschubgeschwindigkeit (f)",
         "fr": "Vitesse d'avance (f)",
         "es": "Velocidad de avance (f)",
@@ -20,10 +20,10 @@
       "unit": "mm/rev",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Devir başına ilerleme miktarı.",
+      "businessContext": "Ilerleme",
       "businessContext_i18n": {
         "en": "Feed per revolution.",
-        "tr": "Devir başına ilerleme miktarı.",
+        "tr": "Devir basina ilerleme Amounti.",
         "de": "Vorschub pro Umdrehung.",
         "fr": "Avance par tour.",
         "es": "Avance por revolución.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "ucYariCap",
-      "label": "Uç Radyüsü (mm)",
+      "label": "UcYariCap",
       "label_i18n": {
         "en": "Nose Radius (mm)",
-        "tr": "Uç Radyüsü (mm)",
+        "tr": "Uc Radyusu (mm)",
         "de": "Schneidplattenradius (mm)",
         "fr": "Rayon de nez (mm)",
         "es": "Radio de Punta (mm)",
@@ -45,10 +45,10 @@
       "unit": "mm",
       "default": 0.8,
       "min": 0,
-      "businessContext": "Kesici uç radyüsü.",
+      "businessContext": "UcYariCap",
       "businessContext_i18n": {
         "en": "Insert nose radius.",
-        "tr": "Kesici uç radyüsü.",
+        "tr": "Kesici uc radyusu.",
         "de": "Schneidplattenradius.",
         "fr": "Rayon de nez de la plaquette.",
         "es": "Radio de punta del inserto.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "mm",
     "breakdown": {
-      "sonuc": "Yüzey Pürüzlülüğü (Ra)"
+      "sonuc": "Surface Roughness (Ra)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yüzey Pürüzlülüğü (Ra)",
-        "tr": "Yüzey Pürüzlülüğü (Ra)",
+        "en": "Surface Roughness (Ra)",
+        "tr": "Surface Roughness (Ra)",
         "de": "Oberflächenrauheit (Ra)",
         "fr": "Rugosité de surface (Ra)",
         "es": "Rugosidad Superficial (Ra)",
@@ -99,16 +99,16 @@
       "long": "Calculate theoretical surface roughness (Ra) for turning operation.",
       "short_i18n": {
         "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "tr": "Tornalama işlemindeki teorik yüzey pürüzlülüğünü (Ra) hesaplar.",
-        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) für eine Drehbearbeitung.",
+        "tr": "Tornalama islemindeki teorik Surface Roughnessnu (Ra) hesaplar.",
+        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) fur eine Drehbearbeitung.",
         "fr": "Calculer la rugosité théorique de surface (Ra) pour une opération de tournage.",
         "es": "Calcular la rugosidad superficial teórica (Ra) para una operación de torneado.",
         "ar": "احسب الخشونة السطحية النظرية (Ra) لعملية الخراطة."
       },
       "long_i18n": {
         "en": "Calculate theoretical surface roughness (Ra) for turning operation.",
-        "tr": "Tornalama işlemindeki teorik yüzey pürüzlülüğünü (Ra) hesaplar.",
-        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) für eine Drehbearbeitung.",
+        "tr": "Tornalama islemindeki teorik Surface Roughnessnu (Ra) hesaplar.",
+        "de": "Berechnen Sie die theoretische Oberflächenrauheit (Ra) fur eine Drehbearbeitung.",
         "fr": "Calculer la rugosité théorique de surface (Ra) pour une opération de tournage.",
         "es": "Calcular la rugosidad superficial teórica (Ra) para una operación de torneado.",
         "ar": "احسب الخشونة السطحية النظرية (Ra) لعملية الخراطة."

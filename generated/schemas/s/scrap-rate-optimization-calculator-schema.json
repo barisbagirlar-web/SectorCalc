@@ -2,15 +2,15 @@
   "toolName": "scrap-rate-optimization-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "uretim",
-      "label": "Toplam Üretim (Adet)",
+      "label": "Total Production (Quantity)",
       "label_i18n": {
         "en": "Total Production",
-        "tr": "Toplam Üretim (Adet)",
+        "tr": "Total Production (Quantity)",
         "de": "Gesamtproduktionseinheiten",
         "fr": "Unités de production totales",
         "es": "Unidades de Producción Totales",
@@ -20,10 +20,10 @@
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Üretilen toplam ürün.",
+      "businessContext": "Uretim",
       "businessContext_i18n": {
         "en": "Total units produced.",
-        "tr": "Üretilen toplam ürün.",
+        "tr": "Uretilen Total urun.",
         "de": "Gesamtzahl der produzierten Einheiten.",
         "fr": "Nombre total d'unités produites.",
         "es": "Total de unidades producidas.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "hurda",
-      "label": "Hurda Miktarı (Adet)",
+      "label": "Hurda",
       "label_i18n": {
         "en": "Scrap Quantity",
-        "tr": "Hurda Miktarı (Adet)",
+        "tr": "Hurda Quantity (Quantity)",
         "de": "Ausschussmenge",
         "fr": "Quantité de rebut",
         "es": "Cantidad de desechos",
@@ -45,10 +45,10 @@
       "unit": "units",
       "default": 500,
       "min": 0,
-      "businessContext": "Hatalı ürün sayısı.",
+      "businessContext": "Hurda",
       "businessContext_i18n": {
         "en": "Defective units.",
-        "tr": "Hatalı ürün sayısı.",
+        "tr": "Hatali urun Numbersi.",
         "de": "Fehlerhafte Einheiten.",
         "fr": "Unités défectueuses.",
         "es": "Unidades defectuosas.",
@@ -61,7 +61,7 @@
       "label_i18n": {
         "en": "Unit Cost (USD)",
         "tr": "Birim Maliyet (TL)",
-        "de": "Stückkosten",
+        "de": "Stuckkosten",
         "fr": "Coût unitaire",
         "es": "Costo unitario",
         "ar": "التكلفة لكل وحدة"
@@ -70,11 +70,11 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Ürünün maliyeti.",
+      "businessContext": "BirimMaliyet",
       "businessContext_i18n": {
         "en": "Product unit cost.",
-        "tr": "Ürünün maliyeti.",
-        "de": "Stückkosten des Produkts.",
+        "tr": "Urunun Costi.",
+        "de": "Stuckkosten des Produkts.",
         "fr": "Coût unitaire du produit.",
         "es": "Costo unitario del producto.",
         "ar": "تكلفة الوحدة للمنتج."
@@ -95,12 +95,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Hurda Kaybı"
+      "sonuc": "Hurda Kaybi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Hurda Kaybı",
-        "tr": "Hurda Kaybı",
+        "en": "Hurda Kaybi",
+        "tr": "Hurda Kaybi",
         "de": "Ausschussverlust",
         "fr": "Perte due aux rebuts",
         "es": "Pérdida por desechos",
@@ -125,7 +125,7 @@
       "long": "Calculate total financial loss from scrap and rework.",
       "short_i18n": {
         "en": "Calculate total financial loss from scrap and rework.",
-        "tr": "Hatalı üretimden kaynaklanan toplam finansal kaybı hesaplar.",
+        "tr": "Defective Productionden kaynaklanan Total finansal kaybi hesaplar.",
         "de": "Berechnen Sie den gesamten finanziellen Verlust durch Ausschuss und Nacharbeit.",
         "fr": "Calculer la perte financière totale due aux rebuts et aux reprises.",
         "es": "Calcular la pérdida financiera total por desechos y retrabajos.",
@@ -133,7 +133,7 @@
       },
       "long_i18n": {
         "en": "Calculate total financial loss from scrap and rework.",
-        "tr": "Hatalı üretimden kaynaklanan toplam finansal kaybı hesaplar.",
+        "tr": "Defective Productionden kaynaklanan Total finansal kaybi hesaplar.",
         "de": "Berechnen Sie den gesamten finanziellen Verlust durch Ausschuss und Nacharbeit.",
         "fr": "Calculer la perte financière totale due aux rebuts et aux reprises.",
         "es": "Calcular la pérdida financiera total por desechos y retrabajos.",

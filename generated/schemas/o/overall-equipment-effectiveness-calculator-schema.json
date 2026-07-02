@@ -2,16 +2,16 @@
   "toolName": "overall-equipment-effectiveness-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "kullanilabilirlik",
-      "label": "Kullanılabilirlik (%)",
+      "label": "Availability (%)",
       "label_i18n": {
         "en": "Availability (%)",
-        "tr": "Kullanılabilirlik (%)",
-        "de": "Verfügbarkeitsziel",
+        "tr": "Availability (%)",
+        "de": "Verfugbarkeitsziel",
         "fr": "Objectif de disponibilité",
         "es": "Objetivo de disponibilidad",
         "ar": "هدف التوفر"
@@ -21,10 +21,10 @@
       "default": 90,
       "min": 0,
       "max": 100,
-      "businessContext": "Makinenin planlı sürede çalıştığı zaman.",
+      "businessContext": "Kullanilabilirlik",
       "businessContext_i18n": {
         "en": "Machine uptime vs planned time.",
-        "tr": "Makinenin planlı sürede çalıştığı zaman.",
+        "tr": "Makinenin planli surede calistigi zaman.",
         "de": "Maschinenbetriebszeit vs. geplante Zeit.",
         "fr": "Temps de fonctionnement de la machine par rapport au temps planifié.",
         "es": "Tiempo de actividad de la máquina vs. tiempo planificado.",
@@ -37,7 +37,7 @@
       "label_i18n": {
         "en": "Performance (%)",
         "tr": "Performans (%)",
-        "de": "Kostenleistungsindex (Überschreibung)",
+        "de": "Kostenleistungsindex (Uberschreibung)",
         "fr": "Indice de performance des coûts (remplacement)",
         "es": "Índice de rendimiento de costos (anulación)",
         "ar": "مؤشر أداء التكلفة (تجاوز)"
@@ -47,10 +47,10 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Makinenin ideal hıza göre performansı.",
+      "businessContext": "Performans",
       "businessContext_i18n": {
         "en": "Speed efficiency vs ideal.",
-        "tr": "Makinenin ideal hıza göre performansı.",
+        "tr": "Makinenin ideal Speeda gore Performancei.",
         "de": "Geschwindigkeitseffizienz vs. Ideal.",
         "fr": "Efficacité de vitesse par rapport à l'idéal.",
         "es": "Eficiencia de velocidad vs. ideal.",
@@ -73,10 +73,10 @@
       "default": 98,
       "min": 0,
       "max": 100,
-      "businessContext": "İlk seferde hatasız ürün oranı.",
+      "businessContext": "Kalite",
       "businessContext_i18n": {
         "en": "First-pass yield.",
-        "tr": "İlk seferde hatasız ürün oranı.",
+        "tr": "Ilk seferde hatasiz urun Ratioi.",
         "de": "Erstausbeute.",
         "fr": "Rendement de premier passage.",
         "es": "Rendimiento de primera pasada.",
@@ -127,7 +127,7 @@
       "long": "Calculate overall equipment effectiveness (OEE) score.",
       "short_i18n": {
         "en": "Calculate overall equipment effectiveness (OEE) score.",
-        "tr": "Üretim hattının toplam verimlilik skorunu (OEE) hesaplar.",
+        "tr": "Uretim hattinin Total Efficiencylilik skorunu (OEE) hesaplar.",
         "de": "Berechnen Sie die Gesamtanlageneffektivität (OEE).",
         "fr": "Calculer le score d'efficacité globale des équipements (OEE).",
         "es": "Calcular la puntuación de eficiencia general del equipo (OEE).",
@@ -135,7 +135,7 @@
       },
       "long_i18n": {
         "en": "Calculate overall equipment effectiveness (OEE) score.",
-        "tr": "Üretim hattının toplam verimlilik skorunu (OEE) hesaplar.",
+        "tr": "Uretim hattinin Total Efficiencylilik skorunu (OEE) hesaplar.",
         "de": "Berechnen Sie die Gesamtanlageneffektivität (OEE).",
         "fr": "Calculer le score d'efficacité globale des équipements (OEE).",
         "es": "Calcular la puntuación de eficiencia general del equipo (OEE).",

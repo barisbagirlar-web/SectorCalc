@@ -20,11 +20,11 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Dönem net kârı.",
+      "businessContext": "NetKar",
       "businessContext_i18n": {
         "en": "Net income for the period.",
-        "tr": "Dönem net kârı.",
-        "de": "Periodenüberschuss.",
+        "tr": "Donem Net Profiti.",
+        "de": "Periodenuberschuss.",
         "fr": "Résultat net de la période.",
         "es": "Ingreso neto del período.",
         "ar": "صافي الدخل للفترة."
@@ -32,10 +32,10 @@
     },
     {
       "id": "satislar",
-      "label": "Satışlar (₺)",
+      "label": "Satislar",
       "label_i18n": {
         "en": "Sales (USD)",
-        "tr": "Satışlar (₺)",
+        "tr": "Satislar (₺)",
         "de": "Umsatzsteuersatz",
         "fr": "Taux de taxe de vente",
         "es": "Tasa de impuesto a las ventas",
@@ -45,11 +45,11 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Toplam satış geliri.",
+      "businessContext": "Total Revenue.",
       "businessContext_i18n": {
         "en": "Total sales revenue.",
-        "tr": "Toplam satış geliri.",
-        "de": "Gesamtumsatzerlöse.",
+        "tr": "Total Revenue.",
+        "de": "Gesamtumsatzerlose.",
         "fr": "Chiffre d'affaires total.",
         "es": "Ingresos totales por ventas.",
         "ar": "إجمالي إيرادات المبيعات."
@@ -57,11 +57,11 @@
     },
     {
       "id": "varliklar",
-      "label": "Toplam Varlıklar (₺)",
+      "label": "Total Assetslar (₺)",
       "label_i18n": {
         "en": "Total Assets (USD)",
-        "tr": "Toplam Varlıklar (₺)",
-        "de": "Gesamtvermögen",
+        "tr": "Total Assetslar (₺)",
+        "de": "Gesamtvermogen",
         "fr": "Actif total",
         "es": "Activos totales",
         "ar": "إجمالي الأصول"
@@ -70,11 +70,11 @@
       "unit": "USD",
       "default": 3000000,
       "min": 0,
-      "businessContext": "Şirketin toplam aktif büyüklüğü.",
+      "businessContext": "Varliklar",
       "businessContext_i18n": {
         "en": "Total assets.",
-        "tr": "Şirketin toplam aktif büyüklüğü.",
-        "de": "Gesamtvermögen.",
+        "tr": "Sirketin Total aktif buyuklugu.",
+        "de": "Gesamtvermogen.",
         "fr": "Total des actifs.",
         "es": "Activos totales.",
         "ar": "إجمالي الأصول."
@@ -82,10 +82,10 @@
     },
     {
       "id": "ozsermaye",
-      "label": "Özsermaye (₺)",
+      "label": "Ozsermaye",
       "label_i18n": {
         "en": "Equity (USD)",
-        "tr": "Özsermaye (₺)",
+        "tr": "Ozsermaye (₺)",
         "de": "Gesamter Eigenkapitalwert ($)",
         "fr": "Valeur totale des capitaux propres ($)",
         "es": "Valor total del patrimonio ($)",
@@ -95,10 +95,10 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Toplam özsermaye.",
+      "businessContext": "Ozsermaye",
       "businessContext_i18n": {
         "en": "Total shareholders equity.",
-        "tr": "Toplam özsermaye.",
+        "tr": "Total ozsermaye.",
         "de": "Gesamtes Eigenkapital der Aktionäre.",
         "fr": "Capitaux propres totaux.",
         "es": "Patrimonio neto total de los accionistas.",
@@ -115,7 +115,7 @@
   "formulas": {
     "karMarji": "netKar / Math.max(1, satislar)",
     "varlikDevri": "satislar / Math.max(1, varliklar)",
-    "kaldırac": "varliklar / Math.max(1, ozsermaye)",
+    "kaldirac": "varliklar / Math.max(1, ozsermaye)",
     "sonuc": "(netKar / Math.max(1, satislar)) * (satislar / Math.max(1, varliklar)) * (varliklar / Math.max(1, ozsermaye)) * 100"
   },
   "outputs": {
@@ -152,7 +152,7 @@
       "long": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
       "short_i18n": {
         "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-        "tr": "Kârlılık, verimlilik ve kaldıracın özsermaye getirisine etkisini (DuPont ROE) hesaplar.",
+        "tr": "Kârlilik, Efficiencylilik ve kaldiracin ozsermaye getirisine etkisini (DuPont ROE) hesaplar.",
         "de": "Berechnen Sie die DuPont-ROE-Zerlegung – Rentabilität, Effizienz, Verschuldung.",
         "fr": "Calculer la décomposition DuPont du ROE — rentabilité, efficacité, levier.",
         "es": "Calcular la descomposición ROE de DuPont — rentabilidad, eficiencia, apalancamiento.",
@@ -160,7 +160,7 @@
       },
       "long_i18n": {
         "en": "Calculate DuPont ROE decomposition — profitability, efficiency, leverage.",
-        "tr": "Kârlılık, verimlilik ve kaldıracın özsermaye getirisine etkisini (DuPont ROE) hesaplar.",
+        "tr": "Kârlilik, Efficiencylilik ve kaldiracin ozsermaye getirisine etkisini (DuPont ROE) hesaplar.",
         "de": "Berechnen Sie die DuPont-ROE-Zerlegung – Rentabilität, Effizienz, Verschuldung.",
         "fr": "Calculer la décomposition DuPont du ROE — rentabilité, efficacité, levier.",
         "es": "Calcular la descomposición ROE de DuPont — rentabilidad, eficiencia, apalancamiento.",

@@ -2,15 +2,15 @@
   "toolName": "standard-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "gozlenenSure",
-      "label": "Gözlenen Süre (Dk)",
+      "label": "GozlenenSure",
       "label_i18n": {
         "en": "Observed Time (Min)",
-        "tr": "Gözlenen Süre (Dk)",
+        "tr": "Gozlenen Duration (min)",
         "de": "Beobachtete Zeit (Sekunden)",
         "fr": "Temps observé (secondes)",
         "es": "Tiempo observado (segundos)",
@@ -20,10 +20,10 @@
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "Operasyonda ölçülen süre.",
+      "businessContext": "GozlenenSure",
       "businessContext_i18n": {
         "en": "Measured operation time.",
-        "tr": "Operasyonda ölçülen süre.",
+        "tr": "Operasyonda olculen sure.",
         "de": "Gemessene Betriebszeit.",
         "fr": "Temps d'opération mesuré.",
         "es": "Tiempo de operación medido.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "performans",
-      "label": "Performans Hızı (%)",
+      "label": "Performans",
       "label_i18n": {
         "en": "Performance Rating (%)",
-        "tr": "Performans Hızı (%)",
+        "tr": "Performance Speed (%)",
         "de": "Leistungsbewertung (%)",
         "fr": "Évaluation de performance (%)",
         "es": "Calificación de rendimiento (%)",
@@ -46,10 +46,10 @@
       "default": 90,
       "min": 20,
       "max": 150,
-      "businessContext": "Operatörün standart hıza göre performansı.",
+      "businessContext": "Performans",
       "businessContext_i18n": {
         "en": "Operator speed vs standard.",
-        "tr": "Operatörün standart hıza göre performansı.",
+        "tr": "Operatorun standart Speeda gore Performancei.",
         "de": "Bedienergeschwindigkeit vs. Standard.",
         "fr": "Vitesse de l'opérateur par rapport à la norme.",
         "es": "Velocidad del operador vs estándar.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "ekSure",
-      "label": "Ek Süre Payı (%)",
+      "label": "EkSure",
       "label_i18n": {
         "en": "Allowance (%)",
-        "tr": "Ek Süre Payı (%)",
+        "tr": "Ek Sure Payi (%)",
         "de": "Toleranzprozentsatz (%)",
         "fr": "Pourcentage de tolérance (%)",
         "es": "Porcentaje de tolerancia (%)",
@@ -72,11 +72,11 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Yorgunluk, kişisel ihtiyaçlar için ek süre.",
+      "businessContext": "EkSure",
       "businessContext_i18n": {
         "en": "Fatigue and personal allowance.",
-        "tr": "Yorgunluk, kişisel ihtiyaçlar için ek süre.",
-        "de": "Ermüdungs- und persönlicher Zuschlag.",
+        "tr": "Yorgunluk, kisisel ihtiyaclar icin ek sure.",
+        "de": "Ermudungs- und personlicher Zuschlag.",
         "fr": "Allocation pour fatigue et besoins personnels.",
         "es": "Margen por fatiga y necesidades personales.",
         "ar": "سماح التعب والاحتياجات الشخصية."
@@ -97,12 +97,12 @@
     "primary": "sonuc",
     "unit": "min",
     "breakdown": {
-      "sonuc": "Standart Süre"
+      "sonuc": "Standart Duration"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Standart Süre",
-        "tr": "Standart Süre",
+        "en": "Standart Duration",
+        "tr": "Standart Duration",
         "de": "Standardzeit",
         "fr": "Durée standard",
         "es": "Duración Estándar",
@@ -127,16 +127,16 @@
       "long": "Calculate standard time with allowance for fatigue.",
       "short_i18n": {
         "en": "Calculate standard time with allowance for fatigue.",
-        "tr": "Yorgunluk payı eklenmiş hedef standart üretim süresini hesaplar.",
-        "de": "Berechnen Sie die Standardzeit mit Ermüdungszuschlag.",
+        "tr": "Yorgunluk payi eklenmis hedef standart uretim suresini hesaplar.",
+        "de": "Berechnen Sie die Standardzeit mit Ermudungszuschlag.",
         "fr": "Calculer le temps standard avec allocation pour la fatigue.",
         "es": "Calcular el tiempo estándar con margen por fatiga.",
         "ar": "احسب الوقت القياسي مع السماح بالتعب."
       },
       "long_i18n": {
         "en": "Calculate standard time with allowance for fatigue.",
-        "tr": "Yorgunluk payı eklenmiş hedef standart üretim süresini hesaplar.",
-        "de": "Berechnen Sie die Standardzeit mit Ermüdungszuschlag.",
+        "tr": "Yorgunluk payi eklenmis hedef standart uretim suresini hesaplar.",
+        "de": "Berechnen Sie die Standardzeit mit Ermudungszuschlag.",
         "fr": "Calculer le temps standard avec allocation pour la fatigue.",
         "es": "Calcular el tiempo estándar con margen por fatiga.",
         "ar": "احسب الوقت القياسي مع السماح بالتعب."

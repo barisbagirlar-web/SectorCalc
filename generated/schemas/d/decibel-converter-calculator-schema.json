@@ -2,16 +2,16 @@
   "toolName": "decibel-converter-calculator",
   "catalogCategory": "conversion",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "oran",
-      "label": "Oran (Sayı)",
+      "label": "Ratio (Number)",
       "label_i18n": {
         "en": "Ratio",
-        "tr": "Oran (Sayı)",
-        "de": "Jährliche Zulassungsgebühr",
+        "tr": "Ratio (Number)",
+        "de": "Jährliche Zulassungsgebuhr",
         "fr": "Frais d'immatriculation annuels",
         "es": "Tarifa de Registro Anual",
         "ar": "رسوم التسجيل السنوية"
@@ -20,10 +20,10 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Sinyal gücü/voltaj oranı.",
+      "businessContext": "Oran",
       "businessContext_i18n": {
         "en": "Signal power/voltage ratio.",
-        "tr": "Sinyal gücü/voltaj oranı.",
+        "tr": "Sinyal gucu/voltaj Ratioi.",
         "de": "Signal-Leistungs-/Spannungsverhältnis.",
         "fr": "Rapport signal puissance/tension.",
         "es": "Relación de potencia/voltaje de la señal.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "tip",
-      "label": "Tip (0=Güç, 1=Voltaj)",
+      "label": "Tip (0=Power, 1=Voltaj)",
       "label_i18n": {
         "en": "Type (0=Power, 1=Voltage)",
-        "tr": "Tip (0=Güç, 1=Voltaj)",
+        "tr": "Tip (0=Power, 1=Voltaj)",
         "de": "Verlustfunktionstyp",
         "fr": "Type de fonction de perte",
         "es": "Tipo de Función de Pérdida",
@@ -102,7 +102,7 @@
       "long": "Convert power or voltage ratio to decibels (dB).",
       "short_i18n": {
         "en": "Convert power or voltage ratio to decibels (dB).",
-        "tr": "İki sinyal arası oranının logaritmik ifadesini (desibel) hesaplar.",
+        "tr": "Iki sinyal arasi Ratioinin logaritmik ifadesini (Decibel) hesaplar.",
         "de": "Konvertieren Sie das Leistungs- oder Spannungsverhältnis in Dezibel (dB).",
         "fr": "Convertir un rapport de puissance ou de tension en décibels (dB).",
         "es": "Convertir relación de potencia o voltaje a decibelios (dB).",
@@ -110,7 +110,7 @@
       },
       "long_i18n": {
         "en": "Convert power or voltage ratio to decibels (dB).",
-        "tr": "İki sinyal arası oranının logaritmik ifadesini (desibel) hesaplar.",
+        "tr": "Iki sinyal arasi Ratioinin logaritmik ifadesini (Decibel) hesaplar.",
         "de": "Konvertieren Sie das Leistungs- oder Spannungsverhältnis in Dezibel (dB).",
         "fr": "Convertir un rapport de puissance ou de tension en décibels (dB).",
         "es": "Convertir relación de potencia o voltaje a decibelios (dB).",

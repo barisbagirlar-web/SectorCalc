@@ -2,15 +2,15 @@
   "toolName": "chandrasekhar-limit-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik ve Kuantum",
+  "sector": "Ileri Fizik ve Kuantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "gunesKutlesi",
-      "label": "Yıldız Kütlesi (Güneş Kütlesi)",
+      "label": "GunesKutlesi",
       "label_i18n": {
         "en": "Star Mass (Solar Mass)",
-        "tr": "Yıldız Kütlesi (Güneş Kütlesi)",
+        "tr": "Yildiz Masssi (Gunes Masssi)",
         "de": "Sternmasse (Sonnenmasse)",
         "fr": "Masse de l'étoile (Masse solaire)",
         "es": "Masa Estelar (Masa Solar)",
@@ -20,10 +20,10 @@
       "unit": "M☉",
       "default": 1.4,
       "min": 0,
-      "businessContext": "Yıldızın Güneş kütlesi cinsinden ağırlığı.",
+      "businessContext": "GunesKutlesi",
       "businessContext_i18n": {
         "en": "Star mass in solar masses.",
-        "tr": "Yıldızın Güneş kütlesi cinsinden ağırlığı.",
+        "tr": "Yildizin Gunes Masssi cinsinden agirligi.",
         "de": "Sternmasse in Sonnenmassen.",
         "fr": "Masse de l'étoile en masses solaires.",
         "es": "Masa estelar en masas solares.",
@@ -74,16 +74,16 @@
       "long": "Calculate the Chandrasekhar limit for white dwarf maximum mass.",
       "short_i18n": {
         "en": "Calculate the Chandrasekhar limit for white dwarf maximum mass.",
-        "tr": "Beyaz cücenin çökmeden önceki maksimum kütle sınırını (Chandrasekhar limiti) hesaplar.",
-        "de": "Berechnen Sie die Chandrasekhar-Grenze für die maximale Masse eines Weißen Zwergs.",
+        "tr": "Beyaz cucenin cokmeden onceki Maximum Mass sinirini (Chandrasekhar limiti) hesaplar.",
+        "de": "Berechnen Sie die Chandrasekhar-Grenze fur die maximale Masse eines Weißen Zwergs.",
         "fr": "Calculer la limite de Chandrasekhar pour la masse maximale d'une naine blanche.",
         "es": "Calcular el límite de Chandrasekhar para la masa máxima de una enana blanca.",
         "ar": "احسب حد شاندراسيخار للكتلة القصوى للقزم الأبيض."
       },
       "long_i18n": {
         "en": "Calculate the Chandrasekhar limit for white dwarf maximum mass.",
-        "tr": "Beyaz cücenin çökmeden önceki maksimum kütle sınırını (Chandrasekhar limiti) hesaplar.",
-        "de": "Berechnen Sie die Chandrasekhar-Grenze für die maximale Masse eines Weißen Zwergs.",
+        "tr": "Beyaz cucenin cokmeden onceki Maximum Mass sinirini (Chandrasekhar limiti) hesaplar.",
+        "de": "Berechnen Sie die Chandrasekhar-Grenze fur die maximale Masse eines Weißen Zwergs.",
         "fr": "Calculer la limite de Chandrasekhar pour la masse maximale d'une naine blanche.",
         "es": "Calcular el límite de Chandrasekhar para la masa máxima de una enana blanca.",
         "ar": "احسب حد شاندراسيخار للكتلة القصوى للقزم الأبيض."

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "fcf1",
-      "label": "1. Yıl FCF (₺)",
+      "label": "Fcf1",
       "label_i18n": {
         "en": "Year 1 FCF (USD)",
-        "tr": "1. Yıl FCF (₺)",
+        "tr": "1st Year FCF (TRY)",
         "de": "Jahr 1 FCF (USD)",
         "fr": "FCF Année 1 (USD)",
         "es": "FCF Año 1 (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Birinci yıl serbest nakit akışı.",
+      "businessContext": "Fcf1",
       "businessContext_i18n": {
         "en": "First year free cash flow.",
-        "tr": "Birinci yıl serbest nakit akışı.",
+        "tr": "Birinci yil serbest nakit akisi.",
         "de": "Freier Cashflow des ersten Jahres.",
         "fr": "Flux de trésorerie disponible de la première année.",
         "es": "Flujo de caja libre del primer año.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "fcf2",
-      "label": "2. Yıl FCF (₺)",
+      "label": "Fcf2",
       "label_i18n": {
         "en": "Year 2 FCF (USD)",
-        "tr": "2. Yıl FCF (₺)",
+        "tr": "2nd Year FCF (TRY)",
         "de": "Jahr 2 FCF (USD)",
         "fr": "FCF Année 2 (USD)",
         "es": "FCF Año 2 (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 110000,
       "min": 0,
-      "businessContext": "İkinci yıl serbest nakit akışı.",
+      "businessContext": "Fcf2",
       "businessContext_i18n": {
         "en": "Second year free cash flow.",
-        "tr": "İkinci yıl serbest nakit akışı.",
+        "tr": "Ikinci yil serbest nakit akisi.",
         "de": "Freier Cashflow des zweiten Jahres.",
         "fr": "Flux de trésorerie disponible de la deuxième année.",
         "es": "Flujo de caja libre del segundo año.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "fcf3",
-      "label": "3. Yıl FCF (₺)",
+      "label": "Fcf3",
       "label_i18n": {
         "en": "Year 3 FCF (USD)",
-        "tr": "3. Yıl FCF (₺)",
+        "tr": "3rd Year FCF (TRY)",
         "de": "Jahr 3 FCF (USD)",
         "fr": "FCF Année 3 (USD)",
         "es": "FCF Año 3 (USD)",
@@ -70,10 +70,10 @@
       "unit": "USD",
       "default": 121000,
       "min": 0,
-      "businessContext": "Üçüncü yıl serbest nakit akışı.",
+      "businessContext": "Fcf3",
       "businessContext_i18n": {
         "en": "Third year free cash flow.",
-        "tr": "Üçüncü yıl serbest nakit akışı.",
+        "tr": "Ucuncu yil serbest nakit akisi.",
         "de": "Freier Cashflow des dritten Jahres.",
         "fr": "Flux de trésorerie disponible de la troisième année.",
         "es": "Flujo de caja libre del tercer año.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "fcf4",
-      "label": "4. Yıl FCF (₺)",
+      "label": "Fcf4",
       "label_i18n": {
         "en": "Year 4 FCF (USD)",
-        "tr": "4. Yıl FCF (₺)",
+        "tr": "4th Year FCF (TRY)",
         "de": "Jahr 4 FCF (USD)",
         "fr": "FCF Année 4 (USD)",
         "es": "FCF Año 4 (USD)",
@@ -95,10 +95,10 @@
       "unit": "USD",
       "default": 133100,
       "min": 0,
-      "businessContext": "Dördüncü yıl serbest nakit akışı.",
+      "businessContext": "Fcf4",
       "businessContext_i18n": {
         "en": "Fourth year free cash flow.",
-        "tr": "Dördüncü yıl serbest nakit akışı.",
+        "tr": "Dorduncu yil serbest nakit akisi.",
         "de": "Freier Cashflow des vierten Jahres.",
         "fr": "Flux de trésorerie disponible de la quatrième année.",
         "es": "Flujo de caja libre del cuarto año.",
@@ -107,10 +107,10 @@
     },
     {
       "id": "fcf5",
-      "label": "5. Yıl FCF (₺)",
+      "label": "Fcf5",
       "label_i18n": {
         "en": "Year 5 FCF (USD)",
-        "tr": "5. Yıl FCF (₺)",
+        "tr": "5th Year FCF (TRY)",
         "de": "Jahr 5 FCF (USD)",
         "fr": "FCF Année 5 (USD)",
         "es": "FCF Año 5 (USD)",
@@ -120,11 +120,11 @@
       "unit": "USD",
       "default": 146410,
       "min": 0,
-      "businessContext": "Beşinci yıl serbest nakit akışı.",
+      "businessContext": "Fcf5",
       "businessContext_i18n": {
         "en": "Fifth year free cash flow.",
-        "tr": "Beşinci yıl serbest nakit akışı.",
-        "de": "Freier Cashflow des fünften Jahres.",
+        "tr": "Besinci yil serbest nakit akisi.",
+        "de": "Freier Cashflow des funften Jahres.",
         "fr": "Flux de trésorerie disponible de la cinquième année.",
         "es": "Flujo de caja libre del quinto año.",
         "ar": "التدفق النقدي الحر للسنة الخامسة."
@@ -145,10 +145,10 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Ağırlıklı ortalama sermaye maliyeti.",
+      "businessContext": "WACC",
       "businessContext_i18n": {
         "en": "Weighted average cost of capital.",
-        "tr": "Ağırlıklı ortalama sermaye maliyeti.",
+        "tr": "Weightli Mean sermaye Costi.",
         "de": "Gewichtete durchschnittliche Kapitalkosten.",
         "fr": "Coût moyen pondéré du capital.",
         "es": "Costo promedio ponderado del capital.",
@@ -157,10 +157,10 @@
     },
     {
       "id": "terminalBuyume",
-      "label": "Terminal Büyüme (%)",
+      "label": "TerminalBuyume",
       "label_i18n": {
         "en": "Terminal Growth (%)",
-        "tr": "Terminal Büyüme (%)",
+        "tr": "Terminal Buyume (%)",
         "de": "Terminale Wachstumsrate",
         "fr": "Taux de croissance terminal",
         "es": "Tasa de crecimiento terminal",
@@ -170,10 +170,10 @@
       "unit": "%",
       "default": 3,
       "min": 0,
-      "businessContext": "Sonsuz büyüme varsayımı.",
+      "businessContext": "TerminalBuyume",
       "businessContext_i18n": {
         "en": "Perpetual growth rate assumption.",
-        "tr": "Sonsuz büyüme varsayımı.",
+        "tr": "Sonsuz buyume varNumbermi.",
         "de": "Annahme der ewigen Wachstumsrate.",
         "fr": "Hypothèse de taux de croissance perpétuelle.",
         "es": "Supuesto de tasa de crecimiento perpetuo.",
@@ -201,12 +201,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "İşletme Değeri (DCF)"
+      "sonuc": "Workletme Valuei (DCF)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "İşletme Değeri (DCF)",
-        "tr": "İşletme Değeri (DCF)",
+        "en": "Workletme Valuei (DCF)",
+        "tr": "Workletme Valuei (DCF)",
         "de": "Unternehmenswert (DCF)",
         "fr": "Valeur d'entreprise (DCF)",
         "es": "Valor Empresarial (DCF)",
@@ -231,7 +231,7 @@
       "long": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
       "short_i18n": {
         "en": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
-        "tr": "Şirketin nakit üretme kapasitesine dayalı işletme değerini (DCF) hesaplar.",
+        "tr": "Sirketin nakit uretme kapasitesine dayali isletme Valueini (DCF) hesaplar.",
         "de": "Berechnen Sie den Unternehmenswert mittels Discounted-Cashflow-Analyse (DCF).",
         "fr": "Calculer la valeur d'entreprise à l'aide de l'analyse des flux de trésorerie actualisés (DCF).",
         "es": "Calcular el valor empresarial mediante el análisis de flujo de caja descontado (DCF).",
@@ -239,7 +239,7 @@
       },
       "long_i18n": {
         "en": "Calculate enterprise value using discounted cash flow (DCF) analysis.",
-        "tr": "Şirketin nakit üretme kapasitesine dayalı işletme değerini (DCF) hesaplar.",
+        "tr": "Sirketin nakit uretme kapasitesine dayali isletme Valueini (DCF) hesaplar.",
         "de": "Berechnen Sie den Unternehmenswert mittels Discounted-Cashflow-Analyse (DCF).",
         "fr": "Calculer la valeur d'entreprise à l'aide de l'analyse des flux de trésorerie actualisés (DCF).",
         "es": "Calcular el valor empresarial mediante el análisis de flujo de caja descontado (DCF).",

@@ -2,15 +2,15 @@
   "toolName": "asme-shaft-diameter-bending-torsion-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "moment",
-      "label": "Eğilme Momenti (N.m)",
+      "label": "Bending Moment (N.m)",
       "label_i18n": {
         "en": "Bending Moment (N.m)",
-        "tr": "Eğilme Momenti (N.m)",
+        "tr": "Bmostding Mommostti (N.m)",
         "de": "Biegemoment",
         "fr": "Moment de flexion",
         "es": "Momento flector",
@@ -20,10 +20,10 @@
       "unit": "N.m",
       "default": 500,
       "min": 0,
-      "businessContext": "Mile etkiyen eğilme momenti.",
+      "businessContext": "Mile etkiyen Bending Moment.",
       "businessContext_i18n": {
         "en": "Bending moment on shaft.",
-        "tr": "Mile etkiyen eğilme momenti.",
+        "tr": "Mile etkiyen Bending Moment.",
         "de": "Biegemoment auf der Welle.",
         "fr": "Moment de flexion sur l'arbre.",
         "es": "Momento flector sobre el eje.",
@@ -70,10 +70,10 @@
       "unit": "Pa",
       "default": 300000000,
       "min": 0,
-      "businessContext": "Mil malzemesinin akma dayanımı.",
+      "businessContext": "Mil malzemesinin Yield Strength.",
       "businessContext_i18n": {
         "en": "Shaft material yield strength.",
-        "tr": "Mil malzemesinin akma dayanımı.",
+        "tr": "Mil malzemesinin Yield Strength.",
         "de": "Streckgrenze des Wellenmaterials.",
         "fr": "Limite d'élasticité du matériau de l'arbre.",
         "es": "Resistencia a la fluencia del material del eje.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Min. Mil Çapı"
+      "sonuc": "Min. Mil Diameter"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Min. Mil Çapı",
-        "tr": "Min. Mil Çapı",
+        "en": "Min. Mil Diameter",
+        "tr": "Min. Mil Diameter",
         "de": "Min. Wellendurchmesser",
         "fr": "Diamètre minimal de l'arbre",
         "es": "Diámetro Mínimo del Eje",
@@ -124,7 +124,7 @@
       "long": "Calculate minimum shaft diameter under bending and torsion (ASME).",
       "short_i18n": {
         "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "tr": "Eğilme ve burulma altındaki milin minimum çapını ASME formülü ile hesaplar.",
+        "tr": "Egilme ve burulma altindaki milin Minimum Diameterini ASME formulu ile hesaplar.",
         "de": "Berechnen Sie den minimalen Wellendurchmesser unter Biegung und Torsion (ASME).",
         "fr": "Calculer le diamètre minimal de l'arbre sous flexion et torsion (ASME).",
         "es": "Calcular el diámetro mínimo del eje bajo flexión y torsión (ASME).",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate minimum shaft diameter under bending and torsion (ASME).",
-        "tr": "Eğilme ve burulma altındaki milin minimum çapını ASME formülü ile hesaplar.",
+        "tr": "Egilme ve burulma altindaki milin Minimum Diameterini ASME formulu ile hesaplar.",
         "de": "Berechnen Sie den minimalen Wellendurchmesser unter Biegung und Torsion (ASME).",
         "fr": "Calculer le diamètre minimal de l'arbre sous flexion et torsion (ASME).",
         "es": "Calcular el diámetro mínimo del eje bajo flexión y torsión (ASME).",

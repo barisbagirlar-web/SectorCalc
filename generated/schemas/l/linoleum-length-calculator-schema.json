@@ -2,15 +2,15 @@
   "toolName": "linoleum-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Döşeme Alanı (m²)",
+      "label": "Flooring Area (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
-        "tr": "Döşeme Alanı (m²)",
+        "tr": "Slab Area (m²)",
         "de": "Gesamtfläche",
         "fr": "Surface totale",
         "es": "Superficie total",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Rulo genişliği.",
+      "businessContext": "RuloEn",
       "businessContext_i18n": {
         "en": "Roll width.",
-        "tr": "Rulo genişliği.",
+        "tr": "Rulo genisligi.",
         "de": "Rollenbreite.",
         "fr": "Largeur du rouleau.",
         "es": "Ancho del rollo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "fire",
-      "label": "Fire Oranı (%)",
+      "label": "Scrap Rate (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Fire Oranı (%)",
+        "tr": "Scrap Ratio (%)",
         "de": "Abfallfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Kesim kaybı.",
+      "businessContext": "Fire",
       "businessContext_i18n": {
         "en": "Cutting waste.",
-        "tr": "Kesim kaybı.",
+        "tr": "Kesim kaybi.",
         "de": "Schnittverschnitt.",
         "fr": "Perte de coupe.",
         "es": "Desperdicio de corte.",
@@ -124,7 +124,7 @@
       "long": "Calculate linoleum/vinyl length to cut from roll.",
       "short_i18n": {
         "en": "Calculate linoleum/vinyl length to cut from roll.",
-        "tr": "Rulodan kesilecek net linolyum/vinil boy uzunluğunu hesaplar.",
+        "tr": "Rulodan kesilecek Net linolyum/vinil Height uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Länge von Linoleum/Vinyl, die von der Rolle geschnitten werden soll.",
         "fr": "Calculer la longueur de linoléum/vinyle à couper du rouleau.",
         "es": "Calcular la longitud de linóleo/vinilo a cortar del rollo.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate linoleum/vinyl length to cut from roll.",
-        "tr": "Rulodan kesilecek net linolyum/vinil boy uzunluğunu hesaplar.",
+        "tr": "Rulodan kesilecek Net linolyum/vinil Height uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Länge von Linoleum/Vinyl, die von der Rolle geschnitten werden soll.",
         "fr": "Calculer la longueur de linoléum/vinyle à couper du rouleau.",
         "es": "Calcular la longitud de linóleo/vinilo a cortar del rollo.",

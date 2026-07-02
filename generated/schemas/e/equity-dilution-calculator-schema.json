@@ -2,7 +2,7 @@
   "toolName": "equity-dilution-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -45,10 +45,10 @@
       "unit": "shares",
       "default": 200000,
       "min": 0,
-      "businessContext": "Yeni ihraç edilen hisse.",
+      "businessContext": "YeniHisse",
       "businessContext_i18n": {
         "en": "Newly issued shares.",
-        "tr": "Yeni ihraç edilen hisse.",
+        "tr": "Yeni ihrac edilen hisse.",
         "de": "Neu ausgegebene Aktien.",
         "fr": "Nouvelles actions émises.",
         "es": "Acciones recién emitidas.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Sulandırma Oranı"
+      "sonuc": "Sulandirma Ratioi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sulandırma Oranı",
-        "tr": "Sulandırma Oranı",
+        "en": "Sulandirma Ratioi",
+        "tr": "Sulandirma Ratioi",
         "de": "Verwässerungsrate",
         "fr": "Taux de dilution",
         "es": "Tasa de Dilución",
@@ -99,16 +99,16 @@
       "long": "Calculate equity dilution percentage for existing shareholders.",
       "short_i18n": {
         "en": "Calculate equity dilution percentage for existing shareholders.",
-        "tr": "Mevcut hissedarların mülkiyet oranındaki azalmayı (sulandırma) hesaplar.",
-        "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals für bestehende Aktionäre.",
+        "tr": "Mevcut hissedarlarin mulkiyet Ratioindaki azalmayi (sulandirma) hesaplar.",
+        "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals fur bestehende Aktionäre.",
         "fr": "Calculer le pourcentage de dilution des capitaux propres pour les actionnaires existants.",
         "es": "Calcular el porcentaje de dilución del capital para los accionistas existentes.",
         "ar": "حساب نسبة تخفيف حقوق المساهمين الحاليين."
       },
       "long_i18n": {
         "en": "Calculate equity dilution percentage for existing shareholders.",
-        "tr": "Mevcut hissedarların mülkiyet oranındaki azalmayı (sulandırma) hesaplar.",
-        "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals für bestehende Aktionäre.",
+        "tr": "Mevcut hissedarlarin mulkiyet Ratioindaki azalmayi (sulandirma) hesaplar.",
+        "de": "Berechnen Sie den Verwässerungsprozentsatz des Eigenkapitals fur bestehende Aktionäre.",
         "fr": "Calculer le pourcentage de dilution des capitaux propres pour les actionnaires existants.",
         "es": "Calcular el porcentaje de dilución del capital para los accionistas existentes.",
         "ar": "حساب نسبة تخفيف حقوق المساهمين الحاليين."

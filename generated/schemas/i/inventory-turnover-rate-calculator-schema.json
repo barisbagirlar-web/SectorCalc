@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Yıllık SMM (TL)",
+      "label": "YillikCOGS",
       "label_i18n": {
         "en": "Annual COGS (USD)",
-        "tr": "Yıllık SMM (TL)",
+        "tr": "Annual SMM (TRY)",
         "de": "Jährliche COGS (USD)",
         "fr": "COGS annuel (USD)",
         "es": "COGS anual (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext": "YillikCOGS",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
-        "tr": "Yıllık satılan mal maliyeti.",
+        "tr": "Yillik Satilan mal Costi.",
         "de": "Jährliche Kosten der verkauften Waren.",
         "fr": "Coût annuel des marchandises vendues.",
         "es": "Costo anual de los bienes vendidos.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Dönem ortalama stok değeri.",
+      "businessContext": "OrtStok",
       "businessContext_i18n": {
         "en": "Average inventory value.",
-        "tr": "Dönem ortalama stok değeri.",
+        "tr": "Donem Mean stok Valuei.",
         "de": "Durchschnittlicher Lagerwert.",
         "fr": "Valeur moyenne des stocks.",
         "es": "Valor promedio del inventario.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "times",
     "breakdown": {
-      "sonuc": "Envanter Devir Hızı"
+      "sonuc": "Envanter Devir Speed"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Envanter Devir Hızı",
-        "tr": "Envanter Devir Hızı",
+        "en": "Envanter Devir Speed",
+        "tr": "Envanter Devir Speed",
         "de": "Lagerumschlagshäufigkeit",
         "fr": "Inventory Turnover Rate",
         "es": "Rotación de inventario",
@@ -99,7 +99,7 @@
       "long": "Calculate inventory turnover rate.",
       "short_i18n": {
         "en": "Calculate inventory turnover rate.",
-        "tr": "Stokların bir yılda kaç kez satılıp yenilendiğini hesaplar.",
+        "tr": "Stoklarin bir yilda kac kez satilip yenilendigini hesaplar.",
         "de": "Berechnen Sie die Lagerumschlagshäufigkeit.",
         "fr": "Calculer le taux de rotation des stocks.",
         "es": "Calcular la tasa de rotación de inventario.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate inventory turnover rate.",
-        "tr": "Stokların bir yılda kaç kez satılıp yenilendiğini hesaplar.",
+        "tr": "Stoklarin bir yilda kac kez satilip yenilendigini hesaplar.",
         "de": "Berechnen Sie die Lagerumschlagshäufigkeit.",
         "fr": "Calculer le taux de rotation des stocks.",
         "es": "Calcular la tasa de rotación de inventario.",

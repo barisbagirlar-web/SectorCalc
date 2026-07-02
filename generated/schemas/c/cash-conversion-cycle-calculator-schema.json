@@ -2,15 +2,15 @@
   "toolName": "cash-conversion-cycle-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "stokGun",
-      "label": "Stok Gün",
+      "label": "StokGun",
       "label_i18n": {
         "en": "DIO (Days)",
-        "tr": "Stok Gün",
+        "tr": "Stok Day",
         "de": "Tage des Lagerbestands (DIO)",
         "fr": "Délai de rotation des stocks (DIO)",
         "es": "Días de inventario pendiente (DIO)",
@@ -20,10 +20,10 @@
       "unit": "days",
       "default": 60,
       "min": 0,
-      "businessContext": "Stokta kalma süresi.",
+      "businessContext": "StokGun",
       "businessContext_i18n": {
         "en": "Days inventory outstanding.",
-        "tr": "Stokta kalma süresi.",
+        "tr": "Stokta Kalma Time.",
         "de": "Tage des Lagerbestands (Days inventory outstanding).",
         "fr": "Jours de stock en cours.",
         "es": "Días de inventario pendiente.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "alacakGun",
-      "label": "Alacak Gün",
+      "label": "AlacakGun",
       "label_i18n": {
         "en": "DSO (Days)",
-        "tr": "Alacak Gün",
+        "tr": "Alacak Day",
         "de": "Durchschnittliche Forderungslaufzeit (DSO)",
         "fr": "Délai moyen de recouvrement (DSO)",
         "es": "Días promedio de cuentas por cobrar (DSO)",
@@ -45,10 +45,10 @@
       "unit": "days",
       "default": 45,
       "min": 0,
-      "businessContext": "Tahsilat süresi.",
+      "businessContext": "AlacakGun",
       "businessContext_i18n": {
         "en": "Days sales outstanding.",
-        "tr": "Tahsilat süresi.",
+        "tr": "Tahsilat suresi.",
         "de": "Tage der ausstehenden Forderungen (Days sales outstanding).",
         "fr": "Jours de ventes en cours.",
         "es": "Días de ventas pendientes.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "borcGun",
-      "label": "Borç Gün",
+      "label": "BorcGun",
       "label_i18n": {
         "en": "DPO (Days)",
-        "tr": "Borç Gün",
+        "tr": "Debt Day",
         "de": "Durchschnittliche Verbindlichkeitslaufzeit (DPO)",
         "fr": "Délai moyen de paiement (DPO)",
         "es": "Días promedio de cuentas por pagar (DPO)",
@@ -70,10 +70,10 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Ödeme süresi.",
+      "businessContext": "BorcGun",
       "businessContext_i18n": {
         "en": "Days payable outstanding.",
-        "tr": "Ödeme süresi.",
+        "tr": "Odeme suresi.",
         "de": "Tage der ausstehenden Verbindlichkeiten (Days payable outstanding).",
         "fr": "Jours de dettes fournisseurs en cours.",
         "es": "Días de cuentas por pagar pendientes.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Nakit Dönüşüm Döngüsü (CCC)"
+      "sonuc": "Nakit Donusum Dongusu (CCC)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Nakit Dönüşüm Döngüsü (CCC)",
-        "tr": "Nakit Dönüşüm Döngüsü (CCC)",
+        "en": "Nakit Donusum Dongusu (CCC)",
+        "tr": "Nakit Donusum Dongusu (CCC)",
         "de": "Cash-Conversion-Cycle (CCC)",
         "fr": "Cycle de conversion de trésorerie (CCC)",
         "es": "Ciclo de Conversión de Efectivo (CCC)",
@@ -124,7 +124,7 @@
       "long": "Calculate cash conversion cycle (CCC).",
       "short_i18n": {
         "en": "Calculate cash conversion cycle (CCC).",
-        "tr": "Nakit çıkışı ile tahsilat arasındaki geçen süreyi (CCC) hesaplar.",
+        "tr": "Cash Outflow ile tahsilat arasindaki gecen sureyi (CCC) hesaplar.",
         "de": "Berechnen Sie den Cash Conversion Cycle (CCC).",
         "fr": "Calculer le cycle de conversion de trésorerie (CCC).",
         "es": "Calcular el ciclo de conversión de efectivo (CCC).",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate cash conversion cycle (CCC).",
-        "tr": "Nakit çıkışı ile tahsilat arasındaki geçen süreyi (CCC) hesaplar.",
+        "tr": "Cash Outflow ile tahsilat arasindaki gecen sureyi (CCC) hesaplar.",
         "de": "Berechnen Sie den Cash Conversion Cycle (CCC).",
         "fr": "Calculer le cycle de conversion de trésorerie (CCC).",
         "es": "Calcular el ciclo de conversión de efectivo (CCC).",

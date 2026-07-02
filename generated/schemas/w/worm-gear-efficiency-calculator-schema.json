@@ -2,15 +2,15 @@
   "toolName": "worm-gear-efficiency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "helisAcisi",
-      "label": "Helis Açısı (Rad)",
+      "label": "HelisAcisi",
       "label_i18n": {
         "en": "Helix Angle (Rad)",
-        "tr": "Helis Açısı (Rad)",
+        "tr": "Helis Acisi (Rad)",
         "de": "Steigungswinkel (Rad)",
         "fr": "Angle d'hélice (Rad)",
         "es": "Ángulo de Hélice (Rad)",
@@ -20,10 +20,10 @@
       "unit": "rad",
       "default": 0.35,
       "min": 0,
-      "businessContext": "Vidanın helis açısı.",
+      "businessContext": "HelisAcisi",
       "businessContext_i18n": {
         "en": "Worm helix angle.",
-        "tr": "Vidanın helis açısı.",
+        "tr": "Vidanin helis acisi.",
         "de": "Steigungswinkel der Schnecke.",
         "fr": "Angle d'hélice de la vis sans fin.",
         "es": "Ángulo de hélice del tornillo sin fin.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "suratmeAcisi",
-      "label": "Sürtünme Açısı (Rad)",
+      "label": "SuratmeAcisi",
       "label_i18n": {
         "en": "Friction Angle (Rad)",
-        "tr": "Sürtünme Açısı (Rad)",
+        "tr": "Surtunme Acisi (Rad)",
         "de": "Reibungswinkel",
         "fr": "Angle de frottement",
         "es": "Ángulo de fricción",
@@ -45,10 +45,10 @@
       "unit": "rad",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Sürtünme katsayısının arctan'ı.",
+      "businessContext": "SuratmeAcisi",
       "businessContext_i18n": {
         "en": "Arctan of friction coefficient.",
-        "tr": "Sürtünme katsayısının arctan'ı.",
+        "tr": "Friction Factornin arctan'i.",
         "de": "Arkustangens des Reibungskoeffizienten.",
         "fr": "Arctan du coefficient de frottement.",
         "es": "Arcotangente del coeficiente de fricción.",
@@ -99,7 +99,7 @@
       "long": "Calculate worm gear mechanical efficiency.",
       "short_i18n": {
         "en": "Calculate worm gear mechanical efficiency.",
-        "tr": "Sonsuz vida mekanizmasının mekanik verimini hesaplar.",
+        "tr": "Sonsuz vida mekanizmasinin Mechanical Efficiencyini hesaplar.",
         "de": "Berechnen Sie den mechanischen Wirkungsgrad eines Schneckengetriebes.",
         "fr": "Calculer le rendement mécanique de l'engrenage à vis sans fin.",
         "es": "Calcular la eficiencia mecánica de un engranaje de tornillo sin fin.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate worm gear mechanical efficiency.",
-        "tr": "Sonsuz vida mekanizmasının mekanik verimini hesaplar.",
+        "tr": "Sonsuz vida mekanizmasinin Mechanical Efficiencyini hesaplar.",
         "de": "Berechnen Sie den mechanischen Wirkungsgrad eines Schneckengetriebes.",
         "fr": "Calculer le rendement mécanique de l'engrenage à vis sans fin.",
         "es": "Calcular la eficiencia mecánica de un engranaje de tornillo sin fin.",

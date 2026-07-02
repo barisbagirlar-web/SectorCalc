@@ -2,15 +2,15 @@
   "toolName": "rainwater-harvest-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "catiAlani",
-      "label": "Çatı Alanı (m²)",
+      "label": "Roof Area (m²)",
       "label_i18n": {
         "en": "Roof Area (m²)",
-        "tr": "Çatı Alanı (m²)",
+        "tr": "Roof Area (m²)",
         "de": "Dachfläche (m²)",
         "fr": "Surface du toit (m²)",
         "es": "Área del Techo (m²)",
@@ -20,10 +20,10 @@
       "unit": "m2",
       "default": 150,
       "min": 0,
-      "businessContext": "Toplanan çatı alanı.",
+      "businessContext": "Toplanan Roof Area.",
       "businessContext_i18n": {
         "en": "Collection roof area.",
-        "tr": "Toplanan çatı alanı.",
+        "tr": "Toplanan Roof Area.",
         "de": "Sammelfläche des Daches.",
         "fr": "Surface de collecte du toit.",
         "es": "Área de captación del techo.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yillikYagis",
-      "label": "Yıllık Yağış (mm)",
+      "label": "YillikYagis",
       "label_i18n": {
         "en": "Annual Rainfall (mm)",
-        "tr": "Yıllık Yağış (mm)",
+        "tr": "Yillik Yagis (mm)",
         "de": "Jährlicher Niederschlag (mm)",
         "fr": "Précipitations annuelles (mm)",
         "es": "Precipitación Anual (mm)",
@@ -45,10 +45,10 @@
       "unit": "mm",
       "default": 600,
       "min": 0,
-      "businessContext": "Bölgenin yıllık yağış miktarı.",
+      "businessContext": "YillikYagis",
       "businessContext_i18n": {
         "en": "Annual precipitation.",
-        "tr": "Bölgenin yıllık yağış miktarı.",
+        "tr": "Bolgenin yillik yagis Amounti.",
         "de": "Jährliche Niederschlagsmenge.",
         "fr": "Précipitations annuelles.",
         "es": "Precipitación anual.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "m3",
     "breakdown": {
-      "sonuc": "Yıllık Toplanan Su"
+      "sonuc": "Annual Toplanan Su"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yıllık Toplanan Su",
-        "tr": "Yıllık Toplanan Su",
+        "en": "Annual Toplanan Su",
+        "tr": "Annual Toplanan Su",
         "de": "Jährlich gesammeltes Wasser",
         "fr": "Eau collectée annuellement",
         "es": "Agua Recolectada Anual",
@@ -124,7 +124,7 @@
       "long": "Calculate annual rainwater harvest volume from roof area.",
       "short_i18n": {
         "en": "Calculate annual rainwater harvest volume from roof area.",
-        "tr": "Yılda biriktirilebilecek net yağmur suyu miktarını hesaplar.",
+        "tr": "Yilda biriktirilebilecek Net yagmur suyu Amountini hesaplar.",
         "de": "Berechnen Sie das jährliche Regenwassersammelvolumen von der Dachfläche.",
         "fr": "Calculer le volume annuel de récupération d'eau de pluie à partir de la surface du toit.",
         "es": "Calcular el volumen anual de cosecha de agua de lluvia desde el área del techo.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate annual rainwater harvest volume from roof area.",
-        "tr": "Yılda biriktirilebilecek net yağmur suyu miktarını hesaplar.",
+        "tr": "Yilda biriktirilebilecek Net yagmur suyu Amountini hesaplar.",
         "de": "Berechnen Sie das jährliche Regenwassersammelvolumen von der Dachfläche.",
         "fr": "Calculer le volume annuel de récupération d'eau de pluie à partir de la surface du toit.",
         "es": "Calcular el volumen anual de cosecha de agua de lluvia desde el área del techo.",

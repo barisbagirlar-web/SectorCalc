@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Dayanak varlığın güncel fiyatı.",
+      "businessContext": "S",
       "businessContext_i18n": {
         "en": "Current underlying asset price.",
-        "tr": "Dayanak varlığın güncel fiyatı.",
+        "tr": "Dayanak varligin guncel fiyati.",
         "de": "Aktueller Preis des Basiswerts.",
         "fr": "Prix actuel de l'actif sous-jacent.",
         "es": "Precio actual del activo subyacente.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "K",
-      "label": "Kullanım Fiyatı (₺)",
+      "label": "K",
       "label_i18n": {
         "en": "Strike Price (USD)",
-        "tr": "Kullanım Fiyatı (₺)",
-        "de": "Ausübungspreis",
+        "tr": "Kullanim Fiyati (₺)",
+        "de": "Ausubungspreis",
         "fr": "Prix d'exercice",
         "es": "Precio de ejercicio",
         "ar": "سعر التنفيذ"
@@ -45,11 +45,11 @@
       "unit": "USD",
       "default": 110,
       "min": 0,
-      "businessContext": "Opsiyonun kullanım fiyatı.",
+      "businessContext": "K",
       "businessContext_i18n": {
         "en": "Option strike price.",
-        "tr": "Opsiyonun kullanım fiyatı.",
-        "de": "Ausübungspreis der Option.",
+        "tr": "Opsiyonun kullanim fiyati.",
+        "de": "Ausubungspreis der Option.",
         "fr": "Prix d'exercice de l'option.",
         "es": "Precio de ejercicio de la opción.",
         "ar": "سعر تنفيذ الخيار."
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risksiz faiz oranı.",
+      "businessContext": "Risksiz Interest Rate.",
       "businessContext_i18n": {
         "en": "Risk-free interest rate.",
-        "tr": "Risksiz faiz oranı.",
+        "tr": "Risksiz Interest Rate.",
         "de": "Risikofreier Zinssatz.",
         "fr": "Taux d'intérêt sans risque.",
         "es": "Tasa de interés libre de riesgo.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "t",
-      "label": "Vade (Yıl)",
+      "label": "T",
       "label_i18n": {
         "en": "Time to Maturity (Years)",
-        "tr": "Vade (Yıl)",
+        "tr": "Maturity (Year)",
         "de": "Restlaufzeit (Jahre)",
         "fr": "Temps jusqu'à l'échéance (années)",
         "es": "Tiempo hasta el vencimiento (años)",
@@ -95,10 +95,10 @@
       "unit": "years",
       "default": 1,
       "min": 0.0001,
-      "businessContext": "Vadeye kalan süre.",
+      "businessContext": "T",
       "businessContext_i18n": {
         "en": "Time remaining to expiry.",
-        "tr": "Vadeye kalan süre.",
+        "tr": "Maturityye kArea sure.",
         "de": "Verbleibende Zeit bis zum Verfall.",
         "fr": "Temps restant jusqu'à l'échéance.",
         "es": "Tiempo restante hasta el vencimiento.",
@@ -120,10 +120,10 @@
       "unit": "%",
       "default": 30,
       "min": 0,
-      "businessContext": "Yıllık volatilite.",
+      "businessContext": "V",
       "businessContext_i18n": {
         "en": "Annualized volatility.",
-        "tr": "Yıllık volatilite.",
+        "tr": "Annual volatilite.",
         "de": "Annualisierte Volatilität.",
         "fr": "Volatilité annualisée.",
         "es": "Volatilidad anualizada.",
@@ -175,7 +175,7 @@
       "long": "Calculate European call option theoretical price using Black-Scholes.",
       "short_i18n": {
         "en": "Calculate European call option theoretical price using Black-Scholes.",
-        "tr": "Avrupa tipi alım opsiyonunun teorik prim değerini (Black-Scholes) hesaplar.",
+        "tr": "Avrupa tipi alim opsiyonunun teorik prim Valueini (Black-Scholes) hesaplar.",
         "de": "Berechnung des theoretischen Preises einer europäischen Call-Option mittels Black-Scholes.",
         "fr": "Calculer le prix théorique de l'option d'achat européenne à l'aide de Black-Scholes.",
         "es": "Calcular el precio teórico de una opción de compra europea utilizando Black-Scholes.",
@@ -183,7 +183,7 @@
       },
       "long_i18n": {
         "en": "Calculate European call option theoretical price using Black-Scholes.",
-        "tr": "Avrupa tipi alım opsiyonunun teorik prim değerini (Black-Scholes) hesaplar.",
+        "tr": "Avrupa tipi alim opsiyonunun teorik prim Valueini (Black-Scholes) hesaplar.",
         "de": "Berechnung des theoretischen Preises einer europäischen Call-Option mittels Black-Scholes.",
         "fr": "Calculer le prix théorique de l'option d'achat européenne à l'aide de Black-Scholes.",
         "es": "Calcular el precio teórico de una opción de compra europea utilizando Black-Scholes.",

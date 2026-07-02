@@ -2,15 +2,15 @@
   "toolName": "loom-production-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "atimSayisi",
-      "label": "Atım Sayısı (atım/dk)",
+      "label": "AtimSayisi",
       "label_i18n": {
         "en": "Picks per Minute (ppm)",
-        "tr": "Atım Sayısı (atım/dk)",
+        "tr": "Atim Numbersi (atim/dk)",
         "de": "Schussfaden pro Minute (ppm)",
         "fr": "Coups par minute (ppm)",
         "es": "Picks por minuto (ppm)",
@@ -20,10 +20,10 @@
       "unit": "ppm",
       "default": 800,
       "min": 0,
-      "businessContext": "Tezgahın dakikadaki atım adedi.",
+      "businessContext": "AtimSayisi",
       "businessContext_i18n": {
         "en": "Loom picks per minute.",
-        "tr": "Tezgahın dakikadaki atım adedi.",
+        "tr": "Tezgahin dakikadaki atim adedi.",
         "de": "Schussfaden pro Minute der Webmaschine.",
         "fr": "Coups par minute du métier à tisser.",
         "es": "Picks por minuto del telar.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "durusSure",
-      "label": "Duruş Süresi (dk)",
+      "label": "Downtime (dk)",
       "label_i18n": {
         "en": "Downtime (min)",
-        "tr": "Duruş Süresi (dk)",
+        "tr": "Downtime (dk)",
         "de": "Versteckte Kosten einbeziehen (Goodwill, Verwaltung, Ausfallzeit)",
         "fr": "Inclure les coûts cachés (Goodwill, Administration, Temps d'arrêt)",
         "es": "Incluir costos ocultos (Buena voluntad, Administración, Tiempo de inactividad)",
@@ -45,10 +45,10 @@
       "unit": "min",
       "default": 20,
       "min": 0,
-      "businessContext": "Vardiya başı toplam duruş.",
+      "businessContext": "DurusSure",
       "businessContext_i18n": {
         "en": "Total downtime per shift.",
-        "tr": "Vardiya başı toplam duruş.",
+        "tr": "Vardiya basi Total durus.",
         "de": "Gesamtstillstandszeit pro Schicht.",
         "fr": "Temps d'arrêt total par poste.",
         "es": "Tiempo de inactividad total por turno.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "vardiyaSure",
-      "label": "Vardiya Süresi (dk)",
+      "label": "Shift Duration (dk)",
       "label_i18n": {
         "en": "Shift Duration (min)",
-        "tr": "Vardiya Süresi (dk)",
+        "tr": "Vardiya Time (min)",
         "de": "Schichtdauer (Stunden)",
         "fr": "Durée du poste (heures)",
         "es": "Duración del turno (horas)",
@@ -70,10 +70,10 @@
       "unit": "min",
       "default": 480,
       "min": 0,
-      "businessContext": "Toplam vardiya süresi.",
+      "businessContext": "Total Shift Duration.",
       "businessContext_i18n": {
         "en": "Total shift duration.",
-        "tr": "Toplam vardiya süresi.",
+        "tr": "Total Shift Duration.",
         "de": "Gesamte Schichtdauer.",
         "fr": "Durée totale du poste.",
         "es": "Duración total del turno.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "kumasSikligi",
-      "label": "Kumaş Sıklığı (atım/cm)",
+      "label": "KumasSikligi",
       "label_i18n": {
         "en": "Fabric Density (picks/cm)",
-        "tr": "Kumaş Sıklığı (atım/cm)",
+        "tr": "Kumas Sikligi (atim/cm)",
         "de": "Gewebedichte (Schussfäden/cm)",
         "fr": "Densité du tissu (coups/cm)",
         "es": "Densidad de la tela (picks/cm)",
@@ -95,10 +95,10 @@
       "unit": "picks/cm",
       "default": 25,
       "min": 0,
-      "businessContext": "cm başına atım sıklığı.",
+      "businessContext": "KumasSikligi",
       "businessContext_i18n": {
         "en": "Picks per cm.",
-        "tr": "cm başına atım sıklığı.",
+        "tr": "cm basina atim sikligi.",
         "de": "Schussfäden pro cm.",
         "fr": "Coups par cm.",
         "es": "Picks por cm.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Net Kumaş Üretimi"
+      "sonuc": "Net Kumas Uretimi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Kumaş Üretimi",
-        "tr": "Net Kumaş Üretimi",
+        "en": "Net Kumas Uretimi",
+        "tr": "Net Kumas Uretimi",
         "de": "Nettostoffproduktion",
         "fr": "Production nette de tissu",
         "es": "Producción Neta de Tela",
@@ -152,7 +152,7 @@
       "long": "Calculate loom net fabric production per shift.",
       "short_i18n": {
         "en": "Calculate loom net fabric production per shift.",
-        "tr": "Tezgahın bir vardiyada ürettiği net kumaş uzunluğunu hesaplar.",
+        "tr": "Tezgahin bir vardiyada urettigi Net kumas uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Netto-Stoffproduktion pro Schicht einer Webmaschine.",
         "fr": "Calculer la production nette de tissu par poste pour un métier à tisser.",
         "es": "Calcular la producción neta de tela por turno en un telar.",
@@ -160,7 +160,7 @@
       },
       "long_i18n": {
         "en": "Calculate loom net fabric production per shift.",
-        "tr": "Tezgahın bir vardiyada ürettiği net kumaş uzunluğunu hesaplar.",
+        "tr": "Tezgahin bir vardiyada urettigi Net kumas uzunlugunu hesaplar.",
         "de": "Berechnen Sie die Netto-Stoffproduktion pro Schicht einer Webmaschine.",
         "fr": "Calculer la production nette de tissu par poste pour un métier à tisser.",
         "es": "Calcular la producción neta de tela por turno en un telar.",

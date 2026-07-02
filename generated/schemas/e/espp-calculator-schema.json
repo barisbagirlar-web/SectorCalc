@@ -2,16 +2,16 @@
   "toolName": "espp-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "piyasaFiyati",
-      "label": "Piyasa Fiyatı (TL)",
+      "label": "PiyasaFiyati",
       "label_i18n": {
         "en": "Market Price (USD)",
-        "tr": "Piyasa Fiyatı (TL)",
-        "de": "Marktpreis für reines Filament",
+        "tr": "Piyasa Fiyati (TL)",
+        "de": "Marktpreis fur reines Filament",
         "fr": "Prix du marché du filament vierge",
         "es": "Precio de mercado del filamento virgen",
         "ar": "سعر السوق للخيوط البكر"
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Hisse senedinin piyasa fiyatı.",
+      "businessContext": "PiyasaFiyati",
       "businessContext_i18n": {
         "en": "Stock market price.",
-        "tr": "Hisse senedinin piyasa fiyatı.",
+        "tr": "Hisse senedinin piyasa fiyati.",
         "de": "Aktienmarktkurs.",
         "fr": "Prix du marché de l'action.",
         "es": "Precio de mercado de la acción.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "iskonto",
-      "label": "İskonto Oranı (%)",
+      "label": "Discount Rate (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
-        "tr": "İskonto Oranı (%)",
+        "tr": "Discount Rate (%)",
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
         "es": "Tasa de descuento (%)",
@@ -46,10 +46,10 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "ESPP indirim oranı.",
+      "businessContext": "Iskonto",
       "businessContext_i18n": {
         "en": "ESPP purchase discount.",
-        "tr": "ESPP indirim oranı.",
+        "tr": "ESPP indirim Ratioi.",
         "de": "ESPP-Kaufrabatt.",
         "fr": "Remise sur l'achat ESPP.",
         "es": "Descuento de compra del ESPP.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "katki",
-      "label": "Aylık Katkı (TL)",
+      "label": "Katki",
       "label_i18n": {
         "en": "Monthly Contribution (USD)",
-        "tr": "Aylık Katkı (TL)",
+        "tr": "Aylik Katki (TL)",
         "de": "Monatlicher Beitrag ($)",
         "fr": "Contribution mensuelle ($)",
         "es": "Contribución Mensual ($)",
@@ -71,10 +71,10 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Çalışanın aylık katkısı.",
+      "businessContext": "Katki",
       "businessContext_i18n": {
         "en": "Employee monthly contribution.",
-        "tr": "Çalışanın aylık katkısı.",
+        "tr": "Calisanin aylik katkisi.",
         "de": "Monatlicher Mitarbeiterbeitrag.",
         "fr": "Contribution mensuelle de l'employé.",
         "es": "Contribución mensual del empleado.",
@@ -96,12 +96,12 @@
     "primary": "sonuc",
     "unit": "shares",
     "breakdown": {
-      "sonuc": "Alınabilecek Hisse"
+      "sonuc": "Alinabilecek Hisse"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Alınabilecek Hisse",
-        "tr": "Alınabilecek Hisse",
+        "en": "Alinabilecek Hisse",
+        "tr": "Alinabilecek Hisse",
         "de": "Erwerbbare Aktien",
         "fr": "Actions pouvant être achetées",
         "es": "Acciones Comprables",
@@ -126,16 +126,16 @@
       "long": "Calculate shares purchasable through employee stock purchase plan.",
       "short_i18n": {
         "en": "Calculate shares purchasable through employee stock purchase plan.",
-        "tr": "İndirimli fiyatla alınabilecek hisse adedini hesaplar.",
-        "de": "Berechnen Sie die Anzahl der Aktien, die über einen Mitarbeiteraktienkaufplan erworben werden können.",
+        "tr": "Indirimli fiyatla Alinabilecek Hisse adedini hesaplar.",
+        "de": "Berechnen Sie die Anzahl der Aktien, die uber einen Mitarbeiteraktienkaufplan erworben werden konnen.",
         "fr": "Calculer le nombre d'actions pouvant être achetées via un plan d'achat d'actions pour les employés.",
         "es": "Calcular las acciones comprables a través del plan de compra de acciones para empleados.",
         "ar": "حساب الأسهم القابلة للشراء من خلال خطة شراء أسهم الموظفين."
       },
       "long_i18n": {
         "en": "Calculate shares purchasable through employee stock purchase plan.",
-        "tr": "İndirimli fiyatla alınabilecek hisse adedini hesaplar.",
-        "de": "Berechnen Sie die Anzahl der Aktien, die über einen Mitarbeiteraktienkaufplan erworben werden können.",
+        "tr": "Indirimli fiyatla Alinabilecek Hisse adedini hesaplar.",
+        "de": "Berechnen Sie die Anzahl der Aktien, die uber einen Mitarbeiteraktienkaufplan erworben werden konnen.",
         "fr": "Calculer le nombre d'actions pouvant être achetées via un plan d'achat d'actions pour les employés.",
         "es": "Calcular las acciones comprables a través del plan de compra de acciones para empleados.",
         "ar": "حساب الأسهم القابلة للشراء من خلال خطة شراء أسهم الموظفين."

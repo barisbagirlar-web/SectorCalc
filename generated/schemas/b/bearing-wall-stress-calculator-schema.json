@@ -2,15 +2,15 @@
   "toolName": "bearing-wall-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Düşey Yük (N)",
+      "label": "Yuk",
       "label_i18n": {
         "en": "Vertical Load (N)",
-        "tr": "Düşey Yük (N)",
+        "tr": "Dusey Yuk (N)",
         "de": "Vertikallast (N)",
         "fr": "Charge verticale (N)",
         "es": "Carga Vertical (N)",
@@ -20,10 +20,10 @@
       "unit": "N",
       "default": 200000,
       "min": 0,
-      "businessContext": "Duvara gelen düşey yük.",
+      "businessContext": "Yuk",
       "businessContext_i18n": {
         "en": "Vertical load on wall.",
-        "tr": "Duvara gelen düşey yük.",
+        "tr": "Duvara gelen dusey yuk.",
         "de": "Vertikale Last auf die Wand.",
         "fr": "Charge verticale sur le mur.",
         "es": "Carga vertical sobre el muro.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "duvarAlani",
-      "label": "Duvar Kesit Alanı (m²)",
+      "label": "Duvar Cross-sectional Area (m²)",
       "label_i18n": {
         "en": "Wall Cross-Section (m²)",
-        "tr": "Duvar Kesit Alanı (m²)",
+        "tr": "Wall Kesit Area (m²)",
         "de": "Wandquerschnitt (m²)",
         "fr": "Section transversale du mur (m²)",
         "es": "Sección Transversal del Muro (m²)",
@@ -45,10 +45,10 @@
       "unit": "m2",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Duvarın yatay kesit alanı.",
+      "businessContext": "DuvarAlani",
       "businessContext_i18n": {
         "en": "Wall horizontal section area.",
-        "tr": "Duvarın yatay kesit alanı.",
+        "tr": "Duvarin yatay Cross-sectional Area.",
         "de": "Horizontale Querschnittsfläche der Wand.",
         "fr": "Aire de la section horizontale du mur.",
         "es": "Área de la sección horizontal del muro.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Duvar Basınç Gerilmesi"
+      "sonuc": "Wall Pressure Gerilmesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Duvar Basınç Gerilmesi",
-        "tr": "Duvar Basınç Gerilmesi",
+        "en": "Wall Pressure Gerilmesi",
+        "tr": "Wall Pressure Gerilmesi",
         "de": "Wall Bearing Stress",
         "fr": "Contrainte de compression du mur",
         "es": "Esfuerzo de Compresión en el Muro",
@@ -99,7 +99,7 @@
       "long": "Calculate average axial compressive stress in a load-bearing wall.",
       "short_i18n": {
         "en": "Calculate average axial compressive stress in a load-bearing wall.",
-        "tr": "Duvar kesitindeki ortalama eksenel basınç gerilmesini hesaplar.",
+        "tr": "Duvar kesitindeki Mean eksenel Pressure gerilmesini hesaplar.",
         "de": "Berechnen Sie die mittlere axiale Druckspannung in einer tragenden Wand.",
         "fr": "Calculer la contrainte de compression axiale moyenne dans un mur porteur.",
         "es": "Calcular el esfuerzo de compresión axial promedio en un muro de carga.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate average axial compressive stress in a load-bearing wall.",
-        "tr": "Duvar kesitindeki ortalama eksenel basınç gerilmesini hesaplar.",
+        "tr": "Duvar kesitindeki Mean eksenel Pressure gerilmesini hesaplar.",
         "de": "Berechnen Sie die mittlere axiale Druckspannung in einer tragenden Wand.",
         "fr": "Calculer la contrainte de compression axiale moyenne dans un mur porteur.",
         "es": "Calcular el esfuerzo de compresión axial promedio en un muro de carga.",

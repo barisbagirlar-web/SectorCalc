@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "yariCap",
-      "label": "Parçacık Yarıçapı (m)",
+      "label": "YariCap",
       "label_i18n": {
         "en": "Particle Radius (m)",
-        "tr": "Parçacık Yarıçapı (m)",
+        "tr": "Parcacik Radiusi (m)",
         "de": "Partikelradius (m)",
         "fr": "Rayon de la particule (m)",
         "es": "Radio de la Partícula (m)",
@@ -20,11 +20,11 @@
       "unit": "m",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Küresel parçacığın yarıçapı.",
+      "businessContext": "YariCap",
       "businessContext_i18n": {
         "en": "Spherical particle radius.",
-        "tr": "Küresel parçacığın yarıçapı.",
-        "de": "Radius des kugelförmigen Partikels.",
+        "tr": "Kuresel parcacigin Radiusi.",
+        "de": "Radius des kugelformigen Partikels.",
         "fr": "Rayon de la particule sphérique.",
         "es": "Radio de la partícula esférica.",
         "ar": "نصف قطر الجسيم الكروي."
@@ -32,10 +32,10 @@
     },
     {
       "id": "parcacikYogunluk",
-      "label": "Parçacık Yoğunluğu (kg/m³)",
+      "label": "ParcacikYogunluk",
       "label_i18n": {
         "en": "Particle Density (kg/m³)",
-        "tr": "Parçacık Yoğunluğu (kg/m³)",
+        "tr": "Parcacik Yogunlugu (kg/m³)",
         "de": "Partikeldichte (kg/m³)",
         "fr": "Masse volumique de la particule (kg/m³)",
         "es": "Densidad de la Partícula (kg/m³)",
@@ -45,10 +45,10 @@
       "unit": "kg/m3",
       "default": 2500,
       "min": 0,
-      "businessContext": "Parçacığın yoğunluğu.",
+      "businessContext": "ParcacikYogunluk",
       "businessContext_i18n": {
         "en": "Particle density.",
-        "tr": "Parçacığın yoğunluğu.",
+        "tr": "Parcacigin yogunlugu.",
         "de": "Partikeldichte.",
         "fr": "Masse volumique de la particule.",
         "es": "Densidad de la partícula.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "akiskanYogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "AkiskanYogunluk",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
-        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "tr": "Fluid Dmostsity (kg/m³)",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
@@ -70,10 +70,10 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext": "AkiskanYogunluk",
       "businessContext_i18n": {
         "en": "Fluid density.",
-        "tr": "Akışkanın yoğunluğu.",
+        "tr": "Akiskanin yogunlugu.",
         "de": "Fluiddichte.",
         "fr": "Masse volumique du fluide.",
         "es": "Densidad del fluido.",
@@ -95,11 +95,11 @@
       "unit": "Pa*s",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Akışkanın viskozitesi.",
+      "businessContext": "Viskozite",
       "businessContext_i18n": {
         "en": "Fluid viscosity.",
-        "tr": "Akışkanın viskozitesi.",
-        "de": "Flüssigkeitsviskosität.",
+        "tr": "Akiskanin Viscositysi.",
+        "de": "Flussigkeitsviskosität.",
         "fr": "Viscosité du fluide.",
         "es": "Viscosidad del fluido.",
         "ar": "لزوجة المائع."
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Çökelme Hızı"
+      "sonuc": "Cokelme Speedi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Çökelme Hızı",
-        "tr": "Çökelme Hızı",
+        "en": "Cokelme Speedi",
+        "tr": "Cokelme Speedi",
         "de": "Sedimentationsgeschwindigkeit",
         "fr": "Taux de sédimentation",
         "es": "Velocidad de Sedimentación",
@@ -149,16 +149,16 @@
       "long": "Calculate settling velocity of a sphere in a viscous fluid using Stokes' law.",
       "short_i18n": {
         "en": "Calculate settling velocity of a sphere in a viscous fluid using Stokes' law.",
-        "tr": "Küresel cismin viskoz akışkandaki çökelme hızını Stokes yasası ile hesaplar.",
-        "de": "Berechnen Sie die Sinkgeschwindigkeit einer Kugel in einer viskosen Flüssigkeit nach dem Stokes'schen Gesetz.",
+        "tr": "Kuresel cismin viskoz akiskandaki Cokelme Speedini Stokes yasasi ile hesaplar.",
+        "de": "Berechnen Sie die Sinkgeschwindigkeit einer Kugel in einer viskosen Flussigkeit nach dem Stokes'schen Gesetz.",
         "fr": "Calculer la vitesse de sédimentation d'une sphère dans un fluide visqueux en utilisant la loi de Stokes.",
         "es": "Calcular la velocidad de sedimentación de una esfera en un fluido viscoso usando la ley de Stokes.",
         "ar": "احسب سرعة الترسيب لكرة في مائع لزج باستخدام قانون ستوكس."
       },
       "long_i18n": {
         "en": "Calculate settling velocity of a sphere in a viscous fluid using Stokes' law.",
-        "tr": "Küresel cismin viskoz akışkandaki çökelme hızını Stokes yasası ile hesaplar.",
-        "de": "Berechnen Sie die Sinkgeschwindigkeit einer Kugel in einer viskosen Flüssigkeit nach dem Stokes'schen Gesetz.",
+        "tr": "Kuresel cismin viskoz akiskandaki Cokelme Speedini Stokes yasasi ile hesaplar.",
+        "de": "Berechnen Sie die Sinkgeschwindigkeit einer Kugel in einer viskosen Flussigkeit nach dem Stokes'schen Gesetz.",
         "fr": "Calculer la vitesse de sédimentation d'une sphère dans un fluide visqueux en utilisant la loi de Stokes.",
         "es": "Calcular la velocidad de sedimentación de una esfera en un fluido viscoso usando la ley de Stokes.",
         "ar": "احسب سرعة الترسيب لكرة في مائع لزج باستخدام قانون ستوكس."

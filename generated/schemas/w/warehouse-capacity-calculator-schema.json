@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "toplamAlan",
-      "label": "Toplam Depo Alanı (m²)",
+      "label": "ToplamAlan",
       "label_i18n": {
         "en": "Total Floor Area (m²)",
-        "tr": "Toplam Depo Alanı (m²)",
+        "tr": "Total Depo Area (m²)",
         "de": "Gesamtfläche",
         "fr": "Surface totale",
         "es": "Superficie total",
@@ -20,10 +20,10 @@
       "unit": "m2",
       "default": 5000,
       "min": 0,
-      "businessContext": "Deponun toplam taban alanı.",
+      "businessContext": "ToplamAlan",
       "businessContext_i18n": {
         "en": "Total warehouse floor area.",
-        "tr": "Deponun toplam taban alanı.",
+        "tr": "Deponun Total taban Areai.",
         "de": "Gesamte Lagerhallenfläche.",
         "fr": "Surface totale de l'entrepôt.",
         "es": "Área total del piso del almacén.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "rafKullanimi",
-      "label": "Raf Kullanım Oranı (%)",
+      "label": "RafKullanimi",
       "label_i18n": {
         "en": "Rack Utilization (%)",
-        "tr": "Raf Kullanım Oranı (%)",
+        "tr": "Raf Kullanim Ratioi (%)",
         "de": "Regalnutzung (%)",
         "fr": "Utilisation des rayonnages (%)",
         "es": "Utilización de estanterías (%)",
@@ -46,10 +46,10 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Raf alanının toplam alana oranı.",
+      "businessContext": "RafKullanimi",
       "businessContext_i18n": {
         "en": "Rack space to total floor ratio.",
-        "tr": "Raf alanının toplam alana oranı.",
+        "tr": "Raf Areainin Total Areaa Ratioi.",
         "de": "Verhältnis von Regalfläche zu Gesamtfläche.",
         "fr": "Rapport surface de rayonnage / surface totale.",
         "es": "Relación entre espacio de estanterías y superficie total.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "paletAlani",
-      "label": "Palet Alanı (m²)",
+      "label": "PaletAlani",
       "label_i18n": {
         "en": "Pallet Footprint (m²)",
-        "tr": "Palet Alanı (m²)",
+        "tr": "Palet Area (m²)",
         "de": "Palettenfußabdruck (m²)",
         "fr": "Emprise au sol d'une palette (m²)",
         "es": "Huella del palé (m²)",
@@ -71,10 +71,10 @@
       "unit": "m2",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Bir paletin kapladığı alan.",
+      "businessContext": "PaletAlani",
       "businessContext_i18n": {
         "en": "Area per pallet.",
-        "tr": "Bir paletin kapladığı alan.",
+        "tr": "Bir paletin kapladigi Area.",
         "de": "Fläche pro Palette.",
         "fr": "Surface par palette.",
         "es": "Área por palé.",
@@ -125,7 +125,7 @@
       "long": "Calculate maximum pallet capacity in a warehouse.",
       "short_i18n": {
         "en": "Calculate maximum pallet capacity in a warehouse.",
-        "tr": "Depoda barındırılabilecek maksimum palet sayısını hesaplar.",
+        "tr": "Depoda barindirilabilecek Maximum palet Numbersini hesaplar.",
         "de": "Berechnen Sie die maximale Palettenkapazität in einem Lager.",
         "fr": "Calculer la capacité maximale de palettes dans un entrepôt.",
         "es": "Calcular la capacidad máxima de palés en un almacén.",
@@ -133,7 +133,7 @@
       },
       "long_i18n": {
         "en": "Calculate maximum pallet capacity in a warehouse.",
-        "tr": "Depoda barındırılabilecek maksimum palet sayısını hesaplar.",
+        "tr": "Depoda barindirilabilecek Maximum palet Numbersini hesaplar.",
         "de": "Berechnen Sie die maximale Palettenkapazität in einem Lager.",
         "fr": "Calculer la capacité maximale de palettes dans un entrepôt.",
         "es": "Calcular la capacidad máxima de palés en un almacén.",

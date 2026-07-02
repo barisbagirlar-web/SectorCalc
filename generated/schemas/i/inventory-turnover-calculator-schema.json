@@ -2,15 +2,15 @@
   "toolName": "inventory-turnover-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Yıllık SMM (TL)",
+      "label": "YillikCOGS",
       "label_i18n": {
         "en": "Annual COGS (USD)",
-        "tr": "Yıllık SMM (TL)",
+        "tr": "Annual SMM (TRY)",
         "de": "Jährliche COGS (USD)",
         "fr": "COGS annuel (USD)",
         "es": "COGS anual (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext": "YillikCOGS",
       "businessContext_i18n": {
         "en": "Annual COGS.",
-        "tr": "Yıllık satılan mal maliyeti.",
+        "tr": "Yillik Satilan mal Costi.",
         "de": "Jährliche COGS.",
         "fr": "COGS annuel.",
         "es": "COGS anual.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Dönem ortalama stok seviyesi.",
+      "businessContext": "OrtStok",
       "businessContext_i18n": {
         "en": "Average inventory level.",
-        "tr": "Dönem ortalama stok seviyesi.",
+        "tr": "Donem Mean stok seviyesi.",
         "de": "Durchschnittlicher Lagerbestand.",
         "fr": "Niveau moyen des stocks.",
         "es": "Nivel de inventario promedio.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "days",
     "breakdown": {
-      "sonuc": "Stokta Kalma Süresi"
+      "sonuc": "Stokta Kalma Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Stokta Kalma Süresi",
-        "tr": "Stokta Kalma Süresi",
+        "en": "Stokta Kalma Time",
+        "tr": "Stokta Kalma Time",
         "de": "Lagerdauer",
         "fr": "Stock Holding Period",
         "es": "Tiempo en inventario",
@@ -99,7 +99,7 @@
       "long": "Calculate inventory turnover in days.",
       "short_i18n": {
         "en": "Calculate inventory turnover in days.",
-        "tr": "Stokların satılıp yenilenme ortalama süresini (gün) hesaplar.",
+        "tr": "Stoklarin satilip yenilenme Mean suresini (gun) hesaplar.",
         "de": "Berechnen Sie den Lagerumschlag in Tagen.",
         "fr": "Calculer la rotation des stocks en jours.",
         "es": "Calcular la rotación de inventario en días.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate inventory turnover in days.",
-        "tr": "Stokların satılıp yenilenme ortalama süresini (gün) hesaplar.",
+        "tr": "Stoklarin satilip yenilenme Mean suresini (gun) hesaplar.",
         "de": "Berechnen Sie den Lagerumschlag in Tagen.",
         "fr": "Calculer la rotation des stocks en jours.",
         "es": "Calcular la rotación de inventario en días.",

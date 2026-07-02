@@ -20,10 +20,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Devlet tahvili gibi risksiz yatırım getirisi.",
+      "businessContext": "Devlet tahvili gibi risksiz Return on Investment.",
       "businessContext_i18n": {
         "en": "Return on risk-free assets (e.g., government bonds).",
-        "tr": "Devlet tahvili gibi risksiz yatırım getirisi.",
+        "tr": "Devlet tahvili gibi risksiz Return on Investment.",
         "de": "Rendite risikofreier Anlagen (z. B. Staatsanleihen).",
         "fr": "Rendement des actifs sans risque (par exemple, obligations d'État).",
         "es": "Rendimiento de activos libres de riesgo (por ejemplo, bonos gubernamentales).",
@@ -32,10 +32,10 @@
     },
     {
       "id": "beta",
-      "label": "Beta (Sayı)",
+      "label": "Beta (Number)",
       "label_i18n": {
         "en": "Beta (Number)",
-        "tr": "Beta (Sayı)",
+        "tr": "Beta (Number)",
         "de": "Beta (Anzahl)",
         "fr": "Bêta",
         "es": "Beta (Número)",
@@ -45,11 +45,11 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Hissenin piyasaya duyarlılık katsayısı.",
+      "businessContext": "Beta",
       "businessContext_i18n": {
         "en": "Stock's sensitivity to market movements.",
-        "tr": "Hissenin piyasaya duyarlılık katsayısı.",
-        "de": "Sensitivität der Aktie gegenüber Marktbewegungen.",
+        "tr": "Hissenin piyasaya duyarlilik katNumbersi.",
+        "de": "Sensitivität der Aktie gegenuber Marktbewegungen.",
         "fr": "Sensibilité de l'action aux mouvements du marché.",
         "es": "Sensibilidad de la acción a los movimientos del mercado.",
         "ar": "حساسية السهم لتحركات السوق."
@@ -70,11 +70,11 @@
       "unit": "%",
       "default": 6,
       "min": 0,
-      "businessContext": "Piyasanın risksiz faiz üzerindeki getiri fazlası.",
+      "businessContext": "PiyasaPrimi",
       "businessContext_i18n": {
         "en": "Excess return of market over risk-free rate.",
-        "tr": "Piyasanın risksiz faiz üzerindeki getiri fazlası.",
-        "de": "Überschussrendite des Marktes gegenüber dem risikofreien Zinssatz.",
+        "tr": "Piyasanin risksiz faiz uzerindeki getiri fazlasi.",
+        "de": "Uberschussrendite des Marktes gegenuber dem risikofreien Zinssatz.",
         "fr": "Rendement excédentaire du marché par rapport au taux sans risque.",
         "es": "Exceso de rendimiento del mercado sobre la tasa libre de riesgo.",
         "ar": "العائد الزائد للسوق عن المعدل الخالي من المخاطر."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Özsermaye Maliyeti (CAPM)"
+      "sonuc": "Ozsermaye Costi (CAPM)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Özsermaye Maliyeti (CAPM)",
-        "tr": "Özsermaye Maliyeti (CAPM)",
+        "en": "Ozsermaye Costi (CAPM)",
+        "tr": "Ozsermaye Costi (CAPM)",
         "de": "Eigenkapitalkosten (CAPM)",
         "fr": "Coût des capitaux propres (CAPM)",
         "es": "Costo del Capital (CAPM)",
@@ -124,7 +124,7 @@
       "long": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
       "short_i18n": {
         "en": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
-        "tr": "Hissedarların risk profiline göre beklediği minimum getiriyi (CAPM) hesaplar.",
+        "tr": "Hissedarlarin risk profiline gore bekledigi Minimum getiriyi (CAPM) hesaplar.",
         "de": "Berechnen Sie die Eigenkapitalkosten mit dem Capital Asset Pricing Model (CAPM).",
         "fr": "Calculer le coût des capitaux propres à l'aide du modèle d'évaluation des actifs financiers (CAPM).",
         "es": "Calcular el costo del capital utilizando el Modelo de Valoración de Activos de Capital (CAPM).",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate the cost of equity using the Capital Asset Pricing Model (CAPM).",
-        "tr": "Hissedarların risk profiline göre beklediği minimum getiriyi (CAPM) hesaplar.",
+        "tr": "Hissedarlarin risk profiline gore bekledigi Minimum getiriyi (CAPM) hesaplar.",
         "de": "Berechnen Sie die Eigenkapitalkosten mit dem Capital Asset Pricing Model (CAPM).",
         "fr": "Calculer le coût des capitaux propres à l'aide du modèle d'évaluation des actifs financiers (CAPM).",
         "es": "Calcular el costo del capital utilizando el Modelo de Valoración de Activos de Capital (CAPM).",

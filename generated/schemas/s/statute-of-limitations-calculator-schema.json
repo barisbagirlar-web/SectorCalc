@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "olayTarihi",
-      "label": "Olay Tarihi (Yıl)",
+      "label": "OlayTarihi",
       "label_i18n": {
         "en": "Event Date (Year)",
-        "tr": "Olay Tarihi (Yıl)",
+        "tr": "Olay Tarihi (Year)",
         "de": "Ereignisdatum (Jahr)",
         "fr": "Date de l'événement (Année)",
         "es": "Fecha del evento (Año)",
@@ -20,10 +20,10 @@
       "unit": "years",
       "default": 2020,
       "min": 0,
-      "businessContext": "Dava konusu olayın gerçekleştiği yıl.",
+      "businessContext": "OlayTarihi",
       "businessContext_i18n": {
         "en": "Year the event occurred.",
-        "tr": "Dava konusu olayın gerçekleştiği yıl.",
+        "tr": "Dava konusu olayin gerceklestigi yil.",
         "de": "Jahr, in dem das Ereignis stattfand.",
         "fr": "Année de l'événement.",
         "es": "Año en que ocurrió el evento.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yasalSure",
-      "label": "Yasal Zamanaşımı Süresi (Yıl)",
+      "label": "YasalSure",
       "label_i18n": {
         "en": "Legal Limitation Period (Years)",
-        "tr": "Yasal Zamanaşımı Süresi (Yıl)",
+        "tr": "Yasal Statute of Limitations (Yil)",
         "de": "Gesetzliche Verjährungsfrist (Jahre)",
         "fr": "Période de prescription légale (Années)",
         "es": "Plazo de prescripción legal (Años)",
@@ -45,10 +45,10 @@
       "unit": "years",
       "default": 10,
       "min": 0,
-      "businessContext": "Kanunun tanıdığı süre.",
+      "businessContext": "YasalSure",
       "businessContext_i18n": {
         "en": "Legal limitation period.",
-        "tr": "Kanunun tanıdığı süre.",
+        "tr": "Kanunun tanidigi sure.",
         "de": "Gesetzliche Verjährungsfrist.",
         "fr": "Période de prescription légale.",
         "es": "Plazo de prescripción legal.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "kesintiDurumu",
-      "label": "Kesinti Var mı? (1=Evet, 0=Hayır)",
+      "label": "KesintiDurumu",
       "label_i18n": {
         "en": "Tolling? (1=Yes, 0=No)",
-        "tr": "Kesinti Var mı? (1=Evet, 0=Hayır)",
+        "tr": "Kesinti Var mi? (1=Evet, 0=Hayir)",
         "de": "Aussetzung? (1=Ja, 0=Nein)",
         "fr": "Suspension ? (1=Oui, 0=Non)",
         "es": "¿Suspensión? (1=Sí, 0=No)",
@@ -70,10 +70,10 @@
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Zamanaşımını kesen bir durum var mı?",
+      "businessContext": "KesintiDurumu",
       "businessContext_i18n": {
         "en": "Is there a tolling event?",
-        "tr": "Zamanaşımını kesen bir durum var mı?",
+        "tr": "Zamanasimini kesen bir durum var mi?",
         "de": "Gibt es ein Mautereignis?",
         "fr": "Y a-t-il un événement de péage ?",
         "es": "¿Hay un evento de peaje?",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "year",
     "breakdown": {
-      "sonuc": "Zamanaşımı Bitiş Yılı"
+      "sonuc": "Zamanasimi Bitis Yili"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Zamanaşımı Bitiş Yılı",
-        "tr": "Zamanaşımı Bitiş Yılı",
+        "en": "Zamanasimi Bitis Yili",
+        "tr": "Zamanasimi Bitis Yili",
         "de": "Verjährungsendjahr",
         "fr": "Année de fin de prescription",
         "es": "Año de Finalización de la Prescripción",
@@ -127,16 +127,16 @@
       "long": "Calculate statute of limitations expiry date for legal action.",
       "short_i18n": {
         "en": "Calculate statute of limitations expiry date for legal action.",
-        "tr": "Dava açma hakkının düştüğü son yasal günü (zamanaşımı süresi) hesaplar.",
-        "de": "Berechnen Sie das Verjährungsdatum für rechtliche Schritte.",
+        "tr": "Dava acma hakkinin dustugu son yasal gunu (Statute of Limitations) hesaplar.",
+        "de": "Berechnen Sie das Verjährungsdatum fur rechtliche Schritte.",
         "fr": "Calculer la date d'expiration du délai de prescription pour une action en justice.",
         "es": "Calcular la fecha de vencimiento del plazo de prescripción para acciones legales.",
         "ar": "احسب تاريخ انتهاء فترة التقادم القانوني للإجراء القانوني."
       },
       "long_i18n": {
         "en": "Calculate statute of limitations expiry date for legal action.",
-        "tr": "Dava açma hakkının düştüğü son yasal günü (zamanaşımı süresi) hesaplar.",
-        "de": "Berechnen Sie das Verjährungsdatum für rechtliche Schritte.",
+        "tr": "Dava acma hakkinin dustugu son yasal gunu (Statute of Limitations) hesaplar.",
+        "de": "Berechnen Sie das Verjährungsdatum fur rechtliche Schritte.",
         "fr": "Calculer la date d'expiration du délai de prescription pour une action en justice.",
         "es": "Calcular la fecha de vencimiento del plazo de prescripción para acciones legales.",
         "ar": "احسب تاريخ انتهاء فترة التقادم القانوني للإجراء القانوني."

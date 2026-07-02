@@ -2,7 +2,7 @@
   "toolName": "ship-draft-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sector": "Tarim, Denizcilik ve Sondaj",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Geminin toplam ağırlığı.",
+      "businessContext": "Deplasman",
       "businessContext_i18n": {
         "en": "Ship total weight.",
-        "tr": "Geminin toplam ağırlığı.",
+        "tr": "Geminin Total agirligi.",
         "de": "Gesamtgewicht des Schiffs.",
         "fr": "Poids total du navire.",
         "es": "Peso total del barco.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "suYogunlugu",
-      "label": "Su Yoğunluğu (t/m³)",
+      "label": "SuYogunlugu",
       "label_i18n": {
         "en": "Water Density (t/m³)",
-        "tr": "Su Yoğunluğu (t/m³)",
+        "tr": "Su Dmostsity (t/m³)",
         "de": "Wasserdichte (t/m³)",
         "fr": "Densité de l'eau (t/m³)",
         "es": "Densidad del Agua (t/m³)",
@@ -45,10 +45,10 @@
       "unit": "t/m3",
       "default": 1.025,
       "min": 0,
-      "businessContext": "Deniz suyu yoğunluğu.",
+      "businessContext": "SuYogunlugu",
       "businessContext_i18n": {
         "en": "Seawater density.",
-        "tr": "Deniz suyu yoğunluğu.",
+        "tr": "Deniz suyu yogunlugu.",
         "de": "Dichte des Meerwassers.",
         "fr": "Densité de l'eau de mer.",
         "es": "Densidad del agua de mar.",
@@ -95,10 +95,10 @@
       "unit": "m",
       "default": 18,
       "min": 0,
-      "businessContext": "Gemi genişliği.",
+      "businessContext": "En",
       "businessContext_i18n": {
         "en": "Ship breadth.",
-        "tr": "Gemi genişliği.",
+        "tr": "Gemi genisligi.",
         "de": "Schiffsbreite.",
         "fr": "Largeur du navire.",
         "es": "Manga del barco.",
@@ -107,10 +107,10 @@
     },
     {
       "id": "blokKatsayi",
-      "label": "Blok Katsayısı",
+      "label": "BlokKatsayi",
       "label_i18n": {
         "en": "Block Coefficient",
-        "tr": "Blok Katsayısı",
+        "tr": "Blok Coefficimostt",
         "de": "Blockkoeffizient",
         "fr": "Coefficient de bloc",
         "es": "Coeficiente de Bloque",
@@ -120,10 +120,10 @@
       "unit": "scalar",
       "default": 0.7,
       "min": 0,
-      "businessContext": "Gemi form katsayısı.",
+      "businessContext": "BlokKatsayi",
       "businessContext_i18n": {
         "en": "Ship hull form coefficient.",
-        "tr": "Gemi form katsayısı.",
+        "tr": "Gemi form katNumbersi.",
         "de": "Rumpfformkoeffizient des Schiffs.",
         "fr": "Coefficient de forme de la coque du navire.",
         "es": "Coeficiente de forma del casco del barco.",
@@ -144,12 +144,12 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Su Çekimi (Draft)"
+      "sonuc": "Draft (Draft)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Su Çekimi (Draft)",
-        "tr": "Su Çekimi (Draft)",
+        "en": "Draft (Draft)",
+        "tr": "Draft (Draft)",
         "de": "Tiefgang (Entwurf)",
         "fr": "Tirant d'eau (Draft)",
         "es": "Calado (Draft)",
@@ -176,7 +176,7 @@
       "long": "Calculate ship draft (vertical depth below waterline).",
       "short_i18n": {
         "en": "Calculate ship draft (vertical depth below waterline).",
-        "tr": "Geminin su altında kalan dikey derinliğini (draft/su çekimi) hesaplar.",
+        "tr": "Geminin su altinda kArea dikey derinligini (draft/Draft) hesaplar.",
         "de": "Berechnen Sie den Tiefgang des Schiffs (vertikale Tiefe unter der Wasserlinie).",
         "fr": "Calculer le tirant d'eau du navire (profondeur verticale sous la ligne de flottaison).",
         "es": "Calcular el calado del barco (profundidad vertical por debajo de la línea de flotación).",
@@ -184,7 +184,7 @@
       },
       "long_i18n": {
         "en": "Calculate ship draft (vertical depth below waterline).",
-        "tr": "Geminin su altında kalan dikey derinliğini (draft/su çekimi) hesaplar.",
+        "tr": "Geminin su altinda kArea dikey derinligini (draft/Draft) hesaplar.",
         "de": "Berechnen Sie den Tiefgang des Schiffs (vertikale Tiefe unter der Wasserlinie).",
         "fr": "Calculer le tirant d'eau du navire (profondeur verticale sous la ligne de flottaison).",
         "es": "Calcular el calado del barco (profundidad vertical por debajo de la línea de flotación).",

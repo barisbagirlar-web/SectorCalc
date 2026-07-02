@@ -2,15 +2,15 @@
   "toolName": "contribution-margin-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "satisFiyati",
-      "label": "Satış Fiyatı (TL)",
+      "label": "SatisFiyati",
       "label_i18n": {
         "en": "Selling Price (USD)",
-        "tr": "Satış Fiyatı (TL)",
+        "tr": "Satis Fiyati (TL)",
         "de": "Verkaufspreis pro Einheit",
         "fr": "Prix de vente par unité",
         "es": "Precio de venta por unidad",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Ürünün birim satış fiyatı.",
+      "businessContext": "SatisFiyati",
       "businessContext_i18n": {
         "en": "Unit selling price.",
-        "tr": "Ürünün birim satış fiyatı.",
+        "tr": "Urunun Unit satis fiyati.",
         "de": "Verkaufspreis pro Einheit.",
         "fr": "Prix de vente unitaire.",
         "es": "Precio de venta unitario.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "degiskenMaliyet",
-      "label": "Değişken Maliyet (TL)",
+      "label": "Variable Cost (TL)",
       "label_i18n": {
         "en": "Variable Cost (USD)",
-        "tr": "Değişken Maliyet (TL)",
+        "tr": "Variable Cost (TRY)",
         "de": "Variable Kosten pro Einheit",
         "fr": "Coût variable par unité",
         "es": "Costo variable por unidad",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 60,
       "min": 0,
-      "businessContext": "Birim başı değişken maliyet.",
+      "businessContext": "DegiskenMaliyet",
       "businessContext_i18n": {
         "en": "Unit variable cost.",
-        "tr": "Birim başı değişken maliyet.",
+        "tr": "Unit basi Variable Cost.",
         "de": "Variable Kosten pro Einheit.",
         "fr": "Coût variable unitaire.",
         "es": "Costo variable unitario.",
@@ -70,12 +70,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Katkı Marjı Oranı"
+      "sonuc": "Katki Marji Ratioi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Katkı Marjı Oranı",
-        "tr": "Katkı Marjı Oranı",
+        "en": "Katki Marji Ratioi",
+        "tr": "Katki Marji Ratioi",
         "de": "Deckungsbeitragsquote",
         "fr": "Ratio de marge de contribution",
         "es": "Relación de Margen de Contribución",
@@ -100,7 +100,7 @@
       "long": "Calculate contribution margin per unit and ratio.",
       "short_i18n": {
         "en": "Calculate contribution margin per unit and ratio.",
-        "tr": "Sabit giderleri karşılayan birim başına katkı payını hesaplar.",
+        "tr": "Sabit giderleri karsilayan Unit basina katki payini hesaplar.",
         "de": "Deckungsbeitrag pro Einheit und Deckungsbeitragsverhältnis berechnen.",
         "fr": "Calculer la marge de contribution par unité et le ratio.",
         "es": "Calcular el margen de contribución por unidad y la razón.",
@@ -108,7 +108,7 @@
       },
       "long_i18n": {
         "en": "Calculate contribution margin per unit and ratio.",
-        "tr": "Sabit giderleri karşılayan birim başına katkı payını hesaplar.",
+        "tr": "Sabit giderleri karsilayan Unit basina katki payini hesaplar.",
         "de": "Deckungsbeitrag pro Einheit und Deckungsbeitragsverhältnis berechnen.",
         "fr": "Calculer la marge de contribution par unité et le ratio.",
         "es": "Calcular el margen de contribución por unidad y la razón.",

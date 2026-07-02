@@ -2,7 +2,7 @@
   "toolName": "slope-stability-factor-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sector": "Tarim, Denizcilik ve Sondaj",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
@@ -45,10 +45,10 @@
       "unit": "kPa",
       "default": 100,
       "min": 0,
-      "businessContext": "Kayma düzlemine dik gerilme.",
+      "businessContext": "NormalGerilme",
       "businessContext_i18n": {
         "en": "Normal stress on slip plane.",
-        "tr": "Kayma düzlemine dik gerilme.",
+        "tr": "Kayma duzlemine dik gerilme.",
         "de": "Normalspannung auf der Gleitebene.",
         "fr": "Contrainte normale sur le plan de glissement.",
         "es": "Esfuerzo normal en el plano de deslizamiento.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "icSuratmeAcisi",
-      "label": "İçsel Sürtünme Açısı (Derece)",
+      "label": "IcSuratmeAcisi",
       "label_i18n": {
         "en": "Internal Friction Angle (Deg)",
-        "tr": "İçsel Sürtünme Açısı (Derece)",
+        "tr": "Icsel Surtunme Acisi (Derece)",
         "de": "Innerer Reibungswinkel (Grad)",
         "fr": "Angle de frottement interne (Deg)",
         "es": "Ángulo de Fricción Interna (Deg)",
@@ -70,10 +70,10 @@
       "unit": "degrees",
       "default": 30,
       "min": 0,
-      "businessContext": "Zeminin içsel sürtünme açısı.",
+      "businessContext": "IcSuratmeAcisi",
       "businessContext_i18n": {
         "en": "Soil friction angle.",
-        "tr": "Zeminin içsel sürtünme açısı.",
+        "tr": "Zeminin icsel surtunme acisi.",
         "de": "Bodenreibungswinkel.",
         "fr": "Angle de frottement du sol.",
         "es": "Ángulo de fricción del suelo.",
@@ -95,10 +95,10 @@
       "unit": "kPa",
       "default": 80,
       "min": 0,
-      "businessContext": "Kayma düzlemindeki sürükleyici gerilme.",
+      "businessContext": "KaymaGerilmesi",
       "businessContext_i18n": {
         "en": "Driving shear stress on slip plane.",
-        "tr": "Kayma düzlemindeki sürükleyici gerilme.",
+        "tr": "Kayma duzlemindeki surukleyici gerilme.",
         "de": "Treibende Schubspannung auf der Gleitebene.",
         "fr": "Contrainte de cisaillement motrice sur le plan de glissement.",
         "es": "Esfuerzo cortante impulsor en el plano de deslizamiento.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "safety",
     "breakdown": {
-      "sonuc": "Emniyet Faktörü (FS)"
+      "sonuc": "Emniyet Faktoru (FS)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Emniyet Faktörü (FS)",
-        "tr": "Emniyet Faktörü (FS)",
+        "en": "Emniyet Faktoru (FS)",
+        "tr": "Emniyet Faktoru (FS)",
         "de": "Sicherheitsfaktor (SF)",
         "fr": "Facteur de sécurité (FS)",
         "es": "Factor de Seguridad (FS)",
@@ -152,7 +152,7 @@
       "long": "Calculate slope stability factor of safety against sliding.",
       "short_i18n": {
         "en": "Calculate slope stability factor of safety against sliding.",
-        "tr": "Şevin kaymaya karşı emniyet katsayısını (FS) hesaplar.",
+        "tr": "Sevin kaymaya karsi Safety Factorni (FS) hesaplar.",
         "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
         "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
         "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",
@@ -160,7 +160,7 @@
       },
       "long_i18n": {
         "en": "Calculate slope stability factor of safety against sliding.",
-        "tr": "Şevin kaymaya karşı emniyet katsayısını (FS) hesaplar.",
+        "tr": "Sevin kaymaya karsi Safety Factorni (FS) hesaplar.",
         "de": "Berechnen Sie den Standsicherheitsfaktor gegen Gleiten.",
         "fr": "Calculer le facteur de sécurité de stabilité des pentes contre le glissement.",
         "es": "Calcular el factor de seguridad de estabilidad de taludes contra deslizamiento.",

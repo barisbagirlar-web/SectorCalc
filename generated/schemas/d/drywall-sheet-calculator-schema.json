@@ -2,15 +2,15 @@
   "toolName": "drywall-sheet-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Duvar Alanı (m²)",
+      "label": "Wall Area (m²)",
       "label_i18n": {
         "en": "Wall Area (m²)",
-        "tr": "Duvar Alanı (m²)",
+        "tr": "Wall Area (m²)",
         "de": "Wandfläche",
         "fr": "Surface murale",
         "es": "Área de la pared",
@@ -20,10 +20,10 @@
       "unit": "m2",
       "default": 80,
       "min": 0,
-      "businessContext": "Kaplanacak duvar alanı.",
+      "businessContext": "Kaplanacak Wall Area.",
       "businessContext_i18n": {
         "en": "Wall area.",
-        "tr": "Kaplanacak duvar alanı.",
+        "tr": "Kaplanacak Wall Area.",
         "de": "Wandfläche.",
         "fr": "Surface du mur.",
         "es": "Área de la pared.",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Alçıpan levha eni.",
+      "businessContext": "LevhaEn",
       "businessContext_i18n": {
         "en": "Drywall sheet width.",
-        "tr": "Alçıpan levha eni.",
+        "tr": "Alcipan levha eni.",
         "de": "Trockenbauplattenbreite.",
         "fr": "Largeur de la plaque de plâtre.",
         "es": "Ancho de la placa de yeso.",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Alçıpan levha boyu.",
+      "businessContext": "LevhaBoy",
       "businessContext_i18n": {
         "en": "Drywall sheet length.",
-        "tr": "Alçıpan levha boyu.",
+        "tr": "Alcipan levha Heightu.",
         "de": "Trockenbauplattenlänge.",
         "fr": "Longueur de la plaque de plâtre.",
         "es": "Largo de la placa de yeso.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "fire",
-      "label": "Fire Oranı (%)",
+      "label": "Scrap Rate (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Fire Oranı (%)",
+        "tr": "Scrap Ratio (%)",
         "de": "Abfallfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
@@ -95,10 +95,10 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Kesim payı.",
+      "businessContext": "Fire",
       "businessContext_i18n": {
         "en": "Cutting allowance.",
-        "tr": "Kesim payı.",
+        "tr": "Kesim payi.",
         "de": "Zuschnittzugabe.",
         "fr": "Marge de coupe.",
         "es": "Margen de corte.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "sheets",
     "breakdown": {
-      "sonuc": "Gerekli Alçıpan Levha"
+      "sonuc": "Gerekli Alcipan Levha"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Alçıpan Levha",
-        "tr": "Gerekli Alçıpan Levha",
+        "en": "Gerekli Alcipan Levha",
+        "tr": "Gerekli Alcipan Levha",
         "de": "Erforderliche Gipskartonplatte",
         "fr": "Plaques de plâtre nécessaires",
         "es": "Panel de Yeso Requerido",
@@ -149,16 +149,16 @@
       "long": "Calculate number of drywall sheets needed for walls.",
       "short_i18n": {
         "en": "Calculate number of drywall sheets needed for walls.",
-        "tr": "Duvarı kapatmak için gereken alçıpan levha sayısını hesaplar.",
-        "de": "Berechnen Sie die Anzahl der benötigten Trockenbauplatten für Wände.",
+        "tr": "Duvari kapatmak icin gereken alcipan levha Numbersini hesaplar.",
+        "de": "Berechnen Sie die Anzahl der benotigten Trockenbauplatten fur Wände.",
         "fr": "Calculer le nombre de plaques de plâtre nécessaires pour les murs.",
         "es": "Calcular el número de placas de yeso necesarias para las paredes.",
         "ar": "احسب عدد ألواح الجبس اللازمة للجدران."
       },
       "long_i18n": {
         "en": "Calculate number of drywall sheets needed for walls.",
-        "tr": "Duvarı kapatmak için gereken alçıpan levha sayısını hesaplar.",
-        "de": "Berechnen Sie die Anzahl der benötigten Trockenbauplatten für Wände.",
+        "tr": "Duvari kapatmak icin gereken alcipan levha Numbersini hesaplar.",
+        "de": "Berechnen Sie die Anzahl der benotigten Trockenbauplatten fur Wände.",
         "fr": "Calculer le nombre de plaques de plâtre nécessaires pour les murs.",
         "es": "Calcular el número de placas de yeso necesarias para las paredes.",
         "ar": "احسب عدد ألواح الجبس اللازمة للجدران."

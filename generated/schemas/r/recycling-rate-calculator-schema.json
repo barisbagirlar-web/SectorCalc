@@ -2,15 +2,15 @@
   "toolName": "recycling-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "sustainability-resource-esg",
-  "sector": "Çevre ve Sürdürülebilirlik",
+  "sector": "Environment and Sustainability",
   "sectorId": "sustainability-resource-esg",
   "inputs": [
     {
       "id": "geriDonusen",
-      "label": "Geri Dönüştürülen (ton)",
+      "label": "GeriDonusen",
       "label_i18n": {
         "en": "Recycled (tons)",
-        "tr": "Geri Dönüştürülen (ton)",
+        "tr": "Geri Donusturulen (ton)",
         "de": "Recycelten Anteil verwenden",
         "fr": "Utiliser du contenu recyclé",
         "es": "Usar contenido reciclado",
@@ -20,11 +20,11 @@
       "unit": "tons",
       "default": 300,
       "min": 0,
-      "businessContext": "Geri kazanılan atık miktarı.",
+      "businessContext": "GeriDonusen",
       "businessContext_i18n": {
         "en": "Amount of waste recovered.",
-        "tr": "Geri kazanılan atık miktarı.",
-        "de": "Menge des zurückgewonnenen Abfalls.",
+        "tr": "Geri kazanilan atik Amounti.",
+        "de": "Menge des zuruckgewonnenen Abfalls.",
         "fr": "Quantité de déchets récupérés.",
         "es": "Cantidad de residuos recuperados.",
         "ar": "كمية النفايات المستردة."
@@ -32,10 +32,10 @@
     },
     {
       "id": "toplamAtik",
-      "label": "Toplam Atık (ton)",
+      "label": "ToplamAtik",
       "label_i18n": {
         "en": "Total Waste (tons)",
-        "tr": "Toplam Atık (ton)",
+        "tr": "Total Atik (ton)",
         "de": "Gesamter angefallener Abfall",
         "fr": "Déchets totaux générés",
         "es": "Residuos totales generados",
@@ -45,10 +45,10 @@
       "unit": "tons",
       "default": 1000,
       "min": 0,
-      "businessContext": "Oluşan toplam atık.",
+      "businessContext": "ToplamAtik",
       "businessContext_i18n": {
         "en": "Total waste generated.",
-        "tr": "Oluşan toplam atık.",
+        "tr": "Olusan Total atik.",
         "de": "Gesamte Abfallmenge.",
         "fr": "Quantité totale de déchets générés.",
         "es": "Total de residuos generados.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Geri Dönüşüm Oranı"
+      "sonuc": "Geri Conversion Rate"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Geri Dönüşüm Oranı",
-        "tr": "Geri Dönüşüm Oranı",
+        "en": "Geri Conversion Rate",
+        "tr": "Geri Conversion Rate",
         "de": "Recyclingquote",
         "fr": "Taux de recyclage",
         "es": "Tasa de Reciclaje",
@@ -102,16 +102,16 @@
       "long": "Calculate recycling rate as percentage of waste recovered.",
       "short_i18n": {
         "en": "Calculate recycling rate as percentage of waste recovered.",
-        "tr": "Atık yönetimindeki başarı ve kazanım yüzdesini (geri dönüşüm oranı) hesaplar.",
-        "de": "Berechnung der Recyclingquote als Prozentsatz des zurückgewonnenen Abfalls.",
+        "tr": "Atik yoNetimindeki basari ve kazanim yuzdesini (Geri Conversion Rate) hesaplar.",
+        "de": "Berechnung der Recyclingquote als Prozentsatz des zuruckgewonnenen Abfalls.",
         "fr": "Calculer le taux de recyclage en pourcentage des déchets récupérés.",
         "es": "Calcular la tasa de reciclaje como porcentaje de residuos recuperados.",
         "ar": "احسب معدل إعادة التدوير كنسبة مئوية من النفايات المستردة."
       },
       "long_i18n": {
         "en": "Calculate recycling rate as percentage of waste recovered.",
-        "tr": "Atık yönetimindeki başarı ve kazanım yüzdesini (geri dönüşüm oranı) hesaplar.",
-        "de": "Berechnung der Recyclingquote als Prozentsatz des zurückgewonnenen Abfalls.",
+        "tr": "Atik yoNetimindeki basari ve kazanim yuzdesini (Geri Conversion Rate) hesaplar.",
+        "de": "Berechnung der Recyclingquote als Prozentsatz des zuruckgewonnenen Abfalls.",
         "fr": "Calculer le taux de recyclage en pourcentage des déchets récupérés.",
         "es": "Calcular la tasa de reciclaje como porcentaje de residuos recuperados.",
         "ar": "احسب معدل إعادة التدوير كنسبة مئوية من النفايات المستردة."

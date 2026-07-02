@@ -2,7 +2,7 @@
   "toolName": "normal-stress-force-area-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -32,10 +32,10 @@
     },
     {
       "id": "alan",
-      "label": "Kesit Alanı (m²)",
+      "label": "Cross-sectional Area (m²)",
       "label_i18n": {
         "en": "Cross-Sectional Area (m²)",
-        "tr": "Kesit Alanı (m²)",
+        "tr": "Kesit Area (m²)",
         "de": "Querschnittsfläche",
         "fr": "Aire de la section transversale",
         "es": "Área de la sección transversal",
@@ -45,10 +45,10 @@
       "unit": "m2",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Kuvvetin etki ettiği alan.",
+      "businessContext": "Alan",
       "businessContext_i18n": {
         "en": "Area over which force acts.",
-        "tr": "Kuvvetin etki ettiği alan.",
+        "tr": "Forcein etki ettigi Area.",
         "de": "Fläche, auf die die Kraft wirkt.",
         "fr": "Surface sur laquelle la force agit.",
         "es": "Área sobre la que actúa la fuerza.",
@@ -99,7 +99,7 @@
       "long": "Calculate normal stress as force divided by cross-sectional area.",
       "short_i18n": {
         "en": "Calculate normal stress as force divided by cross-sectional area.",
-        "tr": "Birim alana etkiyen iç kuvvet yoğunluğunu (gerilme/Stress) hesaplar.",
+        "tr": "Unit Areaa etkiyen ic Force yogunlugunu (gerilme/Stress) hesaplar.",
         "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
         "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
         "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate normal stress as force divided by cross-sectional area.",
-        "tr": "Birim alana etkiyen iç kuvvet yoğunluğunu (gerilme/Stress) hesaplar.",
+        "tr": "Unit Areaa etkiyen ic Force yogunlugunu (gerilme/Stress) hesaplar.",
         "de": "Normalspannung als Kraft geteilt durch Querschnittsfläche berechnen.",
         "fr": "Calculer la contrainte normale comme la force divisée par la section transversale.",
         "es": "Calcular el esfuerzo normal como fuerza dividida por el área de la sección transversal.",

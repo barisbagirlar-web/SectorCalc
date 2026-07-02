@@ -2,15 +2,15 @@
   "toolName": "vacuum-pump-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "posetHacim",
-      "label": "Poşet Hacmi (m³)",
+      "label": "PosetHacim",
       "label_i18n": {
         "en": "Bag Volume (m³)",
-        "tr": "Poşet Hacmi (m³)",
+        "tr": "Poset Hacmi (m³)",
         "de": "Beutelvolumen (m³)",
         "fr": "Volume du sac (m³)",
         "es": "Volumen de la Bolsa (m³)",
@@ -45,10 +45,10 @@
       "unit": "m3/s",
       "default": 0.0005,
       "min": 0,
-      "businessContext": "Vakum pompası debisi.",
+      "businessContext": "PompaDebi",
       "businessContext_i18n": {
         "en": "Vacuum pump flow.",
-        "tr": "Vakum pompası debisi.",
+        "tr": "Vakum pompasi Flow Ratesi.",
         "de": "Vakuumpumpenfluss.",
         "fr": "Débit de la pompe à vide.",
         "es": "Flujo de la bomba de vacío.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "baslangicBasinc",
-      "label": "Başlangıç Basıncı (Pa)",
+      "label": "BaslangicBasinc",
       "label_i18n": {
         "en": "Initial Pressure (Pa)",
-        "tr": "Başlangıç Basıncı (Pa)",
+        "tr": "Baslangic Basinci (Pa)",
         "de": "Anfangsdruck (Pa)",
         "fr": "Pression initiale (Pa)",
         "es": "Presión Inicial (Pa)",
@@ -70,10 +70,10 @@
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Atmosfer basıncı.",
+      "businessContext": "BaslangicBasinc",
       "businessContext_i18n": {
         "en": "Atmospheric pressure.",
-        "tr": "Atmosfer basıncı.",
+        "tr": "Atmosfer basinci.",
         "de": "Atmosphärendruck.",
         "fr": "Pression atmosphérique.",
         "es": "Presión atmosférica.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "hedefBasinc",
-      "label": "Hedef Basınç (Pa)",
+      "label": "Hedef Pressure (Pa)",
       "label_i18n": {
         "en": "Target Pressure (Pa)",
-        "tr": "Hedef Basınç (Pa)",
+        "tr": "Hedef Pressure (Pa)",
         "de": "Zieldruck (Pa)",
         "fr": "Pression cible (Pa)",
         "es": "Presión objetivo (Pa)",
@@ -95,10 +95,10 @@
       "unit": "Pa",
       "default": 5000,
       "min": 0,
-      "businessContext": "Hedef vakum basıncı.",
+      "businessContext": "HedefBasinc",
       "businessContext_i18n": {
         "en": "Target vacuum pressure.",
-        "tr": "Hedef vakum basıncı.",
+        "tr": "Hedef vakum basinci.",
         "de": "Zielvakuumdruck.",
         "fr": "Pression de vide cible.",
         "es": "Presión de vacío objetivo.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "s",
     "breakdown": {
-      "sonuc": "Vakum Süresi"
+      "sonuc": "Vakum Time"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Vakum Süresi",
-        "tr": "Vakum Süresi",
+        "en": "Vakum Time",
+        "tr": "Vakum Time",
         "de": "Vacuum Time",
         "fr": "Durée de vide",
         "es": "Tiempo de Vacío",
@@ -151,7 +151,7 @@
       "long": "Calculate vacuum pump time to reach target pressure.",
       "short_i18n": {
         "en": "Calculate vacuum pump time to reach target pressure.",
-        "tr": "İstenen vakum seviyesine ulaşmak için gereken pompa çalışma süresini hesaplar.",
+        "tr": "Istenen vakum seviyesine ulasmak icin gereken pompa Operating Timeni hesaplar.",
         "de": "Berechnen Sie die Zeit der Vakuumpumpe, um den Zieldruck zu erreichen.",
         "fr": "Calculer le temps de pompage sous vide pour atteindre la pression cible.",
         "es": "Calcular el tiempo de la bomba de vacío para alcanzar la presión objetivo.",
@@ -159,7 +159,7 @@
       },
       "long_i18n": {
         "en": "Calculate vacuum pump time to reach target pressure.",
-        "tr": "İstenen vakum seviyesine ulaşmak için gereken pompa çalışma süresini hesaplar.",
+        "tr": "Istenen vakum seviyesine ulasmak icin gereken pompa Operating Timeni hesaplar.",
         "de": "Berechnen Sie die Zeit der Vakuumpumpe, um den Zieldruck zu erreichen.",
         "fr": "Calculer le temps de pompage sous vide pour atteindre la pression cible.",
         "es": "Calcular el tiempo de la bomba de vacío para alcanzar la presión objetivo.",
@@ -169,7 +169,7 @@
   },
   "title_i18n": {
     "en": "vacuum-pump-time-calculator",
-    "de": "Rechner für Vakuumverpackungszeit",
+    "de": "Rechner fur Vakuumverpackungszeit",
     "fr": "Calculateur de durée d'emballage sous vide",
     "es": "Calculadora de tiempo de envasado al vacío",
     "ar": "حاسبة وقت التغليف بالتفريغ"

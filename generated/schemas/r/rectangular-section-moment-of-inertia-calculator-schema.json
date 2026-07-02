@@ -2,15 +2,15 @@
   "toolName": "rectangular-section-moment-of-inertia-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "genislik",
-      "label": "Kesit Genişliği (m)",
+      "label": "Genislik",
       "label_i18n": {
         "en": "Section Width (m)",
-        "tr": "Kesit Genişliği (m)",
+        "tr": "Kesit Width (m)",
         "de": "Querschnittsbreite (m)",
         "fr": "Largeur de la section (m)",
         "es": "Ancho de la Sección (m)",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Dikdörtgen kesitin genişliği.",
+      "businessContext": "Genislik",
       "businessContext_i18n": {
         "en": "Rectangle section width.",
-        "tr": "Dikdörtgen kesitin genişliği.",
+        "tr": "Dikdortgen kesitin genisligi.",
         "de": "Breite des Rechteckquerschnitts.",
         "fr": "Largeur de la section rectangulaire.",
         "es": "Ancho de la sección rectangular.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "yukseklik",
-      "label": "Kesit Yüksekliği (m)",
+      "label": "Yukseklik",
       "label_i18n": {
         "en": "Section Height (m)",
-        "tr": "Kesit Yüksekliği (m)",
-        "de": "Querschnittshöhe (m)",
+        "tr": "Kesit Height (m)",
+        "de": "Querschnittshohe (m)",
         "fr": "Hauteur de la section (m)",
         "es": "Altura de la Sección (m)",
         "ar": "ارتفاع المقطع (m)"
@@ -45,11 +45,11 @@
       "unit": "m",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Dikdörtgen kesitin yüksekliği.",
+      "businessContext": "Yukseklik",
       "businessContext_i18n": {
         "en": "Rectangle section height.",
-        "tr": "Dikdörtgen kesitin yüksekliği.",
-        "de": "Höhe des Rechteckquerschnitts.",
+        "tr": "Dikdortgen kesitin yuksekligi.",
+        "de": "Hohe des Rechteckquerschnitts.",
         "fr": "Hauteur de la section rectangulaire.",
         "es": "Altura de la sección rectangular.",
         "ar": "ارتفاع المقطع المستطيل."
@@ -99,7 +99,7 @@
       "long": "Calculate rectangular section moment of inertia.",
       "short_i18n": {
         "en": "Calculate rectangular section moment of inertia.",
-        "tr": "Dikdörtgen kesitin eğilmeye karşı gösterdiği geometrik direnci (atalet momenti) hesaplar.",
+        "tr": "Dikdortgen kesitin egilmeye karsi gosterdigi geometrik direnci (Moment of Inertia) hesaplar.",
         "de": "Berechnung des Flächenträgheitsmoments eines rechteckigen Querschnitts.",
         "fr": "Calculer le moment d'inertie d'une section rectangulaire.",
         "es": "Calcular el momento de inercia de una sección rectangular.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate rectangular section moment of inertia.",
-        "tr": "Dikdörtgen kesitin eğilmeye karşı gösterdiği geometrik direnci (atalet momenti) hesaplar.",
+        "tr": "Dikdortgen kesitin egilmeye karsi gosterdigi geometrik direnci (Moment of Inertia) hesaplar.",
         "de": "Berechnung des Flächenträgheitsmoments eines rechteckigen Querschnitts.",
         "fr": "Calculer le moment d'inertie d'une section rectangulaire.",
         "es": "Calcular el momento de inercia de una sección rectangular.",

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "nominalDeger",
-      "label": "Nominal Değer (₺)",
+      "label": "Nominal Value (₺)",
       "label_i18n": {
         "en": "Nominal Value (USD)",
-        "tr": "Nominal Değer (₺)",
+        "tr": "Nominal Value (TRY)",
         "de": "Nennwert (USD)",
         "fr": "Valeur nominale (USD)",
         "es": "Valor Nominal (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Bugünkü para değeri.",
+      "businessContext": "NominalDeger",
       "businessContext_i18n": {
         "en": "Current nominal money value.",
-        "tr": "Bugünkü para değeri.",
+        "tr": "Bugunku para Valuei.",
         "de": "Aktueller Nennwert des Geldes.",
         "fr": "Valeur nominale actuelle de l'argent.",
         "es": "Valor nominal actual del dinero.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "enflasyon",
-      "label": "Yıllık Enflasyon (%)",
+      "label": "Enflasyon",
       "label_i18n": {
         "en": "Annual Inflation (%)",
-        "tr": "Yıllık Enflasyon (%)",
+        "tr": "Annual Enflasyon (%)",
         "de": "Jährliche Inflationsrate",
         "fr": "Taux d'inflation annuel",
         "es": "Tasa de inflación anual",
@@ -45,11 +45,11 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Ortalama yıllık enflasyon oranı.",
+      "businessContext": "Enflasyon",
       "businessContext_i18n": {
         "en": "Average annual inflation rate.",
-        "tr": "Ortalama yıllık enflasyon oranı.",
-        "de": "Erwartete durchschnittliche jährliche Inflationsrate. Inflation verringert die Kaufkraft im Laufe der Zeit, daher müssen die Entnahmen möglicherweise erhöht werden. Keine Finanzberatung.",
+        "tr": "Mean yillik enflasyon Ratioi.",
+        "de": "Erwartete durchschnittliche jährliche Inflationsrate. Inflation verringert die Kaufkraft im Laufe der Zeit, daher mussen die Entnahmen moglicherweise erhoht werden. Keine Finanzberatung.",
         "fr": "Taux d'inflation annuel moyen attendu. L'inflation réduit le pouvoir d'achat au fil du temps, donc les retraits peuvent devoir augmenter. Ce n'est pas un conseil financier.",
         "es": "Tasa de inflación anual promedio esperada. La inflación reduce el poder adquisitivo con el tiempo, por lo que los retiros pueden necesitar aumentar. No es asesoramiento financiero.",
         "ar": "متوسط معدل التضخم السنوي المتوقع. يقلل التضخم من القوة الشرائية بمرور الوقت، لذلك قد تحتاج السحوبات إلى الزيادة. ليست نصيحة مالية."
@@ -57,10 +57,10 @@
     },
     {
       "id": "yil",
-      "label": "Yıl Sayısı",
+      "label": "Yil",
       "label_i18n": {
         "en": "Number of Years",
-        "tr": "Yıl Sayısı",
+        "tr": "Year Count",
         "de": "Anzahl der Jahre",
         "fr": "Nombre d'années",
         "es": "Número de años",
@@ -70,11 +70,11 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Gelecek dönem.",
+      "businessContext": "Yil",
       "businessContext_i18n": {
         "en": "Future period in years.",
-        "tr": "Gelecek dönem.",
-        "de": "Zukünftiger Zeitraum in Jahren.",
+        "tr": "Gelecek donem.",
+        "de": "Zukunftiger Zeitraum in Jahren.",
         "fr": "Période future en années.",
         "es": "Período futuro en años.",
         "ar": "الفترة المستقبلية بالسنوات."
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Enflasyon Düzeltilmiş Değer"
+      "sonuc": "Enflasyon Duzeltilmis Value"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Enflasyon Düzeltilmiş Değer",
-        "tr": "Enflasyon Düzeltilmiş Değer",
+        "en": "Enflasyon Duzeltilmis Value",
+        "tr": "Enflasyon Duzeltilmis Value",
         "de": "Inflationsbereinigter Wert",
         "fr": "Valeur ajustée à l'inflation",
         "es": "Valor Ajustado por Inflación",
@@ -124,7 +124,7 @@
       "long": "Calculate inflation-adjusted purchasing power of money.",
       "short_i18n": {
         "en": "Calculate inflation-adjusted purchasing power of money.",
-        "tr": "Paranın enflasyondan arındırılmış bugünkü alım gücünü hesaplar.",
+        "tr": "Paranin enflasyondan arindirilmis bugunku alim gucunu hesaplar.",
         "de": "Inflationsbereinigte Kaufkraft von Geld berechnen.",
         "fr": "Calculer le pouvoir d'achat ajusté à l'inflation.",
         "es": "Calcular el poder adquisitivo ajustado por inflación del dinero.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate inflation-adjusted purchasing power of money.",
-        "tr": "Paranın enflasyondan arındırılmış bugünkü alım gücünü hesaplar.",
+        "tr": "Paranin enflasyondan arindirilmis bugunku alim gucunu hesaplar.",
         "de": "Inflationsbereinigte Kaufkraft von Geld berechnen.",
         "fr": "Calculer le pouvoir d'achat ajusté à l'inflation.",
         "es": "Calcular el poder adquisitivo ajustado por inflación del dinero.",

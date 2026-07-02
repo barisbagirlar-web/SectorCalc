@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "hiz",
-      "label": "Dalga Hızı (m/s)",
+      "label": "Hiz",
       "label_i18n": {
         "en": "Wave Speed (m/s)",
-        "tr": "Dalga Hızı (m/s)",
+        "tr": "Dalga Speed (m/s)",
         "de": "Wellengeschwindigkeit (m/s)",
         "fr": "Vitesse de l'onde (m/s)",
         "es": "Velocidad de la onda (m/s)",
@@ -20,10 +20,10 @@
       "unit": "m/s",
       "default": 343,
       "min": 0,
-      "businessContext": "Dalganın yayılma hızı.",
+      "businessContext": "Hiz",
       "businessContext_i18n": {
         "en": "Wave propagation speed.",
-        "tr": "Dalganın yayılma hızı.",
+        "tr": "Dalganin yayilma Speedi.",
         "de": "Wellenausbreitungsgeschwindigkeit.",
         "fr": "Vitesse de propagation de l'onde.",
         "es": "Velocidad de propagación de la onda.",
@@ -45,10 +45,10 @@
       "unit": "Hz",
       "default": 440,
       "min": 0,
-      "businessContext": "Dalganın frekansı.",
+      "businessContext": "Frekans",
       "businessContext_i18n": {
         "en": "Wave frequency.",
-        "tr": "Dalganın frekansı.",
+        "tr": "Dalganin Frequencyi.",
         "de": "Wellenfrequenz.",
         "fr": "Fréquence de l'onde.",
         "es": "Frecuencia de la onda.",
@@ -99,7 +99,7 @@
       "long": "Calculate wavelength from wave speed and frequency.",
       "short_i18n": {
         "en": "Calculate wavelength from wave speed and frequency.",
-        "tr": "Dalganın hız ve frekansından dalga boyunu hesaplar.",
+        "tr": "Dalganin Speed ve Frequencyindan Wavelengthnu hesaplar.",
         "de": "Berechnen Sie die Wellenlänge aus Wellengeschwindigkeit und Frequenz.",
         "fr": "Calculer la longueur d'onde à partir de la vitesse et de la fréquence de l'onde.",
         "es": "Calcular la longitud de onda a partir de la velocidad y frecuencia de la onda.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate wavelength from wave speed and frequency.",
-        "tr": "Dalganın hız ve frekansından dalga boyunu hesaplar.",
+        "tr": "Dalganin Speed ve Frequencyindan Wavelengthnu hesaplar.",
         "de": "Berechnen Sie die Wellenlänge aus Wellengeschwindigkeit und Frequenz.",
         "fr": "Calculer la longueur d'onde à partir de la vitesse et de la fréquence de l'onde.",
         "es": "Calcular la longitud de onda a partir de la velocidad y frecuencia de la onda.",

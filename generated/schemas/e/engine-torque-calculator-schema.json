@@ -2,15 +2,15 @@
   "toolName": "engine-torque-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sector": "Mekanik, Otomotiv ve Havacilik",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "guc",
-      "label": "Motor Gücü (kW)",
+      "label": "Motor Power (kW)",
       "label_i18n": {
         "en": "Engine Power (kW)",
-        "tr": "Motor Gücü (kW)",
+        "tr": "Motor Power (kW)",
         "de": "Motorleistung",
         "fr": "Puissance du moteur",
         "es": "Potencia del motor",
@@ -20,10 +20,10 @@
       "unit": "kW",
       "default": 100,
       "min": 0,
-      "businessContext": "Motorun ürettiği güç.",
+      "businessContext": "Guc",
       "businessContext_i18n": {
         "en": "Engine output power.",
-        "tr": "Motorun ürettiği güç.",
+        "tr": "Motorun urettigi Power.",
         "de": "Motorausgangsleistung.",
         "fr": "Puissance de sortie du moteur.",
         "es": "Potencia de salida del motor.",
@@ -51,7 +51,7 @@
         "tr": "Krank mili devri.",
         "de": "Kurbelwellendrehzahl.",
         "fr": "Vitesse du vilebrequin.",
-        "es": "Velocidad del cigüeñal.",
+        "es": "Velocidad del cigueñal.",
         "ar": "سرعة العمود المرفقي."
       }
     }
@@ -101,7 +101,7 @@
       "long": "Calculate engine torque at a given power and RPM.",
       "short_i18n": {
         "en": "Calculate engine torque at a given power and RPM.",
-        "tr": "Motorun belirli bir devirde ürettiği döndürme momentini (tork) hesaplar.",
+        "tr": "Motorun belirli bir devirde urettigi dondurme momentini (Torque) hesaplar.",
         "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
         "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
         "es": "Calcular el par motor a una potencia y RPM dadas.",
@@ -109,7 +109,7 @@
       },
       "long_i18n": {
         "en": "Calculate engine torque at a given power and RPM.",
-        "tr": "Motorun belirli bir devirde ürettiği döndürme momentini (tork) hesaplar.",
+        "tr": "Motorun belirli bir devirde urettigi dondurme momentini (Torque) hesaplar.",
         "de": "Berechnen Sie das Motordrehmoment bei gegebener Leistung und Drehzahl.",
         "fr": "Calculer le couple moteur à une puissance et un régime donnés.",
         "es": "Calcular el par motor a una potencia y RPM dadas.",

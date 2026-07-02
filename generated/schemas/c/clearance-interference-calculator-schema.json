@@ -2,15 +2,15 @@
   "toolName": "clearance-interference-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "delikCap",
-      "label": "Delik Çapı (m)",
+      "label": "DelikCap",
       "label_i18n": {
         "en": "Hole Diameter (m)",
-        "tr": "Delik Çapı (m)",
+        "tr": "Delik Diameter (m)",
         "de": "Lochdurchmesser",
         "fr": "Diamètre du trou",
         "es": "Diámetro del agujero",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 0.0501,
       "min": 0,
-      "businessContext": "Delik nominal çapı.",
+      "businessContext": "DelikCap",
       "businessContext_i18n": {
         "en": "Hole nominal diameter.",
-        "tr": "Delik nominal çapı.",
+        "tr": "Delik nominal Diameteri.",
         "de": "Nenndurchmesser der Bohrung.",
         "fr": "Diamètre nominal de l'alésage.",
         "es": "Diámetro nominal del agujero.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "milCap",
-      "label": "Mil Çapı (m)",
+      "label": "Shaft Diameter (m)",
       "label_i18n": {
         "en": "Shaft Diameter (m)",
-        "tr": "Mil Çapı (m)",
+        "tr": "Mil Diameter (m)",
         "de": "Wellendurchmesser (m)",
         "fr": "Diamètre de l'arbre (m)",
         "es": "Diámetro del Eje (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Mil nominal çapı.",
+      "businessContext": "MilCap",
       "businessContext_i18n": {
         "en": "Shaft nominal diameter.",
-        "tr": "Mil nominal çapı.",
+        "tr": "Mil nominal Diameteri.",
         "de": "Nenndurchmesser der Welle.",
         "fr": "Diamètre nominal de l'arbre.",
         "es": "Diámetro nominal del eje.",
@@ -69,13 +69,13 @@
     "primary": "sonuc",
     "unit": "m",
     "breakdown": {
-      "sonuc": "Geçme/Boşluk Miktarı"
+      "sonuc": "Gecme/Bosluk Amounti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Geçme/Boşluk Miktarı",
-        "tr": "Geçme/Boşluk Miktarı",
-        "de": "Übermaß/Spielbetrag",
+        "en": "Gecme/Bosluk Amounti",
+        "tr": "Gecme/Bosluk Amounti",
+        "de": "Ubermaß/Spielbetrag",
         "fr": "Quantité de jeu/interférence",
         "es": "Cantidad de Interferencia/Holgura",
         "ar": "مقدار الخلوص/التداخل"
@@ -99,16 +99,16 @@
       "long": "Calculate clearance or interference between hole and shaft.",
       "short_i18n": {
         "en": "Calculate clearance or interference between hole and shaft.",
-        "tr": "Delik ve mil arasındaki boşluk/geçme miktarını hesaplar.",
-        "de": "Berechnen Sie das Spiel oder Übermaß zwischen Bohrung und Welle.",
+        "tr": "Delik ve mil arasindaki bosluk/gecme Amountini hesaplar.",
+        "de": "Berechnen Sie das Spiel oder Ubermaß zwischen Bohrung und Welle.",
         "fr": "Calculer le jeu ou l'interférence entre un alésage et un arbre.",
         "es": "Calcular la holgura o interferencia entre agujero y eje.",
         "ar": "حساب الخلوص أو التداخل بين الثقب والعمود."
       },
       "long_i18n": {
         "en": "Calculate clearance or interference between hole and shaft.",
-        "tr": "Delik ve mil arasındaki boşluk/geçme miktarını hesaplar.",
-        "de": "Berechnen Sie das Spiel oder Übermaß zwischen Bohrung und Welle.",
+        "tr": "Delik ve mil arasindaki bosluk/gecme Amountini hesaplar.",
+        "de": "Berechnen Sie das Spiel oder Ubermaß zwischen Bohrung und Welle.",
         "fr": "Calculer le jeu ou l'interférence entre un alésage et un arbre.",
         "es": "Calcular la holgura o interferencia entre agujero y eje.",
         "ar": "حساب الخلوص أو التداخل بين الثقب والعمود."
@@ -117,7 +117,7 @@
   },
   "title_i18n": {
     "en": "clearance-interference-calculator",
-    "de": "Rechner für Toleranzüberschreitung",
+    "de": "Rechner fur Toleranzuberschreitung",
     "fr": "Calculateur de dépassement de tolérance",
     "es": "Calculadora de superación de tolerancia",
     "ar": "حاسبة تجاوز التسامح"

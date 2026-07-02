@@ -2,17 +2,17 @@
   "toolName": "siding-panel-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Cephe Alanı (m²)",
+      "label": "Facade Area (m²)",
       "label_i18n": {
         "en": "Facade Area (m²)",
-        "tr": "Cephe Alanı (m²)",
+        "tr": "Cephe Area (m²)",
         "de": "Fassadenfläche (m²)",
-        "fr": "Surface de la façade (m²)",
+        "fr": "Surface de la facade (m²)",
         "es": "Área de Fachada (m²)",
         "ar": "مساحة الواجهة (m²)"
       },
@@ -20,12 +20,12 @@
       "unit": "m2",
       "default": 100,
       "min": 0,
-      "businessContext": "Kaplanacak cephe alanı.",
+      "businessContext": "Kaplanacak Facade Area.",
       "businessContext_i18n": {
         "en": "Facade surface area.",
-        "tr": "Kaplanacak cephe alanı.",
+        "tr": "Kaplanacak Facade Area.",
         "de": "Fassadenoberfläche.",
-        "fr": "Surface de la façade.",
+        "fr": "Surface de la facade.",
         "es": "Área de la superficie de la fachada.",
         "ar": "مساحة سطح الواجهة."
       }
@@ -82,10 +82,10 @@
     },
     {
       "id": "fire",
-      "label": "Fire Oranı (%)",
+      "label": "Scrap Rate (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
-        "tr": "Fire Oranı (%)",
+        "tr": "Scrap Ratio (%)",
         "de": "Abfallfaktor (%)",
         "fr": "Facteur de déchet (%)",
         "es": "Factor de desperdicio (%)",
@@ -95,10 +95,10 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Kesim payı.",
+      "businessContext": "Fire",
       "businessContext_i18n": {
         "en": "Cutting waste.",
-        "tr": "Kesim payı.",
+        "tr": "Kesim payi.",
         "de": "Schnittverschnitt.",
         "fr": "Perte de coupe.",
         "es": "Desperdicio de corte.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "panels",
     "breakdown": {
-      "sonuc": "Gerekli Panel Sayısı"
+      "sonuc": "Gerekli Panel Count"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Panel Sayısı",
-        "tr": "Gerekli Panel Sayısı",
+        "en": "Gerekli Panel Count",
+        "tr": "Gerekli Panel Count",
         "de": "Erforderliche Anzahl Paneele",
         "fr": "Nombre de panneaux requis",
         "es": "Número de Paneles Necesarios",
@@ -149,16 +149,16 @@
       "long": "Calculate exterior siding panel count needed.",
       "short_i18n": {
         "en": "Calculate exterior siding panel count needed.",
-        "tr": "Cepheyi kaplayacak siding panel sayısını hesaplar.",
-        "de": "Berechnen Sie die benötigte Anzahl an Außenverkleidungsplatten.",
+        "tr": "Cepheyi kaplayacak siding Number of Panelsni hesaplar.",
+        "de": "Berechnen Sie die benotigte Anzahl an Außenverkleidungsplatten.",
         "fr": "Calculer le nombre de panneaux de revêtement extérieur nécessaires.",
         "es": "Calcular la cantidad necesaria de paneles de revestimiento exterior.",
         "ar": "احسب عدد ألواح التغطية الخارجية المطلوبة."
       },
       "long_i18n": {
         "en": "Calculate exterior siding panel count needed.",
-        "tr": "Cepheyi kaplayacak siding panel sayısını hesaplar.",
-        "de": "Berechnen Sie die benötigte Anzahl an Außenverkleidungsplatten.",
+        "tr": "Cepheyi kaplayacak siding Number of Panelsni hesaplar.",
+        "de": "Berechnen Sie die benotigte Anzahl an Außenverkleidungsplatten.",
         "fr": "Calculer le nombre de panneaux de revêtement extérieur nécessaires.",
         "es": "Calcular la cantidad necesaria de paneles de revestimiento exterior.",
         "ar": "احسب عدد ألواح التغطية الخارجية المطلوبة."

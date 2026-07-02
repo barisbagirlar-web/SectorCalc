@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "satisBedeli",
-      "label": "Satış Bedeli (₺)",
+      "label": "SatisBedeli",
       "label_i18n": {
         "en": "Sale Price (USD)",
-        "tr": "Satış Bedeli (₺)",
+        "tr": "Satis Bedeli (₺)",
         "de": "Verkaufspreis",
         "fr": "Prix de vente",
         "es": "Precio de venta",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Gayrimenkul satış fiyatı.",
+      "businessContext": "SatisBedeli",
       "businessContext_i18n": {
         "en": "Property sale price.",
-        "tr": "Gayrimenkul satış fiyatı.",
+        "tr": "Gayrimenkul satis fiyati.",
         "de": "Verkaufspreis der Immobilie.",
         "fr": "Prix de vente du bien.",
         "es": "Precio de venta de la propiedad.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "komisyonOrani",
-      "label": "Komisyon Oranı (%)",
+      "label": "KomisyonOrani",
       "label_i18n": {
         "en": "Commission Rate (%)",
-        "tr": "Komisyon Oranı (%)",
+        "tr": "Komisyon Ratio (%)",
         "de": "Provisionssatz",
         "fr": "Taux de commission",
         "es": "Tasa de comisión",
@@ -46,10 +46,10 @@
       "default": 3,
       "min": 0,
       "max": 100,
-      "businessContext": "Emlakçı komisyon yüzdesi.",
+      "businessContext": "KomisyonOrani",
       "businessContext_i18n": {
         "en": "Agent commission percentage.",
-        "tr": "Emlakçı komisyon yüzdesi.",
+        "tr": "Emlakci komisyon yuzdesi.",
         "de": "Provisionssatz des Maklers.",
         "fr": "Pourcentage de commission de l'agent.",
         "es": "Porcentaje de comisión del agente.",
@@ -100,7 +100,7 @@
       "long": "Calculate real estate agent commission fee.",
       "short_i18n": {
         "en": "Calculate real estate agent commission fee.",
-        "tr": "Emlakçıya ödenecek aracılık hizmet bedelini hesaplar.",
+        "tr": "Emlakciya odenecek aracilik hizmet bedelini hesaplar.",
         "de": "Berechnung der Maklerprovision.",
         "fr": "Calculer les frais de commission d'un agent immobilier.",
         "es": "Calcular la comisión del agente inmobiliario.",
@@ -108,7 +108,7 @@
       },
       "long_i18n": {
         "en": "Calculate real estate agent commission fee.",
-        "tr": "Emlakçıya ödenecek aracılık hizmet bedelini hesaplar.",
+        "tr": "Emlakciya odenecek aracilik hizmet bedelini hesaplar.",
         "de": "Berechnung der Maklerprovision.",
         "fr": "Calculer les frais de commission d'un agent immobilier.",
         "es": "Calcular la comisión del agente inmobiliario.",

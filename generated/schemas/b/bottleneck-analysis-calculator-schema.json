@@ -2,15 +2,15 @@
   "toolName": "bottleneck-analysis-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endüstri Mühendisliği",
+  "sector": "Endustri Muhendisligi",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "istasyon1",
-      "label": "1. İstasyon Süresi (Dk)",
+      "label": "Istasyon1",
       "label_i18n": {
         "en": "Station 1 Time (Min)",
-        "tr": "1. İstasyon Süresi (Dk)",
+        "tr": "1. Istasyon Suresi (Dk)",
         "de": "Station 1 Zeit (Min)",
         "fr": "Temps au poste 1 (Min)",
         "es": "Tiempo en la Estación 1 (min)",
@@ -20,10 +20,10 @@
       "unit": "min",
       "default": 45,
       "min": 0,
-      "businessContext": "Birinci istasyonun işlem süresi.",
+      "businessContext": "Istasyon1",
       "businessContext_i18n": {
         "en": "First station operation time.",
-        "tr": "Birinci istasyonun işlem süresi.",
+        "tr": "Birinci istasyonun islem suresi.",
         "de": "Bearbeitungszeit der ersten Station.",
         "fr": "Temps d'opération au premier poste.",
         "es": "Tiempo de operación de la primera estación.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "istasyon2",
-      "label": "2. İstasyon Süresi (Dk)",
+      "label": "Istasyon2",
       "label_i18n": {
         "en": "Station 2 Time (Min)",
-        "tr": "2. İstasyon Süresi (Dk)",
+        "tr": "2. Istasyon Suresi (Dk)",
         "de": "Station 2 Zeit (Min)",
         "fr": "Temps au poste 2 (Min)",
         "es": "Tiempo en la Estación 2 (min)",
@@ -45,10 +45,10 @@
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "İkinci istasyon süresi.",
+      "businessContext": "Istasyon2",
       "businessContext_i18n": {
         "en": "Second station time.",
-        "tr": "İkinci istasyon süresi.",
+        "tr": "Ikinci istasyon suresi.",
         "de": "Bearbeitungszeit der zweiten Station.",
         "fr": "Temps au deuxième poste.",
         "es": "Tiempo de la segunda estación.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "istasyon3",
-      "label": "3. İstasyon Süresi (Dk)",
+      "label": "Istasyon3",
       "label_i18n": {
         "en": "Station 3 Time (Min)",
-        "tr": "3. İstasyon Süresi (Dk)",
+        "tr": "3. Istasyon Suresi (Dk)",
         "de": "Station 3 Zeit (Min)",
         "fr": "Temps au poste 3 (Min)",
         "es": "Tiempo en la Estación 3 (min)",
@@ -70,10 +70,10 @@
       "unit": "min",
       "default": 50,
       "min": 0,
-      "businessContext": "Üçüncü istasyon süresi.",
+      "businessContext": "Istasyon3",
       "businessContext_i18n": {
         "en": "Third station time.",
-        "tr": "Üçüncü istasyon süresi.",
+        "tr": "Ucuncu istasyon suresi.",
         "de": "Bearbeitungszeit der dritten Station.",
         "fr": "Temps au troisième poste.",
         "es": "Tiempo de la tercera estación.",
@@ -95,12 +95,12 @@
     "primary": "sonuc",
     "unit": "units/hour",
     "breakdown": {
-      "sonuc": "Maksimum Üretim Hızı"
+      "sonuc": "Maximum Production Speed"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maksimum Üretim Hızı",
-        "tr": "Maksimum Üretim Hızı",
+        "en": "Maximum Production Speed",
+        "tr": "Maximum Production Speed",
         "de": "Maximum Production Rate",
         "fr": "Taux de production maximal",
         "es": "Velocidad Máxima de Producción",
@@ -125,7 +125,7 @@
       "long": "Identify bottleneck and calculate maximum production rate.",
       "short_i18n": {
         "en": "Identify bottleneck and calculate maximum production rate.",
-        "tr": "Hattın en yavaş istasyonuna göre maksimum üretim hızını hesaplar.",
+        "tr": "Hattin en yavas istasyonuna gore Maximum Production Speedni hesaplar.",
         "de": "Identifizierung des Engpasses und Berechnung der maximalen Produktionsrate.",
         "fr": "Identifier le goulot d'étranglement et calculer le taux de production maximal.",
         "es": "Identificar el cuello de botella y calcular la tasa máxima de producción.",
@@ -133,7 +133,7 @@
       },
       "long_i18n": {
         "en": "Identify bottleneck and calculate maximum production rate.",
-        "tr": "Hattın en yavaş istasyonuna göre maksimum üretim hızını hesaplar.",
+        "tr": "Hattin en yavas istasyonuna gore Maximum Production Speedni hesaplar.",
         "de": "Identifizierung des Engpasses und Berechnung der maximalen Produktionsrate.",
         "fr": "Identifier le goulot d'étranglement et calculer le taux de production maximal.",
         "es": "Identificar el cuello de botella y calcular la tasa máxima de producción.",

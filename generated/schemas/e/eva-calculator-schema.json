@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Vergi sonrası net faaliyet kârı.",
+      "businessContext": "Nopat",
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
-        "tr": "Vergi sonrası net faaliyet kârı.",
+        "tr": "Vergi sonrasi Net faaliyet kâri.",
         "de": "Netto-Betriebsgewinn nach Steuern.",
         "fr": "Bénéfice net d'exploitation après impôts.",
         "es": "Beneficio operativo neto después de impuestos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "sermaye",
-      "label": "Yatırılan Sermaye (₺)",
+      "label": "Sermaye",
       "label_i18n": {
         "en": "Invested Capital (USD)",
-        "tr": "Yatırılan Sermaye (₺)",
+        "tr": "Yatirilan Sermaye (₺)",
         "de": "Investiertes Kapital (USD)",
         "fr": "Capital investi (USD)",
         "es": "Capital invertido (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Toplam yatırılmış sermaye.",
+      "businessContext": "Sermaye",
       "businessContext_i18n": {
         "en": "Total capital employed.",
-        "tr": "Toplam yatırılmış sermaye.",
+        "tr": "Total yatirilmis sermaye.",
         "de": "Gesamtes eingesetztes Kapital.",
         "fr": "Capital total employé.",
         "es": "Capital total empleado.",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Ağırlıklı ortalama sermaye maliyeti.",
+      "businessContext": "Wacc",
       "businessContext_i18n": {
         "en": "Weighted average cost of capital.",
-        "tr": "Ağırlıklı ortalama sermaye maliyeti.",
+        "tr": "Weightli Mean sermaye Costi.",
         "de": "Gewichtete durchschnittliche Kapitalkosten.",
         "fr": "Coût moyen pondéré du capital.",
         "es": "Costo promedio ponderado del capital.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "EVA (Ekonomik Katma Değer)"
+      "sonuc": "EVA (Ekonomik Katma Value)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "EVA (Ekonomik Katma Değer)",
-        "tr": "EVA (Ekonomik Katma Değer)",
+        "en": "EVA (Ekonomik Katma Value)",
+        "tr": "EVA (Ekonomik Katma Value)",
         "de": "EVA (Economic Value Added)",
         "fr": "EVA (Valeur Économique Ajoutée)",
         "es": "EVA (Valor Económico Agregado)",
@@ -124,16 +124,16 @@
       "long": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
       "short_i18n": {
         "en": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-        "tr": "Sermaye maliyeti düşüldükten sonra kalan reel ekonomik kârı (EVA) hesaplar.",
-        "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermögen nach Kapitalkosten.",
+        "tr": "Sermaye Costi dusuldukten sonra kArea reel ekonomik kâri (EVA) hesaplar.",
+        "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermogen nach Kapitalkosten.",
         "fr": "Calculer la valeur économique ajoutée (EVA) — richesse résiduelle après le coût du capital.",
         "es": "Calcule el valor económico agregado (EVA) — riqueza residual después del costo de capital.",
         "ar": "احسب القيمة الاقتصادية المضافة (EVA) — الثروة المتبقية بعد تكلفة رأس المال."
       },
       "long_i18n": {
         "en": "Calculate economic value added (EVA) — residual wealth after cost of capital.",
-        "tr": "Sermaye maliyeti düşüldükten sonra kalan reel ekonomik kârı (EVA) hesaplar.",
-        "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermögen nach Kapitalkosten.",
+        "tr": "Sermaye Costi dusuldukten sonra kArea reel ekonomik kâri (EVA) hesaplar.",
+        "de": "Berechnen Sie den Economic Value Added (EVA) – Restvermogen nach Kapitalkosten.",
         "fr": "Calculer la valeur économique ajoutée (EVA) — richesse résiduelle après le coût du capital.",
         "es": "Calcule el valor económico agregado (EVA) — riqueza residual después del costo de capital.",
         "ar": "احسب القيمة الاقتصادية المضافة (EVA) — الثروة المتبقية بعد تكلفة رأس المال."

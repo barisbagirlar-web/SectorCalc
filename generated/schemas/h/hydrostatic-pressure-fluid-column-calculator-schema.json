@@ -2,15 +2,15 @@
   "toolName": "hydrostatic-pressure-fluid-column-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "Yogunluk",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
-        "tr": "Akışkan Yoğunluğu (kg/m³)",
+        "tr": "Fluid Dmostsity (kg/m³)",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
         "es": "Densidad del fluido",
@@ -20,10 +20,10 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext": "Yogunluk",
       "businessContext_i18n": {
         "en": "Fluid density.",
-        "tr": "Akışkanın yoğunluğu.",
+        "tr": "Akiskanin yogunlugu.",
         "de": "Fluiddichte.",
         "fr": "Masse volumique du fluide.",
         "es": "Densidad del fluido.",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Sıvı yüzeyinden derinlik.",
+      "businessContext": "Derinlik",
       "businessContext_i18n": {
         "en": "Depth below fluid surface.",
-        "tr": "Sıvı yüzeyinden derinlik.",
+        "tr": "Sivi yuzeyinden Depth.",
         "de": "Tiefe unter der Fluidoberfläche.",
         "fr": "Profondeur sous la surface du fluide.",
         "es": "Profundidad bajo la superficie del fluido.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Hidrostatik Basınç"
+      "sonuc": "Hidrostatik Pressure"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Hidrostatik Basınç",
-        "tr": "Hidrostatik Basınç",
+        "en": "Hidrostatik Pressure",
+        "tr": "Hidrostatik Pressure",
         "de": "Hydrostatischer Druck",
         "fr": "Pression hydrostatique",
         "es": "Presión hidrostática",
@@ -99,7 +99,7 @@
       "long": "Calculate hydrostatic pressure at the bottom of a fluid column.",
       "short_i18n": {
         "en": "Calculate hydrostatic pressure at the bottom of a fluid column.",
-        "tr": "Akışkan sütununun tabanında oluşturduğu hidrostatik basıncı hesaplar.",
+        "tr": "Akiskan sutununun tabaninda olusturdugu hidrostatik basinci hesaplar.",
         "de": "Berechnen Sie den hydrostatischen Druck am Boden einer Fluidsäule.",
         "fr": "Calculer la pression hydrostatique au fond d'une colonne de fluide.",
         "es": "Calcular la presión hidrostática en el fondo de una columna de fluido.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate hydrostatic pressure at the bottom of a fluid column.",
-        "tr": "Akışkan sütununun tabanında oluşturduğu hidrostatik basıncı hesaplar.",
+        "tr": "Akiskan sutununun tabaninda olusturdugu hidrostatik basinci hesaplar.",
         "de": "Berechnen Sie den hydrostatischen Druck am Boden einer Fluidsäule.",
         "fr": "Calculer la pression hydrostatique au fond d'une colonne de fluide.",
         "es": "Calcular la presión hidrostática en el fondo de una columna de fluido.",
@@ -117,7 +117,7 @@
   },
   "title_i18n": {
     "en": "hydrostatic-pressure-fluid-column-calculator",
-    "de": "Statischer Druck-Flüssigkeits-Rechner",
+    "de": "Statischer Druck-Flussigkeits-Rechner",
     "fr": "Calculateur de pression statique de fluide",
     "es": "Calculadora de presión estática de fluido",
     "ar": "حاسبة الضغط الساكن للسوائل"

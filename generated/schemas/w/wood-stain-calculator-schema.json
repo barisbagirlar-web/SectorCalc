@@ -2,15 +2,15 @@
   "toolName": "wood-stain-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "project-construction-management",
-  "sector": "İnşaat ve Yapı",
+  "sector": "Insaat ve Yapi",
   "sectorId": "project-construction-management",
   "inputs": [
     {
       "id": "alan",
-      "label": "Ahşap Yüzey (m²)",
+      "label": "Alan",
       "label_i18n": {
         "en": "Wood Surface (m²)",
-        "tr": "Ahşap Yüzey (m²)",
+        "tr": "Ahsap Yuzey (m²)",
         "de": "Holzoberfläche (m²)",
         "fr": "Surface en bois (m²)",
         "es": "Superficie de Madera (m²)",
@@ -45,10 +45,10 @@
       "unit": "m2/L",
       "default": 12,
       "min": 0,
-      "businessContext": "Litre başına kaplanan alan.",
+      "businessContext": "Sarfiyat",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
-        "tr": "Litre başına kaplanan alan.",
+        "tr": "Litre basina kaplanan Area.",
         "de": "Deckungsbereich pro Liter.",
         "fr": "Couverture par litre.",
         "es": "Cobertura por litro.",
@@ -99,16 +99,16 @@
       "long": "Calculate wood stain or varnish quantity needed.",
       "short_i18n": {
         "en": "Calculate wood stain or varnish quantity needed.",
-        "tr": "Ahşabı emprenye etmek için gereken vernik/leke miktarını hesaplar.",
-        "de": "Berechnen Sie die benötigte Menge an Holzbeize oder -lack.",
+        "tr": "Ahsabi emprenye etmek icin gereken vernik/leke Amountini hesaplar.",
+        "de": "Berechnen Sie die benotigte Menge an Holzbeize oder -lack.",
         "fr": "Calculer la quantité de teinture ou de vernis pour bois nécessaire.",
         "es": "Calcular la cantidad necesaria de tinte o barniz para madera.",
         "ar": "حساب كمية الصبغة أو الورنيش الخشبي المطلوبة."
       },
       "long_i18n": {
         "en": "Calculate wood stain or varnish quantity needed.",
-        "tr": "Ahşabı emprenye etmek için gereken vernik/leke miktarını hesaplar.",
-        "de": "Berechnen Sie die benötigte Menge an Holzbeize oder -lack.",
+        "tr": "Ahsabi emprenye etmek icin gereken vernik/leke Amountini hesaplar.",
+        "de": "Berechnen Sie die benotigte Menge an Holzbeize oder -lack.",
         "fr": "Calculer la quantité de teinture ou de vernis pour bois nécessaire.",
         "es": "Calcular la cantidad necesaria de tinte o barniz para madera.",
         "ar": "حساب كمية الصبغة أو الورنيش الخشبي المطلوبة."

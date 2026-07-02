@@ -2,7 +2,7 @@
   "toolName": "ev-range-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sector": "Mekanik, Otomotiv ve Havacilik",
   "sectorId": "automotive-transport",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "kWh",
       "default": 60,
       "min": 0,
-      "businessContext": "Kullanılabilir batarya kapasitesi.",
+      "businessContext": "BataryaEnerji",
       "businessContext_i18n": {
         "en": "Usable battery capacity.",
-        "tr": "Kullanılabilir batarya kapasitesi.",
+        "tr": "Kullanilabilir Battery Capacity.",
         "de": "Nutzbare Batteriekapazität.",
         "fr": "Capacité utilisable de la batterie.",
         "es": "Capacidad utilizable de la batería.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "tuketim",
-      "label": "Enerji Tüketimi (Wh/km)",
+      "label": "Energy Consumption (Wh/km)",
       "label_i18n": {
         "en": "Energy Consumption (Wh/km)",
-        "tr": "Enerji Tüketimi (Wh/km)",
+        "tr": "Energy Consumption (Wh/km)",
         "de": "Gesamtenergieverbrauch",
         "fr": "Consommation totale d'énergie",
         "es": "Consumo total de energía",
@@ -45,10 +45,10 @@
       "unit": "Wh/km",
       "default": 180,
       "min": 0,
-      "businessContext": "km başı enerji tüketimi.",
+      "businessContext": "Tuketim",
       "businessContext_i18n": {
         "en": "Energy consumption per km.",
-        "tr": "km başı enerji tüketimi.",
+        "tr": "km basi Energy Consumption.",
         "de": "Energieverbrauch pro km.",
         "fr": "Consommation d'énergie par km.",
         "es": "Consumo de energía por km.",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Motordan tekerleğe verim.",
+      "businessContext": "Verim",
       "businessContext_i18n": {
         "en": "Motor-to-wheel efficiency.",
-        "tr": "Motordan tekerleğe verim.",
+        "tr": "Motordan tekerlege Efficiency.",
         "de": "Motor-zu-Rad-Effizienz.",
         "fr": "Efficacité du moteur aux roues.",
         "es": "Eficiencia del motor a la rueda.",
@@ -126,7 +126,7 @@
       "long": "Calculate EV range on a full charge.",
       "short_i18n": {
         "en": "Calculate EV range on a full charge.",
-        "tr": "Elektrikli aracın tam şarjla gidebileceği teorik maksimum menzili hesaplar.",
+        "tr": "Elektrikli aracin tam sarjla giFlow Ratelecegi teorik Maximum Rangei hesaplar.",
         "de": "Berechnen Sie die Reichweite eines Elektrofahrzeugs bei voller Ladung.",
         "fr": "Calculer l'autonomie d'un véhicule électrique avec une batterie pleine.",
         "es": "Calcule la autonomía del vehículo eléctrico con carga completa.",
@@ -134,7 +134,7 @@
       },
       "long_i18n": {
         "en": "Calculate EV range on a full charge.",
-        "tr": "Elektrikli aracın tam şarjla gidebileceği teorik maksimum menzili hesaplar.",
+        "tr": "Elektrikli aracin tam sarjla giFlow Ratelecegi teorik Maximum Rangei hesaplar.",
         "de": "Berechnen Sie die Reichweite eines Elektrofahrzeugs bei voller Ladung.",
         "fr": "Calculer l'autonomie d'un véhicule électrique avec une batterie pleine.",
         "es": "Calcule la autonomía del vehículo eléctrico con carga completa.",

@@ -2,15 +2,15 @@
   "toolName": "thin-walled-pressure-vessel-hoop-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "basinc",
-      "label": "İç Basınç (Pa)",
+      "label": "Internal Pressure (Pa)",
       "label_i18n": {
         "en": "Internal Pressure (Pa)",
-        "tr": "İç Basınç (Pa)",
+        "tr": "Ic Pressure (Pa)",
         "de": "Innendruck (Pa)",
         "fr": "Pression interne (Pa)",
         "es": "Presión Interna (Pa)",
@@ -20,10 +20,10 @@
       "unit": "Pa",
       "default": 500000,
       "min": 0,
-      "businessContext": "Kap içindeki basınç.",
+      "businessContext": "Basinc",
       "businessContext_i18n": {
         "en": "Internal vessel pressure.",
-        "tr": "Kap içindeki basınç.",
+        "tr": "Kap icindeki Pressure.",
         "de": "Innendruck des Behälters.",
         "fr": "Pression interne du réservoir.",
         "es": "Presión interna del recipiente.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "cap",
-      "label": "Çap (m)",
+      "label": "Diameter (m)",
       "label_i18n": {
         "en": "Diameter (m)",
-        "tr": "Çap (m)",
+        "tr": "Diameter (m)",
         "de": "Nennbolzendurchmesser (d)",
         "fr": "Diamètre nominal du boulon (d)",
         "es": "Diámetro nominal del perno (d)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Silindir çapı.",
+      "businessContext": "Cap",
       "businessContext_i18n": {
         "en": "Cylinder diameter.",
-        "tr": "Silindir çapı.",
+        "tr": "Silindir Diameteri.",
         "de": "Zylinderdurchmesser.",
         "fr": "Diamètre du cylindre.",
         "es": "Diámetro del cilindro.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "kalinlik",
-      "label": "Cidar Kalınlığı (m)",
+      "label": "Wall Thickness (m)",
       "label_i18n": {
         "en": "Wall Thickness (m)",
-        "tr": "Cidar Kalınlığı (m)",
+        "tr": "Cidar Thickness (m)",
         "de": "Wanddicke",
         "fr": "Épaisseur du mur",
         "es": "Espesor de pared",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.003,
       "min": 0,
-      "businessContext": "Kap et kalınlığı.",
+      "businessContext": "Kap Wall Thickness.",
       "businessContext_i18n": {
         "en": "Vessel wall thickness.",
-        "tr": "Kap et kalınlığı.",
+        "tr": "Kap Wall Thickness.",
         "de": "Wanddicke des Behälters.",
         "fr": "Épaisseur de la paroi du réservoir.",
         "es": "Espesor de la pared del recipiente.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Çevresel Gerilme"
+      "sonuc": "Cevresel Gerilme"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Çevresel Gerilme",
-        "tr": "Çevresel Gerilme",
+        "en": "Cevresel Gerilme",
+        "tr": "Cevresel Gerilme",
         "de": "Umfangsspannung",
         "fr": "Contrainte circonférentielle",
         "es": "Esfuerzo Circunferencial",
@@ -124,16 +124,16 @@
       "long": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
       "short_i18n": {
         "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "tr": "Silindirik ince cidarlı kaptaki çevresel (teğetsel) membran gerilmesini hesaplar.",
-        "de": "Berechnen Sie die Umfangsspannung in einem dünnwandigen zylindrischen Druckbehälter.",
+        "tr": "Silindirik ince cidarli kaptaki cevresel (tegetsel) membran gerilmesini hesaplar.",
+        "de": "Berechnen Sie die Umfangsspannung in einem dunnwandigen zylindrischen Druckbehälter.",
         "fr": "Calculer la contrainte circonférentielle dans un réservoir sous pression cylindrique à paroi mince.",
         "es": "Calcular el esfuerzo circunferencial en un recipiente a presión cilíndrico de pared delgada.",
         "ar": "احسب الإجهاد المحيطي في وعاء ضغط أسطواني رقيق الجدران."
       },
       "long_i18n": {
         "en": "Calculate hoop stress in a thin-walled cylindrical pressure vessel.",
-        "tr": "Silindirik ince cidarlı kaptaki çevresel (teğetsel) membran gerilmesini hesaplar.",
-        "de": "Berechnen Sie die Umfangsspannung in einem dünnwandigen zylindrischen Druckbehälter.",
+        "tr": "Silindirik ince cidarli kaptaki cevresel (tegetsel) membran gerilmesini hesaplar.",
+        "de": "Berechnen Sie die Umfangsspannung in einem dunnwandigen zylindrischen Druckbehälter.",
         "fr": "Calculer la contrainte circonférentielle dans un réservoir sous pression cylindrique à paroi mince.",
         "es": "Calcular el esfuerzo circunferencial en un recipiente a presión cilíndrico de pared delgada.",
         "ar": "احسب الإجهاد المحيطي في وعاء ضغط أسطواني رقيق الجدران."
@@ -142,7 +142,7 @@
   },
   "title_i18n": {
     "en": "thin-walled-pressure-vessel-hoop-stress-calculator",
-    "de": "Dünnwandiger Behälter Spannungsrechner",
+    "de": "Dunnwandiger Behälter Spannungsrechner",
     "fr": "Calculateur de Contrainte de Récipient à Paroi Mince",
     "es": "Calculadora de Tensión de Recipiente de Pared Delgada",
     "ar": "حاسبة إجهاد الأوعية رقيقة الجدران"

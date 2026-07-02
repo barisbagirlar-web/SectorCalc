@@ -2,15 +2,15 @@
   "toolName": "ideal-gas-law-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "basinc",
-      "label": "Basınç (Pa)",
+      "label": "Pressure (Pa)",
       "label_i18n": {
         "en": "Pressure (Pa)",
-        "tr": "Basınç (Pa)",
+        "tr": "Pressure (Pa)",
         "de": "Systemdrucksollwert",
         "fr": "Point de consigne de pression du système",
         "es": "Punto de consigna de presión del sistema",
@@ -20,10 +20,10 @@
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Gaz basıncı.",
+      "businessContext": "Basinc",
       "businessContext_i18n": {
         "en": "Gas pressure.",
-        "tr": "Gaz basıncı.",
+        "tr": "Gaz basinci.",
         "de": "Gasdruck.",
         "fr": "Pression du gaz.",
         "es": "Presión del gas.",
@@ -70,10 +70,10 @@
       "unit": "mol",
       "default": 1,
       "min": 0,
-      "businessContext": "Gaz miktarı.",
+      "businessContext": "Mol",
       "businessContext_i18n": {
         "en": "Amount of substance.",
-        "tr": "Gaz miktarı.",
+        "tr": "Gaz Amounti.",
         "de": "Stoffmenge.",
         "fr": "Quantité de matière.",
         "es": "Cantidad de sustancia.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "sicaklik",
-      "label": "Sıcaklık (K)",
+      "label": "Temperature (K)",
       "label_i18n": {
         "en": "Temperature (K)",
-        "tr": "Sıcaklık (K)",
+        "tr": "Temperature (K)",
         "de": "Betriebstemperatur",
         "fr": "Température de fonctionnement",
         "es": "Temperatura de operación",
@@ -95,10 +95,10 @@
       "unit": "K",
       "default": 293,
       "min": 0,
-      "businessContext": "Gaz sıcaklığı.",
+      "businessContext": "Sicaklik",
       "businessContext_i18n": {
         "en": "Gas temperature.",
-        "tr": "Gaz sıcaklığı.",
+        "tr": "Gaz sicakligi.",
         "de": "Gastemperatur.",
         "fr": "Température du gaz.",
         "es": "Temperatura del gas.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "K",
     "breakdown": {
-      "sonuc": "Sıcaklık (T)"
+      "sonuc": "Temperature (T)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sıcaklık (T)",
-        "tr": "Sıcaklık (T)",
+        "en": "Temperature (T)",
+        "tr": "Temperature (T)",
         "de": "Temperatur (T)",
         "fr": "Température (T)",
         "es": "Temperatura (T)",
@@ -153,7 +153,7 @@
       "long": "Calculate unknown parameter in ideal gas law (PV=nRT).",
       "short_i18n": {
         "en": "Calculate unknown parameter in ideal gas law (PV=nRT).",
-        "tr": "Gazın durum denklemindeki (PV=nRT) bilinmeyen parametreyi hesaplar.",
+        "tr": "Gazin durum denklemindeki (PV=nRT) bilinmeyen Parameteryi hesaplar.",
         "de": "Berechnen Sie den unbekannten Parameter im idealen Gasgesetz (PV=nRT).",
         "fr": "Calculer le paramètre inconnu dans la loi des gaz parfaits (PV=nRT).",
         "es": "Calcular el parámetro desconocido en la ley de los gases ideales (PV=nRT).",
@@ -161,7 +161,7 @@
       },
       "long_i18n": {
         "en": "Calculate unknown parameter in ideal gas law (PV=nRT).",
-        "tr": "Gazın durum denklemindeki (PV=nRT) bilinmeyen parametreyi hesaplar.",
+        "tr": "Gazin durum denklemindeki (PV=nRT) bilinmeyen Parameteryi hesaplar.",
         "de": "Berechnen Sie den unbekannten Parameter im idealen Gasgesetz (PV=nRT).",
         "fr": "Calculer le paramètre inconnu dans la loi des gaz parfaits (PV=nRT).",
         "es": "Calcular el parámetro desconocido en la ley de los gases ideales (PV=nRT).",
@@ -171,7 +171,7 @@
   },
   "title_i18n": {
     "en": "ideal-gas-law-calculator",
-    "de": "Rechner für das ideale Gasgesetz",
+    "de": "Rechner fur das ideale Gasgesetz",
     "fr": "Calculateur de la loi des gaz parfaits",
     "es": "Calculadora de la ley de los gases ideales",
     "ar": "حاسبة قانون الغاز المثالي"

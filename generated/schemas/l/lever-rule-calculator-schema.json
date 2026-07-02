@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "C0",
-      "label": "Toplam Bileşim (%)",
+      "label": "C0",
       "label_i18n": {
         "en": "Overall Composition (%)",
-        "tr": "Toplam Bileşim (%)",
+        "tr": "Total Bilesim (%)",
         "de": "Gesamtzusammensetzung (%)",
         "fr": "Composition globale (%)",
         "es": "Composición General (%)",
@@ -20,10 +20,10 @@
       "unit": "%",
       "default": 40,
       "min": 0,
-      "businessContext": "Alaşımın toplam bileşimi.",
+      "businessContext": "C0",
       "businessContext_i18n": {
         "en": "Alloy overall composition.",
-        "tr": "Alaşımın toplam bileşimi.",
+        "tr": "Alasimin Total bilesimi.",
         "de": "Gesamtzusammensetzung der Legierung.",
         "fr": "Composition globale de l'alliage.",
         "es": "Composición general de la aleación.",
@@ -32,11 +32,11 @@
     },
     {
       "id": "Cl",
-      "label": "Sıvı Bileşimi (%)",
+      "label": "Cl",
       "label_i18n": {
         "en": "Liquid Composition (%)",
-        "tr": "Sıvı Bileşimi (%)",
-        "de": "Flüssigzusammensetzung (%)",
+        "tr": "Sivi Bilesimi (%)",
+        "de": "Flussigzusammensetzung (%)",
         "fr": "Composition de la phase liquide (%)",
         "es": "Composición del Líquido (%)",
         "ar": "تركيب الطور السائل (%)"
@@ -45,11 +45,11 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Sıvı fazın bileşimi.",
+      "businessContext": "Cl",
       "businessContext_i18n": {
         "en": "Liquid phase composition.",
-        "tr": "Sıvı fazın bileşimi.",
-        "de": "Zusammensetzung der flüssigen Phase.",
+        "tr": "Sivi fazin bilesimi.",
+        "de": "Zusammensetzung der flussigen Phase.",
         "fr": "Composition de la phase liquide.",
         "es": "Composición de la fase líquida.",
         "ar": "تركيب الطور السائل."
@@ -57,10 +57,10 @@
     },
     {
       "id": "Cs",
-      "label": "Katı Bileşimi (%)",
+      "label": "Cs",
       "label_i18n": {
         "en": "Solid Composition (%)",
-        "tr": "Katı Bileşimi (%)",
+        "tr": "Kati Bilesimi (%)",
         "de": "Festzusammensetzung (%)",
         "fr": "Composition de la phase solide (%)",
         "es": "Composición del Sólido (%)",
@@ -70,10 +70,10 @@
       "unit": "%",
       "default": 60,
       "min": 0,
-      "businessContext": "Katı fazın bileşimi.",
+      "businessContext": "Cs",
       "businessContext_i18n": {
         "en": "Solid phase composition.",
-        "tr": "Katı fazın bileşimi.",
+        "tr": "Kati fazin bilesimi.",
         "de": "Zusammensetzung der festen Phase.",
         "fr": "Composition de la phase solide.",
         "es": "Composición de la fase sólida.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "fraction",
     "breakdown": {
-      "sonuc": "Katı Faz Oranı"
+      "sonuc": "Kati Faz Ratioi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Katı Faz Oranı",
-        "tr": "Katı Faz Oranı",
+        "en": "Kati Faz Ratioi",
+        "tr": "Kati Faz Ratioi",
         "de": "Festphasenanteil",
         "fr": "Solid Phase Ratio",
         "es": "Fracción de Fase Sólida",
@@ -124,7 +124,7 @@
       "long": "Calculate solid phase fraction using the lever rule on a phase diagram.",
       "short_i18n": {
         "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-        "tr": "Faz diyagramında katı fazın kütle oranını (lever kuralı) hesaplar.",
+        "tr": "Faz diyagraminda kati fazin Mass Ratioini (lever kurali) hesaplar.",
         "de": "Berechnen Sie den Festphasenanteil mithilfe des Hebelgesetzes an einem Phasendiagramm.",
         "fr": "Calculer la fraction de phase solide en utilisant la règle du levier sur un diagramme de phases.",
         "es": "Calcular la fracción de fase sólida usando la regla de la palanca en un diagrama de fases.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate solid phase fraction using the lever rule on a phase diagram.",
-        "tr": "Faz diyagramında katı fazın kütle oranını (lever kuralı) hesaplar.",
+        "tr": "Faz diyagraminda kati fazin Mass Ratioini (lever kurali) hesaplar.",
         "de": "Berechnen Sie den Festphasenanteil mithilfe des Hebelgesetzes an einem Phasendiagramm.",
         "fr": "Calculer la fraction de phase solide en utilisant la règle du levier sur un diagramme de phases.",
         "es": "Calcular la fracción de fase sólida usando la regla de la palanca en un diagrama de fases.",
@@ -142,7 +142,7 @@
   },
   "title_i18n": {
     "en": "lever-rule-calculator",
-    "de": "Hebelregel-Rechner für Phasendiagramme",
+    "de": "Hebelregel-Rechner fur Phasendiagramme",
     "fr": "Calculateur de règle du levier pour diagramme de phases",
     "es": "Calculadora de regla de la palanca para diagrama de fases",
     "ar": "حاسبة قاعدة الرافعة لمخطط الطور"

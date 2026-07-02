@@ -32,10 +32,10 @@
     },
     {
       "id": "tuketim",
-      "label": "Yakıt Tüketimi (L/100km)",
+      "label": "Fuel Consumption (L/100km)",
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
-        "tr": "Yakıt Tüketimi (L/100km)",
+        "tr": "Fuel Consumption (L/100km)",
         "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Consommation de carburant (L/100km)",
         "es": "Consumo de combustible (L/100km)",
@@ -45,10 +45,10 @@
       "unit": "L/100km",
       "default": 10,
       "min": 0,
-      "businessContext": "100 km'de tüketilen yakıt.",
+      "businessContext": "Tuketim",
       "businessContext_i18n": {
         "en": "Fuel per 100 km.",
-        "tr": "100 km'de tüketilen yakıt.",
+        "tr": "100 km'de tuketilen yakit.",
         "de": "Kraftstoff pro 100 km.",
         "fr": "Carburant aux 100 km.",
         "es": "Combustible por cada 100 km.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "litreFiyati",
-      "label": "Litre Fiyatı (TL)",
+      "label": "LitreFiyati",
       "label_i18n": {
         "en": "Fuel Price/Liter (USD)",
-        "tr": "Litre Fiyatı (TL)",
+        "tr": "Litre Fiyati (TL)",
         "de": "Kraftstoffpreis/Liter (USD)",
         "fr": "Prix du carburant/litre (USD)",
         "es": "Precio del combustible/litro (USD)",
@@ -70,10 +70,10 @@
       "unit": "USD",
       "default": 25,
       "min": 0,
-      "businessContext": "Litre başı yakıt fiyatı.",
+      "businessContext": "LitreFiyati",
       "businessContext_i18n": {
         "en": "Price per liter.",
-        "tr": "Litre başı yakıt fiyatı.",
+        "tr": "Litre basi yakit fiyati.",
         "de": "Preis pro Liter.",
         "fr": "Prix par litre.",
         "es": "Precio por litro.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Toplam Yakıt Maliyeti"
+      "sonuc": "Total Fuel Cost"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Toplam Yakıt Maliyeti",
-        "tr": "Toplam Yakıt Maliyeti",
+        "en": "Total Fuel Cost",
+        "tr": "Total Fuel Cost",
         "de": "Gesamtkraftstoffkosten",
         "fr": "Coût total du carburant",
         "es": "Costo total de combustible",
@@ -124,16 +124,16 @@
       "long": "Calculate total fuel cost for a trip.",
       "short_i18n": {
         "en": "Calculate total fuel cost for a trip.",
-        "tr": "Gidilen yol için gereken toplam yakıt giderini hesaplar.",
-        "de": "Berechnen Sie die gesamten Treibstoffkosten für eine Reise.",
+        "tr": "Gidilen yol icin gereken Total yakit giderini hesaplar.",
+        "de": "Berechnen Sie die gesamten Treibstoffkosten fur eine Reise.",
         "fr": "Calculer le coût total du carburant pour un trajet.",
         "es": "Calcular el costo total de combustible para un viaje.",
         "ar": "حساب التكلفة الإجمالية للوقود لرحلة."
       },
       "long_i18n": {
         "en": "Calculate total fuel cost for a trip.",
-        "tr": "Gidilen yol için gereken toplam yakıt giderini hesaplar.",
-        "de": "Berechnen Sie die gesamten Treibstoffkosten für eine Reise.",
+        "tr": "Gidilen yol icin gereken Total yakit giderini hesaplar.",
+        "de": "Berechnen Sie die gesamten Treibstoffkosten fur eine Reise.",
         "fr": "Calculer le coût total du carburant pour un trajet.",
         "es": "Calcular el costo total de combustible para un viaje.",
         "ar": "حساب التكلفة الإجمالية للوقود لرحلة."

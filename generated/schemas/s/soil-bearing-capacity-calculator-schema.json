@@ -2,7 +2,7 @@
   "toolName": "soil-bearing-capacity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -32,10 +32,10 @@
     },
     {
       "id": "temelGenislik",
-      "label": "Temel Genişliği (m)",
+      "label": "Foundation Width (m)",
       "label_i18n": {
         "en": "Footing Width (m)",
-        "tr": "Temel Genişliği (m)",
+        "tr": "Foundation Width (m)",
         "de": "Fundamentbreite (m)",
         "fr": "Largeur de la semelle (m)",
         "es": "Ancho de la Zapata (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Temel taban genişliği.",
+      "businessContext": "TemelGenislik",
       "businessContext_i18n": {
         "en": "Footing base width.",
-        "tr": "Temel taban genişliği.",
+        "tr": "Temel taban genisligi.",
         "de": "Fundamentsohlenbreite.",
         "fr": "Largeur de la base de la semelle.",
         "es": "Ancho de la base de la zapata.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "derinlik",
-      "label": "Temel Derinliği (m)",
+      "label": "Derinlik",
       "label_i18n": {
         "en": "Footing Depth (m)",
-        "tr": "Temel Derinliği (m)",
+        "tr": "Foundation Depth (m)",
         "de": "Fundamenttiefe (m)",
         "fr": "Profondeur de la semelle (m)",
         "es": "Profundidad de la Zapata (m)",
@@ -82,10 +82,10 @@
     },
     {
       "id": "yogunluk",
-      "label": "Zemin Yoğunluğu (kg/m³)",
+      "label": "Yogunluk",
       "label_i18n": {
         "en": "Soil Density (kg/m³)",
-        "tr": "Zemin Yoğunluğu (kg/m³)",
+        "tr": "Zemin Dmostsity (kg/m³)",
         "de": "Bodendichte (kg/m³)",
         "fr": "Densité du sol (kg/m³)",
         "es": "Densidad del Suelo (kg/m³)",
@@ -95,10 +95,10 @@
       "unit": "kg/m3",
       "default": 1800,
       "min": 0,
-      "businessContext": "Zeminin birim hacim ağırlığı.",
+      "businessContext": "Yogunluk",
       "businessContext_i18n": {
         "en": "Soil unit weight.",
-        "tr": "Zeminin birim hacim ağırlığı.",
+        "tr": "Zeminin Unit Volume agirligi.",
         "de": "Bodenwichte.",
         "fr": "Poids volumique du sol.",
         "es": "Peso unitario del suelo.",
@@ -119,13 +119,13 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Nihai Taşıma Kapasitesi (q)"
+      "sonuc": "Nihai Bearing Capacity (q)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Nihai Taşıma Kapasitesi (q)",
-        "tr": "Nihai Taşıma Kapasitesi (q)",
-        "de": "Endgültige Tragfähigkeit (q)",
+        "en": "Nihai Bearing Capacity (q)",
+        "tr": "Nihai Bearing Capacity (q)",
+        "de": "Endgultige Tragfähigkeit (q)",
         "fr": "Capacité portante ultime (q)",
         "es": "Capacidad de Carga Última (q)",
         "ar": "سعة التحميل النهائية (q)"
@@ -149,7 +149,7 @@
       "long": "Calculate soil bearing capacity using Terzaghi's formula.",
       "short_i18n": {
         "en": "Calculate soil bearing capacity using Terzaghi's formula.",
-        "tr": "Zeminin göçmeden taşıyabileceği maksimum basıncı (taşıma kapasitesi) hesaplar.",
+        "tr": "Zeminin gocmeden tasiyabilecegi Maximum basinci (tasima kapasitesi) hesaplar.",
         "de": "Berechnen Sie die Boden Tragfähigkeit nach Terzaghi.",
         "fr": "Calculer la capacité portante du sol à l'aide de la formule de Terzaghi.",
         "es": "Calcular la capacidad portante del suelo usando la fórmula de Terzaghi.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate soil bearing capacity using Terzaghi's formula.",
-        "tr": "Zeminin göçmeden taşıyabileceği maksimum basıncı (taşıma kapasitesi) hesaplar.",
+        "tr": "Zeminin gocmeden tasiyabilecegi Maximum basinci (tasima kapasitesi) hesaplar.",
         "de": "Berechnen Sie die Boden Tragfähigkeit nach Terzaghi.",
         "fr": "Calculer la capacité portante du sol à l'aide de la formule de Terzaghi.",
         "es": "Calcular la capacidad portante del suelo usando la fórmula de Terzaghi.",
@@ -167,7 +167,7 @@
   },
   "title_i18n": {
     "en": "soil-bearing-capacity-calculator",
-    "de": "Rechner für Bodentragfähigkeit",
+    "de": "Rechner fur Bodentragfähigkeit",
     "fr": "Calculateur de capacité portante du sol",
     "es": "Calculadora de capacidad portante del suelo",
     "ar": "حاسبة قدرة تحمل التربة"

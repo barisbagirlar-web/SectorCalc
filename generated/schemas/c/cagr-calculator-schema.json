@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "ilkDeger",
-      "label": "İlk Değer (₺)",
+      "label": "IlkDeger",
       "label_i18n": {
         "en": "Initial Value (USD)",
-        "tr": "İlk Değer (₺)",
+        "tr": "Ilk Value (₺)",
         "de": "Anfangswert",
         "fr": "Valeur initiale",
         "es": "Valor inicial",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Dönem başındaki yatırım değeri.",
+      "businessContext": "IlkDeger",
       "businessContext_i18n": {
         "en": "Value at the beginning of the period.",
-        "tr": "Dönem başındaki yatırım değeri.",
+        "tr": "Donem basindaki yatirim Valuei.",
         "de": "Wert zu Beginn des Zeitraums.",
         "fr": "Valeur en début de période.",
         "es": "Valor al inicio del período.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "sonDeger",
-      "label": "Son Değer (₺)",
+      "label": "Son Value (₺)",
       "label_i18n": {
         "en": "Final Value (USD)",
-        "tr": "Son Değer (₺)",
+        "tr": "Son Value (TRY)",
         "de": "Endwert",
         "fr": "Valeur finale",
         "es": "Valor final",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Dönem sonundaki yatırım değeri.",
+      "businessContext": "SonDeger",
       "businessContext_i18n": {
         "en": "Value at the end of the period.",
-        "tr": "Dönem sonundaki yatırım değeri.",
+        "tr": "Donem sonundaki yatirim Valuei.",
         "de": "Wert am Ende des Zeitraums.",
         "fr": "Valeur en fin de période.",
         "es": "Valor al final del período.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "yil",
-      "label": "Dönem (Yıl)",
+      "label": "Yil",
       "label_i18n": {
         "en": "Period (Years)",
-        "tr": "Dönem (Yıl)",
+        "tr": "Donem (Yil)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -70,10 +70,10 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Yatırımın toplam süresi.",
+      "businessContext": "Yil",
       "businessContext_i18n": {
         "en": "Total investment period.",
-        "tr": "Yatırımın toplam süresi.",
+        "tr": "Yatirimin Total Timesi.",
         "de": "Gesamter Anlagezeitraum.",
         "fr": "Période totale d'investissement.",
         "es": "Período total de inversión.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "CAGR (Bileşik Yıllık Büyüme)"
+      "sonuc": "CAGR (Bilesik Yillik Buyume)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "CAGR (Bileşik Yıllık Büyüme)",
-        "tr": "CAGR (Bileşik Yıllık Büyüme)",
+        "en": "CAGR (Bilesik Yillik Buyume)",
+        "tr": "CAGR (Bilesik Yillik Buyume)",
         "de": "CAGR (Jährliche Wachstumsrate)",
         "fr": "CAGR (Croissance annuelle composée)",
         "es": "CAGR (Tasa de Crecimiento Anual Compuesta)",
@@ -124,7 +124,7 @@
       "long": "Calculate the compound annual growth rate (CAGR) over time.",
       "short_i18n": {
         "en": "Calculate the compound annual growth rate (CAGR) over time.",
-        "tr": "Zaman içindeki pürüzsüz yıllık bileşik büyüme oranını (CAGR) hesaplar.",
+        "tr": "Zaman icindeki puruzsuz yillik bilesik buyume Ratioini (CAGR) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche jährliche Wachstumsrate (CAGR) im Zeitverlauf.",
         "fr": "Calculer le taux de croissance annuel composé (TCAC) sur une période.",
         "es": "Calcular la tasa de crecimiento anual compuesta (CAGR) a lo largo del tiempo.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate the compound annual growth rate (CAGR) over time.",
-        "tr": "Zaman içindeki pürüzsüz yıllık bileşik büyüme oranını (CAGR) hesaplar.",
+        "tr": "Zaman icindeki puruzsuz yillik bilesik buyume Ratioini (CAGR) hesaplar.",
         "de": "Berechnen Sie die durchschnittliche jährliche Wachstumsrate (CAGR) im Zeitverlauf.",
         "fr": "Calculer le taux de croissance annuel composé (TCAC) sur une période.",
         "es": "Calcular la tasa de crecimiento anual compuesta (CAGR) a lo largo del tiempo.",

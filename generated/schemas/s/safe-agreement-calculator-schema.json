@@ -2,15 +2,15 @@
   "toolName": "safe-agreement-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Yatırım (TL)",
+      "label": "Yatirim",
       "label_i18n": {
         "en": "Investment (USD)",
-        "tr": "Yatırım (TL)",
+        "tr": "Inandstmmostt (TRY)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "SAFE yatırım tutarı.",
+      "businessContext": "SAFE Investment Amount.",
       "businessContext_i18n": {
         "en": "SAFE investment.",
-        "tr": "SAFE yatırım tutarı.",
+        "tr": "SAFE Investment Amount.",
         "de": "SAFE-Investition.",
         "fr": "Investissement SAFE.",
         "es": "Inversión SAFE.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "tavanDeger",
-      "label": "Değerleme Tavanı (TL)",
+      "label": "TavanDeger",
       "label_i18n": {
         "en": "Valuation Cap (USD)",
-        "tr": "Değerleme Tavanı (TL)",
+        "tr": "Valueleme Tavani (TL)",
         "de": "Bewertungsobergrenze ($)",
         "fr": "Plafond de valorisation ($)",
         "es": "Tope de valoración ($)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Maksimum değerleme.",
+      "businessContext": "Maximum Valueleme.",
       "businessContext_i18n": {
         "en": "Valuation cap.",
-        "tr": "Maksimum değerleme.",
+        "tr": "Maximum Valueleme.",
         "de": "Bewertungsobergrenze.",
         "fr": "Plafond de valorisation.",
         "es": "Tope de valoración.",
@@ -70,10 +70,10 @@
       "unit": "shares",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Şirketin toplam hisse adedi.",
+      "businessContext": "ToplamHisse",
       "businessContext_i18n": {
         "en": "Total shares outstanding.",
-        "tr": "Şirketin toplam hisse adedi.",
+        "tr": "Sirketin Total hisse adedi.",
         "de": "Gesamtzahl der ausstehenden Aktien.",
         "fr": "Nombre total d'actions en circulation.",
         "es": "Total de acciones en circulación.",
@@ -125,7 +125,7 @@
       "long": "Calculate shares issued under a SAFE agreement.",
       "short_i18n": {
         "en": "Calculate shares issued under a SAFE agreement.",
-        "tr": "SAFE anlaşmasıyla yatırımcıya verilecek hisse adedini hesaplar.",
+        "tr": "SAFE anlasmasiyla yatirimciya verilecek hisse adedini hesaplar.",
         "de": "Berechnen Sie die im Rahmen einer SAFE-Vereinbarung ausgegebenen Aktien.",
         "fr": "Calculer les actions émises dans le cadre d'un accord SAFE.",
         "es": "Calcular las acciones emitidas bajo un acuerdo SAFE.",
@@ -133,7 +133,7 @@
       },
       "long_i18n": {
         "en": "Calculate shares issued under a SAFE agreement.",
-        "tr": "SAFE anlaşmasıyla yatırımcıya verilecek hisse adedini hesaplar.",
+        "tr": "SAFE anlasmasiyla yatirimciya verilecek hisse adedini hesaplar.",
         "de": "Berechnen Sie die im Rahmen einer SAFE-Vereinbarung ausgegebenen Aktien.",
         "fr": "Calculer les actions émises dans le cadre d'un accord SAFE.",
         "es": "Calcular las acciones emitidas bajo un acuerdo SAFE.",

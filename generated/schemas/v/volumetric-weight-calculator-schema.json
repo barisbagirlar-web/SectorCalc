@@ -57,11 +57,11 @@
     },
     {
       "id": "yukseklik",
-      "label": "Yükseklik (cm)",
+      "label": "Height (cm)",
       "label_i18n": {
         "en": "Height (cm)",
-        "tr": "Yükseklik (cm)",
-        "de": "Höhe (cm)",
+        "tr": "Height (cm)",
+        "de": "Hohe (cm)",
         "fr": "Hauteur (cm)",
         "es": "Altura (cm)",
         "ar": "الارتفاع (سم)"
@@ -70,11 +70,11 @@
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Paketin yüksekliği.",
+      "businessContext": "Yukseklik",
       "businessContext_i18n": {
         "en": "Package height.",
-        "tr": "Paketin yüksekliği.",
-        "de": "Pakethöhe.",
+        "tr": "Paketin yuksekligi.",
+        "de": "Pakethohe.",
         "fr": "Hauteur du colis.",
         "es": "Alto del paquete.",
         "ar": "ارتفاع الطرد."
@@ -82,10 +82,10 @@
     },
     {
       "id": "bolen",
-      "label": "Bölen (Desi Faktörü)",
+      "label": "Bolen",
       "label_i18n": {
         "en": "Divider (Vol. Factor)",
-        "tr": "Bölen (Desi Faktörü)",
+        "tr": "Bolen (Desi Faktoru)",
         "de": "Divisor (Volumenfaktor)",
         "fr": "Diviseur (facteur volumétrique)",
         "es": "Divisor (Factor Vol.)",
@@ -95,11 +95,11 @@
       "unit": "scalar",
       "default": 3000,
       "min": 1,
-      "businessContext": "Kargo firmasının desi böleni.",
+      "businessContext": "Bolen",
       "businessContext_i18n": {
         "en": "Carrier's volumetric divisor.",
-        "tr": "Kargo firmasının desi böleni.",
-        "de": "Volumengewicht-Divisor des Frachtführers.",
+        "tr": "Kargo firmasinin desi boleni.",
+        "de": "Volumengewicht-Divisor des Frachtfuhrers.",
         "fr": "Diviseur volumétrique du transporteur.",
         "es": "Divisor volumétrico del transportista.",
         "ar": "المقسوم الحجمي لشركة النقل."
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "kg",
     "breakdown": {
-      "sonuc": "Hacimsel Ağırlık (Desi)"
+      "sonuc": "Volumesel Weight (Desi)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Hacimsel Ağırlık (Desi)",
-        "tr": "Hacimsel Ağırlık (Desi)",
+        "en": "Volumesel Weight (Desi)",
+        "tr": "Volumesel Weight (Desi)",
         "de": "Volumetric Weight (Desi)",
         "fr": "Poids volumétrique (Desi)",
         "es": "Peso Volumétrico (Desi)",
@@ -149,16 +149,16 @@
       "long": "Calculate volumetric weight (desi) for cargo pricing.",
       "short_i18n": {
         "en": "Calculate volumetric weight (desi) for cargo pricing.",
-        "tr": "Kargonun kapladığı hacmin ağırlık karşılığını (desi) hesaplar.",
-        "de": "Berechnen Sie das Volumengewicht (Desi) für die Frachtpreisgestaltung.",
+        "tr": "Kargonun kapladigi hacmin Weight karsiligini (desi) hesaplar.",
+        "de": "Berechnen Sie das Volumengewicht (Desi) fur die Frachtpreisgestaltung.",
         "fr": "Calculer le poids volumétrique (desi) pour la tarification du fret.",
         "es": "Calcular el peso volumétrico (desi) para el precio de carga.",
         "ar": "حساب الوزن الحجمي (desi) لتسعير الشحن."
       },
       "long_i18n": {
         "en": "Calculate volumetric weight (desi) for cargo pricing.",
-        "tr": "Kargonun kapladığı hacmin ağırlık karşılığını (desi) hesaplar.",
-        "de": "Berechnen Sie das Volumengewicht (Desi) für die Frachtpreisgestaltung.",
+        "tr": "Kargonun kapladigi hacmin Weight karsiligini (desi) hesaplar.",
+        "de": "Berechnen Sie das Volumengewicht (Desi) fur die Frachtpreisgestaltung.",
         "fr": "Calculer le poids volumétrique (desi) pour la tarification du fret.",
         "es": "Calcular el peso volumétrico (desi) para el precio de carga.",
         "ar": "حساب الوزن الحجمي (desi) لتسعير الشحن."

@@ -2,15 +2,15 @@
   "toolName": "cold-storage-heat-gain-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "alan",
-      "label": "Toplam Yüzey Alanı (m²)",
+      "label": "Alan",
       "label_i18n": {
         "en": "Total Surface Area (m²)",
-        "tr": "Toplam Yüzey Alanı (m²)",
+        "tr": "Total Yuzey Areai (m²)",
         "de": "Gesamtoberfläche (m²)",
         "fr": "Surface totale (m²)",
         "es": "Área de Superficie Total (m²)",
@@ -20,11 +20,11 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Isı transferine maruz alan.",
+      "businessContext": "Alan",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
-        "tr": "Isı transferine maruz alan.",
-        "de": "Wärmeübertragungsfläche.",
+        "tr": "Isi transferine maruz Area.",
+        "de": "Wärmeubertragungsfläche.",
         "fr": "Surface de transfert de chaleur.",
         "es": "Área de transferencia de calor.",
         "ar": "مساحة نقل الحرارة."
@@ -32,10 +32,10 @@
     },
     {
       "id": "U_Katsayi",
-      "label": "Isı Geçiş Katsayısı (W/m²K)",
+      "label": "U Katsayi",
       "label_i18n": {
         "en": "U-Value (W/m²K)",
-        "tr": "Isı Geçiş Katsayısı (W/m²K)",
+        "tr": "Isi Gecis KatNumbersi (W/m²K)",
         "de": "U-Wert",
         "fr": "U-Valeur",
         "es": "U-Valor",
@@ -45,10 +45,10 @@
       "unit": "W/m2K",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Yalıtımın ısı geçiş katsayısı.",
+      "businessContext": "U Katsayi",
       "businessContext_i18n": {
         "en": "Insulation U-value.",
-        "tr": "Yalıtımın ısı geçiş katsayısı.",
+        "tr": "Yalitimin isi gecis katNumbersi.",
         "de": "U-Wert der Isolierung.",
         "fr": "Valeur U de l'isolation.",
         "es": "Valor U del aislamiento.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "disSicaklik",
-      "label": "Dış Ortam Sıcaklığı (°C)",
+      "label": "DisSicaklik",
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
-        "tr": "Dış Ortam Sıcaklığı (°C)",
+        "tr": "Dis Ambient Temperature (°C)",
         "de": "Umgebungstemperatur (°C)",
         "fr": "Température ambiante (°C)",
         "es": "Temperatura Ambiente (°C)",
@@ -70,10 +70,10 @@
       "unit": "°C",
       "default": 35,
       "min": 0,
-      "businessContext": "Dış hava sıcaklığı.",
+      "businessContext": "DisSicaklik",
       "businessContext_i18n": {
         "en": "Outside air temperature.",
-        "tr": "Dış hava sıcaklığı.",
+        "tr": "Dis hava sicakligi.",
         "de": "Außenlufttemperatur.",
         "fr": "Température de l'air extérieur.",
         "es": "Temperatura del aire exterior.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "icSicaklik",
-      "label": "Depo İçi Sıcaklık (°C)",
+      "label": "IcSicaklik",
       "label_i18n": {
         "en": "Storage Temperature (°C)",
-        "tr": "Depo İçi Sıcaklık (°C)",
+        "tr": "Depo Ici Temperature (°C)",
         "de": "Lagertemperatur (°C)",
         "fr": "Température de stockage (°C)",
         "es": "Temperatura de Almacenamiento (°C)",
@@ -95,11 +95,11 @@
       "unit": "°C",
       "default": -20,
       "min": 0,
-      "businessContext": "Soğuk depo sıcaklığı.",
+      "businessContext": "IcSicaklik",
       "businessContext_i18n": {
         "en": "Cold storage temperature.",
-        "tr": "Soğuk depo sıcaklığı.",
-        "de": "Kühllagertemperatur.",
+        "tr": "Soguk depo sicakligi.",
+        "de": "Kuhllagertemperatur.",
         "fr": "Température de l'entrepôt frigorifique.",
         "es": "Temperatura de almacenamiento en frío.",
         "ar": "درجة حرارة التخزين البارد."
@@ -119,13 +119,13 @@
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Soğutma Isı Yükü"
+      "sonuc": "Sogutma Heat Load"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Soğutma Isı Yükü",
-        "tr": "Soğutma Isı Yükü",
-        "de": "Kühllast",
+        "en": "Sogutma Heat Load",
+        "tr": "Sogutma Heat Load",
+        "de": "Kuhllast",
         "fr": "Charge thermique de refroidissement",
         "es": "Carga de Calor de Refrigeración",
         "ar": "حمل التبريد الحراري"
@@ -151,16 +151,16 @@
       "long": "Calculate heat gain through cold storage insulation.",
       "short_i18n": {
         "en": "Calculate heat gain through cold storage insulation.",
-        "tr": "Soğuk depo yalıtımından sızan ve soğutma sistemi tarafından atılması gereken ısı yükünü hesaplar.",
-        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kühllagers.",
+        "tr": "Soguk depo yalitimindan sizan ve sogutma sistemi tarafindan atilmasi gereken isi yukunu hesaplar.",
+        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kuhllagers.",
         "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
         "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
         "ar": "حساب اكتساب الحرارة عبر عزل التخزين البارد."
       },
       "long_i18n": {
         "en": "Calculate heat gain through cold storage insulation.",
-        "tr": "Soğuk depo yalıtımından sızan ve soğutma sistemi tarafından atılması gereken ısı yükünü hesaplar.",
-        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kühllagers.",
+        "tr": "Soguk depo yalitimindan sizan ve sogutma sistemi tarafindan atilmasi gereken isi yukunu hesaplar.",
+        "de": "Berechnen Sie den Wärmeeintrag durch die Isolierung eines Kuhllagers.",
         "fr": "Calculer le gain de chaleur à travers l'isolation d'un entrepôt frigorifique.",
         "es": "Calcular la ganancia de calor a través del aislamiento de almacenamiento en frío.",
         "ar": "حساب اكتساب الحرارة عبر عزل التخزين البارد."
@@ -169,7 +169,7 @@
   },
   "title_i18n": {
     "en": "cold-storage-heat-gain-calculator",
-    "de": "Kühllager-Wärmegewinn-Rechner",
+    "de": "Kuhllager-Wärmegewinn-Rechner",
     "fr": "Calculateur de gain de chaleur d'entrepôt frigorifique",
     "es": "Calculadora de ganancia de calor de almacén frigorífico",
     "ar": "حاسبة اكتساب الحرارة للمخازن الباردة"

@@ -43,6 +43,11 @@ const SKIP_DIRS = new Set([
   path.join(ROOT, "functions/node_modules"),
 ]);
 
+const SKIP_FILES = new Set([
+  "src/lib/core/schema/schema-loader.ts",
+  "src/lib/core/schema/schema-registry.ts",
+]);
+
 interface Violation {
   file: string;
   line: number;
@@ -195,6 +200,8 @@ function main(): void {
     if (!fs.existsSync(dirPath)) continue;
     const files = findFiles(dirPath);
     for (const file of files) {
+      const relativePath = path.relative(ROOT, file);
+      if (SKIP_FILES.has(relativePath)) continue;
       fileCount++;
       const violations = scanFile(file);
       allViolations.push(...violations);

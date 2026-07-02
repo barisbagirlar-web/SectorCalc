@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "portfoy",
-      "label": "Toplam Portföy (₺)",
+      "label": "Portfoy",
       "label_i18n": {
         "en": "Total Portfolio (USD)",
-        "tr": "Toplam Portföy (₺)",
+        "tr": "Total Portfoy (₺)",
         "de": "Gesamtportfolio (USD)",
         "fr": "Portefeuille total (USD)",
         "es": "Cartera Total (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Yatırım portföyünün toplam değeri.",
+      "businessContext": "Portfoy",
       "businessContext_i18n": {
         "en": "Total investment portfolio value.",
-        "tr": "Yatırım portföyünün toplam değeri.",
+        "tr": "Yatirim portfoyunun Total Valuei.",
         "de": "Gesamtwert des Anlageportfolios.",
         "fr": "Valeur totale du portefeuille d'investissement.",
         "es": "Valor total de la cartera de inversiones.",
@@ -46,10 +46,10 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Portföydeki hisse senedi hedef oranı.",
+      "businessContext": "Hisse",
       "businessContext_i18n": {
         "en": "Target stock allocation percentage.",
-        "tr": "Portföydeki hisse senedi hedef oranı.",
+        "tr": "Portfoydeki hisse senedi hedef Ratioi.",
         "de": "Zielprozentsatz der Aktienallokation.",
         "fr": "Pourcentage d'allocation cible en actions.",
         "es": "Porcentaje objetivo de asignación de acciones.",
@@ -72,10 +72,10 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Portföydeki tahvil hedef oranı.",
+      "businessContext": "Tahvil",
       "businessContext_i18n": {
         "en": "Target bond allocation percentage.",
-        "tr": "Portföydeki tahvil hedef oranı.",
+        "tr": "Portfoydeki tahvil hedef Ratioi.",
         "de": "Zielprozentsatz der Anleihenallokation.",
         "fr": "Pourcentage d'allocation cible en obligations.",
         "es": "Porcentaje objetivo de asignación de bonos.",
@@ -98,10 +98,10 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Portföydeki nakit hedef oranı.",
+      "businessContext": "Nakit",
       "businessContext_i18n": {
         "en": "Target cash allocation percentage.",
-        "tr": "Portföydeki nakit hedef oranı.",
+        "tr": "Portfoydeki nakit hedef Ratioi.",
         "de": "Zielprozentsatz der Bargeldallokation.",
         "fr": "Pourcentage d'allocation cible en liquidités.",
         "es": "Porcentaje objetivo de asignación de efectivo.",
@@ -124,30 +124,30 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "hisseTutar": "Hisse Senedi Tutarı",
-      "tahvilTutar": "Tahvil Tutarı",
-      "sonuc": "Nakit Tutarı"
+      "hisseTutar": "Hisse Senedi Tutari",
+      "tahvilTutar": "Tahvil Tutari",
+      "sonuc": "Nakit Tutari"
     },
     "breakdown_i18n": {
       "hisseTutar": {
-        "en": "Hisse Senedi Tutarı",
-        "tr": "Hisse Senedi Tutarı",
+        "en": "Hisse Senedi Tutari",
+        "tr": "Hisse Senedi Tutari",
         "de": "Aktienbetrag",
         "fr": "Montant des actions",
         "es": "Monto en Acciones",
         "ar": "قيمة الأسهم"
       },
       "tahvilTutar": {
-        "en": "Tahvil Tutarı",
-        "tr": "Tahvil Tutarı",
+        "en": "Tahvil Tutari",
+        "tr": "Tahvil Tutari",
         "de": "Anleihebetrag",
         "fr": "Montant des obligations",
         "es": "Monto en Bonos",
         "ar": "قيمة السندات"
       },
       "sonuc": {
-        "en": "Nakit Tutarı",
-        "tr": "Nakit Tutarı",
+        "en": "Nakit Tutari",
+        "tr": "Nakit Tutari",
         "de": "Bargeldbetrag",
         "fr": "Montant des liquidités",
         "es": "Monto en Efectivo",
@@ -174,7 +174,7 @@
       "long": "Allocate portfolio across asset classes based on target percentages.",
       "short_i18n": {
         "en": "Allocate portfolio across asset classes based on target percentages.",
-        "tr": "Portföyün hedeflenen varlık sınıflarına bölünmesini hesaplar.",
+        "tr": "Portfoyun hedeflenen varlik siniflarina bolunmesini hesaplar.",
         "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
         "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
         "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",
@@ -182,7 +182,7 @@
       },
       "long_i18n": {
         "en": "Allocate portfolio across asset classes based on target percentages.",
-        "tr": "Portföyün hedeflenen varlık sınıflarına bölünmesini hesaplar.",
+        "tr": "Portfoyun hedeflenen varlik siniflarina bolunmesini hesaplar.",
         "de": "Portfolio auf Anlageklassen basierend auf Zielprozentsätzen aufteilen.",
         "fr": "Allouer le portefeuille entre les classes d'actifs en fonction des pourcentages cibles.",
         "es": "Asignar la cartera entre clases de activos según porcentajes objetivo.",

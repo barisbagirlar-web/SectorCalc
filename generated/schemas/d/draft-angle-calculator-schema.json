@@ -2,15 +2,15 @@
   "toolName": "draft-angle-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "parcaDerinlik",
-      "label": "Parça Derinliği (mm)",
+      "label": "ParcaDerinlik",
       "label_i18n": {
         "en": "Part Depth (mm)",
-        "tr": "Parça Derinliği (mm)",
+        "tr": "Parca Derinligi (mm)",
         "de": "Teiletiefe (mm)",
         "fr": "Profondeur de la Pièce (mm)",
         "es": "Profundidad de la Pieza (mm)",
@@ -20,10 +20,10 @@
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Parçanın kalıp hareket yönündeki derinliği.",
+      "businessContext": "ParcaDerinlik",
       "businessContext_i18n": {
         "en": "Part depth in mold direction.",
-        "tr": "Parçanın kalıp hareket yönündeki derinliği.",
+        "tr": "Parcanin kalip hareket yonundeki derinligi.",
         "de": "Teiletiefe in Formrichtung.",
         "fr": "Profondeur de la pièce dans la direction du moule.",
         "es": "Profundidad de la pieza en la dirección del molde.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "buzulmeOrani",
-      "label": "Büzülme Oranı (%)",
+      "label": "BuzulmeOrani",
       "label_i18n": {
         "en": "Shrinkage Rate (%)",
-        "tr": "Büzülme Oranı (%)",
+        "tr": "Buzulme Ratioi (%)",
         "de": "Schrumpfungsrate (%)",
         "fr": "Taux de Retrait (%)",
         "es": "Tasa de Contracción (%)",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Polimerin çekme oranı.",
+      "businessContext": "BuzulmeOrani",
       "businessContext_i18n": {
         "en": "Polymer shrinkage rate.",
-        "tr": "Polimerin çekme oranı.",
+        "tr": "Polimerin Tmostsion Ratio.",
         "de": "Polymerschrumpfungsrate.",
         "fr": "Taux de retrait du polymère.",
         "es": "Tasa de contracción del polímero.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "yanYuzeyUzunluk",
-      "label": "Yan Yüzey Uzunluğu (mm)",
+      "label": "YanYuzeyUzunluk",
       "label_i18n": {
         "en": "Side Wall Length (mm)",
-        "tr": "Yan Yüzey Uzunluğu (mm)",
+        "tr": "Yan Yuzey Uzunlugu (mm)",
         "de": "Seitenwandlänge (mm)",
         "fr": "Longueur de la Paroi Latérale (mm)",
         "es": "Longitud de la Pared Lateral (mm)",
@@ -70,10 +70,10 @@
       "unit": "mm",
       "default": 100,
       "min": 0,
-      "businessContext": "Kalıp yan yüzey uzunluğu.",
+      "businessContext": "YanYuzeyUzunluk",
       "businessContext_i18n": {
         "en": "Mold side wall length.",
-        "tr": "Kalıp yan yüzey uzunluğu.",
+        "tr": "Kalip yan yuzey uzunlugu.",
         "de": "Formseitenwandlänge.",
         "fr": "Longueur de la paroi latérale du moule.",
         "es": "Longitud de la pared lateral del molde.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "degrees",
     "breakdown": {
-      "sonuc": "Gerekli Draft Açısı"
+      "sonuc": "Gerekli Draft Acisi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Draft Açısı",
-        "tr": "Gerekli Draft Açısı",
+        "en": "Gerekli Draft Acisi",
+        "tr": "Gerekli Draft Acisi",
         "de": "Erforderlicher Abzugswinkel",
         "fr": "Angle de Dépouille Requis",
         "es": "Ángulo de Desmoldeo Requerido",
@@ -126,16 +126,16 @@
       "long": "Calculate minimum draft angle for part ejection from mold.",
       "short_i18n": {
         "en": "Calculate minimum draft angle for part ejection from mold.",
-        "tr": "Parçanın kalıptan sıyrılması için gereken minimum koniklik/draft açısını hesaplar.",
-        "de": "Berechnen Sie den minimalen Entformungswinkel für die Teileausstoßung aus der Form.",
+        "tr": "Parcanin kaliptan siyrilmasi icin gereken Minimum koniklik/draft acisini hesaplar.",
+        "de": "Berechnen Sie den minimalen Entformungswinkel fur die Teileausstoßung aus der Form.",
         "fr": "Calculez l'angle de dépouille minimal pour l'éjection de la pièce du moule.",
         "es": "Calcular el ángulo de desmoldeo mínimo para la expulsión de la pieza del molde.",
         "ar": "احسب زاوية القالب الدنيا لخروج القطعة من القالب."
       },
       "long_i18n": {
         "en": "Calculate minimum draft angle for part ejection from mold.",
-        "tr": "Parçanın kalıptan sıyrılması için gereken minimum koniklik/draft açısını hesaplar.",
-        "de": "Berechnen Sie den minimalen Entformungswinkel für die Teileausstoßung aus der Form.",
+        "tr": "Parcanin kaliptan siyrilmasi icin gereken Minimum koniklik/draft acisini hesaplar.",
+        "de": "Berechnen Sie den minimalen Entformungswinkel fur die Teileausstoßung aus der Form.",
         "fr": "Calculez l'angle de dépouille minimal pour l'éjection de la pièce du moule.",
         "es": "Calcular el ángulo de desmoldeo mínimo para la expulsión de la pieza del molde.",
         "ar": "احسب زاوية القالب الدنيا لخروج القطعة من القالب."

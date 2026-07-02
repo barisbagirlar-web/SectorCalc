@@ -20,10 +20,10 @@
       "unit": "km",
       "default": 500,
       "min": 0,
-      "businessContext": "Taşıma mesafesi.",
+      "businessContext": "Transport Distance.",
       "businessContext_i18n": {
         "en": "Transport distance.",
-        "tr": "Taşıma mesafesi.",
+        "tr": "Bearing Distancesi.",
         "de": "Transportentfernung.",
         "fr": "Distance de transport.",
         "es": "Distancia de transporte.",
@@ -45,10 +45,10 @@
       "unit": "tons",
       "default": 20,
       "min": 0,
-      "businessContext": "Taşınan yük miktarı.",
+      "businessContext": "Tonaj",
       "businessContext_i18n": {
         "en": "Cargo weight.",
-        "tr": "Taşınan yük miktarı.",
+        "tr": "Tasinan yuk Amounti.",
         "de": "Frachtgewicht.",
         "fr": "Poids de la cargaison.",
         "es": "Peso de la carga.",
@@ -61,7 +61,7 @@
       "label_i18n": {
         "en": "Unit Price (USD/ton-km)",
         "tr": "Birim Fiyat (TL/Ton-km)",
-        "de": "Stückpreis ($)",
+        "de": "Stuckpreis ($)",
         "fr": "Prix unitaire ($)",
         "es": "Precio unitario ($)",
         "ar": "سعر الوحدة ($)"
@@ -70,10 +70,10 @@
       "unit": "USD",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Ton-km başı navlun fiyatı.",
+      "businessContext": "BirimFiyat",
       "businessContext_i18n": {
         "en": "Rate per ton-km.",
-        "tr": "Ton-km başı navlun fiyatı.",
+        "tr": "Ton-km basi navlun fiyati.",
         "de": "Satz pro Tonnen-km.",
         "fr": "Tarif par tonne-km.",
         "es": "Tarifa por tonelada-km.",
@@ -124,16 +124,16 @@
       "long": "Calculate total road freight cost based on distance and tonnage.",
       "short_i18n": {
         "en": "Calculate total road freight cost based on distance and tonnage.",
-        "tr": "Karayolu taşımacılığının toplam navlun bedelini hesaplar.",
-        "de": "Berechnen Sie die gesamten Straßengütertransportkosten basierend auf Entfernung und Tonnage.",
+        "tr": "Karayolu tasimaciliginin Total navlun bedelini hesaplar.",
+        "de": "Berechnen Sie die gesamten Straßengutertransportkosten basierend auf Entfernung und Tonnage.",
         "fr": "Calculer le coût total du fret routier en fonction de la distance et du tonnage.",
         "es": "Calcular el costo total de flete por carretera basado en distancia y tonelaje.",
         "ar": "حساب التكلفة الإجمالية لنقل البضائع بالشاحنات بناءً على المسافة والحمولة."
       },
       "long_i18n": {
         "en": "Calculate total road freight cost based on distance and tonnage.",
-        "tr": "Karayolu taşımacılığının toplam navlun bedelini hesaplar.",
-        "de": "Berechnen Sie die gesamten Straßengütertransportkosten basierend auf Entfernung und Tonnage.",
+        "tr": "Karayolu tasimaciliginin Total navlun bedelini hesaplar.",
+        "de": "Berechnen Sie die gesamten Straßengutertransportkosten basierend auf Entfernung und Tonnage.",
         "fr": "Calculer le coût total du fret routier en fonction de la distance et du tonnage.",
         "es": "Calcular el costo total de flete por carretera basado en distancia y tonelaje.",
         "ar": "حساب التكلفة الإجمالية لنقل البضائع بالشاحنات بناءً على المسافة والحمولة."

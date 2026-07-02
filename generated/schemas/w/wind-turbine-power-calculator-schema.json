@@ -2,15 +2,15 @@
   "toolName": "wind-turbine-power-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "kanatCapi",
-      "label": "Rotor Çapı (m)",
+      "label": "KanatCapi",
       "label_i18n": {
         "en": "Rotor Diameter (m)",
-        "tr": "Rotor Çapı (m)",
+        "tr": "Rotor Diameter (m)",
         "de": "Rotordurchmesser (m)",
         "fr": "Diamètre du rotor (m)",
         "es": "Diámetro del Rotor (m)",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 80,
       "min": 0,
-      "businessContext": "Türbin kanat çapı.",
+      "businessContext": "KanatCapi",
       "businessContext_i18n": {
         "en": "Turbine blade diameter.",
-        "tr": "Türbin kanat çapı.",
+        "tr": "Turbin kanat Diameteri.",
         "de": "Durchmesser der Turbinenschaufel.",
         "fr": "Diamètre des pales de la turbine.",
         "es": "Diámetro de la pala de la turbina.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "ruzgarHizi",
-      "label": "Rüzgar Hızı (m/s)",
+      "label": "Wind Speed (m/s)",
       "label_i18n": {
         "en": "Wind Speed (m/s)",
-        "tr": "Rüzgar Hızı (m/s)",
+        "tr": "Wind Speed (m/s)",
         "de": "Basiswindgeschwindigkeit (V)",
         "fr": "Vitesse de vent de base (V)",
         "es": "Velocidad Básica del Viento (V)",
@@ -45,10 +45,10 @@
       "unit": "m/s",
       "default": 12,
       "min": 0,
-      "businessContext": "Ortalama rüzgar hızı.",
+      "businessContext": "Mean Wind Speed.",
       "businessContext_i18n": {
         "en": "Average wind speed.",
-        "tr": "Ortalama rüzgar hızı.",
+        "tr": "Mean Wind Speed.",
         "de": "Durchschnittliche Windgeschwindigkeit.",
         "fr": "Vitesse moyenne du vent.",
         "es": "Velocidad media del viento.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "havaYogunlugu",
-      "label": "Hava Yoğunluğu (kg/m³)",
+      "label": "HavaYogunlugu",
       "label_i18n": {
         "en": "Air Density (kg/m³)",
-        "tr": "Hava Yoğunluğu (kg/m³)",
+        "tr": "Hava Dmostsity (kg/m³)",
         "de": "Luftdichte (ρ)",
         "fr": "Densité de l'air (ρ)",
         "es": "Densidad del aire (ρ)",
@@ -70,11 +70,11 @@
       "unit": "kg/m3",
       "default": 1.225,
       "min": 0,
-      "businessContext": "Deniz seviyesi hava yoğunluğu.",
+      "businessContext": "HavaYogunlugu",
       "businessContext_i18n": {
         "en": "Sea-level air density.",
-        "tr": "Deniz seviyesi hava yoğunluğu.",
-        "de": "Luftdichte auf Meereshöhe.",
+        "tr": "Deniz seviyesi hava yogunlugu.",
+        "de": "Luftdichte auf Meereshohe.",
         "fr": "Densité de l'air au niveau de la mer.",
         "es": "Densidad del aire a nivel del mar.",
         "ar": "كثافة الهواء عند مستوى سطح البحر."
@@ -82,10 +82,10 @@
     },
     {
       "id": "Cp",
-      "label": "Güç Katsayısı (Cp)",
+      "label": "Cp",
       "label_i18n": {
         "en": "Power Coefficient (Cp)",
-        "tr": "Güç Katsayısı (Cp)",
+        "tr": "Power Coefficimostt (Cp)",
         "de": "Leistungsbeiwert (Cp)",
         "fr": "Coefficient de puissance (Cp)",
         "es": "Coeficiente de Potencia (Cp)",
@@ -95,10 +95,10 @@
       "unit": "scalar",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Betz limiti altındaki verim.",
+      "businessContext": "Cp",
       "businessContext_i18n": {
         "en": "Efficiency below Betz limit.",
-        "tr": "Betz limiti altındaki verim.",
+        "tr": "Betz limiti altindaki Efficiency.",
         "de": "Wirkungsgrad unterhalb der Betz-Grenze.",
         "fr": "Rendement en dessous de la limite de Betz.",
         "es": "Eficiencia por debajo del límite de Betz.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "W",
     "breakdown": {
-      "sonuc": "Türbin Gücü"
+      "sonuc": "Turbine Power"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Türbin Gücü",
-        "tr": "Türbin Gücü",
+        "en": "Turbine Power",
+        "tr": "Turbine Power",
         "de": "Turbine Power",
         "fr": "Puissance de la turbine",
         "es": "Potencia de la Turbina",
@@ -153,7 +153,7 @@
       "long": "Calculate wind turbine instantaneous power output.",
       "short_i18n": {
         "en": "Calculate wind turbine instantaneous power output.",
-        "tr": "Rüzgar türbininin rüzgardan mekanik güce dönüştürdüğü anlık enerjiyi hesaplar.",
+        "tr": "Ruzgar turbininin ruzgardan mekanik guce donusturdugu anlik Energyyi hesaplar.",
         "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
         "fr": "Calculer la puissance instantanée de l'éolienne.",
         "es": "Calcular la potencia instantánea de salida de una turbina eólica.",
@@ -161,7 +161,7 @@
       },
       "long_i18n": {
         "en": "Calculate wind turbine instantaneous power output.",
-        "tr": "Rüzgar türbininin rüzgardan mekanik güce dönüştürdüğü anlık enerjiyi hesaplar.",
+        "tr": "Ruzgar turbininin ruzgardan mekanik guce donusturdugu anlik Energyyi hesaplar.",
         "de": "Berechnen Sie die momentane Leistungsabgabe einer Windturbine.",
         "fr": "Calculer la puissance instantanée de l'éolienne.",
         "es": "Calcular la potencia instantánea de salida de una turbina eólica.",

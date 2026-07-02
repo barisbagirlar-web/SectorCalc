@@ -2,15 +2,15 @@
   "toolName": "lintel-beam-bending-stress-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Yayılı Yük (N/m)",
+      "label": "Yuk",
       "label_i18n": {
         "en": "Uniform Load (N/m)",
-        "tr": "Yayılı Yük (N/m)",
+        "tr": "Yayili Yuk (N/m)",
         "de": "Gleichlast (N/m)",
         "fr": "Charge uniforme (N/m)",
         "es": "Carga uniforme (N/m)",
@@ -20,10 +20,10 @@
       "unit": "N/m",
       "default": 10000,
       "min": 0,
-      "businessContext": "Lentoya gelen yük.",
+      "businessContext": "Yuk",
       "businessContext_i18n": {
         "en": "Load on lintel.",
-        "tr": "Lentoya gelen yük.",
+        "tr": "Lentoya gelen yuk.",
         "de": "Last auf dem Sturz.",
         "fr": "Charge sur le linteau.",
         "es": "Carga sobre el dintel.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "aciklik",
-      "label": "Açıklık (m)",
+      "label": "Aciklik",
       "label_i18n": {
         "en": "Span (m)",
-        "tr": "Açıklık (m)",
+        "tr": "Aciklik (m)",
         "de": "Cobot-Lebensdauer",
         "fr": "Durée de vie du cobot",
         "es": "Vida útil del cobot",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Lento mesnetler arası mesafe.",
+      "businessContext": "Aciklik",
       "businessContext_i18n": {
         "en": "Lintel clear span.",
-        "tr": "Lento mesnetler arası mesafe.",
+        "tr": "Lento MesNetler arasi Distance.",
         "de": "Sturzlichte Weite.",
         "fr": "Portée libre du linteau.",
         "es": "Luz libre del dintel.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "genislik",
-      "label": "Lento Genişliği (m)",
+      "label": "Genislik",
       "label_i18n": {
         "en": "Lintel Width (m)",
-        "tr": "Lento Genişliği (m)",
+        "tr": "Lmostto Width (m)",
         "de": "Sturzbreite (m)",
         "fr": "Largeur du linteau (m)",
         "es": "Ancho del dintel (m)",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Lento kesit genişliği.",
+      "businessContext": "Genislik",
       "businessContext_i18n": {
         "en": "Lintel section width.",
-        "tr": "Lento kesit genişliği.",
+        "tr": "Lento kesit genisligi.",
         "de": "Sturzquerschnittsbreite.",
         "fr": "Largeur de la section du linteau.",
         "es": "Ancho de la sección del dintel.",
@@ -82,11 +82,11 @@
     },
     {
       "id": "yukseklik",
-      "label": "Lento Yüksekliği (m)",
+      "label": "Yukseklik",
       "label_i18n": {
         "en": "Lintel Height (m)",
-        "tr": "Lento Yüksekliği (m)",
-        "de": "Sturzhöhe (m)",
+        "tr": "Lmostto Height (m)",
+        "de": "Sturzhohe (m)",
         "fr": "Hauteur du linteau (m)",
         "es": "Altura del dintel (m)",
         "ar": "ارتفاع العتبة (m)"
@@ -95,11 +95,11 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Lento kesit yüksekliği.",
+      "businessContext": "Yukseklik",
       "businessContext_i18n": {
         "en": "Lintel section height.",
-        "tr": "Lento kesit yüksekliği.",
-        "de": "Sturzquerschnittshöhe.",
+        "tr": "Lento kesit yuksekligi.",
+        "de": "Sturzquerschnittshohe.",
         "fr": "Hauteur de la section du linteau.",
         "es": "Altura de la sección del dintel.",
         "ar": "ارتفاع مقطع العتبة."
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Maks. Eğilme Gerilmesi"
+      "sonuc": "Maks. Bmostding Gerilmesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maks. Eğilme Gerilmesi",
-        "tr": "Maks. Eğilme Gerilmesi",
+        "en": "Maks. Bmostding Gerilmesi",
+        "tr": "Maks. Bmostding Gerilmesi",
         "de": "Maximale Biegespannung",
         "fr": "Contrainte de flexion maximale",
         "es": "Esfuerzo Máximo de Flexión",
@@ -150,7 +150,7 @@
       "long": "Calculate maximum bending stress in a lintel beam.",
       "short_i18n": {
         "en": "Calculate maximum bending stress in a lintel beam.",
-        "tr": "Lento kesitindeki maksimum eğilme gerilmesini hesaplar.",
+        "tr": "Lento kesitindeki Maximum Bending Stressni hesaplar.",
         "de": "Berechnen Sie die maximale Biegespannung in einem Sturzträger.",
         "fr": "Calculer la contrainte de flexion maximale dans une poutre de linteau.",
         "es": "Calcular el esfuerzo máximo de flexión en una viga de dintel.",
@@ -158,7 +158,7 @@
       },
       "long_i18n": {
         "en": "Calculate maximum bending stress in a lintel beam.",
-        "tr": "Lento kesitindeki maksimum eğilme gerilmesini hesaplar.",
+        "tr": "Lento kesitindeki Maximum Bending Stressni hesaplar.",
         "de": "Berechnen Sie die maximale Biegespannung in einem Sturzträger.",
         "fr": "Calculer la contrainte de flexion maximale dans une poutre de linteau.",
         "es": "Calcular el esfuerzo máximo de flexión en una viga de dintel.",

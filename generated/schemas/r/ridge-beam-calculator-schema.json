@@ -2,15 +2,15 @@
   "toolName": "ridge-beam-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "catiYuk",
-      "label": "Çatı Yayılı Yükü (N/m)",
+      "label": "CatiYuk",
       "label_i18n": {
         "en": "Roof Uniform Load (N/m)",
-        "tr": "Çatı Yayılı Yükü (N/m)",
+        "tr": "Cati Yayili Yuku (N/m)",
         "de": "Gleichlast Dach (N/m)",
         "fr": "Charge uniforme du toit (N/m)",
         "es": "Carga Uniforme del Techo (N/m)",
@@ -20,10 +20,10 @@
       "unit": "N/m",
       "default": 8000,
       "min": 0,
-      "businessContext": "Mahyaya gelen birim yayılı yük.",
+      "businessContext": "CatiYuk",
       "businessContext_i18n": {
         "en": "Uniform load on ridge.",
-        "tr": "Mahyaya gelen birim yayılı yük.",
+        "tr": "Mahyaya gelen Unit yayili yuk.",
         "de": "Gleichlast auf dem First.",
         "fr": "Charge uniforme sur le faîte.",
         "es": "Carga uniforme sobre la cumbrera.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "aciklik",
-      "label": "Mahya Açıklığı (m)",
+      "label": "Aciklik",
       "label_i18n": {
         "en": "Ridge Span (m)",
-        "tr": "Mahya Açıklığı (m)",
+        "tr": "Mahya Acikligi (m)",
         "de": "Firstspannweite (m)",
         "fr": "Portée du faîte (m)",
         "es": "Luz de la Cumbrera (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Mahya kirişi mesnetler arası.",
+      "businessContext": "Aciklik",
       "businessContext_i18n": {
         "en": "Ridge beam span.",
-        "tr": "Mahya kirişi mesnetler arası.",
+        "tr": "Mahya kirisi mesNetler arasi.",
         "de": "Spannweite des Firstbalkens.",
         "fr": "Portée de la poutre faîtière.",
         "es": "Luz de la viga cumbrera.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "N.m",
     "breakdown": {
-      "sonuc": "Maks. Eğilme Momenti"
+      "sonuc": "Maks. Bmostding Mommostti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maks. Eğilme Momenti",
-        "tr": "Maks. Eğilme Momenti",
+        "en": "Maks. Bmostding Mommostti",
+        "tr": "Maks. Bmostding Mommostti",
         "de": "Max. Biegemoment",
         "fr": "Moment de flexion maximal",
         "es": "Momento Máximo de Flexión",
@@ -99,7 +99,7 @@
       "long": "Calculate maximum bending moment in a roof ridge beam.",
       "short_i18n": {
         "en": "Calculate maximum bending moment in a roof ridge beam.",
-        "tr": "Çatı mahyasındaki maksimum eğilme momentini hesaplar.",
+        "tr": "Cati mahyasindaki Maximum Bending Momentni hesaplar.",
         "de": "Berechnen Sie das maximale Biegemoment in einem Dachfirstbalken.",
         "fr": "Calculer le moment de flexion maximal dans une poutre faîtière de toit.",
         "es": "Calcular el momento flector máximo en una viga cumbrera de techo.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate maximum bending moment in a roof ridge beam.",
-        "tr": "Çatı mahyasındaki maksimum eğilme momentini hesaplar.",
+        "tr": "Cati mahyasindaki Maximum Bending Momentni hesaplar.",
         "de": "Berechnen Sie das maximale Biegemoment in einem Dachfirstbalken.",
         "fr": "Calculer le moment de flexion maximal dans une poutre faîtière de toit.",
         "es": "Calcular el momento flector máximo en una viga cumbrera de techo.",

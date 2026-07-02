@@ -2,7 +2,7 @@
   "toolName": "silage-weight-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarım, Denizcilik ve Sondaj",
+  "sector": "Tarim, Denizcilik ve Sondaj",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
@@ -32,10 +32,10 @@
     },
     {
       "id": "sikistirmaYogunlugu",
-      "label": "Sıkıştırma Yoğunluğu (kg/m³)",
+      "label": "SikistirmaYogunlugu",
       "label_i18n": {
         "en": "Packing Density (kg/m³)",
-        "tr": "Sıkıştırma Yoğunluğu (kg/m³)",
+        "tr": "Compression Dmostsity (kg/m³)",
         "de": "Packungsdichte (kg/m³)",
         "fr": "Densité de tassement (kg/m³)",
         "es": "Densidad de Empaque (kg/m³)",
@@ -45,10 +45,10 @@
       "unit": "kg/m3",
       "default": 700,
       "min": 0,
-      "businessContext": "Sıkıştırılmış yem yoğunluğu.",
+      "businessContext": "SikistirmaYogunlugu",
       "businessContext_i18n": {
         "en": "Packed silage density.",
-        "tr": "Sıkıştırılmış yem yoğunluğu.",
+        "tr": "Sikistirilmis yem yogunlugu.",
         "de": "Dichte der gepressten Silage.",
         "fr": "Densité de l'ensilage tassé.",
         "es": "Densidad del ensilaje compactado.",
@@ -101,7 +101,7 @@
       "long": "Calculate net dry matter weight stored in silo.",
       "short_i18n": {
         "en": "Calculate net dry matter weight stored in silo.",
-        "tr": "Siloya depolanan net kuru madde ağırlığını hesaplar.",
+        "tr": "Siloya depolanan Net kuru madde agirligini hesaplar.",
         "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
         "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
         "es": "Calcular el peso neto de materia seca almacenado en el silo.",
@@ -109,7 +109,7 @@
       },
       "long_i18n": {
         "en": "Calculate net dry matter weight stored in silo.",
-        "tr": "Siloya depolanan net kuru madde ağırlığını hesaplar.",
+        "tr": "Siloya depolanan Net kuru madde agirligini hesaplar.",
         "de": "Berechnen Sie das im Silo gelagerte Netto-Trockenmassegewicht.",
         "fr": "Calculer le poids net de matière sèche stocké dans le silo.",
         "es": "Calcular el peso neto de materia seca almacenado en el silo.",

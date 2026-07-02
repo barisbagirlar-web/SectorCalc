@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext": "Anapara",
       "businessContext_i18n": {
         "en": "Initial investment.",
-        "tr": "Başlangıç yatırım tutarı.",
+        "tr": "Baslangic Investment Amount.",
         "de": "Anfangsinvestition.",
         "fr": "Investissement initial.",
         "es": "Inversión inicial.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "faiz",
-      "label": "Yıllık Faiz (%)",
+      "label": "Faiz",
       "label_i18n": {
         "en": "Annual Interest (%)",
-        "tr": "Yıllık Faiz (%)",
+        "tr": "Annual Interest (%)",
         "de": "Nominaler Jahreszinssatz",
         "fr": "Taux d'intérêt annuel nominal",
         "es": "Tasa de interés anual nominal",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Sürekli bileşik faiz oranı.",
+      "businessContext": "Faiz",
       "businessContext_i18n": {
         "en": "Continuous compounding interest rate.",
-        "tr": "Sürekli bileşik faiz oranı.",
+        "tr": "Surekli bilesik Interest Rate.",
         "de": "Kontinuierlicher Verzinsungssatz.",
         "fr": "Taux d'intérêt à capitalisation continue.",
         "es": "Tasa de interés con capitalización continua.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "yil",
-      "label": "Vade (Yıl)",
+      "label": "Yil",
       "label_i18n": {
         "en": "Term (Years)",
-        "tr": "Vade (Yıl)",
+        "tr": "Maturity (Year)",
         "de": "Kreditlaufzeit",
         "fr": "Durée du prêt",
         "es": "Plazo del préstamo",
@@ -70,10 +70,10 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Yatırım süresi.",
+      "businessContext": "Yil",
       "businessContext_i18n": {
         "en": "Investment period.",
-        "tr": "Yatırım süresi.",
+        "tr": "Yatirim suresi.",
         "de": "Anlagezeitraum.",
         "fr": "Période d'investissement.",
         "es": "Período de inversión.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Sürekli Bileşik Değer"
+      "sonuc": "Surekli Bilesik Value"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Sürekli Bileşik Değer",
-        "tr": "Sürekli Bileşik Değer",
+        "en": "Surekli Bilesik Value",
+        "tr": "Surekli Bilesik Value",
         "de": "Stetiger Zinseszinswert",
         "fr": "Valeur composée continue",
         "es": "Valor de Capitalización Continua",
@@ -124,7 +124,7 @@
       "long": "Calculate continuous compounding future value — the theoretical maximum.",
       "short_i18n": {
         "en": "Calculate continuous compounding future value — the theoretical maximum.",
-        "tr": "Sonsuz frekansta bileşikleşen teorik maksimum vade sonu değerini hesaplar.",
+        "tr": "Sonsuz Frequencyta bilesiklesen teorik Maximum Maturity Sonu Valueini hesaplar.",
         "de": "Zukunftswert bei kontinuierlicher Verzinsung berechnen – das theoretische Maximum.",
         "fr": "Calculer la valeur future avec capitalisation continue — le maximum théorique.",
         "es": "Calcular el valor futuro con capitalización continua — el máximo teórico.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate continuous compounding future value — the theoretical maximum.",
-        "tr": "Sonsuz frekansta bileşikleşen teorik maksimum vade sonu değerini hesaplar.",
+        "tr": "Sonsuz Frequencyta bilesiklesen teorik Maximum Maturity Sonu Valueini hesaplar.",
         "de": "Zukunftswert bei kontinuierlicher Verzinsung berechnen – das theoretische Maximum.",
         "fr": "Calculer la valeur future avec capitalisation continue — le maximum théorique.",
         "es": "Calcular el valor futuro con capitalización continua — el máximo teórico.",

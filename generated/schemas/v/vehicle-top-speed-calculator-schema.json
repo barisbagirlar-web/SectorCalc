@@ -2,15 +2,15 @@
   "toolName": "vehicle-top-speed-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacılık",
+  "sector": "Mekanik, Otomotiv ve Havacilik",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "guc",
-      "label": "Motor Gücü (W)",
+      "label": "Motor Power (W)",
       "label_i18n": {
         "en": "Engine Power (W)",
-        "tr": "Motor Gücü (W)",
+        "tr": "Motor Power (W)",
         "de": "Motorleistung",
         "fr": "Puissance du moteur",
         "es": "Potencia del motor",
@@ -20,10 +20,10 @@
       "unit": "W",
       "default": 100000,
       "min": 0,
-      "businessContext": "Maksimum motor gücü.",
+      "businessContext": "Maximum Motor Power.",
       "businessContext_i18n": {
         "en": "Maximum engine power.",
-        "tr": "Maksimum motor gücü.",
+        "tr": "Maximum Motor Power.",
         "de": "Maximale Motorleistung.",
         "fr": "Puissance maximale du moteur.",
         "es": "Potencia máxima del motor.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "kutle",
-      "label": "Araç Kütlesi (kg)",
+      "label": "Kutle",
       "label_i18n": {
         "en": "Vehicle Mass (kg)",
-        "tr": "Araç Kütlesi (kg)",
+        "tr": "Arac Masssi (kg)",
         "de": "Fahrzeugmasse",
         "fr": "Masse du véhicule",
         "es": "Masa del vehículo",
@@ -45,10 +45,10 @@
       "unit": "kg",
       "default": 1500,
       "min": 0,
-      "businessContext": "Araç ağırlığı.",
+      "businessContext": "Kutle",
       "businessContext_i18n": {
         "en": "Vehicle weight.",
-        "tr": "Araç ağırlığı.",
+        "tr": "Arac agirligi.",
         "de": "Fahrzeuggewicht.",
         "fr": "Poids du véhicule.",
         "es": "Peso del vehículo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "suratmeKatsayi",
-      "label": "Yuvarlanma Sürtünme Katsayısı",
+      "label": "Yuvarlanma Friction Factor",
       "label_i18n": {
         "en": "Rolling Friction Coefficient",
-        "tr": "Yuvarlanma Sürtünme Katsayısı",
+        "tr": "Yuvarlanma Friction Factor",
         "de": "Rollreibungskoeffizient",
         "fr": "Coefficient de frottement de roulement",
         "es": "Coeficiente de fricción de rodadura",
@@ -70,10 +70,10 @@
       "unit": "scalar",
       "default": 0.015,
       "min": 0,
-      "businessContext": "Lastik-yol sürtünme katsayısı.",
+      "businessContext": "Lastik-yol Friction Factor.",
       "businessContext_i18n": {
         "en": "Tire rolling resistance.",
-        "tr": "Lastik-yol sürtünme katsayısı.",
+        "tr": "Lastik-yol Friction Factor.",
         "de": "Rollwiderstand der Reifen.",
         "fr": "Résistance au roulement des pneus.",
         "es": "Resistencia a la rodadura del neumático.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "m/s",
     "breakdown": {
-      "sonuc": "Maksimum Hız"
+      "sonuc": "Maximum Speed"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Maksimum Hız",
-        "tr": "Maksimum Hız",
+        "en": "Maximum Speed",
+        "tr": "Maximum Speed",
         "de": "Maximum Speed",
         "fr": "Vitesse maximale",
         "es": "Velocidad Máxima",
@@ -126,16 +126,16 @@
       "long": "Calculate vehicle top speed where engine power equals total drag.",
       "short_i18n": {
         "en": "Calculate vehicle top speed where engine power equals total drag.",
-        "tr": "Motor gücünün direnç kuvvetlerini yendiği denge hızını (maksimum hız) hesaplar.",
-        "de": "Berechnen Sie die Höchstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
+        "tr": "Motor Powernun Resistance Forcelerini yendigi denge Speedini (Maximum Speed) hesaplar.",
+        "de": "Berechnen Sie die Hochstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
         "fr": "Calculer la vitesse maximale du véhicule lorsque la puissance du moteur égale la traînée totale.",
         "es": "Calcular la velocidad máxima del vehículo donde la potencia del motor iguala la resistencia total.",
         "ar": "حساب السرعة القصوى للمركبة حيث تساوي قوة المحرك إجمالي السحب."
       },
       "long_i18n": {
         "en": "Calculate vehicle top speed where engine power equals total drag.",
-        "tr": "Motor gücünün direnç kuvvetlerini yendiği denge hızını (maksimum hız) hesaplar.",
-        "de": "Berechnen Sie die Höchstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
+        "tr": "Motor Powernun Resistance Forcelerini yendigi denge Speedini (Maximum Speed) hesaplar.",
+        "de": "Berechnen Sie die Hochstgeschwindigkeit des Fahrzeugs, bei der die Motorleistung dem Gesamtwiderstand entspricht.",
         "fr": "Calculer la vitesse maximale du véhicule lorsque la puissance du moteur égale la traînée totale.",
         "es": "Calcular la velocidad máxima del vehículo donde la potencia del motor iguala la resistencia total.",
         "ar": "حساب السرعة القصوى للمركبة حيث تساوي قوة المحرك إجمالي السحب."
@@ -144,7 +144,7 @@
   },
   "title_i18n": {
     "en": "vehicle-top-speed-calculator",
-    "de": "Fahrzeughöchstgeschwindigkeitsrechner",
+    "de": "Fahrzeughochstgeschwindigkeitsrechner",
     "fr": "Calculateur de vitesse maximale du véhicule",
     "es": "Calculadora de velocidad máxima del vehículo",
     "ar": "حاسبة السرعة القصوى للمركبة"

@@ -2,16 +2,16 @@
   "toolName": "interference-fit-contact-pressure-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "girisim",
-      "label": "Girişim Miktarı (m)",
+      "label": "Girisim",
       "label_i18n": {
         "en": "Interference (m)",
-        "tr": "Girişim Miktarı (m)",
-        "de": "Übermaß (m)",
+        "tr": "Inputim Quantity (m)",
+        "de": "Ubermaß (m)",
         "fr": "Interférence (m)",
         "es": "Interferencia (m)",
         "ar": "التداخل (م)"
@@ -20,11 +20,11 @@
       "unit": "m",
       "default": 0.00005,
       "min": 0,
-      "businessContext": "Mil-delik arasındaki çap farkı.",
+      "businessContext": "Girisim",
       "businessContext_i18n": {
         "en": "Diametral interference.",
-        "tr": "Mil-delik arasındaki çap farkı.",
-        "de": "Diametrales Übermaß.",
+        "tr": "Mil-delik arasindaki Diameter farki.",
+        "de": "Diametrales Ubermaß.",
         "fr": "Interférence diamétrale.",
         "es": "Interferencia diametral.",
         "ar": "التداخل القطري."
@@ -32,10 +32,10 @@
     },
     {
       "id": "cap",
-      "label": "Nominal Çap (m)",
+      "label": "Nominal Diameter (m)",
       "label_i18n": {
         "en": "Nominal Diameter (m)",
-        "tr": "Nominal Çap (m)",
+        "tr": "Nominal Diameter (m)",
         "de": "Nenndurchmesser (m)",
         "fr": "Diamètre nominal (m)",
         "es": "Diámetro Nominal (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Bağlantının nominal çapı.",
+      "businessContext": "Cap",
       "businessContext_i18n": {
         "en": "Joint nominal diameter.",
-        "tr": "Bağlantının nominal çapı.",
+        "tr": "Baglantinin nominal Diameteri.",
         "de": "Nenndurchmesser der Verbindung.",
         "fr": "Diamètre nominal de l'assemblage.",
         "es": "Diámetro nominal de la unión.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "E1",
-      "label": "Malzeme 1 Modülü (Pa)",
+      "label": "E1",
       "label_i18n": {
         "en": "Material 1 Modulus (Pa)",
-        "tr": "Malzeme 1 Modülü (Pa)",
+        "tr": "Malzeme 1 Modeuleu (Pa)",
         "de": "Elastizitätsmodul Material 1 (Pa)",
         "fr": "Module du matériau 1 (Pa)",
         "es": "Módulo del Material 1 (Pa)",
@@ -70,10 +70,10 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Birinci malzemenin elastisite modülü.",
+      "businessContext": "Birinci malzemenin Modeulus of Elasticity.",
       "businessContext_i18n": {
         "en": "First material modulus.",
-        "tr": "Birinci malzemenin elastisite modülü.",
+        "tr": "Birinci Malzemenin Modeulus of Elasticity.",
         "de": "Elastizitätsmodul des ersten Materials.",
         "fr": "Module du premier matériau.",
         "es": "Módulo del primer material.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "E2",
-      "label": "Malzeme 2 Modülü (Pa)",
+      "label": "E2",
       "label_i18n": {
         "en": "Material 2 Modulus (Pa)",
-        "tr": "Malzeme 2 Modülü (Pa)",
+        "tr": "Malzeme 2 Modeuleu (Pa)",
         "de": "Elastizitätsmodul Material 2 (Pa)",
         "fr": "Module du matériau 2 (Pa)",
         "es": "Módulo del Material 2 (Pa)",
@@ -95,10 +95,10 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "İkinci malzemenin modülü.",
+      "businessContext": "E2",
       "businessContext_i18n": {
         "en": "Second material modulus.",
-        "tr": "İkinci malzemenin modülü.",
+        "tr": "Ikinci malzemenin Modeuleu.",
         "de": "Elastizitätsmodul des zweiten Materials.",
         "fr": "Module du second matériau.",
         "es": "Módulo del segundo material.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "Pa",
     "breakdown": {
-      "sonuc": "Temas Basıncı"
+      "sonuc": "Temas Pressure"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Temas Basıncı",
-        "tr": "Temas Basıncı",
+        "en": "Temas Pressure",
+        "tr": "Temas Pressure",
         "de": "Kontaktdruck",
         "fr": "Pression de contact",
         "es": "Presión de Contacto",
@@ -149,7 +149,7 @@
       "long": "Calculate interference fit contact pressure.",
       "short_i18n": {
         "en": "Calculate interference fit contact pressure.",
-        "tr": "Sıkı geçme bağlantısındaki yüzey temas basıncını hesaplar.",
+        "tr": "Siki gecme baglantisindaki yuzey Temas Pressureni hesaplar.",
         "de": "Kontaktdruck einer Presspassung berechnen.",
         "fr": "Calculer la pression de contact d'un ajustement serré.",
         "es": "Calcular la presión de contacto por ajuste a presión.",
@@ -157,7 +157,7 @@
       },
       "long_i18n": {
         "en": "Calculate interference fit contact pressure.",
-        "tr": "Sıkı geçme bağlantısındaki yüzey temas basıncını hesaplar.",
+        "tr": "Siki gecme baglantisindaki yuzey Temas Pressureni hesaplar.",
         "de": "Kontaktdruck einer Presspassung berechnen.",
         "fr": "Calculer la pression de contact d'un ajustement serré.",
         "es": "Calcular la presión de contacto por ajuste a presión.",

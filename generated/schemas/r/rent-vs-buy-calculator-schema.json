@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "evFiyati",
-      "label": "Ev Fiyatı (₺)",
+      "label": "EvFiyati",
       "label_i18n": {
         "en": "Home Price (USD)",
-        "tr": "Ev Fiyatı (₺)",
+        "tr": "Ev Fiyati (₺)",
         "de": "Hauspreis",
         "fr": "Prix de la maison",
         "es": "Precio de la Vivienda",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Satın alınacak evin fiyatı.",
+      "businessContext": "EvFiyati",
       "businessContext_i18n": {
         "en": "Home purchase price.",
-        "tr": "Satın alınacak evin fiyatı.",
+        "tr": "Satin alinacak evin fiyati.",
         "de": "Kaufpreis des Hauses.",
         "fr": "Prix d'achat du logement.",
         "es": "Precio de compra de la vivienda.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "yillikKira",
-      "label": "Yıllık Kira (₺)",
+      "label": "YillikKira",
       "label_i18n": {
         "en": "Annual Rent (USD)",
-        "tr": "Yıllık Kira (₺)",
+        "tr": "Annual Kira (TRY)",
         "de": "Jährliches Mieteinkommen",
         "fr": "Revenu Locatif Annuel",
         "es": "Ingreso Anual por Alquiler",
@@ -45,11 +45,11 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Aynı evin yıllık kira bedeli.",
+      "businessContext": "YillikKira",
       "businessContext_i18n": {
         "en": "Annual rent for same property.",
-        "tr": "Aynı evin yıllık kira bedeli.",
-        "de": "Jahresmiete für dieselbe Immobilie.",
+        "tr": "Ayni evin yillik kira bedeli.",
+        "de": "Jahresmiete fur dieselbe Immobilie.",
         "fr": "Loyer annuel pour le même bien.",
         "es": "Alquiler anual de la misma propiedad.",
         "ar": "الإيجار السنوي لنفس العقار."
@@ -70,12 +70,12 @@
     "primary": "sonuc",
     "unit": "ratio",
     "breakdown": {
-      "sonuc": "Fiyat/Kira Oranı"
+      "sonuc": "Price/Kira Ratio"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Fiyat/Kira Oranı",
-        "tr": "Fiyat/Kira Oranı",
+        "en": "Price/Kira Ratio",
+        "tr": "Price/Kira Ratio",
         "de": "Preis-Miet-Verhältnis",
         "fr": "Ratio prix/loyer",
         "es": "Relación Precio/Alquiler",
@@ -100,7 +100,7 @@
       "long": "Compare renting vs buying based on price-to-rent ratio.",
       "short_i18n": {
         "en": "Compare renting vs buying based on price-to-rent ratio.",
-        "tr": "Fiyat/Kira oranına göre optimal barınma stratejisini hesaplar.",
+        "tr": "Price/Kira Rationa gore optimal barinma stratejisini hesaplar.",
         "de": "Vergleich von Mieten vs. Kaufen basierend auf dem Preis-Miet-Verhältnis.",
         "fr": "Comparer la location et l'achat en fonction du ratio prix/loyer.",
         "es": "Comparar alquilar vs comprar basado en la relación precio-alquiler.",
@@ -108,7 +108,7 @@
       },
       "long_i18n": {
         "en": "Compare renting vs buying based on price-to-rent ratio.",
-        "tr": "Fiyat/Kira oranına göre optimal barınma stratejisini hesaplar.",
+        "tr": "Price/Kira Rationa gore optimal barinma stratejisini hesaplar.",
         "de": "Vergleich von Mieten vs. Kaufen basierend auf dem Preis-Miet-Verhältnis.",
         "fr": "Comparer la location et l'achat en fonction du ratio prix/loyer.",
         "es": "Comparar alquilar vs comprar basado en la relación precio-alquiler.",

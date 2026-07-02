@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "sesGucu",
-      "label": "Ses Gücü Seviyesi (dB)",
+      "label": "Sound Power Seviyesi (dB)",
       "label_i18n": {
         "en": "Sound Power Level (dB)",
-        "tr": "Ses Gücü Seviyesi (dB)",
+        "tr": "Ses Power Seviyesi (dB)",
         "de": "Schallleistungspegel (dB)",
         "fr": "Niveau de puissance acoustique (dB)",
         "es": "Nivel de Potencia Sonora (dB)",
@@ -20,10 +20,10 @@
       "unit": "dB",
       "default": 100,
       "min": 0,
-      "businessContext": "Kaynağın ses gücü.",
+      "businessContext": "SesGucu",
       "businessContext_i18n": {
         "en": "Source sound power.",
-        "tr": "Kaynağın ses gücü.",
+        "tr": "Kaynagin Sound Power.",
         "de": "Quellenschallleistung.",
         "fr": "Puissance acoustique de la source.",
         "es": "Potencia sonora de la fuente.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "mesafe",
-      "label": "Kaynağa Uzaklık (m)",
+      "label": "Mesafe",
       "label_i18n": {
         "en": "Distance from Source (m)",
-        "tr": "Kaynağa Uzaklık (m)",
+        "tr": "Kaynaga Uzaklik (m)",
         "de": "Entfernung von der Quelle (m)",
         "fr": "Distance de la source (m)",
         "es": "Distancia desde la Fuente (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Ölçüm noktası uzaklığı.",
+      "businessContext": "Mesafe",
       "businessContext_i18n": {
         "en": "Measurement distance.",
-        "tr": "Ölçüm noktası uzaklığı.",
+        "tr": "Olcum noktasi uzakligi.",
         "de": "Messabstand.",
         "fr": "Distance de mesure.",
         "es": "Distancia de medición.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "zeminZayiflama",
-      "label": "Zemin Zayıflaması (dB)",
+      "label": "ZeminZayiflama",
       "label_i18n": {
         "en": "Ground Attenuation (dB)",
-        "tr": "Zemin Zayıflaması (dB)",
+        "tr": "Zemin Zayiflamasi (dB)",
         "de": "Bodendämpfung (dB)",
         "fr": "Atténuation par le sol (dB)",
         "es": "Atenuación del Suelo (dB)",
@@ -82,10 +82,10 @@
     },
     {
       "id": "engelZayiflama",
-      "label": "Engel Zayıflaması (dB)",
+      "label": "EngelZayiflama",
       "label_i18n": {
         "en": "Barrier Attenuation (dB)",
-        "tr": "Engel Zayıflaması (dB)",
+        "tr": "Engel Zayiflamasi (dB)",
         "de": "Barrierendämpfung (dB)",
         "fr": "Atténuation par obstacle (dB)",
         "es": "Atenuación de Barrera (dB)",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "dB",
     "breakdown": {
-      "sonuc": "Ses Basınç Seviyesi"
+      "sonuc": "Ses Pressure Seviyesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ses Basınç Seviyesi",
-        "tr": "Ses Basınç Seviyesi",
+        "en": "Ses Pressure Seviyesi",
+        "tr": "Ses Pressure Seviyesi",
         "de": "Schalldruckpegel",
         "fr": "Niveau de pression acoustique",
         "es": "Nivel de Presión Sonora",
@@ -152,7 +152,7 @@
       "long": "Calculate sound pressure level at a distance from noise source.",
       "short_i18n": {
         "en": "Calculate sound pressure level at a distance from noise source.",
-        "tr": "Kaynaktan belirli mesafedeki tahmini ses basınç seviyesini (gürültü yayılımı) hesaplar.",
+        "tr": "Kaynaktan belirli Distancedeki tahmini Ses Pressure Seviyesini (gurultu yayilimi) hesaplar.",
         "de": "Schalldruckpegel in einer Entfernung von der Lärmquelle berechnen.",
         "fr": "Calculer le niveau de pression acoustique à une distance de la source de bruit.",
         "es": "Calcular el nivel de presión sonora a una distancia de la fuente de ruido.",
@@ -160,7 +160,7 @@
       },
       "long_i18n": {
         "en": "Calculate sound pressure level at a distance from noise source.",
-        "tr": "Kaynaktan belirli mesafedeki tahmini ses basınç seviyesini (gürültü yayılımı) hesaplar.",
+        "tr": "Kaynaktan belirli Distancedeki tahmini Ses Pressure Seviyesini (gurultu yayilimi) hesaplar.",
         "de": "Schalldruckpegel in einer Entfernung von der Lärmquelle berechnen.",
         "fr": "Calculer le niveau de pression acoustique à une distance de la source de bruit.",
         "es": "Calcular el nivel de presión sonora a una distancia de la fuente de ruido.",

@@ -2,15 +2,15 @@
   "toolName": "operating-margin-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "favok",
-      "label": "FAVÖK (TL)",
+      "label": "Favok",
       "label_i18n": {
         "en": "EBITDA (USD)",
-        "tr": "FAVÖK (TL)",
+        "tr": "FAVOK (TL)",
         "de": "EBITDA-Marge (%)",
         "fr": "Marge d'EBITDA (%)",
         "es": "Margen EBITDA (%)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Vergi ve faiz öncesi kâr.",
+      "businessContext": "Favok",
       "businessContext_i18n": {
         "en": "EBITDA.",
-        "tr": "Vergi ve faiz öncesi kâr.",
+        "tr": "Vergi ve faiz oncesi kâr.",
         "de": "EBITDA.",
         "fr": "EBITDA.",
         "es": "EBITDA.",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Toplam satış geliri.",
+      "businessContext": "Total Revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
-        "tr": "Toplam satış geliri.",
+        "tr": "Total Revenue.",
         "de": "Gesamtumsatz.",
         "fr": "Revenu total.",
         "es": "Ingresos totales.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "İşletme Marjı"
+      "sonuc": "Workletme Marji"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "İşletme Marjı",
-        "tr": "İşletme Marjı",
+        "en": "Workletme Marji",
+        "tr": "Workletme Marji",
         "de": "Betriebsmarge",
         "fr": "Marge opérationnelle",
         "es": "Margen Operativo",
@@ -99,7 +99,7 @@
       "long": "Calculate operating margin (EBITDA / Revenue).",
       "short_i18n": {
         "en": "Calculate operating margin (EBITDA / Revenue).",
-        "tr": "Ana faaliyetlerden elde edilen kârlılık oranını (FAVÖK marjı) hesaplar.",
+        "tr": "Ana faaliyetlerden elde edilen kârlilik Ratioini (FAVOK marji) hesaplar.",
         "de": "Betriebsmarge (EBITDA / Umsatz) berechnen.",
         "fr": "Calculer la marge opérationnelle (EBITDA / Chiffre d'affaires).",
         "es": "Calcular el margen operativo (EBITDA / Ingresos).",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate operating margin (EBITDA / Revenue).",
-        "tr": "Ana faaliyetlerden elde edilen kârlılık oranını (FAVÖK marjı) hesaplar.",
+        "tr": "Ana faaliyetlerden elde edilen kârlilik Ratioini (FAVOK marji) hesaplar.",
         "de": "Betriebsmarge (EBITDA / Umsatz) berechnen.",
         "fr": "Calculer la marge opérationnelle (EBITDA / Chiffre d'affaires).",
         "es": "Calcular el margen operativo (EBITDA / Ingresos).",

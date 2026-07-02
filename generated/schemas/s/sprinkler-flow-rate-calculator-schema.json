@@ -2,15 +2,15 @@
   "toolName": "sprinkler-flow-rate-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "electrical-power-systems",
-  "sector": "Yangın, Elektrik ve Elektronik",
+  "sector": "Yangin, Electrical and Electronics",
   "sectorId": "electrical-power-systems",
   "inputs": [
     {
       "id": "K_Faktoru",
-      "label": "K Faktörü (L/dk/bar^0.5)",
+      "label": "K Faktoru",
       "label_i18n": {
         "en": "K Factor (L/min/bar^0.5)",
-        "tr": "K Faktörü (L/dk/bar^0.5)",
+        "tr": "K Faktoru (L/dk/bar^0.5)",
         "de": "Implementierungsrisikofaktor",
         "fr": "Facteur de risque de mise en œuvre",
         "es": "Factor de Riesgo de Implementación",
@@ -20,10 +20,10 @@
       "unit": "L/min/bar0.5",
       "default": 80,
       "min": 0,
-      "businessContext": "Sprinkler K faktörü.",
+      "businessContext": "K Faktoru",
       "businessContext_i18n": {
         "en": "Sprinkler K factor.",
-        "tr": "Sprinkler K faktörü.",
+        "tr": "Sprinkler K faktoru.",
         "de": "Sprinkler-K-Faktor.",
         "fr": "Facteur K de l'arroseur.",
         "es": "Factor K del aspersor.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "basinc",
-      "label": "Basınç (bar)",
+      "label": "Pressure (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
-        "tr": "Basınç (bar)",
+        "tr": "Pressure (bar)",
         "de": "Druck (bar)",
         "fr": "Pression (bar)",
         "es": "Presión (bar)",
@@ -45,10 +45,10 @@
       "unit": "bar",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Sprinkler giriş basıncı.",
+      "businessContext": "Basinc",
       "businessContext_i18n": {
         "en": "Sprinkler inlet pressure.",
-        "tr": "Sprinkler giriş basıncı.",
+        "tr": "Sprinkler Input basinci.",
         "de": "Sprinklereingangsdruck.",
         "fr": "Pression d'entrée de l'arroseur.",
         "es": "Presión de entrada del aspersor.",
@@ -101,7 +101,7 @@
       "long": "Calculate flow rate from a single sprinkler head.",
       "short_i18n": {
         "en": "Calculate flow rate from a single sprinkler head.",
-        "tr": "Tek bir sprinkler başlığından akacak su debisini hesaplar.",
+        "tr": "Tek bir sprinkler basligindan akacak Water Flow Rateni hesaplar.",
         "de": "Berechnen Sie die Durchflussrate eines einzelnen Sprinklerkopfes.",
         "fr": "Calculer le débit d'une seule tête d'arroseur.",
         "es": "Calcular el caudal de un solo aspersor.",
@@ -109,7 +109,7 @@
       },
       "long_i18n": {
         "en": "Calculate flow rate from a single sprinkler head.",
-        "tr": "Tek bir sprinkler başlığından akacak su debisini hesaplar.",
+        "tr": "Tek bir sprinkler basligindan akacak Water Flow Rateni hesaplar.",
         "de": "Berechnen Sie die Durchflussrate eines einzelnen Sprinklerkopfes.",
         "fr": "Calculer le débit d'une seule tête d'arroseur.",
         "es": "Calcular el caudal de un solo aspersor.",

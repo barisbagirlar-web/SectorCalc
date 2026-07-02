@@ -2,15 +2,15 @@
   "toolName": "clamping-force-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
       "id": "projeksiyonAlani",
-      "label": "Projeksiyon Alanı (cm²)",
+      "label": "ProjeksiyonAlani",
       "label_i18n": {
         "en": "Projected Area (cm²)",
-        "tr": "Projeksiyon Alanı (cm²)",
+        "tr": "Projeksiyon Area (cm²)",
         "de": "Projizierte Fläche (cm²)",
         "fr": "Surface projetée (cm²)",
         "es": "Área Proyectada (cm²)",
@@ -20,10 +20,10 @@
       "unit": "cm2",
       "default": 500,
       "min": 0,
-      "businessContext": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
+      "businessContext": "ProjeksiyonAlani",
       "businessContext_i18n": {
         "en": "Part projected area on mold.",
-        "tr": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
+        "tr": "Parcanin kalip ayrisma yuzeyindeki izdusum Areai.",
         "de": "Projizierte Fläche des Teils auf der Form.",
         "fr": "Surface projetée de la pièce sur le moule.",
         "es": "Área proyectada de la pieza en el molde.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "kalipIcBasinc",
-      "label": "Kalıp İçi Basınc (bar)",
+      "label": "KalipIcBasinc",
       "label_i18n": {
         "en": "Cavity Pressure (bar)",
-        "tr": "Kalıp İçi Basınc (bar)",
+        "tr": "Kalip Ici Basinc (bar)",
         "de": "Kavitätsdruck (bar)",
         "fr": "Pression en cavité (bar)",
         "es": "Presión de Cavidad (bar)",
@@ -45,10 +45,10 @@
       "unit": "bar",
       "default": 800,
       "min": 0,
-      "businessContext": "Ergiyik plastiğin kalıp içindeki basıncı.",
+      "businessContext": "KalipIcBasinc",
       "businessContext_i18n": {
         "en": "Melt cavity pressure.",
-        "tr": "Ergiyik plastiğin kalıp içindeki basıncı.",
+        "tr": "Ergiyik plastigin kalip icindeki basinci.",
         "de": "Schmelzedruck in der Kavität.",
         "fr": "Pression de la cavité de matière fondue.",
         "es": "Presión de la cavidad del fundido.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "tons",
     "breakdown": {
-      "sonuc": "Gerekli Kilit Tonajı"
+      "sonuc": "Gerekli Kilit Tonaji"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Gerekli Kilit Tonajı",
-        "tr": "Gerekli Kilit Tonajı",
+        "en": "Gerekli Kilit Tonaji",
+        "tr": "Gerekli Kilit Tonaji",
         "de": "Erforderliche Schließkraft",
         "fr": "Tonage de verrouillage requis",
         "es": "Tonelaje de Cierre Requerido",
@@ -101,16 +101,16 @@
       "long": "Calculate minimum clamping force for injection molding press.",
       "short_i18n": {
         "en": "Calculate minimum clamping force for injection molding press.",
-        "tr": "Kalıbın açılmasını önlemek için gereken minimum pres bağlama kuvvetini hesaplar.",
-        "de": "Berechnen Sie die minimale Schließkraft für eine Spritzgießmaschine.",
+        "tr": "Kalibin acilmasini onlemek icin gereken Minimum pres baglama Forceini hesaplar.",
+        "de": "Berechnen Sie die minimale Schließkraft fur eine Spritzgießmaschine.",
         "fr": "Calculer la force de serrage minimale pour une presse d'injection plastique.",
         "es": "Calcular la fuerza de cierre mínima para una prensa de moldeo por inyección.",
         "ar": "حساب الحد الأدنى لقوة التثبيت لآلة القولبة بالحقن."
       },
       "long_i18n": {
         "en": "Calculate minimum clamping force for injection molding press.",
-        "tr": "Kalıbın açılmasını önlemek için gereken minimum pres bağlama kuvvetini hesaplar.",
-        "de": "Berechnen Sie die minimale Schließkraft für eine Spritzgießmaschine.",
+        "tr": "Kalibin acilmasini onlemek icin gereken Minimum pres baglama Forceini hesaplar.",
+        "de": "Berechnen Sie die minimale Schließkraft fur eine Spritzgießmaschine.",
         "fr": "Calculer la force de serrage minimale pour une presse d'injection plastique.",
         "es": "Calcular la fuerza de cierre mínima para una prensa de moldeo por inyección.",
         "ar": "حساب الحد الأدنى لقوة التثبيت لآلة القولبة بالحقن."

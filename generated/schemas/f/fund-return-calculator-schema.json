@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "baslangicNAV",
-      "label": "Dönem Başı NAV (₺)",
+      "label": "BaslangicNAV",
       "label_i18n": {
         "en": "Start NAV (USD)",
-        "tr": "Dönem Başı NAV (₺)",
+        "tr": "Donem Basi NAV (₺)",
         "de": "Start-NAV (USD)",
         "fr": "VNI de départ (USD)",
         "es": "NAV inicial (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10,
       "min": 0,
-      "businessContext": "Dönem başındaki fon pay fiyatı.",
+      "businessContext": "BaslangicNAV",
       "businessContext_i18n": {
         "en": "Fund unit price at period start.",
-        "tr": "Dönem başındaki fon pay fiyatı.",
+        "tr": "Donem basindaki fon pay fiyati.",
         "de": "Fondspreis zu Periodenbeginn.",
         "fr": "Prix unitaire du fonds en début de période.",
         "es": "Precio de la unidad del fondo al inicio del período.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "bitisNAV",
-      "label": "Dönem Sonu NAV (₺)",
+      "label": "BitisNAV",
       "label_i18n": {
         "en": "End NAV (USD)",
-        "tr": "Dönem Sonu NAV (₺)",
+        "tr": "Donem Sonu NAV (₺)",
         "de": "End-NAV (USD)",
         "fr": "VNI de fin (USD)",
         "es": "NAV final (USD)",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 12,
       "min": 0,
-      "businessContext": "Dönem sonundaki fon pay fiyatı.",
+      "businessContext": "BitisNAV",
       "businessContext_i18n": {
         "en": "Fund unit price at period end.",
-        "tr": "Dönem sonundaki fon pay fiyatı.",
+        "tr": "Donem sonundaki fon pay fiyati.",
         "de": "Fondspreis am Periodenende.",
         "fr": "Prix unitaire du fonds en fin de période.",
         "es": "Precio de la unidad del fondo al final del período.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "dagitim",
-      "label": "Dağıtım (₺)",
+      "label": "Dagitim",
       "label_i18n": {
         "en": "Distribution (USD)",
-        "tr": "Dağıtım (₺)",
+        "tr": "Dagitim (₺)",
         "de": "Verteilungstyp",
         "fr": "Type de distribution",
         "es": "Tipo de Distribución",
@@ -70,11 +70,11 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Dönem boyunca dağıtılan temettü.",
+      "businessContext": "Dagitim",
       "businessContext_i18n": {
         "en": "Dividend distributed during period.",
-        "tr": "Dönem boyunca dağıtılan temettü.",
-        "de": "Während der Periode ausgeschüttete Dividende.",
+        "tr": "Donem Heightunca dagitilan temettu.",
+        "de": "Während der Periode Ausgeschuttete Dividende.",
         "fr": "Dividende distribué pendant la période.",
         "es": "Dividendo distribuido durante el período.",
         "ar": "الأرباح الموزعة خلال الفترة."
@@ -124,16 +124,16 @@
       "long": "Calculate total investor return of a mutual fund.",
       "short_i18n": {
         "en": "Calculate total investor return of a mutual fund.",
-        "tr": "Fonun dönemsel toplam yatırımcı getirisini hesaplar.",
-        "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds für Anleger.",
+        "tr": "Fonun donemsel Total yatirimci getirisini hesaplar.",
+        "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds fur Anleger.",
         "fr": "Calculer le rendement total d'un investisseur dans un fonds commun de placement.",
         "es": "Calcular el rendimiento total de un inversor de un fondo mutuo.",
         "ar": "حساب العائد الإجمالي للمستثمر لصندوق استثمار مشترك."
       },
       "long_i18n": {
         "en": "Calculate total investor return of a mutual fund.",
-        "tr": "Fonun dönemsel toplam yatırımcı getirisini hesaplar.",
-        "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds für Anleger.",
+        "tr": "Fonun donemsel Total yatirimci getirisini hesaplar.",
+        "de": "Berechnen Sie die Gesamtrendite eines Investmentfonds fur Anleger.",
         "fr": "Calculer le rendement total d'un investisseur dans un fonds commun de placement.",
         "es": "Calcular el rendimiento total de un inversor de un fondo mutuo.",
         "ar": "حساب العائد الإجمالي للمستثمر لصندوق استثمار مشترك."

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "temettu",
-      "label": "Brüt Temettü (₺)",
+      "label": "Temettu",
       "label_i18n": {
         "en": "Gross Dividend (USD)",
-        "tr": "Brüt Temettü (₺)",
+        "tr": "Gross Temettu (₺)",
         "de": "Bruttodividende (USD)",
         "fr": "Dividende Brut (USD)",
         "es": "Dividendo Bruto (USD)",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Vergi kesintisi öncesi temettü tutarı.",
+      "businessContext": "Temettu",
       "businessContext_i18n": {
         "en": "Dividend amount before tax.",
-        "tr": "Vergi kesintisi öncesi temettü tutarı.",
+        "tr": "Vergi kesintisi oncesi temettu tutari.",
         "de": "Dividendenbetrag vor Steuern.",
         "fr": "Montant du dividende avant impôt.",
         "es": "Monto del dividendo antes de impuestos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "stopaj",
-      "label": "Stopaj Oranı (%)",
+      "label": "Withholding Rate (%)",
       "label_i18n": {
         "en": "Withholding Rate (%)",
-        "tr": "Stopaj Oranı (%)",
+        "tr": "Stopaj Ratio (%)",
         "de": "Quellensteuersatz (%)",
         "fr": "Taux de Retenue à la Source (%)",
         "es": "Tasa de Retención (%)",
@@ -46,10 +46,10 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Temettüye uygulanan stopaj vergisi.",
+      "businessContext": "Stopaj",
       "businessContext_i18n": {
         "en": "Dividend withholding tax rate.",
-        "tr": "Temettüye uygulanan stopaj vergisi.",
+        "tr": "Temettuye uygulanan stopaj vergisi.",
         "de": "Quellensteuersatz auf Dividenden.",
         "fr": "Taux de retenue à la source sur les dividendes.",
         "es": "Tasa de impuesto de retención sobre dividendos.",
@@ -70,12 +70,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Net Temettü"
+      "sonuc": "Net Temettu"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Net Temettü",
-        "tr": "Net Temettü",
+        "en": "Net Temettu",
+        "tr": "Net Temettu",
         "de": "Nettodividende",
         "fr": "Dividende Net",
         "es": "Dividendo Neto",
@@ -100,7 +100,7 @@
       "long": "Calculate net dividend after withholding tax deduction.",
       "short_i18n": {
         "en": "Calculate net dividend after withholding tax deduction.",
-        "tr": "Stopaj kesintisi sonrası ele geçen net temettü tutarını hesaplar.",
+        "tr": "Stopaj kesintisi sonrasi ele gecen Net Temettu tutarini hesaplar.",
         "de": "Berechnen Sie die Nettodividende nach Abzug der Quellensteuer.",
         "fr": "Calculez le dividende net après déduction de la retenue à la source.",
         "es": "Calcular el dividendo neto después de la deducción del impuesto de retención.",
@@ -108,7 +108,7 @@
       },
       "long_i18n": {
         "en": "Calculate net dividend after withholding tax deduction.",
-        "tr": "Stopaj kesintisi sonrası ele geçen net temettü tutarını hesaplar.",
+        "tr": "Stopaj kesintisi sonrasi ele gecen Net Temettu tutarini hesaplar.",
         "de": "Berechnen Sie die Nettodividende nach Abzug der Quellensteuer.",
         "fr": "Calculez le dividende net après déduction de la retenue à la source.",
         "es": "Calcular el dividendo neto después de la deducción del impuesto de retención.",

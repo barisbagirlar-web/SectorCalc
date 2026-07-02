@@ -2,7 +2,7 @@
   "toolName": "cost-per-click-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Reklam bütçesi.",
+      "businessContext": "ToplamHarcama",
       "businessContext_i18n": {
         "en": "Ad budget spent.",
-        "tr": "Reklam bütçesi.",
+        "tr": "Reklam butcesi.",
         "de": "Ausgegebenes Werbebudget.",
         "fr": "Budget publicitaire dépensé.",
         "es": "Presupuesto publicitario gastado.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "tiklama",
-      "label": "Tıklama (Adet)",
+      "label": "Tiklama",
       "label_i18n": {
         "en": "Clicks",
-        "tr": "Tıklama (Adet)",
+        "tr": "Tiklama (Quantity)",
         "de": "Klicks",
         "fr": "Clics",
         "es": "Clics",
@@ -45,10 +45,10 @@
       "unit": "clicks",
       "default": 500,
       "min": 1,
-      "businessContext": "Toplam tıklama.",
+      "businessContext": "Tiklama",
       "businessContext_i18n": {
         "en": "Total clicks.",
-        "tr": "Toplam tıklama.",
+        "tr": "Total tiklama.",
         "de": "Gesamtklicks.",
         "fr": "Nombre total de clics.",
         "es": "Total de clics.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tıklama Başı Maliyet (CPC)"
+      "sonuc": "Tiklama Basi Cost (CPC)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tıklama Başı Maliyet (CPC)",
-        "tr": "Tıklama Başı Maliyet (CPC)",
+        "en": "Tiklama Basi Cost (CPC)",
+        "tr": "Tiklama Basi Cost (CPC)",
         "de": "Kosten pro Klick (CPC)",
         "fr": "Coût par clic (CPC)",
         "es": "Costo por Clic (CPC)",
@@ -99,16 +99,16 @@
       "long": "Calculate cost per click (CPC) for advertising.",
       "short_i18n": {
         "en": "Calculate cost per click (CPC) for advertising.",
-        "tr": "Her bir reklam tıklaması için ödenen ortalama bedeli (CPC) hesaplar.",
-        "de": "Cost-per-Click (CPC) für Werbung berechnen.",
+        "tr": "Her bir reklam tiklamasi icin odenen Mean bedeli (CPC) hesaplar.",
+        "de": "Cost-per-Click (CPC) fur Werbung berechnen.",
         "fr": "Calculer le coût par clic (CPC) pour la publicité.",
         "es": "Calcular el costo por clic (CPC) para publicidad.",
         "ar": "احسب تكلفة النقرة (CPC) للإعلان."
       },
       "long_i18n": {
         "en": "Calculate cost per click (CPC) for advertising.",
-        "tr": "Her bir reklam tıklaması için ödenen ortalama bedeli (CPC) hesaplar.",
-        "de": "Cost-per-Click (CPC) für Werbung berechnen.",
+        "tr": "Her bir reklam tiklamasi icin odenen Mean bedeli (CPC) hesaplar.",
+        "de": "Cost-per-Click (CPC) fur Werbung berechnen.",
         "fr": "Calculer le coût par clic (CPC) pour la publicité.",
         "es": "Calcular el costo por clic (CPC) para publicidad.",
         "ar": "احسب تكلفة النقرة (CPC) للإعلان."

@@ -2,15 +2,15 @@
   "toolName": "sqnr-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "İleri Fizik, Kuantum ve Enerji",
+  "sector": "Ileri Fizik, Kuantum ve Energy",
   "sectorId": "other",
   "inputs": [
     {
       "id": "bitSayisi",
-      "label": "Bit Sayısı (N)",
+      "label": "BitSayisi",
       "label_i18n": {
         "en": "Number of Bits (N)",
-        "tr": "Bit Sayısı (N)",
+        "tr": "Bit Count (N)",
         "de": "Anzahl der Bits (N)",
         "fr": "Nombre de bits (N)",
         "es": "Número de Bits (N)",
@@ -21,11 +21,11 @@
       "default": 16,
       "min": 1,
       "max": 32,
-      "businessContext": "ADC çözünürlüğü.",
+      "businessContext": "ADC Resolution.",
       "businessContext_i18n": {
         "en": "ADC resolution.",
-        "tr": "ADC çözünürlüğü.",
-        "de": "ADC-Auflösung.",
+        "tr": "ADC Resolution.",
+        "de": "ADC-Auflosung.",
         "fr": "Résolution du CAN.",
         "es": "Resolución del ADC.",
         "ar": "دقة المحول التناظري الرقمي."
@@ -50,7 +50,7 @@
     "breakdown_i18n": {
       "sonuc": {
         "en": "SQNR",
-        "tr": "Niceleme Sinyal-Gürültü Oranı",
+        "tr": "Niceleme Sinyal-Gurultu Ratioi",
         "de": "SQNR (Signal-Quantisierungs-Rausch-Verhältnis)",
         "fr": "Rapport signal sur bruit de quantification (SQNR)",
         "es": "SQNR",
@@ -78,7 +78,7 @@
       "long": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
       "short_i18n": {
         "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-        "tr": "ADC dönüşümündeki teorik sinyal/gürültü oranını (SQNR) hesaplar.",
+        "tr": "ADC donusumundeki teorik sinyal/gurultu Ratioini (SQNR) hesaplar.",
         "de": "Berechnen Sie das theoretische SQNR (Signal-zu-Quantisierungsrausch-Verhältnis).",
         "fr": "Calculer le SQNR théorique (rapport signal sur bruit de quantification).",
         "es": "Calcular la SQNR teórica (relación señal-ruido de cuantificación).",
@@ -86,7 +86,7 @@
       },
       "long_i18n": {
         "en": "Calculate theoretical SQNR (signal-to-quantization-noise ratio).",
-        "tr": "ADC dönüşümündeki teorik sinyal/gürültü oranını (SQNR) hesaplar.",
+        "tr": "ADC donusumundeki teorik sinyal/gurultu Ratioini (SQNR) hesaplar.",
         "de": "Berechnen Sie das theoretische SQNR (Signal-zu-Quantisierungsrausch-Verhältnis).",
         "fr": "Calculer le SQNR théorique (rapport signal sur bruit de quantification).",
         "es": "Calcular la SQNR teórica (relación señal-ruido de cuantificación).",

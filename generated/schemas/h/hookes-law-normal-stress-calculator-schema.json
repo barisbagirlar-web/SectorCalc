@@ -2,15 +2,15 @@
   "toolName": "hookes-law-normal-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "elastisiteModulu",
-      "label": "Elastisite Modülü (Pa)",
+      "label": "Modeulus of Elasticity (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
-        "tr": "Elastisite Modülü (Pa)",
+        "tr": "Modeulus of Elasticity (Pa)",
         "de": "Elastizitätsmodul (E)",
         "fr": "Module de Young (E)",
         "es": "Módulo de Young (E)",
@@ -20,10 +20,10 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Malzemenin elastisite modülü.",
+      "businessContext": "Malzemenin Modeulus of Elasticity.",
       "businessContext_i18n": {
         "en": "Material Young's modulus.",
-        "tr": "Malzemenin elastisite modülü.",
+        "tr": "Malzemenin Modeulus of Elasticity.",
         "de": "Elastizitätsmodul des Materials.",
         "fr": "Module de Young du matériau.",
         "es": "Módulo de Young del material.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "birimSekilDegistirme",
-      "label": "Birim Şekil Değiştirme",
+      "label": "BirimSekilDegistirme",
       "label_i18n": {
         "en": "Strain",
-        "tr": "Birim Şekil Değiştirme",
+        "tr": "Unit Sekil Degistirme",
         "de": "Einspannfaktor der Verbindung",
         "fr": "Facteur de contrainte du joint",
         "es": "Factor de Restricción de la Junta",
@@ -99,7 +99,7 @@
       "long": "Calculate normal stress in linear elastic region using Hooke's Law.",
       "short_i18n": {
         "en": "Calculate normal stress in linear elastic region using Hooke's Law.",
-        "tr": "Lineer elastik bölgedeki normal gerilmeyi Hooke Yasası ile hesaplar.",
+        "tr": "Lineer elastik bolgedeki Normal Stressyi Hooke Yasasi ile hesaplar.",
         "de": "Berechnen Sie die Normalspannung im linear-elastischen Bereich nach dem Hookeschen Gesetz.",
         "fr": "Calculer la contrainte normale dans la région élastique linéaire en utilisant la loi de Hooke.",
         "es": "Calcular el esfuerzo normal en la región elástica lineal usando la Ley de Hooke.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate normal stress in linear elastic region using Hooke's Law.",
-        "tr": "Lineer elastik bölgedeki normal gerilmeyi Hooke Yasası ile hesaplar.",
+        "tr": "Lineer elastik bolgedeki Normal Stressyi Hooke Yasasi ile hesaplar.",
         "de": "Berechnen Sie die Normalspannung im linear-elastischen Bereich nach dem Hookeschen Gesetz.",
         "fr": "Calculer la contrainte normale dans la région élastique linéaire en utilisant la loi de Hooke.",
         "es": "Calcular el esfuerzo normal en la región elástica lineal usando la Ley de Hooke.",

@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "baslangic",
-      "label": "Başlangıç Değeri (₺)",
+      "label": "Baslangic",
       "label_i18n": {
         "en": "Starting Value (USD)",
-        "tr": "Başlangıç Değeri (₺)",
+        "tr": "Baslangic Valuei (₺)",
         "de": "Starting Wert",
         "fr": "Starting Valeur",
         "es": "Starting Valor",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Dönem başı yatırım değeri.",
+      "businessContext": "Baslangic",
       "businessContext_i18n": {
         "en": "Investment value at start of period.",
-        "tr": "Dönem başı yatırım değeri.",
+        "tr": "Donem basi yatirim Valuei.",
         "de": "Anlagewert zu Beginn des Zeitraums.",
         "fr": "Valeur de l'investissement au début de la période.",
         "es": "Valor de la inversión al inicio del período.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "bitis",
-      "label": "Bitiş Değeri (₺)",
+      "label": "Bitis",
       "label_i18n": {
         "en": "Ending Value (USD)",
-        "tr": "Bitiş Değeri (₺)",
+        "tr": "Bitis Valuei (₺)",
         "de": "Endwert",
         "fr": "Valeur finale",
         "es": "Valor final",
@@ -45,10 +45,10 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Dönem sonu yatırım değeri.",
+      "businessContext": "Bitis",
       "businessContext_i18n": {
         "en": "Investment value at end of period.",
-        "tr": "Dönem sonu yatırım değeri.",
+        "tr": "Donem sonu yatirim Valuei.",
         "de": "Anlagewert am Ende des Zeitraums.",
         "fr": "Valeur de l'investissement à la fin de la période.",
         "es": "Valor de la inversión al final del período.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "yil",
-      "label": "Süre (Yıl)",
+      "label": "Yil",
       "label_i18n": {
         "en": "Period (Years)",
-        "tr": "Süre (Yıl)",
+        "tr": "Duration (Year)",
         "de": "Anlagezeitraum",
         "fr": "Période d'investissement",
         "es": "Período de inversión",
@@ -70,10 +70,10 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Toplam yatırım süresi.",
+      "businessContext": "Yil",
       "businessContext_i18n": {
         "en": "Total investment period.",
-        "tr": "Toplam yatırım süresi.",
+        "tr": "Total Yatirim suresi.",
         "de": "Gesamter Anlagezeitraum.",
         "fr": "Période totale d'investissement.",
         "es": "Período total de inversión.",
@@ -94,12 +94,12 @@
     "primary": "sonuc",
     "unit": "%",
     "breakdown": {
-      "sonuc": "Yıllıklandırılmış Getiri"
+      "sonuc": "Yilliklandirilmis Getiri"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Yıllıklandırılmış Getiri",
-        "tr": "Yıllıklandırılmış Getiri",
+        "en": "Yilliklandirilmis Getiri",
+        "tr": "Yilliklandirilmis Getiri",
         "de": "Annualisierte Rendite",
         "fr": "Rendement annualisé",
         "es": "Rendimiento Anualizado",
@@ -124,7 +124,7 @@
       "long": "Calculate the annualized rate of return on an investment.",
       "short_i18n": {
         "en": "Calculate the annualized rate of return on an investment.",
-        "tr": "Yatırımın yıllıklandırılmış ortalama büyüme hızını hesaplar.",
+        "tr": "Yatirimin yilliklandirilmis Mean buyume Speedini hesaplar.",
         "de": "Berechnen Sie die annualisierte Rendite einer Investition.",
         "fr": "Calculer le taux de rendement annualisé d'un investissement.",
         "es": "Calcular la tasa de rendimiento anualizada de una inversión.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate the annualized rate of return on an investment.",
-        "tr": "Yatırımın yıllıklandırılmış ortalama büyüme hızını hesaplar.",
+        "tr": "Yatirimin yilliklandirilmis Mean buyume Speedini hesaplar.",
         "de": "Berechnen Sie die annualisierte Rendite einer Investition.",
         "fr": "Calculer le taux de rendement annualisé d'un investissement.",
         "es": "Calcular la tasa de rendimiento anualizada de una inversión.",

@@ -2,15 +2,15 @@
   "toolName": "shear-force-diagram-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Mühendisliği",
+  "sector": "Makine Muhendisligi",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Toplam Yük (N)",
+      "label": "Yuk",
       "label_i18n": {
         "en": "Total Load (N)",
-        "tr": "Toplam Yük (N)",
+        "tr": "Total Load (N)",
         "de": "Gesamtlast (N)",
         "fr": "Charge totale (N)",
         "es": "Carga Total (N)",
@@ -20,10 +20,10 @@
       "unit": "N",
       "default": 10000,
       "min": 0,
-      "businessContext": "Kirişe gelen toplam yayılı yük.",
+      "businessContext": "Yuk",
       "businessContext_i18n": {
         "en": "Total distributed load.",
-        "tr": "Kirişe gelen toplam yayılı yük.",
+        "tr": "Kirise gelen Total yayili yuk.",
         "de": "Gesamte verteilte Last.",
         "fr": "Charge totale répartie.",
         "es": "Carga distribuida total.",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Ölçüm noktasının sol mesnete uzaklığı.",
+      "businessContext": "Mesafe",
       "businessContext_i18n": {
         "en": "Distance from left support.",
-        "tr": "Ölçüm noktasının sol mesnete uzaklığı.",
+        "tr": "Olcum noktasinin sol mesNete uzakligi.",
         "de": "Abstand vom linken Auflager.",
         "fr": "Distance depuis l'appui gauche.",
         "es": "Distancia desde el apoyo izquierdo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "uzunluk",
-      "label": "Kiriş Boyu (m)",
+      "label": "Uzunluk",
       "label_i18n": {
         "en": "Beam Length (m)",
-        "tr": "Kiriş Boyu (m)",
+        "tr": "Beam Heightu (m)",
         "de": "Balkenlänge (L)",
         "fr": "Longueur de la poutre (L)",
         "es": "Longitud de la viga (L)",
@@ -70,10 +70,10 @@
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Toplam açıklık.",
+      "businessContext": "Uzunluk",
       "businessContext_i18n": {
         "en": "Total span.",
-        "tr": "Toplam açıklık.",
+        "tr": "Total aciklik.",
         "de": "Gesamtspannweite.",
         "fr": "Portée totale.",
         "es": "Luz total.",
@@ -124,7 +124,7 @@
       "long": "Calculate shear force at a given section along a beam.",
       "short_i18n": {
         "en": "Calculate shear force at a given section along a beam.",
-        "tr": "Kiriş kesitindeki anlık kesme kuvvetini konuma bağlı olarak hesaplar.",
+        "tr": "Kiris kesitindeki anlik Shear Forceni konuma bagli olarak hesaplar.",
         "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
         "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
         "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",
@@ -132,7 +132,7 @@
       },
       "long_i18n": {
         "en": "Calculate shear force at a given section along a beam.",
-        "tr": "Kiriş kesitindeki anlık kesme kuvvetini konuma bağlı olarak hesaplar.",
+        "tr": "Kiris kesitindeki anlik Shear Forceni konuma bagli olarak hesaplar.",
         "de": "Berechnen Sie die Scherkraft an einem gegebenen Abschnitt entlang eines Balkens.",
         "fr": "Calculer l'effort tranchant à une section donnée le long d'une poutre.",
         "es": "Calcular la fuerza cortante en una sección dada a lo largo de una viga.",

@@ -2,7 +2,7 @@
   "toolName": "freelancer-hourly-rate-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "İşletme",
+  "sector": "Workletme",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Vergi sonrası hedef gelir.",
+      "businessContext": "HedefNet",
       "businessContext_i18n": {
         "en": "After-tax target income.",
-        "tr": "Vergi sonrası hedef gelir.",
+        "tr": "Vergi sonrasi hedef gelir.",
         "de": "Zieleinkommen nach Steuern.",
         "fr": "Revenu cible après impôt.",
         "es": "Ingreso objetivo después de impuestos.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "vergi",
-      "label": "Vergi Oranı (%)",
+      "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Vergi Oranı (%)",
+        "tr": "Tax Ratio (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
         "es": "Tasa Impositiva (%)",
@@ -46,10 +46,10 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Ortalama vergi yükü.",
+      "businessContext": "Vergi",
       "businessContext_i18n": {
         "en": "Average tax burden.",
-        "tr": "Ortalama vergi yükü.",
+        "tr": "Mean vergi yuku.",
         "de": "Durchschnittliche Steuerbelastung.",
         "fr": "Charge fiscale moyenne.",
         "es": "Carga fiscal promedio.",
@@ -58,10 +58,10 @@
     },
     {
       "id": "gider",
-      "label": "Yıllık Gider (TL)",
+      "label": "Gider",
       "label_i18n": {
         "en": "Annual Expense (USD)",
-        "tr": "Yıllık Gider (TL)",
+        "tr": "Annual Expmostse (TRY)",
         "de": "Jährliche Ausgaben im Ruhestand",
         "fr": "Dépenses annuelles à la retraite",
         "es": "Gastos Anuales en el Retiro",
@@ -71,10 +71,10 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "İşletme giderleri.",
+      "businessContext": "Workletme giderleri.",
       "businessContext_i18n": {
         "en": "Business expenses.",
-        "tr": "İşletme giderleri.",
+        "tr": "Workletme giderleri.",
         "de": "Geschäftsausgaben.",
         "fr": "Dépenses professionnelles.",
         "es": "Gastos comerciales.",
@@ -83,10 +83,10 @@
     },
     {
       "id": "calismaSaati",
-      "label": "Yıllık Çalışma Saati",
+      "label": "CalismaSaati",
       "label_i18n": {
         "en": "Annual Work Hours",
-        "tr": "Yıllık Çalışma Saati",
+        "tr": "Yillik Calisma Saati",
         "de": "Jährliche Arbeitsstunden",
         "fr": "Heures de travail annuelles",
         "es": "Horas de trabajo anuales",
@@ -96,10 +96,10 @@
       "unit": "hours",
       "default": 1800,
       "min": 1,
-      "businessContext": "Toplam çalışma saati.",
+      "businessContext": "CalismaSaati",
       "businessContext_i18n": {
         "en": "Total work hours.",
-        "tr": "Toplam çalışma saati.",
+        "tr": "Total calisma saati.",
         "de": "Gesamtarbeitsstunden.",
         "fr": "Total des heures de travail.",
         "es": "Horas totales de trabajo.",
@@ -121,13 +121,13 @@
     "primary": "sonuc",
     "unit": "TRY/hour",
     "breakdown": {
-      "sonuc": "Saatlik Serbest Çalışan Ücreti"
+      "sonuc": "Saatlik Serbest Calisan Ucreti"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Saatlik Serbest Çalışan Ücreti",
-        "tr": "Saatlik Serbest Çalışan Ücreti",
-        "de": "Stündlicher Honorarsatz für Freiberufler",
+        "en": "Saatlik Serbest Calisan Ucreti",
+        "tr": "Saatlik Serbest Calisan Ucreti",
+        "de": "Stundlicher Honorarsatz fur Freiberufler",
         "fr": "Taux horaire freelance",
         "es": "Tarifa por hora del freelancer",
         "ar": "أجر العامل الحر بالساعة"
@@ -151,16 +151,16 @@
       "long": "Calculate freelancer hourly rate including tax and overhead.",
       "short_i18n": {
         "en": "Calculate freelancer hourly rate including tax and overhead.",
-        "tr": "Vergi ve giderler dahil edilmesi gereken saatlik serbest çalışan ücretini hesaplar.",
-        "de": "Berechnen Sie den Stundensatz für Freiberufler inklusive Steuern und Gemeinkosten.",
+        "tr": "Vergi ve giderler dahil edilmesi gereken Saatlik Serbest Calisan Ucretini hesaplar.",
+        "de": "Berechnen Sie den Stundensatz fur Freiberufler inklusive Steuern und Gemeinkosten.",
         "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
         "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
         "ar": "حساب السعر بالساعة للعامل الحر شامل الضريبة والتكاليف العامة."
       },
       "long_i18n": {
         "en": "Calculate freelancer hourly rate including tax and overhead.",
-        "tr": "Vergi ve giderler dahil edilmesi gereken saatlik serbest çalışan ücretini hesaplar.",
-        "de": "Berechnen Sie den Stundensatz für Freiberufler inklusive Steuern und Gemeinkosten.",
+        "tr": "Vergi ve giderler dahil edilmesi gereken Saatlik Serbest Calisan Ucretini hesaplar.",
+        "de": "Berechnen Sie den Stundensatz fur Freiberufler inklusive Steuern und Gemeinkosten.",
         "fr": "Calculer le taux horaire du freelance incluant les taxes et les frais généraux.",
         "es": "Calcular tarifa por hora de freelancer incluyendo impuestos y gastos generales.",
         "ar": "حساب السعر بالساعة للعامل الحر شامل الضريبة والتكاليف العامة."

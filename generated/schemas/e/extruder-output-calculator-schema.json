@@ -2,7 +2,7 @@
   "toolName": "extruder-output-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "textile-print-lab",
-  "sector": "Tekstil, Gıda ve Plastik",
+  "sector": "Tekstil, Gida ve Plastik",
   "sectorId": "textile-print-lab",
   "inputs": [
     {
@@ -45,10 +45,10 @@
       "unit": "rpm",
       "default": 60,
       "min": 0,
-      "businessContext": "Vida dönüş hızı.",
+      "businessContext": "Devir",
       "businessContext_i18n": {
         "en": "Screw rotational speed.",
-        "tr": "Vida dönüş hızı.",
+        "tr": "Vida donus Speedi.",
         "de": "Rotationsgeschwindigkeit der Schnecke.",
         "fr": "Vitesse de rotation de la vis.",
         "es": "Velocidad de rotación del tornillo.",
@@ -57,10 +57,10 @@
     },
     {
       "id": "eriyikYogunluk",
-      "label": "Eriyik Yoğunluğu (g/cm³)",
+      "label": "EriyikYogunluk",
       "label_i18n": {
         "en": "Melt Density (g/cm³)",
-        "tr": "Eriyik Yoğunluğu (g/cm³)",
+        "tr": "Eriyik Dmostsity (g/cm³)",
         "de": "Schmelzdichte (g/cm³)",
         "fr": "Densité du fondu (g/cm³)",
         "es": "Densidad del fundido (g/cm³)",
@@ -70,10 +70,10 @@
       "unit": "g/cm3",
       "default": 0.9,
       "min": 0,
-      "businessContext": "Eriyik polimer yoğunluğu.",
+      "businessContext": "EriyikYogunluk",
       "businessContext_i18n": {
         "en": "Melt polymer density.",
-        "tr": "Eriyik polimer yoğunluğu.",
+        "tr": "Eriyik polimer yogunlugu.",
         "de": "Dichte der Polymerschmelze.",
         "fr": "Densité du polymère fondu.",
         "es": "Densidad del polímero fundido.",
@@ -95,10 +95,10 @@
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "Ekstrüder verimi.",
+      "businessContext": "Verim",
       "businessContext_i18n": {
         "en": "Extruder efficiency.",
-        "tr": "Ekstrüder verimi.",
+        "tr": "Ekstruder Efficiencyi.",
         "de": "Extrudereffizienz.",
         "fr": "Efficacité de l'extrudeuse.",
         "es": "Eficiencia de la extrusora.",
@@ -119,12 +119,12 @@
     "primary": "sonuc",
     "unit": "kg/h",
     "breakdown": {
-      "sonuc": "Ekstrüder Kapasitesi"
+      "sonuc": "Ekstruder Kapasitesi"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Ekstrüder Kapasitesi",
-        "tr": "Ekstrüder Kapasitesi",
+        "en": "Ekstruder Kapasitesi",
+        "tr": "Ekstruder Kapasitesi",
         "de": "Extruderkapazität",
         "fr": "Capacité de l'extrudeuse",
         "es": "Capacidad de la extrusora",
@@ -151,16 +151,16 @@
       "long": "Calculate extruder hourly polymer melt output capacity.",
       "short_i18n": {
         "en": "Calculate extruder hourly polymer melt output capacity.",
-        "tr": "Ekstrüderin saatlik net polimer eriyik çıktısını (kapasite) hesaplar.",
-        "de": "Berechnen Sie die stündliche Polymerschmelzleistung eines Extruders.",
+        "tr": "Ekstruderin saatlik Net polimer eriyik ciktisini (kapasite) hesaplar.",
+        "de": "Berechnen Sie die stundliche Polymerschmelzleistung eines Extruders.",
         "fr": "Calculer la capacité de production horaire de polymère fondu d'une extrudeuse.",
         "es": "Calcule la capacidad de producción de polímero fundido por hora de la extrusora.",
         "ar": "احسب سعة إنتاج البوليمر المنصهر لكل ساعة للطارد."
       },
       "long_i18n": {
         "en": "Calculate extruder hourly polymer melt output capacity.",
-        "tr": "Ekstrüderin saatlik net polimer eriyik çıktısını (kapasite) hesaplar.",
-        "de": "Berechnen Sie die stündliche Polymerschmelzleistung eines Extruders.",
+        "tr": "Ekstruderin saatlik Net polimer eriyik ciktisini (kapasite) hesaplar.",
+        "de": "Berechnen Sie die stundliche Polymerschmelzleistung eines Extruders.",
         "fr": "Calculer la capacité de production horaire de polymère fondu d'une extrudeuse.",
         "es": "Calcule la capacidad de producción de polímero fundido por hora de la extrusora.",
         "ar": "احسب سعة إنتاج البوليمر المنصهر لكل ساعة للطارد."

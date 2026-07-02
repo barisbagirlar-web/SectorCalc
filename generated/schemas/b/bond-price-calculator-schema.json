@@ -7,10 +7,10 @@
   "inputs": [
     {
       "id": "nominal",
-      "label": "Nominal Değer (₺)",
+      "label": "Nominal Value (₺)",
       "label_i18n": {
         "en": "Face Value (USD)",
-        "tr": "Nominal Değer (₺)",
+        "tr": "Nominal Value (TRY)",
         "de": "Nennwert",
         "fr": "Valeur nominale",
         "es": "Valor nominal",
@@ -20,10 +20,10 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Tahvilin vade sonu anapara değeri.",
+      "businessContext": "Tahvilin Maturity sonu Principal Valuei.",
       "businessContext_i18n": {
         "en": "Bond's par value at maturity.",
-        "tr": "Tahvilin vade sonu anapara değeri.",
+        "tr": "Tahvilin Maturity sonu Principal Valuei.",
         "de": "Nennwert der Anleihe bei Fälligkeit.",
         "fr": "Valeur nominale de l'obligation à l'échéance.",
         "es": "Valor nominal del bono al vencimiento.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "kupon",
-      "label": "Kupon Oranı (%)",
+      "label": "Kupon",
       "label_i18n": {
         "en": "Coupon Rate (%)",
-        "tr": "Kupon Oranı (%)",
+        "tr": "Kupon Ratio (%)",
         "de": "Kuponrate (%)",
         "fr": "Taux du coupon (%)",
         "es": "Tasa de cupón (%)",
@@ -45,10 +45,10 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Tahvilin yıllık faiz ödeme oranı.",
+      "businessContext": "Kupon",
       "businessContext_i18n": {
         "en": "Annual coupon payment rate.",
-        "tr": "Tahvilin yıllık faiz ödeme oranı.",
+        "tr": "Tahvilin yillik faiz odeme Ratioi.",
         "de": "Jährlicher Kuponzahlungssatz.",
         "fr": "Taux de coupon annuel.",
         "es": "Tasa de pago de cupón anual.",
@@ -82,10 +82,10 @@
     },
     {
       "id": "vade",
-      "label": "Vade (Yıl)",
+      "label": "Vade",
       "label_i18n": {
         "en": "Maturity (Years)",
-        "tr": "Vade (Yıl)",
+        "tr": "Maturity (Year)",
         "de": "Lean Six Sigma Reifegrad",
         "fr": "Niveau de maturité Lean Six Sigma",
         "es": "Nivel de Madurez Lean Six Sigma",
@@ -95,10 +95,10 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Tahvilin vadesine kalan yıl.",
+      "businessContext": "Vade",
       "businessContext_i18n": {
         "en": "Years to maturity.",
-        "tr": "Tahvilin vadesine kalan yıl.",
+        "tr": "Tahvilin Maturitysine kArea yil.",
         "de": "Jahre bis zur Fälligkeit.",
         "fr": "Années jusqu'à l'échéance.",
         "es": "Años hasta el vencimiento.",
@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Tahvil Fiyatı (Bugünkü Değer)"
+      "sonuc": "Tahvil Fiyati (Bugunku Value)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Tahvil Fiyatı (Bugünkü Değer)",
-        "tr": "Tahvil Fiyatı (Bugünkü Değer)",
+        "en": "Tahvil Fiyati (Bugunku Value)",
+        "tr": "Tahvil Fiyati (Bugunku Value)",
         "de": "Bond Price (Present Value)",
         "fr": "Prix de l'obligation (Valeur actuelle)",
         "es": "Precio del Bono (Valor Actual)",
@@ -150,7 +150,7 @@
       "long": "Calculate the fair price of a bond based on market interest rates.",
       "short_i18n": {
         "en": "Calculate the fair price of a bond based on market interest rates.",
-        "tr": "Tahvilin piyasa faizine göre bugünkü adil fiyatını hesaplar.",
+        "tr": "Tahvilin piyasa faizine gore bugunku adil fiyatini hesaplar.",
         "de": "Berechnung des fairen Preises einer Anleihe basierend auf den Marktzinssätzen.",
         "fr": "Calculer le prix équitable d'une obligation en fonction des taux d'intérêt du marché.",
         "es": "Calcular el precio justo de un bono basado en las tasas de interés del mercado.",
@@ -158,7 +158,7 @@
       },
       "long_i18n": {
         "en": "Calculate the fair price of a bond based on market interest rates.",
-        "tr": "Tahvilin piyasa faizine göre bugünkü adil fiyatını hesaplar.",
+        "tr": "Tahvilin piyasa faizine gore bugunku adil fiyatini hesaplar.",
         "de": "Berechnung des fairen Preises einer Anleihe basierend auf den Marktzinssätzen.",
         "fr": "Calculer le prix équitable d'une obligation en fonction des taux d'intérêt du marché.",
         "es": "Calcular el precio justo de un bono basado en las tasas de interés del mercado.",
