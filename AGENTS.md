@@ -242,3 +242,15 @@ When a Pro Tool or any other public route is permanently removed from the system
 - A `410 Gone` HTTP status is technically preferred for permanently deleted indexed URLs.
 - However, to reduce middleware complexity and maintenance overhead, we explicitly accept the standard `404 Not Found` behavior for removed tools. 
 - They must be completely purged from the codebase, the sitemap, and all registries.
+
+## Removed Free Tool Guard
+
+Deleted Free Tools must not re-enter active catalogs, generated indexes, sitemap outputs, canonical mappings, route registries, or public tool pages.
+
+Policy:
+- Runtime middleware checks are intentionally avoided.
+- Removed Free Tool enforcement is build-time only.
+- The canonical removed list lives at data/governance/removed-free-tools.json.
+- The guard command is npm run guard:removed-free-tools.
+- npm run build must fail if a removed Free Tool slug or name appears in active project surfaces.
+- If a removed Free Tool must be restored, restoration requires an explicit product decision and a dedicated commit removing it from the governance list.

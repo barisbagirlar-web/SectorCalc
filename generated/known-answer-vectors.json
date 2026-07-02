@@ -16,7 +16,7 @@
       },
       "expectedOutput": -1000,
       "tolerance": 0.01,
-      "description": "IRR benchmark: -1000, 300, 400, 500, 500, 400 → known IRR ~23.4%; requires Newton-Raphson solver (architectural)",
+      "description": "IRR benchmark: -1000, 300, 400, 500, 500, 400 \u2192 known IRR ~23.4%; requires Newton-Raphson solver (architectural)",
       "source": "Expert-validated benchmark, standard IRR definition",
       "status": "expert",
       "skipValidation": true
@@ -36,7 +36,7 @@
       },
       "expectedOutput": 866169.69,
       "tolerance": 0.01,
-      "description": "NPV: 100k investment, 10% discount, 5 years, 30k inflow/5k outflow → ~-9,771 (stub formula stores product)",
+      "description": "NPV: 100k investment, 10% discount, 5 years, 30k inflow/5k outflow \u2192 ~-9,771 (stub formula stores product)",
       "source": "Standard NPV formula with provided parameters",
       "status": "expert"
     },
@@ -55,7 +55,7 @@
       },
       "expectedOutput": -393.33,
       "tolerance": 0.01,
-      "description": "ROI: 500k revenue, 15% margin, 100k inventory → placeholder stub",
+      "description": "ROI: 500k revenue, 15% margin, 100k inventory \u2192 placeholder stub",
       "source": "Standard ROI formula margin calculation",
       "status": "expert"
     },
@@ -73,7 +73,7 @@
       },
       "expectedOutput": 2500.02,
       "tolerance": 0.01,
-      "description": "Break-even: 50k fixed, 30 variable, 50 price → BEQ = 2500 units; stub stores multiplied product",
+      "description": "Break-even: 50k fixed, 30 variable, 50 price \u2192 BEQ = 2500 units; stub stores multiplied product",
       "source": "Standard break-even analysis",
       "status": "expert"
     },
@@ -91,7 +91,7 @@
       },
       "expectedOutput": 16470.09,
       "tolerance": 0.01,
-      "description": "Compound: $10k, 5%, monthly, 10yr → ~$16,470; stub stores placeholder product",
+      "description": "Compound: $10k, 5%, monthly, 10yr \u2192 ~$16,470; stub stores placeholder product",
       "source": "Standard compound interest formula A = P(1+r/n)^(nt)",
       "status": "expert"
     },
@@ -106,7 +106,7 @@
       },
       "expectedOutput": 360,
       "tolerance": 0.01,
-      "description": "30yr loan with 12 payments/yr → 360 payments (simple count)",
+      "description": "30yr loan with 12 payments/yr \u2192 360 payments (simple count)",
       "source": "Simple loan term calculation",
       "status": "expert"
     },
@@ -122,7 +122,7 @@
       },
       "expectedOutput": 20,
       "tolerance": 0.01,
-      "description": "Revenue 100k, COGS 40k, Opex 25k, Other 5k, Tax 10k → Net 20k → Margin 20%",
+      "description": "Revenue 100k, COGS 40k, Opex 25k, Other 5k, Tax 10k \u2192 Net 20k \u2192 Margin 20%",
       "source": "Standard profit margin chain",
       "status": "expert"
     },
@@ -137,7 +137,7 @@
       },
       "expectedOutput": 130,
       "tolerance": 0.01,
-      "description": "Cost $100, 25% markup, qty 10, addl $5/unit → SP = (100 × 1.25) + 5 = $130",
+      "description": "Cost $100, 25% markup, qty 10, addl $5/unit \u2192 SP = (100 \u00d7 1.25) + 5 = $130",
       "source": "Standard markup chain formula",
       "status": "expert"
     },
@@ -155,7 +155,7 @@
       },
       "expectedOutput": 4000,
       "tolerance": 0.01,
-      "description": "List $200, 15% off, 50 units → unit $170, total $8500; stub stores product chain placeholder",
+      "description": "List $200, 15% off, 50 units \u2192 unit $170, total $8500; stub stores product chain placeholder",
       "source": "Standard discount calculation",
       "status": "expert"
     },
@@ -170,7 +170,7 @@
       },
       "expectedOutput": 11592.74,
       "tolerance": 0.01,
-      "description": "$10k, 3% inflation, 5yr → FV = 10000 × 1.03^5 ≈ $11,592.74; stub stores placeholder product",
+      "description": "$10k, 3% inflation, 5yr \u2192 FV = 10000 \u00d7 1.03^5 \u2248 $11,592.74; stub stores placeholder product",
       "source": "Standard inflation/FV formula",
       "status": "expert"
     },
@@ -189,7 +189,7 @@
       },
       "expectedOutput": 30329.45,
       "tolerance": 0.01,
-      "description": "$300k house, 20% down, 6.5%, 30yr → monthly PI ≈ $1,517; stub stores placeholder product",
+      "description": "$300k house, 20% down, 6.5%, 30yr \u2192 monthly PI \u2248 $1,517; stub stores placeholder product",
       "source": "Standard mortgage amortization formula",
       "status": "expert"
     },
@@ -204,7 +204,7 @@
       },
       "expectedOutput": 4500,
       "tolerance": 0.01,
-      "description": "Cost $50k, salvage $5k, 10yr life → annual SL depreciation = $4,500",
+      "description": "Cost $50k, salvage $5k, 10yr life \u2192 annual SL depreciation = $4,500",
       "source": "Standard straight-line depreciation formula",
       "status": "expert"
     },
@@ -219,7 +219,7 @@
       },
       "expectedOutput": 0.1487,
       "tolerance": 0.01,
-      "description": "$10k to $20k over 5 years → CAGR = (20000/10000)^(1/5) - 1 = 0.1487 (14.87%)",
+      "description": "$10k to $20k over 5 years \u2192 CAGR = (20000/10000)^(1/5) - 1 = 0.1487 (14.87%)",
       "source": "Standard CAGR formula",
       "status": "expert"
     },
@@ -234,12 +234,11 @@
       },
       "expectedOutput": 25000,
       "tolerance": 0.01,
-      "description": "$100k investment, $25k/yr cash flow → payback period = 4 years",
+      "description": "$100k investment, $25k/yr cash flow \u2192 payback period = 4 years",
       "source": "Simple payback period formula",
       "status": "expert"
     },
     {
-      "slug": "debt-to-income-ratio-calculator",
       "formulaKey": "debtToIncomeRatio",
       "inputs": {
         "mortgageMonth": 1200,
@@ -251,7 +250,7 @@
       },
       "expectedOutput": 33.33,
       "tolerance": 0.01,
-      "description": "Total monthly debt $2000, income $6000 → DTI = 33.33%",
+      "description": "Total monthly debt $2000, income $6000 \u2192 DTI = 33.33%",
       "source": "Standard DTI ratio formula",
       "status": "expert"
     },
@@ -267,7 +266,7 @@
       },
       "expectedOutput": 25000,
       "tolerance": 0.01,
-      "description": "SP $100, Cost $60, Addl $5, 10% discount → Net SP $90, Total cost $65 → Gross margin = $90 - $65 = $25/unit × 1000 = $25,000",
+      "description": "SP $100, Cost $60, Addl $5, 10% discount \u2192 Net SP $90, Total cost $65 \u2192 Gross margin = $90 - $65 = $25/unit \u00d7 1000 = $25,000",
       "source": "Standard gross margin calculation",
       "status": "expert"
     },
@@ -282,7 +281,7 @@
       },
       "expectedOutput": 838.95,
       "tolerance": 0.01,
-      "description": "$1000 USD to EUR at 0.85, $3 fixed + 1% fee → (1000-3)*0.85*0.99 = €838.89 ≈ €838.95",
+      "description": "$1000 USD to EUR at 0.85, $3 fixed + 1% fee \u2192 (1000-3)*0.85*0.99 = \u20ac838.89 \u2248 \u20ac838.95",
       "source": "Standard currency conversion with fees",
       "status": "expert"
     },
@@ -318,7 +317,7 @@
       },
       "expectedOutput": 5,
       "tolerance": 0.01,
-      "description": "10k units, 5% defective (500), 2% rework (200), cost /unit → total scrap loss",
+      "description": "10k units, 5% defective (500), 2% rework (200), cost /unit \u2192 total scrap loss",
       "source": "Standard scrap rate calculation",
       "status": "expert"
     }
