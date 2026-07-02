@@ -10,6 +10,7 @@ import type {
   ToolSchema, ComputeRequest, ComputeResult,
   Severity, SmartWarning, FmeaMode,
 } from "./types";
+import { normalizeInputs } from "../premium-schema/unit-normalizer";
 
 /* ══════════════════════════════════════════════════════════════════
  * EXPRESSION EVALUATOR
@@ -138,7 +139,17 @@ export function computeStandard(
   const standard = schema.standards.find(s => s.id === standardId);
   if (!standard) throw new Error(`Unknown standard: ${standardId}`);
 
-  const scope: Record<string, number> = { ...values };
+  // Wire unit normalizer for FREE tools
+  const normInputs = schema.inputs.map(i => ({
+    id: i.id,
+    unit: typeof i.unit === 'object' && i.unit !== null ? (i.unit as any).ref : i.unit as string
+  }));
+  const { values: normalizedValues, warnings } = normalizeInputs(normInputs, values);
+  if (warnings.length > 0 && process.env.NODE_ENV !== "production") {
+    console.warn(`[Unit Normalizer] Warnings for ${(schema as any).schemaId || (schema as any).name || 'schema'}:`, warnings);
+  }
+
+  const scope: Record<string, number> = { ...normalizedValues };
 
   for (const formula of standard.formulas) {
     try {

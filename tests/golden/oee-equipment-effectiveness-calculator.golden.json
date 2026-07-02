@@ -5,28 +5,33 @@
     {
       "name": "typical",
       "inputs": {
-        "plannedProductionTime": 480, "totalDowntime": 60, "idealCycleTime": 1,
-        "totalPartsProduced": 400, "goodPartsCount": 380
+        "plannedProductionTime": 480, "downtime": 60, "idealCycleTime": 1,
+        "totalCount": 400, "goodCount": 380
       },
-      "expect": { "availability": 0.875, "performance": 0.952381, "quality": 0.95, "oee": 0.791667 },
+      "expect": {
+        "availability": 0.875,
+        "performance": 0.952381,
+        "quality": 0.95,
+        "oee": 79.1667
+      },
       "tolerance": { "abs": 1e-4, "rel": 1e-4 }
     },
     {
       "name": "boundary_perfect_100",
       "inputs": {
-        "plannedProductionTime": 480, "totalDowntime": 0, "idealCycleTime": 1,
-        "totalPartsProduced": 480, "goodPartsCount": 480
+        "plannedProductionTime": 480, "downtime": 0, "idealCycleTime": 1,
+        "totalCount": 480, "goodCount": 480
       },
-      "expect": { "availability": 1, "performance": 1, "quality": 1, "oee": 1 },
+      "expect": { "availability": 1, "performance": 1, "quality": 1, "oee": 100 },
       "tolerance": { "abs": 1e-4, "rel": 1e-4 }
     },
     {
       "name": "half_availability",
       "inputs": {
-        "plannedProductionTime": 480, "totalDowntime": 240, "idealCycleTime": 2,
-        "totalPartsProduced": 100, "goodPartsCount": 90
+        "plannedProductionTime": 480, "downtime": 240, "idealCycleTime": 2,
+        "totalCount": 100, "goodCount": 90
       },
-      "expect": { "availability": 0.5, "performance": 0.833333, "quality": 0.9, "oee": 0.375 },
+      "expect": { "availability": 0.5, "performance": 0.833333, "quality": 0.9, "oee": 37.5 },
       "tolerance": { "abs": 1e-4, "rel": 1e-4 }
     }
   ]

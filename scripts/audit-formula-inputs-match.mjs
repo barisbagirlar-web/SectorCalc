@@ -40,7 +40,10 @@ function analyzeExpression(expr) {
   return { vars, unknownFns };
 }
 
-const files = globSync(`${SCHEMAS_DIR}/**/*.json`);
+const files = [
+  ...globSync(`${SCHEMAS_DIR}/**/*.json`),
+  ...globSync("src/**/tool-schemas/**/*.json")
+];
 const fails = [];  
 const warns = [];  
 
