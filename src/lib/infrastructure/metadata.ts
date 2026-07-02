@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";
-import { ['en'], type AppLocale } from "@/i18n/routing";
+import type { AppLocale } from "@/i18n/routing";
 import { getCanonicalPathForLocale } from "@/lib/infrastructure/i18n/locale-routing";
 import { normalizeLocale } from "@/lib/core/format/localization";
 import {

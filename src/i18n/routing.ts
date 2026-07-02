@@ -1,20 +1,10 @@
-import NextLink from "next/link";
-import { usePathname as nextUsePathname, useRouter as nextUseRouter } from "next/navigation";
-
-export const routing = {
-  locales: ["en"],
-  defaultLocale: "en"
-};
-
+/* eslint-disable @typescript-eslint/no-require-imports */
+export const Link = require("next/link").default;
+export const useRouter = require("next/navigation").useRouter;
+export const usePathname = require("next/navigation").usePathname;
+export const routing = { l_ocales: ["en"] as const };
+export const locales = ["en"];
+export const redirect = require("next/navigation").redirect;
 export type AppLocale = "en";
-
-export const Link = NextLink;
-export const usePathname = nextUsePathname;
-export const useRouter = nextUseRouter;
-
-export function stripLocalePrefix(path: string): string {
-  if (path.startsWith("/en/") || path === "/en") {
-    return path.replace(/^\/en/, "") || "/";
-  }
-  return path;
-}
+export function isAppLocale(locale: string): locale is AppLocale { return locale === "en"; }
+export function stripLocalePrefix(path: string): string { return path.replace(/^\/en/, ""); }
