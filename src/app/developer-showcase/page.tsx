@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function DeveloperShowcasePage({ params }: PageProps) {
   const locale = "en";
   
-  const t = await getTranslations();
+  const t = await getTranslations("developerShowcase");
   const tools = listSemanticToolContracts()
     .filter((tool) => tool.isPublic)
     .sort((a, b) => a.toolSlug.localeCompare(b.toolSlug));
@@ -43,26 +43,26 @@ export default async function DeveloperShowcasePage({ params }: PageProps) {
       <SemanticJsonLd data={jsonLd} />
       <section className="border-b border-slate-200 bg-white py-10 sm:py-14">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{"eyebrow"}</p>
-          <h1 className="mt-2 text-3xl font-semibold text-slate-900 sm:text-4xl">{"title"}</h1>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700">{"intro"}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t("eyebrow")}</p>
+          <h1 className="mt-2 text-3xl font-semibold text-slate-900 sm:text-4xl">{t("title")}</h1>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700">{t("intro")}</p>
         </Container>
       </section>
 
       <section className="py-10">
         <Container className="grid gap-8 lg:grid-cols-2">
           <article className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6">
-            <h2 className="text-lg font-semibold text-slate-900">{"semantic.title"}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">{"semantic.body"}</p>
+            <h2 className="text-lg font-semibold text-slate-900">{t("semantic.title")}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">{t("semantic.body")}</p>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
-              <li>{"semantic.item1"}</li>
-              <li>{"semantic.item2"}</li>
-              <li>{"semantic.item3"}</li>
+              <li>{t("semantic.item1")}</li>
+              <li>{t("semantic.item2")}</li>
+              <li>{t("semantic.item3")}</li>
             </ul>
           </article>
 
           <article className="rounded-2xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-semibold text-slate-900">{"resources.title"}</h2>
+            <h2 className="text-lg font-semibold text-slate-900">{t("resources.title")}</h2>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a href={absoluteUrl("/llms.txt")} className="font-medium text-blue-700 hover:underline">
@@ -81,19 +81,19 @@ export default async function DeveloperShowcasePage({ params }: PageProps) {
               </li>
               <li>
                 <Link href="/calculator-library" className="font-medium text-blue-700 hover:underline">
-                  {"resources.library"}
+                  {t("resources.library")}
                 </Link>
               </li>
             </ul>
-            <p className="mt-4 text-xs leading-relaxed text-slate-500">{"resources.note"}</p>
+            <p className="mt-4 text-xs leading-relaxed text-slate-500">{t("resources.note")}</p>
           </article>
         </Container>
       </section>
 
       <section className="border-t border-slate-200 bg-slate-50 py-10">
         <Container>
-          <h2 className="text-xl font-semibold text-slate-900">{"index.title"}</h2>
-          <p className="mt-2 max-w-3xl text-sm text-slate-700">{"index.body"}</p>
+          <h2 className="text-xl font-semibold text-slate-900">{t("index.title")}</h2>
+          <p className="mt-2 max-w-3xl text-sm text-slate-700">{t("index.body")}</p>
           <p className="mt-3 text-xs text-slate-500">
             index.count: {tools.length}
           </p>
