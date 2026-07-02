@@ -18,7 +18,7 @@ import {
 } from "@/lib/infrastructure/firebase/customer-auth";
 
 const buttonClass =
- "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
+ "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-4 text-sm font-semibold transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
 
 interface CustomerSignInPanelProps {
  nextPath: string;
@@ -161,7 +161,7 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         <button
           type="submit"
           disabled={pending}
-          className={`${buttonClass}`}
+          className={`${buttonClass} text-white`}
         >
           {pending ? t("signingIn") : (mode === "signup" ? "Sign up with Email" : "Sign in with Email")}
         </button>
@@ -178,8 +178,7 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         data-auth-google-button="true"
         onClick={() => void handleGoogleSignIn()}
         disabled={pending}
-        className={`${buttonClass} relative !bg-white border border-border-subtle hover:!bg-bg-subtle flex items-center justify-center gap-2`}
-        style={{ color: "#000" }}
+        className={`${buttonClass} relative !bg-white text-black border border-border-subtle hover:!bg-bg-subtle flex items-center justify-center gap-2`}
       >
         {!pending && (
           <svg className="h-5 w-5" viewBox="0 0 24 24">
