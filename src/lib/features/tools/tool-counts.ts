@@ -2,8 +2,7 @@
  * Dynamic tool counter - computes total tools at build/render time.
  * Uses static imports (resolved by Next.js/webpack at build time).
  */
-import titles from "@/data/generated-tool-titles-i18n.generated.json";
-import { listPremiumSchemaIds } from "@/lib/features/premium-schema/schema-registry";
+import { getFreeTools, getPremiumTools } from "@/lib/features/tools/all-tools-data";
 
 let _cachedTotal: number | null = null;
 let _cachedFree: number | null = null;
@@ -28,8 +27,8 @@ export function getPremiumToolCount(): number {
 }
 
 function compute(): void {
-  _cachedFree = Object.keys(titles).length;
-  _cachedPremium = listPremiumSchemaIds().length;
+  _cachedFree = getFreeTools("en").length;
+  _cachedPremium = getPremiumTools("en").length;
   _cachedTotal = _cachedFree + _cachedPremium;
 }
 

@@ -24,7 +24,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
 import { BRAND_ASSETS } from "@/config/brand";
 import { AuthStatusIndicator } from "@/lib/ui-shared/auth/AuthStatusIndicator";
 
