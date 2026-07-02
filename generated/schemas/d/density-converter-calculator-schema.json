@@ -17,7 +17,7 @@
         "ar": "قيمة الكثافة"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 1,
       "min": 0,
       "businessContext": "Dönüştürülecek yoğunluk değeri.",
@@ -42,7 +42,7 @@
         "ar": "وحدة المصدر"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 1,
       "min": 0,
       "businessContext": "Girilen değerin birimi.",

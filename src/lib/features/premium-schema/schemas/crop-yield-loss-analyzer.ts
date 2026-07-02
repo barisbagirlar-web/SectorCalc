@@ -5,7 +5,7 @@ export const CROP_YIELD_LOSS_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "If Efficiency Loss and its financial impact are not calculated, agricultural intervention decisions are delayed and losses grow.", painStatement_i18n: {"en":"If Efficiency Loss and its financial impact are not calculated, agricultural intervention decisions are delayed and losses grow."},
   inputs: [
     { id: "geneticPotential", label: "Genetik Potansiyel", label_i18n: {"en":"Genetik Potansiyel"}, type: "number", unit: "kg/da", required: true, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Genetic yield potential", expertMeaning_i18n: {"en":"Genetic yield potential"} },
-    { id: "envFactor", label: "Environment factor", label_i18n: {"en":"Environment factor"}, type: "number", unit: "", required: false, smartDefault: 0.8, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Environment factor", expertMeaning_i18n: {"en":"Environment factor"} },
+    { id: "envFactor", label: "Environment factor", label_i18n: {"en":"Environment factor"}, type: "number", unit: "scalar", required: false, smartDefault: 0.8, validation: { min: 0, max: 1 }, helper: "", expertMeaning: "Environment factor", expertMeaning_i18n: {"en":"Environment factor"} },
     { id: "harvestedWeight", label: "Hasat Edilen", label_i18n: {"en":"Hasat Edilen"}, type: "number", unit: "kg", required: true, smartDefault: 700, validation: { min: 0 }, helper: "", expertMeaning: "Harvested weight per unit", expertMeaning_i18n: {"en":"Harvested weight per unit"} },
     { id: "area", label: "Alan", label_i18n: {"en":"Alan"}, type: "number", unit: "da", required: true, smartDefault: 1, validation: { min: 0.1 }, helper: "", expertMeaning: "Cultivated area", expertMeaning_i18n: {"en":"Cultivated area"} },
     { id: "pestLossPct", label: "Pest damage percentage", label_i18n: {"en":"Pest damage percentage"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Pest damage percentage", expertMeaning_i18n: {"en":"Pest damage percentage"} },
@@ -19,7 +19,7 @@ export const CROP_YIELD_LOSS_SCHEMA: PremiumCalculatorSchema = {
     { id: "actualYield", label: "Actual Efficiency", label_i18n: {"en":"Actual Efficiency"}, unit: "kg/da", format: "number" },
     { id: "yieldGap", label: "Efficiency difference", label_i18n: {"en":"Efficiency difference"}, unit: "kg/da", format: "number" },
     { id: "financialLoss", label: "Financial Loss", label_i18n: {"en":"Financial Loss"}, unit: "USD/da", format: "currency" },
-    { id: "roiIntervention", label: "intervention ROI", label_i18n: {"en":"intervention ROI"}, unit: "", format: "number" },
+    { id: "roiIntervention", label: "intervention ROI", label_i18n: {"en":"intervention ROI"}, unit: "scalar", format: "number" },
   ],
   thresholds: [{ fieldId: "yieldGap", warning: 100, critical: 300, direction: "higher_is_bad", warningMessage: "Efficiency difference > 100 kg/da — intervention should be evaluated.", warningMessage_i18n: {"en":"Efficiency difference > 100 kg/da — intervention should be evaluated."}, criticalMessage: "Efficiency difference > 300 kg/da — urgent measure required.", criticalMessage_i18n: {"en":"Efficiency difference > 300 kg/da — urgent measure required."} }],
   formulaPipeline: [

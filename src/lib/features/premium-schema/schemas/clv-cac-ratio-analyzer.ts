@@ -23,7 +23,7 @@ export const CLV_CAC_SCHEMA: PremiumCalculatorSchema = {
     { id: "discountedClv", label: "Iskontolu CLV", label_i18n: {"en":"Iskontolu CLV"}, unit: "USD", format: "currency" },
     { id: "cac", label: "CAC", label_i18n: {"en":"CAC"}, unit: "USD", format: "currency" },
     { id: "payback", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "months", format: "number" },
-    { id: "ltvCac", label: "LTV/CAC Rate", label_i18n: {"en":"LTV/CAC Rate"}, unit: "", format: "number", isBigNumber: true },
+    { id: "ltvCac", label: "LTV/CAC Rate", label_i18n: {"en":"LTV/CAC Rate"}, unit: "scalar", format: "number", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "ltvCac", warning: 3, critical: 1, direction: "lower_is_bad", warningMessage: "LTV/CAC < 3 — marketing efficiency should be improved.", warningMessage_i18n: {"en":"LTV/CAC < 3 — marketing efficiency should be improved."}, criticalMessage: "LTV/CAC < 1 — every customer generates Loss, urgent strategy change needed.", criticalMessage_i18n: {"en":"LTV/CAC < 1 — every customer generates Loss, urgent strategy change needed."} },

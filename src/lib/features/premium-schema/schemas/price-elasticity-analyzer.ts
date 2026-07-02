@@ -15,7 +15,7 @@ export const PRICE_ELASTICITY_SCHEMA: PremiumCalculatorSchema = {
     { id: "marginOther", label: "Other Product Margin", label_i18n: {"en":"Other Product Margin"}, type: "number", unit: "USD", required: false, smartDefault: 0, validation: { min: 0 }, helper: "", expertMeaning: "Margin of cannibalized product", expertMeaning_i18n: {"en":"Margin of cannibalized product"} },
   ],
   outputs: [
-    { id: "elasticity", label: "Price Elasticity", label_i18n: {"en":"Price Elasticity"}, unit: "", format: "number" },
+    { id: "elasticity", label: "Price Elasticity", label_i18n: {"en":"Price Elasticity"}, unit: "scalar", format: "number" },
     { id: "optimalMarkup", label: "Optimal Profit Margin", label_i18n: {"en":"Optimal Profit Margin"}, unit: "%", format: "percentage" },
     { id: "newRevenue", label: "New Revenue", label_i18n: {"en":"New Revenue"}, unit: "USD", format: "currency", isBigNumber: true },
   ],

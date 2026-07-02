@@ -18,7 +18,7 @@ export const ENERGY_CONSUMPTION_SCHEMA: PremiumCalculatorSchema = {
     { id: "carbonPrice", label: "Carbon price per ton", label_i18n: {"en":"Carbon price per ton"}, type: "number", unit: "USD/ton", required: false, smartDefault: 50, validation: { min: 0 }, helper: "", expertMeaning: "Carbon price per ton", expertMeaning_i18n: {"en":"Carbon price per ton"} },
   ],
   outputs: [
-    { id: "powerFactor", label: "Power Faktoru (PF)", label_i18n: {"en":"Power Faktoru (PF)"}, unit: "", format: "percentage" },
+    { id: "powerFactor", label: "Power Faktoru (PF)", label_i18n: {"en":"Power Faktoru (PF)"}, unit: "scalar", format: "percentage" },
     { id: "reactivePenalty", label: "Reaktif penalty", label_i18n: {"en":"Reaktif penalty"}, unit: "USD", format: "currency" },
     { id: "totalBill", label: "Total Bill", label_i18n: {"en":"Total Bill"}, unit: "USD", format: "currency" },
     { id: "carbonFootprint", label: "Carbon Cost", label_i18n: {"en":"Carbon Cost"}, unit: "USD", format: "currency", isBigNumber: true },

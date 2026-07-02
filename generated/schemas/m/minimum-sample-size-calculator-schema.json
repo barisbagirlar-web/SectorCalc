@@ -17,7 +17,7 @@
         "ar": "قيمة Z"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 1.96,
       "min": 0,
       "businessContext": "Güven seviyesine karşılık Z (1.96=%95).",
@@ -42,7 +42,7 @@
         "ar": "الانحراف المعياري المقدر"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 10,
       "min": 0,
       "businessContext": "Popülasyon standart sapması.",
@@ -67,7 +67,7 @@
         "ar": "هامش الخطأ"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 2,
       "min": 0,
       "businessContext": "İzin verilen maksimum hata.",

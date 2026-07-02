@@ -17,7 +17,7 @@
         "ar": "متوسط المجموعة 1"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 100,
       "min": 0,
       "businessContext": "Birinci grubun ortalaması.",
@@ -42,7 +42,7 @@
         "ar": "متوسط المجموعة 2"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 110,
       "min": 0,
       "businessContext": "İkinci grubun ortalaması.",
@@ -67,7 +67,7 @@
         "ar": "حجم المجموعة 1"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 30,
       "min": 2,
       "businessContext": "Birinci grubun örneklem sayısı.",
@@ -92,7 +92,7 @@
         "ar": "حجم المجموعة 2"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 30,
       "min": 2,
       "businessContext": "İkinci grubun örneklem sayısı.",
@@ -117,7 +117,7 @@
         "ar": "تباين المجموعة 1"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 225,
       "min": 0,
       "businessContext": "Birinci grubun varyansı.",
@@ -142,7 +142,7 @@
         "ar": "تباين المجموعة 2"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 225,
       "min": 0,
       "businessContext": "İkinci grubun varyansı.",

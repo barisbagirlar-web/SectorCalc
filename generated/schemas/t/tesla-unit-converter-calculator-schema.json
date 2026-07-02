@@ -17,7 +17,7 @@
         "ar": "قيمة المجال المغناطيسي"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 1,
       "min": 0,
       "businessContext": "Dönüştürülecek değer.",
@@ -42,7 +42,7 @@
         "ar": "مصدر الطاقة الأساسي"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 0,
       "min": 0,
       "businessContext": "Girilen birim.",

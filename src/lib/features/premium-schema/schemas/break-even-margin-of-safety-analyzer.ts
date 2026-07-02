@@ -23,9 +23,9 @@ export const BREAK_EVEN_SCHEMA: PremiumCalculatorSchema = {
     { id: "bepRevenue", label: "Break-Even Point (Revenue)", label_i18n: {"en":"Break-Even Point (Revenue)"}, unit: "USD", format: "currency" },
     { id: "cmr", label: "Contribution Margin Ratio", label_i18n: {"en":"Contribution Margin Ratio"}, unit: "%", format: "percentage" },
     { id: "marginOfSafetyPct", label: "Guvenlik Margin", label_i18n: {"en":"Guvenlik Margin"}, unit: "%", format: "percentage" },
-    { id: "operatingLeverage", label: "activity Kaldrac (DOL)", label_i18n: {"en":"activity Kaldrac (DOL)"}, unit: "", format: "number" },
+    { id: "operatingLeverage", label: "activity Kaldrac (DOL)", label_i18n: {"en":"activity Kaldrac (DOL)"}, unit: "scalar", format: "number" },
     { id: "targetProfitUnits", label: "Hedef profit Icin required Sats", label_i18n: {"en":"Hedef profit Icin required Sats"}, unit: "units", format: "number" },
-    { id: "bepVerdict", label: "Karllk Durumu", label_i18n: {"en":"Karllk Durumu"}, unit: "", format: "score", isBigNumber: true },
+    { id: "bepVerdict", label: "Karllk Durumu", label_i18n: {"en":"Karllk Durumu"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "marginOfSafetyPct", warning: 20, critical: 10, direction: "lower_is_bad", warningMessage: "Margin of safety < 20% — vulnerable to sales decline.", warningMessage_i18n: {"en":"Margin of safety < 20% — vulnerable to sales decline."}, criticalMessage: "Margin of safety < 10% — small sales decline causes loss.", criticalMessage_i18n: {"en":"Margin of safety < 10% — small sales decline causes loss."} },

@@ -17,7 +17,7 @@ export const AQL_SAMPLING_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "Performing sampling without understanding the risk balance between AQL and LTPD in inspection plan selection creates either unnecessary Cost or risk of missed Error.", painStatement_i18n: {"en":"Performing sampling without understanding the risk balance between AQL and LTPD in inspection plan selection creates either unnecessary Cost or risk of missed Error."},
   inputs: [
     { id: "lotSize", label: "Lot Size (N)", label_i18n: {"en":"Lot Size (N)"}, type: "number", unit: "units", required: true, smartDefault: 1000, validation: { min: 1 }, helper: "Total lot size.", helper_i18n: {"en":"Total lot size."}, expertMeaning: "Lot size", expertMeaning_i18n: {"en":"Lot size"} },
-    { id: "inspectionLevel", label: "Inspection Level", label_i18n: {"en":"Inspection Level"}, type: "select", unit: "", required: true, smartDefault: "II", options: [...INSPECTION_LEVEL_OPTIONS], helper: "ANSI/ASQ Z1.4 muayene seviyesi.", helper_i18n: {"en":"ANSI/ASQ Z1.4 muayene seviyesi."}, expertMeaning: "ANSI/ASQ Z1.4 inspection level", expertMeaning_i18n: {"en":"ANSI/ASQ Z1.4 inspection level"} },
+    { id: "inspectionLevel", label: "Inspection Level", label_i18n: {"en":"Inspection Level"}, type: "select", unit: "scalar", required: true, smartDefault: "II", options: [...INSPECTION_LEVEL_OPTIONS], helper: "ANSI/ASQ Z1.4 muayene seviyesi.", helper_i18n: {"en":"ANSI/ASQ Z1.4 muayene seviyesi."}, expertMeaning: "ANSI/ASQ Z1.4 inspection level", expertMeaning_i18n: {"en":"ANSI/ASQ Z1.4 inspection level"} },
     { id: "aqlPercent", label: "AQL (%)", label_i18n: {"en":"AQL (%)"}, type: "number", unit: "%", required: true, smartDefault: 1, validation: { min: 0.01, max: 10 }, helper: "Kabul edilebilir kalite seviyesi.", helper_i18n: {"en":"Kabul edilebilir kalite seviyesi."}, expertMeaning: "Acceptable Quality Level", expertMeaning_i18n: {"en":"Acceptable Quality Level"} },
     { id: "ltpdPercent", label: "LTPD (%)", label_i18n: {"en":"LTPD (%)"}, type: "number", unit: "%", required: true, smartDefault: 5, validation: { min: 0.01, max: 20 }, helper: "Lot tolerance defect percentage.", helper_i18n: {"en":"Lot tolerance defect percentage."}, expertMeaning: "Lot Tolerance Percent Defective", expertMeaning_i18n: {"en":"Lot Tolerance Percent Defective"} },
     { id: "sampleSize", label: "Sample Size (n)", label_i18n: {"en":"Sample Size (n)"}, type: "number", unit: "units", required: true, smartDefault: 80, validation: { min: 1 }, helper: "Number of samples to inspect.", helper_i18n: {"en":"Number of samples to inspect."}, expertMeaning: "Sample size per ANSI/ASQ Z1.4", expertMeaning_i18n: {"en":"Sample size per ANSI/ASQ Z1.4"} },
@@ -30,7 +30,7 @@ export const AQL_SAMPLING_SCHEMA: PremiumCalculatorSchema = {
   outputs: [
     { id: "alphaRisk", label: "Uretici Riski ()", label_i18n: {"en":"Uretici Riski ()"}, unit: "%", format: "percentage" },
     { id: "betaRisk", label: "Tuketici Riski ()", label_i18n: {"en":"Tuketici Riski ()"}, unit: "%", format: "percentage" },
-    { id: "ati", label: "ATI (Avg. Total Inspection)", label_i18n: {"en":"ATI (Avg. Total Inspection)"}, unit: "", format: "number" },
+    { id: "ati", label: "ATI (Avg. Total Inspection)", label_i18n: {"en":"ATI (Avg. Total Inspection)"}, unit: "scalar", format: "number" },
     { id: "totalRiskCost", label: "Total Risk Cost", label_i18n: {"en":"Total Risk Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [

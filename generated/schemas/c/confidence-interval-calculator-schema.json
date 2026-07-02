@@ -17,7 +17,7 @@
         "ar": "متوسط العينة"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 100,
       "min": 0,
       "businessContext": "Örneklemin ortalaması.",
@@ -42,7 +42,7 @@
         "ar": "الخطأ المعياري"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 5,
       "min": 0,
       "businessContext": "Ortalamanın standart hatası.",

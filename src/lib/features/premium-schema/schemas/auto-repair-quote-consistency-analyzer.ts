@@ -19,9 +19,9 @@ export const AUTO_REPAIR_QUOTE_SCHEMA: PremiumCalculatorSchema = {
     { id: "shopHourlyRate", label: "Shop Hourly Rate", label_i18n: {"en":"Shop Hourly Rate"}, type: "number", unit: "USD/hour", required: false, smartDefault: 85, validation: { min: 0 }, helper: "", expertMeaning: "Shop labor rate", expertMeaning_i18n: {"en":"Shop labor rate"} },
   ],
   outputs: [
-    { id: "quoteVariance", label: "quote Varyans (CV)", label_i18n: {"en":"quote Varyans (CV)"}, unit: "", format: "number" },
+    { id: "quoteVariance", label: "quote Varyans (CV)", label_i18n: {"en":"quote Varyans (CV)"}, unit: "scalar", format: "number" },
     { id: "partPriceDeviation", label: "Parts Price Variance", label_i18n: {"en":"Parts Price Variance"}, unit: "%", format: "percentage" },
-    { id: "consistencyScore", label: "Tutarllk Skoru", label_i18n: {"en":"Tutarllk Skoru"}, unit: "", format: "score", isBigNumber: true },
+    { id: "consistencyScore", label: "Tutarllk Skoru", label_i18n: {"en":"Tutarllk Skoru"}, unit: "scalar", format: "score", isBigNumber: true },
     { id: "marginLeak", label: "Margin Kacag", label_i18n: {"en":"Margin Kacag"}, unit: "USD", format: "currency" },
   ],
   thresholds: [

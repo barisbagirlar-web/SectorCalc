@@ -15,8 +15,8 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "mitigationCost", label: "Mitigation Cost", label_i18n: {"en":"Mitigation Cost"}, type: "number", unit: "USD", required: false, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Cost to mitigate risks", expertMeaning_i18n: {"en":"Cost to mitigate risks"} },
   ],
   outputs: [
-    { id: "spi", label: "Program Performans Endeksi (SPI)", label_i18n: {"en":"Program Performans Endeksi (SPI)"}, unit: "", format: "number" },
-    { id: "cpi", label: "Cost Performans Endeksi (CPI)", label_i18n: {"en":"Cost Performans Endeksi (CPI)"}, unit: "", format: "number" },
+    { id: "spi", label: "Program Performans Endeksi (SPI)", label_i18n: {"en":"Program Performans Endeksi (SPI)"}, unit: "scalar", format: "number" },
+    { id: "cpi", label: "Cost Performans Endeksi (CPI)", label_i18n: {"en":"Cost Performans Endeksi (CPI)"}, unit: "scalar", format: "number" },
     { id: "eac", label: "Estimated Completion Cost (EAC)", label_i18n: {"en":"Estimated Completion Cost (EAC)"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "expectedOverrun", label: "Expected Asm", label_i18n: {"en":"Expected Asm"}, unit: "USD", format: "currency", isBigNumber: true },
     { id: "scheduleDelay", label: "Program Gecikmesi", label_i18n: {"en":"Program Gecikmesi"}, unit: "days", format: "number" },

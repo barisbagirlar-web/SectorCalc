@@ -16,7 +16,7 @@ export const WELD_STRENGTH_SCHEMA: PremiumCalculatorSchema = {
     { id: "shearArea", label: "Kesme Alan", label_i18n: {"en":"Kesme Alan"}, unit: "mm²", format: "number" },
     { id: "allowableStress", label: "Izin Verilen Kesme Gerilmesi", label_i18n: {"en":"Izin Verilen Kesme Gerilmesi"}, unit: "MPa", format: "number" },
     { id: "maxShearLoad", label: "Maksimum Kesme Load", label_i18n: {"en":"Maksimum Kesme Load"}, unit: "N", format: "number" },
-    { id: "safetyFactor", label: "Guvenlik Faktoru", label_i18n: {"en":"Guvenlik Faktoru"}, unit: "", format: "number" },
+    { id: "safetyFactor", label: "Guvenlik Faktoru", label_i18n: {"en":"Guvenlik Faktoru"}, unit: "scalar", format: "number" },
   ],
   thresholds: [{ fieldId: "safetyFactor", warning: 2, critical: 1.25, direction: "lower_is_bad", warningMessage: "SF < 2 — Design must be reviewed.", warningMessage_i18n: {"en":"SF < 2 — Design must be reviewed."}, criticalMessage: "SF < 1.25 — Structural risk is urgent!", criticalMessage_i18n: {"en":"SF < 1.25 — Structural risk is urgent!"} }],
   formulaPipeline: [

@@ -18,7 +18,7 @@ export const CBAM_COMPLIANCE_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "Is the specific embedded emission of your products under CBAM below EU default values? Does the financial obligation exceed the profit margin? This tool supports supply chain decisions.", painStatement_i18n: {"en":"Is the specific embedded emission of your products under CBAM below EU default values? Does the financial obligation exceed the profit margin? This tool supports supply chain decisions."},
   inputs: [
     { id: "totalImportMassTons", label: "Total Import Mass", label_i18n: {"en":"Total Import Mass"}, type: "number", unit: "ton", required: true, smartDefault: 500, validation: { min: 0 }, helper: "", expertMeaning: "Total import mass", expertMeaning_i18n: {"en":"Total import mass"} },
-    { id: "originCountry", label: "Country of Origin", label_i18n: {"en":"Country of Origin"}, type: "select", unit: "", required: true, smartDefault: "TR", options: [...ORIGIN_COUNTRY_OPTIONS], helper: "", expertMeaning: "Country of origin", expertMeaning_i18n: {"en":"Country of origin"} },
+    { id: "originCountry", label: "Country of Origin", label_i18n: {"en":"Country of Origin"}, type: "select", unit: "scalar", required: true, smartDefault: "TR", options: [...ORIGIN_COUNTRY_OPTIONS], helper: "", expertMeaning: "Country of origin", expertMeaning_i18n: {"en":"Country of origin"} },
     { id: "scope1Emissions", label: "Scope 1 Emissions", label_i18n: {"en":"Scope 1 Emissions"}, type: "number", unit: "tCO₂e", required: true, smartDefault: 300, validation: { min: 0 }, helper: "", expertMeaning: "Scope 1 direct emissions", expertMeaning_i18n: {"en":"Scope 1 direct emissions"} },
     { id: "scope2Emissions", label: "Scope 2 Emissions", label_i18n: {"en":"Scope 2 Emissions"}, type: "number", unit: "tCO₂e", required: true, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Scope 2 indirect emissions", expertMeaning_i18n: {"en":"Scope 2 indirect emissions"} },
     { id: "defaultEmissionFactor", label: "EU Default Emission Factor", label_i18n: {"en":"EU Default Emission Factor"}, type: "number", unit: "tCO₂e/ton", required: false, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "EU default value per product category", expertMeaning_i18n: {"en":"EU default value per product category"} },
@@ -29,9 +29,9 @@ export const CBAM_COMPLIANCE_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "specificEmbedded", label: "Spesifik Gomulu emission", label_i18n: {"en":"Spesifik Gomulu emission"}, unit: "tCO₂e/ton", format: "number" },
-    { id: "actualVsDefault", label: "Actual / Varsaylan Rate", label_i18n: {"en":"Actual / Varsaylan Rate"}, unit: "", format: "number" },
+    { id: "actualVsDefault", label: "Actual / Varsaylan Rate", label_i18n: {"en":"Actual / Varsaylan Rate"}, unit: "scalar", format: "number" },
     { id: "financialLiability", label: "Net CBAM Financial obligation", label_i18n: {"en":"Net CBAM Financial obligation"}, unit: "USD", format: "currency" },
-    { id: "complianceDecision", label: "Uyum decision", label_i18n: {"en":"Uyum decision"}, unit: "", format: "score", isBigNumber: true },
+    { id: "complianceDecision", label: "Uyum decision", label_i18n: {"en":"Uyum decision"}, unit: "scalar", format: "score", isBigNumber: true },
   ],
   thresholds: [
     { fieldId: "actualVsDefault", warning: 1, critical: 1.2, direction: "higher_is_bad", warningMessage: "Emissions close to EU default — verification required.", warningMessage_i18n: {"en":"Emissions close to EU default — verification required."}, criticalMessage: "Emissions exceed EU default — supply chain at risk.", criticalMessage_i18n: {"en":"Emissions exceed EU default — supply chain at risk."} },

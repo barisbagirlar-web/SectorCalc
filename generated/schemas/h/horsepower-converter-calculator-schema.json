@@ -17,7 +17,7 @@
         "ar": "قيمة القدرة"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 100,
       "min": 0,
       "businessContext": "Dönüştürülecek güç.",
@@ -42,7 +42,7 @@
         "ar": "وحدة المصدر"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 0,
       "min": 0,
       "businessContext": "Girilen birim.",

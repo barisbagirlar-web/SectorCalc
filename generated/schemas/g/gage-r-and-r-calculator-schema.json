@@ -17,7 +17,7 @@
         "ar": "تباين القطعة (VP)"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 100,
       "min": 0,
       "businessContext": "Parçalar arası gerçek farklılık.",
@@ -42,7 +42,7 @@
         "ar": "تباين R&R للمقياس"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 25,
       "min": 0,
       "businessContext": "Ölçüm sisteminden kaynaklanan varyans.",

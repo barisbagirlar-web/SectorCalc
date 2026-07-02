@@ -17,7 +17,7 @@
         "ar": "رسوم التسجيل السنوية"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 100,
       "min": 0,
       "businessContext": "Sinyal gücü/voltaj oranı.",
@@ -42,7 +42,7 @@
         "ar": "نوع دالة الخسارة"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 0,
       "min": 0,
       "businessContext": "Oran tipi.",

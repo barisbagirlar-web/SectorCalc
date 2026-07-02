@@ -16,7 +16,7 @@ export const FEED_COST_SCHEMA: PremiumCalculatorSchema = {
   ],
   outputs: [
     { id: "baseCost", label: "Base Feed Cost", label_i18n: {"en":"Base Feed Cost"}, unit: "USD/ton", format: "currency" },
-    { id: "fcr", label: "FCR (Feed Donusum Rate)", label_i18n: {"en":"FCR (Feed Donusum Rate)"}, unit: "", format: "number" },
+    { id: "fcr", label: "FCR (Feed Donusum Rate)", label_i18n: {"en":"FCR (Feed Donusum Rate)"}, unit: "scalar", format: "number" },
     { id: "costPerKgGain", label: "kg Gain Cost", label_i18n: {"en":"kg Gain Cost"}, unit: "USD/kg", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "fcr", warning: 2.5, critical: 3.0, direction: "higher_is_bad", warningMessage: "FCR > 2.5 — feed efficiency is low.", warningMessage_i18n: {"en":"FCR > 2.5 — feed efficiency is low."}, criticalMessage: "FCR > 3.0 — rasyon optimizasyonu acil.", criticalMessage_i18n: {"en":"FCR > 3.0 — rasyon optimizasyonu acil."} }],

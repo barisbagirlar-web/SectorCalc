@@ -17,7 +17,7 @@
         "ar": "عدد أفراد الطبقة (N_h)"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 500,
       "min": 0,
       "businessContext": "Tabakadaki toplam birey.",
@@ -42,7 +42,7 @@
         "ar": "إجمالي عدد السكان (N)"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 5000,
       "min": 0,
       "businessContext": "Evren büyüklüğü.",
@@ -67,7 +67,7 @@
         "ar": "عينة الطبقة (n_h)"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 50,
       "min": 0,
       "businessContext": "Tabakadan alınan örneklem.",
@@ -92,7 +92,7 @@
         "ar": "إجمالي العينة (n)"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 500,
       "min": 0,
       "businessContext": "Tüm örneklem büyüklüğü.",

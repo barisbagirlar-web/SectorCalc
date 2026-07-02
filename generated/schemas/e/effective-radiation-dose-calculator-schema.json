@@ -42,7 +42,7 @@
         "ar": "عامل ترجيح الأنسجة"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 0.12,
       "min": 0,
       "businessContext": "Dokunun radyasyon hassasiyeti.",
@@ -67,7 +67,7 @@
         "ar": "عامل نوع الإشعاع"
       },
       "type": "number",
-      "unit": "",
+      "unit": "scalar",
       "default": 1,
       "min": 0,
       "businessContext": "Radyasyon türünün biyolojik etkinliği.",

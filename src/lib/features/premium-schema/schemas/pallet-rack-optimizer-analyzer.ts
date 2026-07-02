@@ -18,7 +18,7 @@ export const PALLET_RACK_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "rackCapacity", label: "Total Raf Capacity", label_i18n: {"en":"Total Raf Capacity"}, unit: "kg", format: "number", isBigNumber: true },
     { id: "floorUtilization", label: "Alan Utilization Rate", label_i18n: {"en":"Alan Utilization Rate"}, unit: "%", format: "number" },
     { id: "rackThroughput", label: "Raf Ckt Hz", label_i18n: {"en":"Raf Ckt Hz"}, unit: "birim/saat", format: "number" },
-    { id: "rackSafetyFactor", label: "Raf Guvenlik Faktoru", label_i18n: {"en":"Raf Guvenlik Faktoru"}, unit: "", format: "number" },
+    { id: "rackSafetyFactor", label: "Raf Guvenlik Faktoru", label_i18n: {"en":"Raf Guvenlik Faktoru"}, unit: "scalar", format: "number" },
     { id: "rackCostPerPosition", label: "position Per Cost", label_i18n: {"en":"position Per Cost"}, unit: "USD", format: "currency" },
     { id: "retrievalTime", label: "Average Erisim Duration", label_i18n: {"en":"Average Erisim Duration"}, unit: "saniye", format: "number" },
   ],

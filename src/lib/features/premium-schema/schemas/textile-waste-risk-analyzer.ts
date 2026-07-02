@@ -16,7 +16,7 @@ export const TEXTILE_WASTE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "textileWasteRate", label: "Fabric Waste Rate", label_i18n: {"en":"Fabric Waste Rate"}, unit: "%", format: "percentage" },
     { id: "preConsumerWaste", label: "Pre-Consumption Waste Cost", label_i18n: {"en":"Pre-Consumption Waste Cost"}, unit: "USD/year", format: "currency" },
     { id: "netWasteCost", label: "Net Waste Cost", label_i18n: {"en":"Net Waste Cost"}, unit: "USD/year", format: "currency", isBigNumber: true },
-    { id: "wasteRiskScore", label: "Waste Risk Skoru", label_i18n: {"en":"Waste Risk Skoru"}, unit: "", format: "score" },
+    { id: "wasteRiskScore", label: "Waste Risk Skoru", label_i18n: {"en":"Waste Risk Skoru"}, unit: "scalar", format: "score" },
   ],
   thresholds: [{ fieldId: "textileWasteRate", warning: 10, critical: 20, direction: "higher_is_bad", warningMessage: "Waste rate > 10% — cutting optimization is recommended.", warningMessage_i18n: {"en":"Waste rate > 10% — cutting optimization is recommended."}, criticalMessage: "Waste rate > 20% — pattern and cutting process should be renewed.", criticalMessage_i18n: {"en":"Waste rate > 20% — pattern and cutting process should be renewed."} }],
   formulaPipeline: [

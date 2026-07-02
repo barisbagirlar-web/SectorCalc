@@ -16,7 +16,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
     { id: "hiringTotalCost", label: "Total Hiring Cost", unit: "USD", format: "currency" },
     { id: "annualNewHireCost", label: "Annual New Hire Cost", unit: "USD/yr", format: "currency" },
     { id: "breakevenHours", label: "Breakeven Threshold Hours", unit: "hr/mo", format: "number", isBigNumber: true },
-    { id: "otHireDecision", label: "Decision", unit: "", format: "score" },
+    { id: "otHireDecision", label: "Decision", unit: "scalar", format: "score" },
   ],
   thresholds: [{ fieldId: "breakevenHours", warning: 40, critical: 80, direction: "higher_is_bad", warningMessage: "Threshold > 40 hours — consider new hire.", criticalMessage: "Threshold > 80 hours — new hire unavoidable." }],
   formulaPipeline: [
