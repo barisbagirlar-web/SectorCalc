@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kuyuGenisligi",
-      "label": "Kuyu Genişliği (m)",
+      "label": "Well Width (m)",
       "label_i18n": {
         "en": "Well Width (m)",
         "tr": "Kuyu Genişliği (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 1e-10,
       "min": 0,
-      "businessContext": "Sonsuz kuyunun genişliği.",
+      "businessContext": "Infinite well width.",
       "businessContext_i18n": {
         "en": "Infinite well width.",
         "tr": "Sonsuz kuyunun genişliği.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kutle",
-      "label": "Parçacık Kütlesi (kg)",
+      "label": "Particle Mass (kg)",
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parçacık Kütlesi (kg)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Parçacığın kütlesi.",
+      "businessContext": "Particle mass.",
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parçacığın kütlesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kuantumSayisi",
-      "label": "Kuantum Sayısı (n)",
+      "label": "Quantum Number (n)",
       "label_i18n": {
         "en": "Quantum Number (n)",
         "tr": "Kuantum Sayısı (n)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 1,
-      "businessContext": "Enerji seviye numarası.",
+      "businessContext": "Energy level quantum number.",
       "businessContext_i18n": {
         "en": "Energy level quantum number.",
         "tr": "Enerji seviye numarası.",

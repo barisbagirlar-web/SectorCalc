@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "suDerinligi",
-      "label": "Su Derinliği (m)",
+      "label": "Water Depth (m)",
       "label_i18n": {
         "en": "Water Depth (m)",
         "tr": "Su Derinliği (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "Demirleme noktasındaki derinlik.",
+      "businessContext": "Depth at anchorage.",
       "businessContext_i18n": {
         "en": "Depth at anchorage.",
         "tr": "Demirleme noktasındaki derinlik.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruzgarHizi",
-      "label": "Tahmini Rüzgar Hızı (m/s)",
+      "label": "Expected Wind Speed (m/s)",
       "label_i18n": {
         "en": "Expected Wind Speed (m/s)",
         "tr": "Tahmini Rüzgar Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 15,
       "min": 0,
-      "businessContext": "En kötü senaryo rüzgar hızı.",
+      "businessContext": "Worst-case wind speed.",
       "businessContext_i18n": {
         "en": "Worst-case wind speed.",
         "tr": "En kötü senaryo rüzgar hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dipKatsayisi",
-      "label": "Dip Katsayısı",
+      "label": "Bottom Coefficient",
       "label_i18n": {
         "en": "Bottom Coefficient",
         "tr": "Dip Katsayısı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Zemin tipine bağlı düzeltme.",
+      "businessContext": "Seabed type correction.",
       "businessContext_i18n": {
         "en": "Seabed type correction.",
         "tr": "Zemin tipine bağlı düzeltme.",

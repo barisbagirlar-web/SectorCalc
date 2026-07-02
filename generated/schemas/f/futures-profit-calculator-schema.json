@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "girisFiyati",
-      "label": "Giriş Fiyatı (₺)",
+      "label": "Entry Price (USD)",
       "label_i18n": {
         "en": "Entry Price (USD)",
         "tr": "Giriş Fiyatı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Kontratın açılış fiyatı.",
+      "businessContext": "Contract entry price.",
       "businessContext_i18n": {
         "en": "Contract entry price.",
         "tr": "Kontratın açılış fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cikisFiyati",
-      "label": "Çıkış Fiyatı (₺)",
+      "label": "Exit Price (USD)",
       "label_i18n": {
         "en": "Exit Price (USD)",
         "tr": "Çıkış Fiyatı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 105,
       "min": 0,
-      "businessContext": "Kontratın kapanış fiyatı.",
+      "businessContext": "Contract exit price.",
       "businessContext_i18n": {
         "en": "Contract exit price.",
         "tr": "Kontratın kapanış fiyatı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "carpan",
-      "label": "Kontrat Çarpanı",
+      "label": "Contract Multiplier",
       "label_i18n": {
         "en": "Contract Multiplier",
         "tr": "Kontrat Çarpanı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 1,
-      "businessContext": "Kontratın büyüklük çarpanı.",
+      "businessContext": "Contract size multiplier.",
       "businessContext_i18n": {
         "en": "Contract size multiplier.",
         "tr": "Kontratın büyüklük çarpanı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "lot",
-      "label": "Lot (Adet)",
+      "label": "Lot (Number)",
       "label_i18n": {
         "en": "Lot (Number)",
         "tr": "Lot (Adet)",
@@ -95,7 +95,7 @@
       "unit": "lots",
       "default": 1,
       "min": 1,
-      "businessContext": "İşlem miktarı.",
+      "businessContext": "Number of contracts traded.",
       "businessContext_i18n": {
         "en": "Number of contracts traded.",
         "tr": "İşlem miktarı.",

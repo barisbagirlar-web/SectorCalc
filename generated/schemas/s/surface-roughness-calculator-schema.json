@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ilerleme",
-      "label": "İlerleme (mm/dev)",
+      "label": "Feed Rate (mm/rev)",
       "label_i18n": {
         "en": "Feed Rate (mm/rev)",
         "tr": "İlerleme (mm/dev)",
@@ -20,7 +20,7 @@
       "unit": "mm/rev",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Devir başına ilerleme miktarı.",
+      "businessContext": "Feed per revolution.",
       "businessContext_i18n": {
         "en": "Feed per revolution.",
         "tr": "Devir başına ilerleme miktarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ucYariCap",
-      "label": "Uç Radyüsü (mm)",
+      "label": "Nose Radius (mm)",
       "label_i18n": {
         "en": "Nose Radius (mm)",
         "tr": "Uç Radyüsü (mm)",
@@ -45,7 +45,7 @@
       "unit": "mm",
       "default": 0.8,
       "min": 0,
-      "businessContext": "Kesici uç radyüsü.",
+      "businessContext": "Insert nose radius.",
       "businessContext_i18n": {
         "en": "Insert nose radius.",
         "tr": "Kesici uç radyüsü.",

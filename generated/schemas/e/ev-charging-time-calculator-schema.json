@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bataryaKapasite",
-      "label": "Batarya Kapasitesi (kWh)",
+      "label": "Battery Capacity (kWh)",
       "label_i18n": {
         "en": "Battery Capacity (kWh)",
         "tr": "Batarya Kapasitesi (kWh)",
@@ -20,7 +20,7 @@
       "unit": "kWh",
       "default": 60,
       "min": 0,
-      "businessContext": "Toplam batarya enerjisi.",
+      "businessContext": "Total battery energy.",
       "businessContext_i18n": {
         "en": "Total battery energy.",
         "tr": "Toplam batarya enerjisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sarjGuc",
-      "label": "Şarj Gücü (kW)",
+      "label": "Charging Power (kW)",
       "label_i18n": {
         "en": "Charging Power (kW)",
         "tr": "Şarj Gücü (kW)",
@@ -45,7 +45,7 @@
       "unit": "kW",
       "default": 7.4,
       "min": 0,
-      "businessContext": "Şarj istasyonu gücü.",
+      "businessContext": "Charger power.",
       "businessContext_i18n": {
         "en": "Charger power.",
         "tr": "Şarj istasyonu gücü.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Şarj Verimi (%)",
+      "label": "Charging Efficiency (%)",
       "label_i18n": {
         "en": "Charging Efficiency (%)",
         "tr": "Şarj Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Şarj kayıpları.",
+      "businessContext": "Charging losses.",
       "businessContext_i18n": {
         "en": "Charging losses.",
         "tr": "Şarj kayıpları.",

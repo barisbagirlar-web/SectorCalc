@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "grup1",
-      "label": "Grup 1 Ortalaması",
+      "label": "Group 1 Mean",
       "label_i18n": {
         "en": "Group 1 Mean",
         "tr": "Grup 1 Ortalaması",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Birinci grubun ortalaması.",
+      "businessContext": "Mean of first group.",
       "businessContext_i18n": {
         "en": "Mean of first group.",
         "tr": "Birinci grubun ortalaması.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "grup2",
-      "label": "Grup 2 Ortalaması",
+      "label": "Group 2 Mean",
       "label_i18n": {
         "en": "Group 2 Mean",
         "tr": "Grup 2 Ortalaması",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 110,
       "min": 0,
-      "businessContext": "İkinci grubun ortalaması.",
+      "businessContext": "Mean of second group.",
       "businessContext_i18n": {
         "en": "Mean of second group.",
         "tr": "İkinci grubun ortalaması.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "grup1N",
-      "label": "Grup 1 Örneklem",
+      "label": "Group 1 N",
       "label_i18n": {
         "en": "Group 1 N",
         "tr": "Grup 1 Örneklem",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 30,
       "min": 2,
-      "businessContext": "Birinci grubun örneklem sayısı.",
+      "businessContext": "First group sample size.",
       "businessContext_i18n": {
         "en": "First group sample size.",
         "tr": "Birinci grubun örneklem sayısı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "grup2N",
-      "label": "Grup 2 Örneklem",
+      "label": "Group 2 N",
       "label_i18n": {
         "en": "Group 2 N",
         "tr": "Grup 2 Örneklem",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 30,
       "min": 2,
-      "businessContext": "İkinci grubun örneklem sayısı.",
+      "businessContext": "Second group sample size.",
       "businessContext_i18n": {
         "en": "Second group sample size.",
         "tr": "İkinci grubun örneklem sayısı.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "grup1Varyans",
-      "label": "Grup 1 Varyans",
+      "label": "Group 1 Variance",
       "label_i18n": {
         "en": "Group 1 Variance",
         "tr": "Grup 1 Varyans",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 225,
       "min": 0,
-      "businessContext": "Birinci grubun varyansı.",
+      "businessContext": "First group variance.",
       "businessContext_i18n": {
         "en": "First group variance.",
         "tr": "Birinci grubun varyansı.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "grup2Varyans",
-      "label": "Grup 2 Varyans",
+      "label": "Group 2 Variance",
       "label_i18n": {
         "en": "Group 2 Variance",
         "tr": "Grup 2 Varyans",
@@ -145,7 +145,7 @@
       "unit": "scalar",
       "default": 225,
       "min": 0,
-      "businessContext": "İkinci grubun varyansı.",
+      "businessContext": "Second group variance.",
       "businessContext_i18n": {
         "en": "Second group variance.",
         "tr": "İkinci grubun varyansı.",

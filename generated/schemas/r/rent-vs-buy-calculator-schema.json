@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "evFiyati",
-      "label": "Ev Fiyatı (₺)",
+      "label": "Home Price (USD)",
       "label_i18n": {
         "en": "Home Price (USD)",
         "tr": "Ev Fiyatı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Satın alınacak evin fiyatı.",
+      "businessContext": "Home purchase price.",
       "businessContext_i18n": {
         "en": "Home purchase price.",
         "tr": "Satın alınacak evin fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikKira",
-      "label": "Yıllık Kira (₺)",
+      "label": "Annual Rent (USD)",
       "label_i18n": {
         "en": "Annual Rent (USD)",
         "tr": "Yıllık Kira (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Aynı evin yıllık kira bedeli.",
+      "businessContext": "Annual rent for same property.",
       "businessContext_i18n": {
         "en": "Annual rent for same property.",
         "tr": "Aynı evin yıllık kira bedeli.",

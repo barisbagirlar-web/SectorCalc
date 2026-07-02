@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "C0",
-      "label": "Toplam Bileşim (%)",
+      "label": "Overall Composition (%)",
       "label_i18n": {
         "en": "Overall Composition (%)",
         "tr": "Toplam Bileşim (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 40,
       "min": 0,
-      "businessContext": "Alaşımın toplam bileşimi.",
+      "businessContext": "Alloy overall composition.",
       "businessContext_i18n": {
         "en": "Alloy overall composition.",
         "tr": "Alaşımın toplam bileşimi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "Cl",
-      "label": "Sıvı Bileşimi (%)",
+      "label": "Liquid Composition (%)",
       "label_i18n": {
         "en": "Liquid Composition (%)",
         "tr": "Sıvı Bileşimi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Sıvı fazın bileşimi.",
+      "businessContext": "Liquid phase composition.",
       "businessContext_i18n": {
         "en": "Liquid phase composition.",
         "tr": "Sıvı fazın bileşimi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "Cs",
-      "label": "Katı Bileşimi (%)",
+      "label": "Solid Composition (%)",
       "label_i18n": {
         "en": "Solid Composition (%)",
         "tr": "Katı Bileşimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 60,
       "min": 0,
-      "businessContext": "Katı fazın bileşimi.",
+      "businessContext": "Solid phase composition.",
       "businessContext_i18n": {
         "en": "Solid phase composition.",
         "tr": "Katı fazın bileşimi.",

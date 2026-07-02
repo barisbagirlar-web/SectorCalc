@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Foton Frekansı (Hz)",
+      "label": "Photon Frequency (Hz)",
       "label_i18n": {
         "en": "Photon Frequency (Hz)",
         "tr": "Foton Frekansı (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 1000000000000000,
       "min": 0,
-      "businessContext": "Gelen fotonun frekansı.",
+      "businessContext": "Incident photon frequency.",
       "businessContext_i18n": {
         "en": "Incident photon frequency.",
         "tr": "Gelen fotonun frekansı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "esikEnerji",
-      "label": "Eşik Enerjisi (J)",
+      "label": "Work Function (J)",
       "label_i18n": {
         "en": "Work Function (J)",
         "tr": "Eşik Enerjisi (J)",
@@ -45,7 +45,7 @@
       "unit": "J",
       "default": 4e-19,
       "min": 0,
-      "businessContext": "Metalden elektron koparmak için gereken minimum enerji.",
+      "businessContext": "Minimum energy to eject electron.",
       "businessContext_i18n": {
         "en": "Minimum energy to eject electron.",
         "tr": "Metalden elektron koparmak için gereken minimum enerji.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Kaplama Alanı (m²)",
+      "label": "Siding Area (m²)",
       "label_i18n": {
         "en": "Siding Area (m²)",
         "tr": "Kaplama Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 40,
       "min": 0,
-      "businessContext": "Kaplanacak alan.",
+      "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Kaplanacak alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tahtaEn",
-      "label": "Tahta Eni (m)",
+      "label": "Board Width (m)",
       "label_i18n": {
         "en": "Board Width (m)",
         "tr": "Tahta Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Tahtanın toplam eni.",
+      "businessContext": "Board total width.",
       "businessContext_i18n": {
         "en": "Board total width.",
         "tr": "Tahtanın toplam eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "bindirmePayi",
-      "label": "Bindirme Payı (m)",
+      "label": "Overlap (m)",
       "label_i18n": {
         "en": "Overlap (m)",
         "tr": "Bindirme Payı (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.025,
       "min": 0,
-      "businessContext": "Tahtaların üst üste binme miktarı.",
+      "businessContext": "Overlap between boards.",
       "businessContext_i18n": {
         "en": "Overlap between boards.",
         "tr": "Tahtaların üst üste binme miktarı.",

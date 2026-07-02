@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yarilanmaOmru",
-      "label": "Yarılanma Ömrü (Saat)",
+      "label": "Half-Life (Hours)",
       "label_i18n": {
         "en": "Half-Life (Hours)",
         "tr": "Yarılanma Ömrü (Saat)",
@@ -20,7 +20,7 @@
       "unit": "h",
       "default": 12,
       "min": 0,
-      "businessContext": "İlacın vücuttan yarılanma süresi.",
+      "businessContext": "Drug elimination half-life.",
       "businessContext_i18n": {
         "en": "Drug elimination half-life.",
         "tr": "İlacın vücuttan yarılanma süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dozAraligi",
-      "label": "Doz Aralığı (Saat)",
+      "label": "Dosing Interval (Hours)",
       "label_i18n": {
         "en": "Dosing Interval (Hours)",
         "tr": "Doz Aralığı (Saat)",
@@ -45,7 +45,7 @@
       "unit": "h",
       "default": 8,
       "min": 0,
-      "businessContext": "İlaç alma sıklığı.",
+      "businessContext": "Time between doses.",
       "businessContext_i18n": {
         "en": "Time between doses.",
         "tr": "İlaç alma sıklığı.",

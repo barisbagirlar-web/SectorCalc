@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "brutKira",
-      "label": "Brüt Aylık Kira (₺)",
+      "label": "Gross Monthly Rent (USD)",
       "label_i18n": {
         "en": "Gross Monthly Rent (USD)",
         "tr": "Brüt Aylık Kira (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Toplam aylık kira geliri.",
+      "businessContext": "Total monthly rental income.",
       "businessContext_i18n": {
         "en": "Total monthly rental income.",
         "tr": "Toplam aylık kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bosluk",
-      "label": "Boşluk Oranı (%)",
+      "label": "Vacancy Rate (%)",
       "label_i18n": {
         "en": "Vacancy Rate (%)",
         "tr": "Boşluk Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Yıllık boş geçen süre oranı.",
+      "businessContext": "Annual vacancy percentage.",
       "businessContext_i18n": {
         "en": "Annual vacancy percentage.",
         "tr": "Yıllık boş geçen süre oranı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "isletme",
-      "label": "Aylık İşletme Gideri (₺)",
+      "label": "Monthly Operating Cost (USD)",
       "label_i18n": {
         "en": "Monthly Operating Cost (USD)",
         "tr": "Aylık İşletme Gideri (₺)",
@@ -71,7 +71,7 @@
       "unit": "USD",
       "default": 2000,
       "min": 0,
-      "businessContext": "Vergi, sigorta, bakım giderleri.",
+      "businessContext": "Taxes, insurance, maintenance.",
       "businessContext_i18n": {
         "en": "Taxes, insurance, maintenance.",
         "tr": "Vergi, sigorta, bakım giderleri.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "kredi",
-      "label": "Aylık Kredi Taksiti (₺)",
+      "label": "Monthly Mortgage (USD)",
       "label_i18n": {
         "en": "Monthly Mortgage (USD)",
         "tr": "Aylık Kredi Taksiti (₺)",
@@ -96,7 +96,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kredinin aylık geri ödemesi.",
+      "businessContext": "Monthly debt service.",
       "businessContext_i18n": {
         "en": "Monthly debt service.",
         "tr": "Kredinin aylık geri ödemesi.",

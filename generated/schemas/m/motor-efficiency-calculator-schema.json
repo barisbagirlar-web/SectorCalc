@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "cikisGuc",
-      "label": "Çıkış Gücü (W)",
+      "label": "Output Power (W)",
       "label_i18n": {
         "en": "Output Power (W)",
         "tr": "Çıkış Gücü (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 750,
       "min": 0,
-      "businessContext": "Milin ürettiği mekanik güç.",
+      "businessContext": "Shaft mechanical power.",
       "businessContext_i18n": {
         "en": "Shaft mechanical power.",
         "tr": "Milin ürettiği mekanik güç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "girisGuc",
-      "label": "Giriş Gücü (W)",
+      "label": "Input Power (W)",
       "label_i18n": {
         "en": "Input Power (W)",
         "tr": "Giriş Gücü (W)",
@@ -45,7 +45,7 @@
       "unit": "W",
       "default": 1000,
       "min": 0,
-      "businessContext": "Motorun çektiği elektrik gücü.",
+      "businessContext": "Motor electrical power.",
       "businessContext_i18n": {
         "en": "Motor electrical power.",
         "tr": "Motorun çektiği elektrik gücü.",

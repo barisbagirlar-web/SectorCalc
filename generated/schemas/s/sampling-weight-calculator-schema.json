@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tabakaPopulasyon",
-      "label": "Tabaka Popülasyonu (N_h)",
+      "label": "Stratum Population (N_h)",
       "label_i18n": {
         "en": "Stratum Population (N_h)",
         "tr": "Tabaka Popülasyonu (N_h)",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "Tabakadaki toplam birey.",
+      "businessContext": "Total individuals in stratum.",
       "businessContext_i18n": {
         "en": "Total individuals in stratum.",
         "tr": "Tabakadaki toplam birey.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamPopulasyon",
-      "label": "Toplam Popülasyon (N)",
+      "label": "Total Population (N)",
       "label_i18n": {
         "en": "Total Population (N)",
         "tr": "Toplam Popülasyon (N)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 5000,
       "min": 0,
-      "businessContext": "Evren büyüklüğü.",
+      "businessContext": "Population size.",
       "businessContext_i18n": {
         "en": "Population size.",
         "tr": "Evren büyüklüğü.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tabakaOrneklem",
-      "label": "Tabaka Örneklemi (n_h)",
+      "label": "Stratum Sample (n_h)",
       "label_i18n": {
         "en": "Stratum Sample (n_h)",
         "tr": "Tabaka Örneklemi (n_h)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "Tabakadan alınan örneklem.",
+      "businessContext": "Sample drawn from stratum.",
       "businessContext_i18n": {
         "en": "Sample drawn from stratum.",
         "tr": "Tabakadan alınan örneklem.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "toplamOrneklem",
-      "label": "Toplam Örneklem (n)",
+      "label": "Total Sample (n)",
       "label_i18n": {
         "en": "Total Sample (n)",
         "tr": "Toplam Örneklem (n)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "Tüm örneklem büyüklüğü.",
+      "businessContext": "Total sample size.",
       "businessContext_i18n": {
         "en": "Total sample size.",
         "tr": "Tüm örneklem büyüklüğü.",

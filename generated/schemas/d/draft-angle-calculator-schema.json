@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "parcaDerinlik",
-      "label": "Parça Derinliği (mm)",
+      "label": "Part Depth (mm)",
       "label_i18n": {
         "en": "Part Depth (mm)",
         "tr": "Parça Derinliği (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Parçanın kalıp hareket yönündeki derinliği.",
+      "businessContext": "Part depth in mold direction.",
       "businessContext_i18n": {
         "en": "Part depth in mold direction.",
         "tr": "Parçanın kalıp hareket yönündeki derinliği.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "buzulmeOrani",
-      "label": "Büzülme Oranı (%)",
+      "label": "Shrinkage Rate (%)",
       "label_i18n": {
         "en": "Shrinkage Rate (%)",
         "tr": "Büzülme Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Polimerin çekme oranı.",
+      "businessContext": "Polymer shrinkage rate.",
       "businessContext_i18n": {
         "en": "Polymer shrinkage rate.",
         "tr": "Polimerin çekme oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yanYuzeyUzunluk",
-      "label": "Yan Yüzey Uzunluğu (mm)",
+      "label": "Side Wall Length (mm)",
       "label_i18n": {
         "en": "Side Wall Length (mm)",
         "tr": "Yan Yüzey Uzunluğu (mm)",
@@ -70,7 +70,7 @@
       "unit": "mm",
       "default": 100,
       "min": 0,
-      "businessContext": "Kalıp yan yüzey uzunluğu.",
+      "businessContext": "Mold side wall length.",
       "businessContext_i18n": {
         "en": "Mold side wall length.",
         "tr": "Kalıp yan yüzey uzunluğu.",

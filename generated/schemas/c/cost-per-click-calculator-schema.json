@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "toplamHarcama",
-      "label": "Toplam Harcama (TL)",
+      "label": "Total Spend (USD)",
       "label_i18n": {
         "en": "Total Spend (USD)",
         "tr": "Toplam Harcama (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Reklam bütçesi.",
+      "businessContext": "Ad budget spent.",
       "businessContext_i18n": {
         "en": "Ad budget spent.",
         "tr": "Reklam bütçesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tiklama",
-      "label": "Tıklama (Adet)",
+      "label": "Clicks",
       "label_i18n": {
         "en": "Clicks",
         "tr": "Tıklama (Adet)",
@@ -45,7 +45,7 @@
       "unit": "clicks",
       "default": 500,
       "min": 1,
-      "businessContext": "Toplam tıklama.",
+      "businessContext": "Total clicks.",
       "businessContext_i18n": {
         "en": "Total clicks.",
         "tr": "Toplam tıklama.",

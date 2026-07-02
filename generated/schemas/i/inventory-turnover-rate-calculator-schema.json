@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Yıllık SMM (TL)",
+      "label": "Annual COGS (USD)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Yıllık SMM (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext": "Annual cost of goods sold.",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
         "tr": "Yıllık satılan mal maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortStok",
-      "label": "Ortalama Stok (TL)",
+      "label": "Average Inventory (USD)",
       "label_i18n": {
         "en": "Average Inventory (USD)",
         "tr": "Ortalama Stok (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Dönem ortalama stok değeri.",
+      "businessContext": "Average inventory value.",
       "businessContext_i18n": {
         "en": "Average inventory value.",
         "tr": "Dönem ortalama stok değeri.",

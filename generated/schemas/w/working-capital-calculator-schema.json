@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "donenVarliklar",
-      "label": "Dönen Varlıklar (TL)",
+      "label": "Current Assets (USD)",
       "label_i18n": {
         "en": "Current Assets (USD)",
         "tr": "Dönen Varlıklar (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Kısa vadeli varlıklar.",
+      "businessContext": "Short-term assets.",
       "businessContext_i18n": {
         "en": "Short-term assets.",
         "tr": "Kısa vadeli varlıklar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kisaVadeliBorc",
-      "label": "Kısa Vadeli Borç (TL)",
+      "label": "Current Liabilities (USD)",
       "label_i18n": {
         "en": "Current Liabilities (USD)",
         "tr": "Kısa Vadeli Borç (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Kısa vadeli yükümlülükler.",
+      "businessContext": "Short-term obligations.",
       "businessContext_i18n": {
         "en": "Short-term obligations.",
         "tr": "Kısa vadeli yükümlülükler.",

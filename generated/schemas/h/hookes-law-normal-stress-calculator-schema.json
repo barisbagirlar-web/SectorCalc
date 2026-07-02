@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "elastisiteModulu",
-      "label": "Elastisite Modülü (Pa)",
+      "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Elastisite Modülü (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Malzemenin elastisite modülü.",
+      "businessContext": "Material Young's modulus.",
       "businessContext_i18n": {
         "en": "Material Young's modulus.",
         "tr": "Malzemenin elastisite modülü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "birimSekilDegistirme",
-      "label": "Birim Şekil Değiştirme",
+      "label": "Strain",
       "label_i18n": {
         "en": "Strain",
         "tr": "Birim Şekil Değiştirme",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Malzemedeki birim uzama.",
+      "businessContext": "Unit elongation.",
       "businessContext_i18n": {
         "en": "Unit elongation.",
         "tr": "Malzemedeki birim uzama.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "K_Faktoru",
-      "label": "K Faktörü (L/dk/bar^0.5)",
+      "label": "K Factor (L/min/bar^0.5)",
       "label_i18n": {
         "en": "K Factor (L/min/bar^0.5)",
         "tr": "K Faktörü (L/dk/bar^0.5)",
@@ -20,7 +20,7 @@
       "unit": "L/min/bar0.5",
       "default": 80,
       "min": 0,
-      "businessContext": "Sprinkler K faktörü.",
+      "businessContext": "Sprinkler K factor.",
       "businessContext_i18n": {
         "en": "Sprinkler K factor.",
         "tr": "Sprinkler K faktörü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "basinc",
-      "label": "Basınç (bar)",
+      "label": "Pressure (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
         "tr": "Basınç (bar)",
@@ -45,7 +45,7 @@
       "unit": "bar",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Sprinkler giriş basıncı.",
+      "businessContext": "Sprinkler inlet pressure.",
       "businessContext_i18n": {
         "en": "Sprinkler inlet pressure.",
         "tr": "Sprinkler giriş basıncı.",

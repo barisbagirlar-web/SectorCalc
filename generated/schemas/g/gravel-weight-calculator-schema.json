@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan (m²)",
+      "label": "Area (m²)",
       "label_i18n": {
         "en": "Area (m²)",
         "tr": "Alan (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Serilecek alan.",
+      "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Serilecek alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinlik",
-      "label": "Tabaka Kalınlığı (cm)",
+      "label": "Layer Thickness (cm)",
       "label_i18n": {
         "en": "Layer Thickness (cm)",
         "tr": "Tabaka Kalınlığı (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 10,
       "min": 0,
-      "businessContext": "Sıkıştırılmış kalınlık.",
+      "businessContext": "Compacted thickness.",
       "businessContext_i18n": {
         "en": "Compacted thickness.",
         "tr": "Sıkıştırılmış kalınlık.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yoğunluk (ton/m³)",
+      "label": "Density (ton/m³)",
       "label_i18n": {
         "en": "Density (ton/m³)",
         "tr": "Yoğunluk (ton/m³)",
@@ -70,7 +70,7 @@
       "unit": "ton/m3",
       "default": 1.6,
       "min": 0,
-      "businessContext": "Agreganın yoğunluğu.",
+      "businessContext": "Aggregate density.",
       "businessContext_i18n": {
         "en": "Aggregate density.",
         "tr": "Agreganın yoğunluğu.",

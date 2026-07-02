@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "zirveDeger",
-      "label": "Zirve Değer (₺)",
+      "label": "Peak Value (USD)",
       "label_i18n": {
         "en": "Peak Value (USD)",
         "tr": "Zirve Değer (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Portföyün en yüksek değeri.",
+      "businessContext": "Highest portfolio value.",
       "businessContext_i18n": {
         "en": "Highest portfolio value.",
         "tr": "Portföyün en yüksek değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dipDeger",
-      "label": "Dip Değer (₺)",
+      "label": "Trough Value (USD)",
       "label_i18n": {
         "en": "Trough Value (USD)",
         "tr": "Dip Değer (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 70000,
       "min": 0,
-      "businessContext": "Portföyün en düşük değeri.",
+      "businessContext": "Lowest portfolio value.",
       "businessContext_i18n": {
         "en": "Lowest portfolio value.",
         "tr": "Portföyün en düşük değeri.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "toplamIstek",
-      "label": "Toplam İstek Sayısı",
+      "label": "Total Requests",
       "label_i18n": {
         "en": "Total Requests",
         "tr": "Toplam İstek Sayısı",
@@ -20,7 +20,7 @@
       "unit": "requests",
       "default": 10000,
       "min": 0,
-      "businessContext": "Toplam API çağrısı.",
+      "businessContext": "Total API calls.",
       "businessContext_i18n": {
         "en": "Total API calls.",
         "tr": "Toplam API çağrısı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hataliIstek",
-      "label": "Hatalı İstek Sayısı",
+      "label": "Failed Requests",
       "label_i18n": {
         "en": "Failed Requests",
         "tr": "Hatalı İstek Sayısı",
@@ -45,7 +45,7 @@
       "unit": "requests",
       "default": 50,
       "min": 0,
-      "businessContext": "Başarısız istek adedi.",
+      "businessContext": "Number of failed requests.",
       "businessContext_i18n": {
         "en": "Number of failed requests.",
         "tr": "Başarısız istek adedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "toplamGecikme",
-      "label": "Toplam Gecikme (ms)",
+      "label": "Total Latency (ms)",
       "label_i18n": {
         "en": "Total Latency (ms)",
         "tr": "Toplam Gecikme (ms)",
@@ -70,7 +70,7 @@
       "unit": "ms",
       "default": 250000,
       "min": 0,
-      "businessContext": "Tüm isteklerin süre toplamı.",
+      "businessContext": "Sum of all request durations.",
       "businessContext_i18n": {
         "en": "Sum of all request durations.",
         "tr": "Tüm isteklerin süre toplamı.",

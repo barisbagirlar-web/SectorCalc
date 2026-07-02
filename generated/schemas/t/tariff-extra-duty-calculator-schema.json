@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "urunBedeli",
-      "label": "Ürün Bedeli (TL)",
+      "label": "Product Value (USD)",
       "label_i18n": {
         "en": "Product Value (USD)",
         "tr": "Ürün Bedeli (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Ürünün fatura değeri.",
+      "businessContext": "Product invoice value.",
       "businessContext_i18n": {
         "en": "Product invoice value.",
         "tr": "Ürünün fatura değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ekVergi",
-      "label": "Ek Vergi Oranı (%)",
+      "label": "Additional Tariff (%)",
       "label_i18n": {
         "en": "Additional Tariff (%)",
         "tr": "Ek Vergi Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Menşei bazlı ek vergi oranı.",
+      "businessContext": "Origin-based extra tariff rate.",
       "businessContext_i18n": {
         "en": "Origin-based extra tariff rate.",
         "tr": "Menşei bazlı ek vergi oranı.",

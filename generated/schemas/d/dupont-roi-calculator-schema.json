@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netKar",
-      "label": "Net Kâr (₺)",
+      "label": "Net Income (USD)",
       "label_i18n": {
         "en": "Net Income (USD)",
         "tr": "Net Kâr (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Dönem net kârı.",
+      "businessContext": "Net income for the period.",
       "businessContext_i18n": {
         "en": "Net income for the period.",
         "tr": "Dönem net kârı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satislar",
-      "label": "Satışlar (₺)",
+      "label": "Sales (USD)",
       "label_i18n": {
         "en": "Sales (USD)",
         "tr": "Satışlar (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Toplam satış geliri.",
+      "businessContext": "Total sales revenue.",
       "businessContext_i18n": {
         "en": "Total sales revenue.",
         "tr": "Toplam satış geliri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "varliklar",
-      "label": "Toplam Varlıklar (₺)",
+      "label": "Total Assets (USD)",
       "label_i18n": {
         "en": "Total Assets (USD)",
         "tr": "Toplam Varlıklar (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 3000000,
       "min": 0,
-      "businessContext": "Şirketin toplam aktif büyüklüğü.",
+      "businessContext": "Total assets.",
       "businessContext_i18n": {
         "en": "Total assets.",
         "tr": "Şirketin toplam aktif büyüklüğü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ozsermaye",
-      "label": "Özsermaye (₺)",
+      "label": "Equity (USD)",
       "label_i18n": {
         "en": "Equity (USD)",
         "tr": "Özsermaye (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Toplam özsermaye.",
+      "businessContext": "Total shareholders equity.",
       "businessContext_i18n": {
         "en": "Total shareholders equity.",
         "tr": "Toplam özsermaye.",

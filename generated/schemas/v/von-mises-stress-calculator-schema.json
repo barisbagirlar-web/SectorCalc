@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 150000000,
       "min": 0,
-      "businessContext": "X yönü normal gerilme.",
+      "businessContext": "Normal stress in x.",
       "businessContext_i18n": {
         "en": "Normal stress in x.",
         "tr": "X yönü normal gerilme.",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 50000000,
       "min": 0,
-      "businessContext": "Y yönü normal gerilme.",
+      "businessContext": "Normal stress in y.",
       "businessContext_i18n": {
         "en": "Normal stress in y.",
         "tr": "Y yönü normal gerilme.",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 40000000,
       "min": 0,
-      "businessContext": "Kayma gerilmesi.",
+      "businessContext": "Shear stress in xy.",
       "businessContext_i18n": {
         "en": "Shear stress in xy.",
         "tr": "Kayma gerilmesi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "stokGun",
-      "label": "Stok Gün",
+      "label": "DIO (Days)",
       "label_i18n": {
         "en": "DIO (Days)",
         "tr": "Stok Gün",
@@ -20,7 +20,7 @@
       "unit": "days",
       "default": 60,
       "min": 0,
-      "businessContext": "Stokta kalma süresi.",
+      "businessContext": "Days inventory outstanding.",
       "businessContext_i18n": {
         "en": "Days inventory outstanding.",
         "tr": "Stokta kalma süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "alacakGun",
-      "label": "Alacak Gün",
+      "label": "DSO (Days)",
       "label_i18n": {
         "en": "DSO (Days)",
         "tr": "Alacak Gün",
@@ -45,7 +45,7 @@
       "unit": "days",
       "default": 45,
       "min": 0,
-      "businessContext": "Tahsilat süresi.",
+      "businessContext": "Days sales outstanding.",
       "businessContext_i18n": {
         "en": "Days sales outstanding.",
         "tr": "Tahsilat süresi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "borcGun",
-      "label": "Borç Gün",
+      "label": "DPO (Days)",
       "label_i18n": {
         "en": "DPO (Days)",
         "tr": "Borç Gün",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Ödeme süresi.",
+      "businessContext": "Days payable outstanding.",
       "businessContext_i18n": {
         "en": "Days payable outstanding.",
         "tr": "Ödeme süresi.",

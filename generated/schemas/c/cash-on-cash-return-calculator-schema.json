@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikNakitAks",
-      "label": "Yıllık Nakit Akışı (₺)",
+      "label": "Annual Cash Flow (USD)",
       "label_i18n": {
         "en": "Annual Cash Flow (USD)",
         "tr": "Yıllık Nakit Akışı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 60000,
       "min": 0,
-      "businessContext": "Kredi ödemesi sonrası yıllık nakit akışı.",
+      "businessContext": "Annual cash flow after debt service.",
       "businessContext_i18n": {
         "en": "Annual cash flow after debt service.",
         "tr": "Kredi ödemesi sonrası yıllık nakit akışı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamNakitYatirim",
-      "label": "Toplam Nakit Yatırım (₺)",
+      "label": "Total Cash Invested (USD)",
       "label_i18n": {
         "en": "Total Cash Invested (USD)",
         "tr": "Toplam Nakit Yatırım (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Peşinat ve masraflar dahil toplam nakit çıkışı.",
+      "businessContext": "Total cash outlay including down payment and costs.",
       "businessContext_i18n": {
         "en": "Total cash outlay including down payment and costs.",
         "tr": "Peşinat ve masraflar dahil toplam nakit çıkışı.",

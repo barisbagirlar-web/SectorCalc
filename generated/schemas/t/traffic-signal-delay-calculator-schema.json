@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "donguSuresi",
-      "label": "Sinyal Döngü Süresi (s)",
+      "label": "Cycle Length (s)",
       "label_i18n": {
         "en": "Cycle Length (s)",
         "tr": "Sinyal Döngü Süresi (s)",
@@ -20,7 +20,7 @@
       "unit": "s",
       "default": 90,
       "min": 0,
-      "businessContext": "Trafik sinyal döngü süresi.",
+      "businessContext": "Signal cycle length.",
       "businessContext_i18n": {
         "en": "Signal cycle length.",
         "tr": "Trafik sinyal döngü süresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yesilSure",
-      "label": "Yeşil Süre (s)",
+      "label": "Green Time (s)",
       "label_i18n": {
         "en": "Green Time (s)",
         "tr": "Yeşil Süre (s)",
@@ -45,7 +45,7 @@
       "unit": "s",
       "default": 30,
       "min": 0,
-      "businessContext": "Yeşil ışık süresi.",
+      "businessContext": "Green signal duration.",
       "businessContext_i18n": {
         "en": "Green signal duration.",
         "tr": "Yeşil ışık süresi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akisHizi",
-      "label": "Trafik Akış Hızı (araç/s)",
+      "label": "Traffic Flow (veh/s)",
       "label_i18n": {
         "en": "Traffic Flow (veh/s)",
         "tr": "Trafik Akış Hızı (araç/s)",
@@ -70,7 +70,7 @@
       "unit": "veh/s",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Gelen trafik hızı.",
+      "businessContext": "Arrival flow rate.",
       "businessContext_i18n": {
         "en": "Arrival flow rate.",
         "tr": "Gelen trafik hızı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "doygunAkis",
-      "label": "Doygun Akış Hızı (araç/s)",
+      "label": "Saturation Flow (veh/s)",
       "label_i18n": {
         "en": "Saturation Flow (veh/s)",
         "tr": "Doygun Akış Hızı (araç/s)",
@@ -95,7 +95,7 @@
       "unit": "veh/s",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Maksimum geçiş kapasitesi.",
+      "businessContext": "Maximum discharge rate.",
       "businessContext_i18n": {
         "en": "Maximum discharge rate.",
         "tr": "Maksimum geçiş kapasitesi.",

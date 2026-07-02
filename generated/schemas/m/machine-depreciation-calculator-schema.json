@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bedel",
-      "label": "Makine Bedeli (TL)",
+      "label": "Machine Cost (USD)",
       "label_i18n": {
         "en": "Machine Cost (USD)",
         "tr": "Makine Bedeli (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Makinenin satın alma bedeli.",
+      "businessContext": "Machine purchase cost.",
       "businessContext_i18n": {
         "en": "Machine purchase cost.",
         "tr": "Makinenin satın alma bedeli.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinti",
-      "label": "Kalıntı Değer (TL)",
+      "label": "Salvage Value (USD)",
       "label_i18n": {
         "en": "Salvage Value (USD)",
         "tr": "Kalıntı Değer (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Makinenin ömür sonu değeri.",
+      "businessContext": "End-of-life value.",
       "businessContext_i18n": {
         "en": "End-of-life value.",
         "tr": "Makinenin ömür sonu değeri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "uretimKapasite",
-      "label": "Toplam Üretim Kapasitesi",
+      "label": "Total Production Capacity",
       "label_i18n": {
         "en": "Total Production Capacity",
         "tr": "Toplam Üretim Kapasitesi",
@@ -70,7 +70,7 @@
       "unit": "units",
       "default": 1000000,
       "min": 1,
-      "businessContext": "Makinenin ömrü boyunca üreteceği toplam ürün.",
+      "businessContext": "Total units over machine life.",
       "businessContext_i18n": {
         "en": "Total units over machine life.",
         "tr": "Makinenin ömrü boyunca üreteceği toplam ürün.",

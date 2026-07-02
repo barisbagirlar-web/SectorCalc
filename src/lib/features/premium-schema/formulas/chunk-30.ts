@@ -143,7 +143,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_0",
     family: "cost",
-    label: "Karbon Ayak izi Check — Scope1",
+    label: "Carbon Footprint Check — Scope1",
     fn: (inputs) => {
     const fuelConsumption = num(inputs, "fuelConsumption");
     const i = num(inputs, "i");
@@ -157,7 +157,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_1",
     family: "cost",
-    label: "Karbon Ayak izi Check — Scope2_Location",
+    label: "Carbon Footprint Check — Scope2_Location",
     fn: (inputs) => {
     const electricityConsumption = num(inputs, "electricityConsumption");
     const gridEmissionFactor = num(inputs, "gridEmissionFactor");
@@ -167,7 +167,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_2",
     family: "cost",
-    label: "Karbon Ayak izi Check — Scope2_Market",
+    label: "Carbon Footprint Check — Scope2_Market",
     fn: (inputs) => {
     const electricityConsumption = num(inputs, "electricityConsumption");
     const gridFactor = num(inputs, "gridFactor");
@@ -180,7 +180,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_3",
     family: "cost",
-    label: "Karbon Ayak izi Check — Scope3_Upstream",
+    label: "Carbon Footprint Check — Scope3_Upstream",
     fn: (inputs) => {
     const material = num(inputs, "material");
     const i = num(inputs, "i");
@@ -196,7 +196,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_4",
     family: "cost",
-    label: "Karbon Ayak izi Check — TotalCarbon",
+    label: "Carbon Footprint Check — TotalCarbon",
     fn: (inputs) => {
     const scope1 = num(inputs, "scope1");
     const scope2 = num(inputs, "scope2");
@@ -211,7 +211,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_5",
     family: "cost",
-    label: "Karbon Ayak izi Check — CarbonIntensity",
+    label: "Carbon Footprint Check — CarbonIntensity",
     fn: (inputs) => {
     const totalCarbon = num(inputs, "totalCarbon");
     const productionVolume = num(inputs, "productionVolume");
@@ -221,7 +221,7 @@ export const CHUNK_30_DEFINITIONS: readonly FormulaDefinition[] = [
   {
     id: "user.carbon_footprint_check_6",
     family: "cost",
-    label: "Karbon Ayak izi Check — FinancialRisk",
+    label: "Carbon Footprint Check — FinancialRisk",
     fn: (inputs) => {
     const totalCarbon = num(inputs, "totalCarbon");
     const forecastedCarbonPrice = num(inputs, "forecastedCarbonPrice");

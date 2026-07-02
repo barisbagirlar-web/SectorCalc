@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "atikHacmi",
-      "label": "Atık Hacmi (m³)",
+      "label": "Waste Volume (m³)",
       "label_i18n": {
         "en": "Waste Volume (m³)",
         "tr": "Atık Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Depolanacak atık hacmi.",
+      "businessContext": "Waste volume to store.",
       "businessContext_i18n": {
         "en": "Waste volume to store.",
         "tr": "Depolanacak atık hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sikistirma",
-      "label": "Sıkıştırma Oranı (%)",
+      "label": "Compaction Ratio (%)",
       "label_i18n": {
         "en": "Compaction Ratio (%)",
         "tr": "Sıkıştırma Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 20,
       "min": 0,
-      "businessContext": "Sıkıştırmayla hacim azalma oranı.",
+      "businessContext": "Volume reduction by compaction.",
       "businessContext_i18n": {
         "en": "Volume reduction by compaction.",
         "tr": "Sıkıştırmayla hacim azalma oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Deponi Derinliği (m)",
+      "label": "Landfill Depth (m)",
       "label_i18n": {
         "en": "Landfill Depth (m)",
         "tr": "Deponi Derinliği (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Deponi ortalama derinliği.",
+      "businessContext": "Average landfill depth.",
       "businessContext_i18n": {
         "en": "Average landfill depth.",
         "tr": "Deponi ortalama derinliği.",

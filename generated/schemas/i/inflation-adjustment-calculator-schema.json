@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nominalDeger",
-      "label": "Nominal Değer (₺)",
+      "label": "Nominal Value (USD)",
       "label_i18n": {
         "en": "Nominal Value (USD)",
         "tr": "Nominal Değer (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Bugünkü para değeri.",
+      "businessContext": "Current nominal money value.",
       "businessContext_i18n": {
         "en": "Current nominal money value.",
         "tr": "Bugünkü para değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "enflasyon",
-      "label": "Yıllık Enflasyon (%)",
+      "label": "Annual Inflation (%)",
       "label_i18n": {
         "en": "Annual Inflation (%)",
         "tr": "Yıllık Enflasyon (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Ortalama yıllık enflasyon oranı.",
+      "businessContext": "Average annual inflation rate.",
       "businessContext_i18n": {
         "en": "Average annual inflation rate.",
         "tr": "Ortalama yıllık enflasyon oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Yıl Sayısı",
+      "label": "Number of Years",
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Gelecek dönem.",
+      "businessContext": "Future period in years.",
       "businessContext_i18n": {
         "en": "Future period in years.",
         "tr": "Gelecek dönem.",

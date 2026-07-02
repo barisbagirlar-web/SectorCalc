@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mevcutHisse",
-      "label": "Mevcut Hisse (Adet)",
+      "label": "Current Shares",
       "label_i18n": {
         "en": "Current Shares",
         "tr": "Mevcut Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Mevcut toplam hisse.",
+      "businessContext": "Current total shares.",
       "businessContext_i18n": {
         "en": "Current total shares.",
         "tr": "Mevcut toplam hisse.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yeniHisse",
-      "label": "Yeni Hisse (Adet)",
+      "label": "New Shares",
       "label_i18n": {
         "en": "New Shares",
         "tr": "Yeni Hisse (Adet)",
@@ -45,7 +45,7 @@
       "unit": "shares",
       "default": 200000,
       "min": 0,
-      "businessContext": "Yeni ihraç edilen hisse.",
+      "businessContext": "Newly issued shares.",
       "businessContext_i18n": {
         "en": "Newly issued shares.",
         "tr": "Yeni ihraç edilen hisse.",

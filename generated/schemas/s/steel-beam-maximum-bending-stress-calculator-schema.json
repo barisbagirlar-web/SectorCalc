@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "moment",
-      "label": "Eğilme Momenti (N.m)",
+      "label": "Bending Moment (N.m)",
       "label_i18n": {
         "en": "Bending Moment (N.m)",
         "tr": "Eğilme Momenti (N.m)",
@@ -20,7 +20,7 @@
       "unit": "N.m",
       "default": 50000,
       "min": 0,
-      "businessContext": "Kirişe etkiyen eğilme momenti.",
+      "businessContext": "Bending moment on beam.",
       "businessContext_i18n": {
         "en": "Bending moment on beam.",
         "tr": "Kirişe etkiyen eğilme momenti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kesitModulu",
-      "label": "Kesit Modülü (m³)",
+      "label": "Section Modulus (m³)",
       "label_i18n": {
         "en": "Section Modulus (m³)",
         "tr": "Kesit Modülü (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.00025,
       "min": 0,
-      "businessContext": "Profilin elastik kesit modülü.",
+      "businessContext": "Elastic section modulus.",
       "businessContext_i18n": {
         "en": "Elastic section modulus.",
         "tr": "Profilin elastik kesit modülü.",

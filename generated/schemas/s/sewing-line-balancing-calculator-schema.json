@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "smvToplam",
-      "label": "Toplam SMV (Dk)",
+      "label": "Total SMV (Min)",
       "label_i18n": {
         "en": "Total SMV (Min)",
         "tr": "Toplam SMV (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 120,
       "min": 0,
-      "businessContext": "Ürünün toplam standart dakikası.",
+      "businessContext": "Total standard minutes per product.",
       "businessContext_i18n": {
         "en": "Total standard minutes per product.",
         "tr": "Ürünün toplam standart dakikası.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "taktTime",
-      "label": "Hedef Takt Süresi (Dk)",
+      "label": "Target Takt Time (Min)",
       "label_i18n": {
         "en": "Target Takt Time (Min)",
         "tr": "Hedef Takt Süresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "Birim üretim için hedef süre.",
+      "businessContext": "Target time per unit.",
       "businessContext_i18n": {
         "en": "Target time per unit.",
         "tr": "Birim üretim için hedef süre.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "operator",
-      "label": "Operatör Sayısı",
+      "label": "Operator Count",
       "label_i18n": {
         "en": "Operator Count",
         "tr": "Operatör Sayısı",
@@ -70,7 +70,7 @@
       "unit": "operators",
       "default": 15,
       "min": 1,
-      "businessContext": "Hattaki toplam operatör.",
+      "businessContext": "Total operators on line.",
       "businessContext_i18n": {
         "en": "Total operators on line.",
         "tr": "Hattaki toplam operatör.",

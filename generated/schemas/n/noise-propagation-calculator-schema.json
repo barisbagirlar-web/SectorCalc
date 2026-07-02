@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sesGucu",
-      "label": "Ses Gücü Seviyesi (dB)",
+      "label": "Sound Power Level (dB)",
       "label_i18n": {
         "en": "Sound Power Level (dB)",
         "tr": "Ses Gücü Seviyesi (dB)",
@@ -20,7 +20,7 @@
       "unit": "dB",
       "default": 100,
       "min": 0,
-      "businessContext": "Kaynağın ses gücü.",
+      "businessContext": "Source sound power.",
       "businessContext_i18n": {
         "en": "Source sound power.",
         "tr": "Kaynağın ses gücü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Kaynağa Uzaklık (m)",
+      "label": "Distance from Source (m)",
       "label_i18n": {
         "en": "Distance from Source (m)",
         "tr": "Kaynağa Uzaklık (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Ölçüm noktası uzaklığı.",
+      "businessContext": "Measurement distance.",
       "businessContext_i18n": {
         "en": "Measurement distance.",
         "tr": "Ölçüm noktası uzaklığı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "zeminZayiflama",
-      "label": "Zemin Zayıflaması (dB)",
+      "label": "Ground Attenuation (dB)",
       "label_i18n": {
         "en": "Ground Attenuation (dB)",
         "tr": "Zemin Zayıflaması (dB)",
@@ -70,7 +70,7 @@
       "unit": "dB",
       "default": 3,
       "min": 0,
-      "businessContext": "Zemin emilimi.",
+      "businessContext": "Ground absorption.",
       "businessContext_i18n": {
         "en": "Ground absorption.",
         "tr": "Zemin emilimi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "engelZayiflama",
-      "label": "Engel Zayıflaması (dB)",
+      "label": "Barrier Attenuation (dB)",
       "label_i18n": {
         "en": "Barrier Attenuation (dB)",
         "tr": "Engel Zayıflaması (dB)",
@@ -95,7 +95,7 @@
       "unit": "dB",
       "default": 5,
       "min": 0,
-      "businessContext": "Duvar/bina perdelemesi.",
+      "businessContext": "Wall/barrier screening.",
       "businessContext_i18n": {
         "en": "Wall/barrier screening.",
         "tr": "Duvar/bina perdelemesi.",

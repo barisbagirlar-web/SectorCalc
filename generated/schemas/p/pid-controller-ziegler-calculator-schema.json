@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kritikKazanc",
-      "label": "Kritik Kazanç (Ku)",
+      "label": "Ultimate Gain (Ku)",
       "label_i18n": {
         "en": "Ultimate Gain (Ku)",
         "tr": "Kritik Kazanç (Ku)",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 5,
       "min": 0,
-      "businessContext": "Salınım başladığı andaki kazanç.",
+      "businessContext": "Gain at onset of oscillation.",
       "businessContext_i18n": {
         "en": "Gain at onset of oscillation.",
         "tr": "Salınım başladığı andaki kazanç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kritikPeriyot",
-      "label": "Kritik Periyot (Tu sn)",
+      "label": "Ultimate Period (Tu sec)",
       "label_i18n": {
         "en": "Ultimate Period (Tu sec)",
         "tr": "Kritik Periyot (Tu sn)",
@@ -45,7 +45,7 @@
       "unit": "s",
       "default": 2,
       "min": 0,
-      "businessContext": "Salınım periyodu.",
+      "businessContext": "Oscillation period.",
       "businessContext_i18n": {
         "en": "Oscillation period.",
         "tr": "Salınım periyodu.",

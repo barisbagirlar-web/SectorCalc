@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bedel",
-      "label": "Varlık Bedeli (₺)",
+      "label": "Asset Cost (USD)",
       "label_i18n": {
         "en": "Asset Cost (USD)",
         "tr": "Varlık Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Varlığın satın alma maliyeti.",
+      "businessContext": "Purchase cost of asset.",
       "businessContext_i18n": {
         "en": "Purchase cost of asset.",
         "tr": "Varlığın satın alma maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinti",
-      "label": "Kalıntı Değer (₺)",
+      "label": "Salvage Value (USD)",
       "label_i18n": {
         "en": "Salvage Value (USD)",
         "tr": "Kalıntı Değer (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Varlığın ömür sonu tahmini değeri.",
+      "businessContext": "Estimated end-of-life value.",
       "businessContext_i18n": {
         "en": "Estimated end-of-life value.",
         "tr": "Varlığın ömür sonu tahmini değeri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "omur",
-      "label": "Ekonomik Ömür (Yıl)",
+      "label": "Useful Life (Years)",
       "label_i18n": {
         "en": "Useful Life (Years)",
         "tr": "Ekonomik Ömür (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Varlığın faydalı ömrü.",
+      "businessContext": "Useful economic life.",
       "businessContext_i18n": {
         "en": "Useful economic life.",
         "tr": "Varlığın faydalı ömrü.",

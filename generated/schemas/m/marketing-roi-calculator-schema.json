@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kampanyaGeliri",
-      "label": "Kampanya Geliri (TL)",
+      "label": "Campaign Revenue (USD)",
       "label_i18n": {
         "en": "Campaign Revenue (USD)",
         "tr": "Kampanya Geliri (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Kampanyadan elde edilen gelir.",
+      "businessContext": "Revenue generated.",
       "businessContext_i18n": {
         "en": "Revenue generated.",
         "tr": "Kampanyadan elde edilen gelir.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kampanyaMaliyeti",
-      "label": "Kampanya Maliyeti (TL)",
+      "label": "Campaign Cost (USD)",
       "label_i18n": {
         "en": "Campaign Cost (USD)",
         "tr": "Kampanya Maliyeti (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Toplam kampanya harcaması.",
+      "businessContext": "Total campaign spend.",
       "businessContext_i18n": {
         "en": "Total campaign spend.",
         "tr": "Toplam kampanya harcaması.",

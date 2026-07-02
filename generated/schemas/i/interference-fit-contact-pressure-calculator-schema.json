@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "girisim",
-      "label": "Girişim Miktarı (m)",
+      "label": "Interference (m)",
       "label_i18n": {
         "en": "Interference (m)",
         "tr": "Girişim Miktarı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.00005,
       "min": 0,
-      "businessContext": "Mil-delik arasındaki çap farkı.",
+      "businessContext": "Diametral interference.",
       "businessContext_i18n": {
         "en": "Diametral interference.",
         "tr": "Mil-delik arasındaki çap farkı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cap",
-      "label": "Nominal Çap (m)",
+      "label": "Nominal Diameter (m)",
       "label_i18n": {
         "en": "Nominal Diameter (m)",
         "tr": "Nominal Çap (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Bağlantının nominal çapı.",
+      "businessContext": "Joint nominal diameter.",
       "businessContext_i18n": {
         "en": "Joint nominal diameter.",
         "tr": "Bağlantının nominal çapı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "E1",
-      "label": "Malzeme 1 Modülü (Pa)",
+      "label": "Material 1 Modulus (Pa)",
       "label_i18n": {
         "en": "Material 1 Modulus (Pa)",
         "tr": "Malzeme 1 Modülü (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Birinci malzemenin elastisite modülü.",
+      "businessContext": "First material modulus.",
       "businessContext_i18n": {
         "en": "First material modulus.",
         "tr": "Birinci malzemenin elastisite modülü.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "E2",
-      "label": "Malzeme 2 Modülü (Pa)",
+      "label": "Material 2 Modulus (Pa)",
       "label_i18n": {
         "en": "Material 2 Modulus (Pa)",
         "tr": "Malzeme 2 Modülü (Pa)",
@@ -95,7 +95,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "İkinci malzemenin modülü.",
+      "businessContext": "Second material modulus.",
       "businessContext_i18n": {
         "en": "Second material modulus.",
         "tr": "İkinci malzemenin modülü.",

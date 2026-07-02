@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "gunesKutlesi",
-      "label": "Yıldız Kütlesi (Güneş Kütlesi)",
+      "label": "Star Mass (Solar Mass)",
       "label_i18n": {
         "en": "Star Mass (Solar Mass)",
         "tr": "Yıldız Kütlesi (Güneş Kütlesi)",
@@ -20,7 +20,7 @@
       "unit": "M☉",
       "default": 1.4,
       "min": 0,
-      "businessContext": "Yıldızın Güneş kütlesi cinsinden ağırlığı.",
+      "businessContext": "Star mass in solar masses.",
       "businessContext_i18n": {
         "en": "Star mass in solar masses.",
         "tr": "Yıldızın Güneş kütlesi cinsinden ağırlığı.",

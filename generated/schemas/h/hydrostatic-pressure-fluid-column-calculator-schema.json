@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Akışkan Yoğunluğu (kg/m³)",
@@ -20,7 +20,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext": "Fluid density.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akışkanın yoğunluğu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Derinlik (m)",
+      "label": "Depth (m)",
       "label_i18n": {
         "en": "Depth (m)",
         "tr": "Derinlik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "Sıvı yüzeyinden derinlik.",
+      "businessContext": "Depth below fluid surface.",
       "businessContext_i18n": {
         "en": "Depth below fluid surface.",
         "tr": "Sıvı yüzeyinden derinlik.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "emisyon",
-      "label": "Toplam Emisyon (ton CO₂)",
+      "label": "Total Emissions (ton CO₂)",
       "label_i18n": {
         "en": "Total Emissions (ton CO₂)",
         "tr": "Toplam Emisyon (ton CO₂)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 100,
       "min": 0,
-      "businessContext": "Nötrelenmek istenen karbon.",
+      "businessContext": "Carbon to offset.",
       "businessContext_i18n": {
         "en": "Carbon to offset.",
         "tr": "Nötrelenmek istenen karbon.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "agacYillikYutak",
-      "label": "Ağaç Başı Yıllık Yutak (kg CO₂)",
+      "label": "Tree Annual Uptake (kg CO₂)",
       "label_i18n": {
         "en": "Tree Annual Uptake (kg CO₂)",
         "tr": "Ağaç Başı Yıllık Yutak (kg CO₂)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 22,
       "min": 0,
-      "businessContext": "Bir ağacın yıllık karbon tutma kapasitesi.",
+      "businessContext": "Annual carbon capture per tree.",
       "businessContext_i18n": {
         "en": "Annual carbon capture per tree.",
         "tr": "Bir ağacın yıllık karbon tutma kapasitesi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hisseSayisi",
-      "label": "Verilen Hisse (Adet)",
+      "label": "RSU Shares Granted",
       "label_i18n": {
         "en": "RSU Shares Granted",
         "tr": "Verilen Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 1000,
       "min": 0,
-      "businessContext": "Hak kazanılan RSU hisse adedi.",
+      "businessContext": "Vested RSU shares.",
       "businessContext_i18n": {
         "en": "Vested RSU shares.",
         "tr": "Hak kazanılan RSU hisse adedi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hakKazanma",
-      "label": "Hak Kazanma (%)",
+      "label": "Vesting Percentage (%)",
       "label_i18n": {
         "en": "Vesting Percentage (%)",
         "tr": "Hak Kazanma (%)",
@@ -46,7 +46,7 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Dönemde hak kazanılan yüzde.",
+      "businessContext": "Vesting percentage.",
       "businessContext_i18n": {
         "en": "Vesting percentage.",
         "tr": "Dönemde hak kazanılan yüzde.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "vergi",
-      "label": "Vergi Kesintisi (%)",
+      "label": "Tax Withholding (%)",
       "label_i18n": {
         "en": "Tax Withholding (%)",
         "tr": "Vergi Kesintisi (%)",
@@ -72,7 +72,7 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Stopaj oranı.",
+      "businessContext": "Withholding tax rate.",
       "businessContext_i18n": {
         "en": "Withholding tax rate.",
         "tr": "Stopaj oranı.",

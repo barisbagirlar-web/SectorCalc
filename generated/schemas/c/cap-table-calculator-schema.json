@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kurucu",
-      "label": "Kurucu Hisse (Adet)",
+      "label": "Founder Shares",
       "label_i18n": {
         "en": "Founder Shares",
         "tr": "Kurucu Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 600000,
       "min": 0,
-      "businessContext": "Kurucuya ait hisse.",
+      "businessContext": "Founder shares.",
       "businessContext_i18n": {
         "en": "Founder shares.",
         "tr": "Kurucuya ait hisse.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yatirimci",
-      "label": "Yatırımcı Hisse (Adet)",
+      "label": "Investor Shares",
       "label_i18n": {
         "en": "Investor Shares",
         "tr": "Yatırımcı Hisse (Adet)",
@@ -45,7 +45,7 @@
       "unit": "shares",
       "default": 300000,
       "min": 0,
-      "businessContext": "Yatırımcıya ait hisse.",
+      "businessContext": "Investor shares.",
       "businessContext_i18n": {
         "en": "Investor shares.",
         "tr": "Yatırımcıya ait hisse.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "opsiyon",
-      "label": "Opsiyon Havuzu (Adet)",
+      "label": "Option Pool",
       "label_i18n": {
         "en": "Option Pool",
         "tr": "Opsiyon Havuzu (Adet)",
@@ -70,7 +70,7 @@
       "unit": "shares",
       "default": 100000,
       "min": 0,
-      "businessContext": "Çalışan opsiyon havuzu.",
+      "businessContext": "Employee option pool.",
       "businessContext_i18n": {
         "en": "Employee option pool.",
         "tr": "Çalışan opsiyon havuzu.",

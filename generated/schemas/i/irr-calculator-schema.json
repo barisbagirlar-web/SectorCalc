@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Başlangıç Yatırımı (₺)",
+      "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Başlangıç Yatırımı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Projenin başlangıç yatırım maliyeti.",
+      "businessContext": "Initial project cost.",
       "businessContext_i18n": {
         "en": "Initial project cost.",
         "tr": "Projenin başlangıç yatırım maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortalamaNakit",
-      "label": "Ortalama Yıllık Nakit Akışı (₺)",
+      "label": "Avg Annual Cash Flow (USD)",
       "label_i18n": {
         "en": "Avg Annual Cash Flow (USD)",
         "tr": "Ortalama Yıllık Nakit Akışı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 35000,
       "min": 0,
-      "businessContext": "Projenin ortalama yıllık nakit girişi.",
+      "businessContext": "Average annual cash inflow.",
       "businessContext_i18n": {
         "en": "Average annual cash inflow.",
         "tr": "Projenin ortalama yıllık nakit girişi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Proje Süresi (Yıl)",
+      "label": "Project Life (Years)",
       "label_i18n": {
         "en": "Project Life (Years)",
         "tr": "Proje Süresi (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Projenin ekonomik ömrü.",
+      "businessContext": "Project's economic life.",
       "businessContext_i18n": {
         "en": "Project's economic life.",
         "tr": "Projenin ekonomik ömrü.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Düşey Yük (N)",
+      "label": "Vertical Load (N)",
       "label_i18n": {
         "en": "Vertical Load (N)",
         "tr": "Düşey Yük (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 200000,
       "min": 0,
-      "businessContext": "Duvara gelen düşey yük.",
+      "businessContext": "Vertical load on wall.",
       "businessContext_i18n": {
         "en": "Vertical load on wall.",
         "tr": "Duvara gelen düşey yük.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "duvarAlani",
-      "label": "Duvar Kesit Alanı (m²)",
+      "label": "Wall Cross-Section (m²)",
       "label_i18n": {
         "en": "Wall Cross-Section (m²)",
         "tr": "Duvar Kesit Alanı (m²)",
@@ -45,7 +45,7 @@
       "unit": "m2",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Duvarın yatay kesit alanı.",
+      "businessContext": "Wall horizontal section area.",
       "businessContext_i18n": {
         "en": "Wall horizontal section area.",
         "tr": "Duvarın yatay kesit alanı.",

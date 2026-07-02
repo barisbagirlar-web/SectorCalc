@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Debi (L/dk)",
+      "label": "Flow Rate (L/min)",
       "label_i18n": {
         "en": "Flow Rate (L/min)",
         "tr": "Debi (L/dk)",
@@ -20,7 +20,7 @@
       "unit": "L/min",
       "default": 1000,
       "min": 0,
-      "businessContext": "Sistem debisi.",
+      "businessContext": "System flow rate.",
       "businessContext_i18n": {
         "en": "System flow rate.",
         "tr": "Sistem debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "basinc",
-      "label": "Basınç (bar)",
+      "label": "Pressure (bar)",
       "label_i18n": {
         "en": "Pressure (bar)",
         "tr": "Basınç (bar)",
@@ -45,7 +45,7 @@
       "unit": "bar",
       "default": 7,
       "min": 0,
-      "businessContext": "Gerekli basınç.",
+      "businessContext": "Required pressure.",
       "businessContext_i18n": {
         "en": "Required pressure.",
         "tr": "Gerekli basınç.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pompaVerim",
-      "label": "Pompa Verimi (%)",
+      "label": "Pump Efficiency (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "Pompa verimi.",
+      "businessContext": "Pump efficiency.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verimi.",

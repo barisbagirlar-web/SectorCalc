@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "deger",
-      "label": "Manyetik Alan Değeri",
+      "label": "Magnetic Field Value",
       "label_i18n": {
         "en": "Magnetic Field Value",
         "tr": "Manyetik Alan Değeri",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Dönüştürülecek değer.",
+      "businessContext": "Value to convert.",
       "businessContext_i18n": {
         "en": "Value to convert.",
         "tr": "Dönüştürülecek değer.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kaynak",
-      "label": "Kaynak (0=T, 1=G, 2=Wb)",
+      "label": "Source (0=T, 1=G, 2=Wb)",
       "label_i18n": {
         "en": "Source (0=T, 1=G, 2=Wb)",
         "tr": "Kaynak (0=T, 1=G, 2=Wb)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Girilen birim.",
+      "businessContext": "Input unit.",
       "businessContext_i18n": {
         "en": "Input unit.",
         "tr": "Girilen birim.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "en",
-      "label": "Kumaş Eni (m)",
+      "label": "Fabric Width (m)",
       "label_i18n": {
         "en": "Fabric Width (m)",
         "tr": "Kumaş Eni (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Kumaşın eni.",
+      "businessContext": "Fabric width.",
       "businessContext_i18n": {
         "en": "Fabric width.",
         "tr": "Kumaşın eni.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gramaj",
-      "label": "Gramaj (g/m²)",
+      "label": "Fabric Weight (g/m²)",
       "label_i18n": {
         "en": "Fabric Weight (g/m²)",
         "tr": "Gramaj (g/m²)",
@@ -45,7 +45,7 @@
       "unit": "g/m2",
       "default": 180,
       "min": 0,
-      "businessContext": "Metrekare gramajı.",
+      "businessContext": "GSM - grams per square meter.",
       "businessContext_i18n": {
         "en": "GSM - grams per square meter.",
         "tr": "Metrekare gramajı.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikTalep",
-      "label": "Yıllık Talep (Adet)",
+      "label": "Annual Demand",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Yıllık Talep (Adet)",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Yıllık toplam talep.",
+      "businessContext": "Annual total demand.",
       "businessContext_i18n": {
         "en": "Annual total demand.",
         "tr": "Yıllık toplam talep.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "siparisMaliyeti",
-      "label": "Sipariş Maliyeti (TL)",
+      "label": "Order Cost (USD)",
       "label_i18n": {
         "en": "Order Cost (USD)",
         "tr": "Sipariş Maliyeti (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Her siparişin sabit maliyeti.",
+      "businessContext": "Fixed cost per order.",
       "businessContext_i18n": {
         "en": "Fixed cost per order.",
         "tr": "Her siparişin sabit maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tasimaMaliyeti",
-      "label": "Taşıma Maliyeti (TL/Adet-Yıl)",
+      "label": "Holding Cost (USD/Unit/yr)",
       "label_i18n": {
         "en": "Holding Cost (USD/Unit/yr)",
         "tr": "Taşıma Maliyeti (TL/Adet-Yıl)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Birim başı yıllık depolama maliyeti.",
+      "businessContext": "Annual holding cost per unit.",
       "businessContext_i18n": {
         "en": "Annual holding cost per unit.",
         "tr": "Birim başı yıllık depolama maliyeti.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sinyalGuc",
-      "label": "Sinyal Gücü (W)",
+      "label": "Signal Power (W)",
       "label_i18n": {
         "en": "Signal Power (W)",
         "tr": "Sinyal Gücü (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 0.001,
       "min": 0,
-      "businessContext": "İstenen sinyalin gücü.",
+      "businessContext": "Desired signal power.",
       "businessContext_i18n": {
         "en": "Desired signal power.",
         "tr": "İstenen sinyalin gücü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gurultuGuc",
-      "label": "Gürültü Gücü (W)",
+      "label": "Noise Power (W)",
       "label_i18n": {
         "en": "Noise Power (W)",
         "tr": "Gürültü Gücü (W)",
@@ -45,7 +45,7 @@
       "unit": "W",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Arka plan gürültü gücü.",
+      "businessContext": "Background noise power.",
       "businessContext_i18n": {
         "en": "Background noise power.",
         "tr": "Arka plan gürültü gücü.",

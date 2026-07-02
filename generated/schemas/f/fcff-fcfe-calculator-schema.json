@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netKar",
-      "label": "Net Kâr (₺)",
+      "label": "Net Income (USD)",
       "label_i18n": {
         "en": "Net Income (USD)",
         "tr": "Net Kâr (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Dönem net kârı.",
+      "businessContext": "Net profit for the period.",
       "businessContext_i18n": {
         "en": "Net profit for the period.",
         "tr": "Dönem net kârı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "amortisman",
-      "label": "Amortisman (₺)",
+      "label": "Depreciation (USD)",
       "label_i18n": {
         "en": "Depreciation (USD)",
         "tr": "Amortisman (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Dönem amortisman gideri.",
+      "businessContext": "Period depreciation expense.",
       "businessContext_i18n": {
         "en": "Period depreciation expense.",
         "tr": "Dönem amortisman gideri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "isletmeSermayesi",
-      "label": "İşletme Sermayesi Değişimi (₺)",
+      "label": "Working Capital Change (USD)",
       "label_i18n": {
         "en": "Working Capital Change (USD)",
         "tr": "İşletme Sermayesi Değişimi (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Net işletme sermayesindeki artış.",
+      "businessContext": "Increase in net working capital.",
       "businessContext_i18n": {
         "en": "Increase in net working capital.",
         "tr": "Net işletme sermayesindeki artış.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "capex",
-      "label": "Sermaye Harcaması (₺)",
+      "label": "CapEx (USD)",
       "label_i18n": {
         "en": "CapEx (USD)",
         "tr": "Sermaye Harcaması (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 40000,
       "min": 0,
-      "businessContext": "Duran varlık yatırımları.",
+      "businessContext": "Capital expenditures on fixed assets.",
       "businessContext_i18n": {
         "en": "Capital expenditures on fixed assets.",
         "tr": "Duran varlık yatırımları.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "borc",
-      "label": "Net Borç Değişimi (₺)",
+      "label": "Net Debt Change (USD)",
       "label_i18n": {
         "en": "Net Debt Change (USD)",
         "tr": "Net Borç Değişimi (₺)",
@@ -120,7 +120,7 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Yeni borç - anapara ödemesi.",
+      "businessContext": "New debt issuance minus principal payments.",
       "businessContext_i18n": {
         "en": "New debt issuance minus principal payments.",
         "tr": "Yeni borç - anapara ödemesi.",

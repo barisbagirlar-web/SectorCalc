@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ilkBoy",
-      "label": "İlk Boy (m)",
+      "label": "Original Length (m)",
       "label_i18n": {
         "en": "Original Length (m)",
         "tr": "İlk Boy (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Malzemenin ilk boyutu.",
+      "businessContext": "Original dimension.",
       "businessContext_i18n": {
         "en": "Original dimension.",
         "tr": "Malzemenin ilk boyutu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sonBoy",
-      "label": "Son Boy (m)",
+      "label": "Final Length (m)",
       "label_i18n": {
         "en": "Final Length (m)",
         "tr": "Son Boy (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 1.002,
       "min": 0,
-      "businessContext": "Yükleme sonrası boyut.",
+      "businessContext": "Dimension after loading.",
       "businessContext_i18n": {
         "en": "Dimension after loading.",
         "tr": "Yükleme sonrası boyut.",

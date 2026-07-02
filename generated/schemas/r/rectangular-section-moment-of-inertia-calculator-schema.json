@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "genislik",
-      "label": "Kesit Genişliği (m)",
+      "label": "Section Width (m)",
       "label_i18n": {
         "en": "Section Width (m)",
         "tr": "Kesit Genişliği (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Dikdörtgen kesitin genişliği.",
+      "businessContext": "Rectangle section width.",
       "businessContext_i18n": {
         "en": "Rectangle section width.",
         "tr": "Dikdörtgen kesitin genişliği.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Kesit Yüksekliği (m)",
+      "label": "Section Height (m)",
       "label_i18n": {
         "en": "Section Height (m)",
         "tr": "Kesit Yüksekliği (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Dikdörtgen kesitin yüksekliği.",
+      "businessContext": "Rectangle section height.",
       "businessContext_i18n": {
         "en": "Rectangle section height.",
         "tr": "Dikdörtgen kesitin yüksekliği.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "guc",
-      "label": "Motor Gücü (W)",
+      "label": "Engine Power (W)",
       "label_i18n": {
         "en": "Engine Power (W)",
         "tr": "Motor Gücü (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 100000,
       "min": 0,
-      "businessContext": "Maksimum motor gücü.",
+      "businessContext": "Maximum engine power.",
       "businessContext_i18n": {
         "en": "Maximum engine power.",
         "tr": "Maksimum motor gücü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kutle",
-      "label": "Araç Kütlesi (kg)",
+      "label": "Vehicle Mass (kg)",
       "label_i18n": {
         "en": "Vehicle Mass (kg)",
         "tr": "Araç Kütlesi (kg)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 1500,
       "min": 0,
-      "businessContext": "Araç ağırlığı.",
+      "businessContext": "Vehicle weight.",
       "businessContext_i18n": {
         "en": "Vehicle weight.",
         "tr": "Araç ağırlığı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "suratmeKatsayi",
-      "label": "Yuvarlanma Sürtünme Katsayısı",
+      "label": "Rolling Friction Coefficient",
       "label_i18n": {
         "en": "Rolling Friction Coefficient",
         "tr": "Yuvarlanma Sürtünme Katsayısı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.015,
       "min": 0,
-      "businessContext": "Lastik-yol sürtünme katsayısı.",
+      "businessContext": "Tire rolling resistance.",
       "businessContext_i18n": {
         "en": "Tire rolling resistance.",
         "tr": "Lastik-yol sürtünme katsayısı.",

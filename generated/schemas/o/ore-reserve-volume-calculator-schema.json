@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "blokHacim",
-      "label": "Cevher Blok Hacmi (m³)",
+      "label": "Ore Block Volume (m³)",
       "label_i18n": {
         "en": "Ore Block Volume (m³)",
         "tr": "Cevher Blok Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Cevher kütlesinin hacmi.",
+      "businessContext": "Ore body volume.",
       "businessContext_i18n": {
         "en": "Ore body volume.",
         "tr": "Cevher kütlesinin hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cevherYogunlugu",
-      "label": "Cevher Yoğunluğu (ton/m³)",
+      "label": "Ore Density (ton/m³)",
       "label_i18n": {
         "en": "Ore Density (ton/m³)",
         "tr": "Cevher Yoğunluğu (ton/m³)",
@@ -45,7 +45,7 @@
       "unit": "ton/m3",
       "default": 2.7,
       "min": 0,
-      "businessContext": "Cevherin yoğunluğu.",
+      "businessContext": "Ore density.",
       "businessContext_i18n": {
         "en": "Ore density.",
         "tr": "Cevherin yoğunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tenor",
-      "label": "Tenör (%)",
+      "label": "Grade (%)",
       "label_i18n": {
         "en": "Grade (%)",
         "tr": "Tenör (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Cevherin metal içeriği.",
+      "businessContext": "Metal grade in ore.",
       "businessContext_i18n": {
         "en": "Metal grade in ore.",
         "tr": "Cevherin metal içeriği.",

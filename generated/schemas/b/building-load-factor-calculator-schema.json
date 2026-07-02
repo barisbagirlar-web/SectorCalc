@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "maksTalep",
-      "label": "Maksimum Talep (kW)",
+      "label": "Peak Demand (kW)",
       "label_i18n": {
         "en": "Peak Demand (kW)",
         "tr": "Maksimum Talep (kW)",
@@ -20,7 +20,7 @@
       "unit": "kW",
       "default": 150,
       "min": 0,
-      "businessContext": "Ölçülen en yüksek güç talebi.",
+      "businessContext": "Measured peak power demand.",
       "businessContext_i18n": {
         "en": "Measured peak power demand.",
         "tr": "Ölçülen en yüksek güç talebi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kuruluGuc",
-      "label": "Kurulu Güç (kW)",
+      "label": "Installed Capacity (kW)",
       "label_i18n": {
         "en": "Installed Capacity (kW)",
         "tr": "Kurulu Güç (kW)",
@@ -45,7 +45,7 @@
       "unit": "kW",
       "default": 250,
       "min": 0,
-      "businessContext": "Trafo veya panonun nominal gücü.",
+      "businessContext": "Transformer or panel rating.",
       "businessContext_i18n": {
         "en": "Transformer or panel rating.",
         "tr": "Trafo veya panonun nominal gücü.",

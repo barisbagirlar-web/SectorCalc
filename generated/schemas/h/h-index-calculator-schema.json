@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "atif1",
-      "label": "Atıf Sayısı 1",
+      "label": "Citations 1",
       "label_i18n": {
         "en": "Citations 1",
         "tr": "Atıf Sayısı 1",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "En çok atıf alan makale.",
+      "businessContext": "Most cited paper.",
       "businessContext_i18n": {
         "en": "Most cited paper.",
         "tr": "En çok atıf alan makale.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "atif2",
-      "label": "Atıf Sayısı 2",
+      "label": "Citations 2",
       "label_i18n": {
         "en": "Citations 2",
         "tr": "Atıf Sayısı 2",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 30,
       "min": 0,
-      "businessContext": "İkinci makale.",
+      "businessContext": "Second paper.",
       "businessContext_i18n": {
         "en": "Second paper.",
         "tr": "İkinci makale.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "atif3",
-      "label": "Atıf Sayısı 3",
+      "label": "Citations 3",
       "label_i18n": {
         "en": "Citations 3",
         "tr": "Atıf Sayısı 3",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 20,
       "min": 0,
-      "businessContext": "Üçüncü makale.",
+      "businessContext": "Third paper.",
       "businessContext_i18n": {
         "en": "Third paper.",
         "tr": "Üçüncü makale.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "atif4",
-      "label": "Atıf Sayısı 4",
+      "label": "Citations 4",
       "label_i18n": {
         "en": "Citations 4",
         "tr": "Atıf Sayısı 4",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 15,
       "min": 0,
-      "businessContext": "Dördüncü makale.",
+      "businessContext": "Fourth paper.",
       "businessContext_i18n": {
         "en": "Fourth paper.",
         "tr": "Dördüncü makale.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "atif5",
-      "label": "Atıf Sayısı 5",
+      "label": "Citations 5",
       "label_i18n": {
         "en": "Citations 5",
         "tr": "Atıf Sayısı 5",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 10,
       "min": 0,
-      "businessContext": "Beşinci makale.",
+      "businessContext": "Fifth paper.",
       "businessContext_i18n": {
         "en": "Fifth paper.",
         "tr": "Beşinci makale.",

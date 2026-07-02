@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "Z1",
-      "label": "Küçük Dişli Diş Sayısı (Z1)",
+      "label": "Small Sprocket Teeth (Z1)",
       "label_i18n": {
         "en": "Small Sprocket Teeth (Z1)",
         "tr": "Küçük Dişli Diş Sayısı (Z1)",
@@ -20,7 +20,7 @@
       "unit": "teeth",
       "default": 17,
       "min": 6,
-      "businessContext": "Motor dişlisi.",
+      "businessContext": "Drive sprocket.",
       "businessContext_i18n": {
         "en": "Drive sprocket.",
         "tr": "Motor dişlisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "Z2",
-      "label": "Büyük Dişli Diş Sayısı (Z2)",
+      "label": "Large Sprocket Teeth (Z2)",
       "label_i18n": {
         "en": "Large Sprocket Teeth (Z2)",
         "tr": "Büyük Dişli Diş Sayısı (Z2)",
@@ -45,7 +45,7 @@
       "unit": "teeth",
       "default": 45,
       "min": 6,
-      "businessContext": "Tekerlek dişlisi.",
+      "businessContext": "Wheel sprocket.",
       "businessContext_i18n": {
         "en": "Wheel sprocket.",
         "tr": "Tekerlek dişlisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "adim",
-      "label": "Zincir Adımı (mm)",
+      "label": "Chain Pitch (mm)",
       "label_i18n": {
         "en": "Chain Pitch (mm)",
         "tr": "Zincir Adımı (mm)",
@@ -70,7 +70,7 @@
       "unit": "mm",
       "default": 12.7,
       "min": 0,
-      "businessContext": "Zincir bakla arası mesafe.",
+      "businessContext": "Chain link pitch.",
       "businessContext_i18n": {
         "en": "Chain link pitch.",
         "tr": "Zincir bakla arası mesafe.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "merkezC",
-      "label": "Merkezler Arası Mesafe (mm)",
+      "label": "Center Distance (mm)",
       "label_i18n": {
         "en": "Center Distance (mm)",
         "tr": "Merkezler Arası Mesafe (mm)",
@@ -95,7 +95,7 @@
       "unit": "mm",
       "default": 500,
       "min": 0,
-      "businessContext": "Dişliler arası mesafe.",
+      "businessContext": "Distance between sprockets.",
       "businessContext_i18n": {
         "en": "Distance between sprockets.",
         "tr": "Dişliler arası mesafe.",

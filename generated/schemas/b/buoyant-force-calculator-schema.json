@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Akışkan Yoğunluğu (kg/m³)",
@@ -20,7 +20,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext": "Fluid density.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akışkanın yoğunluğu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hacim",
-      "label": "Batan Hacim (m³)",
+      "label": "Submerged Volume (m³)",
       "label_i18n": {
         "en": "Submerged Volume (m³)",
         "tr": "Batan Hacim (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Cismin batan kısmının hacmi.",
+      "businessContext": "Volume of displaced fluid.",
       "businessContext_i18n": {
         "en": "Volume of displaced fluid.",
         "tr": "Cismin batan kısmının hacmi.",

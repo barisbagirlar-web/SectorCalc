@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "donemBasi",
-      "label": "Dönem Başı Müşteri",
+      "label": "Start Customers",
       "label_i18n": {
         "en": "Start Customers",
         "tr": "Dönem Başı Müşteri",
@@ -20,7 +20,7 @@
       "unit": "customers",
       "default": 1000,
       "min": 1,
-      "businessContext": "Dönem başı aktif müşteri.",
+      "businessContext": "Active customers at start.",
       "businessContext_i18n": {
         "en": "Active customers at start.",
         "tr": "Dönem başı aktif müşteri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kaybedilen",
-      "label": "Kaybedilen Müşteri",
+      "label": "Lost Customers",
       "label_i18n": {
         "en": "Lost Customers",
         "tr": "Kaybedilen Müşteri",
@@ -45,7 +45,7 @@
       "unit": "customers",
       "default": 50,
       "min": 0,
-      "businessContext": "Dönemde kaybedilen müşteri.",
+      "businessContext": "Customers lost during period.",
       "businessContext_i18n": {
         "en": "Customers lost during period.",
         "tr": "Dönemde kaybedilen müşteri.",

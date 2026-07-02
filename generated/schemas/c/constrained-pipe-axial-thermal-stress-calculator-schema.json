@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "elastisiteModulu",
-      "label": "Elastisite Modülü (Pa)",
+      "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Elastisite Modülü (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Boru malzemesi modülü.",
+      "businessContext": "Pipe material modulus.",
       "businessContext_i18n": {
         "en": "Pipe material modulus.",
         "tr": "Boru malzemesi modülü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "genlesmeKatsayisi",
-      "label": "Isıl Genleşme Katsayısı (1/K)",
+      "label": "Thermal Expansion Coeff (1/K)",
       "label_i18n": {
         "en": "Thermal Expansion Coeff (1/K)",
         "tr": "Isıl Genleşme Katsayısı (1/K)",
@@ -45,7 +45,7 @@
       "unit": "1/K",
       "default": 0.000012,
       "min": 0,
-      "businessContext": "Malzemenin lineer genleşme katsayısı.",
+      "businessContext": "Linear expansion coefficient.",
       "businessContext_i18n": {
         "en": "Linear expansion coefficient.",
         "tr": "Malzemenin lineer genleşme katsayısı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sicaklikFarki",
-      "label": "Sıcaklık Farkı (K)",
+      "label": "Temperature Difference (K)",
       "label_i18n": {
         "en": "Temperature Difference (K)",
         "tr": "Sıcaklık Farkı (K)",
@@ -70,7 +70,7 @@
       "unit": "K",
       "default": 50,
       "min": 0,
-      "businessContext": "Montaj ve işletme sıcaklık farkı.",
+      "businessContext": "Installation vs operating temperature difference.",
       "businessContext_i18n": {
         "en": "Installation vs operating temperature difference.",
         "tr": "Montaj ve işletme sıcaklık farkı.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikNetGelir",
-      "label": "Yıllık Net Kira Geliri (₺)",
+      "label": "Annual Net Rental Income (USD)",
       "label_i18n": {
         "en": "Annual Net Rental Income (USD)",
         "tr": "Yıllık Net Kira Geliri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "Giderler düşüldükten sonraki net kira geliri.",
+      "businessContext": "Net rental income after expenses.",
       "businessContext_i18n": {
         "en": "Net rental income after expenses.",
         "tr": "Giderler düşüldükten sonraki net kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mulkDegeri",
-      "label": "Mülk Değeri (₺)",
+      "label": "Property Value (USD)",
       "label_i18n": {
         "en": "Property Value (USD)",
         "tr": "Mülk Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Gayrimenkulün piyasa değeri.",
+      "businessContext": "Property market value.",
       "businessContext_i18n": {
         "en": "Property market value.",
         "tr": "Gayrimenkulün piyasa değeri.",

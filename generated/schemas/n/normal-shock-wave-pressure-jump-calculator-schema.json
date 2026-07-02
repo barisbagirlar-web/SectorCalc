@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mach",
-      "label": "Mach Sayısı",
+      "label": "Mach Number",
       "label_i18n": {
         "en": "Mach Number",
         "tr": "Mach Sayısı",
@@ -20,7 +20,7 @@
       "unit": "Mach",
       "default": 2,
       "min": 1,
-      "businessContext": "Şok öncesi Mach sayısı.",
+      "businessContext": "Upstream Mach number.",
       "businessContext_i18n": {
         "en": "Upstream Mach number.",
         "tr": "Şok öncesi Mach sayısı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "basinc1",
-      "label": "Şok Öncesi Basınç (Pa)",
+      "label": "Upstream Pressure (Pa)",
       "label_i18n": {
         "en": "Upstream Pressure (Pa)",
         "tr": "Şok Öncesi Basınç (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 50000,
       "min": 0,
-      "businessContext": "Şok öncesi statik basınç.",
+      "businessContext": "Static pressure before shock.",
       "businessContext_i18n": {
         "en": "Static pressure before shock.",
         "tr": "Şok öncesi statik basınç.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "k",
-      "label": "Özgül Isı Oranı (k)",
+      "label": "Specific Heat Ratio (k)",
       "label_i18n": {
         "en": "Specific Heat Ratio (k)",
         "tr": "Özgül Isı Oranı (k)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1.4,
       "min": 0,
-      "businessContext": "Hava için k=1.4.",
+      "businessContext": "For air k=1.4.",
       "businessContext_i18n": {
         "en": "For air k=1.4.",
         "tr": "Hava için k=1.4.",

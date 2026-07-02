@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hedefGelir",
-      "label": "Hedef Yıllık Gelir (TL)",
+      "label": "Target Annual Income (USD)",
       "label_i18n": {
         "en": "Target Annual Income (USD)",
         "tr": "Hedef Yıllık Gelir (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Danışmanın hedef geliri.",
+      "businessContext": "Consultant's target income.",
       "businessContext_i18n": {
         "en": "Consultant's target income.",
         "tr": "Danışmanın hedef geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikGider",
-      "label": "Yıllık İşletme Gideri (TL)",
+      "label": "Annual Overhead (USD)",
       "label_i18n": {
         "en": "Annual Overhead (USD)",
         "tr": "Yıllık İşletme Gideri (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Ofis, sigorta, seyahat giderleri.",
+      "businessContext": "Office, insurance, travel costs.",
       "businessContext_i18n": {
         "en": "Office, insurance, travel costs.",
         "tr": "Ofis, sigorta, seyahat giderleri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "faturaliSaat",
-      "label": "Faturalanabilir Saat",
+      "label": "Billable Hours/Year",
       "label_i18n": {
         "en": "Billable Hours/Year",
         "tr": "Faturalanabilir Saat",
@@ -70,7 +70,7 @@
       "unit": "hours",
       "default": 1500,
       "min": 1,
-      "businessContext": "Yıllık faturalanabilir saat.",
+      "businessContext": "Annual billable hours.",
       "businessContext_i18n": {
         "en": "Annual billable hours.",
         "tr": "Yıllık faturalanabilir saat.",

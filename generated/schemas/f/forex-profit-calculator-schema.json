@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "lot",
-      "label": "Lot (Adet)",
+      "label": "Lot (Number)",
       "label_i18n": {
         "en": "Lot (Number)",
         "tr": "Lot (Adet)",
@@ -20,7 +20,7 @@
       "unit": "lots",
       "default": 1,
       "min": 0.01,
-      "businessContext": "İşlem büyüklüğü.",
+      "businessContext": "Trade size in lots.",
       "businessContext_i18n": {
         "en": "Trade size in lots.",
         "tr": "İşlem büyüklüğü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "pipDegeri",
-      "label": "Pip Değeri (₺)",
+      "label": "Pip Value (USD)",
       "label_i18n": {
         "en": "Pip Value (USD)",
         "tr": "Pip Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 10,
       "min": 0,
-      "businessContext": "Her pip'in TL karşılığı.",
+      "businessContext": "TRY value per pip.",
       "businessContext_i18n": {
         "en": "TRY value per pip.",
         "tr": "Her pip'in TL karşılığı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pipHareketi",
-      "label": "Pip Hareketi",
+      "label": "Pip Movement",
       "label_i18n": {
         "en": "Pip Movement",
         "tr": "Pip Hareketi",
@@ -70,7 +70,7 @@
       "unit": "pips",
       "default": 50,
       "min": 0,
-      "businessContext": "Fiyatın hareket ettiği pip sayısı.",
+      "businessContext": "Number of pips the price moved.",
       "businessContext_i18n": {
         "en": "Number of pips the price moved.",
         "tr": "Fiyatın hareket ettiği pip sayısı.",

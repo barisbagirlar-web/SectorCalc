@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "camurDebi",
-      "label": "Çamur Debisi (m³/s)",
+      "label": "Mud Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Mud Flow Rate (m³/s)",
         "tr": "Çamur Debisi (m³/s)",
@@ -20,7 +20,7 @@
       "unit": "m3/s",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Sondaj çamuru debisi.",
+      "businessContext": "Mud flow rate.",
       "businessContext_i18n": {
         "en": "Mud flow rate.",
         "tr": "Sondaj çamuru debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kuyuCapi",
-      "label": "Kuyu Çapı (m)",
+      "label": "Wellbore Diameter (m)",
       "label_i18n": {
         "en": "Wellbore Diameter (m)",
         "tr": "Kuyu Çapı (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Kuyu delik çapı.",
+      "businessContext": "Hole diameter.",
       "businessContext_i18n": {
         "en": "Hole diameter.",
         "tr": "Kuyu delik çapı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "matkapCapi",
-      "label": "Matkap Borusu Dış Çapı (m)",
+      "label": "Drill Pipe OD (m)",
       "label_i18n": {
         "en": "Drill Pipe OD (m)",
         "tr": "Matkap Borusu Dış Çapı (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Sondaj borusu dış çapı.",
+      "businessContext": "Drill pipe outer diameter.",
       "businessContext_i18n": {
         "en": "Drill pipe outer diameter.",
         "tr": "Sondaj borusu dış çapı.",

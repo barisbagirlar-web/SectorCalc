@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kullanilabilirlik",
-      "label": "Kullanılabilirlik (%)",
+      "label": "Availability (%)",
       "label_i18n": {
         "en": "Availability (%)",
         "tr": "Kullanılabilirlik (%)",
@@ -21,7 +21,7 @@
       "default": 90,
       "min": 0,
       "max": 100,
-      "businessContext": "Makinenin planlı sürede çalıştığı zaman.",
+      "businessContext": "Machine uptime vs planned time.",
       "businessContext_i18n": {
         "en": "Machine uptime vs planned time.",
         "tr": "Makinenin planlı sürede çalıştığı zaman.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "performans",
-      "label": "Performans (%)",
+      "label": "Performance (%)",
       "label_i18n": {
         "en": "Performance (%)",
         "tr": "Performans (%)",
@@ -47,7 +47,7 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Makinenin ideal hıza göre performansı.",
+      "businessContext": "Speed efficiency vs ideal.",
       "businessContext_i18n": {
         "en": "Speed efficiency vs ideal.",
         "tr": "Makinenin ideal hıza göre performansı.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "kalite",
-      "label": "Kalite (%)",
+      "label": "Quality (%)",
       "label_i18n": {
         "en": "Quality (%)",
         "tr": "Kalite (%)",
@@ -73,7 +73,7 @@
       "default": 98,
       "min": 0,
       "max": 100,
-      "businessContext": "İlk seferde hatasız ürün oranı.",
+      "businessContext": "First-pass yield.",
       "businessContext_i18n": {
         "en": "First-pass yield.",
         "tr": "İlk seferde hatasız ürün oranı.",

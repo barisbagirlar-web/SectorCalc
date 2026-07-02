@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "catiAlani",
-      "label": "Çatı Alanı (m²)",
+      "label": "Roof Area (m²)",
       "label_i18n": {
         "en": "Roof Area (m²)",
         "tr": "Çatı Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 150,
       "min": 0,
-      "businessContext": "Toplanan çatı alanı.",
+      "businessContext": "Collection roof area.",
       "businessContext_i18n": {
         "en": "Collection roof area.",
         "tr": "Toplanan çatı alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikYagis",
-      "label": "Yıllık Yağış (mm)",
+      "label": "Annual Rainfall (mm)",
       "label_i18n": {
         "en": "Annual Rainfall (mm)",
         "tr": "Yıllık Yağış (mm)",
@@ -45,7 +45,7 @@
       "unit": "mm",
       "default": 600,
       "min": 0,
-      "businessContext": "Bölgenin yıllık yağış miktarı.",
+      "businessContext": "Annual precipitation.",
       "businessContext_i18n": {
         "en": "Annual precipitation.",
         "tr": "Bölgenin yıllık yağış miktarı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Toplama Verimi (%)",
+      "label": "Collection Efficiency (%)",
       "label_i18n": {
         "en": "Collection Efficiency (%)",
         "tr": "Toplama Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "Sistem verimi.",
+      "businessContext": "System efficiency.",
       "businessContext_i18n": {
         "en": "System efficiency.",
         "tr": "Sistem verimi.",

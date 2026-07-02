@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sacilmaAcisi",
-      "label": "Saçılma Açısı (Derece)",
+      "label": "Scattering Angle (Deg)",
       "label_i18n": {
         "en": "Scattering Angle (Deg)",
         "tr": "Saçılma Açısı (Derece)",
@@ -21,7 +21,7 @@
       "default": 90,
       "min": 0,
       "max": 180,
-      "businessContext": "Fotonun saçılma açısı.",
+      "businessContext": "Photon scattering angle.",
       "businessContext_i18n": {
         "en": "Photon scattering angle.",
         "tr": "Fotonun saçılma açısı.",

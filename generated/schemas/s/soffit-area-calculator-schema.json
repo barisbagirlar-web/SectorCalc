@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "cevre",
-      "label": "Bina Çevresi (m)",
+      "label": "Building Perimeter (m)",
       "label_i18n": {
         "en": "Building Perimeter (m)",
         "tr": "Bina Çevresi (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 80,
       "min": 0,
-      "businessContext": "Binanın toplam çevresi.",
+      "businessContext": "Building perimeter.",
       "businessContext_i18n": {
         "en": "Building perimeter.",
         "tr": "Binanın toplam çevresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "genislik",
-      "label": "Saçak Genişliği (m)",
+      "label": "Eave Width (m)",
       "label_i18n": {
         "en": "Eave Width (m)",
         "tr": "Saçak Genişliği (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Saçak çıkıntı genişliği.",
+      "businessContext": "Eave overhang width.",
       "businessContext_i18n": {
         "en": "Eave overhang width.",
         "tr": "Saçak çıkıntı genişliği.",

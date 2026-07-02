@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "cevre",
-      "label": "Çevre Puanı (0-100)",
+      "label": "Environmental (0-100)",
       "label_i18n": {
         "en": "Environmental (0-100)",
         "tr": "Çevre Puanı (0-100)",
@@ -21,7 +21,7 @@
       "default": 75,
       "min": 0,
       "max": 100,
-      "businessContext": "Çevresel performans.",
+      "businessContext": "Environmental performance.",
       "businessContext_i18n": {
         "en": "Environmental performance.",
         "tr": "Çevresel performans.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "sosyal",
-      "label": "Sosyal Puan (0-100)",
+      "label": "Social (0-100)",
       "label_i18n": {
         "en": "Social (0-100)",
         "tr": "Sosyal Puan (0-100)",
@@ -47,7 +47,7 @@
       "default": 80,
       "min": 0,
       "max": 100,
-      "businessContext": "Sosyal sorumluluk.",
+      "businessContext": "Social responsibility.",
       "businessContext_i18n": {
         "en": "Social responsibility.",
         "tr": "Sosyal sorumluluk.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "yonetisim",
-      "label": "Yönetişim Puanı (0-100)",
+      "label": "Governance (0-100)",
       "label_i18n": {
         "en": "Governance (0-100)",
         "tr": "Yönetişim Puanı (0-100)",
@@ -73,7 +73,7 @@
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Kurumsal yönetim.",
+      "businessContext": "Corporate governance.",
       "businessContext_i18n": {
         "en": "Corporate governance.",
         "tr": "Kurumsal yönetim.",

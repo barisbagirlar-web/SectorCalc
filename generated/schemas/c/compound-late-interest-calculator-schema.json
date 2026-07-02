@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Anapara (TL)",
+      "label": "Principal (TL)",
       "label_i18n": {
         "en": "Principal (TL)",
         "tr": "Anapara (TL)",
@@ -20,7 +20,7 @@
       "unit": "TL",
       "default": 10000,
       "min": 0,
-      "businessContext": "Ana borç tutarı.",
+      "businessContext": "Principal debt amount.",
       "businessContext_i18n": {
         "en": "Principal debt amount.",
         "tr": "Ana borç tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikFaiz",
-      "label": "Yıllık Gecikme Faizi (%)",
+      "label": "Annual Late Interest (%)",
       "label_i18n": {
         "en": "Annual Late Interest (%)",
         "tr": "Yıllık Gecikme Faizi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 24,
       "min": 0,
-      "businessContext": "Yasal temerrüt faiz oranı.",
+      "businessContext": "Legal default interest rate.",
       "businessContext_i18n": {
         "en": "Legal default interest rate.",
         "tr": "Yasal temerrüt faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gecikmeGun",
-      "label": "Gecikme Günü",
+      "label": "Days Overdue",
       "label_i18n": {
         "en": "Days Overdue",
         "tr": "Gecikme Günü",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "Vade aşımı süresi.",
+      "businessContext": "Days past due.",
       "businessContext_i18n": {
         "en": "Days past due.",
         "tr": "Vade aşımı süresi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "bilesimSikligi",
-      "label": "Bileşim Sıklığı (Gün)",
+      "label": "Compounding Frequency (Days)",
       "label_i18n": {
         "en": "Compounding Frequency (Days)",
         "tr": "Bileşim Sıklığı (Gün)",
@@ -95,7 +95,7 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "Faizin anaparaya eklendiği periyot.",
+      "businessContext": "Interest capitalization period.",
       "businessContext_i18n": {
         "en": "Interest capitalization period.",
         "tr": "Faizin anaparaya eklendiği periyot.",

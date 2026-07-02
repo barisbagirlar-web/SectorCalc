@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yakit",
-      "label": "Yakıt Tüketimi (L)",
+      "label": "Fuel Consumption (L)",
       "label_i18n": {
         "en": "Fuel Consumption (L)",
         "tr": "Yakıt Tüketimi (L)",
@@ -20,7 +20,7 @@
       "unit": "L",
       "default": 10000,
       "min": 0,
-      "businessContext": "Yıllık yakıt tüketimi (motorin).",
+      "businessContext": "Annual diesel consumption.",
       "businessContext_i18n": {
         "en": "Annual diesel consumption.",
         "tr": "Yıllık yakıt tüketimi (motorin).",
@@ -32,7 +32,7 @@
     },
     {
       "id": "elektrik",
-      "label": "Elektrik Tüketimi (kWh)",
+      "label": "Electricity (kWh)",
       "label_i18n": {
         "en": "Electricity (kWh)",
         "tr": "Elektrik Tüketimi (kWh)",
@@ -45,7 +45,7 @@
       "unit": "kWh",
       "default": 50000,
       "min": 0,
-      "businessContext": "Yıllık elektrik tüketimi.",
+      "businessContext": "Annual electricity consumption.",
       "businessContext_i18n": {
         "en": "Annual electricity consumption.",
         "tr": "Yıllık elektrik tüketimi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tedarik",
-      "label": "Tedarik Emisyonu (kgCO₂)",
+      "label": "Supply Chain (kgCO₂)",
       "label_i18n": {
         "en": "Supply Chain (kgCO₂)",
         "tr": "Tedarik Emisyonu (kgCO₂)",
@@ -70,7 +70,7 @@
       "unit": "kgCO2",
       "default": 20000,
       "min": 0,
-      "businessContext": "Satın alınan mal/hizmet kaynaklı emisyon.",
+      "businessContext": "Purchased goods emissions.",
       "businessContext_i18n": {
         "en": "Purchased goods emissions.",
         "tr": "Satın alınan mal/hizmet kaynaklı emisyon.",
@@ -96,12 +96,12 @@
     "primary": "sonuc",
     "unit": "kgCO2",
     "breakdown": {
-      "sonuc": "Toplam Karbon Ayak İzi"
+      "sonuc": "Total Carbon Footprint"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Toplam Karbon Ayak İzi",
-        "tr": "Toplam Karbon Ayak İzi",
+        "en": "Total Carbon Footprint",
+        "tr": "Total Carbon Footprint",
         "de": "Gesamter CO2-Fußabdruck",
         "fr": "Empreinte carbone totale",
         "es": "Huella de Carbono Total",

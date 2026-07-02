@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nominal",
-      "label": "Nominal Değer (₺)",
+      "label": "Face Value (USD)",
       "label_i18n": {
         "en": "Face Value (USD)",
         "tr": "Nominal Değer (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Tahvilin vade sonu anapara değeri.",
+      "businessContext": "Bond's par value at maturity.",
       "businessContext_i18n": {
         "en": "Bond's par value at maturity.",
         "tr": "Tahvilin vade sonu anapara değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kupon",
-      "label": "Kupon Oranı (%)",
+      "label": "Coupon Rate (%)",
       "label_i18n": {
         "en": "Coupon Rate (%)",
         "tr": "Kupon Oranı (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Tahvilin yıllık faiz ödeme oranı.",
+      "businessContext": "Annual coupon payment rate.",
       "businessContext_i18n": {
         "en": "Annual coupon payment rate.",
         "tr": "Tahvilin yıllık faiz ödeme oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "piyasaFaizi",
-      "label": "Piyasa Faizi (%)",
+      "label": "Market Rate (%)",
       "label_i18n": {
         "en": "Market Rate (%)",
         "tr": "Piyasa Faizi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Benzer riskteki tahvillerin getirisi.",
+      "businessContext": "Yield on comparable bonds.",
       "businessContext_i18n": {
         "en": "Yield on comparable bonds.",
         "tr": "Benzer riskteki tahvillerin getirisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "vade",
-      "label": "Vade (Yıl)",
+      "label": "Maturity (Years)",
       "label_i18n": {
         "en": "Maturity (Years)",
         "tr": "Vade (Yıl)",
@@ -95,7 +95,7 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Tahvilin vadesine kalan yıl.",
+      "businessContext": "Years to maturity.",
       "businessContext_i18n": {
         "en": "Years to maturity.",
         "tr": "Tahvilin vadesine kalan yıl.",

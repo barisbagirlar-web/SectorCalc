@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hedefNet",
-      "label": "Hedef Net Gelir (TL)",
+      "label": "Target Net Income (USD)",
       "label_i18n": {
         "en": "Target Net Income (USD)",
         "tr": "Hedef Net Gelir (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Vergi sonrası hedef gelir.",
+      "businessContext": "After-tax target income.",
       "businessContext_i18n": {
         "en": "After-tax target income.",
         "tr": "Vergi sonrası hedef gelir.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "vergi",
-      "label": "Vergi Oranı (%)",
+      "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Ortalama vergi yükü.",
+      "businessContext": "Average tax burden.",
       "businessContext_i18n": {
         "en": "Average tax burden.",
         "tr": "Ortalama vergi yükü.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "gider",
-      "label": "Yıllık Gider (TL)",
+      "label": "Annual Expense (USD)",
       "label_i18n": {
         "en": "Annual Expense (USD)",
         "tr": "Yıllık Gider (TL)",
@@ -71,7 +71,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "İşletme giderleri.",
+      "businessContext": "Business expenses.",
       "businessContext_i18n": {
         "en": "Business expenses.",
         "tr": "İşletme giderleri.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "calismaSaati",
-      "label": "Yıllık Çalışma Saati",
+      "label": "Annual Work Hours",
       "label_i18n": {
         "en": "Annual Work Hours",
         "tr": "Yıllık Çalışma Saati",
@@ -96,7 +96,7 @@
       "unit": "hours",
       "default": 1800,
       "min": 1,
-      "businessContext": "Toplam çalışma saati.",
+      "businessContext": "Total work hours.",
       "businessContext_i18n": {
         "en": "Total work hours.",
         "tr": "Toplam çalışma saati.",

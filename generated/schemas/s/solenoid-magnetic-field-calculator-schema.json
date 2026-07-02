@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akim",
-      "label": "Sargı Akımı (A)",
+      "label": "Coil Current (A)",
       "label_i18n": {
         "en": "Coil Current (A)",
         "tr": "Sargı Akımı (A)",
@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 2,
       "min": 0,
-      "businessContext": "Bobin sargısından geçen akım.",
+      "businessContext": "Coil winding current.",
       "businessContext_i18n": {
         "en": "Coil winding current.",
         "tr": "Bobin sargısından geçen akım.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sarimSayisi",
-      "label": "Toplam Sarım Sayısı",
+      "label": "Number of Turns",
       "label_i18n": {
         "en": "Number of Turns",
         "tr": "Toplam Sarım Sayısı",
@@ -45,7 +45,7 @@
       "unit": "turns",
       "default": 500,
       "min": 0,
-      "businessContext": "Bobin toplam sarım adedi.",
+      "businessContext": "Total coil turns.",
       "businessContext_i18n": {
         "en": "Total coil turns.",
         "tr": "Bobin toplam sarım adedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Bobin Boyu (m)",
+      "label": "Coil Length (m)",
       "label_i18n": {
         "en": "Coil Length (m)",
         "tr": "Bobin Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Solenoidin fiziksel uzunluğu.",
+      "businessContext": "Solenoid physical length.",
       "businessContext_i18n": {
         "en": "Solenoid physical length.",
         "tr": "Solenoidin fiziksel uzunluğu.",

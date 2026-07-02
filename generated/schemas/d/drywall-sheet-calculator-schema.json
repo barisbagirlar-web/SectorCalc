@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Duvar Alanı (m²)",
+      "label": "Wall Area (m²)",
       "label_i18n": {
         "en": "Wall Area (m²)",
         "tr": "Duvar Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 80,
       "min": 0,
-      "businessContext": "Kaplanacak duvar alanı.",
+      "businessContext": "Wall area.",
       "businessContext_i18n": {
         "en": "Wall area.",
         "tr": "Kaplanacak duvar alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "levhaEn",
-      "label": "Levha Eni (m)",
+      "label": "Sheet Width (m)",
       "label_i18n": {
         "en": "Sheet Width (m)",
         "tr": "Levha Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Alçıpan levha eni.",
+      "businessContext": "Drywall sheet width.",
       "businessContext_i18n": {
         "en": "Drywall sheet width.",
         "tr": "Alçıpan levha eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "levhaBoy",
-      "label": "Levha Boyu (m)",
+      "label": "Sheet Length (m)",
       "label_i18n": {
         "en": "Sheet Length (m)",
         "tr": "Levha Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Alçıpan levha boyu.",
+      "businessContext": "Drywall sheet length.",
       "businessContext_i18n": {
         "en": "Drywall sheet length.",
         "tr": "Alçıpan levha boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Fire Oranı (%)",
+      "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Kesim payı.",
+      "businessContext": "Cutting allowance.",
       "businessContext_i18n": {
         "en": "Cutting allowance.",
         "tr": "Kesim payı.",

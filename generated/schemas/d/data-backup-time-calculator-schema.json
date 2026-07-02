@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "veriBoyutu",
-      "label": "Veri Boyutu (TB)",
+      "label": "Data Size (TB)",
       "label_i18n": {
         "en": "Data Size (TB)",
         "tr": "Veri Boyutu (TB)",
@@ -20,7 +20,7 @@
       "unit": "TB",
       "default": 5,
       "min": 0,
-      "businessContext": "Yedeklenecek ham veri boyutu.",
+      "businessContext": "Raw backup data size.",
       "businessContext_i18n": {
         "en": "Raw backup data size.",
         "tr": "Yedeklenecek ham veri boyutu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sikistirmaOrani",
-      "label": "Sıkıştırma Oranı",
+      "label": "Compression Ratio",
       "label_i18n": {
         "en": "Compression Ratio",
         "tr": "Sıkıştırma Oranı",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "Sıkıştırma faktörü (2:1=2).",
+      "businessContext": "Compression factor.",
       "businessContext_i18n": {
         "en": "Compression factor.",
         "tr": "Sıkıştırma faktörü (2:1=2).",
@@ -57,7 +57,7 @@
     },
     {
       "id": "agHizi",
-      "label": "Ağ Hızı (Gbps)",
+      "label": "Network Speed (Gbps)",
       "label_i18n": {
         "en": "Network Speed (Gbps)",
         "tr": "Ağ Hızı (Gbps)",
@@ -70,7 +70,7 @@
       "unit": "Gbps",
       "default": 1,
       "min": 0,
-      "businessContext": "Veri aktarım hızı.",
+      "businessContext": "Data transfer speed.",
       "businessContext_i18n": {
         "en": "Data transfer speed.",
         "tr": "Veri aktarım hızı.",

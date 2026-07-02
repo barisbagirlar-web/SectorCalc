@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "piyasaFiyati",
-      "label": "Piyasa Fiyatı (TL)",
+      "label": "Market Price (USD)",
       "label_i18n": {
         "en": "Market Price (USD)",
         "tr": "Piyasa Fiyatı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Hisse senedinin piyasa fiyatı.",
+      "businessContext": "Stock market price.",
       "businessContext_i18n": {
         "en": "Stock market price.",
         "tr": "Hisse senedinin piyasa fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "iskonto",
-      "label": "İskonto Oranı (%)",
+      "label": "Discount Rate (%)",
       "label_i18n": {
         "en": "Discount Rate (%)",
         "tr": "İskonto Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "ESPP indirim oranı.",
+      "businessContext": "ESPP purchase discount.",
       "businessContext_i18n": {
         "en": "ESPP purchase discount.",
         "tr": "ESPP indirim oranı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "katki",
-      "label": "Aylık Katkı (TL)",
+      "label": "Monthly Contribution (USD)",
       "label_i18n": {
         "en": "Monthly Contribution (USD)",
         "tr": "Aylık Katkı (TL)",
@@ -71,7 +71,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Çalışanın aylık katkısı.",
+      "businessContext": "Employee monthly contribution.",
       "businessContext_i18n": {
         "en": "Employee monthly contribution.",
         "tr": "Çalışanın aylık katkısı.",

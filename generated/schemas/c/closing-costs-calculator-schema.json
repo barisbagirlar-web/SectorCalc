@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "krediTutari",
-      "label": "Kredi Tutarı (₺)",
+      "label": "Loan Amount (USD)",
       "label_i18n": {
         "en": "Loan Amount (USD)",
         "tr": "Kredi Tutarı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Çekilen kredi anaparası.",
+      "businessContext": "Loan principal.",
       "businessContext_i18n": {
         "en": "Loan principal.",
         "tr": "Çekilen kredi anaparası.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oran",
-      "label": "Oran Bazlı Masraf (%)",
+      "label": "Percentage-Based Fee (%)",
       "label_i18n": {
         "en": "Percentage-Based Fee (%)",
         "tr": "Oran Bazlı Masraf (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2,
       "min": 0,
-      "businessContext": "Kredi yüzdesiyle hesaplanan masraflar.",
+      "businessContext": "Percentage-based closing costs.",
       "businessContext_i18n": {
         "en": "Percentage-based closing costs.",
         "tr": "Kredi yüzdesiyle hesaplanan masraflar.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabitUcretler",
-      "label": "Sabit Ücretler (₺)",
+      "label": "Fixed Fees (USD)",
       "label_i18n": {
         "en": "Fixed Fees (USD)",
         "tr": "Sabit Ücretler (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Ekspertiz, ipotek tescili gibi sabit ücretler.",
+      "businessContext": "Fixed costs like appraisal and filing fees.",
       "businessContext_i18n": {
         "en": "Fixed costs like appraisal and filing fees.",
         "tr": "Ekspertiz, ipotek tescili gibi sabit ücretler.",

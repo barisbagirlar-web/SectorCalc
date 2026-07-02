@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yariCap",
-      "label": "Parçacık Yarıçapı (m)",
+      "label": "Particle Radius (m)",
       "label_i18n": {
         "en": "Particle Radius (m)",
         "tr": "Parçacık Yarıçapı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Küresel parçacığın yarıçapı.",
+      "businessContext": "Spherical particle radius.",
       "businessContext_i18n": {
         "en": "Spherical particle radius.",
         "tr": "Küresel parçacığın yarıçapı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "parcacikYogunluk",
-      "label": "Parçacık Yoğunluğu (kg/m³)",
+      "label": "Particle Density (kg/m³)",
       "label_i18n": {
         "en": "Particle Density (kg/m³)",
         "tr": "Parçacık Yoğunluğu (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 2500,
       "min": 0,
-      "businessContext": "Parçacığın yoğunluğu.",
+      "businessContext": "Particle density.",
       "businessContext_i18n": {
         "en": "Particle density.",
         "tr": "Parçacığın yoğunluğu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akiskanYogunluk",
-      "label": "Akışkan Yoğunluğu (kg/m³)",
+      "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Akışkan Yoğunluğu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Akışkanın yoğunluğu.",
+      "businessContext": "Fluid density.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akışkanın yoğunluğu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "viskozite",
-      "label": "Dinamik Viskozite (Pa·s)",
+      "label": "Dynamic Viscosity (Pa·s)",
       "label_i18n": {
         "en": "Dynamic Viscosity (Pa·s)",
         "tr": "Dinamik Viskozite (Pa·s)",
@@ -95,7 +95,7 @@
       "unit": "Pa*s",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Akışkanın viskozitesi.",
+      "businessContext": "Fluid viscosity.",
       "businessContext_i18n": {
         "en": "Fluid viscosity.",
         "tr": "Akışkanın viskozitesi.",

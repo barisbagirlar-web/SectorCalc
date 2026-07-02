@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Debi (m³/saat)",
+      "label": "Flow Rate (m³/h)",
       "label_i18n": {
         "en": "Flow Rate (m³/h)",
         "tr": "Debi (m³/saat)",
@@ -20,7 +20,7 @@
       "unit": "m3/h",
       "default": 10,
       "min": 0,
-      "businessContext": "Pompalama debisi.",
+      "businessContext": "Pumping flow rate.",
       "businessContext_i18n": {
         "en": "Pumping flow rate.",
         "tr": "Pompalama debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Toplam Yükseklik (m)",
+      "label": "Total Head (m)",
       "label_i18n": {
         "en": "Total Head (m)",
         "tr": "Toplam Yükseklik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 50,
       "min": 0,
-      "businessContext": "Emme+basma yüksekliği.",
+      "businessContext": "Suction + discharge head.",
       "businessContext_i18n": {
         "en": "Suction + discharge head.",
         "tr": "Emme+basma yüksekliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Pompa Verimi (%)",
+      "label": "Pump Efficiency (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 70,
       "min": 0,
-      "businessContext": "Pompa verimi.",
+      "businessContext": "Pump efficiency.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa verimi.",

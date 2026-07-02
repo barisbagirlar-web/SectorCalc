@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "basinc",
-      "label": "İç Basınç (Pa)",
+      "label": "Internal Pressure (Pa)",
       "label_i18n": {
         "en": "Internal Pressure (Pa)",
         "tr": "İç Basınç (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 500000,
       "min": 0,
-      "businessContext": "Kap içindeki basınç.",
+      "businessContext": "Internal vessel pressure.",
       "businessContext_i18n": {
         "en": "Internal vessel pressure.",
         "tr": "Kap içindeki basınç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cap",
-      "label": "Çap (m)",
+      "label": "Diameter (m)",
       "label_i18n": {
         "en": "Diameter (m)",
         "tr": "Çap (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Silindir çapı.",
+      "businessContext": "Cylinder diameter.",
       "businessContext_i18n": {
         "en": "Cylinder diameter.",
         "tr": "Silindir çapı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kalinlik",
-      "label": "Cidar Kalınlığı (m)",
+      "label": "Wall Thickness (m)",
       "label_i18n": {
         "en": "Wall Thickness (m)",
         "tr": "Cidar Kalınlığı (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.003,
       "min": 0,
-      "businessContext": "Kap et kalınlığı.",
+      "businessContext": "Vessel wall thickness.",
       "businessContext_i18n": {
         "en": "Vessel wall thickness.",
         "tr": "Kap et kalınlığı.",

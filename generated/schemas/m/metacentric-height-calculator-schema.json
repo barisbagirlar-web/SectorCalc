@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "KB",
-      "label": "KB (m) - Basınç Merkezi",
+      "label": "KB (m) - Center of Buoyancy",
       "label_i18n": {
         "en": "KB (m) - Center of Buoyancy",
         "tr": "KB (m) - Basınç Merkezi",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Su altı hacminin ağırlık merkezi.",
+      "businessContext": "Center of buoyancy.",
       "businessContext_i18n": {
         "en": "Center of buoyancy.",
         "tr": "Su altı hacminin ağırlık merkezi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "BM",
-      "label": "BM (m) - Metasentrik Yarıçap",
+      "label": "BM (m) - Metacentric Radius",
       "label_i18n": {
         "en": "BM (m) - Metacentric Radius",
         "tr": "BM (m) - Metasentrik Yarıçap",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Metasentrik yarıçap.",
+      "businessContext": "Metacentric radius.",
       "businessContext_i18n": {
         "en": "Metacentric radius.",
         "tr": "Metasentrik yarıçap.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "KG",
-      "label": "KG (m) - Ağırlık Merkezi",
+      "label": "KG (m) - Center of Gravity",
       "label_i18n": {
         "en": "KG (m) - Center of Gravity",
         "tr": "KG (m) - Ağırlık Merkezi",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Geminin ağırlık merkezi yüksekliği.",
+      "businessContext": "Vertical center of gravity.",
       "businessContext_i18n": {
         "en": "Vertical center of gravity.",
         "tr": "Geminin ağırlık merkezi yüksekliği.",

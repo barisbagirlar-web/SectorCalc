@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Yatırım Tutarı (TL)",
+      "label": "Investment Amount (USD)",
       "label_i18n": {
         "en": "Investment Amount (USD)",
         "tr": "Yatırım Tutarı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Yatırımcının koyduğu tutar.",
+      "businessContext": "Investor capital contribution.",
       "businessContext_i18n": {
         "en": "Investor capital contribution.",
         "tr": "Yatırımcının koyduğu tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hisseOrani",
-      "label": "Verilen Hisse Oranı (%)",
+      "label": "Equity Given (%)",
       "label_i18n": {
         "en": "Equity Given (%)",
         "tr": "Verilen Hisse Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 20,
       "min": 0.1,
       "max": 99,
-      "businessContext": "Yatırımcıya verilen hisse yüzdesi.",
+      "businessContext": "Percentage equity given to investor.",
       "businessContext_i18n": {
         "en": "Percentage equity given to investor.",
         "tr": "Yatırımcıya verilen hisse yüzdesi.",

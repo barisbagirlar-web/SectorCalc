@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "urunKutlesi",
-      "label": "Ürün Kütlesi (kg)",
+      "label": "Product Mass (kg)",
       "label_i18n": {
         "en": "Product Mass (kg)",
         "tr": "Ürün Kütlesi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 1000,
       "min": 0,
-      "businessContext": "Kurutulacak ürün.",
+      "businessContext": "Product to dry.",
       "businessContext_i18n": {
         "en": "Product to dry.",
         "tr": "Kurutulacak ürün.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "baslangicNem",
-      "label": "Başlangıç Nemi (%)",
+      "label": "Initial Moisture (%)",
       "label_i18n": {
         "en": "Initial Moisture (%)",
         "tr": "Başlangıç Nemi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Ürünün ilk nem oranı.",
+      "businessContext": "Initial moisture content.",
       "businessContext_i18n": {
         "en": "Initial moisture content.",
         "tr": "Ürünün ilk nem oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "hedefNem",
-      "label": "Hedef Nem (%)",
+      "label": "Target Moisture (%)",
       "label_i18n": {
         "en": "Target Moisture (%)",
         "tr": "Hedef Nem (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 14,
       "min": 0,
-      "businessContext": "Hedeflenen nem oranı.",
+      "businessContext": "Target moisture content.",
       "businessContext_i18n": {
         "en": "Target moisture content.",
         "tr": "Hedeflenen nem oranı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "havaDebi",
-      "label": "Hava Debisi (kg/s)",
+      "label": "Air Flow Rate (kg/s)",
       "label_i18n": {
         "en": "Air Flow Rate (kg/s)",
         "tr": "Hava Debisi (kg/s)",
@@ -95,7 +95,7 @@
       "unit": "kg/s",
       "default": 5,
       "min": 0,
-      "businessContext": "Kurutma havası debisi.",
+      "businessContext": "Drying air flow rate.",
       "businessContext_i18n": {
         "en": "Drying air flow rate.",
         "tr": "Kurutma havası debisi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "nemFarki",
-      "label": "Nem Farkı (kg/kg)",
+      "label": "Humidity Difference (kg/kg)",
       "label_i18n": {
         "en": "Humidity Difference (kg/kg)",
         "tr": "Nem Farkı (kg/kg)",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Hava giriş-çıkış nem farkı.",
+      "businessContext": "Air inlet-outlet humidity difference.",
       "businessContext_i18n": {
         "en": "Air inlet-outlet humidity difference.",
         "tr": "Hava giriş-çıkış nem farkı.",

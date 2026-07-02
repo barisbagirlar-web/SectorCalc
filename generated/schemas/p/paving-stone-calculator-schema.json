@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Döşeme Alanı (m²)",
+      "label": "Paving Area (m²)",
       "label_i18n": {
         "en": "Paving Area (m²)",
         "tr": "Döşeme Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Döşenecek alan.",
+      "businessContext": "Area to pave.",
       "businessContext_i18n": {
         "en": "Area to pave.",
         "tr": "Döşenecek alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tasEn",
-      "label": "Taş Eni (m)",
+      "label": "Stone Width (m)",
       "label_i18n": {
         "en": "Stone Width (m)",
         "tr": "Taş Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Kilit taşı eni.",
+      "businessContext": "Paver width.",
       "businessContext_i18n": {
         "en": "Paver width.",
         "tr": "Kilit taşı eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tasBoy",
-      "label": "Taş Boyu (m)",
+      "label": "Stone Length (m)",
       "label_i18n": {
         "en": "Stone Length (m)",
         "tr": "Taş Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Kilit taşı boyu.",
+      "businessContext": "Paver length.",
       "businessContext_i18n": {
         "en": "Paver length.",
         "tr": "Kilit taşı boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Fire Oranı (%)",
+      "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Fire Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Kesim kaybı.",
+      "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybı.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "engelGenisligi",
-      "label": "Engel Genişliği (m)",
+      "label": "Barrier Width (m)",
       "label_i18n": {
         "en": "Barrier Width (m)",
         "tr": "Engel Genişliği (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 1e-10,
       "min": 0,
-      "businessContext": "Potansiyel engelin kalınlığı.",
+      "businessContext": "Potential barrier thickness.",
       "businessContext_i18n": {
         "en": "Potential barrier thickness.",
         "tr": "Potansiyel engelin kalınlığı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "engelYuksekligi",
-      "label": "Engel Yüksekliği (J)",
+      "label": "Barrier Height (J)",
       "label_i18n": {
         "en": "Barrier Height (J)",
         "tr": "Engel Yüksekliği (J)",
@@ -45,7 +45,7 @@
       "unit": "J",
       "default": 1.6e-19,
       "min": 0,
-      "businessContext": "Potansiyel engelin yüksekliği.",
+      "businessContext": "Potential barrier height.",
       "businessContext_i18n": {
         "en": "Potential barrier height.",
         "tr": "Potansiyel engelin yüksekliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "enerji",
-      "label": "Parçacık Enerjisi (J)",
+      "label": "Particle Energy (J)",
       "label_i18n": {
         "en": "Particle Energy (J)",
         "tr": "Parçacık Enerjisi (J)",
@@ -70,7 +70,7 @@
       "unit": "J",
       "default": 8e-20,
       "min": 0,
-      "businessContext": "Gelen parçacığın kinetik enerjisi.",
+      "businessContext": "Incident particle kinetic energy.",
       "businessContext_i18n": {
         "en": "Incident particle kinetic energy.",
         "tr": "Gelen parçacığın kinetik enerjisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kutle",
-      "label": "Parçacık Kütlesi (kg)",
+      "label": "Particle Mass (kg)",
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parçacık Kütlesi (kg)",
@@ -95,7 +95,7 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Parçacığın kütlesi.",
+      "businessContext": "Particle mass.",
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parçacığın kütlesi.",

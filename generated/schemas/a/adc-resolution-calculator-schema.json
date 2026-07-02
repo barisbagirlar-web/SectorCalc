@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bitSayisi",
-      "label": "Bit Sayısı (N)",
+      "label": "Number of Bits (N)",
       "label_i18n": {
         "en": "Number of Bits (N)",
         "tr": "Bit Sayısı (N)",
@@ -21,7 +21,7 @@
       "default": 12,
       "min": 1,
       "max": 32,
-      "businessContext": "ADC çözünürlüğü.",
+      "businessContext": "ADC resolution bits.",
       "businessContext_i18n": {
         "en": "ADC resolution bits.",
         "tr": "ADC çözünürlüğü.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "refVoltaj",
-      "label": "Referans Voltajı (V)",
+      "label": "Reference Voltage (V)",
       "label_i18n": {
         "en": "Reference Voltage (V)",
         "tr": "Referans Voltajı (V)",
@@ -46,7 +46,7 @@
       "unit": "V",
       "default": 5,
       "min": 0,
-      "businessContext": "ADC referans gerilimi.",
+      "businessContext": "ADC reference voltage.",
       "businessContext_i18n": {
         "en": "ADC reference voltage.",
         "tr": "ADC referans gerilimi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "boslukHacim",
-      "label": "Boşluk Hacmi (m³)",
+      "label": "Void Volume (m³)",
       "label_i18n": {
         "en": "Void Volume (m³)",
         "tr": "Boşluk Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Malzemedeki boşlukların toplam hacmi.",
+      "businessContext": "Total void volume.",
       "businessContext_i18n": {
         "en": "Total void volume.",
         "tr": "Malzemedeki boşlukların toplam hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamHacim",
-      "label": "Toplam Hacim (m³)",
+      "label": "Total Volume (m³)",
       "label_i18n": {
         "en": "Total Volume (m³)",
         "tr": "Toplam Hacim (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 1,
       "min": 0,
-      "businessContext": "Malzemenin toplam hacmi.",
+      "businessContext": "Total material volume.",
       "businessContext_i18n": {
         "en": "Total material volume.",
         "tr": "Malzemenin toplam hacmi.",

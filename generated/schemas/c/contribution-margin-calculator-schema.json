@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satisFiyati",
-      "label": "Satış Fiyatı (TL)",
+      "label": "Selling Price (USD)",
       "label_i18n": {
         "en": "Selling Price (USD)",
         "tr": "Satış Fiyatı (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "Ürünün birim satış fiyatı.",
+      "businessContext": "Unit selling price.",
       "businessContext_i18n": {
         "en": "Unit selling price.",
         "tr": "Ürünün birim satış fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "degiskenMaliyet",
-      "label": "Değişken Maliyet (TL)",
+      "label": "Variable Cost (USD)",
       "label_i18n": {
         "en": "Variable Cost (USD)",
         "tr": "Değişken Maliyet (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 60,
       "min": 0,
-      "businessContext": "Birim başı değişken maliyet.",
+      "businessContext": "Unit variable cost.",
       "businessContext_i18n": {
         "en": "Unit variable cost.",
         "tr": "Birim başı değişken maliyet.",

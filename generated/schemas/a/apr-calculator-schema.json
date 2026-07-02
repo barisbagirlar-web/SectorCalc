@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kredi",
-      "label": "Kredi Tutarı (₺)",
+      "label": "Loan Amount (USD)",
       "label_i18n": {
         "en": "Loan Amount (USD)",
         "tr": "Kredi Tutarı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Çekilen toplam kredi anaparası.",
+      "businessContext": "Total loan principal.",
       "businessContext_i18n": {
         "en": "Total loan principal.",
         "tr": "Çekilen toplam kredi anaparası.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Nominal Faiz (%)",
+      "label": "Nominal Interest (%)",
       "label_i18n": {
         "en": "Nominal Interest (%)",
         "tr": "Nominal Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Kredinin yıllık nominal faiz oranı.",
+      "businessContext": "Annual nominal interest rate.",
       "businessContext_i18n": {
         "en": "Annual nominal interest rate.",
         "tr": "Kredinin yıllık nominal faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "vade",
-      "label": "Vade (Ay)",
+      "label": "Term (Months)",
       "label_i18n": {
         "en": "Term (Months)",
         "tr": "Vade (Ay)",
@@ -70,7 +70,7 @@
       "unit": "months",
       "default": 36,
       "min": 1,
-      "businessContext": "Kredinin toplam vadesi.",
+      "businessContext": "Total loan term.",
       "businessContext_i18n": {
         "en": "Total loan term.",
         "tr": "Kredinin toplam vadesi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "masraf",
-      "label": "Toplam Masraf (₺)",
+      "label": "Total Fees (USD)",
       "label_i18n": {
         "en": "Total Fees (USD)",
         "tr": "Toplam Masraf (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 1500,
       "min": 0,
-      "businessContext": "Dosya, ekspertiz ve sigorta masrafları.",
+      "businessContext": "Origination, appraisal and insurance fees.",
       "businessContext_i18n": {
         "en": "Origination, appraisal and insurance fees.",
         "tr": "Dosya, ekspertiz ve sigorta masrafları.",

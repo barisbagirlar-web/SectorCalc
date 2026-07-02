@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "matkapCapi",
-      "label": "Matkap Ucu Çapı (m)",
+      "label": "Bit Diameter (m)",
       "label_i18n": {
         "en": "Bit Diameter (m)",
         "tr": "Matkap Ucu Çapı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Sondaj matkabının çapı.",
+      "businessContext": "Drill bit diameter.",
       "businessContext_i18n": {
         "en": "Drill bit diameter.",
         "tr": "Sondaj matkabının çapı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kayaDayanim",
-      "label": "Kaya Basma Dayanımı (MPa)",
+      "label": "Rock Compressive Strength (MPa)",
       "label_i18n": {
         "en": "Rock Compressive Strength (MPa)",
         "tr": "Kaya Basma Dayanımı (MPa)",
@@ -45,7 +45,7 @@
       "unit": "MPa",
       "default": 100,
       "min": 0,
-      "businessContext": "Kayanın tek eksenli basma dayanımı.",
+      "businessContext": "Uniaxial compressive strength.",
       "businessContext_i18n": {
         "en": "Uniaxial compressive strength.",
         "tr": "Kayanın tek eksenli basma dayanımı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kesiciKatsayi",
-      "label": "Kesici Katsayısı",
+      "label": "Cutter Coefficient",
       "label_i18n": {
         "en": "Cutter Coefficient",
         "tr": "Kesici Katsayısı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Matkap tipine bağlı katsayı.",
+      "businessContext": "Bit type coefficient.",
       "businessContext_i18n": {
         "en": "Bit type coefficient.",
         "tr": "Matkap tipine bağlı katsayı.",

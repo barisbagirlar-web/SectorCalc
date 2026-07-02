@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "direnc",
-      "label": "Birim Direnç (Ω/m)",
+      "label": "Unit Resistance (Ω/m)",
       "label_i18n": {
         "en": "Unit Resistance (Ω/m)",
         "tr": "Birim Direnç (Ω/m)",
@@ -20,7 +20,7 @@
       "unit": "ohm/m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Hat direnci.",
+      "businessContext": "Line resistance.",
       "businessContext_i18n": {
         "en": "Line resistance.",
         "tr": "Hat direnci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "induktans",
-      "label": "Birim İndüktans (H/m)",
+      "label": "Unit Inductance (H/m)",
       "label_i18n": {
         "en": "Unit Inductance (H/m)",
         "tr": "Birim İndüktans (H/m)",
@@ -45,7 +45,7 @@
       "unit": "H/m",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Hat endüktansı.",
+      "businessContext": "Line inductance.",
       "businessContext_i18n": {
         "en": "Line inductance.",
         "tr": "Hat endüktansı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kapasite",
-      "label": "Birim Kapasite (F/m)",
+      "label": "Unit Capacitance (F/m)",
       "label_i18n": {
         "en": "Unit Capacitance (F/m)",
         "tr": "Birim Kapasite (F/m)",
@@ -70,7 +70,7 @@
       "unit": "F/m",
       "default": 1e-12,
       "min": 0,
-      "businessContext": "Hat kapasitesi.",
+      "businessContext": "Line capacitance.",
       "businessContext_i18n": {
         "en": "Line capacitance.",
         "tr": "Hat kapasitesi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "frekans",
-      "label": "Frekans (Hz)",
+      "label": "Frequency (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
         "tr": "Frekans (Hz)",
@@ -95,7 +95,7 @@
       "unit": "Hz",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Çalışma frekansı.",
+      "businessContext": "Operating frequency.",
       "businessContext_i18n": {
         "en": "Operating frequency.",
         "tr": "Çalışma frekansı.",

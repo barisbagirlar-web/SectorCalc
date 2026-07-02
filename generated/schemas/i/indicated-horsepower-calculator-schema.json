@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "basinc",
-      "label": "Ortalama İndike Basınc (Pa)",
+      "label": "Mean Indicated Pressure (Pa)",
       "label_i18n": {
         "en": "Mean Indicated Pressure (Pa)",
         "tr": "Ortalama İndike Basınc (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Silindir içi ortalama basınç.",
+      "businessContext": "Average cylinder pressure.",
       "businessContext_i18n": {
         "en": "Average cylinder pressure.",
         "tr": "Silindir içi ortalama basınç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "strok",
-      "label": "Strok (m)",
+      "label": "Stroke (m)",
       "label_i18n": {
         "en": "Stroke (m)",
         "tr": "Strok (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Pistonun alt-üst ölü nokta mesafesi.",
+      "businessContext": "Piston stroke length.",
       "businessContext_i18n": {
         "en": "Piston stroke length.",
         "tr": "Pistonun alt-üst ölü nokta mesafesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "alan",
-      "label": "Piston Alanı (m²)",
+      "label": "Piston Area (m²)",
       "label_i18n": {
         "en": "Piston Area (m²)",
         "tr": "Piston Alanı (m²)",
@@ -70,7 +70,7 @@
       "unit": "m2",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Piston yüzey alanı.",
+      "businessContext": "Piston cross-section area.",
       "businessContext_i18n": {
         "en": "Piston cross-section area.",
         "tr": "Piston yüzey alanı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "devir",
-      "label": "Motor Devri (devir/dk)",
+      "label": "Engine Speed (RPM)",
       "label_i18n": {
         "en": "Engine Speed (RPM)",
         "tr": "Motor Devri (devir/dk)",
@@ -95,7 +95,7 @@
       "unit": "rpm",
       "default": 3000,
       "min": 0,
-      "businessContext": "Krank mili dönüş hızı.",
+      "businessContext": "Crankshaft speed.",
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
         "tr": "Krank mili dönüş hızı.",

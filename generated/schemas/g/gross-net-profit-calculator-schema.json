@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ciro",
-      "label": "Ciro (TL)",
+      "label": "Revenue (USD)",
       "label_i18n": {
         "en": "Revenue (USD)",
         "tr": "Ciro (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Toplam satış geliri.",
+      "businessContext": "Total revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
         "tr": "Toplam satış geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cogs",
-      "label": "SMM (TL)",
+      "label": "COGS (USD)",
       "label_i18n": {
         "en": "COGS (USD)",
         "tr": "SMM (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 600000,
       "min": 0,
-      "businessContext": "Satılan mal maliyeti.",
+      "businessContext": "Cost of goods sold.",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
         "tr": "Satılan mal maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "isletmeGideri",
-      "label": "İşletme Gideri (TL)",
+      "label": "Operating Expense (USD)",
       "label_i18n": {
         "en": "Operating Expense (USD)",
         "tr": "İşletme Gideri (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Faaliyet giderleri.",
+      "businessContext": "Operating expenses.",
       "businessContext_i18n": {
         "en": "Operating expenses.",
         "tr": "Faaliyet giderleri.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "vergi",
-      "label": "Vergi (TL)",
+      "label": "Tax (USD)",
       "label_i18n": {
         "en": "Tax (USD)",
         "tr": "Vergi (TL)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Vergi gideri.",
+      "businessContext": "Tax expense.",
       "businessContext_i18n": {
         "en": "Tax expense.",
         "tr": "Vergi gideri.",

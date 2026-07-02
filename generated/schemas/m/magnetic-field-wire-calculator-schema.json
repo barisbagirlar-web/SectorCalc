@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akim",
-      "label": "Telden Geçen Akım (A)",
+      "label": "Current in Wire (A)",
       "label_i18n": {
         "en": "Current in Wire (A)",
         "tr": "Telden Geçen Akım (A)",
@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 10,
       "min": 0,
-      "businessContext": "İletkendeki akım.",
+      "businessContext": "Conductor current.",
       "businessContext_i18n": {
         "en": "Conductor current.",
         "tr": "İletkendeki akım.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Telden Uzaklık (m)",
+      "label": "Distance from Wire (m)",
       "label_i18n": {
         "en": "Distance from Wire (m)",
         "tr": "Telden Uzaklık (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Ölçüm noktasının tele uzaklığı.",
+      "businessContext": "Measurement distance from wire.",
       "businessContext_i18n": {
         "en": "Measurement distance from wire.",
         "tr": "Ölçüm noktasının tele uzaklığı.",

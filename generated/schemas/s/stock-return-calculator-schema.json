@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alis",
-      "label": "Alış Fiyatı (₺)",
+      "label": "Buy Price (USD)",
       "label_i18n": {
         "en": "Buy Price (USD)",
         "tr": "Alış Fiyatı (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Hisse senedinin satın alma fiyatı.",
+      "businessContext": "Purchase price per share.",
       "businessContext_i18n": {
         "en": "Purchase price per share.",
         "tr": "Hisse senedinin satın alma fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satis",
-      "label": "Satış Fiyatı (₺)",
+      "label": "Sell Price (USD)",
       "label_i18n": {
         "en": "Sell Price (USD)",
         "tr": "Satış Fiyatı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 75,
       "min": 0,
-      "businessContext": "Hisse senedinin satış fiyatı.",
+      "businessContext": "Sale price per share.",
       "businessContext_i18n": {
         "en": "Sale price per share.",
         "tr": "Hisse senedinin satış fiyatı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "temettu",
-      "label": "Alınan Temettü (₺)",
+      "label": "Dividends Received (USD)",
       "label_i18n": {
         "en": "Dividends Received (USD)",
         "tr": "Alınan Temettü (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "Dönem boyunca alınan temettü.",
+      "businessContext": "Dividends received during holding period.",
       "businessContext_i18n": {
         "en": "Dividends received during holding period.",
         "tr": "Dönem boyunca alınan temettü.",

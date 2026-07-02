@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akim",
-      "label": "Kaynak Akımı (A)",
+      "label": "Welding Current (A)",
       "label_i18n": {
         "en": "Welding Current (A)",
         "tr": "Kaynak Akımı (A)",
@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 200,
       "min": 0,
-      "businessContext": "Ark akımı.",
+      "businessContext": "Arc current.",
       "businessContext_i18n": {
         "en": "Arc current.",
         "tr": "Ark akımı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gerilim",
-      "label": "Ark Gerilimi (V)",
+      "label": "Arc Voltage (V)",
       "label_i18n": {
         "en": "Arc Voltage (V)",
         "tr": "Ark Gerilimi (V)",
@@ -45,7 +45,7 @@
       "unit": "V",
       "default": 25,
       "min": 0,
-      "businessContext": "Ark voltajı.",
+      "businessContext": "Arc voltage.",
       "businessContext_i18n": {
         "en": "Arc voltage.",
         "tr": "Ark voltajı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ilerlemeHiz",
-      "label": "İlerleme Hızı (mm/s)",
+      "label": "Travel Speed (mm/s)",
       "label_i18n": {
         "en": "Travel Speed (mm/s)",
         "tr": "İlerleme Hızı (mm/s)",
@@ -70,7 +70,7 @@
       "unit": "mm/s",
       "default": 5,
       "min": 0,
-      "businessContext": "Kaynak hızı.",
+      "businessContext": "Welding speed.",
       "businessContext_i18n": {
         "en": "Welding speed.",
         "tr": "Kaynak hızı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "verim",
-      "label": "Isıl Verim",
+      "label": "Thermal Efficiency",
       "label_i18n": {
         "en": "Thermal Efficiency",
         "tr": "Isıl Verim",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.8,
       "min": 0,
-      "businessContext": "Ark verimi (0.6-0.9).",
+      "businessContext": "Arc efficiency (0.6-0.9).",
       "businessContext_i18n": {
         "en": "Arc efficiency (0.6-0.9).",
         "tr": "Ark verimi (0.6-0.9).",

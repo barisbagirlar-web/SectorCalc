@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "siraAraligi",
-      "label": "Sıra Aralığı (m)",
+      "label": "Row Spacing (m)",
       "label_i18n": {
         "en": "Row Spacing (m)",
         "tr": "Sıra Aralığı (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.7,
       "min": 0,
-      "businessContext": "Sıralar arası mesafe.",
+      "businessContext": "Distance between rows.",
       "businessContext_i18n": {
         "en": "Distance between rows.",
         "tr": "Sıralar arası mesafe.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzeriMesafe",
-      "label": "Sıra Üzeri Mesafe (m)",
+      "label": "In-Row Spacing (m)",
       "label_i18n": {
         "en": "In-Row Spacing (m)",
         "tr": "Sıra Üzeri Mesafe (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Bitkiler arası mesafe.",
+      "businessContext": "Distance between plants.",
       "businessContext_i18n": {
         "en": "Distance between plants.",
         "tr": "Bitkiler arası mesafe.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "binTaneAgirlik",
-      "label": "Bin Tane Ağırlığı (g)",
+      "label": "Thousand Grain Weight (g)",
       "label_i18n": {
         "en": "Thousand Grain Weight (g)",
         "tr": "Bin Tane Ağırlığı (g)",
@@ -70,7 +70,7 @@
       "unit": "g",
       "default": 350,
       "min": 0,
-      "businessContext": "1000 adet tohumun ağırlığı.",
+      "businessContext": "Weight of 1000 seeds.",
       "businessContext_i18n": {
         "en": "Weight of 1000 seeds.",
         "tr": "1000 adet tohumun ağırlığı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "cimlenme",
-      "label": "Çimlenme Oranı (%)",
+      "label": "Germination Rate (%)",
       "label_i18n": {
         "en": "Germination Rate (%)",
         "tr": "Çimlenme Oranı (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Tohumun çimlenme yüzdesi.",
+      "businessContext": "Germination percentage.",
       "businessContext_i18n": {
         "en": "Germination percentage.",
         "tr": "Tohumun çimlenme yüzdesi.",

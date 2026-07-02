@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Anapara (₺)",
+      "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
         "tr": "Anapara (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext": "Initial investment amount.",
       "businessContext_i18n": {
         "en": "Initial investment amount.",
         "tr": "Başlangıç yatırım tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Yıllık Faiz (%)",
+      "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
         "tr": "Yıllık Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Yıllık nominal faiz oranı.",
+      "businessContext": "Annual nominal interest rate.",
       "businessContext_i18n": {
         "en": "Annual nominal interest rate.",
         "tr": "Yıllık nominal faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Vade (Yıl)",
+      "label": "Term (Years)",
       "label_i18n": {
         "en": "Term (Years)",
         "tr": "Vade (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Toplam yatırım süresi.",
+      "businessContext": "Total investment period.",
       "businessContext_i18n": {
         "en": "Total investment period.",
         "tr": "Toplam yatırım süresi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "siklik",
-      "label": "Bileşim Sıklığı (Adet/Yıl)",
+      "label": "Compounding Frequency",
       "label_i18n": {
         "en": "Compounding Frequency",
         "tr": "Bileşim Sıklığı (Adet/Yıl)",
@@ -95,7 +95,7 @@
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Faizin yılda kaç kez eklendiği (12: aylık).",
+      "businessContext": "Number of compounding periods per year (12=monthly).",
       "businessContext_i18n": {
         "en": "Number of compounding periods per year (12=monthly).",
         "tr": "Faizin yılda kaç kez eklendiği (12: aylık).",

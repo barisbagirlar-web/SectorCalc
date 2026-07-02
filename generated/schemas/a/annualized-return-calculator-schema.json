@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "baslangic",
-      "label": "Başlangıç Değeri (₺)",
+      "label": "Starting Value (USD)",
       "label_i18n": {
         "en": "Starting Value (USD)",
         "tr": "Başlangıç Değeri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Dönem başı yatırım değeri.",
+      "businessContext": "Investment value at start of period.",
       "businessContext_i18n": {
         "en": "Investment value at start of period.",
         "tr": "Dönem başı yatırım değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitis",
-      "label": "Bitiş Değeri (₺)",
+      "label": "Ending Value (USD)",
       "label_i18n": {
         "en": "Ending Value (USD)",
         "tr": "Bitiş Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Dönem sonu yatırım değeri.",
+      "businessContext": "Investment value at end of period.",
       "businessContext_i18n": {
         "en": "Investment value at end of period.",
         "tr": "Dönem sonu yatırım değeri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Süre (Yıl)",
+      "label": "Period (Years)",
       "label_i18n": {
         "en": "Period (Years)",
         "tr": "Süre (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Toplam yatırım süresi.",
+      "businessContext": "Total investment period.",
       "businessContext_i18n": {
         "en": "Total investment period.",
         "tr": "Toplam yatırım süresi.",

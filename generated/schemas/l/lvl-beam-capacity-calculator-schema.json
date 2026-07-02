@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kesitModulu",
-      "label": "Kesit Modülü (m³)",
+      "label": "Section Modulus (m³)",
       "label_i18n": {
         "en": "Section Modulus (m³)",
         "tr": "Kesit Modülü (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 0.00025,
       "min": 0,
-      "businessContext": "LVL kirişin kesit modülü.",
+      "businessContext": "LVL beam section modulus.",
       "businessContext_i18n": {
         "en": "LVL beam section modulus.",
         "tr": "LVL kirişin kesit modülü.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "egilmeDayanimi",
-      "label": "Eğilme Dayanımı (Pa)",
+      "label": "Bending Strength (Pa)",
       "label_i18n": {
         "en": "Bending Strength (Pa)",
         "tr": "Eğilme Dayanımı (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 40000000,
       "min": 0,
-      "businessContext": "LVL'nin izin verilen eğilme gerilmesi.",
+      "businessContext": "LVL allowable bending stress.",
       "businessContext_i18n": {
         "en": "LVL allowable bending stress.",
         "tr": "LVL'nin izin verilen eğilme gerilmesi.",

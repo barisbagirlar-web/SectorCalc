@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bobinAgirlik",
-      "label": "Bobin Ağırlığı (g)",
+      "label": "Bobbin Weight (g)",
       "label_i18n": {
         "en": "Bobbin Weight (g)",
         "tr": "Bobin Ağırlığı (g)",
@@ -20,7 +20,7 @@
       "unit": "g",
       "default": 100,
       "min": 0,
-      "businessContext": "Bobinin ağırlığı.",
+      "businessContext": "Bobbin weight.",
       "businessContext_i18n": {
         "en": "Bobbin weight.",
         "tr": "Bobinin ağırlığı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "iplikNumara",
-      "label": "İplik Numarası (Nm)",
+      "label": "Yarn Count (Nm)",
       "label_i18n": {
         "en": "Yarn Count (Nm)",
         "tr": "İplik Numarası (Nm)",
@@ -45,7 +45,7 @@
       "unit": "Nm",
       "default": 40,
       "min": 0,
-      "businessContext": "İplik numara değeri.",
+      "businessContext": "Yarn count (metric).",
       "businessContext_i18n": {
         "en": "Yarn count (metric).",
         "tr": "İplik numara değeri.",

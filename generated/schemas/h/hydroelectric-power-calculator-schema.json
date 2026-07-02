@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Debi (m³/s)",
+      "label": "Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Flow Rate (m³/s)",
         "tr": "Debi (m³/s)",
@@ -20,7 +20,7 @@
       "unit": "m3/s",
       "default": 50,
       "min": 0,
-      "businessContext": "Türbine giren su debisi.",
+      "businessContext": "Turbine water flow.",
       "businessContext_i18n": {
         "en": "Turbine water flow.",
         "tr": "Türbine giren su debisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dusuYuksekligi",
-      "label": "Düşü Yüksekliği (m)",
+      "label": "Head (m)",
       "label_i18n": {
         "en": "Head (m)",
         "tr": "Düşü Yüksekliği (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 100,
       "min": 0,
-      "businessContext": "Su seviyeleri arasındaki düşü.",
+      "businessContext": "Water level difference.",
       "businessContext_i18n": {
         "en": "Water level difference.",
         "tr": "Su seviyeleri arasındaki düşü.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "turbinVerim",
-      "label": "Türbin Verimi (%)",
+      "label": "Turbine Efficiency (%)",
       "label_i18n": {
         "en": "Turbine Efficiency (%)",
         "tr": "Türbin Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "Türbin verimi.",
+      "businessContext": "Turbine efficiency.",
       "businessContext_i18n": {
         "en": "Turbine efficiency.",
         "tr": "Türbin verimi.",

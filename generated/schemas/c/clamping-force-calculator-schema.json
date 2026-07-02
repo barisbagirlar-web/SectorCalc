@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "projeksiyonAlani",
-      "label": "Projeksiyon Alanı (cm²)",
+      "label": "Projected Area (cm²)",
       "label_i18n": {
         "en": "Projected Area (cm²)",
         "tr": "Projeksiyon Alanı (cm²)",
@@ -20,7 +20,7 @@
       "unit": "cm2",
       "default": 500,
       "min": 0,
-      "businessContext": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
+      "businessContext": "Part projected area on mold.",
       "businessContext_i18n": {
         "en": "Part projected area on mold.",
         "tr": "Parçanın kalıp ayrışma yüzeyindeki izdüşüm alanı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalipIcBasinc",
-      "label": "Kalıp İçi Basınc (bar)",
+      "label": "Cavity Pressure (bar)",
       "label_i18n": {
         "en": "Cavity Pressure (bar)",
         "tr": "Kalıp İçi Basınc (bar)",
@@ -45,7 +45,7 @@
       "unit": "bar",
       "default": 800,
       "min": 0,
-      "businessContext": "Ergiyik plastiğin kalıp içindeki basıncı.",
+      "businessContext": "Melt cavity pressure.",
       "businessContext_i18n": {
         "en": "Melt cavity pressure.",
         "tr": "Ergiyik plastiğin kalıp içindeki basıncı.",

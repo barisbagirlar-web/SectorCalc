@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "olayTarihi",
-      "label": "Olay Tarihi (Yıl)",
+      "label": "Event Date (Year)",
       "label_i18n": {
         "en": "Event Date (Year)",
         "tr": "Olay Tarihi (Yıl)",
@@ -20,7 +20,7 @@
       "unit": "years",
       "default": 2020,
       "min": 0,
-      "businessContext": "Dava konusu olayın gerçekleştiği yıl.",
+      "businessContext": "Year the event occurred.",
       "businessContext_i18n": {
         "en": "Year the event occurred.",
         "tr": "Dava konusu olayın gerçekleştiği yıl.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yasalSure",
-      "label": "Yasal Zamanaşımı Süresi (Yıl)",
+      "label": "Legal Limitation Period (Years)",
       "label_i18n": {
         "en": "Legal Limitation Period (Years)",
         "tr": "Yasal Zamanaşımı Süresi (Yıl)",
@@ -45,7 +45,7 @@
       "unit": "years",
       "default": 10,
       "min": 0,
-      "businessContext": "Kanunun tanıdığı süre.",
+      "businessContext": "Legal limitation period.",
       "businessContext_i18n": {
         "en": "Legal limitation period.",
         "tr": "Kanunun tanıdığı süre.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kesintiDurumu",
-      "label": "Kesinti Var mı? (1=Evet, 0=Hayır)",
+      "label": "Tolling? (1=Yes, 0=No)",
       "label_i18n": {
         "en": "Tolling? (1=Yes, 0=No)",
         "tr": "Kesinti Var mı? (1=Evet, 0=Hayır)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Zamanaşımını kesen bir durum var mı?",
+      "businessContext": "Is there a tolling event?",
       "businessContext_i18n": {
         "en": "Is there a tolling event?",
         "tr": "Zamanaşımını kesen bir durum var mı?",

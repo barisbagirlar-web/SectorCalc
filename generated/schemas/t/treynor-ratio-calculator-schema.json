@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "Portföy Getirisi (%)",
+      "label": "Portfolio Return (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
         "tr": "Portföy Getirisi (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portföyün dönemsel getirisi.",
+      "businessContext": "Portfolio return.",
       "businessContext_i18n": {
         "en": "Portfolio return.",
         "tr": "Portföyün dönemsel getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "risksizFaiz",
-      "label": "Risksiz Faiz (%)",
+      "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risksiz varlık getirisi.",
+      "businessContext": "Risk-free rate.",
       "businessContext_i18n": {
         "en": "Risk-free rate.",
         "tr": "Risksiz varlık getirisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "beta",
-      "label": "Beta (Sayı)",
+      "label": "Beta (Number)",
       "label_i18n": {
         "en": "Beta (Number)",
         "tr": "Beta (Sayı)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Portföyün piyasa duyarlılığı.",
+      "businessContext": "Portfolio market sensitivity.",
       "businessContext_i18n": {
         "en": "Portfolio market sensitivity.",
         "tr": "Portföyün piyasa duyarlılığı.",

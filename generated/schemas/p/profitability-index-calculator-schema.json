@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "gelecekNakitBD",
-      "label": "Gelecek Nakit BD (₺)",
+      "label": "Future Cash Flows PV (USD)",
       "label_i18n": {
         "en": "Future Cash Flows PV (USD)",
         "tr": "Gelecek Nakit BD (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Tüm gelecek nakit akışlarının bugünkü değeri.",
+      "businessContext": "Present value of all future cash flows.",
       "businessContext_i18n": {
         "en": "Present value of all future cash flows.",
         "tr": "Tüm gelecek nakit akışlarının bugünkü değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yatirim",
-      "label": "Başlangıç Yatırımı (₺)",
+      "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Başlangıç Yatırımı (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Projenin başlangıç maliyeti.",
+      "businessContext": "Initial project cost.",
       "businessContext_i18n": {
         "en": "Initial project cost.",
         "tr": "Projenin başlangıç maliyeti.",

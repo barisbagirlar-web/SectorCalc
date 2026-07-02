@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "maksSinyalFrekansi",
-      "label": "Maks. Sinyal Frekansı (Hz)",
+      "label": "Max Signal Frequency (Hz)",
       "label_i18n": {
         "en": "Max Signal Frequency (Hz)",
         "tr": "Maks. Sinyal Frekansı (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 100,
       "min": 0,
-      "businessContext": "Sinyaldeki en yüksek frekans bileşeni.",
+      "businessContext": "Highest frequency component.",
       "businessContext_i18n": {
         "en": "Highest frequency component.",
         "tr": "Sinyaldeki en yüksek frekans bileşeni.",

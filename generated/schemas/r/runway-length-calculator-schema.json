@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kalkisHiz",
-      "label": "Kalkış Hızı (m/s)",
+      "label": "Takeoff Speed (m/s)",
       "label_i18n": {
         "en": "Takeoff Speed (m/s)",
         "tr": "Kalkış Hızı (m/s)",
@@ -20,7 +20,7 @@
       "unit": "m/s",
       "default": 80,
       "min": 0,
-      "businessContext": "Uçağın yerden kesilme hızı.",
+      "businessContext": "Aircraft rotation speed.",
       "businessContext_i18n": {
         "en": "Aircraft rotation speed.",
         "tr": "Uçağın yerden kesilme hızı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ivme",
-      "label": "Ortalama İvme (m/s²)",
+      "label": "Average Acceleration (m/s²)",
       "label_i18n": {
         "en": "Average Acceleration (m/s²)",
         "tr": "Ortalama İvme (m/s²)",
@@ -45,7 +45,7 @@
       "unit": "m/s2",
       "default": 3,
       "min": 0,
-      "businessContext": "Motor itki gücüyle hızlanma.",
+      "businessContext": "Engine thrust acceleration.",
       "businessContext_i18n": {
         "en": "Engine thrust acceleration.",
         "tr": "Motor itki gücüyle hızlanma.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ruzgarHiz",
-      "label": "Karşı Rüzgar Hızı (m/s)",
+      "label": "Headwind Speed (m/s)",
       "label_i18n": {
         "en": "Headwind Speed (m/s)",
         "tr": "Karşı Rüzgar Hızı (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 5,
       "min": 0,
-      "businessContext": "Pist başı rüzgar.",
+      "businessContext": "Runway headwind component.",
       "businessContext_i18n": {
         "en": "Runway headwind component.",
         "tr": "Pist başı rüzgar.",

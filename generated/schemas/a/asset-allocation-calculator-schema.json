@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "portfoy",
-      "label": "Toplam Portföy (₺)",
+      "label": "Total Portfolio (USD)",
       "label_i18n": {
         "en": "Total Portfolio (USD)",
         "tr": "Toplam Portföy (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Yatırım portföyünün toplam değeri.",
+      "businessContext": "Total investment portfolio value.",
       "businessContext_i18n": {
         "en": "Total investment portfolio value.",
         "tr": "Yatırım portföyünün toplam değeri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hisse",
-      "label": "Hisse Senedi (%)",
+      "label": "Stocks (%)",
       "label_i18n": {
         "en": "Stocks (%)",
         "tr": "Hisse Senedi (%)",
@@ -46,7 +46,7 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Portföydeki hisse senedi hedef oranı.",
+      "businessContext": "Target stock allocation percentage.",
       "businessContext_i18n": {
         "en": "Target stock allocation percentage.",
         "tr": "Portföydeki hisse senedi hedef oranı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "tahvil",
-      "label": "Tahvil/Bono (%)",
+      "label": "Bonds (%)",
       "label_i18n": {
         "en": "Bonds (%)",
         "tr": "Tahvil/Bono (%)",
@@ -72,7 +72,7 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Portföydeki tahvil hedef oranı.",
+      "businessContext": "Target bond allocation percentage.",
       "businessContext_i18n": {
         "en": "Target bond allocation percentage.",
         "tr": "Portföydeki tahvil hedef oranı.",
@@ -84,7 +84,7 @@
     },
     {
       "id": "nakit",
-      "label": "Nakit (%)",
+      "label": "Cash (%)",
       "label_i18n": {
         "en": "Cash (%)",
         "tr": "Nakit (%)",
@@ -98,7 +98,7 @@
       "default": 10,
       "min": 0,
       "max": 100,
-      "businessContext": "Portföydeki nakit hedef oranı.",
+      "businessContext": "Target cash allocation percentage.",
       "businessContext_i18n": {
         "en": "Target cash allocation percentage.",
         "tr": "Portföydeki nakit hedef oranı.",

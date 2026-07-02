@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "camurYogunlugu",
-      "label": "Çamur Yoğunluğu (kg/m³)",
+      "label": "Mud Density (kg/m³)",
       "label_i18n": {
         "en": "Mud Density (kg/m³)",
         "tr": "Çamur Yoğunluğu (kg/m³)",
@@ -20,7 +20,7 @@
       "unit": "kg/m3",
       "default": 1500,
       "min": 0,
-      "businessContext": "Sondaj çamuru yoğunluğu.",
+      "businessContext": "Drilling mud density.",
       "businessContext_i18n": {
         "en": "Drilling mud density.",
         "tr": "Sondaj çamuru yoğunluğu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Dikey Derinlik (m)",
+      "label": "Vertical Depth (m)",
       "label_i18n": {
         "en": "Vertical Depth (m)",
         "tr": "Dikey Derinlik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2000,
       "min": 0,
-      "businessContext": "Kuyu derinliği.",
+      "businessContext": "Well depth.",
       "businessContext_i18n": {
         "en": "Well depth.",
         "tr": "Kuyu derinliği.",

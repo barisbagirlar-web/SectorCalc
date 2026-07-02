@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Yüzey Alanı (m²)",
+      "label": "Surface Area (m²)",
       "label_i18n": {
         "en": "Surface Area (m²)",
         "tr": "Yüzey Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Kaplanacak alan.",
+      "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Kaplanacak alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sarfiyat",
-      "label": "Sarfiyat (kg/m²)",
+      "label": "Consumption (kg/m²)",
       "label_i18n": {
         "en": "Consumption (kg/m²)",
         "tr": "Sarfiyat (kg/m²)",
@@ -45,7 +45,7 @@
       "unit": "kg/m2",
       "default": 2,
       "min": 0,
-      "businessContext": "Birim alan için yapıştırıcı tüketimi.",
+      "businessContext": "Adhesive consumption per m².",
       "businessContext_i18n": {
         "en": "Adhesive consumption per m².",
         "tr": "Birim alan için yapıştırıcı tüketimi.",

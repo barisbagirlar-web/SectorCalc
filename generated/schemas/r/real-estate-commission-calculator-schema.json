@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satisBedeli",
-      "label": "Satış Bedeli (₺)",
+      "label": "Sale Price (USD)",
       "label_i18n": {
         "en": "Sale Price (USD)",
         "tr": "Satış Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Gayrimenkul satış fiyatı.",
+      "businessContext": "Property sale price.",
       "businessContext_i18n": {
         "en": "Property sale price.",
         "tr": "Gayrimenkul satış fiyatı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "komisyonOrani",
-      "label": "Komisyon Oranı (%)",
+      "label": "Commission Rate (%)",
       "label_i18n": {
         "en": "Commission Rate (%)",
         "tr": "Komisyon Oranı (%)",
@@ -46,7 +46,7 @@
       "default": 3,
       "min": 0,
       "max": 100,
-      "businessContext": "Emlakçı komisyon yüzdesi.",
+      "businessContext": "Agent commission percentage.",
       "businessContext_i18n": {
         "en": "Agent commission percentage.",
         "tr": "Emlakçı komisyon yüzdesi.",

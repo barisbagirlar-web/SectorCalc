@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "reklamMaliyeti",
-      "label": "Reklam Maliyeti (TL)",
+      "label": "Ad Cost (USD)",
       "label_i18n": {
         "en": "Ad Cost (USD)",
         "tr": "Reklam Maliyeti (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Toplam reklam harcaması.",
+      "businessContext": "Total ad spend.",
       "businessContext_i18n": {
         "en": "Total ad spend.",
         "tr": "Toplam reklam harcaması.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gosterim",
-      "label": "Gösterim (Adet)",
+      "label": "Impressions",
       "label_i18n": {
         "en": "Impressions",
         "tr": "Gösterim (Adet)",
@@ -45,7 +45,7 @@
       "unit": "impressions",
       "default": 500000,
       "min": 1,
-      "businessContext": "Toplam gösterim.",
+      "businessContext": "Total impressions.",
       "businessContext_i18n": {
         "en": "Total impressions.",
         "tr": "Toplam gösterim.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kutle",
-      "label": "Kütle (kg)",
+      "label": "Mass (kg)",
       "label_i18n": {
         "en": "Mass (kg)",
         "tr": "Kütle (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 10,
       "min": 0,
-      "businessContext": "Sistem kütlesi.",
+      "businessContext": "System mass.",
       "businessContext_i18n": {
         "en": "System mass.",
         "tr": "Sistem kütlesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yayKatsayisi",
-      "label": "Yay Sabiti (N/m)",
+      "label": "Spring Constant (N/m)",
       "label_i18n": {
         "en": "Spring Constant (N/m)",
         "tr": "Yay Sabiti (N/m)",
@@ -45,7 +45,7 @@
       "unit": "N/m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Yay rijitliği.",
+      "businessContext": "Spring stiffness.",
       "businessContext_i18n": {
         "en": "Spring stiffness.",
         "tr": "Yay rijitliği.",

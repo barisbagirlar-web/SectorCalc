@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortalamaGuc",
-      "label": "Ortalama Güç (kW)",
+      "label": "Average Power (kW)",
       "label_i18n": {
         "en": "Average Power (kW)",
         "tr": "Ortalama Güç (kW)",
@@ -20,7 +20,7 @@
       "unit": "kW",
       "default": 80,
       "min": 0,
-      "businessContext": "Dönem boyunca ortalama çekilen güç.",
+      "businessContext": "Average power drawn.",
       "businessContext_i18n": {
         "en": "Average power drawn.",
         "tr": "Dönem boyunca ortalama çekilen güç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "pikGuc",
-      "label": "Pik Güç (kW)",
+      "label": "Peak Power (kW)",
       "label_i18n": {
         "en": "Peak Power (kW)",
         "tr": "Pik Güç (kW)",
@@ -45,7 +45,7 @@
       "unit": "kW",
       "default": 200,
       "min": 0,
-      "businessContext": "Dönemdeki en yüksek güç talebi.",
+      "businessContext": "Peak power demand.",
       "businessContext_i18n": {
         "en": "Peak power demand.",
         "tr": "Dönemdeki en yüksek güç talebi.",

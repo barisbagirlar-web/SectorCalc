@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "enerji",
-      "label": "Toplam Enerji (J)",
+      "label": "Total Energy (J)",
       "label_i18n": {
         "en": "Total Energy (J)",
         "tr": "Toplam Enerji (J)",
@@ -20,7 +20,7 @@
       "unit": "J",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Depolanan toplam enerji.",
+      "businessContext": "Total stored energy.",
       "businessContext_i18n": {
         "en": "Total stored energy.",
         "tr": "Depolanan toplam enerji.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hacim",
-      "label": "Hacim (m³)",
+      "label": "Volume (m³)",
       "label_i18n": {
         "en": "Volume (m³)",
         "tr": "Hacim (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 1,
       "min": 0,
-      "businessContext": "Depolama hacmi.",
+      "businessContext": "Storage volume.",
       "businessContext_i18n": {
         "en": "Storage volume.",
         "tr": "Depolama hacmi.",

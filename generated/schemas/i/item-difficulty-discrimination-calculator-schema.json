@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "dogruCevap",
-      "label": "Doğru Cevap Sayısı",
+      "label": "Correct Answers",
       "label_i18n": {
         "en": "Correct Answers",
         "tr": "Doğru Cevap Sayısı",
@@ -20,7 +20,7 @@
       "unit": "students",
       "default": 40,
       "min": 0,
-      "businessContext": "Soruyu doğru cevaplayan öğrenci.",
+      "businessContext": "Students answering correctly.",
       "businessContext_i18n": {
         "en": "Students answering correctly.",
         "tr": "Soruyu doğru cevaplayan öğrenci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamOgrenci",
-      "label": "Toplam Öğrenci Sayısı",
+      "label": "Total Students",
       "label_i18n": {
         "en": "Total Students",
         "tr": "Toplam Öğrenci Sayısı",
@@ -45,7 +45,7 @@
       "unit": "students",
       "default": 100,
       "min": 0,
-      "businessContext": "Sınava giren toplam öğrenci.",
+      "businessContext": "Total test takers.",
       "businessContext_i18n": {
         "en": "Total test takers.",
         "tr": "Sınava giren toplam öğrenci.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ustGrupDogru",
-      "label": "Üst Grupta Doğru",
+      "label": "Upper Group Correct",
       "label_i18n": {
         "en": "Upper Group Correct",
         "tr": "Üst Grupta Doğru",
@@ -70,7 +70,7 @@
       "unit": "students",
       "default": 25,
       "min": 0,
-      "businessContext": "En başarılı %27'nin doğru sayısı.",
+      "businessContext": "Top 27% correct count.",
       "businessContext_i18n": {
         "en": "Top 27% correct count.",
         "tr": "En başarılı %27'nin doğru sayısı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "altGrupDogru",
-      "label": "Alt Grupta Doğru",
+      "label": "Lower Group Correct",
       "label_i18n": {
         "en": "Lower Group Correct",
         "tr": "Alt Grupta Doğru",
@@ -95,7 +95,7 @@
       "unit": "students",
       "default": 5,
       "min": 0,
-      "businessContext": "En düşük %27'nin doğru sayısı.",
+      "businessContext": "Bottom 27% correct count.",
       "businessContext_i18n": {
         "en": "Bottom 27% correct count.",
         "tr": "En düşük %27'nin doğru sayısı.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "grupBoyutu",
-      "label": "Grup Boyutu",
+      "label": "Group Size",
       "label_i18n": {
         "en": "Group Size",
         "tr": "Grup Boyutu",
@@ -120,7 +120,7 @@
       "unit": "students",
       "default": 27,
       "min": 0,
-      "businessContext": "Her grubun öğrenci sayısı.",
+      "businessContext": "Each group's student count.",
       "businessContext_i18n": {
         "en": "Each group's student count.",
         "tr": "Her grubun öğrenci sayısı.",

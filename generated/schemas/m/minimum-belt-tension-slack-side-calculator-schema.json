@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "guc",
-      "label": "İletilen Güç (W)",
+      "label": "Power Transmitted (W)",
       "label_i18n": {
         "en": "Power Transmitted (W)",
         "tr": "İletilen Güç (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kayışla iletilen güç.",
+      "businessContext": "Belt power transmission.",
       "businessContext_i18n": {
         "en": "Belt power transmission.",
         "tr": "Kayışla iletilen güç.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hiz",
-      "label": "Kayış Hızı (m/s)",
+      "label": "Belt Speed (m/s)",
       "label_i18n": {
         "en": "Belt Speed (m/s)",
         "tr": "Kayış Hızı (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 10,
       "min": 0,
-      "businessContext": "Kayışın lineer hızı.",
+      "businessContext": "Belt linear speed.",
       "businessContext_i18n": {
         "en": "Belt linear speed.",
         "tr": "Kayışın lineer hızı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sarilmaAcisi",
-      "label": "Sarılma Açısı (Rad)",
+      "label": "Wrap Angle (Rad)",
       "label_i18n": {
         "en": "Wrap Angle (Rad)",
         "tr": "Sarılma Açısı (Rad)",
@@ -70,7 +70,7 @@
       "unit": "rad",
       "default": 2.8,
       "min": 0,
-      "businessContext": "Küçük kasnağa sarılma açısı.",
+      "businessContext": "Small pulley wrap angle.",
       "businessContext_i18n": {
         "en": "Small pulley wrap angle.",
         "tr": "Küçük kasnağa sarılma açısı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "suratme",
-      "label": "Sürtünme Katsayısı",
+      "label": "Friction Coefficient",
       "label_i18n": {
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Kayış-kasnak sürtünmesi.",
+      "businessContext": "Belt-pulley friction.",
       "businessContext_i18n": {
         "en": "Belt-pulley friction.",
         "tr": "Kayış-kasnak sürtünmesi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "Yıllık SMM (TL)",
+      "label": "Annual COGS (USD)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Yıllık SMM (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "Yıllık satılan mal maliyeti.",
+      "businessContext": "Annual cost of goods sold.",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
         "tr": "Yıllık satılan mal maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortBorc",
-      "label": "Ortalama Borç (TL)",
+      "label": "Avg Payables (USD)",
       "label_i18n": {
         "en": "Avg Payables (USD)",
         "tr": "Ortalama Borç (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Ortalama ticari borç.",
+      "businessContext": "Average accounts payable.",
       "businessContext_i18n": {
         "en": "Average accounts payable.",
         "tr": "Ortalama ticari borç.",

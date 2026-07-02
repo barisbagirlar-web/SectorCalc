@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kesmeKuvveti",
-      "label": "Kesme Kuvveti (N)",
+      "label": "Shear Force (N)",
       "label_i18n": {
         "en": "Shear Force (N)",
         "tr": "Kesme Kuvveti (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 20000,
       "min": 0,
-      "businessContext": "Kirişe etkiyen kesme kuvveti.",
+      "businessContext": "Beam shear force.",
       "businessContext_i18n": {
         "en": "Beam shear force.",
         "tr": "Kirişe etkiyen kesme kuvveti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "genislik",
-      "label": "Kesit Genişliği (m)",
+      "label": "Section Width (m)",
       "label_i18n": {
         "en": "Section Width (m)",
         "tr": "Kesit Genişliği (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Ahşap kesit genişliği.",
+      "businessContext": "Timber section width.",
       "businessContext_i18n": {
         "en": "Timber section width.",
         "tr": "Ahşap kesit genişliği.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Kesit Yüksekliği (m)",
+      "label": "Section Height (m)",
       "label_i18n": {
         "en": "Section Height (m)",
         "tr": "Kesit Yüksekliği (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Ahşap kesit yüksekliği.",
+      "businessContext": "Timber section height.",
       "businessContext_i18n": {
         "en": "Timber section height.",
         "tr": "Ahşap kesit yüksekliği.",

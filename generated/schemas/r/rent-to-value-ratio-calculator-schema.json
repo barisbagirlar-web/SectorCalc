@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "aylikKira",
-      "label": "Aylık Kira (₺)",
+      "label": "Monthly Rent (USD)",
       "label_i18n": {
         "en": "Monthly Rent (USD)",
         "tr": "Aylık Kira (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Mülkten elde edilen aylık brüt kira geliri.",
+      "businessContext": "Monthly gross rental income from the property.",
       "businessContext_i18n": {
         "en": "Monthly gross rental income from the property.",
         "tr": "Mülkten elde edilen aylık brüt kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mulkDegeri",
-      "label": "Mülk Değeri (₺)",
+      "label": "Property Value (USD)",
       "label_i18n": {
         "en": "Property Value (USD)",
         "tr": "Mülk Değeri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Gayrimenkulün güncel piyasa değeri.",
+      "businessContext": "Current market value of the real estate property.",
       "businessContext_i18n": {
         "en": "Current market value of the real estate property.",
         "tr": "Gayrimenkulün güncel piyasa değeri.",

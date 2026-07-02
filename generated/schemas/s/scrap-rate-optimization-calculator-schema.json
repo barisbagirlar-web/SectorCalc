@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "uretim",
-      "label": "Toplam Üretim (Adet)",
+      "label": "Total Production",
       "label_i18n": {
         "en": "Total Production",
         "tr": "Toplam Üretim (Adet)",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Üretilen toplam ürün.",
+      "businessContext": "Total units produced.",
       "businessContext_i18n": {
         "en": "Total units produced.",
         "tr": "Üretilen toplam ürün.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hurda",
-      "label": "Hurda Miktarı (Adet)",
+      "label": "Scrap Quantity",
       "label_i18n": {
         "en": "Scrap Quantity",
         "tr": "Hurda Miktarı (Adet)",
@@ -45,7 +45,7 @@
       "unit": "units",
       "default": 500,
       "min": 0,
-      "businessContext": "Hatalı ürün sayısı.",
+      "businessContext": "Defective units.",
       "businessContext_i18n": {
         "en": "Defective units.",
         "tr": "Hatalı ürün sayısı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "birimMaliyet",
-      "label": "Birim Maliyet (TL)",
+      "label": "Unit Cost (USD)",
       "label_i18n": {
         "en": "Unit Cost (USD)",
         "tr": "Birim Maliyet (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Ürünün maliyeti.",
+      "businessContext": "Product unit cost.",
       "businessContext_i18n": {
         "en": "Product unit cost.",
         "tr": "Ürünün maliyeti.",

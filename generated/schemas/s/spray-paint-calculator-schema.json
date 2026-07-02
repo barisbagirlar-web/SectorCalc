@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Yüzey Alanı (m²)",
+      "label": "Surface Area (m²)",
       "label_i18n": {
         "en": "Surface Area (m²)",
         "tr": "Yüzey Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 20,
       "min": 0,
-      "businessContext": "Boyanacak alan.",
+      "businessContext": "Area to paint.",
       "businessContext_i18n": {
         "en": "Area to paint.",
         "tr": "Boyanacak alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "katSayisi",
-      "label": "Kat Sayısı",
+      "label": "Number of Coats",
       "label_i18n": {
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
@@ -45,7 +45,7 @@
       "unit": "coats",
       "default": 2,
       "min": 1,
-      "businessContext": "Uygulanacak boya katı.",
+      "businessContext": "Number of paint coats.",
       "businessContext_i18n": {
         "en": "Number of paint coats.",
         "tr": "Uygulanacak boya katı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ortmeOrani",
-      "label": "Örtme Oranı (m²/L)",
+      "label": "Coverage Rate (m²/L)",
       "label_i18n": {
         "en": "Coverage Rate (m²/L)",
         "tr": "Örtme Oranı (m²/L)",
@@ -70,7 +70,7 @@
       "unit": "m2/L",
       "default": 8,
       "min": 0,
-      "businessContext": "1 litrenin örttüğü alan.",
+      "businessContext": "Coverage per liter.",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
         "tr": "1 litrenin örttüğü alan.",

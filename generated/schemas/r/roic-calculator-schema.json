@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nopat",
-      "label": "NOPAT (₺)",
+      "label": "NOPAT (USD)",
       "label_i18n": {
         "en": "NOPAT (USD)",
         "tr": "NOPAT (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "Vergi sonrası net faaliyet kârı.",
+      "businessContext": "Net operating profit after tax.",
       "businessContext_i18n": {
         "en": "Net operating profit after tax.",
         "tr": "Vergi sonrası net faaliyet kârı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yatirilanSermaye",
-      "label": "Yatırılan Sermaye (₺)",
+      "label": "Invested Capital (USD)",
       "label_i18n": {
         "en": "Invested Capital (USD)",
         "tr": "Yatırılan Sermaye (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Toplam yatırılmış sermaye.",
+      "businessContext": "Total invested capital.",
       "businessContext_i18n": {
         "en": "Total invested capital.",
         "tr": "Toplam yatırılmış sermaye.",

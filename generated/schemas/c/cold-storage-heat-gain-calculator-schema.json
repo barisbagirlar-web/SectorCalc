@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Toplam Yüzey Alanı (m²)",
+      "label": "Total Surface Area (m²)",
       "label_i18n": {
         "en": "Total Surface Area (m²)",
         "tr": "Toplam Yüzey Alanı (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Isı transferine maruz alan.",
+      "businessContext": "Heat transfer area.",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
         "tr": "Isı transferine maruz alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "U_Katsayi",
-      "label": "Isı Geçiş Katsayısı (W/m²K)",
+      "label": "U-Value (W/m²K)",
       "label_i18n": {
         "en": "U-Value (W/m²K)",
         "tr": "Isı Geçiş Katsayısı (W/m²K)",
@@ -45,7 +45,7 @@
       "unit": "W/m2K",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Yalıtımın ısı geçiş katsayısı.",
+      "businessContext": "Insulation U-value.",
       "businessContext_i18n": {
         "en": "Insulation U-value.",
         "tr": "Yalıtımın ısı geçiş katsayısı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "disSicaklik",
-      "label": "Dış Ortam Sıcaklığı (°C)",
+      "label": "Ambient Temperature (°C)",
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
         "tr": "Dış Ortam Sıcaklığı (°C)",
@@ -70,7 +70,7 @@
       "unit": "°C",
       "default": 35,
       "min": 0,
-      "businessContext": "Dış hava sıcaklığı.",
+      "businessContext": "Outside air temperature.",
       "businessContext_i18n": {
         "en": "Outside air temperature.",
         "tr": "Dış hava sıcaklığı.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "icSicaklik",
-      "label": "Depo İçi Sıcaklık (°C)",
+      "label": "Storage Temperature (°C)",
       "label_i18n": {
         "en": "Storage Temperature (°C)",
         "tr": "Depo İçi Sıcaklık (°C)",
@@ -95,7 +95,7 @@
       "unit": "°C",
       "default": -20,
       "min": 0,
-      "businessContext": "Soğuk depo sıcaklığı.",
+      "businessContext": "Cold storage temperature.",
       "businessContext_i18n": {
         "en": "Cold storage temperature.",
         "tr": "Soğuk depo sıcaklığı.",

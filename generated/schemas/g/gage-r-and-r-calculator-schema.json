@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "parcaVaryans",
-      "label": "Parça Varyansı (VP)",
+      "label": "Part Variance (VP)",
       "label_i18n": {
         "en": "Part Variance (VP)",
         "tr": "Parça Varyansı (VP)",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Parçalar arası gerçek farklılık.",
+      "businessContext": "Actual part-to-part variation.",
       "businessContext_i18n": {
         "en": "Actual part-to-part variation.",
         "tr": "Parçalar arası gerçek farklılık.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "olcumVaryans",
-      "label": "Ölçüm Varyansı (VGRR)",
+      "label": "Gauge R&R Variance",
       "label_i18n": {
         "en": "Gauge R&R Variance",
         "tr": "Ölçüm Varyansı (VGRR)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 25,
       "min": 0,
-      "businessContext": "Ölçüm sisteminden kaynaklanan varyans.",
+      "businessContext": "Measurement system variance.",
       "businessContext_i18n": {
         "en": "Measurement system variance.",
         "tr": "Ölçüm sisteminden kaynaklanan varyans.",

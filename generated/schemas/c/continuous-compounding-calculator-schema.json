@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Anapara (₺)",
+      "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
         "tr": "Anapara (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Başlangıç yatırım tutarı.",
+      "businessContext": "Initial investment.",
       "businessContext_i18n": {
         "en": "Initial investment.",
         "tr": "Başlangıç yatırım tutarı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Yıllık Faiz (%)",
+      "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
         "tr": "Yıllık Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Sürekli bileşik faiz oranı.",
+      "businessContext": "Continuous compounding interest rate.",
       "businessContext_i18n": {
         "en": "Continuous compounding interest rate.",
         "tr": "Sürekli bileşik faiz oranı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Vade (Yıl)",
+      "label": "Term (Years)",
       "label_i18n": {
         "en": "Term (Years)",
         "tr": "Vade (Yıl)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Yatırım süresi.",
+      "businessContext": "Investment period.",
       "businessContext_i18n": {
         "en": "Investment period.",
         "tr": "Yatırım süresi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "Portföy Getirisi (%)",
+      "label": "Portfolio Return (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
         "tr": "Portföy Getirisi (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portföyün dönemsel getirisi.",
+      "businessContext": "Portfolio return.",
       "businessContext_i18n": {
         "en": "Portfolio return.",
         "tr": "Portföyün dönemsel getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "risksizFaiz",
-      "label": "Risksiz Faiz (%)",
+      "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risksiz varlık getirisi.",
+      "businessContext": "Risk-free return.",
       "businessContext_i18n": {
         "en": "Risk-free return.",
         "tr": "Risksiz varlık getirisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "asagiSapma",
-      "label": "Aşağı Yönlü Sapma (%)",
+      "label": "Downside Deviation (%)",
       "label_i18n": {
         "en": "Downside Deviation (%)",
         "tr": "Aşağı Yönlü Sapma (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Negatif getirilerin standart sapması.",
+      "businessContext": "Standard deviation of negative returns.",
       "businessContext_i18n": {
         "en": "Standard deviation of negative returns.",
         "tr": "Negatif getirilerin standart sapması.",

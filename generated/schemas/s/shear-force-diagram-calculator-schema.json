@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuk",
-      "label": "Toplam Yük (N)",
+      "label": "Total Load (N)",
       "label_i18n": {
         "en": "Total Load (N)",
         "tr": "Toplam Yük (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 10000,
       "min": 0,
-      "businessContext": "Kirişe gelen toplam yayılı yük.",
+      "businessContext": "Total distributed load.",
       "businessContext_i18n": {
         "en": "Total distributed load.",
         "tr": "Kirişe gelen toplam yayılı yük.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Mesafe (m)",
+      "label": "Distance from Support (m)",
       "label_i18n": {
         "en": "Distance from Support (m)",
         "tr": "Mesafe (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Ölçüm noktasının sol mesnete uzaklığı.",
+      "businessContext": "Distance from left support.",
       "businessContext_i18n": {
         "en": "Distance from left support.",
         "tr": "Ölçüm noktasının sol mesnete uzaklığı.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Kiriş Boyu (m)",
+      "label": "Beam Length (m)",
       "label_i18n": {
         "en": "Beam Length (m)",
         "tr": "Kiriş Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Toplam açıklık.",
+      "businessContext": "Total span.",
       "businessContext_i18n": {
         "en": "Total span.",
         "tr": "Toplam açıklık.",

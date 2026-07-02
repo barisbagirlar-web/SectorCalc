@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satis",
-      "label": "Satış Bedeli (₺)",
+      "label": "Sale Proceeds (USD)",
       "label_i18n": {
         "en": "Sale Proceeds (USD)",
         "tr": "Satış Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Varlığın satış bedeli.",
+      "businessContext": "Asset sale proceeds.",
       "businessContext_i18n": {
         "en": "Asset sale proceeds.",
         "tr": "Varlığın satış bedeli.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "alis",
-      "label": "Alış Bedeli (₺)",
+      "label": "Cost Basis (USD)",
       "label_i18n": {
         "en": "Cost Basis (USD)",
         "tr": "Alış Bedeli (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Varlığın satın alma maliyeti.",
+      "businessContext": "Asset purchase cost.",
       "businessContext_i18n": {
         "en": "Asset purchase cost.",
         "tr": "Varlığın satın alma maliyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "vergiOrani",
-      "label": "Vergi Oranı (%)",
+      "label": "Tax Rate (%)",
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
@@ -71,7 +71,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Sermaye kazancı vergi oranı.",
+      "businessContext": "Capital gains tax rate.",
       "businessContext_i18n": {
         "en": "Capital gains tax rate.",
         "tr": "Sermaye kazancı vergi oranı.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "istisna",
-      "label": "İstisna Tutarı (₺)",
+      "label": "Exemption Amount (USD)",
       "label_i18n": {
         "en": "Exemption Amount (USD)",
         "tr": "İstisna Tutarı (₺)",
@@ -96,7 +96,7 @@
       "unit": "USD",
       "default": 0,
       "min": 0,
-      "businessContext": "Vergiden muaf kısım.",
+      "businessContext": "Tax-free allowance.",
       "businessContext_i18n": {
         "en": "Tax-free allowance.",
         "tr": "Vergiden muaf kısım.",

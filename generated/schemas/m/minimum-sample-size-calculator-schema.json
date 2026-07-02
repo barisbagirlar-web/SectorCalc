@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "Z",
-      "label": "Z Değeri",
+      "label": "Z Value",
       "label_i18n": {
         "en": "Z Value",
         "tr": "Z Değeri",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 1.96,
       "min": 0,
-      "businessContext": "Güven seviyesine karşılık Z (1.96=%95).",
+      "businessContext": "Z-score for confidence level.",
       "businessContext_i18n": {
         "en": "Z-score for confidence level.",
         "tr": "Güven seviyesine karşılık Z (1.96=%95).",
@@ -32,7 +32,7 @@
     },
     {
       "id": "stdSapma",
-      "label": "Tahmini Standart Sapma",
+      "label": "Estimated Std Dev",
       "label_i18n": {
         "en": "Estimated Std Dev",
         "tr": "Tahmini Standart Sapma",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 10,
       "min": 0,
-      "businessContext": "Popülasyon standart sapması.",
+      "businessContext": "Population standard deviation.",
       "businessContext_i18n": {
         "en": "Population standard deviation.",
         "tr": "Popülasyon standart sapması.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "hataPayi",
-      "label": "Kabul Edilebilir Hata Payı",
+      "label": "Margin of Error",
       "label_i18n": {
         "en": "Margin of Error",
         "tr": "Kabul Edilebilir Hata Payı",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 2,
       "min": 0,
-      "businessContext": "İzin verilen maksimum hata.",
+      "businessContext": "Maximum allowable error.",
       "businessContext_i18n": {
         "en": "Maximum allowable error.",
         "tr": "İzin verilen maksimum hata.",

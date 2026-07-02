@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "momentMagnitudu",
-      "label": "Deprem Büyüklüğü (Mw)",
+      "label": "Moment Magnitude (Mw)",
       "label_i18n": {
         "en": "Moment Magnitude (Mw)",
         "tr": "Deprem Büyüklüğü (Mw)",
@@ -21,7 +21,7 @@
       "default": 7,
       "min": 0,
       "max": 10,
-      "businessContext": "Depremin moment magnitüdü.",
+      "businessContext": "Earthquake moment magnitude.",
       "businessContext_i18n": {
         "en": "Earthquake moment magnitude.",
         "tr": "Depremin moment magnitüdü.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Deprem Merkezine Uzaklık (km)",
+      "label": "Distance from Epicenter (km)",
       "label_i18n": {
         "en": "Distance from Epicenter (km)",
         "tr": "Deprem Merkezine Uzaklık (km)",
@@ -46,7 +46,7 @@
       "unit": "km",
       "default": 50,
       "min": 0,
-      "businessContext": "Gözlem noktasının deprem merkezine uzaklığı.",
+      "businessContext": "Distance from epicenter.",
       "businessContext_i18n": {
         "en": "Distance from epicenter.",
         "tr": "Gözlem noktasının deprem merkezine uzaklığı.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "zeminKatsayisi",
-      "label": "Zemin Katsayısı",
+      "label": "Site Coefficient",
       "label_i18n": {
         "en": "Site Coefficient",
         "tr": "Zemin Katsayısı",
@@ -71,7 +71,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Zemin türü katsayısı (sert=0.8, yumuşak=1.5).",
+      "businessContext": "Soil amplification factor.",
       "businessContext_i18n": {
         "en": "Soil amplification factor.",
         "tr": "Zemin türü katsayısı (sert=0.8, yumuşak=1.5).",

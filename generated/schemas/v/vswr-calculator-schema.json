@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yukEmpedans",
-      "label": "Yük Empedansı (Ω)",
+      "label": "Load Impedance (Ω)",
       "label_i18n": {
         "en": "Load Impedance (Ω)",
         "tr": "Yük Empedansı (Ω)",
@@ -20,7 +20,7 @@
       "unit": "ohms",
       "default": 100,
       "min": 0,
-      "businessContext": "Anten/yük empedansı.",
+      "businessContext": "Load/antenna impedance.",
       "businessContext_i18n": {
         "en": "Load/antenna impedance.",
         "tr": "Anten/yük empedansı.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hatEmpedans",
-      "label": "Hat Karakteristik Empedansı (Ω)",
+      "label": "Line Characteristic Impedance (Ω)",
       "label_i18n": {
         "en": "Line Characteristic Impedance (Ω)",
         "tr": "Hat Karakteristik Empedansı (Ω)",
@@ -45,7 +45,7 @@
       "unit": "ohms",
       "default": 50,
       "min": 0,
-      "businessContext": "İletim hattı empedansı.",
+      "businessContext": "Transmission line impedance.",
       "businessContext_i18n": {
         "en": "Transmission line impedance.",
         "tr": "İletim hattı empedansı.",

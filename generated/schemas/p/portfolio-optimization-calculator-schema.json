@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "beklenenGetiri",
-      "label": "Beklenen Getiri (%)",
+      "label": "Expected Return (%)",
       "label_i18n": {
         "en": "Expected Return (%)",
         "tr": "Beklenen Getiri (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Portföyün hedef getiri beklentisi.",
+      "businessContext": "Target portfolio return expectation.",
       "businessContext_i18n": {
         "en": "Target portfolio return expectation.",
         "tr": "Portföyün hedef getiri beklentisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "beklenenRisk",
-      "label": "Beklenen Risk (%)",
+      "label": "Expected Risk (%)",
       "label_i18n": {
         "en": "Expected Risk (%)",
         "tr": "Beklenen Risk (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Portföyün tahmini volatilitesi.",
+      "businessContext": "Estimated portfolio risk/volatility.",
       "businessContext_i18n": {
         "en": "Estimated portfolio risk/volatility.",
         "tr": "Portföyün tahmini volatilitesi.",
