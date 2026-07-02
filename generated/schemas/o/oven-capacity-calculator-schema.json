@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tavaSayisi",
-      "label": "TavaSayisi",
+      "label": "Number of Trays",
       "label_i18n": {
         "en": "Number of Trays",
         "tr": "Tava Count (Quantity/lot)",
@@ -20,7 +20,7 @@
       "unit": "trays",
       "default": 10,
       "min": 0,
-      "businessContext": "TavaSayisi",
+      "businessContext": "Trays per batch.",
       "businessContext_i18n": {
         "en": "Trays per batch.",
         "tr": "Firina giren tava Numbersi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tavaKapasite",
-      "label": "Tava Kapasitesi (kg)",
+      "label": "Tray Capacity (kg)",
       "label_i18n": {
         "en": "Tray Capacity (kg)",
         "tr": "Tava Kapasitesi (kg)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 5,
       "min": 0,
-      "businessContext": "Her tavadaki Crop Yield.",
+      "businessContext": "Product per tray.",
       "businessContext_i18n": {
         "en": "Product per tray.",
         "tr": "Her tavadaki Crop Yield.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pismeSure",
-      "label": "PismeSure",
+      "label": "Baking Time (min)",
       "label_i18n": {
         "en": "Baking Time (min)",
         "tr": "Pisme Suresi (dk)",
@@ -70,7 +70,7 @@
       "unit": "min",
       "default": 20,
       "min": 0,
-      "businessContext": "PismeSure",
+      "businessContext": "Baking time per batch.",
       "businessContext_i18n": {
         "en": "Baking time per batch.",
         "tr": "Bir lot pisme suresi.",

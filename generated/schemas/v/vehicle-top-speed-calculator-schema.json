@@ -2,12 +2,12 @@
   "toolName": "vehicle-top-speed-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "guc",
-      "label": "Motor Power (W)",
+      "label": "Engine Power (W)",
       "label_i18n": {
         "en": "Engine Power (W)",
         "tr": "Motor Power (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 100000,
       "min": 0,
-      "businessContext": "Maximum Motor Power.",
+      "businessContext": "Maximum engine power.",
       "businessContext_i18n": {
         "en": "Maximum engine power.",
         "tr": "Maximum Motor Power.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kutle",
-      "label": "Kutle",
+      "label": "Vehicle Mass (kg)",
       "label_i18n": {
         "en": "Vehicle Mass (kg)",
         "tr": "Arac Masssi (kg)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 1500,
       "min": 0,
-      "businessContext": "Kutle",
+      "businessContext": "Vehicle weight.",
       "businessContext_i18n": {
         "en": "Vehicle weight.",
         "tr": "Arac agirligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "suratmeKatsayi",
-      "label": "Yuvarlanma Friction Factor",
+      "label": "Rolling Friction Coefficient",
       "label_i18n": {
         "en": "Rolling Friction Coefficient",
         "tr": "Yuvarlanma Friction Factor",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.015,
       "min": 0,
-      "businessContext": "Lastik-yol Friction Factor.",
+      "businessContext": "Tire rolling resistance.",
       "businessContext_i18n": {
         "en": "Tire rolling resistance.",
         "tr": "Lastik-yol Friction Factor.",

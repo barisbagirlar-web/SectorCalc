@@ -20,7 +20,7 @@
       "unit": "L",
       "default": 10000,
       "min": 0,
-      "businessContext": "Annual Fuel Consumption (motorin).",
+      "businessContext": "Annual diesel consumption.",
       "businessContext_i18n": {
         "en": "Annual diesel consumption.",
         "tr": "Annual Fuel Consumption (motorin).",
@@ -32,7 +32,7 @@
     },
     {
       "id": "elektrik",
-      "label": "Electricity Consumption (kWh)",
+      "label": "Electricity (kWh)",
       "label_i18n": {
         "en": "Electricity (kWh)",
         "tr": "Electricity Consumption (kWh)",
@@ -45,7 +45,7 @@
       "unit": "kWh",
       "default": 50000,
       "min": 0,
-      "businessContext": "Annual Electricity Consumption.",
+      "businessContext": "Annual electricity consumption.",
       "businessContext_i18n": {
         "en": "Annual electricity consumption.",
         "tr": "Annual Electricity Consumption.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tedarik",
-      "label": "Tedarik Emisyonu (kgCO₂)",
+      "label": "Supply Chain (kgCO₂)",
       "label_i18n": {
         "en": "Supply Chain (kgCO₂)",
         "tr": "Tedarik Emisyonu (kgCO₂)",
@@ -70,7 +70,7 @@
       "unit": "kgCO2",
       "default": 20000,
       "min": 0,
-      "businessContext": "Emissions from Purchased Goods/Services.",
+      "businessContext": "Purchased goods emissions.",
       "businessContext_i18n": {
         "en": "Purchased goods emissions.",
         "tr": "Emissions from Purchased Goods/Services.",

@@ -2,12 +2,12 @@
   "toolName": "slope-stability-factor-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "kohezyon",
-      "label": "Kohezyon (kPa)",
+      "label": "Cohesion (kPa)",
       "label_i18n": {
         "en": "Cohesion (kPa)",
         "tr": "Kohezyon (kPa)",
@@ -20,7 +20,7 @@
       "unit": "kPa",
       "default": 20,
       "min": 0,
-      "businessContext": "Zemin kohezyonu.",
+      "businessContext": "Soil cohesion.",
       "businessContext_i18n": {
         "en": "Soil cohesion.",
         "tr": "Zemin kohezyonu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "normalGerilme",
-      "label": "Normal Gerilme (kPa)",
+      "label": "Normal Stress (kPa)",
       "label_i18n": {
         "en": "Normal Stress (kPa)",
         "tr": "Normal Gerilme (kPa)",
@@ -45,7 +45,7 @@
       "unit": "kPa",
       "default": 100,
       "min": 0,
-      "businessContext": "NormalGerilme",
+      "businessContext": "Normal stress on slip plane.",
       "businessContext_i18n": {
         "en": "Normal stress on slip plane.",
         "tr": "Kayma duzlemine dik gerilme.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "icSuratmeAcisi",
-      "label": "IcSuratmeAcisi",
+      "label": "Internal Friction Angle (Deg)",
       "label_i18n": {
         "en": "Internal Friction Angle (Deg)",
         "tr": "Icsel Surtunme Acisi (Derece)",
@@ -70,7 +70,7 @@
       "unit": "degrees",
       "default": 30,
       "min": 0,
-      "businessContext": "IcSuratmeAcisi",
+      "businessContext": "Soil friction angle.",
       "businessContext_i18n": {
         "en": "Soil friction angle.",
         "tr": "Zeminin icsel surtunme acisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kaymaGerilmesi",
-      "label": "Kayma Gerilmesi (kPa)",
+      "label": "Shear Stress (kPa)",
       "label_i18n": {
         "en": "Shear Stress (kPa)",
         "tr": "Kayma Gerilmesi (kPa)",
@@ -95,7 +95,7 @@
       "unit": "kPa",
       "default": 80,
       "min": 0,
-      "businessContext": "KaymaGerilmesi",
+      "businessContext": "Driving shear stress on slip plane.",
       "businessContext_i18n": {
         "en": "Driving shear stress on slip plane.",
         "tr": "Kayma duzlemindeki surukleyici gerilme.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "eylemsizlikMomenti",
-      "label": "Eylemsizlik Momenti (kg·m²)",
+      "label": "Moment of Inertia (kg·m²)",
       "label_i18n": {
         "en": "Moment of Inertia (kg·m²)",
         "tr": "Eylemsizlik Momenti (kg·m²)",
@@ -20,7 +20,7 @@
       "unit": "kgm2",
       "default": 5,
       "min": 0,
-      "businessContext": "EylemsizlikMomenti",
+      "businessContext": "Inertia about joint.",
       "businessContext_i18n": {
         "en": "Inertia about joint.",
         "tr": "Eklem etrafindaki atalet.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "acisalIvme",
-      "label": "AcisalIvme",
+      "label": "Angular Acceleration (rad/s²)",
       "label_i18n": {
         "en": "Angular Acceleration (rad/s²)",
         "tr": "Acisal Acceleration (rad/s²)",
@@ -45,7 +45,7 @@
       "unit": "rad/s2",
       "default": 2,
       "min": 0,
-      "businessContext": "AcisalIvme",
+      "businessContext": "Target angular acceleration.",
       "businessContext_i18n": {
         "en": "Target angular acceleration.",
         "tr": "Hedef acisal ivme.",

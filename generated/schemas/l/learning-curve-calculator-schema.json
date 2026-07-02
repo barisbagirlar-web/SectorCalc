@@ -2,12 +2,12 @@
   "toolName": "learning-curve-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "ilkSure",
-      "label": "IlkSure",
+      "label": "First Unit Time (Min)",
       "label_i18n": {
         "en": "First Unit Time (Min)",
         "tr": "Ilk Unit Suresi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 100,
       "min": 0,
-      "businessContext": "IlkSure",
+      "businessContext": "Time for first unit.",
       "businessContext_i18n": {
         "en": "Time for first unit.",
         "tr": "Ilk uretilen Unitin suresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ogrenmeOrani",
-      "label": "OgrenmeOrani",
+      "label": "Learning Rate (%)",
       "label_i18n": {
         "en": "Learning Rate (%)",
         "tr": "Ogrenme Ratioi (%)",
@@ -46,7 +46,7 @@
       "default": 90,
       "min": 1,
       "max": 100,
-      "businessContext": "OgrenmeOrani",
+      "businessContext": "Time reduction per doubling of output.",
       "businessContext_i18n": {
         "en": "Time reduction per doubling of output.",
         "tr": "Her iki kat uretimde sure dusus Ratioi.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "uretilenAdet",
-      "label": "UretilenAdet",
+      "label": "Units Produced",
       "label_i18n": {
         "en": "Units Produced",
         "tr": "Uretilen Quantity",
@@ -71,7 +71,7 @@
       "unit": "units",
       "default": 100,
       "min": 1,
-      "businessContext": "Total Production adedi.",
+      "businessContext": "Total units produced.",
       "businessContext_i18n": {
         "en": "Total units produced.",
         "tr": "Total Production adedi.",

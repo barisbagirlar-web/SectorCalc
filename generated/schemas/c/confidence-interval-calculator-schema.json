@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortalama",
-      "label": "Ortalama",
+      "label": "Sample Mean",
       "label_i18n": {
         "en": "Sample Mean",
         "tr": "Orneklem Meansi",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Ortalama",
+      "businessContext": "Sample average.",
       "businessContext_i18n": {
         "en": "Sample average.",
         "tr": "Orneklemin Meansi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "stdHata",
-      "label": "Standart Hata",
+      "label": "Standard Error",
       "label_i18n": {
         "en": "Standard Error",
         "tr": "Standart Hata",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 5,
       "min": 0,
-      "businessContext": "StdHata",
+      "businessContext": "Standard error of the mean.",
       "businessContext_i18n": {
         "en": "Standard error of the mean.",
         "tr": "Meannin Standard Errorsi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "guvenSeviyesi",
-      "label": "GuvenSeviyesi",
+      "label": "Confidence Level (%)",
       "label_i18n": {
         "en": "Confidence Level (%)",
         "tr": "Guven Seviyesi (%)",
@@ -71,7 +71,7 @@
       "default": 95,
       "min": 1,
       "max": 99.9,
-      "businessContext": "GuvenSeviyesi",
+      "businessContext": "Statistical confidence level.",
       "businessContext_i18n": {
         "en": "Statistical confidence level.",
         "tr": "Istatistiksel guven Leveli.",

@@ -2,12 +2,12 @@
   "toolName": "fiber-optic-loss-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "uzunluk",
-      "label": "Uzunluk",
+      "label": "Fiber Length (km)",
       "label_i18n": {
         "en": "Fiber Length (km)",
         "tr": "Fiber Lmostgth (km)",
@@ -20,7 +20,7 @@
       "unit": "km",
       "default": 50,
       "min": 0,
-      "businessContext": "Fiber kablo boyu.",
+      "businessContext": "Fiber cable length.",
       "businessContext_i18n": {
         "en": "Fiber cable length.",
         "tr": "Fiber kablo boyu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "birimKayip",
-      "label": "BirimKayip",
+      "label": "Attenuation (dB/km)",
       "label_i18n": {
         "en": "Attenuation (dB/km)",
         "tr": "Unit Kayip (dB/km)",
@@ -45,7 +45,7 @@
       "unit": "dB/km",
       "default": 0.2,
       "min": 0,
-      "businessContext": "BirimKayip",
+      "businessContext": "Loss per km.",
       "businessContext_i18n": {
         "en": "Loss per km.",
         "tr": "Fiberin km basina zayiflamasi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ekKayip",
-      "label": "EkKayip",
+      "label": "Splice Losses (dB)",
       "label_i18n": {
         "en": "Splice Losses (dB)",
         "tr": "Ek Kayiplar (dB)",
@@ -70,7 +70,7 @@
       "unit": "dB",
       "default": 1.5,
       "min": 0,
-      "businessContext": "EkKayip",
+      "businessContext": "Connector and splice losses.",
       "businessContext_i18n": {
         "en": "Connector and splice losses.",
         "tr": "Konnektor ve ek kayiplari.",

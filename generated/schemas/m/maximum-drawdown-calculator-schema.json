@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "zirveDeger",
-      "label": "Zirve Value (₺)",
+      "label": "Peak Value (USD)",
       "label_i18n": {
         "en": "Peak Value (USD)",
         "tr": "Zirand Value (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "ZirveDeger",
+      "businessContext": "Highest portfolio value.",
       "businessContext_i18n": {
         "en": "Highest portfolio value.",
         "tr": "Portfoyun en yuksek Valuei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dipDeger",
-      "label": "Dip Value (₺)",
+      "label": "Trough Value (USD)",
       "label_i18n": {
         "en": "Trough Value (USD)",
         "tr": "Dip Value (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 70000,
       "min": 0,
-      "businessContext": "DipDeger",
+      "businessContext": "Lowest portfolio value.",
       "businessContext_i18n": {
         "en": "Lowest portfolio value.",
         "tr": "Portfoyun en dusuk Valuei.",

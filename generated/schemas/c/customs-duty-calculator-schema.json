@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "cifBedel",
-      "label": "CIF Bedel (TL)",
+      "label": "CIF Value (USD)",
       "label_i18n": {
         "en": "CIF Value (USD)",
         "tr": "CIF Bedel (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Sigorta ve navlun dahil toplam mal bedeli.",
+      "businessContext": "Cost, insurance, freight inclusive value.",
       "businessContext_i18n": {
         "en": "Cost, insurance, freight inclusive value.",
         "tr": "Sigorta ve navlun dahil toplam mal bedeli.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gumrukOrani",
-      "label": "GumrukOrani",
+      "label": "Customs Duty Rate (%)",
       "label_i18n": {
         "en": "Customs Duty Rate (%)",
         "tr": "Gumruk Ratioi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "GumrukOrani",
+      "businessContext": "HS code based duty rate.",
       "businessContext_i18n": {
         "en": "HS code based duty rate.",
         "tr": "GTIP bazli Customs Duty Ratioi.",

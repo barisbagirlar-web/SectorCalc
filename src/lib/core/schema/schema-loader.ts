@@ -130,6 +130,17 @@ function translateObject(
   // Extract id for fallback
   const id = typeof record.id === "string" ? record.id : undefined;
 
+  // Phase 0: When i18n.en exists for key fields, use it as canonical value.
+  // This catches Turkish ASCII strings (e.g. "IlkBoy", "Makine Muhendisligi")
+  // that containsTurkish() cannot detect because they lack Turkish Unicode chars.
+  for (const field of ["label", "businessContext"]) {
+    const i18nKey = `${field}_i18n`;
+    const i18n = record[i18nKey] as Record<string, string> | undefined;
+    if (i18n?.en && typeof i18n.en === "string" && i18n.en.trim()) {
+      record[field] = i18n.en.trim();
+    }
+  }
+
   // Translate specific fields commonly containing Turkish
   const fieldsToTranslate = [
     "toolName",

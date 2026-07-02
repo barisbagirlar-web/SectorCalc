@@ -2,12 +2,12 @@
   "toolName": "mooring-line-load-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "halatCapi",
-      "label": "HalatCapi",
+      "label": "Rope Diameter (mm)",
       "label_i18n": {
         "en": "Rope Diameter (mm)",
         "tr": "Halat Diameter (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 20,
       "min": 0,
-      "businessContext": "HalatCapi",
+      "businessContext": "Rope diameter in mm.",
       "businessContext_i18n": {
         "en": "Rope diameter in mm.",
         "tr": "Halatin mm cinsinden Diameteri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "malzemeKatsayisi",
-      "label": "MalzemeKatsayisi",
+      "label": "Material Coefficient (N/mm²)",
       "label_i18n": {
         "en": "Material Coefficient (N/mm²)",
         "tr": "Material Coefficimostt (N/mm²)",
@@ -45,7 +45,7 @@
       "unit": "N/mm2",
       "default": 800,
       "min": 0,
-      "businessContext": "Halat malzemesinin Tensile Strength.",
+      "businessContext": "Rope material tensile strength.",
       "businessContext_i18n": {
         "en": "Rope material tensile strength.",
         "tr": "Halat malzemesinin Tensile Strength.",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 5,
       "min": 0,
-      "businessContext": "GuvenlikFaktoru",
+      "businessContext": "Safety factor.",
       "businessContext_i18n": {
         "en": "Safety factor.",
         "tr": "Guvenlik katNumbersi.",

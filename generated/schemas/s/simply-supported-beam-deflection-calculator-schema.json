@@ -2,12 +2,12 @@
   "toolName": "simply-supported-beam-deflection-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Yuk",
+      "label": "Uniform Load (N/m)",
       "label_i18n": {
         "en": "Uniform Load (N/m)",
         "tr": "Yayili Yuk (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 5000,
       "min": 0,
-      "businessContext": "Yuk",
+      "businessContext": "Load per unit length.",
       "businessContext_i18n": {
         "en": "Load per unit length.",
         "tr": "Unit Heighta gelen yuk.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Uzunluk",
+      "label": "Span (m)",
       "label_i18n": {
         "en": "Span (m)",
         "tr": "Aciklik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Uzunluk",
+      "businessContext": "Beam span between supports.",
       "businessContext_i18n": {
         "en": "Beam span between supports.",
         "tr": "Kiris MesNetler arasi Distance.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "elastisiteModulu",
-      "label": "Modeulus of Elasticity (Pa)",
+      "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Modeulus of Elasticity (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "ElastisiteModulu",
+      "businessContext": "Material modulus.",
       "businessContext_i18n": {
         "en": "Material modulus.",
         "tr": "Malzeme Modeuleu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ataletMomenti",
-      "label": "Atalet Momenti (m⁴)",
+      "label": "Moment of Inertia (m⁴)",
       "label_i18n": {
         "en": "Moment of Inertia (m⁴)",
         "tr": "Atalet Momenti (m⁴)",
@@ -95,7 +95,7 @@
       "unit": "m4",
       "default": 0.0000083,
       "min": 0,
-      "businessContext": "Kesitin atalet momenti.",
+      "businessContext": "Section moment of inertia.",
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
         "tr": "Kesitin atalet momenti.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "dikisUzunluk",
-      "label": "DikisUzunluk",
+      "label": "Seam Length (mm)",
       "label_i18n": {
         "en": "Seam Length (mm)",
         "tr": "Dikis Uzunlugu (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 500,
       "min": 0,
-      "businessContext": "DikisUzunluk",
+      "businessContext": "Seam length.",
       "businessContext_i18n": {
         "en": "Seam length.",
         "tr": "Dikilecek dikis Heightu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "devirSayisi",
-      "label": "DevirSayisi",
+      "label": "Machine Speed (stitches/min)",
       "label_i18n": {
         "en": "Machine Speed (stitches/min)",
         "tr": "Makine Devri (dikis/dk)",
@@ -45,7 +45,7 @@
       "unit": "spm",
       "default": 4000,
       "min": 0,
-      "businessContext": "DevirSayisi",
+      "businessContext": "Sewing machine speed.",
       "businessContext_i18n": {
         "en": "Sewing machine speed.",
         "tr": "Dikis makinesinin devir Speedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dikisSikligi",
-      "label": "DikisSikligi",
+      "label": "Stitch Density (stitches/mm)",
       "label_i18n": {
         "en": "Stitch Density (stitches/mm)",
         "tr": "Dikis Sikligi (dikis/mm)",
@@ -70,7 +70,7 @@
       "unit": "per_mm",
       "default": 3,
       "min": 0,
-      "businessContext": "DikisSikligi",
+      "businessContext": "Stitches per mm.",
       "businessContext_i18n": {
         "en": "Stitches per mm.",
         "tr": "mm basina dusen dikis Numbersi.",

@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 10,
       "min": 0,
-      "businessContext": "Akim",
+      "businessContext": "Wire current.",
       "businessContext_i18n": {
         "en": "Wire current.",
         "tr": "Telden gecen Current.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Uzunluk",
+      "label": "Wire Segment Length (m)",
       "label_i18n": {
         "en": "Wire Segment Length (m)",
         "tr": "Tel Parcasi Heightu (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.01,
       "min": 0,
-      "businessContext": "Uzunluk",
+      "businessContext": "Differential wire length.",
       "businessContext_i18n": {
         "en": "Differential wire length.",
         "tr": "Diferansiyel tel uzunlugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Mesafe",
+      "label": "Distance (m)",
       "label_i18n": {
         "en": "Distance (m)",
         "tr": "Uzaklik (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Mesafe",
+      "businessContext": "Measurement distance.",
       "businessContext_i18n": {
         "en": "Measurement distance.",
         "tr": "Olcum noktasi uzakligi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "aci",
-      "label": "Aci",
+      "label": "Angle (Deg)",
       "label_i18n": {
         "en": "Angle (Deg)",
         "tr": "Aci (Derece)",
@@ -95,7 +95,7 @@
       "unit": "degrees",
       "default": 90,
       "min": 0,
-      "businessContext": "Aci",
+      "businessContext": "Angle between wire and direction.",
       "businessContext_i18n": {
         "en": "Angle between wire and direction.",
         "tr": "Tel-dogrultu arasi aci.",

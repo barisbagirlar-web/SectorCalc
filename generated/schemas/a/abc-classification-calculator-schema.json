@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikTalep",
-      "label": "YillikTalep",
+      "label": "Annual Demand",
       "label_i18n": {
         "en": "Annual Demand",
         "tr": "Annual Talep (Quantity)",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 10000,
       "min": 0,
-      "businessContext": "YillikTalep",
+      "businessContext": "Annual demand quantity.",
       "businessContext_i18n": {
         "en": "Annual demand quantity.",
         "tr": "Urunun yillik talep Amounti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "birimMaliyet",
-      "label": "Birim Maliyet (TL)",
+      "label": "Unit Cost (USD)",
       "label_i18n": {
         "en": "Unit Cost (USD)",
         "tr": "Birim Maliyet (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "BirimMaliyet",
+      "businessContext": "Unit product cost.",
       "businessContext_i18n": {
         "en": "Unit product cost.",
         "tr": "Urunun Unit Costi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "temettu",
-      "label": "Temettu",
+      "label": "Gross Dividend (USD)",
       "label_i18n": {
         "en": "Gross Dividend (USD)",
         "tr": "Gross Temettu (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Temettu",
+      "businessContext": "Dividend amount before tax.",
       "businessContext_i18n": {
         "en": "Dividend amount before tax.",
         "tr": "Vergi kesintisi oncesi temettu tutari.",
@@ -46,7 +46,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "Stopaj",
+      "businessContext": "Dividend withholding tax rate.",
       "businessContext_i18n": {
         "en": "Dividend withholding tax rate.",
         "tr": "Temettuye uygulanan stopaj vergisi.",

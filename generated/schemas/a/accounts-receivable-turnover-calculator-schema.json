@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikSatis",
-      "label": "YillikSatis",
+      "label": "Annual Sales (USD)",
       "label_i18n": {
         "en": "Annual Sales (USD)",
         "tr": "Yillik Satis (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "YillikSatis",
+      "businessContext": "Total annual revenue.",
       "businessContext_i18n": {
         "en": "Total annual revenue.",
         "tr": "Total yillik satis.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortAlacak",
-      "label": "Ortalama Alacak (TL)",
+      "label": "Avg Receivables (USD)",
       "label_i18n": {
         "en": "Avg Receivables (USD)",
         "tr": "Ortalama Alacak (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "OrtAlacak",
+      "businessContext": "Average accounts receivable.",
       "businessContext_i18n": {
         "en": "Average accounts receivable.",
         "tr": "Donem Mean ticari alacak.",

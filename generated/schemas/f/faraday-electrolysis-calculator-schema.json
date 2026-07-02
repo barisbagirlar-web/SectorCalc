@@ -20,7 +20,7 @@
       "unit": "A",
       "default": 2,
       "min": 0,
-      "businessContext": "Akim",
+      "businessContext": "Electrolysis current.",
       "businessContext_i18n": {
         "en": "Electrolysis current.",
         "tr": "Elektroliz Currenti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sure",
-      "label": "Sure",
+      "label": "Time (s)",
       "label_i18n": {
         "en": "Time (s)",
         "tr": "Duration (s)",
@@ -45,7 +45,7 @@
       "unit": "s",
       "default": 3600,
       "min": 0,
-      "businessContext": "Sure",
+      "businessContext": "Time current applied.",
       "businessContext_i18n": {
         "en": "Time current applied.",
         "tr": "Currentin uygulandigi sure.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "esdegerAgirlik",
-      "label": "EsdegerAgirlik",
+      "label": "Equivalent Weight (g/mol)",
       "label_i18n": {
         "en": "Equivalent Weight (g/mol)",
         "tr": "EsValue Weight (g/mol)",
@@ -70,7 +70,7 @@
       "unit": "g/mol",
       "default": 27,
       "min": 0,
-      "businessContext": "EsdegerAgirlik",
+      "businessContext": "Element equivalent mass.",
       "businessContext_i18n": {
         "en": "Element equivalent mass.",
         "tr": "Maddenin esValue Masssi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "elektronSayisi",
-      "label": "ElektronSayisi",
+      "label": "Electron Count (n)",
       "label_i18n": {
         "en": "Electron Count (n)",
         "tr": "Elektron Count (n)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "ElektronSayisi",
+      "businessContext": "Number of electrons transferred.",
       "businessContext_i18n": {
         "en": "Number of electrons transferred.",
         "tr": "Reaksiyona giren elektron Numbersi.",

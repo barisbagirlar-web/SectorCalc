@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Flooring Area (m²)",
+      "label": "Floor Area (m²)",
       "label_i18n": {
         "en": "Floor Area (m²)",
         "tr": "Slab Area (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Kaplanacak alan.",
+      "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Kaplanacak alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruloEn",
-      "label": "Rulo Eni (m)",
+      "label": "Roll Width (m)",
       "label_i18n": {
         "en": "Roll Width (m)",
         "tr": "Rulo Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "RuloEn",
+      "businessContext": "Roll width.",
       "businessContext_i18n": {
         "en": "Roll width.",
         "tr": "Rulo genisligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "fire",
-      "label": "Scrap Rate (%)",
+      "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Scrap Ratio (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Fire",
+      "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybi.",

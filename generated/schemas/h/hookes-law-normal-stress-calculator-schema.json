@@ -2,12 +2,12 @@
   "toolName": "hookes-law-normal-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "elastisiteModulu",
-      "label": "Modeulus of Elasticity (Pa)",
+      "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Modeulus of Elasticity (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Malzemenin Modeulus of Elasticity.",
+      "businessContext": "Material Young's modulus.",
       "businessContext_i18n": {
         "en": "Material Young's modulus.",
         "tr": "Malzemenin Modeulus of Elasticity.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "birimSekilDegistirme",
-      "label": "BirimSekilDegistirme",
+      "label": "Strain",
       "label_i18n": {
         "en": "Strain",
         "tr": "Unit Sekil Degistirme",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Malzemedeki birim uzama.",
+      "businessContext": "Unit elongation.",
       "businessContext_i18n": {
         "en": "Unit elongation.",
         "tr": "Malzemedeki birim uzama.",

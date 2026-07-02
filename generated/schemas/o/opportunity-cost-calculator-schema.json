@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tercihEdilenGetiri",
-      "label": "Tercih Edilen Getiri (₺)",
+      "label": "Chosen Return (USD)",
       "label_i18n": {
         "en": "Chosen Return (USD)",
         "tr": "Tercih Edilen Getiri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 15000,
       "min": 0,
-      "businessContext": "TercihEdilenGetiri",
+      "businessContext": "Return of the chosen investment.",
       "businessContext_i18n": {
         "en": "Return of the chosen investment.",
         "tr": "Secilen yatirimin getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "vazgecilenGetiri",
-      "label": "VazgecilenGetiri",
+      "label": "Foregone Return (USD)",
       "label_i18n": {
         "en": "Foregone Return (USD)",
         "tr": "Vazgecilen Getiri (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 25000,
       "min": 0,
-      "businessContext": "VazgecilenGetiri",
+      "businessContext": "Return of the alternative investment.",
       "businessContext_i18n": {
         "en": "Return of the alternative investment.",
         "tr": "Alternatif yatirimin getirisi.",

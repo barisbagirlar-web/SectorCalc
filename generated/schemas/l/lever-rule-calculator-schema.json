@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "C0",
-      "label": "C0",
+      "label": "Overall Composition (%)",
       "label_i18n": {
         "en": "Overall Composition (%)",
         "tr": "Total Bilesim (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 40,
       "min": 0,
-      "businessContext": "C0",
+      "businessContext": "Alloy overall composition.",
       "businessContext_i18n": {
         "en": "Alloy overall composition.",
         "tr": "Alasimin Total bilesimi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "Cl",
-      "label": "Cl",
+      "label": "Liquid Composition (%)",
       "label_i18n": {
         "en": "Liquid Composition (%)",
         "tr": "Sivi Bilesimi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Cl",
+      "businessContext": "Liquid phase composition.",
       "businessContext_i18n": {
         "en": "Liquid phase composition.",
         "tr": "Sivi fazin bilesimi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "Cs",
-      "label": "Cs",
+      "label": "Solid Composition (%)",
       "label_i18n": {
         "en": "Solid Composition (%)",
         "tr": "Kati Bilesimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 60,
       "min": 0,
-      "businessContext": "Cs",
+      "businessContext": "Solid phase composition.",
       "businessContext_i18n": {
         "en": "Solid phase composition.",
         "tr": "Kati fazin bilesimi.",

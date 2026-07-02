@@ -2,12 +2,12 @@
   "toolName": "effective-radiation-dose-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "sozurulenDoz",
-      "label": "SozurulenDoz",
+      "label": "Absorbed Dose (mGy)",
       "label_i18n": {
         "en": "Absorbed Dose (mGy)",
         "tr": "Sogurulan Doz (mGy)",
@@ -20,7 +20,7 @@
       "unit": "mGy",
       "default": 10,
       "min": 0,
-      "businessContext": "SozurulenDoz",
+      "businessContext": "Energy absorbed by tissue.",
       "businessContext_i18n": {
         "en": "Energy absorbed by tissue.",
         "tr": "Doku by emwithn mosterji.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dokuAgirlikFaktoru",
-      "label": "DokuAgirlikFaktoru",
+      "label": "Tissue Weighting Factor",
       "label_i18n": {
         "en": "Tissue Weighting Factor",
         "tr": "Doku Weight Faktoru",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0.12,
       "min": 0,
-      "businessContext": "Dokunun radyasyon hassasiyeti.",
+      "businessContext": "Tissue radiation sensitivity.",
       "businessContext_i18n": {
         "en": "Tissue radiation sensitivity.",
         "tr": "Dokunun radyasyon hassasiyeti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "radyasyonTuruFaktoru",
-      "label": "RadyasyonTuruFaktoru",
+      "label": "Radiation Type Factor",
       "label_i18n": {
         "en": "Radiation Type Factor",
         "tr": "Radyasyon Turu Faktoru",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "RadyasyonTuruFaktoru",
+      "businessContext": "Radiation type effectiveness.",
       "businessContext_i18n": {
         "en": "Radiation type effectiveness.",
         "tr": "Radyasyon turunun biyolojik etkinligi.",

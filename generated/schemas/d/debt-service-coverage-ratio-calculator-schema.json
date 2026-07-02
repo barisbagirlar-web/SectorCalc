@@ -2,12 +2,12 @@
   "toolName": "debt-service-coverage-ratio-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Kredi ve Borc",
+  "sector": "Credit and Debt",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "netIsletmeGeliri",
-      "label": "Net Workletme Geliri (₺)",
+      "label": "Net Operating Income (USD)",
       "label_i18n": {
         "en": "Net Operating Income (USD)",
         "tr": "Net Workletme Geliri (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "NetIsletmeGeliri",
+      "businessContext": "Annual net operating income.",
       "businessContext_i18n": {
         "en": "Annual net operating income.",
         "tr": "Yillik Net isletme geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikBorcOdemesi",
-      "label": "YillikBorcOdemesi",
+      "label": "Annual Debt Service (USD)",
       "label_i18n": {
         "en": "Annual Debt Service (USD)",
         "tr": "Annual Debt Paymmosttsi (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 120000,
       "min": 0,
-      "businessContext": "YillikBorcOdemesi",
+      "businessContext": "Annual principal + interest payment.",
       "businessContext_i18n": {
         "en": "Annual principal + interest payment.",
         "tr": "Yillik Principal+faiz odemesi.",

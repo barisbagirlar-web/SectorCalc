@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "YillikCOGS",
+      "label": "Annual COGS (USD)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Annual SMM (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "YillikCOGS",
+      "businessContext": "Annual cost of goods sold.",
       "businessContext_i18n": {
         "en": "Annual cost of goods sold.",
         "tr": "Yillik Satilan mal Costi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortBorc",
-      "label": "OrtBorc",
+      "label": "Avg Payables (USD)",
       "label_i18n": {
         "en": "Avg Payables (USD)",
         "tr": "Aandrage Debt (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "OrtBorc",
+      "businessContext": "Average accounts payable.",
       "businessContext_i18n": {
         "en": "Average accounts payable.",
         "tr": "Mean ticari borc.",

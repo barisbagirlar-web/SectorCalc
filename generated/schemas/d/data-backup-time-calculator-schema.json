@@ -2,12 +2,12 @@
   "toolName": "data-backup-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "veriBoyutu",
-      "label": "Veri Boyutu (TB)",
+      "label": "Data Size (TB)",
       "label_i18n": {
         "en": "Data Size (TB)",
         "tr": "Veri Boyutu (TB)",
@@ -20,7 +20,7 @@
       "unit": "TB",
       "default": 5,
       "min": 0,
-      "businessContext": "Yedeklenecek ham veri boyutu.",
+      "businessContext": "Raw backup data size.",
       "businessContext_i18n": {
         "en": "Raw backup data size.",
         "tr": "Yedeklenecek ham veri boyutu.",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 3,
       "min": 0,
-      "businessContext": "SikistirmaOrani",
+      "businessContext": "Compression factor.",
       "businessContext_i18n": {
         "en": "Compression factor.",
         "tr": "Sikistirma faktoru (2:1=2).",
@@ -57,7 +57,7 @@
     },
     {
       "id": "agHizi",
-      "label": "AgHizi",
+      "label": "Network Speed (Gbps)",
       "label_i18n": {
         "en": "Network Speed (Gbps)",
         "tr": "Ag Speedi (Gbps)",
@@ -70,7 +70,7 @@
       "unit": "Gbps",
       "default": 1,
       "min": 0,
-      "businessContext": "AgHizi",
+      "businessContext": "Data transfer speed.",
       "businessContext_i18n": {
         "en": "Data transfer speed.",
         "tr": "Veri aktarim Speedi.",

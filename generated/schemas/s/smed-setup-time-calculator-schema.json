@@ -2,12 +2,12 @@
   "toolName": "smed-setup-time-calculator",
   "catalogCategory": "manufacturing-workshop",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "icAyar",
-      "label": "IcAyar",
+      "label": "Internal Setup (Min)",
       "label_i18n": {
         "en": "Internal Setup (Min)",
         "tr": "Ic Ayar Suresi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "IcAyar",
+      "businessContext": "Setup done while machine stopped.",
       "businessContext_i18n": {
         "en": "Setup done while machine stopped.",
         "tr": "Makine dururken yapilan ayar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "disAyar",
-      "label": "DisAyar",
+      "label": "External Setup (Min)",
       "label_i18n": {
         "en": "External Setup (Min)",
         "tr": "Dis Ayar Suresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 15,
       "min": 0,
-      "businessContext": "DisAyar",
+      "businessContext": "Setup done while machine runs.",
       "businessContext_i18n": {
         "en": "Setup done while machine runs.",
         "tr": "Makine calisirken yapilan ayar.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "donusum",
-      "label": "Donusum",
+      "label": "Conversion Rate (%)",
       "label_i18n": {
         "en": "Conversion Rate (%)",
         "tr": "Ic-Dis Conversion Rate (%)",
@@ -71,7 +71,7 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Donusum",
+      "businessContext": "Percentage of internal converted to external.",
       "businessContext_i18n": {
         "en": "Percentage of internal converted to external.",
         "tr": "Ic ayarin ne kadarinin disa donustugu.",

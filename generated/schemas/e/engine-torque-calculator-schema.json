@@ -2,12 +2,12 @@
   "toolName": "engine-torque-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "guc",
-      "label": "Motor Power (kW)",
+      "label": "Engine Power (kW)",
       "label_i18n": {
         "en": "Engine Power (kW)",
         "tr": "Motor Power (kW)",
@@ -20,7 +20,7 @@
       "unit": "kW",
       "default": 100,
       "min": 0,
-      "businessContext": "Guc",
+      "businessContext": "Engine output power.",
       "businessContext_i18n": {
         "en": "Engine output power.",
         "tr": "Motorun urettigi Power.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "devir",
-      "label": "Motor Devri (devir/dk)",
+      "label": "Engine Speed (RPM)",
       "label_i18n": {
         "en": "Engine Speed (RPM)",
         "tr": "Motor Devri (devir/dk)",
@@ -45,7 +45,7 @@
       "unit": "rpm",
       "default": 3000,
       "min": 0,
-      "businessContext": "Krank mili devri.",
+      "businessContext": "Crankshaft speed.",
       "businessContext_i18n": {
         "en": "Crankshaft speed.",
         "tr": "Krank mili devri.",

@@ -2,12 +2,12 @@
   "toolName": "infinite-well-energy-calculator",
   "catalogCategory": "energy-carbon",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "kuyuGenisligi",
-      "label": "KuyuGenisligi",
+      "label": "Well Width (m)",
       "label_i18n": {
         "en": "Well Width (m)",
         "tr": "Kuyu Width (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 1e-10,
       "min": 0,
-      "businessContext": "KuyuGenisligi",
+      "businessContext": "Infinite well width.",
       "businessContext_i18n": {
         "en": "Infinite well width.",
         "tr": "Sonsuz kuyunun genisligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kutle",
-      "label": "Kutle",
+      "label": "Particle Mass (kg)",
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parcacik Masssi (kg)",
@@ -45,7 +45,7 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Kutle",
+      "businessContext": "Particle mass.",
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parcacigin Masssi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kuantumSayisi",
-      "label": "KuantumSayisi",
+      "label": "Quantum Number (n)",
       "label_i18n": {
         "en": "Quantum Number (n)",
         "tr": "Kuantum Count (n)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 1,
-      "businessContext": "KuantumSayisi",
+      "businessContext": "Energy level quantum number.",
       "businessContext_i18n": {
         "en": "Energy level quantum number.",
         "tr": "Energy seviye numarasi.",

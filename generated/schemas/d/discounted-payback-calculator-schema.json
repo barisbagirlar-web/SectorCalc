@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Initial Investment (₺)",
+      "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Initial Investment (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Total Initial Investment.",
+      "businessContext": "Total upfront investment.",
       "businessContext_i18n": {
         "en": "Total upfront investment.",
         "tr": "Total Initial Investment.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "nakit1",
-      "label": "Nakit1",
+      "label": "Year 1 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 1 Cash Flow (USD)",
         "tr": "1st Year Cash (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Nakit1",
+      "businessContext": "First year cash inflow.",
       "businessContext_i18n": {
         "en": "First year cash inflow.",
         "tr": "Ilk yil Cash Inflow.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "nakit2",
-      "label": "Nakit2",
+      "label": "Year 2 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 2 Cash Flow (USD)",
         "tr": "2nd Year Cash (TRY)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Nakit2",
+      "businessContext": "Second year cash inflow.",
       "businessContext_i18n": {
         "en": "Second year cash inflow.",
         "tr": "Ikinci yil Cash Inflow.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "nakit3",
-      "label": "Nakit3",
+      "label": "Year 3 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 3 Cash Flow (USD)",
         "tr": "3rd Year Cash (TRY)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Nakit3",
+      "businessContext": "Third year cash inflow.",
       "businessContext_i18n": {
         "en": "Third year cash inflow.",
         "tr": "Ucuncu yil Cash Inflow.",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Sermaye maliyeti.",
+      "businessContext": "Cost of capital.",
       "businessContext_i18n": {
         "en": "Cost of capital.",
         "tr": "Sermaye maliyeti.",

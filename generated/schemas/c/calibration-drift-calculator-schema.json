@@ -2,12 +2,12 @@
   "toolName": "calibration-drift-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "sonHata",
-      "label": "SonHata",
+      "label": "Latest Error",
       "label_i18n": {
         "en": "Latest Error",
         "tr": "Son Kalibrasyon Hatasi (Unit)",
@@ -20,7 +20,7 @@
       "unit": "unit",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Son kalibrasyondaki hata.",
+      "businessContext": "Error at last calibration.",
       "businessContext_i18n": {
         "en": "Error at last calibration.",
         "tr": "Son kalibrasyondaki hata.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oncekiHata",
-      "label": "OncekiHata",
+      "label": "Previous Error",
       "label_i18n": {
         "en": "Previous Error",
         "tr": "Onceki Hata (Unit)",
@@ -45,7 +45,7 @@
       "unit": "unit",
       "default": 0.2,
       "min": 0,
-      "businessContext": "OncekiHata",
+      "businessContext": "Previous calibration error.",
       "businessContext_i18n": {
         "en": "Previous calibration error.",
         "tr": "Bir onceki kalibrasyon hatasi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gecenSure",
-      "label": "GecenSure",
+      "label": "Elapsed Time (Days)",
       "label_i18n": {
         "en": "Elapsed Time (Days)",
         "tr": "Gecen Sure (Gun)",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "GecenSure",
+      "businessContext": "Time between calibrations.",
       "businessContext_i18n": {
         "en": "Time between calibrations.",
         "tr": "Iki kalibrasyon arasi sure.",

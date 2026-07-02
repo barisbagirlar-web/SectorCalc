@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "malzemeKutle",
-      "label": "Malzeme Masssi (kg)",
+      "label": "Material Mass (kg)",
       "label_i18n": {
         "en": "Material Mass (kg)",
         "tr": "Malzeme Masssi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 50,
       "min": 0,
-      "businessContext": "Kurutulacak polimer.",
+      "businessContext": "Polymer to dry.",
       "businessContext_i18n": {
         "en": "Polymer to dry.",
         "tr": "Kurutulacak polimer.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "nemOrani",
-      "label": "NemOrani",
+      "label": "Moisture Content (%)",
       "label_i18n": {
         "en": "Moisture Content (%)",
         "tr": "Nem Ratio (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 0.5,
       "min": 0,
-      "businessContext": "NemOrani",
+      "businessContext": "Polymer moisture percentage.",
       "businessContext_i18n": {
         "en": "Polymer moisture percentage.",
         "tr": "Polimerin nem yuzdesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "havaDebi",
-      "label": "Hava Debisi (kg/s)",
+      "label": "Air Flow (kg/s)",
       "label_i18n": {
         "en": "Air Flow (kg/s)",
         "tr": "Hava Debisi (kg/s)",
@@ -70,7 +70,7 @@
       "unit": "kg/s",
       "default": 0.5,
       "min": 0,
-      "businessContext": "HavaDebi",
+      "businessContext": "Drying air flow.",
       "businessContext_i18n": {
         "en": "Drying air flow.",
         "tr": "Kurutma havasi Flow Ratesi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "nemAlmaKapasite",
-      "label": "Nem Alma Kapasitesi (kg/kg)",
+      "label": "Moisture Removal Capacity (kg/kg)",
       "label_i18n": {
         "en": "Moisture Removal Capacity (kg/kg)",
         "tr": "Nem Alma Kapasitesi (kg/kg)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.005,
       "min": 0,
-      "businessContext": "NemAlmaKapasite",
+      "businessContext": "Air moisture removal capacity.",
       "businessContext_i18n": {
         "en": "Air moisture removal capacity.",
         "tr": "Havanin nem alma kapasitesi.",

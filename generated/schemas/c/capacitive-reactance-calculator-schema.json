@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Frekans (Hz)",
+      "label": "Frequency (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
         "tr": "Frekans (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 50,
       "min": 0,
-      "businessContext": "AC Signal Frequency.",
+      "businessContext": "AC signal frequency.",
       "businessContext_i18n": {
         "en": "AC signal frequency.",
         "tr": "AC Signal Frequency.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kapasite",
-      "label": "Kapasite (F)",
+      "label": "Capacitance (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
@@ -45,7 +45,7 @@
       "unit": "F",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Kapasite",
+      "businessContext": "Capacitor value.",
       "businessContext_i18n": {
         "en": "Capacitor value.",
         "tr": "Kapasitor Valuei.",

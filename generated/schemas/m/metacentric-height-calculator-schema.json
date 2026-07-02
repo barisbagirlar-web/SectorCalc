@@ -2,12 +2,12 @@
   "toolName": "metacentric-height-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "KB",
-      "label": "KB (m) - Pressure Merkezi",
+      "label": "KB (m) - Center of Buoyancy",
       "label_i18n": {
         "en": "KB (m) - Center of Buoyancy",
         "tr": "KB (m) - Pressure Merkezi",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "KB",
+      "businessContext": "Center of buoyancy.",
       "businessContext_i18n": {
         "en": "Center of buoyancy.",
         "tr": "Su alti hacminin Weight merkezi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "BM",
-      "label": "BM (m) - Metasentrik Radius",
+      "label": "BM (m) - Metacentric Radius",
       "label_i18n": {
         "en": "BM (m) - Metacentric Radius",
         "tr": "BM (m) - Metasmosttrik Radius",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Metasentrik Radius.",
+      "businessContext": "Metacentric radius.",
       "businessContext_i18n": {
         "en": "Metacentric radius.",
         "tr": "Metasentrik Radius.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "KG",
-      "label": "KG (m) - Weight Merkezi",
+      "label": "KG (m) - Center of Gravity",
       "label_i18n": {
         "en": "KG (m) - Center of Gravity",
         "tr": "KG (m) - Weight Merkezi",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "KG",
+      "businessContext": "Vertical center of gravity.",
       "businessContext_i18n": {
         "en": "Vertical center of gravity.",
         "tr": "Geminin Weight merkezi yuksekligi.",

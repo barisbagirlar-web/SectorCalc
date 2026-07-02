@@ -2,7 +2,7 @@
   "toolName": "asme-shaft-diameter-bending-torsion-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,7 +20,7 @@
       "unit": "N.m",
       "default": 500,
       "min": 0,
-      "businessContext": "Mile etkiyen Bending Moment.",
+      "businessContext": "Bending moment on shaft.",
       "businessContext_i18n": {
         "en": "Bending moment on shaft.",
         "tr": "Mile etkiyen Bending Moment.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tork",
-      "label": "Burulma Momenti (N.m)",
+      "label": "Torque (N.m)",
       "label_i18n": {
         "en": "Torque (N.m)",
         "tr": "Burulma Momenti (N.m)",
@@ -45,7 +45,7 @@
       "unit": "N.m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Mile etkiyen tork.",
+      "businessContext": "Torque on shaft.",
       "businessContext_i18n": {
         "en": "Torque on shaft.",
         "tr": "Mile etkiyen tork.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akmaGerilmesi",
-      "label": "Akma Gerilmesi (Pa)",
+      "label": "Yield Stress (Pa)",
       "label_i18n": {
         "en": "Yield Stress (Pa)",
         "tr": "Akma Gerilmesi (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 300000000,
       "min": 0,
-      "businessContext": "Mil malzemesinin Yield Strength.",
+      "businessContext": "Shaft material yield strength.",
       "businessContext_i18n": {
         "en": "Shaft material yield strength.",
         "tr": "Mil malzemesinin Yield Strength.",

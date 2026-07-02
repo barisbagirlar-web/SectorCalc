@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan",
+      "label": "Surface Area (m²)",
       "label_i18n": {
         "en": "Surface Area (m²)",
         "tr": "Yuzey Areai (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 20,
       "min": 0,
-      "businessContext": "Boyanacak alan.",
+      "businessContext": "Area to paint.",
       "businessContext_i18n": {
         "en": "Area to paint.",
         "tr": "Boyanacak alan.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "katSayisi",
-      "label": "KatSayisi",
+      "label": "Number of Coats",
       "label_i18n": {
         "en": "Number of Coats",
         "tr": "Kat Count",
@@ -45,7 +45,7 @@
       "unit": "coats",
       "default": 2,
       "min": 1,
-      "businessContext": "KatSayisi",
+      "businessContext": "Number of paint coats.",
       "businessContext_i18n": {
         "en": "Number of paint coats.",
         "tr": "Uygulanacak Heighta kati.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ortmeOrani",
-      "label": "OrtmeOrani",
+      "label": "Coverage Rate (m²/L)",
       "label_i18n": {
         "en": "Coverage Rate (m²/L)",
         "tr": "Ortme Ratioi (m²/L)",
@@ -70,7 +70,7 @@
       "unit": "m2/L",
       "default": 8,
       "min": 0,
-      "businessContext": "OrtmeOrani",
+      "businessContext": "Coverage per liter.",
       "businessContext_i18n": {
         "en": "Coverage per liter.",
         "tr": "1 litrenin orttugu Area.",

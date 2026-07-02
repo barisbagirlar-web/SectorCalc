@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "piyasaDegeri",
-      "label": "Piyasa Valuei (₺)",
+      "label": "Market Cap (USD)",
       "label_i18n": {
         "en": "Market Cap (USD)",
         "tr": "Piyasa Value (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "PiyasaDegeri",
+      "businessContext": "Market capitalization.",
       "businessContext_i18n": {
         "en": "Market capitalization.",
         "tr": "Sirketin Total piyasa Valuei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamSatislar",
-      "label": "ToplamSatislar",
+      "label": "Total Revenue (USD)",
       "label_i18n": {
         "en": "Total Revenue (USD)",
         "tr": "Total Satislar (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 4000000,
       "min": 0,
-      "businessContext": "ToplamSatislar",
+      "businessContext": "Annual total revenue.",
       "businessContext_i18n": {
         "en": "Annual total revenue.",
         "tr": "Sirketin yillik Total Revenue.",

@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 150,
       "min": 0,
-      "businessContext": "Toplanan Roof Area.",
+      "businessContext": "Collection roof area.",
       "businessContext_i18n": {
         "en": "Collection roof area.",
         "tr": "Toplanan Roof Area.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikYagis",
-      "label": "YillikYagis",
+      "label": "Annual Rainfall (mm)",
       "label_i18n": {
         "en": "Annual Rainfall (mm)",
         "tr": "Yillik Yagis (mm)",
@@ -45,7 +45,7 @@
       "unit": "mm",
       "default": 600,
       "min": 0,
-      "businessContext": "YillikYagis",
+      "businessContext": "Annual precipitation.",
       "businessContext_i18n": {
         "en": "Annual precipitation.",
         "tr": "Bolgenin yillik yagis Amounti.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Toplama Verimi (%)",
+      "label": "Collection Efficiency (%)",
       "label_i18n": {
         "en": "Collection Efficiency (%)",
         "tr": "Toplama Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "Sistem verimi.",
+      "businessContext": "System efficiency.",
       "businessContext_i18n": {
         "en": "System efficiency.",
         "tr": "Sistem verimi.",

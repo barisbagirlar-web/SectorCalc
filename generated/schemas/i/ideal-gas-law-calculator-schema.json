@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Basinc",
+      "businessContext": "Gas pressure.",
       "businessContext_i18n": {
         "en": "Gas pressure.",
         "tr": "Gaz basinci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hacim",
-      "label": "Hacim (m³)",
+      "label": "Volume (m³)",
       "label_i18n": {
         "en": "Volume (m³)",
         "tr": "Hacim (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.024,
       "min": 0,
-      "businessContext": "Gaz hacmi.",
+      "businessContext": "Gas volume.",
       "businessContext_i18n": {
         "en": "Gas volume.",
         "tr": "Gaz hacmi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "mol",
-      "label": "Miktar (mol)",
+      "label": "Amount (mol)",
       "label_i18n": {
         "en": "Amount (mol)",
         "tr": "Miktar (mol)",
@@ -70,7 +70,7 @@
       "unit": "mol",
       "default": 1,
       "min": 0,
-      "businessContext": "Mol",
+      "businessContext": "Amount of substance.",
       "businessContext_i18n": {
         "en": "Amount of substance.",
         "tr": "Gaz Amounti.",
@@ -95,7 +95,7 @@
       "unit": "K",
       "default": 293,
       "min": 0,
-      "businessContext": "Sicaklik",
+      "businessContext": "Gas temperature.",
       "businessContext_i18n": {
         "en": "Gas temperature.",
         "tr": "Gaz sicakligi.",

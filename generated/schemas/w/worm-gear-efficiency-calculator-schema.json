@@ -2,12 +2,12 @@
   "toolName": "worm-gear-efficiency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "helisAcisi",
-      "label": "HelisAcisi",
+      "label": "Helix Angle (Rad)",
       "label_i18n": {
         "en": "Helix Angle (Rad)",
         "tr": "Helis Acisi (Rad)",
@@ -20,7 +20,7 @@
       "unit": "rad",
       "default": 0.35,
       "min": 0,
-      "businessContext": "HelisAcisi",
+      "businessContext": "Worm helix angle.",
       "businessContext_i18n": {
         "en": "Worm helix angle.",
         "tr": "Vidanin helis acisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "suratmeAcisi",
-      "label": "SuratmeAcisi",
+      "label": "Friction Angle (Rad)",
       "label_i18n": {
         "en": "Friction Angle (Rad)",
         "tr": "Surtunme Acisi (Rad)",
@@ -45,7 +45,7 @@
       "unit": "rad",
       "default": 0.15,
       "min": 0,
-      "businessContext": "SuratmeAcisi",
+      "businessContext": "Arctan of friction coefficient.",
       "businessContext_i18n": {
         "en": "Arctan of friction coefficient.",
         "tr": "Friction Factornin arctan'i.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "projeksiyonAlani",
-      "label": "ProjeksiyonAlani",
+      "label": "Projected Area (cm²)",
       "label_i18n": {
         "en": "Projected Area (cm²)",
         "tr": "Projeksiyon Area (cm²)",
@@ -20,7 +20,7 @@
       "unit": "cm2",
       "default": 500,
       "min": 0,
-      "businessContext": "ProjeksiyonAlani",
+      "businessContext": "Part projected area on mold.",
       "businessContext_i18n": {
         "en": "Part projected area on mold.",
         "tr": "Parcanin kalip ayrisma yuzeyindeki izdusum Areai.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalipIcBasinc",
-      "label": "KalipIcBasinc",
+      "label": "Cavity Pressure (bar)",
       "label_i18n": {
         "en": "Cavity Pressure (bar)",
         "tr": "Kalip Ici Basinc (bar)",
@@ -45,7 +45,7 @@
       "unit": "bar",
       "default": 800,
       "min": 0,
-      "businessContext": "KalipIcBasinc",
+      "businessContext": "Melt cavity pressure.",
       "businessContext_i18n": {
         "en": "Melt cavity pressure.",
         "tr": "Ergiyik plastigin kalip icindeki basinci.",

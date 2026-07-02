@@ -2,12 +2,12 @@
   "toolName": "0-100-kmh-acceleration-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "kutle",
-      "label": "Kutle",
+      "label": "Vehicle Mass (kg)",
       "label_i18n": {
         "en": "Vehicle Mass (kg)",
         "tr": "Arac Masssi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 1500,
       "min": 0,
-      "businessContext": "Kutle",
+      "businessContext": "Vehicle weight.",
       "businessContext_i18n": {
         "en": "Vehicle weight.",
         "tr": "Arac agirligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tork",
-      "label": "Motor Torku (N.m)",
+      "label": "Engine Torque (N.m)",
       "label_i18n": {
         "en": "Engine Torque (N.m)",
         "tr": "Motor Torku (N.m)",
@@ -45,7 +45,7 @@
       "unit": "N.m",
       "default": 300,
       "min": 0,
-      "businessContext": "Tork",
+      "businessContext": "Engine torque.",
       "businessContext_i18n": {
         "en": "Engine torque.",
         "tr": "Motorun urettigi Torque.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tractionCoefficient",
-      "label": "TractionCoefficient",
+      "label": "Traction Coefficient",
       "label_i18n": {
         "en": "Traction Coefficient",
         "tr": "Cekis KatNumbersi",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.8,
       "min": 0,
-      "businessContext": "TractionCoefficient",
+      "businessContext": "Tire-road friction.",
       "businessContext_i18n": {
         "en": "Tire-road friction.",
         "tr": "Lastik-yol tutunma katNumbersi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "havaDirenci",
-      "label": "Hava Direnci (N)",
+      "label": "Aerodynamic Drag (N)",
       "label_i18n": {
         "en": "Aerodynamic Drag (N)",
         "tr": "Hava Direnci (N)",
@@ -95,7 +95,7 @@
       "unit": "N",
       "default": 500,
       "min": 0,
-      "businessContext": "100 km/h'deki hava direnci.",
+      "businessContext": "Aerodynamic drag at 100 km/h.",
       "businessContext_i18n": {
         "en": "Aerodynamic drag at 100 km/h.",
         "tr": "100 km/h'deki hava direnci.",

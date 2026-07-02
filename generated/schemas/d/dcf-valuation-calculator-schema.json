@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "fcf1",
-      "label": "Fcf1",
+      "label": "Year 1 FCF (USD)",
       "label_i18n": {
         "en": "Year 1 FCF (USD)",
         "tr": "1st Year FCF (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Fcf1",
+      "businessContext": "First year free cash flow.",
       "businessContext_i18n": {
         "en": "First year free cash flow.",
         "tr": "Birinci yil serbest nakit akisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "fcf2",
-      "label": "Fcf2",
+      "label": "Year 2 FCF (USD)",
       "label_i18n": {
         "en": "Year 2 FCF (USD)",
         "tr": "2nd Year FCF (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 110000,
       "min": 0,
-      "businessContext": "Fcf2",
+      "businessContext": "Second year free cash flow.",
       "businessContext_i18n": {
         "en": "Second year free cash flow.",
         "tr": "Ikinci yil serbest nakit akisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "fcf3",
-      "label": "Fcf3",
+      "label": "Year 3 FCF (USD)",
       "label_i18n": {
         "en": "Year 3 FCF (USD)",
         "tr": "3rd Year FCF (TRY)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 121000,
       "min": 0,
-      "businessContext": "Fcf3",
+      "businessContext": "Third year free cash flow.",
       "businessContext_i18n": {
         "en": "Third year free cash flow.",
         "tr": "Ucuncu yil serbest nakit akisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fcf4",
-      "label": "Fcf4",
+      "label": "Year 4 FCF (USD)",
       "label_i18n": {
         "en": "Year 4 FCF (USD)",
         "tr": "4th Year FCF (TRY)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 133100,
       "min": 0,
-      "businessContext": "Fcf4",
+      "businessContext": "Fourth year free cash flow.",
       "businessContext_i18n": {
         "en": "Fourth year free cash flow.",
         "tr": "Dorduncu yil serbest nakit akisi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "fcf5",
-      "label": "Fcf5",
+      "label": "Year 5 FCF (USD)",
       "label_i18n": {
         "en": "Year 5 FCF (USD)",
         "tr": "5th Year FCF (TRY)",
@@ -120,7 +120,7 @@
       "unit": "USD",
       "default": 146410,
       "min": 0,
-      "businessContext": "Fcf5",
+      "businessContext": "Fifth year free cash flow.",
       "businessContext_i18n": {
         "en": "Fifth year free cash flow.",
         "tr": "Besinci yil serbest nakit akisi.",
@@ -145,7 +145,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "WACC",
+      "businessContext": "Weighted average cost of capital.",
       "businessContext_i18n": {
         "en": "Weighted average cost of capital.",
         "tr": "Weightli Mean sermaye Costi.",
@@ -157,7 +157,7 @@
     },
     {
       "id": "terminalBuyume",
-      "label": "TerminalBuyume",
+      "label": "Terminal Growth (%)",
       "label_i18n": {
         "en": "Terminal Growth (%)",
         "tr": "Terminal Buyume (%)",
@@ -170,7 +170,7 @@
       "unit": "%",
       "default": 3,
       "min": 0,
-      "businessContext": "TerminalBuyume",
+      "businessContext": "Perpetual growth rate assumption.",
       "businessContext_i18n": {
         "en": "Perpetual growth rate assumption.",
         "tr": "Sonsuz buyume varNumbermi.",

@@ -2,12 +2,12 @@
   "toolName": "anchor-chain-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "suDerinligi",
-      "label": "SuDerinligi",
+      "label": "Water Depth (m)",
       "label_i18n": {
         "en": "Water Depth (m)",
         "tr": "Su Depth (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "SuDerinligi",
+      "businessContext": "Depth at anchorage.",
       "businessContext_i18n": {
         "en": "Depth at anchorage.",
         "tr": "Demirleme noktasindaki Depth.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruzgarHizi",
-      "label": "Tahmini Wind Speed (m/s)",
+      "label": "Expected Wind Speed (m/s)",
       "label_i18n": {
         "en": "Expected Wind Speed (m/s)",
         "tr": "Tahmini Wind Speed (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 15,
       "min": 0,
-      "businessContext": "RuzgarHizi",
+      "businessContext": "Worst-case wind speed.",
       "businessContext_i18n": {
         "en": "Worst-case wind speed.",
         "tr": "En kotu senaryo Wind Speed.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dipKatsayisi",
-      "label": "DipKatsayisi",
+      "label": "Bottom Coefficient",
       "label_i18n": {
         "en": "Bottom Coefficient",
         "tr": "Dip Coefficimostt",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "DipKatsayisi",
+      "businessContext": "Seabed type correction.",
       "businessContext_i18n": {
         "en": "Seabed type correction.",
         "tr": "Zemin tipine bagli duzeltme.",

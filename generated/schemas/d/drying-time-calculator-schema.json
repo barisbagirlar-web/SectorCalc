@@ -2,12 +2,12 @@
   "toolName": "drying-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "urunKutlesi",
-      "label": "UrunKutlesi",
+      "label": "Product Mass (kg)",
       "label_i18n": {
         "en": "Product Mass (kg)",
         "tr": "Urun Masssi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 1000,
       "min": 0,
-      "businessContext": "UrunKutlesi",
+      "businessContext": "Product to dry.",
       "businessContext_i18n": {
         "en": "Product to dry.",
         "tr": "Kurutulacak urun.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "baslangicNem",
-      "label": "BaslangicNem",
+      "label": "Initial Moisture (%)",
       "label_i18n": {
         "en": "Initial Moisture (%)",
         "tr": "Baslangic Nemi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "BaslangicNem",
+      "businessContext": "Initial moisture content.",
       "businessContext_i18n": {
         "en": "Initial moisture content.",
         "tr": "Urunun ilk nem Ratioi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "hedefNem",
-      "label": "Hedef Nem (%)",
+      "label": "Target Moisture (%)",
       "label_i18n": {
         "en": "Target Moisture (%)",
         "tr": "Hedef Nem (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 14,
       "min": 0,
-      "businessContext": "HedefNem",
+      "businessContext": "Target moisture content.",
       "businessContext_i18n": {
         "en": "Target moisture content.",
         "tr": "Hedeflenen nem Ratioi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "havaDebi",
-      "label": "Hava Debisi (kg/s)",
+      "label": "Air Flow Rate (kg/s)",
       "label_i18n": {
         "en": "Air Flow Rate (kg/s)",
         "tr": "Hava Debisi (kg/s)",
@@ -95,7 +95,7 @@
       "unit": "kg/s",
       "default": 5,
       "min": 0,
-      "businessContext": "HavaDebi",
+      "businessContext": "Drying air flow rate.",
       "businessContext_i18n": {
         "en": "Drying air flow rate.",
         "tr": "Kurutma havasi Flow Ratesi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "nemFarki",
-      "label": "NemFarki",
+      "label": "Humidity Difference (kg/kg)",
       "label_i18n": {
         "en": "Humidity Difference (kg/kg)",
         "tr": "Nem Farki (kg/kg)",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 0.01,
       "min": 0,
-      "businessContext": "NemFarki",
+      "businessContext": "Air inlet-outlet humidity difference.",
       "businessContext_i18n": {
         "en": "Air inlet-outlet humidity difference.",
         "tr": "Hava Input-Output nem farki.",

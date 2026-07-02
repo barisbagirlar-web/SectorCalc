@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "griSuHacmi",
-      "label": "GriSuHacmi",
+      "label": "Daily Greywater (m³/day)",
       "label_i18n": {
         "en": "Daily Greywater (m³/day)",
         "tr": "Gunluk Gri Su Hacmi (m³/gun)",
@@ -20,7 +20,7 @@
       "unit": "m3/day",
       "default": 5,
       "min": 0,
-      "businessContext": "GriSuHacmi",
+      "businessContext": "Daily greywater volume.",
       "businessContext_i18n": {
         "en": "Daily greywater volume.",
         "tr": "Gunluk olusan gri su.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aritmaMaliyet",
-      "label": "AritmaMaliyet",
+      "label": "Treatment Cost (TL/m³)",
       "label_i18n": {
         "en": "Treatment Cost (TL/m³)",
         "tr": "Aritma Costi (TL/m³)",
@@ -45,7 +45,7 @@
       "unit": "TL/m3",
       "default": 3,
       "min": 0,
-      "businessContext": "AritmaMaliyet",
+      "businessContext": "Greywater treatment unit cost.",
       "businessContext_i18n": {
         "en": "Greywater treatment unit cost.",
         "tr": "Gri su aritma Unit Costi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sebekeFiyat",
-      "label": "SebekeFiyat",
+      "label": "Mains Water Price (TL/m³)",
       "label_i18n": {
         "en": "Mains Water Price (TL/m³)",
         "tr": "Sebeke Su Fiyati (TL/m³)",
@@ -70,7 +70,7 @@
       "unit": "TL/m3",
       "default": 15,
       "min": 0,
-      "businessContext": "SebekeFiyat",
+      "businessContext": "Municipal water unit price.",
       "businessContext_i18n": {
         "en": "Municipal water unit price.",
         "tr": "Sebekeden alinan su Unit fiyati.",

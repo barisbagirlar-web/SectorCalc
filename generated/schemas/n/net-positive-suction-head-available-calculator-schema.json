@@ -2,12 +2,12 @@
   "toolName": "net-positive-suction-head-available-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "basinc",
-      "label": "Basinc",
+      "label": "Liquid Surface Pressure (Pa)",
       "label_i18n": {
         "en": "Liquid Surface Pressure (Pa)",
         "tr": "Sivi Yuzey Basinci (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 101325,
       "min": 0,
-      "businessContext": "Basinc",
+      "businessContext": "Tank or atmospheric pressure.",
       "businessContext_i18n": {
         "en": "Tank or atmospheric pressure.",
         "tr": "Tank ici veya Atmosfer basinci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "buharBasinci",
-      "label": "BuharBasinci",
+      "label": "Vapor Pressure (Pa)",
       "label_i18n": {
         "en": "Vapor Pressure (Pa)",
         "tr": "Sivinin Vapor Pressure (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 5000,
       "min": 0,
-      "businessContext": "BuharBasinci",
+      "businessContext": "Vapor pressure at pumping temperature.",
       "businessContext_i18n": {
         "en": "Vapor pressure at pumping temperature.",
         "tr": "Pompalama sicakligindaki Vapor Pressure.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yogunluk",
+      "label": "Liquid Density (kg/m³)",
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
         "tr": "Sivi Yogunlugu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Yogunluk",
+      "businessContext": "Pumped fluid density.",
       "businessContext_i18n": {
         "en": "Pumped fluid density.",
         "tr": "PompAreaan Sivinin yogunlugu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Yukseklik",
+      "label": "Liquid Level to Pump (m)",
       "label_i18n": {
         "en": "Liquid Level to Pump (m)",
         "tr": "Sivi Seviyesi-Pompa Kot Farki (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Yukseklik",
+      "businessContext": "Positive if suction lift.",
       "businessContext_i18n": {
         "en": "Positive if suction lift.",
         "tr": "Pozitifse emme yuksekligi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "kayip",
-      "label": "Kayip",
+      "label": "Suction Line Loss (m)",
       "label_i18n": {
         "en": "Suction Line Loss (m)",
         "tr": "Emme Hatti Kaybi (m)",
@@ -120,7 +120,7 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Friction Loss.",
+      "businessContext": "Friction loss in suction pipe.",
       "businessContext_i18n": {
         "en": "Friction loss in suction pipe.",
         "tr": "Friction Loss.",

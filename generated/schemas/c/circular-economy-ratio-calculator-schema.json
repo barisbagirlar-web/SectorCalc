@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "geriKazanilan",
-      "label": "GeriKazanilan",
+      "label": "Recovered Material (tons)",
       "label_i18n": {
         "en": "Recovered Material (tons)",
         "tr": "Geri Kazanilan Malzeme (ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 500,
       "min": 0,
-      "businessContext": "GeriKazanilan",
+      "businessContext": "Secondary raw material.",
       "businessContext_i18n": {
         "en": "Secondary raw material.",
         "tr": "Ikincil hammadde Amounti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamGirdi",
-      "label": "Toplam Hammadde Girdisi (ton)",
+      "label": "Total Material Input (tons)",
       "label_i18n": {
         "en": "Total Material Input (tons)",
         "tr": "Toplam Hammadde Girdisi (ton)",
@@ -45,7 +45,7 @@
       "unit": "tons",
       "default": 2000,
       "min": 0,
-      "businessContext": "ToplamGirdi",
+      "businessContext": "All production material input.",
       "businessContext_i18n": {
         "en": "All production material input.",
         "tr": "Uretimde kullanilan tum malzeme.",

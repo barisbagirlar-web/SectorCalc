@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yuzeyGerilimi",
-      "label": "YuzeyGerilimi",
+      "label": "Surface Tension (N/m)",
       "label_i18n": {
         "en": "Surface Tension (N/m)",
         "tr": "Yuzey Voltagei (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 0.073,
       "min": 0,
-      "businessContext": "YuzeyGerilimi",
+      "businessContext": "Liquid surface tension.",
       "businessContext_i18n": {
         "en": "Liquid surface tension.",
         "tr": "Sivinin Yuzey Voltagei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "temasAcisi",
-      "label": "TemasAcisi",
+      "label": "Contact Angle (Deg)",
       "label_i18n": {
         "en": "Contact Angle (Deg)",
         "tr": "Temas Acisi (Derece)",
@@ -45,7 +45,7 @@
       "unit": "degrees",
       "default": 0,
       "min": 0,
-      "businessContext": "TemasAcisi",
+      "businessContext": "Liquid-solid contact angle.",
       "businessContext_i18n": {
         "en": "Liquid-solid contact angle.",
         "tr": "Sivi-kati temas acisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yariCap",
-      "label": "Borun Radius (m)",
+      "label": "Tube Radius (m)",
       "label_i18n": {
         "en": "Tube Radius (m)",
         "tr": "Pipmost Radius (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.0005,
       "min": 0,
-      "businessContext": "YariCap",
+      "businessContext": "Capillary tube inner radius.",
       "businessContext_i18n": {
         "en": "Capillary tube inner radius.",
         "tr": "Kilcal borunun ic Radiusi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yogunluk",
+      "label": "Liquid Density (kg/m³)",
       "label_i18n": {
         "en": "Liquid Density (kg/m³)",
         "tr": "Sivi Yogunlugu (kg/m³)",
@@ -95,7 +95,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Yogunluk",
+      "businessContext": "Liquid density.",
       "businessContext_i18n": {
         "en": "Liquid density.",
         "tr": "Sivinin yogunlugu.",

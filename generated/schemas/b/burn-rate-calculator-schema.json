@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "baslangicNakit",
-      "label": "BaslangicNakit",
+      "label": "Start Cash (USD)",
       "label_i18n": {
         "en": "Start Cash (USD)",
         "tr": "Donem Basi Nakit (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "BaslangicNakit",
+      "businessContext": "Cash at period start.",
       "businessContext_i18n": {
         "en": "Cash at period start.",
         "tr": "Donem basi nakit bakiyesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitisNakit",
-      "label": "BitisNakit",
+      "label": "End Cash (USD)",
       "label_i18n": {
         "en": "End Cash (USD)",
         "tr": "Donem Sonu Nakit (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "BitisNakit",
+      "businessContext": "Cash at period end.",
       "businessContext_i18n": {
         "en": "Cash at period end.",
         "tr": "Donem sonu nakit bakiyesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ay",
-      "label": "Ay",
+      "label": "Period (Months)",
       "label_i18n": {
         "en": "Period (Months)",
         "tr": "Donem (Ay)",
@@ -70,7 +70,7 @@
       "unit": "months",
       "default": 3,
       "min": 1,
-      "businessContext": "Ay",
+      "businessContext": "Calculation period.",
       "businessContext_i18n": {
         "en": "Calculation period.",
         "tr": "Calculation donemi.",

@@ -2,12 +2,12 @@
   "toolName": "compton-shift-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "sacilmaAcisi",
-      "label": "SacilmaAcisi",
+      "label": "Scattering Angle (Deg)",
       "label_i18n": {
         "en": "Scattering Angle (Deg)",
         "tr": "Sacilma Acisi (Derece)",
@@ -21,7 +21,7 @@
       "default": 90,
       "min": 0,
       "max": 180,
-      "businessContext": "SacilmaAcisi",
+      "businessContext": "Photon scattering angle.",
       "businessContext_i18n": {
         "en": "Photon scattering angle.",
         "tr": "Fotonun sacilma acisi.",

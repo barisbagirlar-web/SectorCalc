@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alisFiyati",
-      "label": "AlisFiyati",
+      "label": "Purchase Price (USD)",
       "label_i18n": {
         "en": "Purchase Price (USD)",
         "tr": "Alis Fiyati (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "AlisFiyati",
+      "businessContext": "ETF purchase price.",
       "businessContext_i18n": {
         "en": "ETF purchase price.",
         "tr": "ETF alis fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satisFiyati",
-      "label": "SatisFiyati",
+      "label": "Sell Price (USD)",
       "label_i18n": {
         "en": "Sell Price (USD)",
         "tr": "Satis Fiyati (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 115,
       "min": 0,
-      "businessContext": "SatisFiyati",
+      "businessContext": "ETF sell price.",
       "businessContext_i18n": {
         "en": "ETF sell price.",
         "tr": "ETF satis fiyati.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "temettu",
-      "label": "Temettu",
+      "label": "Dividend (USD)",
       "label_i18n": {
         "en": "Dividend (USD)",
         "tr": "Temettu (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 2,
       "min": 0,
-      "businessContext": "Temettu",
+      "businessContext": "Dividend distributed.",
       "businessContext_i18n": {
         "en": "Dividend distributed.",
         "tr": "Donem Heightunca dagitilan temettu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "giderOrani",
-      "label": "GiderOrani",
+      "label": "Expense Ratio (%)",
       "label_i18n": {
         "en": "Expense Ratio (%)",
         "tr": "Expmostse Ratio (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 0.5,
       "min": 0,
-      "businessContext": "GiderOrani",
+      "businessContext": "Annual management fee.",
       "businessContext_i18n": {
         "en": "Annual management fee.",
         "tr": "ETF'in yillik yoNetim ucreti.",

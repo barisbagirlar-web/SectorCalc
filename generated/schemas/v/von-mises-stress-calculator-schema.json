@@ -2,7 +2,7 @@
   "toolName": "von-mises-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 150000000,
       "min": 0,
-      "businessContext": "SigmaX",
+      "businessContext": "Normal stress in x.",
       "businessContext_i18n": {
         "en": "Normal stress in x.",
         "tr": "X yonu Normal Stress.",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 50000000,
       "min": 0,
-      "businessContext": "SigmaY",
+      "businessContext": "Normal stress in y.",
       "businessContext_i18n": {
         "en": "Normal stress in y.",
         "tr": "Y yonu Normal Stress.",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 40000000,
       "min": 0,
-      "businessContext": "Kayma gerilmesi.",
+      "businessContext": "Shear stress in xy.",
       "businessContext_i18n": {
         "en": "Shear stress in xy.",
         "tr": "Kayma gerilmesi.",

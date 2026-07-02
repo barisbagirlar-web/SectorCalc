@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yillikCOGS",
-      "label": "YillikCOGS",
+      "label": "Annual COGS (USD)",
       "label_i18n": {
         "en": "Annual COGS (USD)",
         "tr": "Annual SMM (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1200000,
       "min": 0,
-      "businessContext": "YillikCOGS",
+      "businessContext": "Annual COGS.",
       "businessContext_i18n": {
         "en": "Annual COGS.",
         "tr": "Yillik Satilan mal Costi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ortStok",
-      "label": "Ortalama Stok (TL)",
+      "label": "Avg Inventory (USD)",
       "label_i18n": {
         "en": "Avg Inventory (USD)",
         "tr": "Ortalama Stok (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 200000,
       "min": 0,
-      "businessContext": "OrtStok",
+      "businessContext": "Average inventory level.",
       "businessContext_i18n": {
         "en": "Average inventory level.",
         "tr": "Donem Mean stok seviyesi.",

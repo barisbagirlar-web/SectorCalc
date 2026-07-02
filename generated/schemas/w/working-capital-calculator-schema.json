@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "donenVarliklar",
-      "label": "DonenVarliklar",
+      "label": "Current Assets (USD)",
       "label_i18n": {
         "en": "Current Assets (USD)",
         "tr": "Donen Varliklar (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "DonenVarliklar",
+      "businessContext": "Short-term assets.",
       "businessContext_i18n": {
         "en": "Short-term assets.",
         "tr": "Kisa Maturityli varliklar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kisaVadeliBorc",
-      "label": "KisaVadeliBorc",
+      "label": "Current Liabilities (USD)",
       "label_i18n": {
         "en": "Current Liabilities (USD)",
         "tr": "Kisa Maturityli Borc (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "KisaVadeliBorc",
+      "businessContext": "Short-term obligations.",
       "businessContext_i18n": {
         "en": "Short-term obligations.",
         "tr": "Kisa Maturityli yukumlulukler.",

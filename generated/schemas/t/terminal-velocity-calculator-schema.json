@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 80,
       "min": 0,
-      "businessContext": "Cismin Masssi.",
+      "businessContext": "Object mass.",
       "businessContext_i18n": {
         "en": "Object mass.",
         "tr": "Cismin Masssi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yogunluk",
+      "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Fluid Dmostsity (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 1.225,
       "min": 0,
-      "businessContext": "Yogunluk",
+      "businessContext": "Air density.",
       "businessContext_i18n": {
         "en": "Air density.",
         "tr": "Havanin yogunlugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "direncKatsayisi",
-      "label": "DirencKatsayisi",
+      "label": "Drag Coefficient",
       "label_i18n": {
         "en": "Drag Coefficient",
         "tr": "Surukleme KatNumbersi",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.5,
       "min": 0,
-      "businessContext": "DirencKatsayisi",
+      "businessContext": "Shape-dependent drag coefficient.",
       "businessContext_i18n": {
         "en": "Shape-dependent drag coefficient.",
         "tr": "Cismin sekline bagli Surukleme KatNumbersi.",
@@ -95,7 +95,7 @@
       "unit": "m2",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Alan",
+      "businessContext": "Projected frontal area.",
       "businessContext_i18n": {
         "en": "Projected frontal area.",
         "tr": "Cismin izdusum Areai.",

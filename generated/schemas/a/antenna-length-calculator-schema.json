@@ -2,12 +2,12 @@
   "toolName": "antenna-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "frekans",
-      "label": "Frekans (MHz)",
+      "label": "Frequency (MHz)",
       "label_i18n": {
         "en": "Frequency (MHz)",
         "tr": "Frekans (MHz)",
@@ -20,7 +20,7 @@
       "unit": "MHz",
       "default": 100,
       "min": 0,
-      "businessContext": "Frekans",
+      "businessContext": "Operating frequency.",
       "businessContext_i18n": {
         "en": "Operating frequency.",
         "tr": "Calisma Frequencyi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tip",
-      "label": "Anten Tipi (1=Dipole, 2=Yagi)",
+      "label": "Antenna Type (1=Dipole, 2=Yagi)",
       "label_i18n": {
         "en": "Antenna Type (1=Dipole, 2=Yagi)",
         "tr": "Anten Tipi (1=Dipole, 2=Yagi)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "Tip",
+      "businessContext": "Antenna type.",
       "businessContext_i18n": {
         "en": "Antenna type.",
         "tr": "Anten turu.",

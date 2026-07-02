@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tiklama",
-      "label": "Tiklama",
+      "label": "Clicks",
       "label_i18n": {
         "en": "Clicks",
         "tr": "Tiklama (Quantity)",
@@ -20,7 +20,7 @@
       "unit": "clicks",
       "default": 500,
       "min": 0,
-      "businessContext": "Tiklama",
+      "businessContext": "Ad clicks.",
       "businessContext_i18n": {
         "en": "Ad clicks.",
         "tr": "Reklama yapilan tiklamalar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "gosterim",
-      "label": "Gosterim",
+      "label": "Impressions",
       "label_i18n": {
         "en": "Impressions",
         "tr": "Gosterim (Quantity)",
@@ -45,7 +45,7 @@
       "unit": "impressions",
       "default": 50000,
       "min": 1,
-      "businessContext": "Gosterim",
+      "businessContext": "Ad display count.",
       "businessContext_i18n": {
         "en": "Ad display count.",
         "tr": "Reklamin goruntulenme Numbersi.",

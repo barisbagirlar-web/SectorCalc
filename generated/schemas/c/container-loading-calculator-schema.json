@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "konteynerHacim",
-      "label": "Konteyner Hacmi (m³)",
+      "label": "Container Volume (m³)",
       "label_i18n": {
         "en": "Container Volume (m³)",
         "tr": "Konteyner Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 33,
       "min": 0,
-      "businessContext": "KonteynerHacim",
+      "businessContext": "Container internal volume.",
       "businessContext_i18n": {
         "en": "Container internal volume.",
         "tr": "Konteynerin ic hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kutuHacim",
-      "label": "Kutu Hacmi (m³)",
+      "label": "Box Volume (m³)",
       "label_i18n": {
         "en": "Box Volume (m³)",
         "tr": "Kutu Hacmi (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.036,
       "min": 0,
-      "businessContext": "Bir kutunun hacmi.",
+      "businessContext": "Volume per box.",
       "businessContext_i18n": {
         "en": "Volume per box.",
         "tr": "Bir kutunun hacmi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "istifleme",
-      "label": "Istifleme",
+      "label": "Stacking Efficiency (%)",
       "label_i18n": {
         "en": "Stacking Efficiency (%)",
         "tr": "Istifleme Efficiencyi (%)",
@@ -71,7 +71,7 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Istifleme",
+      "businessContext": "Usable volume percentage.",
       "businessContext_i18n": {
         "en": "Usable volume percentage.",
         "tr": "Kullanilabilir Volume yuzdesi.",

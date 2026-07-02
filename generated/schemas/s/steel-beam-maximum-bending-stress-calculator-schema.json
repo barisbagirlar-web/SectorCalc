@@ -2,7 +2,7 @@
   "toolName": "steel-beam-maximum-bending-stress-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,7 +20,7 @@
       "unit": "N.m",
       "default": 50000,
       "min": 0,
-      "businessContext": "Moment",
+      "businessContext": "Bending moment on beam.",
       "businessContext_i18n": {
         "en": "Bending moment on beam.",
         "tr": "Kirise etkiyen Bending Moment.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kesitModulu",
-      "label": "Section Modeulus (m³)",
+      "label": "Section Modulus (m³)",
       "label_i18n": {
         "en": "Section Modulus (m³)",
         "tr": "Section Modeulus (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.00025,
       "min": 0,
-      "businessContext": "Profilin elastik Section Modeulus.",
+      "businessContext": "Elastic section modulus.",
       "businessContext_i18n": {
         "en": "Elastic section modulus.",
         "tr": "Profilin elastik Section Modeulus.",

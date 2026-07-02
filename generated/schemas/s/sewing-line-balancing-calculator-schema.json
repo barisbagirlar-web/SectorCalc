@@ -2,12 +2,12 @@
   "toolName": "sewing-line-balancing-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "smvToplam",
-      "label": "Toplam SMV (Dk)",
+      "label": "Total SMV (Min)",
       "label_i18n": {
         "en": "Total SMV (Min)",
         "tr": "Toplam SMV (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 120,
       "min": 0,
-      "businessContext": "SmvToplam",
+      "businessContext": "Total standard minutes per product.",
       "businessContext_i18n": {
         "en": "Total standard minutes per product.",
         "tr": "Urunun Total standart dakikasi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "taktTime",
-      "label": "TaktTime",
+      "label": "Target Takt Time (Min)",
       "label_i18n": {
         "en": "Target Takt Time (Min)",
         "tr": "Hedef Takt Time (min)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "TaktTime",
+      "businessContext": "Target time per unit.",
       "businessContext_i18n": {
         "en": "Target time per unit.",
         "tr": "Unit uretim icin hedef sure.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "operator",
-      "label": "Operator",
+      "label": "Operator Count",
       "label_i18n": {
         "en": "Operator Count",
         "tr": "Operator Numbersi",
@@ -70,7 +70,7 @@
       "unit": "operators",
       "default": 15,
       "min": 1,
-      "businessContext": "Operator",
+      "businessContext": "Total operators on line.",
       "businessContext_i18n": {
         "en": "Total operators on line.",
         "tr": "Hattaki Total operator.",

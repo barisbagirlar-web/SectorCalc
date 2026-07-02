@@ -2,7 +2,7 @@
   "toolName": "thin-walled-pressure-vessel-hoop-stress-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 500000,
       "min": 0,
-      "businessContext": "Basinc",
+      "businessContext": "Internal vessel pressure.",
       "businessContext_i18n": {
         "en": "Internal vessel pressure.",
         "tr": "Kap icindeki Pressure.",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Cap",
+      "businessContext": "Cylinder diameter.",
       "businessContext_i18n": {
         "en": "Cylinder diameter.",
         "tr": "Silindir Diameteri.",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.003,
       "min": 0,
-      "businessContext": "Kap Wall Thickness.",
+      "businessContext": "Vessel wall thickness.",
       "businessContext_i18n": {
         "en": "Vessel wall thickness.",
         "tr": "Kap Wall Thickness.",

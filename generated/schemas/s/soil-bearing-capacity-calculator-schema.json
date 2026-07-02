@@ -2,12 +2,12 @@
   "toolName": "soil-bearing-capacity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "kohezyon",
-      "label": "Kohezyon (Pa)",
+      "label": "Cohesion (Pa)",
       "label_i18n": {
         "en": "Cohesion (Pa)",
         "tr": "Kohezyon (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 20000,
       "min": 0,
-      "businessContext": "Zemin kohezyonu.",
+      "businessContext": "Soil cohesion.",
       "businessContext_i18n": {
         "en": "Soil cohesion.",
         "tr": "Zemin kohezyonu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "temelGenislik",
-      "label": "Foundation Width (m)",
+      "label": "Footing Width (m)",
       "label_i18n": {
         "en": "Footing Width (m)",
         "tr": "Foundation Width (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "TemelGenislik",
+      "businessContext": "Footing base width.",
       "businessContext_i18n": {
         "en": "Footing base width.",
         "tr": "Temel taban genisligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "derinlik",
-      "label": "Derinlik",
+      "label": "Footing Depth (m)",
       "label_i18n": {
         "en": "Footing Depth (m)",
         "tr": "Foundation Depth (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Temel alt kotu.",
+      "businessContext": "Footing base depth.",
       "businessContext_i18n": {
         "en": "Footing base depth.",
         "tr": "Temel alt kotu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yogunluk",
+      "label": "Soil Density (kg/m³)",
       "label_i18n": {
         "en": "Soil Density (kg/m³)",
         "tr": "Zemin Dmostsity (kg/m³)",
@@ -95,7 +95,7 @@
       "unit": "kg/m3",
       "default": 1800,
       "min": 0,
-      "businessContext": "Yogunluk",
+      "businessContext": "Soil unit weight.",
       "businessContext_i18n": {
         "en": "Soil unit weight.",
         "tr": "Zeminin Unit Volume agirligi.",

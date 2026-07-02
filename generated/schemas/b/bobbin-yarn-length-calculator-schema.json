@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bobinAgirlik",
-      "label": "BobinAgirlik",
+      "label": "Bobbin Weight (g)",
       "label_i18n": {
         "en": "Bobbin Weight (g)",
         "tr": "Bobin Weight (g)",
@@ -20,7 +20,7 @@
       "unit": "g",
       "default": 100,
       "min": 0,
-      "businessContext": "BobinAgirlik",
+      "businessContext": "Bobbin weight.",
       "businessContext_i18n": {
         "en": "Bobbin weight.",
         "tr": "Bobinin agirligi.",
@@ -45,7 +45,7 @@
       "unit": "Nm",
       "default": 40,
       "min": 0,
-      "businessContext": "IplikNumara",
+      "businessContext": "Yarn count (metric).",
       "businessContext_i18n": {
         "en": "Yarn count (metric).",
         "tr": "Iplik numara Valuei.",

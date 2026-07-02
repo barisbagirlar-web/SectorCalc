@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 3,
       "min": 0,
-      "businessContext": "EtKalinlik",
+      "businessContext": "Average part wall thickness.",
       "businessContext_i18n": {
         "en": "Average part wall thickness.",
         "tr": "Parcanin Mean Wall Thickness.",
@@ -45,7 +45,7 @@
       "unit": "mm2/s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Polimerin Thermal Diffusivityu.",
+      "businessContext": "Polymer thermal diffusivity.",
       "businessContext_i18n": {
         "en": "Polymer thermal diffusivity.",
         "tr": "Polimerin Thermal Diffusivityu.",
@@ -70,7 +70,7 @@
       "unit": "°C",
       "default": 230,
       "min": 0,
-      "businessContext": "ErimeSicaklik",
+      "businessContext": "Melt temperature.",
       "businessContext_i18n": {
         "en": "Melt temperature.",
         "tr": "Polimerin ergime sicakligi.",
@@ -95,7 +95,7 @@
       "unit": "°C",
       "default": 40,
       "min": 0,
-      "businessContext": "KalipSicaklik",
+      "businessContext": "Mold surface temperature.",
       "businessContext_i18n": {
         "en": "Mold surface temperature.",
         "tr": "Kalip yuzey sicakligi.",

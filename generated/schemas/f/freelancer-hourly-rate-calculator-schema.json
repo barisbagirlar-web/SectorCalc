@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hedefNet",
-      "label": "Hedef Net Gelir (TL)",
+      "label": "Target Net Income (USD)",
       "label_i18n": {
         "en": "Target Net Income (USD)",
         "tr": "Hedef Net Gelir (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "HedefNet",
+      "businessContext": "After-tax target income.",
       "businessContext_i18n": {
         "en": "After-tax target income.",
         "tr": "Vergi sonrasi hedef gelir.",
@@ -46,7 +46,7 @@
       "default": 25,
       "min": 0,
       "max": 100,
-      "businessContext": "Vergi",
+      "businessContext": "Average tax burden.",
       "businessContext_i18n": {
         "en": "Average tax burden.",
         "tr": "Mean vergi yuku.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "gider",
-      "label": "Gider",
+      "label": "Annual Expense (USD)",
       "label_i18n": {
         "en": "Annual Expense (USD)",
         "tr": "Annual Expmostse (TRY)",
@@ -71,7 +71,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Workletme giderleri.",
+      "businessContext": "Business expenses.",
       "businessContext_i18n": {
         "en": "Business expenses.",
         "tr": "Workletme giderleri.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "calismaSaati",
-      "label": "CalismaSaati",
+      "label": "Annual Work Hours",
       "label_i18n": {
         "en": "Annual Work Hours",
         "tr": "Yillik Calisma Saati",
@@ -96,7 +96,7 @@
       "unit": "hours",
       "default": 1800,
       "min": 1,
-      "businessContext": "CalismaSaati",
+      "businessContext": "Total work hours.",
       "businessContext_i18n": {
         "en": "Total work hours.",
         "tr": "Total calisma saati.",

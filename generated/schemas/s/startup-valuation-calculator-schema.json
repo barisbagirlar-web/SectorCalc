@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Investment Amount (TL)",
+      "label": "Investment Amount (USD)",
       "label_i18n": {
         "en": "Investment Amount (USD)",
         "tr": "Investment Amount (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Yatirim",
+      "businessContext": "Investor capital contribution.",
       "businessContext_i18n": {
         "en": "Investor capital contribution.",
         "tr": "Yatirimcinin koydugu tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hisseOrani",
-      "label": "HisseOrani",
+      "label": "Equity Given (%)",
       "label_i18n": {
         "en": "Equity Given (%)",
         "tr": "Verwithn Hisse Ratio (%)",
@@ -46,7 +46,7 @@
       "default": 20,
       "min": 0.1,
       "max": 99,
-      "businessContext": "HisseOrani",
+      "businessContext": "Percentage equity given to investor.",
       "businessContext_i18n": {
         "en": "Percentage equity given to investor.",
         "tr": "Yatirimciya verilen hisse yuzdesi.",

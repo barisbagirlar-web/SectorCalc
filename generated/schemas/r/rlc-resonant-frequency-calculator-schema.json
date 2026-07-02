@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "L",
-      "label": "L",
+      "label": "Inductance (H)",
       "label_i18n": {
         "en": "Inductance (H)",
         "tr": "Induktans (H)",
@@ -20,7 +20,7 @@
       "unit": "H",
       "default": 0.01,
       "min": 0,
-      "businessContext": "L",
+      "businessContext": "Inductor value.",
       "businessContext_i18n": {
         "en": "Inductor value.",
         "tr": "Bobin Inductancei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "C",
-      "label": "Kapasite (F)",
+      "label": "Capacitance (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
@@ -45,7 +45,7 @@
       "unit": "F",
       "default": 1e-7,
       "min": 0,
-      "businessContext": "C",
+      "businessContext": "Capacitor value.",
       "businessContext_i18n": {
         "en": "Capacitor value.",
         "tr": "Kapasitor Valuei.",
@@ -70,7 +70,7 @@
       "unit": "ohms",
       "default": 10,
       "min": 0,
-      "businessContext": "Devre direnci.",
+      "businessContext": "Circuit resistance.",
       "businessContext_i18n": {
         "en": "Circuit resistance.",
         "tr": "Devre direnci.",

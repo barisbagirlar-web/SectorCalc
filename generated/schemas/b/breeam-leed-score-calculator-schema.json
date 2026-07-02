@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "enerji",
-      "label": "Enerji",
+      "label": "Energy Score (0-100)",
       "label_i18n": {
         "en": "Energy Score (0-100)",
         "tr": "Energy Kriter Puani (0-100)",
@@ -21,7 +21,7 @@
       "default": 70,
       "min": 0,
       "max": 100,
-      "businessContext": "Enerji",
+      "businessContext": "Energy efficiency score.",
       "businessContext_i18n": {
         "en": "Energy efficiency score.",
         "tr": "Energy Efficiencyliligi puani.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "su",
-      "label": "Su",
+      "label": "Water Score (0-100)",
       "label_i18n": {
         "en": "Water Score (0-100)",
         "tr": "Su Kriter Puani (0-100)",
@@ -47,7 +47,7 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "Su",
+      "businessContext": "Water management score.",
       "businessContext_i18n": {
         "en": "Water management score.",
         "tr": "Su yoNetimi puani.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "malzeme",
-      "label": "Malzeme",
+      "label": "Materials Score (0-100)",
       "label_i18n": {
         "en": "Materials Score (0-100)",
         "tr": "Malzeme Kriter Puani (0-100)",
@@ -73,7 +73,7 @@
       "default": 65,
       "min": 0,
       "max": 100,
-      "businessContext": "Malzeme",
+      "businessContext": "Materials selection score.",
       "businessContext_i18n": {
         "en": "Materials selection score.",
         "tr": "Malzeme secimi puani.",

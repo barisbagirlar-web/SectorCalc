@@ -2,12 +2,12 @@
   "toolName": "normal-shock-wave-pressure-jump-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "mach",
-      "label": "Mach",
+      "label": "Mach Number",
       "label_i18n": {
         "en": "Mach Number",
         "tr": "Mach Count",
@@ -20,7 +20,7 @@
       "unit": "Mach",
       "default": 2,
       "min": 1,
-      "businessContext": "Mach",
+      "businessContext": "Upstream Mach number.",
       "businessContext_i18n": {
         "en": "Upstream Mach number.",
         "tr": "Sok oncesi Mach Count.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "basinc1",
-      "label": "Basinc1",
+      "label": "Upstream Pressure (Pa)",
       "label_i18n": {
         "en": "Upstream Pressure (Pa)",
         "tr": "Sok Oncesi Pressure (Pa)",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 50000,
       "min": 0,
-      "businessContext": "Basinc1",
+      "businessContext": "Static pressure before shock.",
       "businessContext_i18n": {
         "en": "Static pressure before shock.",
         "tr": "Sok oncesi statik Pressure.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "k",
-      "label": "K",
+      "label": "Specific Heat Ratio (k)",
       "label_i18n": {
         "en": "Specific Heat Ratio (k)",
         "tr": "Ozgul Isi Ratioi (k)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 1.4,
       "min": 0,
-      "businessContext": "K",
+      "businessContext": "For air k=1.4.",
       "businessContext_i18n": {
         "en": "For air k=1.4.",
         "tr": "Hava for k=1st4th",

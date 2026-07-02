@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mesafe",
-      "label": "Mesafe",
+      "label": "Flight Distance (km)",
       "label_i18n": {
         "en": "Flight Distance (km)",
         "tr": "Ucus Distancesi (km)",
@@ -20,7 +20,7 @@
       "unit": "km",
       "default": 3000,
       "min": 0,
-      "businessContext": "Mesafe",
+      "businessContext": "Flight length.",
       "businessContext_i18n": {
         "en": "Flight length.",
         "tr": "Ucus uzunlugu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yolcuSayisi",
-      "label": "YolcuSayisi",
+      "label": "Passenger Count",
       "label_i18n": {
         "en": "Passenger Count",
         "tr": "Yolcu Count",
@@ -45,7 +45,7 @@
       "unit": "passengers",
       "default": 180,
       "min": 1,
-      "businessContext": "YolcuSayisi",
+      "businessContext": "Number of passengers.",
       "businessContext_i18n": {
         "en": "Number of passengers.",
         "tr": "Ucaktaki Yolcu Count.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "koltukMaliyeti",
-      "label": "Koltuk km Maliyeti (TL)",
+      "label": "Cost per Seat-km (USD)",
       "label_i18n": {
         "en": "Cost per Seat-km (USD)",
         "tr": "Koltuk km Maliyeti (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Her koltuk-km'nin maliyeti.",
+      "businessContext": "Cost per seat-km.",
       "businessContext_i18n": {
         "en": "Cost per seat-km.",
         "tr": "Her koltuk-km'nin maliyeti.",

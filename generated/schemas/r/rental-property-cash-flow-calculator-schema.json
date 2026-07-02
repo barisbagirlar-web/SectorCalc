@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "brutKira",
-      "label": "BrutKira",
+      "label": "Gross Monthly Rent (USD)",
       "label_i18n": {
         "en": "Gross Monthly Rent (USD)",
         "tr": "Gross Monthly Kira (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "BrutKira",
+      "businessContext": "Total monthly rental income.",
       "businessContext_i18n": {
         "en": "Total monthly rental income.",
         "tr": "Total Monthly kira geliri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bosluk",
-      "label": "Bosluk",
+      "label": "Vacancy Rate (%)",
       "label_i18n": {
         "en": "Vacancy Rate (%)",
         "tr": "Bosluk Ratioi (%)",
@@ -46,7 +46,7 @@
       "default": 5,
       "min": 0,
       "max": 100,
-      "businessContext": "Bosluk",
+      "businessContext": "Annual vacancy percentage.",
       "businessContext_i18n": {
         "en": "Annual vacancy percentage.",
         "tr": "Yillik bos gecen sure Ratioi.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "isletme",
-      "label": "Isletme",
+      "label": "Monthly Operating Cost (USD)",
       "label_i18n": {
         "en": "Monthly Operating Cost (USD)",
         "tr": "Aylik Workletme Gideri (₺)",
@@ -71,7 +71,7 @@
       "unit": "USD",
       "default": 2000,
       "min": 0,
-      "businessContext": "Vergi, sigorta, bCurrent giderleri.",
+      "businessContext": "Taxes, insurance, maintenance.",
       "businessContext_i18n": {
         "en": "Taxes, insurance, maintenance.",
         "tr": "Vergi, sigorta, bCurrent giderleri.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "kredi",
-      "label": "Kredi",
+      "label": "Monthly Mortgage (USD)",
       "label_i18n": {
         "en": "Monthly Mortgage (USD)",
         "tr": "Monthly Loan Taksiti (TRY)",
@@ -96,7 +96,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kredi",
+      "businessContext": "Monthly debt service.",
       "businessContext_i18n": {
         "en": "Monthly debt service.",
         "tr": "Kredinin aylik geri odemesi.",

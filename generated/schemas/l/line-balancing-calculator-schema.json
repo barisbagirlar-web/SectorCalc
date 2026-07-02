@@ -2,12 +2,12 @@
   "toolName": "line-balancing-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "toplamIs",
-      "label": "ToplamIs",
+      "label": "Total Work Content (Min)",
       "label_i18n": {
         "en": "Total Work Content (Min)",
         "tr": "Total Work Icerigi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 500,
       "min": 0,
-      "businessContext": "ToplamIs",
+      "businessContext": "Sum of all operation times.",
       "businessContext_i18n": {
         "en": "Sum of all operation times.",
         "tr": "Tum operasyonlarin Total Timesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "taktTime",
-      "label": "TaktTime",
+      "label": "Takt Time (Min)",
       "label_i18n": {
         "en": "Takt Time (Min)",
         "tr": "Takt Time (min)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 50,
       "min": 0,
-      "businessContext": "TaktTime",
+      "businessContext": "Maximum cycle time to meet demand.",
       "businessContext_i18n": {
         "en": "Maximum cycle time to meet demand.",
         "tr": "Musteri talebini karsilayan Maximum Cycle Time.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "istasyonSayisi",
-      "label": "IstasyonSayisi",
+      "label": "Number of Stations",
       "label_i18n": {
         "en": "Number of Stations",
         "tr": "Istasyon Numbersi",
@@ -70,7 +70,7 @@
       "unit": "stations",
       "default": 12,
       "min": 1,
-      "businessContext": "IstasyonSayisi",
+      "businessContext": "Total workstations on the line.",
       "businessContext_i18n": {
         "en": "Total workstations on the line.",
         "tr": "Hattaki Total is istasyonu.",

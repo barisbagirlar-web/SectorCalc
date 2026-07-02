@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "havzaAlani",
-      "label": "HavzaAlani",
+      "label": "Watershed Area (km²)",
       "label_i18n": {
         "en": "Watershed Area (km²)",
         "tr": "Havza Area (km²)",
@@ -20,7 +20,7 @@
       "unit": "km2",
       "default": 100,
       "min": 0,
-      "businessContext": "HavzaAlani",
+      "businessContext": "Catchment area.",
       "businessContext_i18n": {
         "en": "Catchment area.",
         "tr": "Totala havzasi Areai.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yagis",
-      "label": "Yagis",
+      "label": "Rainfall (mm)",
       "label_i18n": {
         "en": "Rainfall (mm)",
         "tr": "Yagis Amounti (mm)",
@@ -45,7 +45,7 @@
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "Yagis",
+      "businessContext": "Single rainfall depth.",
       "businessContext_i18n": {
         "en": "Single rainfall depth.",
         "tr": "Unit yagis yuksekligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akisKatsayisi",
-      "label": "AkisKatsayisi",
+      "label": "Runoff Coefficient (0-1)",
       "label_i18n": {
         "en": "Runoff Coefficient (0-1)",
         "tr": "Flow Coefficimostt (0-1)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "AkisKatsayisi",
+      "businessContext": "Surface permeability coefficient.",
       "businessContext_i18n": {
         "en": "Surface permeability coefficient.",
         "tr": "Zeminin gecirgenligine bagli katNumber.",

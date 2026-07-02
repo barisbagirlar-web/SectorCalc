@@ -2,12 +2,12 @@
   "toolName": "motor-efficiency-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "cikisGuc",
-      "label": "CikisGuc",
+      "label": "Output Power (W)",
       "label_i18n": {
         "en": "Output Power (W)",
         "tr": "Output Power (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 750,
       "min": 0,
-      "businessContext": "CikisGuc",
+      "businessContext": "Shaft mechanical power.",
       "businessContext_i18n": {
         "en": "Shaft mechanical power.",
         "tr": "Milin urettigi mekanik Power.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "girisGuc",
-      "label": "GirisGuc",
+      "label": "Input Power (W)",
       "label_i18n": {
         "en": "Input Power (W)",
         "tr": "Input Power (W)",
@@ -45,7 +45,7 @@
       "unit": "W",
       "default": 1000,
       "min": 0,
-      "businessContext": "GirisGuc",
+      "businessContext": "Motor electrical power.",
       "businessContext_i18n": {
         "en": "Motor electrical power.",
         "tr": "Motorun cektigi elektrik gucu.",

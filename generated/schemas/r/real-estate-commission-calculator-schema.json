@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satisBedeli",
-      "label": "SatisBedeli",
+      "label": "Sale Price (USD)",
       "label_i18n": {
         "en": "Sale Price (USD)",
         "tr": "Satis Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "SatisBedeli",
+      "businessContext": "Property sale price.",
       "businessContext_i18n": {
         "en": "Property sale price.",
         "tr": "Gayrimenkul satis fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "komisyonOrani",
-      "label": "KomisyonOrani",
+      "label": "Commission Rate (%)",
       "label_i18n": {
         "en": "Commission Rate (%)",
         "tr": "Komisyon Ratio (%)",
@@ -46,7 +46,7 @@
       "default": 3,
       "min": 0,
       "max": 100,
-      "businessContext": "KomisyonOrani",
+      "businessContext": "Agent commission percentage.",
       "businessContext_i18n": {
         "en": "Agent commission percentage.",
         "tr": "Emlakci komisyon yuzdesi.",

@@ -2,12 +2,12 @@
   "toolName": "torsion-spring-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "moment",
-      "label": "Uygulanan Moment (N.m)",
+      "label": "Applied Moment (N.m)",
       "label_i18n": {
         "en": "Applied Moment (N.m)",
         "tr": "Uygulanan Moment (N.m)",
@@ -20,7 +20,7 @@
       "unit": "N.m",
       "default": 50,
       "min": 0,
-      "businessContext": "Yaya etkiyen moment.",
+      "businessContext": "Moment applied to spring.",
       "businessContext_i18n": {
         "en": "Moment applied to spring.",
         "tr": "Yaya etkiyen moment.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yayKatsayisi",
-      "label": "Yay Sabiti (N.m/rad)",
+      "label": "Spring Constant (N.m/rad)",
       "label_i18n": {
         "en": "Spring Constant (N.m/rad)",
         "tr": "Yay Sabiti (N.m/rad)",
@@ -45,7 +45,7 @@
       "unit": "N.m/rad",
       "default": 100,
       "min": 0,
-      "businessContext": "YayKatsayisi",
+      "businessContext": "Torsion spring stiffness.",
       "businessContext_i18n": {
         "en": "Torsion spring stiffness.",
         "tr": "Burulma yayinin rijitligi.",

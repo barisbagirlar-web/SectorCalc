@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "clv",
-      "label": "CLV (TL)",
+      "label": "CLV (USD)",
       "label_i18n": {
         "en": "CLV (USD)",
         "tr": "CLV (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Customer Lifetime Value.",
+      "businessContext": "Customer lifetime value.",
       "businessContext_i18n": {
         "en": "Customer lifetime value.",
         "tr": "Customer Lifetime Value.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cac",
-      "label": "CAC (TL)",
+      "label": "CAC (USD)",
       "label_i18n": {
         "en": "CAC (USD)",
         "tr": "CAC (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Cac",
+      "businessContext": "Customer acquisition cost.",
       "businessContext_i18n": {
         "en": "Customer acquisition cost.",
         "tr": "Musteri edinim Costi.",

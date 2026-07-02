@@ -2,12 +2,12 @@
   "toolName": "beam-deflection-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Yuk",
+      "label": "Point Load (N)",
       "label_i18n": {
         "en": "Point Load (N)",
         "tr": "Tekil Load (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 15000,
       "min": 0,
-      "businessContext": "Yuk",
+      "businessContext": "Mid-span point load.",
       "businessContext_i18n": {
         "en": "Mid-span point load.",
         "tr": "Kiris ortasindaki yuk.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aciklik",
-      "label": "Aciklik",
+      "label": "Span (m)",
       "label_i18n": {
         "en": "Span (m)",
         "tr": "Aciklik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 4,
       "min": 0,
-      "businessContext": "Aciklik",
+      "businessContext": "Support spacing.",
       "businessContext_i18n": {
         "en": "Support spacing.",
         "tr": "MesNetler arasi Distance.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "elastisiteModulu",
-      "label": "Modeulus of Elasticity (Pa)",
+      "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Modeulus of Elasticity (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "ElastisiteModulu",
+      "businessContext": "Material modulus.",
       "businessContext_i18n": {
         "en": "Material modulus.",
         "tr": "Malzeme Modeuleu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ataletMomenti",
-      "label": "Atalet Momenti (m⁴)",
+      "label": "Moment of Inertia (m⁴)",
       "label_i18n": {
         "en": "Moment of Inertia (m⁴)",
         "tr": "Atalet Momenti (m⁴)",
@@ -95,7 +95,7 @@
       "unit": "m4",
       "default": 0.0000083,
       "min": 0,
-      "businessContext": "Kesitin atalet momenti.",
+      "businessContext": "Section moment of inertia.",
       "businessContext_i18n": {
         "en": "Section moment of inertia.",
         "tr": "Kesitin atalet momenti.",

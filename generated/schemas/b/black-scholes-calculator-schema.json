@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "S",
-      "label": "Spot Fiyat (₺)",
+      "label": "Spot Price (USD)",
       "label_i18n": {
         "en": "Spot Price (USD)",
         "tr": "Spot Fiyat (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "S",
+      "businessContext": "Current underlying asset price.",
       "businessContext_i18n": {
         "en": "Current underlying asset price.",
         "tr": "Dayanak varligin guncel fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "K",
-      "label": "K",
+      "label": "Strike Price (USD)",
       "label_i18n": {
         "en": "Strike Price (USD)",
         "tr": "Kullanim Fiyati (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 110,
       "min": 0,
-      "businessContext": "K",
+      "businessContext": "Option strike price.",
       "businessContext_i18n": {
         "en": "Option strike price.",
         "tr": "Opsiyonun kullanim fiyati.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "r",
-      "label": "Risksiz Faiz (%)",
+      "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Risksiz Interest Rate.",
+      "businessContext": "Risk-free interest rate.",
       "businessContext_i18n": {
         "en": "Risk-free interest rate.",
         "tr": "Risksiz Interest Rate.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "t",
-      "label": "T",
+      "label": "Time to Maturity (Years)",
       "label_i18n": {
         "en": "Time to Maturity (Years)",
         "tr": "Maturity (Year)",
@@ -95,7 +95,7 @@
       "unit": "years",
       "default": 1,
       "min": 0.0001,
-      "businessContext": "T",
+      "businessContext": "Time remaining to expiry.",
       "businessContext_i18n": {
         "en": "Time remaining to expiry.",
         "tr": "Maturityye kArea sure.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "v",
-      "label": "Volatilite (%)",
+      "label": "Volatility (%)",
       "label_i18n": {
         "en": "Volatility (%)",
         "tr": "Volatilite (%)",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 30,
       "min": 0,
-      "businessContext": "V",
+      "businessContext": "Annualized volatility.",
       "businessContext_i18n": {
         "en": "Annualized volatility.",
         "tr": "Annual volatilite.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "toplamHarcama",
-      "label": "Toplam Harcama (TL)",
+      "label": "Total Spend (USD)",
       "label_i18n": {
         "en": "Total Spend (USD)",
         "tr": "Toplam Harcama (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "ToplamHarcama",
+      "businessContext": "Ad budget spent.",
       "businessContext_i18n": {
         "en": "Ad budget spent.",
         "tr": "Reklam butcesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tiklama",
-      "label": "Tiklama",
+      "label": "Clicks",
       "label_i18n": {
         "en": "Clicks",
         "tr": "Tiklama (Quantity)",
@@ -45,7 +45,7 @@
       "unit": "clicks",
       "default": 500,
       "min": 1,
-      "businessContext": "Tiklama",
+      "businessContext": "Total clicks.",
       "businessContext_i18n": {
         "en": "Total clicks.",
         "tr": "Total tiklama.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bitSayisi",
-      "label": "BitSayisi",
+      "label": "Number of Bits (N)",
       "label_i18n": {
         "en": "Number of Bits (N)",
         "tr": "Bit Count (N)",
@@ -21,7 +21,7 @@
       "default": 16,
       "min": 1,
       "max": 32,
-      "businessContext": "ADC Resolution.",
+      "businessContext": "ADC resolution.",
       "businessContext_i18n": {
         "en": "ADC resolution.",
         "tr": "ADC Resolution.",

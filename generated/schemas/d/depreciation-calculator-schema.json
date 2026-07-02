@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "bedel",
-      "label": "Bedel",
+      "label": "Asset Cost (USD)",
       "label_i18n": {
         "en": "Asset Cost (USD)",
         "tr": "Varlik Bedeli (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Bedel",
+      "businessContext": "Purchase cost of asset.",
       "businessContext_i18n": {
         "en": "Purchase cost of asset.",
         "tr": "Varligin satin alma Costi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinti",
-      "label": "Kalinti",
+      "label": "Salvage Value (USD)",
       "label_i18n": {
         "en": "Salvage Value (USD)",
         "tr": "Kalinti Value (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5000,
       "min": 0,
-      "businessContext": "Kalinti",
+      "businessContext": "Estimated end-of-life value.",
       "businessContext_i18n": {
         "en": "Estimated end-of-life value.",
         "tr": "Varligin omur sonu tahmini Valuei.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "omur",
-      "label": "Omur",
+      "label": "Useful Life (Years)",
       "label_i18n": {
         "en": "Useful Life (Years)",
         "tr": "Ekonomik Omur (Yil)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 1,
-      "businessContext": "Omur",
+      "businessContext": "Useful economic life.",
       "businessContext_i18n": {
         "en": "Useful economic life.",
         "tr": "Varligin faydali omru.",

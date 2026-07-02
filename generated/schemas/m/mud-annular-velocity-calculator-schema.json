@@ -2,12 +2,12 @@
   "toolName": "mud-annular-velocity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "camurDebi",
-      "label": "CamurDebi",
+      "label": "Mud Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Mud Flow Rate (m³/s)",
         "tr": "Camur Flow Ratesi (m³/s)",
@@ -20,7 +20,7 @@
       "unit": "m3/s",
       "default": 0.01,
       "min": 0,
-      "businessContext": "CamurDebi",
+      "businessContext": "Mud flow rate.",
       "businessContext_i18n": {
         "en": "Mud flow rate.",
         "tr": "Sondaj camuru Flow Ratesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kuyuCapi",
-      "label": "KuyuCapi",
+      "label": "Wellbore Diameter (m)",
       "label_i18n": {
         "en": "Wellbore Diameter (m)",
         "tr": "Kuyu Diameter (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "KuyuCapi",
+      "businessContext": "Hole diameter.",
       "businessContext_i18n": {
         "en": "Hole diameter.",
         "tr": "Kuyu delik Diameteri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "matkapCapi",
-      "label": "MatkapCapi",
+      "label": "Drill Pipe OD (m)",
       "label_i18n": {
         "en": "Drill Pipe OD (m)",
         "tr": "Matkap Borusu Dis Diameteri (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "MatkapCapi",
+      "businessContext": "Drill pipe outer diameter.",
       "businessContext_i18n": {
         "en": "Drill pipe outer diameter.",
         "tr": "Sondaj borusu dis Diameteri.",

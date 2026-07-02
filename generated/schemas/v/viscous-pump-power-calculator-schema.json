@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "debi",
-      "label": "Debi (m³/s)",
+      "label": "Flow Rate (m³/s)",
       "label_i18n": {
         "en": "Flow Rate (m³/s)",
         "tr": "Debi (m³/s)",
@@ -20,7 +20,7 @@
       "unit": "m3/s",
       "default": 0.005,
       "min": 0,
-      "businessContext": "Debi",
+      "businessContext": "Liquid flow rate.",
       "businessContext_i18n": {
         "en": "Liquid flow rate.",
         "tr": "Sivinin akis Flow Ratesi.",
@@ -45,7 +45,7 @@
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "BasincDusumu",
+      "businessContext": "Total pipe pressure loss.",
       "businessContext_i18n": {
         "en": "Total pipe pressure loss.",
         "tr": "Borudaki Total Pressure kaybi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pompaVerim",
-      "label": "Pompa Verimi (%)",
+      "label": "Pump Efficiency (%)",
       "label_i18n": {
         "en": "Pump Efficiency (%)",
         "tr": "Pompa Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 75,
       "min": 0,
-      "businessContext": "PompaVerim",
+      "businessContext": "Pump efficiency.",
       "businessContext_i18n": {
         "en": "Pump efficiency.",
         "tr": "Pompa Efficiency yuzdesi.",

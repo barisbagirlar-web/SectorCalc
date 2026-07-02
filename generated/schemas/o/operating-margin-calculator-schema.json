@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "favok",
-      "label": "Favok",
+      "label": "EBITDA (USD)",
       "label_i18n": {
         "en": "EBITDA (USD)",
         "tr": "FAVOK (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Favok",
+      "businessContext": "EBITDA.",
       "businessContext_i18n": {
         "en": "EBITDA.",
         "tr": "Vergi ve faiz oncesi kâr.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ciro",
-      "label": "Ciro (TL)",
+      "label": "Revenue (USD)",
       "label_i18n": {
         "en": "Revenue (USD)",
         "tr": "Ciro (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Total Revenue.",
+      "businessContext": "Total revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
         "tr": "Total Revenue.",

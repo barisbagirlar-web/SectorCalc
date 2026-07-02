@@ -2,12 +2,12 @@
   "toolName": "bottleneck-analysis-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "istasyon1",
-      "label": "Istasyon1",
+      "label": "Station 1 Time (Min)",
       "label_i18n": {
         "en": "Station 1 Time (Min)",
         "tr": "1. Istasyon Suresi (Dk)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 45,
       "min": 0,
-      "businessContext": "Istasyon1",
+      "businessContext": "First station operation time.",
       "businessContext_i18n": {
         "en": "First station operation time.",
         "tr": "Birinci istasyonun islem suresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "istasyon2",
-      "label": "Istasyon2",
+      "label": "Station 2 Time (Min)",
       "label_i18n": {
         "en": "Station 2 Time (Min)",
         "tr": "2. Istasyon Suresi (Dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 60,
       "min": 0,
-      "businessContext": "Istasyon2",
+      "businessContext": "Second station time.",
       "businessContext_i18n": {
         "en": "Second station time.",
         "tr": "Ikinci istasyon suresi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "istasyon3",
-      "label": "Istasyon3",
+      "label": "Station 3 Time (Min)",
       "label_i18n": {
         "en": "Station 3 Time (Min)",
         "tr": "3. Istasyon Suresi (Dk)",
@@ -70,7 +70,7 @@
       "unit": "min",
       "default": 50,
       "min": 0,
-      "businessContext": "Istasyon3",
+      "businessContext": "Third station time.",
       "businessContext_i18n": {
         "en": "Third station time.",
         "tr": "Ucuncu istasyon suresi.",

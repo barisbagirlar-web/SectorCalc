@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yariCap",
-      "label": "YariCap",
+      "label": "Particle Radius (m)",
       "label_i18n": {
         "en": "Particle Radius (m)",
         "tr": "Parcacik Radiusi (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.001,
       "min": 0,
-      "businessContext": "YariCap",
+      "businessContext": "Spherical particle radius.",
       "businessContext_i18n": {
         "en": "Spherical particle radius.",
         "tr": "Kuresel parcacigin Radiusi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "parcacikYogunluk",
-      "label": "ParcacikYogunluk",
+      "label": "Particle Density (kg/m³)",
       "label_i18n": {
         "en": "Particle Density (kg/m³)",
         "tr": "Parcacik Yogunlugu (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 2500,
       "min": 0,
-      "businessContext": "ParcacikYogunluk",
+      "businessContext": "Particle density.",
       "businessContext_i18n": {
         "en": "Particle density.",
         "tr": "Parcacigin yogunlugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "akiskanYogunluk",
-      "label": "AkiskanYogunluk",
+      "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Fluid Dmostsity (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "AkiskanYogunluk",
+      "businessContext": "Fluid density.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akiskanin yogunlugu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "viskozite",
-      "label": "Dinamik Viskozite (Pa·s)",
+      "label": "Dynamic Viscosity (Pa·s)",
       "label_i18n": {
         "en": "Dynamic Viscosity (Pa·s)",
         "tr": "Dinamik Viskozite (Pa·s)",
@@ -95,7 +95,7 @@
       "unit": "Pa*s",
       "default": 0.001,
       "min": 0,
-      "businessContext": "Viskozite",
+      "businessContext": "Fluid viscosity.",
       "businessContext_i18n": {
         "en": "Fluid viscosity.",
         "tr": "Akiskanin Viscositysi.",

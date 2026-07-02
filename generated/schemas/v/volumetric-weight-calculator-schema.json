@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "en",
-      "label": "En (cm)",
+      "label": "Width (cm)",
       "label_i18n": {
         "en": "Width (cm)",
         "tr": "En (cm)",
@@ -20,7 +20,7 @@
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Paketin eni.",
+      "businessContext": "Package width.",
       "businessContext_i18n": {
         "en": "Package width.",
         "tr": "Paketin eni.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "boy",
-      "label": "Boy (cm)",
+      "label": "Length (cm)",
       "label_i18n": {
         "en": "Length (cm)",
         "tr": "Boy (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 40,
       "min": 0,
-      "businessContext": "Paketin boyu.",
+      "businessContext": "Package length.",
       "businessContext_i18n": {
         "en": "Package length.",
         "tr": "Paketin boyu.",
@@ -70,7 +70,7 @@
       "unit": "cm",
       "default": 30,
       "min": 0,
-      "businessContext": "Yukseklik",
+      "businessContext": "Package height.",
       "businessContext_i18n": {
         "en": "Package height.",
         "tr": "Paketin yuksekligi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "bolen",
-      "label": "Bolen",
+      "label": "Divider (Vol. Factor)",
       "label_i18n": {
         "en": "Divider (Vol. Factor)",
         "tr": "Bolen (Desi Faktoru)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 3000,
       "min": 1,
-      "businessContext": "Bolen",
+      "businessContext": "Carrier's volumetric divisor.",
       "businessContext_i18n": {
         "en": "Carrier's volumetric divisor.",
         "tr": "Kargo firmasinin desi boleni.",

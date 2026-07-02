@@ -2,7 +2,7 @@
   "toolName": "overall-equipment-effectiveness-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
@@ -21,7 +21,7 @@
       "default": 90,
       "min": 0,
       "max": 100,
-      "businessContext": "Kullanilabilirlik",
+      "businessContext": "Machine uptime vs planned time.",
       "businessContext_i18n": {
         "en": "Machine uptime vs planned time.",
         "tr": "Makinenin planli surede calistigi zaman.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "performans",
-      "label": "Performans (%)",
+      "label": "Performance (%)",
       "label_i18n": {
         "en": "Performance (%)",
         "tr": "Performans (%)",
@@ -47,7 +47,7 @@
       "default": 85,
       "min": 0,
       "max": 100,
-      "businessContext": "Performans",
+      "businessContext": "Speed efficiency vs ideal.",
       "businessContext_i18n": {
         "en": "Speed efficiency vs ideal.",
         "tr": "Makinenin ideal Speeda gore Performancei.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "kalite",
-      "label": "Kalite (%)",
+      "label": "Quality (%)",
       "label_i18n": {
         "en": "Quality (%)",
         "tr": "Kalite (%)",
@@ -73,7 +73,7 @@
       "default": 98,
       "min": 0,
       "max": 100,
-      "businessContext": "Kalite",
+      "businessContext": "First-pass yield.",
       "businessContext_i18n": {
         "en": "First-pass yield.",
         "tr": "Ilk seferde hatasiz urun Ratioi.",

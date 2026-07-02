@@ -2,12 +2,12 @@
   "toolName": "drill-string-torque-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "matkapCapi",
-      "label": "MatkapCapi",
+      "label": "Bit Diameter (m)",
       "label_i18n": {
         "en": "Bit Diameter (m)",
         "tr": "Matkap Ucu Diameter (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "MatkapCapi",
+      "businessContext": "Drill bit diameter.",
       "businessContext_i18n": {
         "en": "Drill bit diameter.",
         "tr": "Sondaj matkabinin Diameteri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kayaDayanim",
-      "label": "KayaDayanim",
+      "label": "Rock Compressive Strength (MPa)",
       "label_i18n": {
         "en": "Rock Compressive Strength (MPa)",
         "tr": "Kaya Basma Dayanimi (MPa)",
@@ -45,7 +45,7 @@
       "unit": "MPa",
       "default": 100,
       "min": 0,
-      "businessContext": "KayaDayanim",
+      "businessContext": "Uniaxial compressive strength.",
       "businessContext_i18n": {
         "en": "Uniaxial compressive strength.",
         "tr": "Kayanin tek eksenli basma dayanimi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kesiciKatsayi",
-      "label": "KesiciKatsayi",
+      "label": "Cutter Coefficient",
       "label_i18n": {
         "en": "Cutter Coefficient",
         "tr": "Kesici Coefficimostt",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "KesiciKatsayi",
+      "businessContext": "Bit type coefficient.",
       "businessContext_i18n": {
         "en": "Bit type coefficient.",
         "tr": "Matkap tipine bagli katNumber.",

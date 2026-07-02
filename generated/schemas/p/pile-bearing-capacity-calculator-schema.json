@@ -2,12 +2,12 @@
   "toolName": "pile-bearing-capacity-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "cap",
-      "label": "Cap",
+      "label": "Pile Diameter (m)",
       "label_i18n": {
         "en": "Pile Diameter (m)",
         "tr": "Kazik Diameteri (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.6,
       "min": 0,
-      "businessContext": "Cap",
+      "businessContext": "Pile diameter.",
       "businessContext_i18n": {
         "en": "Pile diameter.",
         "tr": "Fore kazik Diameteri.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "boy",
-      "label": "Boy",
+      "label": "Pile Length (m)",
       "label_i18n": {
         "en": "Pile Length (m)",
         "tr": "Kazik Heightu (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 15,
       "min": 0,
-      "businessContext": "Boy",
+      "businessContext": "Pile length.",
       "businessContext_i18n": {
         "en": "Pile length.",
         "tr": "Kazik Heightu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kohezyon",
-      "label": "Kohezyon (kPa)",
+      "label": "Cohesion (kPa)",
       "label_i18n": {
         "en": "Cohesion (kPa)",
         "tr": "Kohezyon (kPa)",
@@ -70,7 +70,7 @@
       "unit": "kPa",
       "default": 100,
       "min": 0,
-      "businessContext": "Zemin kohezyonu.",
+      "businessContext": "Soil cohesion.",
       "businessContext_i18n": {
         "en": "Soil cohesion.",
         "tr": "Zemin kohezyonu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "suratme",
-      "label": "Suratme",
+      "label": "Skin Friction (kPa)",
       "label_i18n": {
         "en": "Skin Friction (kPa)",
         "tr": "Cevre Surtunmesi (kPa)",
@@ -95,7 +95,7 @@
       "unit": "kPa",
       "default": 50,
       "min": 0,
-      "businessContext": "Suratme",
+      "businessContext": "Pile-soil skin friction.",
       "businessContext_i18n": {
         "en": "Pile-soil skin friction.",
         "tr": "Kazik-zemin arasi surtunme.",

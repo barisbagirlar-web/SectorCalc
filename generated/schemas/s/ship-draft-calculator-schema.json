@@ -2,12 +2,12 @@
   "toolName": "ship-draft-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "deplasman",
-      "label": "Deplasman (ton)",
+      "label": "Displacement (tons)",
       "label_i18n": {
         "en": "Displacement (tons)",
         "tr": "Deplasman (ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Deplasman",
+      "businessContext": "Ship total weight.",
       "businessContext_i18n": {
         "en": "Ship total weight.",
         "tr": "Geminin Total agirligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "suYogunlugu",
-      "label": "SuYogunlugu",
+      "label": "Water Density (t/m³)",
       "label_i18n": {
         "en": "Water Density (t/m³)",
         "tr": "Su Dmostsity (t/m³)",
@@ -45,7 +45,7 @@
       "unit": "t/m3",
       "default": 1.025,
       "min": 0,
-      "businessContext": "SuYogunlugu",
+      "businessContext": "Seawater density.",
       "businessContext_i18n": {
         "en": "Seawater density.",
         "tr": "Deniz suyu yogunlugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "boy",
-      "label": "Gemi Boyu (m)",
+      "label": "Ship Length (m)",
       "label_i18n": {
         "en": "Ship Length (m)",
         "tr": "Gemi Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 100,
       "min": 0,
-      "businessContext": "Gemi boyu.",
+      "businessContext": "Ship length.",
       "businessContext_i18n": {
         "en": "Ship length.",
         "tr": "Gemi boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "en",
-      "label": "Gemi Eni (m)",
+      "label": "Ship Beam (m)",
       "label_i18n": {
         "en": "Ship Beam (m)",
         "tr": "Gemi Eni (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 18,
       "min": 0,
-      "businessContext": "En",
+      "businessContext": "Ship breadth.",
       "businessContext_i18n": {
         "en": "Ship breadth.",
         "tr": "Gemi genisligi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "blokKatsayi",
-      "label": "BlokKatsayi",
+      "label": "Block Coefficient",
       "label_i18n": {
         "en": "Block Coefficient",
         "tr": "Blok Coefficimostt",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 0.7,
       "min": 0,
-      "businessContext": "BlokKatsayi",
+      "businessContext": "Ship hull form coefficient.",
       "businessContext_i18n": {
         "en": "Ship hull form coefficient.",
         "tr": "Gemi form katNumbersi.",

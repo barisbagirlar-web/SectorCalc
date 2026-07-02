@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "tabakaPopulasyon",
-      "label": "TabakaPopulasyon",
+      "label": "Stratum Population (N_h)",
       "label_i18n": {
         "en": "Stratum Population (N_h)",
         "tr": "Tabaka Populasyonu (N_h)",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "Tabakadaki toplam birey.",
+      "businessContext": "Total individuals in stratum.",
       "businessContext_i18n": {
         "en": "Total individuals in stratum.",
         "tr": "Tabakadaki toplam birey.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamPopulasyon",
-      "label": "ToplamPopulasyon",
+      "label": "Total Population (N)",
       "label_i18n": {
         "en": "Total Population (N)",
         "tr": "Total Populasyon (N)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 5000,
       "min": 0,
-      "businessContext": "ToplamPopulasyon",
+      "businessContext": "Population size.",
       "businessContext_i18n": {
         "en": "Population size.",
         "tr": "Evren buyuklugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tabakaOrneklem",
-      "label": "TabakaOrneklem",
+      "label": "Stratum Sample (n_h)",
       "label_i18n": {
         "en": "Stratum Sample (n_h)",
         "tr": "Tabaka Orneklemi (n_h)",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 50,
       "min": 0,
-      "businessContext": "TabakaOrneklem",
+      "businessContext": "Sample drawn from stratum.",
       "businessContext_i18n": {
         "en": "Sample drawn from stratum.",
         "tr": "Tabakadan alinan orneklem.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "toplamOrneklem",
-      "label": "ToplamOrneklem",
+      "label": "Total Sample (n)",
       "label_i18n": {
         "en": "Total Sample (n)",
         "tr": "Total Orneklem (n)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 500,
       "min": 0,
-      "businessContext": "ToplamOrneklem",
+      "businessContext": "Total sample size.",
       "businessContext_i18n": {
         "en": "Total sample size.",
         "tr": "Tum Sample Size.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "portfoyGetirisi",
-      "label": "PortfoyGetirisi",
+      "label": "Portfolio Return (%)",
       "label_i18n": {
         "en": "Portfolio Return (%)",
         "tr": "Portfoy Getirisi (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "PortfoyGetirisi",
+      "businessContext": "Portfolio's periodic return.",
       "businessContext_i18n": {
         "en": "Portfolio's periodic return.",
         "tr": "Portfoyun donemsel getirisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "risksizFaiz",
-      "label": "Risksiz Faiz (%)",
+      "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "RisksizFaiz",
+      "businessContext": "Risk-free asset return.",
       "businessContext_i18n": {
         "en": "Risk-free asset return.",
         "tr": "Risksiz varlik getirisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "volatilite",
-      "label": "Volatilite (%)",
+      "label": "Volatility (%)",
       "label_i18n": {
         "en": "Volatility (%)",
         "tr": "Volatilite (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 12,
       "min": 0,
-      "businessContext": "Volatilite",
+      "businessContext": "Portfolio standard deviation.",
       "businessContext_i18n": {
         "en": "Portfolio standard deviation.",
         "tr": "Portfoyun Standard Deviationsi.",

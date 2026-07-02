@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan",
+      "label": "Total Surface Area (m²)",
       "label_i18n": {
         "en": "Total Surface Area (m²)",
         "tr": "Total Yuzey Areai (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Alan",
+      "businessContext": "Heat transfer area.",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
         "tr": "Isi transferine maruz Area.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "U_Katsayi",
-      "label": "U Katsayi",
+      "label": "U-Value (W/m²K)",
       "label_i18n": {
         "en": "U-Value (W/m²K)",
         "tr": "Isi Gecis KatNumbersi (W/m²K)",
@@ -45,7 +45,7 @@
       "unit": "W/m2K",
       "default": 0.3,
       "min": 0,
-      "businessContext": "U Katsayi",
+      "businessContext": "Insulation U-value.",
       "businessContext_i18n": {
         "en": "Insulation U-value.",
         "tr": "Yalitimin isi gecis katNumbersi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "disSicaklik",
-      "label": "DisSicaklik",
+      "label": "Ambient Temperature (°C)",
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
         "tr": "Dis Ambient Temperature (°C)",
@@ -70,7 +70,7 @@
       "unit": "°C",
       "default": 35,
       "min": 0,
-      "businessContext": "DisSicaklik",
+      "businessContext": "Outside air temperature.",
       "businessContext_i18n": {
         "en": "Outside air temperature.",
         "tr": "Dis hava sicakligi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "icSicaklik",
-      "label": "IcSicaklik",
+      "label": "Storage Temperature (°C)",
       "label_i18n": {
         "en": "Storage Temperature (°C)",
         "tr": "Depo Ici Temperature (°C)",
@@ -95,7 +95,7 @@
       "unit": "°C",
       "default": -20,
       "min": 0,
-      "businessContext": "IcSicaklik",
+      "businessContext": "Cold storage temperature.",
       "businessContext_i18n": {
         "en": "Cold storage temperature.",
         "tr": "Soguk depo sicakligi.",

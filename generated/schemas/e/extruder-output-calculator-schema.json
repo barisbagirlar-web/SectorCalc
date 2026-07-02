@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "vidaHacim",
-      "label": "Vida Hacmi (cm³/devir)",
+      "label": "Screw Volume (cm³/rev)",
       "label_i18n": {
         "en": "Screw Volume (cm³/rev)",
         "tr": "Vida Hacmi (cm³/devir)",
@@ -20,7 +20,7 @@
       "unit": "cm3/rev",
       "default": 100,
       "min": 0,
-      "businessContext": "Vida kanal hacmi.",
+      "businessContext": "Screw channel volume.",
       "businessContext_i18n": {
         "en": "Screw channel volume.",
         "tr": "Vida kanal hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "devir",
-      "label": "Vida Devri (devir/dk)",
+      "label": "Screw Speed (RPM)",
       "label_i18n": {
         "en": "Screw Speed (RPM)",
         "tr": "Vida Devri (devir/dk)",
@@ -45,7 +45,7 @@
       "unit": "rpm",
       "default": 60,
       "min": 0,
-      "businessContext": "Devir",
+      "businessContext": "Screw rotational speed.",
       "businessContext_i18n": {
         "en": "Screw rotational speed.",
         "tr": "Vida donus Speedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "eriyikYogunluk",
-      "label": "EriyikYogunluk",
+      "label": "Melt Density (g/cm³)",
       "label_i18n": {
         "en": "Melt Density (g/cm³)",
         "tr": "Eriyik Dmostsity (g/cm³)",
@@ -70,7 +70,7 @@
       "unit": "g/cm3",
       "default": 0.9,
       "min": 0,
-      "businessContext": "EriyikYogunluk",
+      "businessContext": "Melt polymer density.",
       "businessContext_i18n": {
         "en": "Melt polymer density.",
         "tr": "Eriyik polimer yogunlugu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "verim",
-      "label": "Verim (%)",
+      "label": "Efficiency (%)",
       "label_i18n": {
         "en": "Efficiency (%)",
         "tr": "Verim (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 85,
       "min": 0,
-      "businessContext": "Verim",
+      "businessContext": "Extruder efficiency.",
       "businessContext_i18n": {
         "en": "Extruder efficiency.",
         "tr": "Ekstruder Efficiencyi.",

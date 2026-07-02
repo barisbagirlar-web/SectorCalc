@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hamOlcu",
-      "label": "HamOlcu",
+      "label": "Greige Dimension (cm)",
       "label_i18n": {
         "en": "Greige Dimension (cm)",
         "tr": "Ham Olcu (cm)",
@@ -20,7 +20,7 @@
       "unit": "cm",
       "default": 100,
       "min": 0,
-      "businessContext": "HamOlcu",
+      "businessContext": "Pre-processing fabric size.",
       "businessContext_i18n": {
         "en": "Pre-processing fabric size.",
         "tr": "Worklem oncesi kumas olcusu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitmisOlcu",
-      "label": "BitmisOlcu",
+      "label": "Finished Dimension (cm)",
       "label_i18n": {
         "en": "Finished Dimension (cm)",
         "tr": "Bitmis Olcu (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 96,
       "min": 0,
-      "businessContext": "BitmisOlcu",
+      "businessContext": "Post-processing fabric size.",
       "businessContext_i18n": {
         "en": "Post-processing fabric size.",
         "tr": "Worklem sonrasi kumas olcusu.",

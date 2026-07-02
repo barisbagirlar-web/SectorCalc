@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "favok",
-      "label": "Favok",
+      "label": "EBITDA (USD)",
       "label_i18n": {
         "en": "EBITDA (USD)",
         "tr": "FAVOK (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Favok",
+      "businessContext": "Earnings before interest, tax, depreciation.",
       "businessContext_i18n": {
         "en": "Earnings before interest, tax, depreciation.",
         "tr": "Vergi ve faiz oncesi kâr.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "carpan",
-      "label": "Carpan",
+      "label": "Industry Multiple",
       "label_i18n": {
         "en": "Industry Multiple",
         "tr": "Sektor Carpani",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 5,
       "min": 1,
-      "businessContext": "Carpan",
+      "businessContext": "Industry average EBITDA multiple.",
       "businessContext_i18n": {
         "en": "Industry average EBITDA multiple.",
         "tr": "Sektorun Mean FAVOK carpani.",

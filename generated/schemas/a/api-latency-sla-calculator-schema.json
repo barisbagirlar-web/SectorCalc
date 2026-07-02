@@ -2,12 +2,12 @@
   "toolName": "api-latency-sla-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "toplamIstek",
-      "label": "ToplamIstek",
+      "label": "Total Requests",
       "label_i18n": {
         "en": "Total Requests",
         "tr": "Total Istek Numbersi",
@@ -20,7 +20,7 @@
       "unit": "requests",
       "default": 10000,
       "min": 0,
-      "businessContext": "ToplamIstek",
+      "businessContext": "Total API calls.",
       "businessContext_i18n": {
         "en": "Total API calls.",
         "tr": "Total API cagrisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hataliIstek",
-      "label": "HataliIstek",
+      "label": "Failed Requests",
       "label_i18n": {
         "en": "Failed Requests",
         "tr": "Hatali Istek Numbersi",
@@ -45,7 +45,7 @@
       "unit": "requests",
       "default": 50,
       "min": 0,
-      "businessContext": "HataliIstek",
+      "businessContext": "Number of failed requests.",
       "businessContext_i18n": {
         "en": "Number of failed requests.",
         "tr": "Basarisiz istek adedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "toplamGecikme",
-      "label": "Toplam Gecikme (ms)",
+      "label": "Total Latency (ms)",
       "label_i18n": {
         "en": "Total Latency (ms)",
         "tr": "Toplam Gecikme (ms)",
@@ -70,7 +70,7 @@
       "unit": "ms",
       "default": 250000,
       "min": 0,
-      "businessContext": "ToplamGecikme",
+      "businessContext": "Sum of all request durations.",
       "businessContext_i18n": {
         "en": "Sum of all request durations.",
         "tr": "Tum isteklerin sure Totali.",

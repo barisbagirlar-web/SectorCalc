@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 100,
       "min": 0,
-      "businessContext": "Kaplanacak Facade Area.",
+      "businessContext": "Facade surface area.",
       "businessContext_i18n": {
         "en": "Facade surface area.",
         "tr": "Kaplanacak Facade Area.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "panelEn",
-      "label": "Panel Eni (m)",
+      "label": "Panel Width (m)",
       "label_i18n": {
         "en": "Panel Width (m)",
         "tr": "Panel Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Kaplama panel eni.",
+      "businessContext": "Siding panel width.",
       "businessContext_i18n": {
         "en": "Siding panel width.",
         "tr": "Kaplama panel eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "panelBoy",
-      "label": "Panel Boyu (m)",
+      "label": "Panel Length (m)",
       "label_i18n": {
         "en": "Panel Length (m)",
         "tr": "Panel Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "Panel boyu.",
+      "businessContext": "Panel length.",
       "businessContext_i18n": {
         "en": "Panel length.",
         "tr": "Panel boyu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Scrap Rate (%)",
+      "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Scrap Ratio (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Fire",
+      "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim payi.",

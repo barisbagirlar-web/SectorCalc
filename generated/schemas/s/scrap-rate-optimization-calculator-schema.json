@@ -2,12 +2,12 @@
   "toolName": "scrap-rate-optimization-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "uretim",
-      "label": "Total Production (Quantity)",
+      "label": "Total Production",
       "label_i18n": {
         "en": "Total Production",
         "tr": "Total Production (Quantity)",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 10000,
       "min": 1,
-      "businessContext": "Uretim",
+      "businessContext": "Total units produced.",
       "businessContext_i18n": {
         "en": "Total units produced.",
         "tr": "Uretilen Total urun.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hurda",
-      "label": "Hurda",
+      "label": "Scrap Quantity",
       "label_i18n": {
         "en": "Scrap Quantity",
         "tr": "Hurda Quantity (Quantity)",
@@ -45,7 +45,7 @@
       "unit": "units",
       "default": 500,
       "min": 0,
-      "businessContext": "Hurda",
+      "businessContext": "Defective units.",
       "businessContext_i18n": {
         "en": "Defective units.",
         "tr": "Hatali urun Numbersi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "birimMaliyet",
-      "label": "Birim Maliyet (TL)",
+      "label": "Unit Cost (USD)",
       "label_i18n": {
         "en": "Unit Cost (USD)",
         "tr": "Birim Maliyet (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "BirimMaliyet",
+      "businessContext": "Product unit cost.",
       "businessContext_i18n": {
         "en": "Product unit cost.",
         "tr": "Urunun Costi.",

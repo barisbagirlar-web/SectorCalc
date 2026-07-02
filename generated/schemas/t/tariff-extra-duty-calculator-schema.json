@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "urunBedeli",
-      "label": "UrunBedeli",
+      "label": "Product Value (USD)",
       "label_i18n": {
         "en": "Product Value (USD)",
         "tr": "Urun Bedeli (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "UrunBedeli",
+      "businessContext": "Product invoice value.",
       "businessContext_i18n": {
         "en": "Product invoice value.",
         "tr": "Urunun fatura Valuei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ekVergi",
-      "label": "Ek Tax Rate (%)",
+      "label": "Additional Tariff (%)",
       "label_i18n": {
         "en": "Additional Tariff (%)",
         "tr": "Ek Tax Ratio (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "EkVergi",
+      "businessContext": "Origin-based extra tariff rate.",
       "businessContext_i18n": {
         "en": "Origin-based extra tariff rate.",
         "tr": "Mensei bazli ek Tax Rate.",

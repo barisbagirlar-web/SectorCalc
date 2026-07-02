@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "krediTutari",
-      "label": "KrediTutari",
+      "label": "Loan Amount (USD)",
       "label_i18n": {
         "en": "Loan Amount (USD)",
         "tr": "Kredi Tutari (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "KrediTutari",
+      "businessContext": "Loan principal.",
       "businessContext_i18n": {
         "en": "Loan principal.",
         "tr": "Cekilen kredi Principalsi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oran",
-      "label": "Oran",
+      "label": "Percentage-Based Fee (%)",
       "label_i18n": {
         "en": "Percentage-Based Fee (%)",
         "tr": "Ratio Bazli Masraf (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2,
       "min": 0,
-      "businessContext": "Oran",
+      "businessContext": "Percentage-based closing costs.",
       "businessContext_i18n": {
         "en": "Percentage-based closing costs.",
         "tr": "Kredi yuzdesiyle Calculated masraflar.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabitUcretler",
-      "label": "SabitUcretler",
+      "label": "Fixed Fees (USD)",
       "label_i18n": {
         "en": "Fixed Fees (USD)",
         "tr": "Sabit Ucretler (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "SabitUcretler",
+      "businessContext": "Fixed costs like appraisal and filing fees.",
       "businessContext_i18n": {
         "en": "Fixed costs like appraisal and filing fees.",
         "tr": "Ekspertiz, ipotek tescili gibi sabit ucretler.",

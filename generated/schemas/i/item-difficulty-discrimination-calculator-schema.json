@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "dogruCevap",
-      "label": "DogruCevap",
+      "label": "Correct Answers",
       "label_i18n": {
         "en": "Correct Answers",
         "tr": "Correct Answer Numbersi",
@@ -20,7 +20,7 @@
       "unit": "students",
       "default": 40,
       "min": 0,
-      "businessContext": "DogruCevap",
+      "businessContext": "Students answering correctly.",
       "businessContext_i18n": {
         "en": "Students answering correctly.",
         "tr": "Soruyu Correct Answerlayan ogrenci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamOgrenci",
-      "label": "ToplamOgrenci",
+      "label": "Total Students",
       "label_i18n": {
         "en": "Total Students",
         "tr": "Total Ogrenci Numbersi",
@@ -45,7 +45,7 @@
       "unit": "students",
       "default": 100,
       "min": 0,
-      "businessContext": "ToplamOgrenci",
+      "businessContext": "Total test takers.",
       "businessContext_i18n": {
         "en": "Total test takers.",
         "tr": "Sinava giren Total ogrenci.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ustGrupDogru",
-      "label": "UstGrupDogru",
+      "label": "Upper Group Correct",
       "label_i18n": {
         "en": "Upper Group Correct",
         "tr": "Ust Grupta Dogru",
@@ -70,7 +70,7 @@
       "unit": "students",
       "default": 25,
       "min": 0,
-      "businessContext": "UstGrupDogru",
+      "businessContext": "Top 27% correct count.",
       "businessContext_i18n": {
         "en": "Top 27% correct count.",
         "tr": "En basarili %27'nin dogru Numbersi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "altGrupDogru",
-      "label": "AltGrupDogru",
+      "label": "Lower Group Correct",
       "label_i18n": {
         "en": "Lower Group Correct",
         "tr": "Alt Grupta Dogru",
@@ -95,7 +95,7 @@
       "unit": "students",
       "default": 5,
       "min": 0,
-      "businessContext": "AltGrupDogru",
+      "businessContext": "Bottom 27% correct count.",
       "businessContext_i18n": {
         "en": "Bottom 27% correct count.",
         "tr": "En dusuk %27'nin dogru Numbersi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "grupBoyutu",
-      "label": "Grup Boyutu",
+      "label": "Group Size",
       "label_i18n": {
         "en": "Group Size",
         "tr": "Grup Boyutu",
@@ -120,7 +120,7 @@
       "unit": "students",
       "default": 27,
       "min": 0,
-      "businessContext": "GrupBoyutu",
+      "businessContext": "Each group's student count.",
       "businessContext_i18n": {
         "en": "Each group's student count.",
         "tr": "Her grubun ogrenci Numbersi.",

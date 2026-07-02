@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hisse",
-      "label": "Mevcut Hisse (Adet)",
+      "label": "Shares Held",
       "label_i18n": {
         "en": "Shares Held",
         "tr": "Mevcut Hisse (Adet)",
@@ -20,7 +20,7 @@
       "unit": "shares",
       "default": 100,
       "min": 0,
-      "businessContext": "Sahip olunan hisse adedi.",
+      "businessContext": "Number of shares owned.",
       "businessContext_i18n": {
         "en": "Number of shares owned.",
         "tr": "Sahip olunan hisse adedi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "temettu",
-      "label": "Temettu",
+      "label": "Dividend Per Share (USD)",
       "label_i18n": {
         "en": "Dividend Per Share (USD)",
         "tr": "Hisse Basi Temettu (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 2,
       "min": 0,
-      "businessContext": "Temettu",
+      "businessContext": "Annual dividend per share.",
       "businessContext_i18n": {
         "en": "Annual dividend per share.",
         "tr": "Hisse basina odenen yillik temettu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "fiyat",
-      "label": "Fiyat",
+      "label": "Share Price (USD)",
       "label_i18n": {
         "en": "Share Price (USD)",
         "tr": "Hisse Fiyati (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 50,
       "min": 0,
-      "businessContext": "Fiyat",
+      "businessContext": "Current share price.",
       "businessContext_i18n": {
         "en": "Current share price.",
         "tr": "Hisse senedinin guncel fiyati.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yil",
-      "label": "Yil",
+      "label": "Number of Years",
       "label_i18n": {
         "en": "Number of Years",
         "tr": "Year Count",
@@ -95,7 +95,7 @@
       "unit": "years",
       "default": 10,
       "min": 0,
-      "businessContext": "Yil",
+      "businessContext": "DRIP strategy duration.",
       "businessContext_i18n": {
         "en": "DRIP strategy duration.",
         "tr": "DRIP stratejisinin uygulanacagi sure.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "getiri",
-      "label": "Beklenen Annual Return (%)",
+      "label": "Expected Annual Return (%)",
       "label_i18n": {
         "en": "Expected Annual Return (%)",
         "tr": "Beklmostmost Annual Getiri (%)",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Getiri",
+      "businessContext": "Expected annual price appreciation.",
       "businessContext_i18n": {
         "en": "Expected annual price appreciation.",
         "tr": "Hisse fiyatinin yillik buyume beklentisi.",

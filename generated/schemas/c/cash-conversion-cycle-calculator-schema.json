@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "stokGun",
-      "label": "StokGun",
+      "label": "DIO (Days)",
       "label_i18n": {
         "en": "DIO (Days)",
         "tr": "Stok Day",
@@ -20,7 +20,7 @@
       "unit": "days",
       "default": 60,
       "min": 0,
-      "businessContext": "StokGun",
+      "businessContext": "Days inventory outstanding.",
       "businessContext_i18n": {
         "en": "Days inventory outstanding.",
         "tr": "Stokta Kalma Time.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "alacakGun",
-      "label": "AlacakGun",
+      "label": "DSO (Days)",
       "label_i18n": {
         "en": "DSO (Days)",
         "tr": "Alacak Day",
@@ -45,7 +45,7 @@
       "unit": "days",
       "default": 45,
       "min": 0,
-      "businessContext": "AlacakGun",
+      "businessContext": "Days sales outstanding.",
       "businessContext_i18n": {
         "en": "Days sales outstanding.",
         "tr": "Tahsilat suresi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "borcGun",
-      "label": "BorcGun",
+      "label": "DPO (Days)",
       "label_i18n": {
         "en": "DPO (Days)",
         "tr": "Debt Day",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "BorcGun",
+      "businessContext": "Days payable outstanding.",
       "businessContext_i18n": {
         "en": "Days payable outstanding.",
         "tr": "Odeme suresi.",

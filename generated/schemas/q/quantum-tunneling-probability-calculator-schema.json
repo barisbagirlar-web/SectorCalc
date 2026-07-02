@@ -2,12 +2,12 @@
   "toolName": "quantum-tunneling-probability-calculator",
   "catalogCategory": "math-statistics",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "engelGenisligi",
-      "label": "EngelGenisligi",
+      "label": "Barrier Width (m)",
       "label_i18n": {
         "en": "Barrier Width (m)",
         "tr": "Engel Width (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 1e-10,
       "min": 0,
-      "businessContext": "EngelGenisligi",
+      "businessContext": "Potential barrier thickness.",
       "businessContext_i18n": {
         "en": "Potential barrier thickness.",
         "tr": "Potansiyel engelin kalinligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "engelYuksekligi",
-      "label": "EngelYuksekligi",
+      "label": "Barrier Height (J)",
       "label_i18n": {
         "en": "Barrier Height (J)",
         "tr": "Engel Height (J)",
@@ -45,7 +45,7 @@
       "unit": "J",
       "default": 1.6e-19,
       "min": 0,
-      "businessContext": "EngelYuksekligi",
+      "businessContext": "Potential barrier height.",
       "businessContext_i18n": {
         "en": "Potential barrier height.",
         "tr": "Potansiyel engelin yuksekligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "enerji",
-      "label": "Enerji",
+      "label": "Particle Energy (J)",
       "label_i18n": {
         "en": "Particle Energy (J)",
         "tr": "Parcacik Energysi (J)",
@@ -70,7 +70,7 @@
       "unit": "J",
       "default": 8e-20,
       "min": 0,
-      "businessContext": "Enerji",
+      "businessContext": "Incident particle kinetic energy.",
       "businessContext_i18n": {
         "en": "Incident particle kinetic energy.",
         "tr": "Gelen parcacigin kiNetik Energysi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kutle",
-      "label": "Kutle",
+      "label": "Particle Mass (kg)",
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parcacik Masssi (kg)",
@@ -95,7 +95,7 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Kutle",
+      "businessContext": "Particle mass.",
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parcacigin Masssi.",

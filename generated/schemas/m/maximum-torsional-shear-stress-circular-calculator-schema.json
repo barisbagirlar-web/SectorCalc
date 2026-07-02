@@ -2,12 +2,12 @@
   "toolName": "maximum-torsional-shear-stress-circular-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "tork",
-      "label": "Burulma Momenti (N.m)",
+      "label": "Torque (N.m)",
       "label_i18n": {
         "en": "Torque (N.m)",
         "tr": "Burulma Momenti (N.m)",
@@ -20,7 +20,7 @@
       "unit": "N.m",
       "default": 1000,
       "min": 0,
-      "businessContext": "Mile etkiyen tork.",
+      "businessContext": "Torque on shaft.",
       "businessContext_i18n": {
         "en": "Torque on shaft.",
         "tr": "Mile etkiyen tork.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yariCap",
-      "label": "YariCap",
+      "label": "Section Radius (m)",
       "label_i18n": {
         "en": "Section Radius (m)",
         "tr": "Kesit Radiusi (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.025,
       "min": 0,
-      "businessContext": "YariCap",
+      "businessContext": "Shaft outer radius.",
       "businessContext_i18n": {
         "en": "Shaft outer radius.",
         "tr": "Milin dis Radiusi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kutupsalAtalet",
-      "label": "Kutupsal Atalet Momenti (m⁴)",
+      "label": "Polar Moment of Inertia (m⁴)",
       "label_i18n": {
         "en": "Polar Moment of Inertia (m⁴)",
         "tr": "Kutupsal Atalet Momenti (m⁴)",
@@ -70,7 +70,7 @@
       "unit": "m4",
       "default": 6.14e-7,
       "min": 0,
-      "businessContext": "J = πR⁴/2",
+      "businessContext": "J = πR⁴/2.",
       "businessContext_i18n": {
         "en": "J = πR⁴/2.",
         "tr": "J = πR⁴/2",

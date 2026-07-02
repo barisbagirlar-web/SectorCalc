@@ -2,12 +2,12 @@
   "toolName": "rectangular-section-moment-of-inertia-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "genislik",
-      "label": "Genislik",
+      "label": "Section Width (m)",
       "label_i18n": {
         "en": "Section Width (m)",
         "tr": "Kesit Width (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Genislik",
+      "businessContext": "Rectangle section width.",
       "businessContext_i18n": {
         "en": "Rectangle section width.",
         "tr": "Dikdortgen kesitin genisligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Yukseklik",
+      "label": "Section Height (m)",
       "label_i18n": {
         "en": "Section Height (m)",
         "tr": "Kesit Height (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.4,
       "min": 0,
-      "businessContext": "Yukseklik",
+      "businessContext": "Rectangle section height.",
       "businessContext_i18n": {
         "en": "Rectangle section height.",
         "tr": "Dikdortgen kesitin yuksekligi.",

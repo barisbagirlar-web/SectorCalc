@@ -2,12 +2,12 @@
   "toolName": "gage-r-and-r-calculator",
   "catalogCategory": "manufacturing-workshop",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "parcaVaryans",
-      "label": "ParcaVaryans",
+      "label": "Part Variance (VP)",
       "label_i18n": {
         "en": "Part Variance (VP)",
         "tr": "Parca Variancei (VP)",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "ParcaVaryans",
+      "businessContext": "Actual part-to-part variation.",
       "businessContext_i18n": {
         "en": "Actual part-to-part variation.",
         "tr": "Parcalar arasi gercek farklilik.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "olcumVaryans",
-      "label": "OlcumVaryans",
+      "label": "Gauge R&R Variance",
       "label_i18n": {
         "en": "Gauge R&R Variance",
         "tr": "Olcum Variancei (VGRR)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 25,
       "min": 0,
-      "businessContext": "OlcumVaryans",
+      "businessContext": "Measurement system variance.",
       "businessContext_i18n": {
         "en": "Measurement system variance.",
         "tr": "Measuremmostt sistemindmost kaynaklanan Variance.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mulkDegeri",
-      "label": "MulkDegeri",
+      "label": "Property Value (USD)",
       "label_i18n": {
         "en": "Property Value (USD)",
         "tr": "Mulk Valuei (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "MulkDegeri",
+      "businessContext": "Current property value.",
       "businessContext_i18n": {
         "en": "Current property value.",
         "tr": "Evin guncel piyasa Valuei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalanBorc",
-      "label": "KalanBorc",
+      "label": "Remaining Debt (USD)",
       "label_i18n": {
         "en": "Remaining Debt (USD)",
         "tr": "KArea Debt (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Mevcut kredi bakiyesi.",
+      "businessContext": "Current mortgage balance.",
       "businessContext_i18n": {
         "en": "Current mortgage balance.",
         "tr": "Mevcut kredi bakiyesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yeniKredi",
-      "label": "YeniKredi",
+      "label": "New Loan Amount (USD)",
       "label_i18n": {
         "en": "New Loan Amount (USD)",
         "tr": "Yeni Kredi Tutari (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "YeniKredi",
+      "businessContext": "Total new loan to draw.",
       "businessContext_i18n": {
         "en": "Total new loan to draw.",
         "tr": "Yeni cekilen Total kredi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "masraf",
-      "label": "Masraflar (₺)",
+      "label": "Closing Costs (USD)",
       "label_i18n": {
         "en": "Closing Costs (USD)",
         "tr": "Masraflar (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Masraf",
+      "businessContext": "Closing and processing costs.",
       "businessContext_i18n": {
         "en": "Closing and processing costs.",
         "tr": "Kapatma ve islem masraflari.",

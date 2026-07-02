@@ -2,12 +2,12 @@
   "toolName": "minimum-weld-throat-thickness-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Yuk",
+      "label": "Applied Load (N)",
       "label_i18n": {
         "en": "Applied Load (N)",
         "tr": "Uygulanan Load (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 50000,
       "min": 0,
-      "businessContext": "Yuk",
+      "businessContext": "Force on weld.",
       "businessContext_i18n": {
         "en": "Force on weld.",
         "tr": "Kaynaga etkiyen Force.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kaynakBoyu",
-      "label": "Kaynak Boyu (m)",
+      "label": "Weld Length (m)",
       "label_i18n": {
         "en": "Weld Length (m)",
         "tr": "Kaynak Boyu (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.1,
       "min": 0,
-      "businessContext": "KaynakBoyu",
+      "businessContext": "Weld seam length.",
       "businessContext_i18n": {
         "en": "Weld seam length.",
         "tr": "Kaynak dikis uzunlugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kaynakGerilmesi",
-      "label": "KaynakGerilmesi",
+      "label": "Allowable Weld Stress (Pa)",
       "label_i18n": {
         "en": "Allowable Weld Stress (Pa)",
         "tr": "Izin Verilen Kaynak Gerilmesi (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 120000000,
       "min": 0,
-      "businessContext": "Kaynak metalinin emniyet gerilmesi.",
+      "businessContext": "Weld metal allowable stress.",
       "businessContext_i18n": {
         "en": "Weld metal allowable stress.",
         "tr": "Kaynak metalinin emniyet gerilmesi.",

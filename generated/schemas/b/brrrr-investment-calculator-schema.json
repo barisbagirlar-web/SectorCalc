@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alim",
-      "label": "Alim",
+      "label": "Purchase Price (USD)",
       "label_i18n": {
         "en": "Purchase Price (USD)",
         "tr": "Alim Fiyati (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Alim",
+      "businessContext": "Property purchase price.",
       "businessContext_i18n": {
         "en": "Property purchase price.",
         "tr": "Mulkun satin alma fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "rehab",
-      "label": "Yenileme Maliyeti (₺)",
+      "label": "Rehab Cost (USD)",
       "label_i18n": {
         "en": "Rehab Cost (USD)",
         "tr": "Yenileme Maliyeti (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "Tadilat ve yenileme giderleri.",
+      "businessContext": "Renovation costs.",
       "businessContext_i18n": {
         "en": "Renovation costs.",
         "tr": "Tadilat ve yenileme giderleri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "deger",
-      "label": "Deger",
+      "label": "After-Repair Value (USD)",
       "label_i18n": {
         "en": "After-Repair Value (USD)",
         "tr": "Yenilenmis Value (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 800000,
       "min": 0,
-      "businessContext": "Deger",
+      "businessContext": "Post-renovation property value.",
       "businessContext_i18n": {
         "en": "Post-renovation property value.",
         "tr": "Tadilat sonrasi mulk Valuei.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kredi",
-      "label": "Kredi",
+      "label": "Refinance Loan (USD)",
       "label_i18n": {
         "en": "Refinance Loan (USD)",
         "tr": "Kredi Tutari (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 600000,
       "min": 0,
-      "businessContext": "Kredi",
+      "businessContext": "Cash-out refinance loan.",
       "businessContext_i18n": {
         "en": "Cash-out refinance loan.",
         "tr": "Refinansman ile cekilen kredi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "kira",
-      "label": "Kira",
+      "label": "Monthly Rent (USD)",
       "label_i18n": {
         "en": "Monthly Rent (USD)",
         "tr": "Monthly Kira (TRY)",
@@ -120,7 +120,7 @@
       "unit": "USD",
       "default": 8000,
       "min": 0,
-      "businessContext": "Kira",
+      "businessContext": "Monthly rental income.",
       "businessContext_i18n": {
         "en": "Monthly rental income.",
         "tr": "Monthly kira geliri.",

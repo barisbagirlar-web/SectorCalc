@@ -2,12 +2,12 @@
   "toolName": "ore-reserve-volume-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "blokHacim",
-      "label": "Cevher Blok Hacmi (m³)",
+      "label": "Ore Block Volume (m³)",
       "label_i18n": {
         "en": "Ore Block Volume (m³)",
         "tr": "Cevher Blok Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 50000,
       "min": 0,
-      "businessContext": "Cevher Masssinin hacmi.",
+      "businessContext": "Ore body volume.",
       "businessContext_i18n": {
         "en": "Ore body volume.",
         "tr": "Cevher Masssinin hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cevherYogunlugu",
-      "label": "CevherYogunlugu",
+      "label": "Ore Density (ton/m³)",
       "label_i18n": {
         "en": "Ore Density (ton/m³)",
         "tr": "Cevher Dmostsity (ton/m³)",
@@ -45,7 +45,7 @@
       "unit": "ton/m3",
       "default": 2.7,
       "min": 0,
-      "businessContext": "CevherYogunlugu",
+      "businessContext": "Ore density.",
       "businessContext_i18n": {
         "en": "Ore density.",
         "tr": "Cevherin yogunlugu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tenor",
-      "label": "Tenor",
+      "label": "Grade (%)",
       "label_i18n": {
         "en": "Grade (%)",
         "tr": "Tenor (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Tenor",
+      "businessContext": "Metal grade in ore.",
       "businessContext_i18n": {
         "en": "Metal grade in ore.",
         "tr": "Cevherin metal icerigi.",

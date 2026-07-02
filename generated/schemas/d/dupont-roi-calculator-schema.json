@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netKar",
-      "label": "Net Kâr (₺)",
+      "label": "Net Income (USD)",
       "label_i18n": {
         "en": "Net Income (USD)",
         "tr": "Net Kâr (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 150000,
       "min": 0,
-      "businessContext": "NetKar",
+      "businessContext": "Net income for the period.",
       "businessContext_i18n": {
         "en": "Net income for the period.",
         "tr": "Donem Net Profiti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satislar",
-      "label": "Satislar",
+      "label": "Sales (USD)",
       "label_i18n": {
         "en": "Sales (USD)",
         "tr": "Satislar (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Total Revenue.",
+      "businessContext": "Total sales revenue.",
       "businessContext_i18n": {
         "en": "Total sales revenue.",
         "tr": "Total Revenue.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "varliklar",
-      "label": "Total Assetslar (₺)",
+      "label": "Total Assets (USD)",
       "label_i18n": {
         "en": "Total Assets (USD)",
         "tr": "Total Assetslar (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 3000000,
       "min": 0,
-      "businessContext": "Varliklar",
+      "businessContext": "Total assets.",
       "businessContext_i18n": {
         "en": "Total assets.",
         "tr": "Sirketin Total aktif buyuklugu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "ozsermaye",
-      "label": "Ozsermaye",
+      "label": "Equity (USD)",
       "label_i18n": {
         "en": "Equity (USD)",
         "tr": "Ozsermaye (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 1500000,
       "min": 0,
-      "businessContext": "Ozsermaye",
+      "businessContext": "Total shareholders equity.",
       "businessContext_i18n": {
         "en": "Total shareholders equity.",
         "tr": "Total ozsermaye.",

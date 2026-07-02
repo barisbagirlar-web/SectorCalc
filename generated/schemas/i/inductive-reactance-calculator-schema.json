@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "frekans",
-      "label": "Frekans (Hz)",
+      "label": "Frequency (Hz)",
       "label_i18n": {
         "en": "Frequency (Hz)",
         "tr": "Frekans (Hz)",
@@ -20,7 +20,7 @@
       "unit": "Hz",
       "default": 50,
       "min": 0,
-      "businessContext": "AC Signal Frequency.",
+      "businessContext": "AC signal frequency.",
       "businessContext_i18n": {
         "en": "AC signal frequency.",
         "tr": "AC Signal Frequency.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "induktans",
-      "label": "Induktans",
+      "label": "Inductance (H)",
       "label_i18n": {
         "en": "Inductance (H)",
         "tr": "Induktans (H)",
@@ -45,7 +45,7 @@
       "unit": "H",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Bobin Valuei.",
+      "businessContext": "Inductor value.",
       "businessContext_i18n": {
         "en": "Inductor value.",
         "tr": "Bobin Valuei.",

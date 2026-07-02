@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "agirlik",
-      "label": "Agirlik",
+      "label": "Actual Weight (kg)",
       "label_i18n": {
         "en": "Actual Weight (kg)",
         "tr": "Gercek Weight (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 50,
       "min": 0,
-      "businessContext": "Agirlik",
+      "businessContext": "Actual shipment weight.",
       "businessContext_i18n": {
         "en": "Actual shipment weight.",
         "tr": "Kargonun gercek agirligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hacim",
-      "label": "Hacim (m³)",
+      "label": "Volume (m³)",
       "label_i18n": {
         "en": "Volume (m³)",
         "tr": "Hacim (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Hacim",
+      "businessContext": "Package volume.",
       "businessContext_i18n": {
         "en": "Package volume.",
         "tr": "Kargonun kapladigi Volume.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Mesafe (km)",
+      "label": "Distance (km)",
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
@@ -70,7 +70,7 @@
       "unit": "km",
       "default": 1000,
       "min": 0,
-      "businessContext": "Transport Distance.",
+      "businessContext": "Transport distance.",
       "businessContext_i18n": {
         "en": "Transport distance.",
         "tr": "Bearing Distancesi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "birimFiyat",
-      "label": "Birim Fiyat (TL)",
+      "label": "Unit Price (USD)",
       "label_i18n": {
         "en": "Unit Price (USD)",
         "tr": "Birim Fiyat (TL)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "BirimFiyat",
+      "businessContext": "Unit freight price.",
       "businessContext_i18n": {
         "en": "Unit freight price.",
         "tr": "Unit basi navlun fiyati.",

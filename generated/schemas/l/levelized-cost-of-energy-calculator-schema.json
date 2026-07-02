@@ -2,12 +2,12 @@
   "toolName": "levelized-cost-of-energy-calculator",
   "catalogCategory": "energy-carbon",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "toplamYatirim",
-      "label": "ToplamYatirim",
+      "label": "Total Investment (USD)",
       "label_i18n": {
         "en": "Total Investment (USD)",
         "tr": "Total Inandstmmostt (TRY)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Santralin kurulum maliyeti.",
+      "businessContext": "Plant installation cost.",
       "businessContext_i18n": {
         "en": "Plant installation cost.",
         "tr": "Santralin kurulum maliyeti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamIsletme",
-      "label": "ToplamIsletme",
+      "label": "Lifetime O&M (USD)",
       "label_i18n": {
         "en": "Lifetime O&M (USD)",
         "tr": "Omur Heightu Workletme (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "ToplamIsletme",
+      "businessContext": "Operation and maintenance costs.",
       "businessContext_i18n": {
         "en": "Operation and maintenance costs.",
         "tr": "BCurrent ve isletme giderleri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "toplamUretim",
-      "label": "ToplamUretim",
+      "label": "Lifetime Production (kWh)",
       "label_i18n": {
         "en": "Lifetime Production (kWh)",
         "tr": "Omur Heightu Uretim (kWh)",
@@ -70,7 +70,7 @@
       "unit": "kWh",
       "default": 25000000,
       "min": 1,
-      "businessContext": "ToplamUretim",
+      "businessContext": "Total electricity generation.",
       "businessContext_i18n": {
         "en": "Total electricity generation.",
         "tr": "Total elektrik uretimi.",

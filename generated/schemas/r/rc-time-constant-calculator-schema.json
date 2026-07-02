@@ -20,7 +20,7 @@
       "unit": "ohms",
       "default": 10000,
       "min": 0,
-      "businessContext": "Devre direnci.",
+      "businessContext": "Circuit resistance.",
       "businessContext_i18n": {
         "en": "Circuit resistance.",
         "tr": "Devre direnci.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "C",
-      "label": "Kapasite (F)",
+      "label": "Capacitance (F)",
       "label_i18n": {
         "en": "Capacitance (F)",
         "tr": "Kapasite (F)",
@@ -45,7 +45,7 @@
       "unit": "F",
       "default": 0.000001,
       "min": 0,
-      "businessContext": "Devre kapasitesi.",
+      "businessContext": "Circuit capacitance.",
       "businessContext_i18n": {
         "en": "Circuit capacitance.",
         "tr": "Devre kapasitesi.",

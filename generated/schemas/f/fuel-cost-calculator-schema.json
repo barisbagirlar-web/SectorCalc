@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "mesafe",
-      "label": "Mesafe (km)",
+      "label": "Distance (km)",
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
@@ -20,7 +20,7 @@
       "unit": "km",
       "default": 500,
       "min": 0,
-      "businessContext": "Toplam mesafe.",
+      "businessContext": "Total distance.",
       "businessContext_i18n": {
         "en": "Total distance.",
         "tr": "Toplam mesafe.",
@@ -45,7 +45,7 @@
       "unit": "L/100km",
       "default": 10,
       "min": 0,
-      "businessContext": "Tuketim",
+      "businessContext": "Fuel per 100 km.",
       "businessContext_i18n": {
         "en": "Fuel per 100 km.",
         "tr": "100 km'de tuketilen yakit.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "litreFiyati",
-      "label": "LitreFiyati",
+      "label": "Fuel Price/Liter (USD)",
       "label_i18n": {
         "en": "Fuel Price/Liter (USD)",
         "tr": "Litre Fiyati (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 25,
       "min": 0,
-      "businessContext": "LitreFiyati",
+      "businessContext": "Price per liter.",
       "businessContext_i18n": {
         "en": "Price per liter.",
         "tr": "Litre basi yakit fiyati.",

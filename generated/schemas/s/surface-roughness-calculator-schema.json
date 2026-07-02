@@ -2,12 +2,12 @@
   "toolName": "surface-roughness-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "ilerleme",
-      "label": "Ilerleme",
+      "label": "Feed Rate (mm/rev)",
       "label_i18n": {
         "en": "Feed Rate (mm/rev)",
         "tr": "Ilerleme (mm/dev)",
@@ -20,7 +20,7 @@
       "unit": "mm/rev",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Ilerleme",
+      "businessContext": "Feed per revolution.",
       "businessContext_i18n": {
         "en": "Feed per revolution.",
         "tr": "Devir basina ilerleme Amounti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ucYariCap",
-      "label": "UcYariCap",
+      "label": "Nose Radius (mm)",
       "label_i18n": {
         "en": "Nose Radius (mm)",
         "tr": "Uc Radyusu (mm)",
@@ -45,7 +45,7 @@
       "unit": "mm",
       "default": 0.8,
       "min": 0,
-      "businessContext": "UcYariCap",
+      "businessContext": "Insert nose radius.",
       "businessContext_i18n": {
         "en": "Insert nose radius.",
         "tr": "Kesici uc radyusu.",

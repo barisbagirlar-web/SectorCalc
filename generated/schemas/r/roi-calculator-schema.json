@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "netKar",
-      "label": "Net Kâr (₺)",
+      "label": "Net Profit (USD)",
       "label_i18n": {
         "en": "Net Profit (USD)",
         "tr": "Net Kâr (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 25000,
       "min": 0,
-      "businessContext": "NetKar",
+      "businessContext": "Total net profit from investment.",
       "businessContext_i18n": {
         "en": "Total net profit from investment.",
         "tr": "Inandstmmosttdan elde edwithn Total Net Profit.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "maliyet",
-      "label": "Toplam Maliyet (₺)",
+      "label": "Total Cost (USD)",
       "label_i18n": {
         "en": "Total Cost (USD)",
         "tr": "Toplam Maliyet (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Maliyet",
+      "businessContext": "Total investment expenditure.",
       "businessContext_i18n": {
         "en": "Total investment expenditure.",
         "tr": "Yatirim icin yapilan Total harcama.",

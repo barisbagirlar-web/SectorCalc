@@ -2,12 +2,12 @@
   "toolName": "load-factor-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "ortalamaGuc",
-      "label": "Mean Power (kW)",
+      "label": "Average Power (kW)",
       "label_i18n": {
         "en": "Average Power (kW)",
         "tr": "Aandrage Power (kW)",
@@ -20,7 +20,7 @@
       "unit": "kW",
       "default": 80,
       "min": 0,
-      "businessContext": "OrtalamaGuc",
+      "businessContext": "Average power drawn.",
       "businessContext_i18n": {
         "en": "Average power drawn.",
         "tr": "Donem Heightunca Mean cekilen Power.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "pikGuc",
-      "label": "Pik Power (kW)",
+      "label": "Peak Power (kW)",
       "label_i18n": {
         "en": "Peak Power (kW)",
         "tr": "Pik Power (kW)",
@@ -45,7 +45,7 @@
       "unit": "kW",
       "default": 200,
       "min": 0,
-      "businessContext": "PikGuc",
+      "businessContext": "Peak power demand.",
       "businessContext_i18n": {
         "en": "Peak power demand.",
         "tr": "Donemdeki en yuksek Power talebi.",

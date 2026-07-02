@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "baslangicNAV",
-      "label": "BaslangicNAV",
+      "label": "Start NAV (USD)",
       "label_i18n": {
         "en": "Start NAV (USD)",
         "tr": "Donem Basi NAV (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10,
       "min": 0,
-      "businessContext": "BaslangicNAV",
+      "businessContext": "Fund unit price at period start.",
       "businessContext_i18n": {
         "en": "Fund unit price at period start.",
         "tr": "Donem basindaki fon pay fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitisNAV",
-      "label": "BitisNAV",
+      "label": "End NAV (USD)",
       "label_i18n": {
         "en": "End NAV (USD)",
         "tr": "Donem Sonu NAV (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 12,
       "min": 0,
-      "businessContext": "BitisNAV",
+      "businessContext": "Fund unit price at period end.",
       "businessContext_i18n": {
         "en": "Fund unit price at period end.",
         "tr": "Donem sonundaki fon pay fiyati.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dagitim",
-      "label": "Dagitim",
+      "label": "Distribution (USD)",
       "label_i18n": {
         "en": "Distribution (USD)",
         "tr": "Dagitim (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Dagitim",
+      "businessContext": "Dividend distributed during period.",
       "businessContext_i18n": {
         "en": "Dividend distributed during period.",
         "tr": "Donem Heightunca dagitilan temettu.",

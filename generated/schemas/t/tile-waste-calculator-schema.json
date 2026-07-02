@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alanEn",
-      "label": "AlanEn",
+      "label": "Room Width (m)",
       "label_i18n": {
         "en": "Room Width (m)",
         "tr": "Area Width (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 4.2,
       "min": 0,
-      "businessContext": "AlanEn",
+      "businessContext": "Room width.",
       "businessContext_i18n": {
         "en": "Room width.",
         "tr": "Dosenecek Areain genisligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "fayansEn",
-      "label": "Fayans Eni (m)",
+      "label": "Tile Width (m)",
       "label_i18n": {
         "en": "Tile Width (m)",
         "tr": "Fayans Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.6,
       "min": 0,
-      "businessContext": "FayansEn",
+      "businessContext": "Tile width.",
       "businessContext_i18n": {
         "en": "Tile width.",
         "tr": "Fayansin eni.",

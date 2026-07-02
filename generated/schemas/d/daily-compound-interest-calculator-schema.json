@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Anapara (₺)",
+      "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
         "tr": "Anapara (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Anapara",
+      "businessContext": "Initial investment amount.",
       "businessContext_i18n": {
         "en": "Initial investment amount.",
         "tr": "Baslangic Investment Amount.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Faiz",
+      "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
         "tr": "Annual Interest (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Faiz",
+      "businessContext": "Annual interest rate.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
         "tr": "Yillik nominal Interest Rate.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gun",
-      "label": "Gun",
+      "label": "Number of Days",
       "label_i18n": {
         "en": "Number of Days",
         "tr": "Day Count",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 365,
       "min": 1,
-      "businessContext": "Gun",
+      "businessContext": "Number of days for the term.",
       "businessContext_i18n": {
         "en": "Number of days for the term.",
         "tr": "Maturityye kArea Day Count.",

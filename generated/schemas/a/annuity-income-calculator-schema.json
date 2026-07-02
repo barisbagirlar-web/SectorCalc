@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Anapara (₺)",
+      "label": "Principal (USD)",
       "label_i18n": {
         "en": "Principal (USD)",
         "tr": "Anapara (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Anapara",
+      "businessContext": "Total principal invested.",
       "businessContext_i18n": {
         "en": "Total principal invested.",
         "tr": "Anuiteye yatirilan Total ana para.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faiz",
-      "label": "Faiz",
+      "label": "Annual Interest (%)",
       "label_i18n": {
         "en": "Annual Interest (%)",
         "tr": "Annual Interest (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Annual Interest Rate.",
+      "businessContext": "Annual interest rate.",
       "businessContext_i18n": {
         "en": "Annual interest rate.",
         "tr": "Annual Interest Rate.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "donem",
-      "label": "Donem",
+      "label": "Period (Months)",
       "label_i18n": {
         "en": "Period (Months)",
         "tr": "Donem (Ay)",
@@ -70,7 +70,7 @@
       "unit": "months",
       "default": 120,
       "min": 1,
-      "businessContext": "Donem",
+      "businessContext": "Total income withdrawal months.",
       "businessContext_i18n": {
         "en": "Total income withdrawal months.",
         "tr": "Gelir cekilecek Total ay.",

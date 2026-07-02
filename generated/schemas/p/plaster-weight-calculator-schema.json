@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan",
+      "label": "Plaster Area (m²)",
       "label_i18n": {
         "en": "Plaster Area (m²)",
         "tr": "Siva Areai (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 100,
       "min": 0,
-      "businessContext": "Alan",
+      "businessContext": "Facade area to plaster.",
       "businessContext_i18n": {
         "en": "Facade area to plaster.",
         "tr": "Sivanacak Facade Area.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinlik",
-      "label": "Kalinlik",
+      "label": "Plaster Thickness (cm)",
       "label_i18n": {
         "en": "Plaster Thickness (cm)",
         "tr": "Siva Kalinligi (cm)",
@@ -45,7 +45,7 @@
       "unit": "cm",
       "default": 2,
       "min": 0,
-      "businessContext": "Kalinlik",
+      "businessContext": "Application thickness.",
       "businessContext_i18n": {
         "en": "Application thickness.",
         "tr": "Uygulama kalinligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yogunluk",
+      "label": "Mortar Density (kg/m³)",
       "label_i18n": {
         "en": "Mortar Density (kg/m³)",
         "tr": "Harc Yogunlugu (kg/m³)",
@@ -70,7 +70,7 @@
       "unit": "kg/m3",
       "default": 1800,
       "min": 0,
-      "businessContext": "Yogunluk",
+      "businessContext": "Dry mortar density.",
       "businessContext_i18n": {
         "en": "Dry mortar density.",
         "tr": "Kuru harc yogunlugu.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortSiparis",
-      "label": "OrtSiparis",
+      "label": "Avg Order Value (USD)",
       "label_i18n": {
         "en": "Avg Order Value (USD)",
         "tr": "Mean Siparis (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "OrtSiparis",
+      "businessContext": "Average order value.",
       "businessContext_i18n": {
         "en": "Average order value.",
         "tr": "Musteri basina Mean siparis.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "siklik",
-      "label": "Siklik",
+      "label": "Orders per Year",
       "label_i18n": {
         "en": "Orders per Year",
         "tr": "Yillik Siparis Sikligi",
@@ -45,7 +45,7 @@
       "unit": "per year",
       "default": 12,
       "min": 1,
-      "businessContext": "Siklik",
+      "businessContext": "Purchase frequency per year.",
       "businessContext_i18n": {
         "en": "Purchase frequency per year.",
         "tr": "Musterinin yillik alisveris Numbersi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "omur",
-      "label": "Omur",
+      "label": "Customer Lifetime (Years)",
       "label_i18n": {
         "en": "Customer Lifetime (Years)",
         "tr": "Musteri Omru (Yil)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 3,
       "min": 0,
-      "businessContext": "Omur",
+      "businessContext": "Average customer retention.",
       "businessContext_i18n": {
         "en": "Average customer retention.",
         "tr": "Mean musteri sadakat suresi.",
@@ -96,7 +96,7 @@
       "default": 30,
       "min": 0,
       "max": 100,
-      "businessContext": "Net Profit Margin.",
+      "businessContext": "Net profit margin.",
       "businessContext_i18n": {
         "en": "Net profit margin.",
         "tr": "Net Profit Margin.",

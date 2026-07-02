@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "uretimHacmi",
-      "label": "UretimHacmi",
+      "label": "Production Volume (Tons)",
       "label_i18n": {
         "en": "Production Volume (Tons)",
         "tr": "Production Volume (Ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 5000,
       "min": 0,
-      "businessContext": "Total Production Volume.",
+      "businessContext": "Total production quantity.",
       "businessContext_i18n": {
         "en": "Total production quantity.",
         "tr": "Total Production Volume.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tuketilenSu",
-      "label": "TuketilenSu",
+      "label": "Water Consumed (m³)",
       "label_i18n": {
         "en": "Water Consumed (m³)",
         "tr": "Tuketilen Su (m³)",
@@ -45,7 +45,7 @@
       "unit": "m3",
       "default": 15000,
       "min": 0,
-      "businessContext": "TuketilenSu",
+      "businessContext": "Total water used in production.",
       "businessContext_i18n": {
         "en": "Total water used in production.",
         "tr": "Uretimde kullanilan Total su.",

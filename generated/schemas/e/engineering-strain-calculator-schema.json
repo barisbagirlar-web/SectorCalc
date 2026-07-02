@@ -2,15 +2,15 @@
   "toolName": "engineering-strain-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "ilkBoy",
-      "label": "IlkBoy",
+      "label": "Original Length (m)",
       "label_i18n": {
         "en": "Original Length (m)",
-        "tr": "Ilk Height (m)",
+        "tr": "Original Length (m)",
         "de": "Ursprungliche Länge (m)",
         "fr": "Longueur originale (m)",
         "es": "Longitud Original (m)",
@@ -20,10 +20,10 @@
       "unit": "m",
       "default": 1,
       "min": 0,
-      "businessContext": "Malzemenin ilk boyutu.",
+      "businessContext": "Original dimension.",
       "businessContext_i18n": {
         "en": "Original dimension.",
-        "tr": "Malzemenin ilk boyutu.",
+        "tr": "Original dimension.",
         "de": "Ursprungliche Abmessung.",
         "fr": "Dimension originale.",
         "es": "Dimensión original.",
@@ -32,10 +32,10 @@
     },
     {
       "id": "sonBoy",
-      "label": "Son Boy (m)",
+      "label": "Final Length (m)",
       "label_i18n": {
         "en": "Final Length (m)",
-        "tr": "Son Boy (m)",
+        "tr": "Final Length (m)",
         "de": "Endlänge (m)",
         "fr": "Longueur finale (m)",
         "es": "Longitud Final (m)",
@@ -45,10 +45,10 @@
       "unit": "m",
       "default": 1.002,
       "min": 0,
-      "businessContext": "SonBoy",
+      "businessContext": "Dimension after loading.",
       "businessContext_i18n": {
         "en": "Dimension after loading.",
-        "tr": "Yukleme sonrasi Dimension.",
+        "tr": "Dimension after loading.",
         "de": "Abmessung nach Belastung.",
         "fr": "Dimension après chargement.",
         "es": "Dimensión después de la carga.",
@@ -69,12 +69,12 @@
     "primary": "sonuc",
     "unit": "strain",
     "breakdown": {
-      "sonuc": "Unit Sekil Degistirme (ε)"
+      "sonuc": "Unit Strain (ε)"
     },
     "breakdown_i18n": {
       "sonuc": {
-        "en": "Unit Sekil Degistirme (ε)",
-        "tr": "Unit Sekil Degistirme (ε)",
+        "en": "Unit Strain (ε)",
+        "tr": "Unit Strain (ε)",
         "de": "Dehnung (ε)",
         "fr": "Déformation (ε)",
         "es": "Deformación Unitaria (ε)",
@@ -99,7 +99,7 @@
       "long": "Calculate engineering strain as change in length divided by original length.",
       "short_i18n": {
         "en": "Calculate engineering strain as change in length divided by original length.",
-        "tr": "Malzemenin Heightundaki Ratiosal uzama/kisalma Amountini (Unit Sekil Degistirme) hesaplar.",
+        "tr": "Calculate engineering strain as change in length divided by original length.",
         "de": "Berechnen Sie die technische Dehnung als Längenänderung geteilt durch die ursprungliche Länge.",
         "fr": "Calculer la déformation technique comme le changement de longueur divisé par la longueur originale.",
         "es": "Calcular la deformación unitaria ingenieril como el cambio de longitud dividido por la longitud original.",
@@ -107,7 +107,7 @@
       },
       "long_i18n": {
         "en": "Calculate engineering strain as change in length divided by original length.",
-        "tr": "Malzemenin Heightundaki Ratiosal uzama/kisalma Amountini (Unit Sekil Degistirme) hesaplar.",
+        "tr": "Calculate engineering strain as change in length divided by original length.",
         "de": "Berechnen Sie die technische Dehnung als Längenänderung geteilt durch die ursprungliche Länge.",
         "fr": "Calculer la déformation technique comme le changement de longueur divisé par la longueur originale.",
         "es": "Calcular la deformación unitaria ingenieril como el cambio de longitud dividido por la longitud original.",

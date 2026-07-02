@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "akuKapasite",
-      "label": "AkuKapasite",
+      "label": "Battery Capacity (Ah)",
       "label_i18n": {
         "en": "Battery Capacity (Ah)",
         "tr": "Aku Kapasitesi (Ah)",
@@ -20,7 +20,7 @@
       "unit": "Ah",
       "default": 100,
       "min": 0,
-      "businessContext": "AkuKapasite",
+      "businessContext": "Battery rated capacity.",
       "businessContext_i18n": {
         "en": "Battery rated capacity.",
         "tr": "Aku nominal kapasitesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukGucu",
-      "label": "YukGucu",
+      "label": "Load Power (W)",
       "label_i18n": {
         "en": "Load Power (W)",
         "tr": "Load Power (W)",
@@ -45,7 +45,7 @@
       "unit": "W",
       "default": 500,
       "min": 0,
-      "businessContext": "YukGucu",
+      "businessContext": "Total connected load power.",
       "businessContext_i18n": {
         "en": "Total connected load power.",
         "tr": "Beslenecek cihazlarin Total gucu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "dcVoltaj",
-      "label": "DcVoltaj",
+      "label": "DC System Voltage (V)",
       "label_i18n": {
         "en": "DC System Voltage (V)",
         "tr": "DC Sistem Voltaji (V)",
@@ -70,7 +70,7 @@
       "unit": "V",
       "default": 12,
       "min": 0,
-      "businessContext": "DcVoltaj",
+      "businessContext": "Battery system voltage.",
       "businessContext_i18n": {
         "en": "Battery system voltage.",
         "tr": "Aku sistemi voltaji.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "desarjDerinligi",
-      "label": "DesarjDerinligi",
+      "label": "Depth of Discharge (%)",
       "label_i18n": {
         "en": "Depth of Discharge (%)",
         "tr": "Desarj Derinligi (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 80,
       "min": 0,
-      "businessContext": "DesarjDerinligi",
+      "businessContext": "Maximum allowed discharge.",
       "businessContext_i18n": {
         "en": "Maximum allowed discharge.",
         "tr": "Izin verilen Maximum desarj.",

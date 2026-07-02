@@ -2,12 +2,12 @@
   "toolName": "standard-time-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "gozlenenSure",
-      "label": "GozlenenSure",
+      "label": "Observed Time (Min)",
       "label_i18n": {
         "en": "Observed Time (Min)",
         "tr": "Gozlenen Duration (min)",
@@ -20,7 +20,7 @@
       "unit": "min",
       "default": 10,
       "min": 0,
-      "businessContext": "GozlenenSure",
+      "businessContext": "Measured operation time.",
       "businessContext_i18n": {
         "en": "Measured operation time.",
         "tr": "Operasyonda olculen sure.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "performans",
-      "label": "Performans",
+      "label": "Performance Rating (%)",
       "label_i18n": {
         "en": "Performance Rating (%)",
         "tr": "Performance Speed (%)",
@@ -46,7 +46,7 @@
       "default": 90,
       "min": 20,
       "max": 150,
-      "businessContext": "Performans",
+      "businessContext": "Operator speed vs standard.",
       "businessContext_i18n": {
         "en": "Operator speed vs standard.",
         "tr": "Operatorun standart Speeda gore Performancei.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "ekSure",
-      "label": "EkSure",
+      "label": "Allowance (%)",
       "label_i18n": {
         "en": "Allowance (%)",
         "tr": "Ek Sure Payi (%)",
@@ -72,7 +72,7 @@
       "default": 15,
       "min": 0,
       "max": 100,
-      "businessContext": "EkSure",
+      "businessContext": "Fatigue and personal allowance.",
       "businessContext_i18n": {
         "en": "Fatigue and personal allowance.",
         "tr": "Yorgunluk, kisisel ihtiyaclar icin ek sure.",

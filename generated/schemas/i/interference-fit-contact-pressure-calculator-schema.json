@@ -2,12 +2,12 @@
   "toolName": "interference-fit-contact-pressure-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "girisim",
-      "label": "Girisim",
+      "label": "Interference (m)",
       "label_i18n": {
         "en": "Interference (m)",
         "tr": "Inputim Quantity (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.00005,
       "min": 0,
-      "businessContext": "Girisim",
+      "businessContext": "Diametral interference.",
       "businessContext_i18n": {
         "en": "Diametral interference.",
         "tr": "Mil-delik arasindaki Diameter farki.",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "Cap",
+      "businessContext": "Joint nominal diameter.",
       "businessContext_i18n": {
         "en": "Joint nominal diameter.",
         "tr": "Baglantinin nominal Diameteri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "E1",
-      "label": "E1",
+      "label": "Material 1 Modulus (Pa)",
       "label_i18n": {
         "en": "Material 1 Modulus (Pa)",
         "tr": "Malzeme 1 Modeuleu (Pa)",
@@ -70,7 +70,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "Birinci malzemenin Modeulus of Elasticity.",
+      "businessContext": "First material modulus.",
       "businessContext_i18n": {
         "en": "First material modulus.",
         "tr": "Birinci Malzemenin Modeulus of Elasticity.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "E2",
-      "label": "E2",
+      "label": "Material 2 Modulus (Pa)",
       "label_i18n": {
         "en": "Material 2 Modulus (Pa)",
         "tr": "Malzeme 2 Modeuleu (Pa)",
@@ -95,7 +95,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "E2",
+      "businessContext": "Second material modulus.",
       "businessContext_i18n": {
         "en": "Second material modulus.",
         "tr": "Ikinci malzemenin Modeuleu.",

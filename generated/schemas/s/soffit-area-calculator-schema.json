@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "cevre",
-      "label": "Cevre",
+      "label": "Building Perimeter (m)",
       "label_i18n": {
         "en": "Building Perimeter (m)",
         "tr": "Bina Cevresi (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 80,
       "min": 0,
-      "businessContext": "Cevre",
+      "businessContext": "Building perimeter.",
       "businessContext_i18n": {
         "en": "Building perimeter.",
         "tr": "Binanin Total cevresi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "genislik",
-      "label": "Genislik",
+      "label": "Eave Width (m)",
       "label_i18n": {
         "en": "Eave Width (m)",
         "tr": "Sacak Genisligi (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Genislik",
+      "businessContext": "Eave overhang width.",
       "businessContext_i18n": {
         "en": "Eave overhang width.",
         "tr": "Sacak cikinti genisligi.",

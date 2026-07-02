@@ -2,12 +2,12 @@
   "toolName": "wellbore-pressure-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "dikeyDerinlik",
-      "label": "Dikey Derinlik (m)",
+      "label": "Vertical Depth (m)",
       "label_i18n": {
         "en": "Vertical Depth (m)",
         "tr": "Dikey Derinlik (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 3000,
       "min": 0,
-      "businessContext": "Kuyunun dikey boyu.",
+      "businessContext": "True vertical depth.",
       "businessContext_i18n": {
         "en": "True vertical depth.",
         "tr": "Kuyunun dikey boyu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "camurYogunlugu",
-      "label": "Drilling Mud Density (kg/m³)",
+      "label": "Mud Density (kg/m³)",
       "label_i18n": {
         "en": "Mud Density (kg/m³)",
         "tr": "Drilling Mud Density (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 1500,
       "min": 0,
-      "businessContext": "CamurYogunlugu",
+      "businessContext": "Mud weight.",
       "businessContext_i18n": {
         "en": "Mud weight.",
         "tr": "Camur yogunlugu.",

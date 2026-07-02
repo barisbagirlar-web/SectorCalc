@@ -2,12 +2,12 @@
   "toolName": "ev-range-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "bataryaEnerji",
-      "label": "Batarya Enerjisi (kWh)",
+      "label": "Battery Energy (kWh)",
       "label_i18n": {
         "en": "Battery Energy (kWh)",
         "tr": "Batarya Enerjisi (kWh)",
@@ -20,7 +20,7 @@
       "unit": "kWh",
       "default": 60,
       "min": 0,
-      "businessContext": "BataryaEnerji",
+      "businessContext": "Usable battery capacity.",
       "businessContext_i18n": {
         "en": "Usable battery capacity.",
         "tr": "Kullanilabilir Battery Capacity.",
@@ -45,7 +45,7 @@
       "unit": "Wh/km",
       "default": 180,
       "min": 0,
-      "businessContext": "Tuketim",
+      "businessContext": "Energy consumption per km.",
       "businessContext_i18n": {
         "en": "Energy consumption per km.",
         "tr": "km basi Energy Consumption.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "verim",
-      "label": "Aktarma Verimi (%)",
+      "label": "Drivetrain Efficiency (%)",
       "label_i18n": {
         "en": "Drivetrain Efficiency (%)",
         "tr": "Aktarma Verimi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 90,
       "min": 0,
-      "businessContext": "Verim",
+      "businessContext": "Motor-to-wheel efficiency.",
       "businessContext_i18n": {
         "en": "Motor-to-wheel efficiency.",
         "tr": "Motordan tekerlege Efficiency.",

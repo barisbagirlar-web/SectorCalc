@@ -2,12 +2,12 @@
   "toolName": "constrained-pipe-axial-thermal-stress-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "elastisiteModulu",
-      "label": "Modeulus of Elasticity (Pa)",
+      "label": "Young's Modulus (Pa)",
       "label_i18n": {
         "en": "Young's Modulus (Pa)",
         "tr": "Modeulus of Elasticity (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 200000000000,
       "min": 0,
-      "businessContext": "ElastisiteModulu",
+      "businessContext": "Pipe material modulus.",
       "businessContext_i18n": {
         "en": "Pipe material modulus.",
         "tr": "Boru malzemesi Modeuleu.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "genlesmeKatsayisi",
-      "label": "GenlesmeKatsayisi",
+      "label": "Thermal Expansion Coeff (1/K)",
       "label_i18n": {
         "en": "Thermal Expansion Coeff (1/K)",
         "tr": "Isil Expansion Coefficient (1/K)",
@@ -45,7 +45,7 @@
       "unit": "1/K",
       "default": 0.000012,
       "min": 0,
-      "businessContext": "Malzemenin lineer Expansion Coefficient.",
+      "businessContext": "Linear expansion coefficient.",
       "businessContext_i18n": {
         "en": "Linear expansion coefficient.",
         "tr": "Malzemenin lineer Expansion Coefficient.",
@@ -70,7 +70,7 @@
       "unit": "K",
       "default": 50,
       "min": 0,
-      "businessContext": "SicaklikFarki",
+      "businessContext": "Installation vs operating temperature difference.",
       "businessContext_i18n": {
         "en": "Installation vs operating temperature difference.",
         "tr": "Montaj ve isletme Temperature Difference.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "oran",
-      "label": "Ratio (Number)",
+      "label": "Ratio",
       "label_i18n": {
         "en": "Ratio",
         "tr": "Ratio (Number)",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Oran",
+      "businessContext": "Signal power/voltage ratio.",
       "businessContext_i18n": {
         "en": "Signal power/voltage ratio.",
         "tr": "Sinyal gucu/voltaj Ratioi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tip",
-      "label": "Tip (0=Power, 1=Voltaj)",
+      "label": "Type (0=Power, 1=Voltage)",
       "label_i18n": {
         "en": "Type (0=Power, 1=Voltage)",
         "tr": "Tip (0=Power, 1=Voltaj)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Oran tipi.",
+      "businessContext": "Ratio type.",
       "businessContext_i18n": {
         "en": "Ratio type.",
         "tr": "Oran tipi.",

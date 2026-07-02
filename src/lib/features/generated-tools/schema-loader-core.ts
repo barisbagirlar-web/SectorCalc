@@ -10,6 +10,39 @@ import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/features/gen
  * Walks toolName, title, description, label, helper, businessContext, sector,
  * categoryName and all nested fields.
  */
+/**
+ * Known Turkish ASCII words that don't carry Turkish characters.
+ * These are pure-ASCII strings that are Turkish words or Turkish-derived
+ * and need runtime replacement.
+ */
+const TURKISH_ASCII_WORDS: Record<string, string> = {
+  "IlkBoy": "Original Length (m)",
+  "Son Boy (m)": "Final Length (m)",
+};
+
+/**
+ * Turkish ASCII sector names mapped to canonical English.
+ */
+const SECTOR_ASCII_MAP: Record<string, string> = {
+  "Makine Muhendisligi": "Mechanical Engineering",
+  "Elektrik ve Elektronik": "Electrical and Electronics",
+  "Insaaat ve Yapi": "Construction and Building",
+  "Insaat ve Altyapi": "Construction and Infrastructure",
+  "Isletme": "Business Management",
+  "Tekstil ve Konfeksiyon": "Textile and Apparel",
+  "Gida ve Tarim": "Food and Agriculture",
+  "Kimya ve Proses": "Chemical and Process",
+  "Enerji ve Guc Sistemleri": "Energy and Power Systems",
+  "Lojistik ve Nakliye": "Logistics and Transportation",
+  "Finans ve Yatirim": "Finance and Investment",
+  "Yazilim ve Bilisim": "Software and IT",
+  "Havacilik ve Denizcilik": "Aviation and Maritime",
+  "Savunma ve Guvenlik": "Defense and Security",
+  "Saglik ve Medikal": "Health and Medical",
+  "Su ve Atik Yonetimi": "Water and Waste Management",
+  "Tarim, Denizcilik ve Sondaj": "Agriculture, Maritime and Drilling",
+};
+
 function translateSchemaTurkish(obj: unknown): void {
   if (!obj || typeof obj !== "object") return;
   if (Array.isArray(obj)) {
@@ -18,7 +51,29 @@ function translateSchemaTurkish(obj: unknown): void {
   }
   const record = obj as Record<string, unknown>;
 
-  // Fields most likely to contain Turkish text
+  // Phase 1: When i18n.en exists for key fields, use it as the canonical value.
+  // This covers schemas where raw label/businessContext is Turkish ASCII
+  // that containsTurkish() cannot detect.
+  for (const field of ["label", "businessContext"]) {
+    const i18nKey = `${field}_i18n`;
+    const i18n = record[i18nKey] as Record<string, string> | undefined;
+    if (i18n?.en && typeof i18n.en === "string" && i18n.en.trim()) {
+      record[field] = i18n.en.trim();
+    }
+  }
+
+  // Phase 2: Catch remaining Turkish ASCII words (sector, label, businessContext)
+  if (typeof record.sector === "string" && SECTOR_ASCII_MAP[record.sector]) {
+    record.sector = SECTOR_ASCII_MAP[record.sector];
+  }
+  if (typeof record.label === "string" && TURKISH_ASCII_WORDS[record.label]) {
+    record.label = TURKISH_ASCII_WORDS[record.label];
+  }
+  if (typeof record.businessContext === "string" && TURKISH_ASCII_WORDS[record.businessContext]) {
+    record.businessContext = TURKISH_ASCII_WORDS[record.businessContext];
+  }
+
+  // Phase 3: Translate strings carrying actual Turkish characters
   const textFields = [
     "toolName", "title", "description", "label", "helper", "hint",
     "placeholder", "businessContext", "sector", "categoryName",

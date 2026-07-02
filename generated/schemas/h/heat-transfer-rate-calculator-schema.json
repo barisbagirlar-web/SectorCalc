@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan (m²)",
+      "label": "Area (m²)",
       "label_i18n": {
         "en": "Area (m²)",
         "tr": "Alan (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 10,
       "min": 0,
-      "businessContext": "Alan",
+      "businessContext": "Heat transfer area.",
       "businessContext_i18n": {
         "en": "Heat transfer area.",
         "tr": "Isi transfer yuzey Areai.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "K",
-      "label": "K",
+      "label": "Thermal Conductivity (W/mK)",
       "label_i18n": {
         "en": "Thermal Conductivity (W/mK)",
         "tr": "Isi Iletim KatNumbersi (W/mK)",
@@ -45,7 +45,7 @@
       "unit": "W/mK",
       "default": 0.5,
       "min": 0,
-      "businessContext": "K",
+      "businessContext": "Material thermal conductivity.",
       "businessContext_i18n": {
         "en": "Material thermal conductivity.",
         "tr": "Malzemenin isil iletkenligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kalinlik",
-      "label": "Kalinlik",
+      "label": "Wall Thickness (m)",
       "label_i18n": {
         "en": "Wall Thickness (m)",
         "tr": "Wall Thickness (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Duvar Wall Thickness.",
+      "businessContext": "Wall thickness.",
       "businessContext_i18n": {
         "en": "Wall thickness.",
         "tr": "Duvar Wall Thickness.",
@@ -95,7 +95,7 @@
       "unit": "K",
       "default": 20,
       "min": 0,
-      "businessContext": "SicaklikFarki",
+      "businessContext": "Temperature difference between surfaces.",
       "businessContext_i18n": {
         "en": "Temperature difference between surfaces.",
         "tr": "Iki yuzey arasi Temperature Difference.",

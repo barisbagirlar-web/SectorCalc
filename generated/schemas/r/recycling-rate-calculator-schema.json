@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "geriDonusen",
-      "label": "GeriDonusen",
+      "label": "Recycled (tons)",
       "label_i18n": {
         "en": "Recycled (tons)",
         "tr": "Geri Donusturulen (ton)",
@@ -20,7 +20,7 @@
       "unit": "tons",
       "default": 300,
       "min": 0,
-      "businessContext": "GeriDonusen",
+      "businessContext": "Amount of waste recovered.",
       "businessContext_i18n": {
         "en": "Amount of waste recovered.",
         "tr": "Geri kazanilan atik Amounti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "toplamAtik",
-      "label": "ToplamAtik",
+      "label": "Total Waste (tons)",
       "label_i18n": {
         "en": "Total Waste (tons)",
         "tr": "Total Atik (ton)",
@@ -45,7 +45,7 @@
       "unit": "tons",
       "default": 1000,
       "min": 0,
-      "businessContext": "ToplamAtik",
+      "businessContext": "Total waste generated.",
       "businessContext_i18n": {
         "en": "Total waste generated.",
         "tr": "Olusan Total atik.",

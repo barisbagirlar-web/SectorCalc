@@ -2,12 +2,12 @@
   "toolName": "drug-half-life-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "yarilanmaOmru",
-      "label": "YarilanmaOmru",
+      "label": "Half-Life (Hours)",
       "label_i18n": {
         "en": "Half-Life (Hours)",
         "tr": "Yarilanma Omru (Saat)",
@@ -20,7 +20,7 @@
       "unit": "h",
       "default": 12,
       "min": 0,
-      "businessContext": "YarilanmaOmru",
+      "businessContext": "Drug elimination half-life.",
       "businessContext_i18n": {
         "en": "Drug elimination half-life.",
         "tr": "Ilacin vucuttan Half-life.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "dozAraligi",
-      "label": "DozAraligi",
+      "label": "Dosing Interval (Hours)",
       "label_i18n": {
         "en": "Dosing Interval (Hours)",
         "tr": "Doz Araligi (Saat)",
@@ -45,7 +45,7 @@
       "unit": "h",
       "default": 8,
       "min": 0,
-      "businessContext": "DozAraligi",
+      "businessContext": "Time between doses.",
       "businessContext_i18n": {
         "en": "Time between doses.",
         "tr": "Ilac alma sikligi.",

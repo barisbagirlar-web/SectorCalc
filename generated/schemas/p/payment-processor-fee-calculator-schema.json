@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satis",
-      "label": "Satis",
+      "label": "Sale Amount (USD)",
       "label_i18n": {
         "en": "Sale Amount (USD)",
         "tr": "Satis Tutari (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Satis",
+      "businessContext": "Amount charged to customer.",
       "businessContext_i18n": {
         "en": "Amount charged to customer.",
         "tr": "Musteriden tahsil edilen tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yuzde",
-      "label": "Yuzde",
+      "label": "Percentage Fee (%)",
       "label_i18n": {
         "en": "Percentage Fee (%)",
         "tr": "Yuzde Kesinti (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2.9,
       "min": 0,
-      "businessContext": "Yuzde",
+      "businessContext": "Transaction percentage.",
       "businessContext_i18n": {
         "en": "Transaction percentage.",
         "tr": "Worklem yuzdesi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabit",
-      "label": "Sabit Kesinti (TL)",
+      "label": "Fixed Fee (USD)",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
         "tr": "Sabit Kesinti (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 2.35,
       "min": 0,
-      "businessContext": "Sabit",
+      "businessContext": "Fixed transaction fee.",
       "businessContext_i18n": {
         "en": "Fixed transaction fee.",
         "tr": "Sabit islem ucreti.",

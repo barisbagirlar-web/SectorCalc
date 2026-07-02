@@ -2,12 +2,12 @@
   "toolName": "barn-ventilation-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan",
+      "label": "Barn Area (m²)",
       "label_i18n": {
         "en": "Barn Area (m²)",
         "tr": "Ahir Areai (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 200,
       "min": 0,
-      "businessContext": "Alan",
+      "businessContext": "Barn floor area.",
       "businessContext_i18n": {
         "en": "Barn floor area.",
         "tr": "Ahir taban Areai.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Yukseklik",
+      "label": "Barn Height (m)",
       "label_i18n": {
         "en": "Barn Height (m)",
         "tr": "Ahir Yuksekligi (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 4,
       "min": 0,
-      "businessContext": "Yukseklik",
+      "businessContext": "Barn height.",
       "businessContext_i18n": {
         "en": "Barn height.",
         "tr": "Ahir yuksekligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "havaDegisimSayisi",
-      "label": "HavaDegisimSayisi",
+      "label": "Air Changes (per hour)",
       "label_i18n": {
         "en": "Air Changes (per hour)",
         "tr": "Hava Degisim Numbersi (Quantity/saat)",
@@ -70,7 +70,7 @@
       "unit": "per_hour",
       "default": 6,
       "min": 0,
-      "businessContext": "HavaDegisimSayisi",
+      "businessContext": "Hourly air change rate.",
       "businessContext_i18n": {
         "en": "Hourly air change rate.",
         "tr": "Saatlik hava degisim adedi.",

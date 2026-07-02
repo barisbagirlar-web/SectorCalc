@@ -2,12 +2,12 @@
   "toolName": "credit-card-processing-fee-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Kredi ve Borc",
+  "sector": "Credit and Debt",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
       "id": "satis",
-      "label": "Satis",
+      "label": "Sale Amount (USD)",
       "label_i18n": {
         "en": "Sale Amount (USD)",
         "tr": "Satis Tutari (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000,
       "min": 0,
-      "businessContext": "Satis",
+      "businessContext": "Transaction amount.",
       "businessContext_i18n": {
         "en": "Transaction amount.",
         "tr": "Worklem tutari.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yuzde",
-      "label": "Yuzde",
+      "label": "Percentage Fee (%)",
       "label_i18n": {
         "en": "Percentage Fee (%)",
         "tr": "Yuzde Komisyon (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 2.5,
       "min": 0,
-      "businessContext": "Yuzde",
+      "businessContext": "Per-transaction percentage fee.",
       "businessContext_i18n": {
         "en": "Per-transaction percentage fee.",
         "tr": "Worklem basi yuzde komisyon.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sabit",
-      "label": "Sabit",
+      "label": "Fixed Fee (USD)",
       "label_i18n": {
         "en": "Fixed Fee (USD)",
         "tr": "Sabit Ucret (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 0.5,
       "min": 0,
-      "businessContext": "Sabit",
+      "businessContext": "Per-transaction fixed fee.",
       "businessContext_i18n": {
         "en": "Per-transaction fixed fee.",
         "tr": "Worklem basi sabit ucret.",

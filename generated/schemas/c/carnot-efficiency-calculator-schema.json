@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "sicakKaynak",
-      "label": "SicakKaynak",
+      "label": "Hot Reservoir (K)",
       "label_i18n": {
         "en": "Hot Reservoir (K)",
         "tr": "Sicak Rezervuar (K)",
@@ -20,7 +20,7 @@
       "unit": "K",
       "default": 500,
       "min": 0,
-      "businessContext": "SicakKaynak",
+      "businessContext": "Heat source temperature.",
       "businessContext_i18n": {
         "en": "Heat source temperature.",
         "tr": "Isi kaynagi sicakligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sogukKaynak",
-      "label": "SogukKaynak",
+      "label": "Cold Reservoir (K)",
       "label_i18n": {
         "en": "Cold Reservoir (K)",
         "tr": "Soguk Rezervuar (K)",
@@ -45,7 +45,7 @@
       "unit": "K",
       "default": 300,
       "min": 0,
-      "businessContext": "SogukKaynak",
+      "businessContext": "Heat sink temperature.",
       "businessContext_i18n": {
         "en": "Heat sink temperature.",
         "tr": "Isi kuyusu sicakligi.",

@@ -2,12 +2,12 @@
   "toolName": "machine-depreciation-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "lean-production",
-  "sector": "Endustri Muhendisligi",
+  "sector": "Industrial Engineering",
   "sectorId": "lean-production",
   "inputs": [
     {
       "id": "bedel",
-      "label": "Makine Bedeli (TL)",
+      "label": "Machine Cost (USD)",
       "label_i18n": {
         "en": "Machine Cost (USD)",
         "tr": "Makine Bedeli (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Bedel",
+      "businessContext": "Machine purchase cost.",
       "businessContext_i18n": {
         "en": "Machine purchase cost.",
         "tr": "Makinenin satin alma bedeli.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalinti",
-      "label": "Kalinti",
+      "label": "Salvage Value (USD)",
       "label_i18n": {
         "en": "Salvage Value (USD)",
         "tr": "Kalinti Value (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Kalinti",
+      "businessContext": "End-of-life value.",
       "businessContext_i18n": {
         "en": "End-of-life value.",
         "tr": "Makinenin omur sonu Valuei.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "uretimKapasite",
-      "label": "Total Production Kapasitesi",
+      "label": "Total Production Capacity",
       "label_i18n": {
         "en": "Total Production Capacity",
         "tr": "Total Production Capacity",
@@ -70,7 +70,7 @@
       "unit": "units",
       "default": 1000000,
       "min": 1,
-      "businessContext": "UretimKapasite",
+      "businessContext": "Total units over machine life.",
       "businessContext_i18n": {
         "en": "Total units over machine life.",
         "tr": "Makinenin omru Heightunca uretecegi Total urun.",

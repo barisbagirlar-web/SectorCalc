@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "E",
-      "label": "E",
+      "label": "Equity (USD)",
       "label_i18n": {
         "en": "Equity (USD)",
         "tr": "Ozsermaye (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 1000000,
       "min": 0,
-      "businessContext": "E",
+      "businessContext": "Total equity value.",
       "businessContext_i18n": {
         "en": "Total equity value.",
         "tr": "Sirketin Total ozsermayesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "D",
-      "label": "D",
+      "label": "Debt (USD)",
       "label_i18n": {
         "en": "Debt (USD)",
         "tr": "Debt (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "D",
+      "businessContext": "Total debt.",
       "businessContext_i18n": {
         "en": "Total debt.",
         "tr": "Sirketin Total borcu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "Re",
-      "label": "Re",
+      "label": "Cost of Equity (%)",
       "label_i18n": {
         "en": "Cost of Equity (%)",
         "tr": "Ozsermaye Costi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 15,
       "min": 0,
-      "businessContext": "Re",
+      "businessContext": "Expected return for shareholders.",
       "businessContext_i18n": {
         "en": "Expected return for shareholders.",
         "tr": "Hissedarlarin bekledigi getiri.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "Rd",
-      "label": "Rd",
+      "label": "Cost of Debt (%)",
       "label_i18n": {
         "en": "Cost of Debt (%)",
         "tr": "Debt Costi (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Rd",
+      "businessContext": "Company's borrowing cost.",
       "businessContext_i18n": {
         "en": "Company's borrowing cost.",
         "tr": "Sirketin borclanma Costi.",
@@ -120,7 +120,7 @@
       "unit": "%",
       "default": 25,
       "min": 0,
-      "businessContext": "Vergi",
+      "businessContext": "Corporate tax rate.",
       "businessContext_i18n": {
         "en": "Corporate tax rate.",
         "tr": "Corporate Tax Ratioi.",

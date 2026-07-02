@@ -2,12 +2,12 @@
   "toolName": "minimum-belt-tension-slack-side-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "guc",
-      "label": "Guc",
+      "label": "Power Transmitted (W)",
       "label_i18n": {
         "en": "Power Transmitted (W)",
         "tr": "Iletilen Power (W)",
@@ -20,7 +20,7 @@
       "unit": "W",
       "default": 5000,
       "min": 0,
-      "businessContext": "Guc",
+      "businessContext": "Belt power transmission.",
       "businessContext_i18n": {
         "en": "Belt power transmission.",
         "tr": "Kayisla iletilen Power.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hiz",
-      "label": "Hiz",
+      "label": "Belt Speed (m/s)",
       "label_i18n": {
         "en": "Belt Speed (m/s)",
         "tr": "Kayis Speedi (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 10,
       "min": 0,
-      "businessContext": "Hiz",
+      "businessContext": "Belt linear speed.",
       "businessContext_i18n": {
         "en": "Belt linear speed.",
         "tr": "Kayisin lineer Speedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "sarilmaAcisi",
-      "label": "SarilmaAcisi",
+      "label": "Wrap Angle (Rad)",
       "label_i18n": {
         "en": "Wrap Angle (Rad)",
         "tr": "Sarilma Acisi (Rad)",
@@ -70,7 +70,7 @@
       "unit": "rad",
       "default": 2.8,
       "min": 0,
-      "businessContext": "SarilmaAcisi",
+      "businessContext": "Small pulley wrap angle.",
       "businessContext_i18n": {
         "en": "Small pulley wrap angle.",
         "tr": "Kucuk kasnaga sarilma acisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "suratme",
-      "label": "Friction Factor",
+      "label": "Friction Coefficient",
       "label_i18n": {
         "en": "Friction Coefficient",
         "tr": "Friction Factor",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Suratme",
+      "businessContext": "Belt-pulley friction.",
       "businessContext_i18n": {
         "en": "Belt-pulley friction.",
         "tr": "Kayis-kasnak surtunmesi.",

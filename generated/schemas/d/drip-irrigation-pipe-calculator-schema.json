@@ -2,12 +2,12 @@
   "toolName": "drip-irrigation-pipe-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "damaticiDebi",
-      "label": "DamaticiDebi",
+      "label": "Emitter Flow (L/h)",
       "label_i18n": {
         "en": "Emitter Flow (L/h)",
         "tr": "Damlatici Flow Rate (L/h)",
@@ -20,7 +20,7 @@
       "unit": "L/h",
       "default": 4,
       "min": 0,
-      "businessContext": "DamaticiDebi",
+      "businessContext": "Flow per emitter.",
       "businessContext_i18n": {
         "en": "Flow per emitter.",
         "tr": "Her bir damlaticinin Flow Ratesi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "damaticiSayisi",
-      "label": "DamaticiSayisi",
+      "label": "Number of Emitters",
       "label_i18n": {
         "en": "Number of Emitters",
         "tr": "Damlatici Numbersi",
@@ -45,7 +45,7 @@
       "unit": "emitters",
       "default": 500,
       "min": 0,
-      "businessContext": "DamaticiSayisi",
+      "businessContext": "Total emitters on line.",
       "businessContext_i18n": {
         "en": "Total emitters on line.",
         "tr": "Hatta bagli Total damlatici.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "maxHiz",
-      "label": "Maks. Flow Velocity (m/s)",
+      "label": "Max. Flow Velocity (m/s)",
       "label_i18n": {
         "en": "Max. Flow Velocity (m/s)",
         "tr": "Maks. Flow Speed (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 1.5,
       "min": 0,
-      "businessContext": "Boruda izin verilen azami Speed.",
+      "businessContext": "Max permissible velocity.",
       "businessContext_i18n": {
         "en": "Max permissible velocity.",
         "tr": "Boruda izin verilen azami Speed.",

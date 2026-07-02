@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "toplamAlan",
-      "label": "ToplamAlan",
+      "label": "Total Floor Area (m²)",
       "label_i18n": {
         "en": "Total Floor Area (m²)",
         "tr": "Total Depo Area (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 5000,
       "min": 0,
-      "businessContext": "ToplamAlan",
+      "businessContext": "Total warehouse floor area.",
       "businessContext_i18n": {
         "en": "Total warehouse floor area.",
         "tr": "Deponun Total taban Areai.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "rafKullanimi",
-      "label": "RafKullanimi",
+      "label": "Rack Utilization (%)",
       "label_i18n": {
         "en": "Rack Utilization (%)",
         "tr": "Raf Kullanim Ratioi (%)",
@@ -46,7 +46,7 @@
       "default": 60,
       "min": 0,
       "max": 100,
-      "businessContext": "RafKullanimi",
+      "businessContext": "Rack space to total floor ratio.",
       "businessContext_i18n": {
         "en": "Rack space to total floor ratio.",
         "tr": "Raf Areainin Total Areaa Ratioi.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "paletAlani",
-      "label": "PaletAlani",
+      "label": "Pallet Footprint (m²)",
       "label_i18n": {
         "en": "Pallet Footprint (m²)",
         "tr": "Palet Area (m²)",
@@ -71,7 +71,7 @@
       "unit": "m2",
       "default": 1.2,
       "min": 0,
-      "businessContext": "PaletAlani",
+      "businessContext": "Area per pallet.",
       "businessContext_i18n": {
         "en": "Area per pallet.",
         "tr": "Bir paletin kapladigi Area.",

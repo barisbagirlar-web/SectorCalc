@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "parcaDerinlik",
-      "label": "ParcaDerinlik",
+      "label": "Part Depth (mm)",
       "label_i18n": {
         "en": "Part Depth (mm)",
         "tr": "Parca Derinligi (mm)",
@@ -20,7 +20,7 @@
       "unit": "mm",
       "default": 50,
       "min": 0,
-      "businessContext": "ParcaDerinlik",
+      "businessContext": "Part depth in mold direction.",
       "businessContext_i18n": {
         "en": "Part depth in mold direction.",
         "tr": "Parcanin kalip hareket yonundeki derinligi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "buzulmeOrani",
-      "label": "BuzulmeOrani",
+      "label": "Shrinkage Rate (%)",
       "label_i18n": {
         "en": "Shrinkage Rate (%)",
         "tr": "Buzulme Ratioi (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 1.5,
       "min": 0,
-      "businessContext": "BuzulmeOrani",
+      "businessContext": "Polymer shrinkage rate.",
       "businessContext_i18n": {
         "en": "Polymer shrinkage rate.",
         "tr": "Polimerin Tmostsion Ratio.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yanYuzeyUzunluk",
-      "label": "YanYuzeyUzunluk",
+      "label": "Side Wall Length (mm)",
       "label_i18n": {
         "en": "Side Wall Length (mm)",
         "tr": "Yan Yuzey Uzunlugu (mm)",
@@ -70,7 +70,7 @@
       "unit": "mm",
       "default": 100,
       "min": 0,
-      "businessContext": "YanYuzeyUzunluk",
+      "businessContext": "Mold side wall length.",
       "businessContext_i18n": {
         "en": "Mold side wall length.",
         "tr": "Kalip yan yuzey uzunlugu.",

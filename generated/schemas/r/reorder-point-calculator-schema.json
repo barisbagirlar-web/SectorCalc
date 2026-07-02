@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ortTalep",
-      "label": "OrtTalep",
+      "label": "Avg Daily Demand",
       "label_i18n": {
         "en": "Avg Daily Demand",
         "tr": "Aandrage Daily Talep",
@@ -20,7 +20,7 @@
       "unit": "units",
       "default": 100,
       "min": 0,
-      "businessContext": "OrtTalep",
+      "businessContext": "Average daily demand.",
       "businessContext_i18n": {
         "en": "Average daily demand.",
         "tr": "Daily Mean talep.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "stdSapma",
-      "label": "Talep Standart Sapma",
+      "label": "Demand Std Dev",
       "label_i18n": {
         "en": "Demand Std Dev",
         "tr": "Talep Standart Sapma",
@@ -45,7 +45,7 @@
       "unit": "units",
       "default": 20,
       "min": 0,
-      "businessContext": "StdSapma",
+      "businessContext": "Demand variability.",
       "businessContext_i18n": {
         "en": "Demand variability.",
         "tr": "Talep degiskenligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tedarikSure",
-      "label": "TedarikSure",
+      "label": "Lead Time (Days)",
       "label_i18n": {
         "en": "Lead Time (Days)",
         "tr": "Tedarik Time (Day)",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 7,
       "min": 0,
-      "businessContext": "TedarikSure",
+      "businessContext": "Order-to-delivery time.",
       "businessContext_i18n": {
         "en": "Order-to-delivery time.",
         "tr": "Siparisten teslimata kadar gecen sure.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "Z",
-      "label": "Z Skoru (Servis Seviyesi)",
+      "label": "Z Score (Service Level)",
       "label_i18n": {
         "en": "Z Score (Service Level)",
         "tr": "Z Skoru (Servis Seviyesi)",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 1.65,
       "min": 0,
-      "businessContext": "Z",
+      "businessContext": "Z value for target service level (1.65=95%).",
       "businessContext_i18n": {
         "en": "Z value for target service level (1.65=95%).",
         "tr": "Servis seviyesine karsilik gelen Z Value (1.65=%95).",

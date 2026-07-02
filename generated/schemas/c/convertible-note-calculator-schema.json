@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "yatirim",
-      "label": "Investment Amount (TL)",
+      "label": "Investment (USD)",
       "label_i18n": {
         "en": "Investment (USD)",
         "tr": "Investment Amount (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Yatirim",
+      "businessContext": "Note investment amount.",
       "businessContext_i18n": {
         "en": "Note investment amount.",
         "tr": "Nota yatirilan tutar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "degerleme",
-      "label": "Degerleme",
+      "label": "Valuation Cap (USD)",
       "label_i18n": {
         "en": "Valuation Cap (USD)",
         "tr": "Valueleme Tavani (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5000000,
       "min": 0,
-      "businessContext": "Degerleme",
+      "businessContext": "Conversion valuation cap.",
       "businessContext_i18n": {
         "en": "Conversion valuation cap.",
         "tr": "Donusumdeki tavan Valueleme.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "iskonto",
-      "label": "Iskonto",
+      "label": "Discount (%)",
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "Iskonto (%)",
@@ -71,7 +71,7 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Iskonto",
+      "businessContext": "Conversion discount.",
       "businessContext_i18n": {
         "en": "Conversion discount.",
         "tr": "Donusum iskontosu.",
@@ -83,7 +83,7 @@
     },
     {
       "id": "faiz",
-      "label": "Faiz (%)",
+      "label": "Interest (%)",
       "label_i18n": {
         "en": "Interest (%)",
         "tr": "Faiz (%)",
@@ -96,7 +96,7 @@
       "unit": "%",
       "default": 5,
       "min": 0,
-      "businessContext": "Faiz",
+      "businessContext": "Accrued interest.",
       "businessContext_i18n": {
         "en": "Accrued interest.",
         "tr": "Notun birikmis faizi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "kutle",
-      "label": "Kutle",
+      "label": "Particle Mass (kg)",
       "label_i18n": {
         "en": "Particle Mass (kg)",
         "tr": "Parcacik Masssi (kg)",
@@ -20,7 +20,7 @@
       "unit": "kg",
       "default": 9.11e-31,
       "min": 0,
-      "businessContext": "Kutle",
+      "businessContext": "Particle mass.",
       "businessContext_i18n": {
         "en": "Particle mass.",
         "tr": "Parcacigin Masssi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hiz",
-      "label": "Hiz",
+      "label": "Particle Velocity (m/s)",
       "label_i18n": {
         "en": "Particle Velocity (m/s)",
         "tr": "Parcacik Speedi (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 1000000,
       "min": 0,
-      "businessContext": "Hiz",
+      "businessContext": "Particle velocity.",
       "businessContext_i18n": {
         "en": "Particle velocity.",
         "tr": "Parcacigin Speedi.",

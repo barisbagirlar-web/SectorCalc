@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "grup1",
-      "label": "Grup1",
+      "label": "Group 1 Mean",
       "label_i18n": {
         "en": "Group 1 Mean",
         "tr": "Grup 1 Meansi",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Grup1",
+      "businessContext": "Mean of first group.",
       "businessContext_i18n": {
         "en": "Mean of first group.",
         "tr": "Birinci grubun Meansi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "grup2",
-      "label": "Grup2",
+      "label": "Group 2 Mean",
       "label_i18n": {
         "en": "Group 2 Mean",
         "tr": "Grup 2 Meansi",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 110,
       "min": 0,
-      "businessContext": "Grup2",
+      "businessContext": "Mean of second group.",
       "businessContext_i18n": {
         "en": "Mean of second group.",
         "tr": "Ikinci grubun Meansi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "grup1N",
-      "label": "Grup1N",
+      "label": "Group 1 N",
       "label_i18n": {
         "en": "Group 1 N",
         "tr": "Grup 1 Orneklem",
@@ -70,7 +70,7 @@
       "unit": "scalar",
       "default": 30,
       "min": 2,
-      "businessContext": "Grup1N",
+      "businessContext": "First group sample size.",
       "businessContext_i18n": {
         "en": "First group sample size.",
         "tr": "Birinci grubun orneklem Numbersi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "grup2N",
-      "label": "Grup2N",
+      "label": "Group 2 N",
       "label_i18n": {
         "en": "Group 2 N",
         "tr": "Grup 2 Orneklem",
@@ -95,7 +95,7 @@
       "unit": "scalar",
       "default": 30,
       "min": 2,
-      "businessContext": "Grup2N",
+      "businessContext": "Second group sample size.",
       "businessContext_i18n": {
         "en": "Second group sample size.",
         "tr": "Ikinci grubun orneklem Numbersi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "grup1Varyans",
-      "label": "Grup 1 Varyans",
+      "label": "Group 1 Variance",
       "label_i18n": {
         "en": "Group 1 Variance",
         "tr": "Grup 1 Varyans",
@@ -120,7 +120,7 @@
       "unit": "scalar",
       "default": 225,
       "min": 0,
-      "businessContext": "Grup1Varyans",
+      "businessContext": "First group variance.",
       "businessContext_i18n": {
         "en": "First group variance.",
         "tr": "Birinci grubun Variancei.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "grup2Varyans",
-      "label": "Grup 2 Varyans",
+      "label": "Group 2 Variance",
       "label_i18n": {
         "en": "Group 2 Variance",
         "tr": "Grup 2 Varyans",
@@ -145,7 +145,7 @@
       "unit": "scalar",
       "default": 225,
       "min": 0,
-      "businessContext": "Grup2Varyans",
+      "businessContext": "Second group variance.",
       "businessContext_i18n": {
         "en": "Second group variance.",
         "tr": "Ikinci grubun Variancei.",

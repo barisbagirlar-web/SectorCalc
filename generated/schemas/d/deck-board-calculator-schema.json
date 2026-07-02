@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "alan",
-      "label": "Alan",
+      "label": "Deck Area (m²)",
       "label_i18n": {
         "en": "Deck Area (m²)",
         "tr": "Deck Area (m²)",
@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 30,
       "min": 0,
-      "businessContext": "Alan",
+      "businessContext": "Area to cover.",
       "businessContext_i18n": {
         "en": "Area to cover.",
         "tr": "Dosenecek Area.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "tahtaEn",
-      "label": "Tahta Eni (m)",
+      "label": "Board Width (m)",
       "label_i18n": {
         "en": "Board Width (m)",
         "tr": "Tahta Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.14,
       "min": 0,
-      "businessContext": "TahtaEn",
+      "businessContext": "Board width.",
       "businessContext_i18n": {
         "en": "Board width.",
         "tr": "Tek tahtanin eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "tahtaBoy",
-      "label": "Tahta Boyu (m)",
+      "label": "Board Length (m)",
       "label_i18n": {
         "en": "Board Length (m)",
         "tr": "Tahta Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 3,
       "min": 0,
-      "businessContext": "TahtaBoy",
+      "businessContext": "Board length.",
       "businessContext_i18n": {
         "en": "Board length.",
         "tr": "Tek tahtanin Heightu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "fire",
-      "label": "Scrap Rate (%)",
+      "label": "Waste Factor (%)",
       "label_i18n": {
         "en": "Waste Factor (%)",
         "tr": "Scrap Ratio (%)",
@@ -95,7 +95,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Fire",
+      "businessContext": "Cutting waste.",
       "businessContext_i18n": {
         "en": "Cutting waste.",
         "tr": "Kesim kaybi.",

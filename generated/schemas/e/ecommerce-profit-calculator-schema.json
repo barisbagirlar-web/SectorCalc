@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ciro",
-      "label": "Ciro (TL)",
+      "label": "Revenue (USD)",
       "label_i18n": {
         "en": "Revenue (USD)",
         "tr": "Ciro (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Total Revenue.",
+      "businessContext": "Total revenue.",
       "businessContext_i18n": {
         "en": "Total revenue.",
         "tr": "Total Revenue.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "cogs",
-      "label": "SMM (TL)",
+      "label": "COGS (USD)",
       "label_i18n": {
         "en": "COGS (USD)",
         "tr": "SMM (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 300000,
       "min": 0,
-      "businessContext": "Cogs",
+      "businessContext": "Cost of goods sold.",
       "businessContext_i18n": {
         "en": "Cost of goods sold.",
         "tr": "Satilan mal Costi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "pazarlama",
-      "label": "Pazarlama (TL)",
+      "label": "Marketing (USD)",
       "label_i18n": {
         "en": "Marketing (USD)",
         "tr": "Pazarlama (TL)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 80000,
       "min": 0,
-      "businessContext": "Reklam ve pazarlama gideri.",
+      "businessContext": "Marketing expense.",
       "businessContext_i18n": {
         "en": "Marketing expense.",
         "tr": "Reklam ve pazarlama gideri.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "operasyon",
-      "label": "Operasyon (TL)",
+      "label": "Operations (USD)",
       "label_i18n": {
         "en": "Operations (USD)",
         "tr": "Operasyon (TL)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Operasyon",
+      "businessContext": "Warehouse, shipping, software costs.",
       "businessContext_i18n": {
         "en": "Warehouse, shipping, software costs.",
         "tr": "Depo, kargo, yazilim giderleri.",

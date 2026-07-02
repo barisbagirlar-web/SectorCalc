@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "hisseFiyati",
-      "label": "HisseFiyati",
+      "label": "Share Price (USD)",
       "label_i18n": {
         "en": "Share Price (USD)",
         "tr": "Hisse Fiyati (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 100,
       "min": 0,
-      "businessContext": "HisseFiyati",
+      "businessContext": "Current market price per share.",
       "businessContext_i18n": {
         "en": "Current market price per share.",
         "tr": "Hisse senedinin guncel piyasa fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "hisseBasiKar",
-      "label": "HisseBasiKar",
+      "label": "Earnings Per Share (USD)",
       "label_i18n": {
         "en": "Earnings Per Share (USD)",
         "tr": "Hisse Basi Kâr (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 5,
       "min": 0,
-      "businessContext": "HisseBasiKar",
+      "businessContext": "Net earnings per share.",
       "businessContext_i18n": {
         "en": "Net earnings per share.",
         "tr": "Sirketin hisse basina dusen Net Profiti.",

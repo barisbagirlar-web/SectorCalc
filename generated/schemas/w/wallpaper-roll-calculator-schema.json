@@ -20,7 +20,7 @@
       "unit": "m2",
       "default": 50,
       "min": 0,
-      "businessContext": "Kaplanacak duvar.",
+      "businessContext": "Wall area.",
       "businessContext_i18n": {
         "en": "Wall area.",
         "tr": "Kaplanacak duvar.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ruloEn",
-      "label": "Rulo Eni (m)",
+      "label": "Roll Width (m)",
       "label_i18n": {
         "en": "Roll Width (m)",
         "tr": "Rulo Eni (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.53,
       "min": 0,
-      "businessContext": "RuloEn",
+      "businessContext": "Wallpaper roll width.",
       "businessContext_i18n": {
         "en": "Wallpaper roll width.",
         "tr": "Duvar kagidi rulo eni.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ruloBoy",
-      "label": "Rulo Boyu (m)",
+      "label": "Roll Length (m)",
       "label_i18n": {
         "en": "Roll Length (m)",
         "tr": "Rulo Boyu (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "RuloBoy",
+      "businessContext": "Roll length.",
       "businessContext_i18n": {
         "en": "Roll length.",
         "tr": "Rulo uzunlugu.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "desenTekrari",
-      "label": "DesenTekrari",
+      "label": "Pattern Repeat (m)",
       "label_i18n": {
         "en": "Pattern Repeat (m)",
         "tr": "Desen Tekrari (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 0,
       "min": 0,
-      "businessContext": "DesenTekrari",
+      "businessContext": "Pattern repeat length.",
       "businessContext_i18n": {
         "en": "Pattern repeat length.",
         "tr": "Desen eslesme araligi.",

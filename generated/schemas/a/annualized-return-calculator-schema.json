@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "baslangic",
-      "label": "Baslangic",
+      "label": "Starting Value (USD)",
       "label_i18n": {
         "en": "Starting Value (USD)",
         "tr": "Baslangic Valuei (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 10000,
       "min": 0,
-      "businessContext": "Baslangic",
+      "businessContext": "Investment value at start of period.",
       "businessContext_i18n": {
         "en": "Investment value at start of period.",
         "tr": "Donem basi yatirim Valuei.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "bitis",
-      "label": "Bitis",
+      "label": "Ending Value (USD)",
       "label_i18n": {
         "en": "Ending Value (USD)",
         "tr": "Bitis Valuei (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 20000,
       "min": 0,
-      "businessContext": "Bitis",
+      "businessContext": "Investment value at end of period.",
       "businessContext_i18n": {
         "en": "Investment value at end of period.",
         "tr": "Donem sonu yatirim Valuei.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yil",
-      "label": "Yil",
+      "label": "Period (Years)",
       "label_i18n": {
         "en": "Period (Years)",
         "tr": "Duration (Year)",
@@ -70,7 +70,7 @@
       "unit": "years",
       "default": 5,
       "min": 0,
-      "businessContext": "Yil",
+      "businessContext": "Total investment period.",
       "businessContext_i18n": {
         "en": "Total investment period.",
         "tr": "Total Yatirim suresi.",

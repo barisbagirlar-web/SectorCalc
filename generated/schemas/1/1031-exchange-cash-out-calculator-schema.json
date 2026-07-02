@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "satisFiyati",
-      "label": "SatisFiyati",
+      "label": "Sale Price (USD)",
       "label_i18n": {
         "en": "Sale Price (USD)",
         "tr": "Satis Fiyati (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "SatisFiyati",
+      "businessContext": "Sale price of relinquished property.",
       "businessContext_i18n": {
         "en": "Sale price of relinquished property.",
         "tr": "Eski mulkun satis fiyati.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kalanBorc",
-      "label": "KalanBorc",
+      "label": "Remaining Debt (USD)",
       "label_i18n": {
         "en": "Remaining Debt (USD)",
         "tr": "KArea Debt (TRY)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "KalanBorc",
+      "businessContext": "Remaining mortgage balance.",
       "businessContext_i18n": {
         "en": "Remaining mortgage balance.",
         "tr": "Satilan mulkun kArea ipotek borcu.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yeniYatirim",
-      "label": "YeniYatirim",
+      "label": "New Investment (USD)",
       "label_i18n": {
         "en": "New Investment (USD)",
         "tr": "Ymosti Inandstmmostt (TRY)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 1800000,
       "min": 0,
-      "businessContext": "YeniYatirim",
+      "businessContext": "Total cost of replacement property.",
       "businessContext_i18n": {
         "en": "Total cost of replacement property.",
         "tr": "Yeni mulkun Total Costi.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "nakit1",
-      "label": "Nakit1",
+      "label": "Year 1 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 1 Cash Flow (USD)",
         "tr": "1. Yil Nakit Akisi (₺)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Nakit1",
+      "businessContext": "First year cash flow.",
       "businessContext_i18n": {
         "en": "First year cash flow.",
         "tr": "Projenin ilk yil nakit akisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "nakit2",
-      "label": "Nakit2",
+      "label": "Year 2 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 2 Cash Flow (USD)",
         "tr": "2. Yil Nakit Akisi (₺)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 40000,
       "min": 0,
-      "businessContext": "Nakit2",
+      "businessContext": "Second year cash flow.",
       "businessContext_i18n": {
         "en": "Second year cash flow.",
         "tr": "Projenin ikinci yil nakit akisi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "nakit3",
-      "label": "Nakit3",
+      "label": "Year 3 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 3 Cash Flow (USD)",
         "tr": "3. Yil Nakit Akisi (₺)",
@@ -70,7 +70,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Nakit3",
+      "businessContext": "Third year cash flow.",
       "businessContext_i18n": {
         "en": "Third year cash flow.",
         "tr": "Projenin ucuncu yil nakit akisi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "nakit4",
-      "label": "Nakit4",
+      "label": "Year 4 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 4 Cash Flow (USD)",
         "tr": "4. Yil Nakit Akisi (₺)",
@@ -95,7 +95,7 @@
       "unit": "USD",
       "default": 35000,
       "min": 0,
-      "businessContext": "Nakit4",
+      "businessContext": "Fourth year cash flow.",
       "businessContext_i18n": {
         "en": "Fourth year cash flow.",
         "tr": "Projenin dorduncu yil nakit akisi.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "nakit5",
-      "label": "Nakit5",
+      "label": "Year 5 Cash Flow (USD)",
       "label_i18n": {
         "en": "Year 5 Cash Flow (USD)",
         "tr": "5. Yil Nakit Akisi (₺)",
@@ -120,7 +120,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "Nakit5",
+      "businessContext": "Fifth year cash flow.",
       "businessContext_i18n": {
         "en": "Fifth year cash flow.",
         "tr": "Projenin besinci yil nakit akisi.",
@@ -145,7 +145,7 @@
       "unit": "%",
       "default": 10,
       "min": 0,
-      "businessContext": "Iskonto",
+      "businessContext": "Discount rate reflecting cost of capital.",
       "businessContext_i18n": {
         "en": "Discount rate reflecting cost of capital.",
         "tr": "Sermaye Costini yansitan iskonto Ratioi.",
@@ -157,7 +157,7 @@
     },
     {
       "id": "yatirim",
-      "label": "Initial Investment (₺)",
+      "label": "Initial Investment (USD)",
       "label_i18n": {
         "en": "Initial Investment (USD)",
         "tr": "Initial Investment (₺)",
@@ -170,7 +170,7 @@
       "unit": "USD",
       "default": 100000,
       "min": 0,
-      "businessContext": "Yatirim",
+      "businessContext": "Initial project investment.",
       "businessContext_i18n": {
         "en": "Initial project investment.",
         "tr": "Projenin Baslangic Investment Amount.",

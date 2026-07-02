@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "anapara",
-      "label": "Anapara (TL)",
+      "label": "Principal (TL)",
       "label_i18n": {
         "en": "Principal (TL)",
         "tr": "Anapara (TL)",
@@ -20,7 +20,7 @@
       "unit": "TL",
       "default": 10000,
       "min": 0,
-      "businessContext": "Anapara",
+      "businessContext": "Principal debt amount.",
       "businessContext_i18n": {
         "en": "Principal debt amount.",
         "tr": "Ana borc tutari.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "yillikFaiz",
-      "label": "YillikFaiz",
+      "label": "Annual Late Interest (%)",
       "label_i18n": {
         "en": "Annual Late Interest (%)",
         "tr": "Annual Gecikme Interesti (%)",
@@ -45,7 +45,7 @@
       "unit": "%",
       "default": 24,
       "min": 0,
-      "businessContext": "YillikFaiz",
+      "businessContext": "Legal default interest rate.",
       "businessContext_i18n": {
         "en": "Legal default interest rate.",
         "tr": "Yasal temerrut Interest Rate.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "gecikmeGun",
-      "label": "GecikmeGun",
+      "label": "Days Overdue",
       "label_i18n": {
         "en": "Days Overdue",
         "tr": "Gecikme Gunu",
@@ -70,7 +70,7 @@
       "unit": "days",
       "default": 90,
       "min": 0,
-      "businessContext": "GecikmeGun",
+      "businessContext": "Days past due.",
       "businessContext_i18n": {
         "en": "Days past due.",
         "tr": "Maturity asimi suresi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "bilesimSikligi",
-      "label": "BilesimSikligi",
+      "label": "Compounding Frequency (Days)",
       "label_i18n": {
         "en": "Compounding Frequency (Days)",
         "tr": "Bilesim Sikligi (Gun)",
@@ -95,7 +95,7 @@
       "unit": "days",
       "default": 30,
       "min": 0,
-      "businessContext": "BilesimSikligi",
+      "businessContext": "Interest capitalization period.",
       "businessContext_i18n": {
         "en": "Interest capitalization period.",
         "tr": "Faizin Principalya eklendigi periyot.",

@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "dogustan",
-      "label": "Dogustan",
+      "label": "Inherent Risk (%)",
       "label_i18n": {
         "en": "Inherent Risk (%)",
         "tr": "Dogustan Risk (%)",
@@ -21,7 +21,7 @@
       "default": 50,
       "min": 0,
       "max": 100,
-      "businessContext": "Dogustan",
+      "businessContext": "Risk inherent in the business operations.",
       "businessContext_i18n": {
         "en": "Risk inherent in the business operations.",
         "tr": "Workletmenin yapisindan kaynaklanan hata riski.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "kontrol",
-      "label": "Kontrol Riski (%)",
+      "label": "Control Risk (%)",
       "label_i18n": {
         "en": "Control Risk (%)",
         "tr": "Kontrol Riski (%)",
@@ -47,7 +47,7 @@
       "default": 40,
       "min": 0,
       "max": 100,
-      "businessContext": "Kontrol",
+      "businessContext": "Risk that internal controls fail to prevent errors.",
       "businessContext_i18n": {
         "en": "Risk that internal controls fail to prevent errors.",
         "tr": "Ic kontrollerin hatayi onleyememe riski.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "tespit",
-      "label": "Tespit Riski (%)",
+      "label": "Detection Risk (%)",
       "label_i18n": {
         "en": "Detection Risk (%)",
         "tr": "Tespit Riski (%)",
@@ -73,7 +73,7 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Tespit",
+      "businessContext": "Risk that the auditor fails to detect errors.",
       "businessContext_i18n": {
         "en": "Risk that the auditor fails to detect errors.",
         "tr": "DeNetcinin hatayi bulamama riski.",

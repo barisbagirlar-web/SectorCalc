@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "pazarlama",
-      "label": "Pazarlama Gideri (TL)",
+      "label": "Marketing Spend (USD)",
       "label_i18n": {
         "en": "Marketing Spend (USD)",
         "tr": "Pazarlama Gideri (TL)",
@@ -20,7 +20,7 @@
       "unit": "USD",
       "default": 50000,
       "min": 0,
-      "businessContext": "Pazarlama",
+      "businessContext": "Marketing expenses.",
       "businessContext_i18n": {
         "en": "Marketing expenses.",
         "tr": "Donem pazarlama harcamasi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "satisGideri",
-      "label": "SatisGideri",
+      "label": "Sales Cost (USD)",
       "label_i18n": {
         "en": "Sales Cost (USD)",
         "tr": "Satis Gideri (TL)",
@@ -45,7 +45,7 @@
       "unit": "USD",
       "default": 30000,
       "min": 0,
-      "businessContext": "SatisGideri",
+      "businessContext": "Sales team costs.",
       "businessContext_i18n": {
         "en": "Sales team costs.",
         "tr": "Satis ekibi giderleri.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yeniMusteri",
-      "label": "YeniMusteri",
+      "label": "New Customers",
       "label_i18n": {
         "en": "New Customers",
         "tr": "Yeni Musteri (Quantity)",
@@ -70,7 +70,7 @@
       "unit": "customers",
       "default": 100,
       "min": 0,
-      "businessContext": "YeniMusteri",
+      "businessContext": "New customers acquired.",
       "businessContext_i18n": {
         "en": "New customers acquired.",
         "tr": "Kazanilan yeni musteri Numbersi.",

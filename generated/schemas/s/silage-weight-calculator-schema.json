@@ -2,12 +2,12 @@
   "toolName": "silage-weight-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "agriculture-food-beverage",
-  "sector": "Tarim, Denizcilik ve Sondaj",
+  "sector": "Agriculture, Maritime and Drilling",
   "sectorId": "agriculture-food-beverage",
   "inputs": [
     {
       "id": "siloHacim",
-      "label": "Silo Hacmi (m³)",
+      "label": "Silo Volume (m³)",
       "label_i18n": {
         "en": "Silo Volume (m³)",
         "tr": "Silo Hacmi (m³)",
@@ -20,7 +20,7 @@
       "unit": "m3",
       "default": 500,
       "min": 0,
-      "businessContext": "Silonun toplam hacmi.",
+      "businessContext": "Total silo volume.",
       "businessContext_i18n": {
         "en": "Total silo volume.",
         "tr": "Silonun toplam hacmi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "sikistirmaYogunlugu",
-      "label": "SikistirmaYogunlugu",
+      "label": "Packing Density (kg/m³)",
       "label_i18n": {
         "en": "Packing Density (kg/m³)",
         "tr": "Compression Dmostsity (kg/m³)",
@@ -45,7 +45,7 @@
       "unit": "kg/m3",
       "default": 700,
       "min": 0,
-      "businessContext": "SikistirmaYogunlugu",
+      "businessContext": "Packed silage density.",
       "businessContext_i18n": {
         "en": "Packed silage density.",
         "tr": "Sikistirilmis yem yogunlugu.",

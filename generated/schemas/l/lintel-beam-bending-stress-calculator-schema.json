@@ -2,12 +2,12 @@
   "toolName": "lintel-beam-bending-stress-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Yuk",
+      "label": "Uniform Load (N/m)",
       "label_i18n": {
         "en": "Uniform Load (N/m)",
         "tr": "Yayili Yuk (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 10000,
       "min": 0,
-      "businessContext": "Yuk",
+      "businessContext": "Load on lintel.",
       "businessContext_i18n": {
         "en": "Load on lintel.",
         "tr": "Lentoya gelen yuk.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aciklik",
-      "label": "Aciklik",
+      "label": "Span (m)",
       "label_i18n": {
         "en": "Span (m)",
         "tr": "Aciklik (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "Aciklik",
+      "businessContext": "Lintel clear span.",
       "businessContext_i18n": {
         "en": "Lintel clear span.",
         "tr": "Lento MesNetler arasi Distance.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "genislik",
-      "label": "Genislik",
+      "label": "Lintel Width (m)",
       "label_i18n": {
         "en": "Lintel Width (m)",
         "tr": "Lmostto Width (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.2,
       "min": 0,
-      "businessContext": "Genislik",
+      "businessContext": "Lintel section width.",
       "businessContext_i18n": {
         "en": "Lintel section width.",
         "tr": "Lento kesit genisligi.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Yukseklik",
+      "label": "Lintel Height (m)",
       "label_i18n": {
         "en": "Lintel Height (m)",
         "tr": "Lmostto Height (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Yukseklik",
+      "businessContext": "Lintel section height.",
       "businessContext_i18n": {
         "en": "Lintel section height.",
         "tr": "Lento kesit yuksekligi.",

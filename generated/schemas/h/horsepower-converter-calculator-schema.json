@@ -2,12 +2,12 @@
   "toolName": "horsepower-converter-calculator",
   "catalogCategory": "conversion",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "deger",
-      "label": "Power Valuei",
+      "label": "Power Value",
       "label_i18n": {
         "en": "Power Value",
         "tr": "Power Value",
@@ -20,7 +20,7 @@
       "unit": "scalar",
       "default": 100,
       "min": 0,
-      "businessContext": "Deger",
+      "businessContext": "Power to convert.",
       "businessContext_i18n": {
         "en": "Power to convert.",
         "tr": "Donusturulecek Power.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "kaynak",
-      "label": "Kaynak Birim (0=HP, 1=kW, 2=PS)",
+      "label": "Source Unit (0=HP, 1=kW, 2=PS)",
       "label_i18n": {
         "en": "Source Unit (0=HP, 1=kW, 2=PS)",
         "tr": "Kaynak Birim (0=HP, 1=kW, 2=PS)",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 0,
       "min": 0,
-      "businessContext": "Girilen birim.",
+      "businessContext": "Input unit.",
       "businessContext_i18n": {
         "en": "Input unit.",
         "tr": "Girilen birim.",

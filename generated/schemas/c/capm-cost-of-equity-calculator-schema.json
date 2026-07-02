@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "risksizFaiz",
-      "label": "Risksiz Faiz (%)",
+      "label": "Risk-Free Rate (%)",
       "label_i18n": {
         "en": "Risk-Free Rate (%)",
         "tr": "Risksiz Faiz (%)",
@@ -20,7 +20,7 @@
       "unit": "%",
       "default": 8,
       "min": 0,
-      "businessContext": "Devlet tahvili gibi risksiz Return on Investment.",
+      "businessContext": "Return on risk-free assets (e.g., government bonds).",
       "businessContext_i18n": {
         "en": "Return on risk-free assets (e.g., government bonds).",
         "tr": "Devlet tahvili gibi risksiz Return on Investment.",
@@ -45,7 +45,7 @@
       "unit": "scalar",
       "default": 1.2,
       "min": 0,
-      "businessContext": "Beta",
+      "businessContext": "Stock's sensitivity to market movements.",
       "businessContext_i18n": {
         "en": "Stock's sensitivity to market movements.",
         "tr": "Hissenin piyasaya duyarlilik katNumbersi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "piyasaPrimi",
-      "label": "Piyasa Risk Primi (%)",
+      "label": "Market Risk Premium (%)",
       "label_i18n": {
         "en": "Market Risk Premium (%)",
         "tr": "Piyasa Risk Primi (%)",
@@ -70,7 +70,7 @@
       "unit": "%",
       "default": 6,
       "min": 0,
-      "businessContext": "PiyasaPrimi",
+      "businessContext": "Excess return of market over risk-free rate.",
       "businessContext_i18n": {
         "en": "Excess return of market over risk-free rate.",
         "tr": "Piyasanin risksiz faiz uzerindeki getiri fazlasi.",

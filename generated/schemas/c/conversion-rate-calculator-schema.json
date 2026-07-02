@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "ziyaretci",
-      "label": "Ziyaretci",
+      "label": "Visitors",
       "label_i18n": {
         "en": "Visitors",
         "tr": "Ziyaretci (Quantity)",
@@ -20,7 +20,7 @@
       "unit": "visitors",
       "default": 10000,
       "min": 1,
-      "businessContext": "Ziyaretci",
+      "businessContext": "Total website visitors.",
       "businessContext_i18n": {
         "en": "Total website visitors.",
         "tr": "Total web sitesi ziyaretcisi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "donusum",
-      "label": "Donusum",
+      "label": "Conversions",
       "label_i18n": {
         "en": "Conversions",
         "tr": "Donusum (Quantity)",
@@ -45,7 +45,7 @@
       "unit": "conversions",
       "default": 500,
       "min": 0,
-      "businessContext": "Donusum",
+      "businessContext": "Completed target actions.",
       "businessContext_i18n": {
         "en": "Completed target actions.",
         "tr": "Hedef eylemi gerceklestiren Numbersi.",

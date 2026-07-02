@@ -2,12 +2,12 @@
   "toolName": "runway-length-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "automotive-transport",
-  "sector": "Mekanik, Otomotiv ve Havacilik",
+  "sector": "Mechanical, Automotive and Aviation",
   "sectorId": "automotive-transport",
   "inputs": [
     {
       "id": "kalkisHiz",
-      "label": "KalkisHiz",
+      "label": "Takeoff Speed (m/s)",
       "label_i18n": {
         "en": "Takeoff Speed (m/s)",
         "tr": "Kalkis Speedi (m/s)",
@@ -20,7 +20,7 @@
       "unit": "m/s",
       "default": 80,
       "min": 0,
-      "businessContext": "KalkisHiz",
+      "businessContext": "Aircraft rotation speed.",
       "businessContext_i18n": {
         "en": "Aircraft rotation speed.",
         "tr": "Ucagin yerden kesilme Speedi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ivme",
-      "label": "Mean Acceleration (m/s²)",
+      "label": "Average Acceleration (m/s²)",
       "label_i18n": {
         "en": "Average Acceleration (m/s²)",
         "tr": "Mean Acceleration (m/s²)",
@@ -45,7 +45,7 @@
       "unit": "m/s2",
       "default": 3,
       "min": 0,
-      "businessContext": "Engine Thrustyle Speedlanma.",
+      "businessContext": "Engine thrust acceleration.",
       "businessContext_i18n": {
         "en": "Engine thrust acceleration.",
         "tr": "Engine Thrustyle Speedlanma.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "ruzgarHiz",
-      "label": "RuzgarHiz",
+      "label": "Headwind Speed (m/s)",
       "label_i18n": {
         "en": "Headwind Speed (m/s)",
         "tr": "Karsi Wind Speed (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 5,
       "min": 0,
-      "businessContext": "RuzgarHiz",
+      "businessContext": "Runway headwind component.",
       "businessContext_i18n": {
         "en": "Runway headwind component.",
         "tr": "Pist basi ruzgar.",

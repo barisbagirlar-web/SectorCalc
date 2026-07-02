@@ -2,12 +2,12 @@
   "toolName": "timber-beam-shear-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "kesmeKuvveti",
-      "label": "Kesme Kuvveti (N)",
+      "label": "Shear Force (N)",
       "label_i18n": {
         "en": "Shear Force (N)",
         "tr": "Kesme Kuvveti (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 20000,
       "min": 0,
-      "businessContext": "KesmeKuvveti",
+      "businessContext": "Beam shear force.",
       "businessContext_i18n": {
         "en": "Beam shear force.",
         "tr": "Beame etkiymost kesme kuvandti.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "genislik",
-      "label": "Genislik",
+      "label": "Section Width (m)",
       "label_i18n": {
         "en": "Section Width (m)",
         "tr": "Kesit Width (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.15,
       "min": 0,
-      "businessContext": "Genislik",
+      "businessContext": "Timber section width.",
       "businessContext_i18n": {
         "en": "Timber section width.",
         "tr": "Ahsap kesit genisligi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yukseklik",
-      "label": "Yukseklik",
+      "label": "Section Height (m)",
       "label_i18n": {
         "en": "Section Height (m)",
         "tr": "Kesit Height (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 0.3,
       "min": 0,
-      "businessContext": "Yukseklik",
+      "businessContext": "Timber section height.",
       "businessContext_i18n": {
         "en": "Timber section height.",
         "tr": "Ahsap kesit yuksekligi.",

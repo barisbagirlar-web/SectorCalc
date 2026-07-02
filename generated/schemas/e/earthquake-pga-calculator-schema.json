@@ -2,12 +2,12 @@
   "toolName": "earthquake-pga-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "momentMagnitudu",
-      "label": "MomentMagnitudu",
+      "label": "Moment Magnitude (Mw)",
       "label_i18n": {
         "en": "Moment Magnitude (Mw)",
         "tr": "Deprem Buyuklugu (Mw)",
@@ -21,7 +21,7 @@
       "default": 7,
       "min": 0,
       "max": 10,
-      "businessContext": "MomentMagnitudu",
+      "businessContext": "Earthquake moment magnitude.",
       "businessContext_i18n": {
         "en": "Earthquake moment magnitude.",
         "tr": "Depremin moment magnitudu.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "mesafe",
-      "label": "Mesafe",
+      "label": "Distance from Epicenter (km)",
       "label_i18n": {
         "en": "Distance from Epicenter (km)",
         "tr": "Deprem Merkezine Uzaklik (km)",
@@ -46,7 +46,7 @@
       "unit": "km",
       "default": 50,
       "min": 0,
-      "businessContext": "Mesafe",
+      "businessContext": "Distance from epicenter.",
       "businessContext_i18n": {
         "en": "Distance from epicenter.",
         "tr": "Gozlem noktasinin deprem merkezine uzakligi.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "zeminKatsayisi",
-      "label": "ZeminKatsayisi",
+      "label": "Site Coefficient",
       "label_i18n": {
         "en": "Site Coefficient",
         "tr": "Zemin Coefficimostt",
@@ -71,7 +71,7 @@
       "unit": "scalar",
       "default": 1,
       "min": 0,
-      "businessContext": "ZeminKatsayisi",
+      "businessContext": "Soil amplification factor.",
       "businessContext_i18n": {
         "en": "Soil amplification factor.",
         "tr": "Zemin turu katNumbersi (sert=0.8, yumusak=1.5).",

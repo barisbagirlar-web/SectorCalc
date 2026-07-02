@@ -2,12 +2,12 @@
   "toolName": "clearance-interference-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "delikCap",
-      "label": "DelikCap",
+      "label": "Hole Diameter (m)",
       "label_i18n": {
         "en": "Hole Diameter (m)",
         "tr": "Delik Diameter (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 0.0501,
       "min": 0,
-      "businessContext": "DelikCap",
+      "businessContext": "Hole nominal diameter.",
       "businessContext_i18n": {
         "en": "Hole nominal diameter.",
         "tr": "Delik nominal Diameteri.",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 0.05,
       "min": 0,
-      "businessContext": "MilCap",
+      "businessContext": "Shaft nominal diameter.",
       "businessContext_i18n": {
         "en": "Shaft nominal diameter.",
         "tr": "Mil nominal Diameteri.",

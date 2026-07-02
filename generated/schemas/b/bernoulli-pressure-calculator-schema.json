@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "P1",
-      "label": "P1",
+      "label": "Point 1 Pressure (Pa)",
       "label_i18n": {
         "en": "Point 1 Pressure (Pa)",
         "tr": "1st Nokta Pressure (Pa)",
@@ -20,7 +20,7 @@
       "unit": "Pa",
       "default": 200000,
       "min": 0,
-      "businessContext": "Birinci noktadaki statik Pressure.",
+      "businessContext": "Static pressure at point 1.",
       "businessContext_i18n": {
         "en": "Static pressure at point 1.",
         "tr": "Birinci noktadaki statik Pressure.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "v1",
-      "label": "V1",
+      "label": "Point 1 Velocity (m/s)",
       "label_i18n": {
         "en": "Point 1 Velocity (m/s)",
         "tr": "1st Nokta Speed (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 2,
       "min": 0,
-      "businessContext": "Birinci noktadaki Flow Velocity.",
+      "businessContext": "Flow velocity at point 1.",
       "businessContext_i18n": {
         "en": "Flow velocity at point 1.",
         "tr": "Birinci noktadaki Flow Velocity.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "v2",
-      "label": "V2",
+      "label": "Point 2 Velocity (m/s)",
       "label_i18n": {
         "en": "Point 2 Velocity (m/s)",
         "tr": "2nd Nokta Speed (m/s)",
@@ -70,7 +70,7 @@
       "unit": "m/s",
       "default": 4,
       "min": 0,
-      "businessContext": "V2",
+      "businessContext": "Flow velocity at point 2.",
       "businessContext_i18n": {
         "en": "Flow velocity at point 2.",
         "tr": "Ikinci noktadaki Flow Velocity.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "h1",
-      "label": "1. Nokta Height (m)",
+      "label": "Point 1 Height (m)",
       "label_i18n": {
         "en": "Point 1 Height (m)",
         "tr": "1st Nokta Height (m)",
@@ -95,7 +95,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "H1",
+      "businessContext": "Elevation at point 1.",
       "businessContext_i18n": {
         "en": "Elevation at point 1.",
         "tr": "Birinci noktanin kotu.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "h2",
-      "label": "2. Nokta Height (m)",
+      "label": "Point 2 Height (m)",
       "label_i18n": {
         "en": "Point 2 Height (m)",
         "tr": "2nd Nokta Height (m)",
@@ -120,7 +120,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "H2",
+      "businessContext": "Elevation at point 2.",
       "businessContext_i18n": {
         "en": "Elevation at point 2.",
         "tr": "Ikinci noktanin kotu.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "yogunluk",
-      "label": "Yogunluk",
+      "label": "Fluid Density (kg/m³)",
       "label_i18n": {
         "en": "Fluid Density (kg/m³)",
         "tr": "Fluid Dmostsity (kg/m³)",
@@ -145,7 +145,7 @@
       "unit": "kg/m3",
       "default": 1000,
       "min": 0,
-      "businessContext": "Yogunluk",
+      "businessContext": "Fluid density.",
       "businessContext_i18n": {
         "en": "Fluid density.",
         "tr": "Akiskanin yogunlugu.",

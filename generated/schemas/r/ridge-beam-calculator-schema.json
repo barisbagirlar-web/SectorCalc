@@ -2,12 +2,12 @@
   "toolName": "ridge-beam-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "mechanical-hvac-energy-loss",
-  "sector": "Makine Muhendisligi",
+  "sector": "Mechanical Engineering",
   "sectorId": "mechanical-hvac-energy-loss",
   "inputs": [
     {
       "id": "catiYuk",
-      "label": "CatiYuk",
+      "label": "Roof Uniform Load (N/m)",
       "label_i18n": {
         "en": "Roof Uniform Load (N/m)",
         "tr": "Cati Yayili Yuku (N/m)",
@@ -20,7 +20,7 @@
       "unit": "N/m",
       "default": 8000,
       "min": 0,
-      "businessContext": "CatiYuk",
+      "businessContext": "Uniform load on ridge.",
       "businessContext_i18n": {
         "en": "Uniform load on ridge.",
         "tr": "Mahyaya gelen Unit yayili yuk.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "aciklik",
-      "label": "Aciklik",
+      "label": "Ridge Span (m)",
       "label_i18n": {
         "en": "Ridge Span (m)",
         "tr": "Mahya Acikligi (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 5,
       "min": 0,
-      "businessContext": "Aciklik",
+      "businessContext": "Ridge beam span.",
       "businessContext_i18n": {
         "en": "Ridge beam span.",
         "tr": "Mahya kirisi mesNetler arasi.",

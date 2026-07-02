@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "oncekiKonum",
-      "label": "OncekiKonum",
+      "label": "Previous Position (m)",
       "label_i18n": {
         "en": "Previous Position (m)",
         "tr": "Onceki Konum (m)",
@@ -20,7 +20,7 @@
       "unit": "m",
       "default": 10,
       "min": 0,
-      "businessContext": "OncekiKonum",
+      "businessContext": "Previous state estimate.",
       "businessContext_i18n": {
         "en": "Previous state estimate.",
         "tr": "Bir onceki adimdaki tahmin.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "oncekiHiz",
-      "label": "OncekiHiz",
+      "label": "Previous Velocity (m/s)",
       "label_i18n": {
         "en": "Previous Velocity (m/s)",
         "tr": "Onceki Speed (m/s)",
@@ -45,7 +45,7 @@
       "unit": "m/s",
       "default": 1,
       "min": 0,
-      "businessContext": "OncekiHiz",
+      "businessContext": "Previous velocity.",
       "businessContext_i18n": {
         "en": "Previous velocity.",
         "tr": "Onceki adim Speedi.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "kontrolIvme",
-      "label": "Kontrol Accelerationsi (m/s²)",
+      "label": "Control Acceleration (m/s²)",
       "label_i18n": {
         "en": "Control Acceleration (m/s²)",
         "tr": "Kontrol Accelerationsi (m/s²)",
@@ -70,7 +70,7 @@
       "unit": "m/s2",
       "default": 0,
       "min": 0,
-      "businessContext": "Sisteme uygulanan ivme.",
+      "businessContext": "System acceleration input.",
       "businessContext_i18n": {
         "en": "System acceleration input.",
         "tr": "Sisteme uygulanan ivme.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "dt",
-      "label": "Dt",
+      "label": "Time Step (s)",
       "label_i18n": {
         "en": "Time Step (s)",
         "tr": "Zaman Adimi (s)",
@@ -95,7 +95,7 @@
       "unit": "s",
       "default": 0.1,
       "min": 0,
-      "businessContext": "Dt",
+      "businessContext": "Sampling period.",
       "businessContext_i18n": {
         "en": "Sampling period.",
         "tr": "Ornekleme zamani.",

@@ -2,12 +2,12 @@
   "toolName": "beam-reaction-calculator",
   "catalogCategory": "construction-measurement",
   "categorySlug": "other",
-  "sector": "Ileri Fizik ve Kuantum",
+  "sector": "Advanced Physics and Quantum",
   "sectorId": "other",
   "inputs": [
     {
       "id": "yuk",
-      "label": "Yuk",
+      "label": "Point Load (N)",
       "label_i18n": {
         "en": "Point Load (N)",
         "tr": "Tekil Load (N)",
@@ -20,7 +20,7 @@
       "unit": "N",
       "default": 10000,
       "min": 0,
-      "businessContext": "Yuk",
+      "businessContext": "Point force on beam.",
       "businessContext_i18n": {
         "en": "Point force on beam.",
         "tr": "Beame uygulanan tekil kuvandt.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "uzunluk",
-      "label": "Uzunluk",
+      "label": "Beam Length (m)",
       "label_i18n": {
         "en": "Beam Length (m)",
         "tr": "Beam Heightu (m)",
@@ -45,7 +45,7 @@
       "unit": "m",
       "default": 6,
       "min": 0,
-      "businessContext": "Uzunluk",
+      "businessContext": "Span between supports.",
       "businessContext_i18n": {
         "en": "Span between supports.",
         "tr": "MesNetler arasi Distance.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "yukKonum",
-      "label": "YukKonum",
+      "label": "Load Distance from A (m)",
       "label_i18n": {
         "en": "Load Distance from A (m)",
         "tr": "Yukun A Konumuna Uzakligi (m)",
@@ -70,7 +70,7 @@
       "unit": "m",
       "default": 2,
       "min": 0,
-      "businessContext": "YukKonum",
+      "businessContext": "Distance from left support to load.",
       "businessContext_i18n": {
         "en": "Distance from left support to load.",
         "tr": "Yukun sol mesNete uzakligi.",

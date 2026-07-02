@@ -7,7 +7,7 @@
   "inputs": [
     {
       "id": "atimSayisi",
-      "label": "AtimSayisi",
+      "label": "Picks per Minute (ppm)",
       "label_i18n": {
         "en": "Picks per Minute (ppm)",
         "tr": "Atim Numbersi (atim/dk)",
@@ -20,7 +20,7 @@
       "unit": "ppm",
       "default": 800,
       "min": 0,
-      "businessContext": "AtimSayisi",
+      "businessContext": "Loom picks per minute.",
       "businessContext_i18n": {
         "en": "Loom picks per minute.",
         "tr": "Tezgahin dakikadaki atim adedi.",
@@ -32,7 +32,7 @@
     },
     {
       "id": "durusSure",
-      "label": "Downtime (dk)",
+      "label": "Downtime (min)",
       "label_i18n": {
         "en": "Downtime (min)",
         "tr": "Downtime (dk)",
@@ -45,7 +45,7 @@
       "unit": "min",
       "default": 20,
       "min": 0,
-      "businessContext": "DurusSure",
+      "businessContext": "Total downtime per shift.",
       "businessContext_i18n": {
         "en": "Total downtime per shift.",
         "tr": "Vardiya basi Total durus.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "vardiyaSure",
-      "label": "Shift Duration (dk)",
+      "label": "Shift Duration (min)",
       "label_i18n": {
         "en": "Shift Duration (min)",
         "tr": "Vardiya Time (min)",
@@ -70,7 +70,7 @@
       "unit": "min",
       "default": 480,
       "min": 0,
-      "businessContext": "Total Shift Duration.",
+      "businessContext": "Total shift duration.",
       "businessContext_i18n": {
         "en": "Total shift duration.",
         "tr": "Total Shift Duration.",
@@ -82,7 +82,7 @@
     },
     {
       "id": "kumasSikligi",
-      "label": "KumasSikligi",
+      "label": "Fabric Density (picks/cm)",
       "label_i18n": {
         "en": "Fabric Density (picks/cm)",
         "tr": "Kumas Sikligi (atim/cm)",
@@ -95,7 +95,7 @@
       "unit": "picks/cm",
       "default": 25,
       "min": 0,
-      "businessContext": "KumasSikligi",
+      "businessContext": "Picks per cm.",
       "businessContext_i18n": {
         "en": "Picks per cm.",
         "tr": "cm basina atim sikligi.",

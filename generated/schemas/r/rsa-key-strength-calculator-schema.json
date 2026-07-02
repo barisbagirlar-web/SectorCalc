@@ -2,12 +2,12 @@
   "toolName": "rsa-key-strength-calculator",
   "catalogCategory": "everyday-life",
   "categorySlug": "technology-ai-cloud-cyber",
-  "sector": "Bilisim, Biyomedikal ve Maden",
+  "sector": "IT, Biomedical and Mining",
   "sectorId": "technology-ai-cloud-cyber",
   "inputs": [
     {
       "id": "rsaAnahtarUzunlugu",
-      "label": "RsaAnahtarUzunlugu",
+      "label": "RSA Key Length (bits)",
       "label_i18n": {
         "en": "RSA Key Length (bits)",
         "tr": "RSA Anahtar Lmostgth (bit)",
@@ -20,7 +20,7 @@
       "unit": "bits",
       "default": 2048,
       "min": 0,
-      "businessContext": "RSA anahtar boyu.",
+      "businessContext": "RSA key size.",
       "businessContext_i18n": {
         "en": "RSA key size.",
         "tr": "RSA anahtar boyu.",
