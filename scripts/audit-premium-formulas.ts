@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { getAllPremiumSchemas } from "../src/lib/features/premium-schema/schema-registry";
-import { FORMULA_META } from "../src/lib/features/premium-schema/formula-registry";
+import { FORMULA_REGISTRY_META } from "../src/lib/features/premium-schema/formula-registry";
 
 function runAudit() {
   const schemas = getAllPremiumSchemas();
@@ -35,7 +35,7 @@ function runAudit() {
 
     for (const step of schema.formulaPipeline || []) {
       const { formulaId, inputMap, outputId } = step;
-      const meta = FORMULA_META[formulaId];
+      const meta = FORMULA_REGISTRY_META.find((m) => m.formulaId === formulaId);
 
       if (!meta) {
         fileFails.push(`[UNKNOWN FN] Formula ID '${formulaId}' not found in registry`);

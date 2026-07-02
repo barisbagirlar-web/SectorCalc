@@ -27,8 +27,8 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
   formulaPipeline: [
     { formulaId: "measurement.roof_material_area", inputMap: { gableArea: "gableArea", wasteFactor: "wasteFactor" }, outputId: "measurement_roof_material_area_out" },
     { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" ,
-        buildingLength: "buildingLength",
-        buildingWidth: "buildingWidth"}, outputId: "footprint" },
+        buildingLength: "roofLength",
+        buildingWidth: "roofWidth"}, outputId: "footprint" },
     { formulaId: "measurement.roof_gable_area", inputMap: { footprint: "footprint", pitchAngle: "pitchAngle" }, outputId: "gableArea" },
   ],
   reportTemplate: { title: "Roof Area & Load Report", title_i18n: {"en":"Roof Area & Load Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },

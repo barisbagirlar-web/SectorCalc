@@ -1326,7 +1326,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
 
   // Iskele kiralama
   { id: "measurement.scaffold_area", family: "measurement", label: "Scaffold surface area", fn: (i) => num(i,"buildingPerimeter") * num(i,"buildingHeight") },
-  { id: "cost.scaffold_total", family: "cost", label: "Total scaffold cost", fn: (i) => num(i,"rental") * num(i,"rental") * num(i,"rental") + num(i,"area") * num(i,"laborCost") + num(i,"area") * num(i,"laborCost") + num(i,"transportCost") * num(i,"transportCost") },
+  { id: "cost.scaffold_total", family: "cost", label: "Total scaffold cost", fn: (i) => num(i,"rental") + num(i,"laborCost") + num(i,"transportCost") + num(i,"overrunCost") },
 
   // SPC limit
   { id: "measurement.spc_x_bar_avg", family: "measurement", label: "Average of subgroup means", fn: (i) => { const data = i.data; if(!Array.isArray(data) || data.length === 0) return 0; return data.reduce((s,r) => s + r, 0) / data.length; } },
@@ -1546,8 +1546,8 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.crop_roi_intervention", family: "cost", label: "Intervention ROI", fn: (i) => safeDivide(num(i,"financialLoss") - num(i,"interventionCost"), num(i,"interventionCost")) * 100 },
 
   // Machine EUAC
-  { id: "cost.machine_euac_capital", family: "cost", label: "EUAC capital", fn: (i) => num(i,"purchaseCost") * (num(i,"discountRate") / 100) / (1 - Math.pow(1 + num(i,"interestRate") / 100, -num(i,"lifeYears"))) },
-  { id: "cost.machine_euac_operating", family: "cost", label: "EUAC operating", fn: (i) => num(i,"annualOperatingCost") + num(i,"annualOperatingCost") + num(i,"annualEnergy") },
+  { id: "cost.machine_euac_capital", family: "cost", label: "EUAC capital", fn: (i) => num(i,"purchasePrice") * (num(i,"interestRate") / 100) / (1 - Math.pow(1 + num(i,"interestRate") / 100, -num(i,"lifeYears"))) },
+  { id: "cost.machine_euac_operating", family: "cost", label: "EUAC operating", fn: (i) => num(i,"annualOperatingCost") + num(i,"annualMaintenance") + num(i,"annualEnergy") },
   { id: "cost.machine_total_euac", family: "cost", label: "Total EUAC", fn: (i) => num(i,"euacCapital") + num(i,"euacOperating") },
 
   // TCO comparison
@@ -1676,7 +1676,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.poka_yoke_payback", family: "cost", label: "Poka-yoke payback", fn: (i) => safeDivide(num(i,"pokaYokeCost"), num(i,"pokaYokeSavings")) },
 
   // Food cost / menu pricing
-  { id: "cost.ingredient_cost_portion", family: "cost", label: "Ingredient cost per portion", fn: (i) => num(i,"ingredientCost") * num(i,"ingredientCost") },
+  { id: "cost.ingredient_cost_portion", family: "cost", label: "Ingredient cost per portion", fn: (i) => num(i,"ingredientCost") },
   { id: "cost.yield_adjusted_cost", family: "cost", label: "Yield adjusted cost", fn: (i) => safeDivide(num(i,"ingredientCostPortion"), num(i,"yieldPercent") / 100) },
   { id: "cost.portion_labor_cost", family: "cost", label: "Portion labor cost", fn: (i) => safeDivide(num(i,"laborCostPerPortion"), num(i,"laborCostPerPortion")) },
   { id: "cost.portion_overhead", family: "cost", label: "Portion overhead", fn: (i) => safeDivide(num(i,"overheadPerPortion"), num(i,"overheadPerPortion")) },
@@ -1685,12 +1685,12 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "measurement.target_menu_price", family: "measurement", label: "Target menu price", fn: (i) => safeDivide(num(i,"totalPortionCost"), num(i,"targetFoodCostPct") / 100) },
 
   // Project cost estimate
-  { id: "cost.project_direct_labor", family: "cost", label: "Project direct labor", fn: (i) => num(i,"directLabor") * num(i,"directLabor") },
-  { id: "cost.project_direct_material", family: "cost", label: "Project direct material", fn: (i) => num(i,"directMaterial") * num(i,"directMaterial") },
-  { id: "cost.project_equipment", family: "cost", label: "Project equipment cost", fn: (i) => num(i,"equipment") * num(i,"equipment") * num(i,"equipment") },
-  { id: "cost.project_subcontractor", family: "cost", label: "Project subcontractor cost", fn: (i) => num(i,"subcontractor") + num(i,"subcontractor") },
-  { id: "cost.project_overhead", family: "cost", label: "Project overhead", fn: (i) => (num(i,"directLabor") + num(i,"directMaterial")) * num(i,"overheadPercent") / 100 },
-  { id: "cost.project_contingency", family: "cost", label: "Project contingency", fn: (i) => (num(i,"directLabor") + num(i,"directMaterial") + num(i,"equipment") + num(i,"subcontractor") + num(i,"overheadPercent")) * num(i,"contingencyPercent") / 100 },
+  { id: "cost.project_direct_labor", family: "cost", label: "Project direct labor", fn: (i) => num(i,"directLabor") },
+  { id: "cost.project_direct_material", family: "cost", label: "Project direct material", fn: (i) => num(i,"directMaterial") },
+  { id: "cost.project_equipment", family: "cost", label: "Project equipment cost", fn: (i) => num(i,"equipment") },
+  { id: "cost.project_subcontractor", family: "cost", label: "Project subcontractor cost", fn: (i) => num(i,"subcontractor") },
+  { id: "cost.project_overhead", family: "cost", label: "Project overhead", fn: (i) => (num(i,"directLabor") + num(i,"directMaterial") + num(i,"equipment") + num(i,"subcontractor")) * (num(i,"overheadPercent") / 100) },
+  { id: "cost.project_contingency", family: "cost", label: "Project contingency", fn: (i) => { const d = num(i,"directLabor") + num(i,"directMaterial") + num(i,"equipment") + num(i,"subcontractor"); return (d + num(i,"projectOverhead")) * (num(i,"contingencyPercent") / 100); } },
   { id: "cost.project_total_estimate", family: "cost", label: "Project total estimate", fn: (i) => num(i,"projectDirectLabor") + num(i,"projectDirectMaterial") + num(i,"projectEquipment") + num(i,"projectSubcontractor") + num(i,"projectOverhead") + num(i,"projectContingency") },
   { id: "cost.project_cost_variance", family: "cost", label: "Project cost variance", fn: (i) => num(i,"actualCost") - num(i,"projectTotalEstimate") },
 
@@ -1709,18 +1709,18 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   { id: "cost.recipe_cost_per_kg", family: "cost", label: "Cost per kg output", fn: (i) => safeDivide(num(i,"recipeActual"), num(i,"actualUsage")) },
 
   // Restaurant food cost
-  { id: "cost.restaurant_theoretical_food", family: "cost", label: "Theoretical food cost", fn: (i) => num(i,"theoreticalFoodCost") * num(i,"theoreticalFoodCost") / 100 },
-  { id: "cost.restaurant_actual_food", family: "cost", label: "Actual food cost", fn: (i) => num(i,"actualFoodCost") + num(i,"actualFoodCost") - num(i,"actualFoodCost") },
-  { id: "cost.restaurant_variance_cost", family: "cost", label: "Food cost variance", fn: (i) => num(i,"restaurantActualFood") - num(i,"restaurantTheoreticalFood") },
-  { id: "measurement.restaurant_variance_pct", family: "measurement", label: "Food cost variance %", fn: (i) => safeDivide(num(i,"restaurantVariance"), num(i,"restaurantTheoreticalFood")) * 100 },
-  { id: "cost.restaurant_waste_cost", family: "cost", label: "Waste cost", fn: (i) => num(i,"wasteAmount") * num(i,"wasteAmount") },
-  { id: "cost.restaurant_theft_loss", family: "cost", label: "Theft loss", fn: (i) => num(i,"theftLoss") * num(i,"theftLoss") },
-  { id: "measurement.restaurant_ideal_margin", family: "measurement", label: "Ideal margin %", fn: (i) => (1 - num(i,"revenue") / 100) * 100 },
-  { id: "measurement.restaurant_actual_margin", family: "measurement", label: "Actual margin %", fn: (i) => (1 - safeDivide(num(i,"restaurantActualFood"), num(i,"revenue"))) * 100 },
+  { id: "cost.restaurant_theoretical_food", family: "cost", label: "Theoretical food cost", fn: (i) => num(i,"theoreticalFoodCost") },
+  { id: "cost.restaurant_actual_food", family: "cost", label: "Actual food cost", fn: (i) => num(i,"actualFoodCost") },
+  { id: "cost.restaurant_variance_cost", family: "cost", label: "Food cost variance", fn: (i) => num(i,"actualFoodCost") - num(i,"theoreticalFoodCost") },
+  { id: "measurement.restaurant_variance_pct", family: "measurement", label: "Food cost variance %", fn: (i) => safeDivide(num(i,"restaurantVariance"), num(i,"theoreticalFoodCost")) * 100 },
+  { id: "cost.restaurant_waste_cost", family: "cost", label: "Waste cost", fn: (i) => num(i,"wasteAmount") },
+  { id: "cost.restaurant_theft_loss", family: "cost", label: "Theft loss", fn: (i) => num(i,"theftLoss") },
+  { id: "measurement.restaurant_ideal_margin", family: "measurement", label: "Ideal margin %", fn: (i) => (1 - safeDivide(num(i,"theoreticalFoodCost"), num(i,"revenue"))) * 100 },
+  { id: "measurement.restaurant_actual_margin", family: "measurement", label: "Actual margin %", fn: (i) => (1 - safeDivide(num(i,"actualFoodCost"), num(i,"revenue"))) * 100 },
 
   // Robot vs manual
-  { id: "cost.manual_cost_annual", family: "cost", label: "Manual annual cost", fn: (i) => num(i,"manualLaborCost") * num(i,"manualLaborCost") + num(i,"numWorkers") + num(i,"numWorkers") },
-  { id: "cost.robot_cost_annual", family: "cost", label: "Robot annual cost", fn: (i) => num(i,"robotInvestment") + num(i,"robotMaintenance") + num(i,"robotEnergy") + num(i,"robotLife") },
+  { id: "cost.manual_cost_annual", family: "cost", label: "Manual annual cost", fn: (i) => num(i,"manualLaborCost") * num(i,"numWorkers") },
+  { id: "cost.robot_cost_annual", family: "cost", label: "Robot annual cost", fn: (i) => safeDivide(num(i,"robotInvestment"), num(i,"robotLife")) + num(i,"robotMaintenance") + num(i,"robotEnergy") + num(i,"robotLease") + num(i,"robotOperatorSalary") },
   { id: "measurement.robot_output", family: "measurement", label: "Robot annual output", fn: (i) => num(i,"robotOutput") * num(i,"robotOutput") * num(i,"robotOutput") * 60 },
   { id: "measurement.manual_output", family: "measurement", label: "Manual annual output", fn: (i) => num(i,"manualOutput") * num(i,"manualCycleTime") * num(i,"manualUptime") * num(i,"numWorkers") * 60 },
   { id: "cost.cost_per_unit_manual", family: "cost", label: "Manual cost per unit", fn: (i) => safeDivide(num(i,"manualCostAnnual"), num(i,"manualOutput")) },
@@ -1731,7 +1731,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
   // Route cost (simple)
   { id: "cost.route_distance_cost", family: "cost", label: "Route distance cost", fn: (i) => num(i,"distance") * num(i,"fuelCostPerKm") },
   { id: "cost.route_time_cost", family: "cost", label: "Route time cost", fn: (i) => num(i,"distance") * num(i,"avgSpeed") },
-  { id: "cost.route_toll_cost", family: "cost", label: "Route toll cost", fn: (i) => num(i,"tollCost") + num(i,"tollCost") * num(i,"tollCost") },
+  { id: "cost.route_toll_cost", family: "cost", label: "Route toll cost", fn: (i) => num(i,"tollCost") },
   { id: "cost.route_maintenance_cost", family: "cost", label: "Route maintenance cost", fn: (i) => num(i,"distance") * num(i,"maintenancePerKm") },
   { id: "cost.route_overhead_cost", family: "cost", label: "Route overhead cost", fn: (i) => num(i,"distance") * num(i,"overheadPercent") },
   { id: "cost.route_total_cost_simple", family: "cost", label: "Total route cost", fn: (i) => num(i,"routeDistanceCost") + num(i,"routeTimeCost") + num(i,"routeTollCost") + num(i,"routeMaintenanceCost") + num(i,"routeOverhead") },
@@ -3278,7 +3278,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "cost.robot_roi",
     family: "cost",
     label: "Robot automation ROI including error cost",
-    fn: (inputs) => assertFinite(safeDivide((num(inputs, "annualLaborCost") + num(inputs, "annualErrorCost")) - num(inputs, "robotAnnualCost"), num(inputs, "robotInvestment")) * 100),
+    fn: (inputs) => assertFinite(safeDivide((num(inputs, "manualCostAnnual") + num(inputs, "annualErrorCost")) - num(inputs, "robotCostAnnual"), num(inputs, "robotInvestment")) * 100),
   },
   // -------------------------------------------------------------------------
   // Route cost — route-cost

@@ -28,7 +28,7 @@ export const MACHINE_ECONOMIC_LIFE_SCHEMA: PremiumCalculatorSchema = {
       ,
         purchasePrice: "purchasePrice"}, outputId: "euacCapital" },
     { formulaId: "cost.machine_euac_operating", inputMap: { annualOperatingCost: "annualOperatingCost", annualEnergy: "annualEnergy" ,
-        annualOperating: "annualOperating",
+        annualOperating: "annualOperatingCost",
         annualMaintenance: "annualMaintenance"}, outputId: "euacOperating" },
     { formulaId: "cost.machine_total_euac", inputMap: { euacCapital: "euacCapital", euacOperating: "euacOperating" }, outputId: "totalEuac" },
     { formulaId: "measurement.machine_economic_life", inputMap: { purchaseCost: "purchaseCost", purchaseResidualAmt: "residualValue", annualOperatingCost: "annualOperatingCost", discountRate: "discountRate" ,

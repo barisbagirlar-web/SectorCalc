@@ -75,7 +75,7 @@ const VALIDATION_RULES: ToolSchemaValidationRule[] = [
     message: "Verify interpass temperature control — max interpass typically 250°C for structural steels",
     standard_ref: "AWS D1.1 §4.11" },
   { id: "V5", action: "WARN", condition: "HAZ width > 8 mm",
-    message: "Large heat-affected zone — CTOD toughness testing at HAZ required per BS 7448-2",
+    message: "Large heat-affected zone — CTOD toughness testing at HAZ required per ISO 12135-2",
     standard_ref: "ISO 15614-1" },
   { id: "V6", action: "WARN", condition: "t8/5 < 5 s",
     message: "Rapid cooling — risk of martensite formation in HAZ; verify hardness < 350 HV",

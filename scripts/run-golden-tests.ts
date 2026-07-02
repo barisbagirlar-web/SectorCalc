@@ -23,12 +23,28 @@ import { OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA } from "../src/lib/featur
 import { CNC_MACHINING_COST_SCHEMA } from "../src/lib/features/premium-schema/schemas/cnc-machining-cost-analyzer";
 import { DOWNTIME_COST_ANALYZER_SCHEMA } from "../src/lib/features/premium-schema/schemas/downtime-cost-analyzer";
 import { BOLT_TORQUE_SCHEMA } from "../src/lib/features/premium-schema/schemas/bolt-torque-preload-analyzer";
+import { CNC_CYCLE_TIME_SCHEMA } from "../src/lib/features/premium-schema/schemas/cnc-cycle-time-analyzer";
+import { ROOF_AREA_SCHEMA } from "../src/lib/features/premium-schema/schemas/roof-area-load-analyzer";
+import { MACHINE_ECONOMIC_LIFE_SCHEMA } from "../src/lib/features/premium-schema/schemas/machine-economic-life-analyzer";
+import { ROBOT_VS_MANUAL_ANALYZER_SCHEMA } from "../src/lib/features/premium-schema/schemas/robot-vs-manual-analyzer";
+import { KWH_COST_SCHEMA } from "../src/lib/features/premium-schema/schemas/kwh-cost-analyzer";
+import { PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA } from "../src/lib/features/premium-schema/schemas/project-cost-estimate-analyzer";
+import { RESTAURANT_MENU_MARGIN_LEAK_SCHEMA } from "../src/lib/features/premium-schema/schemas/restaurant-menu-margin-leak-analyzer";
+import { SCAFFOLD_RENTAL_SCHEMA } from "../src/lib/features/premium-schema/schemas/scaffold-rental-cost-analyzer";
 
 const PRO_SCHEMAS: Record<string, any> = {
   "oee-equipment-effectiveness-calculator": OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA,
   "cnc-machining-cost-analyzer": CNC_MACHINING_COST_SCHEMA,
   "downtime-cost-analyzer": DOWNTIME_COST_ANALYZER_SCHEMA,
-  "bolt-torque-preload-analyzer": BOLT_TORQUE_SCHEMA
+  "bolt-torque-preload-analyzer": BOLT_TORQUE_SCHEMA,
+  "cnc-cycle-time-analyzer": CNC_CYCLE_TIME_SCHEMA,
+  "roof-area-load-analyzer": ROOF_AREA_SCHEMA,
+  "machine-economic-life-analyzer": MACHINE_ECONOMIC_LIFE_SCHEMA,
+  "robot-vs-manual-analyzer": ROBOT_VS_MANUAL_ANALYZER_SCHEMA,
+  "kwh-cost-analyzer": KWH_COST_SCHEMA,
+  "project-cost-estimate-analyzer": PROJECT_COST_ESTIMATE_ANALYZER_SCHEMA,
+  "restaurant-menu-margin-leak-analyzer": RESTAURANT_MENU_MARGIN_LEAK_SCHEMA,
+  "scaffold-rental-cost-analyzer": SCAFFOLD_RENTAL_SCHEMA
 };
 
 // ============================================================

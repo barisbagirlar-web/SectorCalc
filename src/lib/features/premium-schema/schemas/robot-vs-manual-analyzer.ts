@@ -49,7 +49,7 @@ export const ROBOT_VS_MANUAL_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { formulaId: "cost.cost_per_unit_manual", inputMap: { manualCostAnnual: "manualCostAnnual", manualOutput: "manualOutput" }, outputId: "costPerUnitManual" },
     { formulaId: "cost.cost_per_unit_robot", inputMap: { robotCostAnnual: "robotCostAnnual", robotOutput: "robotOutput" }, outputId: "costPerUnitRobot" },
     { formulaId: "cost.robot_roi", inputMap: { manualCostAnnual: "manualCostAnnual", robotCostAnnual: "robotCostAnnual", robotInvestment: "robotInvestment" ,
-        annualLaborCost: "annualLaborCost",
+        annualLaborCost: "manualLaborCost",
         annualErrorCost: "annualErrorCost",
         robotAnnualCost: "robotAnnualCost"}, outputId: "robotRoi" },
     { formulaId: "cost.robot_payback", inputMap: { robotInvestment: "robotInvestment", manualCostAnnual: "manualCostAnnual", robotCostAnnual: "robotCostAnnual" }, outputId: "robotPayback" },

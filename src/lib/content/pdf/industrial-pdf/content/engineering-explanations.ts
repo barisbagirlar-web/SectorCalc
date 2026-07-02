@@ -39,7 +39,7 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
       standards: [
         "ISO 15686-5:2017 — Buildings and constructed assets — service-life planning — life-cycle costing",
         "AACE International RP 17R-97 — Cost estimate classification system",
-        "DIN 276 — Building costs — planning and management",
+        "ISO 15686 — Building costs — planning and management",
         "PMBOK Guide 7th ed. — Project cost management",
       ],
       formulaDescription:
@@ -177,7 +177,7 @@ const EXPLANATIONS: Record<string, Partial<Record<SupportedLocale, PdfEngineerin
         "ISO 28000:2022 — Security and resilience in supply chains",
         "EN 16803:2016 — Intelligent transport systems",
         "SCOR Model — Supply Chain Operations Reference model (ASCM)",
-        "DIN 15185 — Warehouse management systems",
+        "ISO 5053 — Warehouse management systems",
       ],
       formulaDescription:
         "Total Logistics Cost = Distance Cost + Time Cost + Fuel Cost + Toll Cost + Driver Cost. Distance cost = route distance × cost per km. Time cost = duration × hourly operating cost. Fuel cost = distance × consumption rate × fuel price. A route optimization factor (actual / optimal route distance ratio) quantifies routing efficiency.",
