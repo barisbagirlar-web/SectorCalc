@@ -2,13 +2,12 @@
 
 import type { ReactNode } from "react";
 import { useLocale } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import { trackConversionEvent, mapEventToStage } from "@/lib/infrastructure/analytics/conversion-funnel";
 import type { SectorCalcEventName } from "@/lib/infrastructure/analytics/event-taxonomy";
 import { buildTrackedCtaHref } from "@/lib/features/campaigns/campaign-links";
 import { usePathname } from "next/navigation";
-import { stripLocalePrefix } from "@/i18n/routing";
 
 export type TrackedCtaLinkProps = {
   readonly href: string;

@@ -4,7 +4,6 @@ import { useMemo, type ReactNode } from "react";
 import { useLocale } from "@/lib/i18n-stub";
 import { GuidanceProvider } from "@/components/guidance/GuidanceContext";
 import { PremiumInputGuide } from "@/components/tool-guides/PremiumInputGuide";
-import type { AppLocale } from "@/i18n/routing";
 import { shouldRenderPremiumGuide } from "@/lib/features/tools/guide/tool-guide-policy";
 import type {
   GuidanceTier,

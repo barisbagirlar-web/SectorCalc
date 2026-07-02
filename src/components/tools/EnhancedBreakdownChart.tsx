@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { normalizeWasteTypeKey } from "@/lib/ui-shared/chart-helpers";
 import {
   buildBreakdownChartGroups,

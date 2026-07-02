@@ -7,7 +7,6 @@ import PageHero from "@/components/shared/PageHero";
 import { VerifyReportForm } from "@/components/trust-trace/VerifyReportForm";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{  }>;

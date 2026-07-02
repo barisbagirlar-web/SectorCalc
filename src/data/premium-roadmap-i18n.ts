@@ -1,4 +1,3 @@
-import type { AppLocale } from "@/i18n/routing";
 
 export type PremiumRoadmapCopy = {
   readonly eyebrow: string;

@@ -9,7 +9,6 @@ import { getCachedCategoryPageCatalogGroups } from "@/lib/catalog/cached-catalog
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{  }>;

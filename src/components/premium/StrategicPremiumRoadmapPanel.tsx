@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useLocale } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { getPremiumRoadmapCopy } from "@/data/premium-roadmap-i18n";
 import type { StrategicPremiumRoadmapCard } from "@/lib/catalog/strategic-premium-roadmap";
 

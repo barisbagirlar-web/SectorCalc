@@ -9,7 +9,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { buildEntityGraph } from "@/lib/infrastructure/seo/entity-graph";
 import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
-import type { AppLocale } from "@/i18n/routing";
 import { getLocaleTextDirection } from "@/lib/infrastructure/i18n/locale-config";
 import { getServerRegion } from "@/lib/features/compliance/server-region";
 import { RegionProvider } from "@/lib/features/compliance/region-context";

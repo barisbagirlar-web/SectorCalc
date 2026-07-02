@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { captureAttributionFromLocation } from "@/lib/infrastructure/analytics/attribution-storage";
-import { stripLocalePrefix } from "@/i18n/routing";
 
 /**
  * Captures UTM/referrer on every client navigation so funnel events

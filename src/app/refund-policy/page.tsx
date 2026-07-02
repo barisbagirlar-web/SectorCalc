@@ -7,7 +7,6 @@ import PageHero from "@/components/shared/PageHero";
 import { LegalContactBlock } from "@/components/legal/LegalContactBlock";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 export const revalidate = 3600;
 

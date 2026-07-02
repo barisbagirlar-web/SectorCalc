@@ -3,7 +3,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import {
   filterCaseStudiesForDatabase,
   formatEuroAmount,
@@ -19,7 +19,6 @@ import {
 import { listMergedPublishedCaseStudies } from "@/lib/features/case-studies/firestore-case-studies";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import { addLocaleToPath } from "@/lib/infrastructure/i18n/locale-routing";
 import { getLocalizedDuration } from "@/lib/features/case-studies/academic-format";

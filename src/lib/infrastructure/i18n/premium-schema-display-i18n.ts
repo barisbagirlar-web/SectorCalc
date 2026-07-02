@@ -1,7 +1,6 @@
 /**
  * Locale-aware premium schema display names for user-facing UI.
  */
-import type { AppLocale } from "@/i18n/routing";
 import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 
 const ANALYZER_SUFFIX = /\s+Analyzer$/i;

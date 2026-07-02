@@ -4,7 +4,6 @@ import { getTranslations } from "@/lib/i18n-stub";
 import { SectorMarginLanding } from "@/components/launch/SectorMarginLanding";
 import { CLEANING_CONTRACT_MARGIN_LANDING } from "@/data/sector-landing-pages";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{  }>;

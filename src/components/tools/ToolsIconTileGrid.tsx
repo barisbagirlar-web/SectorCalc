@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { Lock } from "lucide-react";
 import type { Tool } from "@/data/tools";
 

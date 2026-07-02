@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { CheckoutStartError, startCheckoutRedirect } from "@/lib/features/billing/start-checkout";
 import { buildPremiumPricingHref } from "@/lib/features/entitlements/premium-entitlements";
 import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";

@@ -1,7 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { AppLocale } from "@/i18n/routing";
 import type { CalculationReportCopy } from "@/lib/content/pdf/calculation-report-types";
 
 const PDF_REPORT_COPY: Record<AppLocale, CalculationReportCopy> = {

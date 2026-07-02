@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { getLocale, getTranslations } from "@/lib/i18n-stub";
 import { HubLink } from "@/components/layout/HubLink";

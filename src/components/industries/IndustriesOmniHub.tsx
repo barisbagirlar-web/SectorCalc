@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link as I18nLink } from "@/i18n/routing";
+import I18nLink from "next/link";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";
 import type { CatalogGroup } from "@/lib/catalog/catalog-types";

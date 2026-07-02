@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useEffect, useMemo, useRef } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";

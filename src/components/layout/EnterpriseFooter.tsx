@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { BRAND_ASSETS } from "@/config/brand";
 
 export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {

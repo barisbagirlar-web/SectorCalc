@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { SavedReportDetailContent } from "@/components/reports/SavedReportDetailContent";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 interface SavedReportPageParams {
   reportId: string;

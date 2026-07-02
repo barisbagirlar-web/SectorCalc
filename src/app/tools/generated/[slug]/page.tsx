@@ -2,11 +2,10 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
 import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
-import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
   getGeneratedToolSchema,

@@ -1,7 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { AppLocale } from "@/i18n/routing";
 
 /**
  * Tool titles are now English-only per platform policy.

@@ -1,5 +1,5 @@
 import { getTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 export async function HomeAboutSection() {
   const t = await getTranslations("homeAbout");

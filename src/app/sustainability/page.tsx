@@ -15,7 +15,6 @@ import {
   type SectorRegistryKey,
 } from "@/lib/os/registry/sectors";
 import { SmartModuleIds } from "@/lib/os/registry/smart-modules";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

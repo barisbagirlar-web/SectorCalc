@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";

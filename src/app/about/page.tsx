@@ -4,7 +4,6 @@ import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { ManifestoPageContent } from "@/components/manifesto/ManifestoPageContent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 import { buildAboutPageAuthorityJsonLd } from "@/lib/features/semantic/build-entity-authority-jsonld";
 
 type PageProps = { params: Promise<{  }> };

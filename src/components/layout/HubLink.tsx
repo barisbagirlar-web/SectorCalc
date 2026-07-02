@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 export interface HubLinkProps {
   href: string;

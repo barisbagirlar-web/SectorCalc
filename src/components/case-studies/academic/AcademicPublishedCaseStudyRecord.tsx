@@ -1,5 +1,5 @@
 import { getTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   formatEuroAmount,

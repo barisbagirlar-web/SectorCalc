@@ -1,7 +1,7 @@
 import { getTranslations } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { SITE } from "@/config/site";
 
 type FaqItem = { readonly q: string; readonly a: string };

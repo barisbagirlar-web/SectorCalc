@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { getFreeToolAuthorityCopy } from "@/lib/content/free-tool-authority";
 import { translateCalculatorPhrase } from "@/lib/infrastructure/i18n/calculator-phrase-translate";
 import {

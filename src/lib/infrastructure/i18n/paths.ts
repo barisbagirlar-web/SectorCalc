@@ -1,4 +1,3 @@
-import { routing, type AppLocale } from "@/i18n/routing";
 import { addLocaleToPath, stripLocaleFromPath } from "@/lib/infrastructure/i18n/locale-routing";
 
 export function withLocale(path: string, locale: AppLocale = "en"): string {

@@ -1,7 +1,6 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { GUIDE_REFERENCE_AUTHOR } from "@/config/guide-reference-author";
-import type { AppLocale } from "@/i18n/routing";
 
 type GuideAuthorBylineProps = {
   readonly locale: AppLocale;

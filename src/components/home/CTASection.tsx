@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { getTranslations } from "@/lib/i18n-stub";
 import { Container } from "@/components/ui/Container";
 

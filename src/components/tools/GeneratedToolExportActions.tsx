@@ -2,7 +2,8 @@
 
 import { useCallback } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
-import { Link, useRouter } from "@/i18n/routing";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useSubscription } from "@/hooks/useSubscription";
 import {
   downloadGeneratedToolCsv,

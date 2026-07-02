@@ -1,4 +1,3 @@
-import type { AppLocale } from "@/i18n/routing";
 import { formatGeneratedNumericValue } from "@/lib/features/generated-tools/format-generated-numeric";
 import { resolveGeneratedBreakdownLabel } from "@/lib/features/generated-tools/resolve-generated-display-text";
 import { resolveBreakdownOutputUnit } from "@/lib/features/generated-tools/resolve-output-unit";

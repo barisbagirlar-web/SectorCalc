@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 

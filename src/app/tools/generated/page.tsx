@@ -12,7 +12,6 @@ import { Suspense } from "react";
 import { GeneratedToolsHub } from "@/components/tools/GeneratedToolsHub";
 import { ToolsCategoryHub } from "@/components/tools/ToolsCategoryHub";
 import { buildGeneratedToolCatalog } from "@/lib/features/generated-tools/build-generated-catalog";
-import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";

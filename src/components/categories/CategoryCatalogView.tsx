@@ -12,7 +12,7 @@
 
 import { useMemo, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { cn } from "@/lib/core/cn";
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";

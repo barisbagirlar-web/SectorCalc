@@ -1,7 +1,6 @@
 import { BRAND_ASSETS } from "@/config/brand";
 import { buildOrganizationSameAs } from "@/config/knowledge-graph";
 import { LEGAL_ENTITY } from "@/config/legal-entity";
-import type { AppLocale } from "@/i18n/routing";
 
 /** Shared Organization / LocalBusiness trust signals for JSON-LD and microformats. */
 export const ORGANIZATION_TRUST = {

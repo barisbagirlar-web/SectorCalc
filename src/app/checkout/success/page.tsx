@@ -1,12 +1,11 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { resolveSafeReturnPath } from "@/lib/features/billing/billing-config";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{  }>;

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "next/navigation";
 import { useToolsPageSearch } from "@/components/tools/tools-page-search-context";
 
 /** Keeps hub search in ?q= so catalog grids can filter on the server during SSG. */

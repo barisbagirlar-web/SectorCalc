@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { getLocale, getTranslations } from "@/lib/i18n-stub";
 import { Container } from "@/components/ui/Container";
 import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";

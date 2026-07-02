@@ -1,4 +1,3 @@
-import type { AppLocale } from "@/i18n/routing";
 import {
   AR_SCHEMAS,
   DE_SCHEMAS,

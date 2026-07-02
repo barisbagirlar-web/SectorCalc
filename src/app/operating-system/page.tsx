@@ -4,7 +4,6 @@ import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OperatingSystemPageContent } from "@/components/operating-system/OperatingSystemPageContent";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

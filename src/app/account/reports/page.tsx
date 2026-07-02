@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { AccountReportsPageContent } from "@/components/reports/AccountReportsPageContent";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

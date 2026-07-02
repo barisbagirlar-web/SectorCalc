@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 type LocaleErrorProps = {
   readonly error: Error & { digest?: string };

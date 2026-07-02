@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { ProFeatureNotice } from "@/components/premium/ProFeatureNotice";
 import { getPricingHref } from "@/lib/features/tools/tool-links";

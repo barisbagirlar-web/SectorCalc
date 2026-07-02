@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import { Lock } from "lucide-react";
 import Link from "@/lib/ui-shared/navigation/next-link";
-import { Link as I18nLink } from "@/i18n/routing";
+import I18nLink from "next/link";
 import type { CatalogGroup } from "@/lib/catalog/catalog-types";
 import {
   DEFAULT_PREMIUM_REPORT_FAMILY,

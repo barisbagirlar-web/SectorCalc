@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 type IndustrialButtonVariant = "primary" | "secondary" | "risk";
 

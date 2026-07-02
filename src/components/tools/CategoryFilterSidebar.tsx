@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "next/navigation";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";
 import { cn } from "@/lib/core/cn";
 import { scrollToToolsList } from "@/lib/ui-shared/navigation/scroll-to-tools-list";

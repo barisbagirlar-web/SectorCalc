@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { FreeToolCategorySection, FreeToolsCategoryGroup } from "./FreeToolCategorySection";
 import type { ToolData } from "@/lib/features/tools/all-tools-data";
 import type { FreeToolCategorySlug } from "@/lib/features/free-tools/free-tool-categories";

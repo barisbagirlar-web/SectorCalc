@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -9,7 +9,6 @@ import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { SeoHubCampaignActions } from "@/components/campaign/SeoHubCampaignActions";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
-import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { buildSeoHubCrawlGroups } from "@/lib/infrastructure/seo/crawl-index";
 import {

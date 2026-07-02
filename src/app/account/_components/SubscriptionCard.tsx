@@ -1,5 +1,5 @@
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { normalizeUserSubscription, hasActiveSubscription, type UserSubscription } from "@/lib/features/billing/subscription";
 
 function formatPeriodEnd(value: string | undefined): string | null {

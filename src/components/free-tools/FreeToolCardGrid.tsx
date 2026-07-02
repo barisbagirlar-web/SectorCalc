@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 

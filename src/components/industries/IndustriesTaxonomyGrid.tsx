@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import {
   CATALOG_GRID_VARIANT_STYLES,
   type CatalogGridVariant,

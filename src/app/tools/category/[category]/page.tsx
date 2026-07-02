@@ -9,10 +9,9 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { ToolsIconTileGrid } from "@/components/tools/ToolsIconTileGrid";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
-import type { AppLocale } from "@/i18n/routing";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import {

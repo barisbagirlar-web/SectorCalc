@@ -3,7 +3,7 @@
 import type { Control, FieldErrors } from "react-hook-form";
 import { useMemo } from "react";
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { PremiumDynamicToolFormField } from "@/components/tools/PremiumDynamicToolFormField";
 import { PremiumToolReportModal } from "@/components/tools/PremiumToolReportModal";
 import { ResultPanel } from "@/components/tools/ResultPanel";

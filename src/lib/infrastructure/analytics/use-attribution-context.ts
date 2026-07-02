@@ -6,7 +6,6 @@ import {
   captureAttributionFromLocation,
   readStoredAttributionContext,
 } from "@/lib/infrastructure/analytics/attribution-storage";
-import { stripLocalePrefix } from "@/i18n/routing";
 import type { AttributionContext } from "@/lib/infrastructure/analytics/attribution";
 
 /**

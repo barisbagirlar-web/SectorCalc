@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SITE } from "@/config/site";
 

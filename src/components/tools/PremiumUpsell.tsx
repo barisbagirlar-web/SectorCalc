@@ -2,7 +2,7 @@
 
 import { Sparkles } from "lucide-react";
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 export function PremiumUpsell() {
   const t = useTranslations("generatedTool.premiumUpsell");

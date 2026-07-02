@@ -8,7 +8,6 @@ import { getIndustryBySlug } from "@/data/industries";
 import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
 import { industryRegistry, type IndustrySlug } from "@/lib/features/tools/industry-registry";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 interface IndustryPageParams {

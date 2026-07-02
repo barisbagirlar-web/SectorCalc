@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { getCategoryIcon } from "@/lib/catalog/category-icon-map";
 
 export type PremiumSectorCardProps = {

@@ -1,6 +1,6 @@
 import { Calendar, Clock, Briefcase, ArrowLeft, CheckCircle } from "lucide-react";
 import { getTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import type { CaseStudy } from "@/lib/features/case-studies/types";
 import { resolveGeneratedToolPath } from "@/lib/features/tools/paths";

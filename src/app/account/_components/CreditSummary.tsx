@@ -1,5 +1,5 @@
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 type CreditData = {
   available: number;

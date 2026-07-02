@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { AuditHistoryPanel } from "@/components/os/AuditHistoryPanel";
 import { PageLayout } from "@/components/layout/PageLayout";

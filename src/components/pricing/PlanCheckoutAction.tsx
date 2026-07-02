@@ -2,7 +2,7 @@
 
 import { StripePlanCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { SingleVerdictCheckoutButton } from "@/components/subscription/SingleVerdictCheckoutButton";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import {
  PLAN_CATALOG,
  type CheckoutPlanId,

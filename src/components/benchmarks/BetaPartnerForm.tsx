@@ -13,7 +13,6 @@ import {
   createBetaPartnerLead,
 } from "@/lib/features/benchmarks/create-beta-partner";
 import type { BetaPartnerFieldErrors, BetaPartnerInput } from "@/lib/features/benchmarks/benchmark-types";
-import { stripLocalePrefix } from "@/i18n/routing";
 import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import { appendAttributionToNotes } from "@/lib/features/campaigns/campaign-links";

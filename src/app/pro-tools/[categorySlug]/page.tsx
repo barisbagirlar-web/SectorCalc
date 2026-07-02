@@ -7,7 +7,7 @@ import { PremiumToolGrid } from "@/components/catalog/PremiumToolGrid";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
@@ -16,7 +16,6 @@ import {
 } from "@/lib/features/premium/premium-category-resolver";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{  categorySlug: string }>;

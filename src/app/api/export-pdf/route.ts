@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { isAppLocale, type AppLocale } from "@/i18n/routing";
 import {
   getCalculationReportCopy,
 } from "@/lib/infrastructure/email/calculation-report-email-copy";

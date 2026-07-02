@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { CalculatorLibraryContent } from "@/components/library/CalculatorLibraryContent";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

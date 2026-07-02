@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { SITE } from "@/config/site";
 
 type FooterTrustTraceProps = {

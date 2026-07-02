@@ -13,7 +13,6 @@ import {
   SectorRegistry,
   type SectorRegistryKey,
 } from "@/lib/os/registry/sectors";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

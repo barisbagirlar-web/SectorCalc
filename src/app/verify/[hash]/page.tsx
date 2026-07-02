@@ -6,7 +6,6 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { TrustTraceVerificationCard } from "@/components/trust-trace/TrustTraceVerificationCard";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import { type AppLocale } from "@/i18n/routing";
 import { redirect } from "next/navigation";
 
 type PageProps = {

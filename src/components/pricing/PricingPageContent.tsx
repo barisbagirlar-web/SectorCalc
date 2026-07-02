@@ -8,7 +8,7 @@ import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { PricingCard } from '@/components/pricing/PricingCard'
 import { EmailCaptureModal } from '@/components/pricing/EmailCaptureModal'
 import { Container } from "@/components/ui/Container"
-import { Link } from "@/i18n/routing"
+import Link from "next/link";
 
 function TrustRow() {
   return (

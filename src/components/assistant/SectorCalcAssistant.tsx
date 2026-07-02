@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
-import { Link, usePathname } from "@/i18n/routing";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useUser } from "@/hooks/useUser";
 import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 import type { AssistantSuggestion } from "@/lib/features/assistant/types";

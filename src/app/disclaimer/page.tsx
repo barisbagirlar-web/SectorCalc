@@ -7,7 +7,6 @@ import PageHero from "@/components/shared/PageHero";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

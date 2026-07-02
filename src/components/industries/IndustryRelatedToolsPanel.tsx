@@ -1,5 +1,5 @@
 import { getTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { IndustryCalculatorCardList } from "@/components/industries/IndustryCalculatorCardList";
 import { EmptyIndustryToolsState } from "@/components/industries/EmptyIndustryToolsState";
 import { Container } from "@/components/ui/Container";

@@ -1,7 +1,6 @@
 import type { AcademicReference } from "@/lib/infrastructure/seo/academic-references";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
 import { absoluteLocalizedUrl, SITE_URL } from "@/lib/features/semantic/site-url";
-import type { AppLocale } from "@/i18n/routing";
 
 export function buildAcademicTeamProfileJsonLd(input: {
   readonly locale: AppLocale;

@@ -11,7 +11,6 @@ import {
 } from "@/lib/infrastructure/seo/academic-references";
 import { absoluteImageUrl, absoluteLocalizedUrl, SITE_URL } from "@/lib/features/semantic/site-url";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
-import type { AppLocale } from "@/i18n/routing";
 
 function academicPersonJsonLd(ref: AcademicReference): JsonLdRecord {
   const sameAs = [ref.mathSciNetUrl, ...(ref.profileUrl ? [ref.profileUrl] : [])];

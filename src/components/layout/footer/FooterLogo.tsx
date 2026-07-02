@@ -1,5 +1,5 @@
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import Image from "next/image";
 import { BRAND_ASSETS } from "@/config/brand";
 

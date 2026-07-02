@@ -6,7 +6,6 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
 import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 import { JsonLd } from "@/components/seo/JsonLd";
-import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
   getGeneratedToolSchema,

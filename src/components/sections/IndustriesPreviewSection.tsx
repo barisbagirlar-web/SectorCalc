@@ -2,7 +2,7 @@ import { getTranslations } from "@/lib/i18n-stub";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SectorCard } from "@/components/ui/SectorCard";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { INDUSTRIES } from "@/data/industries";
 
 export async function IndustriesPreviewSection() {

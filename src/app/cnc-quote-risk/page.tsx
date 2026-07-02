@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { getTranslations } from "@/lib/i18n-stub";
 import { CncQuoteRiskLanding } from "@/components/launch/CncQuoteRiskLanding";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 
 type PageProps = {

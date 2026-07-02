@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import Link from "next/link";
 import { ShieldCheck, ShieldAlert, ShieldX, ExternalLink, Hash, Stamp, FileText, Calendar, CheckCircle, XCircle } from "lucide-react";
-import type { AppLocale } from "@/i18n/routing";
 
 /* ── Types matching /api/verify/[hash] response ── */
 

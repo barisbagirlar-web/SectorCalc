@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "@/lib/i18n-stub";
-import type { AppLocale } from "@/i18n/routing";
 import {
   getGeneratedToolSchema,
 } from "@/lib/features/generated-tools/schema-loader";

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } 
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { formatSmartFormFieldError } from "@/lib/infrastructure/i18n/smart-form-validation-i18n";
 import { usePathname } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { resolveToolCategory } from "@/lib/catalog/resolve-tool-category";

@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -8,7 +8,6 @@ import { Container } from "@/components/ui/Container";
 import { GuideAuthorByline } from "@/components/guides/GuideAuthorByline";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
-import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import {
   getAuthorityGuideBySlug,

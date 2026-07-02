@@ -1,5 +1,5 @@
 import { Calendar, Clock, Briefcase } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import type { CaseStudy } from "@/lib/features/case-studies/types";
 
 type Props = {

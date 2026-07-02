@@ -5,7 +5,7 @@ import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import type { z } from "zod";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { DynamicToolFormField } from "@/components/tools/DynamicToolFormField";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
 import { PremiumDynamicToolFormLayout } from "@/components/tools/PremiumDynamicToolFormLayout";

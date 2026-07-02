@@ -16,7 +16,7 @@ import {
 } from "@/lib/features/generated-tools/resolve-output-unit";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";
-import { useRouter } from "@/i18n/routing";
+import { useRouter } from "next/navigation";
 import { savePrintData } from "@/lib/features/reports/generated-tool-print-data";
 
 export type ResultPanelProps = {

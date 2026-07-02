@@ -1,7 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { redirect } from "@/i18n/routing";
+import { redirect } from "next/navigation";
 
 export async function logoutAction() {
   const cookieStore = await cookies();

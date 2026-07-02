@@ -10,7 +10,6 @@ import { ConsultantAccessCta } from "@/components/leads/ConsultantAccessCta";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { getLocalizedAllTools } from "@/data/tools";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 
 type PageProps = { params: Promise<{  }> };

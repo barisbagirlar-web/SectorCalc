@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useTranslations } from "@/lib/i18n-stub";
 import { useMemo } from "react";
 import { useClientSearchParams } from "@/lib/ui-shared/navigation/use-client-search-params";

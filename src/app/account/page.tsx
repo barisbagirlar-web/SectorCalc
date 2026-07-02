@@ -2,9 +2,8 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { getTranslations } from "@/lib/i18n-stub";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 import { cookies } from "next/headers";
-import { redirect } from "@/i18n/routing";
+import { redirect } from "next/navigation";
 import { getAuth } from "firebase-admin/auth";
 import { getFirebaseAdminApp } from "@/lib/infrastructure/firebase/admin";
 

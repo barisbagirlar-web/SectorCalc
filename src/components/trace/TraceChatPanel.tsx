@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, type RefObject } from "react";
 import { Route, Send, Sparkles, X } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { TraceLivingAvatar } from "@/components/trace/TraceLivingAvatar";
 import { SectorCalcLogo } from "@/components/ui/SectorCalcLogo";
 import { useUser } from "@/hooks/useUser";

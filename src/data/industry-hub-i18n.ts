@@ -1,4 +1,3 @@
-import type { AppLocale } from "@/i18n/routing";
 import type { IndustrySlug } from "@/lib/features/tools/industry-registry";
 
 /**

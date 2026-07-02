@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import {
   getCaseStudyToolHref,
   type CaseStudyEntry,

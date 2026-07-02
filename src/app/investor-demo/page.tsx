@@ -5,7 +5,6 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { InvestorDemoPageContent } from "@/components/investor-demo/InvestorDemoPageContent";
 import { loadInvestorPageMetrics } from "@/lib/features/commercial/investor-metrics-bridge";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{  }> };
 

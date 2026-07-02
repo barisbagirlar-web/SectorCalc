@@ -12,7 +12,6 @@ import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { ExpertAuthoritySection } from "@/components/content/ExpertAuthoritySection";
 import { VerificationQueueButton } from "@/components/feedback/VerificationQueueButton";
-import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { buildFAQJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
 import { assertSemanticToolContract } from "@/lib/features/semantic/semantic-tool-reader";

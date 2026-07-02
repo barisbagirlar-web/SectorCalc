@@ -6,7 +6,6 @@ import {
 } from "@/config/knowledge-graph";
 import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
 import { SITE } from "@/config/site";
-import type { AppLocale } from "@/i18n/routing";
 import { academicReferences } from "@/lib/infrastructure/seo/academic-references";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/infrastructure/seo/schema-mesh";
 import { absoluteImageUrl, absoluteLocalizedUrl, SITE_URL } from "@/lib/features/semantic/site-url";

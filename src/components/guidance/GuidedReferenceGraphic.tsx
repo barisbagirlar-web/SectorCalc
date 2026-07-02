@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "@/lib/i18n-stub";
-import type { AppLocale } from "@/i18n/routing";
 import type { ResolvedReferenceGraphic } from "@/lib/content/guidance/reference-graphic-types";
 import { AngleGraphic } from "@/components/guidance/templates/AngleGraphic";
 import { AreaGraphic } from "@/components/guidance/templates/AreaGraphic";

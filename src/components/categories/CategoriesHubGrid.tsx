@@ -13,7 +13,7 @@
 
 
 import { useSearchParams } from "next/navigation";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { cn } from "@/lib/core/cn";
 import {
   CATALOG_GRID_VARIANT_STYLES,

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "@/lib/i18n-stub";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { BRAND_ASSETS } from "@/config/brand";
 
 type SiteLogoVariant = "default" | "on-dark";

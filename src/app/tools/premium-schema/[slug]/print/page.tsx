@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PremiumPrintReportShell } from "@/components/reports/PremiumPrintReportShell";
-import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { buildPremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
 import {

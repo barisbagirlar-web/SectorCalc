@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import type {
   CatalogGroup,
   CategoryExplorerLabels,

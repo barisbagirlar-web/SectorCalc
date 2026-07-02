@@ -1,5 +1,5 @@
 import { Lock } from "lucide-react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import type { Tool } from "@/data/tools";
 
 interface ToolTileProps {

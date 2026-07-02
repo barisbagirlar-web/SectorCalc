@@ -13,7 +13,6 @@ import {
   withTaxonomyCountLabels,
 } from "@/lib/features/tools/build-taxonomy-sector-cards";
 import { CATALOG_HUB_JSONLD_MAX_ITEMS } from "@/lib/features/tools/filter-catalog-hub-tools";
-import type { AppLocale } from "@/i18n/routing";
 import {
   getAllToolsGroupedByCategory,
   getOrderedCategorySlugsWithTools,

@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "@/lib/i18n-stub";
 import { PremiumGeneratedToolPrintContent } from "@/components/reports/PremiumGeneratedToolPrintContent";
-import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
 import { getGeneratedToolSchema } from "@/lib/features/generated-tools/schema-loader";
 import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";

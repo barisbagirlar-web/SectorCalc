@@ -16,7 +16,6 @@ import {
 } from "@/lib/features/tools/getToolsByCategory";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
 import { buildItemListJsonLd } from "@/lib/infrastructure/seo/schema-mesh";
-import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{  }>;
