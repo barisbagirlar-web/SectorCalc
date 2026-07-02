@@ -63,7 +63,7 @@ function runAudit() {
           if (percentSmellMetaKeys.has(req)) {
             const schemaInput = schema.inputs.find((i: any) => i.id === mappedVar);
             if (schemaInput && schemaInput.unit !== "percent" && schemaInput.unit !== "fraction") {
-               fileReviews.push(`[PERCENT SMELL] '${mappedVar}' maps to '${req}' in '${formulaId}' — (1±x) kalıbı, ama unit '${schemaInput.unit || "—"}' (CLASS C aday)`);
+               fileReviews.push(`[PERCENT SMELL] '${mappedVar}' maps to '${req}' in '${formulaId}' — uses (1±x) pattern, but unit is '${schemaInput.unit || "—"}' (CLASS C candidate)`);
             }
           }
         }
@@ -75,10 +75,10 @@ function runAudit() {
 
     for (const inp of schema.inputs) {
       if (inp.type === "number" && !inp.unit) {
-        fileFails.push(`[MISSING UNIT] Input '${inp.id}' is numeric but has no unit — dönüşüm hatası riski`);
+        fileFails.push(`[MISSING UNIT] Input '${inp.id}' is numeric but has no unit — risk of conversion error`);
       }
       if (!usedInputIds.has(inp.id)) {
-        fileWarns.push(`[GHOST INPUT] '${inp.id}' hiçbir formülde kullanılmıyor (threshold/insight'ta olabilir)`);
+        fileWarns.push(`[GHOST INPUT] '${inp.id}' is not used in any formula (might be used in thresholds/insights)`);
       }
     }
 
@@ -87,12 +87,12 @@ function runAudit() {
     if (fileReviews.length) reviews.push({ toolId, issues: fileReviews });
   }
 
-  console.log(`\n=== SectorCalc Premium Formül-Input Gate ===`);
-  console.log(`Taranan şema: ${schemas.length}`);
-  console.log(`FAIL (build durur): ${fails.length} tool | WARN: ${warns.length} tool | REVIEW: ${reviews.length} tool\n`);
+  console.log(`\n=== SectorCalc Premium Formula-Input Gate ===`);
+  console.log(`Scanned schemas: ${schemas.length}`);
+  console.log(`FAIL (build breaks): ${fails.length} tool | WARN: ${warns.length} tool | REVIEW: ${reviews.length} tool\n`);
   
   if (reviews.length) {
-    console.log("--- REVIEW (golden ile doğrula, körlemesine kırma) ---");
+    console.log("--- REVIEW (verify with golden tests, do not blindly break) ---");
     for (const t of reviews) {
       console.log(`? ${t.toolId}`);
       for (const i of t.issues) console.log(`    ${i}`);
@@ -115,11 +115,11 @@ function runAudit() {
       console.log(`✗ ${t.toolId}`);
       for (const i of t.issues) console.log(`    ${i}`);
     }
-    console.error(`\n❌ ${fails.length} tool kontratı ihlal ediyor.`);
+    console.error(`\n❌ ${fails.length} tools violate the contract.`);
     process.exit(1);
   }
   
-  console.log("✅ Tüm premium tool'lar input↔formül↔unit kontratından geçti.");
+  console.log("✅ All premium tools passed input↔formula↔unit contract.");
 }
 
 runAudit();
