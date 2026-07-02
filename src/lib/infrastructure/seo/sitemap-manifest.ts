@@ -111,6 +111,8 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/privacy", "core", 0.5, "yearly"),
     createItem("/terms", "core", 0.5, "yearly"),
     createItem("/disclaimer", "core", 0.5, "yearly"),
+    createItem("/calculators/fmea-rpn", "core", 0.9, "weekly"),
+    createItem("/resources/fmea-rpn-technical-note", "core", 0.8, "weekly"),
   ];
 }
 
@@ -284,6 +286,8 @@ export const SITEMAP_STATIC_ROUTES = [
   "/privacy",
   "/terms",
   "/disclaimer",
+  "/calculators/fmea-rpn",
+  "/resources/fmea-rpn-technical-note",
 ] as const;
 
 export function countExpectedSitemapMinimum(): number {

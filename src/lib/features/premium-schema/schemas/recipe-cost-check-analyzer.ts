@@ -1,6 +1,4 @@
-/**
- * Tool #38 — Recete Maliyet Kontrol
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
   id: "recipe-cost-check-analyzer", legacyPaidSlug: "recipe-cost-check-analyzer",
@@ -20,7 +18,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "recipeYieldLoss", label: "Yield Loss", label_i18n: {"en":"Yield Loss"}, unit: "USD", format: "currency" },
     { id: "recipeEvaporation", label: "Evaporation Loss", label_i18n: {"en":"Evaporation Loss"}, unit: "%", format: "number" },
     { id: "recipeEfficiency", label: "Recipe Efficiency", label_i18n: {"en":"Recipe Efficiency"}, unit: "%", format: "number" },
-    { id: "recipeCostPerKg", label: "Birim Maliyet", label_i18n: {"en":"Unit Cost"}, unit: "USD/kg", format: "currency" },
+    { id: "recipeCostPerKg", label: "Unit Cost", label_i18n: {"en":"Unit Cost"}, unit: "USD/kg", format: "currency" },
   ],
   thresholds: [{ fieldId: "recipeVariance", warning: 50, critical: 100, direction: "higher_is_bad", warningMessage: "Variance > $50 — initiate waste and usage tracking.", warningMessage_i18n: {"en":"Variance > $50 — initiate waste and usage tracking."}, criticalMessage: "Variance > $100 — urgently review recipe standards.", criticalMessage_i18n: {"en":"Variance > $100 — urgently review recipe standards."} }],
   formulaPipeline: [

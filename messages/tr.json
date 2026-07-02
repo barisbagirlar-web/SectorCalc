@@ -48,7 +48,6 @@
   "premiumAccess": {
     "previewEyebrow": "Public preview",
     "publicPreviewTitle": "Try this calculator before you subscribe",
-    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview calculation. Export, saved reports and calculation summary require SectorCalc Pro.",
     "signedInPreviewTitle": "Preview mode - Pro unlocks full reports",
     "signedInPreviewDescription": "You can run the calculator and review the preview verdict. PDF export, saved history and calculation summary require an active Pro plan or single-report purchase.",
     "signIn": "Sign in",
@@ -57,22 +56,21 @@
     "lockedReportHistory": "Saved report history requires a signed-in Pro account.",
     "lockedTrustTrace": "Calculation summary is a Pro-only pro feature.",
     "fullReportRequiresPro": "Full exportable report requires SectorCalc Pro.",
-    "panelTitle": "SectorCalc Pro giri\u015fi",
-    "panelDescription": "Pro hesap ara\u00e7lar\u0131na eri\u015fmek veya \u00f6deme i\u015flemini tamamlamak i\u00e7in e-posta ile giri\u015f yap\u0131n. Admin giri\u015fi yukar\u0131da ayr\u0131ca yer al\u0131r.",
+    "panelTitle": "SectorCalc Pro girişi",
     "signInButton": "Google ile devam et",
-    "signingIn": "Giri\u015f yap\u0131l\u0131yor\u2026",
+    "signingIn": "Giriş yapılıyor…",
     "signInErrors": {
-      "cancelled": "Giri\u015f iptal edildi.",
-      "unauthorized-domain": "Bu alan ad\u0131 Google giri\u015fi i\u00e7in yetkilendirilmemi\u015f.",
+      "cancelled": "Giriş iptal edildi.",
+      "unauthorized-domain": "Bu alan adı Google girişi için yetkilendirilmemiş.",
       "popup-blocked": "Popup engellendi.",
-      "network": "Giri\u015f s\u0131ras\u0131nda a\u011f hatas\u0131.",
-      "not-configured": "Bu ortamda Firebase Auth yap\u0131land\u0131r\u0131lmad\u0131.",
-      "invalid-email": "Ge\u00e7ersiz e-posta format\u0131.",
-      "user-not-found": "Bu e-posta adresiyle kay\u0131tl\u0131 hesap bulunamad\u0131.",
-      "wrong-password": "Hatal\u0131 \u015fifre.",
+      "network": "Giriş sırasında ağ hatası.",
+      "not-configured": "Bu ortamda Firebase Auth yapılandırılmadı.",
+      "invalid-email": "Geçersiz e-posta formatı.",
+      "user-not-found": "Bu e-posta adresiyle kayıtlı hesap bulunamadı.",
+      "wrong-password": "Hatalı şifre.",
       "email-already-in-use": "Bu e-posta ile zaten bir hesap mevcut.",
-      "weak-password": "\u015eifre \u00e7ok zay\u0131f.",
-      "generic": "Giri\u015f ba\u015far\u0131s\u0131z. Tekrar deneyin."
+      "weak-password": "Şifre çok zayıf.",
+      "generic": "Giriş başarısız. Tekrar deneyin."
     }
   }
 }

@@ -1,30 +1,28 @@
-/**
- * Tool #26 — Ofis Malzemeleri Maliyet
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "office-supplies-cost-analyzer", legacyPaidSlug: "office-supplies-cost-analyzer",
   name: "Office Supplies Cost Analyzer", name_i18n: {"en":"Office Supplies Cost Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Ofis malzemelerinde EOQ, tasima maliyeti ve stok tukenme maliyeti hesaplanmazsa gereksiz stok ve fazla harcama olusur.", painStatement_i18n: {"en":"For office supplies, if EOQ, carrying cost, and inventory stockout cost are not calculated, unnecessary inventory and overtime spending occur."},
+  painStatement: "For office supplies, if EOQ, carrying cost, and inventory stockout cost are not calculated, unnecessary inventory and overtime spending occur.", painStatement_i18n: {"en":"For office supplies, if EOQ, carrying cost, and inventory stockout cost are not calculated, unnecessary inventory and overtime spending occur."},
   inputs: [
-    { id: "monthlyConsumption", label: "Monthly consumption quantity", label_i18n: {"en":"Monthly consumption quantity"}, type: "number", unit: "adet/ay", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Monthly consumption quantity", expertMeaning_i18n: {"en":"Monthly consumption quantity"} },
+    { id: "monthlyConsumption", label: "Monthly consumption quantity", label_i18n: {"en":"Monthly consumption quantity"}, type: "number", unit: "units/month", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Monthly consumption quantity", expertMeaning_i18n: {"en":"Monthly consumption quantity"} },
     { id: "unitPrice", label: "Unit Price", label_i18n: {"en":"Unit Price"}, type: "number", unit: "USD", required: true, smartDefault: 3.5, validation: { min: 0.01 }, helper: "", expertMeaning: "Unit price", expertMeaning_i18n: {"en":"Unit price"} },
     { id: "orderCost", label: "Cost per order", label_i18n: {"en":"Cost per order"}, type: "number", unit: "USD/siparis", required: true, smartDefault: 15, validation: { min: 0.01 }, helper: "", expertMeaning: "Cost per order", expertMeaning_i18n: {"en":"Cost per order"} },
     { id: "holdingRate", label: "Annual holding cost rate", label_i18n: {"en":"Annual holding cost rate"}, type: "number", unit: "%/yil", required: true, smartDefault: 20, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Annual holding cost rate", expertMeaning_i18n: {"en":"Annual holding cost rate"} },
-    { id: "stockoutRate", label: "Stok Tukenme Riski", label_i18n: {"en":"Stockout probability"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Stockout probability", expertMeaning_i18n: {"en":"Stockout probability"} },
-    { id: "stockoutCostPerUnit", label: "Stok Tukenme Birim Maliyeti", label_i18n: {"en":"Cost per stockout unit"}, type: "number", unit: "USD", required: false, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Cost per stockout unit", expertMeaning_i18n: {"en":"Cost per stockout unit"} },
-    { id: "currentOrderQty", label: "Current order quantity", label_i18n: {"en":"Current order quantity"}, type: "number", unit: "adet", required: false, smartDefault: 300, validation: { min: 1 }, helper: "", expertMeaning: "Current order quantity", expertMeaning_i18n: {"en":"Current order quantity"} },
+    { id: "stockoutRate", label: "Stockout probability", label_i18n: {"en":"Stockout probability"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Stockout probability", expertMeaning_i18n: {"en":"Stockout probability"} },
+    { id: "stockoutCostPerUnit", label: "Cost per stockout unit", label_i18n: {"en":"Cost per stockout unit"}, type: "number", unit: "USD", required: false, smartDefault: 10, validation: { min: 0 }, helper: "", expertMeaning: "Cost per stockout unit", expertMeaning_i18n: {"en":"Cost per stockout unit"} },
+    { id: "currentOrderQty", label: "Current order quantity", label_i18n: {"en":"Current order quantity"}, type: "number", unit: "units", required: false, smartDefault: 300, validation: { min: 1 }, helper: "", expertMeaning: "Current order quantity", expertMeaning_i18n: {"en":"Current order quantity"} },
   ],
   outputs: [
-    { id: "consumptionRate", label: "Yllk Tuketim Hz", label_i18n: {"en":"Annual Consumption Hz"}, unit: "adet/yil", format: "number" },
-    { id: "annualCost", label: "Yllk Ofis Malzeme Maliyeti", label_i18n: {"en":"Annual Ofis material Cost"}, unit: "USD/yil", format: "currency" },
-    { id: "carryingCost", label: "Tasma Maliyeti", label_i18n: {"en":"Carrying Cost"}, unit: "USD/yil", format: "currency" },
-    { id: "stockoutCost", label: "Stok Tukenme Maliyeti", label_i18n: {"en":"Inventory Tukenme Cost"}, unit: "USD/yil", format: "currency" },
-    { id: "optimalEoq", label: "Optimum Siparis Miktar (EOQ)", label_i18n: {"en":"Optimum Siparis Miktar (EOQ)"}, unit: "adet", format: "number" },
-    { id: "wastePct", label: "Israf Yuzdesi", label_i18n: {"en":"Waste Yuzdesi"}, unit: "%", format: "number" },
-    { id: "optimizationSavings", label: "Optimizasyon Tasarrufu", label_i18n: {"en":"optimization Tasarrufu"}, unit: "USD/yil", format: "currency" },
+    { id: "consumptionRate", label: "Annual Consumption Hz", label_i18n: {"en":"Annual Consumption Hz"}, unit: "units/year", format: "number" },
+    { id: "annualCost", label: "Annual Ofis material Cost", label_i18n: {"en":"Annual Ofis material Cost"}, unit: "USD/year", format: "currency" },
+    { id: "carryingCost", label: "Carrying Cost", label_i18n: {"en":"Carrying Cost"}, unit: "USD/year", format: "currency" },
+    { id: "stockoutCost", label: "Inventory Tukenme Cost", label_i18n: {"en":"Inventory Tukenme Cost"}, unit: "USD/year", format: "currency" },
+    { id: "optimalEoq", label: "Optimum Siparis Miktar (EOQ)", label_i18n: {"en":"Optimum Siparis Miktar (EOQ)"}, unit: "units", format: "number" },
+    { id: "wastePct", label: "Waste Yuzdesi", label_i18n: {"en":"Waste Yuzdesi"}, unit: "%", format: "number" },
+    { id: "optimizationSavings", label: "optimization Tasarrufu", label_i18n: {"en":"optimization Tasarrufu"}, unit: "USD/year", format: "currency" },
   ],
-  thresholds: [{ fieldId: "optimizationSavings", warning: 500, critical: 100, direction: "lower_is_bad", warningMessage: "Tasarruf < $500 — mevcut sistem optimize.", warningMessage_i18n: {"en":"Tasarruf < $500 — Current System optimize."}, criticalMessage: "Tasarruf < $100 — kucuk iyilestirme firsati.", criticalMessage_i18n: {"en":"Savings < $100 — small improvement opportunity."} }],
+  thresholds: [{ fieldId: "optimizationSavings", warning: 500, critical: 100, direction: "lower_is_bad", warningMessage: "Tasarruf < $500 — Current System optimize.", warningMessage_i18n: {"en":"Tasarruf < $500 — Current System optimize."}, criticalMessage: "Savings < $100 — small improvement opportunity.", criticalMessage_i18n: {"en":"Savings < $100 — small improvement opportunity."} }],
   formulaPipeline: [
     { formulaId: "cost.office_consumption_rate", inputMap: { monthlyConsumption: "monthlyConsumption" ,
         annualUsage: "annualUsage"}, outputId: "consumptionRate" },
@@ -49,5 +47,5 @@ export const OFFICE_SUPPLIES_COST_SCHEMA: PremiumCalculatorSchema = {
         optimalTotalCost: "optimalTotalCost"}, outputId: "optimizationSavings" },
   ],
   reportTemplate: { title: "Office Supplies Cost Report", title_i18n: {"en":"Office Supplies Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["EOQ = √(2×yillik talep×siparis maliyeti / tasima maliyeti).", "Tasima maliyeti = stok degeri × tasima orani.", "Stok tukenme maliyeti = risk × birim maliyet × talep."],assumptionNotes_i18n:[{"en":"EOQ = √(2×annual demand×ordering cost / holding cost)."},{"en":"Holding cost = inventory value × holding rate."},{"en":"Stockout cost = risk × unit cost × demand."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: [],assumptionNotes_i18n:[{"en":"EOQ = √(2×annual demand×ordering cost / holding cost)."},{"en":"Holding cost = inventory value × holding rate."},{"en":"Stockout cost = risk × unit cost × demand."}] },
 };

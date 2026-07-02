@@ -1,6 +1,4 @@
-/**
- * Tool #30 — Transfer Pricing Optimizer
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TRANSFER_PRICING_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
   id: "transfer-pricing-optimizer-analyzer", legacyPaidSlug: "transfer-pricing-optimizer-analyzer",
@@ -16,10 +14,10 @@ export const TRANSFER_PRICING_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
     { id: "armLengthPrice", label: "Arm's length market price", label_i18n: {"en":"Arm's length market price"}, type: "number", unit: "USD", required: false, smartDefault: 520000, validation: { min: 0 }, helper: "", expertMeaning: "Arm's length market price", expertMeaning_i18n: {"en":"Arm's length market price"} },
   ],
   outputs: [
-    { id: "transferTaxImpact", label: "Vergi Etkisi", label_i18n: {"en":"tax Etkisi"}, unit: "USD", format: "currency" },
-    { id: "transferGlobalProfit", label: "Global Kâr", label_i18n: {"en":"Global Profit"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "transferTaxImpact", label: "tax Etkisi", label_i18n: {"en":"tax Etkisi"}, unit: "USD", format: "currency" },
+    { id: "transferGlobalProfit", label: "Global Profit", label_i18n: {"en":"Global Profit"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Vergi etkisi > $30K — transfer fiyati optimize edilmeli.", warningMessage_i18n: {"en":"Tax impact > $30K — transfer price should be optimized."}, criticalMessage: "Vergi etkisi > $75K — vergi danismanligi onerilir.", criticalMessage_i18n: {"en":"Tax impact > $75K — tax consultancy is recommended."} }],
+  thresholds: [{ fieldId: "transferTaxImpact", warning: 30000, critical: 75000, direction: "higher_is_bad", warningMessage: "Tax impact > $30K — transfer price should be optimized.", warningMessage_i18n: {"en":"Tax impact > $30K — transfer price should be optimized."}, criticalMessage: "Tax impact > $75K — tax consultancy is recommended.", criticalMessage_i18n: {"en":"Tax impact > $75K — tax consultancy is recommended."} }],
   formulaPipeline: [
     { formulaId: "cost.transfer_tax_impact", inputMap: {
         transferPrice: "transferPrice",

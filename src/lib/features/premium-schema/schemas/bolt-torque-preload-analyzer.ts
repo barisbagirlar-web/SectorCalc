@@ -15,14 +15,14 @@ const GRADE_OPTIONS = [
 export const BOLT_TORQUE_SCHEMA: PremiumCalculatorSchema = {
   id: "bolt-torque-preload-analyzer", legacyPaidSlug: "bolt-torque-preload-analyzer",
   name: "Bolt Torque & Preload Analysis", name_i18n: {"en":"Bolt Torque & Preload Analysis"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Civata baglantilarinda yanlis tork valuei ya yetersiz sikma (gevseme) ya da asiri sikma (kopma) risk dogurur. Bu arac ISO 898 standartlarina gore tork, ongerilme ve akma kontrolu yapar.", painStatement_i18n: {"en":"Incorrect torque value in bolt connections creates risk of either insufficient tightening (loosening) or excessive tightening (fracture). This tool performs torque, preload, and yield check per ISO 898 standards."},
+  painStatement: "Incorrect torque value in bolt connections creates risk of either insufficient tightening (loosening) or excessive tightening (fracture). This tool performs torque, preload, and yield check per ISO 898 standards.", painStatement_i18n: {"en":"Incorrect torque value in bolt connections creates risk of either insufficient tightening (loosening) or excessive tightening (fracture). This tool performs torque, preload, and yield check per ISO 898 standards."},
   inputs: [
     { id: "nominalDiameter", label: "Nominal Diameter (d)", label_i18n: {"en":"Nominal Diameter (d)"}, type: "number", unit: "mm", required: true, smartDefault: 12, validation: { min: 1 }, helper: "", expertMeaning: "Bolt nominal diameter", expertMeaning_i18n: {"en":"Bolt nominal diameter"} },
-    { id: "pitch", label: "Hatve (p)", label_i18n: {"en":"Pitch (p)"}, type: "number", unit: "mm", required: true, smartDefault: 1.75, validation: { min: 0.1 }, helper: "", expertMeaning: "Thread pitch", expertMeaning_i18n: {"en":"Thread pitch"} },
+    { id: "pitch", label: "Pitch (p)", label_i18n: {"en":"Pitch (p)"}, type: "number", unit: "mm", required: true, smartDefault: 1.75, validation: { min: 0.1 }, helper: "", expertMeaning: "Thread pitch", expertMeaning_i18n: {"en":"Thread pitch"} },
     { id: "torqueCoefficient", label: "Friction Coefficient (K)", label_i18n: {"en":"Friction Coefficient (K)"}, type: "number", unit: "", required: true, smartDefault: 0.2, validation: { min: 0.05, max: 0.5 }, helper: "", expertMeaning: "Nut factor (typically 0.15-0.25)", expertMeaning_i18n: {"en":"Nut factor (typically 0.15-0.25)"} },
     { id: "grade", label: "Material Grade", label_i18n: {"en":"Material Grade"}, type: "select", unit: "", required: true, smartDefault: "8.8", options: [...GRADE_OPTIONS], helper: "", expertMeaning: "Bolt grade per ISO 898", expertMeaning_i18n: {"en":"Bolt grade per ISO 898"} },
     { id: "yieldStrength", label: "Yield Strength", label_i18n: {"en":"Yield Strength"}, type: "number", unit: "MPa", required: true, smartDefault: 660, validation: { min: 100 }, helper: "", expertMeaning: "Yield strength of bolt material", expertMeaning_i18n: {"en":"Yield strength of bolt material"} },
-    { id: "targetPreloadPercent", label: "Hedef Ongerilme (%)", label_i18n: {"en":"Target Preload (%)"}, type: "number", unit: "%", required: false, smartDefault: 70, validation: { min: 10, max: 100 }, helper: "", expertMeaning: "Target preload as % of yield", expertMeaning_i18n: {"en":"Target preload as % of yield"} },
+    { id: "targetPreloadPercent", label: "Target Preload (%)", label_i18n: {"en":"Target Preload (%)"}, type: "number", unit: "%", required: false, smartDefault: 70, validation: { min: 10, max: 100 }, helper: "", expertMeaning: "Target preload as % of yield", expertMeaning_i18n: {"en":"Target preload as % of yield"} },
     { id: "calibrationError", label: "Torque Wrench Calibration Error", label_i18n: {"en":"Torque Wrench Calibration Error"}, type: "number", unit: "%", required: false, smartDefault: 5, validation: { min: 0, max: 50 }, helper: "", expertMeaning: "Wrench calibration uncertainty", expertMeaning_i18n: {"en":"Wrench calibration uncertainty"} },
   ],
   outputs: [
@@ -34,7 +34,7 @@ export const BOLT_TORQUE_SCHEMA: PremiumCalculatorSchema = {
     { id: "yieldCheck", label: "Akma Kontrolu", label_i18n: {"en":"Akma Kontrolu"}, unit: "", format: "score", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Ongerilme akma dayaniminin %80'ine yaklasiyor.", warningMessage_i18n: {"en":"Preload is approaching 80% of yield strength."}, criticalMessage: "Ongerilme akma dayanimini asiyor — baglanti risk altinda.", criticalMessage_i18n: {"en":"Preload exceeds yield strength — connection is at risk."} },
+    { fieldId: "yieldCheck", warning: 0.8, critical: 1, direction: "higher_is_bad", warningMessage: "Preload is approaching 80% of yield strength.", warningMessage_i18n: {"en":"Preload is approaching 80% of yield strength."}, criticalMessage: "Preload exceeds yield strength — connection is at risk.", criticalMessage_i18n: {"en":"Preload exceeds yield strength — connection is at risk."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.bolt_d2", inputMap: { nominalDiameter: "nominalDiameter", pitch: "pitch" }, outputId: "pitchDiameter" },

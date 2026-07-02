@@ -1,6 +1,4 @@
-/**
- * Tool #58 — SPC Limit
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const SPC_LIMIT_SCHEMA: PremiumCalculatorSchema = {
   id: "spc-limit-control-analyzer", legacyPaidSlug: "spc-limit-control-analyzer",
@@ -10,18 +8,18 @@ export const SPC_LIMIT_SCHEMA: PremiumCalculatorSchema = {
     { id: "subgroupMeans", label: "Subgroup Means (comma-separated)", label_i18n: {"en":"Subgroup Means (comma-separated)"}, type: "number", unit: "", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Subgroup means", expertMeaning_i18n: {"en":"Subgroup means"} },
     { id: "subgroupRanges", label: "Subgroup Ranges (comma-separated)", label_i18n: {"en":"Subgroup Ranges (comma-separated)"}, type: "number", unit: "", array: true, required: true, validation: { min: 0 }, helper: "", expertMeaning: "Subgroup ranges", expertMeaning_i18n: {"en":"Subgroup ranges"} },
     { id: "subgroupSize", label: "Subgroup Size (n)", label_i18n: {"en":"Subgroup Size (n)"}, type: "number", unit: "", required: true, smartDefault: 5, validation: { min: 2, max: 15 }, helper: "", expertMeaning: "Number per subgroup", expertMeaning_i18n: {"en":"Number per subgroup"} },
-    { id: "usl", label: "Ust Spesifikasyon Limiti", label_i18n: {"en":"Upper Specification Limit"}, type: "number", unit: "", required: true, smartDefault: 10.05, validation: { min: 0 }, helper: "", expertMeaning: "Upper spec limit", expertMeaning_i18n: {"en":"Upper spec limit"} },
-    { id: "lsl", label: "Alt Spesifikasyon Limiti", label_i18n: {"en":"Lower Specification Limit"}, type: "number", unit: "", required: true, smartDefault: 9.95, validation: { min: 0 }, helper: "", expertMeaning: "Lower spec limit", expertMeaning_i18n: {"en":"Lower spec limit"} },
+    { id: "usl", label: "Upper Specification Limit", label_i18n: {"en":"Upper Specification Limit"}, type: "number", unit: "", required: true, smartDefault: 10.05, validation: { min: 0 }, helper: "", expertMeaning: "Upper spec limit", expertMeaning_i18n: {"en":"Upper spec limit"} },
+    { id: "lsl", label: "Lower Specification Limit", label_i18n: {"en":"Lower Specification Limit"}, type: "number", unit: "", required: true, smartDefault: 9.95, validation: { min: 0 }, helper: "", expertMeaning: "Lower spec limit", expertMeaning_i18n: {"en":"Lower spec limit"} },
   ],
   outputs: [
-    { id: "xBarAvg", label: "X̿ (Genel Ortalama)", label_i18n: {"en":"X̿ (Grand Average)"}, unit: "", format: "number" },
+    { id: "xBarAvg", label: "X̿ (Grand Average)", label_i18n: {"en":"X̿ (Grand Average)"}, unit: "", format: "number" },
     { id: "rBar", label: "R̄ (Average Range)", label_i18n: {"en":"R̄ (Average Range)"}, unit: "", format: "number" },
     { id: "uclX", label: "UCL_X", label_i18n: {"en":"UCL_X"}, unit: "", format: "number" },
     { id: "lclX", label: "LCL_X", label_i18n: {"en":"LCL_X"}, unit: "", format: "number" },
-    { id: "sigmaEstimate", label: "σ̂ (Sigma Tahmini)", label_i18n: {"en":"σ̂ (Sigma Estimate)"}, unit: "", format: "number" },
-    { id: "cp", label: "Cp (Proses Yeterlilik)", label_i18n: {"en":"Cp (Process Capability)"}, unit: "", format: "number", isBigNumber: true },
+    { id: "sigmaEstimate", label: "σ̂ (Sigma Estimate)", label_i18n: {"en":"σ̂ (Sigma Estimate)"}, unit: "", format: "number" },
+    { id: "cp", label: "Cp (Process Capability)", label_i18n: {"en":"Cp (Process Capability)"}, unit: "", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "cp", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cp < 1.33 — process capability is borderline.", warningMessage_i18n: {"en":"Cp < 1.33 — process capability is borderline."}, criticalMessage: "Cp < 1.0 — proses yetersiz.", criticalMessage_i18n: {"en":"Cp < 1.0 — process is incapable."} }],
+  thresholds: [{ fieldId: "cp", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cp < 1.33 — process capability is borderline.", warningMessage_i18n: {"en":"Cp < 1.33 — process capability is borderline."}, criticalMessage: "Cp < 1.0 — process is incapable.", criticalMessage_i18n: {"en":"Cp < 1.0 — process is incapable."} }],
   formulaPipeline: [
     { formulaId: "measurement.spc_x_bar_avg", inputMap: { data: "subgroupMeans" }, outputId: "xBarAvg" },
     { formulaId: "measurement.spc_r_bar", inputMap: { data: "subgroupRanges" }, outputId: "rBar" },

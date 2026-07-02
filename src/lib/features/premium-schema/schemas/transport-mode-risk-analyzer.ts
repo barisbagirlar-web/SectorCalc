@@ -1,30 +1,28 @@
-/**
- * Tool #20 — Tasima Mode
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "transport-mode-risk-analyzer", legacyPaidSlug: "transport-mode-risk-analyzer",
   name: "Transport Mode Risk and Cost Analyzer", name_i18n: {"en":"Transport Mode Risk and Cost Analyzer"}, sectorSlug: "logistics-transport", category: "cost",
-  painStatement: "Hava, deniz ve kara tasima modlari arasinda secim yaparken risk ve transit sure maliyeti goz ardi edilir.", painStatement_i18n: {"en":"When choosing between air, sea, and land carrying modes, risk and transit time cost are overlooked."},
+  painStatement: "When choosing between air, sea, and land carrying modes, risk and transit time cost are overlooked.", painStatement_i18n: {"en":"When choosing between air, sea, and land carrying modes, risk and transit time cost are overlooked."},
   inputs: [
-    { id: "airFreightCost", label: "Hava Kargo Maliyeti", label_i18n: {"en":"Air Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Total air freight cost", expertMeaning_i18n: {"en":"Total air freight cost"} },
-    { id: "seaFreightCost", label: "Deniz Kargo Maliyeti", label_i18n: {"en":"Deniz Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 3000, validation: { min: 0 }, helper: "", expertMeaning: "Total sea freight cost", expertMeaning_i18n: {"en":"Total sea freight cost"} },
-    { id: "roadFreightCost", label: "Kara Nakliye Maliyeti", label_i18n: {"en":"Kara Nakliye Cost"}, type: "number", unit: "USD", required: true, smartDefault: 2000, validation: { min: 0 }, helper: "", expertMeaning: "Total road freight cost", expertMeaning_i18n: {"en":"Total road freight cost"} },
-    { id: "airTransitDays", label: "Hava Transit Suresi", label_i18n: {"en":"Air transit days"}, type: "number", unit: "gun", required: true, smartDefault: 2, validation: { min: 0 }, helper: "", expertMeaning: "Air transit days", expertMeaning_i18n: {"en":"Air transit days"} },
-    { id: "seaTransitDays", label: "Deniz Transit Suresi", label_i18n: {"en":"Sea transit days"}, type: "number", unit: "gun", required: true, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Sea transit days", expertMeaning_i18n: {"en":"Sea transit days"} },
-    { id: "roadTransitDays", label: "Kara Transit Suresi", label_i18n: {"en":"Road transit days"}, type: "number", unit: "gun", required: true, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Road transit days", expertMeaning_i18n: {"en":"Road transit days"} },
-    { id: "dailyCostOfDelay", label: "Gecikme Gunluk Maliyeti", label_i18n: {"en":"Daily cost of delay"}, type: "number", unit: "USD/gun", required: false, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Daily cost of delay", expertMeaning_i18n: {"en":"Daily cost of delay"} },
+    { id: "airFreightCost", label: "Air Kargo Cost", label_i18n: {"en":"Air Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Total air freight cost", expertMeaning_i18n: {"en":"Total air freight cost"} },
+    { id: "seaFreightCost", label: "Deniz Kargo Cost", label_i18n: {"en":"Deniz Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 3000, validation: { min: 0 }, helper: "", expertMeaning: "Total sea freight cost", expertMeaning_i18n: {"en":"Total sea freight cost"} },
+    { id: "roadFreightCost", label: "Kara Nakliye Cost", label_i18n: {"en":"Kara Nakliye Cost"}, type: "number", unit: "USD", required: true, smartDefault: 2000, validation: { min: 0 }, helper: "", expertMeaning: "Total road freight cost", expertMeaning_i18n: {"en":"Total road freight cost"} },
+    { id: "airTransitDays", label: "Air transit days", label_i18n: {"en":"Air transit days"}, type: "number", unit: "days", required: true, smartDefault: 2, validation: { min: 0 }, helper: "", expertMeaning: "Air transit days", expertMeaning_i18n: {"en":"Air transit days"} },
+    { id: "seaTransitDays", label: "Sea transit days", label_i18n: {"en":"Sea transit days"}, type: "number", unit: "days", required: true, smartDefault: 20, validation: { min: 0 }, helper: "", expertMeaning: "Sea transit days", expertMeaning_i18n: {"en":"Sea transit days"} },
+    { id: "roadTransitDays", label: "Road transit days", label_i18n: {"en":"Road transit days"}, type: "number", unit: "days", required: true, smartDefault: 5, validation: { min: 0 }, helper: "", expertMeaning: "Road transit days", expertMeaning_i18n: {"en":"Road transit days"} },
+    { id: "dailyCostOfDelay", label: "Daily cost of delay", label_i18n: {"en":"Daily cost of delay"}, type: "number", unit: "USD/day", required: false, smartDefault: 200, validation: { min: 0 }, helper: "", expertMeaning: "Daily cost of delay", expertMeaning_i18n: {"en":"Daily cost of delay"} },
     { id: "cargoValue", label: "Total cargo value", label_i18n: {"en":"Total cargo value"}, type: "number", unit: "USD", required: false, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Total cargo value", expertMeaning_i18n: {"en":"Total cargo value"} },
   ],
   outputs: [
-    { id: "transportAir", label: "Hava Tasma Maliyeti", label_i18n: {"en":"Air Carrying Cost"}, unit: "USD", format: "currency" },
-    { id: "transportSea", label: "Deniz Tasma Maliyeti", label_i18n: {"en":"Deniz Carrying Cost"}, unit: "USD", format: "currency" },
-    { id: "transportRoad", label: "Kara Tasma Maliyeti", label_i18n: {"en":"Kara Carrying Cost"}, unit: "USD", format: "currency" },
-    { id: "transitTimeCost", label: "Transit Sure Maliyeti", label_i18n: {"en":"Transit Time Cost"}, unit: "USD", format: "currency" },
-    { id: "riskCostTransport", label: "Risk Maliyeti", label_i18n: {"en":"Risk Cost"}, unit: "USD", format: "currency" },
-    { id: "totalModeCost", label: "Toplam Mod Maliyeti", label_i18n: {"en":"Total Mod Cost"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "transportAir", label: "Air Carrying Cost", label_i18n: {"en":"Air Carrying Cost"}, unit: "USD", format: "currency" },
+    { id: "transportSea", label: "Deniz Carrying Cost", label_i18n: {"en":"Deniz Carrying Cost"}, unit: "USD", format: "currency" },
+    { id: "transportRoad", label: "Kara Carrying Cost", label_i18n: {"en":"Kara Carrying Cost"}, unit: "USD", format: "currency" },
+    { id: "transitTimeCost", label: "Transit Time Cost", label_i18n: {"en":"Transit Time Cost"}, unit: "USD", format: "currency" },
+    { id: "riskCostTransport", label: "Risk Cost", label_i18n: {"en":"Risk Cost"}, unit: "USD", format: "currency" },
+    { id: "totalModeCost", label: "Total Mod Cost", label_i18n: {"en":"Total Mod Cost"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Toplam tasima maliyeti > $10K — mod optimizasyonu onerilir.", warningMessage_i18n: {"en":"Total carrying cost > $10K — mode optimization is recommended."}, criticalMessage: "Toplam tasima maliyeti > $25K — alternatif rotalar degerlendirilmeli.", criticalMessage_i18n: {"en":"Total carrying cost > $25K — alternative routes should be evaluated."} }],
+  thresholds: [{ fieldId: "totalModeCost", warning: 10000, critical: 25000, direction: "higher_is_bad", warningMessage: "Total carrying cost > $10K — mode optimization is recommended.", warningMessage_i18n: {"en":"Total carrying cost > $10K — mode optimization is recommended."}, criticalMessage: "Total carrying cost > $25K — alternative routes should be evaluated.", criticalMessage_i18n: {"en":"Total carrying cost > $25K — alternative routes should be evaluated."} }],
   formulaPipeline: [
     { formulaId: "cost.transport_air", inputMap: { airFreightCost: "airFreightCost" ,
         airFreightKg: "airFreightKg",

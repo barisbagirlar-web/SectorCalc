@@ -1,6 +1,4 @@
-/**
- * Tool #26 — Cati Alani & Yuk
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
   id: "roof-area-load-analyzer", legacyPaidSlug: "roof-area-load-analyzer",
@@ -12,20 +10,20 @@ export const ROOF_AREA_SCHEMA: PremiumCalculatorSchema = {
     { id: "overhangWidth", label: "Eaves overhang", label_i18n: {"en":"Eaves overhang"}, type: "number", unit: "m", required: false, smartDefault: 0.5, validation: { min: 0 }, helper: "", expertMeaning: "Eaves overhang", expertMeaning_i18n: {"en":"Eaves overhang"} },
     { id: "wasteFactor", label: "Waste Rate", label_i18n: {"en":"Waste Rate"}, type: "number", unit: "%", required: false, smartDefault: 10, validation: { min: 0, max: 50 }, helper: "", expertMeaning: "Material waste factor", expertMeaning_i18n: {"en":"Material waste factor"} },
     { id: "materialWeight", label: "Roofing material weight", label_i18n: {"en":"Roofing material weight"}, type: "number", unit: "kg/m²", required: false, smartDefault: 15, validation: { min: 0 }, helper: "", expertMeaning: "Roofing material weight", expertMeaning_i18n: {"en":"Roofing material weight"} },
-    { id: "groundSnow", label: "Yer Kar Yuku", label_i18n: {"en":"Ground snow load"}, type: "number", unit: "kN/m²", required: false, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "Ground snow load", expertMeaning_i18n: {"en":"Ground snow load"} },
-    { id: "exposureFactor", label: "Maruziyet Faktoru", label_i18n: {"en":"Exposure factor Ce"}, type: "number", unit: "%", required: false, smartDefault: 100, validation: { min: 0, max: 150 }, helper: "", expertMeaning: "Exposure factor Ce", expertMeaning_i18n: {"en":"Exposure factor Ce"} },
-    { id: "thermalFactor", label: "Termal Faktor", label_i18n: {"en":"Thermal factor Ct"}, type: "number", unit: "%", required: false, smartDefault: 100, validation: { min: 0, max: 150 }, helper: "", expertMeaning: "Thermal factor Ct", expertMeaning_i18n: {"en":"Thermal factor Ct"} },
+    { id: "groundSnow", label: "Ground snow load", label_i18n: {"en":"Ground snow load"}, type: "number", unit: "kN/m²", required: false, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "Ground snow load", expertMeaning_i18n: {"en":"Ground snow load"} },
+    { id: "exposureFactor", label: "Exposure factor Ce", label_i18n: {"en":"Exposure factor Ce"}, type: "number", unit: "%", required: false, smartDefault: 100, validation: { min: 0, max: 150 }, helper: "", expertMeaning: "Exposure factor Ce", expertMeaning_i18n: {"en":"Exposure factor Ce"} },
+    { id: "thermalFactor", label: "Thermal factor Ct", label_i18n: {"en":"Thermal factor Ct"}, type: "number", unit: "%", required: false, smartDefault: 100, validation: { min: 0, max: 150 }, helper: "", expertMeaning: "Thermal factor Ct", expertMeaning_i18n: {"en":"Thermal factor Ct"} },
     { id: "slopeFactor", label: "Slope reduction factor Cs", label_i18n: {"en":"Slope reduction factor Cs"}, type: "number", unit: "%", required: false, smartDefault: 80, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Slope reduction factor Cs", expertMeaning_i18n: {"en":"Slope reduction factor Cs"} },
   ],
   outputs: [
     { id: "footprint", label: "Taban Alan", label_i18n: {"en":"Taban Alan"}, unit: "m²", format: "number" },
     { id: "gableArea", label: "Cat Yuzey Alan", label_i18n: {"en":"Cat Yuzey Alan"}, unit: "m²", format: "number" },
-    { id: "totalMaterialArea", label: "Malzeme Alan (Fire Dahil)", label_i18n: {"en":"material Alan (waste Dahil)"}, unit: "m²", format: "number" },
-    { id: "deadLoad", label: "Olu Yuk", label_i18n: {"en":"Dead Load"}, unit: "kN", format: "number" },
-    { id: "snowLoad", label: "Kar Yuku", label_i18n: {"en":"Snow Load"}, unit: "kN/m²", format: "number" },
-    { id: "combinedLoad", label: "Toplam Yuk", label_i18n: {"en":"Total Load"}, unit: "kN/m²", format: "number", isBigNumber: true },
+    { id: "totalMaterialArea", label: "material Alan (waste Dahil)", label_i18n: {"en":"material Alan (waste Dahil)"}, unit: "m²", format: "number" },
+    { id: "deadLoad", label: "Dead Load", label_i18n: {"en":"Dead Load"}, unit: "kN", format: "number" },
+    { id: "snowLoad", label: "Snow Load", label_i18n: {"en":"Snow Load"}, unit: "kN/m²", format: "number" },
+    { id: "combinedLoad", label: "Total Load", label_i18n: {"en":"Total Load"}, unit: "kN/m²", format: "number", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Yuk > 5 kN/m² — tasiyici sistem kontrol edilmelidir.", warningMessage_i18n: {"en":"Load > 5 kN/m² — load-bearing system must be checked."}, criticalMessage: "Yuk > 8 kN/m² — acil statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent statik analiz gerekiyor."} }],
+  thresholds: [{ fieldId: "combinedLoad", warning: 5, critical: 8, direction: "higher_is_bad", warningMessage: "Load > 5 kN/m² — load-bearing system must be checked.", warningMessage_i18n: {"en":"Load > 5 kN/m² — load-bearing system must be checked."}, criticalMessage: "Load > 8 kN/m² — urgent statik analiz gerekiyor.", criticalMessage_i18n: {"en":"Load > 8 kN/m² — urgent statik analiz gerekiyor."} }],
   formulaPipeline: [
     { formulaId: "measurement.roof_material_area", inputMap: { gableArea: "gableArea", wasteFactor: "wasteFactor" }, outputId: "measurement_roof_material_area_out" },
     { formulaId: "measurement.roof_footprint", inputMap: { roofLength: "roofLength", roofWidth: "roofWidth" ,

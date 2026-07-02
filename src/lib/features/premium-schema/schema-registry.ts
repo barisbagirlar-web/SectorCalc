@@ -1,3 +1,17 @@
+import { ICI_DATACENTER_SCHEMA } from "./schemas/ici-datacenter";
+import { ICI_GRID_SCHEMA } from "./schemas/ici-grid";
+import { ICI_GIGAFACTORY_FORMATION_SCHEMA } from "./schemas/ici-gigafactory-formation";
+import { ICI_TAILINGS_SCHEMA } from "./schemas/ici-tailings";
+import { ICI_LYO_SCHEMA } from "./schemas/ici-lyo";
+import { ICI_RETROFIT_SCHEMA } from "./schemas/ici-retrofit";
+import { ICI_DECOM_NUKE_SCHEMA } from "./schemas/ici-decom-nuke";
+import { ICI_INFRA_LIFE_SCHEMA } from "./schemas/ici-infra-life";
+import { ICI_BOILOFF_SCHEMA } from "./schemas/ici-boiloff";
+import { ICI_WELD_PWHT_SCHEMA } from "./schemas/ici-weld-pwht";
+import { ICI_CURE_SCHEMA } from "./schemas/ici-cure";
+import { ICI_STACK_SCHEMA } from "./schemas/ici-stack";
+import { ICI_BRIDGE_LIFE_SCHEMA } from "./schemas/ici-bridge-life";
+import { ICI_WELL_SCHEMA } from "./schemas/ici-well";
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 import { THREE_B_PRINTING_SUPPORT_POST_PROCESS_SCHEMA } from "@/lib/features/premium-schema/schemas/3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator";
 import { THREE_B_PRINTING_BATCH_NESTING_SCHEMA } from "@/lib/features/premium-schema/schemas/3b-baski-parti-optimizasyonu-ve-yuvalama-calculator";

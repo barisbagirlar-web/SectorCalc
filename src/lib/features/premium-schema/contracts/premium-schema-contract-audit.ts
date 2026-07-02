@@ -23,10 +23,31 @@ export function auditPremiumSchema(
   // Track what input IDs are available at each step.
   // Initially, all schema inputs are available.
   const availableInputIds = new Set<string>(schema.inputs.map((i) => i.id));
+  const declaredInputIds = new Set<string>(schema.inputs.map((i) => i.id));
+  const consumedInputIds = new Set<string>();
+
+  if (schema.outputs) {
+    for (const out of schema.outputs) {
+      consumedInputIds.add(out.id);
+    }
+  }
+  
+  if (schema.thresholds) {
+    for (const t of schema.thresholds) {
+      consumedInputIds.add(t.fieldId);
+    }
+  }
 
   for (let i = 0; i < schema.formulaPipeline.length; i++) {
     const step = schema.formulaPipeline[i];
     const contract = FORMULA_CONTRACT_REGISTRY[step.formulaId];
+
+    // Make step inputs available to consumed list
+    if (step.inputMap) {
+      for (const mappedId of Object.values(step.inputMap)) {
+        consumedInputIds.add(mappedId);
+      }
+    }
 
     if (!contract) {
       // Contract not yet defined; skip for now per rollout strategy.
@@ -51,6 +72,8 @@ export function auditPremiumSchema(
         });
         continue;
       }
+      
+      consumedInputIds.add(mappedId);
 
       // Sometimes inputMaps contain constants or raw strings instead of IDs. 
       // But based on our architecture, they should map to input IDs. 
@@ -69,6 +92,18 @@ export function auditPremiumSchema(
     // Make step output available to subsequent steps
     if (step.outputId) {
       availableInputIds.add(step.outputId);
+    }
+  }
+
+  for (const declaredId of declaredInputIds) {
+    if (!consumedInputIds.has(declaredId)) {
+      errors.push({
+        toolKey: schema.id,
+        formulaId: "N/A",
+        inputId: declaredId,
+        filePath,
+        reason: `UNUSED_DECLARED_INPUT: Declared input '${declaredId}' is never consumed by formulaPipeline, outputs, or thresholds.`,
+      });
     }
   }
 

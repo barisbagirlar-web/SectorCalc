@@ -1,21 +1,19 @@
-/**
- * Tool #40 — Faiz Orani Riski
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "interest-rate-risk-analyzer", legacyPaidSlug: "interest-rate-risk-analyzer",
   name: "Interest Rate Risk & Hedge Analyzer", name_i18n: {"en":"Interest Rate Risk & Hedge Analyzer"}, sectorSlug: "financial-planning", category: "cost",
-  painStatement: "Faiz orani risk (duration gap, VaR, NIM) dogru hesaplanmazsa bilanco korunmasiz kalir ve beklenmedik kayiplar olusur.", painStatement_i18n: {"en":"If interest rate risk (duration gap, VaR, NIM) is not accurately calculated, the balance sheet remains unprotected and unexpected losses occur."},
+  painStatement: "If interest rate risk (duration gap, VaR, NIM) is not accurately calculated, the balance sheet remains unprotected and unexpected losses occur.", painStatement_i18n: {"en":"If interest rate risk (duration gap, VaR, NIM) is not accurately calculated, the balance sheet remains unprotected and unexpected losses occur."},
   inputs: [
     { id: "floatingDebt", label: "Floating rate debt", label_i18n: {"en":"Floating rate debt"}, type: "number", unit: "USD", required: true, smartDefault: 5000000, validation: { min: 0 }, helper: "", expertMeaning: "Floating rate debt", expertMeaning_i18n: {"en":"Floating rate debt"} },
     { id: "hedgeRatio", label: "Hedge ratio percentage", label_i18n: {"en":"Hedge ratio percentage"}, type: "number", unit: "%", required: false, smartDefault: 60, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Hedge ratio percentage", expertMeaning_i18n: {"en":"Hedge ratio percentage"} },
     { id: "bpsChange", label: "Interest rate shock in bps", label_i18n: {"en":"Interest rate shock in bps"}, type: "number", unit: "bps", required: true, smartDefault: 100, validation: { min: 0 }, helper: "", expertMeaning: "Interest rate shock in bps", expertMeaning_i18n: {"en":"Interest rate shock in bps"} },
-    { id: "durGap", label: "Duration Gap (D_A - D_L)", label_i18n: {"en":"Duration Gap (D_A - D_L)"}, type: "number", unit: "yil", required: false, smartDefault: 2.5, validation: { min: 0 }, helper: "", expertMeaning: "Duration gap", expertMeaning_i18n: {"en":"Duration gap"} },
+    { id: "durGap", label: "Duration Gap (D_A - D_L)", label_i18n: {"en":"Duration Gap (D_A - D_L)"}, type: "number", unit: "years", required: false, smartDefault: 2.5, validation: { min: 0 }, helper: "", expertMeaning: "Duration gap", expertMeaning_i18n: {"en":"Duration gap"} },
     { id: "assetValue", label: "Total asset value", label_i18n: {"en":"Total asset value"}, type: "number", unit: "USD", required: false, smartDefault: 10000000, validation: { min: 0 }, helper: "", expertMeaning: "Total asset value", expertMeaning_i18n: {"en":"Total asset value"} },
     { id: "rateChange", label: "Interest rate change", label_i18n: {"en":"Interest rate change"}, type: "number", unit: "%", required: false, smartDefault: 1.5, validation: { min: 0, max: 20 }, helper: "", expertMeaning: "Interest rate change", expertMeaning_i18n: {"en":"Interest rate change"} },
     { id: "portfolioValue", label: "Portfolio value", label_i18n: {"en":"Portfolio value"}, type: "number", unit: "USD", required: false, smartDefault: 8000000, validation: { min: 0 }, helper: "", expertMeaning: "Portfolio value", expertMeaning_i18n: {"en":"Portfolio value"} },
     { id: "volatility", label: "Volatilite", label_i18n: {"en":"Volatilite"}, type: "number", unit: "%", required: false, smartDefault: 15, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Annual volatility", expertMeaning_i18n: {"en":"Annual volatility"} },
-    { id: "zScore", label: "Z-Skor (G.K. Duzeyi)", label_i18n: {"en":"Confidence z-score"}, type: "number", unit: "", required: false, smartDefault: 2.33, validation: { min: 0, max: 4 }, helper: "", expertMeaning: "Confidence z-score", expertMeaning_i18n: {"en":"Confidence z-score"} },
+    { id: "zScore", label: "Confidence z-score", label_i18n: {"en":"Confidence z-score"}, type: "number", unit: "", required: false, smartDefault: 2.33, validation: { min: 0, max: 4 }, helper: "", expertMeaning: "Confidence z-score", expertMeaning_i18n: {"en":"Confidence z-score"} },
     { id: "notionalAmount", label: "Notional swap amount", label_i18n: {"en":"Notional swap amount"}, type: "number", unit: "USD", required: false, smartDefault: 3000000, validation: { min: 0 }, helper: "", expertMeaning: "Notional swap amount", expertMeaning_i18n: {"en":"Notional swap amount"} },
     { id: "swapSpread", label: "Swap Spread", label_i18n: {"en":"Swap Spread"}, type: "number", unit: "%", required: false, smartDefault: 1.5, validation: { min: 0 }, helper: "", expertMeaning: "Swap spread percentage", expertMeaning_i18n: {"en":"Swap spread percentage"} },
   ],
@@ -25,7 +23,7 @@ export const INTEREST_RATE_RISK_SCHEMA: PremiumCalculatorSchema = {
     { id: "eveChange", label: "EVE Degisimi", label_i18n: {"en":"EVE Degisimi"}, unit: "USD", format: "currency" },
     { id: "valueAtRisk", label: "VaR (99% G.K.)", label_i18n: {"en":"VaR (99% G.K.)"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
-  thresholds: [{ fieldId: "shockImpact", warning: 500000, critical: 1000000, direction: "higher_is_bad", warningMessage: "Sok etkisi > $500K — hedge orani artirilmali.", warningMessage_i18n: {"en":"Shock impact > $500K — hedge rate should be increased."}, criticalMessage: "Sok etkisi > $1M — acil risk azaltma stratejisi.", criticalMessage_i18n: {"en":"Shock impact > $1M — urgent risk mitigation strategy."} }],
+  thresholds: [{ fieldId: "shockImpact", warning: 500000, critical: 1000000, direction: "higher_is_bad", warningMessage: "Shock impact > $500K — hedge rate should be increased.", warningMessage_i18n: {"en":"Shock impact > $500K — hedge rate should be increased."}, criticalMessage: "Shock impact > $1M — urgent risk mitigation strategy.", criticalMessage_i18n: {"en":"Shock impact > $1M — urgent risk mitigation strategy."} }],
   formulaPipeline: [
     { formulaId: "cost.ir_exposure", inputMap: { floatingDebt: "floatingDebt", hedgeRatio: "hedgeRatio" }, outputId: "exposure" },
     { formulaId: "cost.ir_shock_impact", inputMap: { exposure: "exposure", bpsChange: "bpsChange" }, outputId: "shockImpact" },

@@ -7,16 +7,16 @@ export const CONTRACT_INCENTIVE_ANALYZER: PremiumCalculatorSchema = {
   name: "Contract Incentive Analysis", name_i18n: {"en":"Contract Incentive Analysis"}, sectorSlug: "construction", category: "cost",
   painStatement: "If incentive mechanisms in construction contracts are not configured correctly, cost variance and disputes between contractor and employer become inevitable.", painStatement_i18n: {"en":"If incentive mechanisms in construction contracts are not configured correctly, cost variance and disputes between contractor and employer become inevitable."},
   inputs: [
-    { id: "targetCost", label: "Hedef Maliyet", label_i18n: {"en":"Target Cost"}, type: "number", unit: "USD", required: true, smartDefault: 5000000, validation: { min: 1 }, helper: "", expertMeaning: "Target cost for the project", expertMeaning_i18n: {"en":"Target cost for the project"} },
+    { id: "targetCost", label: "Target Cost", label_i18n: {"en":"Target Cost"}, type: "number", unit: "USD", required: true, smartDefault: 5000000, validation: { min: 1 }, helper: "", expertMeaning: "Target cost for the project", expertMeaning_i18n: {"en":"Target cost for the project"} },
     { id: "actualCost", label: "Actual Cost", label_i18n: {"en":"Actual Cost"}, type: "number", unit: "USD", required: true, smartDefault: 4800000, validation: { min: 1 }, helper: "", expertMeaning: "Actual cost incurred", expertMeaning_i18n: {"en":"Actual cost incurred"} },
-    { id: "targetFee", label: "Hedef Ucret", label_i18n: {"en":"Target Fee"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1 }, helper: "", expertMeaning: "Target fee amount", expertMeaning_i18n: {"en":"Target fee amount"} },
+    { id: "targetFee", label: "Target Fee", label_i18n: {"en":"Target Fee"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1 }, helper: "", expertMeaning: "Target fee amount", expertMeaning_i18n: {"en":"Target fee amount"} },
     { id: "shareRatio", label: "Share Ratio (Contractor)", label_i18n: {"en":"Share Ratio (Contractor)"}, type: "number", unit: "%", required: true, smartDefault: 50, validation: { min: 0, max: 100 }, helper: "", expertMeaning: "Contractor share of savings/overrun", expertMeaning_i18n: {"en":"Contractor share of savings/overrun"} },
-    { id: "minFee", label: "Minimum Ucret", label_i18n: {"en":"Minimum Fee"}, type: "number", unit: "USD", required: false, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Minimum guaranteed fee", expertMeaning_i18n: {"en":"Minimum guaranteed fee"} },
-    { id: "maxFee", label: "Maksimum Ucret", label_i18n: {"en":"Maximum Fee"}, type: "number", unit: "USD", required: false, smartDefault: 800000, validation: { min: 0 }, helper: "", expertMeaning: "Maximum fee cap", expertMeaning_i18n: {"en":"Maximum fee cap"} },
+    { id: "minFee", label: "Minimum Fee", label_i18n: {"en":"Minimum Fee"}, type: "number", unit: "USD", required: false, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Minimum guaranteed fee", expertMeaning_i18n: {"en":"Minimum guaranteed fee"} },
+    { id: "maxFee", label: "Maximum Fee", label_i18n: {"en":"Maximum Fee"}, type: "number", unit: "USD", required: false, smartDefault: 800000, validation: { min: 0 }, helper: "", expertMeaning: "Maximum fee cap", expertMeaning_i18n: {"en":"Maximum fee cap"} },
   ],
   outputs: [
-    { id: "incentiveTargetFee", label: "Hedef Tesvik Ucreti", label_i18n: {"en":"Hedef Tesvik Rate"}, unit: "USD", format: "currency" },
-    { id: "incentiveActualFee", label: "Gerceklesen Tesvik Ucreti", label_i18n: {"en":"Gerceklesen Tesvik Rate"}, unit: "USD", format: "currency", isBigNumber: true },
+    { id: "incentiveTargetFee", label: "Hedef Tesvik Rate", label_i18n: {"en":"Hedef Tesvik Rate"}, unit: "USD", format: "currency" },
+    { id: "incentiveActualFee", label: "Gerceklesen Tesvik Rate", label_i18n: {"en":"Gerceklesen Tesvik Rate"}, unit: "USD", format: "currency", isBigNumber: true },
   ],
   thresholds: [{ fieldId: "incentiveActualFee", warning: 600000, critical: 300000, direction: "lower_is_bad", warningMessage: "Incentive fee <$600K — contractor motivation may decrease.", warningMessage_i18n: {"en":"Incentive fee <$600K — contractor motivation may decrease."}, criticalMessage: "Incentive fee <$300K — review contract structure.", criticalMessage_i18n: {"en":"Incentive fee <$300K — review contract structure."} }],
   formulaPipeline: [

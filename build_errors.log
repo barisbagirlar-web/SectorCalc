@@ -1,0 +1,85 @@
+
+> fresh_app@0.1.0 prebuild
+> node scripts/schema-language-guard.mjs && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts
+
+✅ [LANGUAGE GUARD] SectorCalc schema English purity check passed.
+📦 Prebuild Reference Registry Generator
+   Scanning: /Users/macair1/projects/SectorCalc-p5a/references
+   Output:   /Users/macair1/projects/SectorCalc-p5a/src/generated/reference-registry.ts
+
+   📄 references/electrical/material-resistivity.yaml
+   ✓ tool-electrical-conductor-sizing.resistivity → 6 reference(s) (IEC 60028)
+   📄 references/fluids/pipe-flow-density.yaml
+   ✓ darcy-weisbach-pipe-flow-calculator.fluidDensity → 6 reference(s) (ISO 80000-4)
+   📄 references/fluids/viscosity.yaml
+   ✓ darcy-weisbach-pipe-flow-calculator.fluidViscosity → 6 reference(s) (ISO 3104)
+   📄 references/fluids/water-properties.yaml
+   ✓ tool-hydraulic-system-loss.fluidDensity → 4 reference(s) (ISO 80000-4)
+   📄 references/hvac/air-density-wind.yaml
+   ✓ wind-turbine-investment-analyzer.airDensity → 4 reference(s) (ISO 2533)
+   📄 references/hvac/air-properties.yaml
+   ✓ tool-hvac-capacity.airDensity → 4 reference(s) (ISO 80000-4)
+   📄 references/manufacturing/oee-annual-shift-count.yaml
+   ✓ oee-calculator.annualShiftCount → 4 reference(s) (ISO 22400-2:2014)
+   📄 references/manufacturing/oee-good-parts-count.yaml
+   ✓ oee-calculator.goodPartsCount → 4 reference(s) (ISO 22400-2:2014)
+   📄 references/manufacturing/oee-ideal-cycle-time.yaml
+   ✓ oee-calculator.idealCycleTime → 4 reference(s) (ISO 22400-2:2014)
+   📄 references/manufacturing/oee-machine-hourly-cost.yaml
+   ✓ oee-calculator.machineHourlyCost → 5 reference(s) (ISO 14224:2016)
+   📄 references/manufacturing/oee-planned-production-time.yaml
+   ✓ oee-calculator.plannedProductionTime → 4 reference(s) (ISO 22400-2:2014)
+   📄 references/manufacturing/oee-total-downtime.yaml
+   ✓ oee-calculator.totalDowntime → 4 reference(s) (ISO 22400-2:2014)
+   📄 references/manufacturing/oee-total-parts-produced.yaml
+   ✓ oee-calculator.totalPartsProduced → 3 reference(s) (ISO 22400-2:2014)
+   📄 references/materials/asme-vessel-density.yaml
+   ✓ asme-pressure-vessel-analyzer.materialDensity → 3 reference(s) (EN 10025-2)
+   📄 references/materials/asme-vessel-materials.yaml
+   ✓ asme-pressure-vessel-analyzer.stressAllowable → 6 reference(s) (ASME BPVC Sec VIII Div.1)
+   📄 references/materials/bolt-grades.yaml
+   ✓ bolt-torque-preload-analyzer.yieldStrength → 7 reference(s) (ISO 898-1)
+   📄 references/materials/cnc-density.yaml
+   ✓ cnc-machining-cost-analyzer.density → 7 reference(s) (EN 10025-2)
+   📄 references/materials/concrete-properties.yaml
+   ✓ tool-concrete-volume-cost.concreteDensity → 5 reference(s) (ACI 318)
+   📄 references/materials/cutting-tool-iso513.yaml
+   ✓ pro-tool-machining.material_group → 11 reference(s) (ISO 513:2012)
+   📄 references/materials/nut-factors.yaml
+   ✓ bolt-torque-preload-analyzer.torqueCoefficient → 6 reference(s) (ISO 16047)
+   📄 references/materials/weld-electrode-strength.yaml
+   ✓ weld-strength-analyzer.tensileStrength → 6 reference(s) (AWS A5.1)
+   📄 references/materials/weld-metal-density.yaml
+   ✓ weld-volume-cost-analyzer.density → 3 reference(s) (AWS A5.1)
+   📄 references/structural/base-metal-yield.yaml
+   ✓ weld-strength-analyzer.yieldStrength → 6 reference(s) (EN 10025-2)
+   📄 references/structural/concrete-grades.yaml
+   ✓ concrete-volume-cost-analyzer.concreteGrade → 5 reference(s) (EN 206:2013)
+   📄 references/structural/steel-densities.yaml
+   ✓ beam-weight-analyzer.steelDensity → 5 reference(s) (EN 10025-2)
+   📄 references/structural/young-modulus-options.yaml
+   ✓ hydraulic-cylinder-calculator.youngModulus → 3 reference(s) (EN 1993-1-1)
+   📄 references/structural/young-modulus.yaml
+   ✓ beam-weight-analyzer.modulusE → 5 reference(s) (EN 1993-1-1)
+
+   ──────────────────────────────────────
+   ✅ Valid:   27
+   ❌ Errors:  0
+   📊 Total:   27 file(s)
+
+   📝 Written: src/generated/reference-registry.ts
+   ✅ Registry generation complete.
+
+🔍 Scanning for Reference Engine Rule Violations...
+
+⚠  Found 0 error(s) + 3 warning(s) across 2 file(s):
+
+  📄 src/lib/content/pdf/industrial-pdf/content/engineering-explanations.ts
+    ⚠️ Ln 42:10 — Local/national standard detected: "DIN 276". Use only ISO, ASTM, EN, ACI, AISC, ASME, IEC, IEEE.
+    ⚠️ Ln 180:10 — Local/national standard detected: "DIN 15185". Use only ISO, ASTM, EN, ACI, AISC, ASME, IEC, IEEE.
+
+  📄 src/lib/features/tool-schemas/weldToolSchema.ts
+    ⚠️ Ln 78:85 — Local/national standard detected: "BS 7448". Use only ISO, ASTM, EN, ACI, AISC, ASME, IEC, IEEE.
+
+⚠️  Warnings found but no errors. Review suggested fixes.
+

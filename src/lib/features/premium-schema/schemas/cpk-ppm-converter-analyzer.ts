@@ -1,29 +1,27 @@
-/**
- * Tool #24 — CPK → PPM Donusum
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const CPK_PPM_SCHEMA: PremiumCalculatorSchema = {
   id: "cpk-ppm-converter-analyzer", legacyPaidSlug: "cpk-ppm-converter-analyzer",
-  name: "CPK → PPM & Sigma Seviye Donusturucu", name_i18n: {"en":"CPK → PPM & Sigma Level Donusturucu"}, sectorSlug: "cnc-manufacturing", category: "measurement",
-  painStatement: "Cpk valueini PPM ve Sigma seviyesine donusturemeden process performansini yonetmek imkansizdir. Bu arac Cpk, PPM, Yield ve Sigma seviyesini tek adimda hesaplar.", painStatement_i18n: {"en":"It is impossible to manage process performance without converting Cpk to PPM and Sigma level. This tool calculates Cpk, PPM, Yield and Sigma level in a single step."},
+  name: "CPK → PPM & Sigma Level Converter", name_i18n: {"en":"CPK → PPM & Sigma Level Converter"}, sectorSlug: "cnc-manufacturing", category: "measurement",
+  painStatement: "It is impossible to manage process performance without converting Cpk to PPM and Sigma level. This tool calculates Cpk, PPM, Yield and Sigma level in a single step.", painStatement_i18n: {"en":"It is impossible to manage process performance without converting Cpk to PPM and Sigma level. This tool calculates Cpk, PPM, Yield and Sigma level in a single step."},
   inputs: [
-    { id: "usl", label: "Ust Spesifikasyon Limiti (USL)", label_i18n: {"en":"Upper specification limit"}, type: "number", unit: "", required: true, smartDefault: 10.05, validation: { min: 0 }, helper: "", expertMeaning: "Upper specification limit", expertMeaning_i18n: {"en":"Upper specification limit"} },
+    { id: "usl", label: "Upper specification limit", label_i18n: {"en":"Upper specification limit"}, type: "number", unit: "", required: true, smartDefault: 10.05, validation: { min: 0 }, helper: "", expertMeaning: "Upper specification limit", expertMeaning_i18n: {"en":"Upper specification limit"} },
     { id: "lsl", label: "Alt Spesifikasyon Limiti (LSL)", label_i18n: {"en":"Alt Spesifikasyon Limiti (LSL)"}, type: "number", unit: "", required: true, smartDefault: 9.95, validation: { min: 0 }, helper: "", expertMeaning: "Lower specification limit", expertMeaning_i18n: {"en":"Lower specification limit"} },
     { id: "mean", label: "Process mean", label_i18n: {"en":"Process mean"}, type: "number", unit: "", required: true, smartDefault: 10.0, validation: { min: 0 }, helper: "", expertMeaning: "Process mean", expertMeaning_i18n: {"en":"Process mean"} },
-    { id: "stdDev", label: "Standart Sapma", label_i18n: {"en":"Standart Deviation"}, type: "number", unit: "", required: true, smartDefault: 0.015, validation: { min: 0.0001 }, helper: "", expertMeaning: "Process standard deviation", expertMeaning_i18n: {"en":"Process standard deviation"} },
+    { id: "stdDev", label: "Standart Deviation", label_i18n: {"en":"Standart Deviation"}, type: "number", unit: "", required: true, smartDefault: 0.015, validation: { min: 0.0001 }, helper: "", expertMeaning: "Process standard deviation", expertMeaning_i18n: {"en":"Process standard deviation"} },
     { id: "targetCpk", label: "Hedef Cpk", label_i18n: {"en":"Hedef Cpk"}, type: "number", unit: "", required: false, smartDefault: 1.67, validation: { min: 0 }, helper: "", expertMeaning: "Target Cpk level", expertMeaning_i18n: {"en":"Target Cpk level"} },
-    { id: "dailyVolume", label: "Gunluk Uretim Hacmi", label_i18n: {"en":"Daily production volume"}, type: "number", unit: "adet", required: false, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Daily production volume", expertMeaning_i18n: {"en":"Daily production volume"} },
+    { id: "dailyVolume", label: "Daily production volume", label_i18n: {"en":"Daily production volume"}, type: "number", unit: "units", required: false, smartDefault: 1000, validation: { min: 0 }, helper: "", expertMeaning: "Daily production volume", expertMeaning_i18n: {"en":"Daily production volume"} },
   ],
   outputs: [
     { id: "zUsl", label: "Z_USL", label_i18n: {"en":"Z_USL"}, unit: "", format: "number" },
     { id: "zLsl", label: "Z_LSL", label_i18n: {"en":"Z_LSL"}, unit: "", format: "number" },
     { id: "cpk", label: "Cpk", label_i18n: {"en":"Cpk"}, unit: "", format: "number" },
-    { id: "totalPpm", label: "Toplam PPM", label_i18n: {"en":"Total PPM"}, unit: "", format: "number" },
-    { id: "sigmaShort", label: "Sigma Seviyesi (Ksa Donem)", label_i18n: {"en":"Sigma level (Ksa Donem)"}, unit: "", format: "number" },
-    { id: "expectedDefectsDaily", label: "Tahmini Gunluk Hata", label_i18n: {"en":"Estimated Daily Error"}, unit: "adet/gun", format: "number", isBigNumber: true },
+    { id: "totalPpm", label: "Total PPM", label_i18n: {"en":"Total PPM"}, unit: "", format: "number" },
+    { id: "sigmaShort", label: "Sigma level (Ksa Donem)", label_i18n: {"en":"Sigma level (Ksa Donem)"}, unit: "", format: "number" },
+    { id: "expectedDefectsDaily", label: "Estimated Daily Error", label_i18n: {"en":"Estimated Daily Error"}, unit: "units/day", format: "number", isBigNumber: true },
   ],
   thresholds: [
-    { fieldId: "cpk", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cpk < 1.33 — proses iyilestirme gerekiyor.", warningMessage_i18n: {"en":"Cpk < 1.33 — proses improvement gerekiyor."}, criticalMessage: "Cpk < 1.0 — proses yetersiz, acil aksiyon.", criticalMessage_i18n: {"en":"Cpk < 1.0 — proses insufficient, urgent aksiyon."} },
+    { fieldId: "cpk", warning: 1.33, critical: 1.0, direction: "lower_is_bad", warningMessage: "Cpk < 1.33 — proses improvement gerekiyor.", warningMessage_i18n: {"en":"Cpk < 1.33 — proses improvement gerekiyor."}, criticalMessage: "Cpk < 1.0 — proses insufficient, urgent aksiyon.", criticalMessage_i18n: {"en":"Cpk < 1.0 — proses insufficient, urgent aksiyon."} },
   ],
   formulaPipeline: [
     { formulaId: "measurement.cpk_z_usl", inputMap: { usl: "usl", mean: "mean", stdDev: "stdDev" }, outputId: "zUsl" },

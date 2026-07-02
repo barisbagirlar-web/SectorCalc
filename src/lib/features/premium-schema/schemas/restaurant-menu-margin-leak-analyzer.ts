@@ -1,29 +1,27 @@
-/**
- * Tool #39 — Restoran Menu Marj Kacagi
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "restaurant-menu-margin-leak-analyzer", legacyPaidSlug: "restaurant-menu-margin-leak-analyzer",
   name: "Restaurant Menu Margin Leak Analysis", name_i18n: {"en":"Restaurant Menu Margin Leak Analysis"}, sectorSlug: "food", category: "cost",
   painStatement: "If the gap between theoretical and actual margins is not tracked, waste, theft, and incorrect portioning silently destroy profit.", painStatement_i18n: {"en":"If the gap between theoretical and actual margins is not tracked, waste, theft, and incorrect portioning silently destroy profit."},
   inputs: [
-    { id: "theoreticalFoodCost", label: "Teorik Yiyecek Maliyeti", label_i18n: {"en":"Teorik Yiyecek Cost"}, type: "number", unit: "USD", required: true, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Theoretical (ideal) food cost", expertMeaning_i18n: {"en":"Theoretical (ideal) food cost"} },
+    { id: "theoreticalFoodCost", label: "Teorik Yiyecek Cost", label_i18n: {"en":"Teorik Yiyecek Cost"}, type: "number", unit: "USD", required: true, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Theoretical (ideal) food cost", expertMeaning_i18n: {"en":"Theoretical (ideal) food cost"} },
     { id: "actualFoodCost", label: "Actual food cost from P&L", label_i18n: {"en":"Actual food cost from P&L"}, type: "number", unit: "USD", required: true, smartDefault: 18500, validation: { min: 0 }, helper: "", expertMeaning: "Actual food cost from P&L", expertMeaning_i18n: {"en":"Actual food cost from P&L"} },
-    { id: "revenue", label: "Gelir", label_i18n: {"en":"Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 55000, validation: { min: 1 }, helper: "", expertMeaning: "Total food revenue", expertMeaning_i18n: {"en":"Total food revenue"} },
-    { id: "wasteAmount", label: "Tahmini Fire", label_i18n: {"en":"Estimated Waste"}, type: "number", unit: "USD", required: false, smartDefault: 1200, validation: { min: 0 }, helper: "", expertMeaning: "Estimated waste cost", expertMeaning_i18n: {"en":"Estimated waste cost"} },
+    { id: "revenue", label: "Revenue", label_i18n: {"en":"Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 55000, validation: { min: 1 }, helper: "", expertMeaning: "Total food revenue", expertMeaning_i18n: {"en":"Total food revenue"} },
+    { id: "wasteAmount", label: "Estimated Waste", label_i18n: {"en":"Estimated Waste"}, type: "number", unit: "USD", required: false, smartDefault: 1200, validation: { min: 0 }, helper: "", expertMeaning: "Estimated waste cost", expertMeaning_i18n: {"en":"Estimated waste cost"} },
     { id: "theftLoss", label: "Estimated theft or unauthorized use", label_i18n: {"en":"Estimated theft or unauthorized use"}, type: "number", unit: "USD", required: false, smartDefault: 800, validation: { min: 0 }, helper: "", expertMeaning: "Estimated theft or unauthorized use", expertMeaning_i18n: {"en":"Estimated theft or unauthorized use"} },
   ],
   outputs: [
-    { id: "restaurantTheoreticalFood", label: "Teorik Yiyecek Maliyeti", label_i18n: {"en":"Teorik Yiyecek Cost"}, unit: "USD", format: "currency" },
-    { id: "restaurantActualFood", label: "Gercek Yiyecek Maliyeti", label_i18n: {"en":"Actual Yiyecek Cost"}, unit: "USD", format: "currency" },
+    { id: "restaurantTheoreticalFood", label: "Teorik Yiyecek Cost", label_i18n: {"en":"Teorik Yiyecek Cost"}, unit: "USD", format: "currency" },
+    { id: "restaurantActualFood", label: "Actual Yiyecek Cost", label_i18n: {"en":"Actual Yiyecek Cost"}, unit: "USD", format: "currency" },
     { id: "restaurantVariance", label: "Mutfak Sapmas", label_i18n: {"en":"Mutfak Sapmas"}, unit: "USD", format: "currency" },
     { id: "restaurantVariancePct", label: "Deviation Rate", label_i18n: {"en":"Deviation Rate"}, unit: "%", format: "number" },
-    { id: "restaurantWasteCost", label: "Fire Maliyeti", label_i18n: {"en":"Waste Cost"}, unit: "USD", format: "currency" },
-    { id: "restaurantTheftLoss", label: "Zaiyat Maliyeti", label_i18n: {"en":"Shrinkage Cost"}, unit: "USD", format: "currency" },
-    { id: "restaurantIdealMargin", label: "Ideal Marj", label_i18n: {"en":"Ideal Margin"}, unit: "%", format: "number" },
+    { id: "restaurantWasteCost", label: "Waste Cost", label_i18n: {"en":"Waste Cost"}, unit: "USD", format: "currency" },
+    { id: "restaurantTheftLoss", label: "Shrinkage Cost", label_i18n: {"en":"Shrinkage Cost"}, unit: "USD", format: "currency" },
+    { id: "restaurantIdealMargin", label: "Ideal Margin", label_i18n: {"en":"Ideal Margin"}, unit: "%", format: "number" },
     { id: "restaurantActualMargin", label: "Actual Margin", label_i18n: {"en":"Actual Margin"}, unit: "%", format: "number" },
   ],
-  thresholds: [{ fieldId: "restaurantVariancePct", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Sapma > %5 — porsiyon ve fire kontrolu onerilir.", warningMessage_i18n: {"en":"Variance > 5% — increase portion and waste control."}, criticalMessage: "Sapma > %10 — mutfak operasyonu acilen denetlenmeli.", criticalMessage_i18n: {"en":"Variance > 10% — kitchen operations must be urgently audited."} }],
+  thresholds: [{ fieldId: "restaurantVariancePct", warning: 5, critical: 10, direction: "higher_is_bad", warningMessage: "Variance > 5% — increase portion and waste control.", warningMessage_i18n: {"en":"Variance > 5% — increase portion and waste control."}, criticalMessage: "Variance > 10% — kitchen operations must be urgently audited.", criticalMessage_i18n: {"en":"Variance > 10% — kitchen operations must be urgently audited."} }],
   formulaPipeline: [
     { formulaId: "cost.restaurant_theoretical_food", inputMap: { theoreticalFoodCost: "theoreticalFoodCost" ,
         totalSales: "totalSales",

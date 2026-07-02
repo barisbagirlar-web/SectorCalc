@@ -1,27 +1,25 @@
-/**
- * Tool #18 — Malzeme Replacement Maliyet
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "material-replacement-cost-analyzer", legacyPaidSlug: "material-replacement-cost-analyzer",
   name: "Material Replacement Cost Analyzer", name_i18n: {"en":"Material Replacement Cost Analyzer"}, sectorSlug: "cnc-manufacturing", category: "cost",
-  painStatement: "Alternatif malzeme gecislerinde TCO, agirlik tasarrufu ve net fayda hesaplanmazsa yanlis karar maliyet artirir.", painStatement_i18n: {"en":"In alternative material transitions, if TCO, weight savings, and net benefit are not calculated, incorrect decisions increase cost."},
+  painStatement: "In alternative material transitions, if TCO, weight savings, and net benefit are not calculated, incorrect decisions increase cost.", painStatement_i18n: {"en":"In alternative material transitions, if TCO, weight savings, and net benefit are not calculated, incorrect decisions increase cost."},
   inputs: [
-    { id: "currentMaterialCost", label: "Mevcut Malzeme Birim Maliyeti", label_i18n: {"en":"Current material Unit Cost"}, type: "number", unit: "USD/kg", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current material cost per kg", expertMeaning_i18n: {"en":"Current material cost per kg"} },
+    { id: "currentMaterialCost", label: "Current material Unit Cost", label_i18n: {"en":"Current material Unit Cost"}, type: "number", unit: "USD/kg", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current material cost per kg", expertMeaning_i18n: {"en":"Current material cost per kg"} },
     { id: "currentMaterialWeight", label: "Current material weight", label_i18n: {"en":"Current material weight"}, type: "number", unit: "kg", required: true, smartDefault: 100, validation: { min: 0.1 }, helper: "", expertMeaning: "Current material weight", expertMeaning_i18n: {"en":"Current material weight"} },
-    { id: "alternativeMaterialCost", label: "Alternatif Malzeme Birim Maliyeti", label_i18n: {"en":"Alternatif material Unit Cost"}, type: "number", unit: "USD/kg", required: true, smartDefault: 7, validation: { min: 0.01 }, helper: "", expertMeaning: "Alternative material cost per kg", expertMeaning_i18n: {"en":"Alternative material cost per kg"} },
+    { id: "alternativeMaterialCost", label: "Alternatif material Unit Cost", label_i18n: {"en":"Alternatif material Unit Cost"}, type: "number", unit: "USD/kg", required: true, smartDefault: 7, validation: { min: 0.01 }, helper: "", expertMeaning: "Alternative material cost per kg", expertMeaning_i18n: {"en":"Alternative material cost per kg"} },
     { id: "alternativeWeight", label: "Alternative material weight", label_i18n: {"en":"Alternative material weight"}, type: "number", unit: "kg", required: true, smartDefault: 60, validation: { min: 0.1 }, helper: "", expertMeaning: "Alternative material weight", expertMeaning_i18n: {"en":"Alternative material weight"} },
-    { id: "productionVolume", label: "Annual production volume", label_i18n: {"en":"Annual production volume"}, type: "number", unit: "adet", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production volume", expertMeaning_i18n: {"en":"Annual production volume"} },
+    { id: "productionVolume", label: "Annual production volume", label_i18n: {"en":"Annual production volume"}, type: "number", unit: "units", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Annual production volume", expertMeaning_i18n: {"en":"Annual production volume"} },
     { id: "toolingCost", label: "Tooling or transition cost", label_i18n: {"en":"Tooling or transition cost"}, type: "number", unit: "USD", required: false, smartDefault: 15000, validation: { min: 0 }, helper: "", expertMeaning: "Tooling or transition cost", expertMeaning_i18n: {"en":"Tooling or transition cost"} },
   ],
   outputs: [
-    { id: "currentTco", label: "Mevcut Malzeme TCO", label_i18n: {"en":"Current material TCO"}, unit: "USD/yil", format: "currency" },
-    { id: "alternativeTco", label: "Alternatif Malzeme TCO", label_i18n: {"en":"Alternatif material TCO"}, unit: "USD/yil", format: "currency" },
-    { id: "weightSavings", label: "Agrlk Tasarrufu", label_i18n: {"en":"Weight Tasarrufu"}, unit: "kg/yil", format: "number" },
-    { id: "netBenefit", label: "Net Yllk Fayda", label_i18n: {"en":"Net Annual Fayda"}, unit: "USD/yil", format: "currency" },
-    { id: "paybackYears", label: "Geri Odeme Suresi", label_i18n: {"en":"Payback Period"}, unit: "yil", format: "number" },
+    { id: "currentTco", label: "Current material TCO", label_i18n: {"en":"Current material TCO"}, unit: "USD/year", format: "currency" },
+    { id: "alternativeTco", label: "Alternatif material TCO", label_i18n: {"en":"Alternatif material TCO"}, unit: "USD/year", format: "currency" },
+    { id: "weightSavings", label: "Weight Tasarrufu", label_i18n: {"en":"Weight Tasarrufu"}, unit: "kg/yil", format: "number" },
+    { id: "netBenefit", label: "Net Annual Fayda", label_i18n: {"en":"Net Annual Fayda"}, unit: "USD/year", format: "currency" },
+    { id: "paybackYears", label: "Payback Period", label_i18n: {"en":"Payback Period"}, unit: "years", format: "number" },
   ],
-  thresholds: [{ fieldId: "netBenefit", warning: 5000, critical: -5000, direction: "lower_is_bad", warningMessage: "Net fayda < $5K — gecis karari riskli.", warningMessage_i18n: {"en":"Net benefit < $5K — transition decision is risky."}, criticalMessage: "Net fayda negatif — alternatif malzeme daha pahali.", criticalMessage_i18n: {"en":"Net benefit negative — alternative material is more expensive."} }],
+  thresholds: [{ fieldId: "netBenefit", warning: 5000, critical: -5000, direction: "lower_is_bad", warningMessage: "Net benefit < $5K — transition decision is risky.", warningMessage_i18n: {"en":"Net benefit < $5K — transition decision is risky."}, criticalMessage: "Net benefit negative — alternative material is more expensive.", criticalMessage_i18n: {"en":"Net benefit negative — alternative material is more expensive."} }],
   formulaPipeline: [
     { formulaId: "cost.tco_current", inputMap: { currentMaterialCost: "currentMaterialCost", currentMaterialWeight: "currentMaterialWeight", productionVolume: "productionVolume" ,
         currentPurchase: "currentPurchase",
@@ -45,5 +43,5 @@ export const MATERIAL_REPLACEMENT_COST_SCHEMA: PremiumCalculatorSchema = {
         tcoNetBenefit: "tcoNetBenefit"}, outputId: "paybackYears" },
   ],
   reportTemplate: { title: "Material Replacement Cost Report", title_i18n: {"en":"Material Replacement Cost Report"}, sections: ["executive_summary", "thresholds", "action_plan", "assumptions"], exportFormats: ["pdf", "excel"] },
-  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: ["TCO = birim maliyet × agirlik × hacim.", "Net fayda = mevcut TCO − alternatif TCO − takim maliyeti.", "Agirlik tasarrufu = (mevcut − alternatif) × hacim."],assumptionNotes_i18n:[{"en":"TCO = unit cost × weight × volume."},{"en":"Net benefit = current TCO − alternative TCO − tooling cost."},{"en":"Weight savings = (current − alternative) × volume."}] },
+  assumptions: { hiddenLossMultiplier: 1.1, volatilityPercent: 10, targetMarginPercent: 15, assumptionNotes: [],assumptionNotes_i18n:[{"en":"TCO = unit cost × weight × volume."},{"en":"Net benefit = current TCO − alternative TCO − tooling cost."},{"en":"Weight savings = (current − alternative) × volume."}] },
 };

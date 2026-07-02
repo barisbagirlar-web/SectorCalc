@@ -1,6 +1,4 @@
-/**
- * Tool #29 — Overtime vs Hiring Basabas
- */
+
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
   id: "overtime-hiring-breakeven-analyzer", legacyPaidSlug: "overtime-hiring-breakeven-analyzer",
