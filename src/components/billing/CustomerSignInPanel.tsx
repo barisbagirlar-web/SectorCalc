@@ -178,7 +178,8 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         data-auth-google-button="true"
         onClick={() => void handleGoogleSignIn()}
         disabled={pending}
-        className={`${buttonClass} relative !bg-white !text-black border border-border-subtle hover:!bg-bg-subtle flex items-center justify-center gap-2`}
+        className={`${buttonClass} relative !bg-white border border-border-subtle hover:!bg-bg-subtle flex items-center justify-center gap-2`}
+        style={{ color: "#000" }}
       >
         {!pending && (
           <svg className="h-5 w-5" viewBox="0 0 24 24">

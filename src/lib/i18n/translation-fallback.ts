@@ -467,6 +467,16 @@ export const FALLBACK_MAP: Record<string, string> = {
   "developerShowcase.meta.title": "Developer Showcase | SectorCalc",
   "developerShowcase.meta.description":
     "Technical demonstrations of SectorCalc platform capabilities.",
+
+  // ─── Premium Schema Page (featured question + bullets) ───────────
+  "premiumSchemaPage.eyebrow": "PREMIUM ANALYZER",
+  "premiumSchemaPage.featuredQuestion": "What does {name} analyze?",
+  "premiumSchemaPage.bullet1": "Comprehensive input collection covering all cost and operational parameters.",
+  "premiumSchemaPage.bullet2": "Real-time calculation with risk thresholds and actionable insights.",
+  "premiumSchemaPage.bullet3": "PDF export with full methodology, assumptions, and decision report.",
+  "premiumSchemaPage.legalQuestion": "Is this financial or legal advice?",
+  "premiumSchemaPage.legalAnswer":
+    "No. SectorCalc provides technical simulations for decision support only. Verify all results with qualified professionals before making business decisions.",
 };
 
 /**
