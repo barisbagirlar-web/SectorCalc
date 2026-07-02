@@ -1,9 +1,9 @@
+"use client";
 /**
  * UniversalProToolFMEA — Schema-driven FMEA panel
  * Renders FMEA items from tool schema
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
-"use client";
 
 import type { ToolSchemaFMEAItem } from "@/lib/features/tool-schemas/types";
 

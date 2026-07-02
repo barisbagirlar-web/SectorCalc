@@ -1,9 +1,9 @@
+"use client";
 /**
  * UniversalProToolAudit — Schema-driven audit log panel
  * Renders calculation audit trail
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
-"use client";
 
 interface UniversalProToolAuditProps {
   tool: any;

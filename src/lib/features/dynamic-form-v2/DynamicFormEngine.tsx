@@ -108,10 +108,9 @@ export type DynamicFormEngineProps = {
   onToolSwitch?: (toolId: string) => void;
   onCompute?: (scope: Record<string, unknown>, uncertainties: Record<string, number>) => void;
   externalCompute?: (scope: Record<string, unknown>) => { results: Record<string, unknown>; uncertainties?: Record<string, number> };
-  hideRail?: boolean;
 };
 
-export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onToolSwitch, onCompute, externalCompute, hideRail = false }: DynamicFormEngineProps) {
+export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onToolSwitch, onCompute, externalCompute }: DynamicFormEngineProps) {
   // Batch-commit: state = committed, draft = editing
   const [state, setState] = useState<Record<string, unknown>>(() => {
     const init: Record<string, unknown> = {};
@@ -597,7 +596,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
           </div>
         </div>
 
-        <div className="grid" style={hideRail ? { gridTemplateColumns: "1fr" } : undefined}>
+        <div className="grid">
           {/* LEFT: FORM */}
           <main>
             {(tool.ui_contract.input_groups || []).map((group, gi) => {
@@ -762,7 +761,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
           </main>
 
           {/* RIGHT: RAIL */}
-          {!hideRail && <aside className="rail">
+          <aside className="rail">
             {/* Decision */}
             <div className={`decision ${isCritical ? "review" : isOK ? "ok" : ""} ${hasDirty ? "stale" : ""}`}>
               <div className="d-label">
@@ -980,7 +979,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
 
             {/* Export */}
             <button className="btn-export" onClick={() => window.print()}>&#x2398; EXPORT REPORT</button>
-          </aside>}
+          </aside>
         </div>
       </div>
 

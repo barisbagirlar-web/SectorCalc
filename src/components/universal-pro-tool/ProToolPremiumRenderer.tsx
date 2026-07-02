@@ -1,3 +1,4 @@
+"use client";
 /**
  * ProToolPremiumRenderer — PRO Tool Premium UI Renderer
  * 
@@ -5,7 +6,6 @@
  * Same CSS as FreeToolPremiumCalculator, with PRO-only features (customCalc, FMEA, Audit,
  * conditional visibility).
  */
-"use client";
 
 import { useState, useCallback, useMemo, useRef, type FormEvent } from "react";
 import type { ToolSchemaInput } from "@/lib/features/tool-schemas/types";

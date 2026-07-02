@@ -1,9 +1,9 @@
+"use client";
 /**
  * UniversalProToolForm — Schema-driven input form renderer
  * Reads tool.inputs schema and dynamically renders form fields
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
-"use client";
 
 import { useEffect, useMemo } from "react";
 import type { ToolSchemaInput } from "@/lib/features/tool-schemas/types";

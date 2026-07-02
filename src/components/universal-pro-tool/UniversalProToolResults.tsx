@@ -1,9 +1,9 @@
+"use client";
 /**
  * UniversalProToolResults — Schema-driven results panel
  * Renders UC gauge, verdict banner, warnings, and result table
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
-"use client";
 
 import type { ToolSchemaOutput } from "@/lib/features/tool-schemas/types";
 

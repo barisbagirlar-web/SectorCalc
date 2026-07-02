@@ -9,7 +9,6 @@ import { SectorHubCrossLinks } from "@/components/seo/SectorHubCrossLinks";
 import { SemanticSummary } from "@/components/seo/SemanticSummary";
 import { getSectorEntry, isSectorRegistryKey } from "@/lib/os/registry/sectors";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 type PageProps = {
@@ -19,12 +18,9 @@ type PageProps = {
 
 export async function generateStaticParams() {
   const { listSectorRegistryKeys } = await import("@/lib/os/registry/sectors");
-  const { routing } = await import("@/i18n/routing");
   const keys = listSectorRegistryKeys();
 
-  const params = routing.l_ocales.flatMap((locale) =>
-    keys.map((sectorKey) => ({ locale, sectorKey })),
-  );
+  const params = keys.map((sectorKey) => ({ sectorKey }));
   return limitStaticParamsForPreview(params, {
     family: "audit",
     slugKey: "sectorKey",

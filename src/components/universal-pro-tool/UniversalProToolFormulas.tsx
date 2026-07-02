@@ -1,9 +1,9 @@
+"use client";
 /**
  * UniversalProToolFormulas — Schema-driven formulas + validation rules panel
  * Renders formulas and validation rules from tool schema
  * using exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
-"use client";
 
 import type { ToolSchemaFormula, ToolSchemaValidationRule } from "@/lib/features/tool-schemas/types";
 

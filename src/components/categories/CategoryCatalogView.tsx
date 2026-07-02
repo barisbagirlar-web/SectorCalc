@@ -1,3 +1,4 @@
+"use client";
 /**
  * CategoryCatalogView — Compact category cards + full tool listing below.
  *
@@ -8,7 +9,6 @@
  * ECMI / ISO 9001 — TUV-certifiable industrial UX.
  */
 
-"use client";
 
 import { useMemo, useCallback } from "react";
 import { useSearchParams } from "next/navigation";

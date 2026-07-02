@@ -103,7 +103,6 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
       <DynamicFormEngine
         tool={toolData}
         showMasthead={false}
-        hideRail={true}
         onCompute={handleDynamicCompute}
         externalCompute={(scope) => {
           const raw: SchemaInputValues = buildDefaultSchemaInputs(schema);
@@ -175,35 +174,6 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
 
         {engineResult && (
           <div className="premium-results">
-            {/* Key metric — big number primary output */}
-            <div className="card" style={{ marginBottom: 20 }}>
-              <div className="d-sub" style={{ fontSize: 10.5, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink-50)", marginBottom: 4 }}>
-                {engineResult.bigNumber.label}
-              </div>
-              <div style={{ fontSize: 28, fontWeight: 600, fontFamily: "var(--serif)", color: "var(--ink)" }}>
-                {engineResult.bigNumber.formatted}
-                <span style={{ fontSize: 14, fontWeight: 400, marginLeft: 6, color: "var(--ink-50)" }}>
-                  {engineResult.bigNumber.unit}
-                </span>
-              </div>
-            </div>
-
-            {/* All output values */}
-            {engineResult.outputs.length > 0 && (
-              <div className="card" style={{ marginBottom: 20 }}>
-                <div className="d-label" style={{ marginBottom: 8 }}>KEY METRICS</div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 12 }}>
-                  {engineResult.outputs.filter((o) => !o.isBigNumber).slice(0, 8).map((out) => (
-                    <div key={out.id} style={{ padding: "10px 12px", background: "var(--surface-2)", borderRadius: 3 }}>
-                      <div style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: ".04em", color: "var(--ink-50)", marginBottom: 2 }}>{out.label}</div>
-                      <div style={{ fontSize: 16, fontWeight: 500, color: "var(--ink)" }}>{out.formatted}</div>
-                      <div style={{ fontSize: 11, color: "var(--ink-38)" }}>{out.unit}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Threshold alerts */}
             {engineResult.thresholdAlerts.length > 0 && (
               <div className="card" style={{ marginBottom: 20 }}>

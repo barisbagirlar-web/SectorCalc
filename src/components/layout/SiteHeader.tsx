@@ -1,7 +1,7 @@
+"use client";
 /* eslint-disable */
 // @ts-nocheck
 
-'use client';
 /**
  * SectorCalc — Premium Global Header
  * Drop into: /src/components/Header.jsx
@@ -69,15 +69,15 @@ export function SiteHeader({
 }) {
   const pathname = usePathname() || '/';
   
-  const [openMenu,setOpenMenu]=useState(null);
+  const [openMenu,setOpenMenu]=useState<string | null>(null);
   const [mobileOpen,setMobileOpen]=useState(false);
-  const [mobileSection,setMobileSection]=useState(null);
+  const [mobileSection,setMobileSection]=useState<string | null>(null);
 
   const navRef=useRef(null);
   const closeTimer=useRef(null);
 
-  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearTimeout(closeTimer.current); setOpenMenu(m); },[]);
-  const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearTimeout(closeTimer.current); closeTimer.current=setTimeout(()=>setOpenMenu(null),120); },[]);
+  const openWithIntent=useCallback((m)=>{ if(closeTimer.current)clearReturnType<typeof setTimeout> | null(closeTimer.current); setOpenMenu(m); },[]);
+  const closeWithIntent=useCallback(()=>{ if(closeTimer.current)clearReturnType<typeof setTimeout> | null(closeTimer.current); closeTimer.current=setReturnType<typeof setTimeout> | null(()=>setOpenMenu(null),120); },[]);
 
   useEffect(()=>{
     function onClick(e){

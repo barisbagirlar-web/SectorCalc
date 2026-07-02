@@ -1,5 +1,5 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
-'use client'
 
 import { useState, useCallback } from 'react'
 import { useFormatter } from '@/lib/i18n-stub'

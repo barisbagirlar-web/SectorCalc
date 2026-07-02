@@ -1,3 +1,4 @@
+"use client";
 /**
  * CategoriesHubGrid — Category grid for the industries / free-tools / premium-tools pages.
  *
@@ -10,7 +11,6 @@
  * ECMI / ISO 9001 — Industrial-grade taxonomy display.
  */
 
-"use client";
 
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";

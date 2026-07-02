@@ -1,7 +1,7 @@
+"use client";
 /* eslint-disable */
 // @ts-nocheck
 
-"use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ToolDefinition } from "@/data/tool-schema";
@@ -204,7 +204,7 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
       <p className="mb-4 text-sm leading-relaxed text-text-secondary">
        {MARGINCORE_TERMS.freePreCheck}
       </p>
-      <FreeToolPrivacyNote />
+      <FreeToolPrivacyNote locale="en" />
      </>
     ) : null}
     <div className={isFreeTool ? "mt-4" : undefined}>
@@ -234,7 +234,7 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
        <DecisionToolLegalDisclaimer variant={isPremiumTool ? "paid" : "free"} />
       ) : null}
       {isFreeTool && revenueFree && computed.results.length > 0 && !computed.hasErrors ? (
-       <FreeToolUpgradePanel revenue={revenueFree} />
+       <FreeToolUpgradePanel locale="en" revenue={revenueFree} />
       ) : null}
        {computed.premium && !computed.hasErrors && (
         <RiskVerdictCard

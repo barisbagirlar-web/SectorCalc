@@ -1,3 +1,4 @@
+"use client";
 /**
  * UniversalProToolRenderer — Schema-driven universal PRO tool renderer
  * 
@@ -10,7 +11,6 @@
  * 
  * Uses exact CSS classes from UNIVERSAL PRO TOOL FORM.txt
  */
-"use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";

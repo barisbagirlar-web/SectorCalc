@@ -1,3 +1,4 @@
+"use client";
 /**
  * ═══════════════════════════════════════════════════════════════════════════
  * SECTORCALC PRO — DYNAMIC TOOL RENDERER (Industrial Grade v2.0)
@@ -11,7 +12,6 @@
  *  - Audit trail display
  * ═══════════════════════════════════════════════════════════════════════════
  */
-"use client";
 
 import React, { useState, useEffect, useCallback } from "react";
 import type {

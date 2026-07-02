@@ -1,3 +1,4 @@
+"use client";
 /**
  * ExpertAuthoritySection — Prof. Dr. Neela Nataraj
  *
@@ -9,7 +10,6 @@
  * English-only. Turkish is never used on this platform.
  */
 
-"use client";
 
 import { useState } from "react";
 import Image from "next/image";

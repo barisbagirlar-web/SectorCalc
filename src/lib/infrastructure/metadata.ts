@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";
-import { locales, type AppLocale } from "@/i18n/routing";
+import { ['en'], type AppLocale } from "@/i18n/routing";
 import { getCanonicalPathForLocale } from "@/lib/infrastructure/i18n/locale-routing";
 import { normalizeLocale } from "@/lib/core/format/localization";
 import {
@@ -49,7 +49,7 @@ function buildHreflangAlternates(path: string): Metadata["alternates"] {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   const languages: Record<string, string> = {};
 
-  for (const locale of locales) {
+  for (const locale of ['en']) {
     languages[locale] = `${SITE.url}${buildLocalizedPath(normalized, locale as AppLocale)}`;
   }
 

@@ -1,7 +1,7 @@
+"use client";
 /* eslint-disable */
 // @ts-nocheck
 
-"use client";
 
 import { useMemo, type FormEvent, type ReactNode } from "react";
 import { useLocale } from "@/lib/i18n-stub";

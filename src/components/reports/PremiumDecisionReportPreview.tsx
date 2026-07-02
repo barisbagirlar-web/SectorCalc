@@ -1,8 +1,8 @@
+"use client";
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable */
 // @ts-nocheck — Premium report preview (imports SevenMudaEngineeringResult from stub)
 
-"use client";
 
 import { useMemo } from "react";
 import { useTranslations } from "@/lib/i18n-stub";
@@ -493,9 +493,9 @@ export function PremiumDecisionReportPreview({
         <p className="sc-premium-decision-report__subtitle">{schema.reportTemplate.title}</p>
       </header>
 
-      {result.sevenMudaEngineering ? (
+      {result ? (
         <SevenMudaRev5DecisionSection
-          engineering={result.sevenMudaEngineering}
+          engineering={result}
           locale={locale}
         />
       ) : null}

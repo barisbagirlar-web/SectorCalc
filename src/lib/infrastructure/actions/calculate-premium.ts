@@ -1,3 +1,4 @@
+"use server";
 /**
  * MarginCore Premium Calculation — Server Action
  *
@@ -13,7 +14,6 @@
  * 5. Returns TXT-formatted report
  */
 
-"use server";
 
 import {
   calculateP90SafeCost,
