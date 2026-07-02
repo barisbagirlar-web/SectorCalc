@@ -27,11 +27,12 @@ export type GeneratedToolFormViewProps = {
 export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool");
-  const { loading, error, trustStatus } = useToolSchema(slug, schema);
+  const cleanSlug = slug?.replace(/\.$/, '').trim();
+  const { loading, error, trustStatus } = useToolSchema(cleanSlug, schema);
 
   const aboutContent = useMemo(
-    () => resolveGeneratedToolAboutContent(slug, schema, locale),
-    [locale, schema, slug],
+    () => resolveGeneratedToolAboutContent(cleanSlug, schema, locale),
+    [locale, schema, cleanSlug],
   );
 
   // Detect stub formula: all formulas are product chains (no domain operations)
@@ -53,8 +54,8 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
   }, [schema]);
 
   const displayName = useMemo(
-    () => resolveGeneratedToolTitle(slug, schema, locale),
-    [locale, schema, slug],
+    () => resolveGeneratedToolTitle(cleanSlug, schema, locale),
+    [locale, schema, cleanSlug],
   );
   const isPremium = schema.premiumRequired === true;
 
@@ -123,7 +124,7 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
             <CustomEbitdaCalculator />
           </div>
         ) : (
-          <UniversalDynamicToolForm schema={schema} slug={slug} />
+          <UniversalDynamicToolForm schema={schema} slug={cleanSlug} />
         )}
 
         <div className="card" style={{ marginTop: 22 }}>
@@ -135,10 +136,10 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
         </div>
 
         <VerificationQueueButton
-          toolSlug={slug}
+          toolSlug={cleanSlug}
           locale={locale}
           tier={isPremium ? "premium" : "free"}
-          pageUrl={typeof window !== "undefined" ? window.location.href : `/tools/${isPremium ? "premium" : "generated"}/${slug}`}
+          pageUrl={typeof window !== "undefined" ? window.location.href : `/tools/${isPremium ? "premium" : "generated"}/${cleanSlug}`}
         />
 
         <ExpertAuthoritySection toolName={displayName} />

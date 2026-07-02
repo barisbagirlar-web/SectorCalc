@@ -9,8 +9,6 @@ import {
   normalizeLocale,
   type SupportedLocale,
 } from "@/lib/core/format/localization";
-import { bindSevenMudaEngineeringSchemaInputs } from "@/lib/features/premium-schema/calculators/seven-muda-waste-cost";
-import { getPrimedSevenMudaEngineeringResult } from "@/lib/features/premium-schema/calculators/seven-muda-waste-cost";
 import { getFormulaFn } from "@/lib/features/premium-schema/formula-registry";
 import type {
   PremiumCalculatorSchema,
@@ -252,11 +250,9 @@ export function runPremiumSchemaEngine(
 
   const needsPriming = PRIMED_SCHEMA_IDS.has(schema.id);
 
-  bindSevenMudaEngineeringSchemaInputs(null);
 
   try {
     if (needsPriming) {
-      bindSevenMudaEngineeringSchemaInputs(userInputs);
     }
 
     const coreResult = runPremiumSchemaEngineCore(schema, userInputs, formatLocale, globalOutputUnit, exchangeRates);
@@ -265,10 +261,8 @@ export function runPremiumSchemaEngine(
     }
     return {
       ...coreResult,
-      sevenMudaEngineering: getPrimedSevenMudaEngineeringResult(),
     };
   } finally {
-    bindSevenMudaEngineeringSchemaInputs(null);
   }
 }
 

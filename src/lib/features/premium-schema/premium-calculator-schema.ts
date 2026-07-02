@@ -13,9 +13,7 @@
  */
 
 import type { FormulaFamilyId } from "@/lib/features/premium-schema/formula-families";
-import type { SevenMudaEngineeringResult } from "@/lib/features/premium-schema/calculators/seven-muda-waste-cost";
 
-export type { SevenMudaEngineeringResult };
 
 export type { PremiumCalculatorCategory } from "@/lib/features/premium-schema/formula-families";
 
@@ -174,5 +172,4 @@ export interface PremiumSchemaEngineResult {
   readonly p90ExposureFormatted: string;
   readonly minimumSafePrice: number;
   readonly minimumSafePriceFormatted: string;
-  readonly sevenMudaEngineering?: SevenMudaEngineeringResult;
 }
