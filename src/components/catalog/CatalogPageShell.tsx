@@ -9,7 +9,7 @@
  *   Serif display · Sans body · Mono counts
  */
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { getTaxonomySectorIcon } from "@/lib/catalog/taxonomy-sector-icon-map";
 import type { TaxonomySectorCard } from "@/lib/features/tools/build-taxonomy-sector-cards";
@@ -68,6 +68,15 @@ export function CatalogPageShell({
   const [query, setQuery] = useState("");
   const [active, setActive] = useState("all");
   const searchRef = useRef<HTMLInputElement>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  const handleSectorClick = useCallback((sectorId: string) => {
+    setActive(sectorId);
+    // Scroll to tool list on next tick after state update
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  }, []);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -113,11 +122,15 @@ export function CatalogPageShell({
     : sectors.find((s) => s.sector.id === active);
   const activeName = activeCard?.label ?? (active === "all" ? "All" : active);
 
-  // Sorted sectors (exclude "all" and 0-count from grid)
+  // Find "all" sector card and move it to first position
   const sortedSectors = useMemo(() => sortSectors(sectors), [sectors]);
-  const gridSectors = sortedSectors.filter(
+  const allSector = sortedSectors.find((s) => s.sector.id === "all");
+  const otherSectors = sortedSectors.filter(
     (s) => s.sector.id !== "all" && s.count >= 1,
   );
+  const gridSectors = allSector
+    ? [allSector, ...otherSectors]
+    : otherSectors;
 
   return (
     <>
@@ -165,6 +178,10 @@ export function CatalogPageShell({
         }
         .cc-box:hover{border-color:var(--accent);background:var(--surface-h);}
         .cc-box.active{border-color:var(--accent);border-width:1.5px;background:#fff;}
+        .cc-box-all{border-color:var(--accent);border-width:1.5px;background:rgba(189,93,58,0.04);}
+        .cc-box-all:hover{background:rgba(189,93,58,0.08);}
+        .cc-box-all .cc-box-name{color:var(--accent);}
+        .cc-box-all.active{background:#fff;border-color:var(--accent);}
         .cc-box-icon{width:32px;height:32px;color:var(--accent);margin-bottom:12px;}
         .cc-box-name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:4px;}
         .cc-box-count{font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums;margin-bottom:8px;}
@@ -239,8 +256,8 @@ export function CatalogPageShell({
                   return (
                     <button
                       key={card.sector.id}
-                      className={`cc-box${active === card.sector.id ? " active" : ""}`}
-                      onClick={() => setActive(card.sector.id)}
+                      className={`cc-box${card.sector.id === "all" ? " cc-box-all" : ""}${active === card.sector.id ? " active" : ""}`}
+                      onClick={() => handleSectorClick(card.sector.id)}
                       type="button"
                     >
                       <Icon className="cc-box-icon" aria-hidden="true" />
@@ -259,7 +276,7 @@ export function CatalogPageShell({
           )}
 
           {/* Expanded tool list */}
-          <div className="cc-results">
+          <div className="cc-results" ref={resultsRef}>
             <div className="cc-results-head">
               <h2 className="cc-results-title">
                 {searching ? `“${query}”` : activeName}
