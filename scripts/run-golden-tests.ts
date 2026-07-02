@@ -20,9 +20,15 @@ import { evaluateExpr } from "../src/lib/features/tool-schemas/runtime";
 
 import { runPremiumSchemaEngine } from "../src/lib/features/premium-schema/premium-schema-engine";
 import { OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA } from "../src/lib/features/premium-schema/schemas/oee-equipment-effectiveness-calculator";
-// ... other pro schema imports could go here ...
-const PRO_SCHEMAS = {
-  "oee-equipment-effectiveness-calculator": OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA
+import { CNC_MACHINING_COST_SCHEMA } from "../src/lib/features/premium-schema/schemas/cnc-machining-cost-analyzer";
+import { DOWNTIME_COST_ANALYZER_SCHEMA } from "../src/lib/features/premium-schema/schemas/downtime-cost-analyzer";
+import { BOLT_TORQUE_SCHEMA } from "../src/lib/features/premium-schema/schemas/bolt-torque-preload-analyzer";
+
+const PRO_SCHEMAS: Record<string, any> = {
+  "oee-equipment-effectiveness-calculator": OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA,
+  "cnc-machining-cost-analyzer": CNC_MACHINING_COST_SCHEMA,
+  "downtime-cost-analyzer": DOWNTIME_COST_ANALYZER_SCHEMA,
+  "bolt-torque-preload-analyzer": BOLT_TORQUE_SCHEMA
 };
 
 // ============================================================

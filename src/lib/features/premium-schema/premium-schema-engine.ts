@@ -237,13 +237,18 @@ function buildReportSection(
   }
 }
 
+import { normalizeInputs } from "./unit-normalizer";
+
 export function runPremiumSchemaEngine(
   schema: PremiumCalculatorSchema,
   rawInputs: SchemaInputValues,
   locale: SupportedLocale | string = "en",
+  globalOutputUnit?: string,
+  exchangeRates?: Record<string, number>,
 ): PremiumSchemaEngineResult {
   const formatLocale = normalizeLocale(locale);
-  const userInputs = normalizeSchemaInputs(schema, rawInputs);
+  const normalizedRaw = normalizeSchemaInputs(schema, rawInputs);
+  const { values: userInputs } = normalizeInputs(schema.inputs, normalizedRaw as Record<string, number>);
 
   const needsPriming = PRIMED_SCHEMA_IDS.has(schema.id);
 
@@ -254,7 +259,7 @@ export function runPremiumSchemaEngine(
       bindSevenMudaEngineeringSchemaInputs(userInputs);
     }
 
-    const coreResult = runPremiumSchemaEngineCore(schema, userInputs, formatLocale);
+    const coreResult = runPremiumSchemaEngineCore(schema, userInputs, formatLocale, globalOutputUnit, exchangeRates);
     if (!needsPriming) {
       return coreResult;
     }
@@ -271,6 +276,8 @@ function runPremiumSchemaEngineCore(
   schema: PremiumCalculatorSchema,
   userInputs: SchemaInputValues,
   formatLocale: SupportedLocale,
+  globalOutputUnit?: string,
+  exchangeRates?: Record<string, number>,
 ): PremiumSchemaEngineResult {
   const computed: Record<string, number | number[]> = {
     hiddenMultiplierConst: schema.assumptions.hiddenLossMultiplier,
@@ -296,15 +303,29 @@ function runPremiumSchemaEngineCore(
   }
 
   const outputs: SchemaPipelineOutput[] = schema.outputs.map((spec) => {
-    const rawVal = computed[spec.id] ?? 0;
+    let rawVal = computed[spec.id] ?? 0;
+    
+    // Apply global output unit conversion if target unit is passed and matches dimension (or currency)
+    // We import this dynamically or rely on the caller for formatting, but here we can just use normalizeValue
+    let finalUnit = spec.unit;
+    if (globalOutputUnit && spec.format === "currency") { // Assuming global is mostly for currency now
+        // A full dimensional check could be used, but for simplicity we convert if it's currency
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const { normalizeValue } = require("@/lib/core/units/currency-converter");
+        if (exchangeRates && spec.format === "currency") {
+            rawVal = normalizeValue(Number(rawVal), spec.unit, globalOutputUnit, "currency", exchangeRates);
+            finalUnit = globalOutputUnit;
+        }
+    }
+    
     const raw = typeof rawVal === 'number' ? rawVal : 0;
     return {
       id: spec.id,
       label: spec.label,
-      unit: spec.unit,
+      unit: finalUnit,
       format: spec.format,
       raw: Number.isFinite(raw) ? raw : 0,
-      formatted: formatOutput(raw, spec.format, spec.unit, formatLocale),
+      formatted: formatOutput(raw, spec.format, finalUnit, formatLocale),
       isBigNumber: spec.isBigNumber ?? false,
     };
   });
@@ -342,17 +363,30 @@ function runPremiumSchemaEngineCore(
   const hiddenMultiplier = schema.assumptions.hiddenLossMultiplier;
   const adjustedCost = baseExposure * hiddenMultiplier;
   const volatilityPercent = schema.assumptions.volatilityPercent;
-  const p90Exposure = adjustedCost + adjustedCost * (volatilityPercent / 100) * Z_P90;
+  let p90Exposure = adjustedCost + adjustedCost * (volatilityPercent / 100) * Z_P90;
+  
   const minimumSafePriceFn = getFormulaFn("cost.minimum_safe_price");
-  const minimumSafePrice = minimumSafePriceFn
+  let minimumSafePrice = minimumSafePriceFn
     ? minimumSafePriceFn({
         p90Cost: p90Exposure,
         targetMarginPercent: schema.assumptions.targetMarginPercent,
       })
     : 0;
 
-  const p90ExposureFormatted = formatOutput(p90Exposure, "currency", "USD", formatLocale);
-  const minimumSafePriceFormatted = formatOutput(minimumSafePrice, "currency", "USD", formatLocale);
+  let finalCurrencyUnit = "USD";
+  if (globalOutputUnit && exchangeRates) {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { normalizeValue } = require("@/lib/core/units/currency-converter");
+      // baseExposure might be in the schema's bigNumber unit, usually USD
+      // We assume p90 and minimum safe price are USD based by default unless the bigNumber is different
+      const baseCurrency = bigNumber.unit || "USD";
+      p90Exposure = normalizeValue(p90Exposure, baseCurrency, globalOutputUnit, "currency", exchangeRates);
+      minimumSafePrice = normalizeValue(minimumSafePrice, baseCurrency, globalOutputUnit, "currency", exchangeRates);
+      finalCurrencyUnit = globalOutputUnit;
+  }
+
+  const p90ExposureFormatted = formatOutput(p90Exposure, "currency", finalCurrencyUnit, formatLocale);
+  const minimumSafePriceFormatted = formatOutput(minimumSafePrice, "currency", finalCurrencyUnit, formatLocale);
 
   const executiveSummary = `${schema.name}: ${bigNumber.formatted} primary exposure. Buffered P90 ${p90ExposureFormatted}. ${schema.painStatement}`;
 

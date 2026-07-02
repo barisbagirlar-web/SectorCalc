@@ -997,7 +997,7 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     id: "measurement.bolt_torque",
     family: "measurement",
     label: "Tightening torque T = K * D * F",
-    fn: (inputs) => nonNegative(num(inputs, "torqueCoefficient") * num(inputs, "nominalDiameter") / 1000 * num(inputs, "preload")),
+    fn: (inputs) => nonNegative(num(inputs, "torqueCoefficient") * num(inputs, "nominalDiameter") * num(inputs, "preload")),
   },
   // ═══════════════════════════════════════════════════════════════════════════
   // TOOL #18 — Ciro Maliyeti (Turnover) (1 formula)

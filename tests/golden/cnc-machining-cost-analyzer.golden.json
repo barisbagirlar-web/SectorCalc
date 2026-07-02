@@ -1,0 +1,33 @@
+{
+  "toolId": "cnc-machining-cost-analyzer",
+  "_note": "Normalized input unit conversion. rawVolume(cm3) * density(g/cm3) = g -> kg. scrapRate % -> fraction.",
+  "cases": [
+    {
+      "name": "typical",
+      "inputs": {
+        "rawVolume": 500,
+        "density": 7.85,
+        "pricePerKg": 2,
+        "scrapRate": 10,
+        "machineRate": 50,
+        "totalTime": 30,
+        "cutTime": 20,
+        "toolLife": 60,
+        "toolCost": 100,
+        "elecRate": 0.15,
+        "machinePower": 15,
+        "setupTime": 60,
+        "setupRate": 40,
+        "batchSize": 100
+      },
+      "expect": {
+        "materialCost": 8.635,
+        "machiningCost": 1500,
+        "toolingCost": 33.33333,
+        "energyCost": 67.5,
+        "totalUnitCost": 2209.968
+      },
+      "tolerance": { "abs": 1e-2, "rel": 1e-2 }
+    }
+  ]
+}

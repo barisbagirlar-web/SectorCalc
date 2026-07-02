@@ -9,6 +9,7 @@ import {
   runPremiumSchemaEngine,
   getSchemaLegalNote,
 } from "@/lib/features/premium-schema/premium-schema-engine";
+import { fetchExchangeRates, type ExchangeRates } from "@/lib/core/units/currency-converter";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 
 interface PremiumSchemaToolFormProps {
@@ -24,6 +25,17 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
   const [engineResult, setEngineResult] = useState<PremiumSchemaEngineResult | null>(null);
   const [running, setRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Global output unit & currency state
+  const [globalOutputUnit, setGlobalOutputUnit] = useState<string>("USD");
+  const [exchangeRates, setExchangeRates] = useState<ExchangeRates | null>(null);
+
+  // Fetch exchange rates on mount
+  useEffect(() => {
+    fetchExchangeRates().then((res) => {
+      if (res) setExchangeRates(res);
+    });
+  }, []);
 
   // Track latest input values from DynamicFormEngine's onCompute
   const latestInputs = useRef<Record<string, unknown>>({});
@@ -49,10 +61,20 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
       for (const key of Object.keys(latestInputs.current)) {
         const val = latestInputs.current[key];
         if (key in raw && (typeof val === "number" || typeof val === "string" || typeof val === "boolean" || Array.isArray(val))) {
+          // If this field is a currency, convert it FROM globalOutputUnit TO baseUnit
+          const inpSchema = schema.inputs.find(i => i.id === key);
+          if (inpSchema && (inpSchema.unit === "currency" || inpSchema.unit === "USD" || String(inpSchema.unit).startsWith("currency"))) {
+            if (typeof val === "number" && exchangeRates && globalOutputUnit !== "USD") {
+               // eslint-disable-next-line @typescript-eslint/no-require-imports
+               const { normalizeValue } = require("@/lib/core/units/currency-converter");
+               raw[key] = normalizeValue(val, globalOutputUnit, "USD", "currency", exchangeRates.rates);
+               continue;
+            }
+          }
           raw[key] = val as any;
         }
       }
-      const result = runPremiumSchemaEngine(schema, raw);
+      const result = runPremiumSchemaEngine(schema, raw, locale, globalOutputUnit, exchangeRates?.rates);
       setEngineResult(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Premium calculation failed.");
@@ -87,10 +109,19 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
           for (const key of Object.keys(scope)) {
             const val = scope[key];
             if (key in raw && (typeof val === "number" || typeof val === "string" || typeof val === "boolean" || Array.isArray(val))) {
+              const inpSchema = schema.inputs.find(i => i.id === key);
+              if (inpSchema && (inpSchema.unit === "currency" || inpSchema.unit === "USD" || String(inpSchema.unit).startsWith("currency"))) {
+                if (typeof val === "number" && exchangeRates && globalOutputUnit !== "USD") {
+                   // eslint-disable-next-line @typescript-eslint/no-require-imports
+                   const { normalizeValue } = require("@/lib/core/units/currency-converter");
+                   raw[key] = normalizeValue(val, globalOutputUnit, "USD", "currency", exchangeRates.rates);
+                   continue;
+                }
+              }
               raw[key] = val as any;
             }
           }
-          const result = runPremiumSchemaEngine(schema, raw, locale);
+          const result = runPremiumSchemaEngine(schema, raw, locale, globalOutputUnit, exchangeRates?.rates);
           
           const results: Record<string, unknown> = {};
           for (const out of result.outputs) {
@@ -106,15 +137,32 @@ export function PremiumSchemaToolForm({ schema, locale }: PremiumSchemaToolFormP
           <h2 className="text-lg font-semibold" style={{ fontFamily: "var(--serif)", color: "var(--ink)" }}>
             Premium Report
           </h2>
-          <button
-            type="button"
-            className="btn-exec"
-            onClick={handleRunPremium}
-            disabled={running}
-            style={{ minWidth: 180 }}
-          >
-            {running ? "Calculating\u2026" : "Generate Report"}
-          </button>
+          <div className="flex items-center gap-4">
+            <select
+              className="sc-premium-select"
+              value={globalOutputUnit}
+              onChange={(e) => {
+                setGlobalOutputUnit(e.target.value);
+                // Trigger recompute to update output units
+                setInputVersion((v) => v + 1);
+              }}
+              style={{ padding: "6px 12px", border: "1px solid var(--line)", borderRadius: 4, background: "var(--surface-0)", fontSize: 13 }}
+            >
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="TRY">TRY</option>
+              <option value="GBP">GBP</option>
+            </select>
+            <button
+              type="button"
+              className="btn-exec"
+              onClick={handleRunPremium}
+              disabled={running}
+              style={{ minWidth: 180 }}
+            >
+              {running ? "Calculating\u2026" : "Generate Report"}
+            </button>
+          </div>
         </div>
 
         {error && (
