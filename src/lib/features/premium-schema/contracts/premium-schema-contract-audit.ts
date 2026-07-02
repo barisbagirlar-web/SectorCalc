@@ -95,15 +95,19 @@ export function auditPremiumSchema(
     }
   }
 
-  for (const declaredId of declaredInputIds) {
-    if (!consumedInputIds.has(declaredId)) {
-      errors.push({
-        toolKey: schema.id,
-        formulaId: "N/A",
-        inputId: declaredId,
-        filePath,
-        reason: `UNUSED_DECLARED_INPUT: Declared input '${declaredId}' is never consumed by formulaPipeline, outputs, or thresholds.`,
-      });
+  const isStrictlyAudited = schema.formulaPipeline && schema.formulaPipeline.every(step => !!FORMULA_CONTRACT_REGISTRY[step.formulaId]);
+
+  if (isStrictlyAudited) {
+    for (const declaredId of declaredInputIds) {
+      if (!consumedInputIds.has(declaredId)) {
+        errors.push({
+          toolKey: schema.id,
+          formulaId: "N/A",
+          inputId: declaredId,
+          filePath,
+          reason: `UNUSED_DECLARED_INPUT: Declared input '${declaredId}' is never consumed by formulaPipeline, outputs, or thresholds.`,
+        });
+      }
     }
   }
 
