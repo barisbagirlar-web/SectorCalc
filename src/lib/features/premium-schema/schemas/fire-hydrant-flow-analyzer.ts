@@ -11,7 +11,7 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Penalty Per Hydrant" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Penalty Per Hydrant",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const FIRE_HYDRANT_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Deficient Hydrants" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Deficient Hydrants",
+
       group: "General"
     },
     { id: "hydrantDiameter", label: "Hydrant outlet diameter", label_i18n: {"en":"Hydrant outlet diameter"}, type: "number", unit: "mm", required: true, smartDefault: 100, validation: { min: 25 }, helper: "", expertMeaning: "Hydrant outlet diameter", expertMeaning_i18n: {"en":"Hydrant outlet diameter"} },

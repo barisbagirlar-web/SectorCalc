@@ -11,7 +11,7 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Inv Sav" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Inv Sav",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const FLEXIBLE_MFG_ROI_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Flex Val" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Flex Val",
+
       group: "General"
     },
     { id: "costDedicated", label: "Dedicated System Cost", label_i18n: {"en":"Dedicated System Cost"}, type: "number", unit: "USD", required: true, smartDefault: 300000, validation: { min: 0 }, helper: "", expertMeaning: "Dedicated system cost", expertMeaning_i18n: {"en":"Dedicated system cost"} },

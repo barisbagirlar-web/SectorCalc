@@ -11,7 +11,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Benefits" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Benefits",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Onboarding" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Onboarding",
+
       group: "General"
     },
     {
@@ -29,7 +29,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Training" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Training",
+
       group: "General"
     },
     {
@@ -38,7 +38,7 @@ export const OVERTIME_HIRING_BREAKEVEN_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Recruiting" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Recruiting",
+
       group: "General"
     },
     { id: "overtimeRate", label: "Hourly overtime premium rate", type: "number", unit: "USD/hr", required: true, smartDefault: 30, validation: { min: 1 }, helper: "", expertMeaning: "Hourly overtime premium rate" },

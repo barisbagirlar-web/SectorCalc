@@ -11,7 +11,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Risk Pct" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Risk Pct",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Cost Of Capital" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Cost Of Capital",
+
       group: "General"
     },
     {
@@ -29,7 +29,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Road Rate Per Km" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Road Rate Per Km",
+
       group: "General"
     },
     {
@@ -38,7 +38,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Sea Rate Per Cbm" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Sea Rate Per Cbm",
+
       group: "General"
     },
     {
@@ -47,7 +47,7 @@ export const TRANSPORT_MODE_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Air Rate Per Kg" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Air Rate Per Kg",
+
       group: "General"
     },
     { id: "airFreightCost", label: "Air Kargo Cost", label_i18n: {"en":"Air Kargo Cost"}, type: "number", unit: "USD", required: true, smartDefault: 8000, validation: { min: 0 }, helper: "", expertMeaning: "Total air freight cost", expertMeaning_i18n: {"en":"Total air freight cost"} },

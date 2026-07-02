@@ -11,7 +11,7 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Total Investment" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Total Investment",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const RENEWABLE_ENERGY_IRR_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Annual Cash Flow" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Annual Cash Flow",
+
       group: "General"
     },
     { id: "installationCost", label: "Installation Cost", label_i18n: {"en":"Installation Cost"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1000 }, helper: "", expertMeaning: "Total installation cost", expertMeaning_i18n: {"en":"Total installation cost"} },

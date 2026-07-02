@@ -11,7 +11,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Output Weight" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Output Weight",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Cost Per Unit" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Cost Per Unit",
+
       group: "General"
     },
     {
@@ -29,7 +29,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Actual Yield" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Actual Yield",
+
       group: "General"
     },
     {
@@ -38,7 +38,7 @@ export const RECIPE_COST_CHECK_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Expected Yield" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Expected Yield",
+
       group: "General"
     },
     { id: "recipeQty", label: "Recipe Quantity", label_i18n: {"en":"Recipe Quantity"}, type: "number", unit: "kg", required: true, smartDefault: 100, validation: { min: 0.01 }, helper: "", expertMeaning: "Recipe batch quantity in kg", expertMeaning_i18n: {"en":"Recipe batch quantity in kg"} },

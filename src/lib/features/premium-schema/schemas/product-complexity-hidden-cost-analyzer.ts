@@ -11,7 +11,7 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Cost Per Minute" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Cost Per Minute",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const PRODUCT_COMPLEXITY_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Changeover Time" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Changeover Time",
+
       group: "General"
     },
     { id: "numSkus", label: "Total number of active SKUs", label_i18n: {"en":"Total number of active SKUs"}, type: "number", unit: "units", required: true, smartDefault: 50, validation: { min: 1 }, helper: "", expertMeaning: "Total number of active SKUs", expertMeaning_i18n: {"en":"Total number of active SKUs"} },

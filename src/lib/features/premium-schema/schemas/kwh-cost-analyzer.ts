@@ -10,7 +10,7 @@ export const KWH_COST_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Months" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Months",
+
       group: "General"
     },
     { id: "activeEnergy", label: "Active energy consumption", label_i18n: {"en":"Active energy consumption"}, type: "number", unit: "kWh", required: true, smartDefault: 500000, validation: { min: 0 }, helper: "", expertMeaning: "Active energy consumption", expertMeaning_i18n: {"en":"Active energy consumption"} },

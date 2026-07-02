@@ -11,7 +11,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Reduction Factor" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Reduction Factor",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Training Cost" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Training Cost",
+
       group: "General"
     },
     {
@@ -29,7 +29,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Installation Cost" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Installation Cost",
+
       group: "General"
     },
     {
@@ -38,7 +38,7 @@ export const POKA_YOKE_ROI_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Total Inspected" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Total Inspected",
+
       group: "General"
     },
     { id: "currentDefectRate", label: "Current defect rate percentage", label_i18n: {"en":"Current defect rate percentage"}, type: "number", unit: "%", required: true, smartDefault: 5, validation: { min: 0.01 }, helper: "", expertMeaning: "Current defect rate percentage", expertMeaning_i18n: {"en":"Current defect rate percentage"} },

@@ -11,7 +11,7 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Shift Days" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Shift Days",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const SHIFT_COST_EFFICIENCY_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Shift Rate" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Shift Rate",
+
       group: "General"
     },
     { id: "shiftCount", label: "Number of Shifts", label_i18n: {"en":"Number of Shifts"}, type: "number", unit: "vardiya/gun", required: true, smartDefault: 3, validation: { min: 1, max: 3 }, helper: "", expertMeaning: "Number of daily shifts", expertMeaning_i18n: {"en":"Number of daily shifts"} },

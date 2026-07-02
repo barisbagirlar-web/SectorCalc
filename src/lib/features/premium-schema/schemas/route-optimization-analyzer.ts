@@ -13,7 +13,7 @@ export const ROUTE_OPTIMIZATION_ANALYZER: PremiumCalculatorSchema = {
       label_i18n: { en: "Dist A B" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Dist A B",
+
       group: "General"
     },
     { id: "numStops", label: "Number of Stops", label_i18n: {"en":"Number of Stops"}, type: "number", unit: "units", required: true, smartDefault: 20, validation: { min: 2 }, helper: "", expertMeaning: "Number of delivery stops", expertMeaning_i18n: {"en":"Number of delivery stops"} },

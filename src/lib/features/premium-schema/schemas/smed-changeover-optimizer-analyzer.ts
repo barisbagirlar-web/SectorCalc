@@ -13,7 +13,7 @@ export const SMED_CHANGEOVER_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       label_i18n: { en: "Smed Investment" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Smed Investment",
+
       group: "General"
     },
     { id: "currentChangeoverTime", label: "Current changeover time in minutes", label_i18n: {"en":"Current changeover time in minutes"}, type: "number", unit: "minutes", required: true, smartDefault: 45, validation: { min: 1 }, helper: "", expertMeaning: "Current changeover time in minutes", expertMeaning_i18n: {"en":"Current changeover time in minutes"} },

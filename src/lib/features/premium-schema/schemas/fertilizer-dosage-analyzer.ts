@@ -11,7 +11,7 @@ export const FERTILIZER_DOSAGE_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Eff" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Eff",
+
       group: "General"
     },
     { id: "yieldTarget", label: "Hedef Efficiency", label_i18n: {"en":"Hedef Efficiency"}, type: "number", unit: "ton/ha", required: true, smartDefault: 8, validation: { min: 0.1 }, helper: "", expertMeaning: "Target yield per hectare", expertMeaning_i18n: {"en":"Target yield per hectare"} },

@@ -11,7 +11,7 @@ export const CLEANING_BID_OPTIMIZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Cleaning Margin" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Cleaning Margin",
+
       group: "General"
     },
     { id: "totalSquareMeters", label: "Total Metrekare", label_i18n: {"en":"Total Metrekare"}, type: "number", unit: "m²", required: true, smartDefault: 500, validation: { min: 1 }, helper: "", expertMeaning: "Total cleaning area in sqm", expertMeaning_i18n: {"en":"Total cleaning area in sqm"} },

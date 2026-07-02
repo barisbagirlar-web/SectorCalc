@@ -11,7 +11,7 @@ export const RENOVATION_BUDGET_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Design Fee" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Design Fee",
+
       group: "General"
     },
     { id: "propertyValue", label: "Property Value", label_i18n: {"en":"Property Value"}, type: "number", unit: "USD", required: true, smartDefault: 500000, validation: { min: 1000 }, helper: "", expertMeaning: "Current property value", expertMeaning_i18n: {"en":"Current property value"} },

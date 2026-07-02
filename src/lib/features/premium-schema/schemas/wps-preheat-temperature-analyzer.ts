@@ -11,7 +11,7 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Cu Pct" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Cu Pct",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const WPS_PREHEAT_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "V Pct" },
       type: "number",
       unit: "—",
-      placeholder: "Enter V Pct",
+
       group: "General"
     },
     { id: "carbonContent", label: "Carbon percentage in material", label_i18n: {"en":"Carbon percentage in material"}, type: "number", unit: "%", required: true, smartDefault: 0.2, validation: { min: 0.01, max: 1 }, helper: "", expertMeaning: "Carbon percentage in material", expertMeaning_i18n: {"en":"Carbon percentage in material"} },

@@ -11,7 +11,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Annual C O G S" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Annual C O G S",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Annual Revenue" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Annual Revenue",
+
       group: "General"
     },
     {
@@ -29,7 +29,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Tax Payment" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Tax Payment",
+
       group: "General"
     },
     {
@@ -38,7 +38,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Operating Expenses" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Operating Expenses",
+
       group: "General"
     },
     {
@@ -47,7 +47,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Payroll" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Payroll",
+
       group: "General"
     },
     {
@@ -56,7 +56,7 @@ export const CASH_FLOW_GAP_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Other Income" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Other Income",
+
       group: "General"
     },
     { id: "monthlyRevenue", label: "Monthly Revenue", label_i18n: {"en":"Monthly Revenue"}, type: "number", unit: "USD", required: true, smartDefault: 100000, validation: { min: 0 }, helper: "", expertMeaning: "Monthly revenue", expertMeaning_i18n: {"en":"Monthly revenue"} },

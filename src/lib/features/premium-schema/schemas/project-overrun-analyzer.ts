@@ -11,7 +11,7 @@ export const PROJECT_OVERRUN_ANALYZER_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Budget At Completion" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Budget At Completion",
+
       group: "General"
     },
     { id: "plannedValue", label: "Planned Value (PV)", label_i18n: {"en":"Planned Value (PV)"}, type: "number", unit: "USD", required: true, smartDefault: 1000000, validation: { min: 1 }, helper: "", expertMeaning: "Planned Value (budget)", expertMeaning_i18n: {"en":"Planned Value (budget)"} },

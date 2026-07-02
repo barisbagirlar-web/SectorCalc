@@ -11,7 +11,7 @@ export const REPAIR_SHOP_QUOTE_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Labor Revenue" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Labor Revenue",
+
       group: "General"
     },
     { id: "laborHours", label: "Total Labor Hours", label_i18n: {"en":"Total Labor Hours"}, type: "number", unit: "hours", required: true, smartDefault: 8, validation: { min: 0 }, helper: "", expertMeaning: "Total labor hours", expertMeaning_i18n: {"en":"Total labor hours"} },

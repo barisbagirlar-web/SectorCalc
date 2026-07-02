@@ -13,7 +13,7 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       label_i18n: { en: "Installation Cost" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Installation Cost",
+
       group: "General"
     },
     {
@@ -22,7 +22,7 @@ export const WATER_USAGE_OPTIMIZER_ANALYZER: PremiumCalculatorSchema = {
       label_i18n: { en: "Equipment Cost" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Equipment Cost",
+
       group: "General"
     },
     { id: "totalWaterUse", label: "Annual total water use", label_i18n: {"en":"Annual total water use"}, type: "number", unit: "m³/yil", required: true, smartDefault: 50000, validation: { min: 1 }, helper: "", expertMeaning: "Annual total water use", expertMeaning_i18n: {"en":"Annual total water use"} },

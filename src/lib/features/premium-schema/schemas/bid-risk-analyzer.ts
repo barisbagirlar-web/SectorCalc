@@ -11,7 +11,7 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Profit Margin" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Profit Margin",
+
       group: "General"
     },
     {
@@ -20,7 +20,7 @@ export const BID_RISK_SCHEMA: PremiumCalculatorSchema = {
       label_i18n: { en: "Indirect Cost" },
       type: "number",
       unit: "—",
-      placeholder: "Enter Indirect Cost",
+
       group: "General"
     },
     { id: "baseEstimate", label: "Base Estimate", label_i18n: {"en":"Base Estimate"}, type: "number", unit: "USD", required: true, smartDefault: 200000, validation: { min: 1 }, helper: "", expertMeaning: "Base cost estimate", expertMeaning_i18n: {"en":"Base cost estimate"} },
