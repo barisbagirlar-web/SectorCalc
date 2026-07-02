@@ -984,7 +984,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
       </div>
 
       {/* Mobile Bar */}
-      <div className="mbar" style={{ display: "flex" }}>
+      <div className="mbar">
         <div>
           <div className="ml">RESULT</div>
           <div className="mv">
