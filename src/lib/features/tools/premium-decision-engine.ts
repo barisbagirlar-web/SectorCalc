@@ -36,7 +36,6 @@ import {
  cbamCategoryFromProductionTons,
  cityFromTier,
 } from "@/lib/features/tools/calculation-formulas";
-import { getPremiumLegalNote, normalizeLocale } from "@/lib/core/format/localization";
 import type { SupportedLocale } from "@/lib/core/format/localization";
 
 // ---------------------------------------------------------------------------
@@ -955,7 +954,7 @@ export function calculatePremiumDecisionReport(
  hiddenLossDrivers,
  sensitivity
  ),
- legalNote: getPremiumLegalNote(normalizeLocale(locale)),
+  legalNote: LEGAL_NOTE,
  architecture: {
   profile: fallbackProfile,
   fieldPanel,

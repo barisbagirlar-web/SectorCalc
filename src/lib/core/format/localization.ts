@@ -21,17 +21,11 @@ const NOT_AVAILABLE_BY_LOCALE: Record<SupportedLocale, string> = {
   en: "Not available",
 };
 
-const FREE_TOOL_LEGAL_NOTE: Record<SupportedLocale, string> = {
-  en: "This is a technical estimate based on the values you entered. It is not financial, legal, medical or engineering advice.",
-};
+export const FREE_TOOL_LEGAL_NOTE =
+  "This is a technical estimate based on the values you entered. It is not financial, legal, medical or engineering advice.";
 
-const PREMIUM_LEGAL_NOTE: Record<SupportedLocale, string> = {
-  en: "This report is a technical decision-support simulation based on user-provided inputs and sector assumptions. It is not financial, legal, medical or engineering advice. Verify all outputs before business decisions.",
-};
-
-const TECHNICAL_SIMULATION_NOTICE: Record<SupportedLocale, string> = {
-  en: "Technical decision-support simulation — not financial, legal, medical or engineering advice.",
-};
+export const TECHNICAL_SIMULATION_NOTICE =
+  "Technical decision-support simulation — not financial, legal, medical or engineering advice.";
 
 export interface FormatNumberOptions {
   minimumFractionDigits?: number;
@@ -145,20 +139,20 @@ export function formatUnitValue(
   return unit ? `${formatted} ${unit}`.trim() : formatted;
 }
 
-export function getLocalizedLegalNote(locale: SupportedLocale): string {
-  return FREE_TOOL_LEGAL_NOTE[locale];
+export function getLocalizedLegalNote(): string {
+  return FREE_TOOL_LEGAL_NOTE;
 }
 
-export function getFreeToolLegalNote(locale: SupportedLocale): string {
-  return FREE_TOOL_LEGAL_NOTE[locale];
+export function getFreeToolLegalNote(): string {
+  return FREE_TOOL_LEGAL_NOTE;
 }
 
-export function getPremiumLegalNote(locale: SupportedLocale): string {
-  return PREMIUM_LEGAL_NOTE[locale];
+export function getPremiumLegalNote(): string {
+  return "This report is a technical decision-support simulation based on user-provided inputs and sector assumptions. It is not financial, legal, medical or engineering advice. Verify all outputs before business decisions.";
 }
 
-export function getTechnicalSimulationNotice(locale: SupportedLocale = "en"): string {
-  return TECHNICAL_SIMULATION_NOTICE[normalizeLocale(locale)];
+export function getTechnicalSimulationNotice(): string {
+  return TECHNICAL_SIMULATION_NOTICE;
 }
 
 export function getPremiumOutputFormatted(

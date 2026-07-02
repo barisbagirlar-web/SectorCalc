@@ -159,11 +159,6 @@ function MobileOnly({ children }: { children: React.ReactNode }) {
         display: "none",
       }}
     >
-      <style>{`
-        @media (max-width: 768px) {
-          .sc-mobile-only { display: flex !important; }
-        }
-      `}</style>
       {children}
     </div>
   );
@@ -242,6 +237,16 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
   const [inputVersion, setInputVersion] = useState(0);
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const [rates, setRates] = useState<Record<string, number>>({});
+
+  // Fetch exchange rates once on mount
+  useEffect(() => {
+    fetch("/api/exchange-rates")
+      .then((r) => r.json())
+      .then((d) => setRates(d.rates ?? {}))
+      .catch(() => {}); // silent fail, normalizeCurrency handles missing rates
+  }, []);
+
   // Initialize per-input units from schema defaults
   useEffect(() => {
     const initial: Record<string, string> = {};
@@ -273,10 +278,13 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
         }
 
         // Physical sanity (catches unit mismatch disasters)
-        const phys = PHYSICAL_BOUNDS[inp.id];
-        if (phys) {
-          if (v < phys.min) errs[inp.id] = `Physically implausible (min ${phys.min})`;
-          else if (v > phys.max) errs[inp.id] = `Physically implausible (max ${phys.max}) — check unit selection`;
+        // Ensure schema constraints take precedence over physical bounds
+        if (!errs[inp.id]) {
+          const phys = PHYSICAL_BOUNDS[inp.id];
+          if (phys) {
+            if (v < phys.min) errs[inp.id] = `Physically implausible (min ${phys.min})`;
+            else if (v > phys.max) errs[inp.id] = `Physically implausible (max ${phys.max}) — check unit selection`;
+          }
         }
       }
       return errs;
@@ -321,9 +329,6 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
               String(inpSchema?.unit ?? "").startsWith("currency");
             const fromUnit = inputUnits[key] ?? inpSchema?.unit ?? "USD";
             if (isCurrency && typeof v === "number") {
-              // Fetch rates dynamically from Frankfurter
-              const ratesRes = await fetch("/api/exchange-rates").then((r) => r.json()).catch(() => null);
-              const rates: Record<string, number> = ratesRes?.rates ?? {};
               raw[key] = normalizeCurrency(v, fromUnit, "USD", rates) as any;
             } else {
               raw[key] = v as any;
@@ -332,8 +337,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
             raw[key] = v as any;
           }
         }
-        const ratesRes = await fetch("/api/exchange-rates").then((r) => r.json()).catch(() => null);
-        const result = runPremiumSchemaEngine(schema, raw, "en", globalOutputUnit, ratesRes?.rates);
+        const result = runPremiumSchemaEngine(schema, raw, "en", globalOutputUnit, rates);
         setEngineResult(result);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Computation failed.");
@@ -342,7 +346,7 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
         setRunning(false);
       }
     },
-    [schema, globalOutputUnit, inputUnits, normalizeCurrency, runValidation],
+    [schema, globalOutputUnit, inputUnits, normalizeCurrency, runValidation, rates],
   );
 
   // DynamicFormEngine fires onCompute after every user edit
@@ -480,26 +484,46 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
   const generateCommentary = useCallback(
     (result: PremiumSchemaEngineResult): string => {
       const parts: string[] = [];
-      for (const out of result.outputs) {
-        const label = out.label ?? out.id;
-        const value = typeof out.raw === "number" ? out.raw : out.raw;
-        if (typeof value === "number" && !Number.isNaN(value)) {
+      
+      if (result.verdict) {
+        parts.push(`Primary Status: ${result.verdict}.`);
+      }
+      
+      const primaryOut = result.outputs[0];
+      if (primaryOut && typeof primaryOut.raw === "number") {
+        const standardRef = REFERENCE_DB[schema.inputs[0]?.id]?.standard;
+        const stdNote = standardRef ? ` based on ${standardRef} guidelines` : "";
+        parts.push(
+          `The resulting ${(primaryOut.label ?? primaryOut.id).toLowerCase()} of ${primaryOut.raw.toLocaleString("en-US", {
+            maximumFractionDigits: 2,
+          })} ${primaryOut.unit ?? ""} dictates the engineering baseline${stdNote}.`
+        );
+      } else {
+        parts.push(`Baseline calculations have been generated successfully.`);
+      }
+
+      if (result.thresholdAlerts.length > 0) {
+        const critAlerts = result.thresholdAlerts.filter((a) => a.severity === "critical");
+        if (critAlerts.length > 0) {
           parts.push(
-            `The computed ${label.toLowerCase()} of ${value.toLocaleString("en-US", {
-              maximumFractionDigits: 2,
-            })} ${out.unit ?? ""} falls within expected industrial ranges for this configuration.`.trim(),
+            `CRITICAL ATTENTION REQUIRED: ${critAlerts.length} boundary condition(s) exceeded safety or regulatory limits (${critAlerts.map(a => a.message).join("; ")}).`
+          );
+        } else {
+          parts.push(
+            `Please review ${result.thresholdAlerts.length} operational warning(s) to ensure system reliability.`
           );
         }
+      } else {
+        parts.push(`All parameters remain within nominal operating thresholds.`);
       }
-      if (result.thresholdAlerts.length > 0) {
-        const critCount = result.thresholdAlerts.filter((a) => a.severity === "critical").length;
-        parts.push(
-          `Review ${critCount > 0 ? `${critCount} critical` : "the flagged"} threshold condition${result.thresholdAlerts.length > 1 ? "s" : ""} before proceeding to detailed design.`,
-        );
+      
+      if (result.suggestedAction) {
+        parts.push(`Recommended course of action: ${result.suggestedAction}`);
       }
+
       return parts.join(" ");
     },
-    [],
+    [schema],
   );
 
   const hasErrors = Object.keys(validationErrors).length > 0;

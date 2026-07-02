@@ -4,7 +4,6 @@
  */
 
 import {
-  getPremiumLegalNote,
   getPremiumOutputFormatted,
   normalizeLocale,
   type SupportedLocale,
@@ -24,10 +23,6 @@ import type {
 
 export const SCHEMA_LEGAL_NOTE =
   "This report is a technical decision-support simulation based on user-provided inputs and sector assumptions. It is not financial, legal, medical or engineering advice. Verify all outputs before business decisions.";
-
-export function getSchemaLegalNote(locale: SupportedLocale | string = "en"): string {
-  return getPremiumLegalNote(normalizeLocale(locale));
-}
 
 const Z_P90 = 1.2816;
 
@@ -428,7 +423,7 @@ function runPremiumSchemaEngineCore(
     reportSections,
     executiveSummary,
     suggestedAction,
-    legalNote: getSchemaLegalNote(formatLocale),
+    legalNote: SCHEMA_LEGAL_NOTE,
     p90Exposure,
     p90ExposureFormatted,
     minimumSafePrice,

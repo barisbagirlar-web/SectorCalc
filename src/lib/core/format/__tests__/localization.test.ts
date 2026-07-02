@@ -5,10 +5,7 @@ import {
   formatLocalizedPercent,
   getDefaultCurrency,
   getDefaultUnitSystem,
-  getFreeToolLegalNote,
-  getLocalizedLegalNote,
   getLocalizedNotAvailable,
-  getPremiumLegalNote,
   normalizeLocale,
 } from "@/lib/core/format/localization";
 
@@ -39,11 +36,6 @@ describe("localization helpers", () => {
 
   test("getDefaultUnitSystem en metric", () => {
     expect(getDefaultUnitSystem("en")).toBe("metric");
-  });
-
-  test("legal note EN not empty", () => {
-    expect(getFreeToolLegalNote("en").trim().length).toBeGreaterThan(0);
-    expect(getPremiumLegalNote("en").trim().length).toBeGreaterThan(0);
   });
 
   test("normalizeLocale maps supported locales", () => {

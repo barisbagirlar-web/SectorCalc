@@ -5,9 +5,9 @@
 import freeSlugs from "../../../../free-slugs.json";
 import {
   formatLocalizedNumber,
-  getFreeToolLegalNote,
   normalizeLocale,
   NOT_AVAILABLE,
+  FREE_TOOL_LEGAL_NOTE,
   type SupportedLocale,
 } from "@/lib/core/format/localization";
 
@@ -61,7 +61,7 @@ export function calculateFreeTrafficTool(
   locale: SupportedLocale | string = "en",
 ): FreeTrafficResult {
   _activeFormatLocale = normalizeLocale(locale);
-  const legalNote = getFreeToolLegalNote(_activeFormatLocale);
+  const legalNote = FREE_TOOL_LEGAL_NOTE;
   const entry = FREE_TRAFFIC_CALCULATORS.find((t) => t.slug === slug);
 
   if (!entry) {

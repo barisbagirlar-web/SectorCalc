@@ -5,9 +5,9 @@
 
 import {
   formatLocalizedDate,
-  getTechnicalSimulationNotice as getLocalizedTechnicalSimulationNotice,
   normalizeLocale,
   NOT_AVAILABLE,
+  TECHNICAL_SIMULATION_NOTICE,
   type SupportedLocale,
 } from "@/lib/core/format/localization";
 import type {
@@ -69,8 +69,8 @@ export interface PremiumReportCsvRow {
   readonly description: string;
 }
 
-export function getTechnicalSimulationNotice(locale: SupportedLocale | string = "en"): string {
-  return getLocalizedTechnicalSimulationNotice(normalizeLocale(locale));
+export function getTechnicalSimulationNotice(): string {
+  return TECHNICAL_SIMULATION_NOTICE;
 }
 
 function sanitizeExportString(value: string): string {
@@ -173,9 +173,7 @@ export function escapeCsvField(value: string): string {
 
 export function buildPremiumReportCsvRows(
   payload: PremiumReportExportPayload,
-  locale: SupportedLocale | string = "en",
 ): readonly PremiumReportCsvRow[] {
-  const formatLocale = normalizeLocale(locale);
   const rows: PremiumReportCsvRow[] = [
     {
       section: "executive_verdict",
@@ -237,7 +235,7 @@ export function buildPremiumReportCsvRows(
     section: "legal",
     label: "legal_note",
     value: payload.legalNote,
-    description: getTechnicalSimulationNotice(formatLocale),
+    description: TECHNICAL_SIMULATION_NOTICE,
   });
 
   return rows;
@@ -248,7 +246,7 @@ export function serializePremiumReportCsv(
   locale: SupportedLocale | string = "en",
 ): string {
   const formatLocale = normalizeLocale(locale);
-  const rows = buildPremiumReportCsvRows(payload, formatLocale);
+  const rows = buildPremiumReportCsvRows(payload);
   const header = "section,label,value,description";
   const lines = rows.map((row) =>
     [row.section, row.label, row.value, row.description]
@@ -301,7 +299,7 @@ export function buildPremiumReportSummaryText(
   });
 
   lines.push("", payload.legalNote);
-  lines.push(getTechnicalSimulationNotice(formatLocale));
+  lines.push(TECHNICAL_SIMULATION_NOTICE);
 
   return lines.join("\n");
 }

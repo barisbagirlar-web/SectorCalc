@@ -1,5 +1,4 @@
 import type { PremiumReportExportPayload } from "@/lib/features/premium-schema/premium-report-export";
-import { getTechnicalSimulationNotice } from "@/lib/features/premium-schema/premium-report-export";
 import { formatLocalizedDate, normalizeLocale } from "@/lib/core/format/localization";
 
 export interface PremiumPrintableReportProps {
@@ -192,7 +191,7 @@ export function PremiumPrintableReport({
           {labels.generated} {generatedLabel} · {labels.sector}: {payload.sectorSlug}
         </p>
         <p className="sc-print-report__simulation-notice">
-          {getTechnicalSimulationNotice(formatLocale)}
+          Technical decision-support simulation — not financial, legal, medical or engineering advice.
         </p>
       </header>
 
