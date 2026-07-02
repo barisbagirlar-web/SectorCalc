@@ -58,6 +58,7 @@ import {
 import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
+import { formatTitle } from "@/lib/utils/formatTitle";
 
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
@@ -452,7 +453,7 @@ export function FreeToolPage({
    {/* DISPLAY HEADER */}
    <div className="display-header">
      <div>
-       <div className="module-id">MODULE · {tool.freeSlug} · FREE</div>
+       <div className="module-id">MODULE · {formatTitle(tool.freeSlug)} · FREE</div>
        <h1>{tool.freeTitle}</h1>
        <div className="sub-cap">{tool.painStatement}</div>
      </div>

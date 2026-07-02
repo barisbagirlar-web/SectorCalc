@@ -2,6 +2,7 @@ import { Lock } from "lucide-react";
 import Link from "next/link";
 import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import type { CategorizedToolItem } from "@/lib/catalog/build-categorized-tool-index";
+import { formatTitle } from "@/lib/utils/formatTitle";
 
 export type PremiumToolCardProps = {
   readonly tool: CategorizedToolItem;
@@ -15,11 +16,7 @@ export function PremiumToolCard({
   locale,
   openLabel,
 }: PremiumToolCardProps) {
-  // Fallback: humanize the slug if no title is available
-  const humanizedSlug = tool.slug
-    .replace(/-calculator$/i, "")
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (char) => char.toUpperCase());
+  const humanizedSlug = formatTitle(tool.slug);
   const title = tool.title[locale] ?? tool.title.en ?? humanizedSlug;
   const description = tool.description[locale] ?? tool.description.en ?? "";
   const isClickable = Boolean(tool.routePath) && tool.publicStatus === "active";

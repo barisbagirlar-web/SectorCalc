@@ -7,6 +7,7 @@ import { compile, safeEval, type CompiledExpression } from "./ast-parser";
 import { FAM, UNIT_MAP, convert as unitConvert } from "./unit-conversion";
 import { fmt, pctf, hash, interp } from "./formatter";
 import { HMI_CSS as FORM_CSS } from "./hmi-css";
+import { formatTitle } from "@/lib/utils/formatTitle";
 /* ===== Helpers ===== */
 
 type InputCls =
@@ -560,7 +561,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
         {/* DISPLAY HEADER */}
         <div className="display-header">
           <div>
-            <div className="module-id">MODULE · {tool.tool_id} · {(tool.category || "").toUpperCase()}</div>
+            <div className="module-id">MODULE · {formatTitle(tool.tool_id)} · {(tool.category || "").toUpperCase()}</div>
             <h1>{tool.tool_name}</h1>
             <div className="sub-cap">
               Dynamic engine - inputs, formulas, validation, warnings and units are read from {tool.tool_id}.json.

@@ -53,6 +53,7 @@ import {
   validateSmartFormFieldValues,
 } from "@/lib/features/formula-governance/runtime-validation/smart-form-contract-adapter";
 import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
+import { formatTitle } from "@/lib/utils/formatTitle";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};
@@ -382,7 +383,7 @@ export function FreeTrafficToolPage({
             {/* DISPLAY HEADER */}
             <div className="display-header">
               <div>
-                <div className="module-id">MODULE · {tool.slug} · FREE</div>
+                <div className="module-id">MODULE · {formatTitle(tool.slug)} · FREE</div>
                 <h1>{displayTitle}</h1>
                 <div className="sub-cap">{displayDescription}</div>
               </div>

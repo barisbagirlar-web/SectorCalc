@@ -86,6 +86,7 @@ import {
 import { evaluateRuntimeTrust } from "@/lib/features/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 import { HMI_CSS } from "@/lib/features/dynamic-form-v2/hmi-css";
+import { formatTitle } from "@/lib/utils/formatTitle";
 
 const DownloadVerdictPdfButton = dynamic(
  () =>
@@ -665,7 +666,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
      </div>
      <div className="display-header">
        <div>
-         <div className="module-id">MODULE \u00b7 {tool.paidSlug} \u00b7 PREMIUM</div>
+         <div className="module-id">MODULE \u00b7 {formatTitle(tool.paidSlug)} \u00b7 PREMIUM</div>
          <h1>{tool.paidTitle}</h1>
          <div className="sub-cap">{tool.paidValue}</div>
        </div>
