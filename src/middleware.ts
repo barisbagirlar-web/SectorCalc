@@ -45,6 +45,10 @@ export default function middleware(request: NextRequest) {
   const response = NextResponse.next();
   annotateAuthGate(request, response);
 
+  if (pathname === '/en' || pathname.startsWith('/en/')) {
+    return new NextResponse("Not Found", { status: 404 });
+  }
+
   if (response.headers.get("x-auth-gate") === "challenge") {
     return applyRegionHeaders(response, request);
   }

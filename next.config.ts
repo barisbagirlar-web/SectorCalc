@@ -68,8 +68,15 @@ const nextConfig: NextConfig = {
         ]
       : [];
 
+    // SECTORCALC_ROOT_ONLY_REWRITE_POLICY
     return {
       beforeFiles: [
+        { source: "/free-tools", destination: "/en/free-tools" },
+        { source: "/pro-tools", destination: "/en/pro-tools" },
+        { source: "/industries", destination: "/en/industries" },
+        { source: "/pricing", destination: "/en/pricing" },
+        { source: "/calculators/:path*", destination: "/en/calculators/:path*" },
+        { source: "/tools/:path*", destination: "/en/tools/:path*" },
         ...indexNowVerification,
       ],
     };

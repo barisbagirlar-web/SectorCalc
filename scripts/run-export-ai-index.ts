@@ -1,15 +1,15 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildAiEmbeddingSourceJsonl } from "../src/lib/ai/build-embedding-source";
+import { buildAiEmbeddingSourceJsonl } from "../src/lib/features/ai/build-embedding-source";
 import {
   buildAiCategoriesDocument,
   buildAiSearchManifestDocument,
   buildAiToolIndexDocument,
   buildAiToolIndexTxt,
   buildAiToolRoutesDocument,
-} from "../src/lib/ai/build-ai-index-export";
-import { buildLlmsTxt } from "../src/lib/ai/build-llms-txt";
+} from "../src/lib/features/ai/build-ai-index-export";
+import { buildLlmsTxt } from "../src/lib/features/ai/build-llms-txt";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = join(root, "public");

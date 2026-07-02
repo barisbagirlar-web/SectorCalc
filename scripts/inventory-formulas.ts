@@ -8,7 +8,7 @@ import { join } from "node:path";
 import {
   buildAuditPriorities,
   buildContractGapReport,
-} from "../src/lib/formula-governance/contract-gap";
+} from "../src/lib/formula-governance/formula-contract-gap";
 import {
   buildFormulaInventory,
   summarizeInventory,
@@ -52,7 +52,7 @@ writeFileSync(
     2,
   ),
 );
-writeFileSync(join(cacheDir, "formula-contract-gap.json"), JSON.stringify(gapReport, null, 2));
+writeFileSync(join(cacheDir, "formula-formula-contract-gap.json"), JSON.stringify(gapReport, null, 2));
 
 console.log("Formula Inventory Report (Phase 2)");
 console.log("=================================");
@@ -82,4 +82,4 @@ console.log("");
 console.log("Cache files:");
 console.log("- scripts/.cache/formula-inventory.json");
 console.log("- scripts/.cache/formula-risk-report.json");
-console.log("- scripts/.cache/formula-contract-gap.json");
+console.log("- scripts/.cache/formula-formula-contract-gap.json");
