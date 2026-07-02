@@ -46,13 +46,3 @@ export const UNIVERSAL_TOOLS_MAP: Record<string, ToolSchema> = {
 };
 
 export const UNIVERSAL_TOOLS_LIST: ToolSchema[] = Object.values(UNIVERSAL_TOOLS_MAP);
-
-/** Get all distinct sector paths from all tools */
-export function getAllSectorPaths(): string[][] {
-  return UNIVERSAL_TOOLS_LIST.map(t => t.sectorPath);
-}
-
-/** Get all unique sector names (first path segment) */
-export function getAllSectors(): string[] {
-  return [...new Set(UNIVERSAL_TOOLS_LIST.map(t => t.sectorPath[0] || "General"))];
-}

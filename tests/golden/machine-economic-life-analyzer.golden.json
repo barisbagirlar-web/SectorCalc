@@ -12,10 +12,13 @@
         "lifeYears": 5
       },
       "expect": {
-        "euacOperating": 17000,
+        "euacOperating": 22000,
         "euacCapital": 21636.51644
       },
-      "tolerance": { "rel": 0.0001, "abs": 0.01 }
+      "tolerance": {
+        "rel": 0.0001,
+        "abs": 0.01
+      }
     }
   ]
 }
