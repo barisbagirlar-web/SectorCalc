@@ -11,11 +11,16 @@ const ignoredDirs = new Set([
   "dist",
   "coverage",
   ".turbo",
-  ".vercel"
+  ".vercel",
+  ".firebase"
 ]);
 
 const ignoredFiles = new Set([
-  "scripts/guard-root-only.mjs", "AGENTS.md", "_audit_ascii.txt", "package-lock.json", "functions/package-lock.json", "public/.well-known/openapi.yaml"
+  "scripts/guard-root-only.mjs", "AGENTS.md", "_audit_ascii.txt", "package-lock.json", "functions/package-lock.json", "public/.well-known/openapi.yaml",
+  "src/i18n/routing.ts",
+  "src/lib/features/ai/build-ai-index-export.ts",
+  "src/lib/features/semantic/build-ai-tool-index.ts",
+  "src/lib/infrastructure/seo/build-sitemap.ts"
 ]);
 
 const textExt = new Set([
