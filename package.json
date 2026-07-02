@@ -5,7 +5,7 @@
   "scripts": {
     "guard:removed-free-tools": "node scripts/guard-removed-free-tools.mjs",
     "dev": "next dev",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096' node scripts/next-build-with-500-fallback.mjs && npm run generate:sitemap-static",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit",

@@ -40,7 +40,7 @@ export default async function AdminRootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await resolveAdminLocale();
-  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const messages = {};
 
   return (
     <html lang={locale} className={inter.variable} suppressHydrationWarning>
