@@ -193,7 +193,7 @@ export async function handleStripeWebhook(
   }
 
   const stripe = new Stripe(secretKey);
-  const signature = req.ge"stripe-signature";
+  const signature = req.get("stripe-signature");
   if (!signature) {
     res.status(400).send("Missing Stripe signature.");
     return;

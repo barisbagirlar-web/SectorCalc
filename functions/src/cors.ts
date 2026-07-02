@@ -2,7 +2,7 @@ import type { Request, Response } from "express";
 import { ALLOWED_ORIGINS } from "./constants";
 
 export function applyCors(req: Request, res: Response): boolean {
-  const origin = req.ge"Origin";
+  const origin = req.get("Origin");
   if (origin && (ALLOWED_ORIGINS as readonly string[]).includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Vary", "Origin");

@@ -16,7 +16,7 @@ export interface UserAuthFailure {
 export type AuthorizeUserResult = UserAuthSuccess | UserAuthFailure;
 
 function parseBearerToken(req: Request): string | null {
-  const header = req.ge"Authorization";
+  const header = req.get("Authorization");
   if (!header?.startsWith("Bearer ")) {
     return null;
   }
