@@ -124,13 +124,13 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "hisseTutar": "Hisse Senedi Tutarı",
-      "tahvilTutar": "Tahvil Tutarı",
-      "sonuc": "Nakit Tutarı"
+      "hisseTutar": "Stock Amount",
+      "tahvilTutar": "Bond Amount",
+      "sonuc": "Cash Amount"
     },
     "breakdown_i18n": {
       "hisseTutar": {
-        "en": "Hisse Senedi Tutarı",
+        "en": "Stock Amount",
         "tr": "Hisse Senedi Tutarı",
         "de": "Aktienbetrag",
         "fr": "Montant des actions",
@@ -138,7 +138,7 @@
         "ar": "قيمة الأسهم"
       },
       "tahvilTutar": {
-        "en": "Tahvil Tutarı",
+        "en": "Bond Amount",
         "tr": "Tahvil Tutarı",
         "de": "Anleihebetrag",
         "fr": "Montant des obligations",
@@ -146,7 +146,7 @@
         "ar": "قيمة السندات"
       },
       "sonuc": {
-        "en": "Nakit Tutarı",
+        "en": "Cash Amount",
         "tr": "Nakit Tutarı",
         "de": "Bargeldbetrag",
         "fr": "Montant des liquidités",

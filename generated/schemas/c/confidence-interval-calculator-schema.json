@@ -97,12 +97,12 @@
     "primary": "sonuc",
     "unit": "number",
     "breakdown": {
-      "alt": "Alt Sınır",
-      "sonuc": "Üst Sınır"
+      "alt": "Lower Bound",
+      "sonuc": "Upper Bound"
     },
     "breakdown_i18n": {
       "alt": {
-        "en": "Alt Sınır",
+        "en": "Lower Bound",
         "tr": "Alt Sınır",
         "de": "Untergrenze",
         "fr": "Limite inférieure",
@@ -110,7 +110,7 @@
         "ar": "الحد الأدنى"
       },
       "sonuc": {
-        "en": "Üst Sınır",
+        "en": "Upper Bound",
         "tr": "Üst Sınır",
         "de": "Obergrenze",
         "fr": "Limite supérieure",

@@ -120,12 +120,12 @@
     "primary": "sonuc",
     "unit": "USD",
     "breakdown": {
-      "ltv": "LTV Oranı (%)",
-      "sonuc": "Net Nakit Çıkış"
+      "ltv": "LTV Ratio (%)",
+      "sonuc": "Net Cash Outflow"
     },
     "breakdown_i18n": {
       "ltv": {
-        "en": "LTV Oranı (%)",
+        "en": "LTV Ratio (%)",
         "tr": "LTV Oranı (%)",
         "de": "LTV-Verhältnis (%)",
         "fr": "Ratio LTV (%)",
@@ -133,7 +133,7 @@
         "ar": "نسبة LTV (%)"
       },
       "sonuc": {
-        "en": "Net Nakit Çıkış",
+        "en": "Net Cash Outflow",
         "tr": "Net Nakit Çıkış",
         "de": "Netto-Cash-Abfluss",
         "fr": "Sortie nette de trésorerie",
