@@ -9,7 +9,6 @@ export const ICI_STACK_SCHEMA: PremiumCalculatorSchema = {
   painStatement: "Quantify whether an irreversible industrial, infrastructure, or process CAPEX decision should be committed now, delayed, redesigned, released, held, or abandoned under uncertainty.",
   
   inputs: [
-    { id: "disconnectedAuditProbe", label: "fake", type: "number", required: true, unit: "unit", helper: "fake", expertMeaning: "fake" },
     { id: "expectedValue", label: "expected efficiency loss", type: "number", required: true, unit: "unit", helper: "Enter expected efficiency loss", expertMeaning: "expected efficiency loss" },
     { id: "uncertaintySigma", label: "degradation curve uncertainty", type: "number", required: true, unit: "unit", helper: "Enter degradation curve uncertainty", expertMeaning: "degradation curve uncertainty" },
     { id: "downsideLoss", label: "lost hydrogen production exposure", type: "number", required: true, unit: "unit", helper: "Enter lost hydrogen production exposure", expertMeaning: "lost hydrogen production exposure" },
