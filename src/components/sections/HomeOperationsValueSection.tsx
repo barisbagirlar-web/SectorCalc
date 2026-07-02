@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 
 interface HomeOperationsValueSectionProps {
   locale: string;

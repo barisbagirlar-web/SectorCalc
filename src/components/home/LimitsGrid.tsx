@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { Container } from "@/components/ui/Container";
 import { HomepageStrokeIcon } from "@/components/home/HomepageStrokeIcon";
 import { HOMEPAGE_EXCEL_ICON_MAP } from "@/lib/ui-shared/home/homepage-icon-map";

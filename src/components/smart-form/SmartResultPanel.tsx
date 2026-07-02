@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { SmartCalculationSteps } from "@/components/smart-form/SmartCalculationSteps";
 import type { SmartFormCalculationStep, SmartFormResult } from "@/lib/features/smart-form/types";
 

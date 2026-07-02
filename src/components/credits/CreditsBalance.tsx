@@ -1,7 +1,7 @@
 "use client";
 
 import { useCredits } from "@/hooks/useCredits";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 
 export function CreditsBalance() {

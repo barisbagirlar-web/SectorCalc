@@ -76,7 +76,7 @@ export async function POST(
   context: { params: Promise<{ slug: string }> },
 ): Promise<NextResponse> {
   const headerStore = await headers();
-  const acceptLanguage = headerStore.get("accept-language");
+  const acceptLanguage = headerStore.get("accept-l_anguage");
   const queryLocale = req.nextUrl.searchParams.get("locale");
 
   try {

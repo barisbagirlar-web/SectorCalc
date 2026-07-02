@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 
 export async function HomeAboutSection() {

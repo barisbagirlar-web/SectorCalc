@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { SmartHelpTooltip } from "@/components/smart-form/SmartHelpTooltip";
 import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import type { SmartInputRequirement } from "@/lib/features/smart-form/dynamic-form-types";

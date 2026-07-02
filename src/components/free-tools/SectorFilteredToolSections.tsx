@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { ToolAlphaList } from "@/components/tools/ToolAlphaList";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 

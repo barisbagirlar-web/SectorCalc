@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useMemo, useRef } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import {

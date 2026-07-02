@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { listSectorRegistryKeys } from "@/lib/os/registry/sectors";
 
 const METRIC_KEYS = ["sectors", "engine", "confidence", "gate"] as const;

@@ -13,7 +13,7 @@
 import { useMemo, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { cn } from "@/lib/core/cn";
 import { resolveCategorySvgSymbol } from "@/data/category-svg-symbols";
 import { resolveCanonicalCategorySlug } from "@/lib/features/free-tools/free-tool-categories";

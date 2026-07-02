@@ -30,7 +30,7 @@ const AdminLocaleContext = createContext<AdminLocaleContextValue | null>(null);
 
 function persistLocale(locale: SupportedLocale): void {
   document.cookie = `${LOCALE_COOKIE}=${locale};path=/;max-age=31536000;SameSite=Lax`;
-  document.cookie = `NEXT_LOCALE=${locale};path=/;max-age=31536000;SameSite=Lax`;
+  document.cookie = `N_EXT_LOCALE=${locale};path=/;max-age=31536000;SameSite=Lax`;
 }
 
 type AdminLocaleProviderProps = {

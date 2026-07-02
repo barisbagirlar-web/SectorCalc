@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { useFormatter } from 'next-intl'
+import { useFormatter } from '@/lib/i18n-stub'
 import { PLANS, Plan } from '@/lib/features/plans'
 import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { PricingCard } from '@/components/pricing/PricingCard'

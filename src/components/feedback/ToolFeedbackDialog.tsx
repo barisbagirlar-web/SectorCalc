@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { FeedbackKind } from "@/lib/features/feedback/types";
 import type { ToolFeedbackFieldErrors } from "@/lib/features/feedback/types";
 import { FeedbackKindSelect } from "@/components/feedback/FeedbackKindSelect";

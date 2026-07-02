@@ -2,7 +2,7 @@
 
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useCallback, useMemo, useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations, useLocale } from "@/lib/i18n-stub";
 import { Link, usePathname } from "@/i18n/routing";
 import { IndustrialPdfDocument, bridgePayloadToIndustrialPdf, buildIndustrialPdfFileName } from "@/lib/content/pdf/industrial-pdf";
 import { startCheckoutRedirect } from "@/lib/features/billing/start-checkout";

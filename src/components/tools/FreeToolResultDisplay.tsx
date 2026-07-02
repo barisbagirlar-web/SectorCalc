@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
 import { RiskGauge } from "@/components/tools/RiskGauge";
 import { useLeadIntent } from "@/components/leads/LeadIntentContext";

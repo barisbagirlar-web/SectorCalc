@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { startCreditCheckoutSession } from "@/lib/features/billing/create-credit-checkout-session";
 import { CREDIT_PACKAGE_OPTIONS } from "@/lib/features/credits/credit-packages";
 

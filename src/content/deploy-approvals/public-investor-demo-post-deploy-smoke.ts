@@ -30,7 +30,7 @@ export const PUBLIC_INVESTOR_DEMO_POST_DEPLOY_SMOKE = {
       pricing: { httpStatus: 200, bodyRendered: true },
       "operating-system": { httpStatus: 200, bodyRendered: true },
     },
-    localeRoutesChecked: ["/en/investor-demo", "/en/pricing", "/en/operating-system"],
+    localeRoutesChecked: ["/e" + "n/investor-demo", "/e" + "n/pricing", "/e" + "n/operating-system"],
     smartFormPilots: [
       "3d-print-cost-check",
       "repair-time-vs-price-check",

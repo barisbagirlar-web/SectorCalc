@@ -2,7 +2,7 @@
 
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import {
  LEAD_INDUSTRY_OPTIONS,

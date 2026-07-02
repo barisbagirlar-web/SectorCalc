@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { VerificationIssueType } from "@/lib/features/feedback/feedback-types";
 import { VERIFICATION_ISSUE_TYPES } from "@/lib/features/feedback/feedback-types";
 

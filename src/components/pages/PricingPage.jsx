@@ -2,7 +2,7 @@
 
 /**
  * SectorCalc — Pricing Page
- * Drop into: /app/[locale]/pricing/page.jsx  OR  /pages/pricing.jsx
+ * Drop into: /app/(route)/pricing/page.jsx  OR  /pages/pricing.jsx
  *
  * Locale detection:
  *   - Next.js App Router: read `params.locale` from layout
@@ -88,8 +88,8 @@ const UNLOCK_EXAMPLES = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function PricingPage({ locale = 'en', translations }) {
-  const t = translations?.[locale]?.pricing || translations?.['en']?.pricing || {};
-  const dir = translations?.[locale]?.dir || 'ltr';
+  const t = translations?.(route)?.pricing || translations?.['en']?.pricing || {};
+  const dir = translations?.(route)?.dir || 'ltr';
 
   const [openFaq, setOpenFaq] = useState(null);
   const toggleFaq = (i) => setOpenFaq(openFaq === i ? null : i);
@@ -377,7 +377,7 @@ export default function PricingPage({ locale = 'en', translations }) {
 }
 
 /**
- * USAGE — Next.js App Router (src/app/[locale]/pricing/page.jsx):
+ * USAGE — Next.js App Router (src/app/(route)/pricing/page.jsx):
  *
  *   import translations from '@/i18n/pricing-translations.json';
  *   import PricingPage from '@/components/pages/PricingPage';

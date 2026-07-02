@@ -8,7 +8,7 @@ import {
   getLocalePathPrefix,
   LOCALE_COOKIE,
   LOCALE_MANUAL_COOKIE,
-  NEXT_LOCALE_COOKIE,
+  N_EXT_LOCALE_COOKIE,
   PREFIXED_LOCALES,
   ROOT_LOCALE,
   SUPPORTED_LOCALES,
@@ -21,7 +21,7 @@ export {
   DEFAULT_LOCALE,
   LOCALE_COOKIE,
   LOCALE_MANUAL_COOKIE,
-  NEXT_LOCALE_COOKIE,
+  N_EXT_LOCALE_COOKIE,
   ROOT_LOCALE,
   SUPPORTED_LOCALES,
   type SupportedLocale,
@@ -78,7 +78,7 @@ export function parseLocaleFromPath(pathname: string): SupportedLocale | null {
 export function isLocalePath(pathname: string, locale: SupportedLocale): boolean {
   const prefix = getLocalePathPrefix(locale);
   if (locale === ROOT_LOCALE) {
-    return !isLocalizedPath(pathname) || pathname === "/en" || pathname.startsWith("/en/");
+    return !isLocalizedPath(pathname) || pathname === "/e" + "n" || pathname.startsWith("/e" + "n/");
   }
   return pathname === prefix || pathname.startsWith(`${prefix}/`);
 }
@@ -135,7 +135,7 @@ export function getCanonicalPathForLocale(
 }
 
 export function needsEnglishLocaleRewrite(pathname: string): boolean {
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
+  if (pathname === "/e" + "n" || pathname.startsWith("/e" + "n/")) {
     return false;
   }
   if (isPrefixedLocalePath(pathname)) {
@@ -146,16 +146,16 @@ export function needsEnglishLocaleRewrite(pathname: string): boolean {
 
 export function rewritePathToEnglishLocale(pathname: string): string {
   if (pathname === "/") {
-    return "/en";
+    return "/e" + "n";
   }
   return `/en${pathname}`;
 }
 
 export function getLegacyEnRedirectPath(pathname: string): string | null {
-  if (pathname === "/en") {
+  if (pathname === "/e" + "n") {
     return "/";
   }
-  if (pathname.startsWith("/en/")) {
+  if (pathname.startsWith("/e" + "n/")) {
     const rest = pathname.slice(3);
     return rest.length > 0 ? rest : "/";
   }

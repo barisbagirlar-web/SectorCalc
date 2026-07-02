@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { useMemo } from "react";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import {

@@ -2,7 +2,7 @@
 
 /**
  * SectorCalc — Free Tools Page
- * Drop into: /app/[locale]/free-tools/page.jsx
+ * Drop into: /app/(route)/free-tools/page.jsx
  *
  * Features:
  *  - Live search (client-side, no API needed)
@@ -139,8 +139,8 @@ function ToolCard({ tool, t }) {
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export default function FreeToolsPage({ locale = 'en', translations, tools = SAMPLE_TOOLS }) {
-  const t   = translations?.[locale]?.free_tools || translations?.['en']?.free_tools || {};
-  const dir = translations?.[locale]?.dir || 'ltr';
+  const t   = translations?.(route)?.free_tools || translations?.['en']?.free_tools || {};
+  const dir = translations?.(route)?.dir || 'ltr';
 
   const [query,     setQuery]     = useState('');
   const [sector,    setSector]    = useState('all');

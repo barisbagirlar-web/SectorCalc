@@ -42,9 +42,9 @@ function toAlternateLinks(
   }
 
   const links: SitemapAlternateLink[] = [];
-  for (const [hreflang, href] of Object.entries(alternates.languages)) {
+  for (const [h_reflang, href] of Object.entries(alternates.languages)) {
     if (typeof href === "string" && href.length > 0) {
-      links.push({ hreflang, href });
+      links.push({ h_reflang, href });
     }
   }
 

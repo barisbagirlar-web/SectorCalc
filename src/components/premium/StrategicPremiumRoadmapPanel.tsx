@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import { getPremiumRoadmapCopy } from "@/data/premium-roadmap-i18n";
 import type { StrategicPremiumRoadmapCard } from "@/lib/catalog/strategic-premium-roadmap";

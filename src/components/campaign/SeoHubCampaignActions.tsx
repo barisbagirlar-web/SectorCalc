@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 

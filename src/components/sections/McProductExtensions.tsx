@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { ReportPreviewCard } from "@/components/cards/ReportPreviewCard";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";

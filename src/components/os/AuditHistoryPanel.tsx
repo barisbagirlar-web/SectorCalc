@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertTriangle, History, ShieldCheck } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import type { AuditRecord } from "@/lib/os/data/audit-archive-data";
 import { MANUFACTURING_OS_I18N_NS } from "@/lib/os/registry/sectors";
 

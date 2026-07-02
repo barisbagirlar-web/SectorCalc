@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { ACTIVITY_PLACEHOLDER_ROWS } from "@/lib/ui-shared/home/margincore-dashboard-data";
 
 function formatActivityTimestamp(iso: string, locale: string): string {

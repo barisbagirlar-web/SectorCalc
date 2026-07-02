@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { HubLink } from "@/components/layout/HubLink";
 
 const MODULES = [

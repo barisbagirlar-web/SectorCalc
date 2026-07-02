@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { SmartFormMode } from "@/lib/features/smart-form/dynamic-form-types";
 
 type SmartFormModeToggleProps = {

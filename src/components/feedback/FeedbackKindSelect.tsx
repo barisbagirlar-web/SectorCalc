@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { FEEDBACK_KINDS, type FeedbackKind } from "@/lib/features/feedback/types";
 
 const inputClass =

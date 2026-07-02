@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { QuotePdfDocument } from "@/components/tools/QuotePdfDocument";
 import { BRAND_ASSETS } from "@/config/brand";
 import { resolveGeneratedI18nText } from "@/lib/features/generated-tools/resolve-i18n-text";

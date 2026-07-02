@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { formatSmartFormFieldError } from "@/lib/infrastructure/i18n/smart-form-validation-i18n";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";

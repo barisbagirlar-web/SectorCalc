@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "@/lib/i18n-stub";
 import { ToolPageShell } from "@/components/tools/ToolPageShell";
 import {
  getToolDefinition,

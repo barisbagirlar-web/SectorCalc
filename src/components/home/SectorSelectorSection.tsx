@@ -1,6 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "@/lib/i18n-stub";
 import {
   FEATURED_INDUSTRY_SLUGS,
   industryRegistry,

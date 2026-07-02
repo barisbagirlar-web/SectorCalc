@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
 import { startCheckoutSession, type CheckoutPlan } from "@/lib/features/billing/create-checkout-session";
 import {

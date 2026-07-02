@@ -296,6 +296,26 @@ function runPremiumSchemaEngineCore(
     }
   }
 
+  if (schema.legacyFormulas) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { compile, safeEval } = require("@/lib/features/dynamic-form-v2/ast-parser");
+    const scope = { ...userInputs, ...computed };
+    for (const [outputId, expr] of Object.entries(schema.legacyFormulas)) {
+      try {
+        const fn = compile(expr as string);
+        const val = safeEval(fn, scope);
+        computed[outputId] = typeof val === 'number' ? val : 0;
+        scope[outputId] = computed[outputId];
+      } catch (err) {
+        if (process.env.NODE_ENV !== "production") {
+          console.warn(`[SchemaEngine] Legacy formula "${outputId}" failed for schema "${schema.id}"`);
+        }
+        computed[outputId] = 0;
+        scope[outputId] = 0;
+      }
+    }
+  }
+
   const outputs: SchemaPipelineOutput[] = schema.outputs.map((spec) => {
     let rawVal = computed[spec.id] ?? 0;
     

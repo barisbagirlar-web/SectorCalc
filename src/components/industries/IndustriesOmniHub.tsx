@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { Link as I18nLink } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";

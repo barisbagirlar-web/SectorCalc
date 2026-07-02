@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { PremiumAccessMode } from "@/lib/features/billing/premium-access-mode";
 import { getPricingHref, getSingleVerdictPricingHref } from "@/lib/features/tools/tool-links";
 import { getRevenueToolByPaidSlug } from "@/lib/features/tools/revenue-tools";

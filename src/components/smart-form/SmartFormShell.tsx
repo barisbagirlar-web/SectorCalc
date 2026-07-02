@@ -2,7 +2,7 @@
 
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
 import type { CalculatorExperienceContract, CalculatorExperienceMode } from "@/lib/ui-shared/calculator-experience/calculator-experience-types";
 import type { SmartFormTier, SmartFormViewMode } from "@/lib/features/smart-form/types";

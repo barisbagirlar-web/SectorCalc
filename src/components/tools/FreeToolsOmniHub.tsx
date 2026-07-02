@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,
   FREE_TRAFFIC_CATEGORY_META,

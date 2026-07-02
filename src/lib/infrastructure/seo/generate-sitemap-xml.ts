@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import type { SitemapChangeFrequency } from "@/lib/infrastructure/seo/sitemap-manifest";
 
 export type SitemapAlternateLink = {
-  readonly hreflang: string;
+  readonly h_reflang: string;
   readonly href: string;
 };
 
@@ -35,7 +35,7 @@ function renderAlternateLinks(alternates: readonly SitemapAlternateLink[] | unde
   return alternates
     .map(
       (alternate) =>
-        `\n    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`,
+        `\n    <xhtml:link rel="alternate" h_reflang="${escapeXml(alternate.h_reflang)}" href="${escapeXml(alternate.href)}" />`,
     )
     .join("");
 }

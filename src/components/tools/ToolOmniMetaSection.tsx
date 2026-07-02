@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from "react";
 import type { LucideIcon } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { InteractionActionBar } from "@/components/tools/InteractionActionBar";
 import { ToolCompactHeader } from "@/components/tools/ToolCompactHeader";
 import { ToolBadge } from "@/components/tools/ToolBadge";

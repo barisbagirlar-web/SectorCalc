@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { CategoryExplorer } from "@/components/catalog/CategoryExplorer";
 import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,

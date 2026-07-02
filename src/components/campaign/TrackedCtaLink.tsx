@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import { useAttributionContext } from "@/lib/infrastructure/analytics/use-attribution-context";
 import { trackConversionEvent, mapEventToStage } from "@/lib/infrastructure/analytics/conversion-funnel";

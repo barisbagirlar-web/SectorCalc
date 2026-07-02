@@ -1,7 +1,3 @@
-/**
- * Regional Unit & Parameter Engine — shared types.
- */
-
 import type { SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 
 export type RegionalEngineCode = "GLOBAL" | "TR" | "US" | "DE" | "FR" | "ES" | "AR";
@@ -26,7 +22,7 @@ export type RegionalParameterResult<T = number | string> = {
 export type RegionalConfig = {
   readonly regionCode: RegionalEngineCode;
   readonly label: string;
-  readonly defaultLocale: SupportedLocale;
+  // readonly defaultL_ocale: SupportedLocale;
   readonly defaultCurrency: RegionalCurrencyCode;
   readonly defaultUnitSystem: UnitSystemId;
   readonly decimalSeparator: string;

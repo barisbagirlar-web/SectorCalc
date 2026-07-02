@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import PageHero from "@/components/shared/PageHero";
 import { IndustryRelatedToolsPanel } from "@/components/industries/IndustryRelatedToolsPanel";

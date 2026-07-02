@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { ChevronRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "@/lib/i18n-stub";
 import { HubLink } from "@/components/layout/HubLink";
 import { AuditArchiveSection } from "@/components/os/AuditArchiveSection";
 import { QuickAccessModules } from "@/components/os/QuickAccessModules";

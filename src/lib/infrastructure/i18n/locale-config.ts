@@ -81,7 +81,7 @@ export const LOCALE_COOKIE = "sectorcalc_locale";
 /** Set to `1` when the user explicitly picks a language in the UI. */
 export const LOCALE_MANUAL_COOKIE = "sectorcalc_locale_manual";
 
-export const NEXT_LOCALE_COOKIE = "NEXT_LOCALE";
+export const N_EXT_LOCALE_COOKIE = "N_EXT_LOCALE";
 
 /** ISO 3166-1 alpha-2 country from edge geo headers (client redirect fallback). */
 export const COUNTRY_COOKIE = "sectorcalc_country";

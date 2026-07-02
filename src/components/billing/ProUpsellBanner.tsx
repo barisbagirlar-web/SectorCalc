@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 
 export function ProUpsellBanner() {

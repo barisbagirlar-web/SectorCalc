@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import type { ToolPremiumTeaser } from "@/data/tool-schema";
 import { Badge } from "@/components/ui/Badge";

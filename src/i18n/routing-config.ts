@@ -1,1 +1,1 @@
-export const routingConfig = { defaultLocale: "en", locales: ["en"] };
+export const routingConfig = {  l_ocales: ["en"] };

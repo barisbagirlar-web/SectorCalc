@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { BRAND_ASSETS } from "@/config/brand";

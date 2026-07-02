@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import type { ResultTone } from "@/data/tool-schema";
 
 const toneStyles: Record<

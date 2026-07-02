@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { Search, X } from "lucide-react";
 import { CatalogGroupedSearch } from "@/components/catalog/CatalogGroupedSearch";
 import { CategoryExplorer } from "@/components/catalog/CategoryExplorer";
@@ -241,7 +241,7 @@ function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorer
           <p className="sc-results-label" role="status">
             {tCards.rich("resultsLabel", {
               count: visibleItems.length,
-              strong: (chunks) => <strong>{chunks}</strong>,
+              strong: (chunks: any) => <strong>{chunks}</strong>,
             })}
           </p>
           <section id="tools-list">
@@ -453,7 +453,7 @@ function IndustriesCategoryCardExplorer({
           <p className="sc-results-label" role="status">
             {tCards.rich("resultsLabel", {
               count: visibleItems.length,
-              strong: (chunks) => <strong>{chunks}</strong>,
+              strong: (chunks: any) => <strong>{chunks}</strong>,
             })}
           </p>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { TerminalPanel } from "@/components/os/TerminalPanel";
 import { useRegion } from "@/lib/features/compliance/region-context";
 import {
@@ -17,7 +17,7 @@ import {
   MANUFACTURING_OS_I18N_NS,
   type SectorRegistryKey,
 } from "@/lib/os/registry/sectors";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 
 export interface ExpertCalcTerminalProps {
   sectorId: SectorRegistryKey;

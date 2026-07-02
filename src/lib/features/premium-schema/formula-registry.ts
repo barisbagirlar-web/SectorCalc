@@ -3317,6 +3317,24 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     label: "Total route cost (fuel + labor + overhead)",
     fn: (inputs) => assertFinite(num(inputs, "routeFuelCost") + num(inputs, "routeLaborCost") + num(inputs, "routeOverhead")),
   },
+
+  // ── ICI (Irreversible Commitment Index) Formülleri ──
+  { id: "calculateUncertaintyBand", family: "ici", label: "Uncertainty Band", fn: (i) => num(i,"expectedValue") * (num(i,"uncertaintySigma") / 100) * (num(i,"confidenceLevel", 90) / 100) },
+  { id: "calculateDownsideExposure", family: "ici", label: "Downside Exposure", fn: (i) => Math.max(0, (num(i,"expectedValue") * (num(i,"uncertaintySigma") / 100)) + num(i,"downsideLoss") - num(i,"operatingMarginBuffer")) },
+  { id: "calculateIrreversibilityPenalty", family: "ici", label: "Irreversibility Penalty", fn: (i) => Math.max(0, num(i,"irreversibleCapex") - num(i,"recoveryValue")) * (1 + (num(i,"regulatoryOrSafetyCriticality") > 0 ? 0.5 : 0)) },
+  { id: "calculateWaitOptionValue", family: "ici", label: "Wait Option Value", fn: (i) => Math.max(0, num(i,"irreversibleCapex") * (num(i,"uncertaintySigma") / 100) * Math.sqrt(Math.max(1, num(i,"decisionHorizon"))) - num(i,"delayCost")) },
+  { id: "calculateSurvivalProbability", family: "ici", label: "Survival Probability", fn: (i) => {
+      const exposure = num(i,"downsideExposure");
+      const buffer = num(i,"operatingMarginBuffer");
+      const ratio = buffer > 0 ? exposure / buffer : (exposure > 0 ? 1 : 0);
+      return Math.max(0, Math.min(100, 100 * (1 - ratio)));
+  } },
+  { id: "calculateCommitmentThreshold", family: "ici", label: "Commitment Threshold", fn: (i) => num(i,"irreversibilityPenalty") + num(i,"waitOptionValue") - num(i,"delayCost") },
+  { id: "calculateDecisionVerdict", family: "ici", label: "Decision Verdict Index", fn: (i) => {
+      const threshold = num(i,"commitmentThreshold");
+      const waitValue = num(i,"waitOptionValue");
+      return threshold > waitValue ? 1 : (waitValue > 0 ? 0 : -1); 
+  } },
 ];
 
 // Legacy aliases — stable ids for existing pilot schemas (same functions)
@@ -4863,6 +4881,15 @@ const FORMULA_META_DETAILS: Record<
   "cost.robot_roi": { description: "ROI of robot automation including error cost.", requiredInputs: ["annualLaborCost","annualErrorCost","robotAnnualCost","robotInvestment"], outputHint: "percentage" },
   "cost.route_overhead": { description: "Route overhead from distance and rate per km.", requiredInputs: ["routeDistance","overheadPerKm"], outputHint: "currency" },
   "cost.route_total_cost": { description: "Total route cost (fuel + labor + overhead).", requiredInputs: ["routeFuelCost","routeLaborCost","routeOverhead"], outputHint: "currency" },
+
+  // ICI metadata
+  "calculateUncertaintyBand": { description: "Uncertainty band exposure estimation.", requiredInputs: ["expectedValue","uncertaintySigma"], outputHint: "currency" },
+  "calculateDownsideExposure": { description: "Calculates downside risk exposure.", requiredInputs: ["expectedValue","uncertaintySigma","downsideLoss","operatingMarginBuffer"], outputHint: "currency" },
+  "calculateIrreversibilityPenalty": { description: "Calculates irreversible capital penalty.", requiredInputs: ["irreversibleCapex","recoveryValue"], outputHint: "currency" },
+  "calculateWaitOptionValue": { description: "Calculates value of waiting option.", requiredInputs: ["irreversibleCapex","uncertaintySigma","delayCost"], outputHint: "currency" },
+  "calculateSurvivalProbability": { description: "Probability of surviving downside exposure.", requiredInputs: ["downsideExposure","operatingMarginBuffer"], outputHint: "percentage" },
+  "calculateCommitmentThreshold": { description: "Threshold score for commitment.", requiredInputs: ["irreversibilityPenalty","waitOptionValue","delayCost"], outputHint: "number" },
+  "calculateDecisionVerdict": { description: "Verdict code based on threshold.", requiredInputs: ["commitmentThreshold","waitOptionValue"], outputHint: "number" },
 };
 
 function buildFormulaRegistryMeta(): FormulaRegistryMeta[] {

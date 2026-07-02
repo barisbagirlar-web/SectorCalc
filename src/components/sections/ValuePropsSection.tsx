@@ -5,7 +5,7 @@ import {
  ClockIcon,
  CubeIcon,
 } from "@heroicons/react/24/outline";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 
 const LOSS_DIMENSION_KEYS = [
  { icon: BanknotesIcon, titleKey: "valueProps.financial", trKey: "valueProps.financialTr", descKey: "valueProps.financialDesc" },

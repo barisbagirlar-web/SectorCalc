@@ -1,7 +1,7 @@
 "use client";
 
 import { Flame, ShieldAlert, Sparkles } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { regionalFormatLocale, getRegionProfile } from "@/config/regions";
 import { useRegion } from "@/lib/features/compliance/region-context";
 import {

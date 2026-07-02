@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { CreateApprovedReportInput, ApprovedReportPayload } from "@/lib/features/trust-trace/types";
 import { ValidationStamp } from "./ValidationStamp";
 import { TrustTraceSummary } from "./TrustTraceSummary";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { QuickResultPanel } from "@/components/results/QuickResultPanel";
 import { DeepTracePanel } from "@/components/results/DeepTracePanel";
 

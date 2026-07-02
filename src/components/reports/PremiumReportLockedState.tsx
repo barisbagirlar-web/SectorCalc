@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations, useLocale } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { CheckoutStartError, startCheckoutRedirect } from "@/lib/features/billing/start-checkout";

@@ -1,7 +1,7 @@
 "use client";
 
 import { Lock } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { revenueTools } from "@/lib/features/tools/revenue-tools";
 import { getIndustryDisplayName } from "@/lib/features/tools/industry-registry";

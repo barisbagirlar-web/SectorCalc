@@ -14,7 +14,7 @@ import {
 import { translateZodErrorMessage } from "@/lib/infrastructure/i18n/zod-error-translate";
 import type { GeneratedToolInput } from "@/lib/features/generated-tools/types";
 import { resolveLocalizedGeneratedSelectOptions } from "@/lib/features/generated-tools/select-options";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 
 type DynamicToolFormFieldProps = {
   readonly slug: string;

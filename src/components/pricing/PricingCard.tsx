@@ -4,7 +4,7 @@ import { Plan } from '@/lib/features/plans'
 import { usePaddle } from '@/lib/ui-shared/paddle-provider'
 import { IconListItem } from "@/components/icons/ScIcon"
 import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry"
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/lib/i18n-stub'
 
 interface Props {
   plan: Plan

@@ -2,7 +2,7 @@
 
 /**
  * SectorCalc — Pro Tools Page
- * Drop into: /app/[locale]/pro-tools/page.jsx
+ * Drop into: /app/(route)/pro-tools/page.jsx
  *
  * Key fixes implemented:
  *  1. All tool display names in English (mapped from Turkish slugs)
@@ -155,8 +155,8 @@ const FEATURES = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function ProToolsPage({ locale = 'en', translations }) {
-  const t   = translations?.[locale]?.pro_tools || translations?.['en']?.pro_tools || {};
-  const dir = translations?.[locale]?.dir || 'ltr';
+  const t   = translations?.(route)?.pro_tools || translations?.['en']?.pro_tools || {};
+  const dir = translations?.(route)?.dir || 'ltr';
 
   const [activeSector, setActiveSector] = useState('all');
   const grouped = groupBySector(PRO_TOOLS_EN);

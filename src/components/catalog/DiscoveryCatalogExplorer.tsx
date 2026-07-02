@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { Search } from "lucide-react";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
@@ -234,7 +234,7 @@ export function DiscoveryCatalogExplorer({
       <p className="sc-results-label" role="status">
         {tCards.rich("resultsLabel", {
           count: visibleItems.length,
-          strong: (chunks) => <strong>{chunks}</strong>,
+          strong: (chunks: any) => <strong>{chunks}</strong>,
         })}
       </p>
 

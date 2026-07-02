@@ -5,7 +5,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { PremiumReportExportActions } from "@/components/reports/PremiumReportExportActions";
 import { PremiumReportLockedState } from "@/components/reports/PremiumReportLockedState";

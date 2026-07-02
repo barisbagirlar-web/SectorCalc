@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import { FreeToolCategorySection, FreeToolsCategoryGroup } from "./FreeToolCategorySection";
 import type { ToolData } from "@/lib/features/tools/all-tools-data";

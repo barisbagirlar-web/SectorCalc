@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
-import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
+import { getLocale, getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { HubLink } from "@/components/layout/HubLink";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { SemanticSummary } from "@/components/seo/SemanticSummary";

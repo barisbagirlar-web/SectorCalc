@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import type { Tool } from "@/data/tools";
 import { getIndustryBySlug, type IndustrySlug } from "@/data/industries";

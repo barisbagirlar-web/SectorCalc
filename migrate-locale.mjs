@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 
-const localeDir = path.join(process.cwd(), "src/app/[locale]");
+const localeDir = path.join(process.cwd(), "src/app/");
 const targetDir = path.join(process.cwd(), "src/app");
 
 // 1. Move all folders
@@ -18,9 +18,9 @@ for (const item of items) {
   }
 }
 
-// 2. Remove empty [locale]
+// 2. Remove empty 
 fs.rmdirSync(localeDir);
-console.log("Moved files out of [locale]");
+console.log("Moved files out of ");
 
 // 3. Regex replacements across all page.tsx and layout.tsx
 function traverseAndReplace(dir) {

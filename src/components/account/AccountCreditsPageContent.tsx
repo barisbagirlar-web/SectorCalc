@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import Link from "@/lib/ui-shared/navigation/next-link";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { CreditsPackages } from "@/components/billing/CreditsPackages";
 import { CreditsBalance } from "@/components/credits/CreditsBalance";
 import { PageLayout } from "@/components/layout/PageLayout";

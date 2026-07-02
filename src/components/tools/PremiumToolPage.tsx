@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";

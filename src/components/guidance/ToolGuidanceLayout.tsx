@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, type ReactNode } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { GuidanceProvider } from "@/components/guidance/GuidanceContext";
 import { PremiumInputGuide } from "@/components/tool-guides/PremiumInputGuide";
 import type { AppLocale } from "@/i18n/routing";

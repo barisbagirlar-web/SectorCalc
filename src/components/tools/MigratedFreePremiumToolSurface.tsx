@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
 import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";

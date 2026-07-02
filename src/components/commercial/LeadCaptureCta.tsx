@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { LEAD_CAPTURE_CONTRACTS } from "@/lib/features/commercial/commercial-model";
 import { Container } from "@/components/ui/Container";
 

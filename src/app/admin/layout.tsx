@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { Inter } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "@/lib/i18n-stub";
 import { AdminLocaleProvider } from "@/lib/features/admin/admin-locale-context";
 import { LOCALE_COOKIE, isSupportedLocale, ROOT_LOCALE, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-config";
 import "../site-styles";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 async function resolveAdminLocale(): Promise<SupportedLocale> {
   const cookieStore = await cookies();
   const candidates = [
-    cookieStore.get("NEXT_LOCALE")?.value,
+    cookieStore.get("N_EXT_LOCALE")?.value,
     cookieStore.get(LOCALE_COOKIE)?.value,
   ];
   for (const candidate of candidates) {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, type FormEvent } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { SmartFormField } from "@/components/tools/smart-form/SmartFormField";
 import { SmartFormSection } from "@/components/tools/smart-form/SmartFormSection";
 import { SmartFormTrustSummary } from "@/components/tools/smart-form/SmartFormTrustSummary";

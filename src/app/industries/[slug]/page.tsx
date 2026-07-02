@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { IndustryPageContent } from "@/components/pages/IndustryPageContent";
 import { getIndustryBySlug } from "@/data/industries";

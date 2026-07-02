@@ -5,7 +5,7 @@
   "scripts": {
     "guard:removed-free-tools": "node scripts/guard-removed-free-tools.mjs",
     "dev": "next dev",
-    "build": "NODE_OPTIONS='--max-old-space-size=12000' node scripts/next-build-with-500-fallback.mjs && npm run generate:sitemap-static",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' node scripts/next-build-with-500-fallback.mjs && npm run generate:sitemap-static",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "NODE_OPTIONS=--max-old-space-size=6144 tsc --noEmit",
@@ -15,7 +15,7 @@
     "audit:premium": "tsx scripts/audit-premium-formulas.ts",
     "verify:gate": "npm run guard:removed-free-tools && npm run guard:repo && npm run guard:premium-contract && npm run guard:root-only && npm run audit:premium && node scripts/smell-scanner.mjs && tsx scripts/run-golden-tests.ts && npm run typecheck && npm run lint:errors && npm run build",
     "verify:gate:test": "npm run test --if-present && npm run verify:gate",
-    "guard:root-only": "node scripts/sectorcalc-root-only-route-guard.mjs",
+    "guard:root-only": "node scripts/guard-root-only.mjs",
     "smoke:root-only": "node scripts/sectorcalc-root-only-runtime-smoke.mjs",
     "verify:global-root-only": "npm run verify:gate && git restore -- next-env.d.ts firebase-debug.log 2>/dev/null || true && npm run smoke:root-only",
     "verify:root-only-hard": "npm run guard:root-only && npm run verify:gate && npm run smoke:root-only",
@@ -23,7 +23,8 @@
     "guard:balanced-input-fields": "node scripts/sectorcalc-balanced-input-fields-guard.mjs",
     "guard:header-clickability": "node scripts/sectorcalc-header-controls-clickability-guard.mjs",
     "generate:sitemap-static": "tsx scripts/generate-sitemap-static.ts",
-    "prebuild": "npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts"
+    "prebuild": "npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts",
+    "audit:runtime": "tsx scripts/audit-premium-runtime.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -48,7 +49,6 @@
     "jsep": "^1.4.0",
     "lucide-react": "^1.22.0",
     "next": "^15.5.19",
-    "next-intl": "^4.13.0",
     "nodemailer": "^9.0.1",
     "openai": "^6.45.0",
     "postcss": "^8.5.16",

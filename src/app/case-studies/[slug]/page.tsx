@@ -3,7 +3,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { AcademicPublishedCaseStudyRecord } from "@/components/case-studies/academic/AcademicPublishedCaseStudyRecord";
 import { AcademicRepresentativeCaseStudyRecord } from "@/components/case-studies/academic/AcademicRepresentativeCaseStudyRecord";
 import {

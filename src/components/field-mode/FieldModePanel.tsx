@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { clearRecentTools } from "@/lib/features/field-mode/recent-tools";
 import { clearSavedDrafts } from "@/lib/features/field-mode/saved-drafts";
 import { RecentTools } from "@/components/field-mode/RecentTools";

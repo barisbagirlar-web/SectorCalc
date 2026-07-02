@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { SectorMarginLanding } from "@/components/launch/SectorMarginLanding";
 import { CONSTRUCTION_BID_MARGIN_LANDING } from "@/data/sector-landing-pages";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";

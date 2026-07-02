@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { ApprovedReportPayload } from "@/lib/features/trust-trace/types";
 
 type Props = {

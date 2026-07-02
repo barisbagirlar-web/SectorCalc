@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { buildBreadcrumbJsonLd, type BreadcrumbItem } from "@/lib/infrastructure/seo/schema-mesh";
 
 export type SchemaBreadcrumbKey = "home" | "freeTools" | "premiumTools" | "industries";

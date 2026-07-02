@@ -2,7 +2,7 @@
 
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { useCallback, useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";

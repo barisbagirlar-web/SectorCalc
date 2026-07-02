@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OsAuditModule } from "@/components/os/OsAuditModule";
 import { SchemaMesh } from "@/components/seo/SchemaMesh";
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   const { routing } = await import("@/i18n/routing");
   const keys = listSectorRegistryKeys();
 
-  const params = routing.locales.flatMap((locale) =>
+  const params = routing.l_ocales.flatMap((locale) =>
     keys.map((sectorKey) => ({ locale, sectorKey })),
   );
   return limitStaticParamsForPreview(params, {

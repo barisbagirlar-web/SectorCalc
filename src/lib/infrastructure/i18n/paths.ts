@@ -1,7 +1,7 @@
 import { routing, type AppLocale } from "@/i18n/routing";
 import { addLocaleToPath, stripLocaleFromPath } from "@/lib/infrastructure/i18n/locale-routing";
 
-export function withLocale(path: string, locale: AppLocale = routing.defaultLocale): string {
+export function withLocale(path: string, locale: AppLocale = "en"): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return addLocaleToPath(normalized, locale);
 }

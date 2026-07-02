@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { BenchmarkPanel } from "@/components/os/BenchmarkPanel";
 import { IntelligencePanel } from "@/components/os/IntelligencePanel";
 import type { SectorIntelligenceResult } from "@/lib/os/core/intelligence-layer";

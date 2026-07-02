@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { SensitivityMatrixRow } from "@/lib/features/premium/parse-premium-verdict-txt";
 
 interface RiskSensitivityTableProps {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { formatToolLastUpdatedDate } from "@/lib/features/generated-tools/format-tool-last-updated-date";
 
 export type ToolLastUpdatedLabelProps = {

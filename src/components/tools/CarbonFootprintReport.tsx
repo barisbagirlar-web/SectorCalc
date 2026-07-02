@@ -14,7 +14,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { useSubscription } from "@/hooks/useSubscription";
 import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import {

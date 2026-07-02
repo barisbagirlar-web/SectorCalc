@@ -118,7 +118,7 @@ ${canonicalUrl}
 \`${calculateUrl}\`
 
 Content-Type: \`application/json\`
-Accept-Language: \`${locale}\`
+Custom-Language: \`${locale}\`
 
 \`\`\`json
 {

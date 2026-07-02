@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
@@ -54,12 +54,12 @@ export default async function PrivacyPage({ params }: PageProps) {
             <LegalContactBlock />
             <p className="mt-6">
               {tCommon.rich("privacyFooter", {
-                terms: (chunks) => (
+                terms: (chunks: any) => (
                   <Link href="/terms" className="font-semibold text-deep-navy hover:underline">
                     {chunks}
                   </Link>
                 ),
-                refund: (chunks) => (
+                refund: (chunks: any) => (
                   <Link
                     href="/refund-policy"
                     className="font-semibold text-deep-navy hover:underline"

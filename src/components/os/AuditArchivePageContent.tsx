@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { AuditHistoryPanel } from "@/components/os/AuditHistoryPanel";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useAuditArchive } from "@/lib/os/hooks/use-audit-archive";

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { FREE_TOOL_PRIVACY_NOTE } from "@/lib/features/tools/revenue-tools";
 
 interface FreeToolPrivacyNoteProps {

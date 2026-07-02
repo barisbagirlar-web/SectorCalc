@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import type { BreakdownChartItem } from "@/lib/ui-shared/chart-helpers/breakdown-chart-data";
 import type { RelatedBreakdownInput } from "@/lib/ui-shared/chart-helpers/resolve-waste-related-inputs";
 

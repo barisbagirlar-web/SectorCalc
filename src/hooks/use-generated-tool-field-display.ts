@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import type { GeneratedToolInput } from "@/lib/features/generated-tools/types";
 import { resolveGeneratedFieldDisplay } from "@/lib/infrastructure/i18n/generated-field-display";
 

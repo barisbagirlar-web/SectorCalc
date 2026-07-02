@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertTriangle, CheckCircle2, Clock3 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { IndustrialBadge, IndustrialMetric } from "@/components/ui/industrial";
 import { runGlobalAudit, type AuditInput } from "@/lib/os/core/audit-engine";
 import {

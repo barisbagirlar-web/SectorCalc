@@ -20,8 +20,6 @@ import {
 import { getAllRevenueToolSpecs } from "@/lib/features/tools/revenue-tools";
 import { getFreeToolHref, getPremiumSchemaToolHref, resolvePremiumToolHref } from "@/lib/features/tools/tool-links";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
-import enMessages from "../../../../messages/en.json";
-
 const MAX_TOOLS_PER_TIER = 12;
 
 const SCHEMA_CATEGORY_TO_GROUP: Record<FormulaFamilyId, PremiumSchemaCatalogGroupId> = {
@@ -42,7 +40,7 @@ const SCHEMA_CATEGORY_TO_GROUP: Record<FormulaFamilyId, PremiumSchemaCatalogGrou
 };
 
 const LOCALE_MESSAGES: Record<string, Record<string, unknown>> = {
-  en: enMessages as Record<string, unknown>,
+  en: {},
 };
 
 const INDUSTRY_CATEGORY_FREE_CATEGORIES: Partial<Record<string, readonly FreeTrafficCategory[]>> = {

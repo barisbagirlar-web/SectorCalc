@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { Search } from "lucide-react";
 import type { Tool } from "@/data/tools";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";

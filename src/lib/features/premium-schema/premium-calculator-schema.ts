@@ -131,6 +131,7 @@ export interface PremiumCalculatorSchema {
   readonly reportTemplate: PremiumReportTemplate;
   readonly assumptions: SectorAssumptionPack;
   readonly legacyPaidSlug?: string;
+  readonly legacyFormulas?: Record<string, string>;
 }
 
 export type SchemaInputValues = Record<string, number | string | boolean | number[]>;

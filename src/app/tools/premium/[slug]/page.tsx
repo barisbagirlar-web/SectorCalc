@@ -1,9 +1,10 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
+import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
@@ -99,7 +100,7 @@ export default async function PremiumGeneratedToolRoutePage({
   return (
     <PageLayout>
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
-      <GeneratedToolFormViewShell slug={resolvedSlug} schema={schema} />
+      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, resolvedSlug)} locale={locale} />
     </PageLayout>
   );
 }

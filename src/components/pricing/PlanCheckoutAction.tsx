@@ -8,7 +8,7 @@ import {
  type CheckoutPlanId,
 } from "@/lib/pricing/plan-catalog";
 import type { PricingPlan } from "@/data/pricing-plans";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 
 type PlanCheckoutActionProps = {
  plan: PricingPlan;

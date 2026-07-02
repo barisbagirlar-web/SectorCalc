@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { trackConversionEvent } from "@/lib/infrastructure/analytics/conversion-funnel";

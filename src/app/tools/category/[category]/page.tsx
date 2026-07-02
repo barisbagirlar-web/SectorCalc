@@ -4,7 +4,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ToolsIconTileGrid } from "@/components/tools/ToolsIconTileGrid";
 import { Container } from "@/components/ui/Container";

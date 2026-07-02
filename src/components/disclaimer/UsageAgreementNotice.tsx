@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { resolveDecisionEngineContext } from "@/lib/features/decision-engine/decision-engine-resolver";
 import { resolveDisclaimer } from "@/lib/content/disclaimer/disclaimer-resolver";
 

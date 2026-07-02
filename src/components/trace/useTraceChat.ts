@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { usePathname } from "@/i18n/routing";
 import { sendFreeTraceMessage } from "@/components/trace/trace-api";
 import type { TraceChatMessage } from "@/components/trace/trace-chat-shared";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { evaluateInputGuideDecision } from "@/lib/features/tool-guides/input-guide-policy";
 import { evaluateToolGuidePolicy } from "@/lib/features/tools/guide/tool-guide-policy";
 import { PremiumInputGuideDiagram } from "@/lib/features/tool-guides/premium-input-guide-diagrams";

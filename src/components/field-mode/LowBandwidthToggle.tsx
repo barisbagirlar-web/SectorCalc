@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { getLowBandwidth, setLowBandwidth } from "@/lib/features/field-mode/low-bandwidth";
 
 export function LowBandwidthToggle() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 
 type BeforeInstallPromptEvent = Event & {
   prompt: () => Promise<void>;

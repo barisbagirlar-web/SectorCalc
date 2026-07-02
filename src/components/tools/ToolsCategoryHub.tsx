@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { Search } from "lucide-react";
 import type { Tool } from "@/data/tools";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";

@@ -1,17 +1,17 @@
-import { ICI_DATACENTER_SCHEMA } from "./schemas/ici-datacenter";
-import { ICI_GRID_SCHEMA } from "./schemas/ici-grid";
-import { ICI_GIGAFACTORY_FORMATION_SCHEMA } from "./schemas/ici-gigafactory-formation";
-import { ICI_TAILINGS_SCHEMA } from "./schemas/ici-tailings";
-import { ICI_LYO_SCHEMA } from "./schemas/ici-lyo";
-import { ICI_RETROFIT_SCHEMA } from "./schemas/ici-retrofit";
-import { ICI_DECOM_NUKE_SCHEMA } from "./schemas/ici-decom-nuke";
-import { ICI_INFRA_LIFE_SCHEMA } from "./schemas/ici-infra-life";
-import { ICI_BOILOFF_SCHEMA } from "./schemas/ici-boiloff";
-import { ICI_WELD_PWHT_SCHEMA } from "./schemas/ici-weld-pwht";
-import { ICI_CURE_SCHEMA } from "./schemas/ici-cure";
-import { ICI_STACK_SCHEMA } from "./schemas/ici-stack";
-import { ICI_BRIDGE_LIFE_SCHEMA } from "./schemas/ici-bridge-life";
-import { ICI_WELL_SCHEMA } from "./schemas/ici-well";
+
+//import { ICI_GRID_SCHEMA } from "./schemas/ici-grid";
+//import { ICI_GIGAFACTORY_FORMATION_SCHEMA } from "./schemas/ici-gigafactory-formation";
+
+//import { ICI_LYO_SCHEMA } from "./schemas/ici-lyo";
+//import { ICI_RETROFIT_SCHEMA } from "./schemas/ici-retrofit";
+
+//import { ICI_INFRA_LIFE_SCHEMA } from "./schemas/ici-infra-life";
+
+//import { ICI_WELD_PWHT_SCHEMA } from "./schemas/ici-weld-pwht";
+
+//import { ICI_STACK_SCHEMA } from "./schemas/ici-stack";
+
+//import { ICI_WELL_SCHEMA } from "./schemas/ici-well";
 import type { PremiumCalculatorSchema } from "@/lib/features/premium-schema/premium-calculator-schema";
 import { AI_TOKEN_COST_ANALYZER_SCHEMA } from "@/lib/features/premium-schema/schemas/ai-token-cost-analyzer";
 import { SIX_SIGMA_PRIORITIZER_SCHEMA } from "@/lib/features/premium-schema/schemas/six-sigma-project-prioritizer";
@@ -31,45 +31,28 @@ import { CHATTER_SCHEMA } from "@/lib/features/premium-schema/schemas/chatter-su
 import { BOLT_TORQUE_SCHEMA } from "@/lib/features/premium-schema/schemas/bolt-torque-preload-analyzer";
 import { TURNOVER_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/employee-turnover-cost-analyzer";
 // ── Batch 2 (Tools 21-60) imports ──
-import { CLV_CAC_SCHEMA } from "@/lib/features/premium-schema/schemas/clv-cac-ratio-analyzer";
-import { CNC_CYCLE_TIME_SCHEMA } from "@/lib/features/premium-schema/schemas/cnc-cycle-time-analyzer";
-import { CNC_MACHINING_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/cnc-machining-cost-analyzer";
-import { CPK_PPM_SCHEMA } from "@/lib/features/premium-schema/schemas/cpk-ppm-converter-analyzer";
-import { CPM_DELAY_SCHEMA } from "@/lib/features/premium-schema/schemas/cpm-delay-penalty-analyzer";
-import { ROOF_AREA_SCHEMA } from "@/lib/features/premium-schema/schemas/roof-area-load-analyzer";
-import { BOTTLENECK_INVESTMENT_SCHEMA } from "@/lib/features/premium-schema/schemas/bottleneck-investment-analyzer";
-import { SMED_CHANGEOVER_SCHEMA } from "@/lib/features/premium-schema/schemas/smed-changeover-matrix-analyzer";
-import { WAREHOUSE_LAYOUT_SCHEMA } from "@/lib/features/premium-schema/schemas/warehouse-layout-analyzer";
-import { ABSENTEEISM_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/absenteeism-cost-analyzer";
-import { DIGITAL_TWIN_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/digital-twin-cost-analyzer";
-import { SEWING_LINE_BALANCE_SCHEMA } from "@/lib/features/premium-schema/schemas/sewing-line-balance-analyzer-pro";
-import { DYE_RECIPE_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/dye-recipe-cost-analyzer";
-import { ENERGY_CONSUMPTION_SCHEMA } from "@/lib/features/premium-schema/schemas/energy-consumption-report-analyzer";
-import { ENVIRONMENTAL_WASTE_SCHEMA } from "@/lib/features/premium-schema/schemas/environmental-waste-cost-analyzer";
-import { EOQ_INVENTORY_SCHEMA } from "@/lib/features/premium-schema/schemas/eoq-inventory-optimizer-analyzer";
-import { FACTORY_LAYOUT_SCHEMA } from "@/lib/features/premium-schema/schemas/factory-layout-distance-analyzer";
-import { INTEREST_RATE_RISK_SCHEMA } from "@/lib/features/premium-schema/schemas/interest-rate-risk-analyzer";
-import { FILAMENT_RECYCLING_SCHEMA } from "@/lib/features/premium-schema/schemas/filament-recycling-analyzer";
-import { PRICE_ELASTICITY_SCHEMA } from "@/lib/features/premium-schema/schemas/price-elasticity-analyzer";
-import { FLEXIBLE_MFG_ROI_SCHEMA } from "@/lib/features/premium-schema/schemas/flexible-manufacturing-roi-analyzer";
-import { GAGE_RNR_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/gage-rnr-cost-analyzer";
-import { FERTILIZER_DOSAGE_SCHEMA } from "@/lib/features/premium-schema/schemas/fertilizer-dosage-analyzer";
-import { SCRAP_OPTIMIZE_SCHEMA } from "@/lib/features/premium-schema/schemas/scrap-rate-optimize-analyzer";
-import { HVAC_CAPACITY_SCHEMA } from "@/lib/features/premium-schema/schemas/hvac-capacity-analyzer";
-import { HEAT_EXCHANGER_FOULING_SCHEMA } from "@/lib/features/premium-schema/schemas/heat-exchanger-fouling-analyzer";
-import { ISO50001_BASELINE_SCHEMA } from "@/lib/features/premium-schema/schemas/iso-50001-baseline-analyzer";
-import { FEED_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/feed-cost-formulation-analyzer";
-import { SCAFFOLD_RENTAL_SCHEMA } from "@/lib/features/premium-schema/schemas/scaffold-rental-cost-analyzer";
-import { SPC_LIMIT_SCHEMA } from "@/lib/features/premium-schema/schemas/spc-limit-control-analyzer";
+
+//import { CPM_DELAY_SCHEMA } from "@/lib/features/premium-schema/schemas/cpm-delay-penalty-analyzer";
+//import { BOTTLENECK_INVESTMENT_SCHEMA } from "@/lib/features/premium-schema/schemas/bottleneck-investment-analyzer";
+
+//import { ABSENTEEISM_COST_SCHEMA } from "@/lib/features/premium-schema/schemas/absenteeism-cost-analyzer";
+
+//import { ENERGY_CONSUMPTION_SCHEMA } from "@/lib/features/premium-schema/schemas/energy-consumption-report-analyzer";
+
+//import { FACTORY_LAYOUT_SCHEMA } from "@/lib/features/premium-schema/schemas/factory-layout-distance-analyzer";
+
+//import { FLEXIBLE_MFG_ROI_SCHEMA } from "@/lib/features/premium-schema/schemas/flexible-manufacturing-roi-analyzer";
+
+//import { HVAC_CAPACITY_SCHEMA } from "@/lib/features/premium-schema/schemas/hvac-capacity-analyzer";
+//import { HEAT_EXCHANGER_FOULING_SCHEMA } from "@/lib/features/premium-schema/schemas/heat-exchanger-fouling-analyzer";
+//import { ISO50001_BASELINE_SCHEMA } from "@/lib/features/premium-schema/schemas/iso-50001-baseline-analyzer";
+
 // ── Batch 3 (Tools 31-40) imports ──
-import { PRODUCT_COMPLEXITY_SCHEMA } from "@/lib/features/premium-schema/schemas/product-complexity-hidden-cost-analyzer";
-import { VACUUM_LEAK_SCHEMA } from "@/lib/features/premium-schema/schemas/vacuum-leak-energy-analyzer";
-import { SHIFT_COST_EFFICIENCY_SCHEMA } from "@/lib/features/premium-schema/schemas/shift-cost-efficiency-analyzer";
-import { WPS_PREHEAT_SCHEMA } from "@/lib/features/premium-schema/schemas/wps-preheat-temperature-analyzer";
-import { FUEL_ROUTE_DRIFT_SCHEMA } from "@/lib/features/premium-schema/schemas/fuel-route-drift-analyzer";
-import { FIRE_HYDRANT_SCHEMA } from "@/lib/features/premium-schema/schemas/fire-hydrant-flow-analyzer";
-import { RENOVATION_BUDGET_SCHEMA } from "@/lib/features/premium-schema/schemas/renovation-budget-optimizer-analyzer";
-import { RENEWABLE_ENERGY_IRR_SCHEMA } from "@/lib/features/premium-schema/schemas/renewable-energy-irr-analyzer";
+//import { PRODUCT_COMPLEXITY_SCHEMA } from "@/lib/features/premium-schema/schemas/product-complexity-hidden-cost-analyzer";
+
+//import { FUEL_ROUTE_DRIFT_SCHEMA } from "@/lib/features/premium-schema/schemas/fuel-route-drift-analyzer";
+//import { FIRE_HYDRANT_SCHEMA } from "@/lib/features/premium-schema/schemas/fire-hydrant-flow-analyzer";
+
 // ── Batch 4 (Tools 101-140) imports ──
 import { BEAM_WEIGHT_SCHEMA } from "@/lib/features/premium-schema/schemas/beam-weight-analyzer";
 import { BID_RISK_SCHEMA } from "@/lib/features/premium-schema/schemas/bid-risk-analyzer";
@@ -140,45 +123,9 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   BOLT_TORQUE_SCHEMA,
   TURNOVER_COST_SCHEMA,
   // ── Batch 2 (Tools 21-60) ──
-  CLV_CAC_SCHEMA,
-  CNC_CYCLE_TIME_SCHEMA,
-  CNC_MACHINING_COST_SCHEMA,
-  CPK_PPM_SCHEMA,
-  CPM_DELAY_SCHEMA,
-  ROOF_AREA_SCHEMA,
-  BOTTLENECK_INVESTMENT_SCHEMA,
-  SMED_CHANGEOVER_SCHEMA,
-  WAREHOUSE_LAYOUT_SCHEMA,
-  ABSENTEEISM_COST_SCHEMA,
-  DIGITAL_TWIN_COST_SCHEMA,
-  SEWING_LINE_BALANCE_SCHEMA,
-  DYE_RECIPE_COST_SCHEMA,
-  ENERGY_CONSUMPTION_SCHEMA,
-  ENVIRONMENTAL_WASTE_SCHEMA,
-  EOQ_INVENTORY_SCHEMA,
-  FACTORY_LAYOUT_SCHEMA,
-  INTEREST_RATE_RISK_SCHEMA,
-  FILAMENT_RECYCLING_SCHEMA,
-  PRICE_ELASTICITY_SCHEMA,
-  FLEXIBLE_MFG_ROI_SCHEMA,
-  GAGE_RNR_COST_SCHEMA,
-  FERTILIZER_DOSAGE_SCHEMA,
-  SCRAP_OPTIMIZE_SCHEMA,
-  HVAC_CAPACITY_SCHEMA,
-  HEAT_EXCHANGER_FOULING_SCHEMA,
-  ISO50001_BASELINE_SCHEMA,
-  FEED_COST_SCHEMA,
-  SCAFFOLD_RENTAL_SCHEMA,
-  SPC_LIMIT_SCHEMA,
+
   // ── Batch 3 (Tools 31-40) ──
-  PRODUCT_COMPLEXITY_SCHEMA,
-  VACUUM_LEAK_SCHEMA,
-  SHIFT_COST_EFFICIENCY_SCHEMA,
-  WPS_PREHEAT_SCHEMA,
-  FUEL_ROUTE_DRIFT_SCHEMA,
-  FIRE_HYDRANT_SCHEMA,
-  RENOVATION_BUDGET_SCHEMA,
-  RENEWABLE_ENERGY_IRR_SCHEMA,
+
   // ── Batch 4 (Tools 101-140) ──
   BEAM_WEIGHT_SCHEMA,
   BID_RISK_SCHEMA,

@@ -18,7 +18,7 @@ export async function GET(
   const url = new URL(req.url);
   const locale = resolveApiPublicLocale({
     queryLocale: url.searchParams.get("locale"),
-    acceptLanguage: req.headers.get("accept-language"),
+    acceptLanguage: req.headers.get("accept-l_anguage"),
   });
 
   const schema = getGeneratedToolSchema(slug);

@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
@@ -28,7 +28,7 @@ import { PremiumToolSeoLandingView } from "@/components/seo/PremiumToolSeoLandin
 import { fillPremiumSeoTemplate } from "@/lib/infrastructure/seo/premium-tool-seo-context";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 
 export const dynamicParams = true;

@@ -3,8 +3,8 @@
 
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
+import { setRequestLocale } from "@/lib/i18n-stub";
+import { getTranslations } from "@/lib/i18n-stub";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { Container } from "@/components/ui/Container";

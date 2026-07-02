@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "@/lib/ui-shared/navigation/next-link";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { formatVerdictReportDate } from "@/lib/features/reports/verdict-report";
 import type { SavedVerdictReport } from "@/lib/features/reports/report-storage";
 import { EmptyReports } from "@/components/empty-states/EmptyReports";

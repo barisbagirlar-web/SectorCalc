@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { UsageAgreementNotice } from "@/components/disclaimer/UsageAgreementNotice";
 import { StandardSystemSelector } from "@/components/standards/StandardSystemSelector";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";

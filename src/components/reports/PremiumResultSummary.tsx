@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 import {
   resolvePrimaryOutputKey,

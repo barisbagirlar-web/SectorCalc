@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { FeatureIconHeader, IconListItem, ScIcon, StatusIconBadge } from "@/components/icons/ScIcon";
 import {
  PAIN_RISK_ICONS,

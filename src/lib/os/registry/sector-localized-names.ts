@@ -1,6 +1,6 @@
 import type { IndustrialRegistryKey } from "@/lib/os/registry/industrial-registry";
 
-/** Locale keys aligned with next-intl routing. */
+/** Locale keys aligned with next-i_ntl routing. */
 export type RegistryLocaleKey = "en";
 
 export type LocalizedSectorName = Partial<Record<RegistryLocaleKey, string>>;

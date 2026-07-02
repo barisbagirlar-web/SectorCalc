@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import {
   FEEDBACK_FORMULA_FIT_OPTIONS,
   FEEDBACK_USEFULNESS_OPTIONS,

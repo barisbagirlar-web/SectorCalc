@@ -1,5 +1,5 @@
 export const dynamic = "force-dynamic";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 
 import type { Metadata } from "next";
 import { BetaPartnerForm } from "@/components/benchmarks/BetaPartnerForm";

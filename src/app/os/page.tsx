@@ -1,5 +1,5 @@
 export const dynamic = "force-dynamic";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "@/lib/i18n-stub";
 
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";

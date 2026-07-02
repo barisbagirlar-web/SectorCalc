@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { CarbonFootprintReport } from "@/components/tools/CarbonFootprintReport";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
 import { EOQOptimizer } from "@/components/tools/EOQOptimizer";

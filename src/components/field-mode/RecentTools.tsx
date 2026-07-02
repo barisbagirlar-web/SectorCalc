@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { getRecentTools } from "@/lib/features/field-mode/recent-tools";
 import type { RecentToolEntry } from "@/lib/features/field-mode/types";
 

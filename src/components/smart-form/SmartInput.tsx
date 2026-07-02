@@ -5,7 +5,7 @@ import { CalculatorCurrencyPrefix } from "@/components/tools/CalculatorUnitCurre
 import { SmartHelpTooltip } from "@/components/smart-form/SmartHelpTooltip";
 import { SmartUnitSelect } from "@/components/smart-form/SmartUnitSelect";
 import { localizedUnitAriaLabel } from "@/lib/features/regional/unit-defaults";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n-stub";
 import { handleNumericInputChange } from "@/lib/features/input/numeric-input";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import type { SmartFormInput, SmartFormValidationTone } from "@/lib/features/smart-form/types";

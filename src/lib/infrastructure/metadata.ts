@@ -93,7 +93,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
   const path = options.path ?? "/";
   const locale = options.locale ?? "en";
   const url = `${SITE.url}${buildLocalizedPath(path, locale)}`;
-  const hreflang = buildHreflangAlternates(path);
+  const h_reflang = buildHreflangAlternates(path);
 
   // Canonical is always English (without locale prefix)
   const canonicalUrl = `${SITE.url}${path === "/" ? "" : path}`;
@@ -128,7 +128,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
     },
     alternates: {
       canonical: canonicalUrl,
-      ...hreflang,
+      ...h_reflang,
     },
     verification: {
       google: "YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY",

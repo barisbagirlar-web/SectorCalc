@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { INDUSTRIAL_ACADEMIC_CITATIONS } from "@/config/academic-citations";
 
 export function ToolAcademicReferences() {

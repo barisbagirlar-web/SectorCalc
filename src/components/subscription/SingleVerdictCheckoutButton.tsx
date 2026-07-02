@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import { TrustBadgeStrip } from "@/components/billing/TrustBadgeStrip";
 import { startCheckoutRedirect } from "@/lib/features/billing/start-checkout";

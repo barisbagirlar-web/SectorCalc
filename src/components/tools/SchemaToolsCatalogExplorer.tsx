@@ -2,7 +2,7 @@
 
 import { useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { Search, X } from "lucide-react";
 import { CategoryCardGrid, resolveCategoryCardGridVariant } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { Button } from "@/components/ui/Button";
 import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";
 import { calculatePremiumVerdict } from "@/lib/infrastructure/actions/calculate-premium";

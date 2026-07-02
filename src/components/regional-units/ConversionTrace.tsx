@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { formatUnit, getUnitDefinition, type ConversionTraceEntry } from "@/lib/core/units/regional-unit-engine";
 
 type ConversionTraceProps = {

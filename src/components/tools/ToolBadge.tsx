@@ -1,7 +1,7 @@
 "use client";
 
 import { BadgeCheck } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { TOOL_REFERENCE_CREATOR } from "@/config/tool-reference-creator";
 
 export function ToolBadge() {

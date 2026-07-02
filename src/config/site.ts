@@ -37,7 +37,6 @@ export const SITE = {
  secondaryTagline: "Calculate the number. Get the decision.",
  contactEmail: "hello@sectorcalc.com",
  privacyEmail: "privacy@sectorcalc.com",
- defaultLocale: "en" as const,
  defaultCurrency: "USD" as const,
 } as const;
 

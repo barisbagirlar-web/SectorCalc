@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { PremiumFieldPanel, ToleranceStatus } from "@/lib/features/premium/premium-architecture";
 import type { PremiumSeverity } from "@/lib/features/tools/premium-tool-contract";
 

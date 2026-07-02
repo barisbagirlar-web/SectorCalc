@@ -1,8 +1,3 @@
-/**
- * Regional Compliance — supported operating regions.
- * Unsupported geo (e.g. US) falls back to EN (Global).
- */
-
 export type RegionCode = "TR" | "DE" | "EN";
 
 export const REGION_COOKIE = "sc-region";
@@ -17,7 +12,7 @@ export interface RegionalComplianceProfile {
   readonly code: RegionCode;
   readonly label: string;
   readonly currency: string;
-  readonly defaultLocale: string;
+  // readonly defaultL_ocale: string;
   /** Macro inflation overlay applied to hidden-loss projections */
   readonly inflationCoefficient: number;
   /** Standard VAT / sales tax rate */
@@ -46,7 +41,7 @@ export const REGION_PROFILES: Record<RegionCode, RegionalComplianceProfile> = {
     code: "TR",
     label: "Turkey",
     currency: "TRY",
-    defaultLocale: "en",
+    
     inflationCoefficient: 1.52,
     vatRate: 0.2,
     energyPeakMultiplier: 1.85,
@@ -63,7 +58,7 @@ export const REGION_PROFILES: Record<RegionCode, RegionalComplianceProfile> = {
     code: "DE",
     label: "Germany",
     currency: "EUR",
-    defaultLocale: "de",
+    
     inflationCoefficient: 1.08,
     vatRate: 0.19,
     energyPeakMultiplier: 1.15,
@@ -80,7 +75,7 @@ export const REGION_PROFILES: Record<RegionCode, RegionalComplianceProfile> = {
     code: "EN",
     label: "Global",
     currency: "USD",
-    defaultLocale: "en",
+    
     inflationCoefficient: 1.0,
     vatRate: 0,
     energyPeakMultiplier: 1.0,

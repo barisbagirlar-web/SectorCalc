@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { Link, usePathname } from "@/i18n/routing";
 import { useUser } from "@/hooks/useUser";
 import { getCurrentUserIdToken } from "@/lib/infrastructure/firebase/auth";

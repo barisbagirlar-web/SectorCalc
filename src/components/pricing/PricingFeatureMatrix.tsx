@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { useMemo } from "react";
 import { useClientSearchParams } from "@/lib/ui-shared/navigation/use-client-search-params";
 import { PlanCheckoutAction } from "@/components/pricing/PlanCheckoutAction";

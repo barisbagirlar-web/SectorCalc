@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { SmartFormModeToggle } from "@/components/smart-form/SmartFormModeToggle";
 import { SmartFormRequirementNotice } from "@/components/smart-form/SmartFormRequirementNotice";
 import { SmartInputField } from "@/components/smart-form/SmartInputField";

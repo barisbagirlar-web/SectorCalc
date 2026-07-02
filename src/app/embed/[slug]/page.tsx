@@ -1,14 +1,15 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "@/lib/i18n-stub";
 import type { AppLocale } from "@/i18n/routing";
 import {
   getGeneratedToolSchema,
 } from "@/lib/features/generated-tools/schema-loader";
 import { resolveGeneratedToolTitle } from "@/lib/features/generated-tools/resolve-tool-display";
 import { createPageMetadata } from "@/lib/infrastructure/metadata";
-import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
+import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 
 type EmbedRouteParams = {
   slug: string;
@@ -63,7 +64,7 @@ export default async function EmbedToolPage({
       className="mx-auto max-w-4xl px-3 py-4"
       data-embed-calculator={slug}
     >
-      <GeneratedToolFormViewShell slug={slug} schema={schema} />
+      <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} locale={locale} />
     </div>
   );
 }

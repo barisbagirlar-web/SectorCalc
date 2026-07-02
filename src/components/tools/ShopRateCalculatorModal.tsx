@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
 import { extractShopRateSavedRates } from "@/lib/features/shop-rate/extract-rates";
 import { runGeneratedToolCalculation } from "@/lib/features/generated-tools/use-tool-schema";

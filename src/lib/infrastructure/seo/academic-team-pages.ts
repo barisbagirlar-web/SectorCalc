@@ -5,7 +5,7 @@ import {
   type AcademicReferenceRole,
 } from "@/lib/infrastructure/seo/academic-references";
 
-/** Slugs served by `src/app/[locale]/team/[slug]/page.tsx`. */
+/** Slugs served by `src/app/[l_ocale]/team/[slug]/page.tsx`. */
 export const DYNAMIC_ACADEMIC_TEAM_SLUGS = [
   "carsten-carstensen",
   "roger-fletcher",

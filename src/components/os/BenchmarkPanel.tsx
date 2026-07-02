@@ -1,7 +1,7 @@
 "use client";
 
 import { BarChart3, TrendingDown, TrendingUp } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { MANUFACTURING_OS_I18N_NS } from "@/lib/os/registry/sectors";
 
 export interface BenchmarkPanelProps {

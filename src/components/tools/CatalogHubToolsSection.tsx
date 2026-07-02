@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { ToolData } from "@/lib/features/tools/all-tools-data";
 import {

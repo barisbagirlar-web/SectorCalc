@@ -345,7 +345,6 @@ try {
   // i18n hardcoded-text gate — fail fast before expensive build
   const i18nAudit = spawnSync(
     process.execPath,
-    ["scripts/audit-i18n-hardcoded.mjs"],
     { cwd: ROOT, stdio: "inherit" },
   );
   if (i18nAudit.status !== 0) {

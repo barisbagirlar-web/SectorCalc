@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import { Search, Lock } from "lucide-react";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";

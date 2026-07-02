@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { ExternalLink } from "lucide-react";
 import { TOOL_REFERENCE_CREATOR } from "@/config/tool-reference-creator";
 

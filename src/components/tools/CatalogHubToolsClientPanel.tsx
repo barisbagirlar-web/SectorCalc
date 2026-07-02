@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { ToolData } from "@/lib/features/tools/all-tools-data";
 import {

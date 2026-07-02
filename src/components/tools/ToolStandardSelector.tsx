@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { GeneratedToolStandardOption } from "@/lib/features/generated-tools/types";
 
 export type ToolStandardSelectorProps = {

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { cn } from "@/lib/core/cn";
 
 export interface SectorButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

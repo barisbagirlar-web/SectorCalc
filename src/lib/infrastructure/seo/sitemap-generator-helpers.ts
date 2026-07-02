@@ -21,8 +21,8 @@ export async function buildSitemapXmlString(items: readonly SitemapManifestItem[
     const priority = item.priority.toFixed(2);
 
     const alternates = buildAlternates(item.path, item.locales, SITE_BASE_URL);
-    const hreflangTags = Object.entries(alternates.languages)
-      .map(([lang, url]) => `\n    <xhtml:link rel="alternate" hreflang="${lang}" href="${url}"/>`)
+    const h_reflangTags = Object.entries(alternates.languages)
+      .map(([lang, url]) => `\n    <xhtml:link rel="alternate" h_reflang="${lang}" href="${url}"/>`)
       .join("");
 
     // Create a <url> block for every locale of this item
@@ -31,7 +31,7 @@ export async function buildSitemapXmlString(items: readonly SitemapManifestItem[
       urls.push(`  <url>
     <loc>${locUrl}</loc>${lastmodTag}
     <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>${hreflangTags}
+    <priority>${priority}</priority>${h_reflangTags}
   </url>`);
     }
   }

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
 import { getCategoryCardIcon } from "@/lib/catalog/category-card-icons";

@@ -2,7 +2,7 @@
 
 /**
  * SectorCalc — Industries Hub Page
- * Drop into: /app/[locale]/industries/page.jsx
+ * Drop into: /app/(route)/industries/page.jsx
  *
  * Replaces the current placeholder with a real sector hub.
  * Each card links to a filtered tool view: /free-tools?sector=SLUG
@@ -182,8 +182,8 @@ const SECTORS = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function IndustriesPage({ locale = 'en', translations }) {
-  const t = translations?.[locale]?.industries || translations?.['en']?.industries || {};
-  const dir = translations?.[locale]?.dir || 'ltr';
+  const t = translations?.(route)?.industries || translations?.['en']?.industries || {};
+  const dir = translations?.(route)?.dir || 'ltr';
 
   return (
     <>

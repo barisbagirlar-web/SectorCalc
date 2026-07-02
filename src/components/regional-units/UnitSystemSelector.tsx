@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { MeasurementSystem, SupportedRegion } from "@/lib/core/units/regional-unit-engine";
 
 const REGIONS: readonly SupportedRegion[] = ["global", "us", "uk", "eu", "tr", "mena", "latam"];

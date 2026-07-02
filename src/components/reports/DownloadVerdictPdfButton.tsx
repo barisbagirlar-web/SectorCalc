@@ -1,7 +1,7 @@
 "use client";
 
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { IndustrialPdfDocument } from "@/lib/content/pdf/industrial-pdf/IndustrialPdfDocument";
 import { buildIndustrialPdfFileName } from "@/lib/content/pdf/industrial-pdf/render";
 import type { IndustrialPdfData } from "@/lib/content/pdf/industrial-pdf/types";

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Download, Loader2, Mail } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { CalculationReportRow } from "@/lib/content/pdf/calculation-report-types";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

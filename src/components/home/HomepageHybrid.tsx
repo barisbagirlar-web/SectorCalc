@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 import { Link } from "@/i18n/routing";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "@/lib/i18n-stub";
 import { Container } from "@/components/ui/Container";
 import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";
 import { HeroMathematicalSymbols } from "@/components/home/HeroMathematicalSymbols";

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import { Container } from "@/components/ui/Container";
 
 const REFERENCE_LOGO_PATH = "/img/home/industry-reference-logos.png";

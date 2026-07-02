@@ -1,7 +1,7 @@
 "use client";
 
 import { Lock } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { SingleVerdictCheckoutButton } from "@/components/subscription/SingleVerdictCheckoutButton";
 import { SINGLE_VERDICT_PRICE } from "@/lib/pricing/plan-catalog";

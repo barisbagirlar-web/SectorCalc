@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 

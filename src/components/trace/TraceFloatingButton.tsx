@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { useUser } from "@/hooks/useUser";
 import { TraceErrorBoundary } from "@/components/trace/TraceErrorBoundary";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { DESKTOP_HEADER_NAV, PRIMARY_HEADER_NAV } from "@/config/site";
 import { ActiveNavLink } from "@/components/layout/ActiveNavLink";
 

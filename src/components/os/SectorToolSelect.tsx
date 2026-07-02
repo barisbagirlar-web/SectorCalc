@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { useRouter } from "next/navigation";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { revenueTools } from "@/lib/features/tools/revenue-tools";

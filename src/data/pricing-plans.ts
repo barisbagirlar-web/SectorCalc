@@ -128,7 +128,7 @@ export function buildPricingPlans(t: PricingTranslator): PricingPlan[] {
  });
 }
 
-/** @deprecated Use buildPricingPlans(t) in client/server components with next-intl */
+/** @deprecated Use buildPricingPlans(t) in client/server components with next-i_ntl */
 export const PRICING_PLANS: PricingPlan[] = [];
 
 export const PRICING_ROI_COPY = "One avoided bad quote can pay for a full year of Pro.";

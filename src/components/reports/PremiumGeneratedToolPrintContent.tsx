@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { getPrintData, type PrintData } from "@/lib/features/reports/generated-tool-print-data";
 import type {
   GeneratedToolResult,

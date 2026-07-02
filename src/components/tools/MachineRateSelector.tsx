@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { ShopRateCalculatorModal } from "@/components/tools/ShopRateCalculatorModal";
 import type { MachineRecord, MachineRecordField } from "@/lib/features/machine-rate/types";
 import { DEMO_MACHINE_RECORDS } from "@/lib/features/machine-rate/types";

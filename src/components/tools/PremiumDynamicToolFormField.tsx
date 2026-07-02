@@ -12,7 +12,7 @@ import {
 import type { GeneratedToolInput } from "@/lib/features/generated-tools/types";
 import { resolveLocalizedGeneratedSelectOptions } from "@/lib/features/generated-tools/select-options";
 import { translateZodErrorMessage } from "@/lib/infrastructure/i18n/zod-error-translate";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import { FitText } from "@/components/ui/FitText";
 
 type PremiumDynamicToolFormFieldProps = {

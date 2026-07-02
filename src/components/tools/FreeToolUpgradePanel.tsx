@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/ui-shared/icons/icon-registry";

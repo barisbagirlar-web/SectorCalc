@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n-stub";
 import {
   BETA_COMPANY_SIZE_OPTIONS,
   BETA_INDUSTRY_OPTIONS,

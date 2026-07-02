@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "@/lib/i18n-stub";
+import { getMessages, setRequestLocale } from "@/lib/i18n-stub";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildSoftwareApplicationJsonLd, buildWebsiteJsonLd } from "@/lib/infrastructure/seo/schema-mesh";

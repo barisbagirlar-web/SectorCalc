@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { getBenchmarkBand } from "@/lib/features/regional-benchmarks/benchmark-registry";
 import type { BenchmarkMetric, BenchmarkRegion } from "@/lib/features/regional-benchmarks/types";
 import { BenchmarkCard } from "@/components/regional-benchmarks/BenchmarkCard";

@@ -1,10 +1,11 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
+import { PremiumSchemaToolForm } from "@/components/tools/PremiumSchemaToolForm";
+import { adaptLegacyJsonToPremiumSchema } from "@/lib/features/dynamic-form-v2/legacy-to-premium-adapter";
 import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/infrastructure/build/preview-static-params";
 import {
@@ -160,7 +161,7 @@ export default async function GeneratedToolRoutePage({
             </Link>
           </p>
         </div>
-        <GeneratedToolFormViewShell slug={slug} schema={schema} />
+        <PremiumSchemaToolForm schema={adaptLegacyJsonToPremiumSchema(schema as any, slug)} locale={locale} />
       </article>
     </PageLayout>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { type RegionCode } from "@/config/regions";
 import { readManualRegionCookie, setManualRegion } from "@/lib/features/compliance/region-client";
 import { useRegion } from "@/lib/features/compliance/region-context";

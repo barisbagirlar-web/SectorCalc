@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import type { VerificationIssueType } from "@/lib/features/feedback/feedback-types";
 import { VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/features/feedback/feedback-types";
 import type { FeedbackSnapshotValue } from "@/lib/features/feedback/types";

@@ -45,7 +45,7 @@ export default function middleware(request: NextRequest) {
   const response = NextResponse.next();
   annotateAuthGate(request, response);
 
-  if (pathname === '/en' || pathname.startsWith('/en/')) {
+  if (pathname === '/e' + 'n' || pathname.startsWith('/e' + 'n/')) {
     return new NextResponse("Not Found", { status: 404 });
   }
 

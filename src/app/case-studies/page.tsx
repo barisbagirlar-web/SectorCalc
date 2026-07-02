@@ -2,7 +2,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "@/lib/i18n-stub";
 import { Link } from "@/i18n/routing";
 import {
   filterCaseStudiesForDatabase,

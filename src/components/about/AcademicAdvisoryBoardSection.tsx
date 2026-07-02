@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { ExternalLink } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/lib/i18n-stub";
 import {
   academicRoleTranslationKey,
   getAcademicAdvisoryBoardMembers,

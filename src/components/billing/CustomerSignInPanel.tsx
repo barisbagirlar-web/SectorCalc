@@ -4,7 +4,7 @@
 import Link from "@/lib/ui-shared/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n-stub";
 import { useClientSearchParam } from "@/lib/ui-shared/navigation/use-client-search-params";
 import { getAccountHref } from "@/lib/features/tools/tool-links";
 import { syncSessionCookie } from "@/lib/infrastructure/auth/session-cookie";
