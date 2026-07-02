@@ -45,13 +45,13 @@ export function PlatformArchitectureSection() {
         <SectionHeader
           eyebrow="Platform"
           title="Built as a sector decision platform"
-          subtitle="SectorCalc is not a loose collection of calculators. It is a structured engine for cost, margin, capacity and pricing decisions — with a report layer for stakeholders who need more than a single number."
+          subtitle="SectorCalc is not a loose collection of calculators. It is a structured engine for cost, margin, capacity and pricing decisions - with a report layer for stakeholders who need more than a single number."
           align="center"
         />
 
         <div className="grid gap-8 md:grid-cols-3 md:gap-10">
           {PRIMARY_FEATURES.map((feature) => (
-            <article key={feature.title} className="text-center md:text-left">
+            <article key={feature.title} className="text-left">
               <div className="flex justify-center md:justify-start">
                 <PlatformFeatureIcon variant={feature.icon} />
               </div>

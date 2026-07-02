@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   SECTORCALC LANDING PAGE — Premium Global Design
+   SECTORCALC LANDING PAGE - Premium Global Design
    Scoped under .claude-landing
    ═══════════════════════════════════════════════════════════════ */
 
@@ -277,7 +277,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   TRUST STRIP — Workflow tags
+   TRUST STRIP - Workflow tags
    ═══════════════════════════════════════════ */
 .claude-landing .corp-trust-strip {
   padding: 44px 0;
@@ -324,7 +324,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   SECTIONS — Shared
+   SECTIONS - Shared
    ═══════════════════════════════════════════ */
 .claude-landing section.sec-section {
   padding: 62px 0;
@@ -378,7 +378,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   CATEGORY GRID — 8 sector cards
+   CATEGORY GRID - 8 sector cards
    ═══════════════════════════════════════════ */
 .claude-landing .grid.cat-grid {
   display: grid;
@@ -440,7 +440,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   FEATURE GRID — Why SectorCalc
+   FEATURE GRID - Why SectorCalc
    ═══════════════════════════════════════════ */
 .claude-landing .grid.feature-grid {
   display: grid;
@@ -474,7 +474,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   FREE VS PRO — Split columns
+   FREE VS PRO - Split columns
    ═══════════════════════════════════════════ */
 .claude-landing .pricing-split h2 {
   font-family: var(--serif);
@@ -572,7 +572,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   TRANSPARENCY — Formula-backed
+   TRANSPARENCY - Formula-backed
    ═══════════════════════════════════════════ */
 .claude-landing .transparency-section h2 {
   font-family: var(--serif);
@@ -813,7 +813,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   SELECTIVE ALIGNMENT — Center only titles/headers/CTAs, content left-aligned
+   SELECTIVE ALIGNMENT - Center only titles/headers/CTAs, content left-aligned
    ═══════════════════════════════════════════
    Rule: short titles center, body text left, buttons/actions center.
    ═══════════════════════════════════════════ */
@@ -829,7 +829,7 @@
   text-align: left;
 }
 
-/* ── Hero / section headings — centered ── */
+/* ── Hero / section headings - centered ── */
 .claude-landing .hero {
   text-align: center;
 }
@@ -882,7 +882,7 @@
   text-align: center;
 }
 
-/* ── Search — centered wrapper ── */
+/* ── Search - centered wrapper ── */
 .claude-landing .search-container,
 .claude-landing .search-wrapper,
 .claude-landing .search-box {
@@ -909,7 +909,7 @@
   text-align: left;
 }
 
-/* ── Buttons / CTA rows — centered ── */
+/* ── Buttons / CTA rows - centered ── */
 .claude-landing .button-group,
 .claude-landing .cta-buttons,
 .claude-landing .action-buttons,
@@ -925,7 +925,7 @@
   flex-wrap: wrap;
 }
 
-/* ── Standards strip — centered ── */
+/* ── Standards strip - centered ── */
 .claude-landing .verified-section,
 .claude-landing .standards-section,
 .claude-landing .standards-strip {
@@ -940,7 +940,7 @@
   flex-wrap: wrap;
 }
 
-/* ── Trust strip — centered ── */
+/* ── Trust strip - centered ── */
 .claude-landing .corp-trust-strip {
   text-align: center;
 }
@@ -1009,7 +1009,7 @@
   line-height: 1.45;
 }
 
-/* ── USE CASE CARDS (uc-card) — Challenge/Solution ── */
+/* ── USE CASE CARDS (uc-card) - Challenge/Solution ── */
 /* Title centered, Challenge/Solution body text LEFT */
 .claude-landing .uc-card {
   text-align: left;

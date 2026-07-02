@@ -1,4 +1,4 @@
-/* Claude 2 Landing — Behavioral UX Design */
+/* Claude 2 Landing - Behavioral UX Design */
 /* Tokens */
 .cl2 {
   --cl2-bg: #F0EEE6;
@@ -159,7 +159,7 @@
 }
 .cl2-micro {
   font-size: 12px; color: var(--cl2-ink-muted);
-  margin-top: 10px; text-align: center;
+  margin-top: 10px; text-align: left;
 }
 .cl2-micro a { color: var(--cl2-terra); }
 
@@ -424,10 +424,10 @@
 .cl2-method-badge {
   background: var(--cl2-surface);
   border: 0.5px solid var(--cl2-border-s);
-  border-radius: 8px; padding: 16px; text-align: center;
+  border-radius: 8px; padding: 16px; text-align: left;
 }
 .cl2-method-name {
-  font-size: 15px; font-weight: 700; color: var(--cl2-ink);
+  font-size: 15px; font-weight: 700; color: var(--cl2-ink); text-align: center;
 }
 .cl2-method-sub {
   font-size: 11px; color: var(--cl2-ink-muted); margin-top: 3px;

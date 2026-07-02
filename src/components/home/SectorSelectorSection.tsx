@@ -45,15 +45,15 @@ export default async function SectorSelectorSection() {
   return (
     <section id="industries" aria-labelledby="sector-selector-heading" className="ind-os-page py-8">
       <div className="ind-os-container">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl">
           <h2
             id="sector-selector-heading"
-            className="font-display text-balance text-2xl font-semibold text-premium-velvet sm:text-3xl"
+            className="font-display text-balance text-center text-2xl font-semibold text-premium-velvet sm:text-3xl"
           >
             {t("title", { count: SECTOR_COUNT })}
           </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-body-charcoal sm:text-base">
+          <p className="mx-auto mt-3 max-w-2xl text-left text-pretty text-sm leading-relaxed text-body-charcoal sm:text-base">
             {t("subtitle")}
           </p>
           <p className="mt-3">

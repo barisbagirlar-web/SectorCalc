@@ -79,11 +79,11 @@ export async function ManifestoPageContent({ variant, headline, lead, locale }: 
                 return (
                   <article
                     key={card.id}
-                    className="rounded-xl border border-gray-100 bg-kil-surface p-6 text-center"
+                    className="rounded-xl border border-gray-100 bg-kil-surface p-6"
                   >
-                    <Icon className="mx-auto h-12 w-12 text-gray-700" strokeWidth={1.5} aria-hidden="true" />
-                    <h2 className="mt-2 text-lg font-semibold text-navy">{card.title}</h2>
-                    <p className="mt-2 text-sm text-body-charcoal">{card.body}</p>
+                    <Icon className="mx-auto h-12 w-12 text-gray-700 text-center" strokeWidth={1.5} aria-hidden="true" />
+                    <h2 className="mt-2 text-center text-lg font-semibold text-navy">{card.title}</h2>
+                    <p className="mt-2 text-left text-sm text-body-charcoal">{card.body}</p>
                   </article>
                 );
               })}

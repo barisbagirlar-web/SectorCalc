@@ -1,12 +1,12 @@
 /**
- * SectorCalc Design System v1.3 — Industrial Professional + Ledger Craft Layer
+ * SectorCalc Design System v1.3 - Industrial Professional + Ledger Craft Layer
  * 85% Industrial Professional grid · 10% ledger feel · 5% craft detail
  *
  * sc-pro-*  = primary professional system
  * sc-ledger-* = craft / quick-entry detail layer
  */
 
-/* ── Ledger tokens — Anthropic Kil Palette ── */
+/* ── Ledger tokens - Anthropic Kil Palette ── */
 :root {
   --sc-bg: #f0eee6;
   --sc-bg-muted: #eae6dc;
@@ -192,7 +192,7 @@
   color: var(--sc-copper);
 }
 
-/* ── Divider (straight rule only — no hand-drawn) ── */
+/* ── Divider (straight rule only - no hand-drawn) ── */
 .sc-ledger-divider {
   height: 1px;
   margin-block: 1rem;
@@ -403,7 +403,7 @@ form[data-calculation-form="true"] {
   min-height: 44px;
 }
 
-/* ── P80: calculator form UX — mobile form-first + visible submit ── */
+/* ── P80: calculator form UX - mobile form-first + visible submit ── */
 @media (max-width: 1023px) {
   body:has([data-premium-calculator-shell]) section.border-b.bg-surface-cream {
     padding-top: 1rem;
@@ -889,7 +889,7 @@ form[data-calculation-form="true"] {
   min-width: 0;
 }
 
-/* Free underline form — single column on mobile */
+/* Free underline form - single column on mobile */
 .sc-ledger-cetele-form {
   display: flex;
   flex-direction: column;
@@ -1003,7 +1003,7 @@ form[data-calculation-form="true"] {
     display: none;
   }
 
-  /* Equal-height column panels — inputs | decision | report */
+  /* Equal-height column panels - inputs | decision | report */
   .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__entries > form,
   .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__report > aside,
   .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__report > .sc-premium-decision-report,
@@ -1030,7 +1030,7 @@ form[data-calculation-form="true"] {
   }
 }
 
-/* ── Calculation workspace — equal-height symmetric columns (all tools) ── */
+/* ── Calculation workspace - equal-height symmetric columns (all tools) ── */
 .sc-calc-workspace {
   display: grid;
   gap: 1.25rem;
@@ -1522,7 +1522,7 @@ form[data-calculation-form="true"] {
   }
 }
 
-/* ── Header — calmer utilities ── */
+/* ── Header - calmer utilities ── */
 .sc-header-craft .apple-nav {
   background: rgb(250 247 242 / 0.96);
   backdrop-filter: blur(12px);
@@ -1764,7 +1764,7 @@ form[data-calculation-form="true"] {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   v1.3 — Industrial Professional (primary) + Ledger craft (secondary)
+   v1.3 - Industrial Professional (primary) + Ledger craft (secondary)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .sc-pro-page,
@@ -1886,7 +1886,7 @@ form[data-calculation-form="true"] {
     0 -1px 0 rgb(26 26 26 / 0.04) inset;
 }
 
-/* Controlled ledger separator — not decorative hand-drawn */
+/* Controlled ledger separator - not decorative hand-drawn */
 .sc-ledger-separator {
   height: 0;
   border: none;
@@ -1951,7 +1951,7 @@ form[data-calculation-form="true"] {
   border: 1px solid var(--sc-border);
 }
 
-/* Compact hero — no 90vh */
+/* Compact hero - no 90vh */
 .sc-pro-hero-compact {
   display: grid;
   gap: 1.5rem;
@@ -1978,7 +1978,7 @@ form[data-calculation-form="true"] {
   max-width: 100%;
 }
 
-/* Product screen mockup — real UI chrome, not AI art */
+/* Product screen mockup - real UI chrome, not AI art */
 .sc-pro-product-mockup {
   border: 1px solid var(--sc-border);
   background: var(--sc-surface);
@@ -2097,7 +2097,7 @@ form[data-calculation-form="true"] {
   color: var(--sc-muted);
 }
 
-/* Header primary CTA — superseded by .get-pro-btn (manifesto v2) */
+/* Header primary CTA - superseded by .get-pro-btn (manifesto v2) */
 .sc-pro-header-cta {
   min-height: 48px !important;
   padding: 1rem 2rem !important;
@@ -2106,7 +2106,7 @@ form[data-calculation-form="true"] {
   border-radius: 8px !important;
 }
 
-/* Pricing — Pro dominant 3-tier */
+/* Pricing - Pro dominant 3-tier */
 .sc-pro-pricing-grid {
   display: grid;
   gap: 1rem;
@@ -2688,7 +2688,7 @@ form[data-calculation-form="true"] {
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* Smart form owns layout — do not squeeze inside ledger 2-col shell */
+/* Smart form owns layout - do not squeeze inside ledger 2-col shell */
 .sc-ledger-cetele > .sc-smart-form-shell,
 .sc-tool-workspace > .sc-smart-form-shell {
   grid-column: 1 / -1;
@@ -2873,7 +2873,7 @@ form[data-calculation-form="true"] {
   min-width: 0;
 }
 
-/* ── Page canvas — theme fill, no white viewport gutters ── */
+/* ── Page canvas - theme fill, no white viewport gutters ── */
 .sc-app-main,
 .sc-pro-page,
 .sc-ledger-page,
@@ -3174,7 +3174,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   min-width: 0;
 }
 
-/* ── Omni hub — premium & industries variants ── */
+/* ── Omni hub - premium & industries variants ── */
 .sc-omni-hub--premium .sc-omni-hub__premium-ribbon {
   display: flex;
   flex-wrap: wrap;
@@ -3927,7 +3927,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: var(--sc-muted);
 }
 
-/* Credibility block — before final CTA */
+/* Credibility block - before final CTA */
 .sc-home-hybrid__credibility {
   padding-block: clamp(1.5rem, 3vw, 2.25rem);
   background: #ffffff;
@@ -3937,7 +3937,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   max-width: 38rem;
   margin-inline: auto;
   padding-inline: clamp(0.25rem, 2vw, 1rem);
-  text-align: center;
+  text-align: left;
   border-inline: none;
   padding-inline-start: clamp(0.25rem, 2vw, 1rem);
 }
@@ -3965,6 +3965,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--sc-navy);
+  text-align: center;
 }
 
 .sc-home-hybrid__about-body {
@@ -5108,7 +5109,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: left;
   gap: 0.75rem;
   height: 100%;
   padding: 1.5rem 1.25rem;
@@ -5124,6 +5125,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   line-height: 1.35;
   color: var(--sc-text);
   letter-spacing: 0.01em;
+  text-align: center;
 }
 
 .sc-home-omni__loss-text {
@@ -5427,7 +5429,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   padding-block: clamp(2.5rem, 5vw, 3.5rem);
   background: var(--sc-surface);
   border-top: 1px solid var(--sc-border);
-  text-align: center;
+  text-align: left;
 }
 
 .sc-home-omni__mission-title {
@@ -5439,6 +5441,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--sc-text);
+  text-align: center;
 }
 
 .sc-home-omni__mission-text {
@@ -5865,7 +5868,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   }
 }
 
-/* SEO authority — featured snippet answer blocks */
+/* SEO authority - featured snippet answer blocks */
 .sc-featured-answer {
   padding: 1.25rem 1.5rem;
   border-radius: 0.25rem;
@@ -5899,7 +5902,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   margin-top: 0.375rem;
 }
 
-/* SEO authority — crawl-friendly link index */
+/* SEO authority - crawl-friendly link index */
 .sc-crawl-index {
   padding: 1.5rem 0 0.5rem;
 }
@@ -5970,7 +5973,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   margin: 0 auto;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2rem);
   background: #ffffff;
-  text-align: center;
+  text-align: left;
   color: #202124;
 }
 
@@ -5981,6 +5984,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  text-align: center;
 }
 
 .sc-about-text {
@@ -6271,8 +6275,8 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: #8a8885;
 }
 
-/* Trace — SectorCalc intelligent assistant */
-/* Trace living avatar — organic water-like organism */
+/* Trace - SectorCalc intelligent assistant */
+/* Trace living avatar - organic water-like organism */
 .sc-trace-living {
   position: relative;
   display: grid;
@@ -6624,7 +6628,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 
 
-/* Trace AI animated logo — Firebase warm gradient */
+/* Trace AI animated logo - Firebase warm gradient */
 .sc-trace-ai-logo {
   position: relative;
   display: grid;
@@ -6828,7 +6832,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   height: 1.6rem;
 }
 
-/* Trace FAB greeting bubble — dark welcome card with gradient top border */
+/* Trace FAB greeting bubble - dark welcome card with gradient top border */
 .sc-trace__bubble-greeting {
   position: absolute;
   bottom: calc(100% + 0.75rem);
@@ -6858,7 +6862,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   overflow: hidden;
 }
 
-/* Gradient top border — warm Firebase colors */
+/* Gradient top border - warm Firebase colors */
 .sc-trace__bubble-greeting-card::before {
   content: '';
   position: absolute;
@@ -6911,7 +6915,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   margin-bottom: 12px;
 }
 
-/* Bubble head — name + status (centered below logo) */
+/* Bubble head - name + status (centered below logo) */
 .sc-trace__bubble-head {
   display: flex;
   flex-direction: column;
@@ -6944,7 +6948,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   50% { opacity: 0.2; }
 }
 
-/* Message text — clickable greeting area */
+/* Message text - clickable greeting area */
 .sc-trace__bubble-text {
   display: block;
   width: 100%;
@@ -6981,7 +6985,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: #8a8885;
 }
 
-/* CTA — "Bugun ne hesaplayalim?" */
+/* CTA - "Bugun ne hesaplayalim?" */
 .sc-trace__bubble-cta {
   margin: 0;
   font-size: 13px;
@@ -7427,7 +7431,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
  *  Loading skeleton, Error Boundary, a11y improvements       *
  * ═══════════════════════════════════════════════════════════ */
 
-/* Panel wrapper — enables exit animation before unmount */
+/* Panel wrapper - enables exit animation before unmount */
 .sc-trace__panel-wrap {
   pointer-events: auto;
   width: min(380px, calc(100vw - 2rem));
@@ -7485,7 +7489,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   100% { background-position: -200% 0; }
 }
 
-/* Error boundary — crash recovery */
+/* Error boundary - crash recovery */
 .sc-trace__error-boundary {
   display: flex;
   flex-direction: column;
@@ -7557,7 +7561,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   outline-offset: 2px;
 }
 
-/* Reduced motion — disable all Trace animations */
+/* Reduced motion - disable all Trace animations */
 @media (prefers-reduced-motion: reduce) {
   .sc-trace__panel-wrap--open,
   .sc-trace__panel-wrap--closing {
@@ -7576,7 +7580,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   }
 }
 
-/* Trace homepage intro — hero-aligned premium light card */
+/* Trace homepage intro - hero-aligned premium light card */
 .sc-trace-intro {
   padding-block: clamp(1.25rem, 3vw, 2rem);
   min-width: 0;
@@ -7662,7 +7666,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-trace-intro__copy {
   flex: 1;
   min-width: 0;
-  text-align: center;
+  text-align: left;
 }
 @media (min-width: 768px) {
   .sc-trace-intro__copy {

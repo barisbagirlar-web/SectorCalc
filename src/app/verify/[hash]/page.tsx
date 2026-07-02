@@ -41,14 +41,14 @@ export default async function VerifyHashPage({ params }: PageProps) {
       <section className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16">
         <Container>
           {/* Header */}
-          <div className="mx-auto mb-8 max-w-xl text-center">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">
+          <div className="mx-auto mb-8 max-w-xl">
+            <p className="mb-2 text-center text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">
               {t("eyebrow")}
             </p>
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+            <h1 className="text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               {t("title")}
             </h1>
-            <p className="mt-2 text-sm leading-relaxed text-gray-600">
+            <p className="mt-2 text-left text-sm leading-relaxed text-gray-600">
               {t("description")}
             </p>
           </div>

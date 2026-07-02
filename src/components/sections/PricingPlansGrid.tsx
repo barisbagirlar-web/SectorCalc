@@ -35,7 +35,7 @@ interface PricingPlansGridProps {
   compact?: boolean;
   embedded?: boolean;
   featuredOnly?: boolean;
-  /** Free + Pro (dominant) + Enterprise — Pro visually primary */
+  /** Free + Pro (dominant) + Enterprise - Pro visually primary */
   tierMode?: "default" | "pro-focused";
 }
 
@@ -117,7 +117,7 @@ export function PricingPlansGrid({
       )}
 
       {!compact ? (
-        <p className="mx-auto mb-8 max-w-2xl text-center text-sm font-medium text-body-charcoal">
+        <p className="mx-auto mb-8 max-w-2xl text-left text-sm font-medium text-body-charcoal">
           {t("pricing.roiCopy")}
         </p>
       ) : null}
@@ -229,13 +229,13 @@ export function PricingPlansGrid({
       </div>
 
       {!compact ? (
-        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-body-charcoal">
+        <p className="mx-auto mt-8 max-w-3xl text-left text-xs leading-relaxed text-body-charcoal">
           {PRICING_REFUND_POLICY}
         </p>
       ) : null}
 
       {!compact ? (
-        <p className="mt-6 text-center text-sm text-body-charcoal">
+        <p className="mt-6 text-left text-sm text-body-charcoal">
           <Link href={getSampleReportHref()} className="font-semibold text-sc-navy underline underline-offset-2">
             {t("pricing.sampleReport")}
           </Link>
@@ -250,7 +250,7 @@ export function PricingPlansGrid({
               source="pricing_footer"
               toolSlug={checkoutToolSlug}
             />
-            <p className="mt-3 text-center text-xs leading-relaxed text-body-charcoal">
+            <p className="mt-3 text-left text-xs leading-relaxed text-body-charcoal">
               {PRICING_CHECKOUT_LEGAL}
             </p>
           </div>

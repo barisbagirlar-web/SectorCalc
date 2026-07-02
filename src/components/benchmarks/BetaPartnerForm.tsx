@@ -95,9 +95,9 @@ export function BetaPartnerForm() {
 
   if (success) {
     return (
-      <div className="sc-beta-partner__success rounded-lg border border-professional-blue/30 bg-white p-8 text-center">
-        <h2 className="text-xl font-bold text-deep-navy">{t("successTitle")}</h2>
-        <p className="mt-3 text-sm text-body-charcoal">{t("successBody")}</p>
+      <div className="sc-beta-partner__success rounded-lg border border-professional-blue/30 bg-white p-8">
+        <h2 className="text-xl font-bold text-deep-navy text-center">{t("successTitle")}</h2>
+        <p className="mt-3 text-sm text-body-charcoal text-left">{t("successBody")}</p>
       </div>
     );
   }

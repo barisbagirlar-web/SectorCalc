@@ -83,9 +83,9 @@ export default async function ForConsultantsPage({ params }: PageProps) {
               </Link>
             </p>
           </div>
-          <div className="mt-12 rounded-sm border border-professional-blue/30 bg-bg-primary p-8 text-center md:p-12">
-            <h2 className="text-2xl font-bold text-premium-velvet">{t("consultantProgram")}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-body-charcoal">
+          <div className="mt-12 rounded-sm border border-professional-blue/30 bg-bg-primary p-8 text-left md:p-12">
+            <h2 className="text-2xl font-bold text-premium-velvet text-center">{t("consultantProgram")}</h2>
+            <p className="mx-auto mt-4 max-w-xl text-body-charcoal text-left">
               {t("consultantProgramDesc")}
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

@@ -274,7 +274,7 @@ export function TrustTraceVerificationCard({ hash }: TrustTraceVerificationCardP
           hour: "2-digit",
           minute: "2-digit",
         })
-      : "—";
+      : "-";
 
     return (
       <div className="mx-auto max-w-xl">
@@ -325,7 +325,7 @@ export function TrustTraceVerificationCard({ hash }: TrustTraceVerificationCardP
         </div>
 
         {/* Footer note */}
-        <p className="mt-4 text-center text-xs leading-relaxed text-gray-500">
+        <p className="mt-4 text-left text-xs leading-relaxed text-gray-500">
           {t("footerNote")}
         </p>
       </div>
