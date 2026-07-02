@@ -70,8 +70,7 @@ export const PREMIUM_SCHEMA_CATALOG_GROUP_ORDER = [
   "route_logistics",
   "cost_margin",
   "energy_carbon",
-  "benchmark_health",
-] as const;
+  "benchmark_health" ] as const;
 
 export type PremiumSchemaCatalogGroupId = (typeof PREMIUM_SCHEMA_CATALOG_GROUP_ORDER)[number];
 
@@ -146,28 +145,26 @@ const SCHEMA_SECTOR_TO_INDUSTRY_CATEGORY: Record<string, IndustryCategory> = {
 };
 
 const INDUSTRY_SLUG_ANALYZERS: Partial<Record<IndustrySlug, readonly string[]>> = {
-  "cnc-manufacturing": ["cnc-oee-loss", "cnc-tool-wear-cost", "sheet-metal-scrap-risk", "chatter-surface-quality-analyzer", "bolt-torque-preload-analyzer"],
-  "sheet-metal": ["sheet-metal-scrap-risk", "cnc-tool-wear-cost", "six-sigma-project-prioritizer", "aql-sampling-risk-analyzer", "calibration-drift-risk-analyzer"],
-  "welding-fabrication": ["cnc-tool-wear-cost", "asme-pressure-vessel-analyzer"],
-  "3d-printing-service": ["calibration-drift-risk-analyzer"],
+  "cnc-manufacturing": ["cnc-oee-loss", "cnc-tool-wear-cost", "sheet-metal-scrap-risk" ],
+  "sheet-metal": ["sheet-metal-scrap-risk", "cnc-tool-wear-cost" ],
+  "welding-fabrication": ["cnc-tool-wear-cost" ],
+  "3d-printing-service": [ ],
   construction: [
     "construction-project-overrun",
     "construction-subcontractor-margin-leak",
     "roofing-weather-delay-risk",
-    "painting-rework-coverage-risk",
-    "concrete-volume-cost-analyzer",
-  ],
+    "painting-rework-coverage-risk" ],
   roofing: ["roofing-weather-delay-risk", "construction-subcontractor-margin-leak"],
   painting: ["painting-rework-coverage-risk"],
   "electrical-contracting": ["electrical-panel-rework-cost"],
   hvac: ["hvac-callback-margin-risk"],
   plumbing: ["plumbing-leak-callback-cost"],
-  "auto-repair-shop": ["auto-repair-comeback-cost", "auto-repair-comeback-analyzer", "auto-repair-quote-consistency-analyzer", "auto-shop-margin-leak-analyzer"],
+  "auto-repair-shop": ["auto-repair-comeback-cost" ],
   "printing-signage": ["printing-reprint-margin-leak"],
   "carpentry-millwork": ["textile-fabric-waste-risk"],
   "landscaping-lawn-care": ["roofing-weather-delay-risk"],
   cleaning: ["warehouse-space-cost-leak"],
-  "logistics-transport": ["logistics-route-loss", "logistics-fuel-route-drift", "vehicle-depreciation-tco-analyzer"],
+  "logistics-transport": ["logistics-route-loss", "logistics-fuel-route-drift" ],
   restaurant: ["restaurant-menu-margin-leak", "food-waste-margin-loss"],
   "daily-meals": ["food-waste-margin-loss"],
   ecommerce: ["ai-token-cost-analyzer", "cloud-api-cost-overrun", "retail-inventory-turnover-risk", "cloud-api-overrun-analyzer", "cloud-waste-elimination-analyzer"],
@@ -175,8 +172,8 @@ const INDUSTRY_SLUG_ANALYZERS: Partial<Record<IndustrySlug, readonly string[]>> 
   "agriculture-irrigation": ["agriculture-irrigation-yield-loss"],
   "agriculture-feed": ["dairy-feed-efficiency-loss"],
   "agriculture-dairy": ["dairy-feed-efficiency-loss"],
-  "energy-consumption": ["energy-peak-cost", "energy-compressor-leak-cost", "compressed-air-energy-cost-analyzer"],
-  "energy-carbon": ["energy-peak-cost", "carbon-footprint-compliance-risk", "energy-compressor-leak-cost", "cbam-exposure-analyzer", "cbam-compliance-verdict-analyzer"],
+  "energy-consumption": ["energy-peak-cost", "energy-compressor-leak-cost" ],
+  "energy-carbon": ["energy-peak-cost", "carbon-footprint-compliance-risk", "energy-compressor-leak-cost", "cbam-exposure-analyzer" ],
   "daily-renovation": ["legal-interest-fee-calculator-pro"],
   "daily-fuel": ["logistics-fuel-route-drift"],
 };
@@ -395,8 +392,7 @@ export function buildCategoryPageCatalogGroups(
       ...group,
       items: [
         ...group.items.map((item) => ({ ...item, itemKind: "free-calculator" as const })),
-        ...premiumItems,
-      ],
+        ...premiumItems ],
     };
   });
 }
@@ -436,7 +432,6 @@ export function assertPublicCatalogCopySafe(item: PremiumSchemaCatalogItem): boo
     item.primaryOutputLabel,
     item.priceHint,
     item.badge,
-    ...item.reportSections,
-  ];
+    ...item.reportSections ];
   return fields.every((field) => !containsForbiddenPublicCatalogTerm(field));
 }

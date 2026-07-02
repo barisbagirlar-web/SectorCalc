@@ -1,0 +1,158 @@
+
+=== Premium FAIL Triage ===
+CLASS R (remap, cheap): 28 | CLASS M (missing input, hard): 95
+
+--- CLASS R: fix inputMap RHS ---
+  noise-vibration-cost-analyzer :: measurement.noise_exposure
+     'noiseLevel' -> 'noiseLevelDb'  (similarity 0.90)
+  total-employee-cost-analyzer :: cost.total_employee_cost
+     'grossSalary' -> 'avgGrossSalary'  (similarity 0.87)
+  water-usage-optimizer-analyzer :: measurement.water_intensity
+     'totalWater' -> 'totalWaterUse'  (similarity 0.86)
+  supply-chain-disruption-analyzer :: cost.risk_exposure_sc
+     'disruptionProb' -> 'disruptionProbability'  (similarity 0.79)
+  textile-waste-risk-analyzer :: cost.net_waste_cost
+     'recyclingRevenue' -> 'recycleRevenue'  (similarity 0.79)
+  takt-time-flexibility-analyzer :: measurement.cycle_flexibility
+     'actualCycleTime' -> 'cycleTime'  (similarity 0.73)
+  water-usage-optimizer-analyzer :: cost.water_cost_savings
+     'wastewaterRate' -> 'wastewaterPct'  (similarity 0.72)
+  repair-shop-quote-analyzer :: cost.gross_profit_pct
+     'revenue' -> 'laborRevenue'  (similarity 0.71)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_theoretical_food
+     'idealFoodCostPct' -> 'actualFoodCost'  (similarity 0.71)
+  restaurant-menu-margin-leak-analyzer :: measurement.restaurant_ideal_margin
+     'idealFoodCostPct' -> 'actualFoodCost'  (similarity 0.71)
+  seed-rate-analyzer :: cost.seed_financial_loss
+     'expectedGermination' -> 'germinationRate'  (similarity 0.69)
+  noise-vibration-cost-analyzer :: measurement.vibration_rms
+     'vibrationLevel' -> 'vibrationRms'  (similarity 0.67)
+  office-supplies-cost-analyzer :: cost.office_annual_cost
+     'orderQty' -> 'currentOrderQty'  (similarity 0.67)
+  office-supplies-cost-analyzer :: cost.office_carrying_cost
+     'orderQty' -> 'currentOrderQty'  (similarity 0.67)
+  office-supplies-cost-analyzer :: cost.office_stockout_cost
+     'stockoutUnits' -> 'stockoutCostPerUnit'  (similarity 0.67)
+  seed-rate-analyzer :: cost.seed_financial_loss
+     'actualGermination' -> 'germinationRate'  (similarity 0.67)
+  total-employee-cost-analyzer :: cost.total_employee_cost
+     'employerCosts' -> 'benefitsCostPerEmployee'  (similarity 0.65)
+  irrigation-cost-check-analyzer :: measurement.irrigation_water_req
+     'effectiveRainfall' -> 'rainfall'  (similarity 0.61)
+  noise-vibration-cost-analyzer :: measurement.vibration_rms
+     'exposureTime' -> 'exposureHours'  (similarity 0.61)
+  smed-changeover-optimizer-analyzer :: measurement.smed_capacity_recovered
+     'changeoverFreq' -> 'currentChangeoverTime'  (similarity 0.61)
+  payment-terms-optimizer-analyzer :: measurement.dso
+     'accountsReceivable' -> 'avgReceivables'  (similarity 0.60)
+  payment-terms-optimizer-analyzer :: cost.carrying_cost_ar
+     'accountsReceivable' -> 'avgReceivables'  (similarity 0.60)
+  payment-terms-optimizer-analyzer :: measurement.cash_flow_impact_terms
+     'currentDso' -> 'currentTerms'  (similarity 0.60)
+  water-usage-optimizer-analyzer :: measurement.water_intensity
+     'productionVolume' -> 'productionOutput'  (similarity 0.60)
+  inventory-turnover-risk-analyzer :: measurement.dsi_days
+     'inventoryTurnover' -> 'avgInventory'  (similarity 0.59)
+  office-supplies-cost-analyzer :: cost.office_carrying_cost
+     'holdingCostPerUnit' -> 'stockoutCostPerUnit'  (similarity 0.57)
+  office-supplies-cost-analyzer :: cost.office_eoq
+     'holdingCostPerUnit' -> 'stockoutCostPerUnit'  (similarity 0.57)
+  seed-rate-analyzer :: measurement.seed_requirement
+     'seedRatePerHa' -> 'wasteRateSeeds'  (similarity 0.56)
+
+--- CLASS M: ADD input to schema (form changes) ---
+  auto-repair-comeback-analyzer :: cost.comeback_direct -> 'laborCost' (no match)
+  auto-repair-comeback-analyzer :: cost.comeback_direct -> 'partsCost' (no match)
+  auto-repair-comeback-analyzer :: cost.comeback_direct -> 'opportunityCost' (no match)
+  inventory-turnover-risk-analyzer :: measurement.inventory_turnover_ratio -> 'cogs' (no match)
+  irrigation-cost-check-analyzer :: measurement.irrigation_water_req -> 'etc' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_energy_cost -> 'waterRequirement' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_energy_cost -> 'totalHead' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_energy_cost -> 'pumpEff' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_energy_cost -> 'motorEff' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_energy_cost -> 'elecRate' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_total_cost -> 'energyCost' (no match)
+  irrigation-cost-check-analyzer :: cost.irrigation_total_cost -> 'maintCost' (no match)
+  machine-economic-life-analyzer :: measurement.machine_economic_life -> 'salvageFactor' (no match)
+  machine-economic-life-analyzer :: measurement.machine_economic_life -> 'holdingCostRate' (no match)
+  noise-vibration-cost-analyzer :: measurement.noise_exposure -> 'noiseLimit' (no match)
+  noise-vibration-cost-analyzer :: cost.noise_health_cost -> 'affectedWorkers' (no match)
+  noise-vibration-cost-analyzer :: cost.noise_health_cost -> 'healthCostPerWorker' (no match)
+  noise-vibration-cost-analyzer :: cost.noise_productivity_loss -> 'annualProdValue' (no match)
+  noise-vibration-cost-analyzer :: cost.noise_productivity_loss -> 'productivityLossPct' (no match)
+  noise-vibration-cost-analyzer :: cost.noise_rework_cost -> 'reworkHours' (no match)
+  noise-vibration-cost-analyzer :: cost.noise_rework_cost -> 'reworkRate' (no match)
+  office-supplies-cost-analyzer :: cost.office_consumption_rate -> 'annualUsage' (no match)
+  office-supplies-cost-analyzer :: cost.office_annual_cost -> 'annualDemand' (no match)
+  office-supplies-cost-analyzer :: cost.office_stockout_cost -> 'lostMarginPerUnit' (no match)
+  office-supplies-cost-analyzer :: cost.office_eoq -> 'annualDemand' (no match)
+  office-supplies-cost-analyzer :: cost.office_waste_pct -> 'wasteUnits' (no match)
+  office-supplies-cost-analyzer :: cost.office_waste_pct -> 'totalOrdered' (no match)
+  office-supplies-cost-analyzer :: cost.office_optimization_savings -> 'currentTotalCost' (no match)
+  office-supplies-cost-analyzer :: cost.office_optimization_savings -> 'optimalTotalCost' (no match)
+  overtime-hiring-breakeven-analyzer :: measurement.ot_hire_decision -> 'annualOtHours' (no match)
+  pallet-rack-optimizer-analyzer :: cost.rack_cost_per_position -> 'totalRackCost' (no match)
+  payment-terms-optimizer-analyzer :: cost.bad_debt_expense -> 'creditSales' (no match)
+  payment-terms-optimizer-analyzer :: cost.discount_cost -> 'discountEligibleSales' (no match)
+  payment-terms-optimizer-analyzer :: measurement.cash_flow_impact_terms -> 'newDso' (no match)
+  payment-terms-optimizer-analyzer :: measurement.cash_flow_impact_terms -> 'avgDailySales' (no match)
+  project-overrun-analyzer :: measurement.schedule_delay -> 'plannedDuration' (no match)
+  recipe-cost-check-analyzer :: cost.recipe_theoretical -> 'batchQty' (no match)
+  recipe-cost-check-analyzer :: cost.recipe_theoretical -> 'theoreticalCostPerKg' (no match)
+  recipe-cost-check-analyzer :: cost.recipe_actual -> 'batchQty' (no match)
+  recipe-cost-check-analyzer :: cost.recipe_actual -> 'actualCostPerKg' (no match)
+  repair-shop-quote-analyzer :: cost.quote_total -> 'laborRate' (no match)
+  repair-shop-quote-analyzer :: cost.gross_profit_pct -> 'grossProfit' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_theoretical_food -> 'totalSales' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_actual_food -> 'beginningInv' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_actual_food -> 'purchases' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_actual_food -> 'endingInv' (no match)
+  restaurant-menu-margin-leak-analyzer :: measurement.restaurant_variance_pct -> 'varianceCost' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_waste_cost -> 'wasteKg' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_waste_cost -> 'avgCostPerKg' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_theft_loss -> 'theftQty' (no match)
+  restaurant-menu-margin-leak-analyzer :: cost.restaurant_theft_loss -> 'avgCostPerUnit' (no match)
+  restaurant-menu-margin-leak-analyzer :: measurement.restaurant_actual_margin -> 'totalSales' (no match)
+  route-optimization-analyzer :: measurement.route_efficiency_score -> 'theoreticalMin' (no match)
+  route-optimization-analyzer :: measurement.route_efficiency_score -> 'actualRouteDist' (no match)
+  route-optimization-analyzer :: cost.route_total_savings -> 'baselineCost' (no match)
+  route-optimization-analyzer :: cost.route_total_savings -> 'optimizedCost' (no match)
+  saas-shelfware-analyzer :: cost.saas_shelfware_cost -> 'totalContract' (no match)
+  seed-rate-analyzer :: measurement.seed_requirement -> 'areaHa' (no match)
+  seed-rate-analyzer :: cost.seed_cost_total -> 'seedPricePerUnit' (no match)
+  smed-changeover-optimizer-analyzer :: measurement.smed_capacity_recovered -> 'currentSetup' (no match)
+  smed-changeover-optimizer-analyzer :: measurement.smed_capacity_recovered -> 'targetSetup' (no match)
+  smed-changeover-optimizer-analyzer :: cost.smed_financial_gain -> 'bottleneckThroughput' (no match)
+  smed-changeover-optimizer-analyzer :: cost.smed_financial_gain -> 'unitMargin' (no match)
+  subcontractor-margin-leak-analyzer :: measurement.quoted_margin -> 'quotedPrice' (no match)
+  subcontractor-margin-leak-analyzer :: measurement.quoted_margin -> 'estimatedCost' (no match)
+  subcontractor-margin-leak-analyzer :: measurement.actual_margin -> 'actualRevenue' (no match)
+  supplier-performance-tco-analyzer :: cost.supplier_tco -> 'purchasePrice' (no match)
+  supplier-performance-tco-analyzer :: cost.supplier_tco -> 'orderingCost' (no match)
+  supplier-performance-tco-analyzer :: cost.supplier_tco -> 'transportCost' (no match)
+  supplier-performance-tco-analyzer :: cost.supplier_tco -> 'qualityCost' (no match)
+  supplier-performance-tco-analyzer :: cost.supplier_tco -> 'inventoryCost' (no match)
+  supplier-performance-tco-analyzer :: cost.supplier_tco -> 'riskCost' (no match)
+  supply-chain-disruption-analyzer :: cost.risk_exposure_sc -> 'supplierSpend' (no match)
+  supply-chain-disruption-analyzer :: cost.revenue_loss_sc -> 'disruptionDays' (no match)
+  supply-chain-disruption-analyzer :: cost.revenue_loss_sc -> 'dailyRevenue' (no match)
+  supply-chain-disruption-analyzer :: cost.revenue_loss_sc -> 'impactPct' (no match)
+  textile-waste-risk-analyzer :: measurement.textile_waste_rate -> 'wasteKg' (no match)
+  textile-waste-risk-analyzer :: measurement.textile_waste_rate -> 'totalKg' (no match)
+  textile-waste-risk-analyzer :: cost.pre_consumer_waste -> 'preConsumerKg' (no match)
+  textile-waste-risk-analyzer :: cost.pre_consumer_waste -> 'materialCostPerKg' (no match)
+  textile-waste-risk-analyzer :: cost.net_waste_cost -> 'postConsumerWaste' (no match)
+  textile-waste-risk-analyzer :: measurement.waste_risk_score -> 'industryBenchmark' (no match)
+  total-employee-cost-analyzer :: cost.total_employee_cost -> 'bonus' (no match)
+  total-employee-cost-analyzer :: cost.total_employee_cost -> 'training' (no match)
+  total-employee-cost-analyzer :: cost.total_employee_cost -> 'otherBenefits' (no match)
+  total-employee-cost-analyzer :: cost.employee_cost_per_hour -> 'annualWorkHours' (no match)
+  transfer-pricing-optimizer-analyzer :: cost.transfer_tax_impact -> 'marketPrice' (no match)
+  transfer-pricing-optimizer-analyzer :: cost.transfer_tax_impact -> 'taxRateDiff' (no match)
+  transfer-pricing-optimizer-analyzer :: cost.transfer_global_profit -> 'sellerProfit' (no match)
+  transfer-pricing-optimizer-analyzer :: cost.transfer_global_profit -> 'buyerProfit' (no match)
+  water-usage-optimizer-analyzer :: cost.water_savings_total -> 'baselineConsumption' (no match)
+  water-usage-optimizer-analyzer :: cost.water_savings_total -> 'actualConsumption' (no match)
+  water-usage-optimizer-analyzer :: cost.water_cost_savings -> 'waterSavings' (no match)
+  water-usage-optimizer-analyzer :: cost.water_cost_savings -> 'supplyRate' (no match)
+  water-usage-optimizer-analyzer :: cost.water_roi -> 'costSavings' (no match)

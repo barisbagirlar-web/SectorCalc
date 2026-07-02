@@ -2,27 +2,27 @@
   "toolName": "1031-exchange-cash-out-calculator",
   "catalogCategory": "finance-business",
   "categorySlug": "finance-sales-working-capital",
-  "sector": "Finans",
+  "sector": "Finance",
   "sectorId": "finance-sales-working-capital",
   "inputs": [
     {
-      "id": "satisFiyati",
+      "id": "salePrice",
       "label": "Sale Price (USD)",
       "label_i18n": {
         "en": "Sale Price (USD)",
-        "tr": "Satis Fiyati (₺)",
-        "de": "Verkaufspreis",
-        "fr": "Prix de vente",
-        "es": "Precio de venta",
-        "ar": "سعر البيع"
+        "tr": "Satis Fiyati (USD)",
+        "de": "Verkaufspreis (USD)",
+        "fr": "Prix de vente (USD)",
+        "es": "Precio de venta (USD)",
+        "ar": "سعر البيع (USD)"
       },
       "type": "number",
       "unit": "USD",
       "default": 2000000,
       "min": 0,
-      "businessContext": "Sale price of relinquished property.",
+      "businessContext": "Sale price of the relinquished property.",
       "businessContext_i18n": {
-        "en": "Sale price of relinquished property.",
+        "en": "Sale price of the relinquished property.",
         "tr": "Eski mulkun satis fiyati.",
         "de": "Verkaufspreis der aufgegebenen Immobilie.",
         "fr": "Prix de vente du bien cédé.",
@@ -31,11 +31,11 @@
       }
     },
     {
-      "id": "kalanBorc",
+      "id": "remainingDebt",
       "label": "Remaining Debt (USD)",
       "label_i18n": {
         "en": "Remaining Debt (USD)",
-        "tr": "KArea Debt (TRY)",
+        "tr": "Kalan Borc (USD)",
         "de": "Restverschuldung (USD)",
         "fr": "Dette restante (USD)",
         "es": "Deuda restante (USD)",
@@ -45,22 +45,22 @@
       "unit": "USD",
       "default": 500000,
       "min": 0,
-      "businessContext": "Remaining mortgage balance.",
+      "businessContext": "Remaining mortgage balance on the relinquished property.",
       "businessContext_i18n": {
-        "en": "Remaining mortgage balance.",
-        "tr": "Satilan mulkun kArea ipotek borcu.",
-        "de": "Resthypothekensaldo.",
-        "fr": "Solde hypothécaire restant.",
-        "es": "Saldo restante de la hipoteca.",
-        "ar": "رصيد الرهن العقاري المتبقي."
+        "en": "Remaining mortgage balance on the relinquished property.",
+        "tr": "Satilan mulkun kalan ipotek borcu.",
+        "de": "Resthypothekensaldo der aufgegebenen Immobilie.",
+        "fr": "Solde hypothécaire restant sur le bien cédé.",
+        "es": "Saldo restante de la hipoteca de la propiedad cedida.",
+        "ar": "رصيد الرهن العقاري المتبقي على العقار المتنازل عنه."
       }
     },
     {
-      "id": "yeniYatirim",
+      "id": "newInvestment",
       "label": "New Investment (USD)",
       "label_i18n": {
         "en": "New Investment (USD)",
-        "tr": "Ymosti Inandstmmostt (TRY)",
+        "tr": "Yeni Yatirim (USD)",
         "de": "Neuinvestition (USD)",
         "fr": "Nouvel investissement (USD)",
         "es": "Nueva inversión (USD)",
@@ -70,10 +70,10 @@
       "unit": "USD",
       "default": 1800000,
       "min": 0,
-      "businessContext": "Total cost of replacement property.",
+      "businessContext": "Total cost of the replacement property.",
       "businessContext_i18n": {
-        "en": "Total cost of replacement property.",
-        "tr": "Yeni mulkun Total Costi.",
+        "en": "Total cost of the replacement property.",
+        "tr": "Yeni mulkun toplam maliyeti.",
         "de": "Gesamtkosten der Ersatzimmobilie.",
         "fr": "Coût total du bien de remplacement.",
         "es": "Costo total de la propiedad de reemplazo.",
@@ -88,44 +88,64 @@
     "thresholds": {}
   },
   "formulas": {
-    "nakitCikis": "satisFiyati - kalanBorc",
-    "sonuc": "Math.max(0, (satisFiyati - kalanBorc) - yeniYatirim)"
+    "netSaleProceeds": "salePrice - remainingDebt",
+    "cashBoot": "Math.max(0, (salePrice - remainingDebt) - newInvestment)",
+    "mortgageBoot": "Math.max(0, remainingDebt - newInvestment)",
+    "totalBoot": "Math.max(0, (salePrice - remainingDebt) - newInvestment) + Math.max(0, remainingDebt - newInvestment)",
+    "deferralAmount": "Math.max(0, newInvestment - (salePrice - remainingDebt))",
+    "qualifiedFor1031": "newInvestment >= (salePrice - remainingDebt) ? 1 : 0"
   },
   "outputs": {
-    "primary": "sonuc",
+    "primary": "totalBoot",
     "unit": "USD",
     "breakdown": {
-      "sonuc": "Vergiye Tabi Tutar",
-      "nakitCikis": "Total Cash Output"
+      "netSaleProceeds": "Net Sale Proceeds",
+      "cashBoot": "Cash Boot (Taxable)",
+      "mortgageBoot": "Mortgage Boot",
+      "totalBoot": "Total Taxable Boot",
+      "deferralAmount": "Deferral Amount",
+      "qualifiedFor1031": "1031 Qualified"
     },
     "breakdown_i18n": {
-      "sonuc": {
-        "en": "Vergiye Tabi Tutar",
-        "tr": "Vergiye Tabi Tutar",
-        "de": "Steuerpflichtiger Betrag",
-        "fr": "Montant imposable",
-        "es": "Monto sujeto a impuestos",
-        "ar": "المبلغ الخاضع للضريبة"
+      "netSaleProceeds": {
+        "en": "Net Sale Proceeds",
+        "tr": "Net Satis Geliri"
       },
-      "nakitCikis": {
-        "en": "Total Cash Output",
-        "tr": "Total Cash Output",
-        "de": "Gesamter Mittelabfluss",
-        "fr": "Sortie de trésorerie totale",
-        "es": "Salida total de efectivo",
-        "ar": "إجمالي التدفق النقدي الخارج"
+      "cashBoot": {
+        "en": "Cash Boot (Taxable)",
+        "tr": "Nakit Cikis (Vergiye Tabi)"
+      },
+      "mortgageBoot": {
+        "en": "Mortgage Boot",
+        "tr": "Ipotek Cikisi"
+      },
+      "totalBoot": {
+        "en": "Total Taxable Boot",
+        "tr": "Toplam Vergiye Tabi Tutar"
+      },
+      "deferralAmount": {
+        "en": "Deferral Amount",
+        "tr": "Ertelenen Kazanc Tutari"
+      },
+      "qualifiedFor1031": {
+        "en": "1031 Qualified",
+        "tr": "1031 Uyumlulugu"
       }
     },
     "breakdownUnits": {
-      "sonuc": "USD",
-      "nakitCikis": "USD"
+      "netSaleProceeds": "USD",
+      "cashBoot": "USD",
+      "mortgageBoot": "USD",
+      "totalBoot": "USD",
+      "deferralAmount": "USD",
+      "qualifiedFor1031": "boolean"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [
       "Verify inputs before making financial decisions.",
       "Consult a licensed financial advisor for personalized advice."
     ],
-    "dataConfidenceAdjusted": "sonuc"
+    "dataConfidenceAdjusted": "totalBoot"
   },
   "premiumRequired": false,
   "premiumFeatures": [],
@@ -135,28 +155,17 @@
       "long": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
       "short_i18n": {
         "en": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "tr": "Gayrimenkul satisinda 1031 takasinda vergiye tabi Cash Outflowni hesaplar.",
-        "de": "Berechnen Sie den steuerpflichtigen Barauszahlungsbetrag bei einem 1031-Artgleichtausch fur Immobilien.",
-        "fr": "Calculer le montant imposable en espèces dans un échange de biens similaires 1031 pour l'immobilier.",
-        "es": "Calcular el monto de efectivo sujeto a impuestos en un intercambio de bienes raíces de tipo similar 1031.",
-        "ar": "احسب مبلغ التدفق النقدي الخاضع للضريبة في تبادل مماثل 1031 للعقارات."
+        "tr": "Gayrimenkul satisinda 1031 takasinda vergiye tabi nakit cikisini hesaplar."
       },
       "long_i18n": {
         "en": "Calculate taxable cash-out amount in a 1031 like-kind exchange for real estate.",
-        "tr": "Gayrimenkul satisinda 1031 takasinda vergiye tabi Cash Outflowni hesaplar.",
-        "de": "Berechnen Sie den steuerpflichtigen Barauszahlungsbetrag bei einem 1031-Artgleichtausch fur Immobilien.",
-        "fr": "Calculer le montant imposable en espèces dans un échange de biens similaires 1031 pour l'immobilier.",
-        "es": "Calcular el monto de efectivo sujeto a impuestos en un intercambio de bienes raíces de tipo similar 1031.",
-        "ar": "احسب مبلغ التدفق النقدي الخاضع للضريبة في تبادل مماثل 1031 للعقارات."
+        "tr": "Gayrimenkul satisinda 1031 takasinda vergiye tabi nakit cikisini hesaplar."
       }
     }
   },
   "title_i18n": {
     "en": "1031-exchange-cash-out-calculator",
-    "de": "1031 Steueraufgeschobener Tausch Rechner",
-    "fr": "Calculateur d'échange à impôt différé 1031",
-    "es": "Calculadora de intercambio con impuestos diferidos 1031",
-    "ar": "حاسبة المقايضة المؤجلة للضريبة 1031"
+    "tr": "1031 Vergi Ertelemeli Takas Hesaplayicisi"
   },
-  "sectorSlug": "ecommerce"
+  "sectorSlug": "finance-sales-working-capital"
 }

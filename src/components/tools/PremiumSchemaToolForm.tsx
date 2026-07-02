@@ -373,13 +373,13 @@ export function PremiumSchemaToolForm({ schema }: PremiumSchemaToolFormProps) {
     [runValidation],
   );
 
-  // Debounced auto-recompute (400ms)
+  // Debounced auto-recompute (50ms)
   useEffect(() => {
     if (inputVersion === 0) return;
     if (debounceTimer.current) clearTimeout(debounceTimer.current);
     debounceTimer.current = setTimeout(() => {
       runCompute(latestInputs.current);
-    }, 400);
+    }, 50);
     return () => {
       if (debounceTimer.current) clearTimeout(debounceTimer.current);
     };

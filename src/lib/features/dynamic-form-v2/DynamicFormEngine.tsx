@@ -338,7 +338,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
       if (Object.keys(liveErrors).length === 0) {
         setState({ ...draft });
       }
-    }, 400);
+    }, 100);
     return () => {
       if (autoCommitTimerRef.current) clearTimeout(autoCommitTimerRef.current);
     };
