@@ -15,6 +15,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import type { ToolSchema } from "@/lib/features/tool-schemas/types";
+import { formatTitle } from "@/lib/utils/formatTitle";
 import { calculateRCBeamShearFlexure } from "@/lib/features/engines/calculateRCBeamShearFlexure";
 import { calculateCNCCutting } from "@/lib/features/engines/calculateCNCCutting";
 import { calculateWPSPreheat } from "@/lib/features/engines/calculateWPSPreheat";
@@ -243,7 +244,7 @@ export default function UniversalProToolRenderer({
             onClick={() => switchTool(tool.key)}
           >
             <div className="ts-id">{tool.schema.tool_id || "PRO"}</div>
-            <div className="ts-name">{tool.schema.title || tool.schema.tool_name}</div>
+            <div className="ts-name">{formatTitle(tool.schema.title || tool.schema.tool_name)}</div>
             <div className="ts-cat">{tool.schema.category}</div>
             <div className="ts-active-bar" />
           </button>
@@ -274,7 +275,7 @@ export default function UniversalProToolRenderer({
         <div className="tool-hdr">
           <div>
             <div className="tool-eyebrow">{activeSchema.category}</div>
-            <div className="tool-title">{activeSchema.title || activeSchema.tool_name}</div>
+            <div className="tool-title">{formatTitle(activeSchema.title || activeSchema.tool_name)}</div>
             <div className="tool-meta">
               <span>{activeSchema.tool_id}</span>
               <span className="tool-meta-dot" />
@@ -437,7 +438,7 @@ export default function UniversalProToolRenderer({
             {activeSchema?.category?.split("·")[0]?.trim() || ""}
           </Link>
           <span className="breadcrumb-sep">/</span>
-          <span>{activeSchema?.title || activeSchema?.tool_name}</span>
+          <span>{formatTitle(activeSchema?.title || activeSchema?.tool_name)}</span>
         </div>
 
         {renderStandardsStrip()}

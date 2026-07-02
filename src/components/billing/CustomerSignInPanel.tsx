@@ -178,7 +178,8 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
         data-auth-google-button="true"
         onClick={() => void handleGoogleSignIn()}
         disabled={pending}
-        className={`${buttonClass} relative !bg-white text-black border border-border-subtle hover:!bg-bg-subtle flex items-center justify-center gap-2`}
+        className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 relative !bg-white border border-border-subtle hover:!bg-bg-subtle flex items-center justify-center gap-2"
+        style={{ color: "#000000" }}
       >
         {!pending && (
           <svg className="h-5 w-5" viewBox="0 0 24 24">
@@ -201,7 +202,9 @@ export function CustomerSignInPanel({ nextPath, defaultMode = "signin" }: Custom
             <path d="M1 1h22v22H1z" fill="none" />
           </svg>
         )}
-        {pending ? t("signingIn") : t("signInButton")}
+        <span style={{ color: "#000000" }}>
+          {pending ? t("signingIn") : t("signInButton")}
+        </span>
       </button>
       <p
         data-auth-error="true"

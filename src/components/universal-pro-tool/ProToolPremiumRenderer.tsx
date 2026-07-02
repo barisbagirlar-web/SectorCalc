@@ -9,6 +9,7 @@
 
 import { useState, useCallback, useMemo, useRef, type FormEvent } from "react";
 import type { ToolSchemaInput } from "@/lib/features/tool-schemas/types";
+import { formatTitle } from "@/lib/utils/formatTitle";
 
 // ─── PROPS ────────────────────────────────────────────────────────────────
 
@@ -350,7 +351,7 @@ export default function ProToolPremiumRenderer({
         <div className="sc-premium-tool-hdr">
           <div>
             <div className="sc-premium-tool-eyebrow">{tool.category}</div>
-            <div className="sc-premium-tool-title">{tool.tool_name || tool.title}</div>
+            <div className="sc-premium-tool-title">{formatTitle(tool.tool_name || tool.title)}</div>
             {tool.tool_id && <div className="sc-premium-tool-meta">{tool.tool_id}</div>}
           </div>
           <div className="sc-premium-status-area">

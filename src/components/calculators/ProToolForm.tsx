@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback, type FormEvent } from "react";
 import { usePremiumToolAccess } from "@/lib/features/billing/use-premium-tool-access";
 import { calculateRCBeamShearFlexure } from "@/lib/features/calculators/rc-beam-shear-flexure";
 import Link from "next/link";
+import { formatTitle } from "@/lib/utils/formatTitle";
 
 // ─── PROPS ────────────────────────────────────────────────────────────────
 
@@ -628,7 +629,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
         <span className="pro-breadcrumb-sep">/</span>
         <Link href={`/pro-tools?category=${(tool.category || "").toLowerCase().replace(/\s+/g, "-")}`}>{tool.category || "Tool"}</Link>
         <span className="pro-breadcrumb-sep">/</span>
-        <span>{tool.tool_name || tool.title}</span>
+        <span>{formatTitle(tool.tool_name || tool.title)}</span>
       </div>
 
       {/* Standards strip */}
@@ -647,7 +648,7 @@ export default function ProToolForm({ tool, locale }: ProToolFormProps) {
         <div className="pro-tool-hdr">
           <div>
             <div className="pro-tool-eyebrow">{tool.category}</div>
-            <div className="pro-tool-title">{tool.tool_name || tool.title}</div>
+            <div className="pro-tool-title">{formatTitle(tool.tool_name || tool.title)}</div>
             <div className="pro-tool-meta">
               <span>{tool.tool_id}</span>
               <span className="pro-tool-meta-dot"></span>

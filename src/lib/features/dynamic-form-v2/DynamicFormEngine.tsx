@@ -562,7 +562,7 @@ export function DynamicFormEngine({ tool, showMasthead = true, toolRegistry, onT
         <div className="display-header">
           <div>
             <div className="module-id">MODULE · {formatTitle(tool.tool_id)} · {(tool.category || "").toUpperCase()}</div>
-            <h1>{tool.tool_name}</h1>
+            <h1>{formatTitle(tool.tool_name)}</h1>
             <div className="sub-cap">
               Dynamic engine - inputs, formulas, validation, warnings and units are read from {tool.tool_id}.json.
               Batch-commit execution model: edit inputs freely, press EXECUTE (or F9) to commit and compute.
