@@ -45,6 +45,8 @@ export interface PremiumInputSchema {
   readonly label_i18n?: Readonly<Record<string, string>>;
   readonly type: PremiumInputType;
   readonly unit: string;
+  readonly placeholder?: string;
+  readonly group?: string;
   readonly required: boolean;
   readonly smartDefault?: number | string | boolean;
   readonly array?: boolean;
